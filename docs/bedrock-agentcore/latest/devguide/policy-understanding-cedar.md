@@ -1,27 +1,28 @@
+
+
 # Understanding Cedar policies
+<a name="policy-understanding-cedar"></a>
 
 Policy in AgentCore uses Cedar policies to control access to AgentCore Gateway tools. This section explains Cedar policy structure, evaluation semantics, and key concepts.
 
-###### Note
+**Note**  
+Session-aware rules use temporal policies, which are written in Dogwood (compatible with Cedar) and use a `temporal` block. The Cedar structure and semantics described here still apply. For more information, see [Temporal policies](policy-temporal.md).
 
-Session-aware rules use temporal policies, which are written in Dogwood (compatible with Cedar) and use a `temporal` block. The Cedar structure and semantics described here still apply. For more information, see [Temporal policies](policy-temporal.md "policy-temporal.md").
-
-###### Topics
-
-- [Example policy](#policy-example "#policy-example")
-- [Policy structure](#policy-structure "#policy-structure")
-- [Policy effects](#policy-effects "#policy-effects")
-- [Default deny](#policy-default-deny "#policy-default-deny")
-- [Authorization evaluation](#policy-authorization-evaluation "#policy-authorization-evaluation")
-- [Policy independence](#policy-independence "#policy-independence")
-- [Policy evaluation algorithm](#policy-evaluation-algorithm "#policy-evaluation-algorithm")
+**Topics**
++ [Example policy](#policy-example)
++ [Policy structure](#policy-structure)
++ [Policy effects](#policy-effects)
++ [Default deny](#policy-default-deny)
++ [Authorization evaluation](#policy-authorization-evaluation)
++ [Policy independence](#policy-independence)
++ [Policy evaluation algorithm](#policy-evaluation-algorithm)
 
 ## Example policy
+<a name="policy-example"></a>
 
 Consider a refund processing tool with these requirements:
-
-- Only the user "John" can process refunds
-- Refunds are limited to $500 or less
++ Only the user "John" can process refunds
++ Refunds are limited to $500 or less
 
 The Cedar policy that enforces these requirements:
 
@@ -41,49 +42,60 @@ when {
 This policy allows refund processing only when the user is "John" and the refund amount is less than $500.
 
 ## Policy structure
+<a name="policy-structure"></a>
 
 Cedar policies consist of three main components:
 
-1. **Effect** - Determines whether to allow or deny access ( `permit` or `forbid` )
-2. **Scope** - Specifies the principal, action, and resource the policy applies to
-3. **Condition** - Defines additional logic that must be satisfied ( `when` or `unless` ) and can refer to the tool parameters (through the context) and the OAuth token (through the tags)
+1.  **Effect** - Determines whether to allow or deny access ( `permit` or `forbid` )
+
+1.  **Scope** - Specifies the principal, action, and resource the policy applies to
+
+1.  **Condition** - Defines additional logic that must be satisfied ( `when` or `unless` ) and can refer to the tool parameters (through the context) and the OAuth token (through the tags)
 
 ## Policy effects
+<a name="policy-effects"></a>
 
 Cedar policies use two effects to control access:
-
-- `permit` - Allows the action to proceed
-- `forbid` - Denies the action
++  `permit` - Allows the action to proceed
++  `forbid` - Denies the action
 
 ## Default deny
+<a name="policy-default-deny"></a>
 
 All actions are denied by default. If no policies match a request, Cedar returns DENY. You must explicitly write permit policies to allow actions.
 
 ## Authorization evaluation
+<a name="policy-authorization-evaluation"></a>
 
 Cedar uses a forbid-overrides-permit evaluation model:
 
 1. Cedar evaluates all policies that apply to the request
-2. If any forbid policy matches, the result is DENY
-3. If at least one permit policy matches and no forbid policies does, the result is ALLOW
-4. If no policies match, the result is DENY (default deny)
+
+1. If any forbid policy matches, the result is DENY
+
+1. If at least one permit policy matches and no forbid policies does, the result is ALLOW
+
+1. If no policies match, the result is DENY (default deny)
 
 ## Policy independence
+<a name="policy-independence"></a>
 
 Each Cedar policy evaluates independently. A policy’s evaluation depends only on:
-
-- The scope (principal, action, resource)
-- The context and tags
++ The scope (principal, action, resource)
++ The context and tags
 
 Policies do not reference or depend on other policies.
 
 ## Policy evaluation algorithm
+<a name="policy-evaluation-algorithm"></a>
 
 When a request is evaluated, the policy engine determines the authorization decision using the following algorithm:
 
 1. If any `forbid` policy matches the request, the decision is DENY.
-2. If no `forbid` policy matches the request and at least one `permit` policy matches, the decision is ALLOW.
-3. If neither `forbid` nor `permit` policies match the request, the decision is DENY.
+
+1. If no `forbid` policy matches the request and at least one `permit` policy matches, the decision is ALLOW.
+
+1. If neither `forbid` nor `permit` policies match the request, the decision is DENY.
 
 This evaluation model enforces a **default deny** posture.
 

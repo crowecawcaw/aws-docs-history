@@ -1,4 +1,7 @@
+
+
 # Manage credential providers with AgentCore Identity
+<a name="identity-outbound-credential-provider"></a>
 
 Credential management is a core feature of Amazon Bedrock AgentCore Identity that addresses the complex challenge of securely storing, retrieving, and managing credentials across multiple trust domains and authentication systems. The service implements defense-in-depth security measures to protect sensitive authentication tokens, API keys, and certificates while providing agents with efficient access to the credentials they need for authorized operations. AgentCore Identity’s credential management architecture separates credential storage from credential access, helping to ensure that agents never have direct access to long-term secrets or refresh tokens.
 
@@ -6,9 +9,8 @@ The credential management system supports multiple credential types including OA
 
 Integration with the Resource Credential Provider enables AgentCore Identity to support cross-capability credential vending, where agents can access resources across different cloud providers, SaaS applications, and enterprise systems using a unified credential management interface. The system maintains proper security boundaries while enabling necessary functionality, with comprehensive monitoring and alerting capabilities that detect unusual credential usage patterns or potential security threats.
 
-###### Topics
-
-- [Supported authentication patterns](common-use-cases.md "common-use-cases.md")
-- [Client authentication methods](client-auth-methods.md "client-auth-methods.md")
-- [Configure credential provider](resource-providers.md "resource-providers.md")
-- [Obtain credentials](obtain-credentials.md "obtain-credentials.md")
+**Topics**
++ [Supported authentication patterns](common-use-cases.md)
++ [Client authentication methods](client-auth-methods.md)
++ [Configure credential provider](resource-providers.md)
++ [Obtain credentials](obtain-credentials.md)

@@ -1,19 +1,27 @@
+
+
 # Batch dataset runner
+<a name="dataset-evaluations-batch"></a>
 
 The `BatchEvaluationRunner` delegates span collection and evaluation entirely to the service via the `StartBatchEvaluation` and `GetBatchEvaluation` APIs. After invoking your agent for each scenario, the runner submits a batch job and polls until it completes, returning aggregate results.
 
 Use the batch runner when you need aggregate scores across many sessions without managing span collection yourself; for baseline measurement, large datasets, and pre/post comparison.
 
 ## How it works
+<a name="batch-ds-how-it-works"></a>
 
 The runner processes scenarios in four phases:
 
-1. **Invoke:** All scenarios run concurrently using a thread pool. Each scenario gets a unique session ID, and turns within a scenario execute sequentially to maintain conversation context.
-2. **Wait:** A configurable ingestion delay (default: 180 seconds) allows CloudWatch to ingest the telemetry data. This delay is paid once, not per scenario.
-3. **Submit:** The runner calls `StartBatchEvaluation` with the CloudWatch log group, session IDs from the invocation phase, evaluator IDs, and ground truth from the dataset.
-4. **Poll:** The runner polls `GetBatchEvaluation` until the job reaches a terminal state and returns the aggregate results.
+1.  **Invoke:** All scenarios run concurrently using a thread pool. Each scenario gets a unique session ID, and turns within a scenario execute sequentially to maintain conversation context.
+
+1.  **Wait:** A configurable ingestion delay (default: 180 seconds) allows CloudWatch to ingest the telemetry data. This delay is paid once, not per scenario.
+
+1.  **Submit:** The runner calls `StartBatchEvaluation` with the CloudWatch log group, session IDs from the invocation phase, evaluator IDs, and ground truth from the dataset.
+
+1.  **Poll:** The runner polls `GetBatchEvaluation` until the job reaches a terminal state and returns the aggregate results.
 
 ## Agent invoker
+<a name="batch-ds-agent-invoker"></a>
 
 The runner requires an agent invoker, a callable that invokes your agent for a single turn. The invoker is framework-agnostic: you can call your agent via boto3 `invoke_agent_runtime`, a direct function call, HTTP request, or any other method.
 
@@ -47,15 +55,17 @@ def agent_invoker(invoker_input: AgentInvokerInput) -> AgentInvokerOutput:
     return AgentInvokerOutput(agent_output=json.loads(response_body))
 ```
 
-| Field                             | Type            | Description                                                                                      |
-| --------------------------------- | --------------- | ------------------------------------------------------------------------------------------------ |
-| `AgentInvokerInput.payload`       | `str` or `dict` | The turn input from the dataset.                                                                 |
-| `AgentInvokerInput.session_id`    | `str`           | Stable across all turns in a scenario. Pass this to your agent to maintain conversation context. |
-| `AgentInvokerOutput.agent_output` | `Any`           | The agent’s response.                                                                            |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `AgentInvokerInput.payload`  |  `str` or `dict`  | The turn input from the dataset. | 
+|  `AgentInvokerInput.session_id`  |  `str`  | Stable across all turns in a scenario. Pass this to your agent to maintain conversation context. | 
+|  `AgentInvokerOutput.agent_output`  |  `Any`  | The agent’s response. | 
 
 ## Example
+<a name="batch-ds-example"></a>
 
-The following example loads a dataset from a JSON file and runs the batch evaluation. For the dataset format, see [Dataset schema](dataset-evaluations-schema.md "dataset-evaluations-schema.md").
+The following example loads a dataset from a JSON file and runs the batch evaluation. For the dataset format, see [Dataset schema](dataset-evaluations-schema.md).
 
 ```
 from bedrock_agentcore.evaluation import (
@@ -118,6 +128,7 @@ if result.evaluation_results:
 ```
 
 ## Fetching per-session detail
+<a name="batch-ds-per-session-detail"></a>
 
 The aggregate results show averages across all sessions. To see per-session, per-evaluator scores, fetch the evaluation events from CloudWatch:
 
@@ -135,6 +146,7 @@ if result.output_data_config:
 ```
 
 ## Configuration reference
+<a name="batch-ds-config-reference"></a>
 
 ```
 BatchEvaluationRunConfig(
@@ -153,18 +165,20 @@ BatchEvaluationRunConfig(
 )
 ```
 
-| Field                                 | Default | Description                                                                                                                                                                                           |
-| ------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `batch_evaluation_name`               | —       | Name for the batch evaluation job.                                                                                                                                                                    |
-| `evaluator_config.evaluator_ids`      | —       | List of evaluator IDs (built-in or custom).                                                                                                                                                           |
-| `data_source.service_names`           | —       | Service name identifying your agent’s traces in CloudWatch.                                                                                                                                           |
-| `data_source.log_group_names`         | —       | CloudWatch log group names where agent telemetry is stored.                                                                                                                                           |
-| `data_source.ingestion_delay_seconds` | 180     | Seconds to wait after invocation for CloudWatch to ingest spans.                                                                                                                                      |
-| `polling_timeout_seconds`             | 1800    | Maximum seconds to wait for the batch job to complete.                                                                                                                                                |
-| `polling_interval_seconds`            | 30      | Seconds between poll requests.                                                                                                                                                                        |
-| `simulation_config`                   | None    | Configuration for simulated scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md "user-simulation.md"). |
+
+| Field | Default | Description | 
+| --- | --- | --- | 
+|  `batch_evaluation_name`  | — | Name for the batch evaluation job. | 
+|  `evaluator_config.evaluator_ids`  | — | List of evaluator IDs (built-in or custom). | 
+|  `data_source.service_names`  | — | Service name identifying your agent’s traces in CloudWatch. | 
+|  `data_source.log_group_names`  | — | CloudWatch log group names where agent telemetry is stored. | 
+|  `data_source.ingestion_delay_seconds`  | 180 | Seconds to wait after invocation for CloudWatch to ingest spans. | 
+|  `polling_timeout_seconds`  | 1800 | Maximum seconds to wait for the batch job to complete. | 
+|  `polling_interval_seconds`  | 30 | Seconds between poll requests. | 
+|  `simulation_config`  | None | Configuration for simulated scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md). | 
 
 ## Result structure
+<a name="batch-ds-result-structure"></a>
 
 The runner returns a `BatchEvaluationResult`:
 
@@ -192,15 +206,12 @@ BatchEvaluationResult
         ├── log_group_name: str
         └── log_stream_name: str
 ```
-
-- `agent_invocation_failures` lists scenarios where the agent invocation failed before the batch job was submitted. These sessions are not included in the batch evaluation.
-- `output_data_config` points to the CloudWatch log stream where per-session detail is written. Use `runner.fetch_evaluation_events(result)` to read it.
++  `agent_invocation_failures` lists scenarios where the agent invocation failed before the batch job was submitted. These sessions are not included in the batch evaluation.
++  `output_data_config` points to the CloudWatch log stream where per-session detail is written. Use `runner.fetch_evaluation_events(result)` to read it.
 
 ## Error handling
-
-- **Scenario invocation failures** are recorded as `FailedScenario` but do not block the batch job; only successful sessions are submitted.
-- If **all scenarios fail**, the runner raises `ValueError` before calling the API.
-- **Polling timeout:**
-  `TimeoutError` if the job exceeds `polling_timeout_seconds`.
-- **Job failure:**
-  `RuntimeError` if the batch evaluation status is `FAILED` or `STOPPED`.
+<a name="batch-ds-error-handling"></a>
++  **Scenario invocation failures** are recorded as `FailedScenario` but do not block the batch job; only successful sessions are submitted.
++ If **all scenarios fail**, the runner raises `ValueError` before calling the API.
++  **Polling timeout:** `TimeoutError` if the job exceeds `polling_timeout_seconds`.
++  **Job failure:** `RuntimeError` if the batch evaluation status is `FAILED` or `STOPPED`.

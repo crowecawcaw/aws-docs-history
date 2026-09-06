@@ -1,51 +1,59 @@
+
+
 # Use IAM condition keys with Amazon Bedrock AgentCore Gateway
+<a name="security-gateway-condition-keys"></a>
 
 Use Amazon Bedrock AgentCore-specific condition keys to control how you create and configure gateways and gateway targets in your organization. These condition keys apply to control plane operations. They are especially useful in Service Control Policies (SCPs) to enforce organizational security requirements.
 
 For example, you can:
-
-- Require that all gateways use a specific identity provider for authentication.
-- Restrict what types of targets can be created.
-- Enforce that targets use specific credential provider types.
-- Require that gateway targets connect through approved subnets and security groups.
++ Require that all gateways use a specific identity provider for authentication.
++ Restrict what types of targets can be created.
++ Enforce that targets use specific credential provider types.
++ Require that gateway targets connect through approved subnets and security groups.
 
 ## Gateway condition keys
+<a name="gateway-condition-keys"></a>
 
 The following condition keys apply to the `CreateGateway` and `UpdateGateway` operations.
 
-| Condition key                             | Type   | API operations                   | Description                                                                                                                  |
-| ----------------------------------------- | ------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `bedrock-agentcore:DiscoveryUrl`          | String | `CreateGateway`, `UpdateGateway` | Filters access by the discovery URL configured on the gateway. Use this to ensure gateways use a specific identity provider. |
-| `bedrock-agentcore:KmsKeyArn`             | String | `CreateGateway`, `UpdateGateway` | Filters access by the KMS key ARN used to encrypt gateway resources.                                                         |
-| `bedrock-agentcore:PolicyEngineArn`       | String | `CreateGateway`, `UpdateGateway` | Filters access by the ARN of the policy engine configuration associated with the gateway.                                    |
-| `bedrock-agentcore:PolicyEngineMode`      | String | `CreateGateway`, `UpdateGateway` | Filters access by the mode of the policy engine configuration associated with the gateway.                                   |
-| `bedrock-agentcore:ProtocolType`          | String | `CreateGateway`, `UpdateGateway` | Filters access by the protocol type of the gateway.                                                                          |
-| `bedrock-agentcore:GatewayAuthorizerType` | String | `CreateGateway`, `UpdateGateway` | Filters access by the authorizer type configured on the gateway. Valid values are `AWS_IAM`, `CUSTOM_JWT`, and `NONE`.       |
+
+| Condition key | Type | API operations | Description | 
+| --- | --- | --- | --- | 
+|  `bedrock-agentcore:DiscoveryUrl`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the discovery URL configured on the gateway. Use this to ensure gateways use a specific identity provider. | 
+|  `bedrock-agentcore:KmsKeyArn`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the KMS key ARN used to encrypt gateway resources. | 
+|  `bedrock-agentcore:PolicyEngineArn`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the ARN of the policy engine configuration associated with the gateway. | 
+|  `bedrock-agentcore:PolicyEngineMode`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the mode of the policy engine configuration associated with the gateway. | 
+|  `bedrock-agentcore:ProtocolType`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the protocol type of the gateway. | 
+|  `bedrock-agentcore:GatewayAuthorizerType`  | String |  `CreateGateway`, `UpdateGateway`  | Filters access by the authorizer type configured on the gateway. Valid values are `AWS_IAM`, `CUSTOM_JWT`, and `NONE`. | 
 
 ## Gateway target condition keys
+<a name="gateway-target-condition-keys"></a>
 
 The following condition keys apply to the `CreateGatewayTarget` and `UpdateGatewayTarget` operations.
 
-| Condition key                                        | Type          | API operations                               | Description                                                                                                                                                                                         |
-| ---------------------------------------------------- | ------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bedrock-agentcore:McpTargetConfigurationType`       | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the type of an MCP target. Valid values include `apiGateway`, `lambda`, `mcpServer`, `openApiSchema`, `smithyModel`, and `connector`.                                             |
-| `bedrock-agentcore:HttpTargetConfigurationType`      | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the type of an HTTP target. Valid values include `agentcoreRuntime` and `passthrough`.                                                                                            |
-| `bedrock-agentcore:InferenceTargetConfigurationType` | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the type of an inference target. Valid values include `connector` and `provider`.                                                                                                 |
-| `bedrock-agentcore:CredentialProviderType`           | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the credential provider type configured on the target. Valid values include `GATEWAY_IAM_ROLE`, `OAUTH`, `API_KEY`, `CALLER_IAM_CREDENTIALS`, and `JWT_PASSTHROUGH`.              |
-| `bedrock-agentcore:PrivateEndpointType`              | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the private endpoint type of a target. Valid values include `managedVpcResource` and `selfManagedLatticeResource`.                                                                |
-| `bedrock-agentcore:ResourceConfigurationIdentifier`  | String        | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the resource configuration identifier of a target’s private endpoint.                                                                                                             |
-| `bedrock-agentcore:subnets`                          | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the subnets configured for the managed VPC resource of a target. See [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md "security-vpc-condition.md"). |
-| `bedrock-agentcore:securityGroups`                   | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the security groups configured for the managed VPC resource of a target.                                                                                                          |
-| `bedrock-agentcore:AllowedQueryParameters`           | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the allowed query parameters in the target’s metadata configuration.                                                                                                              |
-| `bedrock-agentcore:AllowedRequestHeaders`            | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the allowed request headers in the target’s metadata configuration.                                                                                                               |
-| `bedrock-agentcore:AllowedResponseHeaders`           | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the allowed response headers in the target’s metadata configuration.                                                                                                              |
-| `bedrock-agentcore:CredentialProviderScope`          | ArrayOfString | `CreateGatewayTarget`, `UpdateGatewayTarget` | Filters access by the scopes configured on an OAuth credential provider for the target.                                                                                                             |
+
+| Condition key | Type | API operations | Description | 
+| --- | --- | --- | --- | 
+|  `bedrock-agentcore:McpTargetConfigurationType`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the type of an MCP target. Valid values include `apiGateway`, `lambda`, `mcpServer`, `openApiSchema`, `smithyModel`, and `connector`. | 
+|  `bedrock-agentcore:HttpTargetConfigurationType`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the type of an HTTP target. Valid values include `agentcoreRuntime` and `passthrough`. | 
+|  `bedrock-agentcore:InferenceTargetConfigurationType`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the type of an inference target. Valid values include `connector` and `provider`. | 
+|  `bedrock-agentcore:CredentialProviderType`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the credential provider type configured on the target. Valid values include `GATEWAY_IAM_ROLE`, `OAUTH`, `API_KEY`, `CALLER_IAM_CREDENTIALS`, and `JWT_PASSTHROUGH`. | 
+|  `bedrock-agentcore:PrivateEndpointType`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the private endpoint type of a target. Valid values include `managedVpcResource` and `selfManagedLatticeResource`. | 
+|  `bedrock-agentcore:ResourceConfigurationIdentifier`  | String |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the resource configuration identifier of a target’s private endpoint. | 
+|  `bedrock-agentcore:subnets`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the subnets configured for the managed VPC resource of a target. See [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md). | 
+|  `bedrock-agentcore:securityGroups`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the security groups configured for the managed VPC resource of a target. | 
+|  `bedrock-agentcore:AllowedQueryParameters`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the allowed query parameters in the target’s metadata configuration. | 
+|  `bedrock-agentcore:AllowedRequestHeaders`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the allowed request headers in the target’s metadata configuration. | 
+|  `bedrock-agentcore:AllowedResponseHeaders`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the allowed response headers in the target’s metadata configuration. | 
+|  `bedrock-agentcore:CredentialProviderScope`  | ArrayOfString |  `CreateGatewayTarget`, `UpdateGatewayTarget`  | Filters access by the scopes configured on an OAuth credential provider for the target. | 
 
 ## Example policies
+<a name="gateway-condition-key-examples"></a>
 
 The following examples show how to use condition keys in IAM policies and SCPs to enforce organizational controls on gateway configuration.
 
 ### Require gateways to use a specific identity provider
+<a name="example-require-specific-idp"></a>
 
 Use the following SCP to deny gateway creation or updates when the gateway does not use your organization’s approved identity provider discovery URL.
 
@@ -72,6 +80,7 @@ Use the following SCP to deny gateway creation or updates when the gateway does 
 ```
 
 ### Restrict credential provider types for targets
+<a name="example-restrict-target-credential-types"></a>
 
 Use the following SCP to restrict gateway targets to approved credential provider types. With this example, you restrict gateway targets to use only the gateway’s IAM role or caller IAM credentials. Targets cannot use externally managed API keys or OAuth tokens.
 
@@ -101,6 +110,7 @@ Use the following SCP to restrict gateway targets to approved credential provide
 ```
 
 ### Restrict the types of MCP targets that can be created
+<a name="example-restrict-target-types"></a>
 
 Use the following policy to deny creation of MCP targets that use certain configuration types. This example prevents targets from using direct MCP server URLs.
 
@@ -127,6 +137,7 @@ Use the following policy to deny creation of MCP targets that use certain config
 ```
 
 ### Require targets to use private endpoints
+<a name="example-enforce-private-endpoints"></a>
 
 Use the following SCP to deny creation of targets that do not specify a private endpoint type. This ensures that all target traffic stays within private networks.
 
@@ -153,6 +164,7 @@ Use the following SCP to deny creation of targets that do not specify a private 
 ```
 
 ### Require gateways to use a customer managed KMS key
+<a name="example-require-encryption"></a>
 
 Use this SCP to require that all gateways use a customer managed KMS key for encryption instead of the service default.
 
@@ -179,8 +191,9 @@ Use this SCP to require that all gateways use a customer managed KMS key for enc
 ```
 
 ### Enforce approved subnets for gateway targets
+<a name="example-enforce-approved-subnets-for-targets"></a>
 
-Use the following policy to restrict gateway targets to approved subnets. For more information, see [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md "security-vpc-condition.md").
+Use the following policy to restrict gateway targets to approved subnets. For more information, see [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md).
 
 ```
 {

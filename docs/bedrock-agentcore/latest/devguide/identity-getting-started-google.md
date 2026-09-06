@@ -1,33 +1,35 @@
+
+
 # Integrate with Google Drive using OAuth2
+<a name="identity-getting-started-google"></a>
 
 This getting started tutorial walks you through the essential steps to start using Amazon Bedrock AgentCore Identity for your AI agents. You’ll learn how to set up your development environment, install the necessary SDKs, create your first agent identity, and allow your agent to access external resources securely.
 
-By the end of this tutorial, you’ll have a working agent that can retrieve access tokens from Google with AgentCore Identity OAuth2 Credential Provider, and read files from Google Drive using access tokens. For detailed information about OAuth2 flows, see [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md").
+By the end of this tutorial, you’ll have a working agent that can retrieve access tokens from Google with AgentCore Identity OAuth2 Credential Provider, and read files from Google Drive using access tokens. For detailed information about OAuth2 flows, see [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md).
 
-###### Topics
-
-- [Prerequisites](#identity-getting-started-prerequisites "#identity-getting-started-prerequisites")
-- [Step 1: Set up an OAuth 2.0 Credential Provider](#identity-getting-started-step1 "#identity-getting-started-step1")
-- [Step 2: Import Identity and Auth modules](#identity-getting-started-step2 "#identity-getting-started-step2")
-- [Step 3: Obtain an OAuth 2.0 access token](#identity-getting-started-step3 "#identity-getting-started-step3")
-- [Step 4: Use OAuth2 Access Token to Invoke External Resource](#identity-getting-started-step4 "#identity-getting-started-step4")
-- [What’s Next?](#identity-getting-started-whats-next "#identity-getting-started-whats-next")
+**Topics**
++ [Prerequisites](#identity-getting-started-prerequisites)
++ [Step 1: Set up an OAuth 2.0 Credential Provider](#identity-getting-started-step1)
++ [Step 2: Import Identity and Auth modules](#identity-getting-started-step2)
++ [Step 3: Obtain an OAuth 2.0 access token](#identity-getting-started-step3)
++ [Step 4: Use OAuth2 Access Token to Invoke External Resource](#identity-getting-started-step4)
++ [What’s Next?](#identity-getting-started-whats-next)
 
 ## Prerequisites
+<a name="identity-getting-started-prerequisites"></a>
 
 Before you start, you need:
++ An AWS account with appropriate permissions (for example, `BedrockAgentCoreFullAccess` )
++ Python 3.10 or higher
++ The latest AWS CLI and `jq` installed
++  AWS credentials and region configured ( `aws configure` )
++ Basic understanding of Python programming
 
-- An AWS account with appropriate permissions (for example, `BedrockAgentCoreFullAccess` )
-- Python 3.10 or higher
-- The latest AWS CLI and `jq` installed
-- AWS credentials and region configured ( `aws configure` )
-- Basic understanding of Python programming
-
-###### Important
-
-The `BedrockAgentCoreFullAccess` managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows callers to issue workload access tokens using any user identifier string without IdP token verification. This is suitable for development and testing. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific actions required. If your application uses JWT-based authentication (recommended for production), you can explicitly deny `GetWorkloadAccessTokenForUserId` to ensure all user identification goes through the verified JWT path. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md").
+**Important**  
+The `BedrockAgentCoreFullAccess` managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows callers to issue workload access tokens using any user identifier string without IdP token verification. This is suitable for development and testing. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific actions required. If your application uses JWT-based authentication (recommended for production), you can explicitly deny `GetWorkloadAccessTokenForUserId` to ensure all user identification goes through the verified JWT path. For more information, see [Get workload access token](get-workload-access-token.md).
 
 ### Install the SDK
+<a name="identity-getting-started-install-sdk"></a>
 
 To get started, install the `bedrock-agentcore` package:
 
@@ -36,17 +38,24 @@ pip install bedrock-agentcore
 ```
 
 ### Obtain Google Client ID and Client Secret
+<a name="identity-getting-started-google-credentials"></a>
 
-To allow your agent to access Google Drive, you need to obtain a Google client ID and client secret for your agent. Go to the [Google Developer Console](https://console.developers.google.com/project "https://console.developers.google.com/project") and follow these steps:
+To allow your agent to access Google Drive, you need to obtain a Google client ID and client secret for your agent. Go to the [Google Developer Console](https://console.developers.google.com/project) and follow these steps:
 
 1. Create a Project in Google Developer Console
-2. Enable Google Drive API
-3. Configure OAuth consent screen
-4. Create a new web application for the agent, for example, "My Agent 1"
-5. Add the following OAuth 2.0 scope to your agent application: `https://www.googleapis.com/auth/drive.metadata.readonly`
-6. Create OAuth 2.0 Credentials for the new web application, and save the generated Google client ID and client secret
+
+1. Enable Google Drive API
+
+1. Configure OAuth consent screen
+
+1. Create a new web application for the agent, for example, "My Agent 1"
+
+1. Add the following OAuth 2.0 scope to your agent application: `https://www.googleapis.com/auth/drive.metadata.readonly` 
+
+1. Create OAuth 2.0 Credentials for the new web application, and save the generated Google client ID and client secret
 
 ## Step 1: Set up an OAuth 2.0 Credential Provider
+<a name="identity-getting-started-step1"></a>
 
 Create a new OAuth 2.0 Credential Provider with the Google client ID and client secret obtained earlier using the following AWS CLI command:
 
@@ -68,11 +77,11 @@ OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callba
 echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
 ```
 
-###### Note
-
-Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response above and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
+**Note**  
+Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.html) response above and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
 
 ## Step 2: Import Identity and Auth modules
+<a name="identity-getting-started-step2"></a>
 
 Add this import statement to your Python file:
 
@@ -82,6 +91,7 @@ from bedrock_agentcore.identity.auth import requires_access_token, requires_api_
 ```
 
 ## Step 3: Obtain an OAuth 2.0 access token
+<a name="identity-getting-started-step3"></a>
 
 Once you have the Google Credential Provider created in the previous step, add the `@requires_access_token` decorator to your agent code that requires a Google access token. Copy the authorization URL from your console output, then paste it in your browser and complete the consent flow with Google Drive.
 
@@ -114,16 +124,23 @@ asyncio.run(write_to_google_drive(access_token=""))
 
 Behind the scenes, the `@requires_access_token` decorator runs through the following sequence:
 
-![Flow diagram showing the sequence of API calls made by the @requires_access_token decorator](images/identity_access_token_flow.png)
+![Flow diagram showing the sequence of API calls made by the @requires_access_token decorator](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/identity_access_token_flow.png)
+
 
 1. The SDK makes API calls to `CreateWorkloadIdentity` , `GetWorkloadAccessToken` , and `GetResourceOauth2Token`.
-2. When running the agent code locally, the SDK automatically generates an agent identity ID and a random user ID for local testing, and stores them in a local file called `.bedrock_agentcore.yaml`.
-3. When running the agent code with AgentCore Runtime, the SDK does not generate an agent identity ID or random user ID. Instead, it uses the agent identity ID assigned, and the user ID or JWT token passed in by the agent caller.
-4. Agent access token is an encrypted (opaque) token that contains the agent identity ID and user ID.
-5. AgentCore Identity service stores the Google access token in the Token Vault under the agent identity ID and user ID. This creates a binding among the agent identity, user identity, and the Google access token.
-6. The [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") must be completed before the Google access token is returned to the caller by AgentCore Identity.
+
+1. When running the agent code locally, the SDK automatically generates an agent identity ID and a random user ID for local testing, and stores them in a local file called `.bedrock_agentcore.yaml`.
+
+1. When running the agent code with AgentCore Runtime, the SDK does not generate an agent identity ID or random user ID. Instead, it uses the agent identity ID assigned, and the user ID or JWT token passed in by the agent caller.
+
+1. Agent access token is an encrypted (opaque) token that contains the agent identity ID and user ID.
+
+1. AgentCore Identity service stores the Google access token in the Token Vault under the agent identity ID and user ID. This creates a binding among the agent identity, user identity, and the Google access token.
+
+1. The [session binding flow](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/oauth2-authorization-url-session-binding.html) must be completed before the Google access token is returned to the caller by AgentCore Identity.
 
 ## Step 4: Use OAuth2 Access Token to Invoke External Resource
+<a name="identity-getting-started-step4"></a>
 
 Once the agent obtains a Google access token with the steps above, it can use the access token to access Google Drive. Here is a full example that lists the names and IDs of the first 10 files that the user has access to.
 
@@ -197,10 +214,10 @@ if __name__ == "__main__":
     asyncio.run(read_from_google_drive(access_token=""))
 ```
 
-###### Note
-
-For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [oauth2\_callback\_server.py on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py")
+**Note**  
+For a sample local callback server implementation to handle [session binding](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/oauth2-authorization-url-session-binding.html) , refer to [oauth2\_callback\_server.py on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py) 
 
 ## What’s Next?
+<a name="identity-getting-started-whats-next"></a>
 
-The example in this section focuses on practical implementation patterns that you can adapt for your specific use cases. You can embed the code as part of an agent, or a Model Context Protocol (MCP) tool. If you want to host your Agent code or MCP Tool with AgentCore Runtime, follow [Host agent or tools with Amazon Bedrock AgentCore Runtime](agents-tools-runtime.md "agents-tools-runtime.md") to copy the code above to AgentCore Runtime.
+The example in this section focuses on practical implementation patterns that you can adapt for your specific use cases. You can embed the code as part of an agent, or a Model Context Protocol (MCP) tool. If you want to host your Agent code or MCP Tool with AgentCore Runtime, follow [Host agent or tools with Amazon Bedrock AgentCore Runtime](agents-tools-runtime.md) to copy the code above to AgentCore Runtime.

@@ -1,10 +1,11 @@
+
+
 # Call a tool in a AgentCore gateway
+<a name="gateway-using-mcp-call"></a>
 
 To call a specific tool, make a POST request to the gateway’s MCP endpoint. Specify `tools/call` as the method in the request body, along with the name of the tool and its arguments. The request format depends on the MCP protocol version:
 
-###### Example
-
-2025-11-25 and earlier
+**Example**  
 
 ```
 POST /mcp HTTP/1.1
@@ -16,9 +17,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
-
-2026-07-28
-On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.  
 
 ```
 POST /mcp HTTP/1.1
@@ -33,26 +32,24 @@ Mcp-Name: ${ToolName}
 ${RequestBody}
 ```
 
-###### Note
-
-The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
+**Note**  
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) API.
 
 Replace the following values:
++  `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) API.
++  `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md).
++  `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
++  `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) . Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
 
-- `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
-- `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Calling tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#calling-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/call` as the `method` and include the `name` of the tool and its `arguments`.
-  The response returns the content returned by the tool and associated metadata.
+The response returns the content returned by the tool and associated metadata.
 
 ## Code samples for calling tools
+<a name="gateway-using-mcp-call-examples"></a>
 
 To see examples of calling tools in the gateway, select one of the following methods:
 
-###### Example
-
-curl (2025-11-25 and earlier)
-The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+The following curl request shows an example request to call a tool called `searchProducts` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 curl -X POST \
@@ -79,9 +76,7 @@ curl -X POST \
     }
 }'
 ```
-
-curl (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 curl -X POST \
@@ -118,9 +113,7 @@ curl -X POST \
     }
 }'
 ```
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -158,9 +151,7 @@ result = call_tool(
 )
 print(json.dumps(result, indent=2))
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -205,8 +196,6 @@ result = call_tool(
 )
 print(json.dumps(result, indent=2))
 ```
-
-MCP Client
 
 ```
 from mcp import ClientSession
@@ -266,9 +255,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
-Strands MCP Client
-NOTE: This is for invoking an agent.
+NOTE: This is for invoking an agent.  
 
 ```
 from strands.tools.mcp.mcp_client import MCPClient
@@ -292,9 +279,7 @@ url = {gatewayUrl}
 token = {AccessToken}
 run_agent(url, token)
 ```
-
-LangGraph MCP Client
-NOTE: This is for invoking an agent.
+NOTE: This is for invoking an agent.  
 
 ```
 import asyncio
@@ -323,45 +308,26 @@ def execute_agent(
 ```
 
 ## Errors
+<a name="gateway-using-mcp-call-errors"></a>
 
 The `tools/call` operation can return the following types of errors:
-
-- Errors returned as part of the HTTP status code:
-
-**AuthenticationError**
-
-The request failed due to invalid authentication credentials.
-
-**HTTP Status Code** : 401
-
-**AuthorizationError**
-
-The caller does not have permission to invoke the tool.
-
-**HTTP Status Code** : 403
-
-**ResourceNotFoundError**
-
-The specified tool does not exist.
-
-**HTTP Status Code** : 404
-
-**ValidationError**
-
-The provided arguments do not conform to the tool’s input schema.
-
-**HTTP Status Code** : 400
-
-**ToolExecutionError**
-
-An error occurred while executing the tool.
-
-**HTTP Status Code** : 500
-
-**InternalServerError**
-
-An internal server error occurred.
-
-**HTTP Status Code** : 500
-
-- MCP errors. For more information about these types of errors, [Error Handling](https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling "https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") documentation.
++ Errors returned as part of the HTTP status code:  
+ **AuthenticationError**   
+The request failed due to invalid authentication credentials.  
+ **HTTP Status Code** : 401  
+ **AuthorizationError**   
+The caller does not have permission to invoke the tool.  
+ **HTTP Status Code** : 403  
+ **ResourceNotFoundError**   
+The specified tool does not exist.  
+ **HTTP Status Code** : 404  
+ **ValidationError**   
+The provided arguments do not conform to the tool’s input schema.  
+ **HTTP Status Code** : 400  
+ **ToolExecutionError**   
+An error occurred while executing the tool.  
+ **HTTP Status Code** : 500  
+ **InternalServerError**   
+An internal server error occurred.  
+ **HTTP Status Code** : 500
++ MCP errors. For more information about these types of errors, [Error Handling](https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handlinghttps://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) documentation.

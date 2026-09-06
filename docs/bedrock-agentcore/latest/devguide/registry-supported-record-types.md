@@ -1,36 +1,33 @@
+
+
 # Supported record types and descriptors
+<a name="registry-supported-record-types"></a>
 
-###### Migration Now Open
+**Migration Now Open**  
+ AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
-AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
-
-AWS Agent Registry validates record content against official protocol schemas. The console displays the reference schema side-by-side with your input and shows inline validation errors with a **Diagnose with Amazon Q** button. The registry supports all versions of the MCP Protocol Schema and the A2A Schema.
+ AWS Agent Registry validates record content against official protocol schemas. The console displays the reference schema side-by-side with your input and shows inline validation errors with a **Diagnose with Amazon Q** button. The registry supports all versions of the MCP Protocol Schema and the A2A Schema.
 
 When you create a record, you choose two things:
++ The record’s **record type** — a semantic classification (`AGENT`, `MCP`, `SKILL`, or `CUSTOM`) that determines which descriptors are valid.
++ The record’s **descriptor** — the shape of the actual record content (schema, versioning rules, sync support). Exactly one primary descriptor key may be populated per record.
 
-- The record’s **record type** — a semantic classification (`AGENT`, `MCP`, `SKILL`, or `CUSTOM`) that determines which descriptors are valid.
-- The record’s **descriptor** — the shape of the actual record content (schema, versioning rules, sync support). Exactly one primary descriptor key may be populated per record.
-  Each record also has metadata fields — `name` (a unique name for each record), `displayName`, `description`, `recordVersion`, `recordType`, and `tags` — plus the `descriptors` structure where the descriptor content lives.
+Each record also has metadata fields — `name` (a unique name for each record), `displayName`, `description`, `recordVersion`, `recordType`, and `tags` — plus the `descriptors` structure where the descriptor content lives.
 
 Valid descriptors per record type:
-
-- **AGENT:**
-  `a2aAgentCard`, `mcpServer`, `custom`
-- **MCP:**
-  `mcpServer`, `custom`
-- **SKILL:**
-  `agentSkillsDefinition`, `custom`
-- **CUSTOM:**
-  `custom`
++  **AGENT:** `a2aAgentCard`, `mcpServer`, `custom` 
++  **MCP:** `mcpServer`, `custom` 
++  **SKILL:** `agentSkillsDefinition`, `custom` 
++  **CUSTOM:** `custom` 
 
 ## MCP descriptors
+<a name="registry-mcp-descriptors"></a>
 
 An MCP server record uses the `mcpServer` primary descriptor. Store the server definition JSON in `descriptors.mcpServer.data` and set `descriptors.mcpServer.dataSchemaVersion` to the schema version. Tool definitions nest under `descriptors.mcpServer.additionalData.tools`:
++  **Server** — Based on the server.json definition from the [official Model Context Protocol registry](https://registry.modelcontextprotocol.io/) on the Model Context Protocol website. The content is validated against the selected schema version, which can be found in the [MCP schema repository](https://github.com/modelcontextprotocol/static/tree/main/schemas) on the GitHub website. Supported `dataSchemaVersion` values: [2025-12-11](https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json), [2025-10-17](https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json), [2025-10-11](https://static.modelcontextprotocol.io/schemas/2025-10-11/server.schema.json), [2025-09-29](https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json), [2025-09-16](https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json), [2025-07-09](https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json). If you do not have a server.json, we recommend you create one with the latest schema.
++  **Tools** — Tools available on the server, validated against the [MCP protocol specification](https://modelcontextprotocol.io/specification/2025-11-25/schema) on the Model Context Protocol website. Supported `dataSchemaVersion` values: [2025-11-25](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.json), [2025-06-18](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-06-18/schema.json), [2025-03-26](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-03-26/schema.json), [2024-11-05](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2024-11-05/schema.json).
 
-- **Server** — Based on the server.json definition from the [official Model Context Protocol registry](https://registry.modelcontextprotocol.io/ "https://registry.modelcontextprotocol.io/") on the Model Context Protocol website. The content is validated against the selected schema version, which can be found in the [MCP schema repository](https://github.com/modelcontextprotocol/static/tree/main/schemas "https://github.com/modelcontextprotocol/static/tree/main/schemas") on the GitHub website. Supported `dataSchemaVersion` values: [2025-12-11](https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json"), [2025-10-17](https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json"), [2025-10-11](https://static.modelcontextprotocol.io/schemas/2025-10-11/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-10-11/server.schema.json"), [2025-09-29](https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json"), [2025-09-16](https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json"), [2025-07-09](https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json"). If you do not have a server.json, we recommend you create one with the latest schema.
-- **Tools** — Tools available on the server, validated against the [MCP protocol specification](https://modelcontextprotocol.io/specification/2025-11-25/schema "https://modelcontextprotocol.io/specification/2025-11-25/schema") on the Model Context Protocol website. Supported `dataSchemaVersion` values: [2025-11-25](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.json "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.json"), [2025-06-18](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-06-18/schema.json "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-06-18/schema.json"), [2025-03-26](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-03-26/schema.json "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-03-26/schema.json"), [2024-11-05](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2024-11-05/schema.json "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2024-11-05/schema.json").
-
-**Minimal valid example of server descriptor:**
+ **Minimal valid example of server descriptor:** 
 
 ```
 {
@@ -40,7 +37,7 @@ An MCP server record uses the `mcpServer` primary descriptor. Store the server d
 }
 ```
 
-**Minimal valid example of tools descriptor:**
+ **Minimal valid example of tools descriptor:** 
 
 ```
 {
@@ -67,15 +64,15 @@ An MCP server record uses the `mcpServer` primary descriptor. Store the server d
 }
 ```
 
-**Console:** Select **MCP** under Record type, then select **MCP server** under Descriptor. The editor shows server and tools JSON editors with an optional official schema reference.
+ **Console:** Select **MCP** under Record type, then select **MCP server** under Descriptor. The editor shows server and tools JSON editors with an optional official schema reference.
 
 ## Agent descriptors
+<a name="registry-agent-descriptors"></a>
 
 Agents are autonomous programs that reason, plan, and take actions. For agents that follow the A2A protocol, the agent record uses the `a2aAgentCard` primary descriptor. Store the agent card in `descriptors.a2aAgentCard.data` and set `descriptors.a2aAgentCard.dataSchemaVersion`.
++  **Agent card** — Capabilities, skills, and communication interface validated against the [A2A agent card specification](https://a2a-protocol.org/latest/specification/#441-agentcard) on the A2A Protocol website. Supported `dataSchemaVersion`: [0.3](https://github.com/a2aproject/A2A/blob/v0.3.0/specification/json/a2a.json#L138). Note that the content will be validated against \#/definitions/AgentCard in the json schema.
 
-- **Agent card** — Capabilities, skills, and communication interface validated against the [A2A agent card specification](https://a2a-protocol.org/latest/specification/#441-agentcard "https://a2a-protocol.org/latest/specification/#441-agentcard") on the A2A Protocol website. Supported `dataSchemaVersion`: [0.3](https://github.com/a2aproject/A2A/blob/v0.3.0/specification/json/a2a.json#L138 "https://github.com/a2aproject/A2A/blob/v0.3.0/specification/json/a2a.json#L138"). Note that the content will be validated against #/definitions/AgentCard in the json schema.
-
-**Minimal valid example:**
+ **Minimal valid example:** 
 
 ```
 {
@@ -98,18 +95,17 @@ Agents are autonomous programs that reason, plan, and take actions. For agents t
 }
 ```
 
-**Console:** Select **Agent** under Record type, then select **A2A Agent Card** under Descriptor. The editor shows **Your agent card** alongside an **Official agent card** reference schema with a version dropdown (e.g., 0.3). Toggle **Show official schema** to display the reference.
+ **Console:** Select **Agent** under Record type, then select **A2A Agent Card** under Descriptor. The editor shows **Your agent card** alongside an **Official agent card** reference schema with a version dropdown (e.g., 0.3). Toggle **Show official schema** to display the reference.
 
-###### Note
-
+**Note**  
 If your agent does not follow the A2A protocol, you can still publish the record under the `Agent` record type. Use the `mcpServer` descriptor if your agent uses the MCP protocol, or the `custom` descriptor for all other protocols (including agents that only expose an HTTP endpoint).
 
 ## AgentSkills descriptors
+<a name="registry-agentskills-descriptors"></a>
 
 Skills are reusable capabilities shared across agents. A skill record uses the `agentSkillsDefinition` primary descriptor. The optional skill markdown nests under `descriptors.agentSkillsDefinition.additionalData.skillMd`.
-
-- **Skill markdown (optional)** — Content of SKILL.md, validated against the [official AgentSkills specification](https://agentskills.io/home "https://agentskills.io/home") on the AgentSkills website. Store in `descriptors.agentSkillsDefinition.additionalData.skillMd.data`. Note that the markdown is only used as metadata for discovery purpose. Registry does not support storing other agent skill files.
-- **Skill definition (optional)** — Structured definition validated against an Amazon pre-defined schema. Store in `descriptors.agentSkillsDefinition.data`. Supported `dataSchemaVersion`: 0.1.0.
++  **Skill markdown (optional)** — Content of SKILL.md, validated against the [official AgentSkills specification](https://agentskills.io/home) on the AgentSkills website. Store in `descriptors.agentSkillsDefinition.additionalData.skillMd.data`. Note that the markdown is only used as metadata for discovery purpose. Registry does not support storing other agent skill files.
++  **Skill definition (optional)** — Structured definition validated against an Amazon pre-defined schema. Store in `descriptors.agentSkillsDefinition.data`. Supported `dataSchemaVersion`: 0.1.0.
 
 The skill definition schema is defined as follow:
 
@@ -180,7 +176,7 @@ The skill definition schema is defined as follow:
 }
 ```
 
-**A valid example of skill markdown:**
+ **A valid example of skill markdown:** 
 
 ```
 ---
@@ -193,7 +189,7 @@ description: Brief description of what this skill does.
 Describe your skill's purpose, usage, and capabilities here.
 ```
 
-**A valid example of skill definition:**
+ **A valid example of skill definition:** 
 
 ```
 {
@@ -202,10 +198,11 @@ Describe your skill's purpose, usage, and capabilities here.
 }
 ```
 
-**Console:** Select **Skills** under Record type, then select **Agent skills definition** under Descriptor.
+ **Console:** Select **Skills** under Record type, then select **Agent skills definition** under Descriptor.
 
 ## Custom descriptors
+<a name="registry-custom-descriptors"></a>
 
 For resources not fitting standard types (for example, APIs, Lambda functions, knowledge bases, databases, and agents using other protocols), you can use the `custom` descriptor. Store the JSON content in `descriptors.custom.data`. The content must be a valid JSON.
 
-**Console:** Select **Custom** under Record type. The Descriptor is set to **Custom** automatically. The editor shows a single **Definition** JSON editor with no official schema reference.
+ **Console:** Select **Custom** under Record type. The Descriptor is set to **Custom** automatically. The editor shows a single **Definition** JSON editor with no official schema reference.

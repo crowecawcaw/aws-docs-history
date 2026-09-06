@@ -1,10 +1,14 @@
-# Common policy patterns
 
-These examples demonstrate frequently used Cedar policy patterns. The patterns work with both OAuth and IAM authentication—select the appropriate principal type for your AgentCore Gateway configuration. For details on principal attributes, see [Principal attributes](policy-conditions.md#policy-principal-attributes "policy-conditions.md#policy-principal-attributes").
+
+# Common policy patterns
+<a name="policy-common-patterns"></a>
+
+These examples demonstrate frequently used Cedar policy patterns. The patterns work with both OAuth and IAM authentication—select the appropriate principal type for your AgentCore Gateway configuration. For details on principal attributes, see [Principal attributes](policy-conditions.md#policy-principal-attributes).
 
 These patterns apply regardless of authentication type.
 
 ## Emergency shutdown
+<a name="policy-emergency-shutdown"></a>
 
 Disable all tool calls across the entire Gateway:
 
@@ -16,11 +20,12 @@ forbid(
 );
 ```
 
-**Use case:** Emergency shutdown, maintenance mode, or incident response.
+ **Use case:** Emergency shutdown, maintenance mode, or incident response.
 
-**Effect:** Overrides all permit policies due to forbid-wins semantics.
+ **Effect:** Overrides all permit policies due to forbid-wins semantics.
 
 ## Disable specific tool
+<a name="policy-disable-specific-tool"></a>
 
 Disable a specific tool while keeping others operational:
 
@@ -32,13 +37,15 @@ forbid(
 );
 ```
 
-**Use case:** Temporarily disable a problematic tool without affecting other functionality.
+ **Use case:** Temporarily disable a problematic tool without affecting other functionality.
 
 ## Block user access
+<a name="policy-block-user-access"></a>
 
 Prevent specific users or accounts from performing any actions:
 
 ### OAuth: Block specific user
+<a name="policy-oauth-block-user"></a>
 
 Block a user by matching their username tag:
 
@@ -54,9 +61,10 @@ when {
 };
 ```
 
-**Use case:** Immediately revoke access for a compromised or suspended user account.
+ **Use case:** Immediately revoke access for a compromised or suspended user account.
 
 ### IAM: Block specific account
+<a name="policy-iam-block-account"></a>
 
 Block callers from a specific AWS account:
 
@@ -71,13 +79,15 @@ when {
 };
 ```
 
-**Use case:** Block test or unauthorized accounts from accessing production tools. The pattern `**:444455556666:**` matches any ARN format (assumed-role, IAM user, or IAM role) containing that account ID.
+ **Use case:** Block test or unauthorized accounts from accessing production tools. The pattern ` :444455556666: ` matches any ARN format (assumed-role, IAM user, or IAM role) containing that account ID.
 
 ## Role-based access control
+<a name="policy-role-based-patterns"></a>
 
 Restrict access based on roles. OAuth uses role tags; IAM uses role ARN patterns.
 
 ### OAuth: Using role tags
+<a name="policy-oauth-role-based"></a>
 
 Permit access only to users with specific roles:
 
@@ -93,9 +103,10 @@ when {
 };
 ```
 
-**Use case:** Allow administrative operations only for users with admin or manager roles.
+ **Use case:** Allow administrative operations only for users with admin or manager roles.
 
 ### IAM: Using IAM role ARNs
+<a name="policy-iam-role-based"></a>
 
 Permit access only to callers using specific IAM roles. You can use exact `principal ==` matching or `principal.id like` pattern matching:
 
@@ -108,9 +119,9 @@ permit(
 );
 ```
 
-**Use case:** Allow administrative operations only for callers assuming the AdminRole IAM role. The Cedar entity ID for assumed roles uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`.
+ **Use case:** Allow administrative operations only for callers assuming the AdminRole IAM role. The Cedar entity ID for assumed roles uses the format `arn:aws:sts::<account>:assumed-role/<role-name>`.
 
-**Variations using pattern matching:**
+ **Variations using pattern matching:** 
 
 ```
 // Match a specific role from any account
@@ -121,10 +132,12 @@ principal.id like "arn:aws:sts::123456789012:assumed-role/*"
 ```
 
 ## Data type operations
+<a name="policy-data-type-operations"></a>
 
 Cedar supports various data types in conditions. These examples use OAuth principals ( `AgentCore::OAuthUser` ). For IAM-authenticated gateways, use `AgentCore::IamEntity` instead - the input validation logic remains identical.
 
 ### Integers (Long)
+<a name="policy-integers"></a>
 
 ```
 // Check if passenger count is exactly 2
@@ -139,6 +152,7 @@ when {
 ```
 
 ### Strings
+<a name="policy-strings"></a>
 
 ```
 // Check if payment method is credit card
@@ -153,6 +167,7 @@ when {
 ```
 
 ### Lists (Sets)
+<a name="policy-lists"></a>
 
 ```
 // Check if country is in allowed list
@@ -167,6 +182,7 @@ when {
 ```
 
 ### Checking for Optional Fields
+<a name="policy-optional-fields"></a>
 
 ```
 // Require optional field to be present

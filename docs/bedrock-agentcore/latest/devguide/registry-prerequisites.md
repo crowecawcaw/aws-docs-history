@@ -1,14 +1,17 @@
+
+
 # Prerequisites
+<a name="registry-prerequisites"></a>
 
-###### Migration Now Open
-
-AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md "registry-faq.md").
+**Migration Now Open**  
+ AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
 Before you use AWS Agent Registry, complete the following prerequisites.
 
 ## AWS account and credentials
+<a name="registry-prereq-account"></a>
 
-You need an AWS account with credentials configured. To configure credentials, install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
+You need an AWS account with credentials configured. To configure credentials, install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
 
 ```
 # Verify installation
@@ -16,30 +19,33 @@ aws --version  # Should show version 2.
 ```
 
 ## Python and AWS SDK
+<a name="registry-prereq-sdk"></a>
 
-To access your AWS credentials and configure them for use with SDKs, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md"). If you plan to use the AWS Python SDK (Boto3) to interact with AWS Agent Registry programmatically:
+To access your AWS credentials and configure them for use with SDKs, follow the steps at [Using IAM Identity Center to authenticate AWS SDK and Tools](https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html). If you plan to use the AWS Python SDK (Boto3) to interact with AWS Agent Registry programmatically:
 
-1. Install **Python 3.10+**.
-2. Install the AWS SDK: `pip install boto3`
-3. Verify your credentials are configured: `aws sts get-caller-identity`
+1. Install **Python 3.10\+**.
 
-Please refer to [AWS Builder Tools](https://builder.aws.com/build/tools "https://builder.aws.com/build/tools") for more information on how to setup and use AWS SDK.
+1. Install the AWS SDK: `pip install boto3` 
+
+1. Verify your credentials are configured: `aws sts get-caller-identity` 
+
+Please refer to [AWS Builder Tools](https://builder.aws.com/build/tools) for more information on how to setup and use AWS SDK.
 
 ## IAM permissions
+<a name="registry-prereq-iam"></a>
 
-Set up IAM permissions based on the persona that matches your role. The full list of IAM Permissions for Registry can be found in [IAM Permissions](registry-iam-permissions.md "registry-iam-permissions.md").
+Set up IAM permissions based on the persona that matches your role. The full list of IAM Permissions for Registry can be found in [IAM Permissions](registry-iam-permissions.md).
 
 ### Administrator permissions
+<a name="registry-prereq-admin-permissions"></a>
 
 For administrators who manage the full lifecycle of registries, records, and approve/reject/deprecate records:
 
-###### Example
-
-AWS Agent Registry namespace
+**Example**  
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -141,11 +147,9 @@ AWS Agent Registry namespace
 }
 ```
 
-Amazon Bedrock AgentCore namespace (to be deprecated)
-
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -248,16 +252,15 @@ Amazon Bedrock AgentCore namespace (to be deprecated)
 ```
 
 ### Curator / Approver permissions
+<a name="registry-prereq-curator-permissions"></a>
 
 For curators who review and approve/reject records but don’t perform administrative operations:
 
-###### Example
-
-AWS Agent Registry namespace
+**Example**  
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -319,11 +322,9 @@ AWS Agent Registry namespace
 }
 ```
 
-Amazon Bedrock AgentCore namespace (to be deprecated)
-
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -386,24 +387,21 @@ Amazon Bedrock AgentCore namespace (to be deprecated)
 ```
 
 ### Publisher permissions
+<a name="registry-prereq-publisher-permissions"></a>
 
 For publishers who submit MCP servers, agents, or other resources to the registry:
 
-###### Note
-
+**Note**  
 The three sync-related statements (`AllowWorkloadIdentityForSynchronization`, `AllowGetResourceOauth2TokenForOauthBasedSynchronization`, `AllowPassRoleForIamBasedSynchronization`) authorize workload identity and OAuth credential provider resources managed by AgentCore Identity. Those resources intentionally remain under the `bedrock-agentcore` namespace, so their actions, ARNs, and service principal do not change.
 
-###### Note
+**Note**  
+Scope the `AllowGetResourceOauth2TokenForOauthBasedSynchronization` statement to the specific OAuth credential provider ARN whose access token this identity needs. Avoid wildcards in the provider segment of the ARN — patterns such as `token-vault/ ` or `token-vault/default/oauth2credentialprovider/` grant access to every OAuth credential provider in the account, which can enable cross-team credential access. Follow the principle of least privilege by naming the specific provider in the `Resource` field, for example `arn:aws:bedrock-agentcore:<region>:<account>:token-vault/default/oauth2credentialprovider/<oauthProviderName>`.
 
-Scope the `AllowGetResourceOauth2TokenForOauthBasedSynchronization` statement to the specific OAuth credential provider ARN whose access token this identity needs. Avoid wildcards in the provider segment of the ARN — patterns such as `token-vault/` or `token-vault/default/oauth2credentialprovider/` grant access to every OAuth credential provider in the account, which can enable cross-team credential access. Follow the principle of least privilege by naming the specific provider in the `Resource` field, for example `arn:aws:bedrock-agentcore:<region>:<account>:token-vault/default/oauth2credentialprovider/<oauthProviderName>`.
-
-###### Example
-
-AWS Agent Registry namespace
+**Example**  
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -505,11 +503,9 @@ AWS Agent Registry namespace
 }
 ```
 
-Amazon Bedrock AgentCore namespace (to be deprecated)
-
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -612,16 +608,15 @@ Amazon Bedrock AgentCore namespace (to be deprecated)
 ```
 
 ### Consumer permissions
+<a name="registry-prereq-consumer-permissions"></a>
 
 For consumers who search for and use approved resources:
 
-###### Example
-
-AWS Agent Registry namespace
+**Example**  
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -664,11 +659,9 @@ AWS Agent Registry namespace
 }
 ```
 
-Amazon Bedrock AgentCore namespace (to be deprecated)
-
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
     "Statement":
     [
         {
@@ -709,14 +702,17 @@ Amazon Bedrock AgentCore namespace (to be deprecated)
 }
 ```
 
-For example IAM policies, see [Identity and access management for Amazon Bedrock AgentCore](security-iam.md "security-iam.md").
+For example IAM policies, see [Identity and access management for Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-iam.html).
 
 ## (Optional) Identity provider for JWT authorization
+<a name="registry-prereq-jwt"></a>
 
 If you plan to use JWT authorization for inbound identity (to enable consumers to search the registry using Non-IAM identities), set up Amazon Cognito or your own identity provider before creating the registry:
 
-1. **Create a Cognito User Pool** (or use your existing identity provider)
-2. **Register an App Client** and note the Client ID
-3. **Create a test user** with a username and password
+1.  **Create a Cognito User Pool** (or use your existing identity provider)
 
-For detailed instructions, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md").
+1.  **Register an App Client** and note the Client ID
+
+1.  **Create a test user** with a username and password
+
+For detailed instructions, see [Configure inbound JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/inbound-jwt-authorizer.html).

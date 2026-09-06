@@ -1,36 +1,41 @@
+
+
 # IAM roles for AgentCore payments
+<a name="payments-iam-roles"></a>
 
 ## Role summary
+<a name="payments-iam-role-summary"></a>
 
 AgentCore payments uses a five-role IAM model that separates administrative, management, agent execution, service operations, and AWS Marketplace subscription (Coinbase only). Set up IAM permissions based on the persona that matches your role.
 
-| Role                                                                                | Purpose                                                                                                                                                                                                                      |
-| ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Administrator (ControlPlaneRole)                                                    | Manages payment managers, connectors, and credential providers. For Coinbase, this role also requires the AWS managed policy `AWSMarketplaceManageSubscriptions` to subscribe in AWS Marketplace                             |
-| Agent developer (ManagementRole)                                                    | Manages payment instruments and sessions, cannot execute payments                                                                                                                                                            |
-| Payment execution (ProcessPaymentRole)                                              | Executes payment transactions on behalf of agents                                                                                                                                                                            |
-| Service role (ResourceRetrievalRole)                                                | Assumed by AgentCore payments at runtime to retrieve credentials                                                                                                                                                             |
-| Marketplace subscription (`AWSMarketplaceManageSubscriptions` on the Administrator) | For Coinbase, subscribes the account to the *_Coinbase Wallets for AgentCore Payments_<br>• listing in AWS Marketplace. This is an AWS managed policy attached to the Administrator identity, not a separate assumable role. |
 
-###### Tip
+| Role | Purpose | 
+| --- | --- | 
+| Administrator (ControlPlaneRole) | Manages payment managers, connectors, and credential providers. For Coinbase, this role also requires the AWS managed policy `AWSMarketplaceManageSubscriptions` to subscribe in AWS Marketplace | 
+| Agent developer (ManagementRole) | Manages payment instruments and sessions, cannot execute payments | 
+| Payment execution (ProcessPaymentRole) | Executes payment transactions on behalf of agents | 
+| Service role (ResourceRetrievalRole) | Assumed by AgentCore payments at runtime to retrieve credentials | 
+| Marketplace subscription (`AWSMarketplaceManageSubscriptions` on the Administrator) | For Coinbase, subscribes the account to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. This is an AWS managed policy attached to the Administrator identity, not a separate assumable role. | 
 
-You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+**Tip**  
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md) and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main).
 
 ## Why role separation matters
+<a name="payments-iam-why-separation"></a>
 
 Separating payment management from payment execution prevents a single compromised identity from both creating sessions with unlimited budgets and executing payments against those sessions. The explicit `Deny` on `ProcessPayment` in the management role enforces this boundary. This also ensures that audit trails clearly distinguish who configured payment resources from who executed transactions.
 
 ## Administrator permissions (ControlPlaneRole)
+<a name="payments-iam-admin"></a>
 
 For administrators who manage payment managers, connectors, and credential providers:
 
-###### Note
-
-To use Coinbase as a payment provider, the administrator must also subscribe the account to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. This requires the AWS managed policy [AWSMarketplaceManageSubscriptions](../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md"). With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing "https://docs.cdp.coinbase.com/wallets/pricing") on the Coinbase website. There are no additional charges or obligations for the subscription. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md "payments-marketplace-subscription.md").
+**Note**  
+To use Coinbase as a payment provider, the administrator must also subscribe the account to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. This requires the AWS managed policy [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html). With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing) on the Coinbase website. There are no additional charges or obligations for the subscription. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md).
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowPaymentManagerOperations",
@@ -99,7 +104,7 @@ To use Coinbase as a payment provider, the administrator must also subscribe the
 }
 ```
 
-To subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace, the administrator identity also needs the AWS managed policy [AWSMarketplaceManageSubscriptions](../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md"). Attach it to the administrator’s IAM role (or user). For example, with the AWS CLI:
+To subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace, the administrator identity also needs the AWS managed policy [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html). Attach it to the administrator’s IAM role (or user). For example, with the AWS CLI:
 
 ```
 aws iam attach-role-policy \
@@ -108,12 +113,13 @@ aws iam attach-role-policy \
 ```
 
 ## Agent developer permissions (ManagementRole)
+<a name="payments-iam-developer"></a>
 
 For deterministic/human-in-the-loop (HITL) code that manages payment instruments and sessions but does not execute payments directly:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowPaymentManagement",
@@ -142,17 +148,17 @@ For deterministic/human-in-the-loop (HITL) code that manages payment instruments
 }
 ```
 
-###### Note
-
+**Note**  
 This policy explicitly denies `ProcessPayment` to enforce separation of duties between management operations and payment execution. This ensures only deterministic code paths can set control plane operations, while agentic execution is only able to process payment without overriding budgets or creating payment instruments to work around this.
 
 ## Payment execution permissions (ProcessPaymentRole)
+<a name="payments-iam-execution"></a>
 
 For deterministic code paths that execute payment transactions on behalf of agents:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowProcessPayment",
@@ -178,21 +184,22 @@ For deterministic code paths that execute payment transactions on behalf of agen
 }
 ```
 
-###### Important
-
-Do not include PaymentSession _write_ permissions (for example, `CreatePaymentSession`) and `ProcessPayment` in the same role, or the caller can bypass payment limits by creating new sessions with elevated budgets.
+**Important**  
+Do not include PaymentSession *write* permissions (for example, `CreatePaymentSession`) and `ProcessPayment` in the same role, or the caller can bypass payment limits by creating new sessions with elevated budgets.
 
 ## Service role permissions (ResourceRetrievalRole)
+<a name="payments-iam-service-role"></a>
 
 The following service role is assumed by AgentCore payments at runtime to retrieve credentials and manage workload identities. It is not assigned to human users.
 
 ### Trust policy
+<a name="payments-iam-service-role-trust"></a>
 
 The service role must trust the `bedrock-agentcore.amazonaws.com` service principal. The following trust policy scopes access to a specific account and Payment Manager:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -214,12 +221,13 @@ The service role must trust the `bedrock-agentcore.amazonaws.com` service princi
 ```
 
 ### Base permissions (attached on Payment Manager creation)
+<a name="payments-iam-service-role-base"></a>
 
 When a Payment Manager is created, the following permissions are attached to the service role. These grant the Payment Manager access to workload identity and payment token operations:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "WorkloadIdentityManagement",
@@ -274,12 +282,13 @@ When a Payment Manager is created, the following permissions are attached to the
 ```
 
 ### KMS permissions
+<a name="payments-iam-service-role-kms"></a>
 
 If you configure a customer-managed AWS KMS key on your Payment Manager, add the following permissions to the service role:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "KMSPermissions",
@@ -305,12 +314,13 @@ If you configure a customer-managed AWS KMS key on your Payment Manager, add the
 ```
 
 ### Per-connector permissions
+<a name="payments-iam-service-role-connector"></a>
 
 Each time a payment connector is added to the Payment Manager, the following permissions are appended to the service role. These grant access to the specific payment credential provider and its backing secrets:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "PaymentTokenAccess",
@@ -342,15 +352,17 @@ Each time a payment connector is added to the Payment Manager, the following per
 ```
 
 ## Using an existing role
+<a name="payments-iam-existing-role"></a>
 
 If you choose to use an existing service role instead of creating a new one, ensure that the role has:
 
 1. The trust policy shown above, with `bedrock-agentcore.amazonaws.com` as the trusted principal.
-2. The base permissions for workload identity and payment token access.
-3. Per-connector permissions for each payment credential provider that the Payment Manager’s connectors reference.
 
-###### Note
+1. The base permissions for workload identity and payment token access.
 
+1. Per-connector permissions for each payment credential provider that the Payment Manager’s connectors reference.
+
+**Note**  
 The Administrator, Agent developer, and Payment execution roles use a standard account trust policy allowing `arn:aws:iam::111122223333:root` to assume them.
 
-For example IAM policies, see [Identity and access management for Amazon Bedrock AgentCore](security-iam.md "security-iam.md").
+For example IAM policies, see [Identity and access management for Amazon Bedrock AgentCore](security-iam.md).

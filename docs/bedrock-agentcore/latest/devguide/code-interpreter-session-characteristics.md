@@ -1,38 +1,35 @@
+
+
 # Session management
+<a name="code-interpreter-session-characteristics"></a>
 
 The AgentCore Code Interpreter sessions have the following characteristics:
 
-Session timeout
-
-Default: 900 seconds (15 minutes)
-
+Session timeout  
+Default: 900 seconds (15 minutes)  
 Configurable: Can be adjusted when creating sessions, up to 8 hours
 
-Session persistence
-
+Session persistence  
 Files and data created during a session are available throughout the session’s lifetime. When the session is terminated, the session no longer persists and the data is cleaned up.
 
-Automatic termination
-
+Automatic termination  
 Sessions automatically terminate after the configured timeout period
 
-Multiple sessions
-
+Multiple sessions  
 Multiple sessions can be active simultaneously for a single code interpreter. Each session maintains its own state and environment
 
-Retention policy
-
+Retention policy  
 The time to live (TTL) retention policy for the session data is 30 days.
 
-###### Topics
-
-- [Using isolated sessions](#code-interpreter-isolated-sessions "#code-interpreter-isolated-sessions")
-- [Starting a AgentCore Code Interpreter session](code-interpreter-start-session.md "code-interpreter-start-session.md")
-- [Executing code](code-interpreter-execute-code.md "code-interpreter-execute-code.md")
-- [Runtime selection](code-interpreter-runtime-selection.md "code-interpreter-runtime-selection.md")
-- [Stopping a AgentCore Code Interpreter session](code-interpreter-stop-session.md "code-interpreter-stop-session.md")
+**Topics**
++ [Using isolated sessions](#code-interpreter-isolated-sessions)
++ [Starting a AgentCore Code Interpreter session](code-interpreter-start-session.md)
++ [Executing code](code-interpreter-execute-code.md)
++ [Runtime selection](code-interpreter-runtime-selection.md)
++ [Stopping a AgentCore Code Interpreter session](code-interpreter-stop-session.md)
 
 ## Using isolated sessions
+<a name="code-interpreter-isolated-sessions"></a>
 
 AgentCore Tools enable isolation of each user session to ensure secure and consistent reuse of context across multiple tool invocations. Session isolation is especially important for AI agent workloads due to their dynamic and multi-step execution patterns.
 

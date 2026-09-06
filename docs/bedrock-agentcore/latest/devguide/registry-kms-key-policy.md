@@ -1,21 +1,25 @@
+
+
 # Set customer managed key policy
+<a name="registry-kms-key-policy"></a>
 
 To use a customer managed key with AWS Agent Registry, you must configure both an IAM policy for the calling principal and a KMS key policy that allows the service to perform encryption and decryption operations.
 
 ## Prerequisites
+<a name="registry-encryption-prereqs"></a>
 
 Before creating a registry with a customer managed key, ensure the following:
-
-- You have a symmetric encryption KMS key in the same AWS Region as the registry. For information about creating a KMS key, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
-- The IAM principal calling `CreateRegistry` has the required KMS permissions. See [Required IAM permissions](#registry-encryption-iam-policy "#registry-encryption-iam-policy").
++ You have a symmetric encryption KMS key in the same AWS Region as the registry. For information about creating a KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the * AWS Key Management Service Developer Guide*.
++ The IAM principal calling `CreateRegistry` has the required KMS permissions. See [Required IAM permissions](#registry-encryption-iam-policy).
 
 ## Required IAM permissions
+<a name="registry-encryption-iam-policy"></a>
 
 To interact with an encrypted registry, you must have the following permissions on the KMS key:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowRegistryCMKAccess",
@@ -41,41 +45,38 @@ To interact with an encrypted registry, you must have the following permissions 
 ```
 
 Replace the following values:
-
-- `Resource` — The ARN of your KMS key.
-- `kms:ViaService` — Replace `us-east-1` with the AWS Region of your registry.
++  `Resource` — The ARN of your KMS key.
++  `kms:ViaService` — Replace {{us-east-1}} with the AWS Region of your registry.
 
 The `kms:ViaService` condition restricts the permissions to requests made through the AWS Agent Registry service, preventing these permissions from being used outside of AWS Agent Registry.
 
-###### Note
-
-You must be authorized to perform these KMS actions — either through your IAM policy or through the key policy (see [Key policy for a customer managed key](#registry-encryption-key-policy "#registry-encryption-key-policy")). If your key policy includes the [default key policy statement](../../../kms/latest/developerguide/key-policy-default.md#key-policy-default-allow-root-enable-iam "../../../kms/latest/developerguide/key-policy-default.md#key-policy-default-allow-root-enable-iam") that enables IAM policies, the IAM policy is sufficient.
+**Note**  
+You must be authorized to perform these KMS actions — either through your IAM policy or through the key policy (see [Key policy for a customer managed key](#registry-encryption-key-policy)). If your key policy includes the [default key policy statement](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-root-enable-iam) that enables IAM policies, the IAM policy is sufficient.
 
 ## Key policy for a customer managed key
+<a name="registry-encryption-key-policy"></a>
 
-The following sections list the KMS key policy statements that AWS Agent Registry requires. Add these statements to your KMS [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") so that the service and the calling principals can use the key. Adding statements is required when your key policy does not include the [default key policy statement](../../../kms/latest/developerguide/key-policy-default.md#key-policy-default-allow-root-enable-iam "../../../kms/latest/developerguide/key-policy-default.md#key-policy-default-allow-root-enable-iam") that enables IAM policies, or when the key is in a different account.
+The following sections list the KMS key policy statements that AWS Agent Registry requires. Add these statements to your KMS [key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) so that the service and the calling principals can use the key. Adding statements is required when your key policy does not include the [default key policy statement](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-root-enable-iam) that enables IAM policies, or when the key is in a different account.
 
-###### Important
-
+**Important**  
 The JSON blocks in the following sections are **examples of individual policy statements**, not complete key policies. Do not use them to replace your existing KMS key policy. Instead, copy the statements you need — based on the personas in your organization and the service-linked role — and append them to the `Statement` array of your existing key policy. Update the values in each statement (account ID, Region, role ARN, and registry ARN) to match your environment before saving the policy.
 
-The key policy should grant permissions based on the [registry personas](registry-concepts.md#registry-concept-personas "registry-concepts.md#registry-concept-personas") in your organization:
+The key policy should grant permissions based on the [registry personas](registry-concepts.md#registry-concept-personas) in your organization:
++  **Administrator** — Creates registries and manages encryption configuration. Needs `kms:DescribeKey`, `kms:CreateGrant`, and encrypt/decrypt permissions.
++  **Publisher or Approver** — Creates and updates registry records (writes and reads record descriptors). Needs encrypt and decrypt permissions.
++  **Consumer** — Reads registry records and search results (reads record descriptors). Needs decrypt permissions.
 
-- **Administrator** — Creates registries and manages encryption configuration. Needs `kms:DescribeKey`, `kms:CreateGrant`, and encrypt/decrypt permissions.
-- **Publisher or Approver** — Creates and updates registry records (writes and reads record descriptors). Needs encrypt and decrypt permissions.
-- **Consumer** — Reads registry records and search results (reads record descriptors). Needs decrypt permissions.
+In addition to the persona statements, add the [Policy statement for the service-linked role](#registry-encryption-key-policy-slr) so that AWS Agent Registry can use the key on your behalf at runtime. If you share your registry with other accounts in your AWS Organization by using AWS Resource Access Manager (AWS RAM), also add the [Policy statement for organization access via AWS RAM](#registry-encryption-key-policy-ram).
 
-In addition to the persona statements, add the [Policy statement for the service-linked role](#registry-encryption-key-policy-slr "#registry-encryption-key-policy-slr") so that AWS Agent Registry can use the key on your behalf at runtime. If you share your registry with other accounts in your AWS Organization by using AWS Resource Access Manager (AWS RAM), also add the [Policy statement for organization access via AWS RAM](#registry-encryption-key-policy-ram "#registry-encryption-key-policy-ram").
-
-###### Note
-
-If your role both writes and reads record descriptors (for example, a publisher who also retrieves records), grant both encrypt and decrypt permissions as shown in [Policy statement for publisher](#registry-encryption-key-policy-publisher "#registry-encryption-key-policy-publisher").
+**Note**  
+If your role both writes and reads record descriptors (for example, a publisher who also retrieves records), grant both encrypt and decrypt permissions as shown in [Policy statement for publisher](#registry-encryption-key-policy-publisher).
 
 ### Policy statement for administrator
+<a name="registry-encryption-key-policy-admin"></a>
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
       {
       "Sid": "AllowRegistryAdminKeyValidation",
@@ -136,16 +137,16 @@ If your role both writes and reads record descriptors (for example, a publisher 
   ]
 }
 ```
-
-- **AllowRegistryAdminKeyValidation** — Allows the administrator to validate the key before using it with a registry.
-- **AllowRegistryAdminGrantCreation** — Allows the administrator to create grants when creating a registry. The `kms:GrantIsForAWSResource` condition ensures that `kms:CreateGrant` can only be used when an AWS service initiates the grant creation on the caller’s behalf.
-- **AllowRegistryAdminCryptoOps** — Allows the administrator to encrypt and decrypt record descriptors, scoped to a specific registry via encryption context.
++  **AllowRegistryAdminKeyValidation** — Allows the administrator to validate the key before using it with a registry.
++  **AllowRegistryAdminGrantCreation** — Allows the administrator to create grants when creating a registry. The `kms:GrantIsForAWSResource` condition ensures that `kms:CreateGrant` can only be used when an AWS service initiates the grant creation on the caller’s behalf.
++  **AllowRegistryAdminCryptoOps** — Allows the administrator to encrypt and decrypt record descriptors, scoped to a specific registry via encryption context.
 
 ### Policy statement for publisher
+<a name="registry-encryption-key-policy-publisher"></a>
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowRegistryPublisherCryptoOps",
@@ -171,14 +172,14 @@ If your role both writes and reads record descriptors (for example, a publisher 
   ]
 }
 ```
-
-- **AllowRegistryPublisherCryptoOps** — Allows publishers and approvers to encrypt and decrypt record descriptors. Required for `CreateRegistryRecord` and `UpdateRegistryRecord`.
++  **AllowRegistryPublisherCryptoOps** — Allows publishers and approvers to encrypt and decrypt record descriptors. Required for `CreateRegistryRecord` and `UpdateRegistryRecord`.
 
 ### Policy statement for consumer
+<a name="registry-encryption-key-policy-consumer"></a>
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowRegistryConsumerDecrypt",
@@ -198,23 +199,24 @@ If your role both writes and reads record descriptors (for example, a publisher 
   ]
 }
 ```
-
-- **AllowRegistryConsumerDecrypt** — Allows consumers to decrypt record descriptors. Required for `GetRegistryRecord` and `SearchDiscoverableRegistryRecords`.
++  **AllowRegistryConsumerDecrypt** — Allows consumers to decrypt record descriptors. Required for `GetRegistryRecord` and `SearchDiscoverableRegistryRecords`.
 
 ### Policy statement for the service-linked role
+<a name="registry-encryption-key-policy-slr"></a>
 
 Grant AWS Agent Registry’s service-linked role permission to use the key at runtime. The service uses this role to encrypt and decrypt record descriptors on your behalf.
 
 Adding this statement requires two ordered steps:
 
-1. **Create the service-linked role in your account first.**
-   AWS Agent Registry does not create the role for you — you must create it yourself before adding the KMS key policy statement. Use the AWS CLI:
+1.  **Create the service-linked role in your account first.** AWS Agent Registry does not create the role for you — you must create it yourself before adding the KMS key policy statement. Use the AWS CLI:
 
-```
-aws iam create-service-linked-role --aws-service-name agent-registry.amazonaws.com
-```
+   ```
+   aws iam create-service-linked-role --aws-service-name agent-registry.amazonaws.com
+   ```
 
-This creates the `AWSServiceRoleForAgentRegistry` role at `arn:aws:iam::<account-id>:role/aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry`. You only need to do this once per account. 2. **Then add the following statement to your KMS key policy.** IAM rejects any key policy that references a principal that does not yet exist, so the role must be present before you paste in a statement that names it.
+   This creates the `AWSServiceRoleForAgentRegistry` role at `arn:aws:iam::<account-id>:role/aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry`. You only need to do this once per account.
+
+1.  **Then add the following statement to your KMS key policy.** IAM rejects any key policy that references a principal that does not yet exist, so the role must be present before you paste in a statement that names it.
 
 Scope the statement to the registries in your account using an encryption context wildcard.
 
@@ -246,10 +248,10 @@ Scope the statement to the registries in your account using an encryption contex
   ]
 }
 ```
-
-- **AllowRegistrySlrCryptoOps** — Allows AWS Agent Registry’s service-linked role (`AWSServiceRoleForAgentRegistry`) to encrypt and decrypt record descriptors on your behalf, scoped to registries in your account via the `kms:EncryptionContext:aws:agent-registry:registry-arn` condition.
++  **AllowRegistrySlrCryptoOps** — Allows AWS Agent Registry’s service-linked role (`AWSServiceRoleForAgentRegistry`) to encrypt and decrypt record descriptors on your behalf, scoped to registries in your account via the `kms:EncryptionContext:aws:agent-registry:registry-arn` condition.
 
 ### Policy statement for organization access via AWS RAM
+<a name="registry-encryption-key-policy-ram"></a>
 
 Add this statement if you share a customer-managed-key-encrypted registry with other accounts in your AWS Organization by using AWS Resource Access Manager (AWS RAM). It grants any principal in your organization the ability to decrypt record descriptors from a registry shared with them. If you do not share the registry via AWS RAM, this statement is not required.
 
@@ -274,14 +276,13 @@ Add this statement if you share a customer-managed-key-encrypted registry with o
   ]
 }
 ```
-
-- **AllowOrganizationDecrypt** — Allows any principal in your AWS Organization to decrypt record descriptors from registries you share via AWS RAM. The `aws:PrincipalOrgID` condition scopes this permission strictly to member accounts of the named organization; without a matching organization ID the `"Principal": "*"` grants nothing. Callers still need the corresponding service-level IAM permission on the shared registry itself.
++  **AllowOrganizationDecrypt** — Allows any principal in your AWS Organization to decrypt record descriptors from registries you share via AWS RAM. The `aws:PrincipalOrgID` condition scopes this permission strictly to member accounts of the named organization; without a matching organization ID the `"Principal": "*"` grants nothing. Callers still need the corresponding service-level IAM permission on the shared registry itself.
 
 ### Replace values in key policy statements
+<a name="registry-encryption-key-policy-replace-values"></a>
 
 Replace the following values in each key policy statement:
-
-- `Principal` — The ARN of the IAM user or role for each persona. Replace `111122223333` with your account ID and the role names with your actual IAM roles. For the service-linked role statement, replace `111122223333` with your account ID; keep the role path and name (`aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry`) as shown — it is a fixed, service-managed value.
-- `kms:ViaService` — Replace `us-east-1` with the AWS Region of your registry.
-- `kms:EncryptionContext:aws:agent-registry:registry-arn` — Replace with the ARN of your registry. To allow access to all registries in your account, use `StringLike` with a wildcard: `arn:aws:agent-registry:us-east-1:111122223333:registry/*`.
-- `aws:PrincipalOrgID` — In the AWS RAM sharing statement, replace `o-EXAMPLE1234` with your AWS Organization ID. You can find it in the AWS Organizations console, or run `aws organizations describe-organization --query 'Organization.Id' --output text`.
++  `Principal` — The ARN of the IAM user or role for each persona. Replace {{111122223333}} with your account ID and the role names with your actual IAM roles. For the service-linked role statement, replace {{111122223333}} with your account ID; keep the role path and name (`aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry`) as shown — it is a fixed, service-managed value.
++  `kms:ViaService` — Replace {{us-east-1}} with the AWS Region of your registry.
++  `kms:EncryptionContext:aws:agent-registry:registry-arn` — Replace with the ARN of your registry. To allow access to all registries in your account, use `StringLike` with a wildcard: `arn:aws:agent-registry:us-east-1:111122223333:registry/*`.
++  `aws:PrincipalOrgID` — In the AWS RAM sharing statement, replace `o-EXAMPLE1234` with your AWS Organization ID. You can find it in the AWS Organizations console, or run `aws organizations describe-organization --query 'Organization.Id' --output text`.

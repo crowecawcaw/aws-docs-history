@@ -1,22 +1,25 @@
+
+
 # Resource and session management
+<a name="code-interpreter-resource-session-management"></a>
 
 The following topics show how the Amazon Bedrock AgentCore Code Interpreter works and how you can create the resources and manage sessions.
 
-###### Topics
-
-- [IAM permissions](#code-interpreter-iam-permissions "#code-interpreter-iam-permissions")
-- [How it works](#code-interpreter-how-it-works "#code-interpreter-how-it-works")
-- [Creating a Code Interpreter and starting a session](#code-interpreter-create-session "#code-interpreter-create-session")
-- [Resource management](code-interpreter-resource-management.md "code-interpreter-resource-management.md")
-- [Session management](code-interpreter-session-characteristics.md "code-interpreter-session-characteristics.md")
+**Topics**
++ [IAM permissions](#code-interpreter-iam-permissions)
++ [How it works](#code-interpreter-how-it-works)
++ [Creating a Code Interpreter and starting a session](#code-interpreter-create-session)
++ [Resource management](code-interpreter-resource-management.md)
++ [Session management](code-interpreter-session-characteristics.md)
 
 ## IAM permissions
+<a name="code-interpreter-iam-permissions"></a>
 
 The following IAM policy provides the necessary permissions for using the AgentCore Code Interpreter:
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -41,7 +44,7 @@ You should also add the following trust policy to the execution role:
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [{
         "Sid": "BedrockAgentCoreBuiltInTools",
         "Effect": "Allow",
@@ -62,23 +65,35 @@ You should also add the following trust policy to the execution role:
 ```
 
 ## How it works
+<a name="code-interpreter-how-it-works"></a>
 
-1. **Create a Code Interpreter**
+1.  **Create a Code Interpreter** 
 
-Build your own Code Interpreter or use the System Code Interpreter to enable capabilities such as writing and running code or performing complex calculations. The Code Interpreter allows you to augment your agent runtime to securely execute code in a fully managed environment with low latency. 2. **Integrate it within an agent to invoke**
+   Build your own Code Interpreter or use the System Code Interpreter to enable capabilities such as writing and running code or performing complex calculations. The Code Interpreter allows you to augment your agent runtime to securely execute code in a fully managed environment with low latency.
 
-Copy the built-in tool resource ID into your runtime agent code to invoke it as part of your session. For Code Interpreter tools, you can execute code and view the results in real-time. 3. **Assess performance using observability**
+1.  **Integrate it within an agent to invoke** 
 
-Monitor key metrics for each tool in CloudWatch to get real-time performance insights.
+   Copy the built-in tool resource ID into your runtime agent code to invoke it as part of your session. For Code Interpreter tools, you can execute code and view the results in real-time.
+
+1.  **Assess performance using observability** 
+
+   Monitor key metrics for each tool in CloudWatch to get real-time performance insights.
 
 ## Creating a Code Interpreter and starting a session
+<a name="code-interpreter-create-session"></a>
 
-1. **Create a Code Interpreter**
+1.  **Create a Code Interpreter** 
 
-When configuring a Code Interpreter, you can choose network settings (Sandbox or Public), and the execution role role that defines what AWS resources the Code Interpreter can access. 2. **Start a session**
+   When configuring a Code Interpreter, you can choose network settings (Sandbox or Public), and the execution role role that defines what AWS resources the Code Interpreter can access.
 
-The Code Interpreter uses a session-based model. After creating a Code Interpreter, you start a session with a configurable timeout period (default is 15 minutes). Sessions automatically terminate after the timeout period. Multiple sessions can be active simultaneously for a single Code Interpreter, with each session maintaining its own state and environment. 3. **Execute code**
+1.  **Start a session** 
 
-Within an active session, you can execute code in supported languages (Python, JavaScript, TypeScript), and maintain state between executions. You can also perform file upload/download operations, and use the support provided for the shell commands and AWS CLI commands. 4. **Stop session and clean up**
+   The Code Interpreter uses a session-based model. After creating a Code Interpreter, you start a session with a configurable timeout period (default is 15 minutes). Sessions automatically terminate after the timeout period. Multiple sessions can be active simultaneously for a single Code Interpreter, with each session maintaining its own state and environment.
 
-When you’re finished using a session, you should stop it to release resources and avoid unnecessary charges. You can also delete the Code Interpreter if you no longer intend to use it.
+1.  **Execute code** 
+
+   Within an active session, you can execute code in supported languages (Python, JavaScript, TypeScript), and maintain state between executions. You can also perform file upload/download operations, and use the support provided for the shell commands and AWS CLI commands.
+
+1.  **Stop session and clean up** 
+
+   When you’re finished using a session, you should stop it to release resources and avoid unnecessary charges. You can also delete the Code Interpreter if you no longer intend to use it.

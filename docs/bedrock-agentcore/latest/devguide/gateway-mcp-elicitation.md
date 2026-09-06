@@ -1,146 +1,165 @@
+
+
 # Use elicitation with your AgentCore gateway
+<a name="gateway-mcp-elicitation"></a>
 
 Elicitation is an MCP feature that allows an MCP server to request additional information from the client during a tool call. When a tool needs user confirmation, authentication, or additional input to proceed, the server sends an elicitation request back to the client. AgentCore Gateway forwards elicitation requests from MCP server targets to your clients, replacing the request `id` with a gateway-generated identifier.
 
 ## Prerequisites
+<a name="gateway-mcp-elicitation-prereqs"></a>
 
 To use elicitation with your gateway, you must have:
-
-- **Sessions enabled (version 2025-11-25 and earlier)** — Elicitation requires session support. See [Use MCP sessions with your gateway](gateway-sessions.md "gateway-sessions.md"). For version `2026-07-28` and later, you do not need to add `sessionConfiguration` to your gateway, because these versions are stateless.
-- **Response streaming enabled (version 2025-11-25 and earlier)** — Elicitation requests are sent as Server-Sent Events (SSE) chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`. For version `2026-07-28` and later, you do not need to enable response streaming. These versions deliver elicitation through the multi round-trip requests (MRTR) pattern instead of a server-initiated request on the response stream. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr") in the Model Context Protocol documentation.
-- **MCP server target type** — Elicitation is only supported for MCP server targets. The elicitation originates from the MCP server and is forwarded through the gateway to the client.
-- **Client declares elicitation capability** — The client must declare support for elicitation for the gateway to forward elicitation requests. For version `2025-11-25` and earlier, the client declares this support in the `initialize` request. For version `2026-07-28` and later, the client declares capabilities for each request in the `_meta` field (`io.modelcontextprotocol/clientCapabilities`).
++  **Sessions enabled (version 2025-11-25 and earlier)** — Elicitation requires session support. See [Use MCP sessions with your gateway](gateway-sessions.md). For version `2026-07-28` and later, you do not need to add `sessionConfiguration` to your gateway, because these versions are stateless.
++  **Response streaming enabled (version 2025-11-25 and earlier)** — Elicitation requests are sent as Server-Sent Events (SSE) chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`. For version `2026-07-28` and later, you do not need to enable response streaming. These versions deliver elicitation through the multi round-trip requests (MRTR) pattern instead of a server-initiated request on the response stream. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr) in the Model Context Protocol documentation.
++  **MCP server target type** — Elicitation is only supported for MCP server targets. The elicitation originates from the MCP server and is forwarded through the gateway to the client.
++  **Client declares elicitation capability** — The client must declare support for elicitation for the gateway to forward elicitation requests. For version `2025-11-25` and earlier, the client declares this support in the `initialize` request. For version `2026-07-28` and later, the client declares capabilities for each request in the `_meta` field (`io.modelcontextprotocol/clientCapabilities`).
 
 ## Supported elicitation modes
+<a name="gateway-mcp-elicitation-modes"></a>
 
 AgentCore Gateway supports three elicitation modes defined by the MCP specification:
 
-| Mode                           | Description                                                                                                                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Form mode**                  | The server sends a structured form with fields for the client to fill out. Used for collecting user confirmations, preferences, or input data. The request remains open while waiting for the response. |
-| **URL mode (request-based)**   | The server sends a URL that the user must visit to complete an action (typically authentication). The request remains open while waiting for the action to complete.                                    |
-| **URL mode (exception-based)** | The server throws a `URLElicitationRequiredError` containing a URL. The request closes, the user completes the action at the URL, and the client retries the original tool call.                        |
+
+| Mode | Description | 
+| --- | --- | 
+|  **Form mode**  | The server sends a structured form with fields for the client to fill out. Used for collecting user confirmations, preferences, or input data. The request remains open while waiting for the response. | 
+|  **URL mode (request-based)**  | The server sends a URL that the user must visit to complete an action (typically authentication). The request remains open while waiting for the action to complete. | 
+|  **URL mode (exception-based)**  | The server throws a `URLElicitationRequiredError` containing a URL. The request closes, the user completes the action at the URL, and the client retries the original tool call. | 
 
 ## Capability negotiation
+<a name="gateway-mcp-elicitation-capability"></a>
 
 The gateway only declares elicitation support to an MCP server target if:
 
 1. The **client** declared elicitation support. For version `2025-11-25` and earlier, the client declares this during `initialize`. For version `2026-07-28` and later, the client declares it for each request in `_meta`.
-2. The **MCP protocol version** supports the elicitation mode. `form` mode requires version `2025-03-26` or later. `url` modes require version `2025-11-25` or later.
-3. The gateway matches the specific elicitation capabilities declared by the client (form, url, or both).
+
+1. The **MCP protocol version** supports the elicitation mode. `form` mode requires version `2025-03-26` or later. `url` modes require version `2025-11-25` or later.
+
+1. The gateway matches the specific elicitation capabilities declared by the client (form, url, or both).
 
 ## Form mode elicitation flow
+<a name="gateway-mcp-elicitation-form-flow"></a>
 
-###### Note
-
-The flow described here applies to version `2025-11-25` and earlier, where the server sends `elicitation/create` as a server-initiated request on the open SSE stream. For version `2026-07-28` and later, elicitation instead uses the multi round-trip requests (MRTR) pattern. The server returns an interim result, and the client retries the original request with the collected input. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr") in the Model Context Protocol documentation.
+**Note**  
+The flow described here applies to version `2025-11-25` and earlier, where the server sends `elicitation/create` as a server-initiated request on the open SSE stream. For version `2026-07-28` and later, elicitation instead uses the multi round-trip requests (MRTR) pattern. The server returns an interim result, and the client retries the original request with the collected input. For more information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr) in the Model Context Protocol documentation.
 
 1. Client sends a `tools/call` request with the `Mcp-Session-Id` header.
-2. Gateway forwards the tool call to the MCP server target.
-3. The target opens an SSE stream and sends an `elicitation/create` request as the first event.
-4. Gateway forwards the `elicitation/create` request to the client on the SSE stream, replacing the request `id`.
-5. The client presents the form to the user and collects the response.
-6. The client sends a new request with the elicitation response (action: `accept` or `decline`) using the same `Mcp-Session-Id`.
-7. Gateway forwards the response to the MCP server target.
-8. The target acknowledges with HTTP 202 Accepted.
-9. The target completes the tool call and sends the final result on the original SSE stream.
-10. Gateway forwards the final result to the client and closes the stream.
+
+1. Gateway forwards the tool call to the MCP server target.
+
+1. The target opens an SSE stream and sends an `elicitation/create` request as the first event.
+
+1. Gateway forwards the `elicitation/create` request to the client on the SSE stream, replacing the request `id`.
+
+1. The client presents the form to the user and collects the response.
+
+1. The client sends a new request with the elicitation response (action: `accept` or `decline`) using the same `Mcp-Session-Id`.
+
+1. Gateway forwards the response to the MCP server target.
+
+1. The target acknowledges with HTTP 202 Accepted.
+
+1. The target completes the tool call and sends the final result on the original SSE stream.
+
+1. Gateway forwards the final result to the client and closes the stream.
 
 ## URL mode (exception-based) elicitation flow
+<a name="gateway-mcp-elicitation-url-exception-flow"></a>
 
 1. Client sends a `tools/call` request with the `Mcp-Session-Id` header.
-2. Gateway forwards the tool call to the MCP server target.
-3. The target throws a `URLElicitationRequiredError` as a JSON-RPC error, containing the URL and an elicitation ID.
-4. Gateway forwards the `URLElicitationRequiredError` to the client, replacing the request `id`.
-5. The client redirects the user to the provided URL to complete the action (typically OAuth authentication).
-6. After the user completes the action, the client retries the original `tools/call` request.
-7. Gateway forwards the retry to the target. The target completes the tool call since the URL elicitation was fulfilled.
-8. Gateway forwards the final tool result to the client.
+
+1. Gateway forwards the tool call to the MCP server target.
+
+1. The target throws a `URLElicitationRequiredError` as a JSON-RPC error, containing the URL and an elicitation ID.
+
+1. Gateway forwards the `URLElicitationRequiredError` to the client, replacing the request `id`.
+
+1. The client redirects the user to the provided URL to complete the action (typically OAuth authentication).
+
+1. After the user completes the action, the client retries the original `tools/call` request.
+
+1. Gateway forwards the retry to the target. The target completes the tool call since the URL elicitation was fulfilled.
+
+1. Gateway forwards the final tool result to the client.
 
 ## Parallel tool calls with elicitations
+<a name="gateway-mcp-elicitation-parallel"></a>
 
 A client can initiate multiple `tools/call` requests within the same session, even while an elicitation is pending. Each elicitation is tracked independently by its `id`. When sending an elicitation response, the client must include the same `id` that was sent by the gateway in the `elicitation/create` request.
 
 ## Guidance for MCP server target developers
+<a name="gateway-mcp-elicitation-server-guidance"></a>
 
-###### Important
-
-MCP server targets that send elicitation requests **should** wrap elicitation calls in try-catch blocks and handle the case where the client does not support elicitation. If the gateway’s client did not declare elicitation capability, the gateway does not declare it to the target. If the target sends an elicitation anyway, the gateway returns a `-32601` (Method not found) error to the target.
-
+**Important**  
+MCP server targets that send elicitation requests **should** wrap elicitation calls in try-catch blocks and handle the case where the client does not support elicitation. If the gateway’s client did not declare elicitation capability, the gateway does not declare it to the target. If the target sends an elicitation anyway, the gateway returns a `-32601` (Method not found) error to the target.  
 Servers should implement a fallback path (such as using default values or skipping the operation) when elicitation is not available.
 
 ## Securing the request state (version 2026-07-28 and later)
+<a name="gateway-mcp-elicitation-request-state-security"></a>
 
-On version `2026-07-28` and later, elicitation uses the multi round-trip requests
-(MRTR) pattern, which carries an opaque `requestState` between your client and your
-MCP server target. Securing that value is a shared responsibility: the gateway
-authorizes and forwards it without storing it, while your MCP server target must
-validate it and prevent one user from replaying another user’s request state. For the
-full shared responsibility model and the protection guidance your MCP server must
-follow, see
-[Securing the request state for elicitation and sampling](gateway-target-MCPservers.md#gateway-target-MCPservers-request-state "gateway-target-MCPservers.md#gateway-target-MCPservers-request-state")
-in the MCP server target considerations.
+On version `2026-07-28` and later, elicitation uses the multi round-trip requests (MRTR) pattern, which carries an opaque `requestState` between your client and your MCP server target. Securing that value is a shared responsibility: the gateway authorizes and forwards it without storing it, while your MCP server target must validate it and prevent one user from replaying another user’s request state. For the full shared responsibility model and the protection guidance your MCP server must follow, see [Securing the request state for elicitation and sampling](gateway-target-MCPservers.md#gateway-target-MCPservers-request-state) in the MCP server target considerations.
 
 ## Error handling
+<a name="gateway-mcp-elicitation-errors"></a>
 
-| Scenario                                                                                                       | Error                                                              | Description                                                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Client sends an elicitation response when no elicitation is pending                                            | JSON-RPC `-32600` (Invalid Request)                                | No matching elicitation found for this session.                                                                                                                                    |
-| Client sends elicitation response with an `id` that doesn’t match a pending elicitation                        | JSON-RPC `-32600` (Invalid Request)                                | The `id` must match the one sent by the gateway in the `elicitation/create` request.                                                                                               |
-| Connection breaks between gateway and MCP server target                                                        | JSON-RPC error with DependencyFailedException                      | Client should retry the original tool call request.                                                                                                                                |
-| Connection breaks between client and gateway                                                                   | N/A                                                                | The pending elicitation is cleaned up. Client should retry the tool call.                                                                                                          |
-| MCP server sends elicitation but gateway did not declare support                                               | JSON-RPC `-32601` (Method not found)                               | Returned to the MCP server target. See [Troubleshooting](#gateway-mcp-elicitation-troubleshooting "#gateway-mcp-elicitation-troubleshooting").                                     |
-| Gateway-authored elicitation requires a capability the client did not declare (version `2026-07-28` and later) | JSON-RPC `-32021` (Missing required client capability), HTTP `400` | On version `2026-07-28` and later, the gateway returns this code instead of `-32601`. This happens when the client did not declare the required capability in its request `_meta`. |
+
+| Scenario | Error | Description | 
+| --- | --- | --- | 
+| Client sends an elicitation response when no elicitation is pending | JSON-RPC `-32600` (Invalid Request) | No matching elicitation found for this session. | 
+| Client sends elicitation response with an `id` that doesn’t match a pending elicitation | JSON-RPC `-32600` (Invalid Request) | The `id` must match the one sent by the gateway in the `elicitation/create` request. | 
+| Connection breaks between gateway and MCP server target | JSON-RPC error with DependencyFailedException | Client should retry the original tool call request. | 
+| Connection breaks between client and gateway | N/A | The pending elicitation is cleaned up. Client should retry the tool call. | 
+| MCP server sends elicitation but gateway did not declare support | JSON-RPC `-32601` (Method not found) | Returned to the MCP server target. See [Troubleshooting](#gateway-mcp-elicitation-troubleshooting). | 
+| Gateway-authored elicitation requires a capability the client did not declare (version `2026-07-28` and later) | JSON-RPC `-32021` (Missing required client capability), HTTP `400`  | On version `2026-07-28` and later, the gateway returns this code instead of `-32601`. This happens when the client did not declare the required capability in its request `_meta`. | 
 
 ## Troubleshooting
+<a name="gateway-mcp-elicitation-troubleshooting"></a>
 
-**Error: "Error calling tool 'sample\_tool': Method not found: elicitation/create"**
+ **Error: "Error calling tool 'sample\_tool': Method not found: elicitation/create"** 
 
 This error occurs when an MCP server target sends an elicitation request but the gateway’s client did not declare elicitation capability. For version `2025-11-25` and earlier, the client declares this capability during `initialize`. For version `2026-07-28` and later, the client declares it for each request in the `_meta` field. The gateway returns a `-32601` (Method not found) error to the target. The target might return this as a tool execution error to the client.
 
 To resolve:
++  **If you are the MCP server developer**: Add error handling around your elicitation calls. Implement a fallback path when elicitation is not supported:
 
-- **If you are the MCP server developer**: Add error handling around your elicitation calls. Implement a fallback path when elicitation is not supported:
+  ```
+  try:
+      result = await context.session.create_elicitation(
+          message="Confirm this action?",
+          requested_schema={"type": "object", "properties": {"confirm": {"type": "boolean"}}}
+      )
+  except Exception as e:
+      # Fallback when client doesn't support elicitation
+      logger.warning(f"Elicitation not supported: {e}")
+      result = default_action()
+  ```
++  **If you are the gateway client developer**: For version `2025-11-25` and earlier, ensure your client declares elicitation capability during `initialize`:
 
-```
-try:
-    result = await context.session.create_elicitation(
-        message="Confirm this action?",
-        requested_schema={"type": "object", "properties": {"confirm": {"type": "boolean"}}}
-    )
-except Exception as e:
-    # Fallback when client doesn't support elicitation
-    logger.warning(f"Elicitation not supported: {e}")
-    result = default_action()
-```
-
-- **If you are the gateway client developer**: For version `2025-11-25` and earlier, ensure your client declares elicitation capability during `initialize`:
-
-```
-{
-  "capabilities": {
-    "elicitation": {
-      "form": {},
-      "url": {}
+  ```
+  {
+    "capabilities": {
+      "elicitation": {
+        "form": {},
+        "url": {}
+      }
     }
   }
-}
-```
+  ```
 
-**Error: "Missing required client capability" (`-32021`)**
+ **Error: "Missing required client capability" (`-32021`)** 
 
 On version `2026-07-28` and later, the gateway returns a `-32021` error (HTTP `400`) when a gateway-authored elicitation requires an undeclared capability. Because these versions are stateless and have no `initialize` handshake, the client declares capabilities in each request. To resolve this error, include the elicitation capability in the request’s `_meta` field (`io.modelcontextprotocol/clientCapabilities`) on every request that might trigger an elicitation.
 
 ## Code samples
+<a name="gateway-mcp-elicitation-examples"></a>
 
 ### Form mode example
+<a name="gateway-mcp-elicitation-examples-form"></a>
 
 In form mode, the server sends a structured schema for the client to fill out. The request remains open while waiting for the response.
 
-###### Example
-
-Python requests package (2025-11-25 and earlier)
-On these versions, the client declares the elicitation capability during `initialize`, and the elicitation arrives as an `elicitation/create` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+On these versions, the client declares the elicitation capability during `initialize`, and the elicitation arrives as an `elicitation/create` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -198,9 +217,7 @@ for event in client.events():
         print(f"Tool result: {data['result']}")
         break
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, elicitation uses the multi round-trip requests pattern instead of a server-initiated request on the SSE stream. The client declares the elicitation capability in `_meta` on each request. If the tool needs input, the response is an `input_required` result containing `inputRequests` and an opaque `requestState`. The client gathers the input and retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions and the `initialize` handshake are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, elicitation uses the multi round-trip requests pattern instead of a server-initiated request on the SSE stream. The client declares the elicitation capability in `_meta` on each request. If the tool needs input, the response is an `input_required` result containing `inputRequests` and an opaque `requestState`. The client gathers the input and retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions and the `initialize` handshake are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -255,8 +272,6 @@ if result.get("resultType") == "input_required":
 print(f"Tool result: {result}")
 ```
 
-MCP Client
-
 ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -291,8 +306,6 @@ asyncio.run(use_elicitation(
 ))
 ```
 
-Strands MCP Client
-
 ```
 from mcp.client.streamable_http import streamablehttp_client
 from mcp.types import ElicitResult
@@ -320,8 +333,6 @@ with mcp_client:
     response = agent("Delete the file s3://my-bucket/important-file using AWS CLI")
     print(response)
 ```
-
-LangGraph MCP Client
 
 ```
 from langchain_mcp_adapters.client import MultiServerMCPClient
@@ -363,13 +374,12 @@ result = await agent.ainvoke(
 ```
 
 ### URL mode example
+<a name="gateway-mcp-elicitation-examples-url"></a>
 
 In URL mode, the server sends a URL that the user must visit to complete an action (typically OAuth authentication). The request remains open while waiting for the user to complete the action at the URL.
 
-###### Example
-
-Python requests package (2025-11-25 and earlier)
-On these versions, the URL elicitation arrives as an `elicitation/create` request on the open SSE stream within an MCP session. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+On these versions, the URL elicitation arrives as an `elicitation/create` request on the open SSE stream within an MCP session. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -420,9 +430,7 @@ for event in client.events():
         print(f"Tool result: {data['result']}")
         break
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, the URL elicitation arrives as an `input_required` result through the multi round-trip requests pattern instead of on the SSE stream. The user completes the action at the URL, then the client retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, the URL elicitation arrives as an `input_required` result through the multi round-trip requests pattern instead of on the SSE stream. The user completes the action at the URL, then the client retries the original request with a new `id`, the `inputResponses`, and the unmodified `requestState`. Sessions are not used. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -481,8 +489,6 @@ if result.get("resultType") == "input_required":
 print(f"Tool result: {result}")
 ```
 
-MCP Client
-
 ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -523,8 +529,6 @@ asyncio.run(use_url_elicitation(
 ))
 ```
 
-Strands MCP Client
-
 ```
 from mcp.client.streamable_http import streamablehttp_client
 from mcp.types import ElicitResult
@@ -556,8 +560,6 @@ with mcp_client:
     response = agent("Access the my-org/my-repo GitHub repository")
     print(response)
 ```
-
-LangGraph MCP Client
 
 ```
 from langchain_mcp_adapters.client import MultiServerMCPClient

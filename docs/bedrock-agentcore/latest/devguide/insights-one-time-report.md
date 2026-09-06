@@ -1,52 +1,48 @@
+
+
 # One-time insights report
+<a name="insights-one-time-report"></a>
 
 Use `StartBatchEvaluation` to run an on-demand insights analysis over your agent’s sessions. This is useful when you want to investigate agent behavior after a deployment, a spike in failures, or as a periodic manual check.
 
-###### Topics
-
-- [Start the analysis](#insights-one-time-start "#insights-one-time-start")
-- [Poll for results](#insights-one-time-poll "#insights-one-time-poll")
-- [Review failure analysis findings](#insights-one-time-review "#insights-one-time-review")
-- [User intent results](#insights-one-time-user-intent "#insights-one-time-user-intent")
-- [Execution summary results](#insights-one-time-execution-summary "#insights-one-time-execution-summary")
-- [Interpreting results](#insights-one-time-interpreting "#insights-one-time-interpreting")
-- [Validation rules](#insights-one-time-validation "#insights-one-time-validation")
+**Topics**
++ [Start the analysis](#insights-one-time-start)
++ [Poll for results](#insights-one-time-poll)
++ [Review failure analysis findings](#insights-one-time-review)
++ [User intent results](#insights-one-time-user-intent)
++ [Execution summary results](#insights-one-time-execution-summary)
++ [Interpreting results](#insights-one-time-interpreting)
++ [Validation rules](#insights-one-time-validation)
 
 ## Start the analysis
+<a name="insights-one-time-start"></a>
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore run insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --lookback-days 7 --json
 ```
-
-The CLI is async by default — it prints the job ID and exits. Use `--wait` to block until the job completes:
+The CLI is async by default — it prints the job ID and exits. Use `--wait` to block until the job completes:  
 
 ```
 agentcore run insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --lookback-days 7 --wait --json
 ```
-
-If you have an online evaluation config already deployed, you can inherit its settings:
+If you have an online evaluation config already deployed, you can inherit its settings:  
 
 ```
 agentcore run insights --online-eval-config-arn <arn> --json
 ```
 
-Interactive
+1. Run `agentcore` to open the TUI, then select **run** and choose **Insights**:  
+![Run menu: select Insights](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
 
-1. Run `agentcore` to open the TUI, then select **run** and choose **Insights**:
+1. Choose the session source:  
+![Run Insights wizard: select session source](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-source.png)
 
-![Run menu: select Insights](images/tui/insights-run-select.png) 2. Choose the session source:
+1. Select the insights to run:  
+![Run Insights wizard: select insights](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-insights.png)
 
-![Run Insights wizard: select session source](images/tui/insights-run-source.png) 3. Select the insights to run:
-
-![Run Insights wizard: select insights](images/tui/insights-run-insights.png)
-
-Continue through the remaining wizard steps (sessions, lookback period, name) and confirm.
-
-AWS SDK (boto3)
+   Continue through the remaining wizard steps (sessions, lookback period, name) and confirm.
 
 ```
 import boto3
@@ -83,30 +79,24 @@ response = client.start_batch_evaluation(
 batch_eval_id = response["batchEvaluationId"]
 print(f"Started: {batch_eval_id}")
 ```
-
-You can also:
-
-- Narrow the analysis to a specific time range by adding `filterConfig.timeRange`
-- Analyze specific sessions by ID using `filterConfig.sessionIds`
+You can also:  
++ Narrow the analysis to a specific time range by adding `filterConfig.timeRange` 
++ Analyze specific sessions by ID using `filterConfig.sessionIds` 
 
 ## Poll for results
+<a name="insights-one-time-poll"></a>
 
-###### Example
-
-AgentCore CLI
-List all insights jobs:
+**Example**  
+List all insights jobs:  
 
 ```
 agentcore view insights --json
 ```
-
-View detail for a specific job:
+View detail for a specific job:  
 
 ```
 agentcore view insights <id> --json
 ```
-
-AWS SDK (boto3)
 
 ```
 import time
@@ -122,6 +112,7 @@ while True:
 ```
 
 ## Review failure analysis findings
+<a name="insights-one-time-review"></a>
 
 ```
 if "failureAnalysisResult" in result:
@@ -135,18 +126,20 @@ if "failureAnalysisResult" in result:
                 print(f"    Affected sessions: {rc['affectedSessionCount']}")
 ```
 
-| Field                                                          | Type    | Description                                                         |
-| -------------------------------------------------------------- | ------- | ------------------------------------------------------------------- |
-| `failures[].name`                                              | String  | Failure category name (e.g., "Execution errors", "Hallucinations"). |
-| `failures[].affectedSessionCount`                              | Integer | Number of sessions affected by this category.                       |
-| `failures[].subCategories[].name`                              | String  | Subcategory name (e.g., "Rate limiting", "Tool schema violations"). |
-| `failures[].subCategories[].affectedSessionCount`              | Integer | Number of sessions affected by this subcategory.                    |
-| `failures[].subCategories[].rootCauses[].name`                 | String  | Root cause cluster name.                                            |
-| `failures[].subCategories[].rootCauses[].recommendation`       | String  | Suggested fix for this root cause.                                  |
-| `failures[].subCategories[].rootCauses[].affectedSessionCount` | Integer | Number of sessions affected by this root cause.                     |
-| `failures[].subCategories[].rootCauses[].affectedSessions`     | List    | Sessions in this cluster, each with `sessionId`.                    |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `failures[].name`  | String | Failure category name (e.g., "Execution errors", "Hallucinations"). | 
+|  `failures[].affectedSessionCount`  | Integer | Number of sessions affected by this category. | 
+|  `failures[].subCategories[].name`  | String | Subcategory name (e.g., "Rate limiting", "Tool schema violations"). | 
+|  `failures[].subCategories[].affectedSessionCount`  | Integer | Number of sessions affected by this subcategory. | 
+|  `failures[].subCategories[].rootCauses[].name`  | String | Root cause cluster name. | 
+|  `failures[].subCategories[].rootCauses[].recommendation`  | String | Suggested fix for this root cause. | 
+|  `failures[].subCategories[].rootCauses[].affectedSessionCount`  | Integer | Number of sessions affected by this root cause. | 
+|  `failures[].subCategories[].rootCauses[].affectedSessions`  | List | Sessions in this cluster, each with `sessionId`. | 
 
 ## User intent results
+<a name="insights-one-time-user-intent"></a>
 
 The `userIntentResult` field contains clustered user intents:
 
@@ -157,40 +150,43 @@ if "userIntentResult" in result:
         print(f"    {cluster['description']}")
 ```
 
-| Field                                | Type    | Description                                                         |
-| ------------------------------------ | ------- | ------------------------------------------------------------------- |
-| `userIntents[].clusterId`            | Integer | Cluster identifier.                                                 |
-| `userIntents[].name`                 | String  | Cluster name describing the common intent.                          |
-| `userIntents[].description`          | String  | Detailed description of the intent pattern.                         |
-| `userIntents[].affectedSessionCount` | Integer | Number of sessions with this intent.                                |
-| `userIntents[].affectedSessions`     | List    | Sessions in this cluster, each with `sessionId` and `userMessages`. |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `userIntents[].clusterId`  | Integer | Cluster identifier. | 
+|  `userIntents[].name`  | String | Cluster name describing the common intent. | 
+|  `userIntents[].description`  | String | Detailed description of the intent pattern. | 
+|  `userIntents[].affectedSessionCount`  | Integer | Number of sessions with this intent. | 
+|  `userIntents[].affectedSessions`  | List | Sessions in this cluster, each with `sessionId` and `userMessages`. | 
 
 ## Execution summary results
+<a name="insights-one-time-execution-summary"></a>
 
 The `executionSummaryResult` field contains clustered execution patterns:
 
-| Field                                       | Type    | Description                                                                           |
-| ------------------------------------------- | ------- | ------------------------------------------------------------------------------------- |
-| `executionSummaries[].clusterId`            | Integer | Cluster identifier.                                                                   |
-| `executionSummaries[].name`                 | String  | Cluster name describing the execution pattern.                                        |
-| `executionSummaries[].description`          | String  | Detailed description of the pattern.                                                  |
-| `executionSummaries[].affectedSessionCount` | Integer | Number of sessions with this pattern.                                                 |
-| `executionSummaries[].affectedSessions`     | List    | Sessions in this cluster, each with `sessionId`, `approachTaken`, and `finalOutcome`. |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `executionSummaries[].clusterId`  | Integer | Cluster identifier. | 
+|  `executionSummaries[].name`  | String | Cluster name describing the execution pattern. | 
+|  `executionSummaries[].description`  | String | Detailed description of the pattern. | 
+|  `executionSummaries[].affectedSessionCount`  | Integer | Number of sessions with this pattern. | 
+|  `executionSummaries[].affectedSessions`  | List | Sessions in this cluster, each with `sessionId`, `approachTaken`, and `finalOutcome`. | 
 
 ## Interpreting results
-
-- **Start with failure analysis:** Focus on categories with the highest `affectedSessionCount`. These represent the most impactful issues.
-- **Drill into root causes:** Within each subcategory, root cause clusters tell you exactly what’s going wrong and how to fix it. Each cluster includes a `recommendation` field.
-- **Use user intents to prioritize:** Cross-reference failure categories with user intent clusters. Failures affecting your most common user intents should be highest priority.
-- **Track execution patterns:** Execution summaries reveal how your agent approaches problems — useful for understanding whether failures stem from the agent’s strategy versus tool/environment issues.
+<a name="insights-one-time-interpreting"></a>
++  **Start with failure analysis:** Focus on categories with the highest `affectedSessionCount`. These represent the most impactful issues.
++  **Drill into root causes:** Within each subcategory, root cause clusters tell you exactly what’s going wrong and how to fix it. Each cluster includes a `recommendation` field.
++  **Use user intents to prioritize:** Cross-reference failure categories with user intent clusters. Failures affecting your most common user intents should be highest priority.
++  **Track execution patterns:** Execution summaries reveal how your agent approaches problems — useful for understanding whether failures stem from the agent’s strategy versus tool/environment issues.
 
 ## Validation rules
-
-- `insights` and `evaluators` are mutually exclusive — provide one or the other, not both.
-- Maximum 10 insights per request.
-- `dataSourceConfig` is required and must include at least one log group and one service name.
-- If using `onlineEvaluationConfigSource`, do not provide `insights` or `evaluators` (the config is inherited).
-- If `filterConfig.timeRange` is specified, `startTime` must be earlier than `endTime`.
-- Timestamps must be valid ISO 8601 format.
-- Only one batch evaluation can be active per account at a time.
-- A maximum of 500 sessions are analyzed per insights run.
+<a name="insights-one-time-validation"></a>
++  `insights` and `evaluators` are mutually exclusive — provide one or the other, not both.
++ Maximum 10 insights per request.
++  `dataSourceConfig` is required and must include at least one log group and one service name.
++ If using `onlineEvaluationConfigSource`, do not provide `insights` or `evaluators` (the config is inherited).
++ If `filterConfig.timeRange` is specified, `startTime` must be earlier than `endTime`.
++ Timestamps must be valid ISO 8601 format.
++ Only one batch evaluation can be active per account at a time.
++ A maximum of 500 sessions are analyzed per insights run.

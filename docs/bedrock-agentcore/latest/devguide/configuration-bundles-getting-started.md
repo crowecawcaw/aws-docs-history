@@ -1,23 +1,25 @@
+
+
 # Getting started with configuration bundles
+<a name="configuration-bundles-getting-started"></a>
 
 This walkthrough takes you from zero to a versioned configuration bundle that your agent reads at runtime. You will create a bundle, update it to produce a new version, read the configuration, and view version history.
 
-###### Topics
-
-- [Before you begin](#cfg-gs-before-you-begin "#cfg-gs-before-you-begin")
-- [Step 1: Create a configuration bundle](#cfg-gs-step1 "#cfg-gs-step1")
-- [Step 2: Update the bundle](#cfg-gs-step2 "#cfg-gs-step2")
-- [Step 3: Read the bundle](#cfg-gs-step3 "#cfg-gs-step3")
-- [Step 4: Compare versions](#cfg-gs-step4 "#cfg-gs-step4")
-- [Next steps](#cfg-gs-next-steps "#cfg-gs-next-steps")
-- [Appendix: Agent code with config bundle integration](#cfg-gs-appendix "#cfg-gs-appendix")
+**Topics**
++ [Before you begin](#cfg-gs-before-you-begin)
++ [Step 1: Create a configuration bundle](#cfg-gs-step1)
++ [Step 2: Update the bundle](#cfg-gs-step2)
++ [Step 3: Read the bundle](#cfg-gs-step3)
++ [Step 4: Compare versions](#cfg-gs-step4)
++ [Next steps](#cfg-gs-next-steps)
++ [Appendix: Agent code with config bundle integration](#cfg-gs-appendix)
 
 ## Before you begin
+<a name="cfg-gs-before-you-begin"></a>
 
 Make sure you have:
-
-- An AgentCore CLI project with an agent deployed to AgentCore Runtime (or follow the Appendix below to create one with config bundle support)
-- AWS credentials with permissions for `bedrock-agentcore` and `bedrock-agentcore-control` (see [Prerequisites](optimization-prereqs.md "optimization-prereqs.md"))
++ An AgentCore CLI project with an agent deployed to AgentCore Runtime (or follow the Appendix below to create one with config bundle support)
++  AWS credentials with permissions for `bedrock-agentcore` and `bedrock-agentcore-control` (see [Prerequisites](optimization-prereqs.md))
 
 The following constants are used in the boto3 examples. Replace them with your own values:
 
@@ -28,12 +30,11 @@ COMPONENT_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgen
 ```
 
 ## Step 1: Create a configuration bundle
+<a name="cfg-gs-step1"></a>
 
 Create a bundle with your agent’s initial configuration. The bundle stores key-value pairs (system prompt, model ID, temperature, tool descriptions) keyed by the component ARN.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore add config-bundle \
@@ -42,10 +43,7 @@ agentcore add config-bundle \
 
 agentcore deploy
 ```
-
 After deployment, the CLI prints the bundle ID and initial version ID.
-
-AWS SDK (boto3)
 
 ```
 import boto3
@@ -76,22 +74,18 @@ print(f"Initial version: {version_id}")
 ```
 
 ## Step 2: Update the bundle
+<a name="cfg-gs-step2"></a>
 
 After running a batch evaluation and identifying that your agent’s responses are too verbose, update the system prompt. Each update creates a new immutable version.
 
-###### Example
-
-AgentCore CLI
-Edit the bundle configuration in `agentcore.json`, then redeploy:
+**Example**  
+Edit the bundle configuration in `agentcore.json`, then redeploy:  
 
 ```
 # Edit the system_prompt in agentcore.json, then:
 agentcore deploy
 ```
-
 The CLI detects the existing bundle and creates a new version automatically.
-
-AWS SDK (boto3)
 
 ```
 response = client.update_configuration_bundle(
@@ -118,18 +112,16 @@ print(f"New version: {new_version_id}")
 ```
 
 ## Step 3: Read the bundle
+<a name="cfg-gs-step3"></a>
 
 Retrieve the current configuration to verify the update took effect.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore config-bundle versions --name myAgentConfig
 ```
-
-Output shows the version history with commit messages:
+Output shows the version history with commit messages:  
 
 ```
 Version                               Branch     Created              Message
@@ -137,8 +129,6 @@ Version                               Branch     Created              Message
 a1b2c3d4-...                          mainline   2026-04-28 03:00     Reduce verbosity: shorter prompt, lower temperature
 e5f6a7b8-...                          mainline   2026-04-28 02:30     Initial configuration
 ```
-
-AWS SDK (boto3)
 
 ```
 response = client.get_configuration_bundle(bundleId=bundle_id)
@@ -151,18 +141,15 @@ print(f"Temperature: {config.get('temperature')}")
 ```
 
 ## Step 4: Compare versions
+<a name="cfg-gs-step4"></a>
 
 Diff two versions to see exactly what changed:
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore config-bundle diff --name myAgentConfig --from <version-1> --to <version-2>
 ```
-
-AWS SDK (boto3)
 
 ```
 # Fetch both versions
@@ -181,17 +168,17 @@ for key in set(list(v1_config.keys()) + list(v2_config.keys())):
 ```
 
 ## Next steps
-
-- **Run a batch evaluation** to measure the impact of your configuration change. See [Batch evaluation](batch-evaluations.md "batch-evaluations.md").
-- **Use recommendations** to let the service generate optimized prompts automatically. See [Recommendations](optimization-recommendations.md "optimization-recommendations.md").
-- **Set up A/B testing** to compare two bundle versions with live traffic. See [A/B testing](ab-testing.md "ab-testing.md").
-- **Branch your configuration** for experiments without affecting the mainline. See [Update a configuration bundle](configuration-bundles-update.md "configuration-bundles-update.md").
+<a name="cfg-gs-next-steps"></a>
++  **Run a batch evaluation** to measure the impact of your configuration change. See [Batch evaluation](batch-evaluations.md).
++  **Use recommendations** to let the service generate optimized prompts automatically. See [Recommendations](optimization-recommendations.md).
++  **Set up A/B testing** to compare two bundle versions with live traffic. See [A/B testing](ab-testing.md).
++  **Branch your configuration** for experiments without affecting the mainline. See [Update a configuration bundle](configuration-bundles-update.md).
 
 ## Appendix: Agent code with config bundle integration
+<a name="cfg-gs-appendix"></a>
 
 The following agent code reads the active configuration bundle at runtime using the `BeforeModelCallEvent` hook pattern. The agent is created once at module level, and the hook dynamically updates the system prompt before each model call. Configuration bundle changes take effect immediately without restarting.
-
-- **SDK requirement:** The `bedrock-agentcore-sdk-python` version 1.8 or later is required. The `get_config_bundle()` method on `BedrockAgentCoreContext` is available from this version onward.
++  **SDK requirement:** The `bedrock-agentcore-sdk-python` version 1.8 or later is required. The `get_config_bundle()` method on `BedrockAgentCoreContext` is available from this version onward.
 
 Save this as your agent’s `main.py`:
 

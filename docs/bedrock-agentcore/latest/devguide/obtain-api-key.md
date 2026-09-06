@@ -1,4 +1,7 @@
+
+
 # Obtain API key
+<a name="obtain-api-key"></a>
 
 Once you have stored your API keys in the AgentCore Identity vault, you can retrieve them directly in your agent using the AgentCore SDK and the `@requires_api_key` annotation. For example, the code below will retrieve the API key from the “your-service-name” API key provider so that you can use it in the `need_api_key` function.
 

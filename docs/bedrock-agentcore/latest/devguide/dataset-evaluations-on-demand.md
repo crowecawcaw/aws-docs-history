@@ -1,22 +1,28 @@
+
+
 # On-demand dataset runner
+<a name="dataset-evaluations-on-demand"></a>
 
 The `OnDemandEvaluationDatasetRunner` orchestrates the entire evaluation lifecycle client-side: invoke the agent, wait for telemetry ingestion, collect spans from CloudWatch, and call the Evaluate API, all in a single `run()` call.
 
 Use the on-demand runner for dev-time iteration, CI/CD pipelines, and small datasets where you need per-scenario, per-evaluator detail immediately in the response.
 
-###### Note
-
+**Note**  
 The on-demand runner supports all AgentCore evaluators, including all built-in evaluators across session, trace, and tool-call levels, as well as custom evaluators. The runner automatically handles level-aware request construction, batching, and ground truth mapping for whichever evaluators you configure.
 
 ## How it works
+<a name="ds-how-it-works"></a>
 
 The runner processes scenarios in three phases:
 
-1. **Invoke:** All scenarios run concurrently using a thread pool. Each scenario gets a unique session ID, and turns within a scenario execute sequentially to maintain conversation context.
-2. **Wait:** A configurable delay (default: 180 seconds) allows CloudWatch to ingest the telemetry data. This delay is paid once, not per scenario.
-3. **Evaluate:** Spans are collected from CloudWatch and evaluation requests are built for each evaluator. Ground truth fields from the dataset (`expected_response`, `assertions`, `expected_trajectory`) are automatically mapped to the correct API reference inputs.
+1.  **Invoke:** All scenarios run concurrently using a thread pool. Each scenario gets a unique session ID, and turns within a scenario execute sequentially to maintain conversation context.
+
+1.  **Wait:** A configurable delay (default: 180 seconds) allows CloudWatch to ingest the telemetry data. This delay is paid once, not per scenario.
+
+1.  **Evaluate:** Spans are collected from CloudWatch and evaluation requests are built for each evaluator. Ground truth fields from the dataset (`expected_response`, `assertions`, `expected_trajectory`) are automatically mapped to the correct API reference inputs.
 
 ## Agent invoker
+<a name="ds-agent-invoker"></a>
 
 The runner requires an agent invoker, a callable that invokes your agent for a single turn. The invoker is framework-agnostic: you can call your agent via boto3 `invoke_agent_runtime`, a direct function call, HTTP request, or any other method.
 
@@ -49,15 +55,17 @@ def agent_invoker(invoker_input: AgentInvokerInput) -> AgentInvokerOutput:
     return AgentInvokerOutput(agent_output=json.loads(response_body))
 ```
 
-| Field                             | Type            | Description                                                                                      |
-| --------------------------------- | --------------- | ------------------------------------------------------------------------------------------------ |
-| `AgentInvokerInput.payload`       | `str` or `dict` | The turn input from the dataset.                                                                 |
-| `AgentInvokerInput.session_id`    | `str`           | Stable across all turns in a scenario. Pass this to your agent to maintain conversation context. |
-| `AgentInvokerOutput.agent_output` | `Any`           | The agent’s response.                                                                            |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `AgentInvokerInput.payload`  |  `str` or `dict`  | The turn input from the dataset. | 
+|  `AgentInvokerInput.session_id`  |  `str`  | Stable across all turns in a scenario. Pass this to your agent to maintain conversation context. | 
+|  `AgentInvokerOutput.agent_output`  |  `Any`  | The agent’s response. | 
 
 ## Example
+<a name="ds-example"></a>
 
-The following example loads a dataset from a JSON file and runs the on-demand evaluation. For the dataset format, see [Dataset schema](dataset-evaluations-schema.md "dataset-evaluations-schema.md").
+The following example loads a dataset from a JSON file and runs the on-demand evaluation. For the dataset format, see [Dataset schema](dataset-evaluations-schema.md).
 
 ```
 from bedrock_agentcore.evaluation import (
@@ -133,8 +141,9 @@ with open("results.json", "w") as f:
 ```
 
 ## Configuration reference
+<a name="ds-components-reference"></a>
 
-**Span collector**
+ **Span collector** 
 
 An `AgentSpanCollector` that retrieves telemetry spans after agent invocation. The SDK ships `CloudWatchAgentSpanCollector`:
 
@@ -149,7 +158,7 @@ span_collector = CloudWatchAgentSpanCollector(
 
 The collector queries two CloudWatch log groups (`aws/spans` for structural spans and the agent’s log group for conversation content), polls until spans appear, and returns them as a flat list.
 
-**Evaluation config**
+ **Evaluation config** 
 
 ```
 from bedrock_agentcore.evaluation import EvaluationRunConfig, EvaluatorConfig
@@ -164,14 +173,16 @@ config = EvaluationRunConfig(
 )
 ```
 
-| Field                            | Default | Description                                                                                                                                                                                           |
-| -------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `evaluator_config.evaluator_ids` | —       | List of evaluator IDs (built-in names or custom evaluator IDs).                                                                                                                                       |
-| `evaluation_delay_seconds`       | 180     | Seconds to wait after invocation for CloudWatch to ingest spans. Set to 0 if using a non-CloudWatch collector.                                                                                        |
-| `max_concurrent_scenarios`       | 5       | Maximum number of scenarios to invoke and evaluate in parallel.                                                                                                                                       |
-| `simulation_config`              | None    | Configuration for simulated scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md "user-simulation.md"). |
+
+| Field | Default | Description | 
+| --- | --- | --- | 
+|  `evaluator_config.evaluator_ids`  | — | List of evaluator IDs (built-in names or custom evaluator IDs). | 
+|  `evaluation_delay_seconds`  | 180 | Seconds to wait after invocation for CloudWatch to ingest spans. Set to 0 if using a non-CloudWatch collector. | 
+|  `max_concurrent_scenarios`  | 5 | Maximum number of scenarios to invoke and evaluate in parallel. | 
+|  `simulation_config`  | None | Configuration for simulated scenarios. Set `SimulationConfig(model_id="…​")` when the dataset contains `SimulatedScenario` instances. See [User simulation](user-simulation.md). | 
 
 ## Result structure
+<a name="ds-result-structure"></a>
 
 The runner returns an `EvaluationResult` with the following structure:
 
@@ -187,6 +198,6 @@ EvaluationResult
               └── results: List[Dict]   # Raw API responses
 ```
 
-Each entry in `results` is a raw response dict from the Evaluate API, containing fields like `value`, `label`, `explanation`, `context`, `tokenUsage`, and `ignoredReferenceInputFields`. See [Getting started with on-demand evaluation](getting-started-on-demand.md "getting-started-on-demand.md") for the full response format.
+Each entry in `results` is a raw response dict from the Evaluate API, containing fields like `value`, `label`, `explanation`, `context`, `tokenUsage`, and `ignoredReferenceInputFields`. See [Getting started with on-demand evaluation](getting-started-on-demand.md) for the full response format.
 
 A scenario with status `FAILED` means a structural problem occurred (agent invocation error, span collection failure). Individual evaluator errors within a `COMPLETED` scenario are recorded in the evaluator’s `results` list with `errorCode` and `errorMessage` fields.

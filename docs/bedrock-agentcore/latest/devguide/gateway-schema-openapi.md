@@ -1,4 +1,7 @@
+
+
 # OpenAPI schema targets
+<a name="gateway-schema-openapi"></a>
 
 OpenAPI (formerly known as Swagger) is a widely used standard for describing RESTful APIs. Gateway supports OpenAPI 3.0 specifications for defining API targets.
 
@@ -6,59 +9,53 @@ OpenAPI targets connect your gateway to REST APIs defined using OpenAPI specific
 
 Review the key considerations and limitations, including feature support, to help you decide whether an OpenAPI target is applicable to your use case. If it is, you can create a schema that follows the specifications and then set up permissions for the gateway to be able to access the target. Select a topic to learn more:
 
-###### Topics
-
-- [Key considerations and limitations](#gateway-schema-openapi-considerations "#gateway-schema-openapi-considerations")
-- [Authorization strategy](#gateway-openapi-auth-strategy "#gateway-openapi-auth-strategy")
-- [OpenAPI schema specification](#gateway-openapi-schema "#gateway-openapi-schema")
+**Topics**
++ [Key considerations and limitations](#gateway-schema-openapi-considerations)
++ [Authorization strategy](#gateway-openapi-auth-strategy)
++ [OpenAPI schema specification](#gateway-openapi-schema)
 
 ## Key considerations and limitations
+<a name="gateway-schema-openapi-considerations"></a>
 
-###### Important
-
+**Important**  
 The OpenAPI specification must include `operationId` fields for all operations that you want to expose as tools. The operationId is used as the tool name in the MCP interface.
 
 When using OpenAPI targets, keep in mind the following requirements and limitations:
-
-- OpenAPI versions 3.0 and 3.1 are supported (Swagger 2.0 is not supported)
-- The OpenAPI file must be free of semantic errors
-- The server attribute needs to have a valid URL of the actual endpoint
-- Only application/json content type is fully supported
-- Complex schema features like oneOf, anyOf, and allOf are not supported
-- Path parameter serializers and parameter serializers for query, header, and cookie parameters are not supported
-- Each LLM will have ToolSpec constraints. If OpenAPI has APIs/properties/object names not compliant to ToolSpec of the respective downstream LLMs, the data plane will fail. Common errors are property name exceeding the allowed length or the name containing unsupported character.
++ OpenAPI versions 3.0 and 3.1 are supported (Swagger 2.0 is not supported)
++ The OpenAPI file must be free of semantic errors
++ The server attribute needs to have a valid URL of the actual endpoint
++ Only application/json content type is fully supported
++ Complex schema features like oneOf, anyOf, and allOf are not supported
++ Path parameter serializers and parameter serializers for query, header, and cookie parameters are not supported
++ Each LLM will have ToolSpec constraints. If OpenAPI has APIs/properties/object names not compliant to ToolSpec of the respective downstream LLMs, the data plane will fail. Common errors are property name exceeding the allowed length or the name containing unsupported character.
 
 For best results with OpenAPI targets:
-
-- Always include operationId in all operations
-- Use simple parameter structures instead of complex serialization
-- Implement authentication and authorization outside of the specification
-- Only use supported media types for maximum compatibility
++ Always include operationId in all operations
++ Use simple parameter structures instead of complex serialization
++ Implement authentication and authorization outside of the specification
++ Only use supported media types for maximum compatibility
 
 ### Security best practices for URL parameters
+<a name="gateway-openapi-url-security"></a>
 
-###### Warning
-
+**Warning**  
 When defining server URLs in your OpenAPI specifications, avoid using overly permissive URL parameter patterns that could expose your gateway to security risks.
 
 URL parameters in OpenAPI server definitions allow dynamic endpoint configuration. However, certain patterns can introduce security vulnerabilities if not properly constrained. Specifically, avoid using fully dynamic domain patterns such as:
-
-- `https://{yourDomain}/` - Allows arbitrary domain substitution
-- `https://{subdomain}.{env}.{domain}.com` - Multiple unconstrained placeholders
-- `https://{host}/api/` - Unrestricted host parameter
++  `https://{yourDomain}/` - Allows arbitrary domain substitution
++  `https://{subdomain}.{env}.{domain}.com` - Multiple unconstrained placeholders
++  `https://{host}/api/` - Unrestricted host parameter
 
 These patterns can potentially be exploited to:
++ Redirect requests to unintended or malicious endpoints
++ Access internal network resources (Server-Side Request Forgery)
++ Exfiltrate credentials or sensitive data
 
-- Redirect requests to unintended or malicious endpoints
-- Access internal network resources (Server-Side Request Forgery)
-- Exfiltrate credentials or sensitive data
-
-**Recommended practices:**
-
-- Use fully qualified, static URLs whenever possible: `https://api.example.com/v1`
-- Limit parameters to subdomains within your controlled domain and implement validation in your application
-- Avoid using parameters that allow arbitrary domain or host substitution
-- Implement additional validation in your API to verify that runtime parameter values match expected patterns
+ **Recommended practices:** 
++ Use fully qualified, static URLs whenever possible: `https://api.example.com/v1` 
++ Limit parameters to subdomains within your controlled domain and implement validation in your application
++ Avoid using parameters that allow arbitrary domain or host substitution
++ Implement additional validation in your API to verify that runtime parameter values match expected patterns
 
 AgentCore Gateway automatically validates region parameters and blocks requests to private IP ranges.
 
@@ -98,53 +95,54 @@ This approach restricts URL parameters to specific subdomains within your contro
 In considering using OpenAPI schema targets with AgentCore Gateway, review the following feature support table.
 
 ### OpenAPI feature support
+<a name="gateway-schema-openapi-features"></a>
 
 The following table outlines the OpenAPI features that are supported and unsupported by Gateway:
 
-| Supported Features                                                                                                                                                                          | Unsupported Features                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| *_Schema Definitions_<br>• Basic data types (string, number, integer, boolean, array, object) Required field validation Nested object structures Array definitions with item specifications | *_Schema Composition_<br>• oneOf specifications anyOf specifications allOf specifications                                                                                                                                |
-| *_HTTP Methods_<br>• Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)                                                                                                   | *_Security Schemes_<br>• Security schemes at the OpenAPI specification level (authentication must be configured using the Gateway’s outbound authorization configuration)                                                |
-| *_Media Types_<br>• application/json application/xml multipart/form-data application/x-www-form-urlencoded                                                                                  | *_Media Types_<br>• Custom media types beyond the supported list Binary media types                                                                                                                                      |
-| *_Path Parameters_<br>• Simple path parameter definitions (Example: /users/ { userId})                                                                                                      | *_Parameter Serialization_<br>• Complex path parameter serializers (Example: `/users { ;id\*} { ?metadata}`) Query parameter arrays with complex serialization Header parameter serializers Cookie parameter serializers |
-| *_Query Parameters_<br>• Basic query parameter definitions Simple string, number, and boolean types                                                                                         | *_Callbacks and Webhooks_<br>• Callback operations Webhook definitions                                                                                                                                                   |
-| *_Request/Response Bodies_<br>• JSON request and response bodies XML request and response bodies Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                 | *_Links_<br>• Links between operations                                                                                                                                                                                   |
+
+| Supported Features | Unsupported Features | 
+| --- | --- | 
+|  **Schema Definitions** Basic data types (string, number, integer, boolean, array, object) Required field validation Nested object structures Array definitions with item specifications |  **Schema Composition** oneOf specifications anyOf specifications allOf specifications | 
+|  **HTTP Methods** Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS) |  **Security Schemes** Security schemes at the OpenAPI specification level (authentication must be configured using the Gateway’s outbound authorization configuration) | 
+|  **Media Types** application/json application/xml multipart/form-data application/x-www-form-urlencoded |  **Media Types** Custom media types beyond the supported list Binary media types | 
+|  **Path Parameters** Simple path parameter definitions (Example: /users/ { userId}) |  **Parameter Serialization** Complex path parameter serializers (Example: `/users { ;id\*} { ?metadata}`) Query parameter arrays with complex serialization Header parameter serializers Cookie parameter serializers | 
+|  **Query Parameters** Basic query parameter definitions Simple string, number, and boolean types |  **Callbacks and Webhooks** Callback operations Webhook definitions | 
+|  **Request/Response Bodies** JSON request and response bodies XML request and response bodies Standard HTTP status codes (200, 201, 400, 404, 500, etc.) |  **Links** Links between operations | 
 
 ## Authorization strategy
+<a name="gateway-openapi-auth-strategy"></a>
 
 The following types of outbound authorization are supported for OpenAPI targets:
++ No authorization – The gateway invokes the OpenAPI target without preconfigured authorization. This approach is not recommended.
++ OAuth – The gateway supports both two-legged OAuth (Client Credentials grant type) and three-legged OAuth (Authorization Code grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
++ API key – The gateway uses an API key credential provider to authenticate with the OpenAPI target. You configure the API key provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
++ IAM ( [AWS Signature Version 4 (Sig V4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) ) – The gateway signs requests to the OpenAPI target using SigV4 with the gateway service role credentials. You configure an `IamCredentialProvider` with a required service name for SigV4 signing and an optional Region (defaults to the gateway Region).
 
-- No authorization – The gateway invokes the OpenAPI target without preconfigured authorization. This approach is not recommended.
-- OAuth – The gateway supports both two-legged OAuth (Client Credentials grant type) and three-legged OAuth (Authorization Code grant type). You configure the authorization provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
-- API key – The gateway uses an API key credential provider to authenticate with the OpenAPI target. You configure the API key provider in Amazon Bedrock AgentCore Identity in the same account and Region as the gateway.
-- IAM ( [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") ) – The gateway signs requests to the OpenAPI target using SigV4 with the gateway service role credentials. You configure an `IamCredentialProvider` with a required service name for SigV4 signing and an optional Region (defaults to the gateway Region).
+**Important**  
+IAM (SigV4) outbound authorization requires that the OpenAPI target is hosted behind an AWS service that natively supports IAM authentication. The gateway signs outbound requests with SigV4 but does not modify the authentication configuration on the target. The target service must be able to verify SigV4 signatures.  
+The following AWS services natively support IAM authentication and are compatible with IAM outbound authorization for OpenAPI targets:  
+Amazon API Gateway
+Lambda Function URLs
+Amazon Bedrock AgentCore Gateway
+Services that do not natively verify SigV4 signatures, such as Application Load Balancer or direct Amazon EC2 endpoints, are not compatible with IAM outbound authorization. If your OpenAPI target is hosted behind one of these services, use OAuth or API key authorization instead.
 
-###### Important
-
-IAM (SigV4) outbound authorization requires that the OpenAPI target is hosted behind an AWS service that natively supports IAM authentication. The gateway signs outbound requests with SigV4 but does not modify the authentication configuration on the target. The target service must be able to verify SigV4 signatures.
-
-The following AWS services natively support IAM authentication and are compatible with IAM outbound authorization for OpenAPI targets:
-
-- Amazon API Gateway
-- Lambda Function URLs
-- Amazon Bedrock AgentCore Gateway
-  Services that do not natively verify SigV4 signatures, such as Application Load Balancer or direct Amazon EC2 endpoints, are not compatible with IAM outbound authorization. If your OpenAPI target is hosted behind one of these services, use OAuth or API key authorization instead.
-
-For more information about setting up outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md "gateway-outbound-auth.md").
+For more information about setting up outbound authorization, see [Set up outbound authorization for your gateway](gateway-outbound-auth.md).
 
 ## OpenAPI schema specification
+<a name="gateway-openapi-schema"></a>
 
 The OpenAPI specification defines the REST API that your Gateway will expose. Refer to the following resources when setting up your OpenAPI specification:
-
-- For information about the format of the OpenAPI specification, see [OpenAPI Specification](https://swagger.io/specification/ "https://swagger.io/specification/").
-- For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features "#gateway-schema-openapi-features") . Adhere to these requirements to prevent errors during target creation and invocation.
++ For information about the format of the OpenAPI specification, see [OpenAPI Specification](https://swagger.io/specification/).
++ For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features) . Adhere to these requirements to prevent errors during target creation and invocation.
 
 After you define your OpenAPI schema, you can do one of the following:
-
-- Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway.
-- Paste the definition inline when you add the target to your gateway.
++ Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway.
++ Paste the definition inline when you add the target to your gateway.
 
 Expand a section to see examples of supported and unsupported OpenAPI specifications:
+
+### Supported OpenAPI specification Example 1
+<a name="w2aac24c18c13c15c13b1"></a>
 
 Following shows an example of a supported OpenAPI specification
 
@@ -229,6 +227,9 @@ Example of a supported OpenAPI specification:
 }
 ```
 
+### Supported OpenAPI Specification Example 2
+<a name="w2aac24c18c13c15c13b3"></a>
+
 Following shows another example of a supported OpenAPI specification.
 
 ```
@@ -312,6 +313,9 @@ Following shows another example of a supported OpenAPI specification.
   }
 }
 ```
+
+### Unsupported OpenAPI schema
+<a name="w2aac24c18c13c15c13b5"></a>
 
 The following shows an example of an unsupported schema with oneOf:
 

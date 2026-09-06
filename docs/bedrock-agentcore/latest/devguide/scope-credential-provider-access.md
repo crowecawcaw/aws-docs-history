@@ -1,38 +1,38 @@
+
+
 # Scope down access to credential providers by workload identity
+<a name="scope-credential-provider-access"></a>
 
 You can use IAM policies to control which workload identities have access to specific credential providers. This enables fine-grained access control, ensuring that only authorized agents can retrieve credentials for particular services.
 
-###### Note
-
-The IAM role you assign to an agent controls which credential providers the agent can call. The service does not enforce additional binding between workload identities and credential providers in the same account. To follow least-privilege practices, scope your IAM policy `Resource` blocks to specific workload identity and credential provider ARNs rather than using `*`.
-
+**Note**  
+The IAM role you assign to an agent controls which credential providers the agent can call. The service does not enforce additional binding between workload identities and credential providers in the same account. To follow least-privilege practices, scope your IAM policy `Resource` blocks to specific workload identity and credential provider ARNs rather than using `*`.  
 A successful call to a credential provider does not mean credentials are automatically returned. The credentials a workload retrieves are scoped to the user identity in its workload access token. For OAuth2 (3LO) providers, the end user must have completed authorization before any credentials exist to retrieve for that workload identity and user combination.
 
-**Access control mechanisms**
+ **Access control mechanisms** 
++  **Workload identity-based restrictions** – Limit credential provider access to specific workload identities
++  **Resource-level permissions** – Control access to individual credential providers using ARN-based policies
++  **Directory-level controls** – Manage access at the workload identity directory level
++  **Credential provider scoping** – Restrict which credential providers a workload identity can access by including credential provider ARNs in the policy `Resource` block
 
-- **Workload identity-based restrictions** – Limit credential provider access to specific workload identities
-- **Resource-level permissions** – Control access to individual credential providers using ARN-based policies
-- **Directory-level controls** – Manage access at the workload identity directory level
-- **Credential provider scoping** – Restrict which credential providers a workload identity can access by including credential provider ARNs in the policy `Resource` block
-
-###### Topics
-
-- [IAM policy examples](#iam-policy-examples "#iam-policy-examples")
-- [Deny access to a specific credential provider](#deny-credential-provider-access "#deny-credential-provider-access")
-- [Use separate workload identities for different credential providers](#separate-identities-per-provider "#separate-identities-per-provider")
-- [Implementation steps](#policy-implementation-steps "#policy-implementation-steps")
+**Topics**
++ [IAM policy examples](#iam-policy-examples)
++ [Deny access to a specific credential provider](#deny-credential-provider-access)
++ [Use separate workload identities for different credential providers](#separate-identities-per-provider)
++ [Implementation steps](#policy-implementation-steps)
 
 ## IAM policy examples
+<a name="iam-policy-examples"></a>
 
 The following examples demonstrate how to create IAM policies that restrict credential provider access based on workload identity and credential provider.
 
-**Restrict access to a specific API key credential provider**
+ **Restrict access to a specific API key credential provider** 
 
 This policy allows a workload identity to retrieve API keys only from a specific credential provider. The credential provider ARN in the `Resource` block restricts access to that provider.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "GetResourceApiKey",
@@ -51,13 +51,13 @@ This policy allows a workload identity to retrieve API keys only from a specific
 }
 ```
 
-**Restrict access to a specific OAuth2 credential provider**
+ **Restrict access to a specific OAuth2 credential provider** 
 
 This policy allows a workload identity to retrieve OAuth2 tokens only from a specific OAuth2 credential provider.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "GetResourceOauth2Token",
@@ -76,13 +76,13 @@ This policy allows a workload identity to retrieve OAuth2 tokens only from a spe
 }
 ```
 
-**Allow multiple workload identities access to a credential provider**
+ **Allow multiple workload identities access to a credential provider** 
 
 This policy allows multiple workload identities to retrieve API keys from the same credential provider.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "GetResourceApiKeyMultipleIdentities",
@@ -104,12 +104,13 @@ This policy allows multiple workload identities to retrieve API keys from the sa
 ```
 
 ## Deny access to a specific credential provider
+<a name="deny-credential-provider-access"></a>
 
 You can explicitly deny a workload identity access to a specific credential provider using a `Deny` statement. Deny statements take precedence over Allow statements, making them useful for creating guardrails.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "DenyAccessToSensitiveProvider",
@@ -128,21 +129,25 @@ You can explicitly deny a workload identity access to a specific credential prov
 ```
 
 ## Use separate workload identities for different credential providers
+<a name="separate-identities-per-provider"></a>
 
 If you need different agents to access different credential providers, create separate workload identities with separate IAM roles. Each IAM role is scoped to only the credential providers that the agent needs.
 
 For example, if Agent A should access only Provider X and Agent B should access only Provider Y:
 
-1. Create workload identity `agent-a` and workload identity `agent-b`
-2. Create IAM role `AgentARole` with a policy that allows access only to Provider X
-3. Create IAM role `AgentBRole` with a policy that allows access only to Provider Y
-4. Associate each workload identity with its corresponding IAM role
+1. Create workload identity `agent-a` and workload identity `agent-b` 
 
-**IAM policy for Agent A (access to Provider X only)**
+1. Create IAM role `AgentARole` with a policy that allows access only to Provider X
+
+1. Create IAM role `AgentBRole` with a policy that allows access only to Provider Y
+
+1. Associate each workload identity with its corresponding IAM role
+
+ **IAM policy for Agent A (access to Provider X only)** 
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AgentAAccessProviderX",
@@ -161,11 +166,11 @@ For example, if Agent A should access only Provider X and Agent B should access 
 }
 ```
 
-**IAM policy for Agent B (access to Provider Y only)**
+ **IAM policy for Agent B (access to Provider Y only)** 
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AgentBAccessProviderY",
@@ -185,25 +190,27 @@ For example, if Agent A should access only Provider X and Agent B should access 
 ```
 
 ## Implementation steps
+<a name="policy-implementation-steps"></a>
 
 To implement workload identity-based access control for credential providers:
 
-1. **Identify your workload identities** – Use `aws bedrock-agentcore-control list-workload-identities` to list all workload identities in your account. For information about creating and managing workload identities, see [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md").
-2. **Determine credential provider ARNs** – Identify the specific credential providers you want to control access to. Credential provider ARNs follow these formats:
+1.  **Identify your workload identities** – Use `aws bedrock-agentcore-control list-workload-identities` to list all workload identities in your account. For information about creating and managing workload identities, see [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md).
 
-   - `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/api-key/<provider-name>`
-   - `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/oauth2-credential-provider/<provider-name>`
+1.  **Determine credential provider ARNs** – Identify the specific credential providers you want to control access to. Credential provider ARNs follow these formats:
+   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/api-key/<provider-name>` 
+   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/oauth2-credential-provider/<provider-name>` 
 
-3. **Create IAM policies** – Write IAM policies that specify which workload identities can access which credential providers
-4. **Attach policies to roles** – Attach the policies to the IAM roles used by your agents or applications
-5. **Test access controls** – Verify that only authorized workload identities can access the specified credential providers
+1.  **Create IAM policies** – Write IAM policies that specify which workload identities can access which credential providers
 
-**Best practices**
+1.  **Attach policies to roles** – Attach the policies to the IAM roles used by your agents or applications
 
-- Use descriptive names for workload identities to make policy management easier
-- Include credential provider ARNs in the `Resource` block to scope access to specific providers, rather than granting access to all providers in the account
-- Use separate workload identities and IAM roles when different agents need access to different credential providers
-- Use explicit `Deny` statements to create guardrails that prevent access to sensitive credential providers regardless of other policies
-- Regularly audit and review access policies to ensure they align with your security requirements
-- Consider using IAM policy conditions for additional access controls based on time, IP address, or other factors
-- Test policies in a development environment before applying them to production workloads
+1.  **Test access controls** – Verify that only authorized workload identities can access the specified credential providers
+
+ **Best practices** 
++ Use descriptive names for workload identities to make policy management easier
++ Include credential provider ARNs in the `Resource` block to scope access to specific providers, rather than granting access to all providers in the account
++ Use separate workload identities and IAM roles when different agents need access to different credential providers
++ Use explicit `Deny` statements to create guardrails that prevent access to sensitive credential providers regardless of other policies
++ Regularly audit and review access policies to ensure they align with your security requirements
++ Consider using IAM policy conditions for additional access controls based on time, IP address, or other factors
++ Test policies in a development environment before applying them to production workloads

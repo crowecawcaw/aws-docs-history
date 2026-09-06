@@ -1,33 +1,42 @@
+
+
 # Understanding results and output
+<a name="batch-evaluations-results"></a>
 
 Batch evaluation results come in two layers: aggregate summaries in the API response, and per-session detail in CloudWatch Logs.
 
 ## Aggregate results
+<a name="batch-eval-aggregate-results"></a>
 
 When a batch evaluation completes, the `GetBatchEvaluation` response includes an `evaluationResults` object with aggregate summaries.
 
 ### Session counts
+<a name="batch-eval-session-counts"></a>
 
-| Field                        | Description                                                                                                                                                                                                   |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `numberOfSessionsCompleted`  | Number of sessions successfully evaluated by all evaluators.                                                                                                                                                  |
-| `numberOfSessionsFailed`     | Number of sessions where at least one evaluator failed.                                                                                                                                                       |
-| `numberOfSessionsInProgress` | Number of sessions still being evaluated (0 when the job is complete).                                                                                                                                        |
-| `totalNumberOfSessions`      | Total number of sessions discovered from the session source.                                                                                                                                                  |
-| `numberOfSessionsIgnored`    | Number of sessions ignored for evaluation. The service evaluates up to 500 sessions per job. If more than 500 sessions are discovered, the service selects the 500 most recent sessions and ignores the rest. |
+
+| Field | Description | 
+| --- | --- | 
+|  `numberOfSessionsCompleted`  | Number of sessions successfully evaluated by all evaluators. | 
+|  `numberOfSessionsFailed`  | Number of sessions where at least one evaluator failed. | 
+|  `numberOfSessionsInProgress`  | Number of sessions still being evaluated (0 when the job is complete). | 
+|  `totalNumberOfSessions`  | Total number of sessions discovered from the session source. | 
+|  `numberOfSessionsIgnored`  | Number of sessions ignored for evaluation. The service evaluates up to 500 sessions per job. If more than 500 sessions are discovered, the service selects the 500 most recent sessions and ignores the rest. | 
 
 ### Per-evaluator summaries
+<a name="batch-eval-evaluator-summaries"></a>
 
 Each entry in `evaluatorSummaries` provides aggregate metrics for one evaluator:
 
-| Field                     | Description                                                                               |
-| ------------------------- | ----------------------------------------------------------------------------------------- |
-| `evaluatorId`             | Short ID (for example, `Builtin.GoalSuccessRate`).                                        |
-| `statistics.averageScore` | Mean score across all evaluated sessions. Range depends on the evaluator (typically 0–1). |
-| `totalEvaluated`          | Number of sessions this evaluator successfully scored.                                    |
-| `totalFailed`             | Number of sessions where this evaluator returned an error.                                |
+
+| Field | Description | 
+| --- | --- | 
+|  `evaluatorId`  | Short ID (for example, `Builtin.GoalSuccessRate`). | 
+|  `statistics.averageScore`  | Mean score across all evaluated sessions. Range depends on the evaluator (typically 0–1). | 
+|  `totalEvaluated`  | Number of sessions this evaluator successfully scored. | 
+|  `totalFailed`  | Number of sessions where this evaluator returned an error. | 
 
 ### Example response
+<a name="batch-eval-example-response"></a>
 
 ```
 {
@@ -61,6 +70,7 @@ Each entry in `evaluatorSummaries` provides aggregate metrics for one evaluator:
 ```
 
 ## Per-session detail in CloudWatch Logs
+<a name="batch-eval-per-session-detail"></a>
 
 The `outputConfig` field in the `GetBatchEvaluation` response specifies a CloudWatch Logs location where per-session, per-evaluator results are written as OpenTelemetry events.
 
@@ -77,11 +87,12 @@ The `outputConfig` field in the `GetBatchEvaluation` response specifies a CloudW
 
 Each event in the log stream contains per-turn, per-evaluator detail:
 
-| Field                           | Description                                              |
-| ------------------------------- | -------------------------------------------------------- |
-| `gen_ai.evaluation.score.value` | Numeric score for this turn.                             |
-| `gen_ai.evaluation.score.label` | Categorical label (for example, `PASS`, `Very Helpful`). |
-| `gen_ai.evaluation.explanation` | LLM-generated reasoning for the score.                   |
+
+| Field | Description | 
+| --- | --- | 
+|  `gen_ai.evaluation.score.value`  | Numeric score for this turn. | 
+|  `gen_ai.evaluation.score.label`  | Categorical label (for example, `PASS`, `Very Helpful`). | 
+|  `gen_ai.evaluation.explanation`  | LLM-generated reasoning for the score. | 
 
 To read these events, use the CloudWatch Logs API:
 
@@ -100,30 +111,34 @@ for event in response["events"]:
 ```
 
 ## Interpreting scores
+<a name="batch-eval-interpreting-scores"></a>
 
 Batch evaluation scores follow the same conventions as on-demand evaluation:
-
-- **Numeric scores** (`value`): Range depends on the evaluator. Most built-in evaluators score from 0 to 1, where higher is better.
-- **Labels** (`label`): Categorical descriptions of the score. For example, `Builtin.Helpfulness` returns labels like `Very Helpful`, `Somewhat Helpful`, `Not Helpful`.
++  **Numeric scores** (`value`): Range depends on the evaluator. Most built-in evaluators score from 0 to 1, where higher is better.
++  **Labels** (`label`): Categorical descriptions of the score. For example, `Builtin.Helpfulness` returns labels like `Very Helpful`, `Somewhat Helpful`, `Not Helpful`.
 
 ## Error handling
+<a name="batch-eval-error-handling"></a>
 
 ### Job-level errors
+<a name="batch-eval-job-errors"></a>
 
 If the batch evaluation job fails entirely, the `status` is `FAILED` and `errorDetails` contains one or more error messages describing what went wrong. Common causes:
-
-- No sessions found in the specified source.
-- Invalid CloudWatch log group or service name.
++ No sessions found in the specified source.
++ Invalid CloudWatch log group or service name.
 
 ### Session-level errors
+<a name="batch-eval-session-errors"></a>
 
 Individual sessions can fail while the overall job succeeds. The `numberOfSessionsFailed` count in `evaluationResults` indicates how many sessions had errors. Per-session errors are recorded in the CloudWatch Logs output.
 
 ### Evaluator-level errors
+<a name="batch-eval-evaluator-errors"></a>
 
 Within a successfully evaluated session, individual evaluators can fail. The `totalFailed` count on each evaluator summary indicates how many sessions that evaluator could not score. Common causes include malformed spans or missing required attributes.
 
 ## Comparing results across runs
+<a name="batch-eval-comparing-runs"></a>
 
 A common workflow is to run batch evaluation before and after a change (prompt update, model swap, tool modification) and compare the aggregate scores:
 
@@ -151,12 +166,12 @@ for eid in baseline_summaries:
 ```
 
 ## Viewing results from the CLI
+<a name="batch-eval-viewing-from-cli"></a>
 
 In addition to the `GetBatchEvaluation` API, the AgentCore CLI surfaces the same results:
-
-- `agentcore view batch-evaluation <batch-evaluation-id>` — view a single job and its results (add `--json` for the raw output).
-- `agentcore batch-evaluations history` — list batch evaluation jobs (running jobs are refreshed from the service; add `--json`).
-- `agentcore run batch-evaluation …​ --json` — returns the same `batchEvaluationId` / `evaluationResults` / `evaluatorSummaries` object shown in the JSON example above.
++  `agentcore view batch-evaluation <batch-evaluation-id>` — view a single job and its results (add `--json` for the raw output).
++  `agentcore batch-evaluations history` — list batch evaluation jobs (running jobs are refreshed from the service; add `--json`).
++  `agentcore run batch-evaluation …​ --json` — returns the same `batchEvaluationId` / `evaluationResults` / `evaluatorSummaries` object shown in the JSON example above.
 
 ```
 # View a single batch evaluation job and its results
@@ -166,6 +181,5 @@ agentcore view batch-evaluation 12345678-1234-1234-1234-123456789012 --json
 agentcore batch-evaluations history --json
 ```
 
-###### Note
-
+**Note**  
 The run command flag for selecting evaluators is `-e, --evaluator <ids…​>` (or `--evaluator-arn <arns…​>`).

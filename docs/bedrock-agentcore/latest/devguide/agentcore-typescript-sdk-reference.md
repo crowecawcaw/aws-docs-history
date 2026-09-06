@@ -1,18 +1,22 @@
+
+
 # AgentCore TypeScript SDK reference
+<a name="agentcore-typescript-sdk-reference"></a>
 
 This reference documents the public Amazon Bedrock AgentCore TypeScript SDK releases.
 
-###### Topics
-
-- [Runtime](#ts-sdk-runtime "#ts-sdk-runtime")
-- [Identity](#ts-sdk-identity "#ts-sdk-identity")
-- [Code Interpreter](#ts-sdk-code-interpreter "#ts-sdk-code-interpreter")
+**Topics**
++ [Runtime](#ts-sdk-runtime)
++ [Identity](#ts-sdk-identity)
++ [Code Interpreter](#ts-sdk-code-interpreter)
 
 ## Runtime
+<a name="ts-sdk-runtime"></a>
 
-_Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand._
+ *Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand.* 
 
 ### BedrockAgentCoreApp
+<a name="_bedrockagentcoreapp"></a>
 
 ```
 BedrockAgentCoreApp
@@ -37,6 +41,7 @@ app.run()
 ```
 
 #### constructor
+<a name="_constructor"></a>
 
 ```
 constructor(params: BedrockAgentCoreAppParams<BedrockAgentCoreApp.TSchema>): BedrockAgentCoreApp<BedrockAgentCoreApp.TSchema>
@@ -44,14 +49,13 @@ constructor(params: BedrockAgentCoreAppParams<BedrockAgentCoreApp.TSchema>): Bed
 
 Creates a new BedrockAgentCoreApp instance.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`BedrockAgentCoreAppParams<BedrockAgentCoreApp.TSchema>`
-
+ `params` `BedrockAgentCoreAppParams<BedrockAgentCoreApp.TSchema>`   
 Configuration including handler and optional settings
 
 #### addAsyncTask
+<a name="_addasynctask"></a>
 
 ```
 addAsyncTask(name: string, metadata: Record<string, unknown>): number
@@ -59,50 +63,43 @@ addAsyncTask(name: string, metadata: Record<string, unknown>): number
 
 Register an async task for health tracking.
 
-**Parameters**
+ **Parameters** 
 
-`name`
-`string`
-
+ `name` `string`   
 Human-readable task name
 
-`metadata`
-_(optional)_
-`Record<string, unknown>`
-
+ `metadata` *(optional)* `Record<string, unknown>`   
 The optional task metadata
 
-**Returns**
+ **Returns** 
 
-`number` — Task ID for completion tracking
+ `number` — Task ID for completion tracking
 
 #### asyncTask
+<a name="_asynctask"></a>
 
 ```
 asyncTask(fn: T): T
 ```
 
-Decorator to automatically track async tasks.
-Status becomes HealthyBusy during execution.
+Decorator to automatically track async tasks. Status becomes HealthyBusy during execution.
 
-**Parameters**
+ **Parameters** 
 
-`fn`
-`T`
-
+ `fn` `T`   
 Async function to wrap
 
-**Returns**
+ **Returns** 
 
-`T` — Wrapped function with automatic task tracking
+ `T` — Wrapped function with automatic task tracking
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if fn is not an async function
 
 #### completeAsyncTask
+<a name="_completeasynctask"></a>
 
 ```
 completeAsyncTask(taskId: number): boolean
@@ -110,18 +107,17 @@ completeAsyncTask(taskId: number): boolean
 
 Mark an async task as complete.
 
-**Parameters**
+ **Parameters** 
 
-`taskId`
-`number`
-
+ `taskId` `number`   
 Task ID from addAsyncTask
 
-**Returns**
+ **Returns** 
 
-`boolean` — True if task was found and removed
+ `boolean` — True if task was found and removed
 
 #### getAsyncTaskInfo
+<a name="_getasynctaskinfo"></a>
 
 ```
 getAsyncTaskInfo(): AsyncTaskStatus
@@ -129,24 +125,25 @@ getAsyncTaskInfo(): AsyncTaskStatus
 
 Get information about currently running async tasks.
 
-**Returns**
+ **Returns** 
 
-`AsyncTaskStatus` — Task status with count and details
+ `AsyncTaskStatus` — Task status with count and details
 
 #### getCurrentPingStatus
+<a name="_getcurrentpingstatus"></a>
 
 ```
 getCurrentPingStatus(): HealthStatus
 ```
 
-Get current ping status based on priority system.
-Priority: Forced \> Custom Handler \> Automatic
+Get current ping status based on priority system. Priority: Forced \\> Custom Handler \\> Automatic
 
-**Returns**
+ **Returns** 
 
-`HealthStatus` — Current health status
+ `HealthStatus` — Current health status
 
 #### run
+<a name="_run"></a>
 
 ```
 run(options: { host?: string; port?: number }): void
@@ -154,15 +151,13 @@ run(options: { host?: string; port?: number }): void
 
 Starts the Fastify server.
 
-**Parameters**
+ **Parameters** 
 
-`options`
-_(optional)_
-`{ host?: string; port?: number }`
-
+ `options` *(optional)* `{ host?: string; port?: number }`   
 The optional server options. Supports `port` (defaults to 8080) and `host` (defaults to '0.0.0.0').
 
 ### RuntimeClient
+<a name="_runtimeclient"></a>
 
 ```
 RuntimeClient
@@ -187,6 +182,7 @@ const presignedUrl = await client.generatePresignedUrl({
 ```
 
 #### constructor
+<a name="_constructor_2"></a>
 
 ```
 constructor(config: RuntimeClientConfig): RuntimeClient
@@ -194,33 +190,28 @@ constructor(config: RuntimeClientConfig): RuntimeClient
 
 Creates a new RuntimeClient instance.
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`RuntimeClientConfig`
-
+ `config` `RuntimeClientConfig`   
 Configuration options for the client
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if region is not provided via config or AWS\_REGION environment variable
 
 #### connectShellOAuth
+<a name="_connectshelloauth"></a>
 
 ```
 connectShellOAuth(params: ConnectShellOAuthParams): Promise<ShellConnectionOAuth>
 ```
 
-Generate a WebSocket URL and OAuth subprotocols for a shell connection.
-Low-level helper — use `openShell` for a fully managed session.
+Generate a WebSocket URL and OAuth subprotocols for a shell connection. Low-level helper — use `openShell` for a fully managed session.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ConnectShellOAuthParams`
-
+ `params` `ConnectShellOAuthParams`   
 The connection parameters.
 
 ```
@@ -229,20 +220,17 @@ const ws = new WebSocket(url, subprotocols)
 ```
 
 #### connectShellPresigned
+<a name="_connectshellpresigned"></a>
 
 ```
 connectShellPresigned(params: ConnectShellPresignedParams): Promise<ShellConnectionPresigned>
 ```
 
-Generate a presigned WebSocket URL for a shell connection. Auth is embedded
-in the query string — suitable for browser clients or short-lived tokens.
-Low-level helper — use `openShell` for a fully managed session.
+Generate a presigned WebSocket URL for a shell connection. Auth is embedded in the query string — suitable for browser clients or short-lived tokens. Low-level helper — use `openShell` for a fully managed session.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ConnectShellPresignedParams`
-
+ `params` `ConnectShellPresignedParams`   
 The connection parameters.
 
 ```
@@ -251,19 +239,17 @@ const ws = new WebSocket(url)
 ```
 
 #### connectShellSigV4
+<a name="_connectshellsigv4"></a>
 
 ```
 connectShellSigV4(params: ConnectShellSigV4Params): Promise<ShellConnectionSigV4>
 ```
 
-Generate a SigV4-signed WebSocket URL and headers for a shell connection.
-Low-level helper — use `openShell` for a fully managed session.
+Generate a SigV4-signed WebSocket URL and headers for a shell connection. Low-level helper — use `openShell` for a fully managed session.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ConnectShellSigV4Params`
-
+ `params` `ConnectShellSigV4Params`   
 The connection parameters.
 
 ```
@@ -272,6 +258,7 @@ const ws = new WebSocket(url, { headers })
 ```
 
 #### generatePresignedUrl
+<a name="_generatepresignedurl"></a>
 
 ```
 generatePresignedUrl(params: GeneratePresignedUrlParams): Promise<string>
@@ -279,32 +266,26 @@ generatePresignedUrl(params: GeneratePresignedUrlParams): Promise<string>
 
 Generates a presigned WebSocket URL for runtime connection.
 
-Presigned URLs include authentication in query parameters, allowing
-frontend clients to connect without managing AWS credentials.
+Presigned URLs include authentication in query parameters, allowing frontend clients to connect without managing AWS credentials.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`GeneratePresignedUrlParams`
-
+ `params` `GeneratePresignedUrlParams`   
 Parameters for generating the presigned URL
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Presigned WebSocket URL with authentication in query parameters
+ `Promise<string>` — Presigned WebSocket URL with authentication in query parameters
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if expires exceeds maximum (300 seconds)
 
-`Error`
-
+ `Error`   
 Error if runtime ARN format is invalid
 
-`Error`
-
+ `Error`   
 Error if AWS credentials are not available
 
 ```
@@ -326,6 +307,7 @@ const url = await client.generatePresignedUrl({
 ```
 
 #### generateWsConnection
+<a name="_generatewsconnection"></a>
 
 ```
 generateWsConnection(params: GenerateWsConnectionParams): Promise<WebSocketConnection>
@@ -333,29 +315,23 @@ generateWsConnection(params: GenerateWsConnectionParams): Promise<WebSocketConne
 
 Generates WebSocket URL and SigV4 signed headers for runtime connection.
 
-This method creates authentication credentials for establishing a WebSocket
-connection to an AgentCore runtime. The returned headers include AWS SigV4
-signature for authentication.
+This method creates authentication credentials for establishing a WebSocket connection to an AgentCore runtime. The returned headers include AWS SigV4 signature for authentication.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`GenerateWsConnectionParams`
-
+ `params` `GenerateWsConnectionParams`   
 Parameters for generating the connection
 
-**Returns**
+ **Returns** 
 
-`Promise<WebSocketConnection>` — WebSocket URL and authentication headers
+ `Promise<WebSocketConnection>` — WebSocket URL and authentication headers
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if runtime ARN format is invalid
 
-`Error`
-
+ `Error`   
 Error if AWS credentials are not available
 
 ```
@@ -375,6 +351,7 @@ const connection = await client.generateWsConnection({
 ```
 
 #### generateWsConnectionOAuth
+<a name="_generatewsconnectionoauth"></a>
 
 ```
 generateWsConnectionOAuth(params: GenerateWsConnectionOAuthParams): Promise<WebSocketConnection>
@@ -382,29 +359,23 @@ generateWsConnectionOAuth(params: GenerateWsConnectionOAuthParams): Promise<WebS
 
 Generates WebSocket URL and OAuth headers for runtime connection.
 
-This method uses OAuth bearer token authentication instead of AWS SigV4.
-Suitable for scenarios where OAuth tokens are used for authentication.
-Does NOT require AWS credentials.
+This method uses OAuth bearer token authentication instead of AWS SigV4. Suitable for scenarios where OAuth tokens are used for authentication. Does NOT require AWS credentials.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`GenerateWsConnectionOAuthParams`
-
+ `params` `GenerateWsConnectionOAuthParams`   
 Parameters for generating the connection
 
-**Returns**
+ **Returns** 
 
-`Promise<WebSocketConnection>` — WebSocket URL and OAuth authentication headers
+ `Promise<WebSocketConnection>` — WebSocket URL and OAuth authentication headers
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if bearer token is empty
 
-`Error`
-
+ `Error`   
 Error if runtime ARN format is invalid
 
 ```
@@ -422,6 +393,7 @@ const ws = new WebSocket(url, { headers })
 ```
 
 #### openShell
+<a name="_openshell"></a>
 
 ```
 openShell(params: OpenShellParams): Promise<ShellSession>
@@ -429,18 +401,13 @@ openShell(params: OpenShellParams): Promise<ShellSession>
 
 Open a fully managed interactive PTY shell session on an agent VM.
 
-Returns a connected `ShellSession` — an async iterable that yields `ShellFrame`
-objects. Call `close()` when done, or use `try/finally`.
+Returns a connected `ShellSession` — an async iterable that yields `ShellFrame` objects. Call `close()` when done, or use `try/finally`.
 
-For lower-level control (custom WebSocket handling, browser relay), use the
-`connectShellSigV4`, `connectShellPresigned`, or `connectShellOAuth` helpers
-directly with `ShellFramer`.
+For lower-level control (custom WebSocket handling, browser relay), use the `connectShellSigV4`, `connectShellPresigned`, or `connectShellOAuth` helpers directly with `ShellFramer`.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`OpenShellParams`
-
+ `params` `OpenShellParams`   
 The connection parameters.
 
 ```
@@ -464,6 +431,7 @@ const shell = await client.openShell({
 ```
 
 ### getContext
+<a name="_getcontext"></a>
 
 ```
 getContext(): undefined | RequestContext
@@ -471,10 +439,9 @@ getContext(): undefined | RequestContext
 
 Get the current request context.
 
-**Returns**
+ **Returns** 
 
-`undefined | RequestContext` — The RequestContext if called within a request scope (inside runWithContext),
-undefined otherwise (for example, during app initialization or outside request handlers)
+ `undefined | RequestContext` — The RequestContext if called within a request scope (inside runWithContext), undefined otherwise (for example, during app initialization or outside request handlers)
 
 ```
 import { getContext } from 'bedrock-agentcore/context'
@@ -487,6 +454,7 @@ const handler = async (request, context) => {
 ```
 
 ### runWithContext
+<a name="_runwithcontext"></a>
 
 ```
 runWithContext(context: RequestContext, fn: () => T): T
@@ -494,38 +462,36 @@ runWithContext(context: RequestContext, fn: () => T): T
 
 Runs a function within a request context scope.
 
-**Parameters**
+ **Parameters** 
 
-`context`
-`RequestContext`
-
+ `context` `RequestContext`   
 The request context to make available
 
-`fn`
-`() ⇒ T`
-
+ `fn` `() ⇒ T`   
 The function to execute within the context scope
 
-**Returns**
+ **Returns** 
 
-`T` — The return value of the function
+ `T` — The return value of the function
 
 ### ShellFramer
+<a name="_shellframer"></a>
 
 ```
 ShellFramer
 ```
 
-Encodes and decodes binary channel-prefix WebSocket frames.
-Stateless — a single instance is safe to reuse across frames.
+Encodes and decodes binary channel-prefix WebSocket frames. Stateless — a single instance is safe to reuse across frames.
 
 #### constructor
+<a name="_constructor_3"></a>
 
 ```
 constructor(): ShellFramer
 ```
 
 #### decode
+<a name="_decode"></a>
 
 ```
 decode(frame: Buffer): ShellFrame
@@ -533,14 +499,13 @@ decode(frame: Buffer): ShellFrame
 
 Decode one raw WebSocket binary message into a ShellFrame.
 
-**Parameters**
+ **Parameters** 
 
-`frame`
-`Buffer`
-
+ `frame` `Buffer`   
 The frame data to process.
 
 #### encodeClose
+<a name="_encodeclose"></a>
 
 ```
 encodeClose(): Buffer
@@ -549,6 +514,7 @@ encodeClose(): Buffer
 Encode a graceful-shutdown CLOSE frame (empty payload).
 
 #### encodeHeartbeat
+<a name="_encodeheartbeat"></a>
 
 ```
 encodeHeartbeat(): Buffer
@@ -557,6 +523,7 @@ encodeHeartbeat(): Buffer
 Encode an app-level heartbeat frame (channel 0x05, empty payload).
 
 #### encodeResize
+<a name="_encoderesize"></a>
 
 ```
 encodeResize(width: number, height: number): Buffer
@@ -564,19 +531,16 @@ encodeResize(width: number, height: number): Buffer
 
 Encode a terminal resize event as a RESIZE frame.
 
-**Parameters**
+ **Parameters** 
 
-`width`
-`number`
-
+ `width` `number`   
 The width in pixels.
 
-`height`
-`number`
-
+ `height` `number`   
 The height in pixels.
 
 #### encodeStdin
+<a name="_encodestdin"></a>
 
 ```
 encodeStdin(data: string | Buffer<ArrayBufferLike>): Buffer
@@ -584,14 +548,13 @@ encodeStdin(data: string | Buffer<ArrayBufferLike>): Buffer
 
 Encode keyboard input or paste data as a STDIN frame.
 
-**Parameters**
+ **Parameters** 
 
-`data`
-`string | Buffer<ArrayBufferLike>`
-
+ `data` `string | Buffer<ArrayBufferLike>`   
 The data to process.
 
 ### ShellSession
+<a name="_shellsession"></a>
 
 ```
 ShellSession
@@ -599,44 +562,31 @@ ShellSession
 
 Async-iterable shell session wrapping a live PTY WebSocket.
 
-Read-only observable attributes (updated by the session as events arrive):
-
-- `shellId` — Server-confirmed shell identifier. Preserve to reconnect to the same PTY.
-- `sessionId` — Runtime session ID routing to the VM.
-- `reconnected` — True when the most recent connect reattached an existing PTY.
-- `kicked` — True when another client connected with the same shellId (close 4000).
-  Check this after the `for await` loop exits to distinguish a kick from
-  a clean shell exit.
-- `bytesDropped` — PTY ring-buffer bytes lost during the most recent disconnect, as
-  reported by the server in the reconnect confirmation frame.
-  Zero if no overflow occurred or on a fresh connection.
-- `exitCode` — Shell process exit code. `null` until the shell exits; `0` for a clean
-  exit. Check this after the `for await` loop exits alongside `kicked`.
+Read-only observable attributes (updated by the session as events arrive): - `shellId` — Server-confirmed shell identifier. Preserve to reconnect to the same PTY. - `sessionId` — Runtime session ID routing to the VM. - `reconnected` — True when the most recent connect reattached an existing PTY. - `kicked` — True when another client connected with the same shellId (close 4000). Check this after the `for await` loop exits to distinguish a kick from a clean shell exit. - `bytesDropped` — PTY ring-buffer bytes lost during the most recent disconnect, as reported by the server in the reconnect confirmation frame. Zero if no overflow occurred or on a fresh connection. - `exitCode` — Shell process exit code. `null` until the shell exits; `0` for a clean exit. Check this after the `for await` loop exits alongside `kicked`.
 
 #### constructor
+<a name="_constructor_4"></a>
 
 ```
 constructor(opts: ShellSessionOptions): ShellSession
 ```
 
-**Parameters**
+ **Parameters** 
 
-`opts`
-`ShellSessionOptions`
-
+ `opts` `ShellSessionOptions`   
 The options to use.
 
 #### \_terminateConnection
+<a name="_terminateconnection"></a>
 
 ```
 _terminateConnection(): void
 ```
 
-Forcibly terminates the underlying WebSocket without a clean handshake.
-Useful in tests to simulate an abrupt network drop and trigger the reconnect path.
-Has no effect if the session is not currently open.
+Forcibly terminates the underlying WebSocket without a clean handshake. Useful in tests to simulate an abrupt network drop and trigger the reconnect path. Has no effect if the session is not currently open.
 
 #### [asyncIterator]
+<a name="_asynciterator"></a>
 
 ```
 [asyncIterator](): AsyncIterator<ShellFrame>
@@ -644,9 +594,7 @@ Has no effect if the session is not currently open.
 
 Async iterator — yields inbound ShellFrames, reconnecting on drop if configured.
 
-The loop exits silently (no throw) in three cases: shell exit, kicked by a new
-client, or reconnect budget exhausted. Check `exitCode`, `kicked`, and
-`bytesDropped` after the loop to distinguish them:
+The loop exits silently (no throw) in three cases: shell exit, kicked by a new client, or reconnect budget exhausted. Check `exitCode`, `kicked`, and `bytesDropped` after the loop to distinguish them:
 
 ```
 for await (const frame of shell) { ... }
@@ -656,16 +604,16 @@ if (shell.bytesDropped > 0) { ... } // ring-buffer overflow on reconnect
 ```
 
 #### close
+<a name="_close"></a>
 
 ```
 close(): Promise<void>
 ```
 
-Send a CLOSE frame (0xFF) to permanently kill the shell, then close the WebSocket.
-The server kills the shell process (SIGHUP → SIGKILL) and responds with its own [0xFF].
-Unlike dropping the WebSocket (which detaches and allows reconnection), this is permanent.
+Send a CLOSE frame (0xFF) to permanently kill the shell, then close the WebSocket. The server kills the shell process (SIGHUP → SIGKILL) and responds with its own [0xFF]. Unlike dropping the WebSocket (which detaches and allows reconnection), this is permanent.
 
 #### connect
+<a name="_connect"></a>
 
 ```
 connect(): Promise<ShellSession>
@@ -674,6 +622,7 @@ connect(): Promise<ShellSession>
 Connect and read the initial STATUS metadata frame.
 
 #### resize
+<a name="_resize"></a>
 
 ```
 resize(width: number, height: number): Promise<void>
@@ -681,39 +630,32 @@ resize(width: number, height: number): Promise<void>
 
 Resize the terminal PTY.
 
-**Parameters**
+ **Parameters** 
 
-`width`
-`number`
-
+ `width` `number`   
 The width in pixels.
 
-`height`
-`number`
-
+ `height` `number`   
 The height in pixels.
 
 #### send
+<a name="_send"></a>
 
 ```
 send(data: string | Buffer<ArrayBufferLike>): Promise<void>
 ```
 
-Send text or raw bytes to the shell’s stdin.
-Pass a string for text commands; pass a Buffer for binary/escape sequences.
+Send text or raw bytes to the shell’s stdin. Pass a string for text commands; pass a Buffer for binary/escape sequences.
 
-If a reconnect is in flight, this waits for it and sends on the recovered
-connection. Throws a descriptive `Error` (never the raw `ws` "readyState 3"
-error) when the session is closed or could not be recovered.
+If a reconnect is in flight, this waits for it and sends on the recovered connection. Throws a descriptive `Error` (never the raw `ws` "readyState 3" error) when the session is closed or could not be recovered.
 
-**Parameters**
+ **Parameters** 
 
-`data`
-`string | Buffer<ArrayBufferLike>`
-
+ `data` `string | Buffer<ArrayBufferLike>`   
 The data to process.
 
 #### sendHeartbeat
+<a name="_sendheartbeat"></a>
 
 ```
 sendHeartbeat(): Promise<void>
@@ -722,42 +664,40 @@ sendHeartbeat(): Promise<void>
 Send a HEARTBEAT frame (0x05) to the server.
 
 ### validateShellId
+<a name="_validateshellid"></a>
 
 ```
 validateShellId(shellId: string): void
 ```
 
-Validate a shell ID.
-Must start with alphanumeric, contain only alphanumeric, \_ or -, max 128 chars.
+Validate a shell ID. Must start with alphanumeric, contain only alphanumeric, \_ or -, max 128 chars.
 
-**Parameters**
+ **Parameters** 
 
-`shellId`
-`string`
-
+ `shellId` `string`   
 The shell ID.
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if invalid.
 
 ## Identity
+<a name="ts-sdk-identity"></a>
 
-_Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand._
+ *Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand.* 
 
 ### IdentityClient
+<a name="_identityclient"></a>
 
 ```
 IdentityClient
 ```
 
-Client for interacting with Amazon Bedrock AgentCore Identity service.
-Provides methods for managing workload identities, credential providers,
-and retrieving OAuth2 tokens and API keys.
+Client for interacting with Amazon Bedrock AgentCore Identity service. Provides methods for managing workload identities, credential providers, and retrieving OAuth2 tokens and API keys.
 
 #### constructor
+<a name="_constructor"></a>
 
 ```
 constructor(region: string): IdentityClient
@@ -765,21 +705,18 @@ constructor(region: string): IdentityClient
 
 Creates a new IdentityClient instance
 
-**Parameters**
+ **Parameters** 
 
-`region`
-_(optional)_
-`string`
-
+ `region` *(optional)* `string`   
 The AWS Region (defaults to AWS\_REGION env var)
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if region cannot be determined
 
 #### getApiKey
+<a name="_getapikey"></a>
 
 ```
 getApiKey(request: ApiKeyRequest): Promise<string>
@@ -787,68 +724,60 @@ getApiKey(request: ApiKeyRequest): Promise<string>
 
 Retrieves an API key from Amazon Bedrock AgentCore Identity token vault.
 
-**Parameters**
+ **Parameters** 
 
-`request`
-`ApiKeyRequest`
-
+ `request` `ApiKeyRequest`   
 API key request parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — API key string
+ `Promise<string>` — API key string
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if API key retrieval fails
 
 #### getOAuth2Token
+<a name="_getoauth2token"></a>
 
 ```
 getOAuth2Token(request: OAuth2TokenRequest): Promise<string>
 ```
 
-Retrieves an OAuth2 access token from Amazon Bedrock AgentCore Identity.
-Handles both M2M (immediate), ON\_BEHALF\_OF\_TOKEN\_EXCHANGE (immediate) and USER\_FEDERATION (polling) flows.
+Retrieves an OAuth2 access token from Amazon Bedrock AgentCore Identity. Handles both M2M (immediate), ON\_BEHALF\_OF\_TOKEN\_EXCHANGE (immediate) and USER\_FEDERATION (polling) flows.
 
-**Parameters**
+ **Parameters** 
 
-`request`
-`OAuth2TokenRequest`
-
+ `request` `OAuth2TokenRequest`   
 OAuth2 token request parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — OAuth2 access token
+ `Promise<string>` — OAuth2 access token
 
-**Raises**
+ **Raises** 
 
-`Error`
-
+ `Error`   
 Error if token retrieval fails or times out
 
 ### withAccessToken
+<a name="_withaccesstoken"></a>
 
 ```
 withAccessToken(config: OAuth2WrapperConfig): <TParams extends [...unknown[], string], TReturn>(fn: (...args: TParams) => Promise<TReturn>) => (...args: InitParams<TParams>) => Promise<TReturn>
 ```
 
-Wraps an async function to automatically inject OAuth2 access token.
-The token is injected as the last parameter of the wrapped function.
+Wraps an async function to automatically inject OAuth2 access token. The token is injected as the last parameter of the wrapped function.
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`OAuth2WrapperConfig`
-
+ `config` `OAuth2WrapperConfig`   
 OAuth2 configuration
 
-**Returns**
+ **Returns** 
 
-`<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects token as last parameter
+ `<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects token as last parameter
 
 ```
 const myTool = withAccessToken({
@@ -865,24 +794,22 @@ await myTool('hello'); // token injected automatically
 ```
 
 ### withApiKey
+<a name="_withapikey"></a>
 
 ```
 withApiKey(config: ApiKeyWrapperConfig): <TParams extends [...unknown[], string], TReturn>(fn: (...args: TParams) => Promise<TReturn>) => (...args: InitParams<TParams>) => Promise<TReturn>
 ```
 
-Wraps an async function to automatically inject API key.
-The API key is injected as the last parameter of the wrapped function.
+Wraps an async function to automatically inject API key. The API key is injected as the last parameter of the wrapped function.
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`ApiKeyWrapperConfig`
-
+ `config` `ApiKeyWrapperConfig`   
 API key configuration
 
-**Returns**
+ **Returns** 
 
-`<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects API key as last parameter
+ `<TParams extends […​unknown[], string], TReturn>(fn: (…​args: TParams) ⇒ Promise<TReturn>) ⇒ (…​args: InitParams<TParams>) ⇒ Promise<TReturn>` — Function wrapper that injects API key as last parameter
 
 ```
 const myTool = withApiKey({
@@ -897,10 +824,12 @@ await myTool('hello'); // apiKey injected automatically
 ```
 
 ## Code Interpreter
+<a name="ts-sdk-code-interpreter"></a>
 
-_Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand._
+ *Auto-generated from `bedrock-agentcore` v0.4.1 — do not edit by hand.* 
 
 ### CodeInterpreter
+<a name="_codeinterpreter"></a>
 
 ```
 CodeInterpreter
@@ -923,6 +852,7 @@ await interpreter.stopSession()
 ```
 
 #### constructor
+<a name="_constructor"></a>
 
 ```
 constructor(config: CodeInterpreterConfig): CodeInterpreter
@@ -930,32 +860,28 @@ constructor(config: CodeInterpreterConfig): CodeInterpreter
 
 Creates a new CodeInterpreter instance.
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`CodeInterpreterConfig`
-
+ `config` `CodeInterpreterConfig`   
 Configuration options
 
 #### executeCode
+<a name="_executecode"></a>
 
 ```
 executeCode(params: ExecuteCodeParams): Promise<string>
 ```
 
-Execute code in a code interpreter session.
-Automatically creates a session if one doesn’t exist.
+Execute code in a code interpreter session. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ExecuteCodeParams`
-
+ `params` `ExecuteCodeParams`   
 Execution parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Execution result with output or error
+ `Promise<string>` — Execution result with output or error
 
 ```
 // Auto-creates default session
@@ -966,24 +892,22 @@ const result = await interpreter.executeCode({
 ```
 
 #### executeCommand
+<a name="_executecommand"></a>
 
 ```
 executeCommand(params: ExecuteCommandParams): Promise<string>
 ```
 
-Execute a shell command in a code interpreter session.
-Automatically creates a session if one doesn’t exist.
+Execute a shell command in a code interpreter session. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ExecuteCommandParams`
-
+ `params` `ExecuteCommandParams`   
 Command parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Command result with output or error
+ `Promise<string>` — Command result with output or error
 
 ```
 const result = await interpreter.executeCommand({
@@ -992,6 +916,7 @@ const result = await interpreter.executeCommand({
 ```
 
 #### getSession
+<a name="_getsession"></a>
 
 ```
 getSession(params: GetSessionParams): Promise<GetSessionResponse>
@@ -999,17 +924,14 @@ getSession(params: GetSessionParams): Promise<GetSessionResponse>
 
 Get detailed information about a code interpreter session.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-_(optional)_
-`GetSessionParams`
-
+ `params` *(optional)* `GetSessionParams`   
 The optional parameters specifying which session to query
 
-**Returns**
+ **Returns** 
 
-`Promise<GetSessionResponse>` — Detailed session information
+ `Promise<GetSessionResponse>` — Detailed session information
 
 ```
 // Get current active session details
@@ -1023,31 +945,29 @@ const sessionInfo = await interpreter.getSession({
 ```
 
 #### listFiles
+<a name="_listfiles"></a>
 
 ```
 listFiles(params: ListFilesParams): Promise<string>
 ```
 
-List files in the code interpreter sandbox.
-Automatically creates a session if one doesn’t exist.
+List files in the code interpreter sandbox. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-_(optional)_
-`ListFilesParams`
-
+ `params` *(optional)* `ListFilesParams`   
 List parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — List result with file information or error
+ `Promise<string>` — List result with file information or error
 
 ```
 const result = await interpreter.listFiles({ path: '/tmp' })
 ```
 
 #### listSessions
+<a name="_listsessions"></a>
 
 ```
 listSessions(params: ListSessionsParams): Promise<ListSessionsResponse>
@@ -1055,17 +975,14 @@ listSessions(params: ListSessionsParams): Promise<ListSessionsResponse>
 
 List code interpreter sessions for this interpreter.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-_(optional)_
-`ListSessionsParams`
-
+ `params` *(optional)* `ListSessionsParams`   
 The optional filtering and pagination parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<ListSessionsResponse>` — List of session summaries with optional pagination token
+ `Promise<ListSessionsResponse>` — List of session summaries with optional pagination token
 
 ```
 // List all active sessions
@@ -1085,24 +1002,22 @@ while (response.nextToken) {
 ```
 
 #### readFiles
+<a name="_readfiles"></a>
 
 ```
 readFiles(params: ReadFilesParams): Promise<string>
 ```
 
-Read files from the code interpreter sandbox.
-Automatically creates a session if one doesn’t exist.
+Read files from the code interpreter sandbox. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`ReadFilesParams`
-
+ `params` `ReadFilesParams`   
 Read parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Read result with file contents or errors
+ `Promise<string>` — Read result with file contents or errors
 
 ```
 const result = await interpreter.readFiles({
@@ -1111,24 +1026,22 @@ const result = await interpreter.readFiles({
 ```
 
 #### removeFiles
+<a name="_removefiles"></a>
 
 ```
 removeFiles(params: RemoveFilesParams): Promise<string>
 ```
 
-Remove files from the code interpreter sandbox.
-Automatically creates a session if one doesn’t exist.
+Remove files from the code interpreter sandbox. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`RemoveFilesParams`
-
+ `params` `RemoveFilesParams`   
 Remove parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Remove result with removed file paths or errors
+ `Promise<string>` — Remove result with removed file paths or errors
 
 ```
 await interpreter.removeFiles({
@@ -1137,6 +1050,7 @@ await interpreter.removeFiles({
 ```
 
 #### startSession
+<a name="_startsession"></a>
 
 ```
 startSession(params: StartSessionParams): Promise<SessionInfo>
@@ -1144,17 +1058,14 @@ startSession(params: StartSessionParams): Promise<SessionInfo>
 
 Start a new code interpreter session.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-_(optional)_
-`StartSessionParams`
-
+ `params` *(optional)* `StartSessionParams`   
 Session configuration
 
-**Returns**
+ **Returns** 
 
-`Promise<SessionInfo>` — Session information including AWS-assigned session ID
+ `Promise<SessionInfo>` — Session information including AWS-assigned session ID
 
 ```
 const session = await interpreter.startSession({
@@ -1165,37 +1076,35 @@ const session = await interpreter.startSession({
 ```
 
 #### stopSession
+<a name="_stopsession"></a>
 
 ```
 stopSession(): Promise<void>
 ```
 
-Stop the active code interpreter session.
-Gracefully handles non-existent sessions without throwing errors.
+Stop the active code interpreter session. Gracefully handles non-existent sessions without throwing errors.
 
 ```
 await interpreter.stopSession()
 ```
 
 #### writeFiles
+<a name="_writefiles"></a>
 
 ```
 writeFiles(params: WriteFilesParams): Promise<string>
 ```
 
-Write files to the code interpreter sandbox.
-Automatically creates a session if one doesn’t exist.
+Write files to the code interpreter sandbox. Automatically creates a session if one doesn’t exist.
 
-**Parameters**
+ **Parameters** 
 
-`params`
-`WriteFilesParams`
-
+ `params` `WriteFilesParams`   
 Write parameters
 
-**Returns**
+ **Returns** 
 
-`Promise<string>` — Write result with written file paths or errors
+ `Promise<string>` — Write result with written file paths or errors
 
 ```
 await interpreter.writeFiles({
@@ -1207,6 +1116,7 @@ await interpreter.writeFiles({
 ```
 
 ### createExecuteCodeTool (Strands SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-strands-execute-code-tool-createexecutecodetool"></a>
 
 ```
 createExecuteCodeTool(interpreter: CodeInterpreter): InvokableTool<{ code: string; language: "python" | "javascript" | "typescript" }, string>
@@ -1214,16 +1124,14 @@ createExecuteCodeTool(interpreter: CodeInterpreter): InvokableTool<{ code: strin
 
 Creates a Strands SDK tool for executing code in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`InvokableTool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Strands SDK tool for code execution
+ `InvokableTool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Strands SDK tool for code execution
 
 ```
 import { createExecuteCodeTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
@@ -1240,6 +1148,7 @@ const agent = new Agent({
 ```
 
 ### createExecuteCommandTool (Strands SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-strands-execute-command-tool-createexecutecommandtool"></a>
 
 ```
 createExecuteCommandTool(interpreter: CodeInterpreter): InvokableTool<{ command: string }, string>
@@ -1247,16 +1156,14 @@ createExecuteCommandTool(interpreter: CodeInterpreter): InvokableTool<{ command:
 
 Creates a Strands SDK tool for executing shell commands in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`InvokableTool<{ command: string }, string>` — Strands SDK tool for command execution
+ `InvokableTool<{ command: string }, string>` — Strands SDK tool for command execution
 
 ```
 import { createExecuteCommandTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
@@ -1273,6 +1180,7 @@ const agent = new Agent({
 ```
 
 ### createFileOperationsTool (Strands SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-strands-file-operations-tool-createfileoperationstool"></a>
 
 ```
 createFileOperationsTool(interpreter: CodeInterpreter): InvokableTool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>
@@ -1280,16 +1188,14 @@ createFileOperationsTool(interpreter: CodeInterpreter): InvokableTool<{ files?: 
 
 Creates a Strands SDK tool for file operations in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`InvokableTool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Strands SDK tool for file operations
+ `InvokableTool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Strands SDK tool for file operations
 
 ```
 import { createFileOperationsTool } from 'bedrock-agentcore/experimental/code-interpreter/strands'
@@ -1306,6 +1212,7 @@ const agent = new Agent({
 ```
 
 ### CodeInterpreterTools (Strands SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-strands-tools-codeinterpretertools"></a>
 
 ```
 CodeInterpreterTools
@@ -1336,19 +1243,19 @@ await codeInterpreter.stopSession()
 ```
 
 #### constructor
+<a name="_constructor_2"></a>
 
 ```
 constructor(config: CodeInterpreterConfig): CodeInterpreterTools
 ```
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`CodeInterpreterConfig`
-
+ `config` `CodeInterpreterConfig`   
 The configuration to use.
 
 #### getClient
+<a name="_getclient"></a>
 
 ```
 getClient(): CodeInterpreter
@@ -1358,11 +1265,12 @@ Get the underlying CodeInterpreter client
 
 Provides direct access to the client for advanced use cases.
 
-**Returns**
+ **Returns** 
 
-`CodeInterpreter` — The CodeInterpreter client instance
+ `CodeInterpreter` — The CodeInterpreter client instance
 
 #### startSession
+<a name="_startsession_2"></a>
 
 ```
 startSession(sessionName: string, timeout: number): Promise<SessionInfo>
@@ -1370,28 +1278,22 @@ startSession(sessionName: string, timeout: number): Promise<SessionInfo>
 
 Start a CodeInterpreter session
 
-Sessions are automatically started on first tool use, but you can
-call this explicitly to start the session upfront.
+Sessions are automatically started on first tool use, but you can call this explicitly to start the session upfront.
 
-**Parameters**
+ **Parameters** 
 
-`sessionName`
-_(optional)_
-`string`
+ `sessionName` *(optional)* `string`   
+The optional session name for AWS 
 
-The optional session name for AWS
-
-`timeout`
-_(optional)_
-`number`
-
+ `timeout` *(optional)* `number`   
 The optional session timeout in seconds (default: 900, max: 28800)
 
-**Returns**
+ **Returns** 
 
-`Promise<SessionInfo>` — Session information
+ `Promise<SessionInfo>` — Session information
 
 #### stopSession
+<a name="_stopsession_2"></a>
 
 ```
 stopSession(): Promise<void>
@@ -1402,6 +1304,7 @@ Stop the current CodeInterpreter session
 Call this when you’re done using the tools to clean up resources.
 
 ### createExecuteCodeTool (Vercel AI SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-vercel-ai-execute-code-tool-createexecutecodetool"></a>
 
 ```
 createExecuteCodeTool(interpreter: CodeInterpreter): Tool<{ code: string; language: "python" | "javascript" | "typescript" }, string>
@@ -1409,16 +1312,14 @@ createExecuteCodeTool(interpreter: CodeInterpreter): Tool<{ code: string; langua
 
 Creates a Vercel AI SDK tool for executing code in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`Tool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Vercel AI SDK tool for code execution
+ `Tool<{ code: string; language: "python" | "javascript" | "typescript" }, string>` — Vercel AI SDK tool for code execution
 
 ```
 import { createExecuteCodeTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
@@ -1435,6 +1336,7 @@ const agent = new ToolLoopAgent({
 ```
 
 ### createExecuteCommandTool (Vercel AI SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-vercel-ai-execute-command-tool-createexecutecommandtool"></a>
 
 ```
 createExecuteCommandTool(interpreter: CodeInterpreter): Tool<{ command: string }, string>
@@ -1442,16 +1344,14 @@ createExecuteCommandTool(interpreter: CodeInterpreter): Tool<{ command: string }
 
 Creates a Vercel AI SDK tool for executing shell commands in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`Tool<{ command: string }, string>` — Vercel AI SDK tool for command execution
+ `Tool<{ command: string }, string>` — Vercel AI SDK tool for command execution
 
 ```
 import { createExecuteCommandTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
@@ -1468,6 +1368,7 @@ const agent = new ToolLoopAgent({
 ```
 
 ### createFileOperationsTool (Vercel AI SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-vercel-ai-file-operations-tool-createfileoperationstool"></a>
 
 ```
 createFileOperationsTool(interpreter: CodeInterpreter): Tool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>
@@ -1475,16 +1376,14 @@ createFileOperationsTool(interpreter: CodeInterpreter): Tool<{ files?: { content
 
 Creates a Vercel AI SDK tool for file operations in CodeInterpreter.
 
-**Parameters**
+ **Parameters** 
 
-`interpreter`
-`CodeInterpreter`
-
+ `interpreter` `CodeInterpreter`   
 CodeInterpreter instance
 
-**Returns**
+ **Returns** 
 
-`Tool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Vercel AI SDK tool for file operations
+ `Tool<{ files?: { content: string; path: string }[]; operation: "remove" | "write" | "read" | "list"; path: string; paths?: string[] }, string>` — Vercel AI SDK tool for file operations
 
 ```
 import { createFileOperationsTool } from 'bedrock-agentcore/code-interpreter/vercel-ai'
@@ -1501,6 +1400,7 @@ const agent = new ToolLoopAgent({
 ```
 
 ### CodeInterpreterTools (Vercel AI SDK)
+<a name="code-interpreter-src-tools-code-interpreter-integrations-vercel-ai-tools-codeinterpretertools"></a>
 
 ```
 CodeInterpreterTools
@@ -1532,19 +1432,19 @@ await codeInterpreter.stopSession()
 ```
 
 #### constructor
+<a name="_constructor_3"></a>
 
 ```
 constructor(config: CodeInterpreterConfig): CodeInterpreterTools
 ```
 
-**Parameters**
+ **Parameters** 
 
-`config`
-`CodeInterpreterConfig`
-
+ `config` `CodeInterpreterConfig`   
 The configuration to use.
 
 #### getClient
+<a name="_getclient_2"></a>
 
 ```
 getClient(): CodeInterpreter
@@ -1554,11 +1454,12 @@ Get the underlying CodeInterpreter client
 
 Provides direct access to the client for advanced use cases.
 
-**Returns**
+ **Returns** 
 
-`CodeInterpreter` — The CodeInterpreter client instance
+ `CodeInterpreter` — The CodeInterpreter client instance
 
 #### startSession
+<a name="_startsession_3"></a>
 
 ```
 startSession(sessionName: string, timeout: number): Promise<SessionInfo>
@@ -1566,28 +1467,22 @@ startSession(sessionName: string, timeout: number): Promise<SessionInfo>
 
 Start a CodeInterpreter session
 
-Sessions are automatically started on first tool use, but you can
-call this explicitly to start the session upfront.
+Sessions are automatically started on first tool use, but you can call this explicitly to start the session upfront.
 
-**Parameters**
+ **Parameters** 
 
-`sessionName`
-_(optional)_
-`string`
+ `sessionName` *(optional)* `string`   
+The optional session name for AWS 
 
-The optional session name for AWS
-
-`timeout`
-_(optional)_
-`number`
-
+ `timeout` *(optional)* `number`   
 The optional session timeout in seconds (default: 900, max: 28800)
 
-**Returns**
+ **Returns** 
 
-`Promise<SessionInfo>` — Session information
+ `Promise<SessionInfo>` — Session information
 
 #### stopSession
+<a name="_stopsession_3"></a>
 
 ```
 stopSession(): Promise<void>

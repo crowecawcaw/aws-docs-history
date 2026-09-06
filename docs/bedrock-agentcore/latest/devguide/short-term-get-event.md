@@ -1,6 +1,9 @@
-# Get an event
 
-The [GetEvent](../APIReference/API_GetEvent.md "../APIReference/API_GetEvent.md") API retrieves a specific raw event by its identifier from short-term memory in AgentCore Memory. This API requires you to specify the `memoryId` , `actorId` , `sessionId` , and `eventId` as path parameters in the request URL.
+
+# Get an event
+<a name="short-term-get-event"></a>
+
+The [GetEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetEvent.html) API retrieves a specific raw event by its identifier from short-term memory in AgentCore Memory. This API requires you to specify the `memoryId` , `actorId` , `sessionId` , and `eventId` as path parameters in the request URL.
 
 ```
 import boto3

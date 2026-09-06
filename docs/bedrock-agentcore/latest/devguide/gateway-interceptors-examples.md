@@ -1,8 +1,12 @@
+
+
 # Examples
+<a name="gateway-interceptors-examples"></a>
 
 The following examples show Python AWS Lambda functions for common interceptor use cases.
 
 ## Pass-through interceptor
+<a name="gateway-interceptors-examples-passthrough"></a>
 
 This example demonstrates a simple interceptor that logs the MCP method for REQUEST interceptors and passes all requests and responses through unchanged:
 
@@ -64,12 +68,12 @@ def lambda_handler(event, context):
 This Lambda function can be configured as both a REQUEST and RESPONSE interceptor. When configured as a REQUEST interceptor, it will log the MCP method from the incoming request. When configured as a RESPONSE interceptor, it will simply pass the response through unchanged. Both interceptor types return the original data without modification, making this a "pass-through" interceptor.
 
 ## Customize model routing with a request interceptor
+<a name="gateway-interceptors-examples-model-routing"></a>
 
-For inference targets, the gateway selects a target from the `model` field using [model-based routing](gateway-target-inference-connector.md#gateway-target-inference-connector-routing "gateway-target-inference-connector.md#gateway-target-inference-connector-routing"). A REQUEST interceptor can rewrite `model` before the gateway evaluates routing, which lets you support a _virtual model ID_: a stable alias that does not map to any single configured model. The interceptor resolves the alias to a concrete target-qualified ID in the form `{targetName}/{modelId}`, so callers use one name while you control model selection centrally.
+For inference targets, the gateway selects a target from the `model` field using [model-based routing](gateway-target-inference-connector.html#gateway-target-inference-connector-routing). A REQUEST interceptor can rewrite `model` before the gateway evaluates routing, which lets you support a *virtual model ID*: a stable alias that does not map to any single configured model. The interceptor resolves the alias to a concrete target-qualified ID in the form `{targetName}/{modelId}`, so callers use one name while you control model selection centrally.
 
-###### HTTP interceptor payload
-
-Inference targets use the `http` interceptor payload, in which the request body is a base64-encoded string. For more information, see [Interceptors for HTTP targets](gateway-interceptors-types.md#gateway-interceptors-types-http "gateway-interceptors-types.md#gateway-interceptors-types-http").
+**HTTP interceptor payload**  
+Inference targets use the `http` interceptor payload, in which the request body is a base64-encoded string. For more information, see [Interceptors for HTTP targets](gateway-interceptors-types.html#gateway-interceptors-types-http).
 
 The following REQUEST interceptor resolves the virtual model ID `auto-claude` to a specific Anthropic model based on the size of the request input: `anthropic/claude-haiku-4-5` for small requests, `anthropic/claude-sonnet-4-6` for medium requests, and `anthropic/claude-opus-4-7` for large requests. Callers send `auto-claude`, and the gateway routes each request to the resolved model on the `anthropic` target. Requests that use any other model ID pass through unchanged and follow normal model-based routing.
 
@@ -134,7 +138,7 @@ def lambda_handler(event, context):
     }
 ```
 
-Attach the function to your gateway as a REQUEST interceptor. For instructions, see [Configuring interceptors](gateway-interceptors-configuration.md#gateway-interceptors-configuration-creation "gateway-interceptors-configuration.md#gateway-interceptors-configuration-creation"). The gateway service role must also have permission to invoke the function. For more information, see [Permissions for interceptors](gateway-interceptors-permissions.md "gateway-interceptors-permissions.md").
+Attach the function to your gateway as a REQUEST interceptor. For instructions, see [Configuring interceptors](gateway-interceptors-configuration.html#gateway-interceptors-configuration-creation). The gateway service role must also have permission to invoke the function. For more information, see [Permissions for interceptors](gateway-interceptors-permissions.html).
 
 To see the resolution, send a request that uses the `auto-claude` alias. The interceptor rewrites `model` to a concrete Anthropic model based on the input size, and the gateway routes the request to that model on the `anthropic` target.
 

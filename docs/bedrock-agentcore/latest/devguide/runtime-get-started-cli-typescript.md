@@ -1,36 +1,39 @@
+
+
 # Get started with the AgentCore CLI in TypeScript
+<a name="runtime-get-started-cli-typescript"></a>
 
-This tutorial shows you how to use the [AgentCore CLI](https://github.com/aws/agentcore-cli "https://github.com/aws/agentcore-cli") to create, deploy, and invoke a TypeScript agent on Amazon Bedrock AgentCore Runtime. This tutorial takes approximately 20 minutes to complete.
+This tutorial shows you how to use the [AgentCore CLI](https://github.com/aws/agentcore-cli) to create, deploy, and invoke a TypeScript agent on Amazon Bedrock AgentCore Runtime. This tutorial takes approximately 20 minutes to complete.
 
-The AgentCore CLI is a command-line tool that scaffolds agent projects, deploys them to Amazon Bedrock AgentCore Runtime, and invokes them. This tutorial uses the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") framework with TypeScript and direct code deployment (CodeZip).
+The AgentCore CLI is a command-line tool that scaffolds agent projects, deploys them to Amazon Bedrock AgentCore Runtime, and invokes them. This tutorial uses the [Strands Agents](https://strandsagents.com/latest/) framework with TypeScript and direct code deployment (CodeZip).
 
-The AWS resources created in this tutorial might result in charges to your AWS account. When you finish the tutorial, you can remove resources by following the steps in [Step 7: Clean up](#ts-stop-session-or-clean-up "#ts-stop-session-or-clean-up").
+The AWS resources created in this tutorial might result in charges to your AWS account. When you finish the tutorial, you can remove resources by following the steps in [Step 7: Clean up](#ts-stop-session-or-clean-up).
 
-For information about the HTTP protocol that the agent uses, see [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md").
+For information about the HTTP protocol that the agent uses, see [HTTP protocol contract](runtime-http-protocol-contract.md).
 
-###### Topics
-
-- [Prerequisites](#ts-prerequisites "#ts-prerequisites")
-- [Step 1: Install the AgentCore CLI](#ts-setup-project "#ts-setup-project")
-- [Step 2: Create your agent project](#ts-create-agent "#ts-create-agent")
-- [Step 3: Test your agent locally](#ts-test-locally "#ts-test-locally")
-- [Step 4: Deploy to Amazon Bedrock AgentCore Runtime](#ts-deploy-runtime "#ts-deploy-runtime")
-- [Step 5: Test your deployed agent](#ts-test-deployed-agent "#ts-test-deployed-agent")
-- [Step 6: Invoke your deployed agent programmatically](#ts-invoke-programmatically "#ts-invoke-programmatically")
-- [Step 7: Clean up](#ts-stop-session-or-clean-up "#ts-stop-session-or-clean-up")
-- [Find your resources](#ts-find-resources "#ts-find-resources")
-- [Common issues and solutions](#ts-common-issues "#ts-common-issues")
+**Topics**
++ [Prerequisites](#ts-prerequisites)
++ [Step 1: Install the AgentCore CLI](#ts-setup-project)
++ [Step 2: Create your agent project](#ts-create-agent)
++ [Step 3: Test your agent locally](#ts-test-locally)
++ [Step 4: Deploy to Amazon Bedrock AgentCore Runtime](#ts-deploy-runtime)
++ [Step 5: Test your deployed agent](#ts-test-deployed-agent)
++ [Step 6: Invoke your deployed agent programmatically](#ts-invoke-programmatically)
++ [Step 7: Clean up](#ts-stop-session-or-clean-up)
++ [Find your resources](#ts-find-resources)
++ [Common issues and solutions](#ts-common-issues)
 
 ## Prerequisites
+<a name="ts-prerequisites"></a>
 
 Before you start, make sure you have:
-
-- **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
-- **Node.js 22+** installed. The AgentCore CLI is distributed as an npm package, and the generated agent code is TypeScript. We recommend installing the same major version you plan to deploy on AgentCore Runtime. For supported versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md "runtime-code-deploy-supported-runtimes.md").
-- **AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
-- **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
++  ** AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) 
++  **Node.js 22\+** installed. The AgentCore CLI is distributed as an npm package, and the generated agent code is TypeScript. We recommend installing the same major version you plan to deploy on AgentCore Runtime. For supported versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md).
++  ** AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For information, see [Use the AgentCore CLI](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html#runtime-permissions-cli).
++  **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4).
 
 ## Step 1: Install the AgentCore CLI
+<a name="ts-setup-project"></a>
 
 Install the AgentCore CLI globally:
 
@@ -45,32 +48,31 @@ agentcore --version
 ```
 
 ## Step 2: Create your agent project
+<a name="ts-create-agent"></a>
 
 Use the `agentcore create` command to scaffold a new TypeScript agent project:
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 1. Create a project without an agent, then add a TypeScript agent:
 
-```
-agentcore create --project-name MyTsAgent --no-agent
-cd MyTsAgent
-agentcore add agent --name TsAgent --type create --build CodeZip --language TypeScript --framework Strands --model-provider Bedrock --memory none
-```
-
-Interactive
+   ```
+   agentcore create --project-name MyTsAgent --no-agent
+   cd MyTsAgent
+   agentcore add agent --name TsAgent --type create --build CodeZip --language TypeScript --framework Strands --model-provider Bedrock --memory none
+   ```
 
 1. Run `agentcore create` without flags to launch the interactive wizard:
 
-```
-agentcore create
-```
+   ```
+   agentcore create
+   ```
 
-2. Enter your project name.
-3. When prompted, add an agent and select **TypeScript** as the language, **Strands** as the framework, and **CodeZip** as the build type.
-4. Review your configuration and confirm.
+1. Enter your project name.
+
+1. When prompted, add an agent and select **TypeScript** as the language, **Strands** as the framework, and **CodeZip** as the build type.
+
+1. Review your configuration and confirm.
 
 The following abbreviated structure shows the primary generated files:
 
@@ -98,90 +100,62 @@ MyTsAgent/
 The `agentcore/agentcore.json` file contains your project and agent configuration. The `app/TsAgent/main.ts` file contains starter agent code using the Strands Agents framework.
 
 ## Step 3: Test your agent locally
+<a name="ts-test-locally"></a>
 
 Before deploying to AWS, test your agent locally using the development server:
 
-###### Example
+**Example**  
 
-AgentCore CLI
-
-1. ```
+1. 
 
    ```
-
-agentcore dev
-
-```
-
-
-Interactive
+   agentcore dev
+   ```
 
 1. Run `agentcore` to open the TUI home screen, then select **dev** to start the local development server:
 
-
-
-```
-
-agentcore
-
-```
-
-
+   ```
+   agentcore
+   ```
 
 The `agentcore dev` command:
-
-
-
-* Opens agent inspector in your web browser
-* Automatically installs dependencies and compiles TypeScript
-* Starts a local server that mimics the AgentCore Runtime environment
-* Runs on `http://localhost:8080` by default (use `-p` to change the port)
++ Opens agent inspector in your web browser
++ Automatically installs dependencies and compiles TypeScript
++ Starts a local server that mimics the AgentCore Runtime environment
++ Runs on `http://localhost:8080` by default (use `-p` to change the port)
 
 To view server logs in real time (non-interactive mode), use the `--logs` flag:
 
-
-
 ```
-
 agentcore dev --logs
-
 ```
 
 In a separate terminal, invoke your local agent:
 
-
-
 ```
-
 agentcore dev "Hello, tell me a joke"
-
-````
+```
 
 Passing a prompt sends it to the running local development server. Use `--stream` to see the response streamed in real time.
 
-
 ## Step 4: Deploy to Amazon Bedrock AgentCore Runtime
-
+<a name="ts-deploy-runtime"></a>
 
 Deploy your agent to Amazon Bedrock AgentCore Runtime:
 
+**Example**  
 
-###### Example
+1. 
 
-
-AgentCore CLI
-
-1. ```
-agentcore deploy
-````
-
-Interactive
+   ```
+   agentcore deploy
+   ```
 
 1. Run `agentcore deploy` to start deployment. The CLI shows the deployment progress as it builds and deploys your project:
 
-```
-agentcore deploy
-```
+   ```
+   agentcore deploy
+   ```
 
 To preview the deployment without making changes, use the `--dry-run` flag:
 
@@ -190,308 +164,220 @@ agentcore deploy --dry-run
 ```
 
 The `agentcore deploy` command:
-
-- Reads your `agentcore/agentcore.json` and `agentcore/aws-targets.json` configuration
-- Compiles TypeScript to JavaScript and packages your agent code as a CodeZip archive
-- Uses the AWS CDK to synthesize and deploy CloudFormation resources
-- Creates the necessary AWS resources (IAM roles, Amazon Bedrock AgentCore Runtime, etc.)
++ Reads your `agentcore/agentcore.json` and `agentcore/aws-targets.json` configuration
++ Compiles TypeScript to JavaScript and packages your agent code as a CodeZip archive
++ Uses the AWS CDK to synthesize and deploy CloudFormation resources
++ Creates the necessary AWS resources (IAM roles, Amazon Bedrock AgentCore Runtime, etc.)
 
 Use `-v` for verbose output that shows resource-level deployment events. Use `-y` to auto-confirm the deployment without a prompt.
 
-If the deployment fails, check for [common issues](#ts-common-issues "#ts-common-issues").
+If the deployment fails, check for [common issues](#ts-common-issues).
 
 ## Step 5: Test your deployed agent
+<a name="ts-test-deployed-agent"></a>
 
 After deployment completes, invoke your deployed agent:
 
-###### Example
+**Example**  
 
-AgentCore CLI
-
-1. ```
+1. 
 
    ```
+   agentcore invoke "Tell me a joke"
+   ```
 
-agentcore invoke "Tell me a joke"
+   You can also pass the prompt with the `--prompt` flag, specify a runtime with `--runtime` , or stream the response in real time with `--stream` :
 
-```
+   ```
+   agentcore invoke --prompt "Tell me a joke" --stream
+   ```
 
-You can also pass the prompt with the `--prompt` flag, specify a runtime with `--runtime` , or stream the response in real time with `--stream` :
+   To maintain a conversation across multiple invocations, use the `--session-id` flag:
 
-
-
-```
-
-agentcore invoke --prompt "Tell me a joke" --stream
-
-```
-
-To maintain a conversation across multiple invocations, use the `--session-id` flag:
-
-
-
-```
-
-agentcore invoke --session-id 12345678-1234-1234-1234-123456789012 "What else can you tell me?"
-
-```
-
-
-Interactive
+   ```
+   agentcore invoke --session-id 12345678-1234-1234-1234-123456789012 "What else can you tell me?"
+   ```
 
 1. Run `agentcore` to open the TUI home screen, then select the invoke option to chat with your deployed agent:
 
+   ```
+   agentcore
+   ```
 
-
-```
-
-agentcore
-
-```
-
-
-
-If you see a joke in the response, your agent is running in Amazon Bedrock AgentCore Runtime and can be invoked. If not, check for [common issues](#ts-common-issues "#ts-common-issues").
-
+If you see a joke in the response, your agent is running in Amazon Bedrock AgentCore Runtime and can be invoked. If not, check for [common issues](#ts-common-issues).
 
 ## Step 6: Invoke your deployed agent programmatically
+<a name="ts-invoke-programmatically"></a>
 
-
-###### Example
-
-
-AgentCore CLI
+**Example**  
 
 1. Invoke your deployed agent with a prompt:
 
+   ```
+   agentcore invoke --runtime TsAgent "Hello, what can you do?"
+   ```
 
+   Stream the response in real time:
 
-```
+   ```
+   agentcore invoke --runtime TsAgent "Tell me a joke" --stream
+   ```
 
-agentcore invoke --runtime TsAgent "Hello, what can you do?"
+   Run `agentcore invoke` without a prompt to open the interactive chat TUI, which streams responses by default and maintains your session automatically.
 
-```
+1. You can also invoke the agent using the AWS SDK [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) operation. To get the ARN of your deployed agent, use the `agentcore status` command:
 
-Stream the response in real time:
+   ```
+   agentcore status
+   ```
 
+   Use the following TypeScript code to invoke your agent. Replace {{Agent ARN}} with the ARN of your agent. Make sure that you have `bedrock-agentcore:InvokeAgentRuntime` permissions. Create a file named `invoke-agent.ts` and add the following code:
 
+   ```
+   import {
+     BedrockAgentCoreClient,
+     InvokeAgentRuntimeCommand
+   } from '@aws-sdk/client-bedrock-agentcore';
+   import { randomUUID } from 'crypto';
+   
+   const agentArn = 'Agent ARN';
+   const prompt = 'Tell me a joke';
+   
+   // Initialize the Amazon Bedrock AgentCore client
+   const client = new BedrockAgentCoreClient({ region: 'us-west-2' });
+   
+   // Invoke the agent
+   const command = new InvokeAgentRuntimeCommand({
+     agentRuntimeArn: agentArn,
+     runtimeSessionId: randomUUID(),
+     payload: JSON.stringify({ prompt }),
+     contentType: 'application/json',
+     qualifier: 'DEFAULT',
+   });
+   
+   const response = await client.send(command);
+   const textResponse = await response.response?.transformToString();
+   
+   console.log('Response:', textResponse);
+   ```
 
-```
+   Open a terminal window and run the code with the following command:
 
-agentcore invoke --runtime TsAgent "Tell me a joke" --stream
+   ```
+   npx tsx invoke-agent.ts
+   ```
 
-```
-
-Run `agentcore invoke` without a prompt to open the interactive chat TUI, which streams responses by default and maintains your session automatically.
-
-
-
- AWS SDK for JavaScript
-
-1. You can also invoke the agent using the AWS SDK [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") operation. To get the ARN of your deployed agent, use the `agentcore status` command:
-
-
-
-```
-
-agentcore status
-
-```
-
-Use the following TypeScript code to invoke your agent. Replace `Agent ARN` with the ARN of your agent. Make sure that you have `bedrock-agentcore:InvokeAgentRuntime` permissions. Create a file named `invoke-agent.ts` and add the following code:
-
-
-
-```
-
-import {
-BedrockAgentCoreClient,
-InvokeAgentRuntimeCommand
-} from '@aws-sdk/client-bedrock-agentcore';
-import { randomUUID } from 'crypto';
-
-const agentArn = 'Agent ARN';
-const prompt = 'Tell me a joke';
-
-// Initialize the Amazon Bedrock AgentCore client
-const client = new BedrockAgentCoreClient({ region: 'us-west-2' });
-
-// Invoke the agent
-const command = new InvokeAgentRuntimeCommand({
-agentRuntimeArn: agentArn,
-runtimeSessionId: randomUUID(),
-payload: JSON.stringify({ prompt }),
-contentType: 'application/json',
-qualifier: 'DEFAULT',
-});
-
-const response = await client.send(command);
-const textResponse = await response.response?.transformToString();
-
-console.log('Response:', textResponse);
-
-```
-
-Open a terminal window and run the code with the following command:
-
-
-
-```
-
-npx tsx invoke-agent.ts
-
-````
-
-If successful, you should see a joke in the response. If the call fails, check the logs using `agentcore logs` or view them in Amazon CloudWatch.
-
-
-###### Note
-
-If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to `InvokeAgentRuntime` . For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
-
-
+   If successful, you should see a joke in the response. If the call fails, check the logs using `agentcore logs` or view them in Amazon CloudWatch.
+**Note**  
+If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to `InvokeAgentRuntime` . For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md).
 
 ## Step 7: Clean up
-
+<a name="ts-stop-session-or-clean-up"></a>
 
 If you no longer want to host the agent in Amazon Bedrock AgentCore Runtime, remove the deployed AWS resources. First, remove all resources from your local configuration:
 
+**Example**  
 
-###### Example
+1. 
 
-
-AgentCore CLI
-
-1. ```
-agentcore remove all
-````
-
-Interactive
+   ```
+   agentcore remove all
+   ```
 
 1. Run `agentcore` to open the TUI home screen, then select the remove option to choose which resources to remove:
 
-```
-agentcore
-```
+   ```
+   agentcore
+   ```
 
 Then deploy again to tear down the AWS resources:
 
-###### Example
+**Example**  
 
-AgentCore CLI
-
-1. ```
+1. 
 
    ```
-
-agentcore deploy
-
-````
-
-
-Interactive
+   agentcore deploy
+   ```
 
 1. From the AgentCore CLI home screen, select `deploy` to apply the removal and tear down AWS resources.
 
-
-
 The `remove all` command resets the `agentcore/agentcore.json` configuration file while preserving `agentcore/aws-targets.json` and deployment state. The subsequent `deploy` detects the removed resources and tears down the corresponding AWS resources.
 
-
 ## Find your resources
-
+<a name="ts-find-resources"></a>
 
 After deployment, you can check the status of your resources by using the AgentCore CLI:
 
+**Example**  
 
-###### Example
+1. 
 
-
-AgentCore CLI
-
-1. ```
-agentcore status
-````
-
-Interactive
+   ```
+   agentcore status
+   ```
 
 1. Run `agentcore` and select `status` to view a live dashboard of all deployed resources:
 
-```
-agentcore
-```
+   ```
+   agentcore
+   ```
 
 You can also view your resources in the AWS Console:
 
-| Resource                 | Location                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| **Agent Logs**           | CloudWatch → Log groups → `/aws/bedrock-agentcore/runtimes/{agent-id}-DEFAULT` |
-| **CloudFormation Stack** | CloudFormation → Stacks → search for your project name                         |
-| **IAM Role**             | IAM → Roles → Search for "BedrockAgentCore"                                    |
-| **S3 Assets (CodeZip)**  | S3 → Buckets → CDK staging bucket                                              |
+
+| Resource | Location | 
+| --- | --- | 
+|  **Agent Logs**  | CloudWatch → Log groups → `/aws/bedrock-agentcore/runtimes/{agent-id}-DEFAULT`  | 
+|  **CloudFormation Stack**  | CloudFormation → Stacks → search for your project name | 
+|  **IAM Role**  | IAM → Roles → Search for "BedrockAgentCore" | 
+|  **S3 Assets (CodeZip)**  | S3 → Buckets → CDK staging bucket | 
 
 ## Common issues and solutions
+<a name="ts-common-issues"></a>
 
-Common issues and solutions when getting started with the AgentCore CLI for TypeScript. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
+Common issues and solutions when getting started with the AgentCore CLI for TypeScript. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html).
 
-**Permission denied errors**
+ **Permission denied errors**   
+Verify your AWS credentials and permissions:  
++ Verify AWS credentials: `aws sts get-caller-identity` 
++ Check you have the required policies attached
++ Review caller permissions policy for detailed requirements
 
-Verify your AWS credentials and permissions:
-
-- Verify AWS credentials: `aws sts get-caller-identity`
-- Check you have the required policies attached
-- Review caller permissions policy for detailed requirements
-
-**Model access denied**
-
+ **Model access denied**   
 Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the model access steps and make sure that the model is available in your deployment Region.
 
-**CDK deployment errors**
+ **CDK deployment errors**   
+Check deployment permissions:  
++ Verify your caller permissions include CloudFormation and CDK access
++ Use `agentcore deploy --yes` to authorize automatic CDK bootstrap when it is required
++ Use `agentcore deploy --verbose` for resource-level deployment events
 
-Check deployment permissions:
+ **TypeScript compilation errors**   
+Ensure your TypeScript configuration is correct:  
++ Run `npm run build` locally in the agent directory to check for errors
++ Verify `tsconfig.json` exists and has correct settings
++ Ensure `"type": "module"` is set in `package.json` 
 
-- Verify your caller permissions include CloudFormation and CDK access
-- Use `agentcore deploy --yes` to authorize automatic CDK bootstrap when it is required
-- Use `agentcore deploy --verbose` for resource-level deployment events
+ **Deployment package too large**   
+The maximum size for a .zip deployment package is 250 MB (zipped) and 750 MB (unzipped). To reduce package size:  
++ The CLI uses esbuild bundling automatically to produce a smaller artifact
++ Remove unnecessary dependencies from `package.json` 
 
-**TypeScript compilation errors**
+ **Native module architecture mismatch**   
+AgentCore Runtime only supports **arm64** architecture. If your agent uses npm packages with native modules (`.node` or `.so` files), ensure they are compiled for Linux arm64:  
++ Install dependencies on an arm64 machine or use `npm install --arch=arm64 --platform=linux` 
++ Most popular npm packages are pure JavaScript and do not require native modules
 
-Ensure your TypeScript configuration is correct:
+ **Port 8080 in use (local only)**   
+Find and stop processes that are using port 8080:  
+Use `lsof -ti:8080` to get a list of processes using port 8080.  
+Use `kill -9 PID` to stop the process. Replace {{PID}} with the process ID.  
+Alternatively, start the dev server on a different port: `agentcore dev --port 3000` 
 
-- Run `npm run build` locally in the agent directory to check for errors
-- Verify `tsconfig.json` exists and has correct settings
-- Ensure `"type": "module"` is set in `package.json`
-
-**Deployment package too large**
-
-The maximum size for a .zip deployment package is 250 MB (zipped) and 750 MB (unzipped). To reduce package size:
-
-- The CLI uses esbuild bundling automatically to produce a smaller artifact
-- Remove unnecessary dependencies from `package.json`
-
-**Native module architecture mismatch**
-
-AgentCore Runtime only supports **arm64** architecture. If your agent uses npm packages with native modules (`.node` or `.so` files), ensure they are compiled for Linux arm64:
-
-- Install dependencies on an arm64 machine or use `npm install --arch=arm64 --platform=linux`
-- Most popular npm packages are pure JavaScript and do not require native modules
-
-**Port 8080 in use (local only)**
-
-Find and stop processes that are using port 8080:
-
-Use `lsof -ti:8080` to get a list of processes using port 8080.
-
-Use `kill -9 PID` to stop the process. Replace `PID` with the process ID.
-
-Alternatively, start the dev server on a different port: `agentcore dev --port 3000`
-
-**Region mismatch**
-
+ **Region mismatch**   
 Verify the AWS Region with `aws configure get region` and make sure the region in `agentcore/aws-targets.json` matches where your resources should be deployed.
 
-**Configuration validation errors**
-
-Validate your configuration files:
-
+ **Configuration validation errors**   
+Validate your configuration files:  
 Use `agentcore validate` to check for syntax or schema errors in `agentcore/agentcore.json` and related configuration files.

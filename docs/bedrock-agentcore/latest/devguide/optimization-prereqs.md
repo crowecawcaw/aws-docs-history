@@ -1,22 +1,26 @@
+
+
 # Prerequisites
+<a name="optimization-prereqs"></a>
 
 Before using AgentCore optimization features, make sure the following are in place.
 
 ## Requirements and supported frameworks
+<a name="optimization-prereqs-evaluation"></a>
 
 Recommendations and A/B testing have the same agent requirements as AgentCore Evaluations:
-
-- An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
-- [Transaction Search](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.md") enabled in CloudWatch.
-- Agent sessions with telemetry data in CloudWatch Logs. Invoke your agent and wait 2–5 minutes for CloudWatch to ingest the telemetry before starting a recommendation or A/B test.
++ An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md). For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md).
++  [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.html) enabled in CloudWatch.
++ Agent sessions with telemetry data in CloudWatch Logs. Invoke your agent and wait 2–5 minutes for CloudWatch to ingest the telemetry before starting a recommendation or A/B test.
 
 ## SDK and CLI requirements
-
-- **AgentCore CLI:** Install the latest version by running `agentcore update`.
-- **AWS SDK (boto3):** Python 3.10 or later. Install or upgrade with `pip install --upgrade boto3`.
-- **AgentCore SDK:** If using the `bedrock-agentcore-sdk-python`, version 1.8 or later is required.
+<a name="optimization-prereqs-sdk-cli"></a>
++  **AgentCore CLI:** Install the latest version by running `agentcore update`.
++  ** AWS SDK (boto3):** Python 3.10 or later. Install or upgrade with `pip install --upgrade boto3`.
++  **AgentCore SDK:** If using the `bedrock-agentcore-sdk-python`, version 1.8 or later is required.
 
 ## IAM permissions
+<a name="optimization-prereqs-iam"></a>
 
 The following IAM policy grants permissions for all three optimization features:
 

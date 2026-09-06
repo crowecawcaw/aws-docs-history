@@ -1,74 +1,86 @@
+
+
 # Cross-account memory access
+<a name="memory-cross-account-access"></a>
 
 Amazon Bedrock AgentCore Memory supports cross-account access, enabling you to build multi-account architectures where memory resources and consuming agents span multiple AWS accounts. Cross-account access covers two scenarios:
++  **Data plane operations from another account** — Principals in Account B can call memory data plane APIs (create events, write records, retrieve records) against a memory resource in Account A. This is configured by attaching a resource-based policy to the memory resource.
 
-- **Data plane operations from another account** — Principals in Account B can call memory data plane APIs (create events, write records, retrieve records) against a memory resource in Account A. This is configured by attaching a resource-based policy to the memory resource.
+  High-level steps:
 
-High-level steps:
+  1. Configure your memory resource to allow cross-account access by attaching a resource-based policy.
 
-    1. Configure your memory resource to allow cross-account access by attaching a resource-based policy.
-    2. Reference the memory ARN in your data plane API calls from Account B.
+  1. Reference the memory ARN in your data plane API calls from Account B.
++  **Delivery destinations in another account** — Your memory resource in Account A can deliver payloads and stream events to Amazon S3 buckets, Amazon SNS topics, and Amazon Kinesis Data Streams that reside in Account B. This is configured at memory creation time through the memory execution role and resource policies on the target resources.
 
-- **Delivery destinations in another account** — Your memory resource in Account A can deliver payloads and stream events to Amazon S3 buckets, Amazon SNS topics, and Amazon Kinesis Data Streams that reside in Account B. This is configured at memory creation time through the memory execution role and resource policies on the target resources.
+  High-level steps:
 
-High-level steps:
+  1. Create a memory execution role in Account A with permissions to access the target resources.
 
-    1. Create a memory execution role in Account A with permissions to access the target resources.
-    2. Add resource-based policies to the destination resources in Account B to allow the execution role.
-    3. Create the memory in Account A, referencing the execution role and cross-account resource ARNs.
+  1. Add resource-based policies to the destination resources in Account B to allow the execution role.
 
-###### Topics
+  1. Create the memory in Account A, referencing the execution role and cross-account resource ARNs.
 
-- [Prerequisites](#memory-cross-account-access-prerequisites "#memory-cross-account-access-prerequisites")
-- [Cross-account data plane access](#memory-cross-account-access-data-plane "#memory-cross-account-access-data-plane")
-- [Cross-account delivery destinations](#memory-cross-account-access-delivery-destinations "#memory-cross-account-access-delivery-destinations")
-- [Best practices](#memory-cross-account-access-best-practices "#memory-cross-account-access-best-practices")
+**Topics**
++ [Prerequisites](#memory-cross-account-access-prerequisites)
++ [Cross-account data plane access](#memory-cross-account-access-data-plane)
++ [Cross-account delivery destinations](#memory-cross-account-access-delivery-destinations)
++ [Best practices](#memory-cross-account-access-best-practices)
 
 ## Prerequisites
+<a name="memory-cross-account-access-prerequisites"></a>
 
 Before configuring cross-account memory access, verify you have:
-
-- A memory resource created in the resource owner account (Account A)
-- The full ARN of the memory resource (for example, `arn:aws:bedrock-agentcore:us-east-1:<account-id>:memory/<memory-id>`)
-- For data plane access: an IAM role or user in Account B with identity-based permissions that allow the desired `bedrock-agentcore` actions
-- For delivery destinations: the target S3 bucket, SNS topic, or Kinesis Data Stream created in Account B
++ A memory resource created in the resource owner account (Account A)
++ The full ARN of the memory resource (for example, `arn:aws:bedrock-agentcore:us-east-1:<account-id>:memory/<memory-id>`)
++ For data plane access: an IAM role or user in Account B with identity-based permissions that allow the desired `bedrock-agentcore` actions
++ For delivery destinations: the target S3 bucket, SNS topic, or Kinesis Data Stream created in Account B
 
 ## Cross-account data plane access
+<a name="memory-cross-account-access-data-plane"></a>
 
-You can allow principals in another account to call memory data plane APIs directly against your memory resource. This is configured by attaching a resource-based policy to the memory using the `PutResourcePolicy` API. For more information about resource-based policies, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+You can allow principals in another account to call memory data plane APIs directly against your memory resource. This is configured by attaching a resource-based policy to the memory using the `PutResourcePolicy` API. For more information about resource-based policies, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md).
 
 ### How it works
+<a name="memory-cross-account-access-data-plane-how-it-works"></a>
 
 1. Account A creates a memory resource.
-2. Account A attaches a resource-based policy to the memory resource using the `PutResourcePolicy` API, granting specific actions to a principal in Account B.
-3. A principal in Account B calls memory data plane APIs, specifying the full ARN of the memory resource in Account A as the `memory-id`.
-4. AWS evaluates both the resource-based policy on the memory and the identity-based policy attached to the Account B principal. If both allow the action (and no policy explicitly denies it), the request succeeds.
+
+1. Account A attaches a resource-based policy to the memory resource using the `PutResourcePolicy` API, granting specific actions to a principal in Account B.
+
+1. A principal in Account B calls memory data plane APIs, specifying the full ARN of the memory resource in Account A as the `memory-id`.
+
+1.  AWS evaluates both the resource-based policy on the memory and the identity-based policy attached to the Account B principal. If both allow the action (and no policy explicitly denies it), the request succeeds.
 
 ### Supported actions
+<a name="memory-cross-account-access-supported-actions"></a>
 
 You can grant cross-account access for any memory data plane action. The following table lists the available actions:
 
-| Action                                        | Description                        |
-| --------------------------------------------- | ---------------------------------- |
-| `bedrock-agentcore:CreateEvent`               | Create a short-term memory event   |
-| `bedrock-agentcore:GetEvent`                  | Retrieve a specific event          |
-| `bedrock-agentcore:DeleteEvent`               | Delete a specific event            |
-| `bedrock-agentcore:ListEvents`                | List events in a session           |
-| `bedrock-agentcore:ListActors`                | List actors in a memory            |
-| `bedrock-agentcore:ListSessions`              | List sessions for an actor         |
-| `bedrock-agentcore:GetMemoryRecord`           | Retrieve a specific memory record  |
-| `bedrock-agentcore:ListMemoryRecords`         | List memory records in a namespace |
-| `bedrock-agentcore:RetrieveMemoryRecords`     | Semantically search memory records |
-| `bedrock-agentcore:DeleteMemoryRecord`        | Delete a specific memory record    |
-| `bedrock-agentcore:BatchCreateMemoryRecords`  | Create multiple memory records     |
-| `bedrock-agentcore:BatchUpdateMemoryRecords`  | Update multiple memory records     |
-| `bedrock-agentcore:BatchDeleteMemoryRecords`  | Delete multiple memory records     |
-| `bedrock-agentcore:ListMemoryExtractionJobs`  | List extraction jobs for a memory  |
-| `bedrock-agentcore:StartMemoryExtractionJobs` | Restart failed extraction jobs     |
+
+| Action | Description | 
+| --- | --- | 
+|  `bedrock-agentcore:CreateEvent`  | Create a short-term memory event | 
+|  `bedrock-agentcore:GetEvent`  | Retrieve a specific event | 
+|  `bedrock-agentcore:DeleteEvent`  | Delete a specific event | 
+|  `bedrock-agentcore:ListEvents`  | List events in a session | 
+|  `bedrock-agentcore:ListActors`  | List actors in a memory | 
+|  `bedrock-agentcore:ListSessions`  | List sessions for an actor | 
+|  `bedrock-agentcore:GetMemoryRecord`  | Retrieve a specific memory record | 
+|  `bedrock-agentcore:ListMemoryRecords`  | List memory records in a namespace | 
+|  `bedrock-agentcore:RetrieveMemoryRecords`  | Semantically search memory records | 
+|  `bedrock-agentcore:DeleteMemoryRecord`  | Delete a specific memory record | 
+|  `bedrock-agentcore:BatchCreateMemoryRecords`  | Create multiple memory records | 
+|  `bedrock-agentcore:BatchUpdateMemoryRecords`  | Update multiple memory records | 
+|  `bedrock-agentcore:BatchDeleteMemoryRecords`  | Delete multiple memory records | 
+|  `bedrock-agentcore:ListMemoryExtractionJobs`  | List extraction jobs for a memory | 
+|  `bedrock-agentcore:StartMemoryExtractionJobs`  | Restart failed extraction jobs | 
 
 ### Attach a resource-based policy to a memory
+<a name="memory-cross-account-access-attach-policy"></a>
 
 #### Grant a single action to another account
+<a name="memory-cross-account-access-grant-single-action"></a>
 
 The following example grants Account B (`<account-B-id>`) permission to call `BatchCreateMemoryRecords` on a memory resource in Account A (`<account-A-id>`):
 
@@ -93,6 +105,7 @@ aws bedrock-agentcore-control put-resource-policy \
 ```
 
 #### Grant multiple actions to another account
+<a name="memory-cross-account-access-grant-multiple-actions"></a>
 
 The following example grants Account B full read and write access to memory records and events:
 
@@ -130,6 +143,7 @@ aws bedrock-agentcore-control put-resource-policy \
 ```
 
 #### Grant access to a specific IAM role
+<a name="memory-cross-account-access-grant-specific-role"></a>
 
 To follow the principle of least privilege, grant access to a specific role rather than the entire account:
 
@@ -158,6 +172,7 @@ aws bedrock-agentcore-control put-resource-policy \
 ```
 
 ### Remove a resource-based policy
+<a name="memory-cross-account-access-remove-policy"></a>
 
 To revoke cross-account data plane access, delete the resource-based policy:
 
@@ -170,6 +185,7 @@ aws bedrock-agentcore-control delete-resource-policy \
 After deleting the policy, any subsequent cross-account requests return an `AccessDeniedException`.
 
 ### Call data plane APIs from Account B
+<a name="memory-cross-account-access-calling-from-account-b"></a>
 
 Once the resource-based policy is attached, a principal in Account B can call data plane APIs by specifying the full memory ARN as the `memory-id`.
 
@@ -220,17 +236,23 @@ aws bedrock-agentcore create-event \
 ```
 
 ## Cross-account delivery destinations
+<a name="memory-cross-account-access-delivery-destinations"></a>
 
 When you create a memory with a custom (self-managed) strategy or stream delivery configuration, Amazon Bedrock AgentCore uses a memory execution role to deliver payloads to your destination resources. When those resources reside in a different account, you must configure both sides: the execution role in Account A needs permissions to access the resources, and the resources in Account B need policies that allow access from Account A.
 
 ### How it works
+<a name="memory-cross-account-access-delivery-how-it-works"></a>
 
 1. You create destination resources (S3 bucket, SNS topic, or Kinesis Data Stream) in Account B with resource-based policies that allow the memory execution role in Account A.
-2. You create a memory execution role in Account A with a trust policy for Amazon Bedrock AgentCore and a permissions policy that grants access to the cross-account resources in Account B.
-3. You create the memory in Account A, referencing the execution role and the cross-account resource ARNs.
-4. Amazon Bedrock AgentCore assumes the execution role and uses it to deliver payloads or stream events to the resources in Account B.
+
+1. You create a memory execution role in Account A with a trust policy for Amazon Bedrock AgentCore and a permissions policy that grants access to the cross-account resources in Account B.
+
+1. You create the memory in Account A, referencing the execution role and the cross-account resource ARNs.
+
+1. Amazon Bedrock AgentCore assumes the execution role and uses it to deliver payloads or stream events to the resources in Account B.
 
 ### Set up the memory execution role
+<a name="memory-cross-account-access-execution-role"></a>
 
 Create the memory execution role in Account A. The role requires a trust policy that allows Amazon Bedrock AgentCore to assume it, and a permissions policy that grants access to the target resources in Account B.
 
@@ -238,7 +260,7 @@ Trust policy:
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -260,7 +282,7 @@ Permissions policy (include only the statements relevant to the resources you ar
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowS3Access",
@@ -291,12 +313,13 @@ Permissions policy (include only the statements relevant to the resources you ar
 ```
 
 ### Configure the S3 bucket policy in Account B
+<a name="memory-cross-account-access-s3-policy"></a>
 
 Add the following resource-based policy to the S3 bucket in Account B to allow the memory execution role in Account A to deliver payloads:
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowMemoryExecutionRoleAccess",
@@ -315,12 +338,13 @@ Add the following resource-based policy to the S3 bucket in Account B to allow t
 ```
 
 ### Configure the SNS topic policy in Account B
+<a name="memory-cross-account-access-sns-policy"></a>
 
 Add the following resource-based policy to the SNS topic in Account B to allow the memory execution role in Account A to publish notifications:
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowMemoryExecutionRolePublish",
@@ -336,12 +360,13 @@ Add the following resource-based policy to the SNS topic in Account B to allow t
 ```
 
 ### Configure the Kinesis Data Stream policy in Account B
+<a name="memory-cross-account-access-kinesis-policy"></a>
 
 Add the following resource-based policy to the Kinesis Data Stream in Account B to allow the memory execution role in Account A to stream events:
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowMemoryExecutionRolePutRecords",
@@ -360,6 +385,7 @@ Add the following resource-based policy to the Kinesis Data Stream in Account B 
 ```
 
 ### Create a memory with cross-account S3 and SNS
+<a name="memory-cross-account-access-create-memory-s3-sns"></a>
 
 After configuring the execution role and resource policies, create a memory in Account A that references the cross-account resources in Account B:
 
@@ -392,6 +418,7 @@ aws bedrock-agentcore-control create-memory \
 ```
 
 ### Create a memory with cross-account Kinesis streaming
+<a name="memory-cross-account-access-create-memory-kinesis"></a>
 
 ```
 aws bedrock-agentcore-control create-memory \
@@ -418,9 +445,9 @@ aws bedrock-agentcore-control create-memory \
 ```
 
 ## Best practices
-
-- **Grant least privilege** — Only grant the specific actions needed by the cross-account principal.
-- **Use specific principals** — Grant access to specific IAM roles rather than the entire account root to limit blast radius.
-- **Audit cross-account access** — Use AWS CloudTrail to monitor cross-account API calls to your memory resources.
-- **Separate read and write access** — Create separate policy statements for read-only consumers and read-write producers.
-- **Validate before removing policies** — Before removing a resource-based policy, verify that no active workloads in other accounts depend on the access.
+<a name="memory-cross-account-access-best-practices"></a>
++  **Grant least privilege** — Only grant the specific actions needed by the cross-account principal.
++  **Use specific principals** — Grant access to specific IAM roles rather than the entire account root to limit blast radius.
++  **Audit cross-account access** — Use AWS CloudTrail to monitor cross-account API calls to your memory resources.
++  **Separate read and write access** — Create separate policy statements for read-only consumers and read-write producers.
++  **Validate before removing policies** — Before removing a resource-based policy, verify that no active workloads in other accounts depend on the access.

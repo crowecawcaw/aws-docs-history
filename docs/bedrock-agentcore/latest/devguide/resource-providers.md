@@ -1,10 +1,14 @@
-# Configure credential provider
 
-Resource credential providers in AgentCore Identity act as intelligent intermediaries that manage the complex relationships between agents, identity providers, and resource servers. Each provider encapsulates the specific endpoint configuration required for a particular service or identity system. The service provides built-in providers for popular services including Google, GitHub, Slack, and Salesforce, with authorization server endpoints and provider-specific parameters pre-configured to reduce development effort. AgentCore Identity supports custom configurations through configurable OAuth2 credential providers that can be tailored to work with any OAuth2-compatible resource server. For information about OAuth2 credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").
+
+# Configure credential provider
+<a name="resource-providers"></a>
+
+Resource credential providers in AgentCore Identity act as intelligent intermediaries that manage the complex relationships between agents, identity providers, and resource servers. Each provider encapsulates the specific endpoint configuration required for a particular service or identity system. The service provides built-in providers for popular services including Google, GitHub, Slack, and Salesforce, with authorization server endpoints and provider-specific parameters pre-configured to reduce development effort. AgentCore Identity supports custom configurations through configurable OAuth2 credential providers that can be tailored to work with any OAuth2-compatible resource server. For information about OAuth2 credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
 
 Resource credential providers integrate deeply with the token vault to provide seamless credential lifecycle management. When an agent requests access to a resource, the provider handles the authentication flow, stores the resulting credentials in the token vault, and provides the agent with the necessary access tokens.
 
 ## Creating an OAuth 2.0 credential provider
+<a name="provider-configuration"></a>
 
 Provider configurations in AgentCore Identity define the basic parameters needed for credential management with different resources and authentication systems.
 
@@ -57,13 +61,14 @@ github_provider = identity_client.create_oauth2_credential_provider({
     })
 ```
 
-To configure on-behalf-of (OBO) token exchange on an OAuth 2.0 credential provider, add an `onBehalfOfTokenExchangeConfig` to the provider configuration. For supported modes, parameters, and examples, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
+To configure on-behalf-of (OBO) token exchange on an OAuth 2.0 credential provider, add an `onBehalfOfTokenExchangeConfig` to the provider configuration. For supported modes, parameters, and examples, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md).
 
-To authenticate to a downstream token endpoint using a signed JWT client assertion backed by an AWS KMS key instead of a client secret, configure `PRIVATE_KEY_JWT` as the client authentication method. For setup instructions, signing algorithm options, and KMS key requirements, see [Private Key JWT](private-key-jwt.md "private-key-jwt.md").
+To authenticate to a downstream token endpoint using a signed JWT client assertion backed by an AWS KMS key instead of a client secret, configure `PRIVATE_KEY_JWT` as the client authentication method. For setup instructions, signing algorithm options, and KMS key requirements, see [Private Key JWT](private-key-jwt.md).
 
 ## Creating an API key credential provider
+<a name="api-key-management"></a>
 
-For services that use API keys for authentication rather than OAuth, AgentCore Identity will securely store and retrieve keys for your agents. For information about API key credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").
+For services that use API keys for authentication rather than OAuth, AgentCore Identity will securely store and retrieve keys for your agents. For information about API key credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
 
 If you are using the AgentCore CLI, you can store an API key with a single command:
 
@@ -93,15 +98,14 @@ apikey_provider= identity_client.create_api_key_credential_provider({
 ```
 
 ## Creating a payment credential provider
+<a name="payment-credential-provider"></a>
 
-For services that use payment-processor credentials such as Coinbase CDP or Stripe Privy, AgentCore Identity securely stores the associated API keys, app secrets, and wallet/authorization secrets in Secrets Manager and surfaces only their ARNs to your agents. For information about payment credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits "bedrock-agentcore-limits.md#identity-service-limits").
+For services that use payment-processor credentials such as Coinbase CDP or Stripe Privy, AgentCore Identity securely stores the associated API keys, app secrets, and wallet/authorization secrets in Secrets Manager and surfaces only their ARNs to your agents. For information about payment credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
 
 Payment credential providers currently support two vendors: `CoinbaseCDP` and `StripePrivy`. Supply exactly one configuration block under `providerConfigurationInput` that matches the `credentialProviderVendor` you choose. Alternatively, you can bring your own secret by providing a reference to a secret already stored in AWS Secrets Manager.
 
-###### Example
-
-AWS CLI
-The following example creates a payment credential provider for Coinbase CDP:
+**Example**  
+The following example creates a payment credential provider for Coinbase CDP:  
 
 ```
 aws bedrock-agentcore-control create-payment-credential-provider \
@@ -116,8 +120,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
   }' \
   --region us-east-1
 ```
-
-The following example creates a Coinbase CDP payment credential provider with secrets stored in AWS Secrets Manager:
+The following example creates a Coinbase CDP payment credential provider with secrets stored in AWS Secrets Manager:  
 
 ```
 aws bedrock-agentcore-control create-payment-credential-provider \
@@ -140,8 +143,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
   }' \
   --region us-east-1
 ```
-
-The following example creates a payment credential provider for Stripe Privy:
+The following example creates a payment credential provider for Stripe Privy:  
 
 ```
 aws bedrock-agentcore-control create-payment-credential-provider \
@@ -157,8 +159,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
   }' \
   --region us-east-1
 ```
-
-The following example creates a Stripe Privy payment credential provider with secrets stored in AWS Secrets Manager:
+The following example creates a Stripe Privy payment credential provider with secrets stored in AWS Secrets Manager:  
 
 ```
 aws bedrock-agentcore-control create-payment-credential-provider \
@@ -182,9 +183,7 @@ aws bedrock-agentcore-control create-payment-credential-provider \
   }' \
   --region us-east-1
 ```
-
-AWS SDK
-The following example configures a provider for Coinbase CDP:
+The following example configures a provider for Coinbase CDP:  
 
 ```
 import boto3
@@ -203,8 +202,7 @@ coinbase_provider = client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a Coinbase CDP provider with secrets stored in AWS Secrets Manager:
+The following example configures a Coinbase CDP provider with secrets stored in AWS Secrets Manager:  
 
 ```
 import boto3
@@ -231,8 +229,7 @@ coinbase_provider = client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a provider for Stripe Privy:
+The following example configures a provider for Stripe Privy:  
 
 ```
 import boto3
@@ -252,8 +249,7 @@ stripe_privy_provider = client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a Stripe Privy provider with secrets stored in AWS Secrets Manager:
+The following example configures a Stripe Privy provider with secrets stored in AWS Secrets Manager:  
 
 ```
 import boto3
@@ -281,9 +277,7 @@ stripe_privy_provider = client.create_payment_credential_provider(
     }
 )
 ```
-
-AgentCore SDK
-The following example configures a provider for Coinbase CDP:
+The following example configures a provider for Coinbase CDP:  
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient
@@ -302,8 +296,7 @@ coinbase_provider = identity_client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a Coinbase CDP provider with secrets stored in AWS Secrets Manager:
+The following example configures a Coinbase CDP provider with secrets stored in AWS Secrets Manager:  
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient
@@ -330,8 +323,7 @@ coinbase_provider = identity_client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a provider for Stripe Privy:
+The following example configures a provider for Stripe Privy:  
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient
@@ -351,8 +343,7 @@ stripe_privy_provider = identity_client.create_payment_credential_provider(
     }
 )
 ```
-
-The following example configures a Stripe Privy provider with secrets stored in AWS Secrets Manager:
+The following example configures a Stripe Privy provider with secrets stored in AWS Secrets Manager:  
 
 ```
 from bedrock_agentcore.services.identity import IdentityClient

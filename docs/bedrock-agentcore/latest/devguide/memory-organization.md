@@ -1,26 +1,29 @@
+
+
 # Memory organization in AgentCore Memory
+<a name="memory-organization"></a>
 
 You can set how short-term and long-term memories are organized in an AgentCore Memory. This lets you isolate memories by session and by actor. For long-term memory, you can also set a namespace to organize the extracted memories for a memory strategy.
-
-- **Actor** – Refers to entities such as end users or agent/user combinations. For example, in a coding support chatbot, the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to, keeping each user’s data separate and organized.
-- **Session** – A single conversation or interaction period between the user and the AI agent. It groups all related messages and events that happen during that conversation.
-- **Strategy** (Long-term memory only) – Shows which long-term memory strategy is being used. This strategy identifier is auto-generated when you [create](memory-create-a-memory-store.md "memory-create-a-memory-store.md") an AgentCore Memory.
++  **Actor** – Refers to entities such as end users or agent/user combinations. For example, in a coding support chatbot, the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to, keeping each user’s data separate and organized.
++  **Session** – A single conversation or interaction period between the user and the AI agent. It groups all related messages and events that happen during that conversation.
++  **Strategy** (Long-term memory only) – Shows which long-term memory strategy is being used. This strategy identifier is auto-generated when you [create](memory-create-a-memory-store.md) an AgentCore Memory.
 
 ## Short-term memory organization
+<a name="short-term-memory-organization"></a>
 
-When you create a short term memory event with [CreateEvent](../APIReference/API_CreateEvent.md "../APIReference/API_CreateEvent.md") , you specify a session ID ( `sessionId` ) and an actor ID ( `actorId` ) that uniquely identify the session and actor for the event. Later, you can retrieve events for a user or session by using [short-term memory operations](using-memory-short-term.md "using-memory-short-term.md").
+When you create a short term memory event with [CreateEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html) , you specify a session ID ( `sessionId` ) and an actor ID ( `actorId` ) that uniquely identify the session and actor for the event. Later, you can retrieve events for a user or session by using [short-term memory operations](using-memory-short-term.md).
 
-For example code, see [Step 3: Capture the conversation history](memory-customer-scenario.md#capture-conversation "memory-customer-scenario.md#capture-conversation").
+For example code, see [Step 3: Capture the conversation history](memory-customer-scenario.md#capture-conversation).
 
 ## Long-term memory organization
+<a name="long-term-memory-organization"></a>
 
-When you [create](memory-create-a-memory-store.md "memory-create-a-memory-store.md") or update an AgentCore Memory, you can optionally create one or more [memory strategies](memory-strategies.md "memory-strategies.md") . Within a strategy, use a namespace to specify AgentCore Memory organizes [long-term memories](memory-types.md#memory-long-term-memory "memory-types.md#memory-long-term-memory").
+When you [create](memory-create-a-memory-store.md) or update an AgentCore Memory, you can optionally create one or more [memory strategies](memory-strategies.md) . Within a strategy, use a namespace to specify AgentCore Memory organizes [long-term memories](memory-types.md#memory-long-term-memory).
 
 Every time AgentCore Memory extracts a new long-term memory with a memory strategy, the long-term memory is saved under the namespace you set. This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any conflicts with other users or sessions. You should use a hierarchical format separated by forward slashes `/` , ending with a trailing slash. The trailing slash prevents prefix collisions in multi-tenant applications—for example, use `/actors/Alice/` instead of `/actors/Alice` . As needed, you can use the following pre-defined variables within braces in the namespace based on your application’s organization needs:
-
-- **actorId** – Identifies who the long-term memory belongs to.
-- **strategyId** – Shows which memory strategy is being used.
-- **sessionId** – Identifies which session or conversation the memory is from.
++  **actorId** – Identifies who the long-term memory belongs to.
++  **strategyId** – Shows which memory strategy is being used.
++  **sessionId** – Identifies which session or conversation the memory is from.
 
 For example, if you define the following namespace as the input to your strategy when creating an AgentCore Memory:
 
@@ -36,27 +39,28 @@ After memory creation, this namespace might look like:
 
 A namespace can have different levels of granularity:
 
-**Most granular Level of organization**
+ **Most granular Level of organization** 
 
-`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/`
+ `/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/` 
 
-**Granular at the actor Level across sessions**
+ **Granular at the actor Level across sessions** 
 
-`/strategy/{memoryStrategyId}/actor/{actorId}/`
+ `/strategy/{memoryStrategyId}/actor/{actorId}/` 
 
-**Granular at the strategy Level across actors**
+ **Granular at the strategy Level across actors** 
 
-`/strategy/{memoryStrategyId}/`
+ `/strategy/{memoryStrategyId}/` 
 
-**Global across all strategies**
+ **Global across all strategies** 
 
-`/`
+ `/` 
 
-For example code, see [Enable long-term memory](long-term-enabling-long-term-memory.md "long-term-enabling-long-term-memory.md").
+For example code, see [Enable long-term memory](long-term-enabling-long-term-memory.md).
 
-For more information about organizing long-term memories with namespaces, including custom namespace variables and IAM access control, see [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md").
+For more information about organizing long-term memories with namespaces, including custom namespace variables and IAM access control, see [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md).
 
 ### Restrict access with IAM
+<a name="memory-scope-iam"></a>
 
 You can create IAM policies to restrict memory access by the scopes you define, such as actor, session, and namespace. Use the scopes as context keys in your IAM polices.
 
@@ -64,7 +68,7 @@ The following policy restricts access to retrieving memories to a specific names
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "SpecificNamespaceAccess",

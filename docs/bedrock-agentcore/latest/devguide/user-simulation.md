@@ -1,43 +1,50 @@
+
+
 # User simulation
+<a name="user-simulation"></a>
 
 User simulation uses an LLM-backed actor to play the role of an end user interacting with your agent. You define the actor’s profile and goal, and the actor drives a multi-turn conversation with your agent until the goal is met or the turn limit is reached.
 
-###### Note
-
-User simulation invokes Amazon Bedrock models on the SDK side to generate the actor’s responses. Standard Amazon Bedrock model invocation charges apply for these calls. For details, see the [AgentCore pricing page](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/").
+**Note**  
+User simulation invokes Amazon Bedrock models on the SDK side to generate the actor’s responses. Standard Amazon Bedrock model invocation charges apply for these calls. For details, see the [AgentCore pricing page](https://aws.amazon.com/bedrock/agentcore/pricing/).
 
 This is useful when you want to:
++  **Test with realistic variation:** The actor generates different phrasings, follow-up questions, and conversation paths each run, exposing edge cases that hand-authored scenarios miss.
++  **Evaluate open-ended conversations:** For agents that handle free-form dialogue (customer support, tutoring, advisory), simulated scenarios better reflect real user behavior than fixed turn sequences.
++  **Scale scenario coverage:** Instead of writing dozens of multi-turn scripts by hand, define actor profiles with different personas and goals and let the actor generate the conversations.
++  **Regression test with diversity:** Run the same actor profile multiple times to check that your agent handles varied expressions of the same intent.
 
-- **Test with realistic variation:** The actor generates different phrasings, follow-up questions, and conversation paths each run, exposing edge cases that hand-authored scenarios miss.
-- **Evaluate open-ended conversations:** For agents that handle free-form dialogue (customer support, tutoring, advisory), simulated scenarios better reflect real user behavior than fixed turn sequences.
-- **Scale scenario coverage:** Instead of writing dozens of multi-turn scripts by hand, define actor profiles with different personas and goals and let the actor generate the conversations.
-- **Regression test with diversity:** Run the same actor profile multiple times to check that your agent handles varied expressions of the same intent.
-  User simulation works with both the [on-demand](dataset-evaluations-on-demand.md "dataset-evaluations-on-demand.md") and [batch](dataset-evaluations-batch.md "dataset-evaluations-batch.md") dataset runners.
+User simulation works with both the [on-demand](dataset-evaluations-on-demand.md) and [batch](dataset-evaluations-batch.md) dataset runners.
 
 ## How it works
+<a name="user-simulation-how-it-works"></a>
 
 The runner processes each simulated scenario through a conversation loop:
 
-1. **Start:** The runner sends the scenario’s `input` field to your agent as the first turn.
-2. **Agent responds:** Your agent processes the input and returns a response.
-3. **Actor evaluates:** The LLM-backed actor receives the agent’s response and decides what to do next based on its profile and goal. The actor produces a structured response containing:
+1.  **Start:** The runner sends the scenario’s `input` field to your agent as the first turn.
 
-   - **Reasoning:** The actor’s internal reasoning for its response (for example, "The agent provided flight options but did not ask for my preferred time. I should specify that I prefer morning flights."). This is useful for debugging why the actor behaved a certain way.
-   - **Message:** The next message to send to the agent.
-   - **Stop signal:** A boolean indicating whether the actor considers its goal achieved.
+1.  **Agent responds:** Your agent processes the input and returns a response.
 
-4. **Continue or stop:** If the actor signals goal completion (`stop: true`) or the turn count reaches `max_turns`, the conversation ends. Otherwise, the actor’s next message becomes the input for the next turn.
-5. **Evaluate:** After the conversation completes, the runner evaluates the session using the configured evaluators, the same as with predefined scenarios.
+1.  **Actor evaluates:** The LLM-backed actor receives the agent’s response and decides what to do next based on its profile and goal. The actor produces a structured response containing:
+   +  **Reasoning:** The actor’s internal reasoning for its response (for example, "The agent provided flight options but did not ask for my preferred time. I should specify that I prefer morning flights."). This is useful for debugging why the actor behaved a certain way.
+   +  **Message:** The next message to send to the agent.
+   +  **Stop signal:** A boolean indicating whether the actor considers its goal achieved.
+
+1.  **Continue or stop:** If the actor signals goal completion (`stop: true`) or the turn count reaches `max_turns`, the conversation ends. Otherwise, the actor’s next message becomes the input for the next turn.
+
+1.  **Evaluate:** After the conversation completes, the runner evaluates the session using the configured evaluators, the same as with predefined scenarios.
 
 ## Actor profile
+<a name="user-simulation-actor-profile"></a>
 
 Each simulated scenario requires an `ActorProfile` that defines who the actor is and what it wants to achieve:
 
-| Field     | Required | Description                                                                                                                              |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `context` | Yes      | Background information about the actor. Describes the situation and any relevant details the actor should know.                          |
-| `goal`    | Yes      | What the actor wants to achieve in the conversation. The actor signals completion when it determines the goal has been met.              |
-| `traits`  | No       | Key-value pairs describing the actor’s characteristics (for example, expertise level, communication style, patience). Defaults to empty. |
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+|  `context`  | Yes | Background information about the actor. Describes the situation and any relevant details the actor should know. | 
+|  `goal`  | Yes | What the actor wants to achieve in the conversation. The actor signals completion when it determines the goal has been met. | 
+|  `traits`  | No | Key-value pairs describing the actor’s characteristics (for example, expertise level, communication style, patience). Defaults to empty. | 
 
 ```
 {
@@ -54,12 +61,14 @@ Each simulated scenario requires an `ActorProfile` that defines who the actor is
 ```
 
 ## Simulation configuration
+<a name="user-simulation-config"></a>
 
 The `SimulationConfig` controls the actor’s behavior and is set on the runner’s evaluation config:
 
-| Field      | Default       | Description                                                                                                                                             |
-| ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model_id` | Default model | The Amazon Bedrock model ID used for the actor LLM. Choose a model that can follow complex persona instructions. If omitted, the default model is used. |
+
+| Field | Default | Description | 
+| --- | --- | --- | 
+|  `model_id`  | Default model | The Amazon Bedrock model ID used for the actor LLM. Choose a model that can follow complex persona instructions. If omitted, the default model is used. | 
 
 ```
 from bedrock_agentcore.evaluation import SimulationConfig
@@ -70,6 +79,7 @@ simulation_config = SimulationConfig(
 ```
 
 ## Dataset schema
+<a name="user-simulation-dataset-schema"></a>
 
 A simulated scenario uses `actor_profile` and `input` instead of `turns`:
 
@@ -95,24 +105,25 @@ A simulated scenario uses `actor_profile` and `input` instead of `turns`:
 }
 ```
 
-| Field                  | Required | Default | Description                                                                                                               |
-| ---------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `scenario_id`          | Yes      | —       | Unique identifier for the scenario.                                                                                       |
-| `scenario_description` | No       | `""`    | Optional metadata describing the scenario. Useful for organizing and identifying scenarios in results.                    |
-| `actor_profile`        | Yes      | —       | The actor’s identity and objective. See [Actor profile](#user-simulation-actor-profile "#user-simulation-actor-profile"). |
-| `input`                | Yes      | —       | The first message sent to your agent to start the conversation.                                                           |
-| `max_turns`            | No       | 10      | Maximum number of turns before the conversation stops. Must be at least 1.                                                |
-| `assertions`           | No       | —       | Natural language assertions about expected behavior. Used by session-level evaluators such as `Builtin.GoalSuccessRate`.  |
 
-###### Note
+| Field | Required | Default | Description | 
+| --- | --- | --- | --- | 
+|  `scenario_id`  | Yes | — | Unique identifier for the scenario. | 
+|  `scenario_description`  | No |  `""`  | Optional metadata describing the scenario. Useful for organizing and identifying scenarios in results. | 
+|  `actor_profile`  | Yes | — | The actor’s identity and objective. See [Actor profile](#user-simulation-actor-profile). | 
+|  `input`  | Yes | — | The first message sent to your agent to start the conversation. | 
+|  `max_turns`  | No | 10 | Maximum number of turns before the conversation stops. Must be at least 1. | 
+|  `assertions`  | No | — | Natural language assertions about expected behavior. Used by session-level evaluators such as `Builtin.GoalSuccessRate`. | 
 
+**Note**  
 Simulated scenarios do not support `expected_trajectory` or per-turn `expected_response` because the conversation flow is not known in advance. Use `assertions` for ground truth with simulated scenarios.
 
-`FileDatasetProvider` auto-detects the scenario type from the JSON structure: scenarios with an `actor_profile` field (and no `turns` field) are loaded as `SimulatedScenario`.
+ `FileDatasetProvider` auto-detects the scenario type from the JSON structure: scenarios with an `actor_profile` field (and no `turns` field) are loaded as `SimulatedScenario`.
 
 ## Using with the batch dataset runner
+<a name="user-simulation-batch-example"></a>
 
-The following example runs a simulated scenario evaluation using the [batch dataset runner](dataset-evaluations-batch.md "dataset-evaluations-batch.md"). Set `simulation_config` on `BatchEvaluationRunConfig` and include `SimulatedScenario` instances in the dataset:
+The following example runs a simulated scenario evaluation using the [batch dataset runner](dataset-evaluations-batch.md). Set `simulation_config` on `BatchEvaluationRunConfig` and include `SimulatedScenario` instances in the dataset:
 
 ```
 import boto3
@@ -239,12 +250,12 @@ if result.evaluation_results:
 ```
 
 ## Using with the on-demand dataset runner
+<a name="user-simulation-on-demand-example"></a>
 
-The [on-demand dataset runner](dataset-evaluations-on-demand.md "dataset-evaluations-on-demand.md") follows the same pattern. Set `simulation_config` on `EvaluationRunConfig` and include `SimulatedScenario` instances in the dataset:
+The [on-demand dataset runner](dataset-evaluations-on-demand.md) follows the same pattern. Set `simulation_config` on `EvaluationRunConfig` and include `SimulatedScenario` instances in the dataset:
 
-###### Note
-
-On-demand evaluations are charged based on consumption. For details, see the [AgentCore pricing page](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/").
+**Note**  
+On-demand evaluations are charged based on consumption. For details, see the [AgentCore pricing page](https://aws.amazon.com/bedrock/agentcore/pricing/).
 
 ```
 from bedrock_agentcore.evaluation import (
@@ -301,17 +312,20 @@ for scenario in result.scenario_results:
 ```
 
 ## Stop conditions
+<a name="user-simulation-stop-conditions"></a>
 
 A simulated conversation ends when any of the following conditions is met:
 
-1. **Goal completed:** The actor determines its goal has been achieved and signals `stop: true`. This is the expected outcome.
-2. **Maximum turns reached:** The conversation reaches the `max_turns` limit. This acts as a safety backstop. If your scenarios frequently hit the turn limit, consider increasing `max_turns` or simplifying the actor’s goal.
-3. **No message produced:** The actor produces no next message but does not explicitly signal stop. This is treated as an implicit goal completion.
+1.  **Goal completed:** The actor determines its goal has been achieved and signals `stop: true`. This is the expected outcome.
+
+1.  **Maximum turns reached:** The conversation reaches the `max_turns` limit. This acts as a safety backstop. If your scenarios frequently hit the turn limit, consider increasing `max_turns` or simplifying the actor’s goal.
+
+1.  **No message produced:** The actor produces no next message but does not explicitly signal stop. This is treated as an implicit goal completion.
 
 ## Tips for effective simulated scenarios
-
-- **Be specific in the goal:** Vague goals like "have a conversation" lead to unfocused interactions. Specific goals like "get a refund for order #12345" give the actor a clear endpoint.
-- **Use traits to control difficulty:** An actor with `"expertise": "expert"` asks harder questions than one with `"expertise": "novice"`. Use traits to test your agent across different user segments.
-- **Set realistic turn limits:** Most customer support conversations resolve in 5 to 10 turns. Setting `max_turns` too high wastes compute; setting it too low may cut off conversations before the goal is reached.
-- **Use assertions for ground truth:** Since the conversation flow is dynamic, per-turn `expected_response` is not available. Write assertions that describe the outcome you expect regardless of the specific path taken.
-- **Choose an appropriate actor model:** The actor model should be capable enough to maintain a coherent persona across turns. Smaller models work for simple personas; complex personas with nuanced goals benefit from more capable models.
+<a name="user-simulation-tips"></a>
++  **Be specific in the goal:** Vague goals like "have a conversation" lead to unfocused interactions. Specific goals like "get a refund for order \#12345" give the actor a clear endpoint.
++  **Use traits to control difficulty:** An actor with `"expertise": "expert"` asks harder questions than one with `"expertise": "novice"`. Use traits to test your agent across different user segments.
++  **Set realistic turn limits:** Most customer support conversations resolve in 5 to 10 turns. Setting `max_turns` too high wastes compute; setting it too low may cut off conversations before the goal is reached.
++  **Use assertions for ground truth:** Since the conversation flow is dynamic, per-turn `expected_response` is not available. Write assertions that describe the outcome you expect regardless of the specific path taken.
++  **Choose an appropriate actor model:** The actor model should be capable enough to maintain a coherent persona across turns. Smaller models work for simple personas; complex personas with nuanced goals benefit from more capable models.

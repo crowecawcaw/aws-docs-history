@@ -1,26 +1,32 @@
+
+
 # Configure KMS key for a registry
+<a name="registry-configure-encryption"></a>
 
 The KMS key determines how your registry encrypts data at rest. You can choose between an AWS owned key or a customer managed key that you store in your account and manage through AWS KMS. You can only configure the KMS key during registry creation. You cannot change the KMS key after the registry is created.
 
-###### Important
-
+**Important**  
 You cannot change the KMS key after the registry is created. Make sure that you select the correct key before creating the registry.
 
 ## Console
+<a name="registry-configure-encryption-console"></a>
 
-1. Open the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1#/registries/create "https://console.aws.amazon.com/agent-registry/home?region=us-east-1#/registries/create") and choose **Create registry**.
-2. Complete the required fields (**Name**, and optionally **Description**, **Discovery Authorization**, **Record approval**, and **Tags**).
-3. Expand the **KMS key - optional** section.
-4. Under **KMS key selection**, your data is encrypted by default with a key that we own and manage for you. To choose a different key, customize your encryption settings:
+1. Open the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1#/registries/create) and choose **Create registry**.
 
-   - **AWS owned key (default)** — Leave the **Customize encryption settings (advanced)** checkbox unselected. We own and manage the KMS key.
-   - **Customer managed key** — Select the **Customize encryption settings (advanced)** checkbox. In the **Choose an AWS KMS key** field, enter an ARN or choose **Create an AWS KMS key** to open the AWS KMS console and create a new key.
+1. Complete the required fields (**Name**, and optionally **Description**, **Discovery Authorization**, **Record approval**, and **Tags**).
 
-5. Choose **Create registry**.
+1. Expand the **KMS key - optional** section.
+
+1. Under **KMS key selection**, your data is encrypted by default with a key that we own and manage for you. To choose a different key, customize your encryption settings:
+   +  ** AWS owned key (default)** — Leave the **Customize encryption settings (advanced)** checkbox unselected. We own and manage the KMS key.
+   +  **Customer managed key** — Select the **Customize encryption settings (advanced)** checkbox. In the **Choose an AWS KMS key** field, enter an ARN or choose **Create an AWS KMS key** to open the AWS KMS console and create a new key.
+
+1. Choose **Create registry**.
 
 To confirm the encryption type after creation, view the registry details page and check the **KMS key** section.
 
 ## AWS CLI
+<a name="registry-configure-encryption-cli"></a>
 
 The following example creates a registry with a customer managed key:
 
@@ -42,6 +48,7 @@ aws agent-registry-control create-registry \
 ```
 
 ## AWS SDK
+<a name="registry-configure-encryption-sdk"></a>
 
 The following Python example creates a registry with a customer managed key:
 
@@ -77,6 +84,7 @@ print(f"Registry ID: {response['registryId']}")
 ```
 
 ## Verify encryption configuration
+<a name="registry-configure-encryption-verify"></a>
 
 To verify the KMS key configuration of an existing registry, use `GetRegistry`:
 

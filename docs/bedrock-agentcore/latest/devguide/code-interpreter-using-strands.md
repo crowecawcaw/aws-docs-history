@@ -1,20 +1,22 @@
+
+
 # Using AgentCore Code Interpreter via AWS Strands
+<a name="code-interpreter-using-strands"></a>
 
-The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with the Strands SDK. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites "code-interpreter-getting-started.md#code-interpreter-prerequisites").
+The following sections show you how to use the Amazon Bedrock AgentCore Code Interpreter with the Strands SDK. Before you go through the examples in this section, see [Prerequisites](code-interpreter-getting-started.md#code-interpreter-prerequisites).
 
-###### Topics
-
-- [Step 1: Install dependencies](#code-interpreter-strands-install "#code-interpreter-strands-install")
-- [Step 2: Create your agent with AgentCore Code Interpreter](#code-interpreter-strands-create "#code-interpreter-strands-create")
-- [Step 3: Run the agent](#code-interpreter-strands-run "#code-interpreter-strands-run")
+**Topics**
++ [Step 1: Install dependencies](#code-interpreter-strands-install)
++ [Step 2: Create your agent with AgentCore Code Interpreter](#code-interpreter-strands-create)
++ [Step 3: Run the agent](#code-interpreter-strands-run)
 
 ## Step 1: Install dependencies
+<a name="code-interpreter-strands-install"></a>
 
 Create a project folder and install the required packages:
 
-###### Note
-
-On Windows, use: `.venv\Scripts\activate`
+**Note**  
+On Windows, use: `.venv\Scripts\activate` 
 
 ```
 mkdir agentcore-tools-quickstart
@@ -30,12 +32,12 @@ pip install bedrock-agentcore strands-agents strands-agents-tools
 ```
 
 These packages provide:
-
-- `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
-- `strands-agents` : The Strands agent framework
-- `strands-agents-tools` : The tools that the Strands agent framework offers
++  `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Code Interpreter
++  `strands-agents` : The Strands agent framework
++  `strands-agents-tools` : The tools that the Strands agent framework offers
 
 ## Step 2: Create your agent with AgentCore Code Interpreter
+<a name="code-interpreter-strands-create"></a>
 
 Create a file named `code_interpreter_agent.py` and add the following code:
 
@@ -65,13 +67,13 @@ print(response.message["content"][0]["text"])
 ```
 
 This code:
-
-- Initializes the AgentCore Code Interpreter tool for your region
-- Creates an agent configured to use code execution for validation
-- Sends a prompt asking the agent to calculate Fibonacci numbers
-- Prints the agent’s response
++ Initializes the AgentCore Code Interpreter tool for your region
++ Creates an agent configured to use code execution for validation
++ Sends a prompt asking the agent to calculate Fibonacci numbers
++ Prints the agent’s response
 
 ## Step 3: Run the agent
+<a name="code-interpreter-strands-run"></a>
 
 Execute the script:
 
@@ -79,12 +81,11 @@ Execute the script:
 python code_interpreter_agent.py
 ```
 
-**Expected output**
+ **Expected output** 
 
 You should see the agent’s response containing the first 10 Fibonacci numbers. The agent will write Python code to calculate the sequence and return both the code and the results.
 
 If you encounter errors, verify:
-
-- Your IAM role has the correct permissions and trust policy
-- You have model access enabled in the Amazon Bedrock console
-- Your AWS credentials are properly configured
++ Your IAM role has the correct permissions and trust policy
++ You have model access enabled in the Amazon Bedrock console
++ Your AWS credentials are properly configured

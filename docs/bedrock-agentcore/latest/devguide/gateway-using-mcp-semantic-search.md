@@ -1,37 +1,40 @@
-# Search for tools in your AgentCore gateway with a natural language query
 
-If you enabled semantic search for your gateway when you created it, you can call the `x_amz_bedrock_agentcore_search` tool to search for tools in your gateway with a natural language query. Semantic search is particularly useful when you have many tools and need to find the most appropriate ones for your use case. To learn how to enable semantic search during gateway creation, see [Create an Amazon Bedrock AgentCore gateway](gateway-create.md "gateway-create.md").
+
+# Search for tools in your AgentCore gateway with a natural language query
+<a name="gateway-using-mcp-semantic-search"></a>
+
+If you enabled semantic search for your gateway when you created it, you can call the `x_amz_bedrock_agentcore_search` tool to search for tools in your gateway with a natural language query. Semantic search is particularly useful when you have many tools and need to find the most appropriate ones for your use case. To learn how to enable semantic search during gateway creation, see [Create an Amazon Bedrock AgentCore gateway](gateway-create.md).
 
 ## Supported AWS Regions for semantic search
+<a name="gateway-using-mcp-semantic-search-regions"></a>
 
 Semantic search is supported in the following AWS Regions:
 
-| Region name               | Region         |
-| ------------------------- | -------------- |
-| US East (N. Virginia)     | us-east-1      |
-| US East (Ohio)            | us-east-2      |
-| US West (Oregon)          | us-west-2      |
-| Asia Pacific (Hyderabad)  | ap-south-2     |
-| Asia Pacific (Mumbai)     | ap-south-1     |
-| Asia Pacific (Seoul)      | ap-northeast-2 |
-| Asia Pacific (Singapore)  | ap-southeast-1 |
-| Asia Pacific (Sydney)     | ap-southeast-2 |
-| Asia Pacific (Tokyo)      | ap-northeast-1 |
-| Canada (Central)          | ca-central-1   |
-| Europe (Frankfurt)        | eu-central-1   |
-| Europe (Ireland)          | eu-west-1      |
-| Europe (London)           | eu-west-2      |
-| Europe (Milan)            | eu-south-1     |
-| Europe (Paris)            | eu-west-3      |
-| Europe (Spain)            | eu-south-2     |
-| Europe (Stockholm)        | eu-north-1     |
-| South America (São Paulo) | sa-east-1      |
+
+| Region name | Region | 
+| --- | --- | 
+| US East (N. Virginia) | us-east-1 | 
+| US East (Ohio) | us-east-2 | 
+| US West (Oregon) | us-west-2 | 
+| Asia Pacific (Hyderabad) | ap-south-2 | 
+| Asia Pacific (Mumbai) | ap-south-1 | 
+| Asia Pacific (Seoul) | ap-northeast-2 | 
+| Asia Pacific (Singapore) | ap-southeast-1 | 
+| Asia Pacific (Sydney) | ap-southeast-2 | 
+| Asia Pacific (Tokyo) | ap-northeast-1 | 
+| Canada (Central) | ca-central-1 | 
+| Europe (Frankfurt) | eu-central-1 | 
+| Europe (Ireland) | eu-west-1 | 
+| Europe (London) | eu-west-2 | 
+| Europe (Milan) | eu-south-1 | 
+| Europe (Paris) | eu-west-3 | 
+| Europe (Spain) | eu-south-2 | 
+| Europe (Stockholm) | eu-north-1 | 
+| South America (São Paulo) | sa-east-1 | 
 
 To search for a tool using this AgentCore tool, make the following POST request with the `tools/call` method to the gateway’s MCP endpoint:
 
-###### Example
-
-2025-11-25 and earlier
+**Example**  
 
 ```
 POST /mcp HTTP/1.1
@@ -53,9 +56,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
   }
 }
 ```
-
-2026-07-28
-On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body.  
 
 ```
 POST /mcp HTTP/1.1
@@ -88,28 +89,25 @@ Mcp-Name: x_amz_bedrock_agentcore_search
 }
 ```
 
-###### Note
-
-The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
+**Note**  
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) API.
 
 Replace the following values:
-
-- `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
-- `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
-- `${RequestName}` – A name for the request.
-- `${Query}` – A natural language query to search for tools.
++  `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) API.
++  `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md).
++  `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
++  `${RequestName}` – A name for the request.
++  `${Query}` – A natural language query to search for tools.
 
 The response returns a list of tools that are relevant to the query.
 
 ## Code samples for tool searching
+<a name="gateway-using-mcp-semantic-search-examples"></a>
 
 To see examples of using natural language queries to find tools in the gateway, select one of the following methods:
 
-###### Example
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -143,9 +141,7 @@ access_token = "${AccessToken}" # Replace with your actual access token
 results = search_tools(gateway_url, access_token, "find order information")
 print(json.dumps(results, indent=2))
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -186,8 +182,6 @@ access_token = "${AccessToken}" # Replace with your actual access token
 results = search_tools(gateway_url, access_token, "find order information")
 print(json.dumps(results, indent=2))
 ```
-
-MCP Client
 
 ```
 from mcp import ClientSession
@@ -248,8 +242,6 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Strands MCP Client
-
 ```
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
@@ -291,8 +283,6 @@ url = {gatewayUrl}
 token = {AccessToken}
 run_agent(url, token)
 ```
-
-LangGraph MCP Client
 
 ```
 import asyncio

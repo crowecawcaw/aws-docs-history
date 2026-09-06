@@ -1,43 +1,44 @@
+
+
 # Get started with AgentCore Browser
+<a name="browser-quickstart"></a>
 
 AgentCore Browser enables your agents to interact with web pages through a managed Chrome browser. In this guide, you’ll create an AI agent that navigates a website and extracts information — in under 5 minutes.
 
-###### Topics
-
-- [Prerequisites](#browser-prerequisites "#browser-prerequisites")
-- [Step 1: Install dependencies](#browser-strands-install "#browser-strands-install")
-- [Step 2: Create your agent](#browser-strands-create "#browser-strands-create")
-- [Step 3: Run the agent](#browser-strands-run "#browser-strands-run")
-- [Step 4: View the browser session live](#browser-strands-live-view "#browser-strands-live-view")
-- [Find your resources](#browser-find-resources "#browser-find-resources")
-- [Next steps](#browser-next-steps "#browser-next-steps")
-- [Using AgentCore Browser with Nova Act](browser-quickstart-nova-act.md "browser-quickstart-nova-act.md")
-- [Using AgentCore Browser with Playwright](browser-quickstart-playwright.md "browser-quickstart-playwright.md")
+**Topics**
++ [Prerequisites](#browser-prerequisites)
++ [Step 1: Install dependencies](#browser-strands-install)
++ [Step 2: Create your agent](#browser-strands-create)
++ [Step 3: Run the agent](#browser-strands-run)
++ [Step 4: View the browser session live](#browser-strands-live-view)
++ [Find your resources](#browser-find-resources)
++ [Next steps](#browser-next-steps)
++ [Using AgentCore Browser with Nova Act](browser-quickstart-nova-act.md)
++ [Using AgentCore Browser with Playwright](browser-quickstart-playwright.md)
 
 ## Prerequisites
+<a name="browser-prerequisites"></a>
 
 Before you start, ensure you have:
++ Python 3.10 or newer ( [python.org/downloads](https://www.python.org/downloads/) )
++ Boto3 installed ( [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) )
++  AWS credentials configured — verify with:
 
-- Python 3.10 or newer ( [python.org/downloads](https://www.python.org/downloads/ "https://www.python.org/downloads/") )
-- Boto3 installed ( [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") )
-- AWS credentials configured — verify with:
+  ```
+  aws sts get-caller-identity
+  ```
 
-```
-aws sts get-caller-identity
-```
+  If this command fails, see [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in the AWS CLI documentation.
++ Anthropic Claude Sonnet 4.0 model access [enabled](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) in the Amazon Bedrock console
++  AWS Region where Amazon Bedrock AgentCore is available (see [Supported AWS Regions](agentcore-regions.md) )
 
-If this command fails, see [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the AWS CLI documentation.
-
-- Anthropic Claude Sonnet 4.0 model access [enabled](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md") in the Amazon Bedrock console
-- AWS Region where Amazon Bedrock AgentCore is available (see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md") )
-
-**IAM permissions**
+ **IAM permissions** 
 
 Attach this policy to your IAM identity. In the IAM Console, find your user or role, choose **Add permissions** > **Create inline policy** , switch to JSON view, and paste:
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "BedrockAgentCoreBrowserFullAccess",
@@ -72,22 +73,22 @@ Attach this policy to your IAM identity. In the IAM Console, find your user or r
 }
 ```
 
-###### Note
-
+**Note**  
 Replace `<Region>` with your actual AWS Region and `<account_id>` with your AWS account ID.
 
 ## Step 1: Install dependencies
+<a name="browser-strands-install"></a>
 
 ```
 pip install bedrock-agentcore strands-agents strands-agents-tools playwright nest-asyncio
 ```
 
 ## Step 2: Create your agent
+<a name="browser-strands-create"></a>
 
 Create a file named `browser_agent.py` :
 
-###### Note
-
+**Note**  
 Replace `<Region>` with your AWS Region (for example, `us-west-2` ).
 
 ```
@@ -110,6 +111,7 @@ print(response.message["content"][0]["text"])
 ```
 
 ## Step 3: Run the agent
+<a name="browser-strands-run"></a>
 
 ```
 python browser_agent.py
@@ -118,34 +120,41 @@ python browser_agent.py
 You should see the agent navigate the website and return details about AgentCore services. If you encounter errors, verify your IAM permissions, model access, and AWS credentials.
 
 ## Step 4: View the browser session live
+<a name="browser-strands-live-view"></a>
 
 While your agent is running, you can watch it in real-time through the AWS Console:
 
-1. Open the [AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools "https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools")
-2. Navigate to **Built-in tools** in the left navigation
-3. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
-4. In the **Browser sessions** section, find your active session with status **Ready**
-5. In the **Live view / recording** column, click the provided "View live session" URL
+1. Open the [AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools) 
+
+1. Navigate to **Built-in tools** in the left navigation
+
+1. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
+
+1. In the **Browser sessions** section, find your active session with status **Ready** 
+
+1. In the **Live view / recording** column, click the provided "View live session" URL
 
 The live view provides a real-time video stream with interactive controls to take over or release control from automation.
 
 ## Find your resources
+<a name="browser-find-resources"></a>
 
 After using AgentCore Browser, view your resources in the AWS Console:
 
-| #   | Resource                      | Location                                                                    |
-| --- | ----------------------------- | --------------------------------------------------------------------------- |
-| 1   | Live View                     | Browser Console > Tool Name > **View live session**                         |
-| 2   | Session Recordings and Replay | Browser Console > Tool Name > **View recording**                            |
-| 3   | Browser Logs                  | *_CloudWatch_<br>• > *_Log groups_<br>• > `/aws/bedrock-agentcore/browser/` |
-| 4   | Recording Files               | *_S3_<br>• > Your bucket > `browser-recordings/` prefix                     |
-| 5   | Custom Browsers               | *_AgentCore Console_<br>• > *_Built-in tools_<br>• > Your custom browser    |
-| 6   | IAM Roles                     | *_IAM_<br>• > *_Roles_<br>• > Search for your execution role                |
+
+| \# | Resource | Location | 
+| --- | --- | --- | 
+| 1 | Live View | Browser Console > Tool Name > **View live session**  | 
+| 2 | Session Recordings and Replay | Browser Console > Tool Name > **View recording**  | 
+| 3 | Browser Logs |  **CloudWatch** > **Log groups** > `/aws/bedrock-agentcore/browser/`  | 
+| 4 | Recording Files |  **S3** > Your bucket > `browser-recordings/` prefix | 
+| 5 | Custom Browsers |  **AgentCore Console** > **Built-in tools** > Your custom browser | 
+| 6 | IAM Roles |  **IAM** > **Roles** > Search for your execution role | 
 
 ## Next steps
+<a name="browser-next-steps"></a>
 
 Now that you have AgentCore Browser working, explore these advanced features:
-
-- [Session Recording and Replay](browser-session-recording.md "browser-session-recording.md") - Record and replay sessions for debugging
-- [Using AgentCore Browser with Nova Act](browser-quickstart-nova-act.md "browser-quickstart-nova-act.md") and [Using AgentCore Browser with Playwright](browser-quickstart-playwright.md "browser-quickstart-playwright.md") - Use other frameworks like Nova Act or Playwright
-- [Fundamentals](browser-resource-session-management.md "browser-resource-session-management.md") - Learn about API operations and custom browsers
++  [Session Recording and Replay](browser-session-recording.md) - Record and replay sessions for debugging
++  [Using AgentCore Browser with Nova Act](browser-quickstart-nova-act.md) and [Using AgentCore Browser with Playwright](browser-quickstart-playwright.md) - Use other frameworks like Nova Act or Playwright
++  [Fundamentals](browser-resource-session-management.md) - Learn about API operations and custom browsers

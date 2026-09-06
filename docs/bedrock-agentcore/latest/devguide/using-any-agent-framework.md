@@ -1,17 +1,20 @@
+
+
 # Use any agent framework
+<a name="using-any-agent-framework"></a>
 
 You can use open source AI frameworks to create an agent or tool. This topic shows examples for a variety of frameworks, including Strands Agents, LangGraph, and Google ADK.
 
-###### Topics
-
-- [Strands Agents](#agent-runtime-frameworks-strands "#agent-runtime-frameworks-strands")
-- [LangGraph](#agent-runtime-frameworks-langgraph "#agent-runtime-frameworks-langgraph")
-- [Google Agent Development Kit (ADK)](#agent-runtime-frameworks-google-adk "#agent-runtime-frameworks-google-adk")
-- [OpenAI Agents SDK](#agent-runtime-frameworks-open-ai-agents-sdk "#agent-runtime-frameworks-open-ai-agents-sdk")
+**Topics**
++ [Strands Agents](#agent-runtime-frameworks-strands)
++ [LangGraph](#agent-runtime-frameworks-langgraph)
++ [Google Agent Development Kit (ADK)](#agent-runtime-frameworks-google-adk)
++ [OpenAI Agents SDK](#agent-runtime-frameworks-open-ai-agents-sdk)
 
 ## Strands Agents
+<a name="agent-runtime-frameworks-strands"></a>
 
-For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/strands-agents](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/strands-agents "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/strands-agents").
+For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/strands-agents](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/strands-agents).
 
 ```
 import os
@@ -36,8 +39,9 @@ app.run()
 ```
 
 ## LangGraph
+<a name="agent-runtime-frameworks-langgraph"></a>
 
-For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/langgraph](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/langgraph "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/langgraph").
+For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/langgraph](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/langgraph).
 
 ```
 from langchain.chat_models import init_chat_model
@@ -79,8 +83,9 @@ app.run()
 ```
 
 ## Google Agent Development Kit (ADK)
+<a name="agent-runtime-frameworks-google-adk"></a>
 
-For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk").
+For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/adk).
 
 ```
 from google.adk.agents import Agent
@@ -139,8 +144,9 @@ app.run()
 ```
 
 ## OpenAI Agents SDK
+<a name="agent-runtime-frameworks-open-ai-agents-sdk"></a>
 
-For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents").
+For the full example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/03-integrations/agentic-frameworks/openai-agents).
 
 ```
 from agents import Agent, Runner, WebSearchTool

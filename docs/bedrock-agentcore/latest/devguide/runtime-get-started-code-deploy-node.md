@@ -1,19 +1,23 @@
-# Direct code deployment for Node.js
 
-Direct code deployment enables you to bring your Node.js-based agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md") : have an entrypoint `.js` file that implements `/invocations` POST and `/ping` GET server endpoints.
+
+# Direct code deployment for Node.js
+<a name="runtime-get-started-code-deploy-node"></a>
+
+Direct code deployment enables you to bring your Node.js-based agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint `.js` file that implements `/invocations` POST and `/ping` GET server endpoints.
 
 You can include dependencies either as vendored `node_modules/` in your ZIP or as an esbuild-bundled single `.js` file.
 
 ## Prerequisites
+<a name="prerequisites-node"></a>
 
 Before you begin, ensure you have:
-
-- **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
-- [**Node.js**](https://nodejs.org/ "https://nodejs.org/") and **npm** installed. We recommend installing the same major version you plan to deploy on AgentCore Runtime (for example, Node.js 22 for the `NODE_22` runtime). For supported versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md "runtime-code-deploy-supported-runtimes.md").
-- **AWS Permissions** : To create and deploy an agent, you must have appropriate permissions. For more information, see [AgentCore Runtime permissions](runtime-permissions.md "runtime-permissions.md").
-- **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
++  ** AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) 
++  [**Node.js**](https://nodejs.org/) and **npm** installed. We recommend installing the same major version you plan to deploy on AgentCore Runtime (for example, Node.js 22 for the `NODE_22` runtime). For supported versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md).
++  ** AWS Permissions** : To create and deploy an agent, you must have appropriate permissions. For more information, see [AgentCore Runtime permissions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html).
++  **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4).
 
 ## Step 1: Set up project and install dependencies
+<a name="step-1-setup-node"></a>
 
 Initialize your project with the following commands:
 
@@ -23,23 +27,21 @@ cd agentcore_runtime_node_deploy
 npm init -y
 ```
 
-Optionally, run `npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation` to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
+Optionally, run `npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation` to enable [Amazon Bedrock AgentCore observability traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-adot.html).
 
 ## Step 2: Create your agent code
+<a name="step-2-create-agent-node"></a>
 
 Create your agent entry point. Your agent must implement the AgentCore Runtime HTTP contract with a `/ping` GET health endpoint and `/invocations` POST handler.
 
-###### Example
-
-Strands Agents SDK
-Install the [Strands Agents SDK](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") and its dependencies:
+**Example**  
+Install the [Strands Agents SDK](https://strandsagents.com/latest/) and its dependencies:  
 
 ```
 npm install @strands-agents/sdk express zod
 npm install -D @types/express @types/node typescript
 ```
-
-Create a file named `src/app.ts` :
+Create a file named `src/app.ts` :  
 
 ```
 import express, { Request, Response } from "express";
@@ -85,20 +87,15 @@ app.listen(PORT, "0.0.0.0", () => {
     console.log("Strands agent listening on port " + PORT);
 });
 ```
-
-Compile the TypeScript to JavaScript:
+Compile the TypeScript to JavaScript:  
 
 ```
 npx tsc --init --target ES2022 --module commonjs --outDir ./dist
 npx tsc
 ```
-
 The compiled output in `dist/app.js` is what you deploy. When creating the agent, use `"entryPoint": ["dist/app.js"]` — the compiled JavaScript output, not the `.ts` source.
-
-HTTP (no framework)
-This example uses the built-in `node:http` module with no external dependencies.
-
-Create a file named `app.js` :
+This example uses the built-in `node:http` module with no external dependencies.  
+Create a file named `app.js` :  
 
 ```
 const http = require("node:http");
@@ -145,48 +142,42 @@ server.listen(PORT, "0.0.0.0", () => {
 ```
 
 ## Step 3: Test locally
+<a name="step-3-test-locally-node"></a>
 
-Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues") if the port is already in use.
+Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues) if the port is already in use.
 
 Open a terminal window and start your agent:
 
-###### Example
-
-Strands Agents SDK
+**Example**  
 
 ```
 node dist/app.js
 ```
-
-Open another terminal window and invoke the agent:
+Open another terminal window and invoke the agent:  
 
 ```
 curl -X POST http://localhost:8080/invocations \
   -H "Content-Type: application/json" \
   -d '{"prompt": "What time is it right now?"}'
 ```
-
-**Success:** You should see a response containing the current time returned by the agent’s `current_time` tool. In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
-
-HTTP (no framework)
+ **Success:** You should see a response containing the current time returned by the agent’s `current_time` tool. In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 ```
 node app.js
 ```
-
-Open another terminal window and invoke the agent:
+Open another terminal window and invoke the agent:  
 
 ```
 curl -X POST http://localhost:8080/invocations \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Hello!"}'
 ```
-
-**Success:** You should see a response like `{"result": "Hello from Node.js managed runtime! You said: Hello!","runtime":"NODE_22",…​}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
+ **Success:** You should see a response like `{"result": "Hello from Node.js managed runtime! You said: Hello!","runtime":"NODE_22",…​}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 ## Step 4: Enable observability for your agent
+<a name="step-4-enable-observability-node"></a>
 
-[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents that you host in AgentCore Runtime. First enable CloudWatch Transaction Search by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin") . To observe your agent, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+ [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) helps you trace, debug, and monitor agents that you host in AgentCore Runtime. First enable CloudWatch Transaction Search by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin) . To observe your agent, see [View observability data for your Amazon Bedrock AgentCore agents](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-view.html).
 
 To enable auto-instrumentation for your Node.js agent, add the ADOT package:
 
@@ -194,46 +185,38 @@ To enable auto-instrumentation for your Node.js agent, add the ADOT package:
 npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation
 ```
 
-###### Important
-
+**Important**  
 ADOT auto-instrumentation works by patching Node.js `require()` calls at runtime. This means it is only compatible with CommonJS module output. If you compile TypeScript with `--module nodenext` or `--module esnext` (producing ESM `import` statements), ADOT instrumentation silently fails and no traces are emitted. To use ADOT, compile with `--module commonjs` or use esbuild with `--platform=node` (which preserves `require()` calls for Node.js built-in modules).
 
 When deploying, include `node_modules/` in your ZIP and use the `opentelemetry-instrument` prefix in your entry point (see Step 5).
 
 ## Step 5: Deploy to AgentCore Runtime and invoke
+<a name="step-5-deploy-node"></a>
 
-###### Note
-
-AgentCore Runtime does not run TypeScript (`.ts`) files natively. You must transpile TypeScript to JavaScript before deploying. For details, see [Working with TypeScript](#concept-node-typescript "#concept-node-typescript") .
+**Note**  
+AgentCore Runtime does not run TypeScript (`.ts`) files natively. You must transpile TypeScript to JavaScript before deploying. For details, see [Working with TypeScript](#concept-node-typescript) .
 
 Create a .zip file with your agent code and dependencies. AgentCore Runtime only supports **arm64** instruction set architecture — ensure any native modules (`.node` files) are compiled for arm64.
 
-###### Example
-
-Strands Agents SDK
-Package the compiled output and vendored dependencies:
+**Example**  
+Package the compiled output and vendored dependencies:  
 
 ```
 npm install --production
 zip -r deployment_package.zip dist/ node_modules/ package.json
 ```
-
 When creating the agent, use `"entryPoint": ["dist/app.js"]` — the compiled JavaScript output, not the `.ts` source.
-
-HTTP (no framework)
-Since this example has no external dependencies, only the entry point file is needed:
+Since this example has no external dependencies, only the entry point file is needed:  
 
 ```
 zip deployment_package.zip app.js
 ```
-
 When creating the agent, use `"entryPoint": ["app.js"]` .
 
-###### Note
+**Note**  
+. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)) in the Microsoft Windows documentation. \+ .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
 
-. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)") in the Microsoft Windows documentation. + .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
-
-A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](../../../AmazonS3/latest/userguide/creating-bucket-s3.md "../../../AmazonS3/latest/userguide/creating-bucket-s3.md") to create a bucket. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
+A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket-s3.html) to create a bucket. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
 
 ```
 import { readFileSync } from "node:fs";
@@ -291,9 +274,10 @@ To enable OTEL auto-instrumentation, include `node_modules/@aws/aws-distro-opent
 entryPoint: ["opentelemetry-instrument", "dist/app.js"],
 ```
 
-To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically "runtime-get-started-cli.md#invoke-programmatically").
+To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically).
 
 ## Step 6: Stop session, update, or cleanup
+<a name="step-6-update-cleanup-node"></a>
 
 Following TypeScript code will update an AgentCore Runtime. Upload the new deployment package to S3, then call `UpdateAgentRuntimeCommand` :
 
@@ -394,20 +378,27 @@ console.log("Archive deleted successfully from S3!");
 ```
 
 ## Node.js-specific concepts for direct code deployment
+<a name="runtime-code-deploy-node-concepts"></a>
 
 Learn about Node.js-specific concepts when using direct code deployment with Amazon Bedrock AgentCore Runtime.
 
-###### Topics
+**Topics**
 
-AgentCore Runtime for Node.js only accepts `.js` entry points. TypeScript files (`.ts`) are not accepted directly — you must transpile them to JavaScript before packaging. We recommend using [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") to transpile and bundle in a single step. Add esbuild as a development dependency with `npm install -D esbuild` .
+### Entry point requirements
+<a name="concept-node-entry-point"></a>
+
+AgentCore Runtime for Node.js only accepts `.js` entry points. TypeScript files (`.ts`) are not accepted directly — you must transpile them to JavaScript before packaging. We recommend using [esbuild](https://esbuild.github.io/) to transpile and bundle in a single step. Add esbuild as a development dependency with `npm install -D esbuild` .
 
 Entry points can be in subdirectories. For example, `src/app.js` or `dist/index.js` are valid entry points. Node.js module resolution walks up the directory tree from the entry point’s location, so dependencies in `node_modules/` at the root of your ZIP are found automatically — no `NODE_PATH` configuration is needed.
 
 When you specify a subdirectory entry point, ensure the path in your `entryPoint` configuration matches the path within the ZIP file.
 
+### Dependency packaging options
+<a name="concept-node-dependency-packaging"></a>
+
 There are two approaches to packaging dependencies for Node.js agents:
 
-**Vendored dependencies (simplest):**
+ **Vendored dependencies (simplest):** 
 
 Include `node_modules/` directly in your ZIP alongside your entry point:
 
@@ -425,9 +416,9 @@ my-agent.zip
 └── node_modules/
 ```
 
-**Bundled with esbuild (smallest ZIP):**
+ **Bundled with esbuild (smallest ZIP):** 
 
-Use [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") to bundle all dependencies into a single file:
+Use [esbuild](https://esbuild.github.io/) to bundle all dependencies into a single file:
 
 ```
 npx esbuild app.js --bundle --platform=node --target=node22 --outfile=bundle.js
@@ -443,25 +434,30 @@ my-agent.zip
 
 Both approaches work. Bundled deployments are typically under 10 MB and deploy faster. Vendored deployments are simpler and don’t require a build step but can be larger.
 
+### Native modules and arm64 compatibility
+<a name="concept-node-native-modules"></a>
+
 AgentCore Runtime only supports the **arm64** instruction set architecture. If your agent uses npm packages that include native modules (compiled `.node` or `.so` files), those binaries must be compiled for Linux arm64.
 
 AgentCore Runtime validates the architecture of all `.node` and `.so` files in your deployment package by reading their ELF headers. If any binary is compiled for a different architecture (such as x86\_64 or macOS), your agent creation will fail with status `CREATE_FAILED` .
 
 To install arm64-compatible native modules:
++ Install dependencies on an arm64 machine (such as an AWS Graviton-based Amazon EC2 instance)
++ Use npm’s `--arch` and `--platform` flags:
 
-- Install dependencies on an arm64 machine (such as an AWS Graviton-based Amazon EC2 instance)
-- Use npm’s `--arch` and `--platform` flags:
+  ```
+  npm install --arch=arm64 --platform=linux
+  ```
++ Use esbuild to bundle your code if the native module can be avoided at runtime
 
-```
-npm install --arch=arm64 --platform=linux
-```
+Most popular npm packages (Express, Axios, Fastify, Hono, ws) are pure JavaScript and do not contain native modules.
 
-- Use esbuild to bundle your code if the native module can be avoided at runtime
-  Most popular npm packages (Express, Axios, Fastify, Hono, ws) are pure JavaScript and do not contain native modules.
+### Working with TypeScript
+<a name="concept-node-typescript"></a>
 
 AgentCore Runtime does not run TypeScript files directly. You must compile your TypeScript source code to JavaScript before deploying. This is the same pattern used by AWS Lambda.
 
-**Using the TypeScript compiler (tsc):**
+ **Using the TypeScript compiler (tsc):** 
 
 ```
 npm install -g typescript
@@ -478,7 +474,7 @@ zip -r ../deployment_package.zip .
 
 When creating the agent, set the entry point to the compiled `.js` file (for example, `app.js` or `dist/app.js` depending on your ZIP structure).
 
-**Using esbuild (recommended for simpler packaging):**
+ **Using esbuild (recommended for simpler packaging):** 
 
 ```
 npx esbuild app.ts --bundle --platform=node --target=node22 --outfile=app.js
@@ -486,6 +482,9 @@ zip deployment_package.zip app.js
 ```
 
 esbuild compiles TypeScript and bundles dependencies in a single step, producing a small, self-contained `.js` file.
+
+### package.json engines field
+<a name="concept-node-engines"></a>
 
 If your `package.json` includes an `engines.node` field, AgentCore Runtime validates that the specified range is compatible with the Node.js version you selected (for example, Node.js 22 when using the `NODE_22` runtime). If the range excludes that version, your agent creation will fail with status `CREATE_FAILED` .
 
@@ -506,4 +505,4 @@ The following declarations are incompatible and will cause agent creation to fai
 
 AgentCore Runtime also checks the `engines.node` field for common dependencies in your `node_modules/` . If any of these declare a Node.js version range that excludes the target runtime version, agent creation will fail.
 
-If you encounter an `engines.node` incompatibility, update the package to a version that supports your target Node.js version or remove the `engines` field from your `package.json` . For supported Node.js versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md "runtime-code-deploy-supported-runtimes.md").
+If you encounter an `engines.node` incompatibility, update the package to a version that supports your target Node.js version or remove the `engines` field from your `package.json` . For supported Node.js versions, see [Supported language runtimes](runtime-code-deploy-supported-runtimes.md).

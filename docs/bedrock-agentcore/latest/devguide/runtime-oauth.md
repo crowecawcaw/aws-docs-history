@@ -1,100 +1,87 @@
+
+
 # Authenticate and authorize with Inbound Auth and Outbound Auth
+<a name="runtime-oauth"></a>
 
-This section shows you how to implement authentication and authorization for your agent runtime using OAuth and JWT bearer tokens with [AgentCore Identity](identity.md "identity.md") . You’ll learn how to set up Cognito user pools, configure your agent runtime for JWT authentication (Inbound Auth), and implement OAuth-based access to third-party resources (outbound Auth).
+This section shows you how to implement authentication and authorization for your agent runtime using OAuth and JWT bearer tokens with [AgentCore Identity](identity.md) . You’ll learn how to set up Cognito user pools, configure your agent runtime for JWT authentication (Inbound Auth), and implement OAuth-based access to third-party resources (outbound Auth).
 
-For a complete example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/").
+For a complete example, see [https://github.com/awslabs/amazon-bedrock-agentcore-samples/](https://github.com/awslabs/amazon-bedrock-agentcore-samples/).
 
-For information about using OAuth with an MCP server, see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md").
+For information about using OAuth with an MCP server, see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md).
 
 Amazon Bedrock AgentCore runtime provides two authentication mechanisms for hosted agents:
 
-**IAM SigV4 Authentication**
-
-The default authentication and authorization mechanism that works automatically without additional configuration, similar to other AWS APIs.
-
-**X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
-
-If your solution requires the hosted agent to retrieve OAuth tokens on behalf of end users (using Authorization Code Grant), you can specify the user identifier by including the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header in your requests. This header uses the `GetWorkloadAccessTokenForUserId` path internally.
-
-###### Note
-
+ **IAM SigV4 Authentication**   
+The default authentication and authorization mechanism that works automatically without additional configuration, similar to other AWS APIs.  
+ **X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**   
+If your solution requires the hosted agent to retrieve OAuth tokens on behalf of end users (using Authorization Code Grant), you can specify the user identifier by including the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header in your requests. This header uses the `GetWorkloadAccessTokenForUserId` path internally.  
 Invoking InvokeAgentRuntime with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id header` will require a new IAM action: `bedrock-agentcore:InvokeAgentRuntimeForUser` , in addition to the existing `bedrock-agentcore:InvokeAgentRuntime` action.
+ **When to use this header versus JWT Bearer Token authentication**   
+This header is designed for the following use cases:  
++  **Enterprise customers with customer-managed user identifiers** — Organizations that maintain their own user identity strings and need to pass them through to AgentCore Identity for credential binding.
++  **Development and quickstart scenarios** — Builders who don’t yet have an IdP token available and need a fast path to test user-scoped credential flows.
 
-**When to use this header versus JWT Bearer Token authentication**
+  For production deployments where you have an identity provider configured, use [JWT Bearer Token authentication](#oauth-sample-overview) instead. The JWT path (`GetWorkloadAccessTokenForJWT`) validates the token’s issuer, signature, and expiry, providing cryptographic proof of the user’s identity. The `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header path does not verify the userId against an authenticated end-user identity — it relies on the calling workload to pass the correct value and on your IAM policies to restrict who can supply it.
 
-This header is designed for the following use cases:
+   **Security Best Practices for X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header** 
+**Tip**  
+For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
 
-- **Enterprise customers with customer-managed user identifiers** — Organizations that maintain their own user identity strings and need to pass them through to AgentCore Identity for credential binding.
-- **Development and quickstart scenarios** — Builders who don’t yet have an IdP token available and need a fast path to test user-scoped credential flows.
+  Because AgentCore treats the header value as an opaque identifier without verifying it against an authenticated identity, you must apply the following controls to maintain the security boundary:
++  **Restrict the IAM permission** — Only trusted principals should have the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission. Scope this permission to specific runtime resources using IAM resource conditions. Do not grant it broadly via managed policies or wildcard resource statements.
++  **Derive user-id from the authenticated principal** — The user-id value should be derived from the authenticated principal’s context (for example, IAM caller identity or user token claims) rather than accepting arbitrary client-supplied values. This prevents an authenticated user from impersonating another user by manually specifying a different `user-id` .
++  **Implement audit logging** — Log the relationship between the authenticated IAM principal (from SigV4 context) and the `user-id` value being passed. Use AWS CloudTrail to monitor `InvokeAgentRuntime` calls that include the `runtimeUserId` parameter.
++  **Deny the header in untrusted contexts** — For runtimes where user-id delegation is not needed, explicitly deny the `bedrock-agentcore:InvokeAgentRuntimeForUser` action in IAM policies to prevent the header from being accepted:
 
-For production deployments where you have an identity provider configured, use [JWT Bearer Token authentication](#oauth-sample-overview "#oauth-sample-overview") instead. The JWT path (`GetWorkloadAccessTokenForJWT`) validates the token’s issuer, signature, and expiry, providing cryptographic proof of the user’s identity. The `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header path does not verify the userId against an authenticated end-user identity — it relies on the calling workload to pass the correct value and on your IAM policies to restrict who can supply it.
+  ```
+  {
+     "Statement": [
+        {
+           "Sid": "DenyUserIdDelegation",
+           "Effect": "Deny",
+           "Action": "bedrock-agentcore:InvokeAgentRuntimeForUser",
+           "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
+        }
+     ]
+  }
+  ```
 
-**Security Best Practices for X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
+ **JWT Bearer Token Authentication**   
+You can configure your agent runtime to accept JWT bearer tokens by providing authorizer configuration during agent creation.  
+This configuration includes:  
++ Discovery URL - A string that must match the pattern `^.+/\.well-known/openid-configuration$` for OpenID Connect discovery URLs
++ Allowed audiences - A list of permitted audiences that will be validated against the aud claim in the JWT token
++ Allowed clients - A list of permitted client identifiers that will be validated against the client\_id claim in the JWT token
++ Allowed scopes - A list of permitted scopes that will be validated against the scope claim in the JWT token. The `allowedScopes` authorization field will be configured as a list of strings.
++ Required custom claims - A list of required claims that will be validated against the claim name and value contained in the incoming JWT token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md) 
 
-###### Tip
-
-For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
-
-Because AgentCore treats the header value as an opaque identifier without verifying it against an authenticated identity, you must apply the following controls to maintain the security boundary:
-
-- **Restrict the IAM permission** — Only trusted principals should have the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission. Scope this permission to specific runtime resources using IAM resource conditions. Do not grant it broadly via managed policies or wildcard resource statements.
-- **Derive user-id from the authenticated principal** — The user-id value should be derived from the authenticated principal’s context (for example, IAM caller identity or user token claims) rather than accepting arbitrary client-supplied values. This prevents an authenticated user from impersonating another user by manually specifying a different `user-id` .
-- **Implement audit logging** — Log the relationship between the authenticated IAM principal (from SigV4 context) and the `user-id` value being passed. Use AWS CloudTrail to monitor `InvokeAgentRuntime` calls that include the `runtimeUserId` parameter.
-- **Deny the header in untrusted contexts** — For runtimes where user-id delegation is not needed, explicitly deny the `bedrock-agentcore:InvokeAgentRuntimeForUser` action in IAM policies to prevent the header from being accepted:
-
-```
-{
-   "Statement": [
-      {
-         "Sid": "DenyUserIdDelegation",
-         "Effect": "Deny",
-         "Action": "bedrock-agentcore:InvokeAgentRuntimeForUser",
-         "Resource": "arn:aws:bedrock-agentcore:REGION:ACCOUNT_ID:runtime/*"
-      }
-   ]
-}
-```
-
-**JWT Bearer Token Authentication**
-
-You can configure your agent runtime to accept JWT bearer tokens by providing authorizer configuration during agent creation.
-
-This configuration includes:
-
-- Discovery URL - A string that must match the pattern `^.+/\.well-known/openid-configuration$` for OpenID Connect discovery URLs
-- Allowed audiences - A list of permitted audiences that will be validated against the aud claim in the JWT token
-- Allowed clients - A list of permitted client identifiers that will be validated against the client\_id claim in the JWT token
-- Allowed scopes - A list of permitted scopes that will be validated against the scope claim in the JWT token. The `allowedScopes` authorization field will be configured as a list of strings.
-- Required custom claims - A list of required claims that will be validated against the claim name and value contained in the incoming JWT token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
-
-###### Note
-
+**Note**  
 An AgentCore Runtime can support either IAM SigV4 or JWT Bearer Token based inbound auth, but not both simultaneously. You can always create different versions of your AgentCore Runtime and configure them for different inbound authorization types. When you create a runtime with Amazon Bedrock AgentCore, a Workload Identity is created automatically for your runtime with AgentCore Identity service.
 
-###### Topics
-
-- [Restrict IAM (SigV4) inbound invocation to your gateway](#runtime-restrict-iam-gateway "#runtime-restrict-iam-gateway")
-- [JWT inbound authorization and OAuth outbound access sample](#oauth-sample-overview "#oauth-sample-overview")
-- [Prerequisites](#oauth-prerequisites "#oauth-prerequisites")
-- [Step 1: Create your agent project](#prepare-agent "#prepare-agent")
-- [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito "#setup-cognito")
-- [Step 3 (Optional): Front your runtime with an AgentCore Gateway](#runtime-front-with-gateway "#runtime-front-with-gateway")
-- [Step 4: Deploy your agent](#deploy-agent "#deploy-agent")
-- [Step 5: Use bearer token to invoke your agent](#oauth-invoke-agent "#oauth-invoke-agent")
-- [OAuth Error Responses](#oauth-error-responses "#oauth-error-responses")
-- [Step 6: Set up your agent to access tools using OAuth](#oauth-outbound-access "#oauth-outbound-access")
-- [Step 7: (Optional) Propagate a JWT token to AgentCore Runtime](#oauth-propagate-jwt-token "#oauth-propagate-jwt-token")
-- [Troubleshooting](#troubleshooting "#troubleshooting")
+**Topics**
++ [Restrict IAM (SigV4) inbound invocation to your gateway](#runtime-restrict-iam-gateway)
++ [JWT inbound authorization and OAuth outbound access sample](#oauth-sample-overview)
++ [Prerequisites](#oauth-prerequisites)
++ [Step 1: Create your agent project](#prepare-agent)
++ [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito)
++ [Step 3 (Optional): Front your runtime with an AgentCore Gateway](#runtime-front-with-gateway)
++ [Step 4: Deploy your agent](#deploy-agent)
++ [Step 5: Use bearer token to invoke your agent](#oauth-invoke-agent)
++ [OAuth Error Responses](#oauth-error-responses)
++ [Step 6: Set up your agent to access tools using OAuth](#oauth-outbound-access)
++ [Step 7: (Optional) Propagate a JWT token to AgentCore Runtime](#oauth-propagate-jwt-token)
++ [Troubleshooting](#troubleshooting)
 
 ## Restrict IAM (SigV4) inbound invocation to your gateway
+<a name="runtime-restrict-iam-gateway"></a>
 
-You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway "runtime-security-best-practices.md#security-bp-front-with-gateway").
+You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway).
 
-But this is only useful if callers can’t reach the runtime directly bypassing the gateway. If your runtime uses the default IAM (SigV4) inbound authorization, you can restrict invocation to the gateway so that traffic reaches the runtime only through it. To achieve this, attach a resource-based policy to the runtime that restricts invocation to your gateway’s execution role. The gateway assumes its service role to sign requests to the runtime, so the gateway role is the principal that invokes the runtime. Allow that role, and add an explicit `Deny` for every other principal so that no other identity can invoke the runtime even with a permissive identity-based policy. For more information about resource-based policies on runtimes, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+But this is only useful if callers can’t reach the runtime directly bypassing the gateway. If your runtime uses the default IAM (SigV4) inbound authorization, you can restrict invocation to the gateway so that traffic reaches the runtime only through it. To achieve this, attach a resource-based policy to the runtime that restricts invocation to your gateway’s execution role. The gateway assumes its service role to sign requests to the runtime, so the gateway role is the principal that invokes the runtime. Allow that role, and add an explicit `Deny` for every other principal so that no other identity can invoke the runtime even with a permissive identity-based policy. For more information about resource-based policies on runtimes, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md).
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowOnlyGatewayRole",
@@ -119,38 +106,37 @@ But this is only useful if callers can’t reach the runtime directly bypassing 
 }
 ```
 
-###### Tip
-
+**Tip**  
 An explicit `Deny` always overrides any `Allow`, including identity-based policies in the same account. Keying the `Deny` on `aws:PrincipalArn` ensures that only your gateway’s execution role can invoke the runtime, regardless of what other permissions exist in your account.
 
-###### Important
-
-Restricting the runtime to the gateway’s execution role is only as strong as the controls on who can assume that role. Any principal that can assume the gateway execution role can invoke the runtime as if it were the gateway. Lock the role down by adding `aws:SourceArn` and `aws:SourceAccount` conditions to the **gateway execution role’s** trust policy so that only your gateway can assume it. The [Confused deputy prevention](runtime-security-best-practices.md#security-bp-confused-deputy "runtime-security-best-practices.md#security-bp-confused-deputy") guidance shows the same technique applied to a runtime’s execution role; apply the same pattern here, but set the trust policy on the gateway execution role and scope `aws:SourceArn` to your gateway ARN.
+**Important**  
+Restricting the runtime to the gateway’s execution role is only as strong as the controls on who can assume that role. Any principal that can assume the gateway execution role can invoke the runtime as if it were the gateway. Lock the role down by adding `aws:SourceArn` and `aws:SourceAccount` conditions to the **gateway execution role’s** trust policy so that only your gateway can assume it. The [Confused deputy prevention](runtime-security-best-practices.md#security-bp-confused-deputy) guidance shows the same technique applied to a runtime’s execution role; apply the same pattern here, but set the trust policy on the gateway execution role and scope `aws:SourceArn` to your gateway ARN.
 
 ## JWT inbound authorization and OAuth outbound access sample
+<a name="oauth-sample-overview"></a>
 
 This guide walks you through the process of setting up your agent runtime to be invoked with an OAuth compliant access token using JWT format. The sample agent will be authorized using AWS Cognito access tokens. Later, you’ll also learn how the agent code can fetch Google tokens on behalf of the user to check Google Drive and fetch contents.
 
-**What you’ll learn**
+ **What you’ll learn** 
 
 In this guide, you’ll learn how to:
-
-- Set up Cognito user pool, add a user, and get a bearer token for the user
-- Set up your agent runtime to use the Cognito user pool for authorization
-- Set up your agent code to fetch OAuth tokens on behalf of the user to call tools
++ Set up Cognito user pool, add a user, and get a bearer token for the user
++ Set up your agent runtime to use the Cognito user pool for authorization
++ Set up your agent code to fetch OAuth tokens on behalf of the user to call tools
 
 ## Prerequisites
+<a name="oauth-prerequisites"></a>
 
 Before you begin, make sure you have:
-
-- An AWS account with appropriate permissions
-- Basic understanding of Python programming
-- Familiarity with Docker containers (for advanced deployment)
-- Set up a basic agent with runtime successfully
-- The latest AWS CLI and `jq` installed
-- Basic understanding of OAuth authorization, mainly JWT bearer tokens, claims, and the various grant flows
++ An AWS account with appropriate permissions
++ Basic understanding of Python programming
++ Familiarity with Docker containers (for advanced deployment)
++ Set up a basic agent with runtime successfully
++ The latest AWS CLI and `jq` installed
++ Basic understanding of OAuth authorization, mainly JWT bearer tokens, claims, and the various grant flows
 
 ## Step 1: Create your agent project
+<a name="prepare-agent"></a>
 
 Use the `agentcore create` command to set up an empty project. You add the JWT-authorized agent after you create the Cognito resources in Step 2.
 
@@ -160,78 +146,73 @@ cd OAuthAgentProject
 ```
 
 This generates:
++  `agentcore/agentcore.json` configuration file
++  `agentcore/aws-targets.json` deployment target file
++  `agentcore/cdk/` infrastructure project
 
-- `agentcore/agentcore.json` configuration file
-- `agentcore/aws-targets.json` deployment target file
-- `agentcore/cdk/` infrastructure project
-
-###### Note
-
+**Note**  
 Keep this terminal in `OAuthAgentProject` for the remaining AgentCore CLI commands.
 
 ## Step 2: Set up AWS Cognito user pool and add a user
+<a name="setup-cognito"></a>
 
 To set up a Cognito user pool and create a user, you’ll use a shell script that automates the process.
 
-For more information, see [Step 2: Import Identity and Auth modules](identity-getting-started-google.md#identity-getting-started-step2 "identity-getting-started-google.md#identity-getting-started-step2").
+For more information, see [Step 2: Import Identity and Auth modules](identity-getting-started-google.md#identity-getting-started-step2).
 
-**To set up Cognito user pool and create a user**
+<a name="setup-cognito"></a> **To set up Cognito user pool and create a user** 
++ Create a file named `setup_cognito.sh` with the following content:
 
-- Create a file named `setup_cognito.sh` with the following content:
+  ```
+  #!/bin/bash
+  
+  # Create User Pool and capture Pool ID directly
+  export POOL_ID=$(aws cognito-idp create-user-pool \
+    --pool-name "MyUserPool" \
+    --policies '{"PasswordPolicy":{"MinimumLength":8}}' \
+    --region $REGION | jq -r '.UserPool.Id')
+  
+  # Create App Client and capture Client ID directly
+  export CLIENT_ID=$(aws cognito-idp create-user-pool-client \
+    --user-pool-id $POOL_ID \
+    --client-name "MyClient" \
+    --no-generate-secret \
+    --explicit-auth-flows "ALLOW_USER_PASSWORD_AUTH" "ALLOW_REFRESH_TOKEN_AUTH" \
+    --region $REGION | jq -r '.UserPoolClient.ClientId')
+  
+  # Create User
+  aws cognito-idp admin-create-user \
+    --user-pool-id $POOL_ID \
+    --username $USERNAME \
+    --region $REGION \
+    --message-action SUPPRESS > /dev/null
+  
+  # Set Permanent Password
+  aws cognito-idp admin-set-user-password \
+    --user-pool-id $POOL_ID \
+    --username $USERNAME \
+    --password $PASSWORD \
+    --region $REGION \
+    --permanent > /dev/null
+  
+  # Authenticate User and capture Access Token
+  export BEARER_TOKEN=$(aws cognito-idp initiate-auth \
+    --client-id "$CLIENT_ID" \
+    --auth-flow USER_PASSWORD_AUTH \
+    --auth-parameters USERNAME=$USERNAME,PASSWORD=$PASSWORD \
+    --region $REGION | jq -r '.AuthenticationResult.AccessToken')
+  
+  # Output the required values
+  echo "Pool id: $POOL_ID"
+  echo "Discovery URL: https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration"
+  echo "Client ID: $CLIENT_ID"
+  echo "Bearer Token: $BEARER_TOKEN"
+  ```
 
-```
-#!/bin/bash
-
-# Create User Pool and capture Pool ID directly
-export POOL_ID=$(aws cognito-idp create-user-pool \
-  --pool-name "MyUserPool" \
-  --policies '{"PasswordPolicy":{"MinimumLength":8}}' \
-  --region $REGION | jq -r '.UserPool.Id')
-
-# Create App Client and capture Client ID directly
-export CLIENT_ID=$(aws cognito-idp create-user-pool-client \
-  --user-pool-id $POOL_ID \
-  --client-name "MyClient" \
-  --no-generate-secret \
-  --explicit-auth-flows "ALLOW_USER_PASSWORD_AUTH" "ALLOW_REFRESH_TOKEN_AUTH" \
-  --region $REGION | jq -r '.UserPoolClient.ClientId')
-
-# Create User
-aws cognito-idp admin-create-user \
-  --user-pool-id $POOL_ID \
-  --username $USERNAME \
-  --region $REGION \
-  --message-action SUPPRESS > /dev/null
-
-# Set Permanent Password
-aws cognito-idp admin-set-user-password \
-  --user-pool-id $POOL_ID \
-  --username $USERNAME \
-  --password $PASSWORD \
-  --region $REGION \
-  --permanent > /dev/null
-
-# Authenticate User and capture Access Token
-export BEARER_TOKEN=$(aws cognito-idp initiate-auth \
-  --client-id "$CLIENT_ID" \
-  --auth-flow USER_PASSWORD_AUTH \
-  --auth-parameters USERNAME=$USERNAME,PASSWORD=$PASSWORD \
-  --region $REGION | jq -r '.AuthenticationResult.AccessToken')
-
-# Output the required values
-echo "Pool id: $POOL_ID"
-echo "Discovery URL: https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration"
-echo "Client ID: $CLIENT_ID"
-echo "Bearer Token: $BEARER_TOKEN"
-```
-
-Open a terminal window and set the following environment variables:
-
-    + `REGION` – the AWS Region that you want to use
-    + `USERNAME` – the user name for the new user
-    + `PASSWORD` – the password for the new user
-
-
+  Open a terminal window and set the following environment variables:
+  +  {{REGION}} – the AWS Region that you want to use
+  +  {{USERNAME}} – the user name for the new user
+  +  {{PASSWORD}} – the password for the new user
 
     ```
     export REGION=us-east-1 # Set your desired Region
@@ -240,8 +221,6 @@ Open a terminal window and set the following environment variables:
     ```
 
     In the terminal window, run the script:
-
-
 
     ```
     source setup_cognito.sh
@@ -252,27 +231,24 @@ Open a terminal window and set the following environment variables:
 This script creates a Cognito user pool, a user pool client, adds a user, and generates a bearer token for the user. The token is valid for 60 minutes by default.
 
 ## Step 3 (Optional): Front your runtime with an AgentCore Gateway
+<a name="runtime-front-with-gateway"></a>
 
-You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway "runtime-security-best-practices.md#security-bp-front-with-gateway").
+You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway).
 
-If you want to front this runtime, [create the gateway](gateway-create.md "gateway-create.md") now, before you deploy the runtime in the next step. After you deploy, you’ll [add the runtime as a gateway target](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
+If you want to front this runtime, [create the gateway](gateway-create.md) now, before you deploy the runtime in the next step. After you deploy, you’ll [add the runtime as a gateway target](gateway-target-http-runtime.md).
 
-To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. Use `allowedWorkloadConfiguration` as described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload"). The AgentCore CLI does not configure this field. Use the AgentCore control-plane API.
+To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. Use `allowedWorkloadConfiguration` as described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload). The AgentCore CLI does not configure this field. Use the AgentCore control-plane API.
 
 ## Step 4: Deploy your agent
+<a name="deploy-agent"></a>
 
-###### Important
-
-Starting **October 13, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Role (SLR) for workload identity permissions instead of requiring manual IAM policy configuration for new agents.
-
-The Service-Linked Role details:
-
-- **Name:**
-  `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity`
-- **Service Principal:**
-  `runtime-identity.bedrock-agentcore.amazonaws.com`
-- **Purpose:** Manages workload identity access tokens and OAuth credentials
-  Ensure the role you use to invoke AgentCore Control APIs has permission to create the Service-Linked Role:
+**Important**  
+Starting **October 13, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Role (SLR) for workload identity permissions instead of requiring manual IAM policy configuration for new agents.  
+The Service-Linked Role details:  
+ **Name:** `AWSServiceRoleForBedrockAgentCoreRuntimeIdentity` 
+ **Service Principal:** `runtime-identity.bedrock-agentcore.amazonaws.com` 
+ **Purpose:** Manages workload identity access tokens and OAuth credentials
+Ensure the role you use to invoke AgentCore Control APIs has permission to create the Service-Linked Role:  
 
 ```
 {
@@ -287,30 +263,29 @@ The Service-Linked Role details:
     }
 }
 ```
-
-**Benefit** : The Service-Linked Role automatically provides the necessary permissions for workload identity access without requiring manual policy configuration.
-
-For detailed information about the service-linked role, see [Identity service-linked role](service-linked-roles.md#identity-service-linked-role "service-linked-roles.md#identity-service-linked-role").
+ **Benefit** : The Service-Linked Role automatically provides the necessary permissions for workload identity access without requiring manual policy configuration.  
+For detailed information about the service-linked role, see [Identity service-linked role](service-linked-roles.md#identity-service-linked-role).
 
 Now you’ll deploy your agent with JWT authorization using the Cognito user pool you created. You will need to create an agent with authorizer configuration. The following table represents the various authorizer configuration parameters and how we use them to validate the incoming token.
 
-| authorizer\_configuration    | claim in decoded token | Notes                                                                                                                                                                                             |
-| ---------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| discovery url → issuer       | iss                    | The discovery url should point to an issuer url. This should match the iss claim in the decoded token.                                                                                            |
-| allowedClients               | client\_id             | client\_id in the token should match one of the allowed clients specified in the authorizer                                                                                                       |
-| allowedAudience              | aud                    | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer                                                                                |
-| allowedWorkloadConfiguration | `internal`             | Optional. At launch, used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload"). |
+
+| authorizer\_configuration | claim in decoded token | Notes | 
+| --- | --- | --- | 
+| discovery url → issuer | iss | The discovery url should point to an issuer url. This should match the iss claim in the decoded token. | 
+| allowedClients | client\_id | client\_id in the token should match one of the allowed clients specified in the authorizer | 
+| allowedAudience | aud | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer | 
+| allowedWorkloadConfiguration |  `internal`  | Optional. At launch, used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload). | 
 
 If both client\_id and aud is provided, the agent runtime authorizer will verify both.
 
 ### allowedWorkloadConfiguration: restrict invocation to your gateway
+<a name="deploy-agent-allowed-workload"></a>
 
 The `allowedWorkloadConfiguration` field on the `customJWTAuthorizer` restricts which workloads in the request’s identity chain are allowed to invoke the runtime. Set the allowed workload to your gateway so that the runtime accepts a request only when its identity chain includes that gateway — this is how an OAuth (JWT) runtime enforces that traffic arrives only through the gateway you set up in Step 3.
 
 You provide the allowed workloads using either of the following fields. You can specify one or both — a request is accepted if its identity chain matches an entry in **either** field, so you don’t need to provide both.
-
-- **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. At launch, the only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
-- **workloadIdentities** – A list of workload identity names that are allowed to invoke the target. A workload identity name is **not** an ARN. It is the final segment of the gateway’s workload identity ARN, which you can find in the `workloadIdentityDetails` field of the `GetGateway` response. For example, if `workloadIdentityDetails.workloadIdentityArn` is `arn:aws:bedrock-agentcore:us-east-1:111122223333:workload-identity-directory/default/workload-identity/my-gateway-workload-identity`, then the workload identity name is `my-gateway-workload-identity`.
++  **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. At launch, the only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
++  **workloadIdentities** – A list of workload identity names that are allowed to invoke the target. A workload identity name is **not** an ARN. It is the final segment of the gateway’s workload identity ARN, which you can find in the `workloadIdentityDetails` field of the `GetGateway` response. For example, if `workloadIdentityDetails.workloadIdentityArn` is `arn:aws:bedrock-agentcore:us-east-1:111122223333:workload-identity-directory/default/workload-identity/my-gateway-workload-identity`, then the workload identity name is `my-gateway-workload-identity`.
 
 The following authorizer configuration restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
 
@@ -347,259 +322,232 @@ Alternatively, you can identify the gateway by its workload identity name, or sp
 }
 ```
 
-###### Note
-
+**Note**  
 At launch, `allowedWorkloadConfiguration` is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
 
 ### Create and deploy the agent runtime
+<a name="deploy-agent-create-deploy"></a>
 
 With your authorizer configuration ready, create and deploy the agent runtime. The following examples show how to do this with the AgentCore CLI or the AWS SDK for Python (Boto3). Note the agent runtime ARN from the output — you’ll need it to invoke the agent in the next step.
 
-###### Example
-
-AgentCore CLI
-
-**To configure and deploy your agent**
+**Example**  
+ **To configure and deploy your agent**   
 
 1. Add the agent to the project that you created in Step 1. The command configures the Cognito discovery URL, client ID, and the `Authorization` request header allowlist:
 
-```
-agentcore add agent \
-  --name OAuthAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --authorizer-type CUSTOM_JWT \
-  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-  --allowed-clients "$CLIENT_ID" \
-  --request-header-allowlist Authorization
-```
-
-2. Deploy your agent:
-
-```
-agentcore deploy
-```
-
-3. Note the agent runtime ARN from the output. You’ll need this in the next step.
-
-Python
-
-1. ```
-
+   ```
+   agentcore add agent \
+     --name OAuthAgent \
+     --language Python \
+     --framework Strands \
+     --model-provider Bedrock \
+     --memory none \
+     --authorizer-type CUSTOM_JWT \
+     --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
+     --allowed-clients "$CLIENT_ID" \
+     --request-header-allowlist Authorization
    ```
 
-import boto3
+1. Deploy your agent:
 
-# Create the client
+   ```
+   agentcore deploy
+   ```
 
-client = boto3.client('bedrock-agentcore-control', region_name="us-east-1")
+1. Note the agent runtime ARN from the output. You’ll need this in the next step.
 
-# Call the CreateAgentRuntime operation
+1. 
 
-response = client.create_agent_runtime(
-agentRuntimeName='HelloAgent',
-agentRuntimeArtifact={
-'containerConfiguration': {
-'containerUri': '111122223333.dkr.ecr.us-east-1.amazonaws.com/my-agent:latest'
-}
-},
-authorizerConfiguration={
-"customJWTAuthorizer": {
-"discoveryUrl": 'COGNITO_DISCOVERY_URL',
-"allowedClients": ['COGNITO_CLIENT_ID']
-}
-},
-networkConfiguration={"networkMode":"PUBLIC"},
-roleArn='arn:aws:iam::111122223333:role/AgentRuntimeRole',
-lifecycleConfiguration={
-'idleRuntimeSessionTimeout': 300, # 5 min, configurable
-'maxLifetime': 1800 # 30 minutes, configurable
-},
-)
+   ```
+   import boto3
+   
+   # Create the client
+   client = boto3.client('bedrock-agentcore-control', region_name="us-east-1")
+   
+   # Call the CreateAgentRuntime operation
+   response = client.create_agent_runtime(
+       agentRuntimeName='HelloAgent',
+       agentRuntimeArtifact={
+           'containerConfiguration': {
+               'containerUri': '111122223333.dkr.ecr.us-east-1.amazonaws.com/my-agent:latest'
+           }
+       },
+       authorizerConfiguration={
+           "customJWTAuthorizer": {
+               "discoveryUrl": 'COGNITO_DISCOVERY_URL',
+               "allowedClients": ['COGNITO_CLIENT_ID']
+           }
+       },
+       networkConfiguration={"networkMode":"PUBLIC"},
+       roleArn='arn:aws:iam::111122223333:role/AgentRuntimeRole',
+       lifecycleConfiguration={
+           'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+           'maxLifetime': 1800                # 30 minutes, configurable
+       },
+   )
+   ```
 
-```
-
-
-
-###### Note
-
+**Note**  
 The AgentCore CLI example configures JWT authorization, but it does not configure `allowedWorkloadConfiguration`. If you front the runtime with a gateway, use the AgentCore control-plane API to add that field.
 
-
 ## Step 5: Use bearer token to invoke your agent
-
+<a name="oauth-invoke-agent"></a>
 
 Now that your agent is deployed with JWT authorization, you can invoke it using the bearer token.
 
+**Note**  
+If you fronted your runtime with a gateway in [Step 3](#runtime-front-with-gateway), add the deployed runtime as a gateway target before you invoke — see [AgentCore Runtime targets](gateway-target-http-runtime.md) — and then invoke through the gateway endpoint shown in the examples that follow, rather than the runtime endpoint.
 
-###### Note
-
-If you fronted your runtime with a gateway in [Step 3](#runtime-front-with-gateway "#runtime-front-with-gateway"), add the deployed runtime as a gateway target before you invoke — see [AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md") — and then invoke through the gateway endpoint shown in the examples that follow, rather than the runtime endpoint.
-
-
-###### Important
-
-
-**Important for existing users** : Agents created **before October 13, 2025** will continue to use the agent execution role for identity permissions and **require** the preceding policy to be attached to the agent’s execution role.
-
-
-**New agents** : For agents created **on or after October 13, 2025** , this policy is **not required** as permissions are handled automatically by the Service-Linked Role.
-
+**Important**  
+ **Important for existing users** : Agents created **before October 13, 2025** will continue to use the agent execution role for identity permissions and **require** the preceding policy to be attached to the agent’s execution role.  
+ **New agents** : For agents created **on or after October 13, 2025** , this policy is **not required** as permissions are handled automatically by the Service-Linked Role.  
 
 ```
-
 {
-"Sid": "GetAgentAccessToken",
-"Effect": "Allow",
-"Action": [
-"bedrock-agentcore:GetWorkloadAccessToken",
-"bedrock-agentcore:GetWorkloadAccessTokenForJWT",
-"bedrock-agentcore:GetWorkloadAccessTokenForUserId"
-], # point to the workload identity for the runtime; the workload identity can be found in # the GetAgentRuntime response and has your agent name in it.
-"Resource": [
-"arn:aws:bedrock-agentcore:region:account-id:workload-identity-directory/default",
-"arn:aws:bedrock-agentcore:region:account-id:workload-identity-directory/default/workload-identity/agentname-*"
-]
+    "Sid": "GetAgentAccessToken",
+    "Effect": "Allow",
+    "Action": [
+        "bedrock-agentcore:GetWorkloadAccessToken",
+        "bedrock-agentcore:GetWorkloadAccessTokenForJWT",
+        "bedrock-agentcore:GetWorkloadAccessTokenForUserId"
+    ],
+    # point to the workload identity for the runtime; the workload identity can be found in
+    # the GetAgentRuntime response and has your agent name in it.
+    "Resource": [
+        "arn:aws:bedrock-agentcore:region:account-id:workload-identity-directory/default",
+        "arn:aws:bedrock-agentcore:region:account-id:workload-identity-directory/default/workload-identity/agentname-*"
+    ]
 }
-
 ```
 
-
-**Invoke the agent**
-
-
+ **Invoke the agent** 
 
 Fetch a bearer token for the user you created with Amazon Cognito.
 
-
-
 ```
-
 # use the password and other details used when you created the cognito user
 
 export TOKEN=$(aws cognito-idp initiate-auth \
     --client-id "$CLIENT_ID" \
---auth-flow USER_PASSWORD_AUTH \
---auth-parameters USERNAME='testuser',PASSWORD='PASSWORD' \
---region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
-
-````
+    --auth-flow USER_PASSWORD_AUTH \
+    --auth-parameters USERNAME='testuser',PASSWORD='PASSWORD' \
+    --region us-east-1 | jq -r '.AuthenticationResult.AccessToken')
+```
 
 Proceed to invoke the agent with the rest of the following instructions.
 
-
 Invoke the agent with OAuth.
 
+**Example**  
 
-###### Example
+1. 
 
-
-Use cURL
-
-1. ```
-// Invoke with OAuth token
-export PAYLOAD='{"prompt": "hello what is 1+1?"}'
-
-export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
-# If you fronted the runtime with a gateway (Step 3), the core endpoint URL is now your gateway URL
-# export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://${GATEWAY_ID}.gateway.bedrock-agentcore.us-east-1.amazonaws.com/${TARGET_NAME}"
-
-export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT"
-# If you fronted the runtime with a gateway (Step 3), the preceding URL works but there is also a simpler alternative:
-# export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/invocations"
-
-curl -v -X POST "${INVOKE_URL}" \
--H "Authorization: Bearer ${TOKEN}" \
--H "X-Amzn-Trace-Id: your-trace-id" \
--H "Content-Type: application/json" \
--H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: your-session-id" \
--d ${PAYLOAD}
-````
-
-Use Python
+   ```
+   // Invoke with OAuth token
+   export PAYLOAD='{"prompt": "hello what is 1+1?"}'
+   
+   export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
+   # If you fronted the runtime with a gateway (Step 3), the core endpoint URL is now your gateway URL
+   # export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://${GATEWAY_ID}.gateway.bedrock-agentcore.us-east-1.amazonaws.com/${TARGET_NAME}"
+   
+   export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT"
+   # If you fronted the runtime with a gateway (Step 3), the preceding URL works but there is also a simpler alternative:
+   # export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/invocations"
+   
+   curl -v -X POST "${INVOKE_URL}" \
+   -H "Authorization: Bearer ${TOKEN}" \
+   -H "X-Amzn-Trace-Id: your-trace-id" \
+   -H "Content-Type: application/json" \
+   -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: your-session-id" \
+   -d ${PAYLOAD}
+   ```
 
 1. Since boto3 doesn’t support invocation with bearer tokens, you’ll need to use an HTTP client like the requests library in Python.
 
-**To invoke your agent with a bearer token** 2. Create a Python script named `invoke_agent.py` with the following content:
+   <a name="invoke-agent"></a> **To invoke your agent with a bearer token** 
 
-```
-import requests
-import urllib.parse
-import json
-import os
+1. Create a Python script named `invoke_agent.py` with the following content:
 
-# Configuration Constants
-REGION_NAME = "AWS_REGION"
+   ```
+   import requests
+   import urllib.parse
+   import json
+   import os
+   
+   # Configuration Constants
+   REGION_NAME = "AWS_REGION"
+   
+   # === Agent Invocation Demo ===
+   invoke_agent_arn = "YOUR_AGENT_ARN_HERE"
+   auth_token = os.environ.get('TOKEN')
+   print(f"Using Agent ARN from environment: {invoke_agent_arn}")
+   
+   # URL encode the agent ARN
+   escaped_agent_arn = urllib.parse.quote(invoke_agent_arn, safe='')
+   
+   # Construct the URL — invoke the runtime directly
+   url = f"https://bedrock-agentcore.{REGION_NAME}.amazonaws.com/runtimes/{escaped_agent_arn}/invocations?qualifier=DEFAULT"
+   
+   # If you are fronting the runtime with a gateway (see Step 3), invoke through
+   # the gateway target instead (replace GATEWAY_ID and my-target):
+   # url = f"https://GATEWAY_ID.gateway.bedrock-agentcore.{REGION_NAME}.amazonaws.com/my-target/invocations"
+   
+   # Set up headers
+   headers = {
+       "Authorization": f"Bearer {auth_token}",
+       "X-Amzn-Trace-Id": "your-trace-id",
+       "Content-Type": "application/json",
+       "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id": "testsession123"
+   }
+   
+   # Enable verbose logging for requests
+   import logging
+   logging.basicConfig(level=logging.DEBUG)
+   logging.getLogger("urllib3.connectionpool").setLevel(logging.DEBUG)
+   
+   invoke_response = requests.post(
+       url,
+       headers=headers,
+       data=json.dumps({"prompt": "Hello what is 1+1?"})
+   )
+   
+   # Print response in a safe manner
+   print(f"Status Code: {invoke_response.status_code}")
+   print(f"Response Headers: {dict(invoke_response.headers)}")
+   
+   # Handle response based on status code
+   if invoke_response.status_code == 200:
+       response_data = invoke_response.json()
+       print("Response JSON:")
+       print(json.dumps(response_data, indent=2))
+   elif invoke_response.status_code >= 400:
+       print(f"Error Response ({invoke_response.status_code}):")
+       error_data = invoke_response.json()
+       print(json.dumps(error_data, indent=2))
+   
+   else:
+       print(f"Unexpected status code: {invoke_response.status_code}")
+       print("Response text:")
+       print(invoke_response.text[:500])
+   ```
 
-# === Agent Invocation Demo ===
-invoke_agent_arn = "YOUR_AGENT_ARN_HERE"
-auth_token = os.environ.get('TOKEN')
-print(f"Using Agent ARN from environment: {invoke_agent_arn}")
+1. Replace {{AWS\_REGION}} with the AWS Region that you are using. from Step 3.
 
-# URL encode the agent ARN
-escaped_agent_arn = urllib.parse.quote(invoke_agent_arn, safe='')
+1. Replace {{YOUR\_AGENT\_ARN\_HERE}} with your actual agent runtime ARN from Step 3.
 
-# Construct the URL — invoke the runtime directly
-url = f"https://bedrock-agentcore.{REGION_NAME}.amazonaws.com/runtimes/{escaped_agent_arn}/invocations?qualifier=DEFAULT"
+1. Run the script:
 
-# If you are fronting the runtime with a gateway (see Step 3), invoke through
-# the gateway target instead (replace GATEWAY_ID and my-target):
-# url = f"https://GATEWAY_ID.gateway.bedrock-agentcore.{REGION_NAME}.amazonaws.com/my-target/invocations"
-
-# Set up headers
-headers = {
-    "Authorization": f"Bearer {auth_token}",
-    "X-Amzn-Trace-Id": "your-trace-id",
-    "Content-Type": "application/json",
-    "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id": "testsession123"
-}
-
-# Enable verbose logging for requests
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logging.getLogger("urllib3.connectionpool").setLevel(logging.DEBUG)
-
-invoke_response = requests.post(
-    url,
-    headers=headers,
-    data=json.dumps({"prompt": "Hello what is 1+1?"})
-)
-
-# Print response in a safe manner
-print(f"Status Code: {invoke_response.status_code}")
-print(f"Response Headers: {dict(invoke_response.headers)}")
-
-# Handle response based on status code
-if invoke_response.status_code == 200:
-    response_data = invoke_response.json()
-    print("Response JSON:")
-    print(json.dumps(response_data, indent=2))
-elif invoke_response.status_code >= 400:
-    print(f"Error Response ({invoke_response.status_code}):")
-    error_data = invoke_response.json()
-    print(json.dumps(error_data, indent=2))
-
-else:
-    print(f"Unexpected status code: {invoke_response.status_code}")
-    print("Response text:")
-    print(invoke_response.text[:500])
-```
-
-3. Replace `AWS_REGION` with the AWS Region that you are using. from Step 3.
-4. Replace `YOUR_AGENT_ARN_HERE` with your actual agent runtime ARN from Step 3.
-5. Run the script:
-
-```
-python invoke_agent.py
-```
+   ```
+   python invoke_agent.py
+   ```
 
 ## OAuth Error Responses
+<a name="oauth-error-responses"></a>
 
-OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235 "https://datatracker.ietf.org/doc/html/rfc7235") ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
+OAuth-configured agents follow [RFC 6749 (OAuth 2.0)](https://datatracker.ietf.org/doc/html/rfc6749) authentication standards. When authentication is missing, the service returns a 401 Unauthorized response with a WWW-Authenticate header (per [RFC 7235](https://datatracker.ietf.org/doc/html/rfc7235) ), enabling clients to discover the authorization server endpoints through the GetRuntimeProtectedResourceMetadata API.
 
 ### 401 Unauthorized - Missing Authentication
+<a name="oauth-401-missing-authentication"></a>
 
 When no Bearer token is provided in the Authorization header, the response is:
 
@@ -610,49 +558,50 @@ WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.a
 
 The `resource_metadata` URL in the WWW-Authenticate header points to the Protected Resource Metadata (PRM) API. The PRM API enables clients to discover which authorization servers protect this agent and their OAuth endpoint URLs.
 
-###### Note
-
+**Note**  
 You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to obtain a `client_id` before using the discovered endpoints. Amazon Cognito does not support Dynamic Client Registration (RFC 7591).
 
 ## Step 6: Set up your agent to access tools using OAuth
+<a name="oauth-outbound-access"></a>
 
 In this section, you’ll learn how to connect your agent code with AgentCore Credential Providers for secure access to external resources using OAuth2 authentication.
 
 The following example demonstrates how your agent running in Agent Runtime can request OAuth consent from users, enabling them to authenticate with their Google account and authorize the agent to access their Google Drive contents.
 
-For more information about setting up identity, see [Get started with AgentCore Identity](identity-getting-started.md "identity-getting-started.md").
+For more information about setting up identity, see [Get started with AgentCore Identity](identity-getting-started.md).
 
 ### Step 6.1: Set up Credential Providers
+<a name="setup-credential-providers"></a>
 
 To set up a Google Credential Provider, you need to:
 
 1. Register your application with Google to obtain client ID and client secret
-2. Create an OAuth credential provider using the AWS CLI. Replace `your-client-id` and `your-client-secret` with your actual Google OAuth2 client ID and client secret:
 
-```
-OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
-  --name "google-provider" \
-  --credential-provider-vendor "GoogleOauth2" \
-  --oauth2-provider-config-input '{
-      "googleOauth2ProviderConfig": {
-        "clientId": "your-client-id",
-        "clientSecret": "your-client-secret"
-      }
-    }' \
---output json)
+1. Create an OAuth credential provider using the AWS CLI. Replace {{your-client-id}} and {{your-client-secret}} with your actual Google OAuth2 client ID and client secret:
 
-OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
-
-echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
-```
-
-###### Note
-
-Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
+   ```
+   OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
+     --name "google-provider" \
+     --credential-provider-vendor "GoogleOauth2" \
+     --oauth2-provider-config-input '{
+         "googleOauth2ProviderConfig": {
+           "clientId": "your-client-id",
+           "clientSecret": "your-client-secret"
+         }
+       }' \
+   --output json)
+   
+   OAUTH2_CALLBACK_URL=$(echo $OAUTH2_CREDENTIAL_PROVIDER_RESPONSE | jq -r '.callbackUrl')
+   
+   echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
+   ```
+**Note**  
+Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.html) response and add the URI to your Google application’s redirect URI list. The callback URL should look like: https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/\*\*\*\*\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*-\*\*\*\*\*\*\*\*\*\*\*\*
 
 Make sure your invocation role has the necessary permissions for accessing the credential provider.
 
 ### Step 6.2: Enable agent to read Google Drive contents
+<a name="enable-google-drive-access"></a>
 
 Create a tool with agent core SDK annotations as shown in the following example to automatically initiate the three-legged OAuth process. When your agent invokes this tool, users will be prompted to open the authorization URL in their browser and grant consent for the agent to access their Google Drive.
 
@@ -677,34 +626,39 @@ async def read_from_google_drive(*, access_token: str):
 asyncio.run(read_from_google_drive(access_token=""))
 ```
 
-###### Note
+**Note**  
+For a sample local callback server implementation to handle [session binding](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/oauth2-authorization-url-session-binding.html) , refer to [oauth2\_callback\_server.py on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py) 
 
-For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") , refer to [oauth2\_callback\_server.py on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py")
-
-**What happens behind the scenes**
+ **What happens behind the scenes** 
 
 When this code runs, the following process occurs:
 
 1. Agent Runtime authorizes the inbound token according to the configured authorizer.
-2. Agent Runtime exchanges this token for a Workload Access Token via `bedrock-agentcore:GetWorkloadAccessTokenForJWT` API and delivers it to your agent code via the payload header `WorkloadAccessToken`.
-3. During tool invocation, your agent uses this Workload Access Token to call Token Vault API `bedrock-agentcore:GetResourceOauth2Token` and generate a 3LO authentication URL.
-4. Your agent sends this URL to the client application as specified in the `on_auth_url` method.
-5. The client application presents this URL to the user, who grants consent for the agent to access their Google Drive.
-6. AgentCore Identity service securely receives and caches the Google access token until it expires, enabling subsequent requests from the user to use this token without needing the user to provide consent for every request.
 
-###### Note
+1. Agent Runtime exchanges this token for a Workload Access Token via `bedrock-agentcore:GetWorkloadAccessTokenForJWT` API and delivers it to your agent code via the payload header `WorkloadAccessToken`.
 
+1. During tool invocation, your agent uses this Workload Access Token to call Token Vault API `bedrock-agentcore:GetResourceOauth2Token` and generate a 3LO authentication URL.
+
+1. Your agent sends this URL to the client application as specified in the `on_auth_url` method.
+
+1. The client application presents this URL to the user, who grants consent for the agent to access their Google Drive.
+
+1. AgentCore Identity service securely receives and caches the Google access token until it expires, enabling subsequent requests from the user to use this token without needing the user to provide consent for every request.
+
+**Note**  
 AgentCore Identity Service stores the Google access token in the AgentCore Token Vault using the agent workload identity and user ID (from the inbound JWT token, such as AWS Cognito token) as the binding key, eliminating repeated consent requests until the Google token expires.
 
 ## Step 7: (Optional) Propagate a JWT token to AgentCore Runtime
+<a name="oauth-propagate-jwt-token"></a>
 
-Optionally, you can pass an Authorization header to an AgentCore Runtime to extract claims. This can be done by using the request header allowlist configuration. For more information, see [RequestHeaderConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.md").
+Optionally, you can pass an Authorization header to an AgentCore Runtime to extract claims. This can be done by using the request header allowlist configuration. For more information, see [RequestHeaderConfiguration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.html).
 
 ### Step 7.1: Modify your agent code to read headers
+<a name="oauth-propagate-jwt-token-modify-code"></a>
 
 In this step you make changes to your agent code so that you can decode and extract claims from a JWT token using PyJWT library.
 
-**Python dependencies**
+ **Python dependencies** 
 
 Add PyJWT to the generated agent’s `pyproject.toml`:
 
@@ -714,7 +668,7 @@ uv add PyJWT
 cd ../..
 ```
 
-**Update your agent code**
+ **Update your agent code** 
 
 Modify `app/OAuthAgent/main.py` as shown in the following code. You can skip validating the token signature here because AgentCore Runtime has already validated the token during inbound authorization.
 
@@ -742,6 +696,7 @@ def invoke(payload, context):
 ```
 
 ### Step 7.2: Deploy the updated agent
+<a name="oauth-propagate-jwt-token-create-agent"></a>
 
 The `agentcore add agent` command in Step 4 already configured the `Authorization` request header allowlist. Deploy the code update:
 
@@ -750,12 +705,15 @@ agentcore deploy
 ```
 
 ### Step 7.3: Invoke your agent
+<a name="oauth-propagate-jwt-token-invoke-agent"></a>
 
-[Invoke](#oauth-invoke-agent "#oauth-invoke-agent") your agent using OAuth and you should see the claims in your agent logs in CloudWatch Logs.
+ [Invoke](#oauth-invoke-agent) your agent using OAuth and you should see the claims in your agent logs in CloudWatch Logs.
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
 ### How to debug token related issues
+<a name="debug-token-issues"></a>
 
 If you encounter issues with token authentication, you can decode the token to inspect its contents:
 
@@ -783,21 +741,13 @@ This will output the token’s payload, which looks similar to:
 ```
 
 When troubleshooting token issues, check the following:
-
-- Issuer url pointed to by the discovery url in the agent authorizer should match the issuer claim in the token. Do the following to confirm they match:
-
-  - Select the discovery url you provided in the authorizer configuration when you created the agent, for example: `https://cognito-idp.us-east-1.amazonaws.com/us-east-1_nnnnnnnnn/.well-known/openid-configuration`
-
-    - Check the issuer url - `"issuer": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_12345566"` . This should match the iss claim value in the token.
-
-- `client_id` claim in the token must match one of the authorizer allowedClients entries if provided
-
-  - Note the client id you provided when you created the agent
-  - Confirm this matches the client\_id claim in the decoded token
-
-- `aud` claim in the token must match one of the authorizer `allowedAudience` entries, if provided
-
-  - Note the audience list you provided when you created the agent
-  - Confirm this matches the `aud` claim in the decoded token
-
-- Tokens are only valid for several minutes (the default Amazon Cognito expiry is 60 minutes). Fetch a new token as needed.
++ Issuer url pointed to by the discovery url in the agent authorizer should match the issuer claim in the token. Do the following to confirm they match:
+  + Select the discovery url you provided in the authorizer configuration when you created the agent, for example: `https://cognito-idp.us-east-1.amazonaws.com/us-east-1_nnnnnnnnn/.well-known/openid-configuration` 
+    + Check the issuer url - `"issuer": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_12345566"` . This should match the iss claim value in the token.
++  `client_id` claim in the token must match one of the authorizer allowedClients entries if provided
+  + Note the client id you provided when you created the agent
+  + Confirm this matches the client\_id claim in the decoded token
++  `aud` claim in the token must match one of the authorizer `allowedAudience` entries, if provided
+  + Note the audience list you provided when you created the agent
+  + Confirm this matches the `aud` claim in the decoded token
++ Tokens are only valid for several minutes (the default Amazon Cognito expiry is 60 minutes). Fetch a new token as needed.

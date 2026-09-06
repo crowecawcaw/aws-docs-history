@@ -1,14 +1,14 @@
+
+
 # Create a payment instrument
+<a name="payments-create-instrument"></a>
 
-A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. The `ETHEREUM` network value covers Ethereum mainnet and all supported EVM-compatible Layer 2 networks (Base, Arbitrum, and others). For the complete request and response schema, see [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md") in the API Reference.
+A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. The `ETHEREUM` network value covers Ethereum mainnet and all supported EVM-compatible Layer 2 networks (Base, Arbitrum, and others). For the complete request and response schema, see [CreatePaymentInstrument](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreatePaymentInstrument.html) in the API Reference.
 
-###### Tip
+**Tip**  
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md) and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main).
 
-You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
-
-###### Example
-
-AgentCore SDK
+**Example**  
 
 ```
 from bedrock_agentcore.payments import PaymentManager
@@ -32,10 +32,7 @@ instrument = manager.create_payment_instrument(
    }},
 )
 ```
-
 For Solana compatible chain, use enum `SOLANA` for network input.
-
-AWS CLI
 
 ```
 aws bedrock-agentcore create-payment-instrument \
@@ -52,10 +49,7 @@ aws bedrock-agentcore create-payment-instrument \
     --client-token "$(uuidgen)" \
     --region us-west-2
 ```
-
 For Solana compatible chain, use `"network": "SOLANA"`.
-
-AWS SDK
 
 ```
 import boto3
@@ -83,18 +77,15 @@ instrument = dp_client.create_payment_instrument(
     clientToken=str(uuid.uuid4()),
 )
 ```
-
 For Solana compatible chain, use enum `SOLANA` for network input.
 
-###### Note
-
-Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. For detailed instructions, see [Fund the wallet and grant agent permissions](payments-fund-wallet.md "payments-fund-wallet.md").
+**Note**  
+Once the payment instrument is created, the end user must fund the instrument and grant signing permissions before the agent can process payments. For detailed instructions, see [Fund the wallet and grant agent permissions](payments-fund-wallet.md).
 
 ## Get a payment instrument
+<a name="payments-create-instrument-get"></a>
 
-###### Example
-
-AgentCore SDK
+**Example**  
 
 ```
 instrument = manager.get_payment_instrument(
@@ -104,8 +95,6 @@ instrument = manager.get_payment_instrument(
 print(f"Status: {instrument['status']}")
 ```
 
-AWS CLI
-
 ```
 aws bedrock-agentcore get-payment-instrument \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
@@ -113,8 +102,6 @@ aws bedrock-agentcore get-payment-instrument \
     --user-id "test-user-123" \
     --region us-west-2
 ```
-
-AWS SDK
 
 ```
 response = dp_client.get_payment_instrument(
@@ -125,10 +112,9 @@ print(f"Status: {response['status']}, Network: {response['paymentInstrumentDetai
 ```
 
 ## List payment instruments
+<a name="payments-create-instrument-list"></a>
 
-###### Example
-
-AgentCore SDK
+**Example**  
 
 ```
 instruments = manager.list_payment_instruments(
@@ -138,16 +124,12 @@ for inst in instruments['paymentInstruments']:
     print(f"{inst['paymentInstrumentId']} - {inst['status']}")
 ```
 
-AWS CLI
-
 ```
 aws bedrock-agentcore list-payment-instruments \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --user-id "test-user-123" \
     --region us-west-2
 ```
-
-AWS SDK
 
 ```
 response = dp_client.list_payment_instruments(
@@ -159,10 +141,9 @@ for inst in response['paymentInstruments']:
 ```
 
 ## Check instrument balance
+<a name="payments-create-instrument-balance"></a>
 
-###### Example
-
-AgentCore SDK
+**Example**  
 
 ```
 balance = manager.get_payment_instrument_balance(
@@ -172,16 +153,12 @@ balance = manager.get_payment_instrument_balance(
 print(f"Balance: {balance['amount']} {balance['currency']}")
 ```
 
-AWS CLI
-
 ```
 aws bedrock-agentcore get-payment-instrument-balance \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-instrument-id "payment-instrument-abc123" \
     --region us-west-2
 ```
-
-AWS SDK
 
 ```
 response = dp_client.get_payment_instrument_balance(
@@ -192,10 +169,9 @@ print(f"Balance: {response['amount']} {response['currency']}")
 ```
 
 ## Delete a payment instrument
+<a name="payments-create-instrument-delete"></a>
 
-###### Example
-
-AgentCore SDK
+**Example**  
 
 ```
 manager.delete_payment_instrument(
@@ -204,16 +180,12 @@ manager.delete_payment_instrument(
 )
 ```
 
-AWS CLI
-
 ```
 aws bedrock-agentcore delete-payment-instrument \
     --payment-manager-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/my-manager" \
     --payment-instrument-id "payment-instrument-abc123" \
     --region us-west-2
 ```
-
-AWS SDK
 
 ```
 dp_client.delete_payment_instrument(

@@ -1,8 +1,11 @@
+
+
 # Write files to a session
+<a name="code-interpreter-file-operations"></a>
 
 You can use the Code Interpreter to read and write files in the sandbox environment. This allows you to upload data files, process them with code, and retrieve the results.
 
-**Install dependencies**
+ **Install dependencies** 
 
 Run the following command to install the required package:
 
@@ -10,9 +13,9 @@ Run the following command to install the required package:
 pip install bedrock-agentcore
 ```
 
-**Upload Code and Data using the file tool**
+ **Upload Code and Data using the file tool** 
 
-The following Python code shows how to upload files to the Code Interpreter session and execute code that processes those files. The files that are required are `data.csv` and `stats.py` that are available [in this package](samples/read_write_files.zip.md "samples/read_write_files.zip.md").
+The following Python code shows how to upload files to the Code Interpreter session and execute code that processes those files. The files that are required are `data.csv` and `stats.py` that are available [in this package](samples/read_write_files.zip).
 
 ```
 # file_mgmt_ci_agent.py

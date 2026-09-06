@@ -1,21 +1,24 @@
+
+
 # Run an A/B test with target-based routing
+<a name="ab-testing-target-based"></a>
 
 Use the target-based routing pattern when the change you are testing involves code changes, a framework upgrade, or an entirely different agent implementation. Target-based routing routes traffic between multiple versions of the same AgentCore Runtime (named endpoints), or between entirely different AgentCore Runtimes. The AgentCore Gateway registers each endpoint as a separate target and routes each session to one endpoint or the other based on the A/B test’s traffic weights.
 
 Key configuration for target-based A/B tests:
++ Variant configuration: `variantConfiguration.target` with the AgentCore Gateway target name
++ Evaluation configuration: `perVariantOnlineEvaluationConfig` (one online evaluation config per variant, since each endpoint has its own log group)
++ Gateway filter: `gatewayFilter.targetPaths` scopes which AgentCore Gateway paths the A/B test intercepts
 
-- Variant configuration: `variantConfiguration.target` with the AgentCore Gateway target name
-- Evaluation configuration: `perVariantOnlineEvaluationConfig` (one online evaluation config per variant, since each endpoint has its own log group)
-- Gateway filter: `gatewayFilter.targetPaths` scopes which AgentCore Gateway paths the A/B test intercepts
-  This walkthrough deploys two versions of the customer support agent — one using Claude Sonnet (control) and one using Claude Opus (treatment) — creates named endpoints for each version, creates an A/B test, sends traffic, reviews results, and deploys the winner.
+This walkthrough deploys two versions of the customer support agent — one using Claude Sonnet (control) and one using Claude Opus (treatment) — creates named endpoints for each version, creates an A/B test, sends traffic, reviews results, and deploys the winner.
 
-###### Note
+**Note**  
+This walkthrough is for agents hosted on an AgentCore Runtime. If your agent runs **outside** an AgentCore Runtime (a third-party or self-hosted agent — for example on AWS Lambda), see [Run an A/B test for agents hosted outside of AgentCore](ab-testing-3p-agents.md) instead.
 
-This walkthrough is for agents hosted on an AgentCore Runtime. If your agent runs **outside** an AgentCore Runtime (a third-party or self-hosted agent — for example on AWS Lambda), see [Run an A/B test for agents hosted outside of AgentCore](ab-testing-3p-agents.md "ab-testing-3p-agents.md") instead.
-
-For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-testing.md#ab-testing-pattern-comparison "ab-testing.md#ab-testing-pattern-comparison").
+For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-testing.md#ab-testing-pattern-comparison).
 
 ## Step 1: Create the project
+<a name="target-based-create-project"></a>
 
 Create the project with the AgentCore CLI:
 
@@ -25,6 +28,7 @@ cd ABTestTargetBased
 ```
 
 ## Step 2: Add the runtime
+<a name="target-based-add-runtime"></a>
 
 Add the agent runtime. You will deploy two versions of this runtime — one for control and one for treatment — then create named endpoints to alias each version.
 
@@ -53,6 +57,7 @@ ABTestTargetBased/
 ```
 
 ## Step 3: Deploy control and treatment versions
+<a name="target-based-agent-code"></a>
 
 Replace `app/csAgent/main.py` with the control version (using Claude Sonnet):
 
@@ -156,9 +161,8 @@ agentcore deploy
 ```
 
 You now have:
-
-- Runtime endpoint `control` — serving version 1 with Claude Sonnet.
-- Runtime endpoint `treatment` — serving version 2 with Claude Opus.
++ Runtime endpoint `control` — serving version 1 with Claude Sonnet.
++ Runtime endpoint `treatment` — serving version 2 with Claude Opus.
 
 Verify the runtime is working:
 
@@ -167,11 +171,11 @@ agentcore invoke --runtime csAgent --prompt "What is the status of order ORD-100
 ```
 
 You now have:
-
-- Runtime endpoint `control` — serving version 1 with Claude Sonnet.
-- Runtime endpoint `treatment` — serving version 2 with Claude Opus.
++ Runtime endpoint `control` — serving version 1 with Claude Sonnet.
++ Runtime endpoint `treatment` — serving version 2 with Claude Opus.
 
 ## Step 4: Create online evaluation configurations
+<a name="target-based-online-eval"></a>
 
 Each endpoint has its own log group (the log group name ends with the endpoint name), so you need one online evaluation config per variant:
 
@@ -197,9 +201,10 @@ agentcore deploy
 
 After each deployment, note the online evaluation config ARN — you will need both when creating the A/B test.
 
-For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md "create-online-evaluations.md").
+For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md).
 
 ## Step 5: Create the gateway and targets
+<a name="target-based-create-gateway"></a>
 
 A target-based A/B test routes traffic through an AgentCore Gateway, so the gateway and its two targets must already be deployed before you start the test. Add a gateway and register each runtime endpoint as an `http-runtime` target, then deploy:
 
@@ -224,12 +229,11 @@ agentcore deploy
 ```
 
 ## Step 6: Create the A/B test
+<a name="target-based-create-test"></a>
 
 Start the A/B test with `agentcore run ab-test`. Each variant references one of the gateway targets you created and has its own online evaluation config. The command initiates the test directly on the service against the already-deployed gateway.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore run ab-test \
@@ -244,10 +248,7 @@ agentcore run ab-test \
   --control-weight 80 \
   --treatment-weight 20
 ```
-
 The test is RUNNING as soon as the command returns. Pass `--disable-on-create` to create it stopped. The `--gateway` flag is required and must reference the gateway you deployed in Step 5. Only one test can be RUNNING per gateway at a time. The command prints the test’s job ID, which is also available from `--json` as the `id` field. You need this ID for the lifecycle commands below.
-
-AWS SDK (boto3)
 
 ```
 import boto3
@@ -355,16 +356,19 @@ print(f"Execution status: {response['executionStatus']}")
 ```
 
 ## Step 7: Send traffic through the AgentCore Gateway
+<a name="target-based-send-traffic"></a>
 
 After the A/B test is running, send traffic through the AgentCore Gateway HTTP endpoint. The AgentCore Gateway assigns each request to a variant (control or treatment) based on the runtime session ID.
 
 ### How variant assignment works
+<a name="_how_variant_assignment_works"></a>
 
 The AgentCore Gateway uses the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header to determine which target to route traffic to. This header is **optional** — if you do not provide it, the runtime generates a session ID automatically. The AgentCore Gateway then uses the session ID (whether you provided it or the runtime generated it) to assign the request to a variant based on your configured traffic weights.
 
 Session assignment is **sticky**: once a session ID is assigned to a variant, all subsequent requests with that same session ID route to the same target. This ensures a consistent experience within a session while still distributing new sessions across variants according to your traffic split.
 
 ### Generate traffic for testing
+<a name="_generate_traffic_for_testing"></a>
 
 Save the following script as `loadgen.sh`, replacing `<gateway-id>` and `<target-name>` with the values from your deployment output. You can also copy the full invocation URL from `agentcore view ab-test <ab-test-id>`:
 
@@ -412,26 +416,22 @@ bash loadgen.sh
 ```
 
 ## Step 8: Get results
+<a name="target-based-get-results"></a>
 
 Poll the A/B test to monitor results as sample sizes grow. Polling does not affect statistical validity.
 
-###### Example
-
-AgentCore CLI
-Get current results (replace `<ab-test-id>` with the job ID from Step 6):
+**Example**  
+Get current results (replace `<ab-test-id>` with the job ID from Step 6):  
 
 ```
 agentcore view ab-test <ab-test-id>
 ```
-
-Get results as JSON:
+Get results as JSON:  
 
 ```
 agentcore view ab-test <ab-test-id> --json
 ```
-
-AWS SDK (boto3)
-Poll until results reach statistical significance:
+Poll until results reach statistical significance:  
 
 ```
 import boto3
@@ -480,25 +480,24 @@ while True:
     time.sleep(300)  # Poll every 5 minutes
 ```
 
-###### Note
-
+**Note**  
 The time it takes for results to appear depends primarily on the session timeout configured in your online evaluation configs. A session is considered complete once no new requests arrive within the timeout window. After a session ends, results typically appear within 15 minutes. Results accumulate as more sessions complete — statistical significance improves with sample size.
-
-###### Interpreting results
-
-- **p-value < 0.05 and positive `percentChange`:** The treatment is significantly better than control. Consider deploying the treatment.
-- **p-value < 0.05 and negative `percentChange`:** The treatment is significantly worse. Keep the control.
-- **p-value >= 0.05:** Not enough evidence to conclude a difference. Continue collecting samples or increase traffic to the treatment.
-- **Check all evaluators:** A treatment may improve one metric while regressing another. Review all evaluator results before deciding.
++  **p-value < 0.05 and positive `percentChange`:** The treatment is significantly better than control. Consider deploying the treatment.
++  **p-value < 0.05 and negative `percentChange`:** The treatment is significantly worse. Keep the control.
++  **p-value >= 0.05:** Not enough evidence to conclude a difference. Continue collecting samples or increase traffic to the treatment.
++  **Check all evaluators:** A treatment may improve one metric while regressing another. Review all evaluator results before deciding.
 
 ## Step 9: Confirm results and stop the A/B test
+<a name="target-based-confirm-stop"></a>
 
 Once the A/B test reaches statistical significance, review the results and stop the experiment.
 
-1. **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
-2. **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default target. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop "ab-testing-manage.md#manage-ab-test-start-stop").
+1.  **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
+
+1.  **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default target. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop).
 
 ## Step 10: Deploy the winner
+<a name="target-based-deploy-winner"></a>
 
 After stopping the A/B test, route all traffic to the winning variant.
 
@@ -507,27 +506,25 @@ agentcore promote ab-test -i <ab-test-id>
 agentcore deploy
 ```
 
-`promote` stops the A/B test (if still running), updates the control endpoint to point to the treatment version (for example, updating `control` from version 1 to version 2), and removes the treatment endpoint. Run `agentcore deploy` to apply the changes.
+ `promote` stops the A/B test (if still running), updates the control endpoint to point to the treatment version (for example, updating `control` from version 1 to version 2), and removes the treatment endpoint. Run `agentcore deploy` to apply the changes.
 
 Alternatively, you can manually deploy the winner by doing one of the following:
-
-- **Option A:** Use [AgentCore Gateway routing rules](gateway-rules.md "gateway-rules.md") to direct traffic from both targets to the winning target.
-- **Option B:** Remove the losing target from the AgentCore Gateway and route all traffic to the winner.
-- **Option C:** Update the losing target to point to the winning endpoint.
-
-###### Next steps
++  **Option A:** Use [AgentCore Gateway routing rules](gateway-rules.md) to direct traffic from both targets to the winning target.
++  **Option B:** Remove the losing target from the AgentCore Gateway and route all traffic to the winner.
++  **Option C:** Update the losing target to point to the winning endpoint.
 
 After deploying the winner:
-
-- **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove "ab-testing-manage.md#manage-ab-test-remove").
-- **Monitor the new baseline.** Online evaluation continues scoring sessions on the winning configuration. Watch for regressions.
-- **Start the next iteration.** New traces from the winning configuration provide the foundation for the next recommendation cycle. See [How it works](optimization-how-it-works.md "optimization-how-it-works.md").
++  **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove).
++  **Monitor the new baseline.** Online evaluation continues scoring sessions on the winning configuration. Watch for regressions.
++  **Start the next iteration.** New traces from the winning configuration provide the foundation for the next recommendation cycle. See [How it works](optimization-how-it-works.md).
 
 ## Understanding results
+<a name="target-based-results-shape"></a>
 
 When you call `GetABTest`, the response includes a `results` object once the aggregation pipeline has processed enough sessions. The results contain per-evaluator metrics broken down by variant.
 
 ### Results structure
+<a name="_results_structure"></a>
 
 ```
 {
@@ -563,35 +560,36 @@ When you call `GetABTest`, the response includes a `results` object once the agg
 ```
 
 ### Field reference
+<a name="_field_reference"></a>
 
-| Field                                 | Description                                                                                          |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `analysisTimestamp`                   | When the service last computed statistics.                                                           |
-| `evaluatorMetrics`                    | One entry per evaluator in the online evaluation config.                                             |
-| `controlStats.mean`                   | Average evaluator score across all control sessions.                                                 |
-| `controlStats.sampleSize`             | Number of scored sessions for the control variant.                                                   |
-| `variantResults[].mean`               | Average evaluator score across all treatment sessions.                                               |
-| `variantResults[].sampleSize`         | Number of scored sessions for the treatment variant.                                                 |
-| `variantResults[].absoluteChange`     | Difference between treatment mean and control mean.                                                  |
-| `variantResults[].percentChange`      | Percent improvement (positive) or regression (negative) relative to control.                         |
-| `variantResults[].pValue`             | Probability the observed difference is due to chance. Below 0.05 indicates statistical significance. |
-| `variantResults[].confidenceInterval` | 95% confidence interval for the absolute change (`lower` and `upper` bounds).                        |
-| `variantResults[].isSignificant`      | `true` when p-value < 0.05 and sample sizes are sufficient.                                          |
+
+| Field | Description | 
+| --- | --- | 
+|  `analysisTimestamp`  | When the service last computed statistics. | 
+|  `evaluatorMetrics`  | One entry per evaluator in the online evaluation config. | 
+|  `controlStats.mean`  | Average evaluator score across all control sessions. | 
+|  `controlStats.sampleSize`  | Number of scored sessions for the control variant. | 
+|  `variantResults[].mean`  | Average evaluator score across all treatment sessions. | 
+|  `variantResults[].sampleSize`  | Number of scored sessions for the treatment variant. | 
+|  `variantResults[].absoluteChange`  | Difference between treatment mean and control mean. | 
+|  `variantResults[].percentChange`  | Percent improvement (positive) or regression (negative) relative to control. | 
+|  `variantResults[].pValue`  | Probability the observed difference is due to chance. Below 0.05 indicates statistical significance. | 
+|  `variantResults[].confidenceInterval`  | 95% confidence interval for the absolute change (`lower` and `upper` bounds). | 
+|  `variantResults[].isSignificant`  |  `true` when p-value < 0.05 and sample sizes are sufficient. | 
 
 ## Troubleshooting
+<a name="target-based-troubleshooting"></a>
 
 ### A/B test shows no results after sending traffic
+<a name="target-based-no-results"></a>
 
 Results do not appear immediately. The time it takes depends on the session timeout configured in your online evaluation config — a session is considered complete only after no new requests arrive within the timeout window. After a session ends, expect results within approximately 15 minutes.
 
 If results still do not appear after this window:
-
-- **Verify the online eval log group.** The online evaluation configuration must point to the runtime agent’s output log group. If the online eval config references a different log group (or one that does not receive spans from your runtime), sessions will not be scored and the A/B test will never produce results.
-- **Check the log group name.** For target-based routing, each endpoint has its own log group (the log group name ends with the endpoint name). Ensure each online eval config references the correct endpoint’s log group.
-- **Confirm the runtime is emitting spans.** Check CloudWatch Logs for the expected log group. The key attributes you’re looking for on each span:
-
-  - `aws.agentcore.gateway.routing_experiment_arn`
-  - `aws.agentcore.gateway.routing_experiment_variant_name` (values: `C` or `T1`)
-  - `session.id`
-
-- **Verify CLI-created vs manual configs.** If you used `agentcore add online-eval --runtime <name>`, the CLI automatically configures the correct log group. If you created the online eval config manually via the API, ensure the AgentCore Online Eval Config `dataSourceConfig.cloudWatchLogs.logGroupNames` matches your runtime’s span log group.
++  **Verify the online eval log group.** The online evaluation configuration must point to the runtime agent’s output log group. If the online eval config references a different log group (or one that does not receive spans from your runtime), sessions will not be scored and the A/B test will never produce results.
++  **Check the log group name.** For target-based routing, each endpoint has its own log group (the log group name ends with the endpoint name). Ensure each online eval config references the correct endpoint’s log group.
++  **Confirm the runtime is emitting spans.** Check CloudWatch Logs for the expected log group. The key attributes you’re looking for on each span:
+  +  `aws.agentcore.gateway.routing_experiment_arn` 
+  +  `aws.agentcore.gateway.routing_experiment_variant_name` (values: `C` or `T1`)
+  +  `session.id` 
++  **Verify CLI-created vs manual configs.** If you used `agentcore add online-eval --runtime <name>`, the CLI automatically configures the correct log group. If you created the online eval config manually via the API, ensure the AgentCore Online Eval Config `dataSourceConfig.cloudWatchLogs.logGroupNames` matches your runtime’s span log group.

@@ -1,12 +1,14 @@
+
+
 # List batch evaluations
+<a name="batch-evaluations-list"></a>
 
 List all batch evaluation jobs in your account. Results are paginated.
 
 ## Code samples
+<a name="list-batch-eval-examples"></a>
 
-###### Example
-
-AWS SDK (boto3)
+**Example**  
 
 ```
 import boto3
@@ -37,52 +39,57 @@ for evaluation in all_evaluations:
         f"{evaluation['createdAt']}"
     )
 ```
-
-AgentCore CLI
-List all batch evaluation jobs (running jobs are refreshed from the service). Use `--json` for machine-readable output:
+List all batch evaluation jobs (running jobs are refreshed from the service). Use `--json` for machine-readable output:  
 
 ```
 agentcore batch-evaluations history --json
 ```
-
-To view a single batch evaluation job and its results, pass the job ID:
+To view a single batch evaluation job and its results, pass the job ID:  
 
 ```
 agentcore view batch-evaluation <batch-evaluation-id> --json
 ```
 
 ## Request parameters
+<a name="list-batch-eval-params"></a>
 
-| Parameter    | Type    | Required | Description                                                                 |
-| ------------ | ------- | -------- | --------------------------------------------------------------------------- |
-| `maxResults` | Integer | No       | Maximum number of results per page. Range: 1–100. Default: service-defined. |
-| `nextToken`  | String  | No       | Pagination token from a previous response.                                  |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `maxResults`  | Integer | No | Maximum number of results per page. Range: 1–100. Default: service-defined. | 
+|  `nextToken`  | String | No | Pagination token from a previous response. | 
 
 ## Response
+<a name="list-batch-eval-response"></a>
 
-| Field              | Type   | Description                                                                |
-| ------------------ | ------ | -------------------------------------------------------------------------- |
-| `batchEvaluations` | List   | List of batch evaluation summaries.                                        |
-| `nextToken`        | String | Pagination token for the next page. Absent when there are no more results. |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `batchEvaluations`  | List | List of batch evaluation summaries. | 
+|  `nextToken`  | String | Pagination token for the next page. Absent when there are no more results. | 
 
 ### Batch evaluation summary fields
+<a name="list-batch-eval-summary-fields"></a>
 
-| Field                 | Type            | Description                                                                                                                  |
-| --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `batchEvaluationId`   | String          | Unique identifier.                                                                                                           |
-| `batchEvaluationArn`  | String          | ARN of the batch evaluation.                                                                                                 |
-| `batchEvaluationName` | String          | Job name.                                                                                                                    |
-| `status`              | String          | Current status: `PENDING`, `IN_PROGRESS`, `COMPLETED`, `COMPLETED_WITH_ERRORS`, `FAILED`, `STOPPING`, `STOPPED`, `DELETING`. |
-| `createdAt`           | Timestamp       | When the job was created.                                                                                                    |
-| `evaluators`          | List            | The evaluators used.                                                                                                         |
-| `evaluationResults`   | Object          | Aggregate results summary. Present when the job has completed.                                                               |
-| `errorDetails`        | List of strings | Error messages if the job failed.                                                                                            |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `batchEvaluationId`  | String | Unique identifier. | 
+|  `batchEvaluationArn`  | String | ARN of the batch evaluation. | 
+|  `batchEvaluationName`  | String | Job name. | 
+|  `status`  | String | Current status: `PENDING`, `IN_PROGRESS`, `COMPLETED`, `COMPLETED_WITH_ERRORS`, `FAILED`, `STOPPING`, `STOPPED`, `DELETING`. | 
+|  `createdAt`  | Timestamp | When the job was created. | 
+|  `evaluators`  | List | The evaluators used. | 
+|  `evaluationResults`  | Object | Aggregate results summary. Present when the job has completed. | 
+|  `errorDetails`  | List of strings | Error messages if the job failed. | 
 
 ## Errors
+<a name="list-batch-eval-errors"></a>
 
-| Error                     | HTTP status | Description                    |
-| ------------------------- | ----------- | ------------------------------ |
-| `ValidationException`     | 400         | Invalid pagination parameters. |
-| `AccessDeniedException`   | 403         | Insufficient permissions.      |
-| `ThrottlingException`     | 429         | Request rate exceeded.         |
-| `InternalServerException` | 500         | Service-side error.            |
+
+| Error | HTTP status | Description | 
+| --- | --- | --- | 
+|  `ValidationException`  | 400 | Invalid pagination parameters. | 
+|  `AccessDeniedException`  | 403 | Insufficient permissions. | 
+|  `ThrottlingException`  | 429 | Request rate exceeded. | 
+|  `InternalServerException`  | 500 | Service-side error. | 

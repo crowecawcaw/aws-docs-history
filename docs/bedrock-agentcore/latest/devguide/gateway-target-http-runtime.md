@@ -1,34 +1,36 @@
+
+
 # Amazon Bedrock AgentCore Runtime targets
+<a name="gateway-target-http-runtime"></a>
 
 You can add an Amazon Bedrock AgentCore Runtime agent as a gateway target. The gateway sends traffic directly to the runtime agent without aggregation or protocol translation. Unlike MCP targets that combine tool capabilities into a unified virtual MCP server, the AgentCore Runtime target forwards requests and responses between clients and the runtime agent without modification.
 
 Adding an AgentCore Runtime target to your gateway is useful when you want to:
++ Provide centralized access management for your runtime agents through a single gateway endpoint.
++ Use the gateway’s built-in authentication and observability for your runtime agents.
++ Route requests to specific runtime agents using path-based routing when multiple targets are attached to a gateway.
++ Optimize your agent’s performance by using Amazon Bedrock AgentCore optimization to generate recommendations from agent traces, A/B test changes with live traffic through the gateway, and deploy winning configurations. For more information, see [AgentCore optimization](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization.html).
 
-- Provide centralized access management for your runtime agents through a single gateway endpoint.
-- Use the gateway’s built-in authentication and observability for your runtime agents.
-- Route requests to specific runtime agents using path-based routing when multiple targets are attached to a gateway.
-- Optimize your agent’s performance by using Amazon Bedrock AgentCore optimization to generate recommendations from agent traces, A/B test changes with live traffic through the gateway, and deploy winning configurations. For more information, see [AgentCore optimization](optimization.md "optimization.md").
-
-###### Topics
-
-- [Key considerations and limitations](#gateway-target-http-runtime-considerations "#gateway-target-http-runtime-considerations")
-- [Target configuration](#gateway-target-http-runtime-config "#gateway-target-http-runtime-config")
-- [Invoking an AgentCore Runtime target](#gateway-target-http-runtime-invoke "#gateway-target-http-runtime-invoke")
-- [Outbound authorization](#gateway-target-http-runtime-auth "#gateway-target-http-runtime-auth")
-- [Enforcing traffic through the gateway](#gateway-target-http-runtime-source-validation "#gateway-target-http-runtime-source-validation")
-- [Capability comparison with MCP targets](#gateway-target-http-runtime-comparison "#gateway-target-http-runtime-comparison")
+**Topics**
++ [Key considerations and limitations](#gateway-target-http-runtime-considerations)
++ [Target configuration](#gateway-target-http-runtime-config)
++ [Invoking an AgentCore Runtime target](#gateway-target-http-runtime-invoke)
++ [Outbound authorization](#gateway-target-http-runtime-auth)
++ [Enforcing traffic through the gateway](#gateway-target-http-runtime-source-validation)
++ [Capability comparison with MCP targets](#gateway-target-http-runtime-comparison)
 
 ## Key considerations and limitations
+<a name="gateway-target-http-runtime-considerations"></a>
 
 When working with AgentCore Runtime targets, be aware of the following considerations:
-
-- The gateway sends traffic directly to AgentCore Runtime targets without aggregating capabilities.
-- AgentCore Runtime targets can be added to gateways that don’t have a protocol type set. They cannot be added to MCP protocol type gateways.
-- No capability synchronization or semantic tool search is available for AgentCore Runtime targets. Clients must address each target individually through path-based routing.
-- Server-Sent Events (SSE) streaming is supported for AgentCore Runtime targets.
-- Request and response interceptor Lambda functions are supported in buffered mode. Interceptors are not yet supported in streaming mode.
++ The gateway sends traffic directly to AgentCore Runtime targets without aggregating capabilities.
++ AgentCore Runtime targets can be added to gateways that don’t have a protocol type set. They cannot be added to MCP protocol type gateways.
++ No capability synchronization or semantic tool search is available for AgentCore Runtime targets. Clients must address each target individually through path-based routing.
++ Server-Sent Events (SSE) streaming is supported for AgentCore Runtime targets.
++ Request and response interceptor Lambda functions are supported in buffered mode. Interceptors are not yet supported in streaming mode.
 
 ## Target configuration
+<a name="gateway-target-http-runtime-config"></a>
 
 When you create an AgentCore Runtime target, you provide the runtime ARN and an optional qualifier. The gateway resolves the runtime endpoint internally, so you don’t need to construct the runtime URL yourself.
 
@@ -51,23 +53,21 @@ The target configuration for an AgentCore Runtime target uses the following stru
     }
 }
 ```
++  **arn** (required) – The ARN of the Amazon Bedrock AgentCore Runtime agent.
++  **qualifier** (optional) – The runtime qualifier. Defaults to `DEFAULT`.
++  **schema** (optional) – The API schema that describes the runtime target’s request and response structure. The gateway uses this schema to enable policy engine features such as guardrails. The schema format is auto-detected as either OpenAPI or Smithy.
 
-- **arn** (required) – The ARN of the Amazon Bedrock AgentCore Runtime agent.
-- **qualifier** (optional) – The runtime qualifier. Defaults to `DEFAULT`.
-- **schema** (optional) – The API schema that describes the runtime target’s request and response structure. The gateway uses this schema to enable policy engine features such as guardrails. The schema format is auto-detected as either OpenAPI or Smithy.
+  For runtime agents that use MCP or A2A protocols, a default schema is applied automatically and you don’t need to provide one. For runtime agents that use the HTTP protocol, you must provide a schema to use guardrails.
 
-For runtime agents that use MCP or A2A protocols, a default schema is applied automatically and you don’t need to provide one. For runtime agents that use the HTTP protocol, you must provide a schema to use guardrails.
+  The `schema` object contains a `source` that specifies where the schema content is located:
+  +  **s3** – An S3 URI pointing to the schema file (for example, `s3://DOC-EXAMPLE-BUCKET/agent-schema.yaml`).
+  +  **inlinePayload** – The schema content provided directly as a string.
 
-The `schema` object contains a `source` that specifies where the schema content is located:
-
-    + **s3** – An S3 URI pointing to the schema file (for example, `s3://DOC-EXAMPLE-BUCKET/agent-schema.yaml`).
-    + **inlinePayload** – The schema content provided directly as a string.
-
-###### Note
-
+**Note**  
 If your runtime agent uses the HTTP protocol and you want to apply guardrails through the gateway’s policy engine, you must provide a schema. For runtime agents that use MCP or A2A protocols, a default schema is applied automatically.
 
 ## Invoking an AgentCore Runtime target
+<a name="gateway-target-http-runtime-invoke"></a>
 
 To invoke an AgentCore Runtime target through the gateway, send a POST request to the target’s invocation URL. The URL format is:
 
@@ -95,29 +95,31 @@ aws bedrock-agentcore invoke-agent-runtime \
 ```
 
 ## Outbound authorization
+<a name="gateway-target-http-runtime-auth"></a>
 
 AgentCore Runtime targets support the following outbound authorization types:
-
-- **IAM (SigV4)** – The gateway assumes the gateway service role to obtain credentials for signing requests to the runtime target. When you configure IAM authorization, you can use IAM policies to restrict access exclusively to the gateway role, ensuring all runtime requests flow through the gateway.
-- **Caller IAM credentials** – The gateway uses the caller’s IAM credentials to sign requests to the runtime target. The gateway assumes a role on behalf of the caller and signs the outbound request with the caller’s identity.
-- **OAuth (JWT)** – The gateway retrieves OAuth tokens from credential providers configured in the target through the Amazon Bedrock AgentCore identity service.
-- **Token passthrough** – The gateway validates the inbound token and passes it through to the runtime target without modification. This is useful when the runtime handles its own authorization.
++  **IAM (SigV4)** – The gateway assumes the gateway service role to obtain credentials for signing requests to the runtime target. When you configure IAM authorization, you can use IAM policies to restrict access exclusively to the gateway role, ensuring all runtime requests flow through the gateway.
++  **Caller IAM credentials** – The gateway uses the caller’s IAM credentials to sign requests to the runtime target. The gateway assumes a role on behalf of the caller and signs the outbound request with the caller’s identity.
++  **OAuth (JWT)** – The gateway retrieves OAuth tokens from credential providers configured in the target through the Amazon Bedrock AgentCore identity service.
++  **Token passthrough** – The gateway validates the inbound token and passes it through to the runtime target without modification. This is useful when the runtime handles its own authorization.
 
 ## Enforcing traffic through the gateway
+<a name="gateway-target-http-runtime-source-validation"></a>
 
-You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway "runtime-security-best-practices.md#security-bp-front-with-gateway"). But this is only useful if you can’t bypass the gateway and access the runtime directly. You can now achieve this regardless of whether the runtime uses IAM (SigV4) or OAuth (JWT) inbound authorization.
+You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway). But this is only useful if you can’t bypass the gateway and access the runtime directly. You can now achieve this regardless of whether the runtime uses IAM (SigV4) or OAuth (JWT) inbound authorization.
 
 You configure this restriction on the runtime. The gateway stamps the source of every request it forwards, and the runtime validates that source on the way in. The specific mechanism depends on the runtime’s inbound authorization type:
-
-- **IAM (SigV4) runtimes** – Attach a resource-based policy that restricts invocation to your gateway’s execution role. For the policy and the trust-policy hardening it requires, see [Restrict IAM (SigV4) inbound invocation to your gateway](runtime-oauth.md#runtime-restrict-iam-gateway "runtime-oauth.md#runtime-restrict-iam-gateway").
-- **OAuth (JWT) runtimes** – Configure `allowedWorkloadConfiguration` on the runtime’s `customJWTAuthorizer` to allow only your gateway’s workload. For the configuration and field reference, see [Restrict invocation to your gateway](runtime-oauth.md#deploy-agent-allowed-workload "runtime-oauth.md#deploy-agent-allowed-workload").
++  **IAM (SigV4) runtimes** – Attach a resource-based policy that restricts invocation to your gateway’s execution role. For the policy and the trust-policy hardening it requires, see [Restrict IAM (SigV4) inbound invocation to your gateway](runtime-oauth.md#runtime-restrict-iam-gateway).
++  **OAuth (JWT) runtimes** – Configure `allowedWorkloadConfiguration` on the runtime’s `customJWTAuthorizer` to allow only your gateway’s workload. For the configuration and field reference, see [Restrict invocation to your gateway](runtime-oauth.md#deploy-agent-allowed-workload).
 
 ## Capability comparison with MCP targets
+<a name="gateway-target-http-runtime-comparison"></a>
 
 You can integrate MCP servers with the Amazon Bedrock AgentCore gateway using two approaches: using the MCP target type in aggregation mode, or using the AgentCore Runtime target type. The following table compares the capabilities of each approach.
 
-| Capability                  | MCP gateway with MCP targets                                                                                                               | AgentCore Runtime target                                                                                                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tool/capability aggregation | Aggregates capabilities from all MCP targets into a single unified virtual MCP server. Clients see one consolidated `tools/list` response. | Operates in isolation. The gateway sends traffic directly to the target without merging capabilities. Clients must address each target individually through path-based routing. |
-| Semantic tool search        | Indexes tool descriptions and enables discovery through natural-language queries.                                                          | Not available. The gateway does not ingest or index capabilities. Clients must know exact tool names or use the server’s own `tools/list`.                                      |
-| Response interceptor Lambda | Supports both request and response interceptors for non-streaming MCP operations.                                                          | Supports both request and response interceptor Lambda functions in buffered mode. Interceptors are not yet supported in streaming mode.                                         |
+
+| Capability | MCP gateway with MCP targets | AgentCore Runtime target | 
+| --- | --- | --- | 
+| Tool/capability aggregation | Aggregates capabilities from all MCP targets into a single unified virtual MCP server. Clients see one consolidated `tools/list` response. | Operates in isolation. The gateway sends traffic directly to the target without merging capabilities. Clients must address each target individually through path-based routing. | 
+| Semantic tool search | Indexes tool descriptions and enables discovery through natural-language queries. | Not available. The gateway does not ingest or index capabilities. Clients must know exact tool names or use the server’s own `tools/list`. | 
+| Response interceptor Lambda | Supports both request and response interceptors for non-streaming MCP operations. | Supports both request and response interceptor Lambda functions in buffered mode. Interceptors are not yet supported in streaming mode. | 

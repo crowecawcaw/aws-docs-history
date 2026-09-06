@@ -1,8 +1,11 @@
+
+
 # Using AgentCore Browser with Nova Act
+<a name="browser-quickstart-nova-act"></a>
 
 You can build a browser agent using Nova Act to automate web interactions:
 
-**Step 1: Install dependencies**
+ **Step 1: Install dependencies** 
 
 Create a project folder (if you have not already):
 
@@ -13,9 +16,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-###### Note
-
-On Windows, use: `.venv\Scripts\activate`
+**Note**  
+On Windows, use: `.venv\Scripts\activate` 
 
 Install the required packages:
 
@@ -24,21 +26,20 @@ pip install bedrock-agentcore nova-act rich boto3
 ```
 
 These packages provide:
++  `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
++  `nova-act` : The SDK for Nova Act which includes the model and orchestrator for browser automation
++  `rich` : Library for rich text and beautiful formatting in the terminal
++  `boto3` : AWS SDK for Python (Boto3) to create, configure, and manage AWS services
 
-- `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
-- `nova-act` : The SDK for Nova Act which includes the model and orchestrator for browser automation
-- `rich` : Library for rich text and beautiful formatting in the terminal
-- `boto3` : AWS SDK for Python (Boto3) to create, configure, and manage AWS services
+ **Step 2: Get Nova Act API Key** 
 
-**Step 2: Get Nova Act API Key**
-
-Navigate to [Nova Act](https://nova.amazon.com/act "https://nova.amazon.com/act") page and generate an API key using your amazon.com credentials. (Note this currently works only for US based amazon.com accounts)
+Navigate to [Nova Act](https://nova.amazon.com/act) page and generate an API key using your amazon.com credentials. (Note this currently works only for US based amazon.com accounts)
 
 Create a file named `nova_act_browser_agent.py` and add the following code:
 
-**Write a browser agent using Nova Act**
+ **Write a browser agent using Nova Act** 
 
-The following Python code shows how to write a browser agent using Nova Act. For information about obtaining the API key for Nova Act, see [Amazon Nova Act documentation](https://nova.amazon.com/act "https://nova.amazon.com/act").
+The following Python code shows how to write a browser agent using Nova Act. For information about obtaining the API key for Nova Act, see [Amazon Nova Act documentation](https://nova.amazon.com/act).
 
 ```
 from bedrock_agentcore.tools.browser_client import browser_session
@@ -88,7 +89,7 @@ if __name__ == "__main__":
     console.print(f"\n[bold green]Nova Act Result:[/bold green] {result}")
 ```
 
-**Step 3: Run the agent**
+ **Step 3: Run the agent** 
 
 Execute the script (Replace with your Nova Act API key in the command):
 
@@ -96,28 +97,32 @@ Execute the script (Replace with your Nova Act API key in the command):
 python nova_act_browser_agent.py --prompt "What are the common usecases of Bedrock AgentCore?" --starting-page "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" --nova-act-key "your-nova-act-API-key"
 ```
 
-**Expected output**
+ **Expected output** 
 
 You should see the agent’s response containing details of the common usecases of Amazon Bedrock AgentCore. The agent navigates the website, performs the search, and extracts the requested information.
 
 If you encounter errors, verify:
++ Your IAM role/user has the correct permissions
++ Your Nova Act API key is correct
++ Your AWS credentials are properly configured
 
-- Your IAM role/user has the correct permissions
-- Your Nova Act API key is correct
-- Your AWS credentials are properly configured
-
-**Step 4: View the browser session live**
+ **Step 4: View the browser session live** 
 
 While your browser script is running, you can view the session in real-time through the AWS Console:
 
-1. Open the [Amazon Bedrock AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools "https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools")
-2. Navigate to **Built-in tools** in the left navigation
-3. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
-4. In the **Browser sessions** section, find your active session with status **Ready**
-5. In the **Live view / recording** column, click the provided "View live session" URL
-6. The live view opens in a new browser window, displaying the real-time browser session
-   The live view interface provides:
+1. Open the [Amazon Bedrock AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools) 
 
-- Real-time video stream of the browser session
-- Interactive controls to take over or release control from automation
-- Ability to terminate the session
+1. Navigate to **Built-in tools** in the left navigation
+
+1. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
+
+1. In the **Browser sessions** section, find your active session with status **Ready** 
+
+1. In the **Live view / recording** column, click the provided "View live session" URL
+
+1. The live view opens in a new browser window, displaying the real-time browser session
+
+The live view interface provides:
++ Real-time video stream of the browser session
++ Interactive controls to take over or release control from automation
++ Ability to terminate the session

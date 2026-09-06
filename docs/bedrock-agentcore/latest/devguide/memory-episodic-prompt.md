@@ -1,17 +1,20 @@
+
+
 # System prompts for episodic memory strategy
+<a name="memory-episodic-prompt"></a>
 
 The episodic memory strategy includes instructions and output schemas in the default prompts for episode extraction, episode consolidation, and reflection generation.
 
-###### Topics
-
-- [Episode extraction instructions](#episode-extraction-instructions "#episode-extraction-instructions")
-- [Episode extraction output schema](#episode-extraction-output-schema "#episode-extraction-output-schema")
-- [Episode consolidation instructions](#episode-generation-instructions "#episode-generation-instructions")
-- [Episode consolidation output schema](#episode-generation-output-schema "#episode-generation-output-schema")
-- [Reflection generation instructions](#reflection-generation-instructions "#reflection-generation-instructions")
-- [Reflection generation output schema](#reflection-generation-output-schema "#reflection-generation-output-schema")
+**Topics**
++ [Episode extraction instructions](#episode-extraction-instructions)
++ [Episode extraction output schema](#episode-extraction-output-schema)
++ [Episode consolidation instructions](#episode-generation-instructions)
++ [Episode consolidation output schema](#episode-generation-output-schema)
++ [Reflection generation instructions](#reflection-generation-instructions)
++ [Reflection generation output schema](#reflection-generation-output-schema)
 
 ## Episode extraction instructions
+<a name="episode-extraction-instructions"></a>
 
 ```
 You are an expert conversation analyst. Your task is to analyze multiple turns of a user's activity — a mix of conversation between the user and an AI assistant and structured JSON events from the user's system — focusing on tool usage, input arguments, reasoning processes, and structured behavioral events.
@@ -60,6 +63,7 @@ For EACH unit, using the next unit's context:
 ```
 
 ## Episode extraction output schema
+<a name="episode-extraction-output-schema"></a>
 
 ```
 # Output Format:
@@ -124,6 +128,7 @@ Make sure the number of <summary_turn> is the same as the number of units in the
 ```
 
 ## Episode consolidation instructions
+<a name="episode-generation-instructions"></a>
 
 ```
 You are an expert user-activity analyst. Your task is to analyze and summarize a sequence of user activity — a mix of conversation between the user and an AI assistant and structured JSON events from the user's system — provided within <conversation_turns></conversation_turns> tags.
@@ -152,6 +157,7 @@ Example: "The user stays at a hotel in 新宿 and visits 下北沢." → main la
 ```
 
 ## Episode consolidation output schema
+<a name="episode-generation-output-schema"></a>
 
 ```
 # Output Format:
@@ -181,6 +187,7 @@ Synthesize key insights from the sequence, focusing on patterns in tool usage, r
 ```
 
 ## Reflection generation instructions
+<a name="reflection-generation-instructions"></a>
 
 ```
 You are an expert at extracting actionable insights from agent task execution trajectories to build reusable knowledge for future tasks.
@@ -257,6 +264,7 @@ When updating, adjust the confidence score based on the additional evidence from
 ```
 
 ## Reflection generation output schema
+<a name="reflection-generation-output-schema"></a>
 
 ```
 <attention>

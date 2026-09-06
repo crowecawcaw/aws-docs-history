@@ -1,8 +1,12 @@
+
+
 # System prompt for user preference memory strategy
+<a name="memory-user-prompt"></a>
 
 The user preference strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 
 ## Extraction instructions
+<a name="user-preference-memory-extraction-instructions"></a>
 
 ```
 You are tasked with analyzing conversations to extract the user's preferences. You'll be analyzing two sets of data:
@@ -46,6 +50,7 @@ AMBIGUOUS OR INCOMPLETE WORDS:
 ```
 
 ## Extraction output schema
+<a name="extraction-output-schema"></a>
 
 ```
 Extract all preferences and return them as a JSON list where each item contains:
@@ -89,6 +94,7 @@ Analyze thoroughly and include detected preferences in your response. Return ONL
 ```
 
 ## Consolidation instructions
+<a name="user-preference-memory-consolidation-instructions"></a>
 
 ```
 # ROLE
@@ -150,6 +156,7 @@ New memory: "The user prefers to use Bank of America, which his account number i
 ```
 
 ## Consolidation output schema
+<a name="consolidation-output-schema"></a>
 
 ```
 # Processing Instructions

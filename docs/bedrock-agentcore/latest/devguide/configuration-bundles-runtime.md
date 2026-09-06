@@ -1,21 +1,23 @@
+
+
 # Use configuration bundles at runtime
+<a name="configuration-bundles-runtime"></a>
 
 Your agent reads configuration from a bundle at runtime to apply dynamic settings without redeploying code. The gateway and runtime propagate the bundle reference through W3C baggage headers, so your agent code never needs to know which version is active; it reads whatever configuration is in the current request context.
 
-###### Note
-
+**Note**  
 Configuration bundle integration requires `bedrock-agentcore-sdk-python` version 1.8 or later. The `get_config_bundle()` method on `BedrockAgentCoreContext` is available from this version onward.
 
 The gateway injects the bundle ARN and splits the incoming traffic with different bundle versions. The same agent code, running in the same runtime, behaves differently based on which bundle version it receives.
 
 ## Baggage header propagation
+<a name="runtime-baggage-propagation"></a>
 
-When an A/B test is active, the AgentCore Gateway assigns each session to a variant and injects the corresponding configuration bundle reference into the request as a [W3C Baggage](https://www.w3.org/TR/baggage/ "https://www.w3.org/TR/baggage/") header. The runtime parses this header automatically and makes the bundle configuration available to your agent code via `BedrockAgentCoreContext`.
+When an A/B test is active, the AgentCore Gateway assigns each session to a variant and injects the corresponding configuration bundle reference into the request as a [W3C Baggage](https://www.w3.org/TR/baggage/) header. The runtime parses this header automatically and makes the bundle configuration available to your agent code via `BedrockAgentCoreContext`.
 
 The baggage contains two keys:
-
-- `aws.agentcore.configbundle_arn` — full ARN of the configuration bundle
-- `aws.agentcore.configbundle_version` — version ID of the bundle
++  `aws.agentcore.configbundle_arn` — full ARN of the configuration bundle
++  `aws.agentcore.configbundle_version` — version ID of the bundle
 
 You can also pass baggage manually when invoking the agent directly (for example, during testing):
 
@@ -47,6 +49,7 @@ print(response["response"].read().decode("utf-8"))
 In production, you do not need to construct baggage manually. The gateway handles this automatically during A/B testing.
 
 ## BedrockAgentCoreContext integration
+<a name="runtime-bedrock-agentcore-context"></a>
 
 The `BedrockAgentCoreContext` class (from the `bedrock-agentcore` SDK) provides a `get_config_bundle()` method that returns the configuration for the current request. The `BedrockAgentCoreApp` automatically parses the baggage headers, resolves the bundle version from the control plane API, and caches the result.
 
@@ -60,7 +63,7 @@ system_prompt = config.get("system_prompt", "You are a helpful assistant.")
 model_id = config.get("model_id", "global.anthropic.claude-sonnet-4-5-20250929-v1:0")
 ```
 
-`get_config_bundle()` returns the `configuration` object for the component matching your runtime ARN. If no bundle reference is present in the request (for example, when no A/B test is active and no baggage was passed), it returns an empty dict.
+ `get_config_bundle()` returns the `configuration` object for the component matching your runtime ARN. If no bundle reference is present in the request (for example, when no A/B test is active and no baggage was passed), it returns an empty dict.
 
 You can also inspect the raw bundle reference:
 
@@ -73,6 +76,7 @@ if ref:
 ```
 
 ## Strands agent with BeforeModelCallEvent hook
+<a name="runtime-strands-hook"></a>
 
 The recommended pattern for Strands agents is to use a `BeforeModelCallEvent` hook that dynamically updates the agent’s system prompt before every model call. The agent is created once at module level, and the hook modifies it per-request:
 
@@ -114,6 +118,7 @@ if __name__ == "__main__":
 The `BeforeModelCallEvent` hook fires before every LLM call, so configuration bundle changes take effect immediately without restarting the runtime.
 
 ## Strands agent with per-request construction
+<a name="runtime-strands-per-request"></a>
 
 If you need to apply more configuration fields (model ID, temperature, tools), build a fresh agent per request instead of using a hook:
 
@@ -157,6 +162,7 @@ if __name__ == "__main__":
 ```
 
 ## LangGraph agent
+<a name="runtime-langgraph"></a>
 
 For LangGraph agents, read the configuration bundle at the start of each invocation and pass the values to your graph:
 
@@ -203,6 +209,7 @@ if __name__ == "__main__":
 ```
 
 ## Google ADK agent
+<a name="runtime-adk"></a>
 
 For agents built with Google’s Agent Development Kit (ADK), read the configuration bundle when constructing the agent:
 
@@ -243,6 +250,7 @@ if __name__ == "__main__":
 ```
 
 ## OpenAI SDK agent
+<a name="runtime-openai-sdk"></a>
 
 For agents using the OpenAI SDK with Amazon Bedrock, read the configuration bundle to set the model and system prompt:
 
@@ -279,10 +287,11 @@ if __name__ == "__main__":
 ```
 
 ## Graceful fallback
+<a name="runtime-graceful-fallback"></a>
 
 Always provide default values when reading from the bundle configuration. This ensures your agent works correctly even when no A/B test is active, the bundle fetch fails, or the bundle does not contain the expected key.
 
-`get_config_bundle()` returns an empty dict when no bundle reference is present. If the underlying API call fails, the exception propagates. Wrap the call in a try/except for graceful degradation:
+ `get_config_bundle()` returns an empty dict when no bundle reference is present. If the underlying API call fails, the exception propagates. Wrap the call in a try/except for graceful degradation:
 
 ```
 from bedrock_agentcore.runtime import BedrockAgentCoreContext

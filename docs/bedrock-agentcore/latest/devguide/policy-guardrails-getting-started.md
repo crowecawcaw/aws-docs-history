@@ -1,28 +1,30 @@
+
+
 # Getting started with guardrails in the AgentCore CLI
+<a name="policy-guardrails-getting-started"></a>
 
 Guardrails let you add content filtering policies to your agent’s gateway. When a request matches a policy rule (for example, violent content), the gateway blocks it before it reaches your agent.
 
-This guide walks through setting up a guardrail that blocks violent content on an HTTP gateway using the AgentCore CLI. For reference details on the guardrail safeguards, categories, effects, and thresholds, see [guardrails in policies](policy-guardrails-in-policies.md "policy-guardrails-in-policies.md").
+This guide walks through setting up a guardrail that blocks violent content on an HTTP gateway using the AgentCore CLI. For reference details on the guardrail safeguards, categories, effects, and thresholds, see [guardrails in policies](policy-guardrails-in-policies.md).
 
-###### Topics
-
-- [Prerequisites](#policy-guardrails-getting-started-prerequisites "#policy-guardrails-getting-started-prerequisites")
-- [Step 1: Create a project](#policy-guardrails-getting-started-create "#policy-guardrails-getting-started-create")
-- [Step 2: Wire the engine, gateway, and target](#policy-guardrails-getting-started-wire "#policy-guardrails-getting-started-wire")
-- [Step 3: Deploy infrastructure first](#policy-guardrails-getting-started-deploy-infra "#policy-guardrails-getting-started-deploy-infra")
-- [Step 4: Add the guardrail policy](#policy-guardrails-getting-started-add-policy "#policy-guardrails-getting-started-add-policy")
-- [Step 5: Deploy the policies](#policy-guardrails-getting-started-deploy-policy "#policy-guardrails-getting-started-deploy-policy")
-- [Step 6: Invoke through the gateway](#policy-guardrails-getting-started-invoke "#policy-guardrails-getting-started-invoke")
-- [Available guardrail categories](#policy-guardrails-getting-started-categories "#policy-guardrails-getting-started-categories")
-- [Policy effects](#policy-guardrails-getting-started-effects "#policy-guardrails-getting-started-effects")
-- [Step 7: Clean up](#policy-guardrails-getting-started-cleanup "#policy-guardrails-getting-started-cleanup")
+**Topics**
++ [Prerequisites](#policy-guardrails-getting-started-prerequisites)
++ [Step 1: Create a project](#policy-guardrails-getting-started-create)
++ [Step 2: Wire the engine, gateway, and target](#policy-guardrails-getting-started-wire)
++ [Step 3: Deploy infrastructure first](#policy-guardrails-getting-started-deploy-infra)
++ [Step 4: Add the guardrail policy](#policy-guardrails-getting-started-add-policy)
++ [Step 5: Deploy the policies](#policy-guardrails-getting-started-deploy-policy)
++ [Step 6: Invoke through the gateway](#policy-guardrails-getting-started-invoke)
++ [Available guardrail categories](#policy-guardrails-getting-started-categories)
++ [Policy effects](#policy-guardrails-getting-started-effects)
++ [Step 7: Clean up](#policy-guardrails-getting-started-cleanup)
 
 ## Prerequisites
+<a name="policy-guardrails-getting-started-prerequisites"></a>
 
 Before starting, make sure you have the following:
-
-- **AWS credentials** configured.
-- **AgentCore CLI version 0.20.0 or later**. Earlier versions don’t include the policy form and enforcement mode options used in this guide.
++  ** AWS credentials** configured.
++  **AgentCore CLI version 0.20.0 or later**. Earlier versions don’t include the policy form and enforcement mode options used in this guide.
 
 The AgentCore CLI checks the CDK bootstrap stack during deployment. If bootstrap is required, interactive deployment asks for confirmation. Use `agentcore deploy --yes` to authorize it automatically.
 
@@ -39,6 +41,7 @@ agentcore --version
 ```
 
 ## Step 1: Create a project
+<a name="policy-guardrails-getting-started-create"></a>
 
 ```
 agentcore create --name MyAgent --language Python --framework Strands \
@@ -48,6 +51,7 @@ cd MyAgent
 ```
 
 ## Step 2: Wire the engine, gateway, and target
+<a name="policy-guardrails-getting-started-wire"></a>
 
 ```
 # Policy engine
@@ -64,6 +68,7 @@ agentcore add gateway-target --name MyTarget --gateway MyGateway \
 ```
 
 ## Step 3: Deploy infrastructure first
+<a name="policy-guardrails-getting-started-deploy-infra"></a>
 
 ```
 agentcore deploy
@@ -72,6 +77,7 @@ agentcore deploy
 This deploys the runtime, gateway, gateway target, and policy engine. The policy itself is added next, because it needs the deployed gateway ARN.
 
 ## Step 4: Add the guardrail policy
+<a name="policy-guardrails-getting-started-add-policy"></a>
 
 ```
 agentcore add policy --name BlockViolence \
@@ -92,6 +98,7 @@ agentcore add policy
 ```
 
 ### Step 4b: Add a permissive policy
+<a name="policy-guardrails-getting-started-add-permissive"></a>
 
 Because a policy engine in ENFORCE mode denies all actions unless explicitly permitted, add a permissive policy so benign requests can pass through and reach your agent:
 
@@ -105,12 +112,14 @@ agentcore add policy \
 ```
 
 ## Step 5: Deploy the policies
+<a name="policy-guardrails-getting-started-deploy-policy"></a>
 
 ```
 agentcore deploy
 ```
 
 ## Step 6: Invoke through the gateway
+<a name="policy-guardrails-getting-started-invoke"></a>
 
 ```
 # Tripping prompt - should be blocked
@@ -122,29 +131,34 @@ agentcore invoke --gateway MyGateway --gateway-target-name MyTarget \
   --prompt "hello"
 ```
 
-Expected blocked result (`forbid` + `ACTIVE`):
+Expected blocked result (`forbid` \+ `ACTIVE`):
 
 ```
 403: "Request Denied: Agent runtime request not allowed due to policy enforcement [Policy evaluation denied due to blockviolence-xxxxx]"
 ```
 
 ## Available guardrail categories
+<a name="policy-guardrails-getting-started-categories"></a>
 
-| Category               | Filters                                                                                                                                                                                                    | Description             |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `contentFilter`        | `VIOLENCE`, `HATE`, `SEXUAL`, `MISCONDUCT`, `INSULTS`                                                                                                                                                      | Content safety filters  |
-| `promptAttack`         | `JAILBREAK`, `PROMPT_INJECTION`, `PROMPT_LEAKAGE`                                                                                                                                                          | Prompt security filters |
-| `sensitiveInformation` | `ADDRESS`, `EMAIL`, `PHONE`, `CREDIT_DEBIT_CARD_NUMBER`, and [more](../../../bedrock/latest/userguide/guardrails-sensitive-filters.md "../../../bedrock/latest/userguide/guardrails-sensitive-filters.md") | PII detection           |
+
+| Category | Filters | Description | 
+| --- | --- | --- | 
+|  `contentFilter`  |  `VIOLENCE`, `HATE`, `SEXUAL`, `MISCONDUCT`, `INSULTS`  | Content safety filters | 
+|  `promptAttack`  |  `JAILBREAK`, `PROMPT_INJECTION`, `PROMPT_LEAKAGE`  | Prompt security filters | 
+|  `sensitiveInformation`  |  `ADDRESS`, `EMAIL`, `PHONE`, `CREDIT_DEBIT_CARD_NUMBER`, and [more](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html)  | PII detection | 
 
 ## Policy effects
+<a name="policy-guardrails-getting-started-effects"></a>
 
-| Effect           | Behavior                                                                |
-| ---------------- | ----------------------------------------------------------------------- |
-| `forbid`         | Block requests that exceed the confidence threshold                     |
-| `permit`         | Allow only requests below the threshold                                 |
-| `suppressOutput` | Block the model’s response (output phase) when it exceeds the threshold |
+
+| Effect | Behavior | 
+| --- | --- | 
+|  `forbid`  | Block requests that exceed the confidence threshold | 
+|  `permit`  | Allow only requests below the threshold | 
+|  `suppressOutput`  | Block the model’s response (output phase) when it exceeds the threshold | 
 
 ## Step 7: Clean up
+<a name="policy-guardrails-getting-started-cleanup"></a>
 
 ```
 agentcore remove all --json

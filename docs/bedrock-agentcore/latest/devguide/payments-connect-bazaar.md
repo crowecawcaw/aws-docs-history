@@ -1,24 +1,28 @@
+
+
 # Coinbase Bazaar via AgentCore Gateway
+<a name="payments-connect-bazaar"></a>
 
-AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You can add the Coinbase x402 Bazaar MCP server as a target in a Gateway to discover 10,000+ existing paid MCP tools that support x402 microtransactions.
-
-- Server URL — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp`
-- Outbound authentication types accepted — No Authorization (default)
+AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You can add the Coinbase x402 Bazaar MCP server as a target in a Gateway to discover 10,000\+ existing paid MCP tools that support x402 microtransactions.
++ Server URL — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp` 
++ Outbound authentication types accepted — No Authorization (default)
 
 ## Add Coinbase x402 Bazaar MCP server to a Gateway
+<a name="_add_coinbase_x402_bazaar_mcp_server_to_a_gateway"></a>
 
-###### Example
-
-Console
+**Example**  
 
 1. Navigate to the **Target** section.
-2. (Optional) Change the generated **Target name**.
-3. (Optional) Provide a **Target description**.
-4. For **Target type**, choose **Integrations**.
-5. Select **Coinbase x402 Bazaar**.
-6. Skip **Outbound Auth configurations**. "No Authorization" is the only supported option and is selected by default.
 
-AgentCore CLI
+1. (Optional) Change the generated **Target name**.
+
+1. (Optional) Provide a **Target description**.
+
+1. For **Target type**, choose **Integrations**.
+
+1. Select **Coinbase x402 Bazaar**.
+
+1. Skip **Outbound Auth configurations**. "No Authorization" is the only supported option and is selected by default.
 
 ```
 agentcore add gateway-target \
@@ -29,8 +33,6 @@ agentcore add gateway-target \
 
 agentcore deploy
 ```
-
-AWS SDK
 
 ```
 import boto3
@@ -50,9 +52,7 @@ target = agentcore_client.create_gateway_target(
     }
 )
 ```
-
-Strands SDK
-Use the Coinbase x402 Bazaar Gateway Target with your agent:
+Use the Coinbase x402 Bazaar Gateway Target with your agent:  
 
 ```
 from strands import Agent
@@ -91,9 +91,7 @@ with mcp_client:
     response = agent("Search for available x402 paid APIs related to weather data")
     print(response)
 ```
-
-LangGraph
-Use the Coinbase x402 Bazaar Gateway Target with your LangGraph agent:
+Use the Coinbase x402 Bazaar Gateway Target with your LangGraph agent:  
 
 ```
 import asyncio
@@ -142,6 +140,6 @@ async def main():
 asyncio.run(main())
 ```
 
-Once the Bazaar target is configured, your agents can discover and call paid x402 endpoints through the Gateway. When an endpoint returns HTTP 402, AgentCore payments handles the payment flow automatically if you have configured a payments plugin (Strands) or middleware (LangGraph) in your agent. To learn more, see [Framework integrations](payments-framework-integrations.md "payments-framework-integrations.md").
+Once the Bazaar target is configured, your agents can discover and call paid x402 endpoints through the Gateway. When an endpoint returns HTTP 402, AgentCore payments handles the payment flow automatically if you have configured a payments plugin (Strands) or middleware (LangGraph) in your agent. To learn more, see [Framework integrations](payments-framework-integrations.md).
 
-To set up the Payment Manager and Connector required for processing payments, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
+To set up the Payment Manager and Connector required for processing payments, see [Create a Payment Manager and Connector](payments-create-manager.md).

@@ -1,18 +1,21 @@
-# Direct code deployment for Python
 
-Direct code deployment enables you to bring your Python-based agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md") : have an entrypoint .py file that either uses the `@app.entrypoint` annotation from [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python "https://github.com/aws/bedrock-agentcore-sdk-python") or implements `/invocations` POST and `/ping` GET server endpoints.
+
+# Direct code deployment for Python
+<a name="runtime-get-started-code-deploy-python"></a>
+
+Direct code deployment enables you to bring your Python-based agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint .py file that either uses the `@app.entrypoint` annotation from [Amazon Bedrock AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python) or implements `/invocations` POST and `/ping` GET server endpoints.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before you begin, ensure you have:
-
-- **AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
-- [Uv](https://docs.astral.sh/uv/getting-started/installation/ "https://docs.astral.sh/uv/getting-started/installation/")
-  **installed** and [Python 3.10+](https://docs.astral.sh/uv/guides/install-python/ "https://docs.astral.sh/uv/guides/install-python/") installed
-- **AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli "runtime-permissions.md#runtime-permissions-cli").
-- **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4 "../../../bedrock/latest/userguide/model-access.md#model-access-sdk-step4").
++  ** AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) 
++  [Uv](https://docs.astral.sh/uv/getting-started/installation/) **installed** and [Python 3.10\+](https://docs.astral.sh/uv/guides/install-python/) installed
++  ** AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html#runtime-permissions-cli).
++  **Model access** : Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4).
 
 ## Step 1: Install the AgentCore CLI
+<a name="step-1-setup"></a>
 
 Install the AgentCore CLI:
 
@@ -21,6 +24,7 @@ npm install -g @aws/agentcore
 ```
 
 ## Step 2: Create your agent project
+<a name="step-2-create-agent"></a>
 
 Create one AgentCore project for the tutorial:
 
@@ -37,19 +41,19 @@ cd DirectDeployProject
 ```
 
 This command generates:
-
-- Agent code with your selected framework
-- A `pyproject.toml` file with necessary dependencies
-- An `agentcore/agentcore.json` configuration file
-- An `agentcore/cdk/` infrastructure project
++ Agent code with your selected framework
++ A `pyproject.toml` file with necessary dependencies
++ An `agentcore/agentcore.json` configuration file
++ An `agentcore/cdk/` infrastructure project
 
 The generated `pyproject.toml` includes the AgentCore and Strands dependencies. Uv creates the virtual environment and lock file during project creation.
 
-Optionally, run `cd app/DirectDeployAgent && uv add aws-opentelemetry-distro && cd ../..` to enable [Amazon Bedrock AgentCore observability traces](../../../xray/latest/devguide/xray-services-adot.md "../../../xray/latest/devguide/xray-services-adot.md").
+Optionally, run `cd app/DirectDeployAgent && uv add aws-opentelemetry-distro && cd ../..` to enable [Amazon Bedrock AgentCore observability traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-adot.html).
 
 ## Step 3: Test locally
+<a name="step-3-test-locally"></a>
 
-Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues "runtime-get-started-cli.md#common-issues") if the port is already in use.
+Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues) if the port is already in use.
 
 Open a terminal window and start your agent with the following command:
 
@@ -65,296 +69,288 @@ curl -X POST http://localhost:8080/invocations \
   -d '{"prompt": "Hello!"}'
 ```
 
-**Success:** You should see a response like `{"result": "Hello! I’m here to help…​"}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
+ **Success:** You should see a response like `{"result": "Hello! I’m here to help…​"}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
 
 ## Step 4: Enable observability for your agent
+<a name="step-4-enable-observability"></a>
 
-[Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents that you host in AgentCore Runtime. First enable CloudWatch Transaction Search by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin") . To observe your agent, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+ [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) helps you trace, debug, and monitor agents that you host in AgentCore Runtime. First enable CloudWatch Transaction Search by following the instructions at [Enabling Amazon Bedrock AgentCore runtime observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin) . To observe your agent, see [View observability data for your Amazon Bedrock AgentCore agents](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-view.html).
 
 ## Step 5: Deploy to AgentCore Runtime and invoke
+<a name="step-5-deploy"></a>
 
 Deploy your agent using one of the following methods:
 
-###### Example
+**Example**  
 
-AgentCore CLI
+1. The following steps deploy the CodeZip project created in Step 2. For more information, see [Get started with the AgentCore CLI](runtime-get-started-cli.md). Uv is required to create and package the Python project.
 
-1. The following steps deploy the CodeZip project created in Step 2. For more information, see [Get started with the AgentCore CLI](runtime-get-started-cli.md "runtime-get-started-cli.md"). Uv is required to create and package the Python project.
+   Once you have your agent set up using `agentcore create` , use the `deploy` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
 
-Once you have your agent set up using `agentcore create` , use the `deploy` command to create a zip deployment package, upload it to the specified bucket, and deploy the agent.
+   ```
+   agentcore deploy
+   ```
 
-```
-agentcore deploy
-```
+   Let’s prompt the agent to tell a joke\!
 
-Let’s prompt the agent to tell a joke!
+   ```
+   agentcore invoke "Tell me a joke"
+   ```
 
-```
-agentcore invoke "Tell me a joke"
-```
+   The first deployment takes time to install dependencies but subsequent updates to the agent optimizes this by re-using zipped dependencies
 
-The first deployment takes time to install dependencies but subsequent updates to the agent optimizes this by re-using zipped dependencies
+    **Configuration management** 
 
-**Configuration management**
+   You can modify your agent configuration at any time using the `agentcore add` commands or by editing the `agentcore/agentcore.json` configuration file directly.
 
-You can modify your agent configuration at any time using the `agentcore add` commands or by editing the `agentcore/agentcore.json` configuration file directly.
+   The configuration file allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
 
-The configuration file allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
+1. Run `agentcore` to open the TUI, then select **deploy** . The deploy screen shows real-time progress as it validates your project, synthesizes CloudFormation, and provisions AWS resources:  
+![AgentCore deploy progress showing CloudFormation stack updates](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/code-deploy-progress.png)
 
-Interactive
-
-1. Run `agentcore` to open the TUI, then select **deploy** . The deploy screen shows real-time progress as it validates your project, synthesizes CloudFormation, and provisions AWS resources:
-
-![AgentCore deploy progress showing CloudFormation stack updates](images/tui/code-deploy-progress.png)
-
-After deployment completes, use `agentcore invoke` to test your agent.
-
-Custom zip + boto3
+   After deployment completes, use `agentcore invoke` to test your agent.
 
 1. To download a wheel that’s compatible with AgentCore Runtime, you use the uv pip `--python-platform` option. AgentCore Runtime only supports **arm64** instruction set architecture, run the following command. Replace `--python 3.x` with the version of the Python runtime you are using.
 
-```
-uv pip install \
---python-platform aarch64-manylinux2014 \
---python-version 3.13 \
---target=deployment_package \
---only-binary=:all: \
--r pyproject.toml
-```
+   ```
+   uv pip install \
+   --python-platform aarch64-manylinux2014 \
+   --python-version 3.13 \
+   --target=deployment_package \
+   --only-binary=:all: \
+   -r pyproject.toml
+   ```
 
-Create a .zip file with the installed libraries at the project root.
+   Create a .zip file with the installed libraries at the project root.
 
-```
-cd deployment_package
-zip -r ../deployment_package.zip .
-```
+   ```
+   cd deployment_package
+   zip -r ../deployment_package.zip .
+   ```
 
-Add the `main.py` file and other files in your package to the root of the .zip file.
+   Add the `main.py` file and other files in your package to the root of the .zip file.
 
-```
-cd ..
-zip deployment_package.zip main.py
-```
+   ```
+   cd ..
+   zip deployment_package.zip main.py
+   ```
 
-After you have created your .zip deployment package, you can use it to create a new AgentCore Runtime or update an existing one. You can deploy your .zip package using AgentCore Runtime API, AgentCore Runtime console and AWS Command Line Interface. The AgentCore CLI will take care of above steps to create .zip.
+   After you have created your .zip deployment package, you can use it to create a new AgentCore Runtime or update an existing one. You can deploy your .zip package using AgentCore Runtime API, AgentCore Runtime console and AWS Command Line Interface. The AgentCore CLI will take care of above steps to create .zip.
+**Note**  
+. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)) in the Microsoft Windows documentation. \+ .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
 
-###### Note
+   A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket.html) to create an bucket using boto3. Following boto3 code will upload .zip file archive to a s3 and create Amazon Bedrock AgentCore runtime.
 
-. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)") in the Microsoft Windows documentation. + .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
+   ```
+   import boto3
+   
+   account_id = "your aws account id"
+   agent_name = "strands_10_23"
+   
+   s3_client = boto3.client('s3', region_name='us-west-2')
+   print("Uploading deployment.zip to S3...")
+   s3_client.upload_file(
+       'deployment_package.zip', # archive on file system
+       f"bedrock-agentcore-code-{account_id}-us-west-2", # bucket name
+       f"{agent_name}/deployment_package.zip", # prefix
+       ExtraArgs={'ExpectedBucketOwner': account_id} # ownership check
+   )
+   print("Upload completed successfully!")
+   print(f"S3 Location: s3://bedrock-agentcore-code-{account_id}-us-west-2/{agent_name}/deployment_package.zip")
+   
+   agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
+   response = agentcore_client.create_agent_runtime(
+       agentRuntimeName=agent_name,
+       agentRuntimeArtifact={
+           'codeConfiguration': {
+               'code': {
+                   's3': {
+                       'bucket': f"bedrock-agentcore-code-{account_id}-us-west-2",
+                       'prefix': f"{agent_name}/deployment_package.zip"
+                   }
+               },
+               'runtime': 'PYTHON_3_13',
+               'entryPoint': ['opentelemetry-instrument', 'main.py']
+           } # if not adding otel dependency, remove opentelemetry-instrument from entrypoint array
+       },
+       networkConfiguration={"networkMode": "PUBLIC"},
+       roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2",
+       lifecycleConfiguration={
+           'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+           'maxLifetime': 1800                # 30 minutes, configurable
+       },
+   )
+   print(f"Agent Runtime created successfully!")
+   print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
+   print(f"Status: {response['status']}")
+   ```
 
-A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket.html") to create an bucket using boto3. Following boto3 code will upload .zip file archive to a s3 and create Amazon Bedrock AgentCore runtime.
-
-```
-import boto3
-
-account_id = "your aws account id"
-agent_name = "strands_10_23"
-
-s3_client = boto3.client('s3', region_name='us-west-2')
-print("Uploading deployment.zip to S3...")
-s3_client.upload_file(
-    'deployment_package.zip', # archive on file system
-    f"bedrock-agentcore-code-{account_id}-us-west-2", # bucket name
-    f"{agent_name}/deployment_package.zip", # prefix
-    ExtraArgs={'ExpectedBucketOwner': account_id} # ownership check
-)
-print("Upload completed successfully!")
-print(f"S3 Location: s3://bedrock-agentcore-code-{account_id}-us-west-2/{agent_name}/deployment_package.zip")
-
-agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
-response = agentcore_client.create_agent_runtime(
-    agentRuntimeName=agent_name,
-    agentRuntimeArtifact={
-        'codeConfiguration': {
-            'code': {
-                's3': {
-                    'bucket': f"bedrock-agentcore-code-{account_id}-us-west-2",
-                    'prefix': f"{agent_name}/deployment_package.zip"
-                }
-            },
-            'runtime': 'PYTHON_3_13',
-            'entryPoint': ['opentelemetry-instrument', 'main.py']
-        } # if not adding otel dependency, remove opentelemetry-instrument from entrypoint array
-    },
-    networkConfiguration={"networkMode": "PUBLIC"},
-    roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2",
-    lifecycleConfiguration={
-        'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
-        'maxLifetime': 1800                # 30 minutes, configurable
-    },
-)
-print(f"Agent Runtime created successfully!")
-print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
-print(f"Status: {response['status']}")
-```
-
-For more information about invoking an agent programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically "runtime-get-started-cli.md#invoke-programmatically").
-
-console
+   For more information about invoking an agent programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically).
 
 1. You can deploy your agent using the Amazon Bedrock AgentCore console with managed runtime support. The console provides an intuitive interface for uploading ZIP files and configuring agent settings.
 
-To deploy using the console, first create your deployment package following the steps in the _Custom zip + boto3_ tab above.
+   To deploy using the console, first create your deployment package following the steps in the *Custom zip \+ boto3* tab above.
 
-**Create agent through console**
+    **Create agent through console** 
 
-To create your agent: 2. From the Agents home page, choose **Host Agent** 3. Choose your source selection:
+   To create your agent:
 
-    * **S3 Source** - Upload from S3 bucket
-    * **Local Upload** - Upload ZIP file from your computer
-    * **Templates** - Use pre-built agent templates
+1. From the Agents home page, choose **Host Agent** 
 
-4. Configure your agent settings:
+1. Choose your source selection:
+   +  **S3 Source** - Upload from S3 bucket
+   +  **Local Upload** - Upload ZIP file from your computer
+   +  **Templates** - Use pre-built agent templates
 
-    * Agent name
-    * Runtime version (Python 3.13 recommended)
-    * Entry point (e.g., `main.py` )
-    * Execution role (create new or use existing)
+1. Configure your agent settings:
+   + Agent name
+   + Runtime version (Python 3.13 recommended)
+   + Entry point (e.g., `main.py` )
+   + Execution role (create new or use existing)
 
-5. Choose **Create Agent** to deploy
+1. Choose **Create Agent** to deploy
 
-**Create endpoint**
+    **Create endpoint** 
 
-Choose **Create Endpoint** to create a new endpoint for your agent. The endpoint name and associated version will be pre-filled.
+   Choose **Create Endpoint** to create a new endpoint for your agent. The endpoint name and associated version will be pre-filled.
 
-**Test endpoint**
+    **Test endpoint** 
 
-Select an endpoint and choose **Test Endpoint** to navigate to the Playground/Sandbox for testing.
+   Select an endpoint and choose **Test Endpoint** to navigate to the Playground/Sandbox for testing.
 
-**Execution role requirements**
+    **Execution role requirements** 
 
-Your agent requires an execution role with appropriate permissions. For detailed information about execution roles and permissions, see [AgentCore Runtime permissions](runtime-permissions.md "runtime-permissions.md") . The execution role must include basic Amazon Bedrock AgentCore runtime permissions, S3 access permissions for your deployment package, and CloudWatch Logs permissions for observability.
+   Your agent requires an execution role with appropriate permissions. For detailed information about execution roles and permissions, see [AgentCore Runtime permissions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html) . The execution role must include basic Amazon Bedrock AgentCore runtime permissions, S3 access permissions for your deployment package, and CloudWatch Logs permissions for observability.
 
 ## Step 6: Stop session, update, or cleanup
+<a name="step-6-update-cleanup"></a>
 
 Stop your runtime session, update, or cleanup your agent using one of the following methods:
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 1. To update previously deployed AgentCore Runtime, execute:
 
-```
-agentcore deploy
-```
+   ```
+   agentcore deploy
+   ```
 
-To stop a running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the [StopRuntimeSession](../APIReference/API_StopRuntimeSession.md "../APIReference/API_StopRuntimeSession.md") API operation. The AgentCore CLI does not currently support stopping sessions directly.
+   To stop a running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the [StopRuntimeSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html) API operation. The AgentCore CLI does not currently support stopping sessions directly.
 
-To delete all resources related to a AgentCore Runtime, first remove all resources and then deploy to tear down AWS resources:
+   To delete all resources related to a AgentCore Runtime, first remove all resources and then deploy to tear down AWS resources:
 
-```
-agentcore remove all
-agentcore deploy
-```
-
-boto3
+   ```
+   agentcore remove all
+   agentcore deploy
+   ```
 
 1. Following boto3 code will update an AgentCore Runtime.
 
-```
-import boto3
+   ```
+   import boto3
+   
+   account_id = "your aws account id"
+   agent_name = "strands_10_23"
+   
+   s3_client = boto3.client('s3', region_name='us-west-2')
+   print("Uploading deployment.zip to S3...")
+   s3_client.upload_file(
+       'deployment_package.zip', # archive on file system
+       f"bedrock-agentcore-code-{account_id}-us-west-2", # bucket name
+       f"{agent_name}/deployment_package.zip", # prefix
+       ExtraArgs={'ExpectedBucketOwner': account_id} # ownership check
+   )
+   print("Upload completed successfully!")
+   print(f"S3 Location: s3://bedrock-agentcore-code-{account_id}-us-west-2/{agent_name}/deployment_package.zip")
+   
+   bedrock_agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
+   response = bedrock_agentcore_client.update_agent_runtime(
+       agentRuntimeId='<your-agent-id>',
+       agentRuntimeArtifact={
+           'codeConfiguration': {
+               'code': {
+                   's3': {
+                       'bucket': f"bedrock-agentcore-code-{account_id}-us-west-2",
+                       'prefix': f"{agent_name}/deployment_package.zip"
+                   }
+               },
+               'runtime': 'PYTHON_3_13',
+               'entryPoint': ['opentelemetry-instrument', 'main.py']
+           } # if not adding otel dependency, remove opentelemetry-instrument from entrypoint array
+       },
+       networkConfiguration={"networkMode": "PUBLIC"},
+       roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2"
+   )
+   
+   print(f"Agent Runtime updated successfully!")
+   print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
+   print(f"Status: {response['status']}")
+   ```
 
-account_id = "your aws account id"
-agent_name = "strands_10_23"
+   To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the following boto3 code:
 
-s3_client = boto3.client('s3', region_name='us-west-2')
-print("Uploading deployment.zip to S3...")
-s3_client.upload_file(
-    'deployment_package.zip', # archive on file system
-    f"bedrock-agentcore-code-{account_id}-us-west-2", # bucket name
-    f"{agent_name}/deployment_package.zip", # prefix
-    ExtraArgs={'ExpectedBucketOwner': account_id} # ownership check
-)
-print("Upload completed successfully!")
-print(f"S3 Location: s3://bedrock-agentcore-code-{account_id}-us-west-2/{agent_name}/deployment_package.zip")
+   ```
+   import boto3
+   
+   agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
+   response = agent_core_client.stop_runtime_session(
+       agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/agent-name-suffix',
+       runtimeSessionId='your-session-id',
+       qualifier="DEFAULT"
+   )
+   ```
 
-bedrock_agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
-response = bedrock_agentcore_client.update_agent_runtime(
-    agentRuntimeId='<your-agent-id>',
-    agentRuntimeArtifact={
-        'codeConfiguration': {
-            'code': {
-                's3': {
-                    'bucket': f"bedrock-agentcore-code-{account_id}-us-west-2",
-                    'prefix': f"{agent_name}/deployment_package.zip"
-                }
-            },
-            'runtime': 'PYTHON_3_13',
-            'entryPoint': ['opentelemetry-instrument', 'main.py']
-        } # if not adding otel dependency, remove opentelemetry-instrument from entrypoint array
-    },
-    networkConfiguration={"networkMode": "PUBLIC"},
-    roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2"
-)
+   Following boto3 code will delete Amazon Bedrock AgentCore runtime and .zip archive file in s3.
 
-print(f"Agent Runtime updated successfully!")
-print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
-print(f"Status: {response['status']}")
-```
-
-To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the following boto3 code:
-
-```
-import boto3
-
-agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
-response = agent_core_client.stop_runtime_session(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/agent-name-suffix',
-    runtimeSessionId='your-session-id',
-    qualifier="DEFAULT"
-)
-```
-
-Following boto3 code will delete Amazon Bedrock AgentCore runtime and .zip archive file in s3.
-
-```
-import boto3
-
-account_id = "your aws account id"
-agent_name = "strands_10_23"
-
-bedrock_agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
-print("Deleting Agent from Amazon Bedrock AgentCore Runtime!")
-response = bedrock_agentcore_client.delete_agent_runtime(
-    agentRuntimeId='<agent-id>'
-)
-print(f"Agent Runtime delete successfully!")
-print(f"Status: {response['status']}")
-
-s3_client = boto3.client('s3', region_name='us-west-2')
-print("Deleting deployment archive from S3...")
-s3_client.delete_object(
-    Bucket=f"bedrock-agentcore-code-{account_id}-us-west-2",
-    Key=f"{agent_name}/deployment_package.zip",
-    ExpectedBucketOwner=account_id
-)
-print("Archive deleted successfully from S3!")
-```
-
-console
+   ```
+   import boto3
+   
+   account_id = "your aws account id"
+   agent_name = "strands_10_23"
+   
+   bedrock_agentcore_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
+   print("Deleting Agent from Amazon Bedrock AgentCore Runtime!")
+   response = bedrock_agentcore_client.delete_agent_runtime(
+       agentRuntimeId='<agent-id>'
+   )
+   print(f"Agent Runtime delete successfully!")
+   print(f"Status: {response['status']}")
+   
+   s3_client = boto3.client('s3', region_name='us-west-2')
+   print("Deleting deployment archive from S3...")
+   s3_client.delete_object(
+       Bucket=f"bedrock-agentcore-code-{account_id}-us-west-2",
+       Key=f"{agent_name}/deployment_package.zip",
+       ExpectedBucketOwner=account_id
+   )
+   print("Archive deleted successfully from S3!")
+   ```
 
 1. ====== Update agent
 
-From the Agent details page, choose **Update hosting** to create a new version with updated code or configuration.
+   From the Agent details page, choose **Update hosting** to create a new version with updated code or configuration.
 
-**Update endpoint**
+    **Update endpoint** 
 
-Select an endpoint from the Endpoints table and choose **Edit** to update the description or associated version.
+   Select an endpoint from the Endpoints table and choose **Edit** to update the description or associated version.
 
-**Delete endpoint**
+    **Delete endpoint** 
 
-Select an endpoint and choose **Delete** . You’ll need to type "delete" to confirm the deletion.
+   Select an endpoint and choose **Delete** . You’ll need to type "delete" to confirm the deletion.
 
-**Delete agent**
+    **Delete agent** 
 
-From the agent list or details page, select your agent and choose **Delete** to remove the agent and all associated resources.
+   From the agent list or details page, select your agent and choose **Delete** to remove the agent and all associated resources.
 
 ## Python-specific concepts for direct code deployment
+<a name="runtime-code-deploy-python-concepts"></a>
 
 Learn about Python-specific concepts when using direct code deployment with Amazon Bedrock AgentCore Runtime.
 
-###### Topics
+**Topics**
+
+### Dependency search path and runtime-included libraries
+<a name="concept-dependency-search"></a>
 
 When you use an `import` statement in your code, the Python runtime searches the directories in its search path until it finds the module or package. By default, the first location the runtime searches is the directory into which your .zip deployment package is decompressed and mounted ( `/var/task` ).
 
@@ -372,20 +368,31 @@ You can also add dependencies in a separate folder inside your .zip package. For
 from common import boto3
 ```
 
-We recommend that you don’t include `*pycache*` folders in your agent’s deployment package. Python bytecode that’s compiled on a build machine with a different architecture or operating system might not be compatible with the AgentCore Runtime execution environment.
+### Python bytecode and *pycache* folders
+<a name="concept-pycache"></a>
+
+We recommend that you don’t include ` pycache ` folders in your agent’s deployment package. Python bytecode that’s compiled on a build machine with a different architecture or operating system might not be compatible with the AgentCore Runtime execution environment.
+
+### Deployment packages with native libraries
+<a name="concept-native-libraries"></a>
 
 If your function uses only pure Python packages and modules, you can use the `uv pip install` command to install your dependencies on any local build machine and create your .zip file. Many popular Python libraries, including NumPy and Pandas, are not pure Python and contain code written in C or C. When you add libraries containing C/C code to your deployment package, you must build your package correctly to make it compatible with the AgentCore Runtime execution environment.
 
-Most packages available on the Python Package Index ( [PyPI](https://pypi.org/ "https://pypi.org/") ) are available as "wheels" (.whl files). A .whl file is a type of ZIP file which contains a built distribution with pre-compiled binaries for a particular operating system and instruction set architecture. To make your deployment package compatible with Amazon Bedrock AgentCore Runtime, you install the wheel for Linux operating systems and **arm64** instruction set architecture.
+Most packages available on the Python Package Index ( [PyPI](https://pypi.org/) ) are available as "wheels" (.whl files). A .whl file is a type of ZIP file which contains a built distribution with pre-compiled binaries for a particular operating system and instruction set architecture. To make your deployment package compatible with Amazon Bedrock AgentCore Runtime, you install the wheel for Linux operating systems and **arm64** instruction set architecture.
 
-Some packages may only be available as source distributions. For these packages, you need to compile and build the C/C++ components yourself.
+Some packages may only be available as source distributions. For these packages, you need to compile and build the C/C\+\+ components yourself.
 
 To see what distributions are available for your required package, do the following:
 
-1. Search for the name of the package on the [Python Package Index main page](https://pypi.org/ "https://pypi.org/").
-2. Choose the version of the package you want to use.
-3. Choose **Download files**.
+1. Search for the name of the package on the [Python Package Index main page](https://pypi.org/).
 
-If your package is only available as a source distribution, you need to build the C/C++ libraries yourself. To make your package compatible with the Amazon Bedrock AgentCore Runtime execution environment, you need to build it in an environment that uses the same Amazon Linux operating system with **arm64** instruction set. You can do this by building your package in an Amazon Elastic Compute Cloud (Amazon EC2) Linux instance.
+1. Choose the version of the package you want to use.
 
-To learn how to launch and connect to an Amazon EC2 Linux instance, see [Get started with Amazon EC2](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the _Amazon EC2 User Guide_.
+1. Choose **Download files**.
+
+### Working with source distributions
+<a name="concept-source-distributions"></a>
+
+If your package is only available as a source distribution, you need to build the C/C\+\+ libraries yourself. To make your package compatible with the Amazon Bedrock AgentCore Runtime execution environment, you need to build it in an environment that uses the same Amazon Linux operating system with **arm64** instruction set. You can do this by building your package in an Amazon Elastic Compute Cloud (Amazon EC2) Linux instance.
+
+To learn how to launch and connect to an Amazon EC2 Linux instance, see [Get started with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) in the *Amazon EC2 User Guide*.

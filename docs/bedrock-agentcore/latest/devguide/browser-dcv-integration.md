@@ -1,12 +1,16 @@
+
+
 # Live View
+<a name="browser-dcv-integration"></a>
 
-Amazon Bedrock AgentCore’s Live View is powered by [AWS DCV](../../../dcv.md "../../../dcv.md"). Each browser session launches a dedicated DCV server that streams the browser interface and enables real-time user interaction.
+Amazon Bedrock AgentCore’s Live View is powered by [AWS DCV](https://docs.aws.amazon.com/dcv/). Each browser session launches a dedicated DCV server that streams the browser interface and enables real-time user interaction.
 
-To embed the Live View into your web application, use the BrowserLiveView React component from the [Amazon Bedrock AgentCore TypeScript SDK](https://github.com/aws/bedrock-agentcore-sdk-typescript "https://github.com/aws/bedrock-agentcore-sdk-typescript"). The component wraps the [AWS DCV Web Client](../../../dcv/latest/websdkguide/what-is.md "../../../dcv/latest/websdkguide/what-is.md") internally and handles connection setup, SigV4 authentication, and video rendering, so you can integrate a live browser stream with minimal code while retaining full control over your UI.
+To embed the Live View into your web application, use the BrowserLiveView React component from the [Amazon Bedrock AgentCore TypeScript SDK](https://github.com/aws/bedrock-agentcore-sdk-typescript). The component wraps the [AWS DCV Web Client](https://docs.aws.amazon.com/dcv/latest/websdkguide/what-is.html) internally and handles connection setup, SigV4 authentication, and video rendering, so you can integrate a live browser stream with minimal code while retaining full control over your UI.
 
 ## Using the BrowserLiveView component
+<a name="browser-live-view-render"></a>
 
-The BrowserLiveView component requires a SigV4-presigned Live View URL. After starting a browser session (see [Managing browser sessions](browser-managing-sessions.md "browser-managing-sessions.md")), generate the presigned URL using the [generateLiveViewUrl](https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380 "https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380") method from the TypeScript SDK’s Browser class. The method signs the Live View stream endpoint with SigV4 credentials and returns a time-limited URL that you pass to the BrowserLiveView component.
+The BrowserLiveView component requires a SigV4-presigned Live View URL. After starting a browser session (see [Managing browser sessions](browser-managing-sessions.md)), generate the presigned URL using the [generateLiveViewUrl](https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380) method from the TypeScript SDK’s Browser class. The method signs the Live View stream endpoint with SigV4 credentials and returns a time-limited URL that you pass to the BrowserLiveView component.
 
 Install the Amazon Bedrock AgentCore TypeScript SDK:
 
@@ -31,4 +35,4 @@ The remoteWidth and remoteHeight must match the viewport configured for the brow
 
 The Live View begins streaming as soon as the presigned URL is valid and the browser session is active. If the container remains empty, verify that the presigned URL has not expired and that the browser session is still running.
 
-For a complete walkthrough including a sample React application, see [Embed a live AI browser agent in your React app with Amazon Bedrock AgentCore](https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/ "https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/").
+For a complete walkthrough including a sample React application, see [Embed a live AI browser agent in your React app with Amazon Bedrock AgentCore](https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/).

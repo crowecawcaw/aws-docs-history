@@ -1,17 +1,20 @@
+
+
 # Inference provider targets
+<a name="gateway-target-inference-provider"></a>
 
 Inference provider targets give you explicit control over the endpoint, model mappings, and operations for a model provider. Use a provider configuration when you need to customize which models are available, set per-model token limits, configure path rewriting, or connect to a provider that doesn’t have a built-in connector.
 
-###### Topics
-
-- [Target configuration](#gateway-target-inference-provider-config "#gateway-target-inference-provider-config")
-- [Creating a provider inference target](#gateway-target-inference-provider-create "#gateway-target-inference-provider-create")
-- [Invoking a provider inference target](#gateway-target-inference-provider-invoke "#gateway-target-inference-provider-invoke")
-- [Model-based routing](#gateway-target-inference-provider-routing "#gateway-target-inference-provider-routing")
-- [Streaming](#gateway-target-inference-provider-streaming "#gateway-target-inference-provider-streaming")
-- [Outbound authorization](#gateway-target-inference-provider-auth "#gateway-target-inference-provider-auth")
+**Topics**
++ [Target configuration](#gateway-target-inference-provider-config)
++ [Creating a provider inference target](#gateway-target-inference-provider-create)
++ [Invoking a provider inference target](#gateway-target-inference-provider-invoke)
++ [Model-based routing](#gateway-target-inference-provider-routing)
++ [Streaming](#gateway-target-inference-provider-streaming)
++ [Outbound authorization](#gateway-target-inference-provider-auth)
 
 ## Target configuration
+<a name="gateway-target-inference-provider-config"></a>
 
 The target configuration for an inference provider target uses the following structure:
 
@@ -41,22 +44,18 @@ The target configuration for an inference provider target uses the following str
     }
 }
 ```
-
-- **endpoint** (required) – The HTTPS URL of the model provider.
-- **modelMapping** (optional) – Model ID translation configuration.
-
-  - **providerPrefix** (optional) – Configures how clients can omit the provider prefix from model IDs. If omitted, no prefix translation is applied and clients must use the provider’s full model IDs.
-
-    - **strip** (optional) – When `true`, clients can use model IDs without the provider prefix (for example, `claude-opus-4-7` instead of `anthropic.claude-opus-4-7`). Defaults to `false`.
-    - **separator** (optional) – The separator character between the provider prefix and the model name (for example, `.`).
-
-- **operations** (optional) – A list of operation configurations that map request paths to supported models:
-
-  - **path** (required) – The request path for this operation (for example, `/v1/chat/completions`).
-  - **providerPath** (optional) – The path to forward to on the provider if it differs from the request path.
-  - **models** (optional) – The models supported for this operation. Each entry includes a **model** field (required) containing a model ID or glob pattern (for example, `anthropic.claude-opus-*`).
++  **endpoint** (required) – The HTTPS URL of the model provider.
++  **modelMapping** (optional) – Model ID translation configuration.
+  +  **providerPrefix** (optional) – Configures how clients can omit the provider prefix from model IDs. If omitted, no prefix translation is applied and clients must use the provider’s full model IDs.
+    +  **strip** (optional) – When `true`, clients can use model IDs without the provider prefix (for example, `claude-opus-4-7` instead of `anthropic.claude-opus-4-7`). Defaults to `false`.
+    +  **separator** (optional) – The separator character between the provider prefix and the model name (for example, `.`).
++  **operations** (optional) – A list of operation configurations that map request paths to supported models:
+  +  **path** (required) – The request path for this operation (for example, `/v1/chat/completions`).
+  +  **providerPath** (optional) – The path to forward to on the provider if it differs from the request path.
+  +  **models** (optional) – The models supported for this operation. Each entry includes a **model** field (required) containing a model ID or glob pattern (for example, `anthropic.claude-opus-*`).
 
 ## Creating a provider inference target
+<a name="gateway-target-inference-provider-create"></a>
 
 The following example creates an OpenAI inference target using a provider configuration:
 
@@ -145,8 +144,9 @@ aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
 ```
 
 ## Invoking a provider inference target
+<a name="gateway-target-inference-provider-invoke"></a>
 
-To invoke an inference target, send requests to the gateway’s `/inference` path. The gateway routes each request to the correct target based on the `model` field in the request body. The `model` value can be either a plain model ID (for example, `gpt-5.5`) or a target-qualified model ID in the form `{targetName}/{modelId}` (for example, `openai/gpt-5.5`). For details on how the `model` value is matched to a target, see [Model-based routing](#gateway-target-inference-provider-routing "#gateway-target-inference-provider-routing").
+To invoke an inference target, send requests to the gateway’s `/inference` path. The gateway routes each request to the correct target based on the `model` field in the request body. The `model` value can be either a plain model ID (for example, `gpt-5.5`) or a target-qualified model ID in the form `{targetName}/{modelId}` (for example, `openai/gpt-5.5`). For details on how the `model` value is matched to a target, see [Model-based routing](#gateway-target-inference-provider-routing).
 
 The URL format is:
 
@@ -157,6 +157,7 @@ https://{gatewayId}.gateway.bedrock-agentcore.{region}.amazonaws.com/inference/{
 Replace `{path}` with the inference operation path (for example, `v1/chat/completions`, `v1/responses`, or `v1/messages`).
 
 ### Using the OpenAI SDK
+<a name="_using_the_openai_sdk"></a>
 
 Set the gateway’s `/inference/v1` path as the `base_url`:
 
@@ -175,6 +176,7 @@ response = client.chat.completions.create(
 ```
 
 ### Using the Anthropic SDK
+<a name="_using_the_anthropic_sdk"></a>
 
 Set the gateway’s `/inference` path as the `base_url`:
 
@@ -194,6 +196,7 @@ response = client.messages.create(
 ```
 
 ### Using awscurl
+<a name="_using_awscurl"></a>
 
 ```
 awscurl --service bedrock-agentcore --region us-west-2 -X POST \
@@ -203,6 +206,7 @@ awscurl --service bedrock-agentcore --region us-west-2 -X POST \
 ```
 
 ### Qualified model routing
+<a name="_qualified_model_routing"></a>
 
 When multiple targets serve the same model, prefix the model ID with the target name to route to a specific provider:
 
@@ -215,16 +219,20 @@ response = client.chat.completions.create(
 ```
 
 ## Model-based routing
+<a name="gateway-target-inference-provider-routing"></a>
 
 The gateway routes inference requests based on the `model` field in the request body:
 
-1. **Qualified routing** – If the model ID contains a `/` and the prefix matches a target name, the request is routed to that target (for example, `openai/gpt-5.5` routes to the `openai` target).
-2. **Unqualified routing** – If the model ID does not contain a `/`, the gateway matches it against all configured targets. An exact match takes priority over glob patterns. If exactly one target matches, the request is routed to it.
-3. **Collision handling** – When multiple targets match the same model at the same specificity, the gateway defaults to the Amazon Bedrock target if one is among the matches. Otherwise, it distributes requests across the matching targets in round-robin order. To pin requests to a specific target, qualify the model with the target name as a prefix (for example, `bedrock/claude-opus-4-7`).
+1.  **Qualified routing** – If the model ID contains a `/` and the prefix matches a target name, the request is routed to that target (for example, `openai/gpt-5.5` routes to the `openai` target).
 
-To customize or override the target that a model routes to, you can rewrite the `model` field in a request interceptor. For more information, see [Customize model routing with a request interceptor](gateway-interceptors-examples.md#gateway-interceptors-examples-model-routing "gateway-interceptors-examples.md#gateway-interceptors-examples-model-routing").
+1.  **Unqualified routing** – If the model ID does not contain a `/`, the gateway matches it against all configured targets. An exact match takes priority over glob patterns. If exactly one target matches, the request is routed to it.
+
+1.  **Collision handling** – When multiple targets match the same model at the same specificity, the gateway defaults to the Amazon Bedrock target if one is among the matches. Otherwise, it distributes requests across the matching targets in round-robin order. To pin requests to a specific target, qualify the model with the target name as a prefix (for example, `bedrock/claude-opus-4-7`).
+
+To customize or override the target that a model routes to, you can rewrite the `model` field in a request interceptor. For more information, see [Customize model routing with a request interceptor](gateway-interceptors-examples.html#gateway-interceptors-examples-model-routing).
 
 ## Streaming
+<a name="gateway-target-inference-provider-streaming"></a>
 
 Streaming follows the OpenAI SSE convention. Set `"stream": true` in the request body, and the gateway passes through the SSE stream from the provider without transformation:
 
@@ -240,8 +248,8 @@ for chunk in stream:
 ```
 
 ## Outbound authorization
+<a name="gateway-target-inference-provider-auth"></a>
 
 Inference provider targets support the following outbound authorization types:
-
-- **IAM (SigV4)** – Use `GATEWAY_IAM_ROLE` for providers that accept IAM authentication (such as Amazon Bedrock).
-- **API key** – Use `API_KEY` for providers that require an API key (such as OpenAI and Anthropic). The gateway injects the stored API key into outbound requests.
++  **IAM (SigV4)** – Use `GATEWAY_IAM_ROLE` for providers that accept IAM authentication (such as Amazon Bedrock).
++  **API key** – Use `API_KEY` for providers that require an API key (such as OpenAI and Anthropic). The gateway injects the stored API key into outbound requests.

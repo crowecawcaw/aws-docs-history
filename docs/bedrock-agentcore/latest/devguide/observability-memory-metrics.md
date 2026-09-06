@@ -1,63 +1,63 @@
-# AgentCore generate memory observability data
 
-For the AgentCore memory resource type, AgentCore outputs metrics to Amazon CloudWatch by default. AgentCore also outputs a default set of spans and logs, if you enable these. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more about enabling spans and logs.
+
+# AgentCore generate memory observability data
+<a name="observability-memory-metrics"></a>
+
+For the AgentCore memory resource type, AgentCore outputs metrics to Amazon CloudWatch by default. AgentCore also outputs a default set of spans and logs, if you enable these. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch) to learn more about enabling spans and logs.
 
 Refer to the following sections to learn more about the provided observability data for your agent memory stores.
 
 ## Provided memory metrics
+<a name="memory_metrics_summary"></a>
 
 The AgentCore memory resource type provides the following metrics by default.
 
-Latency
-
+Latency  
 The total time elapsed between receiving the request and sending the final response token. Represents complete end-to-end processing of the request.
 
-Invocations
-
+Invocations  
 The total number of API requests made to the data plane and control plane. This metric also tracks the number of memory ingestion events.
 
-System Errors
-
+System Errors  
 Number of invocations that result in AWS server-side errors.
 
-User Errors
-
+User Errors  
 Number of invocations that result in client-side errors.
 
-Errors
-
+Errors  
 Total number of errors that occur while processing API requests in the data plane and control plane. This metric also tracks the total errors that occur during memory ingestion.
 
-Throttles
-
+Throttles  
 Number of invocations that the system throttled. Throttled requests count as invocations, errors, and user errors.
 
-Creation Count
-
+Creation Count  
 Counts the number of created memory events and memory records.
 
 ## Provided span data
+<a name="memory_span_summary"></a>
 
-To enhance observability, AgentCore provides structured spans that trace the relationship between events and the memories they generate or access. To enable this span data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
+To enhance observability, AgentCore provides structured spans that trace the relationship between events and the memories they generate or access. To enable this span data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md) to learn more.
 
-This span data is available in full in CloudWatch Logs and CloudWatch Application Signals. To learn more about viewing observability data, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
+This span data is available in full in CloudWatch Logs and CloudWatch Application Signals. To learn more about viewing observability data, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md).
 
 The following table defines the operations for which spans are created and the attributes for each captured span.
 
-| Operation name        | Span attributes                                                                        | Description                                    |
-| --------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| `CreateEvent`         | `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault` | Creates a new event within a memory session    |
-| `GetEvent`            | `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault` | Retrieves an existing memory event             |
-| `ListEvents`          | `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault` | Lists events within a session                  |
-| DeleteEvent           | `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault` | Deletes an event from memory                   |
-| RetrieveMemoryRecords | `memory.id` , `namespace` , `throttled` , `error` , `fault`                            | Retrieves memory records for a given namespace |
-| ListMemoryRecords     | `memory.id` , `namespace` , `throttled` , `error` , `fault`                            | Lists available memory records                 |
+
+| Operation name | Span attributes | Description | 
+| --- | --- | --- | 
+|  `CreateEvent`  |  `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault`  | Creates a new event within a memory session | 
+|  `GetEvent`  |  `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault`  | Retrieves an existing memory event | 
+|  `ListEvents`  |  `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault`  | Lists events within a session | 
+| DeleteEvent |  `memory.id` , `session.id` , `event.id` , `actor.id` , `throttled` , `error` , `fault`  | Deletes an event from memory | 
+| RetrieveMemoryRecords |  `memory.id` , `namespace` , `throttled` , `error` , `fault`  | Retrieves memory records for a given namespace | 
+| ListMemoryRecords |  `memory.id` , `namespace` , `throttled` , `error` , `fault`  | Lists available memory records | 
 
 ## Provided log data
+<a name="memory_logs_summary"></a>
 
-AgentCore provides structured logs that help you monitor and troubleshoot key AgentCore Memory resource processes. To enable this log data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
+AgentCore provides structured logs that help you monitor and troubleshoot key AgentCore Memory resource processes. To enable this log data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md) to learn more.
 
-AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under the default log group `/aws/vendedlogs/bedrock-agentcore/memory/APPLICATION_LOGS/{memory_id}` or under a custom log group starting with `/aws/vendedlogs/` . See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
+AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under the default log group `/aws/vendedlogs/bedrock-agentcore/memory/APPLICATION_LOGS/{memory_id}` or under a custom log group starting with `/aws/vendedlogs/` . See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch) to learn more.
 
 When the `DeleteMemory` operation is called, logs are generated for the start and completion of the deletion process. Any corresponding deletion error logs will be provided with insights into why the call failed.
 
@@ -65,22 +65,21 @@ We also provide logs for various stages in the long-term memory creation process
 
 See the following breakdown to learn how each workflow helps you monitor the formation of new memories:
 
-**Extraction logs**
+ **Extraction logs** 
++ Start and completion of extraction processing
++ Number of memories successfully extracted
++ Any errors in deserializing or processing input events
 
-- Start and completion of extraction processing
-- Number of memories successfully extracted
-- Any errors in deserializing or processing input events
-
-**Consolidation logs:**
-
-- Start and completion of consolidation processing
-- Number of memories requiring consolidation
-- Success/failure of memory additions and updates
-- Related memory retrieval status
+ **Consolidation logs:** 
++ Start and completion of consolidation processing
++ Number of memories requiring consolidation
++ Success/failure of memory additions and updates
++ Related memory retrieval status
 
 The following table provides a more detailed breakdown of how different memory resource workflows use log fields alongside the log body itself to provide request-specific information.
 
-| Workflow name | Log fields                                                                                                              | Description                                              |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Extraction    | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, actor\_id, session\_id, event\_id, requestId, isError | Analyzes incoming conversations to generate new memories |
-| Consolidation | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, session\_id, requestId, isError                       | Combines extracted memories with existing memories       |
+
+| Workflow name | Log fields | Description | 
+| --- | --- | --- | 
+| Extraction | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, actor\_id, session\_id, event\_id, requestId, isError | Analyzes incoming conversations to generate new memories | 
+| Consolidation | resource\_arn, event\_timestamp, memory\_strategy\_id, namespace, session\_id, requestId, isError | Combines extracted memories with existing memories | 

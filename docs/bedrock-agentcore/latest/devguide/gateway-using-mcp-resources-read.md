@@ -1,10 +1,11 @@
+
+
 # Read a resource from an AgentCore gateway
+<a name="gateway-using-mcp-resources-read"></a>
 
 To read a specific resource, make a POST request to the gateway’s MCP endpoint and specify `resources/read` as the method in the request body and the URI of the resource:
 
-###### Example
-
-2025-11-25 and earlier
+**Example**  
 
 ```
 POST /mcp HTTP/1.1
@@ -16,9 +17,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
-
-2026-07-28
-On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`.
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` and `Mcp-Name` request-metadata headers, and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`.  
 
 ```
 POST /mcp HTTP/1.1
@@ -33,39 +32,34 @@ Mcp-Name: ${ResourceUri}
 ${RequestBody}
 ```
 
-###### Note
-
-The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
+**Note**  
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) API.
 
 Replace the following values:
++  `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) API.
++  `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md).
++  `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
++  `${ResourceUri}` – The URI of the resource, matching the `uri` in the request body.
++  `${RequestBody}` – The JSON payload of the request body, as specified in [Reading resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) . Include `resources/read` as the `method` and include the `uri` of the resource. On version `2026-07-28`, also include the `_meta` version fields in `params`.
 
-- `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
-- `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
-- `${ResourceUri}` – The URI of the resource, matching the `uri` in the request body.
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Reading resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources "https://modelcontextprotocol.io/specification/2025-06-18/server/resources#reading-resources") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `resources/read` as the `method` and include the `uri` of the resource. On version `2026-07-28`, also include the `_meta` version fields in `params`.
-  The response returns a `contents` array where each entry includes the `uri`, `mimeType`, and either `text` (for text content) or `blob` (base64-encoded binary content).
+The response returns a `contents` array where each entry includes the `uri`, `mimeType`, and either `text` (for text content) or `blob` (base64-encoded binary content).
 
-###### Note
-
+**Note**  
 The `resources/read` operation proxies the request live to the downstream MCP server. The resource URI is the raw URI as returned by `resources/list` (no target prefix).
 
-###### Note
-
+**Note**  
 When multiple targets expose the same resource URI, the gateway routes the request to the target with the lowest `resourcePriority` value.
 
-###### Important
-
+**Important**  
 The `uri` parameter is passed through to the downstream MCP server target without sanitization. A user-provided resource URI could contain a malicious URL endpoint intended for SSRF attacks or attempt to read local filesystem paths (for example, `file:///etc/passwd`). Validate resource URIs against an allowlist of expected URI schemes and patterns before calling `resources/read`. Only use URIs returned by `resources/list` from trusted MCP server targets.
 
 ## Code samples for reading a resource
+<a name="gateway-using-mcp-resources-read-examples"></a>
 
 To see examples of reading a resource from the gateway, select one of the following methods:
 
-###### Example
-
-curl (2025-11-25 and earlier)
-The following curl request shows an example request to read a resource with URI `config://app-settings` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+The following curl request shows an example request to read a resource with URI `config://app-settings` through a gateway with the ID `mygateway-abcdefghij`. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 curl -X POST \
@@ -83,9 +77,7 @@ curl -X POST \
     }
 }'
 ```
-
-curl (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 curl -X POST \
@@ -113,9 +105,7 @@ curl -X POST \
     }
 }'
 ```
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -150,9 +140,7 @@ result = read_resource(
 )
 print(json.dumps(result, indent=2))
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. For `resources/read`, `Mcp-Name` is the resource `uri`, and the `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -194,8 +182,6 @@ result = read_resource(
 )
 print(json.dumps(result, indent=2))
 ```
-
-MCP Client
 
 ```
 from mcp import ClientSession
@@ -253,9 +239,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
-Strands MCP Client
-NOTE: Strands SDK resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.
+NOTE: Strands SDK resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.  
 
 ```
 from strands.tools.mcp.mcp_client import MCPClient
@@ -273,9 +257,7 @@ def run_agent(mcp_url: str, access_token: str):
 
 run_agent(<MCP URL>, <Access token>)
 ```
-
-LangGraph MCP Client
-NOTE: LangGraph MCP adapter resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.
+NOTE: LangGraph MCP adapter resource support might vary. Use the MCP Client approach shown previously for the most reliable `resources/read` implementation.  
 
 ```
 import asyncio
@@ -305,39 +287,23 @@ asyncio.run(read_resource(
 ```
 
 ## Errors
+<a name="gateway-using-mcp-resources-read-errors"></a>
 
 The `resources/read` operation can return the following types of errors:
-
-- Errors returned as part of the HTTP status code:
-
-**AuthenticationError**
-
-The request failed due to invalid authentication credentials.
-
-**HTTP Status Code** : 401
-
-**AuthorizationError**
-
-The caller does not have permission to read the resource.
-
-**HTTP Status Code** : 403
-
-**ResourceNotFoundError**
-
-The specified resource URI does not exist or is not exposed by any target.
-
-**HTTP Status Code** : 404
-
-**ValidationError**
-
-The provided URI is malformed or missing.
-
-**HTTP Status Code** : 400
-
-**InternalServerError**
-
-An internal server error occurred.
-
-**HTTP Status Code** : 500
-
-- MCP errors. For more information about these types of errors, see [Resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources "https://modelcontextprotocol.io/specification/2025-06-18/server/resources") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") documentation.
++ Errors returned as part of the HTTP status code:  
+ **AuthenticationError**   
+The request failed due to invalid authentication credentials.  
+ **HTTP Status Code** : 401  
+ **AuthorizationError**   
+The caller does not have permission to read the resource.  
+ **HTTP Status Code** : 403  
+ **ResourceNotFoundError**   
+The specified resource URI does not exist or is not exposed by any target.  
+ **HTTP Status Code** : 404  
+ **ValidationError**   
+The provided URI is malformed or missing.  
+ **HTTP Status Code** : 400  
+ **InternalServerError**   
+An internal server error occurred.  
+ **HTTP Status Code** : 500
++ MCP errors. For more information about these types of errors, see [Resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) documentation.

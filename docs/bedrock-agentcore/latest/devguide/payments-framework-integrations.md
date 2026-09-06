@@ -1,21 +1,26 @@
+
+
 # Framework integrations for AgentCore payments
+<a name="payments-framework-integrations"></a>
 
 AgentCore payments integrates with popular agent frameworks to provide automated payment processing. Each framework uses a different integration pattern:
-
-- **[Strands Agents](#payments-framework-strands "#payments-framework-strands")** — Plugin-based integration using hooks
-- **[LangGraph](#payments-framework-langgraph "#payments-framework-langgraph")** — Middleware-based integration that wraps tool calls
++  ** [Strands Agents](#payments-framework-strands) ** — Plugin-based integration using hooks
++  ** [LangGraph](#payments-framework-langgraph) ** — Middleware-based integration that wraps tool calls
 
 ## Strands Agents
+<a name="payments-framework-strands"></a>
 
-The AgentCore payments plugin provides automated payment processing for Strands Agents. It supports the [x402 Payment Required](https://www.x402.org/ "https://www.x402.org/") protocol, enabling agents to automatically handle HTTP 402 responses.
+The AgentCore payments plugin provides automated payment processing for Strands Agents. It supports the [x402 Payment Required](https://www.x402.org/) protocol, enabling agents to automatically handle HTTP 402 responses.
 
 ### Installation
+<a name="payments-framework-strands-install"></a>
 
 ```
 pip install 'bedrock-agentcore[strands-agents]'
 ```
 
 ### Configure and use the plugin
+<a name="payments-framework-strands-usage"></a>
 
 ```
 from strands import Agent
@@ -47,6 +52,7 @@ agent("access https://drvd12nxpcyd5.cloudfront.net/market-recap")
 ```
 
 ### Handling payment interrupts
+<a name="payments-framework-strands-interrupts"></a>
 
 When payment processing fails, the plugin stores the failure and raises an interrupt. Your application should handle these interrupts:
 
@@ -87,6 +93,7 @@ while result.stop_reason == "interrupt":
 ```
 
 ### Disabling auto-payment
+<a name="payments-framework-strands-auto-payment"></a>
 
 To access only payment visibility tools without automatic payment execution (for example, to keep a human or custom logic in the loop before any payment transaction), disable automatic processing:
 
@@ -100,6 +107,7 @@ config = AgentCorePaymentsPluginConfig(
 ```
 
 ### Network preferences
+<a name="payments-framework-strands-network"></a>
 
 You can specify preferred blockchain networks for payment processing:
 
@@ -117,44 +125,53 @@ config = AgentCorePaymentsPluginConfig(
 If not specified, the system uses a default preference order prioritizing Solana mainnet and Base (Ethereum L2) for low transaction fees.
 
 ### Configuration options
+<a name="payments-framework-strands-config"></a>
 
 The following table lists the `AgentCorePaymentsPluginConfig` parameters:
 
-| Parameter                    | Type                  | Required             | Description                                                                  |
-| ---------------------------- | --------------------- | -------------------- | ---------------------------------------------------------------------------- |
-| `payment_manager_arn`        | `str`                 | Yes                  | ARN of the Bedrock AgentCore Payment Manager resource                        |
-| `user_id`                    | `str`                 | Yes                  | Unique identifier for the user                                               |
-| `payment_instrument_id`      | `Optional[str]`       | No                   | Payment instrument ID. Can be set later via `update_payment_instrument_id()` |
-| `payment_session_id`         | `Optional[str]`       | No                   | Payment session ID. Can be set later via `update_payment_session_id()`       |
-| `region`                     | `Optional[str]`       | No                   | AWS region for the payment manager                                           |
-| `network_preferences_config` | `Optional[list[str]]` | No                   | List of network CAIP-2 identifiers in order of preference                    |
-| `auto_payment`               | `bool`                | No (default: `True`) | Whether to automatically process 402 payment requirements                    |
-| `max_interrupt_retries`      | `int`                 | No (default: `5`)    | Maximum interrupt retries per tool use. Set to 0 to disable interrupts       |
-| `agent_name`                 | `Optional[str]`       | No                   | Agent name propagated via HTTP header on API calls                           |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `payment_manager_arn`  |  `str`  | Yes | ARN of the Bedrock AgentCore Payment Manager resource | 
+|  `user_id`  |  `str`  | Yes | Unique identifier for the user | 
+|  `payment_instrument_id`  |  `Optional[str]`  | No | Payment instrument ID. Can be set later via `update_payment_instrument_id()`  | 
+|  `payment_session_id`  |  `Optional[str]`  | No | Payment session ID. Can be set later via `update_payment_session_id()`  | 
+|  `region`  |  `Optional[str]`  | No |  AWS region for the payment manager | 
+|  `network_preferences_config`  |  `Optional[list[str]]`  | No | List of network CAIP-2 identifiers in order of preference | 
+|  `auto_payment`  |  `bool`  | No (default: `True`) | Whether to automatically process 402 payment requirements | 
+|  `max_interrupt_retries`  |  `int`  | No (default: `5`) | Maximum interrupt retries per tool use. Set to 0 to disable interrupts | 
+|  `agent_name`  |  `Optional[str]`  | No | Agent name propagated via HTTP header on API calls | 
 
 ### Built-in agent tools
+<a name="payments-framework-strands-tools"></a>
 
 The plugin registers three tools that agents can use to query payment information at runtime:
 
-| Tool                       | Description                                                       |
-| -------------------------- | ----------------------------------------------------------------- |
-| `get_payment_instrument`   | Retrieve details about a specific payment instrument              |
-| `list_payment_instruments` | List all payment instruments for a user                           |
-| `get_payment_session`      | Retrieve details about a payment session (budget, status, expiry) |
 
-These tools enable agents to make informed decisions about payment methods and payment limits during conversations. For more details and end-to-end examples, refer to the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") documentation.
+| Tool | Description | 
+| --- | --- | 
+|  `get_payment_instrument`  | Retrieve details about a specific payment instrument | 
+|  `list_payment_instruments`  | List all payment instruments for a user | 
+|  `get_payment_session`  | Retrieve details about a payment session (budget, status, expiry) | 
+
+These tools enable agents to make informed decisions about payment methods and payment limits during conversations. For more details and end-to-end examples, refer to the [Strands Agents](https://strandsagents.com/latest/) documentation.
+
+
 
 ## LangGraph
+<a name="payments-framework-langgraph"></a>
 
-The AgentCore payments middleware provides automated payment processing for LangGraph agents. It supports the [x402 Payment Required](https://www.x402.org/ "https://www.x402.org/") protocol, enabling agents to automatically handle HTTP 402 responses.
+The AgentCore payments middleware provides automated payment processing for LangGraph agents. It supports the [x402 Payment Required](https://www.x402.org/) protocol, enabling agents to automatically handle HTTP 402 responses.
 
 ### Installation
+<a name="payments-framework-langgraph-install"></a>
 
 ```
 pip install 'bedrock-agentcore[langgraph]'
 ```
 
 ### Configure and use the middleware
+<a name="payments-framework-langgraph-usage"></a>
 
 ```
 from langchain.agents import create_agent
@@ -184,17 +201,24 @@ print(result)
 ```
 
 ### How the middleware works
+<a name="payments-framework-langgraph-how-it-works"></a>
 
 The middleware intercepts tool calls and handles the x402 payment flow in six steps:
 
 1. The agent makes a tool call that results in an HTTP request to a paid endpoint.
-2. The endpoint responds with HTTP 402 Payment Required and an x402 payment payload.
-3. The middleware intercepts the 402 response and extracts the payment requirements.
-4. The middleware calls `ProcessPayment` with the payment instrument and session to generate cryptographic proof.
-5. The middleware retries the original request with the payment proof header attached.
-6. The endpoint validates the proof and returns the requested content to the agent.
+
+1. The endpoint responds with HTTP 402 Payment Required and an x402 payment payload.
+
+1. The middleware intercepts the 402 response and extracts the payment requirements.
+
+1. The middleware calls `ProcessPayment` with the payment instrument and session to generate cryptographic proof.
+
+1. The middleware retries the original request with the payment proof header attached.
+
+1. The endpoint validates the proof and returns the requested content to the agent.
 
 ### Error handling with callbacks
+<a name="payments-framework-langgraph-error-handling"></a>
 
 Use the `on_payment_error` callback to handle payment failures gracefully:
 
@@ -223,13 +247,15 @@ config = AgentCorePaymentsConfig(
 
 The `ErrorResolution` enum provides the following options:
 
-| Value   | Behavior                                               |
-| ------- | ------------------------------------------------------ |
-| `RETRY` | Retry the payment with the current configuration       |
-| `STOP`  | Stop processing and return the error to the agent      |
-| `SKIP`  | Skip the payment and continue without the paid content |
+
+| Value | Behavior | 
+| --- | --- | 
+|  `RETRY`  | Retry the payment with the current configuration | 
+|  `STOP`  | Stop processing and return the error to the agent | 
+|  `SKIP`  | Skip the payment and continue without the paid content | 
 
 ### Disabling auto-payment
+<a name="payments-framework-langgraph-auto-payment"></a>
 
 To disable automatic payment processing and require explicit payment approval:
 
@@ -245,6 +271,7 @@ config = AgentCorePaymentsConfig(
 When `auto_payment` is `False`, the middleware surfaces 402 responses to the agent without processing them, allowing custom logic or human approval before payment.
 
 ### Payment tool allowlist
+<a name="payments-framework-langgraph-allowlist"></a>
 
 Restrict which tools can trigger automatic payments:
 
@@ -262,6 +289,7 @@ config = AgentCorePaymentsConfig(
 Only tool calls from tools in the allowlist trigger automatic payment processing. Tool calls from other tools pass through without payment interception.
 
 ### Network preferences
+<a name="payments-framework-langgraph-network"></a>
 
 You can specify preferred blockchain networks for payment processing:
 
@@ -279,53 +307,58 @@ config = AgentCorePaymentsConfig(
 If not specified, the system uses a default preference order prioritizing Solana mainnet and Base (Ethereum L2) for low transaction fees.
 
 ### Configuration options
+<a name="payments-framework-langgraph-config"></a>
 
 The following table lists the `AgentCorePaymentsConfig` parameters:
 
-| Parameter                     | Type                  | Required               | Description                                                                                        |
-| ----------------------------- | --------------------- | ---------------------- | -------------------------------------------------------------------------------------------------- |
-| `payment_manager_arn`         | `str`                 | Yes                    | ARN of the Bedrock AgentCore Payment Manager resource                                              |
-| `user_id`                     | `str`                 | Yes                    | Unique identifier for the user                                                                     |
-| `payment_instrument_id`       | `Optional[str]`       | No                     | Payment instrument ID                                                                              |
-| `payment_session_id`          | `Optional[str]`       | No                     | Payment session ID. Not required when `auto_session` is `True`                                     |
-| `region`                      | `Optional[str]`       | No                     | AWS region for the payment manager                                                                 |
-| `auto_session`                | `bool`                | No (default: `False`)  | Automatically create or reuse a payment session                                                    |
-| `auto_session_expiry_minutes` | `int`                 | No (default: `60`)     | Expiry time for auto-created sessions in minutes                                                   |
-| `auto_session_max_spend`      | `str`                 | No (default: `"5.00"`) | Maximum spend amount for auto-created sessions                                                     |
-| `auto_session_currency`       | `str`                 | No (default: `"USD"`)  | Currency for auto-created session spend limits                                                     |
-| `auto_payment`                | `bool`                | No (default: `True`)   | Whether to automatically process 402 payment requirements                                          |
-| `network_preferences_config`  | `Optional[list[str]]` | No                     | List of network CAIP-2 identifiers in order of preference                                          |
-| `tool_allowlist`              | `Optional[list[str]]` | No                     | List of tool names that can trigger automatic payments. If not set, all tools can trigger payments |
-| `max_retries`                 | `int`                 | No (default: `3`)      | Maximum number of payment retries per tool call                                                    |
-| `on_payment_error`            | `Optional[Callable]`  | No                     | Callback function invoked on payment failure                                                       |
-| `on_payment_success`          | `Optional[Callable]`  | No                     | Callback function invoked on successful payment                                                    |
-| `on_payment_start`            | `Optional[Callable]`  | No                     | Callback function invoked before payment processing begins                                         |
-| `agent_name`                  | `Optional[str]`       | No                     | Agent name propagated via HTTP header on API calls                                                 |
-| `endpoint_url`                | `Optional[str]`       | No                     | Custom endpoint URL for the AgentCore payments service                                             |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `payment_manager_arn`  |  `str`  | Yes | ARN of the Bedrock AgentCore Payment Manager resource | 
+|  `user_id`  |  `str`  | Yes | Unique identifier for the user | 
+|  `payment_instrument_id`  |  `Optional[str]`  | No | Payment instrument ID | 
+|  `payment_session_id`  |  `Optional[str]`  | No | Payment session ID. Not required when `auto_session` is `True`  | 
+|  `region`  |  `Optional[str]`  | No |  AWS region for the payment manager | 
+|  `auto_session`  |  `bool`  | No (default: `False`) | Automatically create or reuse a payment session | 
+|  `auto_session_expiry_minutes`  |  `int`  | No (default: `60`) | Expiry time for auto-created sessions in minutes | 
+|  `auto_session_max_spend`  |  `str`  | No (default: `"5.00"`) | Maximum spend amount for auto-created sessions | 
+|  `auto_session_currency`  |  `str`  | No (default: `"USD"`) | Currency for auto-created session spend limits | 
+|  `auto_payment`  |  `bool`  | No (default: `True`) | Whether to automatically process 402 payment requirements | 
+|  `network_preferences_config`  |  `Optional[list[str]]`  | No | List of network CAIP-2 identifiers in order of preference | 
+|  `tool_allowlist`  |  `Optional[list[str]]`  | No | List of tool names that can trigger automatic payments. If not set, all tools can trigger payments | 
+|  `max_retries`  |  `int`  | No (default: `3`) | Maximum number of payment retries per tool call | 
+|  `on_payment_error`  |  `Optional[Callable]`  | No | Callback function invoked on payment failure | 
+|  `on_payment_success`  |  `Optional[Callable]`  | No | Callback function invoked on successful payment | 
+|  `on_payment_start`  |  `Optional[Callable]`  | No | Callback function invoked before payment processing begins | 
+|  `agent_name`  |  `Optional[str]`  | No | Agent name propagated via HTTP header on API calls | 
+|  `endpoint_url`  |  `Optional[str]`  | No | Custom endpoint URL for the AgentCore payments service | 
 
 ### Built-in agent tools
+<a name="payments-framework-langgraph-tools"></a>
 
 The middleware registers five tools that agents can use to query and manage payment information at runtime:
 
-| Tool                       | Description                                                       |
-| -------------------------- | ----------------------------------------------------------------- |
-| `get_payment_instrument`   | Retrieve details about a specific payment instrument              |
-| `list_payment_instruments` | List all payment instruments for a user                           |
-| `get_payment_session`      | Retrieve details about a payment session (budget, status, expiry) |
-| `get_payment_balance`      | Retrieve the current balance of a payment instrument              |
-| `list_payment_sessions`    | List all payment sessions for a user                              |
+
+| Tool | Description | 
+| --- | --- | 
+|  `get_payment_instrument`  | Retrieve details about a specific payment instrument | 
+|  `list_payment_instruments`  | List all payment instruments for a user | 
+|  `get_payment_session`  | Retrieve details about a payment session (budget, status, expiry) | 
+|  `get_payment_balance`  | Retrieve the current balance of a payment instrument | 
+|  `list_payment_sessions`  | List all payment sessions for a user | 
 
 ### Sync vs async
+<a name="payments-framework-langgraph-async"></a>
 
 The LangGraph middleware supports both synchronous and asynchronous execution:
 
-**Synchronous:**
+ **Synchronous:** 
 
 ```
 result = agent.invoke({"messages": [{"role": "user", "content": "access the paid endpoint"}]})
 ```
 
-**Asynchronous:**
+ **Asynchronous:** 
 
 ```
 result = await agent.ainvoke({"messages": [{"role": "user", "content": "access the paid endpoint"}]})

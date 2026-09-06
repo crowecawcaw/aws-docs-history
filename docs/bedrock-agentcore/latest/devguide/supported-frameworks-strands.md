@@ -1,87 +1,87 @@
+
+
 # Set up Strands Agents telemetry for AgentCore Evaluations
+<a name="supported-frameworks-strands"></a>
 
-This page explains how to instrument a [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") agent, how spans are identified, and how evaluation fields are extracted.
+This page explains how to instrument a [Strands Agents](https://strandsagents.com/latest/) agent, how spans are identified, and how evaluation fields are extracted.
 
-**Topics**
+ **Topics** 
++  [Python agent support](#strands-python) 
+  +  [Instrument your agent](#strands-instrument) 
+  +  [How spans are identified](#strands-span-identification) 
+  +  [How evaluation fields are extracted](#strands-extraction) 
+    +  [From event records](#strands-extraction-event-records) 
+    +  [From inline span events](#strands-extraction-inline-events) 
+  +  [Example spans in split telemetry](#strands-examples-split) 
+  +  [Example spans in unified telemetry](#strands-examples-unified) 
++  [TypeScript agent support](#strands-typescript) 
+  +  [Instrument your agent](#strands-typescript-instrument) 
+  +  [How spans are identified](#strands-typescript-span-identification) 
+  +  [How evaluation fields are extracted](#strands-typescript-extraction) 
+  +  [Example spans from a TypeScript agent](#strands-examples-typescript) 
 
-- [Python agent support](#strands-python "#strands-python")
-
-  - [Instrument your agent](#strands-instrument "#strands-instrument")
-  - [How spans are identified](#strands-span-identification "#strands-span-identification")
-  - [How evaluation fields are extracted](#strands-extraction "#strands-extraction")
-
-    - [From event records](#strands-extraction-event-records "#strands-extraction-event-records")
-    - [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events")
-
-  - [Example spans in split telemetry](#strands-examples-split "#strands-examples-split")
-  - [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified")
-
-- [TypeScript agent support](#strands-typescript "#strands-typescript")
-
-  - [Instrument your agent](#strands-typescript-instrument "#strands-typescript-instrument")
-  - [How spans are identified](#strands-typescript-span-identification "#strands-typescript-span-identification")
-  - [How evaluation fields are extracted](#strands-typescript-extraction "#strands-typescript-extraction")
-  - [Example spans from a TypeScript agent](#strands-examples-typescript "#strands-examples-typescript")
-    AgentCore Evaluations supports Strands agents built with the Python SDK and the TypeScript SDK. The two produce the same span types, identifying attributes, and content layout, under different scope names, so the evaluation service reads them the same way. This page covers each language separately: for Python, see [Python agent support](#strands-python "#strands-python"); for TypeScript, see [TypeScript agent support](#strands-typescript "#strands-typescript").
+AgentCore Evaluations supports Strands agents built with the Python SDK and the TypeScript SDK. The two produce the same span types, identifying attributes, and content layout, under different scope names, so the evaluation service reads them the same way. This page covers each language separately: for Python, see [Python agent support](#strands-python); for TypeScript, see [TypeScript agent support](#strands-typescript).
 
 ## Python agent support
+<a name="strands-python"></a>
 
 A Python Strands agent produces spans under the scope name `strands.telemetry.tracer`.
 
 ### Instrument your agent
+<a name="strands-instrument"></a>
 
 The Strands Agents SDK includes built-in telemetry and requires no additional instrumentation library. It produces spans and event records under the scope name `strands.telemetry.tracer`. When deployed on Amazon Bedrock AgentCore Runtime with the AWS Distro for OpenTelemetry (ADOT), the Runtime injects the `session.id` attribute and exports spans and event records automatically.
 
-###### Note
-
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+**Note**  
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup).
 
 ### How spans are identified
+<a name="strands-span-identification"></a>
 
 Strands sets the `gen_ai.operation.name` attribute on each span. The evaluation service uses this attribute to classify spans:
 
-| Span type    | Identifying attribute                    | Example span name             |
-| ------------ | ---------------------------------------- | ----------------------------- |
-| Invoke agent | `gen_ai.operation.name` = `invoke_agent` | `invoke_agent TravelAgent`    |
-| Execute tool | `gen_ai.operation.name` = `execute_tool` | `execute_tool search_flights` |
-| Inference    | `gen_ai.operation.name` = `chat`         | `chat`                        |
+
+| Span type | Identifying attribute | Example span name | 
+| --- | --- | --- | 
+| Invoke agent |  `gen_ai.operation.name` = `invoke_agent`  |  `invoke_agent TravelAgent`  | 
+| Execute tool |  `gen_ai.operation.name` = `execute_tool`  |  `execute_tool search_flights`  | 
+| Inference |  `gen_ai.operation.name` = `chat`  |  `chat`  | 
 
 ### How evaluation fields are extracted
+<a name="strands-extraction"></a>
 
-Where the conversation content sits depends on the telemetry delivery mode. With split telemetry, the content is in a separate event record. With unified telemetry, the content stays on the span, as events attached to it. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md"). The identifying attribute (`gen_ai.operation.name`) is on the span in both modes.
+Where the conversation content sits depends on the telemetry delivery mode. With split telemetry, the content is in a separate event record. With unified telemetry, the content stays on the span, as events attached to it. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md). The identifying attribute (`gen_ai.operation.name`) is on the span in both modes.
 
 #### From event records
+<a name="strands-extraction-event-records"></a>
 
 With split telemetry, the service reads content from the event record correlated to each span:
++  **User prompt**: from the agent input messages (`input.messages`), the content of the message with a user role.
++  **Agent response**: from the agent output messages (`output.messages`), the content of the message with an assistant role.
++  **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the execute tool span. The tool arguments and result come from that span’s event record (`input` and `output`).
 
-- **User prompt**: from the agent input messages (`input.messages`), the content of the message with a user role.
-- **Agent response**: from the agent output messages (`output.messages`), the content of the message with an assistant role.
-- **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the execute tool span. The tool arguments and result come from that span’s event record (`input` and `output`).
-
-For more information, see [Example spans in split telemetry](#strands-examples-split "#strands-examples-split").
+For more information, see [Example spans in split telemetry](#strands-examples-split).
 
 #### From inline span events
+<a name="strands-extraction-inline-events"></a>
 
 With unified telemetry, the same content is carried in inline span events instead of a separate event record:
++  **User prompt**: from the `gen_ai.user.message` event, the `content` attribute.
++  **Agent response**: from the `gen_ai.choice` event, the `message` attribute.
++  **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the span. The tool arguments come from the `gen_ai.tool.message` event, and the result comes from the `gen_ai.choice` event.
 
-- **User prompt**: from the `gen_ai.user.message` event, the `content` attribute.
-- **Agent response**: from the `gen_ai.choice` event, the `message` attribute.
-- **Tool call**: the tool name from the `gen_ai.tool.name` attribute on the span. The tool arguments come from the `gen_ai.tool.message` event, and the result comes from the `gen_ai.choice` event.
-
-For more information, see [Example spans in unified telemetry](#strands-examples-unified "#strands-examples-unified").
+For more information, see [Example spans in unified telemetry](#strands-examples-unified).
 
 ### Example spans in split telemetry
+<a name="strands-examples-split"></a>
 
 With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a Python Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
 
-###### Note
-
+**Note**  
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-###### Example
-
-Invoke agent span
-The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The `gen_ai.agent.tools` attribute lists the tools available to the agent.
+**Example**  
+The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span. The `gen_ai.agent.tools` attribute lists the tools available to the agent.  
 
 ```
 {
@@ -113,8 +113,7 @@ The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an inv
   }
 }
 ```
-
-The correlated event record carries the conversation content. The user prompt is the user-role message in `input.messages`, and the agent response is the assistant-role message in `output.messages`.
+The correlated event record carries the conversation content. The user prompt is the user-role message in `input.messages`, and the agent response is the assistant-role message in `output.messages`.  
 
 ```
 {
@@ -146,9 +145,7 @@ The correlated event record carries the conversation content. The user prompt is
   }
 }
 ```
-
-Execute tool span
-The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span. The `gen_ai.tool.name` attribute holds the tool name.
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span. The `gen_ai.tool.name` attribute holds the tool name.  
 
 ```
 {
@@ -177,8 +174,7 @@ The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an exe
   }
 }
 ```
-
-The correlated event record carries the tool input (arguments) and output (result).
+The correlated event record carries the tool input (arguments) and output (result).  
 
 ```
 {
@@ -216,17 +212,15 @@ The correlated event record carries the tool input (arguments) and output (resul
 ```
 
 ### Example spans in unified telemetry
+<a name="strands-examples-unified"></a>
 
 With unified telemetry, the same content is carried in inline span events on the span, with no separate event record. The following examples are from a Python Strands travel-planning agent.
 
-###### Note
-
+**Note**  
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-###### Example
-
-Invoke agent span
-The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` event holds the agent response.
+**Example**  
+The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` event holds the agent response.  
 
 ```
 {
@@ -259,9 +253,7 @@ The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` e
   ]
 }
 ```
-
-Execute tool span
-The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice` event holds the tool result.
+The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice` event holds the tool result.  
 
 ```
 {
@@ -300,38 +292,38 @@ The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice
 ```
 
 ## TypeScript agent support
+<a name="strands-typescript"></a>
 
 A TypeScript Strands agent produces spans under the scope name `strands-agents`. It emits the same span types and content layout as a Python agent, so the evaluation service reads it the same way.
 
 ### Instrument your agent
+<a name="strands-typescript-instrument"></a>
 
-The TypeScript Strands Agents SDK (`@strands-agents/sdk`
-`>= 1.5.0`) includes built-in telemetry and requires no additional instrumentation library. When deployed on Amazon Bedrock AgentCore Runtime with the AWS Distro for OpenTelemetry (ADOT), the Runtime injects the `session.id` attribute and exports spans and event records automatically. The TypeScript SDK produces spans under the scope name `strands-agents`.
+The TypeScript Strands Agents SDK (`@strands-agents/sdk` `>= 1.5.0`) includes built-in telemetry and requires no additional instrumentation library. When deployed on Amazon Bedrock AgentCore Runtime with the AWS Distro for OpenTelemetry (ADOT), the Runtime injects the `session.id` attribute and exports spans and event records automatically. The TypeScript SDK produces spans under the scope name `strands-agents`.
 
-###### Note
-
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+**Note**  
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup).
 
 ### How spans are identified
+<a name="strands-typescript-span-identification"></a>
 
-Span identification is the same as for a Python agent. The `gen_ai.operation.name` attribute classifies each span. For the values and example span names, see [How spans are identified](#strands-span-identification "#strands-span-identification") under [Python support](#strands-python "#strands-python").
+Span identification is the same as for a Python agent. The `gen_ai.operation.name` attribute classifies each span. For the values and example span names, see [How spans are identified](#strands-span-identification) under [Python support](#strands-python).
 
 ### How evaluation fields are extracted
+<a name="strands-typescript-extraction"></a>
 
-Field extraction is the same as for a Python agent. The conversation content is carried in inline span events (`gen_ai.user.message`, `gen_ai.choice`, and `gen_ai.tool.message`). For where each field is read from, see [From inline span events](#strands-extraction-inline-events "#strands-extraction-inline-events") under [Python support](#strands-python "#strands-python").
+Field extraction is the same as for a Python agent. The conversation content is carried in inline span events (`gen_ai.user.message`, `gen_ai.choice`, and `gen_ai.tool.message`). For where each field is read from, see [From inline span events](#strands-extraction-inline-events) under [Python support](#strands-python).
 
 ### Example spans from a TypeScript agent
+<a name="strands-examples-typescript"></a>
 
 The following examples are from a TypeScript Strands travel-planning agent deployed on Amazon Bedrock AgentCore Runtime.
 
-###### Note
-
+**Note**  
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
-###### Example
-
-Invoke agent span
-The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span, and `gen_ai.agent.tools` lists the tools available to the agent. The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` event holds the agent response.
+**Example**  
+The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an invoke agent span, and `gen_ai.agent.tools` lists the tools available to the agent. The `gen_ai.user.message` event holds the user prompt, and the `gen_ai.choice` event holds the agent response.  
 
 ```
 {
@@ -368,9 +360,7 @@ The `gen_ai.operation.name` attribute (`invoke_agent`) identifies this as an inv
   ]
 }
 ```
-
-Execute tool span
-The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice` event holds the tool result.
+The `gen_ai.operation.name` attribute (`execute_tool`) identifies this as an execute tool span; `gen_ai.tool.name` holds the tool name. The `gen_ai.tool.message` event holds the tool arguments, and the `gen_ai.choice` event holds the tool result.  
 
 ```
 {

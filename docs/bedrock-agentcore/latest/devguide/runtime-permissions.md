@@ -1,32 +1,34 @@
+
+
 # IAM Permissions for AgentCore Runtime
+<a name="runtime-permissions"></a>
 
 The following are IAM permissions you need to create an agent in an AgentCore Runtime and the execution role permissions that an agent needs to run in an AgentCore Runtime. You can also use resource-based policies to control access to your runtime resources.
 
-For information about using resource-based policies to control access to your AgentCore Runtime resources, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+For information about using resource-based policies to control access to your AgentCore Runtime resources, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md).
 
-###### Topics
-
-- [Use Amazon Bedrock AgentCore](#runtime-permissions-use-agentcore "#runtime-permissions-use-agentcore")
-- [Use the AgentCore CLI](#runtime-permissions-cli "#runtime-permissions-cli")
-- [User permissions for Amazon Bedrock AgentCore Console](#runtime-permissions-console "#runtime-permissions-console")
-- [Execution role for running an agent in AgentCore Runtime](#runtime-permissions-execution "#runtime-permissions-execution")
+**Topics**
++ [Use Amazon Bedrock AgentCore](#runtime-permissions-use-agentcore)
++ [Use the AgentCore CLI](#runtime-permissions-cli)
++ [User permissions for Amazon Bedrock AgentCore Console](#runtime-permissions-console)
++ [Execution role for running an agent in AgentCore Runtime](#runtime-permissions-execution)
 
 ## Use Amazon Bedrock AgentCore
+<a name="runtime-permissions-use-agentcore"></a>
 
-To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md")
-AWS managed policy to your IAM user or IAM role. This AWS managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows issuing workload access tokens using caller-supplied user identifier strings without IdP token verification. We recommend creating a custom policy with only the permissions your application requires by copying the relevant statements and restricting the resources to your specific use case. For production deployments where your application has JWT tokens available, explicitly deny `GetWorkloadAccessTokenForUserId` and grant only `GetWorkloadAccessTokenForJWT`. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md"). To use the AgentCore CLI, you need [additional](#runtime-permissions-cli "#runtime-permissions-cli") permissions.
+To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html) AWS managed policy to your IAM user or IAM role. This AWS managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows issuing workload access tokens using caller-supplied user identifier strings without IdP token verification. We recommend creating a custom policy with only the permissions your application requires by copying the relevant statements and restricting the resources to your specific use case. For production deployments where your application has JWT tokens available, explicitly deny `GetWorkloadAccessTokenForUserId` and grant only `GetWorkloadAccessTokenForJWT`. For more information, see [Get workload access token](get-workload-access-token.md). To use the AgentCore CLI, you need [additional](#runtime-permissions-cli) permissions.
 
 ## Use the AgentCore CLI
+<a name="runtime-permissions-cli"></a>
 
-To use the AgentCore CLI, attach the following IAM policy to your IAM user or role. To change IAM permissions, see [Change permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md").
+To use the AgentCore CLI, attach the following IAM policy to your IAM user or role. To change IAM permissions, see [Change permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html).
 
-###### Important
-
-The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application. For complete IAM security guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
+**Important**  
+The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application. For complete IAM security guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "IAMRoleManagement",
@@ -145,12 +147,13 @@ The IAM policies created by the AgentCore CLI are designed for development and t
 ```
 
 ## User permissions for Amazon Bedrock AgentCore Console
+<a name="runtime-permissions-console"></a>
 
-Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") policy to the console role. Additionally, add the following permissions for IAM if you want service console to auto-create the execution role.
+Attach the [BedrockAgentCoreFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html) policy to the console role. Additionally, add the following permissions for IAM if you want service console to auto-create the execution role.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Sid": "IAMRoleAccess",
     "Effect": "Allow",
@@ -176,18 +179,21 @@ Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/refer
 ```
 
 ## Execution role for running an agent in AgentCore Runtime
+<a name="runtime-permissions-execution"></a>
 
-To run agent or tool in AgentCore Runtime you need an AWS Identity and Access Management execution role. For information about creating an IAM role, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").
+To run agent or tool in AgentCore Runtime you need an AWS Identity and Access Management execution role. For information about creating an IAM role, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
+
+### Amazon Bedrock AgentCore direct deploy execution role
+<a name="runtime-permissions-direct-deploy-execution"></a>
 
 The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Amazon Bedrock AgentCore assumes to run an agent. Replace the following:
-
-- `us-east-1` with the AWS Region that you are using
-- `123456789012` with your AWS account ID
-- `agentName` with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
++  `us-east-1` with the AWS Region that you are using
++  `123456789012` with your AWS account ID
++  {{agentName}} with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Allow",
     "Action": [
@@ -251,15 +257,17 @@ The Amazon Bedrock AgentCore direct deploy execution role is an IAM role that Am
 }
 ```
 
-The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assumes to run an agent. Replace the following:
+### AgentCore Runtime execution role
+<a name="runtime-permissions-execution-role"></a>
 
-- `us-east-1` with the AWS Region that you are using
-- `123456789012` with your AWS account ID
-- `agentName` with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
+The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assumes to run an agent. Replace the following:
++  `us-east-1` with the AWS Region that you are using
++  `123456789012` with your AWS account ID
++  {{agentName}} with the name of your agent. You’ll need to decide the agent name before creating the role and AgentCore Runtime.
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "ECRImageAccess",
@@ -367,19 +375,19 @@ The AgentCore Runtime execution role is an IAM role that AgentCore Runtime assum
 ```
 
 ### AgentCore Runtime trust policy
+<a name="runtime-permissions-trust-policy"></a>
 
 The AgentCore Runtime execution role must include the following trust policy which allows the AgentCore Runtime to assume the role.
 
 In the policy, replace:
-
-- `us-east-1` with the AWS Region that you are using
-- `123456789012` with your AWS account ID
++  `us-east-1` with the AWS Region that you are using
++  `123456789012` with your AWS account ID
 
 To add the trust policy to the AgentCore Runtime execution role, go to the AWS Management Console, navigate to the role, choose the **Trust relationships** tab, and choose **Edit trust policy**.
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AssumeRolePolicy",

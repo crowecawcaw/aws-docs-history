@@ -1,46 +1,50 @@
+
+
 # Receive logging messages from your AgentCore gateway
+<a name="gateway-mcp-logging"></a>
 
 MCP server targets can send log messages to clients during tool execution using the `notifications/message` method. These messages provide real-time visibility into what the server is doing, useful for debugging, auditing, and monitoring tool behavior. AgentCore Gateway forwards these log notifications from MCP server targets to your client as Server-Sent Events (SSE) chunks.
 
 ## Prerequisites
+<a name="gateway-mcp-logging-prereqs"></a>
 
 To receive logging messages from your gateway:
-
-- **Response streaming enabled** — Log messages are delivered as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
-- **MCP server target type** — Log messages originate from MCP server targets.
-- **Client sends the `Accept` header** — The client must send `Accept: application/json, text/event-stream` so that the gateway can return a streaming (SSE) response.
++  **Response streaming enabled** — Log messages are delivered as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
++  **MCP server target type** — Log messages originate from MCP server targets.
++  **Client sends the `Accept` header** — The client must send `Accept: application/json, text/event-stream` so that the gateway can return a streaming (SSE) response.
 
 ## Log levels
+<a name="gateway-mcp-logging-levels"></a>
 
 MCP defines the following log levels, in order of increasing severity:
 
-| Level       | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| `debug`     | Detailed diagnostic information for troubleshooting.         |
-| `info`      | General informational messages about normal operation.       |
-| `notice`    | Normal but significant events.                               |
-| `warning`   | Potentially harmful situations that don’t prevent operation. |
-| `error`     | Error conditions that prevented a specific operation.        |
-| `critical`  | Critical conditions requiring immediate attention.           |
-| `alert`     | Action must be taken immediately.                            |
-| `emergency` | System is unusable.                                          |
+
+| Level | Description | 
+| --- | --- | 
+|  `debug`  | Detailed diagnostic information for troubleshooting. | 
+|  `info`  | General informational messages about normal operation. | 
+|  `notice`  | Normal but significant events. | 
+|  `warning`  | Potentially harmful situations that don’t prevent operation. | 
+|  `error`  | Error conditions that prevented a specific operation. | 
+|  `critical`  | Critical conditions requiring immediate attention. | 
+|  `alert`  | Action must be taken immediately. | 
+|  `emergency`  | System is unusable. | 
 
 ## How logging messages work
+<a name="gateway-mcp-logging-how"></a>
 
 When an MCP server target emits a `notifications/message` during tool execution, the gateway forwards it to the client as an SSE event. Each log message includes:
-
-- `level` — The severity level of the message.
-- `logger` — Optional name identifying the source component.
-- `data` — The log content (string or structured object).
++  `level` — The severity level of the message.
++  `logger` — Optional name identifying the source component.
++  `data` — The log content (string or structured object).
 
 Log messages are informational and do not require a response from the client. They are delivered alongside other SSE events such as progress notifications and the final tool result.
 
 ## Code samples
+<a name="gateway-mcp-logging-examples"></a>
 
-###### Example
-
-curl (2025-11-25 and earlier)
-Call a tool and receive log messages in the SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+Call a tool and receive log messages in the SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 curl -N -X POST \
@@ -62,8 +66,7 @@ curl -N -X POST \
     }
 }'
 ```
-
-The gateway returns an SSE stream with log messages followed by the final result:
+The gateway returns an SSE stream with log messages followed by the final result:  
 
 ```
 event: message
@@ -81,9 +84,7 @@ data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"info"
 event: message
 data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Successfully deployed my-api to staging environment."}]}}
 ```
-
-curl (2026-07-28)
-On version `2026-07-28`, the client opts into log messages for each request by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). The server sends `notifications/message` only at or above the requested level. Also include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, the client opts into log messages for each request by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). The server sends `notifications/message` only at or above the requested level. Also include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 curl -N -X POST \
@@ -116,8 +117,7 @@ curl -N -X POST \
     }
 }'
 ```
-
-The gateway returns an SSE stream with log messages followed by the final result:
+The gateway returns an SSE stream with log messages followed by the final result:  
 
 ```
 event: message
@@ -135,9 +135,7 @@ data: {"jsonrpc":"2.0","method":"notifications/message","params":{"level":"info"
 event: message
 data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Successfully deployed my-api to staging environment."}]}}
 ```
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -174,9 +172,7 @@ for event in client.events():
         print(f"Tool result: {data['result']}")
         break
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, opt into log messages by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). Also add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers and the `_meta` version fields. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, opt into log messages by setting `io.modelcontextprotocol/logLevel` in `_meta` (the `logging/setLevel` operation is retired in this version). Also add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers and the `_meta` version fields. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -222,8 +218,6 @@ for event in client.events():
         break
 ```
 
-MCP Client
-
 ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -258,8 +252,6 @@ asyncio.run(use_logging(
     token="YOUR_ACCESS_TOKEN"
 ))
 ```
-
-Strands MCP Client
 
 ```
 from mcp.client.streamable_http import streamablehttp_client

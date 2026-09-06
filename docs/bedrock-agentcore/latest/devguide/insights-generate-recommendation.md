@@ -1,45 +1,39 @@
+
+
 # Generate a recommendation from insights findings
+<a name="insights-generate-recommendation"></a>
 
 After reviewing your insights results, you can use the same agent traces to generate an improved system prompt. Point `StartRecommendation` at the completed batch evaluation that produced your insights findings.
 
-###### Note
-
+**Note**  
 Recommendation generation is currently supported only for `Builtin.Insight.FailureAnalysis` insights, and only system prompt recommendations are provided today.
 
-###### Topics
-
-- [Start a system prompt recommendation](#insights-recommendation-start "#insights-recommendation-start")
-- [Retrieve the recommended prompt](#insights-recommendation-retrieve "#insights-recommendation-retrieve")
-- [Alternative trace sources](#insights-recommendation-trace-sources "#insights-recommendation-trace-sources")
+**Topics**
++ [Start a system prompt recommendation](#insights-recommendation-start)
++ [Retrieve the recommended prompt](#insights-recommendation-retrieve)
++ [Alternative trace sources](#insights-recommendation-trace-sources)
 
 ## Start a system prompt recommendation
+<a name="insights-recommendation-start"></a>
 
 Provide your current system prompt and reference the batch evaluation that contains the traces:
 
-###### Example
-
-AgentCore CLI
-Generate a recommendation from a completed insights run:
+**Example**  
+Generate a recommendation from a completed insights run:  
 
 ```
 agentcore run recommendation --from-insights <id> --type system-prompt --bundle-name my_bundle --json
 ```
-
-Or reference a batch evaluation ARN directly:
+Or reference a batch evaluation ARN directly:  
 
 ```
 agentcore run recommendation --batch-evaluation-arn <arn> --type system-prompt --bundle-name my_bundle --json
 ```
 
-Interactive
+1. Run `agentcore` to open the TUI, then select **run** and choose **Recommendation**:  
+![Run menu: select Recommendation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
 
-1. Run `agentcore` to open the TUI, then select **run** and choose **Recommendation**:
-
-![Run menu: select Recommendation](images/tui/insights-run-select.png)
-
-The wizard guides you through selecting a trace source (insights run or batch evaluation ARN), recommendation type, and config bundle.
-
-AWS SDK (boto3)
+   The wizard guides you through selecting a trace source (insights run or batch evaluation ARN), recommendation type, and config bundle.
 
 ```
 import boto3
@@ -70,6 +64,7 @@ print(f"Started recommendation: {recommendation_id}")
 ```
 
 ## Retrieve the recommended prompt
+<a name="insights-recommendation-retrieve"></a>
 
 Poll until complete, then retrieve the result:
 
@@ -89,6 +84,7 @@ if rec["status"] == "COMPLETED":
 ```
 
 ## Alternative trace sources
+<a name="insights-recommendation-trace-sources"></a>
 
 Instead of referencing a batch evaluation, you can also provide traces via CloudWatch Logs:
 

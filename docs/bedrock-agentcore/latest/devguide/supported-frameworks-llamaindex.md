@@ -1,21 +1,22 @@
+
+
 # LlamaIndex
+<a name="supported-frameworks-llamaindex"></a>
 
-This page explains how to instrument a [LlamaIndex](https://docs.llamaindex.ai/ "https://docs.llamaindex.ai/") agent, how spans are identified, and how evaluation fields are extracted. It closes with [best practices](#llamaindex-best-practices "#llamaindex-best-practices") for structuring a LlamaIndex agent so that it can be evaluated reliably.
+This page explains how to instrument a [LlamaIndex](https://docs.llamaindex.ai/) agent, how spans are identified, and how evaluation fields are extracted. It closes with [best practices](#llamaindex-best-practices) for structuring a LlamaIndex agent so that it can be evaluated reliably.
 
-**Topics**
-
-- [Instrument your agent](#llamaindex-instrument "#llamaindex-instrument")
-- [How spans are identified](#llamaindex-span-identification "#llamaindex-span-identification")
-- [How evaluation fields are extracted](#llamaindex-extraction "#llamaindex-extraction")
-
-  - [From event records](#llamaindex-extraction-event-records "#llamaindex-extraction-event-records")
-  - [From span attributes](#llamaindex-extraction-attributes "#llamaindex-extraction-attributes")
-
-- [Example spans in split telemetry](#llamaindex-examples-split "#llamaindex-examples-split")
-- [Example spans in unified telemetry](#llamaindex-examples-unified "#llamaindex-examples-unified")
-- [Best practices for LlamaIndex agents](#llamaindex-best-practices "#llamaindex-best-practices")
+ **Topics** 
++  [Instrument your agent](#llamaindex-instrument) 
++  [How spans are identified](#llamaindex-span-identification) 
++  [How evaluation fields are extracted](#llamaindex-extraction) 
+  +  [From event records](#llamaindex-extraction-event-records) 
+  +  [From span attributes](#llamaindex-extraction-attributes) 
++  [Example spans in split telemetry](#llamaindex-examples-split) 
++  [Example spans in unified telemetry](#llamaindex-examples-unified) 
++  [Best practices for LlamaIndex agents](#llamaindex-best-practices) 
 
 ## Instrument your agent
+<a name="llamaindex-instrument"></a>
 
 You can instrument a LlamaIndex agent with either of two instrumentation libraries: **OpenTelemetry** (`opentelemetry-instrumentation-llamaindex`) or **OpenInference** (`openinference-instrumentation-llama-index`). Amazon Bedrock AgentCore Evaluations supports both libraries. The libraries emit different scope names and use different span attributes. The evaluation service extracts the same values from each.
 
@@ -23,20 +24,15 @@ When your agent runs with the AWS Distro for OpenTelemetry (ADOT), such as on Am
 
 Add the instrumentation library for the path you want to your dependencies. Use the latest available version unless you have a reason to pin.
 
-###### Example
-
-OpenTelemetry
-NOTE: Use version `0.61.0` or later. This is the earliest version tested with the evaluation service.
-
-Add `opentelemetry-instrumentation-llamaindex` to your dependencies. The scope name emitted is `opentelemetry.instrumentation.llamaindex`.
-
-`requirements.txt`:
+**Example**  
+NOTE: Use version `0.61.0` or later. This is the earliest version tested with the evaluation service.  
+Add `opentelemetry-instrumentation-llamaindex` to your dependencies. The scope name emitted is `opentelemetry.instrumentation.llamaindex`.  
+ `requirements.txt`:  
 
 ```
 opentelemetry-instrumentation-llamaindex>=0.61.0
 ```
-
-`pyproject.toml`:
+ `pyproject.toml`:  
 
 ```
 [project]
@@ -44,19 +40,14 @@ dependencies = [
     "opentelemetry-instrumentation-llamaindex>=0.61.0",
 ]
 ```
-
-OpenInference
-NOTE: Use version `4.4.1` or later. This is the earliest version tested with the evaluation service.
-
-Add `openinference-instrumentation-llama-index` to your dependencies. The scope name emitted is `openinference.instrumentation.llama_index`.
-
-`requirements.txt`:
+NOTE: Use version `4.4.1` or later. This is the earliest version tested with the evaluation service.  
+Add `openinference-instrumentation-llama-index` to your dependencies. The scope name emitted is `openinference.instrumentation.llama_index`.  
+ `requirements.txt`:  
 
 ```
 openinference-instrumentation-llama-index>=4.4.1
 ```
-
-`pyproject.toml`:
+ `pyproject.toml`:  
 
 ```
 [project]
@@ -65,78 +56,73 @@ dependencies = [
 ]
 ```
 
-###### Note
-
-Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup "supported-frameworks-telemetry.md#supported-frameworks-setup").
+**Note**  
+Instrumentation is one step in setting up observability. To export telemetry for evaluation, complete the full setup in [Set up observability](supported-frameworks-telemetry.md#supported-frameworks-setup).
 
 ## How spans are identified
+<a name="llamaindex-span-identification"></a>
 
 The attribute used to classify spans differs between the two instrumentation libraries.
 
-###### Example
+**Example**  
+The OpenTelemetry instrumentation library classifies spans using the `traceloop.span.kind` attribute. Because LlamaIndex tags both inference and tool operations as `task`, AgentCore Evaluations disambiguates them by the `traceloop.entity.name` attribute: a `task` whose entity name ends in `Tool.task` is an execute tool span; any other `task` is an inference span.  
 
-OpenTelemetry
-The OpenTelemetry instrumentation library classifies spans using the `traceloop.span.kind` attribute. Because LlamaIndex tags both inference and tool operations as `task`, AgentCore Evaluations disambiguates them by the `traceloop.entity.name` attribute: a `task` whose entity name ends in `Tool.task` is an execute tool span; any other `task` is an inference span.
 
-| Span type    | Identifying attribute                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| Invoke agent | `traceloop.span.kind` = `workflow`                                                                                   |
-| Execute tool | `traceloop.span.kind` = `tool`, or `traceloop.span.kind` = `task` with `traceloop.entity.name` ending in `Tool.task` |
-| Inference    | `traceloop.span.kind` = `task` (not a tool task)                                                                     |
+| Span type | Identifying attribute | 
+| --- | --- | 
+| Invoke agent |  `traceloop.span.kind` = `workflow`  | 
+| Execute tool |  `traceloop.span.kind` = `tool`, or `traceloop.span.kind` = `task` with `traceloop.entity.name` ending in `Tool.task`  | 
+| Inference |  `traceloop.span.kind` = `task` (not a tool task) | 
+The OpenInference instrumentation library classifies spans using the `openinference.span.kind` attribute. LlamaIndex emits `CHAIN`, `LLM`, and `TOOL` spans; it does not emit `AGENT` spans. The root workflow span (a `CHAIN`) acts as the invoke agent span.  
 
-OpenInference
-The OpenInference instrumentation library classifies spans using the `openinference.span.kind` attribute. LlamaIndex emits `CHAIN`, `LLM`, and `TOOL` spans; it does not emit `AGENT` spans. The root workflow span (a `CHAIN`) acts as the invoke agent span.
 
-| Span type    | Identifying attribute                                    |
-| ------------ | -------------------------------------------------------- |
-| Invoke agent | `openinference.span.kind` = `CHAIN` (root workflow span) |
-| Execute tool | `openinference.span.kind` = `TOOL`                       |
-| Inference    | `openinference.span.kind` = `LLM`                        |
-
-###### Note
-
+| Span type | Identifying attribute | 
+| --- | --- | 
+| Invoke agent |  `openinference.span.kind` = `CHAIN` (root workflow span) | 
+| Execute tool |  `openinference.span.kind` = `TOOL`  | 
+| Inference |  `openinference.span.kind` = `LLM`  | 
 LlamaIndex emits several intermediate `CHAIN` spans (for example, for output parsing and tool routing). AgentCore Evaluations treats only the root workflow span as the invoke agent span and reconstructs the user prompt and agent response from the inference (`LLM`) spans in the trace.
 
 ## How evaluation fields are extracted
+<a name="llamaindex-extraction"></a>
 
 The LlamaIndex agent is a **workflow**, and its top-level span is emitted before its child spans. That workflow span carries no usable conversation content of its own, so AgentCore Evaluations reconstructs the user prompt and agent response from the child spans (the inference and tool spans) and attaches them to the invoke agent span.
 
 LlamaIndex also serializes content as nested JSON. Tool arguments are wrapped as `{"kwargs": {…​}}`, and tool results are wrapped as `{"blocks": [{"text": "…​"}], …​}`. AgentCore Evaluations unwraps these forms. When a LlamaIndex ReAct agent produces output in the form `Thought: …​ Answer: <response>`, AgentCore Evaluations extracts the text after `Answer:` as the agent response.
 
-The location of this content depends on how telemetry was collected. The identifying attribute (`traceloop.span.kind` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md "supported-frameworks-telemetry.md").
+The location of this content depends on how telemetry was collected. The identifying attribute (`traceloop.span.kind` or `openinference.span.kind`) is on the span in both cases. For more information, see [Telemetry setup and delivery](supported-frameworks-telemetry.md).
 
 ### From event records
+<a name="llamaindex-extraction-event-records"></a>
 
 With split telemetry, AgentCore Evaluations reads content from the event record correlated to each span:
++  **User prompt** and **agent response**: reconstructed from the inference spans' event records, in `body.output`. With the OpenTelemetry library, the user prompt comes from the chat-history content and the agent response from the model-result content. With the OpenInference library, the user prompt is the plain-text input message and the agent response is the model output (with the text after `Answer:` used for a ReAct agent).
++  **Tool call**: the tool name from the execute tool span. The tool arguments and result come from that span’s event record, in `body.input` (unwrapped from `{"kwargs": {…​}}`) and `body.output` (unwrapped from `{"blocks": […​]}`).
 
-- **User prompt** and **agent response**: reconstructed from the inference spans' event records, in `body.output`. With the OpenTelemetry library, the user prompt comes from the chat-history content and the agent response from the model-result content. With the OpenInference library, the user prompt is the plain-text input message and the agent response is the model output (with the text after `Answer:` used for a ReAct agent).
-- **Tool call**: the tool name from the execute tool span. The tool arguments and result come from that span’s event record, in `body.input` (unwrapped from `{"kwargs": {…​}}`) and `body.output` (unwrapped from `{"blocks": […​]}`).
-
-For more information, see [Example spans in split telemetry](#llamaindex-examples-split "#llamaindex-examples-split").
+For more information, see [Example spans in split telemetry](#llamaindex-examples-split).
 
 ### From span attributes
+<a name="llamaindex-extraction-attributes"></a>
 
 With unified telemetry, the same content stays on the span as attributes. The attributes depend on the instrumentation library:
++  **OpenTelemetry**: the content is on the `traceloop.entity.input` and `traceloop.entity.output` attributes of each span. AgentCore Evaluations applies the same chat-history, result, and tool unwrapping to these values.
++  **OpenInference**: the inference content is on the indexed message attributes (`llm.input_messages.*` and `llm.output_messages.*`). Tool arguments come from `input.value` (unwrapped from `{"kwargs": {…​}}`) and the tool result from `output.value` (unwrapped from `{"blocks": […​]}`).
 
-- **OpenTelemetry**: the content is on the `traceloop.entity.input` and `traceloop.entity.output` attributes of each span. AgentCore Evaluations applies the same chat-history, result, and tool unwrapping to these values.
-- **OpenInference**: the inference content is on the indexed message attributes (`llm.input_messages.*` and `llm.output_messages.*`). Tool arguments come from `input.value` (unwrapped from `{"kwargs": {…​}}`) and the tool result from `output.value` (unwrapped from `{"blocks": […​]}`).
-
-For more information, see [Example spans in unified telemetry](#llamaindex-examples-unified "#llamaindex-examples-unified").
+For more information, see [Example spans in unified telemetry](#llamaindex-examples-unified).
 
 ## Example spans in split telemetry
+<a name="llamaindex-examples-split"></a>
 
 With split telemetry, the span carries the identifying attributes and the content lives in a correlated event record. The following examples are from a LlamaIndex ReAct travel-planning agent deployed on Amazon Bedrock AgentCore Runtime. The same agent is shown under each instrumentation library.
 
-###### Note
-
+**Note**  
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
 ### OpenTelemetry
+<a name="llamaindex-examples-split-otel"></a>
 
-###### Example
-
-Invoke agent span
-The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span. The workflow span carries no conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the child spans.
+**Example**  
+The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke agent span. The workflow span carries no conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the child spans.  
 
 ```
 {
@@ -158,9 +144,7 @@ The `traceloop.span.kind` attribute (`workflow`) identifies this as an invoke ag
   }
 }
 ```
-
-Execute tool span
-The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` ending in `Tool.task` identifies this as an execute tool span. The correlated event record carries the tool arguments (wrapped in `kwargs`) and the tool result (wrapped in `blocks`), along with the tool name.
+The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` ending in `Tool.task` identifies this as an execute tool span. The correlated event record carries the tool arguments (wrapped in `kwargs`) and the tool result (wrapped in `blocks`), along with the tool name.  
 
 ```
 {
@@ -204,11 +188,8 @@ The `traceloop.span.kind` attribute (`task`) with a `traceloop.entity.name` endi
   }
 }
 ```
-
-Inference span
-The `traceloop.span.kind` attribute (`task`), with a `traceloop.entity.name` that does not end in `Tool.task`, identifies this as an inference span. A LlamaIndex agent produces several of these spans per turn. In each one, the content is packed into `body.output` (there is no `body.input`), as a serialized JSON string. AgentCore Evaluations reads the **user prompt** from the chat-history string (a `{"input": […​]}` object) on the first inference span, and the **agent response** from the model-result string (a `{"result": {"response": …​}}` object) on the last inference span.
-
-The following is the inference span itself.
+The `traceloop.span.kind` attribute (`task`), with a `traceloop.entity.name` that does not end in `Tool.task`, identifies this as an inference span. A LlamaIndex agent produces several of these spans per turn. In each one, the content is packed into `body.output` (there is no `body.input`), as a serialized JSON string. AgentCore Evaluations reads the **user prompt** from the chat-history string (a `{"input": […​]}` object) on the first inference span, and the **agent response** from the model-result string (a `{"result": {"response": …​}}` object) on the last inference span.  
+The following is the inference span itself.  
 
 ```
 {
@@ -230,8 +211,7 @@ The following is the inference span itself.
   }
 }
 ```
-
-On the first inference span, the event record’s `body.output` content is the chat history. The user prompt is the `user`-role text inside the nested `input` array.
+On the first inference span, the event record’s `body.output` content is the chat history. The user prompt is the `user`-role text inside the nested `input` array.  
 
 ```
 {
@@ -251,8 +231,7 @@ On the first inference span, the event record’s `body.output` content is the c
   }
 }
 ```
-
-On the last inference span, the event record’s `body.output` content is the model result. The agent response is the `assistant`-role text inside the nested `result.response` object.
+On the last inference span, the event record’s `body.output` content is the model result. The agent response is the `assistant`-role text inside the nested `result.response` object.  
 
 ```
 {
@@ -274,11 +253,10 @@ On the last inference span, the event record’s `body.output` content is the mo
 ```
 
 ### OpenInference
+<a name="llamaindex-examples-split-openinference"></a>
 
-###### Example
-
-Invoke agent span
-The `openinference.span.kind` attribute (`CHAIN`) on the root workflow span identifies this as an invoke agent span. The span carries no usable conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the inference spans.
+**Example**  
+The `openinference.span.kind` attribute (`CHAIN`) on the root workflow span identifies this as an invoke agent span. The span carries no usable conversation content; AgentCore Evaluations reconstructs the user prompt and agent response from the inference spans.  
 
 ```
 {
@@ -301,9 +279,7 @@ The `openinference.span.kind` attribute (`CHAIN`) on the root workflow span iden
   }
 }
 ```
-
-Execute tool span
-The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The tool arguments and result live in the correlated event record, wrapped in `kwargs` and `blocks` respectively.
+The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute tool span; `tool.name` holds the tool name. The tool arguments and result live in the correlated event record, wrapped in `kwargs` and `blocks` respectively.  
 
 ```
 {
@@ -348,9 +324,7 @@ The `openinference.span.kind` attribute (`TOOL`) identifies this as an execute t
   }
 }
 ```
-
-Inference span
-The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. Message roles are on the span attributes; the content lives in the correlated event record. ADOT flattens the input roles to `user`, so AgentCore Evaluations uses the last plain-text input message as the user prompt. LlamaIndex emits a duplicate `assistant:`-prefixed output message, which AgentCore Evaluations skips in favor of the clean copy.
+The `openinference.span.kind` attribute (`LLM`) identifies this as an inference span. Message roles are on the span attributes; the content lives in the correlated event record. ADOT flattens the input roles to `user`, so AgentCore Evaluations uses the last plain-text input message as the user prompt. LlamaIndex emits a duplicate `assistant:`-prefixed output message, which AgentCore Evaluations skips in favor of the clean copy.  
 
 ```
 {
@@ -403,19 +377,18 @@ The `openinference.span.kind` attribute (`LLM`) identifies this as an inference 
 ```
 
 ## Example spans in unified telemetry
+<a name="llamaindex-examples-unified"></a>
 
 With unified telemetry, the same content stays on the span attributes and no separate event record is produced. The following examples are from a LlamaIndex ReAct travel-planning agent. The same agent is shown under each instrumentation library.
 
-###### Note
-
+**Note**  
 These examples are not complete spans. They show representative data from a real agent interaction, with some fields omitted and long values truncated for readability.
 
 ### OpenTelemetry
+<a name="llamaindex-examples-unified-otel"></a>
 
-###### Example
-
-Execute tool span
-The `traceloop.entity.input` attribute holds the tool arguments (wrapped in `kwargs`), and the `traceloop.entity.output` attribute holds the tool result (wrapped in `blocks`).
+**Example**  
+The `traceloop.entity.input` attribute holds the tool arguments (wrapped in `kwargs`), and the `traceloop.entity.output` attribute holds the tool result (wrapped in `blocks`).  
 
 ```
 {
@@ -439,9 +412,7 @@ The `traceloop.entity.input` attribute holds the tool arguments (wrapped in `kwa
   }
 }
 ```
-
-Inference span
-The `traceloop.entity.output` attribute holds the chat history, from which AgentCore Evaluations reads the user prompt. The response comes from the model result on the last inference span.
+The `traceloop.entity.output` attribute holds the chat history, from which AgentCore Evaluations reads the user prompt. The response comes from the model result on the last inference span.  
 
 ```
 {
@@ -466,11 +437,10 @@ The `traceloop.entity.output` attribute holds the chat history, from which Agent
 ```
 
 ### OpenInference
+<a name="llamaindex-examples-unified-openinference"></a>
 
-###### Example
-
-Execute tool span
-The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and the `output.value` attribute holds the tool result (wrapped in `blocks`).
+**Example**  
+The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and the `output.value` attribute holds the tool result (wrapped in `blocks`).  
 
 ```
 {
@@ -494,9 +464,7 @@ The `input.value` attribute holds the tool arguments (wrapped in `kwargs`), and 
   }
 }
 ```
-
-Inference span
-The message content is inline on the indexed attributes. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the model output, from which AgentCore Evaluations extracts the text after `Answer:` as the agent response.
+The message content is inline on the indexed attributes. The `llm.input_messages.*` attributes hold the system prompt and user prompt, and the `llm.output_messages.*` attributes hold the model output, from which AgentCore Evaluations extracts the text after `Answer:` as the agent response.  
 
 ```
 {
@@ -526,10 +494,10 @@ The message content is inline on the indexed attributes. The `llm.input_messages
 ```
 
 ## Best practices for LlamaIndex agents
+<a name="llamaindex-best-practices"></a>
 
 How you build and invoke a LlamaIndex agent affects what appears in its telemetry, and therefore how reliably the agent can be evaluated. The following practices help ensure the user prompt, agent response, and tool activity are recoverable.
-
-- **Use a LlamaIndex agent workflow.** Build your agent as a LlamaIndex agent workflow (for example, a `ReActAgent` or `FunctionAgent`) so that the framework emits a top-level workflow span with inference and tool child spans. AgentCore Evaluations reconstructs the invoke agent span from these child spans.
-- **Register tools as `FunctionTool` objects.** Define each tool as a LlamaIndex `FunctionTool` (or use `@tool`-style helpers that produce one). Tool spans are identified by their entity name, and their arguments and results are serialized in the `kwargs` and `blocks` structures AgentCore Evaluations unwraps.
-- **Keep tool results text-serializable.** Return tool results as strings or JSON-serializable values. LlamaIndex wraps them in a text block; keeping them serializable ensures the tool result is captured cleanly.
-- **For ReAct agents, use the standard output format.** AgentCore Evaluations extracts the final answer from the `Answer:` section of a ReAct agent’s output. Using the standard ReAct prompt (the LlamaIndex default) keeps the agent response recoverable.
++  **Use a LlamaIndex agent workflow.** Build your agent as a LlamaIndex agent workflow (for example, a `ReActAgent` or `FunctionAgent`) so that the framework emits a top-level workflow span with inference and tool child spans. AgentCore Evaluations reconstructs the invoke agent span from these child spans.
++  **Register tools as `FunctionTool` objects.** Define each tool as a LlamaIndex `FunctionTool` (or use `@tool`-style helpers that produce one). Tool spans are identified by their entity name, and their arguments and results are serialized in the `kwargs` and `blocks` structures AgentCore Evaluations unwraps.
++  **Keep tool results text-serializable.** Return tool results as strings or JSON-serializable values. LlamaIndex wraps them in a text block; keeping them serializable ensures the tool result is captured cleanly.
++  **For ReAct agents, use the standard output format.** AgentCore Evaluations extracts the final answer from the `Answer:` section of a ReAct agent’s output. Using the standard ReAct prompt (the LlamaIndex default) keeps the agent response recoverable.

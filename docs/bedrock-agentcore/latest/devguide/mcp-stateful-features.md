@@ -1,63 +1,64 @@
+
+
 # Stateful MCP server features
+<a name="mcp-stateful-features"></a>
 
 The Model Context Protocol (MCP) provides a standardized way for AI applications to interact with external data and capabilities. This guide demonstrates how to build a comprehensive MCP server that showcases all major protocol features, and how to test it both locally and when deployed to Amazon Bedrock AgentCore.
 
-For complete protocol details, see the [MCP Specification](https://modelcontextprotocol.io/specification/2025-11-25 "https://modelcontextprotocol.io/specification/2025-11-25").
+For complete protocol details, see the [MCP Specification](https://modelcontextprotocol.io/specification/2025-11-25).
 
 ## MCP features overview
+<a name="mcp-features-overview"></a>
 
 MCP servers can expose capabilities to clients through several feature types. The following features are demonstrated in this guide:
 
-**Resources**
-
+ **Resources**   
 Resources expose data and content from your server to MCP clients. Use resources to share configuration, reference data, or any contextual information that clients or AI models can read. Resources are identified by URIs (for example, `travel://destinations` ).
 
-**Prompts**
-
+ **Prompts**   
 Prompts are reusable templates that generate structured messages for AI models. Use prompts to standardize common interactions, such as generating packing lists or learning local phrases for a destination.
 
-**Tools**
-
+ **Tools**   
 Tools are functions that AI models can invoke to perform actions or retrieve information. Tools can range from simple data lookups to complex multi-step workflows that combine other MCP features.
 
-**Elicitation**
-
+ **Elicitation**   
 Elicitation enables server-initiated requests for user input during tool execution. Use elicitation when your tool needs to collect information interactively, such as gathering travel preferences through a multi-turn conversation.
 
-**Sampling**
-
+ **Sampling**   
 Sampling allows servers to request LLM-generated content from the client. Use sampling when your tool needs AI-powered text generation, such as personalized travel recommendations based on user preferences.
 
-**Progress notifications**
-
+ **Progress notifications**   
 Progress notifications keep clients informed about long-running operations. Use progress reporting to provide real-time feedback during tasks like searching for flights or processing bookings.
 
-###### Note
-
+**Note**  
 Features like elicitation, sampling, and progress notifications require stateful MCP sessions. Enable stateful mode by setting `stateless_http=False` when running your server.
 
-**Session management**
+ **Session management** 
 
-In stateful mode, the server returns an `Mcp-Session-Id` header during the initialize call. Clients must include this session ID in subsequent requests to maintain session context. If the server terminates or the session expires, requests may return a 404 error, and clients must re-initialize to obtain a new session ID. For more details, see [Session Management](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management") in the MCP specification.
+In stateful mode, the server returns an `Mcp-Session-Id` header during the initialize call. Clients must include this session ID in subsequent requests to maintain session context. If the server terminates or the session expires, requests may return a 404 error, and clients must re-initialize to obtain a new session ID. For more details, see [Session Management](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management) in the MCP specification.
 
 ## Create an MCP server with all features
+<a name="mcp-create-stateful-server"></a>
 
-**To set up the project**
+ **To set up the project** 
 
 1. Create a `requirements.txt` file with the required dependencies:
 
-```
-fastmcp>=2.10.0
-mcp
-```
+   ```
+   fastmcp>=2.10.0
+   mcp
+   ```
 
-2. Install the dependencies:
+1. Install the dependencies:
 
-```
-pip install -r requirements.txt
-```
+   ```
+   pip install -r requirements.txt
+   ```
 
 Create a file called `travel_server.py` with the following code. This travel booking agent demonstrates all MCP features in a realistic workflow:
+
+### travel\_server.py - Complete MCP Server
+<a name="mcp-stateful-server-code"></a>
 
 ```
 """
@@ -313,18 +314,21 @@ if __name__ == "__main__":
 ```
 
 ## Test locally
+<a name="mcp-test-stateful-local"></a>
 
-**To start the server**
+ **To start the server** 
++ Run the MCP server:
 
-- Run the MCP server:
+  ```
+  python travel_server.py
+  ```
 
-```
-python travel_server.py
-```
-
-You should see output indicating the server is running on port 8000.
+  You should see output indicating the server is running on port 8000.
 
 Create a file called `test_client.py` with the following code. This client tests all MCP features including resources, prompts, and the main tool:
+
+### test\_client.py - Complete Test Client
+<a name="mcp-stateful-client-code"></a>
 
 ```
 """
@@ -465,77 +469,85 @@ if __name__ == "__main__":
     sys.exit(0 if success else 1)
 ```
 
-**To run the local test**
+ **To run the local test** 
 
 1. With the server running in one terminal, open a new terminal and run the test client:
 
-```
-python test_client.py
-```
+   ```
+   python test_client.py
+   ```
 
-2. The client tests resources and prompts, then runs the `plan_trip` tool which demonstrates elicitation, progress notifications, and sampling in a complete workflow.
+1. The client tests resources and prompts, then runs the `plan_trip` tool which demonstrates elicitation, progress notifications, and sampling in a complete workflow.
 
 ## Deploy to Amazon Bedrock AgentCore
+<a name="mcp-deploy-stateful"></a>
 
-**To configure and deploy**
+ **To configure and deploy** 
 
 1. Install the AgentCore CLI if you haven’t already:
 
-```
-npm install -g @aws/agentcore
-```
+   ```
+   npm install -g @aws/agentcore
+   ```
 
-2. Set up an Amazon Cognito user pool as described in [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a"). Source the setup script so that `REGION`, `POOL_ID`, `CLIENT_ID`, and `BEARER_TOKEN` are available in your shell.
-3. Create a project for deployment:
+1. Set up an Amazon Cognito user pool as described in [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a). Source the setup script so that `REGION`, `POOL_ID`, `CLIENT_ID`, and `BEARER_TOKEN` are available in your shell.
 
-```
-agentcore create --project-name TravelAgentDemo --no-agent
-cd TravelAgentDemo
-agentcore add agent \
-  --name TravelAgent \
-  --language Python \
-  --protocol MCP \
-  --authorizer-type CUSTOM_JWT \
-  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-  --allowed-clients "$CLIENT_ID" \
-  --request-header-allowlist Authorization
-```
+1. Create a project for deployment:
 
-4. Replace the generated server with the server from this tutorial, and add its dependencies:
+   ```
+   agentcore create --project-name TravelAgentDemo --no-agent
+   cd TravelAgentDemo
+   agentcore add agent \
+     --name TravelAgent \
+     --language Python \
+     --protocol MCP \
+     --authorizer-type CUSTOM_JWT \
+     --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
+     --allowed-clients "$CLIENT_ID" \
+     --request-header-allowlist Authorization
+   ```
 
-```
-cp ../travel_server.py app/TravelAgent/main.py
-cd app/TravelAgent
-uv add "fastmcp>=2.10.0" mcp
-cd ../..
-```
+1. Replace the generated server with the server from this tutorial, and add its dependencies:
 
-5. Deploy the agent:
+   ```
+   cp ../travel_server.py app/TravelAgent/main.py
+   cd app/TravelAgent
+   uv add "fastmcp>=2.10.0" mcp
+   cd ../..
+   ```
 
-```
-agentcore deploy
-```
+1. Deploy the agent:
 
-After deployment completes, note the agent ARN provided in the output.
+   ```
+   agentcore deploy
+   ```
+
+   After deployment completes, note the agent ARN provided in the output.
 
 ## Test your deployed agent
+<a name="mcp-test-stateful-deployed"></a>
 
-**To test the deployed agent**
+ **To test the deployed agent** 
 
 1. Set the required environment variables:
 
-```
-export AGENT_ARN='arn:aws:bedrock-agentcore:us-west-2:YOUR_ACCOUNT:runtime/YOUR_AGENT_NAME'
-export BEARER_TOKEN='your_bearer_token'
-```
+   ```
+   export AGENT_ARN='arn:aws:bedrock-agentcore:us-west-2:YOUR_ACCOUNT:runtime/YOUR_AGENT_NAME'
+   export BEARER_TOKEN='your_bearer_token'
+   ```
 
-Replace the placeholders with your actual agent ARN and bearer token. 2. Run the test client in remote mode:
+   Replace the placeholders with your actual agent ARN and bearer token.
 
-```
-LOCAL_TEST=false python test_client.py
-```
+1. Run the test client in remote mode:
 
-3. The client will test resources, prompts, and the `plan_trip` tool. Follow the interactive prompts to complete a booking, which demonstrates elicitation, progress notifications, and sampling on your deployed agent.
+   ```
+   LOCAL_TEST=false python test_client.py
+   ```
+
+1. The client will test resources, prompts, and the `plan_trip` tool. Follow the interactive prompts to complete a booking, which demonstrates elicitation, progress notifications, and sampling on your deployed agent.
+
+### Expected output
+<a name="mcp-expected-output"></a>
 
 ```
   Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/TravelAgentDemo
@@ -644,6 +656,5 @@ Thank you for booking with Travel Agent!
 ============================================================
 ```
 
-###### Tip
-
-You can also test your MCP server using the MCP Inspector, a visual tool for testing MCP servers. For local testing instructions, see [Local testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-b "runtime-mcp.md#runtime-mcp-appendix-b") . For remote testing instructions, see [Remote testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-c "runtime-mcp.md#runtime-mcp-appendix-c").
+**Tip**  
+You can also test your MCP server using the MCP Inspector, a visual tool for testing MCP servers. For local testing instructions, see [Local testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-b) . For remote testing instructions, see [Remote testing with MCP inspector](runtime-mcp.md#runtime-mcp-appendix-c).

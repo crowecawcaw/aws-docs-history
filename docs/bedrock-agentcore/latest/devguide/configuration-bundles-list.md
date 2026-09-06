@@ -1,42 +1,39 @@
+
+
 # List configuration bundles
+<a name="configuration-bundles-list"></a>
 
 List configuration bundles in your account, or list versions of a specific bundle. Two operations are available:
++  **ListConfigurationBundles** — Returns all bundles in your account with summary information.
++  **ListConfigurationBundleVersions** — Returns all versions of a specific bundle, with optional filtering by branch or creation source.
 
-- **ListConfigurationBundles** — Returns all bundles in your account with summary information.
-- **ListConfigurationBundleVersions** — Returns all versions of a specific bundle, with optional filtering by branch or creation source.
-  Both operations support pagination.
+Both operations support pagination.
 
 ## Code samples
+<a name="list-bundles-examples"></a>
 
-###### Example
-
-AgentCore CLI
-List versions of a bundle:
+**Example**  
+List versions of a bundle:  
 
 ```
 agentcore config-bundle versions --name myAgentConfig
 ```
-
-Filter by branch:
+Filter by branch:  
 
 ```
 agentcore config-bundle versions --name myAgentConfig --branch mainline
 ```
-
-Show only the latest version per branch:
+Show only the latest version per branch:  
 
 ```
 agentcore config-bundle versions --name myAgentConfig --latest-per-branch
 ```
-
-Filter by creator (for example, versions created by a recommendation job):
+Filter by creator (for example, versions created by a recommendation job):  
 
 ```
 agentcore config-bundle versions --name myAgentConfig --created-by recommendation
 ```
-
-AWS SDK (boto3)
-List all bundles with pagination:
+List all bundles with pagination:  
 
 ```
 import boto3
@@ -48,8 +45,7 @@ for page in paginator.paginate(maxResults=20):
     for bundle in page["bundles"]:
         print(f"{bundle['bundleId']} - {bundle['bundleName']}")
 ```
-
-List versions of a specific bundle:
+List versions of a specific bundle:  
 
 ```
 response = client.list_configuration_bundle_versions(
@@ -68,53 +64,67 @@ for version in response["versions"]:
 ```
 
 ## Request parameters
+<a name="list-bundles-params"></a>
 
 ### ListConfigurationBundles
+<a name="list-bundles-params-bundles"></a>
 
-| Parameter    | Type    | Required | Description                                                 |
-| ------------ | ------- | -------- | ----------------------------------------------------------- |
-| `maxResults` | Integer | No       | Maximum number of results to return per page. Range: 1–100. |
-| `nextToken`  | String  | No       | Pagination token from a previous response.                  |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `maxResults`  | Integer | No | Maximum number of results to return per page. Range: 1–100. | 
+|  `nextToken`  | String | No | Pagination token from a previous response. | 
 
 ### ListConfigurationBundleVersions
+<a name="list-bundles-params-versions"></a>
 
-| Parameter    | Type    | Required | Description                                                                               |
-| ------------ | ------- | -------- | ----------------------------------------------------------------------------------------- |
-| `bundleId`   | String  | Yes      | The ID of the configuration bundle. Passed as a path parameter.                           |
-| `filter`     | Object  | No       | Optional filter. See [Version filter](#list-bundles-filter "#list-bundles-filter") below. |
-| `maxResults` | Integer | No       | Maximum number of results to return per page. Range: 1–100.                               |
-| `nextToken`  | String  | No       | Pagination token from a previous response.                                                |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `bundleId`  | String | Yes | The ID of the configuration bundle. Passed as a path parameter. | 
+|  `filter`  | Object | No | Optional filter. See [Version filter](#list-bundles-filter) below. | 
+|  `maxResults`  | Integer | No | Maximum number of results to return per page. Range: 1–100. | 
+|  `nextToken`  | String | No | Pagination token from a previous response. | 
 
 ### Version filter
+<a name="list-bundles-filter"></a>
 
-| Field             | Type    | Description                                                                                                                              |
-| ----------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `branchName`      | String  | Return only versions on this branch.                                                                                                     |
-| `createdByName`   | String  | Return only versions created by this source name (for example, `optimization-job` or `recommendation`).                                  |
-| `latestPerBranch` | Boolean | When `true`, returns only the latest version for each branch. Can be combined with `branchName` to get the latest for a specific branch. |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `branchName`  | String | Return only versions on this branch. | 
+|  `createdByName`  | String | Return only versions created by this source name (for example, `optimization-job` or `recommendation`). | 
+|  `latestPerBranch`  | Boolean | When `true`, returns only the latest version for each branch. Can be combined with `branchName` to get the latest for a specific branch. | 
 
 ## Response
+<a name="list-bundles-response"></a>
 
 ### ListConfigurationBundles
+<a name="list-bundles-response-bundles"></a>
 
-| Field       | Type   | Description                                                                                       |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------- |
-| `bundles`   | List   | List of bundle summaries. Each contains `bundleArn`, `bundleId`, `bundleName`, and `description`. |
-| `nextToken` | String | Pagination token for the next page. Absent when there are no more results.                        |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `bundles`  | List | List of bundle summaries. Each contains `bundleArn`, `bundleId`, `bundleName`, and `description`. | 
+|  `nextToken`  | String | Pagination token for the next page. Absent when there are no more results. | 
 
 ### ListConfigurationBundleVersions
+<a name="list-bundles-response-versions"></a>
 
-| Field       | Type   | Description                                                                                                               |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `versions`  | List   | List of version summaries. Each contains `bundleArn`, `bundleId`, `versionId`, `lineageMetadata`, and `versionCreatedAt`. |
-| `nextToken` | String | Pagination token for the next page. Absent when there are no more results.                                                |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `versions`  | List | List of version summaries. Each contains `bundleArn`, `bundleId`, `versionId`, `lineageMetadata`, and `versionCreatedAt`. | 
+|  `nextToken`  | String | Pagination token for the next page. Absent when there are no more results. | 
 
 ## Errors
+<a name="list-bundles-errors"></a>
 
-| Error                       | HTTP status | Description                                                                     |
-| --------------------------- | ----------- | ------------------------------------------------------------------------------- |
-| `ValidationException`       | 400         | Invalid request parameters.                                                     |
-| `ResourceNotFoundException` | 404         | The specified `bundleId` does not exist (ListConfigurationBundleVersions only). |
-| `AccessDeniedException`     | 403         | Insufficient permissions.                                                       |
-| `ThrottlingException`       | 429         | Request rate exceeded. Retry with exponential backoff.                          |
-| `InternalServerException`   | 500         | Service-side error. Retry the request.                                          |
+
+| Error | HTTP status | Description | 
+| --- | --- | --- | 
+|  `ValidationException`  | 400 | Invalid request parameters. | 
+|  `ResourceNotFoundException`  | 404 | The specified `bundleId` does not exist (ListConfigurationBundleVersions only). | 
+|  `AccessDeniedException`  | 403 | Insufficient permissions. | 
+|  `ThrottlingException`  | 429 | Request rate exceeded. Retry with exponential backoff. | 
+|  `InternalServerException`  | 500 | Service-side error. Retry the request. | 

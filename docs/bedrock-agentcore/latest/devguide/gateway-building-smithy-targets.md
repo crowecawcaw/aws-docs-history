@@ -1,4 +1,7 @@
+
+
 # Smithy model targets
+<a name="gateway-building-smithy-targets"></a>
 
 Smithy is a language for defining services and software development kits (SDKs). Smithy models provide a more structured approach to defining APIs compared to OpenAPI, and are particularly useful for connecting to AWS services, such as AgentCore Gateway.
 
@@ -6,70 +9,70 @@ Smithy model targets connect your AgentCore gateway to services that are defined
 
 Review the key considerations and limitations, including feature support, to help you decide whether a Smithy target is applicable to your use case. If it is, you can create a schema that follows the specifications and then set up permissions for the gateway to be able to access the target. Select a topic to learn more:
 
-###### Topics
-
-- [Key considerations and limitations](#gateway-building-smithy-considerations "#gateway-building-smithy-considerations")
-- [Smithy model specification](#gateway-smithy-models "#gateway-smithy-models")
+**Topics**
++ [Key considerations and limitations](#gateway-building-smithy-considerations)
++ [Smithy model specification](#gateway-smithy-models)
 
 ## Key considerations and limitations
+<a name="gateway-building-smithy-considerations"></a>
 
 When using Smithy models with AgentCore Gateway, be aware of the following limitations:
-
-- Maximum model size: 10MB
-- Only JSON protocol bindings are fully supported
-- Only RestJson protocol is supported
++ Maximum model size: 10MB
++ Only JSON protocol bindings are fully supported
++ Only RestJson protocol is supported
 
 In considering using Smithy models with AgentCore Gateway, review the following feature support table.
 
 ### Security best practices for endpoint configuration
+<a name="gateway-smithy-url-security"></a>
 
-###### Warning
-
+**Warning**  
 When defining endpoint rules and server URLs in your Smithy models, avoid using overly permissive URL parameter patterns that could expose your gateway to security risks.
 
 Smithy models support dynamic endpoint configuration through endpoint rules and URL parameters. However, certain patterns can introduce security vulnerabilities if not properly constrained. Specifically, avoid using fully dynamic patterns such as:
-
-- Unrestricted host or domain parameters in endpoint URLs: `https://{host}/api/v1` or `https://{domain}.example.com`
-- Multiple unconstrained placeholders in server URLs: `https://{subdomain}.{env}.{domain}.com`
-- Endpoint rules that allow arbitrary URL construction without validation
++ Unrestricted host or domain parameters in endpoint URLs: `https://{host}/api/v1` or `https://{domain}.example.com` 
++ Multiple unconstrained placeholders in server URLs: `https://{subdomain}.{env}.{domain}.com` 
++ Endpoint rules that allow arbitrary URL construction without validation
 
 These patterns can potentially be exploited to:
++ Redirect requests to unintended or malicious endpoints
++ Access internal network resources or instance metadata services (Server-Side Request Forgery)
++ Exfiltrate IAM credentials or sensitive data
 
-- Redirect requests to unintended or malicious endpoints
-- Access internal network resources or instance metadata services (Server-Side Request Forgery)
-- Exfiltrate IAM credentials or sensitive data
-
-**Recommended practices:**
-
-- Use static, fully qualified endpoint URLs whenever possible
-- For AWS services, rely on standard endpoint resolution with validated region parameters. Gateway enforces AWS region validation for AWS services
-- If custom endpoint rules are required, constrain parameters to specific, validated values
-- Avoid exposing raw host or domain parameters in your Smithy model’s endpoint configuration
+ **Recommended practices:** 
++ Use static, fully qualified endpoint URLs whenever possible
++ For AWS services, rely on standard endpoint resolution with validated region parameters. Gateway enforces AWS region validation for AWS services
++ If custom endpoint rules are required, constrain parameters to specific, validated values
++ Avoid exposing raw host or domain parameters in your Smithy model’s endpoint configuration
 
 For AWS service integrations, AgentCore Gateway automatically validates region parameters and blocks requests to private IP ranges.
 
 ### Smithy feature support for AgentCore Gateway
+<a name="gateway-schema-smithy-features"></a>
 
 The following table outlines the Smithy features that are supported and unsupported by Gateway:
 
-| Supported Features                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Unsupported Features                                                                                                                                                                                                                                                                                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *_Service Definitions_<br>• Service structure definitions based on Smithy specifications Operation definitions with input/output shapes Resource definitions Trait shapes *_Protocol Support_<br>• RestJson protocol Standard HTTP request/response patterns *_Data Types_<br>• Primitive types (string, integer, boolean, float, double) Complex types (structures, lists, maps) Timestamp handling Blob data types *_HTTP Bindings_<br>• Basic HTTP method bindings Simple path parameter bindings Query parameter bindings Header bindings for simple cases *_Endpoint Rules_<br>• Endpoint rule sets Runtime endpoint determination based on conditions | *_Protocol Support_<br>• RestXml protocol JsonRpc protocol AwsQuery protocol Ec2Query protocol Custom protocols *_Authentication_<br>• Multiple egress authentication types for specific APIs Complex authentication schemes requiring runtime decisions *_Operations_<br>• Streaming operations Operations requiring custom protocol implementations |
+
+| Supported Features | Unsupported Features | 
+| --- | --- | 
+|  **Service Definitions** Service structure definitions based on Smithy specifications Operation definitions with input/output shapes Resource definitions Trait shapes **Protocol Support** RestJson protocol Standard HTTP request/response patterns **Data Types** Primitive types (string, integer, boolean, float, double) Complex types (structures, lists, maps) Timestamp handling Blob data types **HTTP Bindings** Basic HTTP method bindings Simple path parameter bindings Query parameter bindings Header bindings for simple cases **Endpoint Rules** Endpoint rule sets Runtime endpoint determination based on conditions |  **Protocol Support** RestXml protocol JsonRpc protocol AwsQuery protocol Ec2Query protocol Custom protocols **Authentication** Multiple egress authentication types for specific APIs Complex authentication schemes requiring runtime decisions **Operations** Streaming operations Operations requiring custom protocol implementations | 
 
 ## Smithy model specification
+<a name="gateway-smithy-models"></a>
 
-AgentCore Gateway provides built-in Smithy models for common AWS services. To see Smithy models for AWS services, see the [AWS API Models repository](https://github.com/aws/api-models-aws "https://github.com/aws/api-models-aws").
+AgentCore Gateway provides built-in Smithy models for common AWS services. To see Smithy models for AWS services, see the [AWS API Models repository](https://github.com/aws/api-models-aws).
 
-###### Note
-
+**Note**  
 AgentCore Gateway doesn’t support custom Smithy models for non-AWS services.
 
 After you define your Smithy model, you can do one of the following:
-
-- Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway.
-- Paste the definition inline when you add the target to your gateway.
++ Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway.
++ Paste the definition inline when you add the target to your gateway.
 
 Expand a section to see examples of supported and unsupported Smithy model specifications:
+
+### Example: Valid Smithy model for weather service
+<a name="gateway-smithy-model-spec-valid"></a>
 
 The following example shows a valid Smithy model specification for a weather service:
 
@@ -184,6 +187,9 @@ The following example shows a valid Smithy model specification for a weather ser
   }
 }
 ```
+
+### Example: Invalid Smithy model specification
+<a name="gateway-smithy-model-spec-invalid"></a>
 
 The following example shows an invalid endpoint rules configuration using Smithy:
 

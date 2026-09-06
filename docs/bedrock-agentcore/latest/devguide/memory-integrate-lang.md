@@ -1,38 +1,44 @@
+
+
 # Integrate AgentCore Memory with LangChain or LangGraph
+<a name="memory-integrate-lang"></a>
 
-[LangChain and LangGraph](https://www.langchain.com/langgraph "https://www.langchain.com/langgraph") are powerful open-source frameworks for developing agents through a graph-based architecture. They provide a simple interface for defining agent interactions with the user, its tools, and memory.
+ [LangChain and LangGraph](https://www.langchain.com/langgraph) are powerful open-source frameworks for developing agents through a graph-based architecture. They provide a simple interface for defining agent interactions with the user, its tools, and memory.
 
-Within LangGraph there are two main memory concepts when it comes to memory [persistence](https://docs.langchain.com/oss/python/langgraph/persistence "https://docs.langchain.com/oss/python/langgraph/persistence") . Short-term, raw context is saved through checkpoint objects, while intelligent long term memory retrieval is done by saving and searching through memory stores. To address these two use cases, integrations were created to cover both the checkpointing workflow and the store workflow:
+Within LangGraph there are two main memory concepts when it comes to memory [persistence](https://docs.langchain.com/oss/python/langgraph/persistence) . Short-term, raw context is saved through checkpoint objects, while intelligent long term memory retrieval is done by saving and searching through memory stores. To address these two use cases, integrations were created to cover both the checkpointing workflow and the store workflow:
++  `AgentCoreMemorySaver` - used to save and load checkpoint objects that include user and AI messages, graph execution state, and additional metadata
++  `AgentCoreMemoryStore` - used to save conversational messages, leaving the AgentCore Memory service to extract insights, summaries, and user preferences in the background, then letting the agent search through those intelligent memories in future conversations
 
-- `AgentCoreMemorySaver` - used to save and load checkpoint objects that include user and AI messages, graph execution state, and additional metadata
-- `AgentCoreMemoryStore` - used to save conversational messages, leaving the AgentCore Memory service to extract insights, summaries, and user preferences in the background, then letting the agent search through those intelligent memories in future conversations
-  These integrations are easy to set up, requiring only specifying the Memory ID of a AgentCore Memory. Because they are saved to persistent storage within the service, there is no need to worry about losing these interactions through container exits, unreliable in-memory solutions, or agent application crashes.
+These integrations are easy to set up, requiring only specifying the Memory ID of a AgentCore Memory. Because they are saved to persistent storage within the service, there is no need to worry about losing these interactions through container exits, unreliable in-memory solutions, or agent application crashes.
 
-###### Topics
-
-- [Prerequisites](#prerequisites "#prerequisites")
-- [Configuration for short term memory persistence](#memory-short-term-memory "#memory-short-term-memory")
-- [Configuration for intelligent long term memory search](#long-term-memory "#long-term-memory")
-- [Create the agent with configurations](#create-agent "#create-agent")
-- [Invoke the agent](#memory-gs-invoke-agent "#memory-gs-invoke-agent")
-- [Resources](#resources "#resources")
+**Topics**
++ [Prerequisites](#prerequisites)
++ [Configuration for short term memory persistence](#memory-short-term-memory)
++ [Configuration for intelligent long term memory search](#long-term-memory)
++ [Create the agent with configurations](#create-agent)
++ [Invoke the agent](#memory-gs-invoke-agent)
++ [Resources](#resources)
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Requirements you need before integrating AgentCore Memory with LangChain and LangGraph.
 
-1. AWS account with Bedrock Amazon Bedrock AgentCore access
-2. Configured AWS credentials (boto3)
-3. An AgentCore Memory
-4. Required IAM permissions:
+1.  AWS account with Bedrock Amazon Bedrock AgentCore access
 
-   - `bedrock-agentcore:CreateEvent`
-   - `bedrock-agentcore:ListEvents`
-   - `bedrock-agentcore:RetrieveMemories`
+1. Configured AWS credentials (boto3)
+
+1. An AgentCore Memory
+
+1. Required IAM permissions:
+   +  `bedrock-agentcore:CreateEvent` 
+   +  `bedrock-agentcore:ListEvents` 
+   +  `bedrock-agentcore:RetrieveMemories` 
 
 ## Configuration for short term memory persistence
+<a name="memory-short-term-memory"></a>
 
-The `AgentCoreMemorySaver` in LangGraph handles all the saving and loading of conversational state, execution context, and state variables under the hood through [AgentCore Memory blob types](../APIReference/API_CreateEvent.md#API_CreateEvent_RequestSyntax "../APIReference/API_CreateEvent.md#API_CreateEvent_RequestSyntax") . This means that the only setup required is to specify the checkpointer when compiling the agent graph, then providing an `actor_id` and `thread_id` in the [RunnableConfig](https://python.langchain.com/docs/concepts/runnables/#runnableconfig "https://python.langchain.com/docs/concepts/runnables/#runnableconfig") when invoking the agent. The configuration is shown below and the agent invocation is shown in the next section. If simple conversation persistence is all your application needs, feel free to skip the long term memory section.
+The `AgentCoreMemorySaver` in LangGraph handles all the saving and loading of conversational state, execution context, and state variables under the hood through [AgentCore Memory blob types](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html#API_CreateEvent_RequestSyntax) . This means that the only setup required is to specify the checkpointer when compiling the agent graph, then providing an `actor_id` and `thread_id` in the [RunnableConfig](https://python.langchain.com/docs/concepts/runnables/#runnableconfig) when invoking the agent. The configuration is shown below and the agent invocation is shown in the next section. If simple conversation persistence is all your application needs, feel free to skip the long term memory section.
 
 ```
 # Import LangGraph and LangChain components
@@ -52,6 +58,7 @@ checkpointer = AgentCoreMemorySaver(MEMORY_ID, region_name=REGION)
 ```
 
 ## Configuration for intelligent long term memory search
+<a name="long-term-memory"></a>
 
 For long term memory stores in LangGraph, you have more flexibility on how messages are processed. For instance, if the application is only concerned with user preferences, you would only need to store the `HumanMessage` objects in the conversation. For summaries, all types `HumanMessage` , `AIMessage` , and `ToolMessage` would be relevant. There are numerous ways to do this, but a common implementation pattern is using pre and post model hooks, as shown in the example below. For retrieval of memories, you may add a `store.search(query)` call in the pre-model hook and append it to the user’s message so the agent has all the context. Alternatively, the agent could be provided a tool to search for information as needed. All of these implementation patterns are supported and the implementation will vary based on the application.
 
@@ -90,6 +97,7 @@ def pre_model_hook(state, config: RunnableConfig, *, store: BaseStore):
 ```
 
 ## Create the agent with configurations
+<a name="create-agent"></a>
 
 Initialize the LLM and create a LangGraph agent with a memory configuration.
 
@@ -109,6 +117,7 @@ graph = create_react_agent(
 ```
 
 ## Invoke the agent
+<a name="memory-gs-invoke-agent"></a>
 
 Invoke the agent.
 
@@ -152,8 +161,8 @@ response = graph.invoke(
 ```
 
 ## Resources
-
-- [LangChain x AWS Github Repo](https://github.com/langchain-ai/langchain-aws/tree/main "https://github.com/langchain-ai/langchain-aws/tree/main")
-- [Pypi package](https://pypi.org/project/langgraph-checkpoint-aws/ "https://pypi.org/project/langgraph-checkpoint-aws/")
-- [AgentCoreMemorySaver implementation](https://github.com/langchain-ai/langchain-aws/blob/main/libs/langgraph-checkpoint-aws/langgraph_checkpoint_aws/agentcore/saver.py "https://github.com/langchain-ai/langchain-aws/blob/main/libs/langgraph-checkpoint-aws/langgraph_checkpoint_aws/agentcore/saver.py")
-- [AgentCoreMemorySaver sample notebook (checkpointing only)](https://github.com/langchain-ai/langchain-aws/blob/main/samples/memory/agentcore_memory_checkpointer.ipynb "https://github.com/langchain-ai/langchain-aws/blob/main/samples/memory/agentcore_memory_checkpointer.ipynb")
+<a name="resources"></a>
++  [LangChain x AWS Github Repo](https://github.com/langchain-ai/langchain-aws/tree/main) 
++  [Pypi package](https://pypi.org/project/langgraph-checkpoint-aws/) 
++  [AgentCoreMemorySaver implementation](https://github.com/langchain-ai/langchain-aws/blob/main/libs/langgraph-checkpoint-aws/langgraph_checkpoint_aws/agentcore/saver.py) 
++  [AgentCoreMemorySaver sample notebook (checkpointing only)](https://github.com/langchain-ai/langchain-aws/blob/main/samples/memory/agentcore_memory_checkpointer.ipynb) 

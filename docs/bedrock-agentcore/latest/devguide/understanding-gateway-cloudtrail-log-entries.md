@@ -1,24 +1,25 @@
+
+
 # Understanding Amazon Bedrock AgentCore Gateway CloudTrail events
+<a name="understanding-gateway-cloudtrail-log-entries"></a>
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information such as the requested action, the date and time of the action, and request parameters.
 
-###### Note
-
+**Note**  
 The contents of the requests and responses for data events are redacted, and the JSON Web Token (JWT) claims have HTML entities sanitized for security purposes.
 
-###### Note
-
+**Note**  
 For management events, only request parameters that are defined by the Gateway API are eligible for redaction. Any additional fields that you include in a request that are not part of the API are recorded in CloudTrail exactly as you sent them and are not redacted. Do not include passwords or other sensitive information in fields that are not part of the API.
 
 The following sections show examples of CloudTrail events:
 
-###### Topics
-
-- [InvokeGateway data event with authentication error](#understanding-gateway-cloudtrail-log-entries-data-auth-error "#understanding-gateway-cloudtrail-log-entries-data-auth-error")
-- [Successful InvokeGateway data event](#understanding-gateway-cloudtrail-log-entries-data-successful "#understanding-gateway-cloudtrail-log-entries-data-successful")
-- [Management Event](#understanding-gateway-cloudtrail-log-entries-management "#understanding-gateway-cloudtrail-log-entries-management")
+**Topics**
++ [InvokeGateway data event with authentication error](#understanding-gateway-cloudtrail-log-entries-data-auth-error)
++ [Successful InvokeGateway data event](#understanding-gateway-cloudtrail-log-entries-data-successful)
++ [Management Event](#understanding-gateway-cloudtrail-log-entries-management)
 
 ## InvokeGateway data event with authentication error
+<a name="understanding-gateway-cloudtrail-log-entries-data-auth-error"></a>
 
 The following example shows a CloudTrail log entry that demonstrates the `InvokeGateway` action with an authentication error. The authentication error can be seen in the `body` field of the `responseElements`.
 
@@ -87,6 +88,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Invoke
 ```
 
 ## Successful InvokeGateway data event
+<a name="understanding-gateway-cloudtrail-log-entries-data-successful"></a>
 
 The following example shows a CloudTrail log entry for a successful `InvokeGateway` action:
 
@@ -175,6 +177,7 @@ The following example shows a CloudTrail log entry for a successful `InvokeGatew
 ```
 
 ## Management Event
+<a name="understanding-gateway-cloudtrail-log-entries-management"></a>
 
 The following example shows a CloudTrail log entry for a management event:
 

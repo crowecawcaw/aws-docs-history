@@ -1,8 +1,11 @@
+
+
 # Diagnostic skill source
+<a name="diagnose-evaluation-skill-source"></a>
 
-The following is the full source of the AgentCore Evaluation Diagnostic Skill. The skill follows the open [Agent Skills](https://agentskills.io "https://agentskills.io") standard. Copy the entire code block and save it as `SKILL.md` inside a new folder named `agentcore-eval-diagnostic/` on your machine, then load the skill folder into your AI coding assistant as described in [Load the skill into your AI coding assistant](diagnose-evaluation-issues.md#load-the-skill "diagnose-evaluation-issues.md#load-the-skill").
+The following is the full source of the AgentCore Evaluation Diagnostic Skill. The skill follows the open [Agent Skills](https://agentskills.io) standard. Copy the entire code block and save it as `SKILL.md` inside a new folder named `agentcore-eval-diagnostic/` on your machine, then load the skill folder into your AI coding assistant as described in [Load the skill into your AI coding assistant](diagnose-evaluation-issues.md#load-the-skill).
 
-````
+```
 ---
 name: agentcore-eval-diagnostic
 description: Diagnoses Amazon Bedrock AgentCore Evaluation failures by querying the user's CloudWatch log groups. Use when evaluations return empty results, when the user sees errors like LogEventMissingException or AgentSpanMappingException, or when the user asks why their AgentCore Evaluation is not producing scores.
@@ -53,10 +56,9 @@ For `evaluation_type = online`, fetch the config:
 aws bedrock-agentcore-control get-online-evaluation-config \
   --online-evaluation-config-id {eval_config_id} \
   --region {region}
-````
+```
 
 Extract and record:
-
 - `executionStatus` — must be `ENABLED`
 - `dataSourceConfig.cloudWatchLogs.logGroupNames` — the log groups being monitored
 - `dataSourceConfig.cloudWatchLogs.serviceNames` — the expected service names
@@ -65,7 +67,6 @@ Extract and record:
 - `sessionIdleTimeout` — when sessions are considered complete
 
 **Quick checks on the config:**
-
 - [ ] `executionStatus` is `ENABLED` (not `DISABLED`)
 - [ ] `samplingPercentage` is > 0
 - [ ] At least one log group is listed
@@ -146,7 +147,6 @@ print(f"Found {len(spans)} span groups for session {session_id}")
 Apply the same polling pattern (with `max_attempts` and terminal-state handling) to every CloudWatch Logs Insights query in this skill.
 
 **Interpret the stats results:**
-
 - Total span count = sum of all `spanCount` values across rows
 - If any row has `cloudPlatform = aws_bedrock_agentcore` → **AgentCore Runtime** deployment
 - Otherwise → **3P-managed** deployment (e.g., ECS, EKS, Lambda, Cloud Desktop)
@@ -156,7 +156,6 @@ Apply the same polling pattern (with `max_attempts` and terminal-state handling)
 Record the deployment type — Phase 5 uses it.
 
 **If no spans are found at all:**
-
 - If the user provided `session_timestamp`, retry with a wider window (±12 hours) or without the timestamp (falls back to 7-day lookback)
 - If still no results after widening to 7 days, ask the user if the session is older than 7 days — CloudWatch Logs retention determines the maximum queryable range
 - Verify the session ID is correct (copy from agent traces, not invocation logs)
@@ -176,7 +175,6 @@ Record from the stats results: total span count, deployment type, scope names pr
 For each span found, check if the `scope.name` is one of the supported values:
 
 **Supported scopes:**
-
 - [`strands.telemetry.tracer`](https://strandsagents.com/latest/documentation/docs/user-guide/observability-evaluation/observability/) — emitted by [Strands Agents](https://strandsagents.com/) when OTEL is enabled
 - [`opentelemetry.instrumentation.langchain`](https://opentelemetry.io/docs/zero-code/python/instrumentations/#libraries) — provided by the [`opentelemetry-instrumentation-langchain`](https://pypi.org/project/opentelemetry-instrumentation-langchain/) package for LangChain / LangGraph agents
 - [`openinference.instrumentation.langchain`](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation/openinference-instrumentation-langchain) — provided by the [`openinference-instrumentation-langchain`](https://pypi.org/project/openinference-instrumentation-langchain/) package for LangChain / LangGraph agents
@@ -186,15 +184,14 @@ For the canonical list of supported scopes and span format expectations, see [Ag
 Spans with unsupported scopes will be ignored by the evaluation service. If ALL spans have unsupported scopes, evaluations will return empty results.
 
 Report any spans with unsupported scopes and note the framework the user is using. Common causes:
-
 - **Framework-level tracing not enabled** — for LangChain/LangGraph, the user may have OTEL auto-instrumentation set up (so they see `opentelemetry.instrumentation.starlette`, `opentelemetry.instrumentation.httpx`, etc.) but hasn't installed the framework-specific instrumentation package needed to emit evaluation-compatible spans
 - **Unsupported framework** — Claude Agent SDK, custom instrumentation, or other frameworks that emit spans under different scopes are not currently supported for evaluation
 
 **Verify framework-level tracing dependencies** based on the agent's framework:
 
-| Framework             | Required package(s)                                                                    | How to verify                                                                                                                           |
-| --------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Strands Agents        | `strands-agents[otel]` (installs OTEL support)                                         | Check `requirements.txt` or `pyproject.toml` for `strands-agents[otel]` or both `strands-agents` and `aws-opentelemetry-distro`         |
+| Framework | Required package(s) | How to verify |
+|-----------|---------------------|---------------|
+| Strands Agents | `strands-agents[otel]` (installs OTEL support) | Check `requirements.txt` or `pyproject.toml` for `strands-agents[otel]` or both `strands-agents` and `aws-opentelemetry-distro` |
 | LangChain / LangGraph | `opentelemetry-instrumentation-langchain` OR `openinference-instrumentation-langchain` | Run `pip show opentelemetry-instrumentation-langchain` or `pip show openinference-instrumentation-langchain` in the agent's environment |
 
 If the package is not installed, instruct the user to add it to their agent's dependencies and redeploy. New sessions after the redeploy should emit spans with a supported scope.
@@ -210,7 +207,6 @@ The check here differs based on deployment type detected in Phase 3.
 **For 3P-managed deployments:** The user controls `service.name` via the `OTEL_SERVICE_NAME` environment variable. Mismatches are common if the user changed the env var without updating the eval config, or vice versa.
 
 Compare the `service.name` from the spans against:
-
 1. The `serviceNames` in the evaluation config (if `evaluation_type = online`)
 2. Consistency across all spans in the session
 
@@ -224,7 +220,6 @@ fields resource.attributes.service.name as serviceName
 ```
 
 Common issues:
-
 - Service name in spans is `MyAgent_prod` but eval config expects `MyAgent_prod.MyEndpoint`
 - Service name differs between `aws/spans` and the runtime log group
 - Multiple service names across spans in a multi-agent setup
@@ -284,7 +279,6 @@ Then, match the returned events to the supported-scope spans from Phase 3 by `sp
 **If events are missing for some spans, this is the `LogEventMissingException` root cause.**
 
 Possible reasons for missing events:
-
 - CloudWatch ingestion delay (events arrive after the evaluation runs)
 - The agent runtime log group is not included in the eval config's `logGroupNames`
 - The `service.name` in the event's resource attributes doesn't match the eval config
@@ -311,14 +305,12 @@ fields @timestamp, spanId, body, scope.name as scopeName,
 ```
 
 Check each event:
-
 - [ ] `body` field exists and is not empty
 - [ ] For agent invocation events (`invoke_agent`): `body.input.messages` and `body.output.messages` exist
 - [ ] For tool execution events (`execute_tool`): `body` contains tool input/output data
 - [ ] `attributes.event.name` is present
 
 If the body is malformed, empty, or uses an unexpected structure, this causes:
-
 - `SpanEventParsingException` — event body can't be parsed
 - `AgentSpanMappingException` — can't extract user query from agent span
 - `ToolSpanMappingException` — can't extract tool output from tool span
@@ -332,7 +324,6 @@ If the body is malformed, empty, or uses an unexpected structure, this causes:
 If the user reported a specific error, run targeted checks:
 
 #### 8a. LogEventMissingException
-
 "Session span data is incomplete. Span with id: X and name: Y is missing a corresponding log event."
 
 - Extract the `spanId` from the error message
@@ -342,7 +333,6 @@ If the user reported a specific error, run targeted checks:
 - If the event exists but in a different log group: the eval config is missing that log group
 
 #### 8b. AgentSpanMappingException
-
 "Failed to parse user_query from agent-span with spanId: X and scope: Y"
 
 - This means the evaluation service found the span and event but couldn't extract the user's input
@@ -351,7 +341,6 @@ If the user reported a specific error, run targeted checks:
 - Common cause: using a framework (Claude Agent SDK, custom instrumentation) that stores input differently than expected
 
 #### 8c. ToolSpanMappingException
-
 "Failed to parse tool_output from tool-span with spanId: X and scope: Y"
 
 - Similar to AgentSpanMappingException but for tool calls
@@ -359,7 +348,6 @@ If the user reported a specific error, run targeted checks:
 - Common when tool output is returned in a nested JSON wrapper instead of the expected input/output message format
 
 #### 8d. SpanEventParsingException
-
 "Failed to parse event body for span with id: X"
 
 - The event exists but its body can't be parsed
@@ -367,7 +355,6 @@ If the user reported a specific error, run targeted checks:
 - Common cause: streaming API responses where the body contains a generator object repr instead of actual content
 
 #### 8e. Gateway Timeout (504)
-
 "Evaluation API error: Gateway Timeout (RequestId: N/A, Code: 504)"
 
 - Check the number of spans in the session — very large sessions can timeout
@@ -375,22 +362,18 @@ If the user reported a specific error, run targeted checks:
 - Try evaluating with a simpler session to confirm the service is responsive
 
 #### 8f. Empty Results (no error)
-
 Evaluation returns successfully but with 0 results or null values.
 
 Baseline checks (apply to both types):
-
 - Verify `service.name` matches between spans and eval config (Phase 5)
 - Verify spans have a supported `scope.name` (Phase 4)
 
 **For `evaluation_type = on-demand`:**
-
 - Verify the session has `invoke_agent` spans (sessions without agent spans are skipped)
 - Wait 5 minutes for CloudWatch ingestion to complete, then retry the on-demand `Evaluate` call against the same session
 - If empty results persist after the 5-minute wait AND all other phases pass, this indicates an internal processing issue. Recommend the user file an AWS Support case with the RequestId from the API response.
 
 **For `evaluation_type = online`:**
-
 - Verify the eval config `executionStatus` is `ENABLED` (Phase 1)
 - Verify `samplingPercentage` > 0 (Phase 1)
 - Wait for the session idle timeout + ~5 minutes of processing time
@@ -414,14 +397,12 @@ Use the error types surfaced to jump to the corresponding sub-phase (e.g., `LogE
 - Online results appear in the CloudWatch GenAI Observability console under the matching service name
 
 #### 8g. ValidationException on evaluatorId
-
 "Value at 'evaluatorId' failed to satisfy constraint"
 
 - For built-in evaluators: use the ID format `Builtin.EvaluatorName` (e.g., `Builtin.Helpfulness`)
 - For custom evaluators: use the evaluator ID (NOT the full ARN)
 
 #### 8h. InternalServerException
-
 "The server encountered an internal error while processing the request"
 
 - This is a service-side error — not a user configuration issue
@@ -437,7 +418,6 @@ Use the error types surfaced to jump to the corresponding sub-phase (e.g., `LogE
 Reuse the `serviceName` breakdown from Phase 5 (do not re-run the query). If the Phase 5 results show multiple distinct `serviceName` values, the session involves multiple agents — proceed with the checks below.
 
 Check:
-
 - [ ] ALL agent runtime log groups are included in the eval config's `logGroupNames`
 - [ ] The `serviceNames` filter in the eval config targets the correct agent
 - [ ] Trace-level evaluators evaluate the LAST agent response in the trace — if you want to evaluate a specific sub-agent, you may need separate eval configs
@@ -460,7 +440,7 @@ You are reporting back to the user — so write the report as a summary they can
 
 ### What to omit or redact
 
-Do not include agent-implementation details in the report. The user knows their own agent; the report should focus on the _evaluation pipeline_, not the agent's internals.
+Do not include agent-implementation details in the report. The user knows their own agent; the report should focus on the *evaluation pipeline*, not the agent's internals.
 
 - Do not paste raw `body.input.messages` or `body.output.messages` content (user prompts, model responses, tool inputs/outputs) into the report unless the user explicitly confirms the data is not sensitive. Summarize in one sentence if needed (e.g., "the agent span's event body is present and parses correctly").
 - Do not include agent source code, system prompts, tool descriptions, or other agent implementation details that are not relevant to evaluation configuration.
@@ -539,7 +519,4 @@ Remind the user to review the exported data before sharing and remove any sensit
 - If you cannot determine the root cause, recommend the user file an AWS Support case with the diagnostic report attached
 - On-demand evaluation results are returned inline in the API response — they do NOT appear in the CloudWatch console's evaluation dashboard
 - Online evaluation results appear in the CloudWatch GenAI Observability console under the matching service name
-
-```
-
 ```

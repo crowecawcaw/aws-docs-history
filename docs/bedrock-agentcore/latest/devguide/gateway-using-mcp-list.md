@@ -1,10 +1,11 @@
+
+
 # List available tools in an AgentCore gateway
+<a name="gateway-using-mcp-list"></a>
 
 To list all available tools that an AgentCore gateway provides, make a POST request to the gateway’s MCP endpoint and specify `tools/list` as the method in the request body:
 
-###### Example
-
-2025-11-25 and earlier
+**Example**  
 
 ```
 POST /mcp HTTP/1.1
@@ -16,9 +17,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
-
-2026-07-28
-On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` request-metadata header, and the `_meta` version fields in the body.
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` request-metadata header, and the `_meta` version fields in the body.  
 
 ```
 POST /mcp HTTP/1.1
@@ -32,31 +31,27 @@ Mcp-Method: tools/list
 ${RequestBody}
 ```
 
-###### Note
-
-The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
+**Note**  
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) API.
 
 Replace the following values:
++  `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) API.
++  `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md).
++  `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
++  `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) . Include `tools/list` as the `method`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
 
-- `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
-- `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Listing tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `tools/list` as the `method`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
-
-###### Note
-
-For a list of optionally supported parameters for `tools/list` , see the `params` object in the request body at [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools "https://modelcontextprotocol.io/specification/2025-06-18/server/tools") in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18 "https://modelcontextprotocol.io/specification/2025-06-18") . At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md "gateway-using.md").
+**Note**  
+For a list of optionally supported parameters for `tools/list` , see the `params` object in the request body at [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18) . At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md).
 
 The response returns a list of available tools with their names, descriptions, and parameter schemas.
 
 ## Code samples for listing tools
+<a name="gateway-using-mcp-list-examples"></a>
 
 To see examples of listing available tools in the gateway, select one of the following methods:
 
-###### Example
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -84,9 +79,7 @@ access_token = "${AccessToken}" # Replace with your actual access token
 tools = list_tools(gateway_url, access_token)
 print(json.dumps(tools, indent=2))
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, add the `MCP-Protocol-Version` and `Mcp-Method` headers, and include the `_meta` version fields in the request body. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, add the `MCP-Protocol-Version` and `Mcp-Method` headers, and include the `_meta` version fields in the request body. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -122,8 +115,6 @@ access_token = "${AccessToken}" # Replace with your actual access token
 tools = list_tools(gateway_url, access_token)
 print(json.dumps(tools, indent=2))
 ```
-
-MCP Client
 
 ```
 import asyncio
@@ -196,8 +187,6 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Strands MCP Client
-
 ```
 from strands.tools.mcp.mcp_client import MCPClient
 from mcp.client.streamable_http import streamablehttp_client
@@ -232,8 +221,6 @@ def run_agent(mcp_url: str, access_token: str):
 
 run_agent(<MCP URL>, <Access token>)
 ```
-
-LangGraph MCP Client
 
 ```
 import asyncio
@@ -275,6 +262,5 @@ def list_tools(
     )
 ```
 
-###### Note
-
+**Note**  
 If search is enabled on the gateway, then the search tool, `x_amz_bedrock_agentcore_search` will be listed first in the response.

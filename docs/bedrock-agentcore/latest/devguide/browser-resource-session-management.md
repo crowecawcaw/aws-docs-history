@@ -1,35 +1,45 @@
+
+
 # Fundamentals
+<a name="browser-resource-session-management"></a>
 
 The following topics show how the Amazon Bedrock AgentCore Browser works and how you can create the resources and manage sessions.
 
-###### Topics
-
-- [Creating a Browser Tool and starting a session](#browser-create-session "#browser-create-session")
-- [Resource management](#browser-resource-management "#browser-resource-management")
-- [Using Browser Tool](browser-using-tool.md "browser-using-tool.md")
-- [Managing Browser Sessions](browser-managing-sessions.md "browser-managing-sessions.md")
+**Topics**
++ [Creating a Browser Tool and starting a session](#browser-create-session)
++ [Resource management](#browser-resource-management)
++ [Using Browser Tool](browser-using-tool.md)
++ [Managing Browser Sessions](browser-managing-sessions.md)
 
 ## Creating a Browser Tool and starting a session
+<a name="browser-create-session"></a>
 
-1. **Create a Browser Tool**
+1.  **Create a Browser Tool** 
 
-When configuring a Browser Tool, choose the public network setting, recording configuration for session replay, and permissions through an IAM runtime role that defines what AWS resources the Browser Tool can access. 2. **Start a session**
+   When configuring a Browser Tool, choose the public network setting, recording configuration for session replay, and permissions through an IAM runtime role that defines what AWS resources the Browser Tool can access.
 
-The Browser Tool uses a session-based model. After creating a Browser Tool, you start a session with a configurable timeout period (default is 15 minutes). Sessions automatically terminate after the timeout period. Multiple sessions can be active simultaneously for a single Browser Tool, with each session maintaining its own state and environment. 3. **Interact with the browser**
+1.  **Start a session** 
 
-Once a session is started, you can interact with the browser using WebSocket-based streaming APIs. The Automation endpoint enables your agent to perform browser actions such as navigating to websites, clicking elements, filling out forms, taking screenshots, and more. Libraries like browser-use or Playwright can be used to simplify these interactions.
+   The Browser Tool uses a session-based model. After creating a Browser Tool, you start a session with a configurable timeout period (default is 15 minutes). Sessions automatically terminate after the timeout period. Multiple sessions can be active simultaneously for a single Browser Tool, with each session maintaining its own state and environment.
 
-Meanwhile, the Live View endpoint allows an end user to watch the browser session in real time and interact with it directly through the live stream. 4. **Stop the session**
+1.  **Interact with the browser** 
 
-When you’re finished using the browser session, you should stop it to release resources and avoid unnecessary charges. Sessions can be stopped manually or will automatically terminate after the configured timeout period.
+   Once a session is started, you can interact with the browser using WebSocket-based streaming APIs. The Automation endpoint enables your agent to perform browser actions such as navigating to websites, clicking elements, filling out forms, taking screenshots, and more. Libraries like browser-use or Playwright can be used to simplify these interactions.
+
+   Meanwhile, the Live View endpoint allows an end user to watch the browser session in real time and interact with it directly through the live stream.
+
+1.  **Stop the session** 
+
+   When you’re finished using the browser session, you should stop it to release resources and avoid unnecessary charges. Sessions can be stopped manually or will automatically terminate after the configured timeout period.
 
 ### Permissions
+<a name="browser-permissions"></a>
 
 To use the Amazon Bedrock AgentCore Browser, you need the following permissions in your IAM policy:
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "BedrockAgentCoreInBuiltToolsFullAccess",
@@ -77,7 +87,7 @@ You should also add the following trust policy to the execution role:
 
 ```
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
     "Statement": [{
         "Sid": "BedrockAgentCoreBuiltInTools",
         "Effect": "Allow",
@@ -98,6 +108,7 @@ You should also add the following trust policy to the execution role:
 ```
 
 ### Browser setup for API operations
+<a name="browser-setup-api"></a>
 
 Run the following commands to set up your Browser Tool that is common to all control plane and data plane API operations.
 
@@ -123,66 +134,51 @@ dp_client = boto3.client(
 ```
 
 ## Resource management
+<a name="browser-resource-management"></a>
 
 The AgentCore Browser provides two types of resources:
 
-System ARNs
+System ARNs  
+System ARNs are default resources pre-created for ease of use. These ARNs have default configuration with the most restrictive options and are available for all regions where Amazon Bedrock AgentCore is available.      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-resource-session-management.html)
 
-System ARNs are default resources pre-created for ease of use. These ARNs have default configuration with the most restrictive options and are available for all regions where Amazon Bedrock AgentCore is available.
-
-| Field       | Value                                                          |
-| ----------- | -------------------------------------------------------------- |
-| ID          | aws.browser.v1                                                 |
-| ARN         | arn:aws:bedrock-agentcore:us-east-1:aws:browser/aws.browser.v1 |
-| Name        | Amazon Bedrock AgentCore Browser Tool                          |
-| Description | AWS built-in browser for secure web browsing                   |
-| Status      | READY                                                          |
-
-Custom ARNs
-
+Custom ARNs  
 Custom ARNs allow you to configure a browser tool with your own settings. You can choose the public network setting, recording configuration, security settings, and permissions through an IAM runtime role that defines what AWS resources the browser tool can access.
 
 ### Network settings
+<a name="browser-network-settings"></a>
 
 The AgentCore Browser supports the public network mode. This mode allows the tool to access public internet resources. This option enables integration with external APIs and services.
 
 ### Session management
+<a name="browser-session-management"></a>
 
 The AgentCore Browser sessions have the following characteristics:
 
-Session timeout
-
-Default: 900 seconds (15 minutes)
-
+Session timeout  
+Default: 900 seconds (15 minutes)  
 Configurable: Can be adjusted when creating sessions, up to 8 hours
 
-Session recording
-
-Browser sessions can be recorded for later review
-
-Recordings include network traffic and console logs
-
+Session recording  
+Browser sessions can be recorded for later review  
+Recordings include network traffic and console logs  
 Recordings are stored in an S3 bucket specified during browser creation
 
-Live view
-
-Sessions can be viewed in real-time using the live view feature
-
+Live view  
+Sessions can be viewed in real-time using the live view feature  
 Live view is available at: /browser-streams/aws.browser.v1/sessions/ { session\_id}/live-view
 
-Automatic termination
-
+Automatic termination  
 Sessions automatically terminate after the configured timeout period
 
-Multiple sessions
-
+Multiple sessions  
 Multiple sessions can be active simultaneously for a single browser tool. Each session maintains its own state and environment. There can be up to a maximum of 500 sessions.
 
-Retention policy
-
+Retention policy  
 The time to live (TTL) retention policy for the session data is 30 days.
 
 #### Using isolated sessions
+<a name="browser-isolated-sessions"></a>
 
 AgentCore Tools enable isolation of each user session to ensure secure and consistent reuse of context across multiple tool invocations. Session isolation is especially important for AI agent workloads due to their dynamic and multi-step execution patterns.
 

@@ -1,56 +1,62 @@
+
+
 # Configure Amazon Bedrock AgentCore lifecycle settings
+<a name="runtime-lifecycle-settings"></a>
 
-The `LifecycleConfiguration` input parameter to [CreateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md") lets you manage the lifecycle of runtime sessions and resources in Amazon Bedrock AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+The `LifecycleConfiguration` input parameter to [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) lets you manage the lifecycle of runtime sessions and resources in Amazon Bedrock AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
 
-You can also configure lifecycle settings for an existing AgentCore Runtime with the [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") operation.
+You can also configure lifecycle settings for an existing AgentCore Runtime with the [UpdateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html) operation.
 
-###### Topics
-
-- [Configuration attributes](#configuration-attributes "#configuration-attributes")
-- [Default behavior](#default-behavior "#default-behavior")
-- [Create an AgentCore Runtime with lifecycle configuration](#create-agent-runtime-with-lifecycle "#create-agent-runtime-with-lifecycle")
-- [Update the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
-- [Get the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
-- [Validation and constraints](#validation-and-constraints "#validation-and-constraints")
-- [Lifecycle settings and runtime sessions](#lifecycle-and-session-relationship "#lifecycle-and-session-relationship")
-- [Best practices](#best-practices "#best-practices")
+**Topics**
++ [Configuration attributes](#configuration-attributes)
++ [Default behavior](#default-behavior)
++ [Create an AgentCore Runtime with lifecycle configuration](#create-agent-runtime-with-lifecycle)
++ [Update the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration)
++ [Get the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration)
++ [Validation and constraints](#validation-and-constraints)
++ [Lifecycle settings and runtime sessions](#lifecycle-and-session-relationship)
++ [Best practices](#best-practices)
 
 ## Configuration attributes
+<a name="configuration-attributes"></a>
 
-| Attribute                   | Type    | Range (seconds)                               | Required | Description                                                                                                                                                                                                                                                                                         |
-| --------------------------- | ------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `idleRuntimeSessionTimeout` | Integer | 60–28800 (microVMs)<br>60–1209600 (Instances) | No       | Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes)                                                      |
-| `maxLifetime`               | Integer | 60–28800 (microVMs)<br>60–1209600 (Instances) | No       | Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours). The session itself can persist beyond this with a new instance provisioned. |
 
-###### Note
+| Attribute | Type | Range (seconds) | Required | Description | 
+| --- | --- | --- | --- | --- | 
+|  `idleRuntimeSessionTimeout`  | Integer | 60–28800 (microVMs)<br />60–1209600 (Instances) | No | Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes) | 
+|  `maxLifetime`  | Integer | 60–28800 (microVMs)<br />60–1209600 (Instances) | No | Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours). The session itself can persist beyond this with a new instance provisioned. | 
 
-The maximum value for both attributes depends on the compute type of the AgentCore Runtime. Runtimes that use microVMs accept up to 28800 seconds (8 hours). Runtimes that use a capacity provider (Instances) accept up to 1209600 seconds (14 days). If you specify a value above the maximum for your compute type, the request fails with a `ValidationException`. For more information, see [Instances](runtime-instances-how-it-works.md "runtime-instances-how-it-works.md").
+**Note**  
+The maximum value for both attributes depends on the compute type of the AgentCore Runtime. Runtimes that use microVMs accept up to 28800 seconds (8 hours). Runtimes that use a capacity provider (Instances) accept up to 1209600 seconds (14 days). If you specify a value above the maximum for your compute type, the request fails with a `ValidationException`. For more information, see [Instances](runtime-instances-how-it-works.md).
 
 ### Constraints
-
-- `idleRuntimeSessionTimeout` must be less than or equal to `maxLifetime`
-- Both values are measured in seconds
-- Valid range for runtimes that use microVMs: 60 to 28800 seconds (up to 8 hours)
-- Valid range for runtimes that use a capacity provider (Instances): 60 to 1209600 seconds (up to 14 days)
-- For a runtime that uses a capacity provider, `maxLifetime` must also be less than or equal to the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration`
+<a name="constraints"></a>
++  `idleRuntimeSessionTimeout` must be less than or equal to `maxLifetime` 
++ Both values are measured in seconds
++ Valid range for runtimes that use microVMs: 60 to 28800 seconds (up to 8 hours)
++ Valid range for runtimes that use a capacity provider (Instances): 60 to 1209600 seconds (up to 14 days)
++ For a runtime that uses a capacity provider, `maxLifetime` must also be less than or equal to the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration` 
 
 ## Default behavior
+<a name="default-behavior"></a>
 
 When `LifecycleConfiguration` is not provided or contains null values, the platform applies the following logic:
 
-| Customer Input                | idleRuntimeSessionTimeout | maxLifetime    | Result                                                                                                             |
-| ----------------------------- | ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **No configuration**          | 900 sec                   | 28800s         | Uses defaults: 900s and 28800s                                                                                     |
-| **Only maxLifetime provided** | 900 sec                   | Customer value | If maxLifetime ≤ 900s: uses maxLifetime for both If maxLifetime > 900s: uses 900s for idle, customer value for max |
-| **Only idleTimeout provided** | Customer value            | 28800s         | Uses customer value for idle, 28800s for max                                                                       |
-| **Both values provided**      | Customer value            | Customer value | Uses customer values as-is                                                                                         |
+
+| Customer Input | idleRuntimeSessionTimeout | maxLifetime | Result | 
+| --- | --- | --- | --- | 
+|  **No configuration**  | 900 sec | 28800s | Uses defaults: 900s and 28800s | 
+|  **Only maxLifetime provided**  | 900 sec | Customer value | If maxLifetime ≤ 900s: uses maxLifetime for both If maxLifetime > 900s: uses 900s for idle, customer value for max | 
+|  **Only idleTimeout provided**  | Customer value | 28800s | Uses customer value for idle, 28800s for max | 
+|  **Both values provided**  | Customer value | Customer value | Uses customer values as-is | 
 
 ### Default values
-
-- `idleRuntimeSessionTimeout` : **900 seconds** (15 minutes)
-- `maxLifetime` : **28800 seconds** (8 hours)
+<a name="default-values"></a>
++  `idleRuntimeSessionTimeout` : **900 seconds** (15 minutes)
++  `maxLifetime` : **28800 seconds** (8 hours)
 
 ## Create an AgentCore Runtime with lifecycle configuration
+<a name="create-agent-runtime-with-lifecycle"></a>
 
 You can specify a lifecycle configuration when you create an AgentCore Runtime.
 
@@ -83,6 +89,7 @@ except Exception as e:
 ```
 
 ## Update the lifecycle configuration for an AgentCore Runtime
+<a name="update-lifecycle-configuration"></a>
 
 You can update lifecycle configuration for an existing AgentCore Runtime.
 
@@ -119,6 +126,7 @@ except Exception as e:
 ```
 
 ## Get the lifecycle configuration for an AgentCore Runtime
+<a name="update-lifecycle-configuration"></a>
 
 You can get lifecycle configuration for an existing AgentCore Runtime.
 
@@ -151,14 +159,15 @@ print(config)
 ```
 
 ## Validation and constraints
+<a name="validation-and-constraints"></a>
 
 The lifecycle configuration includes validation rules and constraints to prevent invalid configurations. If your request violates any of the following rules, it fails with a `ValidationException`:
-
-- Either value is below 60 seconds, or above the maximum for the compute type of the runtime (28800 seconds for microVMs, 1209600 seconds for Instances).
-- `idleRuntimeSessionTimeout` is greater than `maxLifetime`.
-- For a runtime that uses a capacity provider, `maxLifetime` is greater than the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration`. To run sessions for longer than the capacity provider allows, increase the capacity provider’s `maxLifetime` first.
++ Either value is below 60 seconds, or above the maximum for the compute type of the runtime (28800 seconds for microVMs, 1209600 seconds for Instances).
++  `idleRuntimeSessionTimeout` is greater than `maxLifetime`.
++ For a runtime that uses a capacity provider, `maxLifetime` is greater than the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration`. To run sessions for longer than the capacity provider allows, increase the capacity provider’s `maxLifetime` first.
 
 ### Common validation errors
+<a name="common-validation-errors"></a>
 
 ```
 import boto3
@@ -186,6 +195,7 @@ except client.exceptions.ValidationException as e:
 ```
 
 ### Validation helper function
+<a name="validation-helper-function"></a>
 
 ```
 MICROVM_MAX_SECONDS = 28800     # 8 hours
@@ -223,6 +233,7 @@ else:
 ```
 
 ## Lifecycle settings and runtime sessions
+<a name="lifecycle-and-session-relationship"></a>
 
 The lifecycle configuration settings you define are applied to each individual runtime session. When you invoke an agent with a specific `runtimeSessionId` , AgentCore Runtime provisions a dedicated microVM for that session. The lifecycle timeouts ( `idleRuntimeSessionTimeout` and `maxLifetime` ) govern the lifecycle of that specific microVM instance.
 
@@ -261,36 +272,37 @@ response3 = client.invoke_agent_runtime(
 ```
 
 Key points about lifecycle settings and sessions:
++  **Per-session isolation** : Each `runtimeSessionId` gets its own microVM with independent lifecycle timers
++  **Idle timer reset** : The `idleRuntimeSessionTimeout` resets each time you invoke the same session
++  **Maximum lifetime enforcement** : The `maxLifetime` timer starts when the microVM is first created and cannot be reset
++  **Session termination** : When either timeout is reached, only that specific session’s microVM is terminated. The session can be resumed with a new microVM provisioned.
 
-- **Per-session isolation** : Each `runtimeSessionId` gets its own microVM with independent lifecycle timers
-- **Idle timer reset** : The `idleRuntimeSessionTimeout` resets each time you invoke the same session
-- **Maximum lifetime enforcement** : The `maxLifetime` timer starts when the microVM is first created and cannot be reset
-- **Session termination** : When either timeout is reached, only that specific session’s microVM is terminated. The session can be resumed with a new microVM provisioned.
-
-###### Tip
-
+**Tip**  
 Each microVM session uses the code assets ( `agentRuntimeArtifact` ) that were deployed at the time of microVM creation. If you update your agent runtime with new code, existing sessions will continue using the previous version until they terminate and new sessions are created.
 
 ## Best practices
+<a name="best-practices"></a>
 
 Follow these best practices when configuring lifecycle settings for optimal resource utilization and user experience.
 
 ### Recommendations
-
-- **Start with defaults** (900s idle, 28800s max) and adjust based on usage patterns
-- **Check your compute type** before you raise `maxLifetime` above 8 hours—only runtimes that use a capacity provider (Instances) accept longer values
-- **Monitor session duration** to optimize timeout values
-- **Use shorter timeouts** for development environments to save costs
-- **Consider user experience** - too short timeouts may interrupt active users
-- **Test configuration changes** in non-production environments first
-- **Document timeout rationale** for your specific use case
+<a name="recommendations"></a>
++  **Start with defaults** (900s idle, 28800s max) and adjust based on usage patterns
++  **Check your compute type** before you raise `maxLifetime` above 8 hours—only runtimes that use a capacity provider (Instances) accept longer values
++  **Monitor session duration** to optimize timeout values
++  **Use shorter timeouts** for development environments to save costs
++  **Consider user experience** - too short timeouts may interrupt active users
++  **Test configuration changes** in non-production environments first
++  **Document timeout rationale** for your specific use case
 
 ### Common patterns
+<a name="common-patterns"></a>
 
-| Use Case             | Idle Timeout  | Max Lifetime | Rationale                                  |
-| -------------------- | ------------- | ------------ | ------------------------------------------ |
-| **Interactive Chat** | 10-15 minutes | 2-4 hours    | Balance responsiveness with resource usage |
-| **Batch Processing** | 30 minutes    | 8 hours      | Allow for long-running operations          |
-| **Development**      | 5 minutes     | 30 minutes   | Quick cleanup for cost optimization        |
-| **Production API**   | 15 minutes    | 4 hours      | Standard production workload               |
-| **Demo/Testing**     | 2 minutes     | 15 minutes   | Aggressive cleanup for temporary usage     |
+
+| Use Case | Idle Timeout | Max Lifetime | Rationale | 
+| --- | --- | --- | --- | 
+|  **Interactive Chat**  | 10-15 minutes | 2-4 hours | Balance responsiveness with resource usage | 
+|  **Batch Processing**  | 30 minutes | 8 hours | Allow for long-running operations | 
+|  **Development**  | 5 minutes | 30 minutes | Quick cleanup for cost optimization | 
+|  **Production API**  | 15 minutes | 4 hours | Standard production workload | 
+|  **Demo/Testing**  | 2 minutes | 15 minutes | Aggressive cleanup for temporary usage | 

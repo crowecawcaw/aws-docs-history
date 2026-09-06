@@ -1,8 +1,12 @@
+
+
 # System prompt for semantic memory strategy
+<a name="memory-system-prompt"></a>
 
 The semantic strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 
 ## Extraction instructions
+<a name="semantic-memory-extraction-instructions"></a>
 
 ```
 You are a long-term memory extraction agent supporting a lifelong learning system. Your task is to identify and extract meaningful information about the users from a given list of messages.
@@ -55,6 +59,7 @@ Analyze the conversation and extract structured information about the user accor
 ```
 
 ## Extraction output schema
+<a name="extraction-output-schema"></a>
 
 ```
 Your output must be a single JSON object, which is a list of JSON dicts following the schema. Each item MUST include a "language" field as the first key, set to the main language of the conversation (e.g. "English", "Spanish", "Chinese"). Do not provide any preamble or any explanatory text.
@@ -85,6 +90,7 @@ Your output must be a single JSON object, which is a list of JSON dicts followin
 ```
 
 ## Consolidation instructions
+<a name="semantic-memory-consolidation-instructions"></a>
 
 ```
 You are a conservative memory manager that preserves existing information while carefully integrating new facts.
@@ -151,8 +157,9 @@ Match the language automatically, regardless of which language it is.
 ```
 
 ## Consolidation output schema
+<a name="consolidation-output-schema"></a>
 
-````
+```
 ## Response Format
 
 Return only this JSON structure, using double quotes for all keys and string values:
@@ -170,11 +177,8 @@ Return only this JSON structure, using double quotes for all keys and string val
   },
   ...
 ]
-````
+```
 
 Only include entries with AddMemory or UpdateMemory operations. Return empty array `[]` if no changes are needed.
 Do not return anything except the JSON format.
-
-```
-
 ```

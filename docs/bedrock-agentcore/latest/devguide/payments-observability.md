@@ -1,37 +1,37 @@
+
+
 # Observability with Amazon CloudWatch
+<a name="payments-observability"></a>
 
 AgentCore payments supports observability through Amazon CloudWatch, so you can monitor and troubleshoot your payment integration.
++  **Amazon CloudWatch** is the AWS monitoring and observability service. It collects and tracks metrics, logs, and traces from your AWS resources, giving you visibility into application performance.
++  **Vended logs** are logs that AWS services publish on your behalf directly to your CloudWatch log group. Unlike application logs that you instrument yourself, vended logs are generated automatically by the service. You configure where to deliver them.
++  **Spans** represent units of work within a request (for example, an API call and its downstream operations). Use spans to trace the flow of a request through the system and identify latency bottlenecks or failures.
 
-- **Amazon CloudWatch** is the AWS monitoring and observability service. It collects and tracks metrics, logs, and traces from your AWS resources, giving you visibility into application performance.
-- **Vended logs** are logs that AWS services publish on your behalf directly to your CloudWatch log group. Unlike application logs that you instrument yourself, vended logs are generated automatically by the service. You configure where to deliver them.
-- **Spans** represent units of work within a request (for example, an API call and its downstream operations). Use spans to trace the flow of a request through the system and identify latency bottlenecks or failures.
-  After you complete the following setup procedures, any data plane API call (for example, `CreatePaymentInstrument`) produces logs and trace data in your configured CloudWatch log group.
+After you complete the following setup procedures, any data plane API call (for example, `CreatePaymentInstrument`) produces logs and trace data in your configured CloudWatch log group.
 
 ## Prerequisites
-
-- A **CloudWatch log group** as the delivery destination (for example, `/bedrock-agentcore/payments/my-logs`). If you do not have one, create one using the console or CLI.
-- The **resource ARN** of your PaymentManager.
+<a name="payments-observability-prerequisites"></a>
++ A **CloudWatch log group** as the delivery destination (for example, `/bedrock-agentcore/payments/my-logs`). If you do not have one, create one using the console or CLI.
++ The **resource ARN** of your PaymentManager.
 
 Create a log group:
 
-###### Example
-
-Console
+**Example**  
 Open the CloudWatch console, go to **Logs > Log groups**, and choose **Create log group**. Enter a name like `/bedrock-agentcore/payments/my-logs` and select your preferred retention period.
-
-AWS CLI
 
 ```
 aws logs create-log-group --log-group-name /bedrock-agentcore/payments/my-logs
 ```
 
 ## IAM permissions
+<a name="payments-observability-iam"></a>
 
 Your IAM user or role must have the following permissions to create log and span delivery resources:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "CloudWatchLogsVendedDelivery",
@@ -90,98 +90,103 @@ Your IAM user or role must have the following permissions to create log and span
 ```
 
 ## Vended logs
+<a name="payments-observability-vended-logs"></a>
 
 Vended logs appear as application logs in your configured log group. These are generated automatically by the AgentCore payments service for every data plane API call.
 
 ## Vended spans
+<a name="payments-observability-vended-spans"></a>
 
 Vended spans are trace records for individual requests. Use them to visualize request flow in AWS X-Ray. Each span represents a unit of work (for example, an API call and its downstream operations), enabling you to identify latency bottlenecks or failures.
 
 ### Span names
+<a name="_span_names"></a>
 
 AgentCore payments emits one span per data plane API call. Span names follow the pattern `Bedrock.AgentCore.Payments.<Operation>`:
 
-| Span Name                                                | Description                   |
-| -------------------------------------------------------- | ----------------------------- |
-| `Bedrock.AgentCore.Payments.ProcessPayment`              | Process a payment transaction |
-| `Bedrock.AgentCore.Payments.CreatePaymentInstrument`     | Create a payment instrument   |
-| `Bedrock.AgentCore.Payments.GetPaymentInstrument`        | Retrieve a payment instrument |
-| `Bedrock.AgentCore.Payments.ListPaymentInstruments`      | List payment instruments      |
-| `Bedrock.AgentCore.Payments.DeletePaymentInstrument`     | Delete a payment instrument   |
-| `Bedrock.AgentCore.Payments.GetPaymentInstrumentBalance` | Get instrument balance        |
-| `Bedrock.AgentCore.Payments.CreatePaymentSession`        | Create a payment session      |
-| `Bedrock.AgentCore.Payments.GetPaymentSession`           | Retrieve a payment session    |
-| `Bedrock.AgentCore.Payments.ListPaymentSessions`         | List payment sessions         |
-| `Bedrock.AgentCore.Payments.DeletePaymentSession`        | Delete a payment session      |
+
+| Span Name | Description | 
+| --- | --- | 
+|  `Bedrock.AgentCore.Payments.ProcessPayment`  | Process a payment transaction | 
+|  `Bedrock.AgentCore.Payments.CreatePaymentInstrument`  | Create a payment instrument | 
+|  `Bedrock.AgentCore.Payments.GetPaymentInstrument`  | Retrieve a payment instrument | 
+|  `Bedrock.AgentCore.Payments.ListPaymentInstruments`  | List payment instruments | 
+|  `Bedrock.AgentCore.Payments.DeletePaymentInstrument`  | Delete a payment instrument | 
+|  `Bedrock.AgentCore.Payments.GetPaymentInstrumentBalance`  | Get instrument balance | 
+|  `Bedrock.AgentCore.Payments.CreatePaymentSession`  | Create a payment session | 
+|  `Bedrock.AgentCore.Payments.GetPaymentSession`  | Retrieve a payment session | 
+|  `Bedrock.AgentCore.Payments.ListPaymentSessions`  | List payment sessions | 
+|  `Bedrock.AgentCore.Payments.DeletePaymentSession`  | Delete a payment session | 
 
 ### Span attributes
+<a name="_span_attributes"></a>
 
 Each span includes the following attributes for filtering and analysis in AWS X-Ray:
 
-| Attribute                               | Description                                                                               |
-| --------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `aws.payments.payment_manager_id`       | The Payment Manager ID for this request                                                   |
-| `aws.payments.payment_connector_id`     | The Payment Connector ID (when applicable)                                                |
-| `aws.payments.payment_instrument_id`    | The Payment Instrument ID (when applicable)                                               |
-| `aws.payments.payment_session_id`       | The Payment Session ID (when applicable)                                                  |
-| `aws.payments.spend_amount`             | The payment amount (ProcessPayment only)                                                  |
-| `aws.payments.spend_currency`           | The payment currency (ProcessPayment only)                                                |
-| `aws.payments.session_remaining_budget` | Remaining session budget after payment (ProcessPayment only)                              |
-| `aws.payments.total_budget_amount`      | Total session budget (ProcessPayment only)                                                |
-| `aws.payments.merchant`                 | The merchant address (payTo) for the transaction (ProcessPayment only)                    |
-| `aws.payments.payment_agent_name`       | The agent name, if provided via the `X-Amzn-Bedrock-AgentCore-Payments-Agent-Name` header |
-| `aws.payments.token_fetch_latency_ms`   | Latency of credential token retrieval from AgentCore Identity (ProcessPayment only)       |
+
+| Attribute | Description | 
+| --- | --- | 
+|  `aws.payments.payment_manager_id`  | The Payment Manager ID for this request | 
+|  `aws.payments.payment_connector_id`  | The Payment Connector ID (when applicable) | 
+|  `aws.payments.payment_instrument_id`  | The Payment Instrument ID (when applicable) | 
+|  `aws.payments.payment_session_id`  | The Payment Session ID (when applicable) | 
+|  `aws.payments.spend_amount`  | The payment amount (ProcessPayment only) | 
+|  `aws.payments.spend_currency`  | The payment currency (ProcessPayment only) | 
+|  `aws.payments.session_remaining_budget`  | Remaining session budget after payment (ProcessPayment only) | 
+|  `aws.payments.total_budget_amount`  | Total session budget (ProcessPayment only) | 
+|  `aws.payments.merchant`  | The merchant address (payTo) for the transaction (ProcessPayment only) | 
+|  `aws.payments.payment_agent_name`  | The agent name, if provided via the `X-Amzn-Bedrock-AgentCore-Payments-Agent-Name` header | 
+|  `aws.payments.token_fetch_latency_ms`  | Latency of credential token retrieval from AgentCore Identity (ProcessPayment only) | 
 
 Standard AWS attributes are also included on every span:
-
-- `aws.region` — The AWS Region
-- `aws.account.id` — The caller’s account ID
-- `aws.resource.arn` — The PaymentManager ARN
-- `aws.request_id` — The request ID
-- `http.response.status_code` — The HTTP response status code
++  `aws.region` — The AWS Region
++  `aws.account.id` — The caller’s account ID
++  `aws.resource.arn` — The PaymentManager ARN
++  `aws.request_id` — The request ID
++  `http.response.status_code` — The HTTP response status code
 
 ## Vended metrics
+<a name="payments-observability-metrics"></a>
 
 AgentCore payments publishes the following metrics to your Amazon CloudWatch namespace. Use these to build dashboards, set alarms, and monitor payment health.
 
-| Metric                | Unit         | Description                                    |
-| --------------------- | ------------ | ---------------------------------------------- |
-| `OperationSuccess`    | Count        | Number of successful API calls                 |
-| `OperationFailure`    | Count        | Number of failed API calls                     |
-| `OperationLatency`    | Milliseconds | End-to-end latency per API call                |
-| `SpendAmount`         | None         | Payment amount processed (ProcessPayment only) |
-| `Throttles`           | Count        | Number of throttled requests                   |
-| `UserErrors`          | Count        | Number of client-side validation errors        |
-| `ActiveSessions`      | Count        | Number of active payment sessions              |
-| `PaymentRequestCount` | Count        | Total payment requests                         |
-| `PaymentSuccessCount` | Count        | Successful payment transactions                |
-| `PaymentFailureCount` | Count        | Failed payment transactions                    |
-| `PaymentLatency`      | Milliseconds | Payment processing latency                     |
+
+| Metric | Unit | Description | 
+| --- | --- | --- | 
+|  `OperationSuccess`  | Count | Number of successful API calls | 
+|  `OperationFailure`  | Count | Number of failed API calls | 
+|  `OperationLatency`  | Milliseconds | End-to-end latency per API call | 
+|  `SpendAmount`  | None | Payment amount processed (ProcessPayment only) | 
+|  `Throttles`  | Count | Number of throttled requests | 
+|  `UserErrors`  | Count | Number of client-side validation errors | 
+|  `ActiveSessions`  | Count | Number of active payment sessions | 
+|  `PaymentRequestCount`  | Count | Total payment requests | 
+|  `PaymentSuccessCount`  | Count | Successful payment transactions | 
+|  `PaymentFailureCount`  | Count | Failed payment transactions | 
+|  `PaymentLatency`  | Milliseconds | Payment processing latency | 
 
 ### Metric dimensions
+<a name="_metric_dimensions"></a>
 
 Metrics are published with the following dimensions for filtering:
-
-- **Operation** — The API operation name (always present)
-- **PaymentManagerId** — The Payment Manager ID (when available)
-- **PaymentConnectorId** — The Payment Connector ID (when available)
-- **AgentName** — The agent name (when provided via header)
-- **Currency** — The payment currency (for SpendAmount metric)
++  **Operation** — The API operation name (always present)
++  **PaymentManagerId** — The Payment Manager ID (when available)
++  **PaymentConnectorId** — The Payment Connector ID (when available)
++  **AgentName** — The agent name (when provided via header)
++  **Currency** — The payment currency (for SpendAmount metric)
 
 ## Enable observability
+<a name="payments-observability-enable"></a>
 
-###### Example
-
-Console
-From the Payment Manager details page in the Amazon Bedrock AgentCore console:
+**Example**  
+From the Payment Manager details page in the Amazon Bedrock AgentCore console:  
 
 1. Navigate to the **Log deliveries and tracing** section.
-2. Configure log delivery to your CloudWatch log group.
-3. Enable traces to view spans in AWS X-Ray.
 
+1. Configure log delivery to your CloudWatch log group.
+
+1. Enable traces to view spans in AWS X-Ray.
 The **Observability** section on the Payment Manager details page provides real-time metrics including session counts, API invocations, transaction success rates, and error rates.
-
-AWS CLI
 
 ```
 # Step 1: Allow vended log delivery for your Payment Manager
@@ -204,8 +209,6 @@ aws logs create-delivery \
     --delivery-source-name "payments-logs" \
     --delivery-destination-arn "arn:aws:logs:us-west-2:123456789012:delivery-destination:payments-log-destination"
 ```
-
-AWS SDK
 
 ```
 import boto3
@@ -241,4 +244,4 @@ logs_client.create_delivery(
 )
 ```
 
-For more information on AgentCore observability, see [AgentCore Observability](observability.md "observability.md"). For gateway-specific metrics and spans, see [AgentCore generated gateway observability data](observability-gateway-metrics.md "observability-gateway-metrics.md").
+For more information on AgentCore observability, see [AgentCore Observability](observability.md). For gateway-specific metrics and spans, see [AgentCore generated gateway observability data](observability-gateway-metrics.md).

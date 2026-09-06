@@ -1,16 +1,21 @@
-# Tagging AgentCore Identity resources
 
-Amazon Bedrock AgentCore Identity supports comprehensive tagging capabilities across its resource hierarchy to enable better resource management, cost allocation, access control, and operational visibility. For general information about tags, including syntax and usage, see [Tagging AgentCore resources](tagging.md "tagging.md").
+
+# Tagging AgentCore Identity resources
+<a name="identity-tagging"></a>
+
+Amazon Bedrock AgentCore Identity supports comprehensive tagging capabilities across its resource hierarchy to enable better resource management, cost allocation, access control, and operational visibility. For general information about tags, including syntax and usage, see [Tagging AgentCore resources](tagging.md).
 
 ## Benefits of tagging AgentCore Identity resources
+<a name="identity-tagging-benefits"></a>
 
 Tags help you accomplish the following key objectives with your AgentCore Identity resources:
 
 ### Identify and organize AWS resources
+<a name="identity-tagging-organize"></a>
 
 Many AWS services support tagging, allowing you to assign the same tag to resources from different services. This helps indicate which resources are related. You could assign the same tag to a workload identity that you assign to an DynamoDB table or Lambda function that uses those credentials.
 
-**Example scenario** : Tag all resources for a customer service application with `Application=customer-service-bot` to easily identify and manage related resources across different AWS services, as shown in the following sample code.
+ **Example scenario** : Tag all resources for a customer service application with `Application=customer-service-bot` to easily identify and manage related resources across different AWS services, as shown in the following sample code.
 
 ```
 {
@@ -24,14 +29,14 @@ Many AWS services support tagging, allowing you to assign the same tag to resour
 ```
 
 ### Track AWS costs
+<a name="identity-tagging-costs"></a>
 
 You can activate cost allocation tags on the AWS Billing and Cost Management dashboard. AWS uses these tags to categorize your costs and deliver a monthly cost allocation report. This enables you to:
++ Allocate identity service costs to specific projects or teams
++ Track spending patterns across different environments
++ Optimize costs based on usage analysis
 
-- Allocate identity service costs to specific projects or teams
-- Track spending patterns across different environments
-- Optimize costs based on usage analysis
-
-**Example scenario** : Use `CostCenter=ai-platform` and `Project=bedrock-agents` tags to track how much your AI platform team spends on identity services for the Bedrock agents project, as shown in the following sample code.
+ **Example scenario** : Use `CostCenter=ai-platform` and `Project=bedrock-agents` tags to track how much your AI platform team spends on identity services for the Bedrock agents project, as shown in the following sample code.
 
 ```
 {
@@ -46,14 +51,15 @@ You can activate cost allocation tags on the AWS Billing and Cost Management das
 ```
 
 ### Control access based on tags
+<a name="identity-tagging-access-control"></a>
 
 You can control access by specifying tag keys and values in the conditions for IAM policies. This enables attribute-based access control (ABAC) where permissions are granted based on resource tags.
 
-**Example scenario** : Allow a user to access workload identities only if they have an `Owner` tag with a value matching the user’s team name, or restrict access to production credential providers based on `Environment=production` tags, as shown in the following sample code.
+ **Example scenario** : Allow a user to access workload identities only if they have an `Owner` tag with a value matching the user’s team name, or restrict access to production credential providers based on `Environment=production` tags, as shown in the following sample code.
 
 ```
 {
-"Version": "2012-10-17",
+"Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -73,36 +79,38 @@ You can control access by specifying tag keys and values in the conditions for I
 ```
 
 ## Resource architecture
+<a name="identity-resource-architecture"></a>
 
 Amazon Bedrock AgentCore Identity manages five distinct resource types organized in a hierarchical structure:
 
 ### Primary resources
+<a name="identity-primary-resources"></a>
 
 The following are the primary resources in the AgentCore Identity service hierarchy:
-
-- **Workload Identity Directory** : `arn:aws:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/default`
-- **Token Vault** : `arn:aws:bedrock-agentcore:${Region}:${Account}:token-vault/default`
++  **Workload Identity Directory** : `arn:aws:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/default` 
++  **Token Vault** : `arn:aws:bedrock-agentcore:${Region}:${Account}:token-vault/default` 
 
 ### Sub-resources
+<a name="identity-sub-resources"></a>
 
 The following are the sub-resources that exist within the primary resource hierarchy:
-
-- **Workload Identity** : `arn:aws:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/default/workload-identity/${workload identity name}`
-- **OAuth2 Credential Provider** : `arn:aws:bedrock-agentcore:${Region}:${Account}:token-vault/default/oauth2credentialprovider/${oauth2CredentialProviderName}`
-- **API Key Credential Provider** : `arn:${Partition}:bedrock-agentcore:${Region}:${Account}:token-vault/default/apikeycredentialprovider/${APIkeyCredentialproviderName}`
++  **Workload Identity** : `arn:aws:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/default/workload-identity/${workload identity name}` 
++  **OAuth2 Credential Provider** : `arn:aws:bedrock-agentcore:${Region}:${Account}:token-vault/default/oauth2credentialprovider/${oauth2CredentialProviderName}` 
++  **API Key Credential Provider** : `arn:${Partition}:bedrock-agentcore:${Region}:${Account}:token-vault/default/apikeycredentialprovider/${APIkeyCredentialproviderName}` 
 
 ## Tagging support matrix
+<a name="identity-tagging-support"></a>
 
 The following table shows the tagging capabilities for each AgentCore Identity resource type:
 
-| Resource Type               | Tag on Create | Basic Tagging | TBAC Support |
-| --------------------------- | ------------- | ------------- | ------------ |
-| Workload Identity           | ✅            | ✅            | ✅           |
-| OAuth2 Credential Provider  | ✅            | ✅            | ✅           |
-| API Key Credential Provider | ✅            | ✅            | ✅           |
-| Workload Identity Directory | ❌            | ✅            | ✅           |
-| Token Vault                 | ❌            | ✅            | ✅           |
 
-###### Note
+| Resource Type | Tag on Create | Basic Tagging | TBAC Support | 
+| --- | --- | --- | --- | 
+| Workload Identity | ✅ | ✅ | ✅ | 
+| OAuth2 Credential Provider | ✅ | ✅ | ✅ | 
+| API Key Credential Provider | ✅ | ✅ | ✅ | 
+| Workload Identity Directory | ❌ | ✅ | ✅ | 
+| Token Vault | ❌ | ✅ | ✅ | 
 
+**Note**  
 TBAC (Tag-Based Access Control) support means you can use resource tags in IAM policy conditions to control access to these resources.

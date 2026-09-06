@@ -1,26 +1,28 @@
+
+
 # Getting started with batch evaluation
+<a name="batch-evaluations-getting-started"></a>
 
 This walkthrough takes you from a deployed agent to batch evaluation results using an Acme Store customer support agent. You will create the agent, deploy it, generate sample sessions, run a batch evaluation, and read the results.
 
-###### Topics
-
-- [Before you begin](#batch-gs-before-you-begin "#batch-gs-before-you-begin")
-- [Step 1: Create and deploy the sample agent](#batch-gs-step1 "#batch-gs-step1")
-- [Step 2: Generate sample sessions](#batch-gs-step2 "#batch-gs-step2")
-- [Step 3: Run batch evaluation](#batch-gs-step3 "#batch-gs-step3")
-- [Step 4: Read per-session detail](#batch-gs-step4 "#batch-gs-step4")
-- [Next steps](#batch-gs-next-steps "#batch-gs-next-steps")
+**Topics**
++ [Before you begin](#batch-gs-before-you-begin)
++ [Step 1: Create and deploy the sample agent](#batch-gs-step1)
++ [Step 2: Generate sample sessions](#batch-gs-step2)
++ [Step 3: Run batch evaluation](#batch-gs-step3)
++ [Step 4: Read per-session detail](#batch-gs-step4)
++ [Next steps](#batch-gs-next-steps)
 
 ## Before you begin
+<a name="batch-gs-before-you-begin"></a>
 
 Make sure you have:
++ The AgentCore CLI installed (`agentcore --version`)
++  AWS credentials with permissions for `bedrock-agentcore` and `logs` 
++ Transaction Search enabled in CloudWatch
++ Python 3.10\+ (for boto3 examples)
 
-- The AgentCore CLI installed (`agentcore --version`)
-- AWS credentials with permissions for `bedrock-agentcore` and `logs`
-- Transaction Search enabled in CloudWatch
-- Python 3.10+ (for boto3 examples)
-
-For full details, see [Prerequisites](batch-evaluations-prereqs.md "batch-evaluations-prereqs.md").
+For full details, see [Prerequisites](batch-evaluations-prereqs.md).
 
 The following constants are used in the boto3 examples. Replace them with your own values after deploying the agent:
 
@@ -32,10 +34,12 @@ LOG_GROUP    = "/aws/bedrock-agentcore/runtimes/AcmeSupport-abc123-DEFAULT"
 ```
 
 ## Step 1: Create and deploy the sample agent
+<a name="batch-gs-step1"></a>
 
 Create an AgentCore project and replace the default agent code with the Acme Store customer support agent. This agent has five tools for handling orders, returns, shipping, discounts, and escalations.
 
 ### Create the project
+<a name="batch-gs-step1a"></a>
 
 ```
 agentcore create --name AcmeSupport --framework Strands --model-provider Bedrock --memory none
@@ -43,6 +47,7 @@ cd AcmeSupport
 ```
 
 ### Replace the agent code
+<a name="batch-gs-step1b"></a>
 
 Open `app/AcmeSupport/main.py` and replace its contents with the following:
 
@@ -164,6 +169,7 @@ if __name__ == "__main__":
 ```
 
 ### Deploy and verify
+<a name="batch-gs-step1c"></a>
 
 ```
 agentcore deploy
@@ -177,17 +183,15 @@ agentcore invoke --prompt "What's the status of order ORD-1001?"
 
 You should see a response with the order details. Note the runtime ARN, service name, and log group from `agentcore status --json` — you will need these for the boto3 examples.
 
-###### Note
-
+**Note**  
 If you already have an agent deployed on AgentCore Runtime with observability enabled, skip this step and use your own agent for the rest of the walkthrough.
 
 ## Step 2: Generate sample sessions
+<a name="batch-gs-step2"></a>
 
 Invoke the agent with varied prompts to create sessions for evaluation. These prompts cover different scenarios: order lookups, returns, shipping delays, discount requests, and multi-tool interactions.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore invoke --runtime AcmeSupport --prompt "What's the status of my order ORD-1001?"
@@ -201,8 +205,6 @@ agentcore invoke --runtime AcmeSupport --prompt "Where is my order ORD-1002? It 
 agentcore invoke --runtime AcmeSupport --prompt "ORD-1003 is really late, I want a discount."
 agentcore invoke --runtime AcmeSupport --prompt "Can you check order ORD-1001 and tell me when it was delivered?"
 ```
-
-AWS SDK (boto3)
 
 ```
 import boto3
@@ -242,12 +244,11 @@ print("\nAll sessions created.")
 Wait 2–3 minutes after the last invocation for CloudWatch to ingest the telemetry before proceeding.
 
 ## Step 3: Run batch evaluation
+<a name="batch-gs-step3"></a>
 
 Start a batch evaluation to score all recent sessions. The service discovers sessions from CloudWatch Logs, runs each evaluator against each session, and returns aggregate results.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 ```
 agentcore run batch-evaluation \
@@ -255,8 +256,7 @@ agentcore run batch-evaluation \
   --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
   --wait
 ```
-
-By default, `agentcore run batch-evaluation` starts the job and returns immediately (without blocking). Pass `--wait` to block until the job reaches a terminal state. With `--wait`, the CLI resolves the CloudWatch log group and service name from your project configuration, starts the job, blocks until it reaches a terminal state, and then prints per-evaluator average scores:
+By default, `agentcore run batch-evaluation` starts the job and returns immediately (without blocking). Pass `--wait` to block until the job reaches a terminal state. With `--wait`, the CLI resolves the CloudWatch log group and service name from your project configuration, starts the job, blocks until it reaches a terminal state, and then prints per-evaluator average scores:  
 
 ```
 Batch evaluation completed: acme-eval-a1b2c3d4
@@ -271,8 +271,7 @@ Builtin.Faithfulness                0.8500
 
 Results saved to .cli/jobs/batch-eval-results/
 ```
-
-Add `--json` to emit machine-readable results (including `batchEvaluationId` and the per-evaluator `averageScore`) for scripting, and `-n <name>` to label the run so you can compare results across runs. For example:
+Add `--json` to emit machine-readable results (including `batchEvaluationId` and the per-evaluator `averageScore`) for scripting, and `-n <name>` to label the run so you can compare results across runs. For example:  
 
 ```
 agentcore run batch-evaluation \
@@ -281,8 +280,6 @@ agentcore run batch-evaluation \
   -n acme_baseline \
   --wait
 ```
-
-AWS SDK (boto3)
 
 ```
 import boto3
@@ -326,13 +323,12 @@ print(json.dumps(result, indent=4, default=str))
 ```
 
 ## Step 4: Read per-session detail
+<a name="batch-gs-step4"></a>
 
 The aggregate scores tell you the overall picture. To see per-turn, per-evaluator scores for individual sessions, use the built-in CLI viewing commands or read the evaluation events directly from CloudWatch Logs.
 
-###### Example
-
-AgentCore CLI
-The CLI provides first-class commands to view completed batch evaluation jobs and their results. View a specific job by its batch evaluation job ID, or list past jobs:
+**Example**  
+The CLI provides first-class commands to view completed batch evaluation jobs and their results. View a specific job by its batch evaluation job ID, or list past jobs:  
 
 ```
 # View a batch evaluation job and its results
@@ -341,10 +337,7 @@ agentcore view batch-evaluation acme-eval-a1b2c3d4
 # List batch evaluation jobs
 agentcore batch-evaluations history
 ```
-
 These commands run interactively when no flags are given. Add `--json` for non-interactive, machine-readable output, for example `agentcore view batch-evaluation acme-eval-a1b2c3d4 --json`.
-
-AWS SDK (boto3)
 
 ```
 # Get the output location from the batch evaluation result
@@ -368,7 +361,7 @@ for event in response["events"]:
 ```
 
 ## Next steps
-
-- **Filter sessions** — Evaluate specific sessions by ID or time range. See [Start a batch evaluation](batch-evaluations-start.md "batch-evaluations-start.md").
-- **Run against a dataset** — Invoke your agent against predefined scenarios and evaluate the results automatically. See [Dataset evaluation](dataset-evaluations.md "dataset-evaluations.md").
-- **Compare runs** — Run batch evaluation before and after a change and compare scores. See [Understanding results and output](batch-evaluations-results.md "batch-evaluations-results.md").
+<a name="batch-gs-next-steps"></a>
++  **Filter sessions** — Evaluate specific sessions by ID or time range. See [Start a batch evaluation](batch-evaluations-start.md).
++  **Run against a dataset** — Invoke your agent against predefined scenarios and evaluate the results automatically. See [Dataset evaluation](dataset-evaluations.md).
++  **Compare runs** — Run batch evaluation before and after a change and compare scores. See [Understanding results and output](batch-evaluations-results.md).

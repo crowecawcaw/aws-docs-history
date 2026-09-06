@@ -1,4 +1,7 @@
+
+
 # Client authentication methods
+<a name="client-auth-methods"></a>
 
 Client authentication method controls how the OAuth client authenticates with the authorization server’s token endpoint when requesting access tokens.
 
@@ -7,29 +10,37 @@ For provider-specific credential providers, AgentCore Identity manages the clien
 For use cases that require finer-grained control — such as authenticating with an IAM-signed JWT assertion instead of a client secret, or targeting an authorization server whose requirements differ from a built-in vendor — use the custom provider, which allows you to choose from the supported methods below.
 
 ## Supported client authentication methods
+<a name="_supported_client_authentication_methods"></a>
 
 AgentCore Identity supports the following values for client authentication method.
 
-1. **`CLIENT_SECRET_BASIC`** (default) — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) using the HTTP Basic authentication scheme. Both client ID and client secret are required.
-2. **`CLIENT_SECRET_POST`** — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) by including the client credentials in the request body. Both client ID and client secret are required.
-3. **`AWS_IAM_ID_TOKEN_JWT`** — Authenticates to the authorization server’s token endpoint by sending an AWS IAM-signed JWT assertion for the agent’s execution role (obtained via [sts:GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md")) as client assertion, per RFC 7523, Section 2.2. The authorization server must support this mechanism and trust AWS IAM as an issuer. When this method is selected, client secret is not required, and client ID is only required for the user-delegated access flow ([User-delegated access (OAuth 2.0 authorization code grant)](common-use-cases.md#user-delegated-access "common-use-cases.md#user-delegated-access")). To use `AWS_IAM_ID_TOKEN_JWT` as client authentication method, here are the prerequisites:
+1.  ** `CLIENT_SECRET_BASIC` ** (default) — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) using the HTTP Basic authentication scheme. Both client ID and client secret are required.
 
-   1. Outbound web identity federation must be enabled on your account. Enable it with [iam:EnableOutboundWebIdentityFederation](../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md "../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md").
-   2. The calling AWS IAM identity must have permission to call [sts:GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md").
+1.  ** `CLIENT_SECRET_POST` ** — Clients that have received a client secret value from the authorization server authenticate with the authorization server in accordance with Section 2.3.1 of OAuth 2.0 (RFC 6749) by including the client credentials in the request body. Both client ID and client secret are required.
 
-4. **`PRIVATE_KEY_JWT`** Authenticates to the authorization server’s token endpoint by sending a short-lived JWT client assertion. AgentCore Identity builds and signs the assertion with a customer-managed AWS KMS asymmetric key via `kms:Sign`, per RFC 7523, Section 2.2. The private key never leaves KMS. The authorization server validates the assertion against the public key you registered. When you select this method, no client secret is required. A client ID is required for all flows. To use `PRIVATE_KEY_JWT` as the client authentication method, satisfy the following prerequisites:
+1.  ** `AWS_IAM_ID_TOKEN_JWT` ** — Authenticates to the authorization server’s token endpoint by sending an AWS IAM-signed JWT assertion for the agent’s execution role (obtained via [sts:GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html)) as client assertion, per RFC 7523, Section 2.2. The authorization server must support this mechanism and trust AWS IAM as an issuer. When this method is selected, client secret is not required, and client ID is only required for the user-delegated access flow ([User-delegated access (OAuth 2.0 authorization code grant)](common-use-cases.md#user-delegated-access)). To use `AWS_IAM_ID_TOKEN_JWT` as client authentication method, here are the prerequisites:
 
-   1. An asymmetric signing key in AWS KMS with key usage `SIGN_VERIFY`, with an appropriate key policy and a key spec compatible with your chosen signing algorithm (see [Private Key JWT](private-key-jwt.md "private-key-jwt.md") for the algorithm-to-key-spec table).
-   2. The AgentCore Identity execution role (or calling identity) must have `kms:DescribeKey` and `kms:Sign` permissions on the KMS key.
-   3. The identity provider’s authorization server must support Private Key JWT client authentication, and the corresponding public key must be registered with their authorization server.
+   1. Outbound web identity federation must be enabled on your account. Enable it with [iam:EnableOutboundWebIdentityFederation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.html).
+
+   1. The calling AWS IAM identity must have permission to call [sts:GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html).
+
+1.  ** `PRIVATE_KEY_JWT` ** Authenticates to the authorization server’s token endpoint by sending a short-lived JWT client assertion. AgentCore Identity builds and signs the assertion with a customer-managed AWS KMS asymmetric key via `kms:Sign`, per RFC 7523, Section 2.2. The private key never leaves KMS. The authorization server validates the assertion against the public key you registered. When you select this method, no client secret is required. A client ID is required for all flows. To use `PRIVATE_KEY_JWT` as the client authentication method, satisfy the following prerequisites:
+
+   1. An asymmetric signing key in AWS KMS with key usage `SIGN_VERIFY`, with an appropriate key policy and a key spec compatible with your chosen signing algorithm (see [Private Key JWT](private-key-jwt.md) for the algorithm-to-key-spec table).
+
+   1. The AgentCore Identity execution role (or calling identity) must have `kms:DescribeKey` and `kms:Sign` permissions on the KMS key.
+
+   1. The identity provider’s authorization server must support Private Key JWT client authentication, and the corresponding public key must be registered with their authorization server.
 
 ## How to configure client authentication method
+<a name="_how_to_configure_client_authentication_method"></a>
 
 Configuring client authentication method for CustomOauth2
 
-To configure client authentication method for custom provider on AWS Console, see [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md"). You can also configure it using CLI.
+To configure client authentication method for custom provider on AWS Console, see [Add OAuth client using custom provider](identity-add-oauth-client-custom.md). You can also configure it using CLI.
 
 ### CLI example: using `CLIENT_SECRET_BASIC` as client authentication method
+<a name="_cli_example_using_client_secret_basic_as_client_authentication_method"></a>
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -50,6 +61,7 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
 ```
 
 ### CLI example: using `AWS_IAM_ID_TOKEN_JWT` as client authentication method
+<a name="_cli_example_using_aws_iam_id_token_jwt_as_client_authentication_method"></a>
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -69,6 +81,7 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
 ```
 
 ### CLI example: Using `PRIVATE_KEY_JWT` as client authentication method
+<a name="_cli_example_using_private_key_jwt_as_client_authentication_method"></a>
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -95,9 +108,9 @@ aws bedrock-agentcore-control create-oauth2-credential-provider \
   }'
 ```
 
-For more information about the full configuration reference, including KMS key setup, cross-account support, and signing algorithm options, see [Private Key JWT](private-key-jwt.md "private-key-jwt.md").
+For more information about the full configuration reference, including KMS key setup, cross-account support, and signing algorithm options, see [Private Key JWT](private-key-jwt.md).
 
 ## Notice
+<a name="_notice"></a>
 
-The [`tokenEndpointAuthMethods`](../../../bedrock-agentcore-control/latest/APIReference/API_Oauth2AuthorizationServerMetadata.md "../../../bedrock-agentcore-control/latest/APIReference/API_Oauth2AuthorizationServerMetadata.md") field is not recommended in favor of client authentication method but maintained for backward compatibility in CLI and SDK.
-Providing both in the same request will result in a validation error.
+The [`tokenEndpointAuthMethods`](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_Oauth2AuthorizationServerMetadata.html) field is not recommended in favor of client authentication method but maintained for backward compatibility in CLI and SDK. Providing both in the same request will result in a validation error.

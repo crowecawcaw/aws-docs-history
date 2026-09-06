@@ -1,28 +1,26 @@
+
+
 # Get recommendation
+<a name="recommendations-get"></a>
 
 Retrieve the status and results of a recommendation. Poll this operation until the recommendation reaches a terminal state (`COMPLETED` or `FAILED`).
 
 ## Code samples
+<a name="get-rec-examples"></a>
 
-###### Example
-
-AgentCore CLI
-
-`agentcore run recommendation` submits a fire-and-forget job. Pass `--wait` to block until it reaches a terminal state, or check on it later by ID:
+**Example**  
+ `agentcore run recommendation` submits a fire-and-forget job. Pass `--wait` to block until it reaches a terminal state, or check on it later by ID:  
 
 ```
 agentcore view recommendation <recommendation-id>
 ```
-
-List all recommendation jobs, or view as JSON:
+List all recommendation jobs, or view as JSON:  
 
 ```
 agentcore view recommendation
 agentcore view recommendation <recommendation-id> --json
 ```
-
-AWS SDK (boto3)
-Poll until completion and extract the result:
+Poll until completion and extract the result:  
 
 ```
 import time
@@ -67,8 +65,7 @@ elif status == "FAILED":
     r = rec_result.get("systemPromptRecommendationResult") or rec_result.get("toolDescriptionRecommendationResult")
     print(f"Error: [{r['errorCode']}] {r['errorMessage']}")
 ```
-
-Extract configuration bundle reference for use in A/B testing:
+Extract configuration bundle reference for use in A/B testing:  
 
 ```
 result = client.get_recommendation(recommendationId=recommendation_id)
@@ -84,49 +81,58 @@ if result["status"] == "COMPLETED":
 ```
 
 ## Request parameters
+<a name="get-rec-params"></a>
 
-| Parameter          | Type   | Required | Description                                                                          |
-| ------------------ | ------ | -------- | ------------------------------------------------------------------------------------ |
-| `recommendationId` | String | Yes      | The recommendation ID returned by `StartRecommendation`. Passed as a path parameter. |
+
+| Parameter | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  `recommendationId`  | String | Yes | The recommendation ID returned by `StartRecommendation`. Passed as a path parameter. | 
 
 ## Response
+<a name="get-rec-response"></a>
 
-| Field                  | Type      | Description                                                                                                             |
-| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `recommendationId`     | String    | Unique identifier for the recommendation.                                                                               |
-| `recommendationArn`    | String    | ARN of the recommendation.                                                                                              |
-| `name`                 | String    | The recommendation name.                                                                                                |
-| `type`                 | String    | `SYSTEM_PROMPT_RECOMMENDATION` or `TOOL_DESCRIPTION_RECOMMENDATION`.                                                    |
-| `status`               | String    | Current status: `PENDING`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, or `DELETING`.                                         |
-| `recommendationConfig` | Object    | The configuration you submitted.                                                                                        |
-| `recommendationResult` | Object    | Present when status is `COMPLETED`. Contains the optimized configuration. The shape depends on the recommendation type. |
-| `createdAt`            | Timestamp | When the recommendation was created.                                                                                    |
-| `updatedAt`            | Timestamp | When the recommendation was last updated.                                                                               |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `recommendationId`  | String | Unique identifier for the recommendation. | 
+|  `recommendationArn`  | String | ARN of the recommendation. | 
+|  `name`  | String | The recommendation name. | 
+|  `type`  | String |  `SYSTEM_PROMPT_RECOMMENDATION` or `TOOL_DESCRIPTION_RECOMMENDATION`. | 
+|  `status`  | String | Current status: `PENDING`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, or `DELETING`. | 
+|  `recommendationConfig`  | Object | The configuration you submitted. | 
+|  `recommendationResult`  | Object | Present when status is `COMPLETED`. Contains the optimized configuration. The shape depends on the recommendation type. | 
+|  `createdAt`  | Timestamp | When the recommendation was created. | 
+|  `updatedAt`  | Timestamp | When the recommendation was last updated. | 
 
 ### System prompt result fields
+<a name="get-rec-result-sysprompt"></a>
 
 Present in `recommendationResult.systemPromptRecommendationResult` when type is `SYSTEM_PROMPT_RECOMMENDATION`:
 
-| Field                     | Type   | Description                                                                                                         |
-| ------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| `recommendedSystemPrompt` | String | The optimized system prompt text.                                                                                   |
-| `configurationBundle`     | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. |
-| `explanation`             | String | An explanation of why the recommendation was generated and the reasoning behind the suggested changes.              |
-| `errorCode`               | String | Present on failure. Error code.                                                                                     |
-| `errorMessage`            | String | Present on failure. Human-readable description.                                                                     |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `recommendedSystemPrompt`  | String | The optimized system prompt text. | 
+|  `configurationBundle`  | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. | 
+|  `explanation`  | String | An explanation of why the recommendation was generated and the reasoning behind the suggested changes. | 
+|  `errorCode`  | String | Present on failure. Error code. | 
+|  `errorMessage`  | String | Present on failure. Human-readable description. | 
 
 ### Tool description result fields
+<a name="get-rec-result-tooldesc"></a>
 
 Present in `recommendationResult.toolDescriptionRecommendationResult` when type is `TOOL_DESCRIPTION_RECOMMENDATION`:
 
-| Field                 | Type   | Description                                                                                                         |
-| --------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| `tools`               | List   | Per-tool results. Each entry contains `toolName`, `recommendedToolDescription`, and `explanation`.                  |
-| `configurationBundle` | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. |
-| `errorCode`           | String | Present on failure. Error code.                                                                                     |
-| `errorMessage`        | String | Present on failure. Human-readable description.                                                                     |
+
+| Field | Type | Description | 
+| --- | --- | --- | 
+|  `tools`  | List | Per-tool results. Each entry contains `toolName`, `recommendedToolDescription`, and `explanation`. | 
+|  `configurationBundle`  | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. | 
+|  `errorCode`  | String | Present on failure. Error code. | 
+|  `errorMessage`  | String | Present on failure. Human-readable description. | 
 
 ## Example responses
+<a name="get-rec-example-responses"></a>
 
 Completed system prompt recommendation (inline input):
 
@@ -227,11 +233,13 @@ Failed recommendation:
 ```
 
 ## Errors
+<a name="get-rec-errors"></a>
 
-| Error                       | HTTP status | Description                                    |
-| --------------------------- | ----------- | ---------------------------------------------- |
-| `ResourceNotFoundException` | 404         | No recommendation found with the specified ID. |
-| `ValidationException`       | 400         | Invalid recommendation ID format.              |
-| `AccessDeniedException`     | 403         | Insufficient permissions.                      |
-| `ThrottlingException`       | 429         | Request rate exceeded.                         |
-| `InternalServerException`   | 500         | Service-side error.                            |
+
+| Error | HTTP status | Description | 
+| --- | --- | --- | 
+|  `ResourceNotFoundException`  | 404 | No recommendation found with the specified ID. | 
+|  `ValidationException`  | 400 | Invalid recommendation ID format. | 
+|  `AccessDeniedException`  | 403 | Insufficient permissions. | 
+|  `ThrottlingException`  | 429 | Request rate exceeded. | 
+|  `InternalServerException`  | 500 | Service-side error. | 

@@ -1,12 +1,17 @@
+
+
 # System prompt for summary strategy
+<a name="memory-summary-prompt"></a>
 
 The semantic strategy includes instructions and an output schema in the default system prompt for a single consolidation step.
 
 ## Consolidation instructions
+<a name="consolidation-instructions"></a>
 
 There are no consolidation instructions for built-in summary strategy.
 
 ## Consolidation output schema
+<a name="consolidation-output-schema"></a>
 
 ```
 You are a summary generator. You will be given a text block, a concise global summary, and detailed summaries you previously generated.
@@ -76,8 +81,7 @@ The XML format of each summary is as it follows. Begin your response with a <lan
 </detailed_delta_summary>
 ```
 
-###### Note
-
+**Note**  
 Built-in strategies may use cross-region inference for optimal performance and availability.
 
-Built-in strategies may use [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") . Bedrock will automatically select the optimal region within your geography to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience. There’s no additional cost for using cross-region inference.
+Built-in strategies may use [cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) . Bedrock will automatically select the optimal region within your geography to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience. There’s no additional cost for using cross-region inference.

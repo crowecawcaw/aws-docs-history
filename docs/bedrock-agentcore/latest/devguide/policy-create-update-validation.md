@@ -1,17 +1,22 @@
+
+
 # Policy create and update: per-policy engine validation
+<a name="policy-create-update-validation"></a>
 
 When creating or updating policies directly (not through generation), validation and analysis takes into account the new policy as well as its interactions with **all preexisting policies** in the policy engine.
 
 ## How it works
+<a name="policy-create-update-validation-how"></a>
 
 1. The policy is checked against the Cedar schema for **all gateways** associated with the policy engine. Schema checks always run regardless of the validation mode.
-2. If the validation mode is set to `FAIL_ON_ANY_FINDINGS`, semantic validation runs in the context of the **entire policy engine**, checking for overly permissive, overly restrictive, and ineffective policies. If either schema checks or semantic validation produces findings, the policy is rejected. For details on each check, see [Validation and analysis overview](policy-validation-overview.md "policy-validation-overview.md").
 
-###### Note
+1. If the validation mode is set to `FAIL_ON_ANY_FINDINGS`, semantic validation runs in the context of the **entire policy engine**, checking for overly permissive, overly restrictive, and ineffective policies. If either schema checks or semantic validation produces findings, the policy is rejected. For details on each check, see [Validation and analysis overview](policy-validation-overview.md).
 
-With `IGNORE_ALL_FINDINGS`, only schema checks run. Policies are accepted as long as they pass the schema checks. For more information, see [Add policies to the Policy Engine](add-policies-to-engine.md "add-policies-to-engine.md").
+**Note**  
+With `IGNORE_ALL_FINDINGS`, only schema checks run. Policies are accepted as long as they pass the schema checks. For more information, see [Add policies to the Policy Engine](add-policies-to-engine.md).
 
 ## Example: Create a policy with validation
+<a name="policy-create-validation-example"></a>
 
 Create a policy with strict validation that rejects policies with any findings:
 
@@ -55,6 +60,7 @@ When validation passes, the policy becomes active:
 ```
 
 ## Example: Validation failure
+<a name="policy-validation-failure-example"></a>
 
 If a policy references an action that doesn’t exist in any associated gateway’s schema, validation fails:
 

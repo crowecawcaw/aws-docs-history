@@ -1,47 +1,51 @@
+
+
 # Getting started with on-demand evaluation
+<a name="getting-started-on-demand"></a>
 
 Follow these steps to set up and run your first on-demand evaluation.
 
-###### Topics
-
-- [Prerequisites](#prerequisites-on-demand "#prerequisites-on-demand")
-- [Supported frameworks](#supported-frameworks-on-demand "#supported-frameworks-on-demand")
-- [Step 1: Create and deploy your agent](#create-deploy-agent-on-demand "#create-deploy-agent-on-demand")
-- [Step 2: Invoke your agent](#invoke-agent-on-demand "#invoke-agent-on-demand")
-- [Step 3: Evaluate agent](#evaluate-agent-on-demand "#evaluate-agent-on-demand")
-- [Step 4: Evaluation results](#evaluation-results-on-demand "#evaluation-results-on-demand")
+**Topics**
++ [Prerequisites](#prerequisites-on-demand)
++ [Supported frameworks](#supported-frameworks-on-demand)
++ [Step 1: Create and deploy your agent](#create-deploy-agent-on-demand)
++ [Step 2: Invoke your agent](#invoke-agent-on-demand)
++ [Step 3: Evaluate agent](#evaluate-agent-on-demand)
++ [Step 4: Evaluation results](#evaluation-results-on-demand)
 
 ## Prerequisites
+<a name="prerequisites-on-demand"></a>
 
 To use AgentCore Evaluations OnDemand Evaluation features, you need:
-
-- **AWS Account** with appropriate IAM permissions
-- **Amazon Bedrock** access with model invocation permissions
-- **Transaction Search** enabled in CloudWatch - see [Enable Transaction Search](../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md")
-- **Python 3.10** or later installed
-- **The OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your `requirements.txt` file
++  ** AWS Account** with appropriate IAM permissions
++  **Amazon Bedrock** access with model invocation permissions
++  **Transaction Search** enabled in CloudWatch - see [Enable Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.html) 
++  **Python 3.10** or later installed
++  **The OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your `requirements.txt` file
 
 ## Supported frameworks
+<a name="supported-frameworks-on-demand"></a>
 
-Build your agent with a framework and instrumentation library that AgentCore Evaluations supports. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md "supported-frameworks.md").
+Build your agent with a framework and instrumentation library that AgentCore Evaluations supports. For more information about supported frameworks and instrumentation libraries, see [Supported agent frameworks](supported-frameworks.md).
 
 ## Step 1: Create and deploy your agent
+<a name="create-deploy-agent-on-demand"></a>
 
-###### Note
-
+**Note**  
 If you have an agent already up and running in AgentCore Runtime, you can directly move to step 2
 
-Create and deploy your agent by following the [Get Started guide for AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md") . You can find additional examples in the [AgentCore Evaluations Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate").
+Create and deploy your agent by following the [Get Started guide for AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html) . You can find additional examples in the [AgentCore Evaluations Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate).
 
 ## Step 2: Invoke your agent
+<a name="invoke-agent-on-demand"></a>
 
 Invoke your agent using the following command and view the traces, sessions and metrics on GenAI Observability dashboard on CloudWatch.
 
-###### Topics
-
-- [Example invoke\_agent.py](#example-invoke-agent "#example-invoke-agent")
+**Topics**
++ [Example invoke\_agent.py](#example-invoke-agent)
 
 ### Example invoke\_agent.py
+<a name="example-invoke-agent"></a>
 
 ```
 import boto3
@@ -76,124 +80,105 @@ print("SessionId:", session_id)
 ```
 
 ## Step 3: Evaluate agent
+<a name="evaluate-agent-on-demand"></a>
 
 Once you have made a few invocations to your agent, you are ready to evaluate it. For evaluations we require:
++  `EvaluatorId` : this can be the id for either a builtin evaluator or a custom created one
++  `SessionSpans` : spans are the telemetry blocks emitted when you interact with an application. The application in our example is an agent hosted on AgentCore Runtime.
+  + For on-demand evaluation, we need to download the spans from CloudWatch log groups and use them for evaluation.
+  +  **AgentCore CLI** does this for you automatically and is the easiest to get started with.
+  + If you are not using the AgentCore CLI, we will show how to download logs using session-id and use them for evaluation using the AWS SDK.
 
-- `EvaluatorId` : this can be the id for either a builtin evaluator or a custom created one
-- `SessionSpans` : spans are the telemetry blocks emitted when you interact with an application. The application in our example is an agent hosted on AgentCore Runtime.
-
-  - For on-demand evaluation, we need to download the spans from CloudWatch log groups and use them for evaluation.
-  - **AgentCore CLI** does this for you automatically and is the easiest to get started with.
-  - If you are not using the AgentCore CLI, we will show how to download logs using session-id and use them for evaluation using the AWS SDK.
-
-###### Topics
-
-- [Code samples for AgentCore CLI and AgentCore SDK](#agentcore-cli-evaluation "#agentcore-cli-evaluation")
-- [AWS SDK](#aws-sdk-evaluation "#aws-sdk-evaluation")
+**Topics**
++ [Code samples for AgentCore CLI and AgentCore SDK](#agentcore-cli-evaluation)
++ [AWS SDK](#aws-sdk-evaluation)
 
 ### Code samples for AgentCore CLI and AgentCore SDK
+<a name="agentcore-cli-evaluation"></a>
 
 The following code samples demonstrate how to run on-demand evaluations using different development approaches. Choose the method that best fits your development environment and preferences.
 
-###### Example
+**Example**  
 
-AgentCore CLI
-
-1. ```
+1. 
 
    ```
+   # Runs evaluation for the specified runtime and session.
+   # It auto queries cloudwatch logs and orchestrates evaluation over multiple evaluators.
+   
+   RUNTIME_NAME="your_runtime_name"
+   SESSION_ID="YOUR_SESSION_ID"
+   agentcore run eval \
+     --runtime $RUNTIME_NAME \
+     --session-id $SESSION_ID \
+     --evaluator "Builtin.Helpfulness" \
+     --evaluator "Builtin.GoalSuccessRate"
+   
+   # Auto reads default runtime from current project config if available
+   # Verify using ```agentcore status```
+   agentcore run eval \
+     --evaluator "Builtin.Helpfulness" \
+     --evaluator "Builtin.GoalSuccessRate"
+   ```
 
-# Runs evaluation for the specified runtime and session.
-
-# It auto queries cloudwatch logs and orchestrates evaluation over multiple evaluators.
-
-RUNTIME_NAME="your_runtime_name"
-SESSION_ID="YOUR_SESSION_ID"
-agentcore run eval \
---runtime $RUNTIME_NAME \
-  --session-id $SESSION_ID \
---evaluator "Builtin.Helpfulness" \
---evaluator "Builtin.GoalSuccessRate"
-
-# Auto reads default runtime from current project config if available
-
-# Verify using `agentcore status`
-
-agentcore run eval \
---evaluator "Builtin.Helpfulness" \
---evaluator "Builtin.GoalSuccessRate"
-
-````
-
-Results are saved locally and can be reviewed later with `agentcore evals history` . In interactive mode, the CLI automatically discovers recent sessions from CloudWatch — you don’t need to know session IDs in advance.
-
-
-###### Note
-
+   Results are saved locally and can be reviewed later with `agentcore evals history` . In interactive mode, the CLI automatically discovers recent sessions from CloudWatch — you don’t need to know session IDs in advance.
+**Note**  
 Run this from inside an AgentCore project directory (created with `agentcore create` ). The `--agent-arn` flag can be used outside a project directory.
 
-
-Interactive
-
 1. Run `agentcore` to open the TUI, then select **run** and choose **On-demand Evaluation** :
-2. Select evaluators to run against agent traces:
 
+1. Select evaluators to run against agent traces:  
+![On-demand evaluation: select evaluators](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-evaluators.png)
 
+1. Review the configuration and press Enter to confirm:  
+![On-demand evaluation: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-confirm.png)
 
-![On-demand evaluation: select evaluators](images/tui/eval-run-evaluators.png)
-3. Review the configuration and press Enter to confirm:
+1. 
 
-
-
-![On-demand evaluation: review configuration](images/tui/eval-run-confirm.png)
-
-
-AgentCore SDK
-
-1. ```
-from bedrock_agentcore_starter_toolkit import Evaluation
-
-# Initialize the evaluation client
-eval_client = Evaluation()
-
-# Run evaluation on a specific session
-results = eval_client.run(
-    agent_id="YOUR_AGENT_ID",      # Replace with your agent ID
-    session_id="YOUR_SESSION_ID",  # Replace with your session ID
-    evaluators=["Builtin.Helpfulness", "Builtin.GoalSuccessRate"]
-)
-
-# Display results
-successful = results.get_successful_results()
-failed = results.get_failed_results()
-
-print(f"  Successful: {len(successful)}")
-print(f"  Failed:     {len(failed)}")
-
-if successful:
-    result = successful[0]
-    print("\n📊 Result:")
-    print(f"  Evaluator: {result.evaluator_name}")
-    print(f"  Score:     {result.value:.2f}")
-    print(f"  Label:     {result.label}")
-    if result.explanation:
-        print(f"  Explanation: {result.explanation[:150]}...")
-````
+   ```
+   from bedrock_agentcore_starter_toolkit import Evaluation
+   
+   # Initialize the evaluation client
+   eval_client = Evaluation()
+   
+   # Run evaluation on a specific session
+   results = eval_client.run(
+       agent_id="YOUR_AGENT_ID",      # Replace with your agent ID
+       session_id="YOUR_SESSION_ID",  # Replace with your session ID
+       evaluators=["Builtin.Helpfulness", "Builtin.GoalSuccessRate"]
+   )
+   
+   # Display results
+   successful = results.get_successful_results()
+   failed = results.get_failed_results()
+   
+   print(f"  Successful: {len(successful)}")
+   print(f"  Failed:     {len(failed)}")
+   
+   if successful:
+       result = successful[0]
+       print("\n📊 Result:")
+       print(f"  Evaluator: {result.evaluator_name}")
+       print(f"  Score:     {result.value:.2f}")
+       print(f"  Label:     {result.label}")
+       if result.explanation:
+           print(f"  Explanation: {result.explanation[:150]}...")
+   ```
 
 ### AWS SDK
+<a name="aws-sdk-evaluation"></a>
 
-###### Topics
-
-- [Download span-logs from CloudWatch](#download-span-logs "#download-span-logs")
-- [Call Evaluate](#call-evaluate "#call-evaluate")
-- [Using evaluation targets](#using-evaluation-targets "#using-evaluation-targets")
+**Topics**
++ [Download span-logs from CloudWatch](#download-span-logs)
++ [Call Evaluate](#call-evaluate)
++ [Using evaluation targets](#using-evaluation-targets)
 
 #### Download span-logs from CloudWatch
+<a name="download-span-logs"></a>
 
 Before calling the `Evaluate` API, you need to download the span logs from CloudWatch. You can use the Python code below to do so and optionally save them in a JSON file. This makes it easier to make the request for the same session with different evaluators.
 
-###### Note
-
+**Note**  
 It takes a couple of minutes for logs to get populated in CloudWatch, so its possible that if you try running the below script "immediately" after agent invocation, the logs are empty or incomplete
 
 ```
@@ -268,6 +253,7 @@ with open(session_span_logs_file_name, "w") as f:
 ```
 
 #### Call Evaluate
+<a name="call-evaluate"></a>
 
 Once you have the input spans, you can invoke the `Evaluate` API. Please note that the responses may take a few moments as a large language model is scoring your traces.
 
@@ -301,20 +287,22 @@ print(response["evaluationResults"])
 ```
 
 #### Using evaluation targets
+<a name="using-evaluation-targets"></a>
 
 To evaluate a specific trace or tool within a session, you can specify the target using the `evaluationTarget` parameter in your request.
 
-###### Topics
-
-- [Session-level evaluator](#session-level-evaluator "#session-level-evaluator")
-- [Trace-level evaluator](#trace-level-evaluator "#trace-level-evaluator")
-- [Tool call level evaluator](#tool-call-level-evaluator "#tool-call-level-evaluator")
+**Topics**
++ [Session-level evaluator](#session-level-evaluator)
++ [Trace-level evaluator](#trace-level-evaluator)
++ [Tool call level evaluator](#tool-call-level-evaluator)
 
 ##### Session-level evaluator
+<a name="session-level-evaluator"></a>
 
 Since the service supports only one session per evaluation, you do not need to explicitly set the evaluation target.
 
 ##### Trace-level evaluator
+<a name="trace-level-evaluator"></a>
 
 For trace-level evaluators (such as `Builtin.Helpfulness` or `Builtin.Correctness` ), set the trace IDs in the `evaluationTarget` parameter:
 
@@ -327,6 +315,7 @@ response = ace_dp_client.evaluate(
 ```
 
 ##### Tool call level evaluator
+<a name="tool-call-level-evaluator"></a>
 
 For span-level evaluators (such as `Builtin.ToolSelectionAccuracy` ), set the span IDs in the `evaluationTarget` parameter:
 
@@ -339,6 +328,7 @@ response = ace_dp_client.evaluate(
 ```
 
 ## Step 4: Evaluation results
+<a name="evaluation-results-on-demand"></a>
 
 Each `Evaluate` API call returns a response containing a list of evaluator results. Because a single session can include multiple traces and tool calls, these elements are evaluated as separate entities. Consequently, a single API call may return multiple evaluation results.
 
@@ -348,38 +338,39 @@ Each `Evaluate` API call returns a response containing a list of evaluator resul
 }
 ```
 
-###### Topics
-
-- [Result limit](#result-limit "#result-limit")
-- [Partial failures](#partial-failures "#partial-failures")
-- [Span context](#span-context "#span-context")
-- [Example successful result entry](#example-successful-result "#example-successful-result")
-- [Example failed result entry](#example-failed-result "#example-failed-result")
+**Topics**
++ [Result limit](#result-limit)
++ [Partial failures](#partial-failures)
++ [Span context](#span-context)
++ [Example successful result entry](#example-successful-result)
++ [Example failed result entry](#example-failed-result)
 
 ### Result limit
+<a name="result-limit"></a>
 
 The number of evaluations returned per API call is limited to 10 results. For example, if you evaluate a session containing 15 traces using a trace-level evaluator, the response includes a maximum of 10 results. By default, the API returns the last 10 evaluations, as these typically contain the most context relevant to evaluation quality.
 
 ### Partial failures
+<a name="partial-failures"></a>
 
 An API call may process n evaluations while m of them fail. Failures can occur due to various reasons, including:
-
-- Throttling from model providers
-- Parsing errors
-- Model timeouts
-- Other processing issues
++ Throttling from model providers
++ Parsing errors
++ Model timeouts
++ Other processing issues
 
 In cases of partial failure, the response includes both successful and failed evaluations. Failed results include an error code and error message to help you diagnose the issue.
 
 ### Span context
+<a name="span-context"></a>
 
 Each evaluator result has a `spanContext` field that identifies the entity evaluated:
-
-- For session-level evaluators, only `sessionId` is present.
-- For trace-level evaluators, `sessionId` and `traceId` are present.
-- For tool-level evaluators, `sessionId` , `traceId` , and `spanId` are present.
++ For session-level evaluators, only `sessionId` is present.
++ For trace-level evaluators, `sessionId` and `traceId` are present.
++ For tool-level evaluators, `sessionId` , `traceId` , and `spanId` are present.
 
 ### Example successful result entry
+<a name="example-successful-result"></a>
 
 This is just one entry. If a session has multiple traces, you will see multiple such entries, one for each trace. Similarly for tool-level evaluators, if there are multiple tool calls and a tool evaluator (such as `Builtin.ToolSelectionAccuracy` ) is provided, there will be one result per tool span.
 
@@ -406,6 +397,7 @@ This is just one entry. If a session has multiple traces, you will see multiple 
 ```
 
 ### Example failed result entry
+<a name="example-failed-result"></a>
 
 ```
 {

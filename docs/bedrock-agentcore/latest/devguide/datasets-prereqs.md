@@ -1,18 +1,23 @@
+
+
 # Prerequisites
+<a name="datasets-prereqs"></a>
 
 Before you can manage datasets, make sure the following are in place.
 
 ## AWS credentials and permissions
+<a name="datasets-prereqs-credentials"></a>
 
-AWS credentials configured with permissions for `bedrock-agentcore` dataset operations.
+ AWS credentials configured with permissions for `bedrock-agentcore` dataset operations.
 
 ### Required IAM permissions
+<a name="datasets-prereqs-iam"></a>
 
 The following IAM policy grants the minimum permissions needed to manage datasets:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -36,7 +41,6 @@ The following IAM policy grants the minimum permissions needed to manage dataset
 ```
 
 ## SDK requirements
-
-- **AgentCore SDK:**
-  `pip install bedrock-agentcore` (Python 3.10 or later)
-- **AWS SDK (boto3):** Python 3.10 or later with `boto3` installed
+<a name="datasets-prereqs-sdk"></a>
++  **AgentCore SDK:** `pip install bedrock-agentcore` (Python 3.10 or later)
++  ** AWS SDK (boto3):** Python 3.10 or later with `boto3` installed

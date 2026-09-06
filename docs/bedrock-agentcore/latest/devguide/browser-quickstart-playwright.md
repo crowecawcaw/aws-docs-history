@@ -1,8 +1,11 @@
+
+
 # Using AgentCore Browser with Playwright
+<a name="browser-quickstart-playwright"></a>
 
 You can use the Playwright automation framework with the Browser Tool:
 
-**Step 1: Install dependencies**
+ **Step 1: Install dependencies** 
 
 Create a project folder (if you didn’t create one before) and install the required packages:
 
@@ -13,9 +16,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-###### Note
-
-On Windows, use: `.venv\Scripts\activate`
+**Note**  
+On Windows, use: `.venv\Scripts\activate` 
 
 Install the required packages:
 
@@ -24,17 +26,16 @@ pip install bedrock-agentcore playwright boto3 nest-asyncio
 ```
 
 These packages provide:
++  `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
++  `playwright` : Python library for browser automation
++  `boto3` : AWS SDK for Python (Boto3) to create, configure, and manage AWS services
++  `nest-asyncio` : Allows running asyncio event loops within existing event loops
 
-- `bedrock-agentcore` : The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
-- `playwright` : Python library for browser automation
-- `boto3` : AWS SDK for Python (Boto3) to create, configure, and manage AWS services
-- `nest-asyncio` : Allows running asyncio event loops within existing event loops
-
-**Step 2: Control browser with Playwright**
+ **Step 2: Control browser with Playwright** 
 
 You can use Browser directly without an agent framework or an LLM. This is useful when you want programmatic control over browser automation. Amazon Bedrock AgentCore provides integration with Playwright for browser automation.
 
-**Async Playwright example**
+ **Async Playwright example** 
 
 Create a file named `direct_browser_playwright.py` and add the following code:
 
@@ -86,7 +87,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-**Sync Playwright example with live view**
+ **Sync Playwright example with live view** 
 
 Alternatively, you can use the sync API with integrated live view server:
 
@@ -127,7 +128,7 @@ with sync_playwright() as playwright:
     run(playwright)
 ```
 
-**Run the script**
+ **Run the script** 
 
 Execute either script:
 
@@ -135,14 +136,13 @@ Execute either script:
 python direct_browser_playwright.py
 ```
 
-**Expected output**
+ **Expected output** 
 
 You should see the page title printed (for example, `Page title: What is Amazon Bedrock AgentCore? - Amazon Bedrock AgentCore` ). The script keeps the browser session active for 2 minutes before closing.
 
 Both examples:
-
-- Create a managed browser session using Amazon Bedrock AgentCore Browser
-- Connect to the remote Chrome browser using Playwright’s Chrome DevTools Protocol (CDP)
-- Navigate to AgentCore documentation and print the page title
-- Keep the session alive for 2 minutes, allowing you to view it in the AWS Console
-- Properly close the browser and clean up resources
++ Create a managed browser session using Amazon Bedrock AgentCore Browser
++ Connect to the remote Chrome browser using Playwright’s Chrome DevTools Protocol (CDP)
++ Navigate to AgentCore documentation and print the page title
++ Keep the session alive for 2 minutes, allowing you to view it in the AWS Console
++ Properly close the browser and clean up resources

@@ -1,15 +1,23 @@
+
+
 # Policy generation: per-policy validation
+<a name="policy-generation-validation"></a>
 
 When using the policy authoring service to generate policies from natural language, validation and analysis occur **per individual policy** during generation.
 
 ## How it works
+<a name="policy-generation-validation-how"></a>
 
 1. Natural language is converted to a Cedar policy
-2. Each generated policy is validated against the gateway schema
-3. Analysis runs on each policy individually
-4. Results are available in the generation response
+
+1. Each generated policy is validated against the gateway schema
+
+1. Analysis runs on each policy individually
+
+1. Results are available in the generation response
 
 ## Example: Generate and validate a policy
+<a name="policy-generation-validation-example"></a>
 
 Retrieving generation results is a two-step process: first check the generation status, then list the generated assets to see the policies and their validation findings.
 
@@ -102,6 +110,7 @@ The response includes each generated policy with its Cedar definition and valida
 ```
 
 ## Validation findings per policy
+<a name="policy-generation-findings"></a>
 
 Each generated policy asset includes a `findings` array of `Finding` objects, each with a `type` and `description` . The following examples show different finding types:
 
@@ -144,15 +153,17 @@ A policy that could not be generated from the natural language input:
 ```
 
 ## Common findings for generated policies
+<a name="policy-common-findings"></a>
 
 The following table describes the finding types that can be returned for generated policies:
 
-| Finding type       | Severity | Description                                                                                                                             | Recommended action                                                                                                      |
-| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `VALID`            | Success  | Policy is valid Cedar with no findings. No description is returned for this finding type.                                               | No action required. The policy is ready to use.                                                                         |
-| `INVALID`          | Error    | The generated Cedar policy contains syntax errors or does not comply with the gateway schema.                                           | Review the generated policy for schema violations or syntax issues. Rephrase the natural language input and regenerate. |
-| `NOT_TRANSLATABLE` | Error    | Natural language could not be converted to valid Cedar. The request may include conditions that rely on unsupported data or attributes. | Double check targeted gateway resource for tools definition.                                                            |
-| `ALLOW_ALL`        | Warning  | Permit policy applies to all principal, action, and resource combinations.                                                              | Confirm that unrestricted access is intended. Add conditions to restrict the scope if not.                              |
-| `ALLOW_NONE`       | Warning  | Permit policy is non-determining because it permits nothing.                                                                            | Review the policy conditions. The policy may contain contradictory or unreachable conditions.                           |
-| `DENY_ALL`         | Warning  | Policy denies all actions for all principals.                                                                                           | Confirm that a full deny is intended. This overrides all permit policies due to forbid-overrides-permit semantics.      |
-| `DENY_NONE`        | Warning  | Forbid policy is non-determining because it denies nothing.                                                                             | Review the policy conditions. The forbid policy may contain contradictory or unreachable conditions.                    |
+
+| Finding type | Severity | Description | Recommended action | 
+| --- | --- | --- | --- | 
+|  `VALID`  | Success | Policy is valid Cedar with no findings. No description is returned for this finding type. | No action required. The policy is ready to use. | 
+|  `INVALID`  | Error | The generated Cedar policy contains syntax errors or does not comply with the gateway schema. | Review the generated policy for schema violations or syntax issues. Rephrase the natural language input and regenerate. | 
+|  `NOT_TRANSLATABLE`  | Error | Natural language could not be converted to valid Cedar. The request may include conditions that rely on unsupported data or attributes. | Double check targeted gateway resource for tools definition. | 
+|  `ALLOW_ALL`  | Warning | Permit policy applies to all principal, action, and resource combinations. | Confirm that unrestricted access is intended. Add conditions to restrict the scope if not. | 
+|  `ALLOW_NONE`  | Warning | Permit policy is non-determining because it permits nothing. | Review the policy conditions. The policy may contain contradictory or unreachable conditions. | 
+|  `DENY_ALL`  | Warning | Policy denies all actions for all principals. | Confirm that a full deny is intended. This overrides all permit policies due to forbid-overrides-permit semantics. | 
+|  `DENY_NONE`  | Warning | Forbid policy is non-determining because it denies nothing. | Review the policy conditions. The forbid policy may contain contradictory or unreachable conditions. | 

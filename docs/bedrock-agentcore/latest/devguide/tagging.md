@@ -1,10 +1,14 @@
-# Tagging AgentCore resources
 
-A _tag_ is a label that you assign to an AWS resource. Each tag consists of a _key_ and an optional _value_ , both of which you define.
+
+# Tagging AgentCore resources
+<a name="tagging"></a>
+
+A *tag* is a label that you assign to an AWS resource. Each tag consists of a *key* and an optional *value* , both of which you define.
 
 Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type—you can quickly identify a specific resource based on the tags you’ve assigned to it.
 
 ## Tagging overview
+<a name="tagging-overview"></a>
 
 Each tag consists of a key and an optional value. For example, you could define a set of tags for your account’s AgentCore resources that helps you track each resource’s owner and stack level.
 
@@ -13,203 +17,218 @@ We recommend that you devise a set of tag keys that meets your needs for each re
 Tags don’t have any semantic meaning to AgentCore and are interpreted strictly as a string of characters. Also, tags are not automatically assigned to your resources. You can edit tag keys and values, and you can remove tags from a resource at any time. You can set the value of a tag to an empty string, but you can’t set the value of a tag to null. If you add a tag that has the same key as an existing tag on that resource, the new value overwrites the old value. If you delete a resource, any tags for the resource are also deleted.
 
 ## Resources that support tagging
+<a name="tagging-supported-resources"></a>
 
 The following AgentCore resources support tagging:
-
-- Agent runtime
-- Agent runtime endpoint
-- Code interpreter
-- Browser
-- Browser Profile
-- Gateway
-- Workload identity
-- OAuth2 credential provider
-- API key credential provider
-- Workload identity directory
-- Token vault
-- AgentCore Memory
-- Custom Evaluator
-- Online Evaluation Config
-- Policy Engine
-- Configuration Bundle
-- Batch Evaluation
-- Recommendation
-- AB Test
++ Agent runtime
++ Agent runtime endpoint
++ Code interpreter
++ Browser
++ Browser Profile
++ Gateway
++ Workload identity
++ OAuth2 credential provider
++ API key credential provider
++ Workload identity directory
++ Token vault
++ AgentCore Memory
++ Custom Evaluator
++ Online Evaluation Config
++ Policy Engine
++ Configuration Bundle
++ Batch Evaluation
++ Recommendation
++ AB Test
 
 ## Tag restrictions
+<a name="tagging-restrictions"></a>
 
 The following basic restrictions apply to tags:
-
-- Maximum number of tags per resource – 50
-- For each resource, each tag key must be unique, and each tag key can have only one value.
-- Maximum key length – 128 Unicode characters in UTF-8
-- Maximum value length – 256 Unicode characters in UTF-8
-- If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @.
-- Tag keys are not case-sensitive, while tag values are case-sensitive.
-- Don’t use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You can’t edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
++ Maximum number of tags per resource – 50
++ For each resource, each tag key must be unique, and each tag key can have only one value.
++ Maximum key length – 128 Unicode characters in UTF-8
++ Maximum value length – 256 Unicode characters in UTF-8
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: \+ - = . \_ : / @.
++ Tag keys are not case-sensitive, while tag values are case-sensitive.
++ Don’t use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You can’t edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 
 ## Working with tags
+<a name="tagging-working-with"></a>
 
 You can add, edit, or delete tags for AgentCore resources using the console, API, or CLI.
 
 ### Adding tags
+<a name="tagging-adding"></a>
 
-###### Example
-
-Console
+**Example**  
 
 1. You can add tags when you create the following AgentCore resources:
+   + Agent runtime
+   + Agent runtime endpoint
+   + Code interpreter
+   + Browser
+   + Browser Profile
+   + Gateway
+   + Workload identity
+   + OAuth2 credential provider
+   + API key credential provider
+   + Custom Evaluator
+   + Online Evaluation Config
+   + Policy Engine
+   + Configuration Bundle
+   + Batch Evaluation
+   + Recommendation
+   + AB Test
 
-   - Agent runtime
-   - Agent runtime endpoint
-   - Code interpreter
-   - Browser
-   - Browser Profile
-   - Gateway
-   - Workload identity
-   - OAuth2 credential provider
-   - API key credential provider
-   - Custom Evaluator
-   - Online Evaluation Config
-   - Policy Engine
-   - Configuration Bundle
-   - Batch Evaluation
-   - Recommendation
-   - AB Test
+      **To add tags when creating a resource** 
 
-   **To add tags when creating a resource**
+1. Open the AgentCore console.
 
-2. Open the AgentCore console.
-3. Navigate to the resource type you want to create.
-4. Follow the steps to create the resource. When you reach the **Tags** section, choose **Add tag**.
-5. Enter a tag key and optionally a tag value.
-6. To add more tags, choose **Add tag** again.
-7. Complete the resource creation process.
+1. Navigate to the resource type you want to create.
 
-**To add tags to an existing resource** 8. Open the AgentCore console. 9. Navigate to the resource type and select the specific resource. 10. Choose the **Tags** tab. 11. Choose **Add tag** , then enter a key and optionally a value. 12. Choose **Save changes**.
+1. Follow the steps to create the resource. When you reach the **Tags** section, choose **Add tag**.
 
-API
+1. Enter a tag key and optionally a tag value.
+
+1. To add more tags, choose **Add tag** again.
+
+1. Complete the resource creation process.
+
+    **To add tags to an existing resource** 
+
+1. Open the AgentCore console.
+
+1. Navigate to the resource type and select the specific resource.
+
+1. Choose the **Tags** tab.
+
+1. Choose **Add tag** , then enter a key and optionally a value.
+
+1. Choose **Save changes**.
 
 1. You can add tags when you create resources or to existing resources using the AgentCore API.
 
-**Adding tags when creating resources**
+    **Adding tags when creating resources** 
 
-You can add tags when you create resources using the following API operations:
+   You can add tags when you create resources using the following API operations:
+   +  [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) – Include tags in the `tags` parameter.
+   +  [CreateAgentRuntimeEndpoint](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.html) – Include tags in the `tags` parameter.
+   +  [CreateCodeInterpreter](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.html) – Include tags in the `tags` parameter.
+   +  [CreateBrowser](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.html) – Include tags in the `tags` parameter.
+   +  [CreateBrowserProfile](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.html) – Include tags in the `tags` parameter.
+   +  [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) – Include tags in the `tags` parameter.
+   +  [CreateWorkloadIdentity](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateWorkloadIdentity.html) – Include tags in the `tags` parameter.
+   +  [CreateOAuth2CredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateOAuth2CredentialProvider.html) – Include tags in the `tags` parameter.
+   +  [CreateAPIKeyCredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.html) – Include tags in the `tags` parameter.
+   +  [CreateEvaluator](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.html) – Include tags in the `tags` parameter.
+   +  [CreateOnlineEvaluationConfig](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.html) – Include tags in the `tags` parameter.
+   +  [CreatePolicyEngine](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.html) – Include tags in the `tags` parameter.
+   +  [CreatePaymentCredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.html) - Include tags in the `tags` parameter.
+   +  [CreatePaymentManager](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.html) - Include tags in the `tags` parameter.
+   +  [CreateConfigurationBundle](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateConfigurationBundle.html) – Include tags in the `tags` parameter.
+   +  [StartBatchEvaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBatchEvaluation.html) – Include tags in the `tags` parameter.
+   +  [StartRecommendation](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartRecommendation.html) – Include tags in the `tags` parameter.
+   +  [CreateABTest](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateABTest.html) – Include tags in the `tags` parameter.
 
-    * [CreateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md") – Include tags in the `tags` parameter.
-    * [CreateAgentRuntimeEndpoint](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.md") – Include tags in the `tags` parameter.
-    * [CreateCodeInterpreter](../../../bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.md") – Include tags in the `tags` parameter.
-    * [CreateBrowser](../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.md") – Include tags in the `tags` parameter.
-    * [CreateBrowserProfile](../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.md") – Include tags in the `tags` parameter.
-    * [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") – Include tags in the `tags` parameter.
-    * [CreateWorkloadIdentity](../../../bedrock-agentcore-control/latest/APIReference/API_CreateWorkloadIdentity.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateWorkloadIdentity.md") – Include tags in the `tags` parameter.
-    * [CreateOAuth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOAuth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOAuth2CredentialProvider.md") – Include tags in the `tags` parameter.
-    * [CreateAPIKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md") – Include tags in the `tags` parameter.
-    * [CreateEvaluator](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md") – Include tags in the `tags` parameter.
-    * [CreateOnlineEvaluationConfig](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md") – Include tags in the `tags` parameter.
-    * [CreatePolicyEngine](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md") – Include tags in the `tags` parameter.
-    * [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") - Include tags in the `tags` parameter.
-    * [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") - Include tags in the `tags` parameter.
-    * [CreateConfigurationBundle](../../../bedrock-agentcore-control/latest/APIReference/API_CreateConfigurationBundle.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateConfigurationBundle.md") – Include tags in the `tags` parameter.
-    * [StartBatchEvaluation](../APIReference/API_StartBatchEvaluation.md "../APIReference/API_StartBatchEvaluation.md") – Include tags in the `tags` parameter.
-    * [StartRecommendation](../APIReference/API_StartRecommendation.md "../APIReference/API_StartRecommendation.md") – Include tags in the `tags` parameter.
-    * [CreateABTest](../APIReference/API_CreateABTest.md "../APIReference/API_CreateABTest.md") – Include tags in the `tags` parameter.
+      **Adding tags to existing resources** 
 
-
-
-    **Adding tags to existing resources**
-
-
-
-    Use the [TagResource](../../../bedrock-agentcore-control/latest/APIReference/API_TagResource.md "../../../bedrock-agentcore-control/latest/APIReference/API_TagResource.md") operation to add tags to existing resources.
-
-CLI
+     Use the [TagResource](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_TagResource.html) operation to add tags to existing resources.
 
 1. You can use the CLI to add tags to AgentCore resources.
 
-**To add tags to a resource**
+    **To add tags to a resource** 
 
-Use the `tag-resource` command:
+   Use the `tag-resource` command:
 
-```
-aws bedrock-agentcore tag-resource \
-    --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
-    --tags Key=Environment,Value=Production Key=Team,Value=AI
-```
+   ```
+   aws bedrock-agentcore tag-resource \
+       --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
+       --tags Key=Environment,Value=Production Key=Team,Value=AI
+   ```
 
 ### Managing tags
+<a name="tagging-managing"></a>
 
-###### Example
-
-Console
+**Example**  
 
 1. You can edit tag values for existing resources in the console.
 
-**To edit tags for an existing resource** 2. Open the AgentCore console. 3. Navigate to the resource type and select the specific resource. 4. Choose the **Tags** tab. 5. To edit a tag, modify the key or value directly. 6. Choose **Save changes**.
+    **To edit tags for an existing resource** 
 
-API
+1. Open the AgentCore console.
+
+1. Navigate to the resource type and select the specific resource.
+
+1. Choose the **Tags** tab.
+
+1. To edit a tag, modify the key or value directly.
+
+1. Choose **Save changes**.
 
 1. You can use the AgentCore API to list and manage tags for resources.
 
-**Listing tags**
+    **Listing tags** 
 
-Use the [ListTagsForResource](../../../bedrock-agentcore-control/latest/APIReference/API_ListTagsForResource.md "../../../bedrock-agentcore-control/latest/APIReference/API_ListTagsForResource.md") operation to list the tags for a resource.
+   Use the [ListTagsForResource](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListTagsForResource.html) operation to list the tags for a resource.
 
-**Updating tags**
+    **Updating tags** 
 
-Use the [TagResource](../../../bedrock-agentcore-control/latest/APIReference/API_TagResource.md "../../../bedrock-agentcore-control/latest/APIReference/API_TagResource.md") operation to update existing tags by adding new values for existing keys.
-
-CLI
+   Use the [TagResource](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_TagResource.html) operation to update existing tags by adding new values for existing keys.
 
 1. You can use the CLI to list and manage tags for AgentCore resources.
 
-**To list tags for a resource**
+    **To list tags for a resource** 
 
-Use the `list-tags-for-resource` command:
+   Use the `list-tags-for-resource` command:
 
-```
-aws bedrock-agentcore list-tags-for-resource \
-    --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime
-```
+   ```
+   aws bedrock-agentcore list-tags-for-resource \
+       --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime
+   ```
 
-**To update tags for a resource**
+    **To update tags for a resource** 
 
-Use the `tag-resource` command to update existing tags:
+   Use the `tag-resource` command to update existing tags:
 
-```
-aws bedrock-agentcore tag-resource \
-    --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
-    --tags Key=Environment,Value=Staging
-```
+   ```
+   aws bedrock-agentcore tag-resource \
+       --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
+       --tags Key=Environment,Value=Staging
+   ```
 
 ### Deleting tags
+<a name="tagging-deleting"></a>
 
-###### Example
-
-Console
+**Example**  
 
 1. You can remove tags from resources in the console.
 
-**To delete tags from a resource** 2. Open the AgentCore console. 3. Navigate to the resource type and select the specific resource. 4. Choose the **Tags** tab. 5. To delete a tag, choose **Remove** next to the tag. 6. Choose **Save changes**.
+    **To delete tags from a resource** 
 
-API
+1. Open the AgentCore console.
+
+1. Navigate to the resource type and select the specific resource.
+
+1. Choose the **Tags** tab.
+
+1. To delete a tag, choose **Remove** next to the tag.
+
+1. Choose **Save changes**.
 
 1. You can use the AgentCore API to remove tags from resources.
 
-**Removing tags**
+    **Removing tags** 
 
-Use the [UntagResource](../../../bedrock-agentcore-control/latest/APIReference/API_UntagResource.md "../../../bedrock-agentcore-control/latest/APIReference/API_UntagResource.md") operation to remove tags from a resource.
-
-CLI
+   Use the [UntagResource](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UntagResource.html) operation to remove tags from a resource.
 
 1. You can use the CLI to remove tags from AgentCore resources.
 
-**To remove tags from a resource**
+    **To remove tags from a resource** 
 
-Use the `untag-resource` command:
+   Use the `untag-resource` command:
 
-```
-aws bedrock-agentcore untag-resource \
-    --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
-    --tag-keys Environment Team
-```
+   ```
+   aws bedrock-agentcore untag-resource \
+       --resource-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:agent-runtime/example-runtime \
+       --tag-keys Environment Team
+   ```

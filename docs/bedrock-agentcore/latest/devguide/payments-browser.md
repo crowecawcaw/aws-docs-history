@@ -1,18 +1,26 @@
-# Integrating AgentCore payments with Browser Tool
 
-There are two ways your agent can access x402 paid content: via the [Browser Tool](browser-tool.md "browser-tool.md") or via standard HTTP calls.
+
+# Integrating AgentCore payments with Browser Tool
+<a name="payments-browser"></a>
+
+There are two ways your agent can access x402 paid content: via the [Browser Tool](browser-tool.md) or via standard HTTP calls.
 
 ## Browser Tool integration (Playwright)
+<a name="payments-agent-integration-browser-playwright"></a>
 
-The AgentCore Browser Tool gives your agent a managed headless Chromium browser session within the AgentCore Runtime. Your agent connects over WebSocket using Chrome DevTools Protocol (CDP), enabling it to navigate pages, execute JavaScript, and intercept HTTP responses at the network level. To get started, see the [Browser onboarding guide](browser-tool.md "browser-tool.md").
+The AgentCore Browser Tool gives your agent a managed headless Chromium browser session within the AgentCore Runtime. Your agent connects over WebSocket using Chrome DevTools Protocol (CDP), enabling it to navigate pages, execute JavaScript, and intercept HTTP responses at the network level. To get started, see the [Browser onboarding guide](browser-tool.md).
 
 This option uses Strands SDK along with the browser tool and payments tool to browse websites and process payments. When an agent uses the browser tool to navigate websites, it uses Playwright’s response interception capabilities to automatically detect paywall sites:
 
-1. **Browser Navigation** — Agent uses `browse_with_payment` tool powered by Playwright.
-2. **Automatic 402 Detection** — Playwright intercepts all HTTP responses and triggers the agent’s response handler to detect 402 status codes.
-3. **x402 Extraction** — Payment tools automatically parse x402 payment details from response headers/body. This can also be done by agent business logic.
-4. **Payment Processing** — AgentCore payment processor creates crypto signatures using configured CDP wallets.
-5. **Retry** — Payment tools inject authorization headers and retry the request in the same browser session.
+1.  **Browser Navigation** — Agent uses `browse_with_payment` tool powered by Playwright.
+
+1.  **Automatic 402 Detection** — Playwright intercepts all HTTP responses and triggers the agent’s response handler to detect 402 status codes.
+
+1.  **x402 Extraction** — Payment tools automatically parse x402 payment details from response headers/body. This can also be done by agent business logic.
+
+1.  **Payment Processing** — AgentCore payment processor creates crypto signatures using configured CDP wallets.
+
+1.  **Retry** — Payment tools inject authorization headers and retry the request in the same browser session.
 
 ```
 from agentcore.payments import PaymentClient
@@ -63,13 +71,17 @@ async def browse_with_payment(url: str, auto_pay: bool = True) -> dict:
 ```
 
 ## Non-browser HTTP integration
+<a name="payments-agent-integration-browser-http"></a>
 
 For direct API calls and headless scenarios, developers can write custom tool logic using Strands SDK alongside a standard HTTP requests library to process payments with x402 detection:
 
 1. Agent uses a custom tool for making direct HTTP calls.
-2. Tool monitors HTTP response status codes to detect 402.
-3. Tool extracts x402 requirements and processes payment.
-4. Tool retries the HTTP request with payment authorization headers.
+
+1. Tool monitors HTTP response status codes to detect 402.
+
+1. Tool extracts x402 requirements and processes payment.
+
+1. Tool retries the HTTP request with payment authorization headers.
 
 ```
 @tool

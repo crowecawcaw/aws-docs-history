@@ -1,32 +1,34 @@
+
+
 # Receive progress notifications from your AgentCore gateway
+<a name="gateway-mcp-progress"></a>
 
 Progress notifications allow MCP server targets to report incremental progress on long-running tool calls. When a tool call takes time to complete, the server can send `notifications/progress` events to keep the client informed about the operation’s status. AgentCore Gateway forwards these notifications from MCP server targets to your client as Server-Sent Events (SSE) chunks.
 
 ## Prerequisites
+<a name="gateway-mcp-progress-prereqs"></a>
 
 To receive progress notifications from your gateway:
-
-- **Response streaming enabled** — Progress notifications are delivered as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
-- **MCP server target type** — Progress notifications originate from MCP server targets.
-- **Client sends the `Accept` header** — The client must send `Accept: application/json, text/event-stream` so that the gateway can return a streaming (SSE) response.
++  **Response streaming enabled** — Progress notifications are delivered as SSE chunks during an open connection. Set `streamingConfiguration.enableResponseStreaming` to `true` in your gateway’s `protocolConfiguration.mcp`.
++  **MCP server target type** — Progress notifications originate from MCP server targets.
++  **Client sends the `Accept` header** — The client must send `Accept: application/json, text/event-stream` so that the gateway can return a streaming (SSE) response.
 
 ## How progress notifications work
+<a name="gateway-mcp-progress-how"></a>
 
 When a client makes a `tools/call` request with a `progressToken` in the request parameters, the MCP server target can send `notifications/progress` events during execution. The gateway forwards these events to the client as SSE chunks before the final tool result.
 
 Each progress notification includes:
-
-- `progressToken` — Matches the token provided in the original request.
-- `progress` — The current progress value (numeric).
-- `total` — Optional total value indicating completion target.
-- `message` — Optional human-readable description of current status.
++  `progressToken` — Matches the token provided in the original request.
++  `progress` — The current progress value (numeric).
++  `total` — Optional total value indicating completion target.
++  `message` — Optional human-readable description of current status.
 
 ## Code samples
+<a name="gateway-mcp-progress-examples"></a>
 
-###### Example
-
-curl (2025-11-25 and earlier)
-Call a tool with a progress token. Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+Call a tool with a progress token. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 curl -N -X POST \
@@ -50,8 +52,7 @@ curl -N -X POST \
     }
 }'
 ```
-
-The gateway returns an SSE stream with progress notifications followed by the final result:
+The gateway returns an SSE stream with progress notifications followed by the final result:  
 
 ```
 event: message
@@ -69,9 +70,7 @@ data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToke
 event: message
 data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Analysis complete. Found 3 anomalies in dataset ds-12345."}]}}
 ```
-
-curl (2026-07-28)
-On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. Keep `progressToken` in `_meta` to opt into progress notifications. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, include the `Mcp-Method` and `Mcp-Name` request-metadata headers and the `_meta` version fields in the body. Keep `progressToken` in `_meta` to opt into progress notifications. The `MCP-Protocol-Version` header must match `_meta.io.modelcontextprotocol/protocolVersion`. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 curl -N -X POST \
@@ -103,8 +102,7 @@ curl -N -X POST \
     }
 }'
 ```
-
-The gateway returns an SSE stream with progress notifications followed by the final result:
+The gateway returns an SSE stream with progress notifications followed by the final result:  
 
 ```
 event: message
@@ -122,9 +120,7 @@ data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToke
 event: message
 data: {"jsonrpc":"2.0","id":"tool-call-1","result":{"content":[{"type":"text","text":"Analysis complete. Found 3 anomalies in dataset ds-12345."}]}}
 ```
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -162,9 +158,7 @@ for event in client.events():
         print(f"Tool result: {data['result']}")
         break
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers, and include the `_meta` version fields in the request body. Keep `progressToken` in `_meta` to opt into progress notifications. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, add the `MCP-Protocol-Version`, `Mcp-Method`, and `Mcp-Name` headers, and include the `_meta` version fields in the request body. Keep `progressToken` in `_meta` to opt into progress notifications. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -210,8 +204,6 @@ for event in client.events():
         break
 ```
 
-MCP Client
-
 ```
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
@@ -246,8 +238,6 @@ asyncio.run(use_progress(
     token="YOUR_ACCESS_TOKEN"
 ))
 ```
-
-Strands MCP Client
 
 ```
 from mcp.client.streamable_http import streamablehttp_client

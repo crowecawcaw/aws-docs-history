@@ -1,10 +1,11 @@
+
+
 # List resource templates in an AgentCore gateway
+<a name="gateway-using-mcp-resources-templates-list"></a>
 
 To list all available resource templates that an AgentCore gateway provides, make a POST request to the gateway’s MCP endpoint and specify `resources/templates/list` as the method in the request body:
 
-###### Example
-
-2025-11-25 and earlier
+**Example**  
 
 ```
 POST /mcp HTTP/1.1
@@ -16,9 +17,7 @@ MCP-Protocol-Version: ${McpProtocolVersion}
 
 ${RequestBody}
 ```
-
-2026-07-28
-On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` request-metadata header, and the `_meta` version fields in the body.
+On version `2026-07-28`, each request carries the `MCP-Protocol-Version` header, the `Mcp-Method` request-metadata header, and the `_meta` version fields in the body.  
 
 ```
 POST /mcp HTTP/1.1
@@ -32,35 +31,30 @@ Mcp-Method: resources/templates/list
 ${RequestBody}
 ```
 
-###### Note
-
-The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.md") API.
+**Note**  
+The gateway accepts only the MCP protocol versions listed in the `supportedVersions` field of its `protocolConfiguration.mcp` configuration. To use version `2026-07-28`, make sure that your gateway’s `supportedVersions` includes it. You can change the supported versions with the [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) API.
 
 Replace the following values:
++  `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) API.
++  `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md).
++  `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
++  `${RequestBody}` – The JSON payload of the request body, as specified in [Resource templates](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#resource-templates) in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) . Include `resources/templates/list` as the `method`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
 
-- `${GatewayEndpoint}` – The URL of the gateway, as provided in the response of the [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") API.
-- `${Authorization header}` – The authorization credentials from the identity provider when you set up [inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
-- `${McpProtocolVersion}` – The MCP protocol version for the request, such as `2025-11-25`. The version must be one that your gateway supports.
-- `${RequestBody}` – The JSON payload of the request body, as specified in [Resource templates](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#resource-templates "https://modelcontextprotocol.io/specification/2025-06-18/server/resources#resource-templates") in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro "https://modelcontextprotocol.io/docs/getting-started/intro") . Include `resources/templates/list` as the `method`. On version `2026-07-28`, also include the `_meta` version fields in `params`.
-
-###### Note
-
-For a list of optionally supported parameters for `resources/templates/list` , see the `params` object in the request body at [Resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources "https://modelcontextprotocol.io/specification/2025-06-18/server/resources") in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18 "https://modelcontextprotocol.io/specification/2025-06-18") . At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md "gateway-using.md").
+**Note**  
+For a list of optionally supported parameters for `resources/templates/list` , see the `params` object in the request body at [Resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) in the [Model Context Protocol documentation](https://modelcontextprotocol.io/specification/2025-06-18) . At the top of the page next to the search bar, you can select the MCP version whose documentation you want to view. Make sure that the version is one [supported by Amazon Bedrock AgentCore](gateway-using.md).
 
 The response returns a list of available resource templates with their URI templates, names, descriptions, and MIME types.
 
-###### Note
-
+**Note**  
 Resource templates use RFC 6570 URI templates to describe parameterized resources. Clients can fill in template parameters to construct concrete resource URIs for use with `resources/read`. For example, a template `users://{user_id}/profile` can be expanded to `users://123/profile`.
 
 ## Code samples for listing resource templates
+<a name="gateway-using-mcp-resources-templates-list-examples"></a>
 
 To see examples of listing available resource templates in the gateway, select one of the following methods:
 
-###### Example
-
-Python requests package (2025-11-25 and earlier)
-Set the `MCP-Protocol-Version` header to a version that your gateway supports.
+**Example**  
+Set the `MCP-Protocol-Version` header to a version that your gateway supports.  
 
 ```
 import requests
@@ -88,9 +82,7 @@ access_token = "${AccessToken}" # Replace with your actual access token
 templates = list_resource_templates(gateway_url, access_token)
 print(json.dumps(templates, indent=2))
 ```
-
-Python requests package (2026-07-28)
-On version `2026-07-28`, add the `MCP-Protocol-Version` and `Mcp-Method` headers, and include the `_meta` version fields in the request body. Your gateway’s `supportedVersions` must include `2026-07-28`.
+On version `2026-07-28`, add the `MCP-Protocol-Version` and `Mcp-Method` headers, and include the `_meta` version fields in the request body. Your gateway’s `supportedVersions` must include `2026-07-28`.  
 
 ```
 import requests
@@ -126,8 +118,6 @@ access_token = "${AccessToken}" # Replace with your actual access token
 templates = list_resource_templates(gateway_url, access_token)
 print(json.dumps(templates, indent=2))
 ```
-
-MCP Client
 
 ```
 import asyncio
@@ -195,8 +185,6 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Strands MCP Client
-
 ```
 # NOTE: Strands SDK resource template support may vary. Use the MCP Client
 # approach above for the most reliable resources/templates/list implementation.
@@ -215,8 +203,6 @@ def run_agent(mcp_url: str, access_token: str):
 
 run_agent(<MCP URL>, <Access token>)
 ```
-
-LangGraph MCP Client
 
 ```
 # NOTE: LangGraph MCP adapter resource template support may vary. Use the MCP

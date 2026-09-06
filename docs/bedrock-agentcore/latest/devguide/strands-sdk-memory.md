@@ -1,49 +1,50 @@
-# Strands Agents SDK
 
-Use the [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") SDK for seamless integration with agent frameworks, providing automatic memory management and retrieval within conversational agents.
+
+# Strands Agents SDK
+<a name="strands-sdk-memory"></a>
+
+Use the [Strands Agents](https://strandsagents.com/latest/) SDK for seamless integration with agent frameworks, providing automatic memory management and retrieval within conversational agents.
 
 First, create a memory with all three long-term strategies. You can do this with the AgentCore CLI or through the SDK code in the examples below.
 
-###### Example
-
-AgentCore CLI
+**Example**  
 
 1. The AgentCore CLI memory commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first:
 
-```
-agentcore create --project-name MemoryProject --no-agent
-cd MemoryProject
-```
+   ```
+   agentcore create --project-name MemoryProject --no-agent
+   cd MemoryProject
+   ```
 
-Then add memory and deploy:
+   Then add memory and deploy:
 
-```
-agentcore add memory --name ComprehensiveAgentMemory \
-  --strategies SEMANTIC,SUMMARIZATION,USER_PREFERENCE
-agentcore deploy
-```
-
-Interactive
+   ```
+   agentcore add memory --name ComprehensiveAgentMemory \
+     --strategies SEMANTIC,SUMMARIZATION,USER_PREFERENCE
+   agentcore deploy
+   ```
 
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
-2. Enter the memory name:
 
-![Memory wizard: enter ComprehensiveAgentMemory name](images/tui/strands-memory-add-name.png) 3. Select all three strategies (Semantic, Summarization, User preference):
+1. Enter the memory name:  
+![Memory wizard: enter ComprehensiveAgentMemory name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-name.png)
 
-![Memory wizard: select all three memory strategies](images/tui/strands-memory-add-strategies.png) 4. Review the configuration and press Enter to confirm:
+1. Select all three strategies (Semantic, Summarization, User preference):  
+![Memory wizard: select all three memory strategies](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-strategies.png)
 
-![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](images/tui/strands-memory-add-confirm.png)
+1. Review the configuration and press Enter to confirm:  
+![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-confirm.png)
 
-Then run `agentcore deploy` to provision the memory in AWS.
+   Then run `agentcore deploy` to provision the memory in AWS.
 
-**Install dependencies**
+ **Install dependencies** 
 
 ```
 pip install bedrock-agentcore
 pip install strands-agents
 ```
 
-**Add short-term memory**
+ **Add short-term memory** 
 
 ```
 from datetime import datetime
@@ -91,7 +92,7 @@ agent("What should I buy for lunch today?")
 # Agent suggests options based on remembered preferences
 ```
 
-**Add long-term memory with strategies**
+ **Add long-term memory with strategies** 
 
 ```
 from bedrock_agentcore.memory import MemoryClient
@@ -160,15 +161,14 @@ agent("What should I buy for lunch today?")
 # Agent suggests options based on remembered preferences
 ```
 
-**Message batching**
+ **Message batching** 
 
 When `batch_size` is greater than 1, messages are buffered in memory and sent to AgentCore Memory in a single API call once the buffer reaches the configured size. This reduces the number of API requests in high-throughput conversations.
 
-###### Important
-
+**Important**  
 When using `batch_size > 1` , you **must** use a `with` block or call `close()` when the session is complete. Otherwise, any buffered messages that have not yet reached the batch threshold will be lost.
 
-_Recommended: Context manager_
+ *Recommended: Context manager* 
 
 ```
 from strands import Agent
@@ -193,7 +193,7 @@ with AgentCoreMemorySessionManager(config, region_name='us-east-1') as session_m
 # All remaining buffered messages are automatically flushed here
 ```
 
-_Alternative: Explicit close()_
+ *Alternative: Explicit close()* 
 
 If you cannot use a `with` block, call `close()` manually:
 
@@ -209,4 +209,4 @@ finally:
     session_manager.close()  # Flush any remaining buffered messages
 ```
 
-More examples are available on GitHub: [https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock\_agentcore/memory/integrations/strands](https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands "https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands")
+More examples are available on GitHub: [https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands](https://github.com/aws/bedrock-agentcore-sdk-python/tree/main/src/bedrock_agentcore/memory/integrations/strands) 

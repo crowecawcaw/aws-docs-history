@@ -1,44 +1,45 @@
+
+
 # Tools
+<a name="harness-tools"></a>
 
 Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types, plus the built-in filesystem and shell tools.
++  **MCP servers:** Connect to any remote [Model Context Protocol](https://modelcontextprotocol.io) endpoint by URL. No Gateway required for simple cases.
++  ** [AgentCore Gateway](gateway.md):** Governed connectivity to APIs and MCP servers with inbound/outbound auth, access control, and [policy enforcement](policy.md). Reference a gateway ARN and every tool configured on that gateway becomes available. Use Gateway when you need a managed, policy-backed tool surface.
++  ** [AgentCore Browser](browser-tool.md):** Managed web browsing and automation.
++  ** [AgentCore Code Interpreter](code-interpreter-tool.md):** Sandboxed Python/JavaScript/TypeScript code execution for data analysis and computation.
++  **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
 
-- **MCP servers:** Connect to any remote [Model Context Protocol](https://modelcontextprotocol.io "https://modelcontextprotocol.io") endpoint by URL. No Gateway required for simple cases.
-- **[AgentCore Gateway](gateway.md "gateway.md"):** Governed connectivity to APIs and MCP servers with inbound/outbound auth, access control, and [policy enforcement](policy.md "policy.md"). Reference a gateway ARN and every tool configured on that gateway becomes available. Use Gateway when you need a managed, policy-backed tool surface.
-- **[AgentCore Browser](browser-tool.md "browser-tool.md"):** Managed web browsing and automation.
-- **[AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md"):** Sandboxed Python/JavaScript/TypeScript code execution for data analysis and computation.
-- **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
-  Default tools `shell` and `file_operations` are available in every session unless you restrict them with `allowedTools`. `shell` executes bash commands; `file_operations` supports viewing, creating, and editing files.
+Default tools `shell` and `file_operations` are available in every session unless you restrict them with `allowedTools`. `shell` executes bash commands; `file_operations` supports viewing, creating, and editing files.
 
 The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed.
 
-###### Token overhead from tool definitions
-
+**Token overhead from tool definitions**  
 Tool definitions count toward model input tokens even when the agent doesn’t call the tools. Together, the default `shell` and `file_operations` definitions add approximately 900 input tokens to each model request. The exact count varies by model and can change as tool definitions evolve. Because an invocation can make multiple model requests, this overhead can occur more than once per invocation. Use `allowedTools` to expose only the tools needed for a request and reduce token usage.
 
 Supported patterns:
 
-| Pattern         | Example             | Matches                        |
-| --------------- | ------------------- | ------------------------------ |
-| `*`             | `"*"`               | All tools                      |
-| Plain name      | `"shell"`           | Builtin by name                |
-| Builtin glob    | `"file_*"`          | `file_operations`, `file_read` |
-| `@builtin`      | `"@builtin"`        | All builtin tools              |
-| `@builtin/name` | `"@builtin/shell"`  | Specific builtin               |
-| `@server`       | `"@git"`            | All tools from an MCP server   |
-| `@server/tool`  | `"@git/git_status"` | Specific MCP tool              |
-| `@server/glob`  | `"@git/read_*"`     | Glob within a server           |
-| `@*/tool`       | `"@*-mcp/status"`   | Glob across servers            |
 
-###### Note
+| Pattern | Example | Matches | 
+| --- | --- | --- | 
+|  `*`  |  `"*"`  | All tools | 
+| Plain name |  `"shell"`  | Builtin by name | 
+| Builtin glob |  `"file_*"`  |  `file_operations`, `file_read`  | 
+|  `@builtin`  |  `"@builtin"`  | All builtin tools | 
+|  `@builtin/name`  |  `"@builtin/shell"`  | Specific builtin | 
+|  `@server`  |  `"@git"`  | All tools from an MCP server | 
+|  `@server/tool`  |  `"@git/git_status"`  | Specific MCP tool | 
+|  `@server/glob`  |  `"@git/read_*"`  | Glob within a server | 
+|  `@*/tool`  |  `"@*-mcp/status"`  | Glob across servers | 
 
-`allowedTools` scopes LLM tool selection during `InvokeHarness` only. It does not affect [InvokeAgentRuntimeCommand](runtime-execute-command.md "runtime-execute-command.md"), which is a separate API with its own IAM action (`bedrock-agentcore:InvokeAgentRuntimeCommand`) that executes commands directly without passing through the LLM. To prevent direct command execution, do not grant `bedrock-agentcore:InvokeAgentRuntimeCommand` in your IAM policies.
+**Note**  
+ `allowedTools` scopes LLM tool selection during `InvokeHarness` only. It does not affect [InvokeAgentRuntimeCommand](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-execute-command.html), which is a separate API with its own IAM action (`bedrock-agentcore:InvokeAgentRuntimeCommand`) that executes commands directly without passing through the LLM. To prevent direct command execution, do not grant `bedrock-agentcore:InvokeAgentRuntimeCommand` in your IAM policies.
 
 ## Add tools
+<a name="_add_tools"></a>
 
-###### Example
-
-AWS CLI/boto3
-Pass `tools` at create, update, or invoke time:
+**Example**  
+Pass `tools` at create, update, or invoke time:  
 
 ```
 tools = [
@@ -121,12 +122,7 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "Find a mechanical keyboard under $200 and request approval."}]}],
 )
 ```
-
-AgentCore CLI
-When creating a new harness interactively, the `agentcore add harness` wizard lets you select tools. To add tools via the CLI, use `agentcore add tool` after creating the harness:
-
-###### Note
-
+When creating a new harness interactively, the `agentcore add harness` wizard lets you select tools. To add tools via the CLI, use `agentcore add tool` after creating the harness:  
 The `--type` flag uses underscore-separated names (for example, `agentcore_browser`), which match the tool type identifiers in `harness.json`.
 
 ```
@@ -165,48 +161,45 @@ agentcore add tool --harness my-agent --type inline_function \
   --description "Request human approval for a purchase" \
   --input-schema '{"type": "object", "properties": {"item": {"type": "string"}, "amount": {"type": "number"}}, "required": ["item", "amount"]}'
 ```
-
-Deploy to apply.
-
-Override tools on a single invocation:
+Deploy to apply.  
+Override tools on a single invocation:  
 
 ```
 agentcore invoke --harness research-agent --tools agentcore_browser "Find the latest news on AI agents"
 ```
+Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Tools** with **Space** , then press **Enter** .  
 
-Interactive
-Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Tools** with **Space** , then press **Enter** .
+1. Select the tools for your harness: **AgentCore Browser** , **AgentCore Code Interpreter** , **AgentCore Gateway** , or **Remote MCP Server** . Use **Space** to toggle each, then press **Enter** .  
+![Select tools: Browser, Code Interpreter, Gateway, Remote MCP Server](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-02-picker.png)
 
-1. Select the tools for your harness: **AgentCore Browser** , **AgentCore Code Interpreter** , **AgentCore Gateway** , or **Remote MCP Server** . Use **Space** to toggle each, then press **Enter** .
+1. For a **Remote MCP Server** , the wizard prompts for the server name, URL, and optional request headers.  
+![Enter the MCP server URL](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-04-mcp-url.png)
 
-![Select tools: Browser, Code Interpreter, Gateway, Remote MCP Server](images/tui/harness-tools-02-picker.png) 2. For a **Remote MCP Server** , the wizard prompts for the server name, URL, and optional request headers.
+1. For an **AgentCore Gateway** , enter the gateway ARN and choose its outbound authentication: ** AWS IAM** (default), **None** , or **OAuth** .  
+![Select gateway outbound authentication](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-07-gateway-auth.png)
 
-![Enter the MCP server URL](images/tui/harness-tools-04-mcp-url.png) 3. For an **AgentCore Gateway** , enter the gateway ARN and choose its outbound authentication: **AWS IAM** (default), **None** , or **OAuth** .
-
-![Select gateway outbound authentication](images/tui/harness-tools-07-gateway-auth.png) 4. Review the configuration summary and confirm.
-
-![Review the harness tool configuration](images/tui/harness-tools-08-confirm.png)
-
+1. Review the configuration summary and confirm.  
+![Review the harness tool configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-08-confirm.png)
 Then run `agentcore deploy` to apply.
 
 ## Web search
+<a name="_web_search"></a>
 
-To give your agent web search, put the [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md") connector behind an [AgentCore Gateway](gateway.md "gateway.md") and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes web search as a standard MCP `WebSearch` tool. Your agent discovers and calls it like any other gateway tool. AgentCore Gateway serves all queries entirely within AWS. For more information about the privacy model and the purpose-built web index, see the Web Search Tool connector page.
+To give your agent web search, put the [Web Search Tool](gateway-target-connector-web-search-tool.md) connector behind an [AgentCore Gateway](gateway.md) and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes web search as a standard MCP `WebSearch` tool. Your agent discovers and calls it like any other gateway tool. AgentCore Gateway serves all queries entirely within AWS. For more information about the privacy model and the purpose-built web index, see the Web Search Tool connector page.
 
-###### Region availability
-
+**Region availability**  
 Web Search Tool is available in the US East (N. Virginia) `us-east-1` Region. Create the gateway and harness in `us-east-1`.
 
 Complete the following steps to set up web search for your harness.
 
-1. **Create the gateway and connector target.** Follow the steps in [Set up Web Search Tool](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup") to create a Gateway (MCP protocol, `AWS_IAM` inbound auth) and add a target with `connectorId: "web-search"`. That target needs a Gateway service role with `bedrock-agentcore:InvokeWebSearch` on the connector. For more information, see [Configure the Gateway Service Role](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role "gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role"). Note the gateway ARN once it reaches `READY`.
-2. **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md "harness-security.md") optional-permissions policy in the security topic. If your harness uses managed memory (the default), the execution role also needs the [AgentCore Memory](harness-security.md "harness-security.md") permissions. The agent reads and writes session memory on each invocation.
-3. **Attach the gateway to the harness.** Add it as an `agentcore_gateway` tool with the default `AWS_IAM` outbound auth. The following examples show how to attach the gateway at create time.
+1.  **Create the gateway and connector target.** Follow the steps in [Set up Web Search Tool](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup) to create a Gateway (MCP protocol, `AWS_IAM` inbound auth) and add a target with `connectorId: "web-search"`. That target needs a Gateway service role with `bedrock-agentcore:InvokeWebSearch` on the connector. For more information, see [Configure the Gateway Service Role](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role). Note the gateway ARN once it reaches `READY`.
 
-###### Example
+1.  **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md) optional-permissions policy in the security topic. If your harness uses managed memory (the default), the execution role also needs the [AgentCore Memory](harness-security.md) permissions. The agent reads and writes session memory on each invocation.
 
-AWS CLI/boto3
-Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):
+1.  **Attach the gateway to the harness.** Add it as an `agentcore_gateway` tool with the default `AWS_IAM` outbound auth. The following examples show how to attach the gateway at create time.
+
+**Example**  
+Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):  
 
 ```
 tools = [
@@ -226,8 +219,7 @@ client.create_harness(
     tools=tools,
 )
 ```
-
-The gateway’s tools are now available to the agent. Invoke the harness with a prompt that needs current information:
+The gateway’s tools are now available to the agent. Invoke the harness with a prompt that needs current information:  
 
 ```
 response = client.invoke_harness(
@@ -236,8 +228,6 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "Search the web for the latest AWS announcements and cite your sources."}]}],
 )
 ```
-
-AgentCore CLI
 
 ```
 # Attach the web-search gateway to your harness
@@ -251,13 +241,12 @@ agentcore invoke --harness research-agent "Search the web for the latest AWS ann
 ```
 
 ## Inline function calls
+<a name="_inline_function_calls"></a>
 
 Inline functions let you define a tool that executes in your code, not on the harness. This is useful for human-in-the-loop approvals, calling internal APIs, or any logic you want to control client-side.
 
-###### Example
-
-AWS CLI/boto3
-Pass an inline function tool at invoke time:
+**Example**  
+Pass an inline function tool at invoke time:  
 
 ```
 # 1. Invoke with an inline function tool
@@ -317,22 +306,15 @@ client.invoke_harness(
     ],
 )
 ```
-
-###### Note
-
 You must include both the assistant `toolUse` message and your `toolResult` in step 3. The harness intentionally does not persist the inline function turn to the session - if the client never returns a result, persisting a partial turn (assistant `toolUse` without a matching `toolResult`) would leave the session in a corrupted state. By requiring the client to send both messages, the session remains clean regardless of whether the client completes the tool call.
-
 The agent resumes reasoning with the tool result and streams the final response.
-
-AgentCore CLI
-Add an inline function tool to a harness:
+Add an inline function tool to a harness:  
 
 ```
 agentcore add tool --harness my-agent --type inline_function \
   --name get_weather
 ```
-
-Then define the description and input schema in `app/my-agent/harness.json`:
+Then define the description and input schema in `app/my-agent/harness.json`:  
 
 ```
 {
@@ -350,18 +332,16 @@ Then define the description and input schema in `app/my-agent/harness.json`:
   }
 }
 ```
-
 Run `agentcore deploy` to apply. When the agent calls the inline function during an invocation, the TUI pauses and prompts you to provide the tool result inline. In non-interactive (CLI) mode, the stream returns with `stopReason: "tool_use"` and you send the result back with a follow-up invoke call.
 
 Learn more about each tool:
-
-- [AgentCore Gateway](gateway.md "gateway.md") · [create a gateway](gateway-create.md "gateway-create.md") · [policies](policy.md "policy.md")
-- [AgentCore Browser](browser-tool.md "browser-tool.md") · [browser profiles](browser-profiles.md "browser-profiles.md") · [session recording](browser-session-recording.md "browser-session-recording.md")
-- [AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md") · [preinstalled libraries](code-interpreter-preinstalled-libraries.md "code-interpreter-preinstalled-libraries.md")
++  [AgentCore Gateway](gateway.md) · [create a gateway](gateway-create.md) · [policies](policy.md) 
++  [AgentCore Browser](browser-tool.md) · [browser profiles](browser-profiles.md) · [session recording](browser-session-recording.md) 
++  [AgentCore Code Interpreter](code-interpreter-tool.md) · [preinstalled libraries](code-interpreter-preinstalled-libraries.md) 
 
 ### Related topics
-
-- [Models and instructions](harness-models.md "harness-models.md") - configure models and override per invocation
-- [Environment and filesystem](harness-environment.md "harness-environment.md") - bring your own container and run shell commands
-- [Security and access controls](harness-security.md "harness-security.md") - control which tools the agent can access with policies
-- [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")
+<a name="_related_topics"></a>
++  [Models and instructions](harness-models.md) - configure models and override per invocation
++  [Environment and filesystem](harness-environment.md) - bring your own container and run shell commands
++  [Security and access controls](harness-security.md) - control which tools the agent can access with policies
++  [API Documentation](harness-get-started.md#api-documentation) 
