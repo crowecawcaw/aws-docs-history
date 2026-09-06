@@ -1,393 +1,281 @@
+
+
 # AWS Entity Resolution Glossary
+<a name="glossary"></a>
 
 ## Amazon Resource Name (ARN)
+<a name="arn-definition"></a>
 
-A unique identifier for AWS resources. ARNs are required when you need to specify a
-resource unambiguously across all of AWS Entity Resolution, such as in AWS Entity Resolution policies, Amazon Relational Database Service (Amazon RDS)
-tags, and API calls.
+A unique identifier for AWS resources. ARNs are required when you need to specify a resource unambiguously across all of AWS Entity Resolution, such as in AWS Entity Resolution policies, Amazon Relational Database Service (Amazon RDS) tags, and API calls.
 
 ## Attribute type
+<a name="attribute-type-defn"></a>
 
-The type of the attribute for the input field. When you [create a schema
-mapping](create-schema-mapping.md "create-schema-mapping.md"), you select the **Attribute type** from a pre-configured list of
-values such as **Name**, **Address**, **Phone
-number**, or **Email address**. Attribute type tells AWS Entity Resolution what
-kind of data that you're presenting it, allowing it to be classified and normalized
-properly.
+The type of the attribute for the input field. When you [create a schema mapping](create-schema-mapping.md), you select the **Attribute type** from a pre-configured list of values such as **Name**, **Address**, **Phone number**, or **Email address**. Attribute type tells AWS Entity Resolution what kind of data that you're presenting it, allowing it to be classified and normalized properly.
 
 ## Automatic processing
+<a name="incremental-processing"></a>
 
-A processing cadence option for a matching workflow job that enables it to be run on
-automatically when your data input changes.
+A processing cadence option for a matching workflow job that enables it to be run on automatically when your data input changes. 
 
-This option is available for [rule-based matching](#rule-based-matching-defn "#rule-based-matching-defn") only.
+This option is available for [rule-based matching](#rule-based-matching-defn) only.
 
-By default, the processing cadence for a matching workflow job is set to [Manual](#manual-processing "#manual-processing"), which enables it to be run on demand. You can set up
-**Automatic** processing to run your matching workflow job automatically when
-your data input changes. This keeps your matching workflow output up-to-date.
+By default, the processing cadence for a matching workflow job is set to [**Manual**](#manual-processing), which enables it to be run on demand. You can set up **Automatic** processing to run your matching workflow job automatically when your data input changes. This keeps your matching workflow output up-to-date.
 
 ## AWS KMS key ARN
+<a name="kms-arn-defn"></a>
 
-This is your AWS KMS Amazon Resource Name (ARN) for encryption at rest. If not provided,
-system will use an AWS Entity Resolution managed KMS key.
+This is your AWS KMS Amazon Resource Name (ARN) for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 
 ## Batch workflow
+<a name="batch-defn"></a>
 
-A process that runs at scheduled intervals to match and resolve data across an entire
-dataset. Batch workflows in AWS Entity Resolution are best used for initial setup, periodic full refreshes, and
-scenarios with significant changes in both source and target datasets.
+A process that runs at scheduled intervals to match and resolve data across an entire dataset. Batch workflows in AWS Entity Resolution are best used for initial setup, periodic full refreshes, and scenarios with significant changes in both source and target datasets.
 
 ## Cleartext
+<a name="cleartext-defn"></a>
 
 Data that isn't cryptographically protected.
 
 ## Confidence level (ConfidenceLevel)
+<a name="confidence-level-defn"></a>
 
-For ML matching, this is the confidence level applied by AWS Entity Resolution when ML identifies a
-matched record set. This is part of the [matching
-workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in output.
+For ML matching, this is the confidence level applied by AWS Entity Resolution when ML identifies a matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## Record confidence level (RecordConfidenceLevel)
+<a name="record-confidence-level-defn"></a>
 
-For ML incremental matching, this is the per-record confidence level applied by AWS Entity Resolution
-when ML identifies a matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in
-output.
+For ML incremental matching, this is the per-record confidence level applied by AWS Entity Resolution when ML identifies a matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## Decryption
+<a name="decryption-defn"></a>
 
-The process of transforming encrypted data back to its original form. Decryption can only be
-performed if you have access to the secret key.
+The process of transforming encrypted data back to its original form. Decryption can only be performed if you have access to the secret key.
 
 ## Encryption
+<a name="encryption-defn"></a>
 
-The process of encoding data into a form that appears random using a secret value called a
-key. It's impossible to determine the original plaintext without access to the key.
+The process of encoding data into a form that appears random using a secret value called a key. It's impossible to determine the original plaintext without access to the key.
 
 ## Group name
+<a name="group-name-defn"></a>
 
-The **Group name** references the entire group of input fields and can help
-you to group parsed data together for matching purposes.
+The **Group name** references the entire group of input fields and can help you to group parsed data together for matching purposes.
 
-For example, if there are three input fields: `first_name`,
-`middle_name`, and `last_name`, you can group them
-together by entering in the **Group name** as `full_name`
-for matching and output.
+For example, if there are three input fields: **first\_name**, **middle\_name**, and **last\_name**, you can group them together by entering in the **Group name** as **full\_name** for matching and output.
 
 ## Hash
+<a name="hash-defn"></a>
 
-Hashing means applying a cryptographic algorithm that produces an irreversible and unique
-string of characters of a fixed size—called a hash. AWS Entity Resolution uses Secure Hash Algorithm
-256-bit (SHA256) hash protocol and will output a 32-byte character string. In AWS Entity Resolution, you can
-choose whether to hash data values in your output.
+Hashing means applying a cryptographic algorithm that produces an irreversible and unique string of characters of a fixed size—called a hash. AWS Entity Resolution uses Secure Hash Algorithm 256-bit (SHA256) hash protocol and will output a 32-byte character string. In AWS Entity Resolution, you can choose whether to hash data values in your output.
 
 ## Hash protocol (HashingProtocol)
+<a name="hash-protocol-defn"></a>
 
-AWS Entity Resolution uses Secure Hash Algorithm 256-bit (SHA256) hash protocol and will output a
-32-byte character string. This is part of the [matching
-workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in output.
+AWS Entity Resolution uses Secure Hash Algorithm 256-bit (SHA256) hash protocol and will output a 32-byte character string. This is part of the [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## ID mapping method
+<a name="id-mapping-method-defn"></a>
 
-How you want the ID mapping to be performed.
+How you want the ID mapping to be performed. 
 
-There are two ID mapping methods:
+There are two ID mapping methods: 
++ Rule-based – The method by which you use matching rules to translate first-party data from a source to a target in an ID mapping workflow.
++ Provider services – The method by which you use a provider service to translate third party-encoded data from a source to a target in an ID mapping workflow.
 
-- Rule-based – The method by which you use matching rules to translate first-party
-  data from a source to a target in an ID mapping workflow.
-- Provider services – The method by which you use a provider service to translate
-  third party-encoded data from a source to a target in an ID mapping workflow.
-
-AWS Entity Resolution currently supports LiveRamp as the provider services-based ID mapping method. You
-must have a subscription to LiveRamp through AWS Data Exchange to use this method. For more information,
-see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
+  AWS Entity Resolution currently supports LiveRamp as the provider services-based ID mapping method. You must have a subscription to LiveRamp through AWS Data Exchange to use this method. For more information, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service).
 
 ## ID mapping workflow
+<a name="id-mapping-workflow-defn"></a>
 
-A data processing job that maps data from an input data source to an input data target based
-on the specified ID mapping method. It produces an ID mapping table. This workflow requires you
-to specify the [ID
-mapping method](#id-mapping-method-defn "#id-mapping-method-defn") and the input data you want to translate from a source to a target.
+A data processing job that maps data from an input data source to an input data target based on the specified ID mapping method. It produces an ID mapping table. This workflow requires you to specify the [ID mapping method](#id-mapping-method-defn) and the input data you want to translate from a source to a target. 
 
-You can set up an ID mapping workflow to run in your own AWS account or across two
-AWS accounts.
+You can set up an ID mapping workflow to run in your own AWS account or across two AWS accounts.
 
 ## ID namespace
+<a name="id-namespace-defn"></a>
 
-A resource in AWS Entity Resolution that contains metadata explaining datasets across multiple AWS accounts
-and how to use these datasets in an [ID mapping
-workflow](#id-mapping-workflow-defn "#id-mapping-workflow-defn").
+A resource in AWS Entity Resolution that contains metadata explaining datasets across multiple AWS accounts and how to use these datasets in an [ID mapping workflow](#id-mapping-workflow-defn).
 
-There are two types of ID namespaces: `SOURCE` and `TARGET`. The
-`SOURCE` contains configurations for the source data that will be processed in an ID
-mapping workflow. The `TARGET` contains a configuration of the target data to which
-all sources will resolve to. To deﬁne the input data that you want to resolve across two
-AWS accounts, create an ID namespace source and an ID namespace target to translate your data
-from one set (`SOURCE`) to another (`TARGET`).
+There are two types of ID namespaces: `SOURCE` and `TARGET`. The `SOURCE` contains configurations for the source data that will be processed in an ID mapping workflow. The `TARGET` contains a configuration of the target data to which all sources will resolve to. To deﬁne the input data that you want to resolve across two AWS accounts, create an ID namespace source and an ID namespace target to translate your data from one set (`SOURCE`) to another (`TARGET`).
 
-After you and another member create ID namespaces and run an ID mapping workflow, you can
-join a collaboration in AWS Clean Rooms to run a multi table join on the ID mapping table, and analyze the
-data.
+After you and another member create ID namespaces and run an ID mapping workflow, you can join a collaboration in AWS Clean Rooms to run a multi table join on the ID mapping table, and analyze the data.
 
-For more information, see the [AWS Clean Rooms User Guide](../../../clean-rooms/latest/userguide/what-is.md "../../../clean-rooms/latest/userguide/what-is.md").
+For more information, see the [AWS Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html).
 
 ## Incremental workflow
+<a name="incremental-defn"></a>
 
-A process that only matches and resolves new or updated records since the last run, rather
-than processing the entire dataset. Incremental workflows in AWS Entity Resolution are best used for frequent
-updates to maintain data freshness when only a small portion of the dataset has changed.
+A process that only matches and resolves new or updated records since the last run, rather than processing the entire dataset. Incremental workflows in AWS Entity Resolution are best used for frequent updates to maintain data freshness when only a small portion of the dataset has changed.
 
 ## Input field
+<a name="input-field-defn"></a>
 
 An input field corresponds to a column name from your AWS Glue input data table.
 
 ## Input Source ARN (InputSourceARN)
+<a name="input-source-arn-defn"></a>
 
-The Amazon Resource Name (ARN) that was generated for an AWS Glue table input. This is part of
-[matching workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be
-included in output.
+The Amazon Resource Name (ARN) that was generated for an AWS Glue table input. This is part of [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## Machine learning-based matching
+<a name="ml-matching-defn"></a>
 
-Machine learning-based matching (ML matching) finds matches across your data that might be
-incomplete or might not look exactly the same. ML matching is a preset process that will attempt
-to match records across all of the data you input. ML matching returns a [match ID](#match-id-defin "#match-id-defin") and a [confidence level](#confidence-level-defn "#confidence-level-defn")
-for each matched set of data.
+Machine learning-based matching (ML matching) finds matches across your data that might be incomplete or might not look exactly the same. ML matching is a preset process that will attempt to match records across all of the data you input. ML matching returns a [match ID](#match-id-defin) and a [confidence level](#confidence-level-defn) for each matched set of data.
 
 ## Manual processing
+<a name="manual-processing"></a>
 
-A processing cadence option for a matching workflow job that enables it to be run on demand.
+A processing cadence option for a matching workflow job that enables it to be run on demand. 
 
-This option is set by default and is available for both [rule-based
-matching](#rule-based-matching-defn "#rule-based-matching-defn") and [machine
-learning -based matching](#ml-matching-defn "#ml-matching-defn").
+This option is set by default and is available for both [rule-based matching](#rule-based-matching-defn) and [machine learning -based matching](#ml-matching-defn).
 
 ## Many-to-Many matching
+<a name="many-to-many-defin"></a>
 
-Many-to-many matching compares multiple instances of similar data. Values in input fields
-that have been assigned the same match key will be matched against each other, regardless of
-whether they are in the same input field or different input fields.
+Many-to-many matching compares multiple instances of similar data. Values in input fields that have been assigned the same match key will be matched against each other, regardless of whether they are in the same input field or different input fields. 
 
-For example, you might have multiple phone number input fields like
-`mobile_phone` and `home_phone` that have the same match key “Phone”. Use
-many-to-many matching to compare data in the `mobile_phone` input field with data in
-the `mobile_phone` input field and data in the `home_phone` input field.
+For example, you might have multiple phone number input fields like `mobile_phone` and `home_phone` that have the same match key “Phone”. Use many-to-many matching to compare data in the `mobile_phone` input field with data in the `mobile_phone` input field and data in the `home_phone` input field. 
 
-Matching rules evaluate data in multiple input fields with the same match key with an (or)
-operation, and one-to-many matching compares values across multiple input fields. This means that
-if any combination of `mobile_phone` or `home_phone` matches between two
-records, the “Phone” match key will return a match. For match key “Phone” to find a match,
-`Record One mobile_phone = Record Two mobile_phone` OR `Record One mobile_phone
- = Record Two home_phone` OR `Record One home_phone = Record Two home_phone` OR
-`Record One home_phone = Record Two mobile_phone`.
+Matching rules evaluate data in multiple input fields with the same match key with an (or) operation, and one-to-many matching compares values across multiple input fields. This means that if any combination of `mobile_phone` or `home_phone` matches between two records, the “Phone” match key will return a match. For match key “Phone” to find a match, `Record One mobile_phone = Record Two mobile_phone` OR `Record One mobile_phone = Record Two home_phone` OR `Record One home_phone = Record Two home_phone` OR `Record One home_phone = Record Two mobile_phone`.
 
 ## Match ID (MatchID)
+<a name="match-id-defin"></a>
 
-For rule-based matching and ML matching, this is the ID generated by AWS Entity Resolution and applied
-to each matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in output.
+For rule-based matching and ML matching, this is the ID generated by AWS Entity Resolution and applied to each matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## Match key (MatchKey)
+<a name="match-key-defn"></a>
 
-Match key instructs AWS Entity Resolution which input fields to consider as similar data and which to
-consider as different data. This helps AWS Entity Resolution automatically configure rule-based matching
-rules and compare similar data stored in different input fields.
+Match key instructs AWS Entity Resolution which input fields to consider as similar data and which to consider as different data. This helps AWS Entity Resolution automatically configure rule-based matching rules and compare similar data stored in different input fields. 
 
-If there are multiple types of phone number information like a `mobile_phone`
-input field and a `home_phone` input field in your data that you would like compared
-together, you could give them both the match key “Phone”. Then rule-based matching can be
-configured to compare data using “or” statements in all input fields with the “Phone” match key
-(see [One-to-One Matching](#one-to-one-matching-defn "#one-to-one-matching-defn") and [Many-to-Many Matching](#many-to-many-defin "#many-to-many-defin") definitions in Matching Workflow
-section).
+If there are multiple types of phone number information like a `mobile_phone` input field and a `home_phone` input field in your data that you would like compared together, you could give them both the match key “Phone”. Then rule-based matching can be configured to compare data using “or” statements in all input fields with the “Phone” match key (see [One-to-One Matching](#one-to-one-matching-defn) and [Many-to-Many Matching](#many-to-many-defin) definitions in Matching Workflow section). 
 
-If you want rule-based matching to consider different types of phone number information
-completely separately, you can create more specific match keys like “Mobile\_Phone” and
-“Home\_Phone”. Then, when setting up a matching workflow, you can specify how each phone match key
-will be used in rule-based matching.
+If you want rule-based matching to consider different types of phone number information completely separately, you can create more specific match keys like “Mobile\_Phone” and “Home\_Phone”. Then, when setting up a matching workflow, you can specify how each phone match key will be used in rule-based matching. 
 
-If no MatchKey is specified for a particular input field, it can't be used in matching but
-can be carried through the matching workflow process and can be output if desired.
+If no MatchKey is specified for a particular input field, it can't be used in matching but can be carried through the matching workflow process and can be output if desired.
 
 ## Match key name
+<a name="match-key-name-defn"></a>
 
 The name assigned to a Match key.
 
 ## Match rule (MatchRule)
+<a name="match-rule-defn"></a>
 
-For rule-based matching, this is the rule number applied that generated a matched record
-set. This is part of the [matching workflow
-metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in output.
+For rule-based matching, this is the rule number applied that generated a matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata) that will be included in output.
 
 ## Matching
+<a name="matching-definition"></a>
 
-The process of combining and comparing data from different input fields, tables, or
-databases and determining which of it is alike – or “matches” – based upon
-satisfying certain matching criteria (for example, either through matching rules or
-models).
+The process of combining and comparing data from different input fields, tables, or databases and determining which of it is alike – or “matches” – based upon satisfying certain matching criteria (for example, either through matching rules or models).
 
 ## Matching workflow
+<a name="matching-workflow-definition"></a>
 
-The process that you set up to specify the input data to match together and how the matching
-should be performed.
+The process that you set up to specify the input data to match together and how the matching should be performed.
 
 ## Matching workflow description
+<a name="matching-workflow-description"></a>
 
-An optional description of the matching workflow that you might choose to enter.
-Descriptions help you differentiate between matching workflows if you create more than
-one.
+An optional description of the matching workflow that you might choose to enter. Descriptions help you differentiate between matching workflows if you create more than one.
 
 ## Matching workflow name
+<a name="matching-workflow-name"></a>
 
-The name for the matching workflow that you specify.
+The name for the matching workflow that you specify. 
 
-###### Note
-
-Matching workflow names must be unique. They can't have the same name or an error will be
-returned.
+**Note**  
+Matching workflow names must be unique. They can't have the same name or an error will be returned.
 
 ## Matching workflow metadata
+<a name="matching-workflow-metadata"></a>
 
-Information generated and output by AWS Entity Resolution during a matching workflow job. This
-information is required on output.
+Information generated and output by AWS Entity Resolution during a matching workflow job. This information is required on output.
 
 ## Normalization (ApplyNormalization)
+<a name="normalization-defn"></a>
 
-Choose whether to normalize input data as defined in the schema. Normalization standardizes
-data by removing extra spaces and special characters and standardizing to lowercase format.
+Choose whether to normalize input data as defined in the schema. Normalization standardizes data by removing extra spaces and special characters and standardizing to lowercase format. 
 
-For example, if an input field has an attribute type of [Full phone](#normalization-rule-phone "#normalization-rule-phone"), and the values in the input table are
-formatted as `(123) 456-7890`, AWS Entity Resolution will normalize the values to
-`1234567890`.
+For example, if an input field has an attribute type of [Full phone](#normalization-rule-phone), and the values in the input table are formatted as `(123) 456-7890`, AWS Entity Resolution will normalize the values to `1234567890`.
 
-###### Note
+**Note**  
+Normalization is only supported the group type for [Name](#normalization-rule-name), [Address](#normalization-rule-address), [Phone](#normalization-rule-phone), and [Email](#normalization-rule-email). 
 
-Normalization is only supported the group type for [Name](#normalization-rule-name "#normalization-rule-name"), [Address](#normalization-rule-address "#normalization-rule-address"), [Phone](#normalization-rule-phone "#normalization-rule-phone"), and [Email](#normalization-rule-email "#normalization-rule-email").
+The following sections describe our standard normalization rules. 
 
-The following sections describe our standard normalization rules.
+For ML-based matching specifically, see [Normalization (ApplyNormalization) – ML-based only](#normalization-ML-defn).
 
-For ML-based matching specifically, see [Normalization (ApplyNormalization) – ML-based only](#normalization-ML-defn "#normalization-ML-defn").
-
-###### Topics
-
-- [Name](#normalization-rule-name "#normalization-rule-name")
-- [Email](#normalization-rule-email "#normalization-rule-email")
-- [Phone](#normalization-rule-phone "#normalization-rule-phone")
-- [Address](#normalization-rule-address "#normalization-rule-address")
-- [Hashed](#normalization-rule-hashed "#normalization-rule-hashed")
-- [Source\_ID](#normalization-rule-source-id "#normalization-rule-source-id")
+**Topics**
++ [Name](#normalization-rule-name)
++ [Email](#normalization-rule-email)
++ [Phone](#normalization-rule-phone)
++ [Address](#normalization-rule-address)
++ [Hashed](#normalization-rule-hashed)
++ [Source\_ID](#normalization-rule-source-id)
 
 ### Name
+<a name="normalization-rule-name"></a>
 
-###### Note
-
-Normalization is only supported for the **Name** group type.
-
-The **Name** group type appears as **Full name** in the
-console and as `NAME` in the API.
-
-If you want to normalize the sub-types of the **Name** group type:
-
-- In the console, assign the following subtypes to the **Full name**
-  group: **First name**, **Middle name**, and **Last
-  name**.
-- In the [CreateSchemaMapping](../apireference/API_CreateSchemaMapping.md "../apireference/API_CreateSchemaMapping.md") API, assign the following
-  **Types** to the `NAME`
-  **groupName**: `NAME_FIRST`, `NAME_MIDDLE`, and
-  `NAME_LAST`.
-
-- **TRIM** = Trims leading and trailing whitespace
-- **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT\_ACCENT** = Covert accented letter to regular
-  letter
-- **REMOVE\_ALL\_NON\_ALPHA** = Removes all non-alpha characters
-  [a-zA-Z]
+**Note**  
+Normalization is only supported for the **Name** group type.   
+The **Name** group type appears as **Full name** in the console and as `NAME` in the API.  
+If you want to normalize the sub-types of the **Name** group type:   
+In the console, assign the following subtypes to the **Full name** group: **First name**, **Middle name**, and **Last name**.
+In the [CreateSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateSchemaMapping.html) API, assign the following **Types** to the `NAME` **groupName**: `NAME_FIRST`, `NAME_MIDDLE`, and `NAME_LAST`.
++ **TRIM** = Trims leading and trailing whitespace
++ **LOWERCASE** = Lowercases all alpha characters
++ **CONVERT\_ACCENT** = Covert accented letter to regular letter
++ **REMOVE\_ALL\_NON\_ALPHA **= Removes all non-alpha characters [a-zA-Z]
 
 ### Email
+<a name="normalization-rule-email"></a>
 
-###### Note
-
-Normalization is supported for the **Email** group type.
-
-The **Email** group type appears as **Email address** in
-the console and as `EMAIL_ADDRESS` in the API.
-
-- **TRIM** = Trims leading and trailing whitespace
-- **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT\_ACCENT** = Covert accented letter to regular
-  letter
-- **EMAIL\_ADDRESS\_UTIL\_NORM** = Removes any dots (.) from the
-  username, removes anything after a plus sign (+) in the username, and standardizes common
-  domain variations
-- **REMOVE\_ALL\_NON\_EMAIL\_CHARS** = Removes all
-  non-alpha-numeric characters [a-zA-Z0-9] and [.@-]
+**Note**  
+Normalization is supported for the **Email** group type.   
+The **Email** group type appears as **Email address** in the console and as `EMAIL_ADDRESS` in the API.
++ **TRIM **= Trims leading and trailing whitespace
++ **LOWERCASE** = Lowercases all alpha characters
++ **CONVERT\_ACCENT** = Covert accented letter to regular letter
++ **EMAIL\_ADDRESS\_UTIL\_NORM** = Removes any dots (.) from the username, removes anything after a plus sign (\+) in the username, and standardizes common domain variations
++ **REMOVE\_ALL\_NON\_EMAIL\_CHARS **= Removes all non-alpha-numeric characters [a-zA-Z0-9] and [.@-]
 
 ### Phone
+<a name="normalization-rule-phone"></a>
 
-###### Note
-
-Normalization only supported for the **Phone** group type.
-
-The **Phone** group type appears as **Full phone** in
-the console and as `PHONE` in the API.
-
-If you want to normalize the sub-types of the **Phone** group type:
-
-- In the console, assign the following sub-types to the **Full phone**
-  group: **Phone number**, and **Phone country code**.
-- In the [CreateSchemaMapping](../apireference/API_CreateSchemaMapping.md "../apireference/API_CreateSchemaMapping.md") API, assign the following
-  **Types** to the `PHONE`
-  **groupName**: `PHONE_NUMBER` and
-  `PHONE_COUNTRYCODE`.
-
-- **TRIM** = Trims leading and trailing whitespace
-- **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric
-  characters [0-9]
-- **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading
-  zeroes
-- **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each
-  phone number and tries to match it against patterns in the phonePrefixMap. If a match is
-  found, the rule will add or modify the prefix of the phone number to ensure it conforms to the
-  standardized format specified in the map.
+**Note**  
+Normalization only supported for the **Phone** group type.  
+The **Phone** group type appears as **Full phone** in the console and as `PHONE` in the API.  
+If you want to normalize the sub-types of the **Phone** group type:   
+In the console, assign the following sub-types to the **Full phone** group: **Phone number**, and **Phone country code**.
+In the [CreateSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateSchemaMapping.html) API, assign the following **Types** to the `PHONE` **groupName**: `PHONE_NUMBER` and `PHONE_COUNTRYCODE`.
++ **TRIM** = Trims leading and trailing whitespace
++ **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric characters [0-9]
++ **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading zeroes
++ **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each phone number and tries to match it against patterns in the phonePrefixMap. If a match is found, the rule will add or modify the prefix of the phone number to ensure it conforms to the standardized format specified in the map.
 
 ### Address
+<a name="normalization-rule-address"></a>
 
-###### Note
-
-Normalization only supported for the **Address** group type.
-
-The **Address** group type appears as **Full address**
-in the console and as `ADDRESS` in the API.
-
-If you want to normalize the sub-types of the **Address** group type:
-
-- In the console, assign the following sub-types to the **Full address**
-  group: **Street address 1**, **Street address 2**:
-  **Street address 3 name**, **City name**,
-  **State**, **Country**, and **Postal
-  code** t
-- In the [CreateSchemaMapping](../apireference/API_CreateSchemaMapping.md "../apireference/API_CreateSchemaMapping.md") API, assign the following
-  **Types** to the `ADDRESS`
-  **groupName**: `ADDRESS_STREET1`, `ADDRESS_STREET2`,
-  `ADDRESS_STREET3`, `ADDRESS_CITY`, `ADDRESS_STATE`,
-  `ADDRESS_COUNTRY`, and `ADDRESS_POSTALCODE`.
-
-- **TRIM** = Trims leading and trailing whitespace
-- **LOWERCASE** = Lowercases all alpha characters
-- **CONVERT\_ACCENT** = Covert accented letter to regular
-  letter
-- **REMOVE\_ALL\_NON\_ALPHA** = Removes all non-alpha characters
-  [a-zA-Z]
-- **RENAME\_WORDS using ADDRESS\_RENAME\_WORD\_MAP** = replace
-  words in Address string with words from[ADDRESS\_RENAME\_WORD\_MAP](#ADDRESS_RENAME_WORD_MAP "#ADDRESS_RENAME_WORD_MAP")
-- **RENAME\_DELIMITERS using ADDRESS\_RENAME\_DELIMITER\_MAP** =
-  replace delimiters in Address string with string from [ADDRESS\_RENAME\_DELIMITER\_MAP](#ADDRESS_RENAME_DELIMITER_MAP "#ADDRESS_RENAME_DELIMITER_MAP")
-- **RENAME\_DIRECTIONS using ADDRESS\_RENAME\_DIRECTION\_MAP**=
-  replace delimiters in Address string with string from [ADDRESS\_RENAME\_DIRECTION\_MAP](#ADDRESS_RENAME_DIRECTION_MAP "#ADDRESS_RENAME_DIRECTION_MAP")
-- **RENAME\_NUMBERS using ADDRESS\_RENAME\_NUMBER\_MAP** = replace
-  numbers in Address string with string from [ADDRESS\_RENAME\_NUMBER\_MAP](#ADDRESS_RENAME_NUMBER_MAP.title "#ADDRESS_RENAME_NUMBER_MAP.title")
-- **RENAME\_SPECIAL\_CHARS using
-  ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP** = replace special characters in Address string
-  with string from [ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP](#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title "#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title")
+**Note**  
+Normalization only supported for the **Address** group type.   
+The **Address** group type appears as **Full address** in the console and as `ADDRESS ` in the API.  
+If you want to normalize the sub-types of the **Address** group type:   
+In the console, assign the following sub-types to the **Full address** group: **Street address 1**, **Street address 2**: **Street address 3 name**, **City name**, **State**, **Country**, and **Postal code** t
+In the [CreateSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateSchemaMapping.html) API, assign the following **Types** to the `ADDRESS` **groupName**: `ADDRESS_STREET1`, `ADDRESS_STREET2`, `ADDRESS_STREET3`, `ADDRESS_CITY`, `ADDRESS_STATE`, `ADDRESS_COUNTRY`, and `ADDRESS_POSTALCODE`.
++ **TRIM** = Trims leading and trailing whitespace
++ **LOWERCASE** = Lowercases all alpha characters
++ **CONVERT\_ACCENT** = Covert accented letter to regular letter
++ **REMOVE\_ALL\_NON\_ALPHA **= Removes all non-alpha characters [a-zA-Z]
++ **RENAME\_WORDS using ADDRESS\_RENAME\_WORD\_MAP** = replace words in Address string with words from[ ADDRESS\_RENAME\_WORD\_MAP](#ADDRESS_RENAME_WORD_MAP)
++ **RENAME\_DELIMITERS using ADDRESS\_RENAME\_DELIMITER\_MAP** = replace delimiters in Address string with string from [ADDRESS\_RENAME\_DELIMITER\_MAP](#ADDRESS_RENAME_DELIMITER_MAP)
++ **RENAME\_DIRECTIONS using ADDRESS\_RENAME\_DIRECTION\_MAP**= replace delimiters in Address string with string from [ADDRESS\_RENAME\_DIRECTION\_MAP](#ADDRESS_RENAME_DIRECTION_MAP)
++ **RENAME\_NUMBERS using ADDRESS\_RENAME\_NUMBER\_MAP** = replace numbers in Address string with string from [ADDRESS\_RENAME\_NUMBER\_MAP](#ADDRESS_RENAME_NUMBER_MAP.title)
++ **RENAME\_SPECIAL\_CHARS using ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP** = replace special characters in Address string with string from [ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP](#ADDRESS_RENAME_SPECIAL_CHAR_MAP.title)
 
 #### ADDRESS\_RENAME\_WORD\_MAP
+<a name="ADDRESS_RENAME_WORD_MAP"></a>
 
 These are the words that will be renamed when normalizing the address string.
 
@@ -424,6 +312,7 @@ These are the words that will be renamed when normalizing the address string.
 ```
 
 #### ADDRESS\_RENAME\_DELIMITER\_MAP
+<a name="ADDRESS_RENAME_DELIMITER_MAP"></a>
 
 These are the delimiters that will be renamed when normalizing the address string.
 
@@ -438,9 +327,9 @@ These are the delimiters that will be renamed when normalizing the address strin
 ```
 
 #### ADDRESS\_RENAME\_DIRECTION\_MAP
+<a name="ADDRESS_RENAME_DIRECTION_MAP"></a>
 
-These are the direction identifiers that will be renamed when normalizing the address
-string.
+These are the direction identifiers that will be renamed when normalizing the address string.
 
 ```
 "east": "e",
@@ -454,9 +343,9 @@ string.
 ```
 
 #### ADDRESS\_RENAME\_NUMBER\_MAP
+<a name="ADDRESS_RENAME_NUMBER_MAP"></a>
 
-These are the number strings that will be renamed when normalizing the address
-string.
+These are the number strings that will be renamed when normalizing the address string.
 
 ```
 "número": "number",
@@ -467,9 +356,9 @@ string.
 ```
 
 #### ADDRESS\_RENAME\_SPECIAL\_CHAR\_MAP
+<a name="ADDRESS_RENAME_SPECIAL_CHAR_MAP"></a>
 
-These are the special characters string that will be renamed when normalizing the address
-string.
+These are the special characters string that will be renamed when normalizing the address string.
 
 ```
 "ß": "ss",
@@ -481,206 +370,158 @@ string.
 ```
 
 ### Hashed
-
-- **TRIM** = Trims leading and trailing whitespace
+<a name="normalization-rule-hashed"></a>
++ **TRIM** = Trims leading and trailing whitespace
 
 ### Source\_ID
-
-- **TRIM** = Trims leading and trailing whitespace
+<a name="normalization-rule-source-id"></a>
++ **TRIM** = Trims leading and trailing whitespace
 
 ## Normalization (ApplyNormalization) – ML-based only
+<a name="normalization-ML-defn"></a>
 
-Choose whether to normalize input data as defined in the schema. Normalization standardizes
-data by removing extra spaces and special characters and standardizing to lowercase format.
+Choose whether to normalize input data as defined in the schema. Normalization standardizes data by removing extra spaces and special characters and standardizing to lowercase format. 
 
-For example, if an input field has an attribute type of `NAME`, and the values in
-the input table are formatted as `Johns Smith`, AWS Entity Resolution will normalize the values to
-`john smith`.
+For example, if an input field has an attribute type of `NAME`, and the values in the input table are formatted as `Johns Smith`, AWS Entity Resolution will normalize the values to `john smith`.
 
-The following sections describe the normalization rules for [machine learning-based matching workflows](#ml-matching-defn "#ml-matching-defn").
+The following sections describe the normalization rules for [machine learning-based matching workflows](#ml-matching-defn).
 
-###### Topics
-
-- [Name](#normalization-ML-defn-name "#normalization-ML-defn-name")
-- [Email](#normalization-ML-defn-email "#normalization-ML-defn-email")
-- [Phone](#normalization-ML-defn-phone "#normalization-ML-defn-phone")
+**Topics**
++ [Name](#normalization-ML-defn-name)
++ [Email](#normalization-ML-defn-email)
++ [Phone](#normalization-ML-defn-phone)
 
 ### Name
-
-- **TRIM** = Trims leading and trailing whitespace
-- **LOWERCASE** = Lowercases all alpha characters
+<a name="normalization-ML-defn-name"></a>
++ **TRIM** = Trims leading and trailing whitespace
++ **LOWERCASE** = Lowercases all alpha characters
 
 ### Email
-
-- **LOWERCASE** = Lowercases all alpha characters
-- Replaces only (at)(case sensitive) with an @ symbol
-- Removes all whitespace, anywhere in the value
-- Removes everything that's outside of the first `"<`
-  `>"` if it exists
+<a name="normalization-ML-defn-email"></a>
++ **LOWERCASE** = Lowercases all alpha characters
++ Replaces only (at)(case sensitive) with an @ symbol
++ Removes all whitespace, anywhere in the value 
++ Removes everything that's outside of the first `"<` `>"` if it exists
 
 ### Phone
-
-- **TRIM** = Trims leading and trailing whitespace
-- **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric
-  characters [0-9]
-- **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading
-  zeroes
-- **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each
-  phone number and tries to match it against patterns in the phonePrefixMap. If a match is
-  found, the rule will add or modify the prefix of the phone number to ensure it conforms to the
-  standardized format specified in the map.
+<a name="normalization-ML-defn-phone"></a>
++ **TRIM** = Trims leading and trailing whitespace
++ **REMOVE\_ALL\_NON\_NUMERIC** = Removes all non-numeric characters [0-9]
++ **REMOVE\_ALL\_LEADING\_ZEROES** = Removes all leading zeroes
++ **ENSURE\_PREFIX\_WITH\_MAP, "phonePrefixMap"** = Examines each phone number and tries to match it against patterns in the phonePrefixMap. If a match is found, the rule will add or modify the prefix of the phone number to ensure it conforms to the standardized format specified in the map.
 
 ## One-to-One matching
+<a name="one-to-one-matching-defn"></a>
 
-One-to-one matching compares single instances of similar data. Input fields with the same
-match key and values in the same input field will be matched against each other.
+One-to-one matching compares single instances of similar data. Input fields with the same match key and values in the same input field will be matched against each other. 
 
-For example, you might have multiple phone number input fields like
-`mobile_phone` and `home_phone` that have the same match key “Phone”. Use
-one-to-one matching to compare data in the `mobile_phone` input field with data in the
-`mobile_phone` input field and to compare data in the `home_phone` input
-field with data in the `home_phone` input field. Data in the `mobile_phone`
-input field won't be compared with data in the `home_phone` input field.
+For example, you might have multiple phone number input fields like `mobile_phone` and `home_phone` that have the same match key “Phone”. Use one-to-one matching to compare data in the `mobile_phone` input field with data in the `mobile_phone` input field and to compare data in the `home_phone` input field with data in the `home_phone` input field. Data in the `mobile_phone` input field won't be compared with data in the `home_phone` input field. 
 
-Matching rules evaluate data in multiple input fields with the same match key with an (or)
-operation, and one-to-many matching compares values within a single input field. This means that
-if `mobile_phone` or `home_phone` matches between two records, the “Phone”
-match key will return a match. For match key “Phone” to find a match, `Record One
- mobile_phone = Record Two mobile_phone` OR `Record One home_phone = Record Two
- home_phone`.
+Matching rules evaluate data in multiple input fields with the same match key with an (or) operation, and one-to-many matching compares values within a single input field. This means that if `mobile_phone` or `home_phone` matches between two records, the “Phone” match key will return a match. For match key “Phone” to find a match, `Record One mobile_phone = Record Two mobile_phone` OR `Record One home_phone = Record Two home_phone`. 
 
-Matching rules evaluate data in input fields with different match keys with an (and)
-operation. If you want rule-based matching to consider different types of phone number
-information completely separately, you can create more specific match keys like “mobile\_phone”
-and “home\_phone”. If you want to use both match keys in a rule to find matches, `Record One
- mobile_phone = Record Two mobile_phone` AND `Record One home_phone = Record Two
- home_phone`.
+Matching rules evaluate data in input fields with different match keys with an (and) operation. If you want rule-based matching to consider different types of phone number information completely separately, you can create more specific match keys like “mobile\_phone” and “home\_phone”. If you want to use both match keys in a rule to find matches, `Record One mobile_phone = Record Two mobile_phone` AND `Record One home_phone = Record Two home_phone`.
 
 ## Output
+<a name="output-defn"></a>
 
-A list of **OutputAttribute** objects, each of which have the fields
-**Name** and **Hashed**. Each of these objects represent a
-column to be included in the AWS Glue output table and whether you want the values in the column to
-be hashed.
+A list of **OutputAttribute** objects, each of which have the fields **Name** and **Hashed**. Each of these objects represent a column to be included in the AWS Glue output table and whether you want the values in the column to be hashed.
 
 ## OutputS3Path
+<a name="output-s3-path"></a>
 
 The S3 destination to which AWS Entity Resolution will write the output table.
 
 ## OutputSourceConfig
+<a name="output-source-config"></a>
 
-A list of OutputSource objects, each of which have the fields
-**OutputS3Path**, **ApplyNormalization**, and
-**Output**.
+A list of OutputSource objects, each of which have the fields **OutputS3Path**, **ApplyNormalization**, and **Output**.
 
 ## Provider service-based matching
+<a name="provider-service-matching"></a>
 
-Provider service-based matching is process designed to match, link, and enhance your records
-with preferred data service providers and licensed data sets. You must have a subscription
-through AWS Data Exchange with the provider service to use this matching technique.
+Provider service-based matching is process designed to match, link, and enhance your records with preferred data service providers and licensed data sets. You must have a subscription through AWS Data Exchange with the provider service to use this matching technique.
 
-AWS Entity Resolution currently integrates with the following data service providers:
-
-- LiveRamp
-- TransUnion
-- UID 2.0
+AWS Entity Resolution currently integrates with the following data service providers: 
++ LiveRamp
++ TransUnion
++ UID 2.0
 
 ## Rule-based matching
+<a name="rule-based-matching-defn"></a>
 
-Rule-based matching is process designed to find exact matches. Rule-based matching is a
-hierarchical set of waterfall matching rules, suggested by AWS Entity Resolution, based upon the data that
-you input and completely configurable by you. All match keys provided within rule criteria must
-match exactly for compared data to be declared a match and for associated metadata to be output.
-Rule-based matching returns a [Match
-ID](#match-id-defin "#match-id-defin") and a rule number for each matched set of data.
+Rule-based matching is process designed to find exact matches. Rule-based matching is a hierarchical set of waterfall matching rules, suggested by AWS Entity Resolution, based upon the data that you input and completely configurable by you. All match keys provided within rule criteria must match exactly for compared data to be declared a match and for associated metadata to be output. Rule-based matching returns a[ Match ID](#match-id-defin) and a rule number for each matched set of data.
 
-We recommend defining rules that can uniquely identify an entity. Order your rules to find
-more precise matches first.
+We recommend defining rules that can uniquely identify an entity. Order your rules to find more precise matches first. 
 
-For example, let's say you have two rules, **Rule 1** and
-**Rule 2**.
+For example, let's say you have two rules, **Rule 1** and **Rule 2**.
 
 These rules have the following match keys:
++ **Rule 1** includes Full name and Address
++ **Rule 2** includes Full name, Address, and Phone
 
-- **Rule 1** includes Full name and Address
-- **Rule 2** includes Full name, Address, and Phone
-
-Because **Rule 1** runs first, no matches will be found by
-**Rule 2** because they would have all been found by **Rule 1**.
+Because **Rule 1** runs first, no matches will be found by **Rule 2** because they would have all been found by **Rule 1**.
 
 To find matches that are differentiated by Phone, reorder the rules, like this:
-
-- **Rule 2** includes Full name, Address, and Phone
-- **Rule 1** includes Full name and Address
++ **Rule 2** includes Full name, Address, and Phone
++ **Rule 1** includes Full name and Address
 
 ## Transitive matching
+<a name="transitive-matching-defn"></a>
 
-Transitive matching is an optional feature for [rule-based matching](#rule-based-matching-defn "#rule-based-matching-defn") workflows that use the
-Advanced rule type. By default, AWS Entity Resolution uses a waterfall matching approach where records matched at
-a higher rule level are excluded from subsequent rules. With transitive matching enabled, all
-records are processed across all rule levels. A record's [match ID](#match-id-defin "#match-id-defin") is fixed upon its first match, but the record
-continues to act as a link to connect unmatched records from later rules to match groups from
-earlier rules.
+Transitive matching is an optional feature for [rule-based matching](#rule-based-matching-defn) workflows that use the Advanced rule type. By default, AWS Entity Resolution uses a waterfall matching approach where records matched at a higher rule level are excluded from subsequent rules. With transitive matching enabled, all records are processed across all rule levels. A record's [match ID](#match-id-defin) is fixed upon its first match, but the record continues to act as a link to connect unmatched records from later rules to match groups from earlier rules.
 
-For more information, see [Using transitive matching](transitive-matching.md "transitive-matching.md").
+For more information, see [Using transitive matching](transitive-matching.md).
 
 ## Schema
+<a name="schema-definition"></a>
 
-The term used for a structure or layout defining how a set of data is organized and
-connected.
+The term used for a structure or layout defining how a set of data is organized and connected.
 
 ## Schema description
+<a name="schema-description-defn"></a>
 
-An optional description of the schema that you can choose to enter. Descriptions help you
-differentiate between schema mappings if you create more than one.
+An optional description of the schema that you can choose to enter. Descriptions help you differentiate between schema mappings if you create more than one.
 
 ## Schema name
+<a name="schema-name-defn"></a>
 
-The name of the schema.
+The name of the schema. 
 
-###### Note
-
-Schema names must be unique. They can't have the same name or an error will be
-returned.
+**Note**  
+Schema names must be unique. They can't have the same name or an error will be returned.
 
 ## Schema mapping
+<a name="schema-mapping-definition"></a>
 
-Schema mapping in AWS Entity Resolution is the process by which you tell AWS Entity Resolution how to interpret your
-data for matching. You define the schema of the input data table that you want AWS Entity Resolution to read
-into a matching workflow.
+Schema mapping in AWS Entity Resolution is the process by which you tell AWS Entity Resolution how to interpret your data for matching. You define the schema of the input data table that you want AWS Entity Resolution to read into a matching workflow.
 
 ## Schema mapping ARN
+<a name="schema-arn-defn"></a>
 
-The Amazon Resource Name (ARN) generated for the [schema mapping](#schema-mapping-definition "#schema-mapping-definition").
+The Amazon Resource Name (ARN) generated for the [schema mapping](#schema-mapping-definition).
 
 ## Unique ID
+<a name="unique-id-defn"></a>
 
-A unique identifier that you designate and that must be assigned to each row of input data
-that AWS Entity Resolution reads.
+A unique identifier that you designate and that must be assigned to each row of input data that AWS Entity Resolution reads.
 
-###### Example
-
-For example: `Primary_key`, `Row_ID`, or
-`Record_ID`.
+**Example**  
+For example: **Primary\_key**, **Row\_ID**, or **Record\_ID**.
 
 The **Unique ID** column is required.
 
-The **Unique ID** must be a unique identifier within a single table.
+ The **Unique ID** must be a unique identifier within a single table. 
 
-The **Unique ID** must satisfy this pattern:
-`[a-zA-Z0-9_-]`
+The **Unique ID ** must satisfy this pattern: `[a-zA-Z0-9_-]`
 
-Across different tables, the **Unique ID** can have duplicate values.
+Across different tables, the **Unique ID** can have duplicate values. 
 
-The maximum **Unique ID** length is 38 for a [matching
-workflow](#matching-workflow-definition "#matching-workflow-definition")
+The maximum **Unique ID ** length is 38 for a [matching workflow](#matching-workflow-definition)
 
-The maximum **Unique ID** length 257 characters for a [ID mapping workflow](#id-mapping-workflow-defn "#id-mapping-workflow-defn")
+The maximum **Unique ID ** length 257 characters for a [ID mapping workflow](#id-mapping-workflow-defn)
 
-When the [matching workflow](#matching-workflow-definition "#matching-workflow-definition") is run, the record will be
-rejected if the **Unique ID**:
-
-- isn't specified
-- isn't unique within the same table
-- overlaps in terms of attribute name across sources
-- exceeds 38 characters (rule-based matching workflows only)
+When the [matching workflow](#matching-workflow-definition) is run, the record will be rejected if the **Unique ID**:
++ isn't specified
++ isn't unique within the same table
++ overlaps in terms of attribute name across sources
++ exceeds 38 characters (rule-based matching workflows only)

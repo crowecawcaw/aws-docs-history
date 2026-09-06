@@ -1,302 +1,237 @@
+
+
 # Creating a rule-based matching workflow with the Simple rule type
+<a name="rule-based-mw-simple"></a>
 
 **Prerequisites**
 
 Before you create a rule-based matching workflow, you must:
 
-1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
-2. If using Connect Customer Customer Profiles as your output destination, ensure you have the
-   appropriate permissions configured.
-   The following procedure demonstrates how to create a rule-based matching workflow with
-   the **Simple** rule type using either the AWS Entity Resolution Console or the
-   `CreateMatchingWorkflow` API.
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md).
 
-Console
+1. If using Connect Customer Customer Profiles as your output destination, ensure you have the appropriate permissions configured.
 
-###### To create a rule-based matching workflow with the **Simple** rule type using the console
+The following procedure demonstrates how to create a rule-based matching workflow with the **Simple** rule type using either the AWS Entity Resolution Console or the `CreateMatchingWorkflow` API.
 
-1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2. In the left navigation pane, under **Workflows**, choose
-   **Matching**.
-3. On the **Matching workflows** page, in the upper right
-   corner, choose **Create matching workflow**.
-4. For **Step 1: Specify matching workflow details**, do the
-   following:
+------
+#### [ Console ]
 
-   1. Enter a **Matching workflow name** and an optional
-      **Description**.
-   2. For **Data input**, choose an
-      **AWS Region**, **AWS Glue database**, the
-      **AWS Glue table**, and then the corresponding
-      **Schema mapping**.
+**To create a rule-based matching workflow with the **Simple** rule type using the console**
 
-   You can add up to 19 data inputs. 3. The **Normalize data** option is selected by default, so
-   that data inputs are normalized before matching. If you don't want to
-   normalize data, deselect the **Normalize data**
-   option.
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/).
 
-   ###### Note
+1. In the left navigation pane, under **Workflows**, choose **Matching**.
 
-   Normalization is only supported for the following scenarios in
-   **Create schema mapping**:
+1. On the **Matching workflows** page, in the upper right corner, choose **Create matching workflow**.
 
-        * If the following **Name** sub-types are grouped:
-         **First name**, **Middle name**,
-         **Last name**.
-        * If the following **Address** sub-types are grouped:
-         **Street address 1**, **Street address
-         2**, **Street address 3**,
-         **City**, **State**,
-         **Country**, **Postal code**.
-        * If the following **Phone** sub-types are grouped:
-         **Phone number**, **Phone country
-         code**.
+1. For **Step 1: Specify matching workflow details**, do the following: 
 
-   4. To specify the **Service access** permissions, choose an
-   option and take the recommended action.
+   1. Enter a **Matching workflow name** and an optional **Description**.
 
-   | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-   | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an *_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                 |
-   | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>*_Use an existing service role_<br>• is<br>unavailable.<br>2. View the service role by choosing the *_View in<br>IAM_<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
-   5. (Optional) To enable **Tags** for the resource, choose
-      **Add new tag**, and then enter the
-      **Key** and **Value** pair.
-   6. Choose **Next**.
+   1. For **Data input**, choose an **AWS Region**, **AWS Glue database**, the **AWS Glue table**, and then the corresponding **Schema mapping**.
 
-5. For **Step 2: Choose matching technique**:
+      You can add up to 19 data inputs.
 
-   1. For **Matching method**, choose **Rule-based
-      matching**.
-   2. For **Rule type**, choose
-      **Simple**.
+   1. The **Normalize data** option is selected by default, so that data inputs are normalized before matching. If you don't want to normalize data, deselect the **Normalize data** option.
+**Note**  
+Normalization is only supported for the following scenarios in **Create schema mapping**:   
+If the following **Name** sub-types are grouped: **First name**, **Middle name**, **Last name**.
+If the following **Address** sub-types are grouped: **Street address 1**, **Street address 2**, **Street address 3**, **City**, **State**, **Country**, **Postal code**.
+If the following **Phone** sub-types are grouped: **Phone number**, **Phone country code**.
 
-   ![Choose matching technique screen with the Simple rule-based matching option selected.](images/choose-matching-method-rule-based-simple.PNG) 3. For **Processing cadence**, select one of the following
-   options.
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)
 
-        * Choose **Manual** to run a workflow on demand for a
-         bulk update
-        * Choose **Automatic** to run a workflow as soon as new
-         data is in your S3 bucket
+   1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
-   ###### Note
+   1. Choose **Next**.
 
-   If you choose **Automatic**, ensure that you have
-   Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
-   enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
-   Guide_. 4. (Optional) For **Index only for ID mapping**, You can
-   choose to **Turn on** the ability to only index the data and
-   not generate IDs.
+1. For **Step 2: Choose matching technique**:
 
-   By default, matching workflow generate IDs after the data is indexed. 5. For **Matching rules**, enter a **Rule
-   name** and then choose the **Match keys** for that
-   rule.
+   1. For **Matching method**, choose **Rule-based matching**.
 
-   You can create up to 15 rules and you can apply up to 15 different match
-   keys across your rules to define match criteria.
+   1. For **Rule type**, choose **Simple**.  
+![Choose matching technique screen with the Simple rule-based matching option selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-rule-based-simple.PNG)
 
-   ![Matching rules interface with fields to enter rule name and select match keys.](images/matching-rules.PNG) 6. For **Comparison type**, choose one of the following
-   options based on your goal.
+   1. For **Processing cadence**, select one of the following options.
+      + Choose **Manual** to run a workflow on demand for a bulk update 
+      + Choose **Automatic** to run a workflow as soon as new data is in your S3 bucket 
+**Note**  
+If you choose **Automatic**, ensure that you have Amazon EventBridge notifications turned on for your S3 bucket. For instructions on enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications-eventbridge.html) in the *Amazon S3 User Guide*.
 
-   | Your goal                                                                      | Recommended option        |
-   | ------------------------------------------------------------------------------ | ------------------------- |
-   | Find any combination of matches across data stored in multiple<br>input fields | **Multiple input fields** |
-   | Limit comparison to a single input field                                       | **Single input field**    |
+   1. (Optional) For **Index only for ID mapping**, You can choose to **Turn on** the ability to only index the data and not generate IDs. 
 
-   ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**.
+      By default, matching workflow generate IDs after the data is indexed. 
 
-6. For **Step 3: Specify data output and format**:
+   1. For **Matching rules**, enter a **Rule name** and then choose the **Match keys** for that rule.
 
-   1. For **Data output destination and format**, choose the
-      **Amazon S3 location** for the data output and whether the
-      **Data format** will be **Normalized
-      data** or **Original data**.
-   2. For **Encryption**, if you choose to **Customize
-      encryption settings**, enter the **AWS KMS key**
-      ARN.
-   3. View the **System generated output**.
-   4. For **Data output**, decide which fields you want to
-      include, hide, or mask, and then take the recommended actions based on your
-      goals.
+      You can create up to 15 rules and you can apply up to 15 different match keys across your rules to define match criteria.  
+![Matching rules interface with fields to enter rule name and select match keys.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rules.PNG)
 
-   | Your goal                         | Recommended action                                               |
-   | --------------------------------- | ---------------------------------------------------------------- |
-   | Include fields                    | Keep the output state as **Included**.                           |
-   | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
-   | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
-   | Reset the previous settings       | Choose **Reset**.                                                |
-   5. Choose **Next**.
+   1. For **Comparison type**, choose one of the following options based on your goal.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)  
+![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/comparison-type.PNG)
 
-7. For **Step 4: Review and create**:
+   1. Choose **Next**.
 
-   1. Review the selections that you made for the previous steps and edit if
-      necessary.
-   2. Choose **Create and run**.
+1. For **Step 3: Specify data output and format**:
 
-   A message appears, indicating that the matching workflow has been created
-   and that the job has started.
+   1. For **Data output destination and format**, choose the **Amazon S3 location** for the data output and whether the **Data format** will be **Normalized data** or **Original data**.
 
-8. On the matching workflow details page, on the **Metrics**
-   tab, view the following under **Last job metrics**:
+   1. For **Encryption**, if you choose to **Customize encryption settings**, enter the **AWS KMS key** ARN.
 
-   - The **Job ID**.
-   - The **Status** of the matching workflow job:
-     **Queued**, **In progress**,
-     **Completed**, **Failed**
-   - The **Time completed** for the workflow job.
-   - The number of **Records processed**.
-   - The number of **Records not processed**.
-   - The **Unique match IDs generated**.
-   - The number of **Input records**.
-     You can also view the job metrics for matching workflow jobs that have been
-     previously run under the **Job history**.
+   1. View the **System generated output**.
 
-9. After the matching workflow job completes (**Status** is
-   **Completed**), you can go to the **Data
-   output** tab and then select your **Amazon S3 location** to
-   view the results.
-10. (**Manual** processing type only) If you have created a
-    **Rule-based matching** workflow with the
-    **Manual** processing type, you can run the matching workflow
-    anytime by choosing **Run workflow** on the matching workflow
-    details page.
+   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)
 
-API
+   1. Choose **Next**.
 
-###### To create a rule-based matching workflow with the **Simple** rule type using the API
+1. For **Step 4: Review and create**:
 
-###### Note
+   1. Review the selections that you made for the previous steps and edit if necessary.
 
-By default, the workflow uses standard (batch) processing. To use incremental
-(automatic processing, you must explicitly configure it.
+   1. Choose **Create and run**.
+
+      A message appears, indicating that the matching workflow has been created and that the job has started.
+
+1. On the matching workflow details page, on the **Metrics** tab, view the following under **Last job metrics**:
+   + The **Job ID**. 
+   + The **Status** of the matching workflow job: **Queued**, **In progress**, **Completed**, **Failed** 
+   + The **Time completed** for the workflow job.
+   + The number of **Records processed**. 
+   + The number of **Records not processed**. 
+   + The **Unique match IDs generated**.
+   + The number of **Input records**.
+
+   You can also view the job metrics for matching workflow jobs that have been previously run under the **Job history**.
+
+1. After the matching workflow job completes (**Status** is **Completed**), you can go to the **Data output** tab and then select your **Amazon S3 location** to view the results.
+
+1. (**Manual** processing type only) If you have created a **Rule-based matching** workflow with the **Manual** processing type, you can run the matching workflow anytime by choosing **Run workflow** on the matching workflow details page.
+
+------
+#### [ API ]
+
+**To create a rule-based matching workflow with the **Simple** rule type using the API**
+**Note**  
+By default, the workflow uses standard (batch) processing. To use incremental (automatic processing, you must explicitly configure it.
 
 1. Open a terminal or command prompt to make the API request.
-2. Create a POST request to the following endpoint:
 
-```
-/matchingworkflows
-```
+1. Create a POST request to the following endpoint: 
 
-3. In the request header, set the Content-type to application/json.
+   ```
+   /matchingworkflows
+   ```
 
-###### Note
+1. In the request header, set the Content-type to application/json. 
+**Note**  
+For a complete list of supported programming languages, see the *[AWS Entity Resolution API Reference](https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html)*. 
 
-For a complete list of supported programming languages, see the _[AWS Entity Resolution API Reference](../apireference/Welcome.md "../apireference/Welcome.md")_. 4. For the request body, provide the following required JSON parameters:
+1. For the request body, provide the following required JSON parameters: 
 
-```
-{
-   "description": "`string`",
-   "incrementalRunConfig": {
-      "incrementalRunType": "`string`"
-   },
-   "inputSourceConfig": [
-      {
-         "applyNormalization": `boolean`,
-         "inputSourceARN": "`string`",
-         "schemaName": "`string`"
-      }
-   ],
-   "outputSourceConfig": [
-      {
-         "applyNormalization": `boolean`,
-         "KMSArn": "`string`",
-         "output": [
-            {
-               "hashed": boolean,
-               "name": "`string`"
-            }
-         ],
-         "outputS3Path": "`string`"
-      }
-   ],
-   "resolutionTechniques": {
-      "providerProperties": {
-         "intermediateSourceConfiguration": {
-            "intermediateS3Path": "`string`"
+   ```
+   {
+      "description": "{{string}}",
+      "incrementalRunConfig": { 
+         "incrementalRunType": "{{string}}"
+      },
+      "inputSourceConfig": [ 
+         { 
+            "applyNormalization": {{boolean}},
+            "inputSourceARN": "{{string}}",
+            "schemaName": "{{string}}"
+         }
+      ],
+      "outputSourceConfig": [ 
+         { 
+            "applyNormalization": {{boolean}},
+            "KMSArn": "{{string}}",
+            "output": [ 
+               { 
+                  "hashed": boolean,
+                  "name": "{{string}}"
+               }
+            ],
+            "outputS3Path": "{{string}}"
+         }
+      ],
+      "resolutionTechniques": { 
+         "providerProperties": { 
+            "intermediateSourceConfiguration": { 
+               "intermediateS3Path": "{{string}}"
+            },
+            "providerConfiguration": {{JSON value}},
+            "providerServiceArn": "{{string}}"
          },
-         "providerConfiguration": `JSON value`,
-         "providerServiceArn": "`string`"
+         "resolutionType": "RULE_MATCHING",
+         "ruleBasedProperties": { 
+            "attributeMatchingModel": "{{string}}",
+            "matchPurpose": "{{string}}",
+            "rules": [ 
+               { 
+                  "matchingKeys": [ "{{string}}" ],
+                  "ruleName": "{{string}}"
+               }
+            ]
+         },
+         "ruleConditionProperties": { 
+            "rules": [ 
+               { 
+                  "condition": "{{string}}",
+                  "ruleName": "{{string}}"
+               }
+            ]
+         }
       },
-      "resolutionType": "RULE_MATCHING",
-      "ruleBasedProperties": {
-         "attributeMatchingModel": "`string`",
-         "matchPurpose": "`string`",
-         "rules": [
-            {
-               "matchingKeys": [ "`string`" ],
-               "ruleName": "`string`"
-            }
-         ]
+      "roleArn": "{{string}}",
+      "tags": { 
+         "string" : "{{string}}" 
       },
-      "ruleConditionProperties": {
-         "rules": [
-            {
-               "condition": "`string`",
-               "ruleName": "`string`"
-            }
-         ]
-      }
-   },
-   "roleArn": "`string`",
-   "tags": {
-      "string" : "`string`"
-   },
-   "workflowName": "``string``"
-}
-```
+      "workflowName": "{{{{string}}}}"
+   }
+   ```
 
-Where:
+   Where:
+   + `workflowName` (required) – Must be unique and between 1–255 characters matching pattern [a-zA-Z\_0-9-]\*
+   + `inputSourceConfig` (required) – List of 1–20 input source configurations
+   + `outputSourceConfig` (required) – Exactly one output source configuration
+   + `resolutionTechniques` (required) – Set to "RULE\_MATCHING" for rule-based matching
+   + `roleArn` (required) – IAM role ARN for workflow execution
+   + `ruleConditionProperties` (required) – List of rule conditions and the name of the matching rule.
 
-    * `workflowName` (required) – Must be unique and between
-     1–255 characters matching pattern [a-zA-Z\_0-9-]\*
-    * `inputSourceConfig` (required) – List of 1–20
-     input source configurations
-    * `outputSourceConfig` (required) – Exactly one output
-     source configuration
-    * `resolutionTechniques` (required) – Set to
-     "RULE\_MATCHING" for rule-based matching
-    * `roleArn` (required) – IAM role ARN for workflow
-     execution
-    * `ruleConditionProperties` (required) – List of rule
-     conditions and the name of the matching rule.
+   Optional parameters include:
+   + `description` – Up to 255 characters
+   + `incrementalRunConfig` – Incremental run type configuration
+   + `tags` – Up to 200 key-value pairs
 
-Optional parameters include:
+1. (Optional) To use incremental processing instead of the default standard (batch) processing, add the following parameter to the request body: 
 
-    * `description` – Up to 255 characters
-    * `incrementalRunConfig` – Incremental run type
-     configuration
-    * `tags` – Up to 200 key-value pairs
+   ```
+   "incrementalRunConfig": {
+      "incrementalRunType": "AUTOMATIC"
+   }
+   ```
 
-5. (Optional) To use incremental processing instead of the default standard
-(batch) processing, add the following parameter to the request body:
+1. Send the request.
 
-```
-"incrementalRunConfig": {
-   "incrementalRunType": "AUTOMATIC"
-}
+1. If successful, you'll receive a response with status code 200 and a JSON body containing: 
 
-```
+   ```
+   {
+      "workflowArn": "string",
+      "workflowName": "string",
+      // Plus all configured workflow details
+   }
+   ```
 
-6. Send the request.
-7. If successful, you'll receive a response with status code 200 and a JSON body
-   containing:
+1. If the call is unsuccessful, you might receive one of these errors:
+   + 400 – ConflictException if the workflow name already exists
+   + 400 – ValidationException if the input fails validation
+   + 402 – ExceedsLimitException if account limits are exceeded
+   + 403 – AccessDeniedException if you don't have sufficient access
+   + 429 – ThrottlingException if the request was throttled
+   + 500 – InternalServerException if there's an internal service failure
 
-```
-{
-   "workflowArn": "string",
-   "workflowName": "string",
-   // Plus all configured workflow details
-}
-
-```
-
-8. If the call is unsuccessful, you might receive one of these errors:
-
-   - 400 – ConflictException if the workflow name already exists
-   - 400 – ValidationException if the input fails validation
-   - 402 – ExceedsLimitException if account limits are exceeded
-   - 403 – AccessDeniedException if you don't have sufficient
-     access
-   - 429 – ThrottlingException if the request was throttled
-   - 500 – InternalServerException if there's an internal service
-     failure
+------

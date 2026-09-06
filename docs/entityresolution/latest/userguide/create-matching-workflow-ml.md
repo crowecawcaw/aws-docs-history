@@ -1,143 +1,100 @@
+
+
 # Creating a machine learning-based matching workflow
+<a name="create-matching-workflow-ml"></a>
 
-_[Machine learning-based
-matching](glossary.md#ml-matching-defn "glossary.md#ml-matching-defn")_ is a preset process that attempts to match records across all
-of the data that you input. The machine learning-based matching workflow enables you to
-compare cleartext data to find a broad range of matches using a machine learning model.
+*[Machine learning-based matching](glossary.md#ml-matching-defn)* is a preset process that attempts to match records across all of the data that you input. The machine learning-based matching workflow enables you to compare cleartext data to find a broad range of matches using a machine learning model.
 
-###### Note
-
+**Note**  
 The machine learning model doesn't support the comparison of hashed data.
 
 When AWS Entity Resolution processes your data, it assigns:
++ A [Match ID](glossary.md#match-id-defin) to every record.
++ If a record matches one or more other records in your data:
+  + The matching-group-level [confidence level](glossary.md#confidence-level-defn) percentage.
+  + The [record-level confidence level](glossary.md#record-confidence-level-defn) percentage (ML-based incremental matching only).
 
-- A [Match ID](glossary.md#match-id-defin "glossary.md#match-id-defin") to
-  every record.
-- If a record matches one or more other records in your data:
-
-  - The matching-group-level [confidence level](glossary.md#confidence-level-defn "glossary.md#confidence-level-defn") percentage.
-  - The [record-level confidence level](glossary.md#record-confidence-level-defn "glossary.md#record-confidence-level-defn")
-    percentage (ML-based incremental matching only).
-    You can use the output of an ML-based matching workflow as an input for data service
-    provider matching, or vice-versa to meet your specific goals. For example, you can run an
-    ML-based matching to find matches across your data sources on your own records first. If a
-    subset wasn't matched, you can then run [provider service- based matching](create-matching-workflow-provider.md "create-matching-workflow-provider.md") to
-    find additional matches.
+You can use the output of an ML-based matching workflow as an input for data service provider matching, or vice-versa to meet your specific goals. For example, you can run an ML-based matching to find matches across your data sources on your own records first. If a subset wasn't matched, you can then run [provider service- based matching](create-matching-workflow-provider.md) to find additional matches.
 
 **Prerequisites**
 
 Before you create an ML-based matching workflow, you must:
 
-1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md "create-schema-mapping.md").
-2. If using Connect Customer Customer Profiles as your output destination, ensure you have the
-   appropriate permissions configured.
+1. Create a schema mapping. For more information, see [Creating a schema mapping](create-schema-mapping.md).
 
-###### To create a ML-based matching workflow:
+1. If using Connect Customer Customer Profiles as your output destination, ensure you have the appropriate permissions configured.
 
-1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2. In the left navigation pane, under **Workflows**, choose
-   **Matching**.
-3. On the **Matching workflows** page, in the upper right corner, choose
-   **Create matching workflow**.
-4. For **Step 1: Specify matching workflow details**, do the following:
+**To create a ML-based matching workflow:**
 
-   1. Enter a **Matching workflow name** and an optional
-      **Description**.
-   2. For **Data input**, choose an **AWS Region**,
-      **AWS Glue database**, the **AWS Glue table**, and then
-      the corresponding **Schema mapping**.
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/).
 
-   You can add up to 20 data inputs. 3. The **Normalize data** option is selected by default, so that
-   data inputs are normalized before matching. If you don't want to normalize data,
-   deselect the **Normalize data** option.
+1. In the left navigation pane, under **Workflows**, choose **Matching**.
 
-   Machine learning based-matching only normalizes [Name](glossary.md#normalization-ML-defn-name "glossary.md#normalization-ML-defn-name"),
-   [Phone](glossary.md#normalization-ML-defn-phone "glossary.md#normalization-ML-defn-phone"), and [Email](glossary.md#normalization-ML-defn-email "glossary.md#normalization-ML-defn-email"). 4. To specify the **Service access** permissions, choose an option
-   and take the recommended action.
+1. On the **Matching workflows** page, in the upper right corner, choose **Create matching workflow**.
 
-   | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-   | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy for this<br>table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, choose the *_This data is<br>encrypted by a KMS key_<br>• option. Then, enter an<br>*_AWS KMS key_<br>• that is used to decrypt your data<br>input.                                                                                                                                                            |
-   | **Use an existing service role**      | 1. Choose an *_Existing service role name_<br>• from the<br>dropdown list.<br>The list of roles are displayed if you have permissions to list<br>roles.<br>If you don't have permissions to list roles, you can enter the<br>Amazon Resource Name (ARN) of the role that you want to use.<br>If there are no existing service roles, the option to *_Use<br>an existing service role_<br>• is unavailable.<br>2. View the service role by choosing the *_View in<br>IAM_<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing role<br>policy to add necessary permissions. |
-   5. (Optional) To enable **Tags** for the resource, choose
-      **Add new tag**, and then enter the **Key** and
-      **Value** pair.
-   6. Choose **Next**.
+1. For **Step 1: Specify matching workflow details**, do the following: 
 
-5. For **Step 2: Choose matching technique**:
+   1. Enter a **Matching workflow name** and an optional **Description**.
 
-   1. For **Matching method**, choose **Machine learning-based
-      matching**.
+   1. For **Data input**, choose an **AWS Region**, **AWS Glue database**, the **AWS Glue table**, and then the corresponding **Schema mapping**.
 
-   ![AWS Entity Resolution matching workflow creation interface with options for rule-based or machine learning matching.](images/choose-matching-method-machine-learning.PNG) 2. For **Processing cadence**, select one of the following
-   options.
+      You can add up to 20 data inputs.
 
-        * Choose **Manual** to run a Batch matching workflow,
-         which processes the entire data in your S3 bucket.
-        * Choose **Automatic** to run an Incremental matching
-         workflow, which processes only the incremental data in your S3
-         bucket.
+   1. The **Normalize data** option is selected by default, so that data inputs are normalized before matching. If you don't want to normalize data, deselect the **Normalize data** option.
 
-   3. Choose **Next**.
+      Machine learning based-matching only normalizes [Name](glossary.md#normalization-ML-defn-name), [Phone](glossary.md#normalization-ML-defn-phone), and [Email](glossary.md#normalization-ML-defn-email).
 
-6. For **Step 3: Specify data output and format**:
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-ml.html)
 
-   1. For **Data output destination and format**, choose the
-      **Amazon S3 location** for the data output and whether the
-      **Data format** will be **Normalized data** or
-      **Original data**.
-   2. For **Encryption**, if you choose to **Customize
-      encryption settings**, enter the **AWS KMS key** ARN.
-   3. View the **System generated output**.
-   4. For **Data output**, decide which fields you want to include,
-      hide, or mask, and then take the recommended actions based on your goals.
+   1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
-   | Your goal                         | Recommended option                                               |
-   | --------------------------------- | ---------------------------------------------------------------- |
-   | Include fields                    | Keep the output state as **Included**.                           |
-   | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
-   | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
-   | Reset the previous settings       | Choose **Reset**.                                                |
-   5. Choose **Next**.
+   1. Choose **Next**.
 
-7. For **Step 4: Review and create**:
+1. For **Step 2: Choose matching technique**:
 
-   1. Review the selections that you made for the previous steps and edit if
-      necessary.
-   2. Choose **Create and run**.
+   1. For **Matching method**, choose **Machine learning-based matching**.  
+![AWS Entity Resolution matching workflow creation interface with options for rule-based or machine learning matching.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-machine-learning.PNG)
 
-   A message appears, indicating that the matching workflow has been created and that
-   the job has started.
+   1. For **Processing cadence**, select one of the following options.
+      + Choose **Manual** to run a Batch matching workflow, which processes the entire data in your S3 bucket.
+      + Choose **Automatic** to run an Incremental matching workflow, which processes only the incremental data in your S3 bucket.
 
-8. On the matching workflow details page, on the **Metrics** tab, view
-   the following under **Last job metrics**:
+   1. Choose **Next**.
 
-   - The **Job ID**.
-   - The **Status** of the matching workflow job:
-     **Queued**, **In progress**,
-     **Completed**, **Failed**
-   - The **Time completed** for the workflow job.
-   - The number of **Records processed**.
-   - The number of **Records not processed**.
-   - The **Unique match IDs generated**.
-   - The number of **Input records**.
-     You can also view the job metrics for matching workflow jobs that have been previously
-     run under the **Job history**.
+1. For **Step 3: Specify data output and format**:
 
-9. After the matching workflow job completes (**Status** is **Completed**), you can go to the **Data output**
-   tab and then select your **Amazon S3 location** to view the results. This
-   information is generated by the matching workflow job and included in the output.
+   1. For **Data output destination and format**, choose the **Amazon S3 location** for the data output and whether the **Data format** will be **Normalized data** or **Original data**.
 
-| Output field          | Description                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| MatchID               | ID generated by AWS Entity Resolution and applied to each matched record set.                                                          |
-| ConfidenceLevel       | Matching-group-level confidence applied when a matched record set is<br>identified.                                                    |
-| RecordConfidenceLevel | Record-level confidence applied to each record when a matched record set is<br>identified. Machine learning incremental matching only. |
-| InputSourceARN        | Amazon Resource Name (ARN) generated for an AWS Glue workflow.                                                                         |
-| HashingProtocol       | Secure Hash Algorithm 256-bit (SHA256). Outputs a 32-byte character string<br>for hashed outputs.                                      |
+   1. For **Encryption**, if you choose to **Customize encryption settings**, enter the **AWS KMS key** ARN.
 
-10. (**Manual** processing type only) If you have created a
-    **Machine learning-based matching** workflow with the
-    **Manual** processing type, you can run the matching workflow anytime
-    by choosing **Run workflow** on the matching workflow details
-    page.
+   1. View the **System generated output**.
+
+   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-ml.html)
+
+   1. Choose **Next**.
+
+1. For **Step 4: Review and create**:
+
+   1. Review the selections that you made for the previous steps and edit if necessary.
+
+   1. Choose **Create and run**.
+
+      A message appears, indicating that the matching workflow has been created and that the job has started.
+
+1. On the matching workflow details page, on the **Metrics** tab, view the following under **Last job metrics**:
+   + The **Job ID**. 
+   + The **Status** of the matching workflow job: **Queued**, **In progress**, **Completed**, **Failed** 
+   + The **Time completed** for the workflow job.
+   + The number of **Records processed**. 
+   + The number of **Records not processed**. 
+   + The **Unique match IDs generated**.
+   + The number of **Input records**.
+
+   You can also view the job metrics for matching workflow jobs that have been previously run under the **Job history**.
+
+1. After the matching workflow job completes (**Status** is **Completed**), you can go to the **Data output** tab and then select your **Amazon S3 location** to view the results. This information is generated by the matching workflow job and included in the output.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-ml.html)
+
+1. (**Manual** processing type only) If you have created a **Machine learning-based matching** workflow with the **Manual** processing type, you can run the matching workflow anytime by choosing **Run workflow** on the matching workflow details page.

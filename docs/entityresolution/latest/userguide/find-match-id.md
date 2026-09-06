@@ -1,114 +1,103 @@
+
+
 # Looking up a Match ID for a rule-based matching workflow
+<a name="find-match-id"></a>
 
-After completing a rule-based matching workflow, you can retrieve the Match ID and
-associated rule for each processed record. This information helps you understand how records
-were matched and which rules were applied. The following procedure demonstrates how to access
-this data using either the AWS Entity Resolution console or the `GetMatchID` API.
+After completing a rule-based matching workflow, you can retrieve the Match ID and associated rule for each processed record. This information helps you understand how records were matched and which rules were applied. The following procedure demonstrates how to access this data using either the AWS Entity Resolution console or the `GetMatchID` API.
 
-Console
+------
+#### [ Console ]
 
-###### To look up a Match ID using the console
+**To look up a Match ID using the console**
 
-1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
-2. In the left navigation pane, under **Workflows**, choose
-   **Matching**.
-3. Choose the rule-based matching workflow that has been processed (**Job
-   status** is **Completed**).
-4. On the matching workflow details page, choose the **Match IDs**
-   tab.
-5. Choose **Look up match ID**.
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/).
 
-###### Note
+1. In the left navigation pane, under **Workflows**, choose **Matching**.
 
-The **Look up match ID** option is only available for
-matching workflows that use the **Automatic** processing cadence.
-If you have selected the **Manual** processing cadence, this
-option will appear inactive. To use this option, edit your workflow to use the
-**Automatic** processing cadence. For more information about
-editing workflows, see [Editing a matching workflow](edit-matching-workflow.md "edit-matching-workflow.md"). 6. Do one of the following:
+1. Choose the rule-based matching workflow that has been processed (**Job status** is **Completed**).
 
-| If ...                                                                  | Then ...                                                       |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------- |
-| There is only one schema mapping associated with this workflow.         | View the *_Schema mapping_<br>• that's selected by<br>default. |
-| There is more than one schema mapping associated with this<br>workflow. | Choose the *_Schema mapping_<br>• from the dropdown<br>list.   |
+1. On the matching workflow details page, choose the **Match IDs** tab.
 
-7. For **Record attributes**, enter the **Value**
-   for an existing **Match key** to look up for each existing
-   record.
+1. Choose **Look up match ID**.
+**Note**  
+The **Look up match ID** option is only available for matching workflows that use the **Automatic** processing cadence. If you have selected the **Manual** processing cadence, this option will appear inactive. To use this option, edit your workflow to use the **Automatic** processing cadence. For more information about editing workflows, see [Editing a matching workflow](edit-matching-workflow.md).
 
-###### Tip
+1. Do one of the following:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/find-match-id.html)
 
-Enter as many values as you can to help find the Match ID. 8. The **Normalize data** option is selected by default, so that
-data inputs are normalized before matching. If you don't want to normalize data,
-deselect the **Normalize data** option. 9. If you want to view the matching rules expand the **View matching
-rules**. 10. Choose **Look up**.
+1. For **Record attributes**, enter the **Value** for an existing **Match key** to look up for each existing record.
+**Tip**  
+Enter as many values as you can to help find the Match ID. 
 
-A success message appears, stating that the Match ID was found. 11. View the corresponding Match ID and the associated rule that was found.
+1. The **Normalize data** option is selected by default, so that data inputs are normalized before matching. If you don't want to normalize data, deselect the **Normalize data** option.
 
-API
+1. If you want to view the matching rules expand the **View matching rules**.
 
-###### To look up a Match ID using the API
+1. Choose **Look up**.
 
-###### Note
+   A success message appears, stating that the Match ID was found. 
 
-To call this API successfully, you must have first successfully run a rule-based
-matching workflow using the [StartMatchingJob API](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md").
+1. View the corresponding Match ID and the associated rule that was found. 
 
-For a complete list of supported programming languages, see the [See Also](../apireference/API_GetMatchId.md#API_GetMatchId_SeeAlso "../apireference/API_GetMatchId.md#API_GetMatchId_SeeAlso") section of the [GetMatchID API](../apireference/API_GetMatchId.md "../apireference/API_GetMatchId.md").
+------
+#### [ API ]
+
+**To look up a Match ID using the API**
+**Note**  
+To call this API successfully, you must have first successfully run a rule-based matching workflow using the [StartMatchingJob API](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_StartMatchingJob.html).   
+For a complete list of supported programming languages, see the [See Also](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchId.html#API_GetMatchId_SeeAlso) section of the [GetMatchID API](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchId.html).
 
 1. Open a terminal or command prompt to make the API request.
-2. Create a POST request to the following endpoint:
 
-```
-/matchingworkflows/workflowName/matches
+1. Create a POST request to the following endpoint: 
 
-```
+   ```
+   /matchingworkflows/workflowName/matches
+   ```
 
-3. In the request header, set the Content-type to application/json.
-4. In the request URI, specify your `workflowName`.
+1. In the request header, set the Content-type to application/json. 
 
-The `workflowName` must:
+1. In the request URI, specify your `workflowName`. 
 
-    * Be between 1 and 255 characters long
-    * Match the pattern [a-zA-Z\_0-9-]\*
+   The `workflowName` must: 
+   + Be between 1 and 255 characters long 
+   + Match the pattern [a-zA-Z\_0-9-]\*
 
-5. For the request body, provide the following JSON:
+1. For the request body, provide the following JSON: 
 
-```
-{
-   "applyNormalization": boolean,
-   "record": {
-      "string" : "string"
+   ```
+   {
+      "applyNormalization": boolean,
+      "record": { 
+         "string" : "string" 
+      }
    }
-}
+   ```
 
-```
+   Where: 
 
-Where:
+   `applyNormalization` (optional) - Set to `true` to normalize attributes defined in the schema 
 
-`applyNormalization` (optional) - Set to `true` to
-normalize attributes defined in the schema
+   `record` (required) - The record to fetch the Match ID for
 
-`record` (required) - The record to fetch the Match ID for 6. Send the request.
+1. Send the request. 
 
-If successful, you'll receive a response with status code 200 and a JSON body
-containing:
+   If successful, you'll receive a response with status code 200 and a JSON body containing: 
 
-```
-{
-   "matchId": "string",
-   "matchRule": "string"
-}
+   ```
+   {
+      "matchId": "string",
+      "matchRule": "string"
+   }
+   ```
 
-```
+   The `matchId` is the unique identifier for this group of matched records, and `matchRule` indicates which rule the record matched on. 
 
-The `matchId` is the unique identifier for this group of matched
-records, and `matchRule` indicates which rule the record matched on.
+   If the call is unsuccessful, you might receive one of these errors:
+   + 403 - AccessDeniedException if you don't have sufficient access
+   + 404 - ResourceNotFoundException if the resource can't be found
+   + 429 - ThrottlingException if the request was throttled
+   + 400 - ValidationException if the input fails validation
+   + 500 - InternalServerException if there's an internal service failure
 
-If the call is unsuccessful, you might receive one of these errors:
-
-    * 403 - AccessDeniedException if you don't have sufficient access
-    * 404 - ResourceNotFoundException if the resource can't be found
-    * 429 - ThrottlingException if the request was throttled
-    * 400 - ValidationException if the input fails validation
-    * 500 - InternalServerException if there's an internal service failure
+------
