@@ -1,16 +1,19 @@
+
+
 # Getting started with Network Access Analyzer using the AWS CLI
+<a name="getting-started-cli"></a>
 
 The following procedure describes how to get started with Network Access Analyzer using the AWS CLI.
 
-###### Tasks
-
-- [Step 1: Create a Network Access Scope](#create-access-scope-cli "#create-access-scope-cli")
-- [Step 2: Analyze a Network Access Scope](#analyze-access-scope-cli "#analyze-access-scope-cli")
-- [Step 3: Get the results of a Network Access Scope analysis](#view-results-cli "#view-results-cli")
+**Topics**
++ [Step 1: Create a Network Access Scope](#create-access-scope-cli)
++ [Step 2: Analyze a Network Access Scope](#analyze-access-scope-cli)
++ [Step 3: Get the results of a Network Access Scope analysis](#view-results-cli)
 
 ## Step 1: Create a Network Access Scope
+<a name="create-access-scope-cli"></a>
 
-Use the following [create-network-insights-access-scope](../../../cli/latest/reference/ec2/create-network-insights-access-scope.md "../../../cli/latest/reference/ec2/create-network-insights-access-scope.md") command to create a Network Access Scope.
+ Use the following [create-network-insights-access-scope](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-insights-access-scope.html) command to create a Network Access Scope.
 
 ```
 aws ec2 create-network-insights-access-scope
@@ -23,55 +26,54 @@ aws ec2 create-network-insights-access-scope
 The following is example output.
 
 ```
-{
-    "NetworkInsightsAccessScope": {
-        "NetworkInsightsAccessScopeId": "nis-0b1889d01c2801311",
+{                                                                                                                                 
+    "NetworkInsightsAccessScope": {                                                                                               
+        "NetworkInsightsAccessScopeId": "nis-0b1889d01c2801311",                                                                  
         "NetworkInsightsAccessScopeArn": "arn:aws:ec2:us-east-1:470889052923:network-insights-access-scope/nis-0b1889d01c2801311",
-        "CreatedDate": "2024-10-01T13:35:01.017000+00:00",
-        "UpdatedDate": "2024-10-01T13:35:01.017000+00:00"
-    },
-    "NetworkInsightsAccessScopeContent": {
-        "NetworkInsightsAccessScopeId": "nis-0b1889d01c2801311",
-        "MatchPaths": [
-            {
-                "Source": {
-                    "ResourceStatement": {
-                        "Resources": [
-                            "vpc-abcd12e3"
-                        ]
-                    }
-                }
-            },
-            {
-                "Destination": {
-                    "ResourceStatement": {
-                        "ResourceTypes": [
-                            "AWS::EC2::InternetGateway"
-                        ]
-                    }
-                }
-            }
-        ],
-        "ExcludePaths": [
-            {
-                "Source": {
-                    "ResourceStatement": {
-                        "ResourceTypes": [
-                            "AWS::EC2::InternetGateway"
-                        ]
-                    }
-                }
-            }
-        ]
-    }
+        "CreatedDate": "2024-10-01T13:35:01.017000+00:00",                                                                        
+        "UpdatedDate": "2024-10-01T13:35:01.017000+00:00"                                                                         
+    },                                                                                                                            
+    "NetworkInsightsAccessScopeContent": {                                                                                        
+        "NetworkInsightsAccessScopeId": "nis-0b1889d01c2801311",                                                                  
+        "MatchPaths": [                                                                                                           
+            {                                                                                                                     
+                "Source": {                                                                                                       
+                    "ResourceStatement": {                                                                                        
+                        "Resources": [                                                                                            
+                            "vpc-abcd12e3"                                                                                        
+                        ]                                                                                                         
+                    }                                                                                                             
+                }                                                                                                                 
+            },                                                                                                                    
+            {                                                                                                                     
+                "Destination": {                                                                                                  
+                    "ResourceStatement": {                                                                                        
+                        "ResourceTypes": [                                                                                        
+                            "AWS::EC2::InternetGateway"                                                                           
+                        ]                                                                                                         
+                    }                                                                                                             
+                }                                                                                                                 
+            }                                                                                                                     
+        ],                                                                                                                        
+        "ExcludePaths": [                                                                                                         
+            {                                                                                                                     
+                "Source": {                                                                                                       
+                    "ResourceStatement": {                                                                                        
+                        "ResourceTypes": [                                                                                        
+                            "AWS::EC2::InternetGateway"                                                                           
+                        ]                                                                                                         
+                    }                                                                                                             
+                }                                                                                                                 
+            }                                                                                                                     
+        ]                                                                                                                         
+    }                                                                                                                             
 }
 ```
 
-You can also create a scope using the CLI JSON input option, as shown in the following
-example.
+You can also create a scope using the CLI JSON input option, as shown in the following example.
 
 ```
-aws ec2 create-network-insights-access-scope --cli-input-json file://path-to-access-scope-file.json
+aws ec2 create-network-insights-access-scope --cli-input-json file://path-to-access-scope-file.json 
 ```
 
 The following is an example input file.
@@ -103,31 +105,30 @@ The following is an example input file.
 }
 ```
 
-See [Generating an AWS CLI skeleton and input file](../../../cli/latest/userguide/cli-usage-skeleton.md "../../../cli/latest/userguide/cli-usage-skeleton.md") for more details about using
-the CLI with JSON input.
+See [Generating an AWS CLI skeleton and input file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html) for more details about using the CLI with JSON input.
 
-Use the following [describe-network-insights-access-scopes](../../../cli/latest/reference/ec2/describe-network-insights-access-scopes.md "../../../cli/latest/reference/ec2/describe-network-insights-access-scopes.md") command to describe a Network Access Scope.
+Use the following [describe-network-insights-access-scopes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-insights-access-scopes.html) command to describe a Network Access Scope.
 
 ```
 aws ec2 describe-network-insights-access-scopes
 ```
 
-Use the following [get-network-insights-access-scope-content](../../../cli/latest/reference/ec2/get-network-insights-access-scope-content.md "../../../cli/latest/reference/ec2/get-network-insights-access-scope-content.md") command to get a Network Access Scope.
+Use the following [get-network-insights-access-scope-content](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-network-insights-access-scope-content.html) command to get a Network Access Scope. 
 
 ```
 aws ec2 get-network-insights-access-scope-content --network-insights-access-scope-id nis-0e123eecc45c67d8
 ```
 
-Use the following [delete-network-insights-access-scope](../../../cli/latest/reference/ec2/delete-network-insights-access-scope.md "../../../cli/latest/reference/ec2/delete-network-insights-access-scope.md") command to delete a Network Access Scope.
+Use the following [delete-network-insights-access-scope](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-network-insights-access-scope.html) command to delete a Network Access Scope. 
 
 ```
 aws ec2 delete-network-insights-access-scope --network-insights-access-scope-id nis-0e123eecc45c67d8
 ```
 
 ## Step 2: Analyze a Network Access Scope
+<a name="analyze-access-scope-cli"></a>
 
-Use the following [start-network-insights-access-scope-analysis](../../../cli/latest/reference/ec2/start-network-insights-access-scope-analysis.md "../../../cli/latest/reference/ec2/start-network-insights-access-scope-analysis.md") command to analyze a Network Access
-Scope. The analysis can take a few minutes to complete.
+Use the following [start-network-insights-access-scope-analysis](https://docs.aws.amazon.com/cli/latest/reference/ec2/start-network-insights-access-scope-analysis.html) command to analyze a Network Access Scope. The analysis can take a few minutes to complete.
 
 ```
 aws ec2 start-network-insights-access-scope-analysis --network-insights-access-scope-id nis-0e123eecc45c67d8
@@ -148,16 +149,15 @@ The following is example output.
 ```
 
 ## Step 3: Get the results of a Network Access Scope analysis
+<a name="view-results-cli"></a>
 
-After the analysis completes, you can view the results
-using the [describe-network-insights-access-scope-analyses](../../../cli/latest/reference/ec2/describe-network-insights-access-scope-analyses.md "../../../cli/latest/reference/ec2/describe-network-insights-access-scope-analyses.md") command.
+After the analysis completes, you can view the results using the [describe-network-insights-access-scope-analyses](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-insights-access-scope-analyses.html) command.
 
 ```
 aws ec2 describe-network-insights-access-scope-analyses
 ```
 
-###### Example 1: Success
-
+**Example 1: Success**  
 The following is example output for a successful analysis.
 
 ```
@@ -176,10 +176,8 @@ The following is example output for a successful analysis.
 }
 ```
 
-###### Example 2: No findings
-
-The following is example output when no network paths are found in the
-analysis.
+**Example 2: No findings**  
+The following is example output when no network paths are found in the analysis.
 
 ```
 aws ec2 get-network-insights-access-scope-analysis-findings --network-insights-access-scope-analysis-id nisa-07bcaad8bd8160e63
@@ -189,10 +187,8 @@ aws ec2 get-network-insights-access-scope-analysis-findings --network-insights-a
 }
 ```
 
-###### Example 3: Findings reported
-
-The following is example output where findings were reported in the
-analysis.
+**Example 3: Findings reported**  
+The following is example output where findings were reported in the analysis.
 
 ```
 aws ec2 describe-network-insights-access-scope-analyses --network-insights-access-scope-analysis-id nisa-0c0d3ec68a9bb2f22
@@ -335,7 +331,5 @@ aws ec2 get-network-insights-access-scope-analysis-findings --network-insights-a
 }
 ```
 
-###### Note
-
-The list of source addresses in the previous example
-includes everything in the 0.0.0.0/0 address range except for the RFC1918 range.
+**Note**  
+The list of source addresses in the previous example includes everything in the 0.0.0.0/0 address range except for the RFC1918 range.
