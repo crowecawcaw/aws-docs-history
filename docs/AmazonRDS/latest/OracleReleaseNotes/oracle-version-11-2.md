@@ -1,82 +1,78 @@
+
+
 # Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4)
+<a name="oracle-version-11-2"></a>
 
-For Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4), Amazon RDS incorporates bug fixes from Oracle by using their
-quarterly Database Patch Set Updates (PSUs). If you apply updates, you can be confident that your DB instance is
-running a version of the database software that has been tested by both Oracle and Amazon. We don't support
-applying one-off patches to individual DB instances.
+For Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4), Amazon RDS incorporates bug fixes from Oracle by using their quarterly Database Patch Set Updates (PSUs). If you apply updates, you can be confident that your DB instance is running a version of the database software that has been tested by both Oracle and Amazon. We don't support applying one-off patches to individual DB instances.
 
-###### Note
+**Note**  
+RDS for Oracle Database 11g is no longer supported. This information is only useful if you want to upgrade an Oracle Database 11g snapshot.
 
-RDS for Oracle Database 11g is no longer supported. This information is only useful if you want to upgrade
-an Oracle Database 11g snapshot.
+To find what Oracle Patch Set Updates (PSUs) are applied to Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4), see the following table. 
 
-To find what Oracle Patch Set Updates (PSUs) are applied to Amazon RDS for Oracle Database 11g Release 2 (11.2.0.4),
-see the following table.
 
-| Date         | PSU                                                                                                                                                  |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2020 October | [11.2.0.4.v26](#oracle-version-11.2.0.4.v26 "#oracle-version-11.2.0.4.v26")                                                                          |
-| 2020 July    | [11.2.0.4.v25](#oracle-version-11.2.0.4.v25 "#oracle-version-11.2.0.4.v25")                                                                          |
-| 2020 April   | [11.2.0.4.v24](#oracle-version-11.2.0.4.v24 "#oracle-version-11.2.0.4.v24")                                                                          |
-| 2020 January | [11.2.0.4.v23](#oracle-version-11.2.0.4.v23 "#oracle-version-11.2.0.4.v23")                                                                          |
-| 2019 October | [11.2.0.4.v22](#oracle-version-11.2.0.4.v22 "#oracle-version-11.2.0.4.v22")                                                                          |
-| 2019 July    | [11.2.0.4.v21](#oracle-version-11.2.0.4.v21 "#oracle-version-11.2.0.4.v21")                                                                          |
-| 2019 April   | [11.2.0.4.v20](#oracle-version-11.2.0.4.v20 "#oracle-version-11.2.0.4.v20")                                                                          |
-| 2019 January | [11.2.0.4.v19](#oracle-version-11.2.0.4.v19 "#oracle-version-11.2.0.4.v19")                                                                          |
-| 2018 October | [11.2.0.4.v18](#oracle-version-11.2.0.4.v18 "#oracle-version-11.2.0.4.v18")                                                                          |
-| 2018 July    | [11.2.0.4.v17](#oracle-version-11.2.0.4.v17 "#oracle-version-11.2.0.4.v17")                                                                          |
-| 2018 April   | [11.2.0.4.v16](#oracle-version-11.2.0.4.v16 "#oracle-version-11.2.0.4.v16")                                                                          |
-| 2018 January | [11.2.0.4.v15](#oracle-version-11.2.0.4.v15 "#oracle-version-11.2.0.4.v15")                                                                          |
-| 2017 October | [11.2.0.4.v14](#oracle-version-11.2.0.4.v14 "#oracle-version-11.2.0.4.v14")                                                                          |
-| 2017 July    | [11.2.0.4.v13](#oracle-version-11.2.0.4.v13 "#oracle-version-11.2.0.4.v13")                                                                          |
-| 2017 April   | [11.2.0.4.v12](#oracle-version-11.2.0.4.v12 "#oracle-version-11.2.0.4.v12")                                                                          |
-| 2017 January | [11.2.0.4.v11](#oracle-version-11.2.0.4.v11 "#oracle-version-11.2.0.4.v11")                                                                          |
-| 2016 October | [11.2.0.4.v10](#oracle-version-11.2.0.4.v10 "#oracle-version-11.2.0.4.v10")                                                                          |
-| 2016 July    | [11.2.0.4.v9](#oracle-version-11.2.0.4.v9 "#oracle-version-11.2.0.4.v9")                                                                             |
-| 2016 April   | [11.2.0.4.v8](#oracle-version-11.2.0.4.v8 "#oracle-version-11.2.0.4.v8")                                                                             |
-| 2016 January | [11.2.0.4.v7](#oracle-version-11.2.0.4.v7 "#oracle-version-11.2.0.4.v7")                                                                             |
-| 2015 October | [11.2.0.4.v6](#oracle-version-11.2.0.4.v6 "#oracle-version-11.2.0.4.v6")<br>[11.2.0.4.v5](#oracle-version-11.2.0.4.v5 "#oracle-version-11.2.0.4.v5") |
-| 2015 April   | [11.2.0.4.v4](#oracle-version-11.2.0.4.v4 "#oracle-version-11.2.0.4.v4")                                                                             |
-| 2014 October | [11.2.0.4.v3](#oracle-version-11.2.0.4.v3 "#oracle-version-11.2.0.4.v3")                                                                             |
-| 2014 July    | [11.2.0.4.v2](#oracle-version-11.2.0.4.v2 "#oracle-version-11.2.0.4.v2")<br>(Deprecated)                                                             |
-| 2014 January | [11.2.0.4.v1](#oracle-version-11.2.0.4.v1 "#oracle-version-11.2.0.4.v1")                                                                             |
+
+|  Date  |  PSU  | 
+| --- | --- | 
+| 2020 October | [11.2.0.4.v26](#oracle-version-11.2.0.4.v26) | 
+| 2020 July | [11.2.0.4.v25](#oracle-version-11.2.0.4.v25) | 
+| 2020 April | [11.2.0.4.v24](#oracle-version-11.2.0.4.v24) | 
+| 2020 January | [11.2.0.4.v23](#oracle-version-11.2.0.4.v23) | 
+| 2019 October | [11.2.0.4.v22](#oracle-version-11.2.0.4.v22) | 
+| 2019 July | [11.2.0.4.v21](#oracle-version-11.2.0.4.v21) | 
+| 2019 April | [11.2.0.4.v20](#oracle-version-11.2.0.4.v20) | 
+| 2019 January | [11.2.0.4.v19](#oracle-version-11.2.0.4.v19) | 
+| 2018 October | [11.2.0.4.v18](#oracle-version-11.2.0.4.v18) | 
+| 2018 July | [11.2.0.4.v17](#oracle-version-11.2.0.4.v17) | 
+| 2018 April | [11.2.0.4.v16](#oracle-version-11.2.0.4.v16) | 
+| 2018 January | [11.2.0.4.v15](#oracle-version-11.2.0.4.v15) | 
+| 2017 October | [11.2.0.4.v14](#oracle-version-11.2.0.4.v14) | 
+| 2017 July | [11.2.0.4.v13](#oracle-version-11.2.0.4.v13) | 
+| 2017 April | [11.2.0.4.v12](#oracle-version-11.2.0.4.v12) | 
+| 2017 January | [11.2.0.4.v11](#oracle-version-11.2.0.4.v11) | 
+| 2016 October | [11.2.0.4.v10](#oracle-version-11.2.0.4.v10) | 
+| 2016 July | [11.2.0.4.v9](#oracle-version-11.2.0.4.v9) | 
+| 2016 April | [11.2.0.4.v8](#oracle-version-11.2.0.4.v8) | 
+| 2016 January | [11.2.0.4.v7](#oracle-version-11.2.0.4.v7) | 
+| 2015 October | [11.2.0.4.v6](#oracle-version-11.2.0.4.v6)<br />[11.2.0.4.v5](#oracle-version-11.2.0.4.v5) | 
+| 2015 April | [11.2.0.4.v4](#oracle-version-11.2.0.4.v4) | 
+| 2014 October | [11.2.0.4.v3](#oracle-version-11.2.0.4.v3) | 
+| 2014 July | [11.2.0.4.v2](#oracle-version-11.2.0.4.v2)<br />(Deprecated) | 
+| 2014 January | [11.2.0.4.v1](#oracle-version-11.2.0.4.v1) | 
 
 ## Version 11.2.0.4.v26
+<a name="oracle-version-11.2.0.4.v26"></a>
 
-###### Important
-
+**Important**  
 This patch is currently only available for Oracle Database Enterprise Edition.
 
 Version 11.2.0.4.v26 includes the following:
++ Patch [31537677](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31537677): Oracle Database Patch Set Update 11.2.0.4.201020
++ Patch [31668908](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668908): Oracle JavaVM Component 11.2.0.4.201020 Database PSU
++ Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
++ Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [32076719](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32076719): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.201020 FOR BUGS 2990912 13254780
++ Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
++ Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322): OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
++ Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
++ Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
++ Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
++ Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
++ Patch [20647412](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20647412): EDITION NAME LOGGED WITH KNLD SHOULD BE THE CURRENT EDITION, NOT SESSION EDITION
++ Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
++ Patch [12668795](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=12668795): ORA-00600: [KDUCFA:ENDBIT] SEEN DURING XSTREAMS ONEWAY REPLICATION
++ PreUpgrade Jar: preupgrade\_19\_cbuild\_8\_lf.zip
++ Support for setting and unsetting system diagnostic events using procedures in the `rdsadmin.rdsadmin_util` package
 
-- Patch [31537677](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31537677 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31537677"): Oracle Database Patch Set Update 11.2.0.4.201020
-- Patch [31668908](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668908 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668908"): Oracle JavaVM Component 11.2.0.4.201020 Database PSU
-- Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219"): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
-- Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [32076719](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32076719 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32076719"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.201020 FOR BUGS 2990912 13254780
-- Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
-- Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322"): OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
-- Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336"): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
-- Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797"): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
-- Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386"): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
-- Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715"): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
-- Patch [20647412](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20647412 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20647412"): EDITION NAME LOGGED WITH KNLD SHOULD BE THE CURRENT EDITION, NOT SESSION EDITION
-- Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595"): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
-- Patch [12668795](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=12668795 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=12668795"): ORA-00600: [KDUCFA:ENDBIT] SEEN DURING XSTREAMS ONEWAY REPLICATION
-- PreUpgrade Jar: preupgrade\_19\_cbuild\_8\_lf.zip
-- Support for setting and unsetting system diagnostic events using procedures in the
-  `rdsadmin.rdsadmin_util` package
-
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
-
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+  For more information, see [ Setting and unsetting system diagnostic events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.System.html#oracle-version-CommonDBATasks.SystemEvents) in the *Amazon RDS User Guide*.
++ Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [ Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleGoldenGate.html#Appendix.OracleGoldenGate.IR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 11.2.0.4.v26, released November 2020
+<a name="oracle-version-11.2.0.4.v26.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 2990912, 6599380, 8322815, 9756271, 10136473, 11733603, 11786053
 11883252, 12364061, 12611721, 12668795, 12747740, 12816846, 12897813
 12905058, 12982566, 13254780, 13364795, 13498382, 13558557, 13609098
@@ -225,27 +221,26 @@ Bugs fixed:
 31492176, 31506720, 31537677, 31668061, 31668867, 31834759, 31883489
 31884535, 31885162, 31885173, 31885179, 31885190, 31885201, 31885213
 31885223, 31885230
-
 ```
 
 ## Version 11.2.0.4.v25
+<a name="oracle-version-11.2.0.4.v25"></a>
 
 Version 11.2.0.4.v25 includes the following:
-
-- Patch [31103343](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31103343 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31103343"): Database Patch Set Update 11.2.0.4.200714
-- Patch [31219953](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219953 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219953"): Oracle JVM Component Database PSU 11.2.0.4.200714
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): DSTV35 for RDBMS (TZDATA2020A)
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 for OJVM (TZDATA2020A)
-- Patch [31596256](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31596256 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31596256"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219"): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [31103343](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31103343): Database Patch Set Update 11.2.0.4.200714
++ Patch [31219953](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219953): Oracle JVM Component Database PSU 11.2.0.4.200714
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): DSTV35 for RDBMS (TZDATA2020A)
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 for OJVM (TZDATA2020A)
++ Patch [31596256](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31596256): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Combined patches for version 11.2.0.4.v25, released July 2020
+<a name="oracle-version-11.2.0.4.v25.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 2990912, 6599380, 8322815, 9756271, 10136473, 11733603, 11786053
 11883252, 12364061, 12611721, 12668795, 12747740, 12816846, 12897813
 12905058, 12982566, 13254780, 13364795, 13498382, 13558557, 13609098
@@ -388,35 +383,32 @@ Bugs fixed:
 30772207, 30803210, 30855121, 31001455, 31010960, 31022191, 31022281
 31031715, 31103343, 31125948, 31172207, 31306274, 31335037, 31335142
 31338362, 31492144, 31492164, 31492176
-
 ```
 
 ## Version 11.2.0.4.v24
+<a name="oracle-version-11.2.0.4.v24"></a>
 
 Version 11.2.0.4.v24 includes the following:
++ Patch [30670774](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30670774): Database PSU 11.2.0.4.200414
++ Patch [30805543](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805543): Oracle JVM Component Database PSU 11.2.0.4.200414
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTV34 OJVM (TZDATA2019B)
++ Patch [31192454](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31192454): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Support for purging the recycle bin
 
-- Patch [30670774](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30670774 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30670774"): Database PSU 11.2.0.4.200414
-- Patch [30805543](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805543 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805543"): Oracle JVM Component Database PSU 11.2.0.4.200414
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTV34 OJVM (TZDATA2019B)
-- Patch [31192454](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31192454 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31192454"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219"): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Support for purging the recycle bin
+  For more information, see [ Purging the recycle bin](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.PurgeRecycleBin) in the *Amazon RDS User Guide*.
++ Support for generating performance reports with Automatic Workload Repository (AWR) using the `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
-
-- Support for generating performance reports with Automatic Workload Repository (AWR) using the
-  `rdsadmin.rdsadmin_diagnostic_util` package
-
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+  For more information, see [ Generating performance reports with Automatic Workload Repository (AWR)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.AWR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 11.2.0.4, released April 2020
+<a name="oracle-version-11.2.0.4.v24-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 18619917, 19309466, 28876684, 28855981, 18189036, 19781326, 13609098
 16285691, 16756406, 18430495, 17323222, 29483723, 19915271, 19516448
 14458214, 23713236, 23140259, 29434301, 22502493, 18272672, 16410570
@@ -554,37 +546,36 @@ Bugs fixed:
 20926021, 20686773, 17621643, 18662619, 19563715, 19442102, 21516611
 14312810, 20672075, 21897746, 2990912, 23262847, 19644859, 19175543
 17644091, 20394750, 19306797, 18819257, 22188219
-
 ```
 
 ## Version 11.2.0.4.v23
+<a name="oracle-version-11.2.0.4.v23"></a>
 
 Version 11.2.0.4.v23 includes the following:
-
-- Patch [30298532](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30298532 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30298532"): Database Patch Set Update: 11.2.0.4.200114
-- Patch [30503372](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30503372 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30503372"): OJVM PATCH SET UPDATE 11.2.0.4.200114
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTV34 OJVM (TZDATA2019B)
-- Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386"): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
-- Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336"): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
-- Patch [24286409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 20647412 21534893
-- Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
-- Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797"): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
-- Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715"): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
-- Patch [20425790](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790"): LOGMINER PATCHES SHOULD TRANSPARENTLY FUNCTION IN A NON-PARITIONING ENABLED DB
-- Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322"): 46719: OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
-- Patch [30303921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29879564 14312810
-- Patch [30293609](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29600521 23262847
-- Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595"): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [30298532](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30298532): Database Patch Set Update: 11.2.0.4.200114
++ Patch [30503372](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30503372): OJVM PATCH SET UPDATE 11.2.0.4.200114
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTV34 OJVM (TZDATA2019B)
++ Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
++ Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
++ Patch [24286409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 20647412 21534893
++ Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
++ Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
++ Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
++ Patch [20425790](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790): LOGMINER PATCHES SHOULD TRANSPARENTLY FUNCTION IN A NON-PARITIONING ENABLED DB
++ Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322): 46719: OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
++ Patch [30303921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29879564 14312810
++ Patch [30293609](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29600521 23262847
++ Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 30298532, released January 2020
+<a name="w2aac19c17b7"></a>
 
 Bugs fixed:
 
 ```
-
 18619917, 19309466, 28876684, 28855981, 18189036, 19781326, 13609098
 16285691, 16756406, 18430495, 17323222, 29483723, 19915271, 19516448
 14458214, 23713236, 23140259, 29434301, 22502493, 18272672, 16410570
@@ -697,37 +688,36 @@ Bugs fixed:
 23115139, 28790634, 21394225, 16360112, 22195477, 17726838, 18510194
 17571306, 17302277, 24766121, 21842740, 17551709, 26910644, 17634921
 25489607, 16538760
-
 ```
 
 ## Version 11.2.0.4.v22
+<a name="oracle-version-11.2.0.4.v22"></a>
 
 Version 11.2.0.4.v22 includes the following:
-
-- Patch [29913194](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29913194 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29913194"): DATABASE PATCH SET UPDATE 11.2.0.4.191015
-- Patch [30132974](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30132974 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30132974"): OJVM PATCH SET UPDATE 11.2.0.4.191015
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTV34 OJVM (TZDATA2019B)
-- Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386"): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
-- Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336"): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
-- Patch [24286409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 20647412 21534893
-- Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
-- Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797"): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
-- Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715"): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
-- Patch [20425790](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790"): LOGMINER PATCHES SHOULD TRANSPARENTLY FUNCTION IN A NON-PARITIONING ENABLED DB
-- Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322"): 46719: OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
-- Patch [30303921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29879564 14312810
-- Patch [30293609](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609"): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29600521 23262847
-- Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595"): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [29913194](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29913194): DATABASE PATCH SET UPDATE 11.2.0.4.191015
++ Patch [30132974](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30132974): OJVM PATCH SET UPDATE 11.2.0.4.191015
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTV34 OJVM (TZDATA2019B)
++ Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [19440386](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19440386): FAILED TO RAISE ORA-1 FOR PK UPDATE WHEN CONSTRAINT=IMMEDIATE
++ Patch [19277336](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19277336): INTEGRATED REPLICAT INVALIDATES DEPENDENT PACKAGES RESULTING IN AN ORA-4068
++ Patch [24286409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24286409): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 20647412 21534893
++ Patch [24010393](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24010393): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.6 FOR BUGS 12897813 21281961
++ Patch [19306797](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19306797): HEARTBEAT REDO IS NOT GENERATED NON-RAC HOSTS WHEN SUPPLIMENTAL LOGGING ENABLED
++ Patch [19563715](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19563715): LOGMINER DOES NOT MAKE PROGRESS WHEN 4GB OR MORE MEMORY IS USED IN GOLDENGATE
++ Patch [20425790](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20425790): LOGMINER PATCHES SHOULD TRANSPARENTLY FUNCTION IN A NON-PARITIONING ENABLED DB
++ Patch [17031322](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17031322): 46719: OCIXMLDBREWRITEXML RETURNED BIND VARIABLES ARE NOT WHITESPACE PRESERVING
++ Patch [30303921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30303921): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29879564 14312810
++ Patch [30293609](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30293609): MERGE REQUEST ON TOP OF DATABASE PSU 11.2.0.4.190416 FOR BUGS 29600521 23262847
++ Patch [26744595](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26744595): LGSB:APPLY ABORTS W/ ORA-26786 (ROW-EXISTS) COLLISION WITH HCC(PR)-NO HCC(SB)
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 29913194, released October 2019
+<a name="w2aac19c19b7"></a>
 
 Bugs fixed:
 
 ```
-
 17184721, 21174504, 20169408, 21538558, 16091637, 18092127, 17381384
 15979965, 20671094, 16731148, 16314254, 18441944, 13837378, 17835048
 17291347, 23105538, 28254374, 13558557, 21656630, 21842740, 17008068
@@ -833,26 +823,25 @@ Bugs fixed:
 17360606, 16992075, 24563422, 17375354, 12905058, 18362222, 21429602
 17254374, 27086138, 28364007, 26667032, 17571039, 17468141, 18436647
 17570606, 17235750, 21168487, 17279227, 16220077, 16929165
-
 ```
 
 ## Version 11.2.0.4.v21
+<a name="oracle-version-11.2.0.4.v21"></a>
 
 Version 11.2.0.4.v21 includes the following:
-
-- Patch [29497421](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29497421 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29497421"): DATABASE PATCH SET UPDATE 11.2.0.4.190716
-- Patch [29610422](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29610422 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29610422"): OJVM PATCH SET UPDATE 11.2.0.4.190716
-- Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- Patch [30018733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30018733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30018733"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [29497421](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29497421): DATABASE PATCH SET UPDATE 11.2.0.4.190716
++ Patch [29610422](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29610422): OJVM PATCH SET UPDATE 11.2.0.4.190716
++ Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334): DSTv33 for OJVM (TZDATA2018G)
++ Patch [30018733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30018733): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 29497421, released July 2019
+<a name="w2aac19c21b7"></a>
 
 Bugs fixed:
 
 ```
-
 17184721, 21174504, 20169408, 21538558, 16091637, 18092127, 17381384
 15979965, 20671094, 16731148, 16314254, 18441944, 13837378, 17835048
 23105538, 17291347, 28254374, 13558557, 21842740, 21656630, 17008068
@@ -956,26 +945,25 @@ Bugs fixed:
 24563422, 17375354, 12905058, 18362222, 21429602, 17254374, 27086138
 26667032, 28364007, 17571039, 17468141, 18436647, 17570606, 17235750
 21168487, 17279227, 16220077, 16929165
-
 ```
 
 ## Version 11.2.0.4.v20
+<a name="oracle-version-11.2.0.4.v20"></a>
 
 Version 11.2.0.4.v20 includes the following:
-
-- Patch [29141056](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141056 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141056"): DATABASE PATCH SET UPDATE 11.2.0.4.190416
-- Patch [29251270](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251270 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251270"): OJVM PATCH SET UPDATE 11.2.0.4.190416
-- Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- Patch [29638593](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29638593 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29638593"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [29141056](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141056): DATABASE PATCH SET UPDATE 11.2.0.4.190416
++ Patch [29251270](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251270): OJVM PATCH SET UPDATE 11.2.0.4.190416
++ Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334): DSTv33 for OJVM (TZDATA2018G)
++ Patch [29638593](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29638593): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 22768427, released April 2019
+<a name="w2aac19c23b7"></a>
 
 Bugs fixed:
 
 ```
-
 17184721, 21174504, 21538558, 16091637, 18092127, 17381384, 15979965
 20671094, 16731148, 16314254, 13837378, 18441944, 17291347, 23105538
 17835048, 28254374, 13558557, 21656630, 21842740, 17008068, 18382302
@@ -1074,25 +1062,24 @@ Bugs fixed:
 12905058, 18362222, 21429602, 17254374, 26667032, 28364007, 27086138
 17571039, 17468141, 18436647, 17570606, 17235750, 21168487, 17279227
 16220077, 16929165
-
 ```
 
 ## Version 11.2.0.4.v19
+<a name="oracle-version-11.2.0.4.v19"></a>
 
 Version 11.2.0.4.v19 includes the following:
-
-- Patch [28729262](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729262 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729262"): Oracle Database Patch Set Update 11.2.0.4.190115
-- Patch [28790660](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790660 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790660"): Oracle JVM Patch Set Update 11.2.0.4.190115
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [28729262](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729262): Oracle Database Patch Set Update 11.2.0.4.190115
++ Patch [28790660](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790660): Oracle JVM Patch Set Update 11.2.0.4.190115
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): DSTv32 for OJVM (TZDATA2018E)
++ Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
 
 ### Oracle patch 28729262, released January 2019
+<a name="w2aac19c25b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 25654936
 17484762, 17816865, 20506699, 24835538, 25957038, 19692824, 23330119
 17922254, 17754782, 13364795, 16934803, 17311728, 18604692, 20387265
@@ -1187,26 +1174,25 @@ Bugs fixed:
 19777862, 17824637, 23065323, 21656630, 19697993, 17903598, 16571443
 18306996, 18166013, 19578350, 14852021, 18674047, 17853456, 12364061
 24411921, 19207117, 22195448
-
 ```
 
 ## Version 11.2.0.4.v18
+<a name="oracle-version-11.2.0.4.v18"></a>
 
 Version 11.2.0.4.v18 includes the following:
-
-- Patch [28204707](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28204707 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28204707"): Oracle Database Patch Set Update 11.2.0.4.181016
-- Patch [28440700](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440700 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440700"): Oracle JVM Patch Set Update 11.2.0.4.181016
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patches 27659043 and 19692824 are now included in the Database Patch Set Update
++ Patch [28204707](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28204707): Oracle Database Patch Set Update 11.2.0.4.181016
++ Patch [28440700](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440700): Oracle JVM Patch Set Update 11.2.0.4.181016
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): DSTv32 for OJVM (TZDATA2018E)
++ Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patches 27659043 and 19692824 are now included in the Database Patch Set Update
 
 ### Oracle patch 28204707, released October 2018
+<a name="w2aac19c27b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 25654936
 17484762, 17816865, 20506699, 24835538, 25957038, 19692824, 23330119
 17922254, 17754782, 13364795, 16934803, 17311728, 18604692, 26679352
@@ -1299,27 +1285,26 @@ Bugs fixed:
 18193833, 21387964, 21051833, 17238511, 19777862, 17824637, 23065323
 21656630, 17903598, 16571443, 18166013, 18306996, 19578350, 14852021
 17853456, 18674047, 12364061, 24411921, 19207117, 22195448
-
 ```
 
 ## Version 11.2.0.4.v17
+<a name="oracle-version-11.2.0.4.v17"></a>
 
 Version 11.2.0.4.v17 includes the following:
-
-- Patch [27734982](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27734982 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27734982"): Oracle Database Patch Set Update 11.2.0.4.180717
-- Patch [27923163](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923163 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923163"): Oracle JVM Patch Set Update 11.2.0.4.180717
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [27659043](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043"): MES Bundle 405
-- Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824"): DBCONTROL is not coming up on OEL 7
++ Patch [27734982](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27734982): Oracle Database Patch Set Update 11.2.0.4.180717
++ Patch [27923163](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923163): Oracle JVM Patch Set Update 11.2.0.4.180717
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): DSTv32 for OJVM (TZDATA2018E)
++ Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [27659043](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043): MES Bundle 405
++ Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824): DBCONTROL is not coming up on OEL 7
 
 ### Oracle patch 27734982, released July 2018
+<a name="w2aac19c29b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 25654936
 17816865, 20506699, 24835538, 25957038, 23330119, 17922254, 17754782
 13364795, 16934803, 17311728, 20387265, 17284817, 17441661, 20671094
@@ -1404,31 +1389,28 @@ Bugs fixed:
 18193833, 21387964, 21051833, 17238511, 19777862, 17824637, 23065323
 17903598, 16571443, 18306996, 19578350, 14852021, 17853456, 18674047
 12364061, 24411921, 19207117, 22195448
-
 ```
 
 ## Version 11.2.0.4.v16
+<a name="oracle-version-11.2.0.4.v16"></a>
 
 Version 11.2.0.4.v16 includes the following:
-
-- Patch [27338049](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338049 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338049"): DATABASE PATCH SET UPDATE 11.2.0.4.180417
-- Patch [27475598](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475598 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475598"): OJVM PATCH SET UPDATE 11.2.0.4.180417
-- Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449"): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
-- Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [27659043](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043"): MES 405 BUNDLE ON TOP OF RDBMS 11.2.0.4.180116 PSU
-- Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824"): DBCONTROL is not coming up on OEL 7
-- Support for the `DBMS_ADVANCED_REWRITE` package
-- Fixed a bug where `DBA_LOCKS` and associated views available in new DB instances of 11.2.0.4.v15
-  were not created in upgrades to 11.2.0.4.v15. Views are now created in new and upgraded DB instances of
-  11.2.0.4.v16 and later.
++ Patch [27338049](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338049): DATABASE PATCH SET UPDATE 11.2.0.4.180417
++ Patch [27475598](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475598): OJVM PATCH SET UPDATE 11.2.0.4.180417
++ Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
++ Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [27659043](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27659043): MES 405 BUNDLE ON TOP OF RDBMS 11.2.0.4.180116 PSU
++ Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824): DBCONTROL is not coming up on OEL 7
++ Support for the `DBMS_ADVANCED_REWRITE` package
++ Fixed a bug where `DBA_LOCKS` and associated views available in new DB instances of 11.2.0.4.v15 were not created in upgrades to 11.2.0.4.v15. Views are now created in new and upgraded DB instances of 11.2.0.4.v16 and later.
 
 ### Oracle patch 27338049, released April 2018
+<a name="w2aac19c31b7"></a>
 
 Bugs fixed:
 
 ```
-
 21174504, 17184721, 21538558, 16091637, 18092127, 17381384, 15979965
 20671094, 16731148, 16314254, 13837378, 18441944, 17835048, 13558557
 17008068, 17201159, 25427662, 17853498, 20717359, 17246576, 18356166
@@ -1512,28 +1494,27 @@ Bugs fixed:
 18828868, 18273830, 17360606, 24563422, 16992075, 17375354, 12905058
 18362222, 21429602, 27086138, 17571039, 17468141, 18436647, 17235750
 21168487, 16220077, 16929165
-
 ```
 
 ## Version 11.2.0.4.v15
+<a name="oracle-version-11.2.0.4.v15"></a>
 
 Version 11.2.0.4.v15 includes the following:
-
-- Patch [26925576](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925576 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925576"): DATABASE PATCH SET UPDATE 11.2.0.4.180116
-- Patch [26925532](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925532 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925532"): OJVM PATCH SET UPDATE 11.2.0.4.180116
-- Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449"): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
-- Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [27244661](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27244661 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27244661"): MES 405 BUNDLE ON TOP OF RDBMS 11.2.0.4.180116 PSU
-- Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824"): DBCONTROL is not coming up on OEL 7
-- Support for `DBA_LOCKS` and associated views
++ Patch [26925576](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925576): DATABASE PATCH SET UPDATE 11.2.0.4.180116
++ Patch [26925532](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925532): OJVM PATCH SET UPDATE 11.2.0.4.180116
++ Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
++ Patch [27216420](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27216420): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [27244661](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27244661): MES 405 BUNDLE ON TOP OF RDBMS 11.2.0.4.180116 PSU
++ Patch [19692824](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19692824): DBCONTROL is not coming up on OEL 7
++ Support for `DBA_LOCKS` and associated views
 
 ### Oracle patch 26925576, released January 2018
+<a name="w2aac19c33b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 25654936
 17816865, 20506699, 24835538, 25957038, 23330119, 17922254, 17754782
 13364795, 16934803, 17311728, 20387265, 17284817, 17441661, 20671094
@@ -1615,24 +1596,23 @@ Bugs fixed:
 21343775, 18180390, 26474853, 16538760, 18193833, 21387964, 21051833
 17238511, 19777862, 23065323, 17824637, 16571443, 17903598, 18306996
 19578350, 14852021, 17853456, 18674047, 12364061, 19207117, 24411921, 22195448
-
 ```
 
 ## Version 11.2.0.4.v14
+<a name="oracle-version-11.2.0.4.v14"></a>
 
 Version 11.2.0.4.v14 includes the following:
-
-- Oracle October 2017 PSU, a combination of database PSU (patch 26392168) + OJVM component PSU (patch 26635834)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 26950781)
-- RSA Micro-Edition Suite Bundle (patch 26963526)
-- Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
++ Oracle October 2017 PSU, a combination of database PSU (patch 26392168) \+ OJVM component PSU (patch 26635834)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 26950781)
++ RSA Micro-Edition Suite Bundle (patch 26963526)
++ Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
 
 ### Oracle patch 26392168, released October 2017
+<a name="w2aac19c35b7"></a>
 
 Bugs fixed:
 
 ```
-
      17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 25654936
      20506699, 17816865, 25957038, 23330119, 17922254, 17754782, 13364795
      16934803, 17311728, 20387265, 17284817, 17441661, 24560906, 16992075
@@ -1710,31 +1690,29 @@ Bugs fixed:
      21051833, 17238511, 19777862, 23065323, 17824637, 17903598, 16571443
      18306996, 19578350, 14852021, 17853456, 18674047, 12364061, 24411921
      19207117, 22195448
-
 ```
 
 ## Version 11.2.0.4.v13
+<a name="oracle-version-11.2.0.4.v13"></a>
 
 Version 11.2.0.4.v13 includes the following:
++ Oracle July 2017 PSU, a combination of database PSU (patch 26609445) \+ OJVM component PSU (patch 26027154)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 26554712)
++ RSA Micro-Edition Suite Bundle (patch 26770426)
++ Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
++ Support for validating DB instance files with the `RMAN` logical validation utility
 
-- Oracle July 2017 PSU, a combination of database PSU (patch 26609445) + OJVM component PSU (patch 26027154)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 26554712)
-- RSA Micro-Edition Suite Bundle (patch 26770426)
-- Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
-- Support for validating DB instance files with the `RMAN` logical validation utility
+  For more information, see [ Validating DB instance files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.RMAN.html#oracle-version-CommonDBATasks.ValidateDBFiles) in the *Amazon RDS User Guide*.
++ Support for setting the default edition for a DB instance
 
-For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
-
-- Support for setting the default edition for a DB instance
-
-For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
+  For more information, see [ Setting the default edition for a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.DefaultEdition) in the *Amazon RDS User Guide*.
 
 ### Oracle patch 26609445, released July 2017
+<a name="w2aac19c37b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 20506699
 17816865, 25957038, 23330119, 17922254, 17754782, 13364795, 16934803
 17311728, 20387265, 17284817, 17441661, 24560906, 16992075, 17446237
@@ -1807,27 +1785,25 @@ Bugs fixed:
 16538760, 18193833, 21387964, 21051833, 17238511, 19777862, 17824637
 16571443, 18306996, 19578350, 14852021, 17853456, 18674047, 12364061
 24411921, 19207117, 22195448
-
 ```
 
 ## Version 11.2.0.4.v12
+<a name="oracle-version-11.2.0.4.v12"></a>
 
-Version 11.2.0.4.v12 includes the following:
-
-- Oracle patch 25440428, a combination of database PSU (patch 24732075) + OJVM component PSU (patch 25434033)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 25734992)
-- MES Bundle (patch 24975421 for 11.2.0.4)
-- Timezone file DSTv28 (patch 24701840)
-- Support for the `DBMS_CHANGE_NOTIFICATION` package
-- Support for `XSTREAM` packages and views (may require
-  additional licensing)
+Version 11.2.0.4.v12 includes the following: 
++ Oracle patch 25440428, a combination of database PSU (patch 24732075) \+ OJVM component PSU (patch 25434033)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 25734992)
++ MES Bundle (patch 24975421 for 11.2.0.4)
++ Timezone file DSTv28 (patch 24701840)
++ Support for the `DBMS_CHANGE_NOTIFICATION` package
++ Support for `XSTREAM` packages and views (may require additional licensing)
 
 ### Oracle patch 24732075, released April 2017
+<a name="w2aac19c39b7"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 17205719, 18607546, 20506699
 17816865, 17922254, 23330119, 17754782, 16934803, 13364795, 17311728
 17284817, 17441661, 24560906, 16992075, 17446237, 14015842, 19972569
@@ -1896,23 +1872,22 @@ Bugs fixed:
 21343775, 18180390, 16538760, 18193833, 21387964, 21051833, 17238511
 17824637, 16571443, 18306996, 14852021, 17853456, 18674047, 12364061
 24411921, 22195448
-
 ```
 
 ## Version 11.2.0.4.v11
+<a name="oracle-version-11.2.0.4.v11"></a>
 
-Version 11.2.0.4.v11 includes the following:
-
-- Oracle patch 24918033, a combination of database PSU (patch 24006111) + OJVM component PSU (patch 24917954)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24491261)
-- MES Bundle (patch 24975421 for 11.2.0.4)
+Version 11.2.0.4.v11 includes the following: 
++ Oracle patch 24918033, a combination of database PSU (patch 24006111) \+ OJVM component PSU (patch 24917954)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24491261)
++ MES Bundle (patch 24975421 for 11.2.0.4)
 
 ### Oracle patch 24918033, released January 2017
+<a name="w2aac19c41b6"></a>
 
 Bugs fixed:
 
 ```
-
 18933818, 19176885, 17201047, 25067795, 14774730, 19153980, 21911849
 23727132, 18166577, 24448240, 17056813, 21811517, 19909862, 22675136
 24534298, 19895326, 22253904, 17804361, 19231857, 17528315, 19058059
@@ -1985,23 +1960,22 @@ Bugs fixed:
 17892268, 11733603, 16285691, 17587063, 21343775, 18180390, 16538760
 18193833, 21387964, 21051833, 17238511, 17824637, 16571443, 18306996
 14852021, 17853456, 18674047, 12364061, 22195448
-
 ```
 
 ## Version 11.2.0.4.v10
+<a name="oracle-version-11.2.0.4.v10"></a>
 
-Version 11.2.0.4.v10 includes the following:
-
-- Oracle patch 24436313, a combination of database PSU (patch 24006111) + OJVM component PSU (patch 24315821)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24491261)
-- MES Bundle (patch 24975421 for 11.2.0.4)
+Version 11.2.0.4.v10 includes the following: 
++ Oracle patch 24436313, a combination of database PSU (patch 24006111) \+ OJVM component PSU (patch 24315821)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24491261)
++ MES Bundle (patch 24975421 for 11.2.0.4)
 
 ### Baseline: Oracle database patch set update 11.2.0.4.161018 (patch 24006111, released October 2016)
+<a name="w2aac19c43b6"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 24316947, 17811429, 18607546, 17205719, 20506699
 17816865, 17922254, 23330119, 17754782, 16934803, 13364795, 17311728
 17441661, 17284817, 16992075, 17446237, 14015842, 19972569, 21756677
@@ -2068,29 +2042,28 @@ Bugs fixed:
 17892268, 11733603, 16285691, 17587063, 21343775, 18180390, 16538760
 18193833, 21387964, 21051833, 17238511, 17824637, 16571443, 18306996
 14852021, 17853456, 18674047, 12364061, 22195448
-
 ```
 
 ## Version 11.2.0.4.v9
+<a name="oracle-version-11.2.0.4.v9"></a>
 
-Version 11.2.0.4.v9 includes the following:
+Version 11.2.0.4.v9 includes the following: 
++ Oracle patch 23615392, a combination of database PSU (patch 23054359) \+ OJVM component PSU (patch 23177551)
++ Timezone file DSTv26 (patch 22873635 for 11.2.0.4)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24320398 for 11.2.0.4.160719)
++ MES Bundle (patch 22695784 for 11.2.0.4)
++ Added the ability to create custom password verify functions
 
-- Oracle patch 23615392, a combination of database PSU (patch 23054359) + OJVM component PSU (patch 23177551)
-- Timezone file DSTv26 (patch 22873635 for 11.2.0.4)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 24320398 for 11.2.0.4.160719)
-- MES Bundle (patch 22695784 for 11.2.0.4)
-- Added the ability to create custom password verify functions
-
-For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
-
-- Fixed a bug that prevented implicit recompilation of views owned by SYS
+  For more information, see [ Creating custom functions to verify passwords](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.System.html#oracle-version-CommonDBATasks.CustomPassword) in the *Amazon RDS User Guide*.
++ Fixed a bug that prevented implicit recompilation of views owned by SYS
 
 ### Baseline: Oracle database patch set update 11.2.0.4.160719 (patch 23054359, released July 2016)
+<a name="w2aac19c45b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 17288409, 21051852, 17811429, 18607546, 17205719, 20506699, 17816865
 23330119, 17922254, 17754782, 16934803, 13364795, 17311728, 17441661
 17284817, 16992075, 17446237, 14015842, 19972569, 21756677, 17375354
@@ -2156,27 +2129,26 @@ Bugs fixed:
 16285691, 17587063, 21343775, 16538760, 18180390, 18193833, 21387964
 21051833, 17238511, 17824637, 16571443, 18306996, 14852021, 17853456
 18674047, 12364061, 22195448
-
 ```
 
 ## Version 11.2.0.4.v8
+<a name="oracle-version-11.2.0.4.v8"></a>
 
-Version 11.2.0.4.v8 includes the following:
-
-- Oracle PSU 11.2.0.4.160419 (22502456)
-- Timezone file DSTv25 (patch 22037014)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 22576728)
-- MES Bundle (patch 22695784 for 11.2.0.4)
-- Adds the ability for the master user to grant privileges on SYS objects
-  with the grant option using the RDSADMIN.RDSADMIN\_UTIL.GRANT\_SYS\_OBJECT procedure
-- Adds master user privileges to support most common schemas created by the Oracle Fusion Middleware Repository Creation Utility (RCU)
+Version 11.2.0.4.v8 includes the following: 
++ Oracle PSU 11.2.0.4.160419 (22502456)
++ Timezone file DSTv25 (patch 22037014)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 22576728)
++ MES Bundle (patch 22695784 for 11.2.0.4)
++ Adds the ability for the master user to grant privileges on SYS objects with the grant option using the RDSADMIN.RDSADMIN\_UTIL.GRANT\_SYS\_OBJECT procedure
++ Adds master user privileges to support most common schemas created by the Oracle Fusion Middleware Repository Creation Utility (RCU)
 
 ### Baseline: Oracle database patch set update 11.2.0.4.160419 (patch 22502456, released April 2016)
+<a name="w2aac19c47b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 17288409, 21051852, 17811429, 18607546, 17205719, 20506699, 17816865
 17922254, 17754782, 16934803, 13364795, 17311728, 17441661, 17284817
 16992075, 17446237, 14015842, 19972569, 21756677, 21538558, 20925795
@@ -2241,28 +2213,23 @@ Bugs fixed:
 17587063, 21343775, 16538760, 18180390, 18193833, 21387964, 21051833
 17238511, 17824637, 16571443, 18306996, 14852021, 18674047, 17853456
 12364061, 22195448
-
 ```
 
 ## Version 11.2.0.4.v7
+<a name="oracle-version-11.2.0.4.v7"></a>
 
-Version 11.2.0.4.v7 includes the following:
-
-- Oracle PSU 11.2.0.4.160119 (21948347)
-- Timezone file DSTv25 - patch 22037014 for 11.2.0.4 and 12.1.0.2
-  (12.1.0.1 includes DSTv24, patch 20875898 (unchanged from 12.1.0.1.v3),
-  as a backport of DSTv25 was unavailable at build time)
-- Fixed an issue that prevented customers from creating more than
-  10 Directory objects in the database
-- Fixed an issue that prevented customers from re-granting read
-  privileges on the ADUMP and BDUMP Directory objects
+Version 11.2.0.4.v7 includes the following: 
++ Oracle PSU 11.2.0.4.160119 (21948347)
++ Timezone file DSTv25 - patch 22037014 for 11.2.0.4 and 12.1.0.2 (12.1.0.1 includes DSTv24, patch 20875898 (unchanged from 12.1.0.1.v3), as a backport of DSTv25 was unavailable at build time)
++ Fixed an issue that prevented customers from creating more than 10 Directory objects in the database 
++ Fixed an issue that prevented customers from re-granting read privileges on the ADUMP and BDUMP Directory objects
 
 ### Baseline: Oracle database patch set update 11.2.0.4.160119 (patch 21948347, released January 2016)
+<a name="w2aac19c49b6"></a>
 
 Bugs fixed:
 
 ```
-
 17288409, 21051852, 18607546, 17205719, 17811429, 17816865, 20506699
 17922254, 17754782, 16934803, 13364795, 17311728, 17441661, 17284817
 16992075, 17446237, 14015842, 19972569, 17449815, 21538558, 20925795
@@ -2324,24 +2291,23 @@ Bugs fixed:
 18441944, 16450169, 9756271, 17892268, 11733603, 16285691, 17587063
 21343775, 16538760, 18180390, 18193833, 21051833, 17238511, 17824637
 16571443, 18306996, 14852021, 18674047, 17853456, 12364061, 22195448
-
 ```
 
 ## Version 11.2.0.4.v6
+<a name="oracle-version-11.2.0.4.v6"></a>
 
-Version 11.2.0.4.v6 includes the following:
-
-- Enable SSL encryption for Standard Edition and Standard Edition One
+Version 11.2.0.4.v6 includes the following: 
++ Enable SSL encryption for Standard Edition and Standard Edition One
 
 ## Version 11.2.0.4.v5
+<a name="oracle-version-11.2.0.4.v5"></a>
 
-Version 11.2.0.4.v5 includes the following:
-
-- Oracle PSU 11.2.0.4.8 (21352635)
-- Includes the Daylight Saving Time Patch,
-  patch 20875898: DST-24, that came out after the April 2015 PSU.
+Version 11.2.0.4.v5 includes the following: 
++ Oracle PSU 11.2.0.4.8 (21352635)
++  Includes the Daylight Saving Time Patch, patch 20875898: DST-24, that came out after the April 2015 PSU. 
 
 ### Baseline: Oracle database patch set update 11.2.0.4.8 (patch 21352635, released October 2015)
+<a name="w2aac19c53b6"></a>
 
 Bugs fixed:
 
@@ -2406,18 +2372,16 @@ Bugs fixed:
 ```
 
 ## Version 11.2.0.4.v4
+<a name="oracle-version-11.2.0.4.v4"></a>
 
-Version 11.2.0.4.v4 includes the following:
-
-- Oracle PSU 11.2.0.4.6 (20299013)
-- Installs additional Oracle Text knowledge bases from
-  Oracle Database. Examples media (English and French)
-- Provides access to DBMS\_REPAIR through RDSADMIN.RDSADMIN\_DBMS\_REPAIR
-- Grants ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK,
-  EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, and
-  EXEMPT REDACTION POLICY to master user
+Version 11.2.0.4.v4 includes the following: 
++ Oracle PSU 11.2.0.4.6 (20299013)
++ Installs additional Oracle Text knowledge bases from Oracle Database. Examples media (English and French)
++  Provides access to DBMS\_REPAIR through RDSADMIN.RDSADMIN\_DBMS\_REPAIR 
++ Grants ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK, EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, and EXEMPT REDACTION POLICY to master user 
 
 ### Baseline: Oracle database patch set update 11.2.0.4.6 (patch 20299013, released April 2015)
+<a name="w2aac19c55b6"></a>
 
 Bugs fixed:
 
@@ -2475,23 +2439,22 @@ Bugs fixed:
 19289642, 14764829, 17622427, 18328509, 16571443, 16943711, 14368995
 18306996, 17346671, 14852021, 18996843, 17783588, 16618694, 17853456
 18674047, 17672719, 18856999, 12364061, 18783224, 17851160, 17546761
-
 ```
 
 ## Version 11.2.0.4.v3
+<a name="oracle-version-11.2.0.4.v3"></a>
 
-Version 11.2.0.4.v3 includes the following:
-
-- Oracle PSU 11.2.0.4.4 (19121551)
-- Latest DST file (DSTv23 – patch 19396455, released Oct 2014).
-  This patch is incorporated by default in new instances only.
+Version 11.2.0.4.v3 includes the following: 
++ Oracle PSU 11.2.0.4.4 (19121551)
++ Latest DST file (DSTv23 – patch 19396455, released Oct 2014). This patch is incorporated by default in new instances only. 
 
 ### Baseline: Oracle database patch set update 11.2.0.4.4 (patch 19121551, released October 2014)
+<a name="w2aac19c57b6"></a>
 
 Bugs fixed:
 
 ```
-19396455, 18759211, 17432124, 16799735,
+19396455, 18759211, 17432124, 16799735, 
 17288409, 17205719, 17811429, 17754782, 17726838, 13364795, 17311728
 17284817, 17441661, 13645875, 18199537, 16992075, 16542886, 17446237
 14565184, 17071721, 17610798, 17375354, 17449815, 17397545, 19463897
@@ -2526,25 +2489,20 @@ Bugs fixed:
 ```
 
 ## Version 11.2.0.4.v2 (deprecated)
+<a name="oracle-version-11.2.0.4.v2"></a>
 
-Version 11.2.0.4.v2 includes the following:
-
-- Oracle PSU 11.2.0.4.3 (18522509)
-- User access to DBMS\_TRANSACTION package to clean-up failed distributed
-  transactions
-- Latest DST file (DSTv22 – patch 18759211, released June 2014). This
-  patch is incorporated by default only in new Oracle DB instances.
-- Grants DBMS\_REPUTIL to DBA role (upgrade to 11.2.0.4 revokes it from public)
-- Privileges granted on DBMS\_TRANSACTION, `v$pending_xatrans$`,
-  and `v$xatrans$`
-- Resolves a problem with DDL commands when user objects have "SYSTEM" in
-  their names
-- Installs schema objects to support XA Transactions, allowing transactions
-  to be managed by an external transaction manager
-- Permits truncation of temporary SYS and SYSTEM objects, allowing tools like
-  LogMiner to function correctly
+Version 11.2.0.4.v2 includes the following: 
++ Oracle PSU 11.2.0.4.3 (18522509) 
++ User access to DBMS\_TRANSACTION package to clean-up failed distributed transactions 
++ Latest DST file (DSTv22 – patch 18759211, released June 2014). This patch is incorporated by default only in new Oracle DB instances. 
++ Grants DBMS\_REPUTIL to DBA role (upgrade to 11.2.0.4 revokes it from public)
++ Privileges granted on DBMS\_TRANSACTION, `v$pending_xatrans$`, and `v$xatrans$` 
++ Resolves a problem with DDL commands when user objects have "SYSTEM" in their names 
++ Installs schema objects to support XA Transactions, allowing transactions to be managed by an external transaction manager 
++ Permits truncation of temporary SYS and SYSTEM objects, allowing tools like LogMiner to function correctly 
 
 ### Baseline: Oracle database patch set update 11.2.0.4.3 (patch 18522509, released July 2014)
+<a name="w2aac19c59b6"></a>
 
 Bugs fixed:
 
@@ -2572,22 +2530,23 @@ Bugs fixed:
 ```
 
 ## Version 11.2.0.4.v1
+<a name="oracle-version-11.2.0.4.v1"></a>
 
-Version 11.2.0.4.v1 includes the following:
+Version 11.2.0.4.v1 includes the following: 
++ Oracle PSU 11.2.0.4.1
++ Support for creating and dropping directories in the main data storage space
 
-- Oracle PSU 11.2.0.4.1
-- Support for creating and dropping directories in the main data storage space
-
-For more information, see [Creating and dropping directories in the main data storage space](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.NewDirectories "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.NewDirectories") in the _Amazon RDS User Guide_.
+  For more information, see [ Creating and dropping directories in the main data storage space](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Misc.html#oracle-version-CommonDBATasks.NewDirectories) in the *Amazon RDS User Guide*.
 
 ### Baseline: Oracle database patch set update 11.2.0.4.1 (released January 2014)
+<a name="w2aac19c61b6"></a>
 
 Bugs fixed:
 
 ```
-17432124, 16850630, 17551709, 13944971, 17811447,
-13866822, 17811429, 16069901, 16721594, 17443671,
+17432124, 16850630, 17551709, 13944971, 17811447, 
+13866822, 17811429, 16069901, 16721594, 17443671, 
 17478514, 17612828, 17610798, 17239687, 17501491
-17446237, 16450169, 17811438, 17288409, 17811456,
+17446237, 16450169, 17811438, 17288409, 17811456, 
 12905058, 17088068, 16285691, 17332800
 ```

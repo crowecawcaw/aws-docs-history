@@ -1,55 +1,43 @@
+
+
 # Amazon RDS for Oracle Database 26ai (26.0.0.0)
+<a name="oracle-version-26-0"></a>
 
-Amazon RDS for Oracle Database 26ai (26.0.0.0) releases new minor engine versions quarterly. A Release
-Update (RU) engine version incorporates bug fixes from Oracle by including the RU patches
-for the specified quarter. A Monthly Recommended Patch (MRP) includes Oracle's Critical
-Security Patch Updates (CSPU) and other fixes that Oracle recommends. Each Oracle Database 26ai engine
-version includes both an RU component and an MRP component.
+Amazon RDS for Oracle Database 26ai (26.0.0.0) releases new minor engine versions quarterly. A Release Update (RU) engine version incorporates bug fixes from Oracle by including the RU patches for the specified quarter. A Monthly Recommended Patch (MRP) includes Oracle's Critical Security Patch Updates (CSPU) and other fixes that Oracle recommends. Each Oracle Database 26ai engine version includes both an RU component and an MRP component.
 
-The naming format for an Oracle Database 26ai engine version is as follows:
-``release`.ru-`ru-date`.mrp-`mrp-date`.r`rnumber``.
-For example, the RDS for Oracle January 2026 quarterly RU is named
-`26.0.0.0.ru-2026-01.mrp-2026-01.r1`.
+The naming format for an Oracle Database 26ai engine version is as follows: `{{release}}.ru-{{ru-date}}.mrp-{{mrp-date}}.r{{rnumber}}`. For example, the RDS for Oracle January 2026 quarterly RU is named `26.0.0.0.ru-2026-01.mrp-2026-01.r1`.
 
-When Oracle releases a CSPU or other recommended fixes between quarterly RUs, the MRP
-component advances while the RU component stays the same. For example,
-`26.0.0.0.ru-2026-01.mrp-2026-03.r1` includes the January 2026 RU plus the
-March 2026 MRP.
+When Oracle releases a CSPU or other recommended fixes between quarterly RUs, the MRP component advances while the RU component stays the same. For example, `26.0.0.0.ru-2026-01.mrp-2026-03.r1` includes the January 2026 RU plus the March 2026 MRP.
 
 The naming format has the following components:
++ The `{{release}}` is the release number, for example, `26.0.0.0`.
++ The `{{ru-date}}` is the four-digit year and two-digit month of the quarterly RU, for example, `2026-01`.
++ The `{{mrp-date}}` is the four-digit year and two-digit month of the MRP, for example, `2026-03`.
++ The `{{rnumber}}` is the release revision, for example, `1`. 
 
-- The `release` is the release number, for
-  example, `26.0.0.0`.
-- The `ru-date` is the four-digit year and
-  two-digit month of the quarterly RU, for example, `2026-01`.
-- The `mrp-date` is the four-digit year and
-  two-digit month of the MRP, for example, `2026-03`.
-- The `rnumber` is the release revision, for
-  example, `1`.
-  A database upgrade to a newer engine version is a minor version upgrade. You can upgrade
-  to any higher Oracle Database 26ai engine version, whether the change is a new quarterly RU, a new MRP,
-  or both.
+A database upgrade to a newer engine version is a minor version upgrade. You can upgrade to any higher Oracle Database 26ai engine version, whether the change is a new quarterly RU, a new MRP, or both.
 
-For more information about RUs and MRPs, see [Oracle minor
-version upgrades](../UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md "../UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md").
+For more information about RUs and MRPs, see [Oracle minor version upgrades](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.html).
 
-To determine which RUs and MRPs are applied to Amazon RDS for Oracle Database 26ai (26.0.0.0), see the
-following table.
+To determine which RUs and MRPs are applied to Amazon RDS for Oracle Database 26ai (26.0.0.0), see the following table.
 
-| Date         | Release type | Name                                                                                                                                                        |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026 July    | RU           | [26.0.0.0.ru-2026-07.mrp-2026-07.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-07.mrp-2026-07.r1 "#oracle-version-RU-RUR.26.0.0.0.ru-2026-07.mrp-2026-07.r1") |
-| 2026 April   | RU           | [26.0.0.0.ru-2026-04.mrp-2026-04.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-04.mrp-2026-04.r1 "#oracle-version-RU-RUR.26.0.0.0.ru-2026-04.mrp-2026-04.r1") |
-| 2026 January | RU           | [26.0.0.0.ru-2026-01.mrp-2026-01.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-01.mrp-2026-01.r1 "#oracle-version-RU-RUR.26.0.0.0.ru-2026-01.mrp-2026-01.r1") |
+
+
+|  Date  | Release type |  Name  | 
+| --- | --- | --- | 
+| 2026 July | RU | [26.0.0.0.ru-2026-07.mrp-2026-07.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-07.mrp-2026-07.r1) | 
+| 2026 April | RU | [26.0.0.0.ru-2026-04.mrp-2026-04.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-04.mrp-2026-04.r1) | 
+| 2026 January | RU | [26.0.0.0.ru-2026-01.mrp-2026-01.r1](#oracle-version-RU-RUR.26.0.0.0.ru-2026-01.mrp-2026-01.r1) | 
 
 ## Version 26.0.0.0.ru-2026-07.mrp-2026-07.r1
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-07.mrp-2026-07.r1"></a>
 
 Version 26.0.0.0.ru-2026-07.mrp-2026-07.r1 includes the following:
-
-- Patch [39578879](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39578879 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39578879"): Database Release Update : 23.26.3.0.0 (39578879)
-- Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688"): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
++ Patch [39578879](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39578879): Database Release Update : 23.26.3.0.0 (39578879)
++ Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
 
 ### Combined Patches for Version 26.0.0.0.ru-2026-07.mrp-2026-07.r1, Released July 2026
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-07.mrp-2026-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -2369,13 +2357,14 @@ Bugs fixed:
 ```
 
 ## Version 26.0.0.0.ru-2026-04.mrp-2026-04.r1
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-04.mrp-2026-04.r1"></a>
 
 Version 26.0.0.0.ru-2026-04.mrp-2026-04.r1 includes the following:
-
-- Patch [39093711](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39093711 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39093711"): Database Release Update: 23.26.2.0.0 (39093711)
-- Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688"): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
++ Patch [39093711](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39093711): Database Release Update: 23.26.2.0.0 (39093711)
++ Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
 
 ### Combined Patches for Version 26.0.0.0.ru-2026-04.mrp-2026-04.r1, Released April 2026
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-04.mrp-2026-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4321,14 +4310,15 @@ Bugs fixed:
 ```
 
 ## Version 26.0.0.0.ru-2026-01.mrp-2026-01.r1
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-01.mrp-2026-01.r1"></a>
 
 Version 26.0.0.0.ru-2026-01.mrp-2026-01.r1 includes the following:
-
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688"): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
-- Patch [38743669](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743669 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743669"): Database Release Update : 23.26.1.0.0 (38743669) Gold Image
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [38743688](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743688): OCW RELEASE UPDATE 23.26.1.0.0 (GOLD IMAGE) (38743688) Gold Image
++ Patch [38743669](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38743669): Database Release Update : 23.26.1.0.0 (38743669) Gold Image
 
 ### Combined Patches for Version 26.0.0.0.ru-2026-01.mrp-2026-01.r1, Released January 2026
+<a name="oracle-version-RU-RUR.26.0.0.0.ru-2026-01.mrp-2026-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 

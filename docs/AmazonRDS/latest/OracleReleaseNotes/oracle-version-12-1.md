@@ -1,72 +1,72 @@
+
+
 # Amazon RDS for Oracle Database 12c Release 1 (12.1.0.2)
+<a name="oracle-version-12-1"></a>
 
-For Amazon RDS for Oracle Database 12c Release 1 (12.1.0.2), Amazon RDS incorporates bug fixes from Oracle by using
-their quarterly Database Patch Set Updates (PSUs). If you apply updates, you can be confident that your DB
-instance is running a version of the database software that has been tested by both Oracle and Amazon. We
-don't support applying one-off patches to individual DB instances.
+For Amazon RDS for Oracle Database 12c Release 1 (12.1.0.2), Amazon RDS incorporates bug fixes from Oracle by using their quarterly Database Patch Set Updates (PSUs). If you apply updates, you can be confident that your DB instance is running a version of the database software that has been tested by both Oracle and Amazon. We don't support applying one-off patches to individual DB instances.
 
-###### Note
+**Note**  
+RDS for Oracle Database 12c is no longer supported. This information is only useful if you want to upgrade an Oracle Database 12c snapshot.
 
-RDS for Oracle Database 12c is no longer supported. This information is only useful if you want to upgrade
-an Oracle Database 12c snapshot.
+To find what Oracle Patch Set Updates (PSUs) are applied to Amazon RDS for Oracle Database 12c Release 1 (12.1.0.2), see the following table. 
 
-To find what Oracle Patch Set Updates (PSUs) are applied to Amazon RDS for Oracle Database 12c Release 1 (12.1.0.2),
-see the following table.
 
-| Date         | PSU                                                                         |
-| ------------ | --------------------------------------------------------------------------- |
-| 2022 July    | [12.1.0.2.v29](#oracle-version-12.1.0.2.v29 "#oracle-version-12.1.0.2.v29") |
-| 2022 April   | [12.1.0.2.v28](#oracle-version-12.1.0.2.v28 "#oracle-version-12.1.0.2.v28") |
-| 2022 January | [12.1.0.2.v27](#oracle-version-12.1.0.2.v27 "#oracle-version-12.1.0.2.v27") |
-| 2021 October | [12.1.0.2.v26](#oracle-version-12.1.0.2.v26 "#oracle-version-12.1.0.2.v26") |
-| 2021 July    | [12.1.0.2.v25](#oracle-version-12.1.0.2.v25 "#oracle-version-12.1.0.2.v25") |
-| 2021 April   | [12.1.0.2.v24](#oracle-version-12.1.0.2.v24 "#oracle-version-12.1.0.2.v24") |
-| 2021 January | [12.1.0.2.v23](#oracle-version-12.1.0.2.v23 "#oracle-version-12.1.0.2.v23") |
-| 2020 October | [12.1.0.2.v22](#oracle-version-12.1.0.2.v22 "#oracle-version-12.1.0.2.v22") |
-| 2020 July    | [12.1.0.2.v21](#oracle-version-12.1.0.2.v21 "#oracle-version-12.1.0.2.v21") |
-| 2020 April   | [12.1.0.2.v20](#oracle-version-12.1.0.2.v20 "#oracle-version-12.1.0.2.v20") |
-| 2020 January | [12.1.0.2.v19](#oracle-version-12.1.0.2.v19 "#oracle-version-12.1.0.2.v19") |
-| 2019 October | [12.1.0.2.v18](#oracle-version-12.1.0.2.v18 "#oracle-version-12.1.0.2.v18") |
-| 2019 July    | [12.1.0.2.v17](#oracle-version-12.1.0.2.v17 "#oracle-version-12.1.0.2.v17") |
-| 2019 April   | [12.1.0.2.v16](#oracle-version-12.1.0.2.v16 "#oracle-version-12.1.0.2.v16") |
-| 2019 January | [12.1.0.2.v15](#oracle-version-12.1.0.2.v15 "#oracle-version-12.1.0.2.v15") |
-| 2018 October | [12.1.0.2.v14](#oracle-version-12.1.0.2.v14 "#oracle-version-12.1.0.2.v14") |
-| 2018 July    | [12.1.0.2.v13](#oracle-version-12.1.0.2.v13 "#oracle-version-12.1.0.2.v13") |
-| 2018 April   | [12.1.0.2.v12](#oracle-version-12.1.0.2.v12 "#oracle-version-12.1.0.2.v12") |
-| 2018 January | [12.1.0.2.v11](#oracle-version-12.1.0.2.v11 "#oracle-version-12.1.0.2.v11") |
-| 2017 October | [12.1.0.2.v10](#oracle-version-12.1.0.2.v10 "#oracle-version-12.1.0.2.v10") |
-| 2017 July    | [12.1.0.2.v9](#oracle-version-12.1.0.2.v9 "#oracle-version-12.1.0.2.v9")    |
-| 2017 April   | [12.1.0.2.v8](#oracle-version-12.1.0.2.v8 "#oracle-version-12.1.0.2.v8")    |
-| 2017 January | [12.1.0.2.v7](#oracle-version-12.1.0.2.v7 "#oracle-version-12.1.0.2.v7")    |
-| 2016 October | [12.1.0.2.v6](#oracle-version-12.1.0.2.v6 "#oracle-version-12.1.0.2.v6")    |
-| 2016 July    | [12.1.0.2.v5](#oracle-version-12.1.0.2.v5 "#oracle-version-12.1.0.2.v5")    |
-| 2016 April   | [12.1.0.2.v4](#oracle-version-12.1.0.2.v4 "#oracle-version-12.1.0.2.v4")    |
-| 2016 January | [12.1.0.2.v3](#oracle-version-12.1.0.2.v3 "#oracle-version-12.1.0.2.v3")    |
-| 2015 October | [12.1.0.2.v2](#oracle-version-12.1.0.2.v2 "#oracle-version-12.1.0.2.v2")    |
-| 2015 April   | [12.1.0.2.v1](#oracle-version-12.1.0.2.v1 "#oracle-version-12.1.0.2.v1")    |
+
+|  Date  |  PSU  | 
+| --- | --- | 
+| 2022 July | [12.1.0.2.v29](#oracle-version-12.1.0.2.v29) | 
+| 2022 April | [12.1.0.2.v28](#oracle-version-12.1.0.2.v28) | 
+| 2022 January | [12.1.0.2.v27](#oracle-version-12.1.0.2.v27) | 
+| 2021 October | [12.1.0.2.v26](#oracle-version-12.1.0.2.v26) | 
+| 2021 July | [12.1.0.2.v25](#oracle-version-12.1.0.2.v25) | 
+| 2021 April | [12.1.0.2.v24](#oracle-version-12.1.0.2.v24) | 
+| 2021 January | [12.1.0.2.v23](#oracle-version-12.1.0.2.v23) | 
+| 2020 October | [12.1.0.2.v22](#oracle-version-12.1.0.2.v22) | 
+| 2020 July | [12.1.0.2.v21](#oracle-version-12.1.0.2.v21) | 
+| 2020 April | [12.1.0.2.v20](#oracle-version-12.1.0.2.v20) | 
+| 2020 January | [12.1.0.2.v19](#oracle-version-12.1.0.2.v19) | 
+| 2019 October | [12.1.0.2.v18](#oracle-version-12.1.0.2.v18) | 
+| 2019 July | [12.1.0.2.v17](#oracle-version-12.1.0.2.v17) | 
+| 2019 April | [12.1.0.2.v16](#oracle-version-12.1.0.2.v16) | 
+| 2019 January | [12.1.0.2.v15](#oracle-version-12.1.0.2.v15) | 
+| 2018 October | [12.1.0.2.v14](#oracle-version-12.1.0.2.v14) | 
+| 2018 July | [12.1.0.2.v13](#oracle-version-12.1.0.2.v13) | 
+| 2018 April | [12.1.0.2.v12](#oracle-version-12.1.0.2.v12) | 
+| 2018 January | [12.1.0.2.v11](#oracle-version-12.1.0.2.v11) | 
+| 2017 October | [12.1.0.2.v10](#oracle-version-12.1.0.2.v10) | 
+| 2017 July | [12.1.0.2.v9](#oracle-version-12.1.0.2.v9) | 
+| 2017 April | [12.1.0.2.v8](#oracle-version-12.1.0.2.v8) | 
+| 2017 January | [12.1.0.2.v7](#oracle-version-12.1.0.2.v7) | 
+| 2016 October | [12.1.0.2.v6](#oracle-version-12.1.0.2.v6) | 
+| 2016 July | [12.1.0.2.v5](#oracle-version-12.1.0.2.v5) | 
+| 2016 April | [12.1.0.2.v4](#oracle-version-12.1.0.2.v4) | 
+| 2016 January | [12.1.0.2.v3](#oracle-version-12.1.0.2.v3) | 
+| 2015 October | [12.1.0.2.v2](#oracle-version-12.1.0.2.v2) | 
+| 2015 April | [12.1.0.2.v1](#oracle-version-12.1.0.2.v1) | 
 
 ## Version 12.1.0.2.v29
+<a name="oracle-version-12.1.0.2.v29"></a>
 
 Version 12.1.0.2.v29 includes the following:
-
-- Patch [34057742](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34057742 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34057742"): DATABASE PATCH SET UPDATE 12.1.0.2.220719
-- Patch [34086863](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34086863 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34086863"): OJVM PATCH SET UPDATE 12.1.0.2.220719
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650"): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV: QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG:PDCDB:CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [34339921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34339921 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34339921"): MERGE REQUEST ON TOP OF DATABASE PSU 12.1.0.2.220719 FOR BUGS 33788341
-- Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946"): FLASH CACHE DOESN'T WORK IN OEL7
-- Patch [34459167](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34459167 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34459167"): 12.1.0.2 DB INSTANCE STARTUP FAILING WITH ORA-7445 EXCEPTION
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [34057742](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34057742): DATABASE PATCH SET UPDATE 12.1.0.2.220719 
++ Patch [34086863](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34086863): OJVM PATCH SET UPDATE 12.1.0.2.220719 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX 
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES 
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS 
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN 
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND 
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS 
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT 
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV: QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED] 
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG:PDCDB:CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY 
++ Patch [34339921](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34339921): MERGE REQUEST ON TOP OF DATABASE PSU 12.1.0.2.220719 FOR BUGS 33788341 
++ Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946): FLASH CACHE DOESN'T WORK IN OEL7 
++ Patch [34459167](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34459167): 12.1.0.2 DB INSTANCE STARTUP FAILING WITH ORA-7445 EXCEPTION 
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Combined patches for version 12.1.0.2.v29, released October 05, 2022
+<a name="oracle-version-12.1.0.2.v29.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -332,26 +332,27 @@ Bugs fixed:
 ```
 
 ## Version 12.1.0.2.v28
+<a name="oracle-version-12.1.0.2.v28"></a>
 
 Version 12.1.0.2.v28 includes the following:
-
-- Patch [33711081](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33711081 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33711081"): DATABASE PATCH SET UPDATE 12.1.0.2.220419
-- Patch [33808385](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33808385 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33808385"): OJVM PATCH SET UPDATE 12.1.0.2.220419
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650"): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [34040225](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34040225 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34040225"): MERGE REQUEST ON TOP OF DATABASE PSU 12.1.0.2.220419 FOR BUGS 33788341
-- Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946"): FLASH CACHE DOESN'T WORK IN OEL7
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [33711081](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33711081): DATABASE PATCH SET UPDATE 12.1.0.2.220419 
++ Patch [33808385](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33808385): OJVM PATCH SET UPDATE 12.1.0.2.220419 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX 
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES 
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS 
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN 
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND 
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS 
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT 
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED] 
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY 
++ Patch [34040225](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34040225): MERGE REQUEST ON TOP OF DATABASE PSU 12.1.0.2.220419 FOR BUGS 33788341 
++ Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946): FLASH CACHE DOESN'T WORK IN OEL7 
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip 
 
 ### Combined patches for version 12.1.0.2.v28, released July 28, 2022
+<a name="oracle-version-12.1.0.2.v28.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -611,50 +612,31 @@ Bugs fixed:
 ```
 
 ## Version 12.1.0.2.v27
+<a name="oracle-version-12.1.0.2.v27"></a>
 
 Version 12.1.0.2.v27 includes the following:
-
-- Patch [33477199](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33477199 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33477199"): DATABASE PATCH SET UPDATE
-  12.1.0.2.220118
-- Patch [33561268](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561268 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561268"): OJVM PATCH SET UPDATE
-  12.1.0.2.220118
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE -
-  TZDATA2020E
-- Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833"): DSTV37 UPDATE - TZDATA2020E - NEED
-  OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH
-  REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH
-  LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR
-  RESOLUTION FAILING FOR LOBS, XML, LONG, AND
-  OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING
-  DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM
-  GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO
-  CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF
-  STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION
-  CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600
-  [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE
-  TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [33788341](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33788341 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33788341"): JSON Bundle Patch - MERGE REQUEST ON
-  TOP OF DATABASE PSU 12.1.0.2.220118 FOR BUGS
-  32327179
-- Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946"): FLASH CACHE DOESN'T WORK IN
-  OEL7
-- PreUpgrade Jar:
-  preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [33477199](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33477199): DATABASE PATCH SET UPDATE 12.1.0.2.220118
++ Patch [33561268](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561268): OJVM PATCH SET UPDATE 12.1.0.2.220118
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2020E
++ Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833): DSTV37 UPDATE - TZDATA2020E - NEED OJVM FIX
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [33788341](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33788341): JSON Bundle Patch - MERGE REQUEST ON TOP OF DATABASE PSU 12.1.0.2.220118 FOR BUGS 32327179
++ Patch [19504946](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=19504946): FLASH CACHE DOESN'T WORK IN OEL7
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Combined patches for version 12.1.0.2.v27, released January 2022
+<a name="oracle-version-12.1.0.2.v27.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 8975044, 13542050, 13787015, 13854364
 14283239, 14643995, 14705949, 15996848, 16090440, 16354467, 16359751
 16439813, 16619249, 16756406, 16777441, 16799735, 16863642, 16870214
@@ -905,29 +887,29 @@ Bugs fixed:
 ```
 
 ## Version 12.1.0.2.v26
+<a name="oracle-version-12.1.0.2.v26"></a>
 
 Version 12.1.0.2.v26 includes the following:
-
-- Patch [33128590](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33128590 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33128590"): DATABASE OCT 2021 RELEASE UPDATE 12.1.0.2.211019
-- Patch [33192628](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192628 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192628"): OJVM RELEASE UPDATE 12.1.0.2.211019
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUE
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [33510113](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33510113 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33510113"): JSON Bundle Patch
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [33128590](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33128590): DATABASE OCT 2021 RELEASE UPDATE 12.1.0.2.211019
++ Patch [33192628](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192628): OJVM RELEASE UPDATE 12.1.0.2.211019
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUE
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [33510113](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33510113): JSON Bundle Patch
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Combined patches for version 12.1.0.2.v26, released October 2021
+<a name="oracle-version-12.1.0.2.v26.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 13854364, 14283239
 14643995, 14705949, 15996848, 16090440, 16354467, 16359751, 16439813
 16619249, 16756406, 16777441, 16799735, 16863642, 16870214, 16875041
@@ -1172,29 +1154,29 @@ Bugs fixed:
 ```
 
 ## Version 12.1.0.2.v25
+<a name="oracle-version-12.1.0.2.v25"></a>
 
 Version 12.1.0.2.v25 includes the following:
-
-- Patch [32768233](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32768233 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32768233"): DATABASE PATCH SET UPDATE 12.1.0.2.210720
-- Patch [32876425](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876425 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876425"): OJVM PATCH SET UPDATE 12.1.0.2.210720
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [33013352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33013352 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33013352"): JSON Bundle Patch
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [32768233](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32768233): DATABASE PATCH SET UPDATE 12.1.0.2.210720
++ Patch [32876425](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876425): OJVM PATCH SET UPDATE 12.1.0.2.210720
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [33013352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33013352): JSON Bundle Patch
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Combined patches for version 12.1.0.2.v25, released July 2021
+<a name="oracle-version-12.1.0.2.v25.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 13854364, 14283239
 14643995, 14705949, 15996848, 16090440, 16354467, 16359751, 16439813
 16619249, 16756406, 16777441, 16799735, 16863642, 16870214, 16875041
@@ -1431,33 +1413,32 @@ Bugs fixed:
 32359044, 32368792, 32386877, 32425124, 32436757, 32442404, 32473164
 32523233, 32628221, 32676350, 32720458, 32768233, 32786309, 32876425
 32892894, 33034103
-
 ```
 
 ## Version 12.1.0.2.v24
+<a name="oracle-version-12.1.0.2.v24"></a>
 
 Version 12.1.0.2.v24 includes the following:
-
-- Patch [32328635](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32328635 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32328635"): DATABASE PATCH SET UPDATE 12.1.0.2.210420
-- Patch [32473164](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473164 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473164"): OJVM PATCH SET UPDATE 12.1.0.2.210420
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [32616600](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32616600 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32616600"): JSON Bundle Patch
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [32328635](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32328635): DATABASE PATCH SET UPDATE 12.1.0.2.210420 
++ Patch [32473164](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473164): OJVM PATCH SET UPDATE 12.1.0.2.210420 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES 
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS 
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN 
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND 
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS 
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT 
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED] 
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY 
++ Patch [32616600](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32616600): JSON Bundle Patch 
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip 
 
 ### Combined patches for version 12.1.0.2.v24, released April 2021
+<a name="oracle-version-12.1.0.2.v24.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 13854364, 14283239
 14643995, 14705949, 16090440, 16354467, 16359751, 16439813, 16619249
 16756406, 16777441, 16799735, 16863642, 16870214, 16875041, 16887946
@@ -1687,37 +1668,35 @@ Bugs fixed:
 31909295, 31927930, 31945038, 32065792, 32097882, 32105135, 32119956
 32165915, 32186646, 32222473, 32296941, 32327201, 32328635, 32436757
 32473164, 32523233
-
 ```
 
 ## Version 12.1.0.2.v23
+<a name="oracle-version-12.1.0.2.v23"></a>
 
 Version 12.1.0.2.v23 includes the following:
-
-- Patch [31985579](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31985579 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31985579"): DATABASE PATCH SET UPDATE 12.1.0.2.210119
-- Patch [32119956](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119956 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119956"): OJVM PATCH SET UPDATE 12.1.0.2.210119
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): RDBMS - DSTV35 UPDATE - TZDATA2020A
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [32327179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327179"): JSON Bundle Patch
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
-- Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version
-  6
++ Patch [31985579](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31985579): DATABASE PATCH SET UPDATE 12.1.0.2.210119
++ Patch [32119956](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119956): OJVM PATCH SET UPDATE 12.1.0.2.210119
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): RDBMS - DSTV35 UPDATE - TZDATA2020A
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [32327179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327179): JSON Bundle Patch
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version 6
 
 ### Combined patches for version 12.1.0.2.v23, released February 2021
+<a name="oracle-version-12.1.0.2.v23.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 13854364, 14283239
 14643995, 14705949, 16090440, 16354467, 16359751, 16439813, 16619249
 16756406, 16777441, 16799735, 16863642, 16870214, 16875041, 16887946
@@ -1944,40 +1923,37 @@ Bugs fixed:
 31668061, 31668867, 31668915, 31675539, 31711889, 31786838, 31799139
 31927930, 31985579, 32065792, 32097882, 32119956, 32165915, 32186646
 32296941
-
 ```
 
 ## Version 12.1.0.2.v22
+<a name="oracle-version-12.1.0.2.v22"></a>
 
 Version 12.1.0.2.v22 includes the following:
++ Patch [31550110](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31550110): Database Patch Set Update : 12.1.0.2.201020 (31550110)
++ Patch [31668915](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668915): Database PSU 12.1.0.2.201020, Oracle JavaVM Component (OCT2020)
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): RDBMS - DSTV35 UPDATE - TZDATA2020A
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [31911280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31911280): JSON Bundle Patch
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Support for setting and unsetting system diagnostic events using procedures in the `rdsadmin.rdsadmin_util` package
 
-- Patch [31550110](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31550110 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31550110"): Database Patch Set Update : 12.1.0.2.201020 (31550110)
-- Patch [31668915](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668915 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668915"): Database PSU 12.1.0.2.201020, Oracle JavaVM Component (OCT2020)
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): RDBMS - DSTV35 UPDATE - TZDATA2020A
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate – 46719 ENH REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate – APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate – IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): ADD CONTROL FOR AUTOMATIC CREATION OF STATS EXTENSIONS
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG PDCDB CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [25031502](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=25031502"): MV QUERY REWRITE WORKLOAD HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [31911280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31911280 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31911280"): JSON Bundle Patch
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
-- Support for setting and unsetting system diagnostic events using procedures in the
-  `rdsadmin.rdsadmin_util` package
-
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
-
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+  For more information, see [ Setting and unsetting system diagnostic events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.System.html#oracle-version-CommonDBATasks.SystemEvents) in the *Amazon RDS User Guide*.
++ Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [ Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleGoldenGate.html#Appendix.OracleGoldenGate.IR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 12.1.0.2.v22, released October 2020
+<a name="oracle-version-12.1.0.2.v22.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 13854364, 14283239
 14643995, 14705949, 16090440, 16354467, 16359751, 16439813, 16619249
 16756406, 16777441, 16799735, 16863642, 16870214, 16875041, 16887946
@@ -2198,35 +2174,34 @@ Bugs fixed:
 30987088, 31001455, 31013127, 31022858, 31028986, 31031715, 31106577
 31156383, 31172207, 31194264, 31219939, 31228670, 31306274, 31335037
 31335142, 31550110, 31668061, 31668867, 31668915, 31799139
-
 ```
 
 ## Version 12.1.0.2.v21
+<a name="oracle-version-12.1.0.2.v21"></a>
 
 Version 12.1.0.2.v21 includes the following:
-
-- Patch [31113348](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31113348 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31113348"): Database Patch Set Update 12.1.0.2.200714
-- Patch [31219939](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219939 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219939"): Database PSU 12.1.0.2.200714, Oracle JavaVM Component (JUL2020)
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): DSTV35 for RDBMS (TZDATA2020A)
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 for OJVM (TZDATA2020A)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335"): CDB\_UPG:PDCDB:CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
-- Patch [31579750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31579750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31579750"): JSON bundle Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Patch [31113348](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31113348): Database Patch Set Update 12.1.0.2.200714
++ Patch [31219939](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219939): Database PSU 12.1.0.2.200714, Oracle JavaVM Component (JUL2020)
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): DSTV35 for RDBMS (TZDATA2020A)
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 for OJVM (TZDATA2020A)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [23711335](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23711335): CDB\_UPG:PDCDB:CDB UPGRADE AS WHOLE TAKES 1 MORE HOUR THAN PREVIOUS LABELS IN MAY
++ Patch [31579750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31579750): JSON bundle Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Combined patches for version 12.1.0.2.v21, released July 2020
+<a name="oracle-version-12.1.0.2.v21.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 6194865, 6418158, 6599380, 13542050, 13787015, 14283239, 14643995
 14705949, 16090440, 16354467, 16359751, 16439813, 16619249, 16756406
 16777441, 16799735, 16863642, 16870214, 16875041, 16887946, 16923858
@@ -2439,42 +2414,39 @@ Bugs fixed:
 30659882, 30668407, 30698289, 30758943, 30803210, 30805558, 30816938
 30855121, 30973003, 30987088, 31001455, 31013127, 31022858, 31031715
 31113348, 31156383, 31219939, 31306274, 31335037, 31335142
-
 ```
 
 ## Version 12.1.0.2.v20
+<a name="oracle-version-12.1.0.2.v20"></a>
 
 Version 12.1.0.2.v20 includes the following:
++ Patch [30700212](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30700212): Database PSU 12.1.0.2.200414
++ Patch [30805558](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805558): Oracle JVM Component Database PSU 12.1.0.2.200414
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [31164857](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31164857): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zipn
++ Support for purging the recycle bin
 
-- Patch [30700212](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30700212 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30700212"): Database PSU 12.1.0.2.200414
-- Patch [30805558](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805558 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805558"): Oracle JVM Component Database PSU 12.1.0.2.200414
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [31164857](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31164857 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31164857"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zipn
-- Support for purging the recycle bin
+  For more information, see [ Purging the recycle bin](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.PurgeRecycleBin) in the *Amazon RDS User Guide*.
++ Support for generating performance reports with Automatic Workload Repository (AWR) using the `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
-
-- Support for generating performance reports with Automatic Workload Repository (AWR) using the
-  `rdsadmin.rdsadmin_diagnostic_util` package
-
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+  For more information, see [ Generating performance reports with Automatic Workload Repository (AWR)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.AWR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 12.1.0.2, released April 2020
+<a name="oracle-version-12.1.0.2.v20-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 19781326, 16756406
 18456643, 26546664, 22364044, 29483723, 18913440, 18845653, 28774416
 19915271, 20172151, 18417036, 19516448, 24907917, 23713236, 24796092
@@ -2679,34 +2651,33 @@ Bugs fixed:
 19952975, 19982584, 19988852, 20009569, 20011646, 20011897, 20052269
 20061399, 20233181, 20565112, 20565133, 20577490, 20703629, 20707932
 20717091, 20800890, 20801783, 25031502
-
 ```
 
 ## Version 12.1.0.2.v19
+<a name="oracle-version-12.1.0.2.v19"></a>
 
-Version 12.1.0.2.v19 includes the following:
-
-- Patch [30340202](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30340202 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30340202"): DATABASE PATCH SET UPDATE 12.1.0.2.200114
-- Patch [30502041](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502041 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502041"): OJVM PATCH SET UPDATE 12.1.0.2.200114
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
-- Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [30708149](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30708149 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30708149"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
+Version 12.1.0.2.v19 includes the following: 
++ Patch [30340202](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30340202): DATABASE PATCH SET UPDATE 12.1.0.2.200114
++ Patch [30502041](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502041): OJVM PATCH SET UPDATE 12.1.0.2.200114
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - 46719: ENH: REPLICATION SUPPORT FOR INSERTS / FULL UPDATES WITH LARGE VALUES
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - APPLY CDR RESOLUTION FAILING FOR LOBS, XML, LONG, AND OBJECTS
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - IR EXECUTING DEPENDENT TRANSACTIONS OUT OF ORDER WITH PARALLELISM GREATER THAN
++ Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [30708149](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30708149): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
 
 ### Oracle patch 29918340, released January 2020
+<a name="w2aac17c31b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 19781326, 16756406
 18456643, 26546664, 22364044, 29483723, 18913440, 18845653, 19915271
 20172151, 18417036, 19516448, 24907917, 23713236, 24796092, 23140259
@@ -2878,36 +2849,35 @@ Bugs fixed:
 18607546, 26875822, 24573817, 23115139, 19649152, 19201867, 21294938
 20898997, 18510194, 21293600, 21842740, 22454326, 24683149, 19534363
 25489607, 23061702
-
 ```
 
 ## Version 12.1.0.2.v18
+<a name="oracle-version-12.1.0.2.v18"></a>
 
-Version 12.1.0.2.v18 includes the following:
+Version 12.1.0.2.v18 includes the following: 
++ Patch [29918340](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29918340): DATABASE PATCH SET UPDATE 12.1.0.2.191015
++ Patch [30128197](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30128197): OJVM PATCH SET UPDATE 12.1.0.2.191015
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [30370890](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30370890): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
++ Support for resizing the temporary tablespace in a read replica
 
-- Patch [29918340](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29918340 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29918340"): DATABASE PATCH SET UPDATE 12.1.0.2.191015
-- Patch [30128197](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30128197 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30128197"): OJVM PATCH SET UPDATE 12.1.0.2.191015
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [30370890](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30370890 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30370890"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- PreUpgrade Jar: preupgrade\_12.1.0.2.0\_18\_crlf.zip
-- Support for resizing the temporary tablespace in a read replica
-
-For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
+  For more information, see [ Resizing the temporary tablespace in a read replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica) in the *Amazon RDS User Guide*.
 
 ### Oracle patch 29918340, released October 2019
+<a name="w2aac17c33b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 19781326, 16756406
 18456643, 26546664, 22364044, 29483723, 18845653, 18913440, 19915271
 20172151, 18417036, 19516448, 24907917, 23713236, 24796092, 23140259
@@ -3069,32 +3039,31 @@ Bugs fixed:
 23066146, 19022470, 22686674, 18607546, 26875822, 24573817, 23115139
 19649152, 19201867, 21294938, 20898997, 18510194, 21293600, 21842740
 22454326, 24683149, 19534363, 25489607, 23061702
-
 ```
 
 ## Version 12.1.0.2.v17
+<a name="oracle-version-12.1.0.2.v17"></a>
 
-Version 12.1.0.2.v17 includes the following:
-
-- Patch [29494060](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29494060 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29494060"): DATABASE PATCH SET UPDATE 12.1.0.2.190716
-- Patch [29774383](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774383 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774383"): OJVM PATCH SET UPDATE 12.1.0.2.190716
-- Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [29958796](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29958796 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29958796"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
+Version 12.1.0.2.v17 includes the following: 
++ Patch [29494060](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29494060): DATABASE PATCH SET UPDATE 12.1.0.2.190716
++ Patch [29774383](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774383): OJVM PATCH SET UPDATE 12.1.0.2.190716
++ Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334): DSTv33 for OJVM (TZDATA2018G)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [29958796](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29958796): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 29494060, released July 2019
+<a name="w2aac17c35b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 19781326, 16756406
 18456643, 26546664, 22364044, 18845653, 19915271, 20172151, 18417036
 19516448, 23713236, 24907917, 24796092, 23140259, 19243521, 19658708
@@ -3245,32 +3214,31 @@ Bugs fixed:
 20331945, 19512341, 22256431, 19637186, 19022470, 18607546, 26875822
 24573817, 23115139, 19649152, 19201867, 21294938, 20898997, 18510194
 21842740, 22454326, 24683149, 19534363, 25489607, 23061702
-
 ```
 
 ## Version 12.1.0.2.v16
+<a name="oracle-version-12.1.0.2.v16"></a>
 
-Version 12.1.0.2.v16 includes the following:
-
-- Patch [29141015](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141015 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141015"): Database Patch Set Update: 12.1.0.2.190416
-- Patch [29251241](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251241 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251241"): OJVM PATCH SET UPDATE 12.1.0.2.190416
-- Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901"): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
-- Patch [29600862](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29600862 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29600862"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
+Version 12.1.0.2.v16 includes the following: 
++ Patch [29141015](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29141015): Database Patch Set Update: 12.1.0.2.190416
++ Patch [29251241](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29251241): OJVM PATCH SET UPDATE 12.1.0.2.190416
++ Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334): DSTv33 for OJVM (TZDATA2018G)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [24835919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=24835919): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [21091901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21091901): ONLINE MOVE OF HASH OR REF PARTITION CAN LEAVE LOCAL INDEXES INCONSISTENT
++ Patch [29600862](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29600862): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle patch 22785785, released April 2019
+<a name="w2aac17c37b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 19781326, 16756406
 18456643, 26546664, 22364044, 18845653, 19915271, 20172151, 18417036
 19516448, 23713236, 24796092, 23140259, 19243521, 19658708, 18272672
@@ -3411,29 +3379,28 @@ Bugs fixed:
 20331945, 19512341, 22256431, 19637186, 19022470, 18607546, 26875822
 24573817, 23115139, 19649152, 19201867, 21294938, 20898997, 18510194
 21842740, 22454326, 24683149, 19534363, 25489607
-
 ```
 
 ## Version 12.1.0.2.v15
+<a name="oracle-version-12.1.0.2.v15"></a>
 
-Version 12.1.0.2.v15 includes the following:
-
-- Patch [28729169](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729169 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729169"): Oracle Database Patch Set Update 12.1.0.2.190115
-- Patch [28790654](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790654 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790654"): Oracle JVM Patch Set Update 12.1.0.2.190115
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [29125200](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29125200 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29125200"): JSON bundle patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): KGL heap size patch
+Version 12.1.0.2.v15 includes the following: 
++ Patch [28729169](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28729169): Oracle Database Patch Set Update 12.1.0.2.190115
++ Patch [28790654](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790654): Oracle JVM Patch Set Update 12.1.0.2.190115
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287): DSTv32 for OJVM (TZDATA2018E)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [29125200](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29125200): JSON bundle patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): KGL heap size patch
 
 ### Oracle patch 28729169, released January 2019
+<a name="w2aac17c39b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 16756406, 18456643
 26546664, 22364044, 18845653, 19915271, 20172151, 18417036, 23713236
 24796092, 23140259, 19243521, 19658708, 18272672, 21153266, 19174430
@@ -3565,29 +3532,28 @@ Bugs fixed:
 22256431, 19637186, 19022470, 18607546, 24573817, 23115139, 19649152
 19201867, 21294938, 20898997, 18510194, 21842740, 22454326, 24683149
 19534363, 25489607
-
 ```
 
 ## Version 12.1.0.2.v14
+<a name="oracle-version-12.1.0.2.v14"></a>
 
-Version 12.1.0.2.v14 includes the following:
-
-- Patch [28259833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28259833 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28259833"): Oracle Database Patch Set Update 12.1.0.2.181016
-- Patch [28440711](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440711 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440711"): Oracle JVM Patch Set Update 12.1.0.2.181016
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [28697469](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28697469 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28697469"): JSON Database Patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): KGL heap size patch
+Version 12.1.0.2.v14 includes the following: 
++ Patch [28259833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28259833): Oracle Database Patch Set Update 12.1.0.2.181016
++ Patch [28440711](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28440711): Oracle JVM Patch Set Update 12.1.0.2.181016
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287): DSTv32 for OJVM (TZDATA2018E)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [28697469](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28697469): JSON Database Patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): KGL heap size patch
 
 ### Oracle patch 28259833, released October 2018
+<a name="w2aac17c41b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 16756406, 18456643
 26546664, 22364044, 18845653, 19915271, 20172151, 18417036, 23713236
 24796092, 23140259, 19243521, 19658708, 18272672, 21153266, 19174430
@@ -3712,29 +3678,28 @@ Bugs fixed:
 23572982, 19211433, 20331945, 19512341, 22256431, 19637186, 19022470
 18607546, 24573817, 19649152, 23115139, 19201867, 21294938, 20898997
 18510194, 21842740, 22454326, 24683149, 19534363, 25489607
-
 ```
 
 ## Version 12.1.0.2.v13
+<a name="oracle-version-12.1.0.2.v13"></a>
 
-Version 12.1.0.2.v13 includes the following:
-
-- Patch [27547329](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27547329 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27547329"): Oracle Database Patch Set Update 12.1.0.2.180717
-- Patch [27923320](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923320 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923320"): Oracle JVM Patch Set Update 12.1.0.2.180717
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287"): DSTv32 for OJVM (TZDATA2018E)
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): DBMS\_STATS Patch
-- Patch [28307069](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28307069 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28307069"): JSON Database Patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): KGL heap size patch
+Version 12.1.0.2.v13 includes the following: 
++ Patch [27547329](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27547329): Oracle Database Patch Set Update 12.1.0.2.180717
++ Patch [27923320](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27923320): Oracle JVM Patch Set Update 12.1.0.2.180717
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287): DSTv32 for OJVM (TZDATA2018E)
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): DBMS\_STATS Patch
++ Patch [28307069](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28307069): JSON Database Patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): KGL heap size patch
 
 ### Oracle patch 27547329, released July 2018
+<a name="w2aac17c43b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 19902195, 18250893, 25437699, 19383839, 16756406, 18456643
 26546664, 18845653, 19915271, 20172151, 18417036, 23713236, 24796092
 19243521, 19658708, 21153266, 19174430, 22243719, 20688221, 21387964
@@ -3850,29 +3815,28 @@ Bugs fixed:
 19211433, 20331945, 19512341, 22256431, 19637186, 19022470, 18607546
 24573817, 19649152, 19201867, 21294938, 20898997, 18510194, 22454326
 19534363, 24683149, 25489607
-
 ```
 
 ## Version 12.1.0.2.v12
+<a name="oracle-version-12.1.0.2.v12"></a>
 
-Version 12.1.0.2.v12 includes the following:
-
-- Patch [27338041](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338041 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338041"): DATABASE PATCH SET UPDATE 12.1.0.2.180417
-- Patch [27475603](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475603 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475603"): OJVM PATCH SET UPDATE 12.1.0.2.180417
-- Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449"): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
-- Patch [27666699](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27666699 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27666699"): JSON Database Patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
+Version 12.1.0.2.v12 includes the following: 
++ Patch [27338041](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27338041): DATABASE PATCH SET UPDATE 12.1.0.2.180417
++ Patch [27475603](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27475603): OJVM PATCH SET UPDATE 12.1.0.2.180417
++ Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
++ Patch [27666699](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27666699): JSON Database Patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): PART :IMC:HIT ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
 
 ### Oracle patch 27338041, released April 2018
+<a name="w2aac17c45b7"></a>
 
 Bugs fixed:
 
 ```
-
 19309466, 24570598, 25475853, 21172913, 19902195, 18250893, 17655240
 25437699, 19383839, 21266085, 19028800, 19035573, 16756406, 19366375
 18456643, 26546664, 24523374, 25034396, 19289642, 18845653, 19915271
@@ -3981,29 +3945,28 @@ Bugs fixed:
 24573817, 18851894, 19649152, 27034890, 20581111, 19201867, 20318889
 20936731, 21060755, 21294938, 20898997, 18510194, 22256560, 22454326
 19534363, 25489607, 19188927
-
 ```
 
 ## Version 12.1.0.2.v11
+<a name="oracle-version-12.1.0.2.v11"></a>
 
-Version 12.1.0.2.v11 includes the following:
-
-- Patch [26925311](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925311 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925311"): DATABASE PATCH SET UPDATE 12.1.0.2.180116
-- Patch [27001733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27001733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27001733"): OJVM PATCH SET UPDATE 12.1.0.2.180116
-- Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449"): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
-- Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468"): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
-- Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750"): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
-- Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382"): AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
-- Patch [27315904](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27315904 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27315904"): JSON Database Patch
-- Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733"): ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
+Version 12.1.0.2.v11 includes the following: 
++ Patch [26925311](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26925311): DATABASE PATCH SET UPDATE 12.1.0.2.180116
++ Patch [27001733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27001733): OJVM PATCH SET UPDATE 12.1.0.2.180116
++ Patch [27015449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015449): RDBMS - PROACTIVE DSTV31 UPDATE - TZDATA2017C
++ Patch [27015468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27015468): PROACTIVE DSTV31 UPDATE - TZDATA2017C - NEED OJVM FIX
++ Patch [17969866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=17969866): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [20394750](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20394750): Oracle GoldenGate - Oracle RDBMS Server Recommended Patches
++ Patch [21171382](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=21171382): AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY
++ Patch [27315904](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=27315904): JSON Database Patch
++ Patch [20033733](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=20033733): ORA 600 [KGL-HEAP-SIZE-EXCEEDED]
 
 ### Oracle patch 26925311, released January 2018
+<a name="w2aac17c47b7"></a>
 
 Bugs fixed:
 
 ```
-
 21099555, 22175564, 19141838, 22083366, 20842388, 19865345, 20117253
 20830459, 19791273, 20671094, 21542577, 23105538, 19243521, 20951038
 22165897, 19238590, 21281532, 17008068, 19908836, 24401351, 24577566
@@ -4106,26 +4069,25 @@ Bugs fixed:
 20920911, 20899461, 21315084, 21429602, 21387128, 18122373, 20581111
 22624709, 26111842, 19606174, 24690216, 18436647, 19023822, 25110233
 19124589, 19178851, 19597583, 20480209, 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v10
+<a name="oracle-version-12.1.0.2.v10"></a>
 
-Version 12.1.0.2.v10 includes the following:
-
-- Oracle October 2017 PSU, a combination of database PSU (patch 26713565) + OJVM component PSU (patch 26635845)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
-- DBMS\_STATS AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY (patch 21171382)
-- JSON bundle patch (patch 26750145)
-- KGL heap size patch (patch 20033733)
-- Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
+Version 12.1.0.2.v10 includes the following: 
++ Oracle October 2017 PSU, a combination of database PSU (patch 26713565) \+ OJVM component PSU (patch 26635845) 
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
++ DBMS\_STATS AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY (patch 21171382)
++ JSON bundle patch (patch 26750145)
++ KGL heap size patch (patch 20033733)
++ Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
 
 ### Oracle patch 26713565, released October 2017
+<a name="w2aac17c49b7"></a>
 
 Bugs fixed:
 
 ```
-
 21099555, 22175564, 19141838, 22083366, 20842388, 19865345, 20117253
 20830459, 19791273, 20671094, 21542577, 19243521, 20951038, 22165897
 19238590, 21281532, 17008068, 19908836, 24577566, 21184223, 25427662
@@ -4221,33 +4183,31 @@ Bugs fixed:
 21387128, 21315084, 18122373, 20581111, 26111842, 22624709, 19606174
 24690216, 18436647, 19023822, 25110233, 19124589, 19178851, 19597583
 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v9
+<a name="oracle-version-12.1.0.2.v9"></a>
 
-Version 12.1.0.2.v9 includes the following:
+Version 12.1.0.2.v9 includes the following: 
++ Oracle July 2017 PSU, a combination of database PSU (patch 26609783) \+ OJVM component PSU (patch 26027162) 
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
++ DBMS\_STATS AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY (patch 21171382)
++ JSON bundle patch (patch 26083365)
++ KGL heap size patch (patch 20033733 for 12.1.0.2)
++ Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
++ Support for validating DB instance files with the `RMAN` logical validation utility
 
-- Oracle July 2017 PSU, a combination of database PSU (patch 26609783) + OJVM component PSU (patch 26027162)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
-- DBMS\_STATS AUTO DOP COMPUTES A HIGH DOP UNNECESSARILY (patch 21171382)
-- JSON bundle patch (patch 26083365)
-- KGL heap size patch (patch 20033733 for 12.1.0.2)
-- Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
-- Support for validating DB instance files with the `RMAN` logical validation utility
+  For more information, see [ Validating DB instance files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.RMAN.html#oracle-version-CommonDBATasks.ValidateDBFiles) in the *Amazon RDS User Guide*.
++ Support for setting the default edition for a DB instance
 
-For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
-
-- Support for setting the default edition for a DB instance
-
-For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
+  For more information, see [ Setting the default edition for a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.DefaultEdition) in the *Amazon RDS User Guide*.
 
 ### Oracle patch 26609783, released July 2017
+<a name="w2aac17c51b7"></a>
 
 Bugs fixed:
 
 ```
-
 21099555, 22175564, 19141838, 22083366, 20842388, 19865345, 20117253
 19791273, 20671094, 21542577, 20951038, 19243521, 22165897, 19238590
 21281532, 17008068, 19908836, 24577566, 21184223, 25427662, 19134173
@@ -4332,31 +4292,29 @@ Bugs fixed:
 19501299, 19385656, 20432873, 20920911, 20899461, 21387128, 21315084
 18122373, 20581111, 22624709, 19606174, 24690216, 18436647, 19023822
 25110233, 19124589, 19178851, 19597583, 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v8
+<a name="oracle-version-12.1.0.2.v8"></a>
 
-Version 12.1.0.2.v8 includes the following:
-
-- Oracle patch 25433980, a combination of database PSU (patch 25171037) + OJVM component PSU (patch 25437695)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
-- Oracle Forms patch 18307021 for 12.1.0.2
-- DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
-- JSON bundle patch (patch 25531469 for 12.1.0.2)
-- KGL heap size patch (patch 20033733 for 12.1.0.2)
-- Fixed a bug that affected PSU apply after upgrade to 12.1.0.2.v5, v6, and v7
-- Timezone file DSTv28 (patch 24701840)
-- Support for the `DBMS_CHANGE_NOTIFICATION` package
-- Support for `XSTREAM` packages and views (may require
-  additional licensing)
+Version 12.1.0.2.v8 includes the following: 
++ Oracle patch 25433980, a combination of database PSU (patch 25171037) \+ OJVM component PSU (patch 25437695) 
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
++ Oracle Forms patch 18307021 for 12.1.0.2
++ DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
++ JSON bundle patch (patch 25531469 for 12.1.0.2)
++ KGL heap size patch (patch 20033733 for 12.1.0.2)
++ Fixed a bug that affected PSU apply after upgrade to 12.1.0.2.v5, v6, and v7
++ Timezone file DSTv28 (patch 24701840)
++ Support for the `DBMS_CHANGE_NOTIFICATION` package
++ Support for `XSTREAM` packages and views (may require additional licensing)
 
 ### Oracle patch 25171037, released April 2017
+<a name="w2aac17c53b7"></a>
 
 Bugs fixed:
 
 ```
-
 21099555, 22175564, 19141838, 22083366, 20842388, 20117253, 19865345
 19791273, 21542577, 20951038, 19243521, 22165897, 17008068, 19908836
 21281532, 19238590, 24577566, 21184223, 19134173, 20569094, 20031873
@@ -4433,32 +4391,31 @@ Bugs fixed:
 20919320, 20474192, 22046677, 21299490, 19501299, 19385656, 20920911
 20899461, 21387128, 21315084, 18122373, 20581111, 19606174, 24690216
 18436647, 19023822, 19124589, 19178851, 19597583, 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v7
+<a name="oracle-version-12.1.0.2.v7"></a>
 
-Version 12.1.0.2.v7 includes the following:
-
-- Oracle patch 24917069, a combination of database PSU (patch 24732082) + OJVM component PSU (patch 24917972)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
-- Oracle Forms patch 18307021 for 12.1.0.2
-- DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
-- JSON bundle patch (patch 25089615 for 12.1.0.2)
-- KGL heap size patch (patch 20033733 for 12.1.0.2)
+Version 12.1.0.2.v7 includes the following: 
++ Oracle patch 24917069, a combination of database PSU (patch 24732082) \+ OJVM component PSU (patch 24917972) 
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
++ Oracle Forms patch 18307021 for 12.1.0.2
++ DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
++ JSON bundle patch (patch 25089615 for 12.1.0.2)
++ KGL heap size patch (patch 20033733 for 12.1.0.2)
 
 ### Oracle patch 24917069, released January 2017
+<a name="w2aac17c55b6"></a>
 
 Bugs fixed:
 
 ```
-
 24917972, 25067795, 24534298, 25076732, 25076756, 24315824, 21659726
 24448240, 24448282, 23177536, 22675136, 23265914, 23265965, 23727148
 22674709, 22670413, 22670385, 21188537, 22139226, 22118835, 22118851
 21555660, 21811517, 19623450, 21566993, 21566944, 19176885, 21068507
 21047803, 21047766, 20415564, 20408829, 20408866, 19877336, 19855285
-19909862, 19895362, 19895326, 19153980, 19231857, 19223010, 19245191,
+19909862, 19895362, 19895326, 19153980, 19231857, 19223010, 19245191, 
 19699946,
 21099555, 22175564, 19141838, 22083366, 20842388, 20117253, 19865345
 19791273, 21542577, 20951038, 19243521, 22165897, 19908836, 21281532
@@ -4530,27 +4487,27 @@ Bugs fixed:
 20474192, 22046677, 19385656, 19501299, 20920911, 20899461, 21315084
 21387128, 18122373, 20581111, 19606174, 24690216, 18436647, 19023822
 19178851, 19124589, 19597583, 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v6
+<a name="oracle-version-12.1.0.2.v6"></a>
 
-Version 12.1.0.2.v6 includes the following:
-
-- Oracle patch 24433133, a combination of database PSU (patch 24006101) + OJVM component PSU (patch 24315824)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
-- Oracle Forms patch 18307021 for 12.1.0.2
-- DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
-- JSON bundle patch (patch 24568656 for 12.1.0.2)
-- Fixed a bug that caused 12c upgrade scripts to drop customer directories
-- Made DIAG log directory available to customers
+Version 12.1.0.2.v6 includes the following: 
++ Oracle patch 24433133, a combination of database PSU (patch 24006101) \+ OJVM component PSU (patch 24315824) 
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
++ Oracle Forms patch 18307021 for 12.1.0.2
++ DBMS\_STATS Patch (patch 21171382 for 12.1.0.2)
++ JSON bundle patch (patch 24568656 for 12.1.0.2)
++ Fixed a bug that caused 12c upgrade scripts to drop customer directories
++ Made DIAG log directory available to customers
 
 ### Baseline: Oracle database patch set update 12.1.0.2.161018 (patch 24006101, released October 2016)
+<a name="w2aac17c57b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 21099555, 22175564, 19141838, 22083366, 20842388, 20117253, 19865345
 19791273, 19243521, 20951038, 19908836, 21281532, 19238590, 24577566
 21184223, 19134173, 20387265, 19149990, 21263635, 18886413, 17551063
@@ -4611,29 +4568,28 @@ Bugs fixed:
 20919320, 20474192, 22046677, 19385656, 19501299, 20920911, 20899461
 21387128, 21315084, 18122373, 20581111, 19606174, 18436647, 19023822
 19178851, 19124589, 19597583, 18499088, 19050649
-
 ```
 
 ## Version 12.1.0.2.v5
+<a name="oracle-version-12.1.0.2.v5"></a>
 
-Version 12.1.0.2.v5 includes the following:
+Version 12.1.0.2.v5 includes the following: 
++ Oracle patch 23615289, a combination of database PSU (patch 23054246) \+ OJVM component PSU (patch 23177536)
++ Timezone file DSTv26 (patch 22873635 for 12.1.0.2)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
++ Oracle Forms patch 18307021 for 12.1.0.2
++ Ability to create custom password verify functions
 
-- Oracle patch 23615289, a combination of database PSU (patch 23054246) + OJVM component PSU (patch 23177536)
-- Timezone file DSTv26 (patch 22873635 for 12.1.0.2)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866 for 12.1.0.2)
-- Oracle Forms patch 18307021 for 12.1.0.2
-- Ability to create custom password verify functions
-
-For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
-
-- Fixed a bug that prevented implicit recompilation of views owned by SYS
+  For more information, see [ Creating custom functions to verify passwords](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.System.html#oracle-version-CommonDBATasks.CustomPassword) in the *Amazon RDS User Guide*.
++ Fixed a bug that prevented implicit recompilation of views owned by SYS
 
 ### Baseline: Oracle database patch set update 12.1.0.2.160719 (patch 23054246, released July 2016)
+<a name="w2aac17c59b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 19189525, 21847223, 21099555, 21649497, 19075256, 19141838, 22762046
 22075064, 20117253, 19865345, 19791273, 18845653, 19280225, 19248799
 19243521, 20951038, 18988834, 21756699, 21281532, 19238590, 21184223
@@ -4685,27 +4641,26 @@ Bugs fixed:
 21315084, 19440586, 16887946, 22374754, 17319928, 19606174, 20708701
 18436647, 17655240, 19023822, 19124589, 19178851, 16439813, 19805359
 19597583, 18499088, 19155797, 19050649, 19393542
-
 ```
 
 ## Version 12.1.0.2.v4
+<a name="oracle-version-12.1.0.2.v4"></a>
 
-Version 12.1.0.2.v4 includes the following:
-
-- Oracle PSU 12.1.0.2.160419 (22291127)
-- Timezone file DSTv25 (patch 22037014)
-- Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
-- Adds the ability for the master user to grant the EM\_EXPRESS\_BASIC and EM\_EXPRESS\_ALL roles
-- Adds the ability for the master user to grant privileges on SYS objects
-  with the grant option using the RDSADMIN.RDSADMIN\_UTIL.GRANT\_SYS\_OBJECT procedure
-- Adds master user privileges to support most common schemas created by the Oracle Fusion Middleware Repository Creation Utility (RCU)
+Version 12.1.0.2.v4 includes the following: 
++ Oracle PSU 12.1.0.2.160419 (22291127)
++ Timezone file DSTv25 (patch 22037014)
++ Oracle recommended RDBMS patches for Oracle GoldenGate (patch 17969866)
++ Adds the ability for the master user to grant the EM\_EXPRESS\_BASIC and EM\_EXPRESS\_ALL roles
++ Adds the ability for the master user to grant privileges on SYS objects with the grant option using the RDSADMIN.RDSADMIN\_UTIL.GRANT\_SYS\_OBJECT procedure
++ Adds master user privileges to support most common schemas created by the Oracle Fusion Middleware Repository Creation Utility (RCU)
 
 ### Baseline: Oracle database patch set update 12.1.0.2.160419 (patch 22291127, released April 2016)
+<a name="w2aac17c61b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 21847223, 19189525, 19075256, 19141838, 22762046, 20117253, 19865345
 19791273, 19280225, 18845653, 19248799, 20951038, 19243521, 21756699
 18988834, 21281532, 19238590, 18921743, 20245930, 18799063, 19134173
@@ -4748,28 +4703,24 @@ Bugs fixed:
 19501299, 17274537, 20899461, 21315084, 19440586, 22374754, 16887946
 19606174, 18436647, 17655240, 19023822, 19178851, 19124589, 16439813
 19805359, 19597583, 18499088, 19155797, 19050649, 19393542
-
 ```
 
 ## Version 12.1.0.2.v3
+<a name="oracle-version-12.1.0.2.v3"></a>
 
-Version 12.1.0.2.v3 includes the following:
-
-- Oracle PSU 12.1.0.2.160119 (21948354).
-- Timezone file DSTv25 (patch 22037014 for 12.1.0.2).
-  12.1.0.1 includes DSTv24, patch 20875898 (unchanged from 12.1.0.1.v3),
-  because a backport of DSTv25 was unavailable at build time.
-- Fixed an issue that prevented customers from creating more than
-  10 Directory objects in the database.
-- Fixed an issue that prevented customers from re-granting read
-  privileges on the ADUMP and BDUMP Directory objects.
+Version 12.1.0.2.v3 includes the following: 
++ Oracle PSU 12.1.0.2.160119 (21948354).
++ Timezone file DSTv25 (patch 22037014 for 12.1.0.2). 12.1.0.1 includes DSTv24, patch 20875898 (unchanged from 12.1.0.1.v3), because a backport of DSTv25 was unavailable at build time.
++ Fixed an issue that prevented customers from creating more than 10 Directory objects in the database.
++ Fixed an issue that prevented customers from re-granting read privileges on the ADUMP and BDUMP Directory objects.
 
 ### Baseline: Oracle database patch set update 12.1.0.2.160119 (patch 21948354, released January 2016)
+<a name="w2aac17c63b6"></a>
 
 Bugs fixed:
 
 ```
-
+ 
 19189525, 19075256, 19141838, 19865345, 19791273, 19280225, 18845653
 20951038, 19243521, 19248799, 21756699, 18988834, 19238590, 21281532
 20245930, 18921743, 18799063, 19134173, 19571367, 20476175, 20925795
@@ -4804,23 +4755,21 @@ Bugs fixed:
 20474192, 20173897, 22062026, 19385656, 19501299, 17274537, 20899461
 19440586, 16887946, 19606174, 18436647, 17655240, 19023822, 19178851
 19124589, 19805359, 19597583, 19155797, 19393542, 19050649
-
 ```
 
 ## Version 12.1.0.2.v2
+<a name="oracle-version-12.1.0.2.v2"></a>
 
-Version 12.1.0.2.v2 includes the following:
-
-- Oracle PSU 12.1.0.2.5 (21359755)
-- Includes the Daylight Saving Time Patch,
-  patch 20875898: DST-24, that came out after the April 2015 PSU.
+Version 12.1.0.2.v2 includes the following: 
++ Oracle PSU 12.1.0.2.5 (21359755)
++ Includes the Daylight Saving Time Patch, patch 20875898: DST-24, that came out after the April 2015 PSU. 
 
 ### Baseline: Oracle database patch set update 12.1.0.2.5 (patch 21359755, released October 2015)
+<a name="w2aac17c65b6"></a>
 
 Bugs fixed:
 
 ```
-
 19189525, 19075256, 19865345, 19791273, 19280225, 18845653, 19248799
 19243521, 18988834, 19238590, 21281532, 18921743, 20245930, 19134173
 19571367, 20476175, 20925795, 19018206, 20387265, 19149990, 18849537
@@ -4850,33 +4799,28 @@ Bugs fixed:
 19022470, 20474192, 22062026, 19385656, 19501299, 17274537, 20899461
 19440586, 19606174, 18436647, 19023822, 19178851, 19124589, 19805359
 19597583, 19155797, 19393542, 19050649
-
 ```
 
 ## Version 12.1.0.2.v1
+<a name="oracle-version-12.1.0.2.v1"></a>
 
-Version 12.1.0.2.v1 includes the following:
+Version 12.1.0.2.v1 includes the following: 
++ Oracle PSU 12.1.0.2.3 (20299023)
++ The In-Memory option allows storing a subset of data in an in-memory column format optimized for performance. 
++ Installs additional Oracle Text knowledge bases from Oracle Database. Examples media (English and French) 
++  Provides access to DBMS\_REPAIR through RDSADMIN.RDSADMIN\_DBMS\_REPAIR 
++ Grants ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK, EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, and EXEMPT REDACTION POLICY to master user 
 
-- Oracle PSU 12.1.0.2.3 (20299023)
-- The In-Memory option allows storing a subset of data in
-  an in-memory column format optimized for performance.
-- Installs additional Oracle Text knowledge bases from
-  Oracle Database. Examples media (English and French)
-- Provides access to DBMS\_REPAIR through RDSADMIN.RDSADMIN\_DBMS\_REPAIR
-- Grants ALTER DATABASE LINK, ALTER PUBLIC DATABASE LINK,
-  EXEMPT ACCESS POLICY, EXEMPT IDENTITY POLICY, and
-  EXEMPT REDACTION POLICY to master user
-
-###### Note
-
+**Note**  
 Version 12.1.0.2.v1 supports Enterprise Edition only.
 
 ### Baseline: Oracle database patch set update 12.1.0.2.3 (patch 20299023, released April 2015)
+<a name="w2aac17c67b8"></a>
 
 Bugs fixed:
 
 ```
-
+  
 19189525, 19065556, 19075256, 19723336, 19077215, 19865345, 18845653
 19280225, 19524384, 19248799, 18988834, 19048007, 18288842, 19238590
 18921743, 18952989, 16870214, 19928926, 19134173, 19180770, 19018206
@@ -4899,5 +4843,4 @@ Bugs fixed:
 19044962, 19385656, 19501299, 17274537, 19409212, 19440586, 19606174
 18436647, 19023822, 19684504, 19178851, 19124589, 19805359, 19024808
 19597583, 19155797, 19393542, 19050649, 19028800
-
 ```

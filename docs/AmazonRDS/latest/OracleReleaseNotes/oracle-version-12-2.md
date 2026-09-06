@@ -1,74 +1,59 @@
+
+
 # Amazon RDS for Oracle Database 12c Release 2 (12.2.0.1)
+<a name="oracle-version-12-2"></a>
 
-For Oracle Database 12c Release 2 (12.2.0.1), Oracle changed the way it releases Oracle Database updates.
-Instead of Patch Set Updates (PSUs), Oracle supplies Release Updates (RUs) and Release Updates Revisions (RURs).
-RUs contain optimizer changes, feature additions, and security fixes. RURs only contain security fixes for the
-two preceding quarterly patch cycles. We don't support applying one-off patches to individual DB instances.
+For Oracle Database 12c Release 2 (12.2.0.1), Oracle changed the way it releases Oracle Database updates. Instead of Patch Set Updates (PSUs), Oracle supplies Release Updates (RUs) and Release Updates Revisions (RURs). RUs contain optimizer changes, feature additions, and security fixes. RURs only contain security fixes for the two preceding quarterly patch cycles. We don't support applying one-off patches to individual DB instances.
 
-Starting with Oracle Database 12c Release 2 (12.2.0.1), Amazon RDS makes new RUs available every quarter. The naming format for an RU is as follows: release.ru-date.rur-date.rnumber.
-The release is the five-digit number of the release, for example, 12.2.0.1. The date is the year and month when the update was made available by Oracle.
-The rnumber is the revision. The Oracle Database 12c update released by Oracle in April 2022 is named 12.2.0.1.ru-2022-04.rur-2022-04.r1.
+Starting with Oracle Database 12c Release 2 (12.2.0.1), Amazon RDS makes new RUs available every quarter. The naming format for an RU is as follows: release.ru-date.rur-date.rnumber. The release is the five-digit number of the release, for example, 12.2.0.1. The date is the year and month when the update was made available by Oracle. The rnumber is the revision. The Oracle Database 12c update released by Oracle in April 2022 is named 12.2.0.1.ru-2022-04.rur-2022-04.r1.
 
-An upgrade to an RU is called a minor version upgrade. Even though the string "rur" appears in the name of the patch, it is an RU rather than an RUR.
-Amazon RDS upgrades from one RU to another RU. RDS doesn't support RURs as part of its minor version upgrade mechanism.
-We don't support applying one-off patches to individual DB instances.
+An upgrade to an RU is called a minor version upgrade. Even though the string "rur" appears in the name of the patch, it is an RU rather than an RUR. Amazon RDS upgrades from one RU to another RU. RDS doesn't support RURs as part of its minor version upgrade mechanism. We don't support applying one-off patches to individual DB instances.
 
-For more information about the new Oracle Database versioning system, see the posts [Differences between PSU / BP and RU /
-RUR](https://mikedietrichde.com/2017/10/24/differences-psu-bp-ru-rur/ "https://mikedietrichde.com/2017/10/24/differences-psu-bp-ru-rur/") at the Upgrade your Database – NOW! blog and [RU and RUR patches for
-Oracle Database 12c Release 2 (12.2)](http://oracle-help.com/oracle-12c/oracle-12cr2/ru-rur-patches-oracle-12-2/ "http://oracle-help.com/oracle-12c/oracle-12cr2/ru-rur-patches-oracle-12-2/") at the Oracle–Help blog.
+For more information about the new Oracle Database versioning system, see the posts [ Differences between PSU / BP and RU / RUR](https://mikedietrichde.com/2017/10/24/differences-psu-bp-ru-rur/) at the Upgrade your Database – NOW\! blog and [ RU and RUR patches for Oracle Database 12c Release 2 (12.2)](http://oracle-help.com/oracle-12c/oracle-12cr2/ru-rur-patches-oracle-12-2/) at the Oracle–Help blog.
 
-###### Note
-
-RDS for Oracle Database 12c is no longer supported. This information is only useful if you want to upgrade
-an Oracle Database 12c snapshot.
+**Note**  
+RDS for Oracle Database 12c is no longer supported. This information is only useful if you want to upgrade an Oracle Database 12c snapshot.
 
 To find what RUs are applied to Amazon RDS for Oracle Database 12c Release 2 (12.2.0.1), see the following table.
 
-| Date         | RU                                                                                                                                                          |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2022 January | [12.2.0.1.ru-2022-01.rur-2022-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2022-01.rur-2022-01.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2022-01.rur-2022-01.r1") |
-| 2021 October | [12.2.0.1.ru-2021-10.rur-2021-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-10.rur-2021-10.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2021-10.rur-2021-10.r1") |
-| 2021 July    | [12.2.0.1.ru-2021-07.rur-2021-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-07.rur-2021-07.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2021-07.rur-2021-07.r1") |
-| 2021 April   | [12.2.0.1.ru-2021-04.rur-2021-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-04.rur-2021-04.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2021-04.rur-2021-04.r1") |
-| 2021 January | [12.2.0.1.ru-2021-01.rur-2021-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-01.rur-2021-01.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2021-01.rur-2021-01.r1") |
-| 2020 October | [12.2.0.1.ru-2020-10.rur-2020-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-10.rur-2020-10.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2020-10.rur-2020-10.r1") |
-| 2020 July    | [12.2.0.1.ru-2020-07.rur-2020-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-07.rur-2020-07.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2020-07.rur-2020-07.r1") |
-| 2020 April   | [12.2.0.1.ru-2020-04.rur-2020-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-04.rur-2020-04.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2020-04.rur-2020-04.r1") |
-| 2020 January | [12.2.0.1.ru-2020-01.rur-2020-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-01.rur-2020-01.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2020-01.rur-2020-01.r1") |
-| 2019 October | [12.2.0.1.ru-2019-10.rur-2019-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-10.rur-2019-10.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2019-10.rur-2019-10.r1") |
-| 2019 July    | [12.2.0.1.ru-2019-07.rur-2019-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-07.rur-2019-07.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2019-07.rur-2019-07.r1") |
-| 2019 April   | [12.2.0.1.ru-2019-04.rur-2019-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-04.rur-2019-04.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2019-04.rur-2019-04.r1") |
-| 2019 January | [12.2.0.1.ru-2019-01.rur-2019-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-01.rur-2019-01.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2019-01.rur-2019-01.r1") |
-| 2018 October | [12.2.0.1.ru-2018-10.rur-2018-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2018-10.rur-2018-10.r1 "#oracle-version-RU-RUR.12.2.0.1.ru-2018-10.rur-2018-10.r1") |
+
+
+|  Date  |  RU  | 
+| --- | --- | 
+| 2022 January | [12.2.0.1.ru-2022-01.rur-2022-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2022-01.rur-2022-01.r1) | 
+| 2021 October | [12.2.0.1.ru-2021-10.rur-2021-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-10.rur-2021-10.r1) | 
+| 2021 July | [12.2.0.1.ru-2021-07.rur-2021-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-07.rur-2021-07.r1) | 
+| 2021 April | [12.2.0.1.ru-2021-04.rur-2021-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-04.rur-2021-04.r1) | 
+| 2021 January | [12.2.0.1.ru-2021-01.rur-2021-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2021-01.rur-2021-01.r1) | 
+| 2020 October | [12.2.0.1.ru-2020-10.rur-2020-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-10.rur-2020-10.r1) | 
+| 2020 July | [12.2.0.1.ru-2020-07.rur-2020-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-07.rur-2020-07.r1) | 
+| 2020 April | [12.2.0.1.ru-2020-04.rur-2020-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-04.rur-2020-04.r1) | 
+| 2020 January | [12.2.0.1.ru-2020-01.rur-2020-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2020-01.rur-2020-01.r1) | 
+| 2019 October | [12.2.0.1.ru-2019-10.rur-2019-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-10.rur-2019-10.r1) | 
+| 2019 July | [12.2.0.1.ru-2019-07.rur-2019-07.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-07.rur-2019-07.r1) | 
+| 2019 April | [12.2.0.1.ru-2019-04.rur-2019-04.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-04.rur-2019-04.r1) | 
+| 2019 January | [12.2.0.1.ru-2019-01.rur-2019-01.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2019-01.rur-2019-01.r1) | 
+| 2018 October | [12.2.0.1.ru-2018-10.rur-2018-10.r1](#oracle-version-RU-RUR.12.2.0.1.ru-2018-10.rur-2018-10.r1) | 
 
 ## Version 12.2.0.1.ru-2022-01.rur-2022-01.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2022-01.rur-2022-01.r1"></a>
 
-Version 12.2.0.1.ru-2022-01.rur-2022-01.r1 includes the
-following:
-
-- Patch [33587128](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33587128 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33587128"): DATABASE JAN 2022 RELEASE UPDATE
-  12.2.0.1.220118
-- Patch [33561275](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561275 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561275"): OJVM RELEASE UPDATE
-  12.2.0.1.220118
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE -
-  TZDATA2021E
-- Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833"): DSTV37 UPDATE - TZDATA2021E - NEED
-  OJVM FIX
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR
-  ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE
-  IMPERIAL CALENDAR
-- Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND
-  ORA-46372
-- PreUpgrade Jar:
-  preupgrade\_12201\_cbuild\_24\_lf.zip
+Version 12.2.0.1.ru-2022-01.rur-2022-01.r1 includes the following:
++ Patch [33587128](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33587128): DATABASE JAN 2022 RELEASE UPDATE 12.2.0.1.220118
++ Patch [33561275](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33561275): OJVM RELEASE UPDATE 12.2.0.1.220118
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833): DSTV37 UPDATE - TZDATA2021E - NEED OJVM FIX
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
 
 ### Combined patches for version 12.2.0.1.ru-2022-01.rur-2022-01.r1, released January 2022
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2022-01.rur-2022-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 17958365, 18308268, 18521691, 18594510, 18774543
@@ -391,18 +376,19 @@ Bugs fixed:
 ```
 
 ## Version 12.2.0.1.ru-2021-10.rur-2021-10.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-10.rur-2021-10.r1"></a>
 
 Version 12.2.0.1.ru-2021-10.rur-2021-10.r1 includes the following:
-
-- Patch [33261817](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33261817 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33261817"): DATABASE OCT 2021 RELEASE UPDATE 12.2.0.1.211019
-- Patch [33192662](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192662 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192662"): OJVM RELEASE UPDATE 12.2.0.1.211019
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
++ Patch [33261817](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33261817): DATABASE OCT 2021 RELEASE UPDATE 12.2.0.1.211019
++ Patch [33192662](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33192662): OJVM RELEASE UPDATE 12.2.0.1.211019
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
 
 ### Combined patches for version 12.2.0.1.ru-2021-10.rur-2021-10.r1, released October 2021
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-10.rur-2021-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -726,23 +712,23 @@ Bugs fixed:
 ```
 
 ## Version 12.2.0.1.ru-2021-07.rur-2021-07.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-07.rur-2021-07.r1"></a>
 
 Version 12.2.0.1.ru-2021-07.rur-2021-07.r1 includes the following:
-
-- Patch [32916808](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32916808 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32916808"): DATABASE JUL 2021 RELEASE UPDATE 12.2.0.1.210720
-- Patch [32876409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876409 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876409"): OJVM RELEASE UPDATE 12.2.0.1.210720
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
++ Patch [32916808](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32916808): DATABASE JUL 2021 RELEASE UPDATE 12.2.0.1.210720
++ Patch [32876409](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32876409): OJVM RELEASE UPDATE 12.2.0.1.210720
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
 
 ### Combined patches for version 12.2.0.1.ru-2021-07.rur-2021-07.r1, released July 2021
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-07.rur-2021-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 17958365, 18308268, 18521691, 18594510, 18774543
@@ -1055,27 +1041,26 @@ Bugs fixed:
 32368789, 32368792, 32404638, 32425124, 32426251, 32436757, 32442404
 32478429, 32494298, 32505009, 32509606, 32523206, 32676350, 32704765
 32720458, 32725484, 32786309, 32858446, 32889434, 32892883, 33034103
-
 ```
 
 ## Version 12.2.0.1.ru-2021-04.rur-2021-04.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-04.rur-2021-04.r1"></a>
 
 Version 12.2.0.1.ru-2021-04.rur-2021-04.r1 includes the following:
-
-- Patch [32507738](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32507738 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32507738"): DATABASE APR 2021 RELEASE UPDATE 12.2.0.1.210420
-- Patch [32473172](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473172 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473172"): OJVM RELEASE UPDATE 12.2.0.1.210420
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip
++ Patch [32507738](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32507738): DATABASE APR 2021 RELEASE UPDATE 12.2.0.1.210420 
++ Patch [32473172](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32473172): OJVM RELEASE UPDATE 12.2.0.1.210420 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE 
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR 
++ Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372 
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_24\_lf.zip 
 
 ### Combined patches for version 12.2.0.1.ru-2021-04.rur-2021-04.r1, released April 2021
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-04.rur-2021-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 17958365, 18308268, 18521691, 18594510, 18774543
@@ -1383,32 +1368,29 @@ Bugs fixed:
 31905033, 31909295, 31945038, 31986836, 31997805, 32089820, 32105135
 32162748, 32165759, 32186646, 32222473, 32234161, 32246090, 32296941
 32327201, 32478429, 32505009, 32523206
-
 ```
 
 ## Version 12.2.0.1.ru-2021-01.rur-2021-01.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-01.rur-2021-01.r1"></a>
 
 Version 12.2.0.1.ru-2021-01.rur-2021-01.r1 includes the following:
++ Patch [32228578](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32228578): DATABASE JAN 2021 RELEASE UPDATE 12.2.0.1.210119
++ Patch [32119931](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119931): OJVM RELEASE UPDATE 12.2.0.1.210119
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): RDBMS - DSTV35 UPDATE - TZDATA2020A
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version 8
++ Support for managing advisor tasks using procedures in the `rdsadmin.rdsadmin_util` package
 
-- Patch [32228578](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32228578 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32228578"): DATABASE JAN 2021 RELEASE UPDATE 12.2.0.1.210119
-- Patch [32119931](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119931 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32119931"): OJVM RELEASE UPDATE 12.2.0.1.210119
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): RDBMS - DSTV35 UPDATE - TZDATA2020A
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
-- Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version
-  8
-- Support for managing advisor tasks using procedures in the
-  `rdsadmin.rdsadmin_util` package
-
-For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
+  For more information, see [ Managing advisor tasks](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Misc.html#oracle-version-CommonDBATasks.managing-advisor-tasks) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 12.2.0.1.ru-2021-01.rur-2021-01.r1, released January 2021
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2021-01.rur-2021-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 17958365, 18308268, 18521691, 18594510, 18774543
@@ -1711,32 +1693,29 @@ Bugs fixed:
 31637680, 31658464, 31668061, 31668872, 31711889, 31718134, 31749740
 31771858, 31786838, 31816631, 31867037, 31905033, 31986836, 31997805
 32089820, 32165759, 32186646, 32234161, 32296941
-
 ```
 
 ## Version 12.2.0.1.ru-2020-10.rur-2020-10.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-10.rur-2020-10.r1"></a>
 
 Version 12.2.0.1.ru-2020-10.rur-2020-10.r1 includes the following:
++ Patch [31741641](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31741641): Database Oct 2020 Release Update : 12.2.0.1.201020 (31741641)
++ Patch [31668898](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668898): OJVM RELEASE UPDATE 12.2.0.1.201020 (31668898)
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): RDBMS - DSTV35 UPDATE - TZDATA2020A
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Support for setting and unsetting system diagnostic events using procedures in the `rdsadmin.rdsadmin_util` package
 
-- Patch [31741641](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31741641 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31741641"): Database Oct 2020 Release Update : 12.2.0.1.201020 (31741641)
-- Patch [31668898](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668898 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31668898"): OJVM RELEASE UPDATE 12.2.0.1.201020 (31668898)
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): RDBMS - DSTV35 UPDATE - TZDATA2020A
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 UPDATE - TZDATA2020A - NEED OJVM FIX
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
-- Support for setting and unsetting system diagnostic events using procedures in the
-  `rdsadmin.rdsadmin_util` package
-
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
-
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+  For more information, see [ Setting and unsetting system diagnostic events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.System.html#oracle-version-CommonDBATasks.SystemEvents) in the *Amazon RDS User Guide*.
++ Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [ Integrated REPLICAT slow due to query on sys."\_DBA\_APPLY\_CDR\_INFO"](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleGoldenGate.html#Appendix.OracleGoldenGate.IR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 12.2.0.1.ru-2020-10.rur-2020-10.r1, released October 2020
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-10.rur-2020-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 17958365, 18308268, 18521691, 18594510, 18774543
@@ -2036,26 +2015,25 @@ Bugs fixed:
 31341859, 31343752, 31347532, 31393600, 31430722, 31508450, 31544097
 31570161, 31600023, 31658464, 31668061, 31668872, 31718134, 31771858
 31867037, 31905033
-
 ```
 
 ## Version 12.2.0.1.ru-2020-07.rur-2020-07.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-07.rur-2020-07.r1"></a>
 
 Version 12.2.0.1.ru-2020-07.rur-2020-07.r1 includes the following:
-
-- Patch [31312468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31312468 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31312468"): Database Jul 2020 Release Update 12.2.0.1.200714
-- Patch [31219919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219919 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219919"): OJVM RELEASE UPDATE: 12.2.0.1.200714
-- Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037"): DSTV35 for RDBMS (TZDATA2020A)
-- Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142"): DSTV35 for OJVM (TZDATA2020A)
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Patch [31312468](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31312468): Database Jul 2020 Release Update 12.2.0.1.200714
++ Patch [31219919](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31219919): OJVM RELEASE UPDATE: 12.2.0.1.200714
++ Patch [31335037](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335037): DSTV35 for RDBMS (TZDATA2020A)
++ Patch [31335142](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=31335142): DSTV35 for OJVM (TZDATA2020A)
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
 
 ### Combined patches for version 12.2.0.1.ru-2020-07.rur-2020-07.r1, released July 2020
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-07.rur-2020-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 7391838, 8480838, 8932139, 8975044, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
 17533661, 17947871, 18308268, 18521691, 18594510, 18774543, 18878420
@@ -2338,34 +2316,31 @@ Bugs fixed:
 30968208, 30980615, 30987088, 30998759, 31001455, 31004719, 31013127
 31022858, 31100172, 31106577, 31156383, 31172207, 31182793, 31200845
 31306261, 31335037, 31335142, 31341859, 31393600
-
 ```
 
 ## Version 12.2.0.1.ru-2020-04.rur-2020-04.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-04.rur-2020-04.r1"></a>
 
 Version 12.2.0.1.ru-2020-04.rur-2020-04.r1 includes the following:
++ Patch [30886680](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30886680): Database Apr 2020 Release Update 12.2.0.1.200414
++ Patch [30805580](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805580): Oracle JVM Release Update 12.2.0.1.200414
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
++ Support for purging the recycle bin
 
-- Patch [30886680](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30886680 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30886680"): Database Apr 2020 Release Update 12.2.0.1.200414
-- Patch [30805580](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805580 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30805580"): Oracle JVM Release Update 12.2.0.1.200414
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
-- Support for purging the recycle bin
+  For more information, see [ Purging the recycle bin](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.PurgeRecycleBin) in the *Amazon RDS User Guide*.
++ Support for generating performance reports with Automatic Workload Repository (AWR) using the `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
-
-- Support for generating performance reports with Automatic Workload Repository (AWR) using the
-  `rdsadmin.rdsadmin_diagnostic_util` package
-
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+  For more information, see [ Generating performance reports with Automatic Workload Repository (AWR)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.AWR) in the *Amazon RDS User Guide*.
 
 ### Combined patches for version 12.2.0.1.ru-2020-04.rur-2020-04.r1, released April 2020
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-04.rur-2020-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 30533198, 30312568, 30086166, 28951026, 28435902, 8480838, 8932139
 12763598, 13554903, 14221306, 14690846, 15931756, 16002385, 16438495
 16727454, 16942578, 17027695, 17533661, 17947871, 18308268, 18521691
@@ -2625,26 +2600,25 @@ Bugs fixed:
 25811105, 25890046, 26023042, 26570134, 27000702, 27461740, 27952586
 27642235, 27539876, 28502098, 28915870, 29254623, 29774362, 30160625
 30534662, 30855101
-
 ```
 
 ## Version 12.2.0.1.ru-2020-01.rur-2020-01.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2020-01.rur-2020-01.r1"></a>
 
-Version 12.2.0.1.ru-2020-01.rur-2020-01.r1 includes the following:
-
-- Patch [30593149](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30593149 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30593149"): Database Jan 2020 Release Update: 12.2.0.1.200114
-- Patch [30502018](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502018 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502018"): OJVM RELEASE UPDATE 12.2.0.1.200114
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
+Version 12.2.0.1.ru-2020-01.rur-2020-01.r1 includes the following: 
++ Patch [30593149](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30593149): Database Jan 2020 Release Update: 12.2.0.1.200114
++ Patch [30502018](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30502018): OJVM RELEASE UPDATE 12.2.0.1.200114
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
 
 ### Oracle release update 12.2.0.1.200114, released January 2020
+<a name="oracle-version-RU-12.2.0.1.191015-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 30125995, 8480838, 8932139, 12763598, 13554903, 14221306, 14690846
 15931756, 16002385, 16438495, 16727454, 16942578, 17027695, 17533661
 17947871, 18308268, 18521691, 18594510, 18774543, 18878420, 19072655
@@ -2879,29 +2853,28 @@ Bugs fixed:
 30098251, 30150731, 30164714, 30189023, 30218044, 30223712, 30244787
 30252098, 30252156, 30253255, 30281591, 30342878, 30365745, 30402386
 30408515, 30453442, 30458593, 30485255
-
 ```
 
 ## Version 12.2.0.1.ru-2019-10.rur-2019-10.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2019-10.rur-2019-10.r1"></a>
 
-Version 12.2.0.1.ru-2019-10.rur-2019-10.r1 includes the following:
+Version 12.2.0.1.ru-2019-10.rur-2019-10.r1 includes the following: 
++ Patch [30138470](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30138470): DATABASE OCT 2019 RELEASE UPDATE 12.2.0.1.191015
++ Patch [30133625](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30133625): OJVM RELEASE UPDATE 12.2.0.1.191015
++ Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937): DSTv34 for RDBMS (TZDATA2019G)
++ Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959): DSTv34 for OJVM (TZDATA2019G)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
++ Support for resizing the temporary tablespace in a read replica
 
-- Patch [30138470](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30138470 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30138470"): DATABASE OCT 2019 RELEASE UPDATE 12.2.0.1.191015
-- Patch [30133625](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30133625 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30133625"): OJVM RELEASE UPDATE 12.2.0.1.191015
-- Patch [29997937](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997937"): DSTv34 for RDBMS (TZDATA2019G)
-- Patch [29997959](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29997959"): DSTv34 for OJVM (TZDATA2019G)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_23\_lf.zip
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
-- Support for resizing the temporary tablespace in a read replica
-
-For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
+  For more information, see [ Resizing the temporary tablespace in a read replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-version-CommonDBATasks.Database.html#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica) in the *Amazon RDS User Guide*.
 
 ### Oracle release update 12.2.0.1.191015, released October 2019
+<a name="oracle-version-RU-12.2.0.1.191015-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 29013832, 30244787, 30253255, 8480838, 8932139, 12763598, 13554903
 14221306, 14690846, 15931756, 16002385, 16438495, 16727454, 16942578
 17027695, 17533661, 17947871, 18308268, 18521691, 18594510, 18774543
@@ -3109,27 +3082,26 @@ Bugs fixed:
 29542449, 29633753, 29637526, 29645349, 29676089, 29690625, 29707896
 29724063, 29767177, 29782211, 29813494, 29836659, 29893132, 29902311
 30088912, 30189023
-
 ```
 
 ## Version 12.2.0.1.ru-2019-07.rur-2019-07.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2019-07.rur-2019-07.r1"></a>
 
-Version 12.2.0.1.ru-2019-07.rur-2019-07.r1 includes the following:
-
-- Patch [29757449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29757449 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29757449"): DATABASE JUL 2019 RELEASE UPDATE 12.2.0.1.190716
-- Patch [29774415](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774415 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774415"): OJVM RELEASE UPDATE 12.2.0.1.190716
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287"): DSTv33 for OJVM (TZDATA2018G)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_22\_lf.zip
-- Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
+Version 12.2.0.1.ru-2019-07.rur-2019-07.r1 includes the following: 
++ Patch [29757449](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29757449): DATABASE JUL 2019 RELEASE UPDATE 12.2.0.1.190716
++ Patch [29774415](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29774415): OJVM RELEASE UPDATE 12.2.0.1.190716
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287): DSTv33 for OJVM (TZDATA2018G)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_22\_lf.zip
++ Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893): DBMS\_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
 ### Oracle release update 12.2.0.1.190716, released July 2019
+<a name="oracle-version-RU-12.2.0.1.190716-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 8480838, 8932139, 12763598, 13554903, 14221306, 14690846, 15931756
 16002385, 16438495, 16727454, 16942578, 17027695, 17533661, 17947871
 18308268, 18521691, 18594510, 18774543, 18878420, 19072655, 19211433
@@ -3319,32 +3291,29 @@ Bugs fixed:
 29200700, 29224605, 29250230, 29301463, 29339155, 29347943, 29376346
 29378913, 29379978, 29388020, 29405462, 29436454, 29437712, 29511611
 29542449, 29676089, 29690625, 29813494, 29836659
-
 ```
 
 ## Version 12.2.0.1.ru-2019-04.rur-2019-04.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2019-04.rur-2019-04.r1"></a>
 
-Version 12.2.0.1.ru-2019-04.rur-2019-04.r1 includes the following:
+Version 12.2.0.1.ru-2019-04.rur-2019-04.r1 includes the following: 
++ Patch [29314339](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29314339): Database Apr 2019 Release Update: 12.2.0.1.190416
++ Patch [29249637](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29249637): OJVM RELEASE UPDATE: 12.2.0.1.190416
++ Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325): DSTv33 for RDBMS (TZDATA2018G)
++ Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334): DSTv33 for OJVM (TZDATA2018G)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_21\_lf.zip
++ Patch [28423598](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28423598): GOLDENGATE AUTH CAUSES ACTIVE DG TO BE UNUSABLE UNTIL BOUNCE
++ Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
++ Support for the package `rdsadmin_dbms_goldengate_auth`, which provides `GRANT` privileges needed by a GoldenGate administrator account
 
-- Patch [29314339](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29314339 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29314339"): Database Apr 2019 Release Update: 12.2.0.1.190416
-- Patch [29249637](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29249637 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29249637"): OJVM RELEASE UPDATE: 12.2.0.1.190416
-- Patch [28852325](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852325"): DSTv33 for RDBMS (TZDATA2018G)
-- Patch [28852334](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28852334"): DSTv33 for OJVM (TZDATA2018G)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_21\_lf.zip
-- Patch [28423598](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28423598 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28423598"): GOLDENGATE AUTH CAUSES ACTIVE DG TO BE UNUSABLE UNTIL BOUNCE
-- Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
-- Support for the package `rdsadmin_dbms_goldengate_auth`, which
-  provides `GRANT` privileges needed by a GoldenGate administrator
-  account
-
-For more information, see [Grant account privileges on the source DB](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.Source.Privileges "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.Source.Privileges") in the _Amazon RDS User Guide_.
+  For more information, see [ Grant account privileges on the source DB](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleGoldenGate.html#Appendix.OracleGoldenGate.Source.Privileges) in the *Amazon RDS User Guide*.
 
 ### Oracle release update 12.2.0.1.190416, released April 2019
+<a name="oracle-version-RU-12.2.0.1.190115-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 26362155, 28023399, 25741955, 25873336, 26966616, 27097854, 28617631
 28742555, 29006527, 8480838, 8932139, 12763598, 13554903, 14221306
 14690846, 15931756, 16002385, 16438495, 16727454, 16942578, 17027695
@@ -3517,25 +3486,24 @@ Bugs fixed:
 28728272, 28749289, 28803345, 28849751, 28852691, 28856060, 28891984
 28951382, 28960211, 28987439, 28991884, 28993590, 29027694, 29189889
 29250230
-
 ```
 
 ## Version 12.2.0.1.ru-2019-01.rur-2019-01.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2019-01.rur-2019-01.r1"></a>
 
-Version 12.2.0.1.ru-2019-01.rur-2019-01.r1 includes the following:
-
-- Patch [28822515](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28822515 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28822515"): Database Jan 2019 Release Update: 12.2.0.1.190115
-- Patch [28790651](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790651 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790651"): OJVM RELEASE UPDATE: 12.2.0.1.190115
-- Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601"): DSTv32 for RDBMS (TZDATA2018E)
-- Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287"): DSTv32 for OJVM (TZDATA2018E)
-- PreUpgrade Jar: preupgrade\_12201\_cbuild\_19\_lf.zip
+Version 12.2.0.1.ru-2019-01.rur-2019-01.r1 includes the following: 
++ Patch [28822515](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28822515): Database Jan 2019 Release Update: 12.2.0.1.190115
++ Patch [28790651](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28790651): OJVM RELEASE UPDATE: 12.2.0.1.190115
++ Patch [28125601](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28125601): DSTv32 for RDBMS (TZDATA2018E)
++ Patch [28127287](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28127287): DSTv32 for OJVM (TZDATA2018E)
++ PreUpgrade Jar: preupgrade\_12201\_cbuild\_19\_lf.zip
 
 ### Oracle release update 12.2.0.1.190115, released January 2019
+<a name="oracle-version-RU-12.2.0.1.190115-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 26285062, 8480838, 8932139, 13554903, 14221306, 14690846, 15931756
 16002385, 16438495, 16727454, 16942578, 17027695, 17533661, 17947871
 18308268, 18521691, 18594510, 18774543, 19072655, 19211433, 19285025
@@ -3689,83 +3657,82 @@ Bugs fixed:
 28454242, 28483184, 28489150, 28502343, 28508053, 28508557, 28522441
 28528349, 28535272, 28571483, 28617959, 28621470, 28627255, 28636676
 28691965, 28708023, 28728272, 28749289, 28960211, 28993590
-
 ```
 
 ## Version 12.2.0.1.ru-2018-10.rur-2018-10.r1
+<a name="oracle-version-RU-RUR.12.2.0.1.ru-2018-10.rur-2018-10.r1"></a>
 
-Version 12.2.0.1.ru-2018-10.rur-2018-10.r1 includes the following:
-
-- October 2018 Release Update: 12.2.0.1.181016 (28662603)
+Version 12.2.0.1.ru-2018-10.rur-2018-10.r1 includes the following: 
++ October 2018 Release Update: 12.2.0.1.181016 (28662603)
 
 ### Oracle release update 12.2.0.1.181016, released October 2018
+<a name="oracle-version-RU12.2.0.1.181016-Bugs-Fixed"></a>
 
 Bugs fixed:
 
 ```
-
 28390273, 28571483, 28483184, 8480838,  13554903, 14221306, 14690846
-15931756, 16002385, 16438495, 16727454, 16942578, 17027695, 17533661
-17947871, 18308268, 18521691, 18594510, 18774543, 19072655, 19211433
-19285025, 19327292, 19526548, 19614243, 19647894, 19649997, 19721304
-20003668, 20087519, 20118035, 20120236, 20324049, 20436508, 20532077
-20591151, 20620169, 20736227, 20756305, 20866970, 20976443, 21143725
-21147908, 21159907, 21178363, 21186167, 21216226, 21320338, 21433452
-21479706, 21520266, 21547051, 21744603, 21882528, 21981529, 21985256
-22007324, 22070853, 22072543, 22087683, 22104866, 22179537, 22347493
-22364044, 22367053, 22379010, 22446455, 22495673, 22503283, 22503297
-22504793, 22530986, 22564336, 22568728, 22581771, 22594071, 22599050
-22628825, 22645009, 22654475, 22700845, 22729345, 22826067, 22843979
-22845846, 22864303, 22898198, 22950945, 22970869, 22981722, 23019710
-23026585, 23035249, 23055900, 23061453, 23065002, 23066146, 23080557
-23105538, 23110523, 23125560, 23126545, 23127945, 23151677, 23179662
-23184263, 23197730, 23234232, 23249829, 23271203, 23300142, 23310101
-23312077, 23481673, 23491861, 23499160, 23521523, 23527363, 23533647
-23548817, 23567857, 23572982, 23581777, 23588722, 23599216, 23600861
-23602213, 23645516, 23665623, 23709062, 23715460, 23730961, 23733981
-23735292, 23741944, 23746128, 23749454, 24010030, 24289874, 24294174
-24303148, 24307571, 24308349, 24326444, 24326846, 24332831, 24334708
-24336249, 24337882, 24341675, 24343905, 24345420, 24346821, 24348685
-24350620, 24368004, 24371491, 24373756, 24374976, 24376875, 24376878
-24385983, 24401351, 24403922, 24415926, 24421668, 24423416, 24425056
-24425998, 24435982, 24437162, 24443539, 24457597, 24461826, 24467122
-24468470, 24470606, 24473736, 24485034, 24485161, 24485174, 24486059
-24486237, 24509056, 24534401, 24554533, 24555417, 24556967, 24560906
-24563422, 24570598, 24573817, 24578718, 24578797, 24589081, 24589590
-24593740, 24595699, 24600330, 24609592, 24609996, 24616637, 24617969
-24623975, 24624166, 24642495, 24654629, 24655717, 24664211, 24668398
-24674197, 24674955, 24676172, 24677696, 24680959, 24689376, 24692973
-24693290, 24699619, 24710696, 24713381, 24714096, 24717183, 24717859
-24718260, 24719799, 24735430, 24737064, 24737403, 24737581, 24744383
-24744686, 24757934, 24759556, 24760407, 24766309, 24786669, 24792678
-24793511, 24796092, 24797119, 24800423, 24801152, 24802934, 24811725
-24812047, 24827228, 24827654, 24831514, 24835919, 24843188, 24844549
-24845157, 24848746, 24848923, 24850622, 24907917, 24908321, 24911709
-24912588, 24922704, 24923080, 24923215, 24923338, 24923790, 24929210
-24938784, 24940060, 24942749, 24953434, 24957555, 24960044, 24966594
-24966788, 24968162, 24976007, 24978100, 25027852, 25029022, 25029423
-25034396, 25036474, 25044977, 25045228, 25050160, 25051628, 25057811
-25058080, 25062592, 25063971, 25065563, 25072986, 25078611, 25086233
-25087436, 25093872, 25098160, 25099339, 25099497, 25099758, 25100063
-25100579, 25103996, 25107662, 25110233, 25120284, 25120742, 25121089
-25123585, 25124363, 25129925, 25140197, 25145163, 25145215, 25150925
-25159176, 25162645, 25164293, 25166187, 25171084, 25175723, 25176408
-25178032, 25178101, 25178179, 25179774, 25182817, 25184555, 25186079
-25191872, 25192044, 25192729, 25199585, 25201454, 25202355, 25203656
-25206864, 25207410, 25209912, 25210268, 25210499, 25211628, 25223839
-25224242, 25225795, 25226665, 25227381, 25230945, 25237577, 25240590
-25241448, 25241625, 25244807, 25248384, 25251648, 25257085, 25259611
-25262869, 25263960, 25265499, 25283790, 25287072, 25296876, 25299227
-25299807, 25300427, 25305405, 25307368, 25309116, 25313154, 25313411
-25316758, 25317989, 25320555, 25323525, 25328518, 25329664, 25335249
-25335360, 25335790, 25337332, 25337640, 25348956, 25353983, 25357142
-25362958, 25382812, 25383204, 25384462, 25386748, 25388896, 25392535
-25395696, 25397936, 25405813, 25410017, 25410180, 25410802, 25410877
-25411036, 25417050, 25417056, 25417958, 25425451, 25425760, 25427662
-25429959, 25430120, 25433696, 25435038, 25437699, 25440818, 25444961
-25451531, 25455795, 25457409, 25459958, 25462714, 25463844, 25472112
-25476149, 25478885, 25479164, 25489342, 25489367, 25489607, 25492379
-25498930, 25498994, 25516250, 25524955, 25528838, 25530080, 25530814
+15931756, 16002385, 16438495, 16727454, 16942578, 17027695, 17533661 
+17947871, 18308268, 18521691, 18594510, 18774543, 19072655, 19211433 
+19285025, 19327292, 19526548, 19614243, 19647894, 19649997, 19721304 
+20003668, 20087519, 20118035, 20120236, 20324049, 20436508, 20532077 
+20591151, 20620169, 20736227, 20756305, 20866970, 20976443, 21143725 
+21147908, 21159907, 21178363, 21186167, 21216226, 21320338, 21433452 
+21479706, 21520266, 21547051, 21744603, 21882528, 21981529, 21985256 
+22007324, 22070853, 22072543, 22087683, 22104866, 22179537, 22347493 
+22364044, 22367053, 22379010, 22446455, 22495673, 22503283, 22503297 
+22504793, 22530986, 22564336, 22568728, 22581771, 22594071, 22599050 
+22628825, 22645009, 22654475, 22700845, 22729345, 22826067, 22843979 
+22845846, 22864303, 22898198, 22950945, 22970869, 22981722, 23019710 
+23026585, 23035249, 23055900, 23061453, 23065002, 23066146, 23080557 
+23105538, 23110523, 23125560, 23126545, 23127945, 23151677, 23179662 
+23184263, 23197730, 23234232, 23249829, 23271203, 23300142, 23310101 
+23312077, 23481673, 23491861, 23499160, 23521523, 23527363, 23533647 
+23548817, 23567857, 23572982, 23581777, 23588722, 23599216, 23600861 
+23602213, 23645516, 23665623, 23709062, 23715460, 23730961, 23733981 
+23735292, 23741944, 23746128, 23749454, 24010030, 24289874, 24294174 
+24303148, 24307571, 24308349, 24326444, 24326846, 24332831, 24334708       
+24336249, 24337882, 24341675, 24343905, 24345420, 24346821, 24348685 
+24350620, 24368004, 24371491, 24373756, 24374976, 24376875, 24376878 
+24385983, 24401351, 24403922, 24415926, 24421668, 24423416, 24425056 
+24425998, 24435982, 24437162, 24443539, 24457597, 24461826, 24467122 
+24468470, 24470606, 24473736, 24485034, 24485161, 24485174, 24486059 
+24486237, 24509056, 24534401, 24554533, 24555417, 24556967, 24560906 
+24563422, 24570598, 24573817, 24578718, 24578797, 24589081, 24589590 
+24593740, 24595699, 24600330, 24609592, 24609996, 24616637, 24617969 
+24623975, 24624166, 24642495, 24654629, 24655717, 24664211, 24668398 
+24674197, 24674955, 24676172, 24677696, 24680959, 24689376, 24692973 
+24693290, 24699619, 24710696, 24713381, 24714096, 24717183, 24717859 
+24718260, 24719799, 24735430, 24737064, 24737403, 24737581, 24744383 
+24744686, 24757934, 24759556, 24760407, 24766309, 24786669, 24792678 
+24793511, 24796092, 24797119, 24800423, 24801152, 24802934, 24811725 
+24812047, 24827228, 24827654, 24831514, 24835919, 24843188, 24844549 
+24845157, 24848746, 24848923, 24850622, 24907917, 24908321, 24911709 
+24912588, 24922704, 24923080, 24923215, 24923338, 24923790, 24929210 
+24938784, 24940060, 24942749, 24953434, 24957555, 24960044, 24966594 
+24966788, 24968162, 24976007, 24978100, 25027852, 25029022, 25029423 
+25034396, 25036474, 25044977, 25045228, 25050160, 25051628, 25057811 
+25058080, 25062592, 25063971, 25065563, 25072986, 25078611, 25086233 
+25087436, 25093872, 25098160, 25099339, 25099497, 25099758, 25100063 
+25100579, 25103996, 25107662, 25110233, 25120284, 25120742, 25121089 
+25123585, 25124363, 25129925, 25140197, 25145163, 25145215, 25150925 
+25159176, 25162645, 25164293, 25166187, 25171084, 25175723, 25176408 
+25178032, 25178101, 25178179, 25179774, 25182817, 25184555, 25186079 
+25191872, 25192044, 25192729, 25199585, 25201454, 25202355, 25203656 
+25206864, 25207410, 25209912, 25210268, 25210499, 25211628, 25223839 
+25224242, 25225795, 25226665, 25227381, 25230945, 25237577, 25240590 
+25241448, 25241625, 25244807, 25248384, 25251648, 25257085, 25259611 
+25262869, 25263960, 25265499, 25283790, 25287072, 25296876, 25299227 
+25299807, 25300427, 25305405, 25307368, 25309116, 25313154, 25313411 
+25316758, 25317989, 25320555, 25323525, 25328518, 25329664, 25335249 
+25335360, 25335790, 25337332, 25337640, 25348956, 25353983, 25357142 
+25362958, 25382812, 25383204, 25384462, 25386748, 25388896, 25392535 
+25395696, 25397936, 25405813, 25410017, 25410180, 25410802, 25410877 
+25411036, 25417050, 25417056, 25417958, 25425451, 25425760, 25427662 
+25429959, 25430120, 25433696, 25435038, 25437699, 25440818, 25444961 
+25451531, 25455795, 25457409, 25459958, 25462714, 25463844, 25472112 
+25476149, 25478885, 25479164, 25489342, 25489367, 25489607, 25492379 
+25498930, 25498994, 25516250, 25524955, 25528838, 25530080, 25530814      
 25535668, 25536819, 25537470, 25539063, 25540738, 25546580, 25546608
 25547901, 25551676, 25553616, 25554787, 25555252, 25557886, 25558986
 25560487, 25561296, 25569149, 25570929, 25575348, 25575628, 25579458
@@ -3840,5 +3807,4 @@ Bugs fixed:
 28090453, 28099662, 28140658, 28171079, 28174827, 28184554, 28188330
 28218832, 28226179, 28290434, 28305001, 28320399, 28354603, 28437315
 28454242, 28508557, 28522441
-
 ```

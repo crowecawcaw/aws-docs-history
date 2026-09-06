@@ -1,69 +1,61 @@
+
+
 # Amazon RDS for Oracle Database 21c (21.0.0.0)
+<a name="oracle-version-21-0"></a>
 
-Amazon RDS for Oracle Database 21c (21.0.0.0) incorporates bug fixes from Oracle by using
-Release Updates (RUs). The naming format for an RU is as follows:
-``release`.ru-`date`.rur-`date`.`rnumber``.
-For example, the Oracle Database 21c update released by Oracle Corporation in April 2024 is
-named `21.0.0.0.ru-2024-04.rur-2024-04.r1`. The naming format has the following
-components:
+Amazon RDS for Oracle Database 21c (21.0.0.0) incorporates bug fixes from Oracle by using Release Updates (RUs). The naming format for an RU is as follows: `{{release}}.ru-{{date}}.rur-{{date}}.{{rnumber}}`. For example, the Oracle Database 21c update released by Oracle Corporation in April 2024 is named `21.0.0.0.ru-2024-04.rur-2024-04.r1`. The naming format has the following components:
++ The `{{release}}` is the five-digit number of the release, for example, `21.0.0.0`.
++ The `{{date}}` is the 4-digit year and 2-digit month when the update was made available by Oracle, for example, `2024-04`.
++ The `{{rnumber}}` is the revision, for example, `r1`.
 
-- The `release` is the five-digit number of
-  the release, for example, `21.0.0.0`.
-- The `date` is the 4-digit year and 2-digit
-  month when the update was made available by Oracle, for example,
-  `2024-04`.
-- The `rnumber` is the revision, for example,
-  `r1`.
-  An upgrade to an RU is called a minor version upgrade. Even though the string
-  `rur` appears in the name of the patch, it is an RU rather than a Release
-  Update Revision (RUR). Amazon RDS upgrades from one RU to another RU. RDS doesn't support RURs as
-  part of its minor version upgrade mechanism. We don't support applying one-off patches to
-  individual DB instances.
+An upgrade to an RU is called a minor version upgrade. Even though the string `rur` appears in the name of the patch, it is an RU rather than a Release Update Revision (RUR). Amazon RDS upgrades from one RU to another RU. RDS doesn't support RURs as part of its minor version upgrade mechanism. We don't support applying one-off patches to individual DB instances.
 
-To find out which RUs are applied to Amazon RDS for Oracle Database 21c (21.0.0), see the
-following table.
+To find out which RUs are applied to Amazon RDS for Oracle Database 21c (21.0.0), see the following table.
 
-| Date         | Name                                                                                                                                                                                                                                                                                                                                           |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026 July    | [Version 21.0.0.0.ru-2026-07.rur-2026-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-07.rur-2026-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2026-07.rur-2026-07.r1")                                                                                                                                                                            |
-| 2026 April   | [Version 21.0.0.0.ru-2026-04.rur-2026-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-04.rur-2026-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2026-04.rur-2026-04.r1")                                                                                                                                                                            |
-| 2026 January | [Version 21.0.0.0.ru-2026-01.rur-2026-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r1") and [Version 21.0.0.0.ru-2026-01.rur-2026-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r2 "#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r2")    |
-| 2025 October | [Version 21.0.0.0.ru-2025-10.rur-2025-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-10.rur-2025-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2025-10.rur-2025-10.r1")                                                                                                                                                                            |
-| 2025 July    | [Version 21.0.0.0.ru-2025-07.rur-2025-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-07.rur-2025-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2025-07.rur-2025-07.r1")                                                                                                                                                                            |
-| 2025 April   | [Version 21.0.0.0.ru-2025-04.rur-2025-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-04.rur-2025-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2025-04.rur-2025-04.r1")                                                                                                                                                                            |
-| 2025 January | [Version 21.0.0.0.ru-2025-01.rur-2025-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r2 "#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r2")<br>and [Version 21.0.0.0.ru-2025-01.rur-2025-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r1") |
-| 2024 October | [Version 21.0.0.0.ru-2024-10.rur-2024-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1")                                                                                                                                                                            |
-| 2024 July    | [Version 21.0.0.0.ru-2024-07.rur-2024-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1")                                                                                                                                                                            |
-| 2024 April   | [Version 21.0.0.0.ru-2024-04.rur-2024-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1")                                                                                                                                                                            |
-| 2024 January | [Version 21.0.0.0.ru-2024-01.rur-2024-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1")                                                                                                                                                                            |
-| 2023 October | [Version 21.0.0.0.ru-2023-10.rur-2023-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1")                                                                                                                                                                            |
-| 2023 July    | [Version 21.0.0.0.ru-2023-07.rur-2023-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1")                                                                                                                                                                            |
-| 2023 April   | [Version 21.0.0.0.ru-2023-04.rur-2023-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1")                                                                                                                                                                            |
-| 2023 January | [Version 21.0.0.0.ru-2023-01.rur-2023-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r2 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r2")<br>and [Version 21.0.0.0.ru-2023-01.rur-2023-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r1") |
-| 2022 October | [Version 21.0.0.0.ru-2022-10.rur-2022-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-10.rur-2022-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2022-10.rur-2022-10.r1")                                                                                                                                                                            |
-| 2022 July    | [Version 21.0.0.0.ru-2022-07.rur-2022-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-07.rur-2022-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2022-07.rur-2022-07.r1")                                                                                                                                                                            |
-| 2022 April   | [Version 21.0.0.0.ru-2022-04.rur-2022-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-04.rur-2022-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2022-04.rur-2022-04.r1")                                                                                                                                                                            |
-| 2022 January | [Version 21.0.0.0.ru-2022-01.rur-2022-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1")                                                                                                                                                                            |
+
+
+|  Date  |  Name  | 
+| --- | --- | 
+| 2026 July | [Version 21.0.0.0.ru-2026-07.rur-2026-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-07.rur-2026-07.r1) | 
+| 2026 April | [Version 21.0.0.0.ru-2026-04.rur-2026-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-04.rur-2026-04.r1) | 
+| 2026 January | [Version 21.0.0.0.ru-2026-01.rur-2026-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r1) and [Version 21.0.0.0.ru-2026-01.rur-2026-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r2) | 
+| 2025 October | [Version 21.0.0.0.ru-2025-10.rur-2025-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-10.rur-2025-10.r1) | 
+| 2025 July | [Version 21.0.0.0.ru-2025-07.rur-2025-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-07.rur-2025-07.r1) | 
+| 2025 April | [Version 21.0.0.0.ru-2025-04.rur-2025-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-04.rur-2025-04.r1) | 
+| 2025 January | [Version 21.0.0.0.ru-2025-01.rur-2025-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r2) and [Version 21.0.0.0.ru-2025-01.rur-2025-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r1) | 
+| 2024 October | [Version 21.0.0.0.ru-2024-10.rur-2024-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1) | 
+| 2024 July | [Version 21.0.0.0.ru-2024-07.rur-2024-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1) | 
+| 2024 April | [Version 21.0.0.0.ru-2024-04.rur-2024-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1) | 
+| 2024 January | [Version 21.0.0.0.ru-2024-01.rur-2024-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1) | 
+| 2023 October | [Version 21.0.0.0.ru-2023-10.rur-2023-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1) | 
+| 2023 July | [Version 21.0.0.0.ru-2023-07.rur-2023-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1) | 
+| 2023 April | [Version 21.0.0.0.ru-2023-04.rur-2023-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1) | 
+| 2023 January | [Version 21.0.0.0.ru-2023-01.rur-2023-01.r2](#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r2) and [Version 21.0.0.0.ru-2023-01.rur-2023-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r1) | 
+| 2022 October | [Version 21.0.0.0.ru-2022-10.rur-2022-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-10.rur-2022-10.r1) | 
+| 2022 July | [Version 21.0.0.0.ru-2022-07.rur-2022-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-07.rur-2022-07.r1) | 
+| 2022 April | [Version 21.0.0.0.ru-2022-04.rur-2022-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-04.rur-2022-04.r1) | 
+| 2022 January | [Version 21.0.0.0.ru-2022-01.rur-2022-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1) | 
 
 ## Version 21.0.0.0.ru-2026-07.rur-2026-07.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-07.rur-2026-07.r1"></a>
 
 Version 21.0.0.0.ru-2026-07.rur-2026-07.r1 includes the following:
-
-- Patch [39549189](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39549189 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39549189"): Database Release Update : 21.23.0.0.260721 (39549189)
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [39070285](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285"): DSTV45 UPDATE - TZDATA2026A - NEED OJVM FIX
-- Patch [39070269](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269"): RDBMS - DSTV45 UPDATE - TZDATA2026A
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [39549189](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39549189): Database Release Update : 21.23.0.0.260721 (39549189)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [39070285](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285): DSTV45 UPDATE - TZDATA2026A - NEED OJVM FIX
++ Patch [39070269](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269): RDBMS - DSTV45 UPDATE - TZDATA2026A
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
 
 ### Combined Patches for Version 21.0.0.0.ru-2026-07.rur-2026-07.r1, Released July 2026
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-07.rur-2026-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -314,24 +306,25 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2026-04.rur-2026-04.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-04.rur-2026-04.r1"></a>
 
 Version 21.0.0.0.ru-2026-04.rur-2026-04.r1 includes the following:
-
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [39070285](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285"): DSTV45 UPDATE - TZDATA2026A - NEED OJVM FIX
-- Patch [39070269](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269"): RDBMS - DSTV45 UPDATE - TZDATA2026A
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [39073698](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39073698 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39073698"): Database Release Update : 21.22.0.0.260421 (39073698)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [39070285](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070285): DSTV45 UPDATE - TZDATA2026A - NEED OJVM FIX
++ Patch [39070269](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39070269): RDBMS - DSTV45 UPDATE - TZDATA2026A
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [39073698](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=39073698): Database Release Update : 21.22.0.0.260421 (39073698)
 
 ### Combined Patches for Version 21.0.0.0.ru-2026-04.rur-2026-04.r1, Released April 2026
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-04.rur-2026-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -577,23 +570,24 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2026-01.rur-2026-01.r2
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r2"></a>
 
 Version 21.0.0.0.ru-2026-01.rur-2026-01.r2 includes the following:
-
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [38725048](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048"): Database Release Update : 21.21.0.0.260120 (38725048)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [38725048](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048): Database Release Update : 21.21.0.0.260120 (38725048)
 
 ### Combined Patches for Version 21.0.0.0.ru-2026-01.rur-2026-01.r2, Released January 2026
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r2.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -837,23 +831,24 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2026-01.rur-2026-01.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r1"></a>
 
 Version 21.0.0.0.ru-2026-01.rur-2026-01.r1 includes the following:
-
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [38725048](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048"): Database Release Update : 21.21.0.0.260120 (38725048)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [38725048](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048): Database Release Update : 21.21.0.0.260120 (38725048)
 
 ### Combined Patches for Version 21.0.0.0.ru-2026-01.rur-2026-01.r1, Released January 2026
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2026-01.rur-2026-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -1097,23 +1092,24 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2025-10.rur-2025-10.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-10.rur-2025-10.r1"></a>
 
 Version 21.0.0.0.ru-2025-10.rur-2025-10.r1 includes the following:
-
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [38371122](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38371122 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38371122"): Database Release Update : 21.20.0.0.251021 (38371122)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [38371122](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38371122): Database Release Update : 21.20.0.0.251021 (38371122)
 
 ### Combined Patches for Version 21.0.0.0.ru-2025-10.rur-2025-10.r1, Released October 2025
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-10.rur-2025-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -1358,23 +1354,24 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2025-07.rur-2025-07.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-07.rur-2025-07.r1"></a>
 
 Version 21.0.0.0.ru-2025-07.rur-2025-07.r1 includes the following:
-
-- Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111"): Fix for Bug 34162111
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [38068980](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38068980 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38068980"): Database Release Update : 21.19.0.0.250715 (38068980)
++ Patch [34162111](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34162111): Fix for Bug 34162111
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [38068980](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38068980): Database Release Update : 21.19.0.0.250715 (38068980)
 
 ### Combined Patches for Version 21.0.0.0.ru-2025-07.rur-2025-07.r1, Released July 2025
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-07.rur-2025-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -1615,22 +1612,23 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2025-04.rur-2025-04.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-04.rur-2025-04.r1"></a>
 
 Version 21.0.0.0.ru-2025-04.rur-2025-04.r1 includes the following:
-
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [37655430](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37655430 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37655430"): Database Release Update : 21.18.0.0.250415 (37655430)
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [37655430](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37655430): Database Release Update : 21.18.0.0.250415 (37655430) 
 
 ### Combined Patches for Version 21.0.0.0.ru-2025-04.rur-2025-04.r1, Released April 2025
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-04.rur-2025-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -1868,22 +1866,23 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2025-01.rur-2025-01.r2
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r2"></a>
 
 Version 21.0.0.0.ru-2025-01.rur-2025-01.r2 includes the following:
-
-- Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949"): RDBMS - DSTV44 UPDATE - TZDATA2025A
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281"): Database Release Update : 21.17.0.0.250121 (37350281)
++ Patch [37537949](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37537949): RDBMS - DSTV44 UPDATE - TZDATA2025A
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281): Database Release Update : 21.17.0.0.250121 (37350281)
 
 ### Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r2, Released January 2025
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r2.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -2119,21 +2118,22 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2025-01.rur-2025-01.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r1"></a>
 
 Version 21.0.0.0.ru-2025-01.rur-2025-01.r1 includes the following:
-
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281"): Database Release Update : 21.17.0.0.250121 (37350281)
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281): Database Release Update : 21.17.0.0.250121 (37350281) 
 
 ### Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r1, Released January 2025
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2025-01.rur-2025-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -2369,21 +2369,22 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2024-10.rur-2024-10.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1"></a>
 
 Version 21.0.0.0.ru-2024-10.rur-2024-10.r1 includes the following:
-
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [36991631](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36991631 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36991631"): Database Release Update : 21.16.0.0.241015 (36991631)
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [36991631](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36991631): Database Release Update : 21.16.0.0.241015 (36991631)
 
 ### Combined Patches for Version 21.0.0.0.ru-2024-10.rur-2024-10.r1, Released October 2024
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -2617,21 +2618,22 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2024-07.rur-2024-07.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1"></a>
 
 Version 21.0.0.0.ru-2024-07.rur-2024-07.r1 includes the following:
-
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [36696242](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36696242 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36696242"): Database Release Update : 21.15.0.0.240716 (36696242)
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [36696242](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36696242): Database Release Update : 21.15.0.0.240716 (36696242) 
 
 ### Combined Patches for Version 21.0.0.0.ru-2024-07.rur-2024-07.r1, Released July 2024
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -2862,21 +2864,22 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2024-04.rur-2024-04.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1"></a>
 
 Version 21.0.0.0.ru-2024-04.rur-2024-04.r1 includes the following:
-
-- Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537"): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
-- Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493"): RDBMS - DSTV43 UPDATE - TZDATA2024A
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [36352352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36352352 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36352352"): Database Release Update: 21.14.0.0.240416 (36352352)
++ Patch [36260537](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260537): DSTV43 UPDATE - TZDATA2024A - NEED OJVM FIX
++ Patch [36260493](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36260493): RDBMS - DSTV43 UPDATE - TZDATA2024A
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [36352352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36352352): Database Release Update: 21.14.0.0.240416 (36352352)
 
 ### Combined Patches for Version 21.0.0.0.ru-2024-04.rur-2024-04.r1, Released April 2024
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -3103,19 +3106,20 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2024-01.rur-2024-01.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1"></a>
 
 Version 21.0.0.0.ru-2024-01.rur-2024-01.r1 includes the following patches:
-
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [36041222](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36041222 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36041222"): Database Release Update : 21.13.0.0.240116 (36041222)
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [36041222](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36041222): Database Release Update : 21.13.0.0.240116 (36041222)
 
 ### Combined Patches for Version 21.0.0.0.ru-2024-01.rur-2024-01.r1, Released January 2024
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -3337,20 +3341,21 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2023-10.rur-2023-10.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1"></a>
 
 Version 21.0.0.0.ru-2023-10.rur-2023-10.r1 includes the following:
-
-- Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280"): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [35740258](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35740258 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35740258"): Database Release Update : 21.12.0.0.231017 (35740258)
++ Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX 
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C 
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G 
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [35740258](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35740258): Database Release Update : 21.12.0.0.231017 (35740258) 
 
 ### Combined Patches for Version 21.0.0.0.ru-2023-10.rur-2023-10.r1, released October 2023
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -3569,20 +3574,21 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2023-07.rur-2023-07.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1"></a>
 
 Version 21.0.0.0.ru-2023-07.rur-2023-07.r1 includes the following:
-
-- Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280"): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [35428978](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35428978 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35428978"): Database Release Update : 21.11.0.0.230718 (35428978)
++ Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX 
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C 
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G 
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [35428978](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35428978): Database Release Update : 21.11.0.0.230718 (35428978)
 
 ### Combined patches for version 21.0.0.0.ru-2023-07.rur-2023-07.r1, released July 2023
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -3796,20 +3802,21 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2023-04.rur-2023-04.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1"></a>
 
 Version 21.0.0.0.ru-2023-04.rur-2023-04.r1 includes the following:
-
-- Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280"): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX
-- Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732"): RDBMS - DSTV42 UPDATE - TZDATA2023C
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [35134934](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35134934 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35134934"): Database Release Update : 21.10.0.0.230418 (35134934)
++ Patch [35239280](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35239280): DSTV42 UPDATE - TZDATA2023C - NEED OJVM FIX 
++ Patch [35220732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35220732): RDBMS - DSTV42 UPDATE - TZDATA2023C 
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G 
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [35134934](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35134934): Database Release Update : 21.10.0.0.230418 (35134934) 
 
 ### Combined patches for version 21.0.0.0.ru-2023-04.rur-2023-04.r1, released April 2023
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4018,23 +4025,23 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2023-01.rur-2023-01.r2
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r2"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2023-01.rur-2023-01.r2 includes the following:
-
-- Patch [35099674](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099674 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099674"): DSTV41 UPDATE - TZDATA2022G - NEED OJVM FIX
-- Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667"): RDBMS - DSTV41 UPDATE - TZDATA2022G
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"): RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741"): Database Release Update : 21.9.0.0.230117 (34839741)
++ Patch [35099674](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099674): DSTV41 UPDATE - TZDATA2022G - NEED OJVM FIX
++ Patch [35099667](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35099667): RDBMS - DSTV41 UPDATE - TZDATA2022G
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179): RDBMS - DSTV40 UPDATE - TZDATA2022E
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2021E
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201): RDBMS - DSTV36 UPDATE - TZDATA2020E
++ Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741): Database Release Update : 21.9.0.0.230117 (34839741)
 
 ### Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r2, released January 2023
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r2.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4236,22 +4243,22 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2023-01.rur-2023-01.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r1"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2023-01.rur-2023-01.r1 includes the following:
-
-- Patch [34699616](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34699616 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34699616"):DSTV40 UPDATE - TZDATA2022E - NEED OJVM FIX
-- Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179"):RDBMS - DSTV40 UPDATE - TZDATA2022E
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"):RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"):RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"):RDBMS - DSTV37 UPDATE - TZDATA2021E
-- Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"):RDBMS - DSTV36 UPDATE - TZDATA2020E
-- Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741"):Database Release Update : 21.9.0.0.230117 (34839741)
++ Patch [34699616](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34699616):DSTV40 UPDATE - TZDATA2022E - NEED OJVM FIX 
++ Patch [34698179](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34698179):RDBMS - DSTV40 UPDATE - TZDATA2022E 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061):RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614):RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829):RDBMS - DSTV37 UPDATE - TZDATA2021E 
++ Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201):RDBMS - DSTV36 UPDATE - TZDATA2020E 
++ Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741):Database Release Update : 21.9.0.0.230117 (34839741)
 
 ### Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r1, released January, 2023
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2023-01.rur-2023-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4453,18 +4460,18 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2022-10.rur-2022-10.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-10.rur-2022-10.r1"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2022-10.rur-2022-10.r1 includes the following:
-
-- Patch [34160444](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444"): DATABASE RELEASE UPDATE 21.7.0.0.0
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150"): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
++ Patch [34160444](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444): DATABASE RELEASE UPDATE 21.7.0.0.0 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
 
 ### Combined patches for version 21.0.0.0.ru-2022-10.rur-2022-10.r1, released October 2022
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-10.rur-2022-10.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4643,18 +4650,18 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2022-07.rur-2022-07.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-07.rur-2022-07.r1"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2022-07.rur-2022-07.r1 includes the following:
-
-- Patch [34160444](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444"): DATABASE RELEASE UPDATE 21.7.0.0.0
-- Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
-- Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150"): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
++ Patch [34160444](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34160444): DATABASE RELEASE UPDATE 21.7.0.0.0 
++ Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061): RDBMS - DSTV39 UPDATE - TZDATA2022C 
++ Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
 
 ### Combined patches for version 21.0.0.0.ru-2022-07.rur-2022-07.r1, released July 2022
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-07.rur-2022-07.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4833,18 +4840,18 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2022-04.rur-2022-04.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-04.rur-2022-04.r1"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2022-04.rur-2022-04.r1 includes the following:
-
-- Patch [33843745](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33843745 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33843745"): DATABASE RELEASE UPDATE 21.6.0.0.0
-- Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614"): RDBMS - DSTV38 UPDATE - TZDATA2022A
-- Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650"): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX
++ Patch [33843745](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33843745): DATABASE RELEASE UPDATE 21.6.0.0.0 
++ Patch [34006614](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006614): RDBMS - DSTV38 UPDATE - TZDATA2022A 
++ Patch [34006650](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34006650): DSTV38 UPDATE - TZDATA2022A - NEED OJVM FIX
 
 ### Combined patches for version 21.0.0.0.ru-2022-04.rur-2022-04.r1, released April 2022
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-04.rur-2022-04.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
@@ -4981,22 +4988,19 @@ Bugs fixed:
 ```
 
 ## Version 21.0.0.0.ru-2022-01.rur-2022-01.r1
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1"></a>
 
-###### Note
-
+**Note**  
 This RU is no longer supported in RDS for Oracle. The release notes are included for historical purposes only.
 
 Version 21.0.0.0.ru-2022-01.rur-2022-01.r1 includes the following:
-
-- Patch [33516412](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33516412 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33516412"): DATABASE RELEASE UPDATE 21.5.0.0.0
-- Patch [33792011](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33792011 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33792011"): DELIVER LIBCRYPTOCME.SO FOR DB 21.5
-  INSTALLS
-- Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829"): RDBMS - DSTV37 UPDATE -
-  TZDATA2020E
-- Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833"): DSTV37 UPDATE - TZDATA2020E - NEED
-  OJVM FIX
++ Patch [33516412](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33516412): DATABASE RELEASE UPDATE 21.5.0.0.0
++ Patch [33792011](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33792011): DELIVER LIBCRYPTOCME.SO FOR DB 21.5 INSTALLS
++ Patch [33613829](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613829): RDBMS - DSTV37 UPDATE - TZDATA2020E
++ Patch [33613833](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33613833): DSTV37 UPDATE - TZDATA2020E - NEED OJVM FIX
 
 ### Combined patches for version 21.0.0.0.ru-2022-01.rur-2022-01.r1, released January 2022
+<a name="oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1.Bugs-Fixed"></a>
 
 Bugs fixed:
 
