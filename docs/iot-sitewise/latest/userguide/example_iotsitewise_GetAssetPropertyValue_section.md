@@ -1,28 +1,26 @@
+
+
 # Use `GetAssetPropertyValue` with an AWS SDK or CLI
+<a name="example_iotsitewise_GetAssetPropertyValue_section"></a>
 
 The following code examples show how to use `GetAssetPropertyValue`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iotsitewise_Scenario_section.md) 
 
-- [Learn the basics](example_iotsitewise_Scenario_section.md "example_iotsitewise_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To retrieve an asset property's current value**
-
-The following `get-asset-property-value` example retrieves a wind turbine asset's current total power.
+**AWS CLI**  
+**To retrieve an asset property's current value**  
+The following `get-asset-property-value` example retrieves a wind turbine asset's current total power.  
 
 ```
-`aws iotsitewise get-asset-property-value \
- --asset-id `a1b2c3d4-5678-90ab-cdef-33333EXAMPLE` \
- --property-id `a1b2c3d4-5678-90ab-cdef-66666EXAMPLE``
-
+aws iotsitewise get-asset-property-value \
+    --asset-id {{a1b2c3d4-5678-90ab-cdef-33333EXAMPLE}} \
+    --property-id {{a1b2c3d4-5678-90ab-cdef-66666EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -38,22 +36,14 @@ Output:
     }
 }
 ```
+For more information, see [Querying current asset property values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values) in the *AWS IoT SiteWise User Guide*.  
++  For API details, see [GetAssetPropertyValue](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/get-asset-property-value.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Querying current asset property values](query-industrial-data.md#current-values "query-industrial-data.md#current-values") in the _AWS IoT SiteWise User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [GetAssetPropertyValue](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/get-asset-property-value.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/get-asset-property-value.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
 ```
     /**
@@ -84,23 +74,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                     return response.propertyValue().value().doubleValue();
                 });
     }
-
-
 ```
++  For API details, see [GetAssetPropertyValue](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -133,23 +114,14 @@ export const main = async ({ entryId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [GetAssetPropertyValue](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
 ```
 class IoTSitewiseWrapper:
@@ -202,24 +174,14 @@ class IoTSitewiseWrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
++  For API details, see [GetAssetPropertyValue](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
 ```
     TRY.
@@ -231,14 +193,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iosresourcenotfoundex.
         MESSAGE 'Asset or property does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetAssetPropertyValue](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetAssetPropertyValue](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

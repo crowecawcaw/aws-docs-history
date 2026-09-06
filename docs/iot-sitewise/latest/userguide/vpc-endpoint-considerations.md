@@ -1,97 +1,84 @@
+
+
 # API operations for VPC endpoints in AWS IoT SiteWise
+<a name="vpc-endpoint-considerations"></a>
 
 AWS IoT SiteWise supports making calls to the following AWS IoT SiteWise API operations from your VPC:
++ For all the **data plane** API operations, use the following endpoint: Replace `{{region}}` with your AWS Region
 
-- For all the **data plane** API operations, use the
-  following endpoint: Replace
-  `region` with your
-  AWS Region
+  ```
+  data.iotsitewise.{{region}}.amazonaws.com
+  ```
 
-```
-data.iotsitewise.`region`.amazonaws.com
-```
+  The data plane API operations include the following:
+  + [BatchGetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html)
+  + [BatchGetAssetPropertyValueHistory](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html)
+  + [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html)
+  + [GetAssetPropertyAggregates](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyAggregates.html)
+  + [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html)
+  + [GetAssetPropertyValueHistory](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValueHistory.html)
+  + [GetInterpolatedAssetPropertyValues](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetInterpolatedAssetPropertyValues.html)
++ For the **control plane** API operations that you use to manage asset models, assets, SiteWise Edge gateways, tags, and account configurations, use the following endpoint. Replace `{{region}}` with your AWS Region.
 
-The data plane API operations include the following:
+  ```
+  api.iotsitewise.{{region}}.amazonaws.com
+  ```
 
-    + [BatchGetAssetPropertyValue](../APIReference/API_BatchGetAssetPropertyValue.md "../APIReference/API_BatchGetAssetPropertyValue.md")
-    + [BatchGetAssetPropertyValueHistory](../APIReference/API_BatchGetAssetPropertyValueHistory.md "../APIReference/API_BatchGetAssetPropertyValueHistory.md")
-    + [BatchPutAssetPropertyValue](../APIReference/API_BatchPutAssetPropertyValue.md "../APIReference/API_BatchPutAssetPropertyValue.md")
-    + [GetAssetPropertyAggregates](../APIReference/API_GetAssetPropertyAggregates.md "../APIReference/API_GetAssetPropertyAggregates.md")
-    + [GetAssetPropertyValue](../APIReference/API_GetAssetPropertyValue.md "../APIReference/API_GetAssetPropertyValue.md")
-    + [GetAssetPropertyValueHistory](../APIReference/API_GetAssetPropertyValueHistory.md "../APIReference/API_GetAssetPropertyValueHistory.md")
-    + [GetInterpolatedAssetPropertyValues](../APIReference/API_GetInterpolatedAssetPropertyValues.md "../APIReference/API_GetInterpolatedAssetPropertyValues.md")
-
-- For the **control plane** API operations that you use to
-  manage asset models, assets, SiteWise Edge gateways, tags, and account configurations, use the
-  following endpoint. Replace
-  `region` with your
-  AWS Region.
-
-```
-api.iotsitewise.`region`.amazonaws.com
-```
-
-The supported control plane API operations include the following:
-
-    + [AssociateAssets](../APIReference/API_AssociateAssets.md "../APIReference/API_AssociateAssets.md")
-    + [CreateAsset](../APIReference/API_CreateAsset.md "../APIReference/API_CreateAsset.md")
-    + [CreateAssetModel](../APIReference/API_CreateAssetModel.md "../APIReference/API_CreateAssetModel.md")
-    + [DeleteAsset](../APIReference/API_DeleteAsset.md "../APIReference/API_DeleteAsset.md")
-    + [DeleteAssetModel](../APIReference/API_DeleteAssetModel.md "../APIReference/API_DeleteAssetModel.md")
-    + [DeleteDashboard](../APIReference/API_DeleteDashboard.md "../APIReference/API_DeleteDashboard.md")
-    + [DescribeAsset](../APIReference/API_DescribeAsset.md "../APIReference/API_DescribeAsset.md")
-    + [DescribeAssetModel](../APIReference/API_DescribeAssetModel.md "../APIReference/API_DescribeAssetModel.md")
-    + [DescribeAssetProperty](../APIReference/API_DescribeAssetProperty.md "../APIReference/API_DescribeAssetProperty.md")
-    + [DescribeDashboard](../APIReference/API_DescribeDashboard.md "../APIReference/API_DescribeDashboard.md")
-    + [DescribeLoggingOptions](../APIReference/API_DescribeLoggingOptions.md "../APIReference/API_DescribeLoggingOptions.md")
-    + [DisassociateAssets](../APIReference/API_DisassociateAssets.md "../APIReference/API_DisassociateAssets.md")
-    + [ListAssetModels](../APIReference/API_ListAssetModels.md "../APIReference/API_ListAssetModels.md")
-    + [ListAssetRelationships](../APIReference/API_ListAssetRelationships.md "../APIReference/API_ListAssetRelationships.md")
-    + [ListAssets](../APIReference/API_ListAssets.md "../APIReference/API_ListAssets.md")
-    + [ListAssociatedAssets](../APIReference/API_ListAssociatedAssets.md "../APIReference/API_ListAssociatedAssets.md")
-    + [PutLoggingOptions](../APIReference/API_PutLoggingOptions.md "../APIReference/API_PutLoggingOptions.md")
-    + [UpdateAsset](../APIReference/API_UpdateAsset.md "../APIReference/API_UpdateAsset.md")
-    + [UpdateAssetModel](../APIReference/API_UpdateAssetModel.md "../APIReference/API_UpdateAssetModel.md")
-    + [UpdateAssetProperty](../APIReference/API_UpdateAssetProperty.md "../APIReference/API_UpdateAssetProperty.md")
-    + [CreateGateway](../APIReference/API_CreateGateway.md "../APIReference/API_CreateGateway.md")
-    + [DeleteGateway](../APIReference/API_DeleteGateway.md "../APIReference/API_DeleteGateway.md")
-    + [DescribeDefaultEncryptionConfiguration](../APIReference/API_DescribeDefaultEncryptionConfiguration.md "../APIReference/API_DescribeDefaultEncryptionConfiguration.md")
-    + [DescribeGateway](../APIReference/API_DescribeGateway.md "../APIReference/API_DescribeGateway.md")
-    + [DescribeGatewayCapabilityConfiguration](../APIReference/API_DescribeGatewayCapabilityConfiguration.md "../APIReference/API_DescribeGatewayCapabilityConfiguration.md")
-    + [DescribeStorageConfiguration](../APIReference/API_DescribeStorageConfiguration.md "../APIReference/API_DescribeStorageConfiguration.md")
-    + [ListGateways](../APIReference/API_ListGateways.md "../APIReference/API_ListGateways.md")
-    + [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
-    + [UpdateGateway](../APIReference/API_UpdateGateway.md "../APIReference/API_UpdateGateway.md")
-    + [UpdateGatewayCapabilityConfiguration](../APIReference/API_UpdateGatewayCapabilityConfiguration.md "../APIReference/API_UpdateGatewayCapabilityConfiguration.md")
-    + [PutDefaultEncryptionConfiguration](../APIReference/API_PutDefaultEncryptionConfiguration.md "../APIReference/API_PutDefaultEncryptionConfiguration.md")
-    + [PutStorageConfiguration](../APIReference/API_PutStorageConfiguration.md "../APIReference/API_PutStorageConfiguration.md")
-    + [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
-    + [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
-
-###### Note
-
-The interface VPC endpoint for the **control plane**
-API operations currently doesn't support making calls to the following SiteWise Monitor API
-operations:
-
-    + [BatchAssociateProjectAssets](../APIReference/API_BatchAssociateProjectAssets.md "../APIReference/API_BatchAssociateProjectAssets.md")
-    + [BatchDisassociateProjectAssets](../APIReference/API_BatchDisassociateProjectAssets.md "../APIReference/API_BatchDisassociateProjectAssets.md")
-    + [CreateAccessPolicy](../APIReference/API_CreateAccessPolicy.md "../APIReference/API_CreateAccessPolicy.md")
-    + [CreateDashboard](../APIReference/API_CreateDashboard.md "../APIReference/API_CreateDashboard.md")
-    + [CreatePortal](../APIReference/API_CreatePortal.md "../APIReference/API_CreatePortal.md")
-    + [CreateProject](../APIReference/API_CreateProject.md "../APIReference/API_CreateProject.md")
-    + [DeleteAccessPolicy](../APIReference/API_DeleteAccessPolicy.md "../APIReference/API_DeleteAccessPolicy.md")
-    + [DeletePortal](../APIReference/API_DeletePortal.md "../APIReference/API_DeletePortal.md")
-    + [DeleteProject](../APIReference/API_DeleteProject.md "../APIReference/API_DeleteProject.md")
-    + [DescribeAccessPolicy](../APIReference/API_DescribeAccessPolicy.md "../APIReference/API_DescribeAccessPolicy.md")
-    + [DescribePortal](../APIReference/API_DescribePortal.md "../APIReference/API_DescribePortal.md")
-    + [DescribeProject](../APIReference/API_DescribeProject.md "../APIReference/API_DescribeProject.md")
-    + [ListAccessPolicies](../APIReference/API_ListAccessPolicies.md "../APIReference/API_ListAccessPolicies.md")
-    + [ListDashboards](../APIReference/API_ListDashboards.md "../APIReference/API_ListDashboards.md")
-    + [ListPortals](../APIReference/API_ListPortals.md "../APIReference/API_ListPortals.md")
-    + [ListProjects](../APIReference/API_ListProjects.md "../APIReference/API_ListProjects.md")
-    + [ListProjectAssets](../APIReference/API_ListProjectAssets.md "../APIReference/API_ListProjectAssets.md")
-    + [UpdateAccessPolicy](../APIReference/API_UpdateAccessPolicy.md "../APIReference/API_UpdateAccessPolicy.md")
-    + [UpdateDashboard](../APIReference/API_UpdateDashboard.md "../APIReference/API_UpdateDashboard.md")
-    + [UpdatePortal](../APIReference/API_UpdatePortal.md "../APIReference/API_UpdatePortal.md")
-    + [UpdateProject](../APIReference/API_UpdateProject.md "../APIReference/API_UpdateProject.md")
+  The supported control plane API operations include the following:
+  + [AssociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssociateAssets.html)
+  + [CreateAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAsset.html)
+  + [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html)
+  + [DeleteAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteAsset.html)
+  + [DeleteAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteAssetModel.html)
+  + [DeleteDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteDashboard.html)
+  + [DescribeAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html)
+  + [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html)
+  +  [DescribeAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html)
+  + [DescribeDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeDashboard.html)
+  + [DescribeLoggingOptions](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeLoggingOptions.html)
+  + [DisassociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html)
+  + [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html)
+  + [ListAssetRelationships](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetRelationships.html)
+  + [ListAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssets.html)
+  + [ListAssociatedAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssociatedAssets.html)
+  + [PutLoggingOptions](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutLoggingOptions.html)
+  + [UpdateAsset](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAsset.html)
+  + [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html)
+  + [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html)
+  + [CreateGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateGateway.html)
+  + [DeleteGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteGateway.html)
+  + [DescribeDefaultEncryptionConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeDefaultEncryptionConfiguration.html)
+  + [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html)
+  + [DescribeGatewayCapabilityConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html)
+  + [DescribeStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeStorageConfiguration.html)
+  + [ListGateways](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListGateways.html)
+  + [ListTagsForResource](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListTagsForResource.html)
+  +  [UpdateGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateGateway.html)
+  + [UpdateGatewayCapabilityConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateGatewayCapabilityConfiguration.html)
+  + [PutDefaultEncryptionConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutDefaultEncryptionConfiguration.html)
+  +  [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html)
+  + [TagResource](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TagResource.html)
+  + [UntagResource](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UntagResource.html)
+**Note**  
+The interface VPC endpoint for the **control plane** API operations currently doesn't support making calls to the following SiteWise Monitor API operations:  
+[BatchAssociateProjectAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchAssociateProjectAssets.html)
+[BatchDisassociateProjectAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchDisassociateProjectAssets.html)
+[CreateAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAccessPolicy.html)
+[CreateDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateDashboard.html)
+[CreatePortal](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreatePortal.html)
+[CreateProject](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateProject.html)
+[DeleteAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteAccessPolicy.html)
+[DeletePortal](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeletePortal.html)
+[DeleteProject](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DeleteProject.html)
+[DescribeAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAccessPolicy.html)
+[DescribePortal](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribePortal.html) 
+[DescribeProject](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeProject.html)
+[ListAccessPolicies](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAccessPolicies.html)
+[ListDashboards](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListDashboards.html) 
+[ListPortals](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListPortals.html)
+[ListProjects](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListProjects.html) 
+[ListProjectAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListProjectAssets.html)
+[UpdateAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAccessPolicy.html)
+[UpdateDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateDashboard.html)
+[UpdatePortal](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdatePortal.html)
+[UpdateProject](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateProject.html)

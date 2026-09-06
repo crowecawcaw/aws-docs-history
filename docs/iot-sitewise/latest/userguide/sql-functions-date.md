@@ -1,27 +1,29 @@
-# Date time functions
 
-Date time functions work with dates and times. These functions allow extraction of
-specific components of a date, perform calculations, and manipulate date values.
+
+# Date time functions
+<a name="sql-functions-date"></a>
+
+ Date time functions work with dates and times. These functions allow extraction of specific components of a date, perform calculations, and manipulate date values.
 
 The allowed identifiers in these functions are:
++ YEAR
++ MONTH
++ DAY
++ HOUR
++ MINUTE
++ SECOND
 
-- YEAR
-- MONTH
-- DAY
-- HOUR
-- MINUTE
-- SECOND
 
-| **Function**    | **Signature**                                           | **Description**                                                                                                                                                                                                                                              |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `NOW`           | NOW ( )                                                 | Returns the current timestamp with millisecond precision. It provides the<br>exact time at the moment it's executed within a query.                                                                                                                          |
-| `DATE_ADD`      | DATE\_ADD (identifier, interval\_duration, column)      | Returns the sum of a date/time and a number of days/hours, or of a<br>date/time and date/time interval.                                                                                                                                                      |
-| `DATE_SUB`      | DATE\_SUB (identifier, interval\_duration, column)      | Returns the difference between a date/time and a number of days/hours, or<br>between a date/time and date/time interval.                                                                                                                                     |
-| `TIMESTAMP_ADD` | TIMESTAMP\_ADD (identifier, interval\_duration, column) | Adds an interval of time, in the given time units, to a datetime<br>expression.                                                                                                                                                                              |
-| `TIMESTAMP_SUB` | TIMESTAMP\_SUB (identifier, interval\_duration, column) | Subtracts an interval of time, in the given time units, from a datetime<br>expression.                                                                                                                                                                       |
-| `CAST`          | CAST (expression AS TIMESTAMP FORMAT pattern)           | Converts a string expression to a timestamp using the specified format<br>pattern. Common patterns include `'yyyy-MM-dd HH:mm:ss'` for<br>standard datetime format. For example, `SELECT CAST('2023-12-25 14:30:00'<br>AS TIMESTAMP) AS converted_timestamp` |
+|  **Function**  |  **Signature**  |  **Description**  | 
+| --- | --- | --- | 
+| `NOW` |  NOW ( )  | Returns the current timestamp with millisecond precision. It provides the exact time at the moment it's executed within a query. | 
+| `DATE_ADD` | DATE\_ADD (identifier, interval\_duration, column) | Returns the sum of a date/time and a number of days/hours, or of a date/time and date/time interval. | 
+| `DATE_SUB` | DATE\_SUB (identifier, interval\_duration, column) | Returns the difference between a date/time and a number of days/hours, or between a date/time and date/time interval. | 
+| `TIMESTAMP_ADD` | TIMESTAMP\_ADD (identifier, interval\_duration, column) | Adds an interval of time, in the given time units, to a datetime expression. | 
+| `TIMESTAMP_SUB` | TIMESTAMP\_SUB (identifier, interval\_duration, column) | Subtracts an interval of time, in the given time units, from a datetime expression. | 
+| `CAST` | CAST (expression AS TIMESTAMP FORMAT pattern) | Converts a string expression to a timestamp using the specified format pattern. Common patterns include `'yyyy-MM-dd HH:mm:ss'` for standard datetime format. For example, `SELECT CAST('2023-12-25 14:30:00' AS TIMESTAMP) AS converted_timestamp` | 
 
-###### Example of a SQL query using the listed functions:
+**Example of a SQL query using the listed functions:**  
 
 ```
 SELECT r.asset_id, r.int_value,
@@ -31,5 +33,4 @@ SELECT r.asset_id, r.int_value,
   timestamp_sub(DAY, 2, r.event_timestamp) AS timestamp_in_past,
   now() AS time_now
 FROM raw_time_series AS r
-
 ```

@@ -1,71 +1,45 @@
-# Encryption at rest
 
-AWS IoT SiteWise encrypts all Scenario Discovery session data at rest. By default, AWS IoT SiteWise uses an
-AWS owned key to encrypt your data at no additional charge and with no administrative
-overhead. You can also choose to encrypt session data with a customer managed key for full
-control and auditability of the encryption key that protects your resources.
+
+# Encryption at rest
+<a name="sd-encryption"></a>
+
+AWS IoT SiteWise encrypts all Scenario Discovery session data at rest. By default, AWS IoT SiteWise uses an AWS owned key to encrypt your data at no additional charge and with no administrative overhead. You can also choose to encrypt session data with a customer managed key for full control and auditability of the encryption key that protects your resources.
 
 ## Encryption options
+<a name="sd-encryption-options"></a>
 
 When you create a workspace, you choose one of the following encryption types:
++ **SITEWISE\_DEFAULT\_ENCRYPTION** – AWS IoT SiteWise encrypts your session data using an AWS owned key at no additional charge. No configuration is required.
++ **KMS\_BASED\_ENCRYPTION** – AWS IoT SiteWise encrypts your session data using a customer managed key that you specify. You maintain full control over the key.
 
-- **SITEWISE\_DEFAULT\_ENCRYPTION** – AWS IoT SiteWise
-  encrypts your session data using an AWS owned key at no additional charge. No
-  configuration is required.
-- **KMS\_BASED\_ENCRYPTION** – AWS IoT SiteWise encrypts your
-  session data using a customer managed key that you specify. You maintain full control
-  over the key.
-
-###### Important
-
-The encryption configuration is set at workspace creation and cannot be changed after
-the workspace is created.
+**Important**  
+The encryption configuration is set at workspace creation and cannot be changed after the workspace is created.
 
 ## How AWS IoT SiteWise uses a customer managed key
+<a name="sd-how-cmk-works"></a>
 
-When you configure a workspace with a customer managed key, AWS IoT SiteWise uses that key to
-encrypt the following data:
+When you configure a workspace with a customer managed key, AWS IoT SiteWise uses that key to encrypt the following data:
++ **Video** – All video streams captured and stored for the workspace.
++ **Annotations** – All annotation data associated with sessions in the workspace.
++ **Telemetry** – All telemetry data collected and stored for the workspace.
 
-- **Video** – All video streams captured and stored
-  for the workspace.
-- **Annotations** – All annotation data associated
-  with sessions in the workspace.
-- **Telemetry** – All telemetry data collected and
-  stored for the workspace.
+AWS IoT SiteWise uses envelope encryption to protect your session data. During data ingestion, AWS IoT SiteWise calls `kms:GenerateDataKey` scoped through source-context conditions (`aws:SourceAccount` and `aws:SourceArn`) to generate data encryption keys.
 
-AWS IoT SiteWise uses envelope encryption to protect your session data. During data ingestion,
-AWS IoT SiteWise calls `kms:GenerateDataKey` scoped through source-context conditions
-(`aws:SourceAccount` and `aws:SourceArn`) to generate data encryption
-keys.
+AWS IoT SiteWise uses a KMS grant through FAS (Forward Access Session) to perform KMS operations on your behalf. The grant is scoped to the workspace and enables AWS IoT SiteWise to call `GenerateDataKey`, `Decrypt`, and `ReEncrypt` operations. AWS IoT SiteWise retires the grant when the associated workspace is deleted.
 
-AWS IoT SiteWise uses a KMS grant through FAS (Forward Access Session) to perform KMS operations
-on your behalf. The grant is scoped to the workspace and enables AWS IoT SiteWise to call
-`GenerateDataKey`, `Decrypt`, and `ReEncrypt` operations.
-AWS IoT SiteWise retires the grant when the associated workspace is deleted.
-
-In addition, AWS IoT SiteWise configures underlying AWS managed data stores (such as Amazon S3 and
-Amazon OpenSearch Serverless) to use your customer managed key. This means that session data
-stored in these services is encrypted with your key, providing end-to-end encryption under
-your control. You might see CloudTrail events from these AWS services using your KMS
-key – this is expected behavior.
+In addition, AWS IoT SiteWise configures underlying AWS managed data stores (such as Amazon S3 and Amazon OpenSearch Serverless) to use your customer managed key. This means that session data stored in these services is encrypted with your key, providing end-to-end encryption under your control. You might see CloudTrail events from these AWS services using your KMS key – this is expected behavior.
 
 ## Configuring encryption
+<a name="sd-configuring-cmk"></a>
 
-When you create a workspace, specify the encryption configuration using the
-`encryptionConfiguration` parameter with the following fields:
-
-- **encryptionType** (required) – The type of
-  encryption to use. Valid values are `SITEWISE_DEFAULT_ENCRYPTION` and
-  `KMS_BASED_ENCRYPTION`.
-- **kmsKeyId** (required when encryptionType is
-  `KMS_BASED_ENCRYPTION`) – The ID, ARN, alias name, or alias ARN of
-  the customer managed key. The key must be a symmetric key with ENCRYPT\_DECRYPT
-  usage.
+When you create a workspace, specify the encryption configuration using the `encryptionConfiguration` parameter with the following fields:
++ **encryptionType** (required) – The type of encryption to use. Valid values are `SITEWISE_DEFAULT_ENCRYPTION` and `KMS_BASED_ENCRYPTION`.
++ **kmsKeyId** (required when encryptionType is `KMS_BASED_ENCRYPTION`) – The ID, ARN, alias name, or alias ARN of the customer managed key. The key must be a symmetric key with ENCRYPT\_DECRYPT usage.
 
 ## Key policy
+<a name="sd-cmk-key-policy"></a>
 
-To allow AWS IoT SiteWise to use a customer managed key, the key policy must grant the necessary
-permissions. The following is a least-privilege key policy with six statements:
+To allow AWS IoT SiteWise to use a customer managed key, the key policy must grant the necessary permissions. The following is a least-privilege key policy with six statements:
 
 ```
 {
@@ -179,44 +153,20 @@ permissions. The following is a least-privilege key policy with six statements:
 ```
 
 ### Explanation of each policy statement
+<a name="sd-key-policy-explanation"></a>
 
 The following describes the purpose of each statement in the key policy:
-
-- **AllowSiteWiseIngestionGenerateDataKey** –
-  Allows the AWS IoT SiteWise service to call `kms:GenerateDataKey*` to create data
-  encryption keys during data ingestion. The `aws:SourceAccount` and
-  `aws:SourceArn` conditions scope access to your account and workspace,
-  preventing the confused deputy problem.
-- **AllowSiteWiseDecryptDescribeReEncrypt** –
-  Allows the AWS IoT SiteWise service to call `kms:Decrypt`,
-  `kms:DescribeKey`, and `kms:ReEncrypt*`. These operations do
-  not carry the workspace source ARN in the request context, so source conditions are
-  not applied to this statement.
-- **AllowSiteWiseToEncryptDataViaGrant** –
-  Allows the AWS IoT SiteWise service to call `kms:CreateGrant` to create a grant
-  scoped to `Decrypt`, `GenerateDataKey`, and
-  `ReEncrypt` operations. The `kms:GrantOperations` condition
-  restricts the grant to only these operations.
-- **AllowCustomerRoleDescribeKeyViaSiteWise** –
-  Allows your IAM role to call `kms:DescribeKey` through FAS. AWS IoT SiteWise
-  invokes this during workspace creation to validate that the key exists, is in ENABLED
-  state, has KeySpec of SYMMETRIC\_DEFAULT, and has KeyUsage of ENCRYPT\_DECRYPT.
-- **AllowCustomerRoleDecryptViaSiteWise** –
-  Allows your IAM role to call `kms:Decrypt` through FAS. AWS IoT SiteWise uses
-  this to verify that the calling principal has Decrypt permissions on the key. The
-  `kms:ViaService` condition ensures this permission is only usable through
-  AWS IoT SiteWise, and the encryption context condition scopes access to your account.
-- **AllowCustomerRoleCreateGrantViaSiteWise** –
-  Allows your IAM role to call `kms:CreateGrant` through FAS during
-  workspace creation. AWS IoT SiteWise uses this grant to invoke `GenerateDataKey`,
-  `Decrypt`, and `ReEncrypt` operations for the lifetime of the
-  workspace. The grant operations condition limits what the grant can authorize.
++ **AllowSiteWiseIngestionGenerateDataKey** – Allows the AWS IoT SiteWise service to call `kms:GenerateDataKey*` to create data encryption keys during data ingestion. The `aws:SourceAccount` and `aws:SourceArn` conditions scope access to your account and workspace, preventing the confused deputy problem.
++ **AllowSiteWiseDecryptDescribeReEncrypt** – Allows the AWS IoT SiteWise service to call `kms:Decrypt`, `kms:DescribeKey`, and `kms:ReEncrypt*`. These operations do not carry the workspace source ARN in the request context, so source conditions are not applied to this statement.
++ **AllowSiteWiseToEncryptDataViaGrant** – Allows the AWS IoT SiteWise service to call `kms:CreateGrant` to create a grant scoped to `Decrypt`, `GenerateDataKey`, and `ReEncrypt` operations. The `kms:GrantOperations` condition restricts the grant to only these operations.
++ **AllowCustomerRoleDescribeKeyViaSiteWise** – Allows your IAM role to call `kms:DescribeKey` through FAS. AWS IoT SiteWise invokes this during workspace creation to validate that the key exists, is in ENABLED state, has KeySpec of SYMMETRIC\_DEFAULT, and has KeyUsage of ENCRYPT\_DECRYPT.
++ **AllowCustomerRoleDecryptViaSiteWise** – Allows your IAM role to call `kms:Decrypt` through FAS. AWS IoT SiteWise uses this to verify that the calling principal has Decrypt permissions on the key. The `kms:ViaService` condition ensures this permission is only usable through AWS IoT SiteWise, and the encryption context condition scopes access to your account.
++ **AllowCustomerRoleCreateGrantViaSiteWise** – Allows your IAM role to call `kms:CreateGrant` through FAS during workspace creation. AWS IoT SiteWise uses this grant to invoke `GenerateDataKey`, `Decrypt`, and `ReEncrypt` operations for the lifetime of the workspace. The grant operations condition limits what the grant can authorize.
 
 ## Creating a workspace with a customer managed key
+<a name="sd-create-workspace-cmk"></a>
 
-To create a workspace with a customer managed key, specify the
-`--encryption-configuration` parameter in the `CreateWorkspace` API
-request:
+To create a workspace with a customer managed key, specify the `--encryption-configuration` parameter in the `CreateWorkspace` API request:
 
 ```
 aws iotsitewise create-workspace \
@@ -226,55 +176,44 @@ aws iotsitewise create-workspace \
 ```
 
 ## Scoping down access to the customer managed key
+<a name="sd-scope-cmk-access"></a>
 
 ### Encryption context
+<a name="sd-encryption-context"></a>
 
-AWS IoT SiteWise includes the following encryption context key-value pair in every AWS KMS
-request:
+AWS IoT SiteWise includes the following encryption context key-value pair in every AWS KMS request:
 
 ```
 "aws:iotsitewise:subscriberId": "<CustomerAccountId>"
 ```
 
-You can use `kms:EncryptionContext` conditions in the key policy to
-further restrict which resources can use the key for encryption and decryption. The
-encryption context also appears in plaintext in AWS CloudTrail logs. Each grant that
-AWS IoT SiteWise creates includes an encryption context constraint, so the grant cannot be used to
-encrypt or decrypt data for another workspace or AWS account.
+You can use `kms:EncryptionContext` conditions in the key policy to further restrict which resources can use the key for encryption and decryption. The encryption context also appears in plaintext in AWS CloudTrail logs. Each grant that AWS IoT SiteWise creates includes an encryption context constraint, so the grant cannot be used to encrypt or decrypt data for another workspace or AWS account.
 
 ### Confused deputy protection
+<a name="sd-confused-deputy"></a>
 
-The `aws:SourceArn` and `aws:SourceAccount` conditions prevent
-the confused deputy problem by ensuring only your workspace can trigger key usage. These
-conditions apply to `GenerateDataKey` only. The `Decrypt`,
-`DescribeKey`, and `ReEncrypt` operations do not carry the
-workspace source ARN in the request context, so source conditions cannot be applied to
-those operations.
+The `aws:SourceArn` and `aws:SourceAccount` conditions prevent the confused deputy problem by ensuring only your workspace can trigger key usage. These conditions apply to `GenerateDataKey` only. The `Decrypt`, `DescribeKey`, and `ReEncrypt` operations do not carry the workspace source ARN in the request context, so source conditions cannot be applied to those operations.
 
 ### kms:ViaService condition
+<a name="sd-kms-viaservice"></a>
 
-The `kms:ViaService` condition key restricts key usage to Forward Access
-Session requests that come from AWS IoT SiteWise:
+The `kms:ViaService` condition key restricts key usage to Forward Access Session requests that come from AWS IoT SiteWise:
 
 ```
 "kms:ViaService": "iotsitewise.us-east-1.amazonaws.com"
 ```
 
-This ensures that the customer role permissions in the key policy are only usable
-when the request originates from AWS IoT SiteWise, preventing direct use of the key outside the
-service context.
+This ensures that the customer role permissions in the key policy are only usable when the request originates from AWS IoT SiteWise, preventing direct use of the key outside the service context.
 
 ## Monitoring KMS usage with CloudTrail
+<a name="sd-monitoring-kms-cloudtrail"></a>
 
-AWS CloudTrail logs all KMS API calls made by AWS IoT SiteWise and underlying AWS services on
-your customer managed key. Use the CloudTrail console or the `LookupEvents`
-operation to search for log entries. The following are examples of CloudTrail events you can
-expect to see.
+AWS CloudTrail logs all KMS API calls made by AWS IoT SiteWise and underlying AWS services on your customer managed key. Use the CloudTrail console or the `LookupEvents` operation to search for log entries. The following are examples of CloudTrail events you can expect to see.
 
 ### CreateGrant (Amazon OpenSearch Serverless)
+<a name="sd-cloudtrail-creategrant-oss"></a>
 
-Amazon OpenSearch Serverless creates a grant to use your customer managed key for
-encrypting indexed session data:
+Amazon OpenSearch Serverless creates a grant to use your customer managed key for encrypting indexed session data:
 
 ```
 {
@@ -299,6 +238,7 @@ encrypting indexed session data:
 ```
 
 ### GenerateDataKey (Amazon S3)
+<a name="sd-cloudtrail-generatedatakey-s3"></a>
 
 Amazon S3 uses your customer managed key to encrypt stored video data:
 
@@ -321,6 +261,7 @@ Amazon S3 uses your customer managed key to encrypt stored video data:
 ```
 
 ### GenerateDataKey (AWS IoT SiteWise)
+<a name="sd-cloudtrail-generatedatakey-itsw"></a>
 
 AWS IoT SiteWise generates data keys for internal encryption operations:
 

@@ -1,62 +1,34 @@
-# Data concepts in Scenario Discovery
 
-Before you manage your workflow, take a moment to understand the key data concepts in this
-section. Understanding these concepts and the reasoning behind them enables you to use the system
-more efficiently. In the previous sections, you learned about the Account and Workspace data
-entities. This section takes you deeper into the data entities in the system.
+
+# Data concepts in Scenario Discovery
+<a name="sd-data-concepts"></a>
+
+Before you manage your workflow, take a moment to understand the key data concepts in this section. Understanding these concepts and the reasoning behind them enables you to use the system more efficiently. In the previous sections, you learned about the Account and Workspace data entities. This section takes you deeper into the data entities in the system.
 
 ## Datasets
+<a name="sd-datasets"></a>
 
-Datasets serve as the fundamental logical grouping of data. A dataset contains (or
-references) the actual data you ingest, store, and index in Scenario Discovery through the
-onboarding process. Data types in datasets include video (MPEG-4, H.264 encoding), OpenLABEL
-annotations, and telemetry data captured as Parquet files. There are two fundamental types
-of datasets, each with its own function in the system.
+Datasets serve as the fundamental logical grouping of data. A dataset contains (or references) the actual data you ingest, store, and index in Scenario Discovery through the onboarding process. Data types in datasets include video (MPEG-4, H.264 encoding), OpenLABEL annotations, and telemetry data captured as Parquet files. There are two fundamental types of datasets, each with its own function in the system.
 
 ### Session dataset
+<a name="sd-session-datasets"></a>
 
-Session datasets represent a complete collection (videos, annotations, and telemetry)
-captured from a particular data collection event. In automotive ADAS applications, this
-typically represents a single driving session for an instrumented vehicle set up to capture
-multi-modal driving data. For the purposes of Scenario Discovery, a session dataset
-represents the system-ingested parts of the original recordings in the formats the system
-specifies (MPEG-4 H.264, OpenLABEL, and Parquet) derived from the actual raw data gathered
-on the vehicle.
+Session datasets represent a complete collection (videos, annotations, and telemetry) captured from a particular data collection event. In automotive ADAS applications, this typically represents a single driving session for an instrumented vehicle set up to capture multi-modal driving data. For the purposes of Scenario Discovery, a session dataset represents the system-ingested parts of the original recordings in the formats the system specifies (MPEG-4 H.264, OpenLABEL, and Parquet) derived from the actual raw data gathered on the vehicle.
 
 ### Curated dataset
+<a name="sd-curated-datasets"></a>
 
-Curated datasets are a collection of video snippets (and possibly other
-time-synchronous multi-modal data such as telemetry and annotations) that have been curated
-within the system. Curation occurs through manual curation, where you prompt the system and
-judge or choose the relevant results, or through Agentic Curation, where the system
-leverages your intent expressed in natural language to derive a curated set of related
-results. Curated datasets contain all the information needed to identify where in the
-original data the scenes or snippets of interest are located. Curated datasets also define
-how Scenario Discovery extracts the curated results from the original session datasets for
-delivery to your downstream applications (annotation tools, simulation tools, or model
-training tools).
+Curated datasets are a collection of video snippets (and possibly other time-synchronous multi-modal data such as telemetry and annotations) that have been curated within the system. Curation occurs through manual curation, where you prompt the system and judge or choose the relevant results, or through Agentic Curation, where the system leverages your intent expressed in natural language to derive a curated set of related results. Curated datasets contain all the information needed to identify where in the original data the scenes or snippets of interest are located. Curated datasets also define how Scenario Discovery extracts the curated results from the original session datasets for delivery to your downstream applications (annotation tools, simulation tools, or model training tools).
 
 ## Timeseries and aliases
+<a name="sd-timeseries-aliases"></a>
 
-Scenario Discovery uses the concept of timeseries. You can reference a timeseries in two
-ways: by an internally generated unique alphanumeric ID, or by a (recommended) human-readable
-alias associated with that ID. Timeseries are unique at the account level by system-generated
-identifier; aliases are unique at the workspace level. This means that in Workspace A you can
-have a timeseries alias called "/test\_vehicle\_02/left\_front\_camera" associated with a UUID of
-abc123. In Workspace B, you can also have a timeseries alias called
-"/test\_vehicle\_02/left\_front\_camera," but the UUID will be different (for example, zxy987)
-because the system creates it with the data you load into that workspace. A timeseries
-conceptually represents the data contained in one physical sensor across datasets and across
-time. This sensor can be a camera, in-vehicle network signals, or an annotation file.
-Scenario Discovery stores three types of timeseries data, discussed in the following
-subsections.
+Scenario Discovery uses the concept of timeseries. You can reference a timeseries in two ways: by an internally generated unique alphanumeric ID, or by a (recommended) human-readable alias associated with that ID. Timeseries are unique at the account level by system-generated identifier; aliases are unique at the workspace level. This means that in Workspace A you can have a timeseries alias called "/test\_vehicle\_02/left\_front\_camera" associated with a UUID of abc123. In Workspace B, you can also have a timeseries alias called "/test\_vehicle\_02/left\_front\_camera," but the UUID will be different (for example, zxy987) because the system creates it with the data you load into that workspace. A timeseries conceptually represents the data contained in one physical sensor across datasets and across time. This sensor can be a camera, in-vehicle network signals, or an annotation file. Scenario Discovery stores three types of timeseries data, discussed in the following subsections.
 
 ### Understanding aliases
+<a name="sd-understanding-aliases"></a>
 
-An alias (propertyAlias) is a customer-defined, human-readable string that uniquely
-names a data stream (timeseries) within a workspace. Every piece of data you ingest —
-whether it's a video recording, a telemetry stream, or an annotation file — is identified
-by an alias that you choose.
+An alias (propertyAlias) is a customer-defined, human-readable string that uniquely names a data stream (timeseries) within a workspace. Every piece of data you ingest — whether it's a video recording, a telemetry stream, or an annotation file — is identified by an alias that you choose.
 
 Think of it like a filesystem path for your data:
 
@@ -66,24 +38,26 @@ Think of it like a filesystem path for your data:
 /route-A/session-2026-06-15/rear_cam_rainy
 ```
 
-The system also assigns an opaque timeSeriesId (UUID), but the alias is what you
-interact with day-to-day.
+The system also assigns an opaque timeSeriesId (UUID), but the alias is what you interact with day-to-day.
 
 #### Why aliases matter
+<a name="sd-why-aliases-matter"></a>
 
-| Purpose                   | Explanation                                                   |
-| ------------------------- | ------------------------------------------------------------- |
-| Human readability         | Name your data logically instead of tracking UUIDs            |
-| Cross-API identifier      | Used across ingestion, enrichment, listing, and querying APIs |
-| Stable reference          | You control the name; it doesn't change unless you do         |
-| Filtering and diagnostics | List segments by alias to find specific recordings quickly    |
+
+| Purpose | Explanation | 
+| --- | --- | 
+| Human readability | Name your data logically instead of tracking UUIDs | 
+| Cross-API identifier | Used across ingestion, enrichment, listing, and querying APIs | 
+| Stable reference | You control the name; it doesn't change unless you do | 
+| Filtering and diagnostics | List segments by alias to find specific recordings quickly | 
 
 #### Where you provide an alias (ingestion)
+<a name="sd-where-provide-alias"></a>
 
-When calling `CreateBulkImportJob`, you specify the alias differently
-depending on the file format.
+When calling `CreateBulkImportJob`, you specify the alias differently depending on the file format.
 
 ##### MP4 video files
+<a name="sd-alias-mp4"></a>
 
 Alias is required per file, along with `startTime`:
 
@@ -102,9 +76,9 @@ Alias is required per file, along with `startTime`:
 ```
 
 ##### Annotation (OpenLABEL) files
+<a name="sd-alias-annotation"></a>
 
-Alias is required per file. Timestamps are derived from frame data inside the
-file:
+Alias is required per file. Timestamps are derived from frame data inside the file:
 
 ```
 {
@@ -120,20 +94,23 @@ file:
 ```
 
 ##### Parquet telemetry files
+<a name="sd-alias-parquet"></a>
 
-Alias is a required column inside the Parquet schema itself — each row declares
-which timeseries it belongs to:
+Alias is a required column inside the Parquet schema itself — each row declares which timeseries it belongs to:
 
-| Column         | Type              | Description                                            |
-| -------------- | ----------------- | ------------------------------------------------------ |
-| `alias`        | string, required  | Identifies the timeseries for this row                 |
-| `timestamp_ns` | int64, required\* | Nanosecond-precision timestamp                         |
-| `value`        | binary, required  | Data payload                                           |
-| `data_type`    | string, required  | One of: JSON, BINARY, BOOLEAN, DOUBLE, STRING, INTEGER |
+
+| Column | Type | Description | 
+| --- | --- | --- | 
+| alias | string, required | Identifies the timeseries for this row | 
+| timestamp\_ns | int64, required\* | Nanosecond-precision timestamp | 
+| value | binary, required | Data payload | 
+| data\_type | string, required | One of: JSON, BINARY, BOOLEAN, DOUBLE, STRING, INTEGER | 
 
 #### Where aliases appear after ingestion
+<a name="sd-alias-after-ingestion"></a>
 
 ##### ListDatasetDataSegments response
+<a name="sd-alias-list-segments"></a>
 
 Every segment returned carries its alias:
 
@@ -155,6 +132,7 @@ Every segment returned carries its alias:
 ```
 
 ##### CLI example — list all video aliases and enrichment status
+<a name="sd-alias-cli-example"></a>
 
 ```
 aws iotsitewise list-dataset-data-segments --region eu-west-1 \
@@ -163,10 +141,9 @@ aws iotsitewise list-dataset-data-segments --region eu-west-1 \
 ```
 
 #### How to use aliases for enrichment
+<a name="sd-alias-enrichment-usage"></a>
 
-`CreateEnrichmentJob` targets a single timeseries. Identify it using
-either `propertyAlias` or `timeSeriesId` — never both. The API
-rejects the request if you supply both.
+`CreateEnrichmentJob` targets a single timeseries. Identify it using either `propertyAlias` or `timeSeriesId` — never both. The API rejects the request if you supply both.
 
 ```
 {
@@ -190,13 +167,12 @@ rejects the request if you supply both.
 }
 ```
 
-This is where alias shines — you can target a video for enrichment by name without
-needing to look up its UUID.
+This is where alias shines — you can target a video for enrichment by name without needing to look up its UUID.
 
 #### How to use aliases for diagnostics
+<a name="sd-alias-diagnostics"></a>
 
-When a dataset shows `PARTIALLY_ENRICHED`, use the alias to pinpoint
-which videos still need enrichment:
+When a dataset shows `PARTIALLY_ENRICHED`, use the alias to pinpoint which videos still need enrichment:
 
 ```
 # Step 1: Check dataset-level enrichment status
@@ -211,49 +187,33 @@ aws iotsitewise list-dataset-data-segments --region eu-west-1 \
 ```
 
 #### Naming conventions (recommendations)
+<a name="sd-alias-naming-conventions"></a>
 
 The alias is a freeform string (type AssetPropertyAlias). Common patterns:
 
-| Pattern                             | Example                         |
-| ----------------------------------- | ------------------------------- |
-| /fleet/vehicle/camera\_position     | /fleet-7/truck-42/front\_camera |
-| /route/session\_date/sensor         | /route-A/2026-06-15/lidar\_top  |
-| /project/recording\_id/stream\_name | /adas-v2/rec-0042/stereo\_left  |
 
-Use a consistent hierarchy so your team can filter and reason about data without
-consulting a lookup table.
+| Pattern | Example | 
+| --- | --- | 
+| /fleet/vehicle/camera\_position | /fleet-7/truck-42/front\_camera | 
+| /route/session\_date/sensor | /route-A/2026-06-15/lidar\_top | 
+| /project/recording\_id/stream\_name | /adas-v2/rec-0042/stereo\_left | 
+
+Use a consistent hierarchy so your team can filter and reason about data without consulting a lookup table.
 
 ## Video
+<a name="sd-video"></a>
 
-You typically gather videos on test vehicles over a set period as part of a broader
-sensor suite deployed on the vehicle. You can manage video collection in different ways:
-sometimes as one long video over a whole drive session or often segmented into many smaller
-chunks. Since a single camera on a test vehicle can generate multiple videos over a single
-drive session as well as over multiple drive sessions, use an alias unique to that test
-vehicle and sensor (camera) to associate the many small chunks of video with the single
-video timeseries. In a session-type dataset, you can see all videos uploaded to the session
-dataset and their associated aliases. A single alias can (and usually does) contain multiple
-video files.
+You typically gather videos on test vehicles over a set period as part of a broader sensor suite deployed on the vehicle. You can manage video collection in different ways: sometimes as one long video over a whole drive session or often segmented into many smaller chunks. Since a single camera on a test vehicle can generate multiple videos over a single drive session as well as over multiple drive sessions, use an alias unique to that test vehicle and sensor (camera) to associate the many small chunks of video with the single video timeseries. In a session-type dataset, you can see all videos uploaded to the session dataset and their associated aliases. A single alias can (and usually does) contain multiple video files.
 
 ## Annotations
+<a name="sd-annotations"></a>
 
-You ingest annotations to Scenario Discovery using the OpenLABEL JSON format. The system
-stores each annotation as its own individual timeseries, and there is a one-to-one
-relationship between the number of annotation files you upload, and the number of annotations
-shown in a dataset.
+You ingest annotations to Scenario Discovery using the OpenLABEL JSON format. The system stores each annotation as its own individual timeseries, and there is a one-to-one relationship between the number of annotation files you upload, and the number of annotations shown in a dataset.
 
 ## Telemetry
+<a name="sd-telemetry"></a>
 
-Telemetry ingestion is designed to be flexible and capable of handling thousands of
-different timestreams in one import. Since many types of signal data are captured as
-time-value pairs, the standard format for telemetry ingestion consists of a single Parquet
-file containing the timestamp, alias for each signal, and the value for each signal at a
-given timestamp. Upon ingestion, the system generates a unique ID for each different alias
-and includes it in the Parquet file.
+Telemetry ingestion is designed to be flexible and capable of handling thousands of different timestreams in one import. Since many types of signal data are captured as time-value pairs, the standard format for telemetry ingestion consists of a single Parquet file containing the timestamp, alias for each signal, and the value for each signal at a given timestamp. Upon ingestion, the system generates a unique ID for each different alias and includes it in the Parquet file.
 
-###### Important
-
-Once you understand these concepts, your next steps are to upload and ingest data and
-manage tasks and pipelines. These are available through a combination of user interface,
-SDK documentation and API documentation. For more in-depth SDK and API documentation, go
-to the SDK Experience and API documentation sections.
+**Important**  
+Once you understand these concepts, your next steps are to upload and ingest data and manage tasks and pipelines. These are available through a combination of user interface, SDK documentation and API documentation. For more in-depth SDK and API documentation, go to the SDK Experience and API documentation sections.

@@ -1,19 +1,20 @@
+
+
 # Bulk operation prerequisites
+<a name="bulk-operations-prereqs"></a>
 
-This section explains bulk operation prerequisites, including AWS Identity and Access Management (IAM) permissions for exchanging
-resources between AWS services and your local machine. Before you start a bulk operation, complete the following
-prerequisite:
-
-- Create an Amazon S3 bucket to store resources. For more information about using Amazon S3, see [What is Amazon S3?](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md")
+This section explains bulk operation prerequisites, including AWS Identity and Access Management (IAM) permissions for exchanging resources between AWS services and your local machine. Before you start a bulk operation, complete the following prerequisite:
++ Create an Amazon S3 bucket to store resources. For more information about using Amazon S3, see [What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
 ## IAM permissions
+<a name="bulk-operations-prereqs-permissions"></a>
 
-To perform bulk operations, you must create an AWS Identity and Access Management (IAM) policy with permissions that allow the
-exchange of AWS resources between Amazon S3, AWS IoT SiteWise, and your local machine. For more information about creating
-IAM policies, see [Creating
-IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
+To perform bulk operations, you must create an AWS Identity and Access Management (IAM) policy with permissions that allow the exchange of AWS resources between Amazon S3, AWS IoT SiteWise, and your local machine. For more information about creating IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). 
 
 To perform bulk operations, you need the following policies.
+
+### AWS IoT SiteWise policy
+<a name="bluk-operations-prereqs-policy"></a>
 
 This policy allows access to the required AWS IoT SiteWise API actions for bulk operations:
 
@@ -56,8 +57,10 @@ This policy allows access to the required AWS IoT SiteWise API actions for bulk 
 }
 ```
 
-This policy allows access to the AWS IoT TwinMaker API operations that you use to work with bulk
-operations:
+### AWS IoT TwinMaker policy
+<a name="bulk-operations-TwinMaker-policy"></a>
+
+This policy allows access to the AWS IoT TwinMaker API operations that you use to work with bulk operations:
 
 ```
 {
@@ -73,11 +76,15 @@ operations:
 }
 ```
 
+### Amazon S3 policy
+<a name="bulk-operations-S3-policy"></a>
+
 This policy provides access to Amazon S3 buckets for transferring metadata for bulk operations.
 
-For a specific Amazon S3 bucket
-If you use one specific bucket for working with your bulk operations metadata, this policy
-provides access to that bucket:
+------
+#### [ For a specific Amazon S3 bucket ]
+
+If you use one specific bucket for working with your bulk operations metadata, this policy provides access to that bucket:
 
 ```
 {
@@ -92,15 +99,16 @@ provides access to that bucket:
         "s3:ListMultipartUploadParts"
     ],
     "Resource": [
-        "arn:aws:s3:::`bucket name`",
-        "arn:aws:s3:::`bucket name`/*"
+        "arn:aws:s3:::{{bucket name}}",
+        "arn:aws:s3:::{{bucket name}}/*"
     ]
 }
 ```
 
-To allow any Amazon S3 bucket
-If you will use many different buckets to work with your bulk operations metadata, this policy
-provides access to any bucket:
+------
+#### [ To allow any Amazon S3 bucket ]
+
+If you will use many different buckets to work with your bulk operations metadata, this policy provides access to any bucket:
 
 ```
 {
@@ -118,5 +126,6 @@ provides access to any bucket:
 }
 ```
 
-For information about troubleshooting import and export operations, see [Troubleshoot bulk import and
-export](troubleshooting-bulk.md "troubleshooting-bulk.md").
+------<a name="bulk-operations-troubleshooting"></a>
+
+For information about troubleshooting import and export operations, see [Troubleshoot bulk import and export](troubleshooting-bulk.md).

@@ -1,30 +1,25 @@
+
+
 # Describe an AWS IoT SiteWise bulk import job (AWS CLI)
+<a name="DescribeBulkImportJob"></a>
 
-Use the [DescribeBulkImportJob](../APIReference/API_DescribeBulkImportJob.md "../APIReference/API_DescribeBulkImportJob.md") API operation to retrieve information about a specific bulk
-import job in AWS IoT SiteWise. This operation returns details such as the job's status, creation time,
-and error information if the job failed. You can use this operation to monitor job progress
-and troubleshoot issues. To use `DescribeBulkImportJob`, you need the job ID from
-the `CreateBulkImportJob` operation. The API returns the following
-information:
+Use the [DescribeBulkImportJob](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeBulkImportJob.html) API operation to retrieve information about a specific bulk import job in AWS IoT SiteWise. This operation returns details such as the job's status, creation time, and error information if the job failed. You can use this operation to monitor job progress and troubleshoot issues. To use `DescribeBulkImportJob`, you need the job ID from the `CreateBulkImportJob` operation. The API returns the following information:
++ List of files being imported, including their Amazon S3 bucket locations and keys
++ Error report location (if applicable)
++ Job configuration details, such as file format and CSV column names
++ Job creation and last update timestamps
++ Current job status (for example, whether the job is in progress, completed, or failed)
++ IAM role ARN used for the import job
 
-- List of files being imported, including their Amazon S3 bucket locations and keys
-- Error report location (if applicable)
-- Job configuration details, such as file format and CSV column names
-- Job creation and last update timestamps
-- Current job status (for example, whether the job is in progress, completed, or
-  failed)
-- IAM role ARN used for the import job
-  For completed jobs, review the results to confirm successful data integration. If a job
-  fails, examine the error details to diagnose and resolve issues.
+For completed jobs, review the results to confirm successful data integration. If a job fails, examine the error details to diagnose and resolve issues.
 
-Replace `job-ID` with the ID of the bulk import job that you want
-to retrieve.
+Replace {{job-ID}} with the ID of the bulk import job that you want to retrieve.
 
 ```
-aws iotsitewise describe-bulk-import-job --job-id `job-ID`
+aws iotsitewise describe-bulk-import-job --job-id {{job-ID}}
 ```
 
-###### Example response
+**Example response**  
 
 ```
 {
@@ -44,7 +39,7 @@ aws iotsitewise describe-bulk-import-job --job-id `job-ID`
    ],
    "errorReportLocation":{
       "prefix":"errors/",
-      "bucket":"amzn-s3-demo-bucket`-for-errors`"
+      "bucket":"amzn-s3-demo-bucket{{-for-errors}}"
    },
    "jobConfiguration":{
       "fileFormat":{

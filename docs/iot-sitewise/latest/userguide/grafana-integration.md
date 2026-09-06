@@ -1,36 +1,21 @@
-# Integrate AWS IoT SiteWise with Grafana
 
-Grafana is a data visualization platform used to visualize and monitor data in
-dashboards. In Grafana version 10.4.0 and later, use the AWS IoT SiteWise plugin to visualize your
-AWS IoT SiteWise asset data in Grafana dashboards. Users can visualize data from multiple AWS sources
-(such as AWS IoT SiteWise, Amazon Timestream, and Amazon CloudWatch) and other data sources with a single Grafana
-dashboard.
+
+# Integrate AWS IoT SiteWise with Grafana
+<a name="grafana-integration"></a>
+
+Grafana is a data visualization platform used to visualize and monitor data in dashboards. In Grafana version 10.4.0 and later, use the AWS IoT SiteWise plugin to visualize your AWS IoT SiteWise asset data in Grafana dashboards. Users can visualize data from multiple AWS sources (such as AWS IoT SiteWise, Amazon Timestream, and Amazon CloudWatch) and other data sources with a single Grafana dashboard.
 
 You have two options to use the AWS IoT SiteWise plugin:
++ **Local Grafana servers**
 
-- Local Grafana servers
+  You can set up the AWS IoT SiteWise plugin on a Grafana server that you manage. For more information about how to add and use the plugin, see the [AWS IoT SiteWise Datasource README](https://github.com/grafana/iot-sitewise-datasource/blob/main/src/README.md) file on the GitHub website.
++ **AWS Managed Service for Grafana**
 
-You can set up the AWS IoT SiteWise plugin on a Grafana server that you manage. For more
-information about how to add and use the plugin, see the [AWS IoT SiteWise
-Datasource README](https://github.com/grafana/iot-sitewise-datasource/blob/main/src/README.md "https://github.com/grafana/iot-sitewise-datasource/blob/main/src/README.md") file on the GitHub website.
+  You can use the AWS IoT SiteWise plugin in the AWS Managed Service for Grafana (AMG). AMG manages Grafana servers for you so that you can visualize your data without having to build, package, or deploy any hardware or any other Grafana infrastructure. For more information, see the following topics in the *AWS Managed Service for Grafana User Guide*:
+  + [What is Amazon Managed Service for Grafana (AMG)?](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html)
+  + [Using the AWS IoT SiteWise data source](https://docs.aws.amazon.com/grafana/latest/userguide/using-iotsitewise-in-AMG.html)
 
-- AWS Managed Service for Grafana
+**Example Grafana dashboard**  
+The following Grafana dashboard visualizes the [demo wind farm](getting-started-demo.md). You can access this demo dashboard on the [Grafana Play](https://play.grafana.org/d/avzwehmz/demo-wind-farm?orgId=1) website.  
 
-You can use the AWS IoT SiteWise plugin in the AWS Managed Service for Grafana (AMG). AMG
-manages Grafana servers for you so that you can visualize your data without having to build,
-package, or deploy any hardware or any other Grafana infrastructure. For more information,
-see the following topics in the _AWS Managed Service for Grafana User
-Guide_:
-
-    + [What is
-     Amazon Managed Service for Grafana (AMG)?](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")
-    + [Using the AWS IoT SiteWise data
-     source](../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md "../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md")
-
-###### Example Grafana dashboard
-
-The following Grafana dashboard visualizes the [demo
-wind farm](getting-started-demo.md "getting-started-demo.md"). You can access this demo dashboard on the [Grafana Play](https://play.grafana.org/d/avzwehmz/demo-wind-farm?orgId=1 "https://play.grafana.org/d/avzwehmz/demo-wind-farm?orgId=1")
-website.
-
-![An example Grafana dashboard that visualizes the AWS IoT SiteWise demo wind farm.](images/grafana-dashboard-example.png)
+![An example Grafana dashboard that visualizes the AWS IoT SiteWise demo wind farm.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/grafana-dashboard-example.png)

@@ -1,12 +1,14 @@
-# Additional interface examples
 
-Here are additional examples of how interfaces can be used in different industrial
-scenarios:
+
+# Additional interface examples
+<a name="interface-additional-examples"></a>
+
+Here are additional examples of how interfaces can be used in different industrial scenarios:
 
 ## Energy generation equipment
+<a name="interface-example-energy"></a>
 
-A power generation company can use interfaces to standardize metrics across different
-types of generation equipment:
+A power generation company can use interfaces to standardize metrics across different types of generation equipment:
 
 ```
 {
@@ -57,13 +59,12 @@ types of generation equipment:
 }
 ```
 
-This interface can be applied to various generator asset models (gas turbines, steam
-turbines, wind turbines) to ensure consistent power metrics across the fleet.
+This interface can be applied to various generator asset models (gas turbines, steam turbines, wind turbines) to ensure consistent power metrics across the fleet.
 
 ## Water treatment facilities
+<a name="interface-example-water"></a>
 
-A water utility can use interfaces to standardize monitoring across treatment
-plants:
+A water utility can use interfaces to standardize monitoring across treatment plants:
 
 ```
 {
@@ -118,33 +119,25 @@ plants:
 }
 ```
 
-This interface ensures that water quality is measured consistently across all treatment
-facilities, regardless of their specific equipment configurations.
+This interface ensures that water quality is measured consistently across all treatment facilities, regardless of their specific equipment configurations.
 
 ## Hierarchical interfaces
+<a name="interface-example-hierarchical"></a>
 
-Interfaces can be organized hierarchically to support aggregate metrics at different
-levels of your operation:
+Interfaces can be organized hierarchically to support aggregate metrics at different levels of your operation:
 
-1. **Equipment-level interface** (for example,
-   `PUMP-INTERFACE`)
+1. **Equipment-level interface** (for example, `PUMP-INTERFACE`)
+   + Properties: Flow rate, pressure, power consumption, vibration
+   + Metrics: Efficiency, health score
 
-   - Properties: Flow rate, pressure, power consumption, vibration
-   - Metrics: Efficiency, health score
+1. **Process-level interface** (for example, `PUMPING-STATION-INTERFACE`)
+   + Properties: Total flow, average pressure, total power
+   + Metrics: Station efficiency, operational cost per volume
+   + Hierarchy: Contains `PUMP-INTERFACE` equipment
 
-2. **Process-level interface** (for example,
-   `PUMPING-STATION-INTERFACE`)
+1. **Facility-level interface** (for example, `WATER-FACILITY-INTERFACE`)
+   + Properties: Facility throughput, energy usage, chemical usage
+   + Metrics: Facility efficiency, cost per unit volume, carbon footprint
+   + Hierarchy: Contains `PUMPING-STATION-INTERFACE` processes
 
-   - Properties: Total flow, average pressure, total power
-   - Metrics: Station efficiency, operational cost per volume
-   - Hierarchy: Contains `PUMP-INTERFACE` equipment
-
-3. **Facility-level interface** (for example,
-   `WATER-FACILITY-INTERFACE`)
-
-   - Properties: Facility throughput, energy usage, chemical usage
-   - Metrics: Facility efficiency, cost per unit volume, carbon footprint
-   - Hierarchy: Contains `PUMPING-STATION-INTERFACE` processes
-
-This hierarchical approach allows metrics to be calculated at each level while
-maintaining consistency across your entire operation.
+This hierarchical approach allows metrics to be calculated at each level while maintaining consistency across your entire operation.

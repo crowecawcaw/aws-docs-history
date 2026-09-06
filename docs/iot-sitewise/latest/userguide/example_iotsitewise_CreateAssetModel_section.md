@@ -1,29 +1,26 @@
+
+
 # Use `CreateAssetModel` with an AWS SDK or CLI
+<a name="example_iotsitewise_CreateAssetModel_section"></a>
 
 The following code examples show how to use `CreateAssetModel`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iotsitewise_Scenario_section.md) 
 
-- [Learn the basics](example_iotsitewise_Scenario_section.md "example_iotsitewise_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create an asset model**
-
-The following `create-asset-model` example creates an asset model that defines a wind turbine with the following properties:
-
-Serial number - The serial number of a wind turbineGenerated power - The generated power data stream from a wind turbineTemperature C - The temperature data stream from a wind turbine in CelsiusTemperature F - The mapped temperature data points from Celsius to Fahrenheit
+**AWS CLI**  
+**To create an asset model**  
+The following `create-asset-model` example creates an asset model that defines a wind turbine with the following properties:  
+Serial number - The serial number of a wind turbineGenerated power - The generated power data stream from a wind turbineTemperature C - The temperature data stream from a wind turbine in CelsiusTemperature F - The mapped temperature data points from Celsius to Fahrenheit  
 
 ```
-`aws iotsitewise create-asset-model \
- --cli-input-json `file://create-wind-turbine-model.json``
-
+aws iotsitewise create-asset-model \
+    --cli-input-json {{file://create-wind-turbine-model.json}}
 ```
-
-Contents of `create-wind-turbine-model.json`:
+Contents of `create-wind-turbine-model.json`:  
 
 ```
 {
@@ -97,8 +94,7 @@ Contents of `create-wind-turbine-model.json`:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -109,25 +105,16 @@ Output:
     }
 }
 ```
+For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide*.  
++  For API details, see [CreateAssetModel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/create-asset-model.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Defining asset models](define-models.md "define-models.md") in the _AWS IoT SiteWise User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateAssetModel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/create-asset-model.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/create-asset-model.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
 ```
-
     /**
      * Creates an asset model.
      *
@@ -174,23 +161,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [CreateAssetModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -223,23 +201,14 @@ export const main = async ({ assetModelName, assetModelId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [CreateAssetModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
 ```
 class IoTSitewiseWrapper:
@@ -296,12 +265,8 @@ class IoTSitewiseWrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
-
-Here is an example of a properties list to pass to the function.
+Here is an example of a properties list to pass to the function.   
 
 ```
             properties = [
@@ -320,23 +285,14 @@ Here is an example of a properties list to pass to the function.
                     },
                 },
             ]
-
-
 ```
++  For API details, see [CreateAssetModel](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/CreateAssetModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
 ```
     TRY.
@@ -349,14 +305,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iosresrcalrdyexistsex.
         MESSAGE 'Asset model already exists.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateAssetModel](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateAssetModel](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

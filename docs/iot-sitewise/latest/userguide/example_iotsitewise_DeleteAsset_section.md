@@ -1,27 +1,25 @@
+
+
 # Use `DeleteAsset` with an AWS SDK or CLI
+<a name="example_iotsitewise_DeleteAsset_section"></a>
 
 The following code examples show how to use `DeleteAsset`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iotsitewise_Scenario_section.md) 
 
-- [Learn the basics](example_iotsitewise_Scenario_section.md "example_iotsitewise_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an asset**
-
-The following `delete-asset` example deletes a wind turbine asset.
+**AWS CLI**  
+**To delete an asset**  
+The following `delete-asset` example deletes a wind turbine asset.  
 
 ```
-`aws iotsitewise delete-asset \
- --asset-id `a1b2c3d4-5678-90ab-cdef-33333EXAMPLE``
-
+aws iotsitewise delete-asset \
+    --asset-id {{a1b2c3d4-5678-90ab-cdef-33333EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -30,22 +28,14 @@ Output:
     }
 }
 ```
+For more information, see [Deleting assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html#delete-assets) in the *AWS IoT SiteWise User Guide*.  
++  For API details, see [DeleteAsset](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/delete-asset.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Deleting assets](delete-assets-and-models.md#delete-assets "delete-assets-and-models.md#delete-assets") in the _AWS IoT SiteWise User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteAsset](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/delete-asset.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/delete-asset.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
 ```
     /**
@@ -72,23 +62,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [DeleteAsset](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -121,23 +102,14 @@ export const main = async ({ assetId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DeleteAsset](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
 ```
 class IoTSitewiseWrapper:
@@ -179,24 +151,14 @@ class IoTSitewiseWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteAsset](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DeleteAsset) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteAsset](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
 ```
     TRY.
@@ -207,14 +169,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rt_generic.
         MESSAGE 'Unable to delete asset.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteAsset](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteAsset](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

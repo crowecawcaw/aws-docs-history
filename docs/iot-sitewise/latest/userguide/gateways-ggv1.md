@@ -1,75 +1,14 @@
-# Use AWS IoT SiteWise Edge gateways
 
-AWS IoT SiteWise Edge extends cloud capabilities to industrial edge environments, enabling local
-data processing, analysis, and decision-making. SiteWise Edge integrates with AWS IoT SiteWise and other
-AWS services to provide comprehensive industrial IoT solutions. Gateways serve as the
-intermediary between your industrial equipment and AWS IoT SiteWise.
 
-SiteWise Edge gateways runs on two different deployment targets:
+# Legacy gateways (AWS IoT Greengrass Version 1)
+<a name="gateways-ggv1"></a>
 
-- AWS IoT Greengrass V2
-- Siemens Industrial Edge
-  You can use a SiteWise Edge gateway to collect data at the edge and publish it to the cloud. For
-  gateways running on AWS IoT Greengrass, you can also process data at the edge using asset models and
-  assets.
+**Note**  
+SiteWise Edge gateways running on AWS IoT Greengrass V1 are available only if you started using this feature before July 29, 2021. For more information on running an AWS IoT SiteWise gateway using AWS IoT Greengrass V2, see [Self-host an AWS IoT SiteWise Edge gateway with AWS IoT Greengrass V2](gw-self-host-gg2.md).
 
-The AWS IoT SiteWise Edge application on Siemens Industrial Edge supports integration between industrial
-equipment and AWS IoT SiteWise so that you can aggregate and process raw machine data and run analyses
-locally before sending refined data to the AWS Cloud.
+SiteWise Edge gateways now exclusively run on AWS IoT Greengrass V2, providing enhanced functionality and improved performance for your industrial IoT applications. This latest version AWS IoT Greengrass V2 represents an architectural evolution, built on a modern component-based framework that enables modular software deployment. It streamlines installation through a unified installer while offering developers greater flexibility in deploying custom components and conducting local testing. The component-based model allows for more efficient resource management and introduces a simplified configuration approach through component recipes. This design facilitates better dependency handling between components, supports continuous deployment practices, and provides enhanced CLI capabilities for local development. Additionally, AWS IoT Greengrass V2 centralizes configuration management through AWS IoT Core and delivers improved logging and monitoring features, all protected by a more granular security permissions model.
 
-## Key concepts of SiteWise Edge gateways
+For more information on getting started with SiteWise Edge gateways using AWS IoT Greengrass V2, [AWS IoT SiteWise Edge self-hosted gateway requirements](configure-gateway-ggv2.md). These resources provide step-by-step instructions on setting up your gateways, configuring data sources, and managing your industrial IoT infrastructure.
 
-SiteWise Edge has several useful features for edge computing in industrial
-environments.
-
-**Local data collection and processing**
-
-Supports data collection from industrial assets using protocols like
-OPC-UA and MQTT. Gateways run on AWS IoT Greengrass Core devices or
-Siemens Industrial Edge.
-
-**Offline operation**
-
-Continues collecting and processing data during internet outages, syncing
-with the cloud when connectivity is restored.
-
-**Edge computing with AWS IoT Greengrass components**
-
-Uses IoT SiteWise publisher to forward data to the cloud and AWS IoT SiteWise processor
-for local transformations and calculations. Both the publisher and processor
-are AWS IoT Greengrass V2 components. For more information on AWS IoT Greengrass components, see [AWS-provided
-components](../../../greengrass/v2/developerguide/public-components.md "../../../greengrass/v2/developerguide/public-components.md").
-
-**Integration with AWS IoT SiteWise to extend cloud
-features**
-
-Works with the AWS IoT SiteWise cloud features, extending asset models, analytics,
-and dashboards to the edge.
-
-For gateways with a data processing pack enabled, you can use AWS OpsHub for
-AWS IoT SiteWise to centrally manage your SiteWise Edge gateways. AWS OpsHub provides remote
-management and monitoring capabilities. For more information, see [Manage SiteWise Edge gateways using AWS OpsHub for AWS IoT SiteWise](manage-gateways-ggv2.md#opshub-app "manage-gateways-ggv2.md#opshub-app").
-
-**Partner data source integration**
-
-Connect a partner data source to your gateway and receive data from the
-partner in your SiteWise Edge gateway and the AWS cloud. For more information,
-see [Partner data sources on SiteWise Edge gateways](partner-data-sources.md "partner-data-sources.md").
-
-**Local visualization on the edge**
-
-Provides custom dashboards for real-time insights at the edge.
-
-Monitor data locally in your facility using SiteWise Monitor portals on your local
-devices. For more information, see [Enabling your AWS IoT SiteWise portal at the edge](monitor-enable-edge.md "monitor-enable-edge.md").
-
-## Benefits of implementing SiteWise Edge
-
-SiteWise Edge offers numerous advantages that can significantly improve industrial
-operations and decision-making processes.
-
-- Real-time operational insights without cloud processing delays
-- Operational continuity in disconnected environments
-- Reduced bandwidth and storage costs through edge pre-processing
-- Increased reliability with the ability to make local, data-driven
-  decisions
+**Note**  
+As AWS continues to innovate and improve its IoT services, it's recommended to stay updated with the latest features and enhancements. Regularly check the AWS IoT SiteWise and AWS IoT Greengrass documentation for new capabilities that can further optimize your industrial IoT solutions.

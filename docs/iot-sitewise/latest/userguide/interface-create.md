@@ -1,24 +1,29 @@
+
+
 # Create an interface
+<a name="interface-create"></a>
 
 You can create interfaces using either the AWS IoT SiteWise console or the AWS CLI.
 
-Console
+------
+#### [ Console ]
 
-1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/") and choose **Models** from
-   the navigation pane.
-2. Choose **Create interface**.
-3. Enter a unique **Name** and optional
-   **Description** for your interface. You can also optionally add
-   an **External ID** of you choosing.
-4. Add properties to your interface. You can add attributes, measurements,
-   transforms, and metrics just like with asset models. For more information, see [Create an asset model (console)](create-asset-models.md#create-asset-model-console "create-asset-models.md#create-asset-model-console").
-5. Choose **Create interface** to create the interface.
-6. If you have hierarchies to define parent-child relationships between interfaces,
-   choose **Add hierarchy** and enter relevant details.
+1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/) and choose **Models** from the navigation pane.
 
-AWS CLI
-To create an interface, use the `CreateAssetModel` operation with the
-`assetModelType` parameter set to `INTERFACE`:
+1. Choose **Create interface**.
+
+1. Enter a unique **Name** and optional **Description** for your interface. You can also optionally add an **External ID** of you choosing.
+
+1. Add properties to your interface. You can add attributes, measurements, transforms, and metrics just like with asset models. For more information, see [Create an asset model (console)](create-asset-models.md#create-asset-model-console).
+
+1. Choose **Create interface** to create the interface.
+
+1. If you have hierarchies to define parent-child relationships between interfaces, choose **Add hierarchy** and enter relevant details.
+
+------
+#### [ AWS CLI ]
+
+To create an interface, use the `CreateAssetModel` operation with the `assetModelType` parameter set to `INTERFACE`:
 
 ```
 aws iotsitewise create-asset-model \
@@ -81,3 +86,5 @@ aws iotsitewise create-asset-model \
     }
   ]'
 ```
+
+------

@@ -1,31 +1,30 @@
-# Import metadata examples
 
-This section shows how to create metadata files to import asset models and assets with a single bulk import
-operation.
+
+# Import metadata examples
+<a name="bulk-operations-import-metadata-example"></a>
+
+This section shows how to create metadata files to import asset models and assets with a single bulk import operation.
 
 ## Example of a bulk import
+<a name="example-metadata-file"></a>
 
-You can import many asset models and assets with a single bulk import operation. The following example shows
-how to create a metadata file to do this.
+You can import many asset models and assets with a single bulk import operation. The following example shows how to create a metadata file to do this.
 
-In this example scenario, you have various work sites that contain industrial robots in work cells.
+ In this example scenario, you have various work sites that contain industrial robots in work cells. 
 
 The example defines two asset models:
-
-- `RobotModel1`: This asset model represents a particular type of robot that you have in your
-  work sites. The robot has a measurement property, `Temperature`.
-- `WorkCell`: This asset model represents a collection of robots within one of your work sites.
-  The asset model defines a hierarchy, `robotHierarchyOEM1`, to represent the relationship that a
-  work cell contains robots.
++ `RobotModel1`: This asset model represents a particular type of robot that you have in your work sites. The robot has a measurement property, `Temperature`. 
++ `WorkCell`: This asset model represents a collection of robots within one of your work sites. The asset model defines a hierarchy, `robotHierarchyOEM1`, to represent the relationship that a work cell contains robots. 
 
 The example also defines some assets:
++ `WorkCell1`: a work cell within your Boston site
++ `RobotArm123456`: a robot within that work cell
++ `RobotArm987654`: another robot within that work cell
 
-- `WorkCell1`: a work cell within your Boston site
-- `RobotArm123456`: a robot within that work cell
-- `RobotArm987654`: another robot within that work cell
+The following JSON metadata file defines these asset models and assets. Running a bulk import with this metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
 
-The following JSON metadata file defines these asset models and assets. Running a bulk import with this
-metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
+### Metadata file for import
+<a name="bulk-import-metadata-file"></a>
 
 ```
 {
@@ -95,41 +94,29 @@ metadata creates the asset models and assets within AWS IoT SiteWise, including 
 ```
 
 ## Example of initial on-boarding of models and assets
+<a name="example-scenario1"></a>
 
 In this example scenario, you have various work sites that contain industrial robots in a company.
 
 The example defines multiple asset models:
-
-- `Sample_Enterprise` – This asset model represents the company that the sites are part
-  of. The asset model defines a hierarchy, `Enterprise to Site`, to represent the relationship of
-  the sites to the enterprise.
-- `Sample_Site` – This asset model represents the manufacturing sites within the
-  company. The asset model defines a hierarchy, `Site to Line`, to represent the relationship of
-  the lines to the site.
-- `Sample_Welding Line` – This asset model represents an assembly line within work
-  sites. The asset model defines a hierarchy, `Line to Robot`, to represent the relationship of the
-  robots to the line.
-- `Sample_Welding Robot` – This asset model represents a particular type of robot in
-  your work sites.
++ `Sample_Enterprise` – This asset model represents the company that the sites are part of. The asset model defines a hierarchy, `Enterprise to Site`, to represent the relationship of the sites to the enterprise.
++ `Sample_Site` – This asset model represents the manufacturing sites within the company. The asset model defines a hierarchy, `Site to Line`, to represent the relationship of the lines to the site.
++ `Sample_Welding Line` – This asset model represents an assembly line within work sites. The asset model defines a hierarchy, `Line to Robot`, to represent the relationship of the robots to the line.
++ `Sample_Welding Robot` – This asset model represents a particular type of robot in your work sites.
 
 The example also defines assets based on the asset models.
++ `Sample_AnyCompany Motor` – This asset is created from `Sample_Enterprise` asset model.
++ `Sample_Chicago` – This asset is created from `Sample_Site` asset model.
++ `Sample_Welding Line 1` – This asset is created from `Sample_Welding Line` asset model.
++ `Sample_Welding Robot 1` – This asset is created from `Sample_Welding Robot` asset model.
++ `Sample_Welding Robot 2` – This asset is created from `Sample_Welding Robot` asset model.
 
-- `Sample_AnyCompany Motor` – This asset is created from `Sample_Enterprise`
-  asset model.
-- `Sample_Chicago` – This asset is created from `Sample_Site` asset
-  model.
-- `Sample_Welding Line 1` – This asset is created from `Sample_Welding Line`
-  asset model.
-- `Sample_Welding Robot 1` – This asset is created from `Sample_Welding
- Robot` asset model.
-- `Sample_Welding Robot 2` – This asset is created from `Sample_Welding
- Robot` asset model.
+The following JSON metadata file defines these asset models and assets. Running a bulk import with this metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
 
-The following JSON metadata file defines these asset models and assets. Running a bulk import with this
-metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
+### JSON file to onboard assets and models for import
+<a name="bulk-import-JSON-file"></a>
 
 ```
-
 {
     "assetModels": [
         {
@@ -346,37 +333,34 @@ metadata creates the asset models and assets within AWS IoT SiteWise, including 
         }
     ]
 }
-
 ```
 
-The following screenshot is of models that display in the AWS IoT SiteWise console after you run the previous code
-example.
+The following screenshot is of models that display in the AWS IoT SiteWise console after you run the previous code example.
 
-![AWS IoT SiteWise models with asset and asset models.](images/import-example-asset.png)
+![AWS IoT SiteWise models with asset and asset models.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/import-example-asset.png)
 
-The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the
-previous code example.
 
-![AWS IoT SiteWise models with assets, asset models, and hierarchies.](images/hierarchy-example-import.png)
+The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the previous code example.
+
+![AWS IoT SiteWise models with assets, asset models, and hierarchies.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/hierarchy-example-import.png)
+
 
 ## Example of onboarding additional assets
+<a name="example-scenario2"></a>
 
 This example defines additional assets to import to an existing asset model in your account:
++ `Sample_Welding Line 2` – This asset is created from `Sample_Welding Line` asset model.
++ `Sample_Welding Robot 3`– This asset is created from `Sample_Welding Robot` asset model.
++ `Sample_Welding Robot 4`– This asset is created from `Sample_Welding Robot` asset model.
 
-- `Sample_Welding Line 2` – This asset is created from `Sample_Welding Line`
-  asset model.
-- `Sample_Welding Robot 3`– This asset is created from `Sample_Welding Robot`
-  asset model.
-- `Sample_Welding Robot 4`– This asset is created from `Sample_Welding Robot`
-  asset model.
+To create the initial assets for this example, see [Example of initial on-boarding of models and assets](#example-scenario1).
 
-To create the initial assets for this example, see [Example of initial on-boarding of models and assets](#example-scenario1 "#example-scenario1").
+The following JSON metadata file defines these asset models and assets. Running a bulk import with this metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
 
-The following JSON metadata file defines these asset models and assets. Running a bulk import with this
-metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
+### JSON file to onboard additional assets
+<a name="bulk-import-JSON-file-additional-assets"></a>
 
 ```
-
 {
     "assets": [
         {
@@ -464,31 +448,27 @@ metadata creates the asset models and assets within AWS IoT SiteWise, including 
         }
     ]
 }
-
 ```
 
-The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the
-previous code example.
+The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the previous code example.
 
-![AWS IoT SiteWise models with asset and asset models.](images/additional-assets-import.png)
+![AWS IoT SiteWise models with asset and asset models.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/additional-assets-import.png)
+
 
 ## Example of onboarding new properties
+<a name="example-scenario3"></a>
 
-This example defines new properties on existing asset models. See [Example of onboarding additional assets](#example-scenario2 "#example-scenario2") to onboard additional assets and models.
+This example defines new properties on existing asset models. See [Example of onboarding additional assets](#example-scenario2) to onboard additional assets and models.
++ `Joint 1 Temperature` – This property is added to the `Sample_Welding Robot` asset model. This new property will also propagate to each asset created from the `Sample_Welding Robot` asset model. 
 
-- `Joint 1 Temperature` – This property is added to the `Sample_Welding
- Robot` asset model. This new property will also propagate to each asset created from the
-  `Sample_Welding Robot` asset model.
+To add a new property to an existing asset model, see the following JSON metadata file example. As shown in the JSON, the entire existing `Sample_Welding Robot` asset model definition must be provided along with the new property. If the entire property list from the existing definition is not provided, AWS IoT SiteWise deletes the omitted properties. 
 
-To add a new property to an existing asset model, see the following JSON metadata file example. As shown in
-the JSON, the entire existing `Sample_Welding Robot` asset model definition must be provided along
-with the new property. If the entire property list from the existing definition is not provided, AWS IoT SiteWise deletes
-the omitted properties.
+### JSON file to onboard new properties
+<a name="bulk-import-JSON-file-new-properties"></a>
 
 This example adds a new property `Joint 1 Temperature` to the asset model.
 
 ```
-
 {
     "assetModels": [
         {
@@ -561,31 +541,25 @@ This example adds a new property `Joint 1 Temperature` to the asset model.
         }
     ]
 }
-
 ```
 
 ## Example of managing data streams
+<a name="example-managing-data-streams"></a>
 
-This example shows two ways of managing data streams associated with an asset property. When renaming an asset property alias,
-there are two options for the historical data currently stored in the asset property's data stream.
+ This example shows two ways of managing data streams associated with an asset property. When renaming an asset property alias, there are two options for the historical data currently stored in the asset property's data stream.
++  Option one – Keep the current data stream and rename the alias alone, allowing the historical data to be accessible with the new alias. 
 
-- Option one – Keep the current data stream and rename the alias alone,
-  allowing the historical data to be accessible with the new alias.
+   In the JSON metadata file example, the asset property with ID `External_Id_Welding_Robot_Cycle_Count` changes its alias to `AnyCompany/Chicago/Welding Line/S3000/Count-Updated`. The historical data for this asset property remains the same after this change. 
++  Option two – Assign a new data stream to the asset property which is accessible with the new alias. The old data stream along with its historical data is still accessible with the old alias, but not associated with any asset property. 
 
-In the JSON metadata file example, the asset property with ID `External_Id_Welding_Robot_Cycle_Count` changes its alias to `AnyCompany/Chicago/Welding Line/S3000/Count-Updated`.
-The historical data for this asset property remains the same after this change.
+   In the JSON metadata file example, the asset property with ID `External_Id_Welding_Robot_Joint_1_Current` changes its alias to `AnyCompany/Chicago/Welding Line/S4999/1/Current`. This time the additional value `retainDataOnAliasChange` is present and set to `False`. With this setting, the original data stream is disassociated from the asset property, and a new data stream is created containing no historical data. 
 
-- Option two – Assign a new data stream to the asset property which is accessible with the new alias.
-  The old data stream along with its historical data is still accessible with the old alias, but not associated with any asset property.
+ To access the old data stream with the original historical data, in the AWS Console Home, go to the *Data Streams* page and search for the old alias `AnyCompany/Chicago/Welding Line/S3000/1/Current`. 
 
-In the JSON metadata file example, the asset property with ID `External_Id_Welding_Robot_Joint_1_Current` changes its alias to `AnyCompany/Chicago/Welding Line/S4999/1/Current`.
-This time the additional value `retainDataOnAliasChange` is present and set to `False`. With this setting, the original data stream
-is disassociated from the asset property, and a new data stream is created containing no historical data.
-
-To access the old data stream with the original historical data, in the AWS Console Home, go to the _Data Streams_ page and search for the old alias `AnyCompany/Chicago/Welding Line/S3000/1/Current`.
+### JSON file to update property aliases
+<a name="bulk-import-JSON-file-update-aliases"></a>
 
 ```
-
 {
     "assetExternalId": "External_Id_Welding_Robot_3",
     "assetName": "Sample_Welding Robot 3",
@@ -606,5 +580,4 @@ To access the old data stream with the original historical data, in the AWS Cons
         }
     ]
 }
-
 ```

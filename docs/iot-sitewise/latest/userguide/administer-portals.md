@@ -1,34 +1,32 @@
+
+
 # Administer your SiteWise Monitor portals
+<a name="administer-portals"></a>
 
-###### Note
+**Note**  
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
 
-The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
+You have the ability to manage and configure various aspects of the portal. This includes adding and removing users or administrators, setting user permissions and roles, customizing the portal's URL, name, setting a support contact information, and sending email invitations to portal administrators. 
 
-You have the ability to manage and configure various aspects of the portal. This includes
-adding and removing users or administrators, setting user permissions and roles, customizing the
-portal's URL, name, setting a support contact information, and sending email invitations to portal administrators.
+1. Sign in to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/home).
 
-1. Sign in to the [AWS IoT SiteWise
-   console](https://console.aws.amazon.com/iotsitewise/home "https://console.aws.amazon.com/iotsitewise/home").
-2. In the navigation pane, choose **Monitor**,
-   **Portals**.
+1. In the navigation pane, choose **Monitor**, **Portals**.  
+![Left navigation pane in the AWS IoT SiteWise console with Portals highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-choose-portals-console.png)
 
-![Left navigation pane in the AWS IoT SiteWise console with Portals highlighted.](images/sitewise-choose-portals-console.png) 3. Choose a portal, and then choose **View details** (or choose the
-portal's **Name**). 4. You can perform any of the following administrative tasks:
+1. Choose a portal, and then choose **View details** (or choose the portal's **Name**).
 
-    * [Change portal details in AWS IoT SiteWise](portal-change-details.md "portal-change-details.md")
-    * [Add or remove portal administrators in AWS IoT SiteWise](portal-change-admins.md "portal-change-admins.md")
-    * [Send email invitations to portal administrators](send-email-invitations-to-portal.md "send-email-invitations-to-portal.md")
-    * [Add or remove portal users in AWS IoT SiteWise](portal-change-users.md "portal-change-users.md")
-    * [Delete a portal in AWS IoT SiteWise](portal-delete-portal.md "portal-delete-portal.md")
+1. You can perform any of the following administrative tasks:
+   + [Change portal details in AWS IoT SiteWise](portal-change-details.md)
+   + [Add or remove portal administrators in AWS IoT SiteWise](portal-change-admins.md)
+   + [Send email invitations to portal administrators](send-email-invitations-to-portal.md)
+   + [Add or remove portal users in AWS IoT SiteWise](portal-change-users.md)
+   + [Delete a portal in AWS IoT SiteWise](portal-delete-portal.md)
 
-For information about how to create a portal, see [Get started with AWS IoT SiteWise Monitor (Classic)](monitor-getting-started.md "monitor-getting-started.md").
+For information about how to create a portal, see [Get started with AWS IoT SiteWise Monitor (Classic)](monitor-getting-started.md).
 
-###### Topics
-
-- [Change portal details in AWS IoT SiteWise](portal-change-details.md "portal-change-details.md")
-- [Add or remove portal administrators in AWS IoT SiteWise](portal-change-admins.md "portal-change-admins.md")
-- [Send email invitations to portal administrators](send-email-invitations-to-portal.md "send-email-invitations-to-portal.md")
-- [Add or remove portal users in AWS IoT SiteWise](portal-change-users.md "portal-change-users.md")
-- [Delete a portal in AWS IoT SiteWise](portal-delete-portal.md "portal-delete-portal.md")
+**Topics**
++ [Change portal details in AWS IoT SiteWise](portal-change-details.md)
++ [Add or remove portal administrators in AWS IoT SiteWise](portal-change-admins.md)
++ [Send email invitations to portal administrators](send-email-invitations-to-portal.md)
++ [Add or remove portal users in AWS IoT SiteWise](portal-change-users.md)
++ [Delete a portal in AWS IoT SiteWise](portal-delete-portal.md)

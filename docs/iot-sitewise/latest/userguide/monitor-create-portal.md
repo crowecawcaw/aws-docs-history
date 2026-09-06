@@ -1,20 +1,21 @@
+
+
 # Create a portal in SiteWise Monitor
+<a name="monitor-create-portal"></a>
 
-###### Note
-
-The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
+**Note**  
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
 
 You create a SiteWise Monitor portal in the AWS IoT SiteWise console.
 
-###### To create a portal
+**To create a portal**
 
-1. Sign in to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
-2. In the navigation pane, choose **Monitor**, **Getting
-   started**.
+1. Sign in to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/).
 
-![The left navigation pane of the AWS IoT SiteWise console with Getting started highlighted.](images/sitewise-choose-monitor-getting-started-console.png) 3. Choose **Create Portal**.
+1. In the navigation pane, choose **Monitor**, **Getting started**.  
+![The left navigation pane of the AWS IoT SiteWise console with Getting started highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-choose-monitor-getting-started-console.png)
 
-![The AWS IoT SiteWise Monitor Getting started page with Create portal highlighted.](images/sitewise-choose-create-portal-console.png)
+1. Choose **Create Portal**.  
+![The AWS IoT SiteWise Monitor Getting started page with Create portal highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-choose-create-portal-console.png)
 
-Next, you must provide some basic information to configure your portal.
+   Next, you must provide some basic information to configure your portal.

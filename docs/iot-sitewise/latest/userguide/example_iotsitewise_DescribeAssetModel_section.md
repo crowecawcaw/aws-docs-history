@@ -1,27 +1,25 @@
+
+
 # Use `DescribeAssetModel` with an AWS SDK or CLI
+<a name="example_iotsitewise_DescribeAssetModel_section"></a>
 
 The following code examples show how to use `DescribeAssetModel`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iotsitewise_Scenario_section.md) 
 
-- [Learn the basics](example_iotsitewise_Scenario_section.md "example_iotsitewise_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe an asset model**
-
-The following `describe-asset-model` example describes a wind farm asset model.
+**AWS CLI**  
+**To describe an asset model**  
+The following `describe-asset-model` example describes a wind farm asset model.  
 
 ```
-`aws iotsitewise describe-asset-model \
- --asset-model-id `a1b2c3d4-5678-90ab-cdef-22222EXAMPLE``
-
+aws iotsitewise describe-asset-model \
+    --asset-model-id {{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -80,22 +78,14 @@ Output:
     }
 }
 ```
+For more information, see [Describing a specific asset model](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/discover-asset-resources.html#describe-asset-model) in the *AWS IoT SiteWise User Guide*.  
++  For API details, see [DescribeAssetModel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/describe-asset-model.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Describing a specific asset model](discover-asset-resources.md#describe-asset-model "discover-asset-resources.md#describe-asset-model") in the _AWS IoT SiteWise User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeAssetModel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/describe-asset-model.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/describe-asset-model.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
 ```
     /**
@@ -124,23 +114,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [DescribeAssetModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -173,14 +154,9 @@ export const main = async ({ assetModelId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeAssetModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

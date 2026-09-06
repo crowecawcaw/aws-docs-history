@@ -1,26 +1,31 @@
+
+
 # Delete a dataset
+<a name="assistant-console-delete-dataset"></a>
 
-###### Note
+**Note**  
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
 
-The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
+------
+#### [ Console ]
 
-Console
+**Delete a dataset**
 
-###### Delete a dataset
+1.  Datasets are displayed in the **Datasets** section of the **Assistant** page. Choose a dataset. Choose **Delete**. 
 
-1. Datasets are displayed in the **Datasets** section of the **Assistant** page.
-   Choose a dataset. Choose **Delete**.
-2. Type **confirm** in the popup to confirm the delete.
+1. Type **confirm** in the popup to confirm the delete.  
+![Deleting a dataset final picture in the Assistant page of the console](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-assistant-del-details-dataset.png)
 
-![Deleting a dataset final picture in the Assistant page of the console](images/ai-assistant-del-details-dataset.png) 3. Choose **Delete**.
+1.  Choose **Delete**. 
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### Delete a dataset
+**Delete a dataset**
++ Delete the dataset with `datasetId`.
 
-- Delete the dataset with `datasetId`.
+  ```
+  aws iotsitewise delete-dataset --region us-east-1 --dataset-id <UUID>
+  ```
 
-```
-aws iotsitewise delete-dataset --region us-east-1 --dataset-id <UUID>
-```
+------

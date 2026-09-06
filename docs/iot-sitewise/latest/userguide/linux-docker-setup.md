@@ -1,51 +1,54 @@
-# Set up open-source integrations with Docker (Linux)
 
-For a streamlined deployment process, you can use Docker to set up Node-RED®,
-InfluxDB®, and Grafana® on a Linux environment. This method uses pre-configured
-containers, allowing for rapid deployment and easier management of the components.
+
+# Set up open-source integrations with Docker (Linux)
+<a name="linux-docker-setup"></a>
+
+For a streamlined deployment process, you can use Docker to set up Node-RED®, InfluxDB®, and Grafana® on a Linux environment. This method uses pre-configured containers, allowing for rapid deployment and easier management of the components.
 
 ## Docker setup prerequisites
+<a name="linux-docker-prerequisites"></a>
 
 Before you begin, verify that have the following:
-
-- An MQTT-enabled, V3 gateway. For more information, see [MQTT-enabled, V3 gateways for AWS IoT SiteWise Edge](mqtt-enabled-v3-gateway.md "mqtt-enabled-v3-gateway.md").
-- The Docker Compose plugin. For installation steps, see [Install the Docker
-  Compose plugin](https://docs.docker.com/compose/install/linux/ "https://docs.docker.com/compose/install/linux/") in the _Docker_ Manuals
-  documentation.
++ An MQTT-enabled, V3 gateway. For more information, see [MQTT-enabled, V3 gateways for AWS IoT SiteWise Edge](mqtt-enabled-v3-gateway.md).
++ The Docker Compose plugin. For installation steps, see [Install the Docker Compose plugin](https://docs.docker.com/compose/install/linux/) in the *Docker* Manuals documentation.
 
 ## Deploy the services
+<a name="linux-docker-deployment"></a>
 
-This deployment runs SiteWise Edge, InfluxDB, Node-RED, and Grafana on the same
-host.
+This deployment runs SiteWise Edge, InfluxDB, Node-RED, and Grafana on the same host.
 
 ### Set up the environment
+<a name="linux-docker-env-setup"></a>
 
 1. Gain root access:
 
-```
-sudo -i
-```
+   ```
+   sudo -i
+   ```
 
-2. Create a .env file or export these environment variables:
+1. Create a .env file or export these environment variables:
 
-```
-export INFLUXDB_PASSWORD=`your-secure-influxdb-password`
-export INFLUXDB_TOKEN=`your-secure-influxdb-token`
-export GRAFANA_PASSWORD=`your-secure-grafana-password`
-```
+   ```
+   export INFLUXDB_PASSWORD={{your-secure-influxdb-password}}
+   export INFLUXDB_TOKEN={{your-secure-influxdb-token}}
+   export GRAFANA_PASSWORD={{your-secure-grafana-password}}
+   ```
 
 ### Configure the Docker network
+<a name="linux-docker-network-config"></a>
++ Create a bridge network using the name `SiteWiseEdgeNodeRedDemoNetwork`.
 
-- Create a bridge network using the name
-  `SiteWiseEdgeNodeRedDemoNetwork`.
-
-```
-docker network create --driver=bridge SiteWiseEdgeNodeRedDemoNetwork
-```
+  ```
+  docker network create --driver=bridge SiteWiseEdgeNodeRedDemoNetwork
+  ```
 
 ### Prepare the Docker Compose file
+<a name="linux-docker-compose-file"></a>
 
 Copy the contents of the following YAML file to your SiteWise Edge gateway device.
+
+#### Expand to view the Docker Compose YAML file example
+<a name="collapsible-section-docker-compose-file"></a>
 
 ```
 services:
@@ -158,7 +161,7 @@ configs:
         - name: "Dashboard provider"
           orgId: 1
           type: file
-          options:
+          options: 
             path: /etc/grafana/provisioning/dashboards
 
   grafana_preload_dashboard:
@@ -530,111 +533,107 @@ configs:
 ```
 
 ### Update the SiteWise Edge deployment
+<a name="w2aac17c19c19c26c27b7c11"></a>
 
-1. Navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/ "https://console.aws.amazon.com/iot/")
-2. Choose **Greengrass devices** in the left navigation menu
-   under the **Manage** section, then **Core
-   devices**.
-3. Select the core device connected to your SiteWise Edge Gateway.
-4. Choose the **Deployments** tab, then select the
-   **Deployment ID** value.
-5. Choose **Actions**, then select **Revise**.
-6. Read the pop up message and then choose **Revise
-   Deployment**.
-7. In **Step 2 - Select components**, select the following
-   components and then choose **Next**.
+1. Navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/)
 
-   - `aws.greengrass.clientdevices.mqtt.EMQX`
-   - `aws.iot.SiteWiseEdgePublisher`
+1. Choose **Greengrass devices** in the left navigation menu under the **Manage** section, then **Core devices**.
 
-8. In **Step 3 - Configure components**, select the
-   `aws.greengrass.clientdevices.mqtt.EMQX` component value and add the
-   following network configuration:
+1. Select the core device connected to your SiteWise Edge Gateway.
 
-```
-{
-    "emqxConfig": {
-        "authorization": {
-            "no_match": "allow"
-        },
-        "listeners": {
-            "tcp": {
-                "default": {
-                    "enabled": true,
-                    "enable_authn": false
-                }
-            }
-        }
-    },
-    "authMode": "bypass",
-    "dockerOptions": "-p 127.0.0.1:1883:1883 --network=SiteWiseEdgeNodeRedDemoNetwork",
-    "requiresPrivilege": "true"
-}
-```
+1. Choose the **Deployments** tab, then select the **Deployment ID** value.
 
-9. Choose **Next**.
-10. In **Step 4 - Configure advanced settings**, choose
-    **Next**.
-11. Choose **Deploy**
+1. Choose **Actions**, then select **Revise**. 
+
+1. Read the pop up message and then choose **Revise Deployment**.
+
+1. In **Step 2 - Select components**, select the following components and then choose **Next**.
+   + `aws.greengrass.clientdevices.mqtt.EMQX`
+   + `aws.iot.SiteWiseEdgePublisher`
+
+1. In **Step 3 - Configure components**, select the `aws.greengrass.clientdevices.mqtt.EMQX` component value and add the following network configuration:
+
+   ```
+   {
+       "emqxConfig": {
+           "authorization": {
+               "no_match": "allow"
+           },
+           "listeners": {
+               "tcp": {
+                   "default": {
+                       "enabled": true,
+                       "enable_authn": false
+                   }
+               }
+           }
+       },
+       "authMode": "bypass",
+       "dockerOptions": "-p 127.0.0.1:1883:1883 --network=SiteWiseEdgeNodeRedDemoNetwork",
+       "requiresPrivilege": "true"
+   }
+   ```
+
+1. Choose **Next**.
+
+1. In **Step 4 - Configure advanced settings**, choose **Next**.
+
+1. Choose **Deploy**
 
 ### Launch the services
+<a name="linux-docker-launch"></a>
 
-1. Start the services using the Docker Compose file. Run the following command under
-   the directory containing the `compose.yaml` file.
+1. Start the services using the Docker Compose file. Run the following command under the directory containing the `compose.yaml` file.
 
-```
-docker compose up -d
-```
+   ```
+   docker compose up -d
+   ```
 
-2. Create an SSH tunnel to access the services:
+1. Create an SSH tunnel to access the services:
 
-```
-ssh -i `path_to_your_ssh_key` -L 1880:127.0.0.1:1880 -L 3000:127.0.0.1:3000 -L 8086:127.0.0.1:8086 `username`@`gateway_ip_address`
-```
+   ```
+   ssh -i {{path_to_your_ssh_key}} -L 1880:127.0.0.1:1880 -L 3000:127.0.0.1:3000 -L 8086:127.0.0.1:8086 {{username}}@{{gateway_ip_address}}
+   ```
 
-This deployment creates the following services in the
-`SiteWiseEdgeNodeRedDemoNetwork network`:
+This deployment creates the following services in the `SiteWiseEdgeNodeRedDemoNetwork network`:
 
-**InfluxDB v2 (port 8086)**
+**InfluxDB v2 (port 8086)**  
+Includes pre-configured organization (iot-sitewise-edge), WindFarmData InfluxDB bucket, and admin credentials
 
-Includes pre-configured organization (iot-sitewise-edge), WindFarmData
-InfluxDB bucket, and admin credentials
-
-**Node-RED (port 1880)**
-
+**Node-RED (port 1880)**  
 Includes InfluxDB nodes and pre-configured flows for AWS IoT SiteWise integration
 
-**Grafana (port 3000)**
-
+**Grafana (port 3000)**  
 Includes admin user, InfluxDB datasource, and monitoring dashboard
 
 ### Access the services
+<a name="linux-docker-access-services"></a>
 
 After deployment, access the services using the following URLs and credentials:
 
-###### Note
-
+**Note**  
 You can access each service from your host or the gateway machine.
 
-Service access details| Service | URL | Credentials |
-| --- | --- | --- |
-| Node-RED | [http://127.0.0.1:1880](http://127.0.0.1:1880 "http://127.0.0.1:1880") | No credentials required |
-| InfluxDB | [http://127.0.0.1:8086](http://127.0.0.1:8086 "http://127.0.0.1:8086") | Username: admin<br>Password: $INFLUXDB\_PASSWORD |
-| Grafana | [http://127.0.0.1:3000](http://127.0.0.1:3000 "http://127.0.0.1:3000") | Username: admin<br>Password: $GRAFANA\_PASSWORD |
+
+**Service access details**  
+
+| Service | URL | Credentials | 
+| --- | --- | --- | 
+| Node-RED | [http://127.0.0.1:1880](http://127.0.0.1:1880) | No credentials required | 
+| InfluxDB | [http://127.0.0.1:8086](http://127.0.0.1:8086) | Username: admin<br />Password: $INFLUXDB\_PASSWORD | 
+| Grafana | [http://127.0.0.1:3000](http://127.0.0.1:3000) | Username: admin<br />Password: $GRAFANA\_PASSWORD | 
 
 ## Verify the deployment
+<a name="linux-docker-verify-deployment"></a>
 
 To ensure your deployment is successful, perform the following checks:
 
 1. For Node-RED, verify the presence of two preloaded flows:
+   + Data publish flow
+   + Data retention flow
 
-   - Data publish flow
-   - Data retention flow
+1. For AWS IoT SiteWise, in the AWS IoT SiteWise console, confirm the presence of a data stream with the alias `/Renton/WindFarm/Turbine/WindSpeed`.
 
-2. For AWS IoT SiteWise, in the AWS IoT SiteWise console, confirm the presence of a data stream with the
-   alias `/Renton/WindFarm/Turbine/WindSpeed`.
-3. For InfluxDB, use the Data Explorer to verify data storage in the
-   `TurbineData` measurement within the `WindFarmData`
-   bucket.
-4. For Grafana, view the dashboard to confirm the display of time series data
-   generated from Node-RED.
+1. For InfluxDB, use the Data Explorer to verify data storage in the `TurbineData` measurement within the `WindFarmData` bucket.
+
+1. For Grafana, view the dashboard to confirm the display of time series data generated from Node-RED.

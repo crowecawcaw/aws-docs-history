@@ -1,28 +1,25 @@
+
+
 # Learn the basics of AWS IoT SiteWise with an AWS SDK
+<a name="example_iotsitewise_Scenario_section"></a>
 
 The following code examples show how to:
++ Create an AWS IoT SiteWise Asset Model.
++ Create an AWS IoT SiteWise Asset.
++ Retrieve the property ID values.
++ Send data to an AWS IoT SiteWise Asset.
++ Retrieve the value of the AWS IoT SiteWise Asset property.
++ Create an AWS IoT SiteWise Portal.
++ Create an AWS IoT SiteWise Gateway.
++ Describe the AWS IoT SiteWise Gateway.
++ Delete the AWS IoT SiteWise Assets.
 
-- Create an AWS IoT SiteWise Asset Model.
-- Create an AWS IoT SiteWise Asset.
-- Retrieve the property ID values.
-- Send data to an AWS IoT SiteWise Asset.
-- Retrieve the value of the AWS IoT SiteWise Asset property.
-- Create an AWS IoT SiteWise Portal.
-- Create an AWS IoT SiteWise Gateway.
-- Describe the AWS IoT SiteWise Gateway.
-- Delete the AWS IoT SiteWise Assets.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
-
-Run an interactive scenario demonstrating AWS IoT SiteWise features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
+Run an interactive scenario demonstrating AWS IoT SiteWise features.  
 
 ```
 public class SitewiseScenario {
@@ -44,23 +41,23 @@ public class SitewiseScenario {
         String myThing =  "MyThing1" ;
 
         logger.info("""
-            AWS IoT SiteWise is a fully managed software-as-a-service (SaaS) that
-            makes it easy to collect, store, organize, and monitor data from industrial equipment and processes.
-            It is designed to help industrial and manufacturing organizations collect data from their equipment and
+            AWS IoT SiteWise is a fully managed software-as-a-service (SaaS) that 
+            makes it easy to collect, store, organize, and monitor data from industrial equipment and processes. 
+            It is designed to help industrial and manufacturing organizations collect data from their equipment and 
             processes, and use that data to make informed decisions about their operations.
-
-            One of the key features of AWS IoT SiteWise is its ability to connect to a wide range of industrial
-            equipment and systems, including programmable logic controllers (PLCs), sensors, and other
-            industrial devices. It can collect data from these devices and organize it into a unified data model,
-            making it easier to analyze and gain insights from the data. AWS IoT SiteWise also provides tools for
+                                            
+            One of the key features of AWS IoT SiteWise is its ability to connect to a wide range of industrial 
+            equipment and systems, including programmable logic controllers (PLCs), sensors, and other 
+            industrial devices. It can collect data from these devices and organize it into a unified data model, 
+            making it easier to analyze and gain insights from the data. AWS IoT SiteWise also provides tools for 
             visualizing the data, setting up alarms and alerts, and generating reports.
-
-            Another key feature of AWS IoT SiteWise is its ability to scale to handle large volumes of data.
-            It can collect and store data from thousands of devices and process millions of data points per second,
-            making it suitable for large-scale industrial operations. Additionally, AWS IoT SiteWise is designed
-            to be secure and compliant, with features like role-based access controls, data encryption,
+                                
+            Another key feature of AWS IoT SiteWise is its ability to scale to handle large volumes of data. 
+            It can collect and store data from thousands of devices and process millions of data points per second, 
+            making it suitable for large-scale industrial operations. Additionally, AWS IoT SiteWise is designed 
+            to be secure and compliant, with features like role-based access controls, data encryption, 
             and integration with other AWS services for additional security and compliance features.
-
+                        
             Let's get started...
             """);
 
@@ -89,7 +86,7 @@ public class SitewiseScenario {
              processes, and systems, that exist in an industrial environment. This model provides a structured and
              hierarchical representation of these assets, allowing users to define the relationships and properties
              of each asset.
-
+             
              This scenario creates two asset model properties: temperature and humidity.
             """);
         waitForInputToContinue(scanner);
@@ -118,9 +115,9 @@ public class SitewiseScenario {
         logger.info(DASHES);
         logger.info("2. Create an AWS IoT SiteWise Asset");
         logger.info("""
-             The IoT SiteWise model that we just created defines the structure and metadata for your physical assets.
+             The IoT SiteWise model that we just created defines the structure and metadata for your physical assets. 
              Now we create an asset from the asset model.
-
+             
             """);
         logger.info("Let's wait 30 seconds for the asset to be ready.");
         countdown(30);
@@ -146,7 +143,7 @@ public class SitewiseScenario {
         logger.info("3. Retrieve the property ID values");
         logger.info("""
              To send data to an asset, we need to get the property ID values. In this scenario, we access the
-             temperature and humidity property ID values.
+             temperature and humidity property ID values. 
             """);
         waitForInputToContinue(scanner);
         Map<String, String>  propertyIds = null;
@@ -172,12 +169,12 @@ public class SitewiseScenario {
         logger.info(DASHES);
         logger.info("4. Send data to an AWS IoT SiteWise Asset");
         logger.info("""
-            By sending data to an IoT SiteWise Asset, you can aggregate data from
-            multiple sources, normalize the data into a standard format, and store it in a
+            By sending data to an IoT SiteWise Asset, you can aggregate data from 
+            multiple sources, normalize the data into a standard format, and store it in a 
             centralized location. This makes it easier to analyze and gain insights from the data.
-
+                        
             In this example, we generate sample temperature and humidity data and send it to the AWS IoT SiteWise asset.
-
+                        
             """);
         waitForInputToContinue(scanner);
         try {
@@ -198,10 +195,10 @@ public class SitewiseScenario {
         logger.info(DASHES);
         logger.info("5. Retrieve the value of the IoT SiteWise Asset property");
         logger.info("""
-            IoT SiteWise is an AWS service that allows you to collect, process, and analyze industrial data
-            from connected equipment and sensors. One of the key benefits of reading an IoT SiteWise property
+            IoT SiteWise is an AWS service that allows you to collect, process, and analyze industrial data 
+            from connected equipment and sensors. One of the key benefits of reading an IoT SiteWise property 
             is the ability to gain valuable insights from your industrial data.
-
+                       
             """);
         waitForInputToContinue(scanner);
         try {
@@ -230,11 +227,11 @@ public class SitewiseScenario {
         logger.info("6. Create an IoT SiteWise Gateway");
         logger.info(
             """
-                IoT SiteWise Gateway serves as the bridge between industrial equipment, sensors, and the
-                cloud-based IoT SiteWise service. It is responsible for securely collecting, processing, and
-                transmitting data from various industrial assets to the IoT SiteWise platform,
+                IoT SiteWise Gateway serves as the bridge between industrial equipment, sensors, and the 
+                cloud-based IoT SiteWise service. It is responsible for securely collecting, processing, and 
+                transmitting data from various industrial assets to the IoT SiteWise platform, 
                 enabling real-time monitoring, analysis, and optimization of industrial operations.
-
+                     
                 """);
         waitForInputToContinue(scanner);
         String gatewayId = "";
@@ -280,8 +277,8 @@ public class SitewiseScenario {
         logger.info("8. Delete the AWS IoT SiteWise Assets");
         logger.info(
             """
-            Before you can delete the Asset Model, you must delete the assets.
-
+            Before you can delete the Asset Model, you must delete the assets.  
+     
             """);
         logger.info("Would you like to delete the IoT SiteWise Assets? (y/n)");
         String delAns = scanner.nextLine().trim();
@@ -369,11 +366,8 @@ public class SitewiseScenario {
         logger.info("Countdown complete!");
     }
 }
-
-
 ```
-
-A wrapper class for AWS IoT SiteWise SDK methods.
+A wrapper class for AWS IoT SiteWise SDK methods.  
 
 ```
 public class SitewiseActions {
@@ -779,34 +773,26 @@ public class SitewiseActions {
         return data;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue)
+  + [CreateAsset](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset)
+  + [CreateAssetModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel)
+  + [CreateGateway](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateGateway)
+  + [DeleteAsset](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset)
+  + [DeleteAssetModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAssetModel)
+  + [DeleteGateway](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteGateway)
+  + [DescribeAssetModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel)
+  + [DescribeGateway](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeGateway)
+  + [GetAssetPropertyValue](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue)
+  + [ListAssetModelProperties](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModelProperties)
+  + [ListAssetModels](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [BatchPutAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
-  - [CreateAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md")
-  - [CreateAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md")
-  - [CreateGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateGateway.md")
-  - [DeleteAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAsset.md")
-  - [DeleteAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteAssetModel.md")
-  - [DeleteGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DeleteGateway.md")
-  - [DescribeAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeAssetModel.md")
-  - [DescribeGateway](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeGateway.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/DescribeGateway.md")
-  - [GetAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
-  - [ListAssetModelProperties](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModelProperties.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModelProperties.md")
-  - [ListAssetModels](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -934,7 +920,7 @@ const displayCreateAWSSiteWiseAssetModel = new ScenarioOutput(
   "displayCreateAWSSiteWiseAssetModel",
   `1. Create an AWS SiteWise Asset Model
 An AWS IoT SiteWise Asset Model is a way to represent the physical assets, such as equipment, processes, and systems, that exist in an industrial environment. This model provides a structured and hierarchical representation of these assets, allowing users to define the relationships and properties of each asset.
-
+         
 This scenario creates two asset model properties: temperature and humidity.`,
 );
 
@@ -1312,7 +1298,7 @@ const sdkDescribeIoTSiteWiseGateway = new ScenarioAction(
 const askToDeleteResources = new ScenarioInput(
   "askToDeleteResources",
   `10. Delete the AWS IoT SiteWise Assets
-
+  
 Before you can delete the Asset Model, you must delete the assets.`,
   { type: "confirm" },
 );
@@ -1498,37 +1484,27 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   });
   main({ confirmAll: values.yes });
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand)
+  + [CreateAsset](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand)
+  + [CreateAssetModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand)
+  + [CreateGateway](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateGatewayCommand)
+  + [DeleteAsset](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand)
+  + [DeleteAssetModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetModelCommand)
+  + [DeleteGateway](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteGatewayCommand)
+  + [DescribeAssetModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand)
+  + [DescribeGateway](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeGatewayCommand)
+  + [GetAssetPropertyValue](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand)
+  + [ListAssetModelProperties](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelPropertiesCommand)
+  + [ListAssetModels](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [BatchPutAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md")
-  - [CreateAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md")
-  - [CreateAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md")
-  - [CreateGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateGatewayCommand.md")
-  - [DeleteAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetCommand.md")
-  - [DeleteAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteAssetModelCommand.md")
-  - [DeleteGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteGatewayCommand.md")
-  - [DescribeAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeAssetModelCommand.md")
-  - [DescribeGateway](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeGatewayCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeGatewayCommand.md")
-  - [GetAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/GetAssetPropertyValueCommand.md")
-  - [ListAssetModelProperties](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelPropertiesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelPropertiesCommand.md")
-  - [ListAssetModels](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class IoTSitewiseGettingStarted:
@@ -1656,7 +1632,7 @@ This scenario creates two asset model values: temperature and humidity.
             """
 The IoT SiteWise model that we just created defines the structure and metadata for your physical assets.
 Now we create an asset from the asset model.
-
+        
         """
         )
         press_enter_to_continue()
@@ -1736,7 +1712,7 @@ In this example, we generate sample temperature and humidity data and send it to
 IoT SiteWise is an AWS service that allows you to collect, process, and analyze industrial data
 from connected equipment and sensors. One of the key benefits of reading an IoT SiteWise property
 is the ability to gain valuable insights from your industrial data.
-
+        
         """
         )
         press_enter_to_continue()
@@ -1920,13 +1896,8 @@ In this step, we get a description of the portal and display the portal URL.
                 model_id = asset_model["id"]
                 break
         return model_id
-
-
-
-
 ```
-
-IoTSitewiseWrapper class that wraps AWS IoT SiteWise actions.
+IoTSitewiseWrapper class that wraps AWS IoT SiteWise actions.  
 
 ```
 class IoTSitewiseWrapper:
@@ -2351,27 +2322,21 @@ class IoTSitewiseWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue)
+  + [CreateAsset](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/CreateAsset)
+  + [CreateAssetModel](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/CreateAssetModel)
+  + [CreateGateway](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/CreateGateway)
+  + [DeleteAsset](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DeleteAsset)
+  + [DeleteAssetModel](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel)
+  + [DeleteGateway](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DeleteGateway)
+  + [DescribeAssetModel](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DescribeAssetModel)
+  + [DescribeGateway](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/DescribeGateway)
+  + [GetAssetPropertyValue](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue)
+  + [ListAssetModelProperties](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/ListAssetModelProperties)
+  + [ListAssetModels](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/ListAssetModels)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [BatchPutAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
-  - [CreateAsset](../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md")
-  - [CreateAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md")
-  - [CreateGateway](../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md")
-  - [DeleteAsset](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAsset.md")
-  - [DeleteAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md")
-  - [DeleteGateway](../../../goto/boto3/iotsitewise-2019-12-02/DeleteGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteGateway.md")
-  - [DescribeAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/DescribeAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/DescribeAssetModel.md")
-  - [DescribeGateway](../../../goto/boto3/iotsitewise-2019-12-02/DescribeGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/DescribeGateway.md")
-  - [GetAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/GetAssetPropertyValue.md")
-  - [ListAssetModelProperties](../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModelProperties.md "../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModelProperties.md")
-  - [ListAssetModels](../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

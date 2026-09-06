@@ -1,16 +1,15 @@
+
+
 # Hello AWS IoT SiteWise
+<a name="example_iotsitewise_Hello_section"></a>
 
 The following code examples show how to get started using AWS IoT SiteWise.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iotsitewise#code-examples). 
 
 ```
 public class HelloSitewise {
@@ -40,23 +39,14 @@ public class HelloSitewise {
         future.join();
     }
 }
-
-
 ```
++  For API details, see [ListAssetModels](https://docs.aws.amazon.com/goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListAssetModels](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/ListAssetModels.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iotsitewise#code-examples). 
 
 ```
 import {
@@ -91,23 +81,14 @@ import { fileURLToPath } from "node:url";
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }
-
-
 ```
++  For API details, see [ListAssetModels](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListAssetModels](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListAssetModelsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iotsitewise#code-examples). 
 
 ```
 import boto3
@@ -139,23 +120,14 @@ def hello_iot_sitewise(iot_sitewise_client):
 
 if __name__ == "__main__":
     hello_iot_sitewise(boto3.client("iotsitewise"))
-
-
 ```
++  For API details, see [ListAssetModels](https://docs.aws.amazon.com/goto/boto3/iotsitewise-2019-12-02/ListAssetModels) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListAssetModels](../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md "../../../goto/boto3/iotsitewise-2019-12-02/ListAssetModels.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples). 
 
 ```
     TRY.
@@ -165,14 +137,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rt_generic.
         MESSAGE 'Unable to list asset models.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListAssetModels](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListAssetModels](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

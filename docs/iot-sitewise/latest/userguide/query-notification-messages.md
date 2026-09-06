@@ -1,4 +1,7 @@
+
+
 # Query asset property notifications in AWS IoT SiteWise
+<a name="query-notification-messages"></a>
 
 To query asset property notifications, create AWS IoT Core rules made up of SQL statements.
 
@@ -8,23 +11,23 @@ AWS IoT SiteWise publishes asset property data updates to AWS IoT Core in the fo
 {
   "type": "PropertyValueUpdate",
   "payload": {
-    "assetId": "`String`",
-    "propertyId": "`String`",
+    "assetId": "{{String}}",
+    "propertyId": "{{String}}",
     "values": [
       {
         "timestamp": {
-          "timeInSeconds": `Number`,
-          "offsetInNanos": `Number`
+          "timeInSeconds": {{Number}},
+          "offsetInNanos": {{Number}}
         },
-        "quality": "`String`",
+        "quality": "{{String}}",
         "value": {
-          "booleanValue": `Boolean`,
-          "doubleValue": `Number`,
-          "integerValue": `Number`,
-          "stringValue": "`String`",
+          "booleanValue": {{Boolean}},
+          "doubleValue": {{Number}},
+          "integerValue": {{Number}},
+          "stringValue": "{{String}}",
           "nullValue": {
-            "valueType": "`String`
-            }
+            "valueType": "{{String}}
+            }           
         }
       }
     ]
@@ -32,51 +35,36 @@ AWS IoT SiteWise publishes asset property data updates to AWS IoT Core in the fo
 }
 ```
 
-Each structure in the `values` list is a timestamp-quality-value (TQV)
-structure.
+Each structure in the `values` list is a timestamp-quality-value (TQV) structure.
++ The `timestamp` contains the current Unix epoch time in seconds with nanosecond offset.
++ The `quality` contains one of the following strings that indicate the quality of the data point:
+  + `GOOD` – The data isn't affected by any issues.
+  + `BAD` – The data is affected by an issue such as sensor failure.
+  + `UNCERTAIN` – The data is affected by an issue such as sensor inaccuracy.
++ The `value` contains one of the following fields, depending on the type of the property:
+  + `booleanValue`
+  + `doubleValue`
+  + `integerValue`
+  + `stringValue`
+  + `nullValue`
 
-- The `timestamp` contains the current Unix epoch time in seconds
-  with nanosecond offset.
-- The `quality` contains one of the following strings that indicate the quality
-  of the data point:
+`nullValue` – A structure with the following field denoting the type of the property value with value Null and quality of `BAD` or `UNCERTAIN`.
++ `valueType` – Enum of {"B", "D", "S", "I"}
 
-  - `GOOD` – The data isn't affected by any issues.
-  - `BAD` – The data is affected by an issue such as sensor
-    failure.
-  - `UNCERTAIN` – The data is affected by an issue such as sensor
-    inaccuracy.
+To parse values out of the `values` array, you need to use complex nested object queries in your rules' SQL statements. For more information, see [Nested object queries](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-nested-queries.html) in the *AWS IoT Developer Guide*, or see the [Publish property value updates to Amazon DynamoDB](publish-to-amazon-dynamodb.md) tutorial for a specific example of parsing asset property notification messages.
 
-- The `value` contains one of the following fields, depending on the type of the property:
-
-  - `booleanValue`
-  - `doubleValue`
-  - `integerValue`
-  - `stringValue`
-  - `nullValue`
-    `nullValue` – A structure with the following field denoting the
-    type of the property value with value Null and quality of `BAD` or `UNCERTAIN`.
-
-- `valueType` – Enum of {"B", "D", "S", "I"}
-  To parse values out of the `values` array, you need to use complex nested
-  object queries in your rules' SQL statements. For more information, see [Nested object queries](../../../iot/latest/developerguide/iot-sql-nested-queries.md "../../../iot/latest/developerguide/iot-sql-nested-queries.md") in the
-  _AWS IoT Developer Guide_, or see the [Publish property value updates to Amazon DynamoDB](publish-to-amazon-dynamodb.md "publish-to-amazon-dynamodb.md")
-  tutorial for a specific example of parsing asset property notification messages.
-
-###### Example query to extract the array of values
-
-The following statement demonstrates how to query the array of updated property values
-for a specific double-type property on all assets with that property.
+**Example query to extract the array of values**  
+The following statement demonstrates how to query the array of updated property values for a specific double-type property on all assets with that property.  
 
 ```
 SELECT
   (SELECT VALUE (value.doubleValue) FROM payload.values) AS windspeed
 FROM
-  '$aws/sitewise/asset-models/`a1b2c3d4-5678-90ab-cdef-11111EXAMPLE`/assets/+/properties/`a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`'
+  '$aws/sitewise/asset-models/{{a1b2c3d4-5678-90ab-cdef-11111EXAMPLE}}/assets/+/properties/{{a1b2c3d4-5678-90ab-cdef-33333EXAMPLE}}' 
 WHERE
   type = 'PropertyValueUpdate'
 ```
-
-The previous rule query statement outputs data in the following format.
+The previous rule query statement outputs data in the following format.  
 
 ```
 {
@@ -95,16 +83,14 @@ The previous rule query statement outputs data in the following format.
 }
 ```
 
-###### Example query to extract a single value
-
-The following statement demonstrates how to query the first value from the array of
-property values for a specific double-type property on all assets with that property.
+**Example query to extract a single value**  
+The following statement demonstrates how to query the first value from the array of property values for a specific double-type property on all assets with that property.  
 
 ```
 SELECT
   get((SELECT VALUE (value.doubleValue) FROM payload.values), 0) AS windspeed
 FROM
-  '$aws/sitewise/asset-models/`a1b2c3d4-5678-90ab-cdef-11111EXAMPLE`/assets/+/properties/`a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`'
+  '$aws/sitewise/asset-models/{{a1b2c3d4-5678-90ab-cdef-11111EXAMPLE}}/assets/+/properties/{{a1b2c3d4-5678-90ab-cdef-33333EXAMPLE}}' 
 WHERE
   type = 'PropertyValueUpdate'
 ```
@@ -117,11 +103,5 @@ The previous rule query statement outputs data in the following format.
 }
 ```
 
-###### Important
-
-This rule query statement ignores value updates other than the first in each batch. Each
-batch can contain up to 10 values. If you need to include the remaining values, you must set
-up a more complex solution to output asset property values to other services. For example,
-you can set up a rule with an AWS Lambda action to republish each value in the array to
-another topic, and set up another rule to query that topic and publish each value to the
-desired rule action.
+**Important**  
+This rule query statement ignores value updates other than the first in each batch. Each batch can contain up to 10 values. If you need to include the remaining values, you must set up a more complex solution to output asset property values to other services. For example, you can set up a rule with an AWS Lambda action to republish each value in the array to another topic, and set up another rule to query that topic and publish each value to the desired rule action.

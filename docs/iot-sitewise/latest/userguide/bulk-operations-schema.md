@@ -1,7 +1,9 @@
-# AWS IoT SiteWise metadata transfer job schema
 
-Use the AWS IoT SiteWise metadata transfer job schema for reference when performing your own bulk import and export
-operations:
+
+# AWS IoT SiteWise metadata transfer job schema
+<a name="bulk-operations-schema"></a>
+
+Use the AWS IoT SiteWise metadata transfer job schema for reference when performing your own bulk import and export operations:
 
 ```
 {

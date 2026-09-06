@@ -1,17 +1,20 @@
+
+
 # CreateBulkImportJob for Scenario Discovery
+<a name="sd-bulk-import"></a>
 
 ## Prerequisites
+<a name="sd-bulk-import-prereqs"></a>
 
 ### Source and error-report S3 buckets
+<a name="sd-bulk-import-s3-buckets"></a>
 
-You need an S3 location holding the data files to ingest, and an S3 URI
-where per-file error reports are written. The source and error-report locations can share
-a bucket.
+You need an S3 location holding the data files to ingest, and an S3 URI where per-file error reports are written. The source and error-report locations can share a bucket.
 
 ### The IAM role that AWS IoT SiteWise assumes (jobRoleArn)
+<a name="sd-bulk-import-job-role"></a>
 
-Pass this role to AWS IoT SiteWise through the `jobRoleArn` parameter. AWS IoT SiteWise assumes
-it to read your source objects and write error reports.
+Pass this role to AWS IoT SiteWise through the `jobRoleArn` parameter. AWS IoT SiteWise assumes it to read your source objects and write error reports.
 
 Trust policy — allow `iotsitewise.amazonaws.com` to assume the role:
 
@@ -52,9 +55,9 @@ Permission policy — grant AWS IoT SiteWise S3 access:
 ```
 
 ### The caller's IAM role and permissions
+<a name="sd-bulk-import-caller-role"></a>
 
-Your calling identity (user, role, or task role) needs permission to invoke the API
-and pass the role from the preceding section to AWS IoT SiteWise.
+Your calling identity (user, role, or task role) needs permission to invoke the API and pass the role from the preceding section to AWS IoT SiteWise.
 
 Minimal caller permission policy:
 
@@ -101,13 +104,9 @@ Minimal caller permission policy:
 }
 ```
 
-The `PassRoleToSiteWise` statement makes it safe for you to hand
-`jobRoleArn` to AWS IoT SiteWise. Without `iam:PassRole` (and the
-`iam:PassedToService` condition), `CreateBulkImportJob` fails with
-an authorization error.
+The `PassRoleToSiteWise` statement makes it safe for you to hand `jobRoleArn` to AWS IoT SiteWise. Without `iam:PassRole` (and the `iam:PassedToService` condition), `CreateBulkImportJob` fails with an authorization error.
 
-If your caller is an application role, pair the policy with this trust policy so an
-EC2, ECS, or Lambda workload can assume it:
+If your caller is an application role, pair the policy with this trust policy so an EC2, ECS, or Lambda workload can assume it:
 
 ```
 {
@@ -131,70 +130,80 @@ EC2, ECS, or Lambda workload can assume it:
 Trim the Service list to only the workload type that actually runs your code.
 
 ## Aliases
+<a name="sd-bulk-import-aliases"></a>
 
-Aliases identify the physical or logical source of data. Using them consistently
-enables Scenario Discovery to correlate video, telemetry, and annotations from the same
-event.
+Aliases identify the physical or logical source of data. Using them consistently enables Scenario Discovery to correlate video, telemetry, and annotations from the same event.
 
 ### MP4 video
+<a name="sd-bulk-import-alias-mp4"></a>
 
 Alias identifies the vehicle and camera: `/car_120/front_left_camera/`
 
 Set through the `File.alias` request field.
 
 ### Parquet telemetry
+<a name="sd-bulk-import-alias-parquet"></a>
 
 Aliases are per-row, not per-file. Your Parquet file must contain these columns:
 
-| Column         | Notes                                                                           |
-| -------------- | ------------------------------------------------------------------------------- |
-| `timestamp_ns` | Nanoseconds since Unix epoch                                                    |
-| `alias`        | Property alias for this telemetry point (for example,<br>`/car_120/speed/kph/`) |
-| `value`        | Scalar value, encoded as string                                                 |
-| `data_type`    | One of: BOOLEAN, INTEGER, DOUBLE, TIMESTAMP, STRING                             |
+
+| Column | Notes | 
+| --- | --- | 
+| timestamp\_ns | Nanoseconds since Unix epoch | 
+| alias | Property alias for this telemetry point (for example, /car\_120/speed/kph/) | 
+| value | Scalar value, encoded as string | 
+| data\_type | One of: BOOLEAN, INTEGER, DOUBLE, TIMESTAMP, STRING | 
 
 Do not set `File.alias` for Parquet telemetry imports.
 
 ### Annotation (OpenLABEL subset)
+<a name="sd-bulk-import-alias-annotation"></a>
 
 Alias identifies the vehicle: `/car_120/annotations/`
 
 Set through the `File.alias` request field.
 
 ## Request shape
+<a name="sd-bulk-import-request-shape"></a>
 
 ### Required top-level parameters (Scenario Discovery)
+<a name="sd-bulk-import-required-params"></a>
 
-| Parameter             | Type      | Notes                                                                         |
-| --------------------- | --------- | ----------------------------------------------------------------------------- |
-| `jobName`             | string    | 1–256 chars, unique per account/region                                        |
-| `jobRoleArn`          | string    | IAM role ARN from the prerequisites section                                   |
-| `files`               | list      | List of File objects (at least one)                                           |
-| `errorReportLocation` | structure | Object containing `s3Uri` (string, S3 URI where error reports are<br>written) |
-| `datasetId`           | string    | ID of the Scenario Discovery dataset                                          |
-| `workspaceName`       | string    | Name of the Scenario Discovery workspace (1–64 chars,<br>`^[a-zA-Z0-9_-]+$`)  |
+
+| Parameter | Type | Notes | 
+| --- | --- | --- | 
+| jobName | string | 1–256 chars, unique per account/region | 
+| jobRoleArn | string | IAM role ARN from the prerequisites section | 
+| files | list | List of File objects (at least one) | 
+| errorReportLocation | structure | Object containing s3Uri (string, S3 URI where error reports are written) | 
+| datasetId | string | ID of the Scenario Discovery dataset | 
+| workspaceName | string | Name of the Scenario Discovery workspace (1–64 chars, ^[a-zA-Z0-9\_-]\+$) | 
 
 ### Optional top-level parameters
+<a name="sd-bulk-import-optional-params"></a>
 
-| Parameter                | Type    | Notes                                                                  |
-| ------------------------ | ------- | ---------------------------------------------------------------------- |
-| `adaptiveIngestion`      | boolean | Must always be `false` for Scenario Discovery                          |
-| `deleteFilesAfterImport` | boolean | If `true`, source S3 objects are deleted after successful<br>ingestion |
+
+| Parameter | Type | Notes | 
+| --- | --- | --- | 
+| adaptiveIngestion | boolean | Must always be false for Scenario Discovery | 
+| deleteFilesAfterImport | boolean | If true, source S3 objects are deleted after successful ingestion | 
 
 ### File object
+<a name="sd-bulk-import-file-object"></a>
 
-| Field       | Required                  | Notes                                                                                                        |
-| ----------- | ------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `bucket`    | yes                       | Source S3 bucket name (3–63 chars)                                                                           |
-| `key`       | yes                       | Object key                                                                                                   |
-| `versionId` | no                        | Specific S3 object version                                                                                   |
-| `alias`     | required (MP4/annotation) | File-level property alias (max 2048 chars)                                                                   |
-| `startTime` | required for MP4          | Anchors the file's data to wall-clock time. Uses nanos format:<br>`{"timeInSeconds": N, "offsetInNanos": N}` |
+
+| Field | Required | Notes | 
+| --- | --- | --- | 
+| bucket | yes | Source S3 bucket name (3–63 chars) | 
+| key | yes | Object key | 
+| versionId | no | Specific S3 object version | 
+| alias | required (MP4/annotation) | File-level property alias (max 2048 chars) | 
+| startTime | required for MP4 | Anchors the file's data to wall-clock time. Uses nanos format: {"timeInSeconds": N, "offsetInNanos": N} | 
 
 ### JobConfiguration.fileFormat
+<a name="sd-bulk-import-file-format"></a>
 
-Exactly one of `mp4`, `parquet`, or
-`annotation`:
+Exactly one of `mp4`, `parquet`, or `annotation`:
 
 ```
 { "fileFormat": { "mp4": {} } }
@@ -202,13 +211,10 @@ Exactly one of `mp4`, `parquet`, or
 { "fileFormat": { "annotation": {} } }
 ```
 
-For mixed jobs that import multiple file types in a single request, each file object
-can specify its own `fileFormat` field. When a file-level
-`fileFormat` is present, it overrides the job-level
-`jobConfiguration.fileFormat` for that file. This enables you to import MP4
-video, Parquet telemetry, and annotation files in a single bulk import job.
+For mixed jobs that import multiple file types in a single request, each file object can specify its own `fileFormat` field. When a file-level `fileFormat` is present, it overrides the job-level `jobConfiguration.fileFormat` for that file. This enables you to import MP4 video, Parquet telemetry, and annotation files in a single bulk import job.
 
 ### Response
+<a name="sd-bulk-import-response"></a>
 
 ```
 {
@@ -221,8 +227,10 @@ video, Parquet telemetry, and annotation files in a single bulk import job.
 HTTP status on success: 202 Accepted.
 
 ## Example request payloads
+<a name="sd-bulk-import-examples"></a>
 
 ### MP4 video
+<a name="sd-bulk-import-example-mp4"></a>
 
 ```
 {
@@ -250,6 +258,7 @@ HTTP status on success: 202 Accepted.
 ```
 
 ### Parquet telemetry
+<a name="sd-bulk-import-example-parquet"></a>
 
 ```
 {
@@ -278,10 +287,10 @@ HTTP status on success: 202 Accepted.
 }
 ```
 
-Each row in the Parquet file contains: timestamp\_ns (nanoseconds), alias, value, and
-data\_type.
+Each row in the Parquet file contains: timestamp\_ns (nanoseconds), alias, value, and data\_type.
 
 ### Annotation (OpenLABEL subset)
+<a name="sd-bulk-import-example-annotation"></a>
 
 ```
 {
@@ -308,6 +317,7 @@ data\_type.
 ```
 
 ## AWS CLI — CreateBulkImportJob
+<a name="sd-bulk-import-cli"></a>
 
 Command (using an input file):
 
@@ -334,18 +344,16 @@ aws iotsitewise create-bulk-import-job \
 ```
 
 CLI-only flags:
-
-- `--region <name>` (or `AWS_REGION` env var) —
-  required
-- `--profile <name>` — selects a named profile from
-  `~/.aws/config`
-- `--cli-input-json file://...` — read the entire request body from a JSON
-  file
-- `--generate-cli-skeleton` — print a blank request template
++ `--region <name>` (or `AWS_REGION` env var) — required
++ `--profile <name>` — selects a named profile from `~/.aws/config`
++ `--cli-input-json file://...` — read the entire request body from a JSON file
++ `--generate-cli-skeleton` — print a blank request template
 
 ## boto3 (Python) — CreateBulkImportJob
+<a name="sd-bulk-import-boto3"></a>
 
 ### Code — MP4
+<a name="sd-bulk-import-boto3-mp4"></a>
 
 ```
 import boto3
@@ -379,6 +387,7 @@ print(response["jobId"], response["jobStatus"])
 ```
 
 ### Code — Parquet telemetry
+<a name="sd-bulk-import-boto3-parquet"></a>
 
 ```
 response = client.create_bulk_import_job(
@@ -399,6 +408,7 @@ response = client.create_bulk_import_job(
 ```
 
 ### Code — Annotation
+<a name="sd-bulk-import-boto3-annotation"></a>
 
 ```
 response = client.create_bulk_import_job(
@@ -422,43 +432,41 @@ response = client.create_bulk_import_job(
 ```
 
 ### boto3-specific notes
-
-- `region_name` — required, passed to `boto3.client()` or set
-  through `AWS_REGION` / `AWS_DEFAULT_REGION`
-- Credentials resolve through the standard boto3 chain (env vars,
-  `~/.aws/credentials`, instance/task role, SSO)
-- All request parameters use camelCase names matching the API model
-- Wrap calls in `try / except botocore.exceptions.ClientError` to handle:
-  `InvalidRequestException`, `ResourceAlreadyExistsException`,
-  `ResourceNotFoundException`, `InternalFailureException`,
-  `ThrottlingException`, `LimitExceededException`,
-  `ConflictingOperationException`
+<a name="sd-bulk-import-boto3-notes"></a>
++ `region_name` — required, passed to `boto3.client()` or set through `AWS_REGION` / `AWS_DEFAULT_REGION`
++ Credentials resolve through the standard boto3 chain (env vars, `~/.aws/credentials`, instance/task role, SSO)
++ All request parameters use camelCase names matching the API model
++ Wrap calls in `try / except botocore.exceptions.ClientError` to handle: `InvalidRequestException`, `ResourceAlreadyExistsException`, `ResourceNotFoundException`, `InternalFailureException`, `ThrottlingException`, `LimitExceededException`, `ConflictingOperationException`
 
 ## curl (raw HTTPS) — CreateBulkImportJob
+<a name="sd-bulk-import-curl"></a>
 
-`CreateBulkImportJob` is `POST /jobs` on the AWS IoT SiteWise data plane
-endpoint. Every request must be signed with AWS Signature Version 4 (SigV4).
+`CreateBulkImportJob` is `POST /jobs` on the AWS IoT SiteWise data plane endpoint. Every request must be signed with AWS Signature Version 4 (SigV4).
 
 ### Endpoint
+<a name="sd-bulk-import-curl-endpoint"></a>
 
 ```
 https://data.iotsitewise.<region>.amazonaws.com/jobs
 ```
 
 ### HTTP required elements
+<a name="sd-bulk-import-curl-http"></a>
 
-| Element              | Value                                                   |
-| -------------------- | ------------------------------------------------------- |
-| Method               | POST                                                    |
-| Path                 | `/jobs`                                                 |
-| Host header          | `data.iotsitewise.<region>.amazonaws.com`               |
-| Content-Type header  | `application/json`                                      |
-| X-Amz-Date header    | ISO 8601 basic format (for example, `20260714T170000Z`) |
-| X-Amz-Security-Token | Required only with temporary credentials (STS)          |
-| Authorization header | SigV4 signature (service = iotsitewise)                 |
-| Body                 | The JSON request payload                                |
+
+| Element | Value | 
+| --- | --- | 
+| Method | POST | 
+| Path | /jobs | 
+| Host header | data.iotsitewise.<region>.amazonaws.com | 
+| Content-Type header | application/json | 
+| X-Amz-Date header | ISO 8601 basic format (for example, 20260714T170000Z) | 
+| X-Amz-Security-Token | Required only with temporary credentials (STS) | 
+| Authorization header | SigV4 signature (service = iotsitewise) | 
+| Body | The JSON request payload | 
 
 ### Recommended: awscurl
+<a name="sd-bulk-import-curl-awscurl"></a>
 
 ```
 awscurl \
@@ -471,6 +479,7 @@ awscurl \
 ```
 
 ### Plain curl — pre-signed request skeleton
+<a name="sd-bulk-import-curl-plain"></a>
 
 ```
 curl -v -X POST \
@@ -486,10 +495,10 @@ Signature=<COMPUTED_HEX_SIGNATURE>" \
     --data-binary @bulk-import-request.json
 ```
 
-See the AWS documentation on Signing AWS API requests for the full SigV4
-derivation.
+See the AWS documentation on Signing AWS API requests for the full SigV4 derivation.
 
 ## Verifying the job
+<a name="sd-bulk-import-verify"></a>
 
 ```
 aws iotsitewise describe-bulk-import-job \
@@ -497,8 +506,4 @@ aws iotsitewise describe-bulk-import-job \
     --job-id d1e2f3a4-5678-90ab-cdef-1234567890ab
 ```
 
-The `jobStatus` progresses: `PENDING` → `RUNNING` →
-one of `COMPLETED`, `COMPLETED_WITH_FAILURES`, or
-`FAILED`. When the terminal state is `COMPLETED_WITH_FAILURES` or
-`FAILED`, inspect the error report objects at the S3 URI specified in
-`errorReportLocation.s3Uri`.
+The `jobStatus` progresses: `PENDING` → `RUNNING` → one of `COMPLETED`, `COMPLETED_WITH_FAILURES`, or `FAILED`. When the terminal state is `COMPLETED_WITH_FAILURES` or `FAILED`, inspect the error report objects at the S3 URI specified in `errorReportLocation.s3Uri`.

@@ -1,89 +1,57 @@
+
+
 # Create dashboards with AWS CLI
+<a name="create-dashboards-ai-dashboard-cli"></a>
 
-###### Note
+**Note**  
+The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html).
 
-The SiteWise Monitor feature is no longer available to new customers. Existing customers can continue to use the service as normal. For more information, see
-[SiteWise Monitor availability change](../appguide/iotsitewise-monitor-availability-change.md "../appguide/iotsitewise-monitor-availability-change.md").
+When you define visualizations (or widgets) in dashboards using the AWS CLI, you must specify the following information in the `dashboardDefinition` JSON document. This definition is a parameter of the [CreateDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateDashboard.html) and [UpdateDashboard](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateDashboard.html) operations.
 
-When you define visualizations (or widgets) in dashboards using the AWS CLI, you must
-specify the following information in the `dashboardDefinition` JSON document. This
-definition is a parameter of the [CreateDashboard](../APIReference/API_CreateDashboard.md "../APIReference/API_CreateDashboard.md") and [UpdateDashboard](../APIReference/API_UpdateDashboard.md "../APIReference/API_UpdateDashboard.md") operations.
+`displaySettings`  
+The display settings with the following parameters:  
++ `numRows` – Number of rows in the dashboard layout. Each row is **cellSize** wide.
++ `numColumbs` – Number of columns in the dashboard layout. Each column is **cellSize** wide.
++ `cellSize` – (Optional) The size of a cell in the layout in pixels. It must be a positive number. Default is 10.
++ `significantDigits` – (Optional) Number of significan digits to display in the dashboard. Default is 4.
 
-`displaySettings`
+`querySettings`  
+The query information with the following parameter:  
++ `refreshRate` – (Optional) The rate at which data refreshes in milliseconds. Accepts the following values - 1000, 5000, 10000, 60000, 300000.
 
-The display settings with the following parameters:
+`defaultViewport`  
+If not supplied, defaults to the last five minutes. Contains the following parameters:  
++ `duration` – (Optional) Determines how far into the past to query data starting from the present time.
++ `start` – (Optional) It is of type Date. The start time range to query data. Needs an `end` date specified.
++ `end` – (Optional) It is of type Date. The end time range to query data. Needs an `start` date specified.
 
-- `numRows` – Number of rows in the dashboard layout. Each row is **cellSize** wide.
-- `numColumbs` – Number of columns in the dashboard layout. Each column is **cellSize** wide.
-- `cellSize` – (Optional) The size of a cell in the layout in pixels. It must be a positive number. Default is 10.
-- `significantDigits` – (Optional) Number of significan digits to display in the dashboard. Default is 4.
+`widgets`  
+A list of widget definition structures that contain the following information:    
+`type`  
+The type of widget. AWS IoT SiteWise provides the following widget types:  
++ <a name="xy-plot"></a>`xy-plot` – A line chart or a scatter plot depending on the configuration. 
++ <a name="bar-chart"></a>`bar-chart` – A bar chart. 
++ <a name="kpi-chart"></a>`kpi-chart` – A key performance indicator chart. 
++ <a name="status-timeline"></a>`status-timeline` – A status widget that visualizes and navigates time series data from one or more data sources. 
++ <a name="text-widget"></a>`text` – A text widget. 
++ <a name="table-widget"></a>`table` – A table widget.   
+`id`  
+An unique identifier for the widget.  
+`x`  
+The horizontal position of the widget, starting from the left of the dashboard. This value refers to the widget's position in the dashboard's grid.  
+`y`  
+The vertical position of the widget, starting from the top of the dashboard. This value refers to the widget's position in the dashboard's grid.  
+`z`  
+The relative ordering of the widgets. A larger Z value widget is displayed in front of the lower Z value widget, if they overlap.  
+`width`  
+The width of the widget, expressed in number of cells on the dashboard.  
+`height`  
+The height of the widget, expressed in number of cells on the dashboard.  
+`properties`  
+A list of properties of the widget. It varies by the type of widget. See [IoT App Kit](https://awslabs.github.io/iot-app-kit/?path=/docs/components-statustimeline--docs) for details.
 
-`querySettings`
-
-The query information with the following parameter:
-
-- `refreshRate` – (Optional) The rate at which data refreshes in milliseconds. Accepts the following values - 1000, 5000, 10000, 60000, 300000.
-
-`defaultViewport`
-
-If not supplied, defaults to the last five minutes. Contains the following parameters:
-
-- `duration` – (Optional) Determines how far into the past to query data starting from the present time.
-- `start` – (Optional) It is of type Date. The start time range to query data. Needs an `end` date specified.
-- `end` – (Optional) It is of type Date. The end time range to query data. Needs an `start` date specified.
-
-`widgets`
-
-A list of widget definition structures that contain the following
-information:
-
-`type`
-
-The type of widget. AWS IoT SiteWise provides the following widget types:
-
-- `xy-plot` – A line chart or a scatter plot depending on the configuration.
-- `bar-chart` – A bar chart.
-- `kpi-chart` – A key performance indicator chart.
-- `status-timeline` – A status widget that visualizes and navigates
-  time series data from one or more data sources.
-- `text` – A text widget.
-- `table` – A table widget.
-
-`id`
-
-An unique identifier for the widget.
-
-`x`
-
-The horizontal position of the widget, starting from the left of the dashboard.
-This value refers to the widget's position in the dashboard's grid.
-
-`y`
-
-The vertical position of the widget, starting from the top of the dashboard. This
-value refers to the widget's position in the dashboard's grid.
-
-`z`
-
-The relative ordering of the widgets. A larger Z value widget is displayed in front of the lower Z value
-widget, if they overlap.
-
-`width`
-
-The width of the widget, expressed in number of cells on the dashboard.
-
-`height`
-
-The height of the widget, expressed in number of cells on the dashboard.
-
-`properties`
-
-A list of properties of the widget. It varies by the type of widget.
-See [IoT App Kit](https://awslabs.github.io/iot-app-kit/?path=/docs/components-statustimeline--docs "https://awslabs.github.io/iot-app-kit/?path=/docs/components-statustimeline--docs") for details.
-
-###### Example dashboard definition
-
-The following example defines a dashboard from a payload stored in a JSON file.
+**Example dashboard definition**  
+The following example defines a dashboard from a payload stored in a JSON file.  
 
 ```
 aws iotsitewise create-dashboard \
@@ -91,12 +59,9 @@ aws iotsitewise create-dashboard \
   --dashboard-name "Example Dashboard" \
   --dashboard-definition file://dashboard-definition.json
 ```
-
-The following JSON example for `dashboard-definition.json` defines dashboard
-with the following visualization widgets:
+The following JSON example for `dashboard-definition.json` defines dashboard with the following visualization widgets:  
 
 ```
-
 {
     "displaySettings": {
         "numColumns": 200,
@@ -204,5 +169,4 @@ with the following visualization widgets:
         "refreshRate": 5000
     }
 }
-
 ```

@@ -1,51 +1,46 @@
+
+
 # Install the application onto a Siemens device
+<a name="sa-install-app"></a>
 
-After you gain access to the AWS IoT SiteWise Edge application by emailing the SiteWise Edge support team
-for Siemens Industrial Edge, assign the application to an instance of Siemens Industrial Edge Management. Then, you can install
-the AWS IoT SiteWise Edge application on your device.
+After you gain access to the AWS IoT SiteWise Edge application by emailing the SiteWise Edge support team for Siemens Industrial Edge, assign the application to an instance of Siemens Industrial Edge Management. Then, you can install the AWS IoT SiteWise Edge application on your device.
 
-###### To install the AWS IoT SiteWise Edge application
+**To install the AWS IoT SiteWise Edge application**
 
-1. Verify that the Docker digest provided within Siemens Industrial Edge Management matches the
-   latest version listed in the [AWS IoT SiteWise Edge application changelog](sitewise-edge-on-siemens.md#sa-changelog "sitewise-edge-on-siemens.md#sa-changelog").
+1. Verify that the Docker digest provided within Siemens Industrial Edge Management matches the latest version listed in the [AWS IoT SiteWise Edge application changelog](sitewise-edge-on-siemens.md#sa-changelog).
 
-For more information on locating the Docker digest value for Siemens,
-see the [Managing an app](https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_device/operation/management.html#managing-an-app "https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_device/operation/management.html#managing-an-app") in the _Siemens Industrial Edge Device_ of the
-Siemens documentation.
+   For more information on locating the Docker digest value for Siemens, see the [Managing an app](https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_device/operation/management.html#managing-an-app) in the *Siemens Industrial Edge Device* of the Siemens documentation.
 
-Siemens Industrial Edge Management supports one version of the AWS IoT SiteWise Edge application at a time. Take this
-step to ensure that you're using the latest version of the application before installing
-the AWS IoT SiteWise Edge application on your Siemens Industrial Edge device. 2. Assign the **AWS IoT SiteWise Edge** application to Siemens Industrial Edge Management. For more
-information, see [Managing an app](https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_management/how_to_setup_operate/vm/operation/my_installed_apps/managing_an_app.html "https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_management/how_to_setup_operate/vm/operation/my_installed_apps/managing_an_app.html") in the _Industrial Edge Management_ section
-of the Siemens documentation. 3. Within **Edge Management**, browse the catalog for the
-**AWS IoT SiteWise Edge** and choose it. 4. Choose **Install**.
+   Siemens Industrial Edge Management supports one version of the AWS IoT SiteWise Edge application at a time. Take this step to ensure that you're using the latest version of the application before installing the AWS IoT SiteWise Edge application on your Siemens Industrial Edge device.
 
-###### Note
+1. Assign the **AWS IoT SiteWise Edge** application to Siemens Industrial Edge Management. For more information, see [Managing an app](https://docs.eu1.edge.siemens.cloud/get_started_and_operate/industrial_edge_management/how_to_setup_operate/vm/operation/my_installed_apps/managing_an_app.html) in the *Industrial Edge Management* section of the Siemens documentation.
 
-If a **Contact Us** button displays, choose it, and follow the
-steps to request access to the AWS IoT SiteWise Edge application on Siemens Industrial Edge. For more
-information, see [Access the AWS IoT SiteWise Edge application](sa-get-app.md "sa-get-app.md"). 5. Select **Databus\_Configuration** in the Schema Configurations
-options. 6. Enter the **Username** and **Password** for the
-Databus configuration. For more information on creating a Siemens Databus user, see [Create a Siemens Databus user for the application](sa-databus-user.md "sa-databus-user.md"). 7. Choose the small, round gray checkmark icon next to
-**Databus\_Configuration** to turn the icon color green.
+1. Within **Edge Management**, browse the catalog for the **AWS IoT SiteWise Edge** and choose it.
 
-###### Note
+1. Choose **Install**.
+**Note**  
+If a **Contact Us** button displays, choose it, and follow the steps to request access to the AWS IoT SiteWise Edge application on Siemens Industrial Edge. For more information, see [Access the AWS IoT SiteWise Edge application](sa-get-app.md).
 
-The input configurations only apply if the checkmark icon changes from gray to
-green. Otherwise, the input configuration is ignored.
+1. Select **Databus\_Configuration** in the Schema Configurations options.
 
-![A screenshot of the Siemens Databus Configurator screen displaying an unfinished process, with a circled gray checkmark icon.](images/gateway-sa-gray-checkmark.png)
+1. Enter the **Username** and **Password** for the Databus configuration. For more information on creating a Siemens Databus user, see [Create a Siemens Databus user for the application](sa-databus-user.md).
 
-![A screenshot of the Siemens Databus Configurator screen displaying a finished process, with a circled green checkmark icon.](images/gateway-sa-green-checkmark.png) 8. Choose **Next** to move onto **Other
-Configurations** where you can upload your gateway configuration file. 9. Choose **SiteWise\_Edge\_Gateway\_Config** as the location to upload the
-gateway configuration file.
+1. Choose the small, round gray checkmark icon next to **Databus\_Configuration** to turn the icon color green.
+**Note**  
+The input configurations only apply if the checkmark icon changes from gray to green. Otherwise, the input configuration is ignored.  
+![A screenshot of the Siemens Databus Configurator screen displaying an unfinished process, with a circled gray checkmark icon.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-gray-checkmark.png)  
+![A screenshot of the Siemens Databus Configurator screen displaying a finished process, with a circled green checkmark icon.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-green-checkmark.png)
 
-###### Note
+1. Choose **Next** to move onto **Other Configurations** where you can upload your gateway configuration file. 
 
-Ensure that you choose **SiteWise\_Edge\_Gateway\_Config** rather than
-**SiteWise\_Edge\_Support\_Config\_Optional**. 10. Select the device to install the application. 11. Choose **Install now**.
-You can optionally configure the publisher component to export data to the AWS Cloud.
-For more information, see [configure the AWS IoT SiteWise
-publisher component](configure-publisher-component.md "configure-publisher-component.md").
+1. Choose **SiteWise\_Edge\_Gateway\_Config** as the location to upload the gateway configuration file.
+**Note**  
+Ensure that you choose **SiteWise\_Edge\_Gateway\_Config** rather than **SiteWise\_Edge\_Support\_Config\_Optional**.
 
-To configure destinations for your Siemens Industrial Edge gateway, see [Destinations and path filters](gw-destinations.md "gw-destinations.md").
+1. Select the device to install the application. 
+
+1. Choose **Install now**. 
+
+You can optionally configure the publisher component to export data to the AWS Cloud. For more information, see [configure the AWS IoT SiteWise publisher component](configure-publisher-component.md).
+
+To configure destinations for your Siemens Industrial Edge gateway, see [Destinations and path filters](gw-destinations.md).
