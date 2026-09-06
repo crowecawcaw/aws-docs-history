@@ -33,14 +33,15 @@ For more Suricata-specific information, see the [Suricata documentation](https:/
 
 When Network Firewall upgrades to a new major version of Suricata, related changes are tracked here.
 
-Network Firewall upgraded from Suricata version 6.0.9 to 7.0 in November of 2024. For full information about the upgrade from version 6.0.9, see
-[Upgrading 6.0 to 7.0](https://docs.suricata.io/en/latest/upgrade.html#upgrading-6-0-to-7-0 "https://docs.suricata.io/en/latest/upgrade.html#upgrading-6-0-to-7-0").
+Network Firewall upgraded from Suricata version 7.0 to 8.0.3. For full information about the upgrade from version 7.0, see
+[Upgrading 7.0 to 8.0](https://docs.suricata.io/en/latest/upgrade.html#upgrading-7-0-to-8-0 "https://docs.suricata.io/en/latest/upgrade.html#upgrading-7-0-to-8-0") on the Suricata website.
 
 The following are examples of the changes in that upgrade:
 
-- PCRE 1 rule format is no longer supported, and has been replaced with PCRE2.
-- When you specify a sticky buffer in a rule, it needs to be immediately followed by the payload keywords. For example, keywords such as `dns.query` and `tls.sni` must be followed by a content modifier.
-- Keywords that use ranges, such as `itype` now require the range to be specified with the format ``min`:`max``.
+- WebSocket is now identified as its own protocol, separate from HTTP. After an HTTP `Upgrade` to WebSocket completes, the flow is reclassified from `http` to `websocket`.
+- As a result, rules that use `app-layer-protocol:!http` to detect non-HTTP traffic on HTTP ports now match WebSocket traffic. To continue allowing WebSocket connections, add a pass rule that matches the HTTP Upgrade handshake before those rules. For an example, see [Stateful rules examples: allow traffic](suricata-examples.md#suricata-example-allow-rules "suricata-examples.md#suricata-example-allow-rules").
+- You might see an increase in alerts for the same rules, because the stateful engine can trigger TCP stream reassembly earlier.
+- The `stream.checksum-validation` setting no longer affects the checksum rule keywords. For example, `ipv4-csum:valid` now matches only when the checksum is actually valid.
 
 ###### Topics
 

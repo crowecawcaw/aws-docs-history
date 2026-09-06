@@ -10,7 +10,7 @@ The firewall protects the subnets within your VPC by filtering traffic going bet
 subnets and locations outside of your VPC. The following example figure depicts the
 placement of a firewall in a very simple architecture.
 
-![An AWS Region has a VPC in a single Availability Zone with an internet gateway. A VPC spans the Region and contains a Network Firewall firewall subnet and a customer subnet. The firewall subnet is between the customer subnet and an internet gateway and is filtering traffic in both directions.](images/arch-igw-simple.png)
+![An AWS Region has a VPC in a single Availability Zone with an internet gateway. A VPC spans the Region and contains a Network Firewall firewall subnet and a customer subnet. The firewall subnet is between the customer subnet and an internet gateway and is filtering traffic in both directions.](/images/network-firewall/latest/developerguide/images/arch-igw-simple.png)
 To enable the firewall's protection, you modify your Amazon VPC route tables to send your network
 traffic through the Network Firewall firewall endpoints. For information about managing route tables for your VPC, see
 [Route
