@@ -1,21 +1,20 @@
+
+
 # Stage declaration
+<a name="stage-requirements"></a>
 
-The stage level of a pipeline has a basic structure that includes the following
-parameters and syntax. For more information, see the [StageDeclaration](../APIReference/API_StageDeclaration.md "../APIReference/API_StageDeclaration.md") object in the _CodePipeline API
-Guide_.
+The stage level of a pipeline has a basic structure that includes the following parameters and syntax. For more information, see the [StageDeclaration](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StageDeclaration.html) object in the * CodePipeline API Guide*.
 
-The following example shows the stage level of the pipeline structure in both JSON and
-YAML. The example shows two stages named `Source` and `Build`. The
-example contains two conditions, one for `onSuccess` and one for
-`beforeEntry`.
+The following example shows the stage level of the pipeline structure in both JSON and YAML. The example shows two stages named `Source` and `Build`. The example contains two conditions, one for `onSuccess` and one for `beforeEntry`.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 pipeline:
   name: MyPipeline
   roleArn: >-
-    arn:aws:iam::`ACCOUNT_ID`:role/service-role/AWSCodePipelineServiceRole-us-west-2-MyPipeline
+    arn:aws:iam::{{ACCOUNT_ID}}:role/service-role/AWSCodePipelineServiceRole-us-west-2-MyPipeline
   artifactStore:
     type: S3
     location: amzn-s3-demo-bucket
@@ -42,18 +41,19 @@ pipeline:
          ...
   version: 6
 metadata:
-  pipelineArn: 'arn:aws:codepipeline:us-west-2:`ACCOUNT_ID`:MyPipeline'
+  pipelineArn: 'arn:aws:codepipeline:us-west-2:{{ACCOUNT_ID}}:MyPipeline'
   created: '2019-12-12T06:49:02.733000+00:00'
   updated: '2020-09-10T06:34:07.447000+00:00'
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
     "pipeline": {
         "name": "MyPipeline",
-        "roleArn": "arn:aws:iam::`ACCOUNT_ID`:role/service-role/AWSCodePipelineServiceRole-us-west-2-MyPipeline",
+        "roleArn": "arn:aws:iam::{{ACCOUNT_ID}}:role/service-role/AWSCodePipelineServiceRole-us-west-2-MyPipeline",
         "artifactStore": {
             "type": "S3",
             "location": "amzn-s3-demo-bucket"
@@ -104,48 +104,46 @@ JSON
                 }
             }
         ],
-
+            
             }
         ],
         "version": 6
     },
     "metadata": {
-        "pipelineArn": "arn:aws:codepipeline:us-west-2:`ACCOUNT_ID`:MyPipeline",
+        "pipelineArn": "arn:aws:codepipeline:us-west-2:{{ACCOUNT_ID}}:MyPipeline",
         "created": "2019-12-12T06:49:02.733000+00:00",
         "updated": "2020-09-10T06:34:07.447000+00:00"
     }
 }
 ```
 
+------
+
 ## `name`
+<a name="stage.name"></a>
 
 The name of the stage.
 
 ## `actions`
+<a name="stage.actions"></a>
 
-The action level of a pipeline has a basic structure that includes the following
-parameters and syntax. To view parameters and examples, see [Action declaration](action-requirements.md "action-requirements.md").
+The action level of a pipeline has a basic structure that includes the following parameters and syntax. To view parameters and examples, see [Action declaration](action-requirements.md).
 
 ## `conditions`
+<a name="stage.conditions"></a>
 
-Conditions contain one or more rules that are available in a list of rules in
-CodePipeline. If all rules in a condition succeed, then the condition is met. You
-can configure conditions so that when the criteria are not met, the specified result
-engages.
+Conditions contain one or more rules that are available in a list of rules in CodePipeline. If all rules in a condition succeed, then the condition is met. You can configure conditions so that when the criteria are not met, the specified result engages.
 
 You can configure the following types of conditions:
++ `beforeEntry`
++ `onFailure`
++ `onSuccess`
 
-- `beforeEntry`
-- `onFailure`
-- `onSuccess`
-
-For more information and examples, see [Configure conditions for a stage](stage-conditions.md "stage-conditions.md").
+For more information and examples, see [Configure conditions for a stage](stage-conditions.md).
 
 ## `rules`
+<a name="stage.rules"></a>
 
-Each condition has a rule set which is an ordered set of rules that are evaluated
-together. Therefore, if one rule fails in the condition, then the condition fails.
-You can override rule conditions at pipeline runtime.
+Each condition has a rule set which is an ordered set of rules that are evaluated together. Therefore, if one rule fails in the condition, then the condition fails. You can override rule conditions at pipeline runtime.
 
-The available rules are provided in the Rule reference. For more information, see
-the Rule structure reference at [Rule structure reference](rule-reference.md "rule-reference.md").
+The available rules are provided in the Rule reference. For more information, see the Rule structure reference at [Rule structure reference](rule-reference.md).

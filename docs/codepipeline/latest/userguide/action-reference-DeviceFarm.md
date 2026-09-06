@@ -1,251 +1,161 @@
+
+
 # AWS Device Farm test action reference
+<a name="action-reference-DeviceFarm"></a>
 
-In your pipeline, you can configure a test action that uses AWS Device Farm to run and test your
-application on devices. Device Farm uses test pools of devices and testing frameworks to test
-applications on specific devices. For information about the types of testing frameworks
-supported by the Device Farm action, see [Working with
-Test Types in AWS Device Farm](../../../devicefarm/latest/developerguide/test-types.md "../../../devicefarm/latest/developerguide/test-types.md").
+In your pipeline, you can configure a test action that uses AWS Device Farm to run and test your application on devices. Device Farm uses test pools of devices and testing frameworks to test applications on specific devices. For information about the types of testing frameworks supported by the Device Farm action, see [Working with Test Types in AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types.html).
 
-###### Topics
-
-- [Action type](#action-reference-DeviceFarm-type "#action-reference-DeviceFarm-type")
-- [Configuration parameters](#action-reference-DeviceFarm-config "#action-reference-DeviceFarm-config")
-- [Input artifacts](#action-reference-DeviceFarm-input "#action-reference-DeviceFarm-input")
-- [Output artifacts](#action-reference-DeviceFarm-output "#action-reference-DeviceFarm-output")
-- [Service role permissions: AWS Device Farm action](#edit-role-devicefarm "#edit-role-devicefarm")
-- [Action declaration](#action-reference-DeviceFarm-example "#action-reference-DeviceFarm-example")
-- [See also](#action-reference-DeviceFarm-links "#action-reference-DeviceFarm-links")
+**Topics**
++ [Action type](#action-reference-DeviceFarm-type)
++ [Configuration parameters](#action-reference-DeviceFarm-config)
++ [Input artifacts](#action-reference-DeviceFarm-input)
++ [Output artifacts](#action-reference-DeviceFarm-output)
++ [Service role permissions: AWS Device Farm action](#edit-role-devicefarm)
++ [Action declaration](#action-reference-DeviceFarm-example)
++ [See also](#action-reference-DeviceFarm-links)
 
 ## Action type
-
-- Category: `Test`
-- Owner: `AWS`
-- Provider: `DeviceFarm`
-- Version: `1`
+<a name="action-reference-DeviceFarm-type"></a>
++ Category: `Test`
++ Owner: `AWS`
++ Provider: `DeviceFarm`
++ Version: `1`
 
 ## Configuration parameters
+<a name="action-reference-DeviceFarm-config"></a>
 
-**AppType**
+**AppType**  
+Required: Yes  
+The OS and type of application you are testing. The following is a list of valid values:  
++ `iOS`
++ `Android`
++ `Web`
 
-Required: Yes
-
-The OS and type of application you are testing. The following is a list of
-valid values:
-
-- `iOS`
-- `Android`
-- `Web`
-
-**ProjectId**
-
-Required: Yes
-
-The Device Farm project ID.
-
-To find your project ID, in the Device Farm console, choose your project. In the
-browser, copy the URL of your new project. The URL contains the project ID.
-The project ID is the value in the URL after `projects/`. In the
-following example, the project ID is
-`eec4905f-98f8-40aa-9afc-4c1cfexample`.
+**ProjectId**  
+Required: Yes  
+The Device Farm project ID.   
+To find your project ID, in the Device Farm console, choose your project. In the browser, copy the URL of your new project. The URL contains the project ID. The project ID is the value in the URL after `projects/`. In the following example, the project ID is `eec4905f-98f8-40aa-9afc-4c1cfexample`.  
 
 ```
 https://<region-URL>/devicefarm/home?region=us-west-2#/projects/eec4905f-98f8-40aa-9afc-4c1cfexample/runs
 ```
 
-**App**
+**App**  
+Required: Yes  
+The name and location of the application file in your input artifact. For example: `s3-ios-test-1.ipa`
 
-Required: Yes
+**TestSpec**  
+Conditional: Yes  
+The location of the test spec definition file in your input artifact. This is required for custom mode test.
 
-The name and location of the application file in your input artifact. For
-example: `s3-ios-test-1.ipa`
-
-**TestSpec**
-
-Conditional:
-Yes
-
-The
-location of the test spec definition file in your input artifact. This is
-required for custom mode test.
-
-**DevicePoolArn**
-
-Required: Yes
-
-The Device Farm device pool ARN.
-
-To get the available device pool ARNs for the project, including the ARN
-for Top Devices, use the AWS CLI to enter the following command:
+**DevicePoolArn**  
+Required: Yes  
+The Device Farm device pool ARN.   
+To get the available device pool ARNs for the project, including the ARN for Top Devices, use the AWS CLI to enter the following command:   
 
 ```
-aws devicefarm list-device-pools --arn arn:aws:devicefarm:us-west-2:`account_ID`:project:`project_ID`
+aws devicefarm list-device-pools --arn arn:aws:devicefarm:us-west-2:{{account_ID}}:project:{{project_ID}}
 ```
 
-**TestType**
+**TestType**  
+Required: Yes  
+Specifies the supported testing framework for your test. The following is a list of valid values for `TestType`:  
++ **APPIUM\_JAVA\_JUNIT**
++ **APPIUM\_JAVA\_TESTNG**
++ **APPIUM\_NODE**
++ **APPIUM\_RUBY**
++ **APPIUM\_PYTHON**
++ **APPIUM\_WEB\_JAVA\_JUNIT**
++ **APPIUM\_WEB\_JAVA\_TESTNG**
++ **APPIUM\_WEB\_NODE**
++ **APPIUM\_WEB\_RUBY**
++ **APPIUM\_WEB\_PYTHON**
++ **BUILTIN\_FUZZ**
++ **INSTRUMENTATION**
++ **XCTEST**
++ **XCTEST\_UI**
+The following test types are not supported by the action in CodePipeline: `WEB_PERFORMANCE_PROFILE`, `REMOTE_ACCESS_RECORD`, and `REMOTE_ACCESS_REPLAY`.
+For information about Device Farm test types, see [Working with Test Types in AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types.html).
 
-Required: Yes
+**RadioBluetoothEnabled**  
+Required: No  
+A Boolean value that indicates whether to enable Bluetooth at the beginning of the test.
 
-Specifies the supported testing framework for your test. The following is
-a list of valid values for `TestType`:
+**RecordAppPerformanceData**  
+Required: No  
+A Boolean value that indicates whether to record device performance data such as CPU, FPS, and memory performance during the test.
 
-- **APPIUM\_JAVA\_JUNIT**
-- **APPIUM\_JAVA\_TESTNG**
-- **APPIUM\_NODE**
-- **APPIUM\_RUBY**
-- **APPIUM\_PYTHON**
-- **APPIUM\_WEB\_JAVA\_JUNIT**
-- **APPIUM\_WEB\_JAVA\_TESTNG**
-- **APPIUM\_WEB\_NODE**
-- **APPIUM\_WEB\_RUBY**
-- **APPIUM\_WEB\_PYTHON**
-- **BUILTIN\_FUZZ**
-- **INSTRUMENTATION**
-- **XCTEST**
-- **XCTEST\_UI**
+**RecordVideo**  
+Required: No  
+A Boolean value that indicates whether to record video during the test.
 
-###### Note
+**RadioWifiEnabled**  
+Required: No  
+A Boolean value that indicates whether to enable Wi-Fi at the beginning of the test.
 
-The following test types are not supported by the action in CodePipeline:
-`WEB_PERFORMANCE_PROFILE`,
-`REMOTE_ACCESS_RECORD`,
-and `REMOTE_ACCESS_REPLAY`.
+**RadioNfcEnabled**  
+Required: No  
+A Boolean value that indicates whether to enable NFC at the beginning of the test.
 
-For information about Device Farm test types, see [Working with Test Types in AWS
-Device Farm](../../../devicefarm/latest/developerguide/test-types.md "../../../devicefarm/latest/developerguide/test-types.md").
+**RadioGpsEnabled**  
+Required: No  
+A Boolean value that indicates whether to enable GPS at the beginning of the test.
 
-**RadioBluetoothEnabled**
+**Test**  
+Required: No  
+The name and path of the test definition file in your source location. The path is relative to the root of the input artifact for your test.
 
-Required: No
+**FuzzEventCount**  
+Required: No  
+The number of user interface events for the fuzz test to perform, between 1 and 10,000.
 
-A Boolean value that indicates whether to enable Bluetooth at the
-beginning of the test.
+**FuzzEventThrottle**  
+Required: No  
+The number of milliseconds for the fuzz test to wait before performing the next user interface event, between 1 and 1,000.
 
-**RecordAppPerformanceData**
+**FuzzRandomizerSeed**  
+Required: No  
+A seed for the fuzz test to use for randomizing user interface events. Using the same number for subsequent fuzz tests results in identical event sequences.
 
-Required: No
+**CustomHostMachineArtifacts**  
+Required: No  
+The location on the host machine where custom artifacts will be stored.
 
-A Boolean value that indicates whether to record device performance data
-such as CPU, FPS, and memory performance during the test.
+**CustomDeviceArtifacts**  
+Required: No  
+The location on the device where custom artifacts will be stored.  
 
-**RecordVideo**
 
-Required: No
+**UnmeteredDevicesOnly**  
+Required: No  
+A Boolean value that indicates whether to only use your unmetered devices when running tests in this step.
 
-A Boolean value that indicates whether to record video during the
-test.
+**JobTimeoutMinutes**  
+Required: No  
+The number of minutes a test run will execute per device before it times out.
 
-**RadioWifiEnabled**
+**Latitude**  
+Required: No  
+The latitude of the device expressed in geographic coordinate system degrees.
 
-Required: No
-
-A Boolean value that indicates whether to enable Wi-Fi at the beginning of
-the test.
-
-**RadioNfcEnabled**
-
-Required: No
-
-A Boolean value that indicates whether to enable NFC at the beginning of
-the test.
-
-**RadioGpsEnabled**
-
-Required: No
-
-A Boolean value that indicates whether to enable GPS at the beginning of
-the test.
-
-**Test**
-
-Required: No
-
-The name and path of the test definition file in your source location. The
-path is relative to the root of the input artifact for your test.
-
-**FuzzEventCount**
-
-Required: No
-
-The number of user interface events for the fuzz test to perform, between
-1 and 10,000.
-
-**FuzzEventThrottle**
-
-Required: No
-
-The number of milliseconds for the fuzz test to wait before performing the
-next user interface event, between 1 and 1,000.
-
-**FuzzRandomizerSeed**
-
-Required: No
-
-A seed for the fuzz test to use for randomizing user interface events.
-Using the same number for subsequent fuzz tests results in identical event
-sequences.
-
-**CustomHostMachineArtifacts**
-
-Required: No
-
-The location on the host machine where custom artifacts will be
-stored.
-
-**CustomDeviceArtifacts**
-
-Required: No
-
-The location on the device where custom artifacts will be stored.
-
-**UnmeteredDevicesOnly**
-
-Required: No
-
-A Boolean value that indicates whether to only use your unmetered devices
-when running tests in this step.
-
-**JobTimeoutMinutes**
-
-Required: No
-
-The number of minutes a test run will execute per device before it times
-out.
-
-**Latitude**
-
-Required: No
-
-The latitude of the device expressed in geographic coordinate system
-degrees.
-
-**Longitude**
-
-Required: No
-
-The longitude of the device expressed in geographic coordinate system
-degrees.
+**Longitude**  
+Required: No  
+The longitude of the device expressed in geographic coordinate system degrees.
 
 ## Input artifacts
-
-- **Number of artifacts:**
-  `1`
-- **Description:** The set of artifacts to be made
-  available to the test action. Device Farm looks for the built application and test
-  definitions to use.
+<a name="action-reference-DeviceFarm-input"></a>
++ **Number of artifacts:** `1`
++ **Description:** The set of artifacts to be made available to the test action. Device Farm looks for the built application and test definitions to use.
 
 ## Output artifacts
-
-- **Number of Artifacts:**
-  `0`
-- **Description:** Output artifacts do not apply
-  for this action type.
+<a name="action-reference-DeviceFarm-output"></a>
++ **Number of Artifacts:** `0` 
++ **Description:** Output artifacts do not apply for this action type.
 
 ## Service role permissions: AWS Device Farm action
+<a name="edit-role-devicefarm"></a>
 
-When CodePipeline runs the action, the CodePipeline service role policy requires the following
-permissions, appropriately scoped down to the pipeline resource ARN in order to maintain
-access with least privilege. For example, add the following to your policy
-statement:
+When CodePipeline runs the action, the CodePipeline service role policy requires the following permissions, appropriately scoped down to the pipeline resource ARN in order to maintain access with least privilege. For example, add the following to your policy statement:
 
 ```
 {
@@ -258,13 +168,15 @@ statement:
         "devicefarm:CreateUpload",
         "devicefarm:ScheduleRun"
     ],
-    "Resource": "`resource_ARN`"
+    "Resource": "{{resource_ARN}}"
 },
 ```
 
 ## Action declaration
+<a name="action-reference-DeviceFarm-example"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 Name: Test
@@ -290,7 +202,8 @@ InputArtifacts:
 Region: us-west-2
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -324,21 +237,13 @@ JSON
 },
 ```
 
+------
+
 ## See also
+<a name="action-reference-DeviceFarm-links"></a>
 
 The following related resources can help you as you work with this action.
-
-- [Working with Test Types in
-  Device Farm](../../../devicefarm/latest/developerguide/test-types.md "../../../devicefarm/latest/developerguide/test-types.md") – This reference chapter in the
-  _Device Farm Developer Guide_ provides more description about the
-  Android, iOS, and Web Application testing frameworks supported by Device Farm.
-- [Actions in Device Farm](../../../devicefarm/latest/APIReference/Welcome.md "../../../devicefarm/latest/APIReference/Welcome.md") – The API calls and parameters in the
-  _Device Farm API Reference_ can help you work with Device Farm
-  projects.
-- [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
-  provides a sample buildspec file and sample application to create a pipeline
-  with a GitHub source that builds and tests an Android app with CodeBuild and
-  Device Farm.
-- [Tutorial: Create a pipeline that tests your iOS app with AWS Device Farm](tutorials-codebuild-devicefarm-S3.md "tutorials-codebuild-devicefarm-S3.md") – This tutorial
-  provides a sample application to create a pipeline with an Amazon S3 source that
-  tests a built iOS app with Device Farm.
++ [Working with Test Types in Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types.html) – This reference chapter in the *Device Farm Developer Guide* provides more description about the Android, iOS, and Web Application testing frameworks supported by Device Farm.
++ [Actions in Device Farm](https://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html) – The API calls and parameters in the *Device Farm API Reference* can help you work with Device Farm projects.
++ [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md) – This tutorial provides a sample buildspec file and sample application to create a pipeline with a GitHub source that builds and tests an Android app with CodeBuild and Device Farm.
++ [Tutorial: Create a pipeline that tests your iOS app with AWS Device Farm](tutorials-codebuild-devicefarm-S3.md) – This tutorial provides a sample application to create a pipeline with an Amazon S3 source that tests a built iOS app with Device Farm.

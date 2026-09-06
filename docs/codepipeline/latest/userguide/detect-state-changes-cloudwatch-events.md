@@ -1,133 +1,105 @@
+
+
 # Monitoring CodePipeline events
+<a name="detect-state-changes-cloudwatch-events"></a>
 
-You can monitor CodePipeline events in EventBridge, which delivers a stream of real-time data from your
-own applications, software-as-a-service (SaaS) applications, and AWS services. EventBridge routes that
-data to targets such as AWS Lambda and Amazon Simple Notification Service. These events are the same as those that appear
-in Amazon CloudWatch Events, which delivers a near real-time stream of system events that describe changes in
-AWS resources. For more information, see [What Is Amazon EventBridge?](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md") in
-the _Amazon EventBridge User Guide_.
 
-###### Note
 
-Amazon EventBridge is the preferred way to manage your events. Amazon CloudWatch Events and EventBridge are the same
-underlying service and API, but EventBridge provides more features. Changes you make in either CloudWatch Events
-or EventBridge will appear in each console.
+You can monitor CodePipeline events in EventBridge, which delivers a stream of real-time data from your own applications, software-as-a-service (SaaS) applications, and AWS services. EventBridge routes that data to targets such as AWS Lambda and Amazon Simple Notification Service. These events are the same as those that appear in Amazon CloudWatch Events, which delivers a near real-time stream of system events that describe changes in AWS resources. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/) in the *Amazon EventBridge User Guide*.
+
+**Note**  
+Amazon EventBridge is the preferred way to manage your events. Amazon CloudWatch Events and EventBridge are the same underlying service and API, but EventBridge provides more features. Changes you make in either CloudWatch Events or EventBridge will appear in each console.
 
 Events are composed of rules. A rule is configured by choosing the following:
++ **Event Pattern.** Each rule is expressed as an event pattern with the source and type of events to monitor, and event targets. To monitor events, you create a rule with the service you are monitoring as the event source, such as CodePipeline. For example, you can create a rule with an event pattern that uses CodePipeline as an event source to trigger the rule when there are changes in the state of a pipeline, stage, or action.
++ **Targets.** The new rule receives a selected service as the event target. You might want to set up a target service to send notifications, capture state information, take corrective action, initiate events, or take other actions. When you add your target, you must also grant permissions to EventBridge to allow it to invoke the selected target service.
 
-- **Event Pattern.** Each rule is expressed as an event
-  pattern with the source and type of events to monitor, and event targets. To monitor events,
-  you create a rule with the service you are monitoring as the event source, such as CodePipeline.
-  For example, you can create a rule with an event pattern that uses CodePipeline as an event
-  source to trigger the rule when there are changes in the state of a pipeline, stage, or
-  action.
-- **Targets.** The new rule receives a selected service as
-  the event target. You might want to set up a target service to send notifications, capture
-  state information, take corrective action, initiate events, or take other actions. When you
-  add your target, you must also grant permissions to EventBridge to allow it to invoke the selected
-  target service.
-  Each type of execution state change event emits notifications with specific message content,
-  where:
+Each type of execution state change event emits notifications with specific message content, where:
++ The initial `version` entry shows the version number for the event.
++ The `version` entry under pipeline `detail` shows the pipeline structure version number.
++ The `execution-id` entry under pipeline `detail` shows the execution ID for the pipeline execution that caused the state change. Refer to the **GetPipelineExecution** API call in the [AWS CodePipeline API Reference](https://docs.aws.amazon.com/codepipeline/latest/APIReference/).
++ The `pipeline-execution-attempt` entry shows the number of attempts, or retries, for the specific execution ID.
 
-- The initial `version` entry shows the version number for the event.
-- The `version` entry under pipeline `detail` shows the pipeline
-  structure version number.
-- The `execution-id` entry under pipeline `detail` shows the
-  execution ID for the pipeline execution that caused the state change. Refer to the
-  **GetPipelineExecution** API call in the [AWS CodePipeline API Reference](../APIReference.md "../APIReference.md").
-- The `pipeline-execution-attempt` entry shows the number of attempts, or
-  retries, for the specific execution ID.
-  CodePipeline reports an event to EventBridge whenever the state of a resource in your AWS account
-  changes. Events are emitted on a guaranteed, at-least-once basis for the following
-  resources:
+CodePipeline reports an event to EventBridge whenever the state of a resource in your AWS account changes. Events are emitted on a guaranteed, at-least-once basis for the following resources:
++ Pipeline executions
++ Stage executions
++ Action executions
 
-- Pipeline executions
-- Stage executions
-- Action executions
-  Events are emitted by EventBridge with the event pattern and schema detailed above. For processed
-  events, such as events you receive through notifications you have configured in the Developer
-  Tools console, the event message includes event pattern fields with some variation. For example,
-  the `detail-type` field is converted to `detailType`. For more
-  information, refer to the **PutEvents** API call in the [Amazon EventBridge API Reference](../../../eventbridge/latest/APIReference.md "../../../eventbridge/latest/APIReference.md").
+Events are emitted by EventBridge with the event pattern and schema detailed above. For processed events, such as events you receive through notifications you have configured in the Developer Tools console, the event message includes event pattern fields with some variation. For example, the `detail-type` field is converted to `detailType`. For more information, refer to the **PutEvents** API call in the [Amazon EventBridge API Reference](https://docs.aws.amazon.com/eventbridge/latest/APIReference/).
 
-The following examples show events for CodePipeline. Where possible, each example shows the schema
-for an emitted event along with the schema for a processed event.
+The following examples show events for CodePipeline. Where possible, each example shows the schema for an emitted event along with the schema for a processed event.
 
-###### Topics
-
-- [Detail types](#detect-state-events-types "#detect-state-events-types")
-- [Pipeline-level events](#detect-state-events-pipeline "#detect-state-events-pipeline")
-- [Stage-level events](#detect-state-events-stage "#detect-state-events-stage")
-- [Action-level events](#detect-state-events-action "#detect-state-events-action")
-- [Create a Rule That Sends a Notification on a Pipeline Event](#create-cloudwatch-notifications "#create-cloudwatch-notifications")
+**Topics**
++ [Detail types](#detect-state-events-types)
++ [Pipeline-level events](#detect-state-events-pipeline)
++ [Stage-level events](#detect-state-events-stage)
++ [Action-level events](#detect-state-events-action)
++ [Create a Rule That Sends a Notification on a Pipeline Event](#create-cloudwatch-notifications)
 
 ## Detail types
+<a name="detect-state-events-types"></a>
 
 When you set up events to monitor, you can choose the detail type for the event.
 
 You can configure notifications to be sent when the state changes for:
++ Specified pipelines or all your pipelines. You control this by using `"detail-type":` `"CodePipeline Pipeline Execution State Change"`.
++ Specified stages or all your stages, within a specified pipeline or all your pipelines. You control this by using `"detail-type":` `"CodePipeline Stage Execution State Change"`.
++ Specified actions or all actions, within a specified stage or all stages, within a specified pipeline or all your pipelines. You control this by using `"detail-type":` `"CodePipeline Action Execution State Change"`.
 
-- Specified pipelines or all your pipelines. You control this by using
-  `"detail-type":`
-  `"CodePipeline Pipeline Execution State Change"`.
-- Specified stages or all your stages, within a specified pipeline or all your
-  pipelines. You control this by using `"detail-type":`
-  `"CodePipeline Stage Execution State Change"`.
-- Specified actions or all actions, within a specified stage or all stages, within a
-  specified pipeline or all your pipelines. You control this by using
-  `"detail-type":`
-  `"CodePipeline Action Execution State Change"`.
+**Note**  
+Events emitted by EventBridge contain the `detail-type` parameter, which is converted to `detailType` when events are processed.
 
-###### Note
 
-Events emitted by EventBridge contain the `detail-type` parameter, which is
-converted to `detailType` when events are processed.
 
-| Detail type                                  | State                                                                                                                                                            | Description                                                                             |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| CodePipeline Pipeline Execution State Change | CANCELED                                                                                                                                                         | The pipeline execution was canceled because the pipeline structure was<br>updated.      |
-| FAILED                                       | The pipeline execution was not completed successfully.                                                                                                           |
-| RESUMED                                      | A failed pipeline execution has been retried in response to the<br>`RetryStageExecution` API call.                                                               |
-| STARTED                                      | The pipeline execution is currently running.                                                                                                                     |
-| STOPPED                                      | The stopping process is complete, and the pipeline execution is stopped.                                                                                         |
-| STOPPING                                     | The pipeline execution is stopping due to a request to either stop and wait or<br>stop and abandon the pipeline execution.                                       |
-| SUCCEEDED                                    | The pipeline execution was completed successfully.                                                                                                               |
-| SUPERSEDED                                   | While this pipeline execution was waiting for the next stage to be completed, a<br>newer pipeline execution advanced and continued through the pipeline instead. |
-| CodePipeline Stage Execution State Change    | CANCELED                                                                                                                                                         | The stage was canceled because the pipeline structure was updated.                      |
-| FAILED                                       | The stage was not completed successfully.                                                                                                                        |
-| RESUMED                                      | A failed stage has been retried in response to the<br>`RetryStageExecution` API call.                                                                            |
-| STARTED                                      | The stage is currently running.                                                                                                                                  |
-| STOPPED                                      | The stopping process is complete, and the stage execution is stopped.                                                                                            |
-| STOPPING                                     | The stage execution is stopping due to a request to either stop and wait or stop<br>and abandon the pipeline execution.                                          |
-| SUCCEEDED                                    | The stage was completed successfully.                                                                                                                            |
-| CodePipeline Action Execution State Change   | ABANDONED                                                                                                                                                        | The action is abandoned due to a request to stop and abandon the pipeline<br>execution. |
-| CANCELED                                     | The action was canceled because the pipeline structure was updated.                                                                                              |
-| FAILED                                       | For approval actions, the FAILED state means the action was either rejected by<br>the reviewer or failed due to an incorrect action configuration.               |
-| STARTED                                      | The action is currently running.                                                                                                                                 |
-| SUCCEEDED                                    | The action was completed successfully.                                                                                                                           |
+
+- **CodePipeline Pipeline Execution State Change**
+  - **State:** CANCELED / **Description:** The pipeline execution was canceled because the pipeline structure was updated.
+  - **State:** FAILED / **Description:** The pipeline execution was not completed successfully.
+  - **State:** RESUMED / **Description:** A failed pipeline execution has been retried in response to the RetryStageExecution API call.
+  - **State:** STARTED / **Description:** The pipeline execution is currently running.
+  - **State:** STOPPED / **Description:** The stopping process is complete, and the pipeline execution is stopped.
+  - **State:** STOPPING / **Description:** The pipeline execution is stopping due to a request to either stop and wait or stop and abandon the pipeline execution.
+  - **State:** SUCCEEDED / **Description:** The pipeline execution was completed successfully.
+  - **State:** SUPERSEDED / **Description:** While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.
+
+- **CodePipeline Stage Execution State Change**
+  - **State:** CANCELED / **Description:** The stage was canceled because the pipeline structure was updated.
+  - **State:** FAILED / **Description:** The stage was not completed successfully.
+  - **State:** RESUMED / **Description:** A failed stage has been retried in response to the RetryStageExecution API call.
+  - **State:** STARTED / **Description:** The stage is currently running.
+  - **State:** STOPPED / **Description:** The stopping process is complete, and the stage execution is stopped.
+  - **State:** STOPPING / **Description:** The stage execution is stopping due to a request to either stop and wait or stop and abandon the pipeline execution.
+  - **State:** SUCCEEDED / **Description:** The stage was completed successfully.
+
+- **CodePipeline Action Execution State Change**
+  - **State:** ABANDONED / **Description:** The action is abandoned due to a request to stop and abandon the pipeline execution.
+  - **State:** CANCELED / **Description:** The action was canceled because the pipeline structure was updated.
+  - **State:** FAILED / **Description:** For approval actions, the FAILED state means the action was either rejected by the reviewer or failed due to an incorrect action configuration.
+  - **State:** STARTED / **Description:** The action is currently running.
+  - **State:** SUCCEEDED / **Description:** The action was completed successfully.
+
+
 
 ## Pipeline-level events
+<a name="detect-state-events-pipeline"></a>
 
-Pipeline-level events are emitted when there is a state change for a pipeline
-execution.
+Pipeline-level events are emitted when there is a state change for a pipeline execution.
 
-###### Topics
-
-- [Pipeline STARTED event](#detect-state-events-pipeline-started "#detect-state-events-pipeline-started")
-- [Pipeline STOPPING event](#detect-state-events-pipeline-stopping "#detect-state-events-pipeline-stopping")
-- [Pipeline SUCCEEDED event](#detect-state-events-pipeline-succeeded "#detect-state-events-pipeline-succeeded")
-- [Pipeline SUCCEEDED (example with Git tags)](#w2aac42c13c29c15 "#w2aac42c13c29c15")
-- [Pipeline FAILED event](#detect-state-events-pipeline-failed "#detect-state-events-pipeline-failed")
-- [Pipeline FAILED (example with Git tags)](#w2aac42c13c29c23 "#w2aac42c13c29c23")
+**Topics**
++ [Pipeline STARTED event](#detect-state-events-pipeline-started)
++ [Pipeline STOPPING event](#detect-state-events-pipeline-stopping)
++ [Pipeline SUCCEEDED event](#detect-state-events-pipeline-succeeded)
++ [Pipeline SUCCEEDED (example with Git tags)](#w2aac42c13c29c15)
++ [Pipeline FAILED event](#detect-state-events-pipeline-failed)
++ [Pipeline FAILED (example with Git tags)](#w2aac42c13c29c23)
 
 ### Pipeline STARTED event
+<a name="detect-state-events-pipeline-started"></a>
 
-When a pipeline execution starts, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `"myPipeline"` in the
-`us-east-1` Region. The `id` field represents the event ID, and the
-`account` field represents the account ID where the pipeline is created.
+ When a pipeline execution starts, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-east-1` Region. The `id` field represents the event ID, and the `account` field represents the account ID where the pipeline is created.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -156,7 +128,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -185,11 +158,12 @@ Processed event
 }
 ```
 
-### Pipeline STOPPING event
+------
 
-When a pipeline execution is stopping, it emits an event that sends notifications with
-the following content. This example is for the pipeline named `myPipeline` in the
-`us-west-2` Region.
+### Pipeline STOPPING event
+<a name="detect-state-events-pipeline-stopping"></a>
+
+When a pipeline execution is stopping, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `us-west-2` Region.
 
 ```
 {
@@ -216,12 +190,12 @@ the following content. This example is for the pipeline named `myPipeline` in th
 ```
 
 ### Pipeline SUCCEEDED event
+<a name="detect-state-events-pipeline-succeeded"></a>
 
-When a pipeline execution succeeds, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `myPipeline` in the
-`us-east-1` Region.
+ When a pipeline execution succeeds, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `us-east-1` Region.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -246,7 +220,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -271,17 +246,15 @@ Processed event
 }
 ```
 
+------
+
 ### Pipeline SUCCEEDED (example with Git tags)
+<a name="w2aac42c13c29c15"></a>
 
-When a pipeline execution has a stage that has been retried and succeeded, it emits an
-event that sends notifications with the following content. This example is for the pipeline
-named `myPipeline` in the `eu-central-1` Region where the
-`execution-trigger` is configured for Git tags.
+When a pipeline execution has a stage that has been retried and succeeded, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `eu-central-1` Region where the `execution-trigger` is configured for Git tags.
 
-###### Note
-
-The `execution-trigger` field will have either `tag-name` or
-`branch-name`, depending on what kind of event triggered the pipeline.
+**Note**  
+The `execution-trigger` field will have either `tag-name` or `branch-name`, depending on what kind of event triggered the pipeline.
 
 ```
 {
@@ -307,7 +280,7 @@ The `execution-trigger` field will have either `tag-name` or
             "commit-message": "Update file README.md",
             "author-date": "2023-08-16T21:08:08Z",
             "tag-name": "gitlab-v4.2.1",
-            "commit-id": "`commit_ID`",
+            "commit-id": "{{commit_ID}}",
             "connection-arn": "arn:aws:codestar-connections:eu-central-1:123456789012:connection/0f5b706a-1a1d-46c5-86b6-f177321bcfb2",
             "author-id": "Mary Major"
         },
@@ -319,12 +292,12 @@ The `execution-trigger` field will have either `tag-name` or
 ```
 
 ### Pipeline FAILED event
+<a name="detect-state-events-pipeline-failed"></a>
 
-When a pipeline execution fails, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `"myPipeline"` in the
-`us-west-2` Region.
+When a pipeline execution fails, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-west-2` Region.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -349,7 +322,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -380,22 +354,20 @@ Processed event
         ],
         "failedStage": "Deploy"
     }
-
 ```
+
+------
 
 ### Pipeline FAILED (example with Git tags)
+<a name="w2aac42c13c29c23"></a>
 
-Unless it fails at the source stage, for a pipeline configure with triggers, it emits an
-event that sends notifications with the following content. This example is for the pipeline
-named `myPipeline` in the `eu-central-1` Region where the
-`execution-trigger` is configured for Git tags.
+Unless it fails at the source stage, for a pipeline configure with triggers, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `eu-central-1` Region where the `execution-trigger` is configured for Git tags.
 
-###### Note
+**Note**  
+The `execution-trigger` field will have either `tag-name` or `branch-name`, depending on what kind of event triggered the pipeline.
 
-The `execution-trigger` field will have either `tag-name` or
-`branch-name`, depending on what kind of event triggered the pipeline.
-
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -421,7 +393,7 @@ Emitted event
             "commit-message": "Update file README.md",
             "author-date": "2023-08-16T21:08:08Z",
             "tag-name": "gitlab-v4.2.1",
-            "commit-id": "`commit_ID`",
+            "commit-id": "{{commit_ID}}",
             "connection-arn": "arn:aws:codestar-connections:eu-central-1:123456789012:connection/0f5b706a-1a1d-46c5-86b6-f177321bcfb2",
             "author-id": "Mary Major"
         },
@@ -432,7 +404,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -454,7 +427,7 @@ Processed event
             "commit-message": "Update file README.md",
             "author-date": "2023-08-16T21:08:08Z",
             "tag-name": "gitlab-v4.2.1",
-            "commit-id": "`commit_ID`",
+            "commit-id": "{{commit_ID}}",
             "connection-arn": "arn:aws:codestar-connections:eu-central-1:123456789012:connection/0f5b706a-1a1d-46c5-86b6-f177321bcfb2",
             "author-id": "Mary Major"
         },
@@ -475,27 +448,28 @@ Processed event
         ],
         "failedStage": "Deploy"
     }
-
 ```
 
+------
+
 ## Stage-level events
+<a name="detect-state-events-stage"></a>
 
 Stage-level events are emitted when there is a state change for a stage execution.
 
-###### Topics
-
-- [Stage STARTED event](#detect-state-events-stage-started "#detect-state-events-stage-started")
-- [Stage STOPPING event](#detect-state-events-stage-stopping "#detect-state-events-stage-stopping")
-- [Stage STOPPED event](#detect-state-events-stage-stopped "#detect-state-events-stage-stopped")
-- [Stage RESUMED after stage retry event](#w2aac42c13c31c15 "#w2aac42c13c31c15")
+**Topics**
++ [Stage STARTED event](#detect-state-events-stage-started)
++ [Stage STOPPING event](#detect-state-events-stage-stopping)
++ [Stage STOPPED event](#detect-state-events-stage-stopped)
++ [Stage RESUMED after stage retry event](#w2aac42c13c31c15)
 
 ### Stage STARTED event
+<a name="detect-state-events-stage-started"></a>
 
-When a stage execution starts, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `"myPipeline"` in the
-`us-east-1` Region, for the stage `Prod`.
+When a stage execution starts, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-east-1` Region, for the stage `Prod`.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -521,7 +495,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -559,11 +534,12 @@ Processed event
 }
 ```
 
-### Stage STOPPING event
+------
 
-When a stage execution is stopping, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `myPipeline` in the
-`us-west-2` Region, for the stage `Deploy`.
+### Stage STOPPING event
+<a name="detect-state-events-stage-stopping"></a>
+
+When a stage execution is stopping, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `us-west-2` Region, for the stage `Deploy`.
 
 ```
 {
@@ -590,10 +566,9 @@ following content. This example is for the pipeline named `myPipeline` in the
 ```
 
 ### Stage STOPPED event
+<a name="detect-state-events-stage-stopped"></a>
 
-When a stage execution is stopped, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `myPipeline` in the
-`us-west-2` Region, for the stage `Deploy`.
+When a stage execution is stopped, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `us-west-2` Region, for the stage `Deploy`.
 
 ```
 {
@@ -620,18 +595,14 @@ following content. This example is for the pipeline named `myPipeline` in the
 ```
 
 ### Stage RESUMED after stage retry event
+<a name="w2aac42c13c31c15"></a>
 
-When a stage execution is resumed and has a stage that has been retried, it emits an
-event that sends notifications with the following content.
+When a stage execution is resumed and has a stage that has been retried, it emits an event that sends notifications with the following content.
 
-When a stage has been retried, the `stage-last-retry-attempt-time` field
-displays, as shown in the example. The field displays on all stage events if a retry was
-performed.
+When a stage has been retried, the `stage-last-retry-attempt-time` field displays, as shown in the example. The field displays on all stage events if a retry was performed.
 
-###### Note
-
-The `stage-last-retry-attempt-time` field will be present in all the
-subsequent stage events after a stage has been retried.
+**Note**  
+The `stage-last-retry-attempt-time` field will be present in all the subsequent stage events after a stage has been retried.
 
 ```
 {
@@ -658,24 +629,23 @@ subsequent stage events after a stage has been retried.
 ```
 
 ## Action-level events
+<a name="detect-state-events-action"></a>
 
-Action-level events are emitted when there is a state change for an action
-execution.
+Action-level events are emitted when there is a state change for an action execution.
 
-###### Topics
-
-- [Action STARTED event](#detect-state-events-action-started "#detect-state-events-action-started")
-- [Action SUCCEEDED event](#detect-state-events-action-succeeded "#detect-state-events-action-succeeded")
-- [Action FAILED event](#detect-state-events-action-failed "#detect-state-events-action-failed")
-- [Action ABANDONED event](#detect-state-events-action-abandoned "#detect-state-events-action-abandoned")
+**Topics**
++ [Action STARTED event](#detect-state-events-action-started)
++ [Action SUCCEEDED event](#detect-state-events-action-succeeded)
++ [Action FAILED event](#detect-state-events-action-failed)
++ [Action ABANDONED event](#detect-state-events-action-abandoned)
 
 ### Action STARTED event
+<a name="detect-state-events-action-started"></a>
 
-When an action execution starts, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `myPipeline` in the
-`us-east-1` Region, for the deployment action `myAction`.
+When an action execution starts, it emits an event that sends notifications with the following content. This example is for the pipeline named `myPipeline` in the `us-east-1` Region, for the deployment action `myAction`.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -718,7 +688,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -760,19 +731,17 @@ Processed event
     ],
     "additionalAttributes": {}
 }
-
 ```
 
+------
+
 ### Action SUCCEEDED event
+<a name="detect-state-events-action-succeeded"></a>
 
-When an action execution succeeds, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `"myPipeline"` in the
-`us-west-2` Region, for the source action `"Source"`. For this event
-type, there are two different `region` fields. The event `region`
-field specifies the Region for the pipeline event. The `region` field under the
-`detail` section specifies the Region for the action.
+When an action execution succeeds, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-west-2` Region, for the source action `"Source"`. For this event type, there are two different `region` fields. The event `region` field specifies the Region for the pipeline event. The `region` field under the `detail` section specifies the Region for the action.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -821,7 +790,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -868,16 +838,17 @@ Processed event
     ],
     "additionalAttributes": {}
 }
-
 ```
 
+------
+
 ### Action FAILED event
+<a name="detect-state-events-action-failed"></a>
 
-When an action execution fails, it emits an event that sends notifications with the
-following content. This example is for the pipeline named `"myPipeline"` in the
-`us-west-2` Region, for the action `"Deploy"`.
+When an action execution fails, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-west-2` Region, for the action `"Deploy"`.
 
-Emitted event
+------
+#### [ Emitted event ]
 
 ```
 {
@@ -893,7 +864,7 @@ Emitted event
     ],
     "detail": {
         "pipeline": "myPipeline",
-        "execution-id": "12345678-1234-5678-abcd-12345678abcd",
+        "execution-id": "12345678-1234-5678-abcd-12345678abcd", 
         "start-time": "2023-10-26T13:51:09.981Z",
         "stage": "Deploy",
         "execution-result": {
@@ -918,7 +889,8 @@ Emitted event
 }
 ```
 
-Processed event
+------
+#### [ Processed event ]
 
 ```
 {
@@ -937,7 +909,7 @@ Processed event
             "external-execution-summary": "Deployment <ID> failed",
             "external-execution-id": "<ID>",
             "error-code": "JobFailed"
-        },
+        },  
         "action-execution-id": "47f821c5-a902-44b2-ae61-b878d31ecd21",
         "action": "Deploy",
         "state": "FAILED",
@@ -960,11 +932,12 @@ Processed event
 }
 ```
 
-### Action ABANDONED event
+------
 
-When an action execution is abandoned, it emits an event that sends notifications with
-the following content. This example is for the pipeline named `"myPipeline"` in
-the `us-west-2` Region, for the action `"Deploy"`.
+### Action ABANDONED event
+<a name="detect-state-events-action-abandoned"></a>
+
+When an action execution is abandoned, it emits an event that sends notifications with the following content. This example is for the pipeline named `"myPipeline"` in the `us-west-2` Region, for the action `"Deploy"`.
 
 ```
 {
@@ -999,203 +972,160 @@ the `us-west-2` Region, for the action `"Deploy"`.
 ```
 
 ## Create a Rule That Sends a Notification on a Pipeline Event
+<a name="create-cloudwatch-notifications"></a>
 
-A rule watches for certain events and then routes them to AWS targets that you choose. You
-can create a rule that performs an AWS action automatically when another AWS action happens,
-or a rule that performs an AWS action regularly on a set schedule.
+A rule watches for certain events and then routes them to AWS targets that you choose. You can create a rule that performs an AWS action automatically when another AWS action happens, or a rule that performs an AWS action regularly on a set schedule.
 
-###### Topics
-
-- [Send a Notification When Pipeline State Changes (Console)](#monitoring-cloudwatch-events-console "#monitoring-cloudwatch-events-console")
-- [Send a Notification When Pipeline State Changes (CLI)](#monitoring-cloudwatch-events-cli "#monitoring-cloudwatch-events-cli")
+**Topics**
++ [Send a Notification When Pipeline State Changes (Console)](#monitoring-cloudwatch-events-console)
++ [Send a Notification When Pipeline State Changes (CLI)](#monitoring-cloudwatch-events-cli)
 
 ### Send a Notification When Pipeline State Changes (Console)
+<a name="monitoring-cloudwatch-events-console"></a>
 
-These steps show how to use the EventBridge console to create a rule to send notifications of
-changes in CodePipeline.
+These steps show how to use the EventBridge console to create a rule to send notifications of changes in CodePipeline. 
 
-###### To create an EventBridge rule that targets your pipeline with an Amazon S3 source
+**To create an EventBridge rule that targets your pipeline with an Amazon S3 source**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**. Leave the default bus
-   selected or choose an event bus. Choose **Create rule**.
-3. In **Name**, enter a name for your rule.
-4. Under **Rule type**, choose **Rule with an event
-   pattern**. Choose **Next**.
-5. Under **Event pattern**, choose **AWS
-   services**.
-6. From the **Event Type** drop-down list, choose the level of state
-   change for the notification.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-   - For a rule that applies to pipeline-level events, choose **CodePipeline
-     Pipeline Execution State Change**.
-   - For a rule that applies to stage-level events, choose **CodePipeline
-     Stage Execution State Change**.
-   - For a rule that applies to action-level events, choose **CodePipeline
-     Action Execution State Change**.
+1. In the navigation pane, choose **Rules**. Leave the default bus selected or choose an event bus. Choose **Create rule**.
 
-7. Specify the state changes the rule applies to:
+1. In **Name**, enter a name for your rule.
 
-   - For a rule that applies to all state changes, choose **Any
-     state**.
-   - For a rule that applies to some state changes only, choose **Specific
-     state(s)**, and then choose one or more state values from the
-     list.
+1. Under **Rule type**, choose **Rule with an event pattern**. Choose **Next**.
 
-8. For event patterns that are more detailed than the selectors allow, you can also use
-   the **Edit pattern** option in the **Event pattern**
-   window to designate an event pattern in JSON format.
+1. Under **Event pattern**, choose **AWS services**.
 
-###### Note
+1. From the **Event Type** drop-down list, choose the level of state change for the notification.
+   + For a rule that applies to pipeline-level events, choose **CodePipeline Pipeline Execution State Change**.
+   + For a rule that applies to stage-level events, choose **CodePipeline Stage Execution State Change**.
+   + For a rule that applies to action-level events, choose **CodePipeline Action Execution State Change**.
 
-If not otherwise specified, then the event pattern is created for all
-pipelines/stages/actions and states.
+1. Specify the state changes the rule applies to:
+   + For a rule that applies to all state changes, choose **Any state**.
+   + For a rule that applies to some state changes only, choose **Specific state(s)**, and then choose one or more state values from the list.
 
-For more detailed event patterns, you can copy and paste the following example event
-patterns into the **Event pattern** window.
+1. For event patterns that are more detailed than the selectors allow, you can also use the **Edit pattern** option in the **Event pattern** window to designate an event pattern in JSON format.
+**Note**  
+If not otherwise specified, then the event pattern is created for all pipelines/stages/actions and states.
 
-    * ###### Example
+   For more detailed event patterns, you can copy and paste the following example event patterns into the **Event pattern** window.
+   +   
+**Example**  
 
-    Use this sample event pattern to capture failed deploy and build actions
-     across all the pipelines.
+     Use this sample event pattern to capture failed deploy and build actions across all the pipelines.
 
-
-
-    ```
-    {
-    "source": [
-        "aws.codepipeline"
-      ],
-      "detail-type": [
-        "CodePipeline Action Execution State Change"
-      ],
-      "detail": {
-        "state": [
-          "FAILED"
-        ],
-        "type": {
-          "category": ["Deploy", "Build"]
-        }
-      }
-    }
-    ```
-    * ###### Example
-
-    Use this sample event pattern to capture all rejected or failed approval
-     actions across all the pipelines.
-
-
-
-    ```
-    {
+     ```
+     {
      "source": [
-        "aws.codepipeline"
-      ],
-      "detail-type": [
-        "CodePipeline Action Execution State Change"
-      ],
-      "detail": {
-        "state": [
-          "FAILED"
-        ],
-        "type": {
-          "category": ["Approval"]
-        }
-      }
-    }
-    ```
-    * ###### Example
+         "aws.codepipeline"
+       ],
+       "detail-type": [
+         "CodePipeline Action Execution State Change"
+       ],
+       "detail": {
+         "state": [
+           "FAILED"
+         ],
+         "type": {
+           "category": ["Deploy", "Build"]
+         }
+       }
+     }
+     ```
+   +   
+**Example**  
 
-    Use this sample event pattern to capture all the events from the specified
-     pipelines.
+     Use this sample event pattern to capture all rejected or failed approval actions across all the pipelines.
 
+     ```
+     {
+      "source": [
+         "aws.codepipeline"
+       ],
+       "detail-type": [
+         "CodePipeline Action Execution State Change"
+       ],
+       "detail": {
+         "state": [
+           "FAILED"
+         ],
+         "type": {
+           "category": ["Approval"]
+         }
+       }
+     }
+     ```
+   +   
+**Example**  
 
+     Use this sample event pattern to capture all the events from the specified pipelines.
 
-    ```
-    {
-    "source": [
-        "aws.codepipeline"
-      ],
-      "detail-type": [
-        "CodePipeline Pipeline Execution State Change",
-        "CodePipeline Action Execution State Change",
-        "CodePipeline Stage Execution State Change"
-      ],
-      "detail": {
-        "pipeline": ["myPipeline", "my2ndPipeline"]
-      }
-    }
-    ```
+     ```
+     {
+     "source": [
+         "aws.codepipeline"
+       ],
+       "detail-type": [
+         "CodePipeline Pipeline Execution State Change",
+         "CodePipeline Action Execution State Change",
+         "CodePipeline Stage Execution State Change"
+       ],
+       "detail": {
+         "pipeline": ["myPipeline", "my2ndPipeline"]
+       }
+     }
+     ```
 
-9. Choose **Next**. 10. In **Target types**, choose **AWS
-service**. 11. In **Select a target**, choose **CodePipeline**.
-In **Pipeline ARN**, enter the pipeline ARN for the pipeline to be
-started by this rule.
+1. Choose **Next**.
 
-###### Note
+1. In **Target types**, choose **AWS service**.
 
-To get the pipeline ARN, run the **get-pipeline** command. The
-pipeline ARN appears in the output. It is constructed in this format:
+1. In **Select a target**, choose **CodePipeline**. In **Pipeline ARN**, enter the pipeline ARN for the pipeline to be started by this rule.
+**Note**  
+To get the pipeline ARN, run the **get-pipeline** command. The pipeline ARN appears in the output. It is constructed in this format:   
+arn:aws:codepipeline:{{region}}:{{account}}:{{pipeline-name}}  
+Sample pipeline ARN:  
+arn:aws:codepipeline:us-east-2:80398EXAMPLE:MyFirstPipeline 
 
-arn:aws:codepipeline:`region`:`account`:`pipeline-name`
+1. To create or specify an IAM service role that grants EventBridge permissions to invoke the target associated with your EventBridge rule (in this case, the target is CodePipeline): 
+   + Choose **Create a new role for this specific resource** to create a service role that gives EventBridge permissions to start your pipeline executions.
+   + Choose **Use existing role** to enter a service role that gives EventBridge permissions to start your pipeline executions.
 
-Sample pipeline ARN:
+1. Choose **Next**.
 
-arn:aws:codepipeline:us-east-2:80398EXAMPLE:MyFirstPipeline 12. To create or specify an IAM service role that grants EventBridge permissions to invoke
-the target associated with your EventBridge rule (in this case, the target is CodePipeline):
+1. On the **Tags** page, choose **Next**.
 
-    * Choose **Create a new role for this specific resource** to
-     create a service role that gives EventBridge permissions to start your pipeline
-     executions.
-    * Choose **Use existing role** to enter a service role that gives
-     EventBridge permissions to start your pipeline executions.
-
-13. Choose **Next**. 14. On the **Tags** page, choose **Next**. 15. On the **Review and create** page, review the rule configuration.
-If you're satisfied with the rule, choose **Create rule**.
+1. On the **Review and create** page, review the rule configuration. If you're satisfied with the rule, choose **Create rule**.
 
 ### Send a Notification When Pipeline State Changes (CLI)
+<a name="monitoring-cloudwatch-events-cli"></a>
 
-These steps show how to use the CLI to create an CloudWatch Events rule to send notifications of
-changes in CodePipeline.
+These steps show how to use the CLI to create an CloudWatch Events rule to send notifications of changes in CodePipeline. 
 
-To use the AWS CLI to create a rule, call the **put-rule** command,
-specifying:
+To use the AWS CLI to create a rule, call the **put-rule** command, specifying:
++ A name that uniquely identifies the rule you are creating. This name must be unique across all of the pipelines you create with CodePipeline associated with your AWS account.
++ The event pattern for the source and detail fields used by the rule. For more information, see [Amazon EventBridge and Event Patterns](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html).
 
-- A name that uniquely identifies the rule you are creating. This name must be unique
-  across all of the pipelines you create with CodePipeline associated with your AWS
-  account.
-- The event pattern for the source and detail fields used by the rule. For more
-  information, see [Amazon EventBridge and Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
+**To create an EventBridge rule with CodePipeline as the event source**
 
-###### To create an EventBridge rule with CodePipeline as the event source
+1. Call the **put-rule** command to create a rule specifying the event pattern. (See the preceding tables for valid states.)
 
-1. Call the **put-rule** command to create a rule specifying the event
-   pattern. (See the preceding tables for valid states.)
+   The following sample command uses **--event-pattern** to create a rule called `"MyPipelineStateChanges"` that emits the CloudWatch event when a pipeline execution fails for the pipeline named "myPipeline."
 
-The following sample command uses **--event-pattern** to create a
-rule called `"MyPipelineStateChanges"` that emits the CloudWatch event when a
-pipeline execution fails for the pipeline named "myPipeline."
+   ```
+   aws events put-rule --name "MyPipelineStateChanges" --event-pattern "{\"source\":[\"aws.codepipeline\"],\"detail-type\":[\"CodePipeline Pipeline Execution State Change\"],\"detail\":{\"pipeline\":[\"myPipeline\"],\"state\":[\"FAILED\"]}}"
+   ```
 
-```
-aws events put-rule --name "MyPipelineStateChanges" --event-pattern "{\"source\":[\"aws.codepipeline\"],\"detail-type\":[\"CodePipeline Pipeline Execution State Change\"],\"detail\":{\"pipeline\":[\"myPipeline\"],\"state\":[\"FAILED\"]}}"
-```
+1. Call the **put-targets** command and include the following parameters:
+   + The `--rule` parameter is used with the `rule_name` you created by using **put-rule**. 
+   + The `--targets` parameter is used with the list `Id` of the target in the list of targets and the `ARN` of the Amazon SNS topic.
 
-2. Call the **put-targets** command and include the following
-   parameters:
+   The following sample command specifies that for the rule called `MyPipelineStateChanges`, the target `Id` is composed of the number one, indicating that in a list of targets for the rule, this is target 1. The sample command also specifies an example `ARN` for the Amazon SNS topic.
 
-   - The `--rule` parameter is used with the `rule_name` you
-     created by using **put-rule**.
-   - The `--targets` parameter is used with the list `Id` of
-     the target in the list of targets and the `ARN` of the Amazon SNS
-     topic.
-     The following sample command specifies that for the rule called
-     `MyPipelineStateChanges`, the target `Id` is composed of the
-     number one, indicating that in a list of targets for the rule, this is target 1. The
-     sample command also specifies an example `ARN` for the Amazon SNS topic.
+   ```
+   aws events put-targets --rule MyPipelineStateChanges --targets Id=1,Arn=arn:aws:sns:us-west-2:11111EXAMPLE:MyNotificationTopic
+   ```
 
-```
-aws events put-targets --rule MyPipelineStateChanges --targets Id=1,Arn=arn:aws:sns:us-west-2:11111EXAMPLE:MyNotificationTopic
-```
-
-3. Add permissions for EventBridge to use the designated target service to invoke the
-   notification. For more information, see [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+1. Add permissions for EventBridge to use the designated target service to invoke the notification. For more information, see [Using resource-based policies for Amazon EventBridge](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).

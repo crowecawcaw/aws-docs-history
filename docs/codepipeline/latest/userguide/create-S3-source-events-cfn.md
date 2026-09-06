@@ -1,49 +1,43 @@
+
+
 # Create pipelines with an S3 source enabled for events (CloudFormation template)
+<a name="create-S3-source-events-cfn"></a>
 
-This procedure is for a pipeline where the source bucket has events
-enabled.
+This procedure is for a pipeline where the source bucket has events enabled.
 
-Use these steps to create a pipeline with an Amazon S3 source for event-based change
-detection.
+Use these steps to create a pipeline with an Amazon S3 source for event-based change detection.
 
-To build an event-driven pipeline with Amazon S3, you edit the
-`PollForSourceChanges` parameter of your pipeline and then add the
-following resources to your template:
+To build an event-driven pipeline with Amazon S3, you edit the `PollForSourceChanges` parameter of your pipeline and then add the following resources to your template:
++ EventBridge rule and IAM role to allow this event to start your pipeline.
 
-- EventBridge rule and IAM role to allow this event to start your
-  pipeline.
-  If you use CloudFormation to create and manage your pipelines, your template includes
-  content like the following.
+If you use CloudFormation to create and manage your pipelines, your template includes content like the following.
 
-###### Note
+**Note**  
+The `Configuration` property in the source stage called `PollForSourceChanges`. If your template doesn't include that property, then `PollForSourceChanges` is set to `true` by default.
 
-The `Configuration` property in the source stage called
-`PollForSourceChanges`. If your template doesn't include that
-property, then `PollForSourceChanges` is set to `true` by
-default.
-
-YAML
+------
+#### [ YAML ]
 
 ```
-  AppPipeline:
+  AppPipeline: 
     Type: AWS::CodePipeline::Pipeline
-    Properties:
+    Properties: 
       RoleArn: !GetAtt CodePipelineServiceRole.Arn
-      Stages:
-        -
+      Stages: 
+        - 
           Name: Source
-          Actions:
-            -
+          Actions: 
+            - 
               Name: SourceAction
-              ActionTypeId:
+              ActionTypeId: 
                 Category: Source
                 Owner: AWS
                 Version: 1
                 Provider: S3
-              OutputArtifacts:
-                -
+              OutputArtifacts: 
+                - 
                   Name: SourceOutput
-              Configuration:
+              Configuration: 
                 S3Bucket: !Ref SourceBucket
                 S3ObjectKey: !Ref S3SourceObjectKey
                 PollForSourceChanges: true
@@ -53,7 +47,8 @@ YAML
 ...
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
         "AppPipeline": {
@@ -97,295 +92,273 @@ JSON
 ...
 ```
 
-###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
+------
 
-1. In the template, under `Resources`, use the
-   `AWS::IAM::Role` CloudFormation resource to configure the IAM role
-   that allows your event to start your pipeline. This entry creates a role
-   that uses two policies:
+**To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy**
 
-   - The first policy allows the role to be assumed.
-   - The second policy provides permissions to start the
-     pipeline.
-     **Why am I making this change?** Adding
-     `AWS::IAM::Role` resource enables CloudFormation to create permissions
-     for EventBridge. This resource is added to your CloudFormation stack.
+1. In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation resource to configure the IAM role that allows your event to start your pipeline. This entry creates a role that uses two policies:
+   + The first policy allows the role to be assumed.
+   + The second policy provides permissions to start the pipeline.
 
-YAML
+   **Why am I making this change?** Adding `AWS::IAM::Role` resource enables CloudFormation to create permissions for EventBridge. This resource is added to your CloudFormation stack.
 
-```
-  EventRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          -
-            Effect: Allow
-            Principal:
-              Service:
-                - events.amazonaws.com
-            Action: sts:AssumeRole
-      Path: /
-      Policies:
-        -
-          PolicyName: eb-pipeline-execution
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              -
-                Effect: Allow
-                Action: codepipeline:StartPipelineExecution
-                Resource: !Join [ '', [ 'arn:aws:codepipeline:', !Ref 'AWS::Region', ':', !Ref 'AWS::AccountId', ':', !Ref AppPipeline ] ]
+------
+#### [ YAML ]
 
+   ```
+     EventRole:
+       Type: AWS::IAM::Role
+       Properties:
+         AssumeRolePolicyDocument:
+           Version: 2012-10-17		 	 	 
+           Statement:
+             -
+               Effect: Allow
+               Principal:
+                 Service:
+                   - events.amazonaws.com
+               Action: sts:AssumeRole
+         Path: /
+         Policies:
+           -
+             PolicyName: eb-pipeline-execution
+             PolicyDocument:
+               Version: 2012-10-17		 	 	 
+               Statement:
+                 -
+                   Effect: Allow
+                   Action: codepipeline:StartPipelineExecution
+                   Resource: !Join [ '', [ 'arn:aws:codepipeline:', !Ref 'AWS::Region', ':', !Ref 'AWS::AccountId', ':', !Ref AppPipeline ] ]
+   
+   
+   ...
+   ```
 
-...
-```
+------
+#### [ JSON ]
 
-JSON
+   ```
+     "EventRole": {
+       "Type": "AWS::IAM::Role",
+       "Properties": {
+         "AssumeRolePolicyDocument": {
+           "Version": "2012-10-17",		 	 	 
+           "Statement": [
+             {
+               "Effect": "Allow",
+               "Principal": {
+                 "Service": [
+                   "events.amazonaws.com"
+                 ]
+               },
+               "Action": "sts:AssumeRole"
+             }
+           ]
+         },
+         "Path": "/",
+         "Policies": [
+           {
+             "PolicyName": "eb-pipeline-execution",
+             "PolicyDocument": {
+               "Version": "2012-10-17",		 	 	 
+               "Statement": [
+                 {
+                   "Effect": "Allow",
+                   "Action": "codepipeline:StartPipelineExecution",
+                   "Resource": {
+                     "Fn::Join": [
+                       "",
+                       [
+                         "arn:aws:codepipeline:",
+                         {
+                           "Ref": "AWS::Region"
+                         },
+                         ":",
+                         {
+                           "Ref": "AWS::AccountId"
+                         },
+                         ":",
+                         {
+                           "Ref": "AppPipeline"
+                         }
+                       ]
+                     ]
+   
+   ...
+   ```
 
-```
-  "EventRole": {
-    "Type": "AWS::IAM::Role",
-    "Properties": {
-      "AssumeRolePolicyDocument": {
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Effect": "Allow",
-            "Principal": {
-              "Service": [
-                "events.amazonaws.com"
-              ]
-            },
-            "Action": "sts:AssumeRole"
-          }
-        ]
+------
+
+1. Use the `AWS::Events::Rule` CloudFormation resource to add an EventBridge rule. This event pattern creates an event that monitors creation or deletion of objects in your Amazon S3 source bucket. In addition, include a target of your pipeline. When an object is created, this rule invokes `StartPipelineExecution` on your target pipeline.
+
+   **Why am I making this change?** Adding the `AWS::Events::Rule` resource enables CloudFormation to create the event. This resource is added to your CloudFormation stack.
+
+------
+#### [ YAML ]
+
+   ```
+     EventRule:
+       Type: AWS::Events::Rule
+       Properties:
+         EventBusName: default
+         EventPattern:
+           source:
+             - aws.s3
+           detail-type:
+             - Object Created
+           detail:
+             bucket:
+               name:
+                 - !Ref SourceBucket
+         Name: EnabledS3SourceRule
+         State: ENABLED
+         Targets:
+           -
+             Arn:
+               !Join [ '', [ 'arn:aws:codepipeline:', !Ref 'AWS::Region', ':', !Ref 'AWS::AccountId', ':', !Ref AppPipeline ] ]
+             RoleArn: !GetAtt EventRole.Arn
+             Id: codepipeline-AppPipeline
+   
+   
+   ...
+   ```
+
+------
+#### [ JSON ]
+
+   ```
+     "EventRule": {
+       "Type": "AWS::Events::Rule",
+       "Properties": {
+   	 "EventBusName": "default",
+   	 "EventPattern": {
+   	     "source": [
+   		 "aws.s3"
+   	     ],
+   	     "detail-type": [
+   		  "Object Created"
+   	     ],
+   	     "detail": {
+   		  "bucket": {
+   		      "name": [
+   			   "s3-pipeline-source-fra-bucket"
+   		      ]
+   	       }
+               }
+   	 },
+   	 "Name": "EnabledS3SourceRule",
+           "State": "ENABLED",
+           "Targets": [
+           {
+             "Arn": {
+               "Fn::Join": [
+                 "",
+                 [
+                   "arn:aws:codepipeline:",
+                   {
+                     "Ref": "AWS::Region"
+                   },
+                   ":",
+                   {
+                     "Ref": "AWS::AccountId"
+                   },
+                   ":",
+                   {
+                     "Ref": "AppPipeline"
+                   }
+                 ]
+               ]
+             },
+             "RoleArn": {
+               "Fn::GetAtt": [
+                 "EventRole",
+                 "Arn"
+               ]
+             },
+             "Id": "codepipeline-AppPipeline"
+           }
+         ]
+       }
+     }
+   },
+   
+   ...
+   ```
+
+------
+
+1. Save your updated template to your local computer, and open the CloudFormation console. 
+
+1. Choose your stack, and then choose **Create Change Set for Current Stack**. 
+
+1. Upload your updated template, and then view the changes listed in CloudFormation. These are the changes that will be made to the stack. You should see your new resources in the list.
+
+1. Choose **Execute**.<a name="proc-cfn-flag-s3"></a>
+
+**To edit your pipeline's PollForSourceChanges parameter**
+**Important**  
+When you create a pipeline with this method, the `PollForSourceChanges` parameter defaults to true if it is not explicitly set to false. When you add event-based change detection, you must add the parameter to your output and set it to false to disable polling. Otherwise, your pipeline starts twice for a single source change. For details, see [Valid settings for the `PollForSourceChanges` parameter](PollForSourceChanges-defaults.md).
++ In the template, change `PollForSourceChanges` to `false`. If you did not include `PollForSourceChanges` in your pipeline definition, add it and set it to `false`.
+
+  **Why am I making this change?** Changing `PollForSourceChanges` to `false` turns off periodic checks so you can use event-based change detection only.
+
+------
+#### [ YAML ]
+
+  ```
+            Name: Source
+            Actions: 
+              - 
+                Name: SourceAction
+                ActionTypeId: 
+                  Category: Source
+                  Owner: AWS
+                  Version: 1
+                  Provider: S3
+                OutputArtifacts: 
+                  - Name: SourceOutput
+                Configuration: 
+                  S3Bucket: !Ref SourceBucket
+                  S3ObjectKey: !Ref SourceObjectKey
+                  {{PollForSourceChanges: false}}
+                RunOrder: 1
+  ```
+
+------
+#### [ JSON ]
+
+  ```
+   {
+      "Name": "SourceAction",
+      "ActionTypeId": {
+        "Category": "Source",
+        "Owner": "AWS",
+        "Version": 1,
+        "Provider": "S3"
       },
-      "Path": "/",
-      "Policies": [
+      "OutputArtifacts": [
         {
-          "PolicyName": "eb-pipeline-execution",
-          "PolicyDocument": {
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Effect": "Allow",
-                "Action": "codepipeline:StartPipelineExecution",
-                "Resource": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:codepipeline:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "AppPipeline"
-                      }
-                    ]
-                  ]
-
-...
-```
-
-2. Use the `AWS::Events::Rule` CloudFormation resource to add an
-   EventBridge rule. This event pattern creates an event that monitors creation
-   or deletion of objects in your Amazon S3 source bucket. In addition, include a
-   target of your pipeline. When an object is created, this rule invokes
-   `StartPipelineExecution` on your target pipeline.
-
-**Why am I making this change?** Adding the
-`AWS::Events::Rule` resource enables CloudFormation to create the
-event. This resource is added to your CloudFormation stack.
-
-YAML
-
-```
-  EventRule:
-    Type: AWS::Events::Rule
-    Properties:
-      EventBusName: default
-      EventPattern:
-        source:
-          - aws.s3
-        detail-type:
-          - Object Created
-        detail:
-          bucket:
-            name:
-              - !Ref SourceBucket
-      Name: EnabledS3SourceRule
-      State: ENABLED
-      Targets:
-        -
-          Arn:
-            !Join [ '', [ 'arn:aws:codepipeline:', !Ref 'AWS::Region', ':', !Ref 'AWS::AccountId', ':', !Ref AppPipeline ] ]
-          RoleArn: !GetAtt EventRole.Arn
-          Id: codepipeline-AppPipeline
-
-
-...
-```
-
-JSON
-
-```
-
-  "EventRule": {
-    "Type": "AWS::Events::Rule",
-    "Properties": {
-	 "EventBusName": "default",
-	 "EventPattern": {
-	     "source": [
-		 "aws.s3"
-	     ],
-	     "detail-type": [
-		  "Object Created"
-	     ],
-	     "detail": {
-		  "bucket": {
-		      "name": [
-			   "s3-pipeline-source-fra-bucket"
-		      ]
-	       }
-            }
-	 },
-	 "Name": "EnabledS3SourceRule",
-        "State": "ENABLED",
-        "Targets": [
-        {
-          "Arn": {
-            "Fn::Join": [
-              "",
-              [
-                "arn:aws:codepipeline:",
-                {
-                  "Ref": "AWS::Region"
-                },
-                ":",
-                {
-                  "Ref": "AWS::AccountId"
-                },
-                ":",
-                {
-                  "Ref": "AppPipeline"
-                }
-              ]
-            ]
-          },
-          "RoleArn": {
-            "Fn::GetAtt": [
-              "EventRole",
-              "Arn"
-            ]
-          },
-          "Id": "codepipeline-AppPipeline"
+          "Name": "SourceOutput"
         }
-      ]
+      ],
+      "Configuration": {
+        "S3Bucket": {
+          "Ref": "SourceBucket"
+        },
+        "S3ObjectKey": {
+          "Ref": "SourceObjectKey"
+        },
+        "PollForSourceChanges": {{false}}
+      },
+      "RunOrder": 1
     }
-  }
-},
+  ```
 
-...
-```
+------
 
-3. Save your updated template to your local computer, and open the CloudFormation
-   console.
-4. Choose your stack, and then choose **Create Change Set for Current
-   Stack**.
-5. Upload your updated template, and then view the changes listed in CloudFormation.
-   These are the changes that will be made to the stack. You should see your
-   new resources in the list.
-6. Choose **Execute**.
-
-###### To edit your pipeline's PollForSourceChanges parameter
-
-###### Important
-
-When you create a pipeline with this method, the `PollForSourceChanges`
-parameter defaults to true if it is not explicitly set to false. When you add
-event-based change detection, you must add the parameter to your output and set it to
-false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
-
-- In the template, change `PollForSourceChanges` to `false`. If
-  you did not include `PollForSourceChanges` in your pipeline definition, add
-  it and set it to `false`.
-
-**Why am I making this change?** Changing
-`PollForSourceChanges` to `false` turns off periodic checks so
-you can use event-based change detection only.
-
-YAML
-
-```
-          Name: Source
-          Actions:
-            -
-              Name: SourceAction
-              ActionTypeId:
-                Category: Source
-                Owner: AWS
-                Version: 1
-                Provider: S3
-              OutputArtifacts:
-                - Name: SourceOutput
-              Configuration:
-                S3Bucket: !Ref SourceBucket
-                S3ObjectKey: !Ref SourceObjectKey
-                `PollForSourceChanges: *false*`
-              RunOrder: 1
-```
-
-JSON
-
-```
- {
-    "Name": "SourceAction",
-    "ActionTypeId": {
-      "Category": "Source",
-      "Owner": "AWS",
-      "Version": 1,
-      "Provider": "S3"
-    },
-    "OutputArtifacts": [
-      {
-        "Name": "SourceOutput"
-      }
-    ],
-    "Configuration": {
-      "S3Bucket": {
-        "Ref": "SourceBucket"
-      },
-      "S3ObjectKey": {
-        "Ref": "SourceObjectKey"
-      },
-      "PollForSourceChanges": `*false*`
-    },
-    "RunOrder": 1
-  }
-
-```
-
-###### Example
-
-When you use CloudFormation to create these resources, your pipeline is triggered when
-files in your repository are created or updated.
-
-###### Note
-
-Do not stop here. Although your pipeline is created, you must create a
-second CloudFormation template for your Amazon S3 pipeline. If you do not create the
-second template, your pipeline does not have any change detection
-functionality.
-
-YAML
+**Example**  
+When you use CloudFormation to create these resources, your pipeline is triggered when files in your repository are created or updated.   
+Do not stop here. Although your pipeline is created, you must create a second CloudFormation template for your Amazon S3 pipeline. If you do not create the second template, your pipeline does not have any change detection functionality.
 
 ```
 Parameters:
@@ -409,7 +382,7 @@ Resources:
       NotificationConfiguration:
         EventBridgeConfiguration:
           EventBridgeEnabled: true
-      VersioningConfiguration:
+      VersioningConfiguration: 
         Status: Enabled
   CodePipelineArtifactStoreBucket:
     Type: AWS::S3::Bucket
@@ -418,7 +391,7 @@ Resources:
     Properties:
       Bucket: !Ref CodePipelineArtifactStoreBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           -
             Sid: DenyUnEncryptedObjectUploads
@@ -427,7 +400,7 @@ Resources:
             Action: s3:PutObject
             Resource: !Join [ '', [ !GetAtt CodePipelineArtifactStoreBucket.Arn, '/*' ] ]
             Condition:
-              StringNotEquals:
+              StringNotEquals: 
                 s3:x-amz-server-side-encryption: aws:kms
           -
             Sid: DenyInsecureConnections
@@ -442,7 +415,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           -
             Effect: Allow
@@ -455,7 +428,7 @@ Resources:
         -
           PolicyName: AWS-CodePipeline-Service-3
           PolicyDocument:
-            Version: 2012-10-17
+            Version: 2012-10-17		 	 	 
             Statement:
               -
                 Effect: Allow
@@ -465,7 +438,7 @@ Resources:
                   - codecommit:GetCommit
                   - codecommit:GetUploadArchiveStatus
                   - codecommit:UploadArchive
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
@@ -474,13 +447,13 @@ Resources:
                   - codedeploy:GetDeployment
                   - codedeploy:GetDeploymentConfig
                   - codedeploy:RegisterApplicationRevision
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
                   - codebuild:BatchGetBuilds
                   - codebuild:StartBuild
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
@@ -490,18 +463,18 @@ Resources:
                   - devicefarm:GetUpload
                   - devicefarm:CreateUpload
                   - devicefarm:ScheduleRun
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
                   - lambda:InvokeFunction
                   - lambda:ListFunctions
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
                   - iam:PassRole
-                Resource: '`resource_ARN`'
+                Resource: '{{resource_ARN}}'
               -
                 Effect: Allow
                 Action:
@@ -516,55 +489,55 @@ Resources:
                   - rds:*
                   - sqs:*
                   - ecs:*
-                Resource: '`resource_ARN`'
-  AppPipeline:
+                Resource: '{{resource_ARN}}'
+  AppPipeline: 
     Type: AWS::CodePipeline::Pipeline
-    Properties:
+    Properties: 
       Name: s3-events-pipeline
-      RoleArn:
+      RoleArn: 
         !GetAtt CodePipelineServiceRole.Arn
-      Stages:
-        -
+      Stages: 
+        - 
           Name: Source
-          Actions:
-            -
+          Actions: 
+            - 
               Name: SourceAction
-              ActionTypeId:
+              ActionTypeId: 
                 Category: Source
                 Owner: AWS
                 Version: 1
                 Provider: S3
-              OutputArtifacts:
+              OutputArtifacts: 
                 - Name: SourceOutput
-              Configuration:
+              Configuration: 
                 S3Bucket: !Ref SourceBucket
                 S3ObjectKey: !Ref SourceObjectKey
                 PollForSourceChanges: false
               RunOrder: 1
-        -
+        - 
           Name: Beta
-          Actions:
-            -
+          Actions: 
+            - 
               Name: BetaAction
-              InputArtifacts:
+              InputArtifacts: 
                 - Name: SourceOutput
-              ActionTypeId:
+              ActionTypeId: 
                 Category: Deploy
                 Owner: AWS
                 Version: 1
                 Provider: CodeDeploy
-              Configuration:
+              Configuration: 
                 ApplicationName: !Ref ApplicationName
                 DeploymentGroupName: !Ref BetaFleet
               RunOrder: 1
-      ArtifactStore:
+      ArtifactStore: 
         Type: S3
         Location: !Ref CodePipelineArtifactStoreBucket
   EventRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           -
             Effect: Allow
@@ -577,7 +550,7 @@ Resources:
         -
           PolicyName: eb-pipeline-execution
           PolicyDocument:
-            Version: 2012-10-17
+            Version: 2012-10-17		 	 	 
             Statement:
               -
                 Effect: Allow
@@ -604,30 +577,26 @@ Resources:
             !Join [ '', [ 'arn:aws:codepipeline:', !Ref 'AWS::Region', ':', !Ref 'AWS::AccountId', ':', !Ref AppPipeline ] ]
           RoleArn: !GetAtt EventRole.Arn
           Id: codepipeline-AppPipeline
+```  
+****  
 
 ```
-
-JSON
-JSONJSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "appconfig:StartDeployment",
- "appconfig:StopDeployment",
- "appconfig:GetDeployment"
- ],
- "Resource": [
- "arn:aws:appconfig:*:`111122223333`:application/[[Application]]",
- "arn:aws:appconfig:*:`111122223333`:application/[[Application]]/*",
- "arn:aws:appconfig:*:`111122223333`:deploymentstrategy/*"
- ],
- "Effect": "Allow"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "appconfig:StartDeployment",
+                "appconfig:StopDeployment",
+                "appconfig:GetDeployment"
+            ],
+            "Resource": [
+                "arn:aws:appconfig:*:{{111122223333}}:application/[[Application]]",
+                "arn:aws:appconfig:*:{{111122223333}}:application/[[Application]]/*",
+                "arn:aws:appconfig:*:{{111122223333}}:deploymentstrategy/*"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
 ```

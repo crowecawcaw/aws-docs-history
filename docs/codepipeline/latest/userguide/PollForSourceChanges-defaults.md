@@ -1,31 +1,18 @@
+
+
 # Valid settings for the `PollForSourceChanges` parameter
+<a name="PollForSourceChanges-defaults"></a>
 
-The `PollForSourceChanges` parameter default is determined by the method
-used to create the pipeline, as described in the following table. In many cases, the
-`PollForSourceChanges` parameter defaults to true and must be disabled.
+The `PollForSourceChanges` parameter default is determined by the method used to create the pipeline, as described in the following table. In many cases, the `PollForSourceChanges` parameter defaults to true and must be disabled. 
 
-When the `PollForSourceChanges` parameter defaults to true, you should do
-the following:
+When the `PollForSourceChanges` parameter defaults to true, you should do the following:
++ Add the `PollForSourceChanges` parameter to the JSON file or CloudFormation template.
++ Create change detection resources (CloudWatch Events rule, as applicable).
++ Set the `PollForSourceChanges` parameter to false.
+**Note**  
+If you create a CloudWatch Events rule or webhook, you must set the parameter to false to avoid triggering the pipeline more than once.
 
-- Add the `PollForSourceChanges` parameter to the JSON file or CloudFormation
-  template.
-- Create change detection resources (CloudWatch Events rule, as applicable).
-- Set the `PollForSourceChanges` parameter to false.
-
-###### Note
-
-If you create a CloudWatch Events rule or webhook, you must set the parameter to false
-to avoid triggering the pipeline more than once.
-
-The `PollForSourceChanges` parameter is not used for Amazon ECR source
-actions.
-
-- `PollForSourceChanges` parameter defaults| Source | Creation method | Example "configuration" JSON structure output |
-  | --- | --- | --- |
-  | CodeCommit | Pipeline is created with the console (and change detection<br>resources are created by the console). The parameter is<br>displayed in the pipeline structure output and defaults to<br>`false`. | `<br>BranchName": "main",<br>"PollForSourceChanges": "false",<br>"RepositoryName": "my-repo"<br>` |
-  | Pipeline is created with the CLI or CloudFormation, and the<br>`PollForSourceChanges` parameter is not displayed<br>in JSON output, but it sets to `true`.² | `<br>BranchName": "main",<br>"RepositoryName": "my-repo"<br>` |
-  | Amazon S3 | Pipeline is created with the console (and change detection<br>resources are created by the console). The parameter is<br>displayed in the pipeline structure output and defaults to<br>`false`. | `<br>"S3Bucket": "my-bucket",<br>"S3ObjectKey": "object.zip",<br>"PollForSourceChanges": "false"<br>` |
-  | Pipeline is created with the CLI or CloudFormation, and the<br>`PollForSourceChanges` parameter is not displayed<br>in JSON output, but it sets to `true`.² | `<br>"S3Bucket": "my-bucket",<br>"S3ObjectKey": "object.zip"<br>` |
-  | GitHub | Pipeline is created with the console (and change detection<br>resources are created by the console). The parameter is<br>displayed in the pipeline structure output and defaults to<br>`false`. | ``<br>"Owner": "`MyGitHubAccountName`",<br>"Repo": "`MyGitHubRepositoryName`"<br>"PollForSourceChanges": "false",<br>"Branch": "`main`"<br>"OAuthToken": "`****`"<br>`` |
-  | Pipeline is created with the CLI or CloudFormation, and the<br>`PollForSourceChanges` parameter is not displayed<br>in JSON output, but it sets to `true`.² | ``<br>"Owner": "`MyGitHubAccountName`",<br>"Repo": "`MyGitHubRepositoryName`",<br>"Branch": "`main`",<br>"OAuthToken": "`****`"<br>`` |
-  | | ² If `PollForSourceChanges` has been added<br>at any point to the JSON structure or the CloudFormation template, it<br>is displayed as shown:<br>`<br>"PollForSourceChanges": "true",<br>`<br>³ For information about the change detection<br>resources that apply to each source provider, see [Change Detection<br>Methods](change-detection-methods.md "change-detection-methods.md"). |
+  The `PollForSourceChanges` parameter is not used for Amazon ECR source actions.
++   
+**`PollForSourceChanges` parameter defaults**    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/PollForSourceChanges-defaults.html)

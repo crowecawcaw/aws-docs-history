@@ -1,11 +1,11 @@
+
+
 # Permissions required to view compute logs in the console
+<a name="security-iam-permissions-console-logs"></a>
 
-To view the logs in the Commands action on the CodePipeline console, the console role
-must have permissions. To view logs in the console, add the
-`logs:GetLogEvents` permissions to the console role.
+To view the logs in the Commands action on the CodePipeline console, the console role must have permissions. To view logs in the console, add the `logs:GetLogEvents` permissions to the console role.
 
-In the console role policy statement, scope down the permissions to the pipeline
-level as shown in the following example.
+In the console role policy statement, scope down the permissions to the pipeline level as shown in the following example.
 
 ```
 {
@@ -13,6 +13,6 @@ level as shown in the following example.
     "Action": [
         "Action": "logs:GetLogEvents"
     ],
-    "Resource": "arn:aws:logs:*:`YOUR_AWS_ACCOUNT_ID`:log-group:/aws/codepipeline/`YOUR_PIPELINE_NAME`:*"
+    "Resource": "arn:aws:logs:*:{{YOUR_AWS_ACCOUNT_ID}}:log-group:/aws/codepipeline/{{YOUR_PIPELINE_NAME}}:*"
 }
 ```

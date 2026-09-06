@@ -1,18 +1,14 @@
+
+
 # JSON data format for manual approval notifications in CodePipeline
+<a name="approvals-json-format"></a>
 
-For approval actions that use Amazon SNS notifications, JSON data about the action is
-created and published to Amazon SNS when the pipeline stops. You can use the JSON output to
-send messages to Amazon SQS queues or invoke functions in AWS Lambda.
+For approval actions that use Amazon SNS notifications, JSON data about the action is created and published to Amazon SNS when the pipeline stops. You can use the JSON output to send messages to Amazon SQS queues or invoke functions in AWS Lambda. 
 
-###### Note
+**Note**  
+This guide does not address how to configure notifications using JSON. For information, see [Sending Amazon SNS Messages to Amazon SQS Queues](https://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html) and [Invoking Lambda Functions Using Amazon SNS Notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html) in the *Amazon SNS Developer Guide*.
 
-This guide does not address how to configure notifications using JSON. For
-information, see [Sending Amazon SNS Messages to Amazon SQS
-Queues](../../../sns/latest/dg/SendMessageToSQS.md "../../../sns/latest/dg/SendMessageToSQS.md") and [Invoking Lambda Functions Using Amazon SNS
-Notifications](../../../sns/latest/dg/sns-lambda.md "../../../sns/latest/dg/sns-lambda.md") in the _Amazon SNS Developer Guide_.
-
-The following example shows the structure of the JSON output available with CodePipeline
-approvals.
+The following example shows the structure of the JSON output available with CodePipeline approvals.
 
 ```
 {
