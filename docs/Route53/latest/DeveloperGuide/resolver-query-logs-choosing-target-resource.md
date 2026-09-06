@@ -53,7 +53,12 @@ JSON
  "Service": "delivery.logs.amazonaws.com"
  },
  "Action": "s3:PutObject",
- "Resource": "arn:aws:s3:::`your_bucket_name`/AWSLogs/`your_caller_account`/*"
+ "Resource": "arn:aws:s3:::`your_bucket_name`/AWSLogs/`your_caller_account`/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`your_caller_account`"
+ }
+ }
  },
  {
  "Effect": "Allow",
@@ -61,7 +66,12 @@ JSON
  "Service": "delivery.logs.amazonaws.com"
  },
  "Action": "s3:GetBucketAcl",
- "Resource": "arn:aws:s3:::`your_bucket_name`"
+ "Resource": "arn:aws:s3:::`your_bucket_name`",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`your_caller_account`"
+ }
+ }
  },
  {
  "Effect": "Allow",
