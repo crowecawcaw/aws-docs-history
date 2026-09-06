@@ -1,168 +1,110 @@
+
+
 # Create an HTTPS listener for your Application Load Balancer
+<a name="create-https-listener"></a>
 
-A listener checks for connection requests. You define a listener
-when you create your load balancer, and you can add listeners to your load balancer at
-any time.
+A listener checks for connection requests. You define a listener when you create your load balancer, and you can add listeners to your load balancer at any time.
 
-To create an HTTPS listener, you must deploy at least one [SSL server certificate](https-listener-certificates.md "https-listener-certificates.md") on
-your load balancer. The load balancer uses a server certificate to terminate the
-front-end connection and then decrypt requests from clients before sending them to the
-targets. You must also specify a [security policy](describe-ssl-policies.md "describe-ssl-policies.md"),
-which is used to negotiate secure connections between clients and the load balancer.
+To create an HTTPS listener, you must deploy at least one [SSL server certificate](https-listener-certificates.md) on your load balancer. The load balancer uses a server certificate to terminate the front-end connection and then decrypt requests from clients before sending them to the targets. You must also specify a [security policy](describe-ssl-policies.md), which is used to negotiate secure connections between clients and the load balancer.
 
-If you need to pass encrypted traffic to targets without the load balancer
-decrypting it, you can create a Network Load Balancer or Classic Load Balancer with a TCP listener on port 443.
-With a TCP listener, the load balancer passes encrypted traffic through to the
-targets without decrypting it.
+If you need to pass encrypted traffic to targets without the load balancer decrypting it, you can create a Network Load Balancer or Classic Load Balancer with a TCP listener on port 443. With a TCP listener, the load balancer passes encrypted traffic through to the targets without decrypting it.
 
-The information on this page helps you create an HTTPS listener for your load
-balancer. To add an HTTP listener to your load balancer, see [Create an HTTP listener for your Application Load Balancer](create-listener.md "create-listener.md").
+The information on this page helps you create an HTTPS listener for your load balancer. To add an HTTP listener to your load balancer, see [Create an HTTP listener for your Application Load Balancer](create-listener.md).
 
 ## Prerequisites
-
-- To add a forward action to the default listener rule, you must specify an
-  available target group. For more information, see [Create a target group for your Application Load Balancer](create-target-group.md "create-target-group.md").
-- You can specify the same target group in multiple listeners, but these
-  listeners must belong to the same load balancer. To use a target group with
-  a load balancer, you must verify that it is not used by a listener for any
-  other load balancer.
-- Application Load Balancers do not support ED25519 keys.
+<a name="https-listener-prereqs"></a>
++ To add a forward action to the default listener rule, you must specify an available target group. For more information, see [Create a target group for your Application Load Balancer](create-target-group.md).
++ You can specify the same target group in multiple listeners, but these listeners must belong to the same load balancer. To use a target group with a load balancer, you must verify that it is not used by a listener for any other load balancer.
++ Application Load Balancers do not support ED25519 keys.
 
 ## Add an HTTPS listener
+<a name="add-https-listener"></a>
 
-You configure a listener with a protocol and a port for connections from clients
-to the load balancer. For more information, see [Listener configuration](load-balancer-listeners.md#listener-configuration "load-balancer-listeners.md#listener-configuration").
+You configure a listener with a protocol and a port for connections from clients to the load balancer. For more information, see [Listener configuration](load-balancer-listeners.md#listener-configuration).
 
-When you create a secure listener, you must specify a security policy and a
-certificate. To add certificates to the certificate list, see [Add certificates to the certificate list](listener-update-certificates.md#add-certificates "listener-update-certificates.md#add-certificates").
+When you create a secure listener, you must specify a security policy and a certificate. To add certificates to the certificate list, see [Add certificates to the certificate list](listener-update-certificates.md#add-certificates).
 
-You must configure a default rule for the listener. You can add other listener rules
-after you create the listener. For more information, see [Listener rules](listener-rules.md "listener-rules.md").
+You must configure a default rule for the listener. You can add other listener rules after you create the listener. For more information, see [Listener rules](listener-rules.md).
 
-Console
+------
+#### [ Console ]
 
-###### To add an HTTPS listener
+**To add an HTTPS listener**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, choose **Load Balancers**.
-3. Select the load balancer.
-4. On the **Listeners and rules** tab, choose
-   **Add listener**.
-5. For **Protocol**, choose **HTTPS**.
-   Keep the default port or enter a different port.
-6. (Optional) For **Pre-routing action**,
-   select one of the following actions:
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-   - **Authenticate user** – Choose
-     an identity provider and provide the required information.
-     For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
-   - **Validate token** – Enter
-     the JWKS endpoint, issues, and any additional claims.
-     For more information, see [Verify JWTs using an Application Load Balancer](listener-verify-jwt.md "listener-verify-jwt.md").
+1. On the navigation pane, choose **Load Balancers**.
 
-7. For **Routing action**, select one of the
-   following actions:
+1. Select the load balancer.
 
-   - **Forward to target groups** –
-     Choose a target group. To add another target group, choose
-     **Add target group**, choose a target group,
-     review the relative weights, and update the weights as
-     needed. You must enable group-level stickiness if you enabled
-     stickiness on any of the target groups.
+1. On the **Listeners and rules** tab, choose **Add listener**.
 
-   If you don't have a target group that meets your needs, choose
-   **Create target group** to create one now.
-   For more information, see [Create a target group](create-target-group.md "create-target-group.md").
-   - **Redirect to URL** – Enter the URL
-     by entering each part separately on the **URI parts** tab,
-     or by entering the full address on the **Full URL**
-     tab. For **Status code**, select either temporary
-     (HTTP 302) or permanent (HTTP 301) based on your needs.
-   - **Return fixed response** – Enter the
-     **Response code** to return for dropped client
-     requests. Optionally, you can specify the **Content
-     type** and a **Response body**.
+1. For **Protocol**, choose **HTTPS**. Keep the default port or enter a different port.
 
-8. For **Security policy**, we select the recommended
-   security policy. You can select a different security policy as needed.
-9. For **Default SSL/TLS certificate**, choose the default
-   certificate. We also add the default certificate to the SNI list. You can
-   select a certificate using one of the following options:
+1. (Optional) For **Pre-routing action**, select one of the following actions:
+   + **Authenticate user** – Choose an identity provider and provide the required information. For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md).
+   + **Validate token** – Enter the JWKS endpoint, issues, and any additional claims. For more information, see [Verify JWTs using an Application Load Balancer](listener-verify-jwt.md).
 
-   - **From ACM** – Choose a certificate from
-     **Certificate (from ACM)**, which displays the
-     certificates available from AWS Certificate Manager.
-   - **From IAM** – Choose a certificate from
-     **Certificate (from IAM)**, which displays the
-     certificates that you imported to AWS Identity and Access Management.
-   - **Import certificate** – Choose a destination
-     for your certificate; either **Import to ACM** or
-     **Import to IAM**. For **Certificate private
-     key**, copy and paste the contents of the private key file
-     (PEM-encoded). For **Certificate body**, copy and
-     paste the contents of the public key certificate file (PEM-encoded).
-     For **Certificate Chain**, copy and paste the
-     contents of the certificate chain file (PEM-encoded), unless you are
-     using a self-signed certificate and it's not important that browsers
-     implicitly accept the certificate.
+1. For **Routing action**, select one of the following actions:
+   + **Forward to target groups** – Choose a target group. To add another target group, choose **Add target group**, choose a target group, review the relative weights, and update the weights as needed. You must enable group-level stickiness if you enabled stickiness on any of the target groups.
 
-10. (Optional) To enable mutual authentication, under **Client
-    certificate handling**, enable **Mutual authentication
-    (mTLS)**.
+     If you don't have a target group that meets your needs, choose **Create target group** to create one now. For more information, see [Create a target group](create-target-group.md).
+   + **Redirect to URL** – Enter the URL by entering each part separately on the **URI parts** tab, or by entering the full address on the **Full URL** tab. For **Status code**, select either temporary (HTTP 302) or permanent (HTTP 301) based on your needs.
+   + **Return fixed response** – Enter the **Response code** to return for dropped client requests. Optionally, you can specify the **Content type** and a **Response body**.
 
-The default mode is **passthrough**. If you select
-**Verify with trust store**:
+1. For **Security policy**, we select the recommended security policy. You can select a different security policy as needed.
 
-    * By default, connections with expired client certificates are rejected.
-     To change this behavior expand **Advanced mTLS settings**,
-     then under **Client certificate expiration** select
-     **Allow expired client certificates**.
-    * For **Trust store**, choose an existing trust store,
-     or choose **New trust store** and provide the required
-     information.
+1. For **Default SSL/TLS certificate**, choose the default certificate. We also add the default certificate to the SNI list. You can select a certificate using one of the following options:
+   + **From ACM** – Choose a certificate from **Certificate (from ACM)**, which displays the certificates available from AWS Certificate Manager.
+   + **From IAM** – Choose a certificate from **Certificate (from IAM)**, which displays the certificates that you imported to AWS Identity and Access Management.
+   + **Import certificate** – Choose a destination for your certificate; either **Import to ACM** or **Import to IAM**. For **Certificate private key**, copy and paste the contents of the private key file (PEM-encoded). For **Certificate body**, copy and paste the contents of the public key certificate file (PEM-encoded). For **Certificate Chain**, copy and paste the contents of the certificate chain file (PEM-encoded), unless you are using a self-signed certificate and it's not important that browsers implicitly accept the certificate.
 
-11. (Optional) To add tags, expand **Listener tags**. Choose
-**Add new tag** and enter the tag key and tag value. 12. Choose **Add listener**.
+1. (Optional) To enable mutual authentication, under **Client certificate handling**, enable **Mutual authentication (mTLS)**.
 
-AWS CLI
+   The default mode is **passthrough**. If you select **Verify with trust store**:
+   + By default, connections with expired client certificates are rejected. To change this behavior expand **Advanced mTLS settings**, then under **Client certificate expiration** select **Allow expired client certificates**.
+   + For **Trust store**, choose an existing trust store, or choose **New trust store** and provide the required information.
 
-###### To create an HTTPS listener
+1. (Optional) To add tags, expand **Listener tags**. Choose **Add new tag** and enter the tag key and tag value.
 
-Use the [create-listener](../../../cli/latest/reference/elbv2/create-listener.md "../../../cli/latest/reference/elbv2/create-listener.md") command. The following example
-creates an HTTPS listener with a default rule that forwards
-traffic to the specified target group.
+1. Choose **Add listener**.
+
+------
+#### [ AWS CLI ]
+
+**To create an HTTPS listener**  
+Use the [create-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2/create-listener.html) command. The following example creates an HTTPS listener with a default rule that forwards traffic to the specified target group.
 
 ```
 aws elbv2 create-listener \
-    --load-balancer-arn `load-balancer-arn` \
+    --load-balancer-arn {{load-balancer-arn}} \
     --protocol HTTPS \
-    --port `443` \
-    --default-actions Type=forward,TargetGroupArn=`target-group-arn` \
-    --ssl-policy `ELBSecurityPolicy-TLS13-1-2-2021-06` \
-    --certificates `certificate-arn`
+    --port {{443}} \
+    --default-actions Type=forward,TargetGroupArn={{target-group-arn}} \
+    --ssl-policy {{ELBSecurityPolicy-TLS13-1-2-2021-06}} \
+    --certificates {{certificate-arn}}
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To create an HTTPS listener
-
-Define a resource of type [AWS::ElasticLoadBalancingV2::Listener](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md"). The
-following example creates an HTTPS listener with a default
-rule that forwards traffic to the specified target group.
+**To create an HTTPS listener**  
+Define a resource of type [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html). The following example creates an HTTPS listener with a default rule that forwards traffic to the specified target group.
 
 ```
 Resources:
   myHTTPSListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
-    Properties:
+    Properties: 
       LoadBalancerArn: !Ref myLoadBalancer
       Protocol: HTTPS
-      Port: `443`
+      Port: {{443}}
       DefaultActions:
         - Type: "forward"
           TargetGroupArn: !Ref myTargetGroup
-      SslPolicy: `ELBSecurityPolicy-TLS13-1-2-2021-06`
-      Certificates:
-        - CertificateArn: `certificate-arn`
+      SslPolicy: {{ELBSecurityPolicy-TLS13-1-2-2021-06}}
+      Certificates: 
+        - CertificateArn: {{certificate-arn}}
 ```
+
+------

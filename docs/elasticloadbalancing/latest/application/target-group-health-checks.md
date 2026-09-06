@@ -1,107 +1,80 @@
+
+
 # Health checks for Application Load Balancer target groups
+<a name="target-group-health-checks"></a>
 
-Your Application Load Balancer periodically sends requests to its registered targets to test their status.
-These tests are called _health checks_.
+Your Application Load Balancer periodically sends requests to its registered targets to test their status. These tests are called *health checks*.
 
-Each load balancer node routes requests only to the healthy targets in the enabled
-Availability Zones for the load balancer. Each load balancer node checks the health of each
-target, using the health check settings for the target groups with which the target is
-registered. After your target is registered, it must pass one health check to be considered
-healthy. After each health check is completed, the load balancer node closes the connection
-that was established for the health check.
+Each load balancer node routes requests only to the healthy targets in the enabled Availability Zones for the load balancer. Each load balancer node checks the health of each target, using the health check settings for the target groups with which the target is registered. After your target is registered, it must pass one health check to be considered healthy. After each health check is completed, the load balancer node closes the connection that was established for the health check.
 
-If a target group contains only unhealthy registered targets, the load balancer routes
-requests to all those targets, regardless of their health status. This means that if all targets
-fail health checks at the same time in all enabled Availability Zones, the load balancer
-fails open. The effect of the fail-open is to allow traffic to all targets in all enabled
-Availability Zones, regardless of their health status, based on the load balancing
-algorithm.
+If a target group contains only unhealthy registered targets, the load balancer routes requests to all those targets, regardless of their health status. This means that if all targets fail health checks at the same time in all enabled Availability Zones, the load balancer fails open. The effect of the fail-open is to allow traffic to all targets in all enabled Availability Zones, regardless of their health status, based on the load balancing algorithm.
 
 Health checks do not support WebSockets.
 
-For more information, see [Target group health](load-balancer-target-groups.md#target-group-health "load-balancer-target-groups.md#target-group-health").
+For more information, see [Target group health](load-balancer-target-groups.md#target-group-health).
 
-You can use health check logs to capture detailed information about the health checks
-made to your registered targets for your load balancer and store them as log files in Amazon S3.
-You can use these health check logs to troubleshoot issues with your targets.
-For more information, see [Health check logs](load-balancer-health-check-logs.md "load-balancer-health-check-logs.md").
+You can use health check logs to capture detailed information about the health checks made to your registered targets for your load balancer and store them as log files in Amazon S3. You can use these health check logs to troubleshoot issues with your targets. For more information, see [Health check logs](load-balancer-health-check-logs.md).
 
-###### Contents
-
-- [Health check settings](#health-check-settings "#health-check-settings")
-- [Target health status](#target-health-states "#target-health-states")
-- [Health check reason codes](#target-health-reason-codes "#target-health-reason-codes")
-- [Check target health](check-target-health.md "check-target-health.md")
-- [Update health check settings](modify-health-check-settings.md "modify-health-check-settings.md")
+**Topics**
++ [Health check settings](#health-check-settings)
++ [Target health status](#target-health-states)
++ [Health check reason codes](#target-health-reason-codes)
++ [Check target health](check-target-health.md)
++ [Update health check settings](modify-health-check-settings.md)
 
 ## Health check settings
+<a name="health-check-settings"></a>
 
-You configure health checks for the targets in a target group as described in the
-following table. The setting names used in the table are the names used in the API. The
-load balancer sends a health check request to each registered target every
-**HealthCheckIntervalSeconds** seconds, using the specified port,
-protocol, and health check path. Each health check request is independent and the result lasts
-for the entire interval. The time that it takes for the target to respond does not
-affect the interval for the next health check request. If the health checks exceed
-**UnhealthyThresholdCount** consecutive failures, the load balancer
-takes the target out of service. When the health checks exceed
-**HealthyThresholdCount** consecutive successes, the load balancer
-puts the target back in service.
+You configure health checks for the targets in a target group as described in the following table. The setting names used in the table are the names used in the API. The load balancer sends a health check request to each registered target every **HealthCheckIntervalSeconds** seconds, using the specified port, protocol, and health check path. Each health check request is independent and the result lasts for the entire interval. The time that it takes for the target to respond does not affect the interval for the next health check request. If the health checks exceed **UnhealthyThresholdCount** consecutive failures, the load balancer takes the target out of service. When the health checks exceed **HealthyThresholdCount** consecutive successes, the load balancer puts the target back in service.
 
-Note that when you deregister a target, this decreases **HealthyHostCount**
-but does not increase **UnhealthyHostCount**.
+Note that when you deregister a target, this decreases **HealthyHostCount** but does not increase **UnhealthyHostCount**.
 
-| Setting                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **HealthCheckProtocol**        | The protocol the load balancer uses when performing health checks<br>on targets. For Application Load Balancers the possible protocols are HTTP and HTTPS. The default<br>is the HTTP protocol.<br>These protocols use the HTTP GET method to send health check requests.                                                                                                                                                                                                                                                                                                           |
-| **HealthCheckPort**            | The port the load balancer uses when performing health checks on<br>targets. The default is to use the port on which each target<br>receives traffic from the load balancer.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **HealthCheckPath**            | The destination for health checks on the targets.<br>If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI<br>(/_path_?_query_). The<br>default is /.<br>If the protocol version is gRPC, specify the path of a custom<br>health check method with the format<br>`/package.service/method`. The default is<br>`/AWS.ALB/healthcheck`.                                                                                                                                                                                                                                  |
-| **HealthCheckTimeoutSeconds**  | The amount of time, in seconds, during which no response from a<br>target means a failed health check. The range is 2–120<br>seconds. The default is 5 seconds if the target type is<br>`instance` or `ip` and 30 seconds if the<br>target type is `lambda`.                                                                                                                                                                                                                                                                                                                        |
-| **HealthCheckIntervalSeconds** | The approximate amount of time, in seconds, between health checks<br>of an individual target. The range is 5–300 seconds. The<br>default is 30 seconds if the target type is `instance` or<br>`ip` and 35 seconds if the target type is<br>`lambda`.                                                                                                                                                                                                                                                                                                                                |
-| **HealthyThresholdCount**      | The number of consecutive successful health checks required before<br>considering an unhealthy target healthy. The range is 2–10.<br>The default is 5.                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **UnhealthyThresholdCount**    | The number of consecutive failed health checks required before<br>considering a target unhealthy. The range is 2–10. The default<br>is 2.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Matcher**                    | The codes to use when checking for a successful response from a<br>target. These are called *_Success codes_<br>• in the<br>console.<br>If the protocol version is HTTP/1.1 or HTTP/2, the possible values<br>are from 200 to 499. You can specify multiple values (for example,<br>"200,202") or a range of values (for example, "200-299"). The<br>default value is 200.<br>If the protocol version is gRPC, the possible values are from 0 to<br>99. You can specify multiple values (for example, "0,1") or a range<br>of values (for example, "0-5"). The default value is 12. |
+
+| Setting | Description | 
+| --- | --- | 
+| **HealthCheckProtocol** | The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers the possible protocols are HTTP and HTTPS. The default is the HTTP protocol.<br />These protocols use the HTTP GET method to send health check requests. | 
+| **HealthCheckPort** | The port the load balancer uses when performing health checks on targets. The default is to use the port on which each target receives traffic from the load balancer. | 
+| **HealthCheckPath** | The destination for health checks on the targets.<br />If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (/*path*?*query*). The default is /.<br />If the protocol version is gRPC, specify the path of a custom health check method with the format `/package.service/method`. The default is `/AWS.ALB/healthcheck`. | 
+| **HealthCheckTimeoutSeconds** | The amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. The default is 5 seconds if the target type is `instance` or `ip` and 30 seconds if the target type is `lambda`. | 
+| **HealthCheckIntervalSeconds** | The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds if the target type is `instance` or `ip` and 35 seconds if the target type is `lambda`. | 
+| **HealthyThresholdCount** | The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5. | 
+| **UnhealthyThresholdCount** | The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2. | 
+| **Matcher** | The codes to use when checking for a successful response from a target. These are called **Success codes** in the console.<br />If the protocol version is HTTP/1.1 or HTTP/2, the possible values are from 200 to 499. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). The default value is 200.<br />If the protocol version is gRPC, the possible values are from 0 to 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12. | 
 
 ## Target health status
+<a name="target-health-states"></a>
 
-Before the load balancer sends a health check request to a target, you must register
-it with a target group, specify its target group in a listener rule, and ensure that the
-Availability Zone of the target is enabled for the load balancer. Before a target can
-receive requests from the load balancer, it must pass the initial health checks. After a
-target passes the initial health checks, its status is `Healthy`.
+Before the load balancer sends a health check request to a target, you must register it with a target group, specify its target group in a listener rule, and ensure that the Availability Zone of the target is enabled for the load balancer. Before a target can receive requests from the load balancer, it must pass the initial health checks. After a target passes the initial health checks, its status is `Healthy`.
 
-The following table describes the possible values for the health status of a
-registered target.
+The following table describes the possible values for the health status of a registered target.
 
-| Value         | Description                                                                                                                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `initial`     | The load balancer is in the process of registering the target or<br>performing the initial health checks on the target.<br>Related reason codes: `Elb.RegistrationInProgress`                                                                                               | <br>`Elb.InitialHealthChecking` |
-| `healthy`     | The target is healthy.<br>Related reason codes: None                                                                                                                                                                                                                        |
-| `unhealthy`   | The target did not respond to a health check or failed the health<br>check.<br>Related reason codes: `Target.ResponseCodeMismatch`                                                                                                                                          | <br>`Target.Timeout`            | <br>`Target.FailedHealthChecks` | <br>`Elb.InternalError` |
-| `unused`      | The target is not registered with a target group, the target group<br>is not used in a listener rule, the target is in an Availability<br>Zone that is not enabled, or the target is in the stopped or<br>terminated state.<br>Related reason codes: `Target.NotRegistered` | <br>`Target.NotInUse`           | `Target.InvalidState`<br>       | `Target.IpUnusable`     |
-| `draining`    | The target is deregistering and connection draining is in<br>process.<br>Related reason code:<br>`Target.DeregistrationInProgress`                                                                                                                                          |
-| `unavailable` | Health checks are disabled for the target group.<br>Related reason code:<br>`Target.HealthCheckDisabled`                                                                                                                                                                    |
+
+| Value | Description | 
+| --- | --- | 
+| `initial` | The load balancer is in the process of registering the target or performing the initial health checks on the target.<br />Related reason codes: `Elb.RegistrationInProgress` \| `Elb.InitialHealthChecking` | 
+| `healthy` | The target is healthy.<br />Related reason codes: None | 
+| `unhealthy` | The target did not respond to a health check or failed the health check.<br />Related reason codes: `Target.ResponseCodeMismatch` \| `Target.Timeout` \| `Target.FailedHealthChecks` \| `Elb.InternalError` | 
+| `unused` | The target is not registered with a target group, the target group is not used in a listener rule, the target is in an Availability Zone that is not enabled, or the target is in the stopped or terminated state.<br />Related reason codes: `Target.NotRegistered` \| `Target.NotInUse` \| `Target.InvalidState` \| `Target.IpUnusable` | 
+| `draining` | The target is deregistering and connection draining is in process.<br />Related reason code: `Target.DeregistrationInProgress` | 
+| `unavailable` | Health checks are disabled for the target group.<br />Related reason code: `Target.HealthCheckDisabled` | 
 
 ## Health check reason codes
+<a name="target-health-reason-codes"></a>
 
-If the status of a target is any value other than `Healthy`, the API
-returns a reason code and a description of the issue, and the console displays the same
-description. Reason codes that begin with `Elb` originate on the load
-balancer side and reason codes that begin with `Target` originate on the
-target side. For more information about possible causes for health check failures, see
-[Troubleshooting](load-balancer-troubleshooting.md#target-not-inservice "load-balancer-troubleshooting.md#target-not-inservice").
+If the status of a target is any value other than `Healthy`, the API returns a reason code and a description of the issue, and the console displays the same description. Reason codes that begin with `Elb` originate on the load balancer side and reason codes that begin with `Target` originate on the target side. For more information about possible causes for health check failures, see [Troubleshooting](load-balancer-troubleshooting.md#target-not-inservice).
 
-| Reason code                       | Description                                                                                                                                                   |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Elb.InitialHealthChecking`       | Initial health checks in progress                                                                                                                             |
-| `Elb.InternalError`               | Health checks failed due to an internal error                                                                                                                 |
-| `Elb.RegistrationInProgress`      | Target registration is in progress                                                                                                                            |
-| `Target.DeregistrationInProgress` | Target deregistration is in progress                                                                                                                          |
-| `Target.FailedHealthChecks`       | Health checks failed                                                                                                                                          |
-| `Target.HealthCheckDisabled`      | Health checks are disabled                                                                                                                                    |
-| `Target.InvalidState`             | Target is in the stopped state<br>Target is in the terminated state<br>Target is in the terminated or stopped state<br>Target is in an invalid state          |
-| `Target.IpUnusable`               | The IP address cannot be used as a target, as it is in use by a<br>load balancer                                                                              |
-| `Target.NotInUse`                 | Target group is not configured to receive traffic from the load<br>balancer<br>Target is in an Availability Zone that is not enabled for the load<br>balancer |
-| `Target.NotRegistered`            | Target is not registered to the target group                                                                                                                  |
-| `Target.ResponseCodeMismatch`     | Health checks failed with these codes:<br>[_code_]                                                                                                            |
-| `Target.Timeout`                  | Request timed out                                                                                                                                             |
+
+| Reason code | Description | 
+| --- | --- | 
+| `Elb.InitialHealthChecking` | Initial health checks in progress | 
+| `Elb.InternalError` | Health checks failed due to an internal error | 
+| `Elb.RegistrationInProgress` | Target registration is in progress | 
+| `Target.DeregistrationInProgress` | Target deregistration is in progress | 
+| `Target.FailedHealthChecks` | Health checks failed | 
+| `Target.HealthCheckDisabled` | Health checks are disabled | 
+| `Target.InvalidState` | Target is in the stopped state<br />Target is in the terminated state<br />Target is in the terminated or stopped state<br />Target is in an invalid state | 
+| `Target.IpUnusable` | The IP address cannot be used as a target, as it is in use by a load balancer | 
+| `Target.NotInUse` | Target group is not configured to receive traffic from the load balancer<br />Target is in an Availability Zone that is not enabled for the load balancer | 
+| `Target.NotRegistered` | Target is not registered to the target group | 
+| `Target.ResponseCodeMismatch` | Health checks failed with these codes: [*code*] | 
+| `Target.Timeout` | Request timed out | 

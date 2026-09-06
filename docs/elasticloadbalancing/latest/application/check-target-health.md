@@ -1,48 +1,41 @@
+
+
 # Check the health of your Application Load Balancer targets
+<a name="check-target-health"></a>
 
-You can check the health status of the targets registered with your target
-groups. For help with health check failures, see [Troubleshooting: A registered target is not in service](load-balancer-troubleshooting.md#target-not-inservice "load-balancer-troubleshooting.md#target-not-inservice").
+You can check the health status of the targets registered with your target groups. For help with health check failures, see [Troubleshooting: A registered target is not in service](load-balancer-troubleshooting.md#target-not-inservice).
 
-You can use health check logs to capture detailed information about the health checks
-made to your registered targets for your load balancer and store them as log files in Amazon S3.
-You can use these health check logs to troubleshoot issues with your targets.
-For more information, see [Health check logs](load-balancer-health-check-logs.md "load-balancer-health-check-logs.md").
+You can use health check logs to capture detailed information about the health checks made to your registered targets for your load balancer and store them as log files in Amazon S3. You can use these health check logs to troubleshoot issues with your targets. For more information, see [Health check logs](load-balancer-health-check-logs.md).
 
-Console
+------
+#### [ Console ]
 
-###### To check the health of your targets
+**To check the health of your targets**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. The **Details** tab displays the total number of
-   targets, plus the number of targets for each health status.
-5. On the **Targets** tab, the
-   **Status** column indicates the status of each
-   target.
-6. If the status is any value other than `Healthy`, the
-   **Status details** column contains more
-   information.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### To receive email notifications about unhealthy targets
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-Use CloudWatch alarms to trigger a Lambda function to send details about unhealthy
-targets. For step-by-step instructions, see the following blog post: [Identifying unhealthy targets of your load balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/identifying-unhealthy-targets-of-elastic-load-balancer/ "https://aws.amazon.com/blogs/networking-and-content-delivery/identifying-unhealthy-targets-of-elastic-load-balancer/").
+1. Choose the name of the target group to open its details page.
 
-AWS CLI
+1. The **Details** tab displays the total number of targets, plus the number of targets for each health status.
 
-###### To check the health of your targets
+1. On the **Targets** tab, the **Status** column indicates the status of each target.
 
-Use the [describe-target-health](../../../cli/latest/reference/elbv2/describe-target-health.md "../../../cli/latest/reference/elbv2/describe-target-health.md") command. This example filters the
-output to include only targets that are not healthy. For targets that
-are not healthy, the output includes a reason code.
+1. If the status is any value other than `Healthy`, the **Status details** column contains more information.
+
+**To receive email notifications about unhealthy targets**  
+Use CloudWatch alarms to trigger a Lambda function to send details about unhealthy targets. For step-by-step instructions, see the following blog post: [Identifying unhealthy targets of your load balancer](https://aws.amazon.com/blogs/networking-and-content-delivery/identifying-unhealthy-targets-of-elastic-load-balancer/).
+
+------
+#### [ AWS CLI ]
+
+**To check the health of your targets**  
+Use the [describe-target-health](https://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-target-health.html) command. This example filters the output to include only targets that are not healthy. For targets that are not healthy, the output includes a reason code.
 
 ```
 aws elbv2 describe-target-health \
-    --target-group-arn `target-group-arn` \
+    --target-group-arn {{target-group-arn}} \
     --query "TargetHealthDescriptions[?TargetHealth.State!='healthy'].[Target.Id,TargetHealth.State,TargetHealth.Reason]" \
     --output table
 ```
@@ -58,47 +51,34 @@ The following is example output.
 +--------------+---------+-------------------+
 ```
 
+------
+
 ## Target states and reason codes
+<a name="target-states-reason-codes"></a>
 
 The following list shows the possible reason codes for each target state.
 
-**Target state is healthy**
-
+**Target state is healthy**  
 A reason code is not provided.
 
-**Target state is initial**
+**Target state is initial**  
++  `Elb.RegistrationInProgress` - The target is in the process of being registered with the load balancer.
++  `Elb.InitialHealthChecking` - The load balancer is still sending the target the minimum number of health checks required to determine its health status.
 
-- `Elb.RegistrationInProgress` - The target is in the process of being registered
-  with the load balancer.
-- `Elb.InitialHealthChecking` - The load balancer is still sending the target the
-  minimum number of health checks required to determine its health status.
+**Target state is unhealthy**  
++ `Target.ResponseCodeMismatch` - The health checks did not return an expected HTTP code.
++ `Target.Timeout` - The health check requests timed out.
++ `Target.FailedHealthChecks` - The load balancer received an error while establishing a connection to the target or the target response was malformed.
++ `Elb.InternalError` - The health checks failed due to an internal error.
 
-**Target state is unhealthy**
+**Target state is unused**  
++ `Target.NotRegistered` - The target is not registered with the target group.
++ `Target.NotInUse` - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.
++ `Target.InvalidState` - The target is in the stopped or terminated state.
++ `Target.IpUnusable` - The target IP address is reserved for use by a load balancer.
 
-- `Target.ResponseCodeMismatch` - The health checks did not return an
-  expected HTTP code.
-- `Target.Timeout` - The health check requests timed out.
-- `Target.FailedHealthChecks` - The load balancer received an error while
-  establishing a connection to the target or the target response was malformed.
-- `Elb.InternalError` - The health checks failed due to an internal error.
+**Target state is draining**  
++ `Target.DeregistrationInProgress` - The target is in the process of being deregistered and the deregistration delay period has not expired.
 
-**Target state is unused**
-
-- `Target.NotRegistered` - The target is not registered with the target
-  group.
-- `Target.NotInUse` - The target group is not used by any load balancer or
-  the target is in an Availability Zone that is not enabled for its load balancer.
-- `Target.InvalidState` - The target is in the stopped or terminated
-  state.
-- `Target.IpUnusable` - The target IP address is reserved for use by a load
-  balancer.
-
-**Target state is draining**
-
-- `Target.DeregistrationInProgress` - The target is in the process of being
-  deregistered and the deregistration delay period has not expired.
-
-**Target state is unavailable**
-
-- `Target.HealthCheckDisabled` - Health checks are disabled for the target
-  group.
+**Target state is unavailable**  
++ `Target.HealthCheckDisabled` - Health checks are disabled for the target group.
