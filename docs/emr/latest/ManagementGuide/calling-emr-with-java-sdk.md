@@ -1,16 +1,16 @@
+
+
 # Using the AWS SDK for Java to create an Amazon EMR cluster
+<a name="calling-emr-with-java-sdk"></a>
 
 The AWS SDK for Java provides three packages with Amazon EMR functionality:
++  [com.amazonaws.services.elasticmapreduce](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/package-summary.html) 
++  [com.amazonaws.services.elasticmapreduce.model](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/model/package-summary.html) 
++  [com.amazonaws.services.elasticmapreduce.util](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/package-summary.html) 
 
-- [com.amazonaws.services.elasticmapreduce](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/package-summary.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/package-summary.md")
-- [com.amazonaws.services.elasticmapreduce.model](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/model/package-summary.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/model/package-summary.md")
-- [com.amazonaws.services.elasticmapreduce.util](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/package-summary.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/package-summary.md")
-  For more information about these packages, see the [AWS SDK for Java API Reference](../../../sdk-for-java/latest/reference.md "../../../sdk-for-java/latest/reference.md").
+For more information about these packages, see the [AWS SDK for Java API Reference](https://docs.aws.amazon.com/sdk-for-java/latest/reference/).
 
-The following example illustrates how the SDKs can simplify programming with Amazon EMR. The
-code sample below uses the `StepFactory` object, a helper class for
-creating common Amazon EMR step types, to create an interactive Hive cluster with
-debugging enabled.
+The following example illustrates how the SDKs can simplify programming with Amazon EMR. The code sample below uses the `StepFactory` object, a helper class for creating common Amazon EMR step types, to create an interactive Hive cluster with debugging enabled. 
 
 ```
 import com.amazonaws.AmazonClientException;
@@ -81,24 +81,21 @@ public class Main {
 	}
 
 }
-
 ```
 
-At minimum, you must pass a service role and jobflow role corresponding to EMR\_DefaultRole and
-EMR\_EC2\_DefaultRole, respectively. You can do this by invoking this AWS CLI command
-for the same account. First, look to see if the roles already exist:
+At minimum, you must pass a service role and jobflow role corresponding to EMR\_DefaultRole and EMR\_EC2\_DefaultRole, respectively. You can do this by invoking this AWS CLI command for the same account. First, look to see if the roles already exist: 
 
 ```
 aws iam list-roles | grep EMR
 ```
 
-Both the instance profile (EMR\_EC2\_DefaultRole) and the service role (EMR\_DefaultRole) will be displayed if they exist:
+Both the instance profile (EMR\_EC2\_DefaultRole) and the service role (EMR\_DefaultRole) will be displayed if they exist: 
 
 ```
-"RoleName": "EMR_DefaultRole",
-            "Arn": "arn:aws:iam::`AccountID`:role/EMR_DefaultRole"
-            "RoleName": "EMR_EC2_DefaultRole",
-            "Arn": "arn:aws:iam::`AccountID`:role/EMR_EC2_DefaultRole"
+"RoleName": "EMR_DefaultRole", 
+            "Arn": "arn:aws:iam::{{AccountID}}:role/EMR_DefaultRole"
+            "RoleName": "EMR_EC2_DefaultRole", 
+            "Arn": "arn:aws:iam::{{AccountID}}:role/EMR_EC2_DefaultRole"
 ```
 
 If the default roles do not exist, you can use the following command to create them:

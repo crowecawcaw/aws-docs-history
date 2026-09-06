@@ -1,39 +1,28 @@
-# Features that support high availability in an Amazon EMR cluster and how they work with open-source applications
 
-This topic provides information about the Hadoop high-availability features of HDFS
-NameNode and YARN ResourceManager in an Amazon EMR cluster, and how the high-availability
-features work with open source applications and other Amazon EMR features.
+
+# Features that support high availability in an Amazon EMR cluster and how they work with open-source applications
+<a name="emr-plan-ha-applications"></a>
+
+This topic provides information about the Hadoop high-availability features of HDFS NameNode and YARN ResourceManager in an Amazon EMR cluster, and how the high-availability features work with open source applications and other Amazon EMR features.
 
 ## High-availability HDFS
+<a name="emr-plan-ha-applications-HDFS"></a>
 
-An Amazon EMR cluster with multiple primary nodes enables the HDFS NameNode high availability
-feature in Hadoop. For more information, see [HDFS high availability](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html "https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html").
+An Amazon EMR cluster with multiple primary nodes enables the HDFS NameNode high availability feature in Hadoop. For more information, see [HDFS high availability](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html).
 
-In an Amazon EMR cluster, two or more separate nodes are configured as NameNodes. One
-NameNode is in an `active` state and the others are in a
-`standby` state. If the node with `active` NameNode fails,
-Amazon EMR starts an automatic HDFS failover process. A node with `standby`
-NameNode becomes `active` and takes over all client operations in the
-cluster. Amazon EMR replaces the failed node with a new one, which then rejoins as a
-`standby`.
+In an Amazon EMR cluster, two or more separate nodes are configured as NameNodes. One NameNode is in an `active` state and the others are in a `standby` state. If the node with `active` NameNode fails, Amazon EMR starts an automatic HDFS failover process. A node with `standby` NameNode becomes `active` and takes over all client operations in the cluster. Amazon EMR replaces the failed node with a new one, which then rejoins as a `standby`.
 
-###### Note
-
-In Amazon EMR versions 5.23.0 upto 5.36.2, only two of the three
-primary nodes run HDFS NameNode.
-
+**Note**  
+In Amazon EMR versions 5.23.0 upto 5.36.2, only two of the three primary nodes run HDFS NameNode.  
 In Amazon EMR versions 6.x and higher, all three of the primary nodes run HDFS NameNode.
 
-If you need to find out which NameNode is `active`, you can use SSH to
-connect to any primary node in the cluster and run the following
-command:
+If you need to find out which NameNode is `active`, you can use SSH to connect to any primary node in the cluster and run the following command:
 
 ```
 hdfs haadmin -getAllServiceState
 ```
 
-The output lists the nodes where NameNode is installed and their status. For
-example,
+The output lists the nodes where NameNode is installed and their status. For example,
 
 ```
 ip-##-#-#-##1.ec2.internal:8020 active
@@ -42,160 +31,100 @@ ip-##-#-#-##3.ec2.internal:8020 standby
 ```
 
 ## High-availability YARN ResourceManager
+<a name="emr-plan-ha-applications-YARN"></a>
 
-An Amazon EMR cluster with multiple primary nodes enables the YARN ResourceManager high availability feature
-in Hadoop. For more information, see [ResourceManager high availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html "https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html").
+An Amazon EMR cluster with multiple primary nodes enables the YARN ResourceManager high availability feature in Hadoop. For more information, see [ResourceManager high availability](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
-In an Amazon EMR cluster with multiple primary nodes, YARN ResourceManager runs on all three
-primary nodes. One ResourceManager is in `active` state, and the
-other two are in `standby` state. If the primary node with
-`active` ResourceManager fails, Amazon EMR starts an automatic failover
-process. A primary node with a `standby` ResourceManager takes over
-all operations. Amazon EMR replaces the failed primary node with a new one, which
-then rejoins the ResourceManager quorum as a `standby`.
+In an Amazon EMR cluster with multiple primary nodes, YARN ResourceManager runs on all three primary nodes. One ResourceManager is in `active` state, and the other two are in `standby` state. If the primary node with `active` ResourceManager fails, Amazon EMR starts an automatic failover process. A primary node with a `standby` ResourceManager takes over all operations. Amazon EMR replaces the failed primary node with a new one, which then rejoins the ResourceManager quorum as a `standby`.
 
-You can connect to
-"http://`master-public-dns-name`:8088/cluster" for any
-primary node, which automatically directs you to the `active`
-resource manager. To find out which resource manager is `active`, use SSH
-to connect to any primary node in the cluster. Then run the following command
-to get a list of the three primary nodes and their status:
+You can connect to "http://{{master-public-dns-name}}:8088/cluster" for any primary node, which automatically directs you to the `active` resource manager. To find out which resource manager is `active`, use SSH to connect to any primary node in the cluster. Then run the following command to get a list of the three primary nodes and their status:
 
 ```
 yarn rmadmin -getAllServiceState
 ```
 
 ## Supported applications in an Amazon EMR Cluster with multiple primary nodes
+<a name="emr-plan-ha-applications-list"></a>
 
-You can install and run the following applications on an Amazon EMR cluster with multiple primary nodes. For
-each application, the primary node failover process varies.
+You can install and run the following applications on an Amazon EMR cluster with multiple primary nodes. For each application, the primary node failover process varies. 
 
-| Application    | Availability during primary node failover             | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Flink**      | Availability not affected by primary node<br>failover | Flink jobs on Amazon EMR run as YARN applications. Flink's<br>JobManagers run as YARN's ApplicationMasters on core nodes. The<br>JobManager is not affected by the primary node failover<br>process.<br>If you use Amazon EMR version 5.27.0 or earlier, the JobManager is<br>a single point of failure. When the JobManager fails, it loses<br>all job states and will not resume the running jobs. You can<br>enable JobManager high availability by configuring application<br>attempt count, checkpointing, and enabling ZooKeeper as state<br>storage for Flink. For more information, see [Configuring Flink on an Amazon EMR Cluster with multiple<br>primary nodes](../ReleaseGuide/flink-configure.md#flink-multi-master "../ReleaseGuide/flink-configure.md#flink-multi-master").<br>Beginning with Amazon EMR version 5.28.0, no manual configuration<br>is needed to enable JobManager high availability. |
-| **Ganglia**    | Availability not affected by primary node<br>failover | Ganglia is available on all primary nodes, so Ganglia<br>can continue to run during the primary node failover<br>process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Hadoop**     | High availability                                     | HDFS NameNode and YARN ResourceManager automatically fail over<br>to the standby node when the active primary node<br>fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **HBase**      | High availability                                     | HBase automatically fails over to the standby node when the<br>active primary node fails.<br>If you are connecting to HBase through a REST or Thrift<br>server, you must switch to a different primary node when<br>the active primary node fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **HCatalog**   | Availability not affected by primary node failover    | HCatalog is built upon Hive metastore, which exists outside<br>of the cluster. HCatalog remains available during the<br>primary node failover process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **JupyterHub** | High availability                                     | JupyterHub is installed on all three primary instances.<br>It is highly recommended to configure notebook persistence to<br>prevent notebook loss upon primary node failure. For more<br>information, see [Configuring<br>persistence for notebooks in Amazon S3](../ReleaseGuide/emr-jupyterhub-s3.md "../ReleaseGuide/emr-jupyterhub-s3.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Livy**       | High availability                                     | Livy is installed on all three primary nodes. When the<br>active primary node fails, you lose access to the current<br>Livy session and need to create a new Livy session on a<br>different primary node or on the new replacement node.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Mahout**     | Availability not affected by primary node failover    | Since Mahout has no daemon, it is not affected by the<br>primary node failover process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **MXNet**      | Availability not affected by primary node failover    | Since MXNet has no daemon, it is not affected by the<br>primary node failover process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Phoenix**    | High Availability                                     | Phoenix' QueryServer runs only on one of the three<br>primary nodes. Phoenix on all three masters is configured<br>to connect the Phoenix QueryServer. You can find the private IP<br>of Phoenix's Query server by using<br>`/etc/phoenix/conf/phoenix-env.sh`<br>file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Pig**        | Availability not affected by primary node failover    | Since Pig has no daemon, it is not affected by the<br>primary node failover process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Spark**      | High availability                                     | All Spark applications run in YARN containers and can react<br>to primary node failover in the same way as<br>high-availability YARN features.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Sqoop**      | High availability                                     | By default, sqoop-job and sqoop-metastore store data(job<br>descriptions) on local disk of master that runs the command, if<br>you want to save metastore data on external Database, please<br>refer to apache Sqoop documentation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Tez**        | High availability                                     | Since Tez containers run on YARN, Tez behaves the same way<br>as YARN during the primary node failover<br>process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **TensorFlow** | Availability not affected by primary node failover    | Since TensorFlow has no daemon, it is not affected by the<br>primary node failover process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Zeppelin**   | High availability                                     | Zeppelin is installed on all three primary nodes.<br>Zeppelin stores notes and interpreter configurations in HDFS by<br>default to prevent data loss. Interpreter sessions are<br>completely isolated across all three primary instances.<br>Session data will be lost upon master failure. It is recommended<br>to not modify the same note concurrently on different<br>primary instances.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **ZooKeeper**  | High availability                                     | ZooKeeper is the foundation of the HDFS automatic failover<br>feature. ZooKeeper provides a highly available service for<br>maintaining coordination data, notifying clients of changes in<br>that data, and monitoring clients for failures. For more<br>information, see [HDFS automatic failover](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#Automatic_Failover "https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#Automatic_Failover").                                                                                                                                                                                                                                                                                                                                                          |
 
-To run the following applications in an Amazon EMR cluster with multiple
-primary nodes, you must configure an external database. The external database
-exists outside the cluster and makes data persistent during the primary node
-failover process. For the following applications, the service components will
-automatically recover during the primary node failover process, but active jobs
-may fail and need to be retried.
+| Application | Availability during primary node failover | Notes | 
+| --- | --- | --- | 
+| Flink | Availability not affected by primary node failover | Flink jobs on Amazon EMR run as YARN applications. Flink's JobManagers run as YARN's ApplicationMasters on core nodes. The JobManager is not affected by the primary node failover process. <br />If you use Amazon EMR version 5.27.0 or earlier, the JobManager is a single point of failure. When the JobManager fails, it loses all job states and will not resume the running jobs. You can enable JobManager high availability by configuring application attempt count, checkpointing, and enabling ZooKeeper as state storage for Flink. For more information, see [Configuring Flink on an Amazon EMR Cluster with multiple primary nodes](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/flink-configure.html#flink-multi-master).<br />Beginning with Amazon EMR version 5.28.0, no manual configuration is needed to enable JobManager high availability. | 
+| Ganglia | Availability not affected by primary node failover | Ganglia is available on all primary nodes, so Ganglia can continue to run during the primary node failover process. | 
+| Hadoop | High availability | HDFS NameNode and YARN ResourceManager automatically fail over to the standby node when the active primary node fails. | 
+| HBase | High availability | HBase automatically fails over to the standby node when the active primary node fails. <br />If you are connecting to HBase through a REST or Thrift server, you must switch to a different primary node when the active primary node fails. | 
+| HCatalog | Availability not affected by primary node failover | HCatalog is built upon Hive metastore, which exists outside of the cluster. HCatalog remains available during the primary node failover process. | 
+| JupyterHub | High availability | JupyterHub is installed on all three primary instances. It is highly recommended to configure notebook persistence to prevent notebook loss upon primary node failure. For more information, see [Configuring persistence for notebooks in Amazon S3](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-jupyterhub-s3.html). | 
+| Livy | High availability | Livy is installed on all three primary nodes. When the active primary node fails, you lose access to the current Livy session and need to create a new Livy session on a different primary node or on the new replacement node.  | 
+| Mahout | Availability not affected by primary node failover | Since Mahout has no daemon, it is not affected by the primary node failover process. | 
+| MXNet | Availability not affected by primary node failover | Since MXNet has no daemon, it is not affected by the primary node failover process. | 
+| Phoenix | High Availability  | Phoenix' QueryServer runs only on one of the three primary nodes. Phoenix on all three masters is configured to connect the Phoenix QueryServer. You can find the private IP of Phoenix's Query server by using `/etc/phoenix/conf/phoenix-env.sh` file | 
+| Pig | Availability not affected by primary node failover | Since Pig has no daemon, it is not affected by the primary node failover process. | 
+| Spark | High availability | All Spark applications run in YARN containers and can react to primary node failover in the same way as high-availability YARN features. | 
+| Sqoop | High availability | By default, sqoop-job and sqoop-metastore store data(job descriptions) on local disk of master that runs the command, if you want to save metastore data on external Database, please refer to apache Sqoop documentation | 
+| Tez | High availability | Since Tez containers run on YARN, Tez behaves the same way as YARN during the primary node failover process. | 
+| TensorFlow | Availability not affected by primary node failover | Since TensorFlow has no daemon, it is not affected by the primary node failover process. | 
+| Zeppelin | High availability | Zeppelin is installed on all three primary nodes. Zeppelin stores notes and interpreter configurations in HDFS by default to prevent data loss. Interpreter sessions are completely isolated across all three primary instances. Session data will be lost upon master failure. It is recommended to not modify the same note concurrently on different primary instances. | 
+| ZooKeeper | High availability | ZooKeeper is the foundation of the HDFS automatic failover feature. ZooKeeper provides a highly available service for maintaining coordination data, notifying clients of changes in that data, and monitoring clients for failures. For more information, see [HDFS automatic failover](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#Automatic_Failover). | 
 
-| Application                        | Availability during primary node failover        | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Hive**                           | High availability for service components<br>only | An external metastore for Hive is required. This must be a<br>MySQL external metastore, as PostgreSQL is not supported for<br>multi-master clusters. For more information, see [Configuring an external metastore for Hive](../ReleaseGuide/emr-metastore-external-hive.md "../ReleaseGuide/emr-metastore-external-hive.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Hue**                            | High availability for service components<br>only | An external database for Hue is required. For more<br>information, see [Using<br>Hue with a remote database in Amazon RDS](../ReleaseGuide/hue-rds.md "../ReleaseGuide/hue-rds.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Oozie**                          | High availability for service components only    | An external database for Oozie is required. For more<br>information, see [Using<br>Oozie with a remote database in Amazon RDS](../ReleaseGuide/oozie-rds.md "../ReleaseGuide/oozie-rds.md").<br>Oozie-server and oozie-client are installed on all three<br>primary nodes. The oozie-clients are configured to connect<br>to the correct oozie-server by default.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **PrestoDB or<br>PrestoSQL/Trino** | High availability for service components only    | An external Hive metastore for PrestoDB (PrestoSQL on Amazon EMR<br>6.1.0-6.3.0 or Trino on Amazon EMR 6.4.0 and later) is required. You<br>can use [Presto<br>with the AWS Glue Data Catalog](../ReleaseGuide/emr-presto-glue.md "../ReleaseGuide/emr-presto-glue.md") or [use an<br>external MySQL database for Hive](../ReleaseGuide/emr-hive-metastore-external.md "../ReleaseGuide/emr-hive-metastore-external.md").<br>The Presto CLI is installed on all three primary nodes so<br>you can use it to access the Presto Coordinator from any of the<br>primary nodes. The Presto Coordinator is installed on only<br>one primary node. You can find the DNS name of the<br>primary node where the Presto Coordinator is installed by<br>calling the Amazon EMR `describe-cluster` API and reading<br>the returned value of the<br>`MasterPublicDnsName` field in the<br>response. |
+To run the following applications in an Amazon EMR cluster with multiple primary nodes, you must configure an external database. The external database exists outside the cluster and makes data persistent during the primary node failover process. For the following applications, the service components will automatically recover during the primary node failover process, but active jobs may fail and need to be retried.
 
-###### Note
 
-When a primary node fails, your Java Database Connectivity (JDBC) or Open
-Database Connectivity (ODBC) terminates its connection to the primary node.
-You can connect to any of the remaining primary nodes to continue your work
-because the Hive metastore daemon runs on all primary nodes. Or you can
-wait for the failed primary node to be replaced.
+| Application | Availability during primary node failover | Notes | 
+| --- | --- | --- | 
+| Hive | High availability for service components only | An external metastore for Hive is required. This must be a MySQL external metastore, as PostgreSQL is not supported for multi-master clusters. For more information, see [Configuring an external metastore for Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-metastore-external-hive.html). | 
+| Hue | High availability for service components only | An external database for Hue is required. For more information, see [Using Hue with a remote database in Amazon RDS](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/hue-rds.html). | 
+| Oozie | High availability for service components only | An external database for Oozie is required. For more information, see [Using Oozie with a remote database in Amazon RDS](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/oozie-rds.html).<br />Oozie-server and oozie-client are installed on all three primary nodes. The oozie-clients are configured to connect to the correct oozie-server by default. | 
+| PrestoDB or PrestoSQL/Trino | High availability for service components only | An external Hive metastore for PrestoDB (PrestoSQL on Amazon EMR 6.1.0-6.3.0 or Trino on Amazon EMR 6.4.0 and later) is required. You can use [Presto with the AWS Glue Data Catalog](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-presto-glue.html) or [use an external MySQL database for Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-external.html). <br />The Presto CLI is installed on all three primary nodes so you can use it to access the Presto Coordinator from any of the primary nodes. The Presto Coordinator is installed on only one primary node. You can find the DNS name of the primary node where the Presto Coordinator is installed by calling the Amazon EMR `describe-cluster` API and reading the returned value of the `MasterPublicDnsName` field in the response. | 
+
+**Note**  
+When a primary node fails, your Java Database Connectivity (JDBC) or Open Database Connectivity (ODBC) terminates its connection to the primary node. You can connect to any of the remaining primary nodes to continue your work because the Hive metastore daemon runs on all primary nodes. Or you can wait for the failed primary node to be replaced.
 
 ## How Amazon EMR features work in a cluster with multiple primary nodes
+<a name="emr-plan-ha-features"></a>
 
 ### Connecting to primary nodes using SSH
+<a name="emr-plan-ha-features-SSH"></a>
 
-You can connect to any of the three primary nodes in an Amazon EMR cluster
-using SSH in the same way you connect to a single primary node. For more
-information, see [Connect to the primary node using SSH](emr-connect-master-node-ssh.md "emr-connect-master-node-ssh.md").
+You can connect to any of the three primary nodes in an Amazon EMR cluster using SSH in the same way you connect to a single primary node. For more information, see [Connect to the primary node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html).
 
-If a primary node fails, your SSH connection to that primary node
-ends. To continue your work, you can connect to one of the other two
-primary nodes. Alternatively, you can access the new primary node
-after Amazon EMR replaces the failed one with a new one.
+If a primary node fails, your SSH connection to that primary node ends. To continue your work, you can connect to one of the other two primary nodes. Alternatively, you can access the new primary node after Amazon EMR replaces the failed one with a new one.
 
-###### Note
-
-The private IP address for the replacement primary node remains the
-same as the previous one. The public IP address for the replacement
-primary node may change. You can retrieve the new IP addresses in the
-console or by using the `describe-cluster` command in the AWS
-CLI.
-
-NameNode only runs on two or three of the primary nodes. However, you can run
-`hdfs` CLI commands and operate jobs to access HDFS on all
-three primary nodes.
+**Note**  
+The private IP address for the replacement primary node remains the same as the previous one. The public IP address for the replacement primary node may change. You can retrieve the new IP addresses in the console or by using the `describe-cluster` command in the AWS CLI.  
+NameNode only runs on two or three of the primary nodes. However, you can run `hdfs` CLI commands and operate jobs to access HDFS on all three primary nodes.
 
 ### Working with steps in an Amazon EMR Cluster with multiple primary nodes
+<a name="emr-plan-ha-features-steps"></a>
 
-You can submit steps to an Amazon EMR cluster with multiple primary nodes in the same way you work with
-steps in a cluster with a single primary node. For more information, see
-[Submit work to a
-cluster](emr-work-with-steps.md "emr-work-with-steps.md").
+You can submit steps to an Amazon EMR cluster with multiple primary nodes in the same way you work with steps in a cluster with a single primary node. For more information, see [Submit work to a cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html). 
 
-The following are considerations for working with steps in an
-Amazon EMR cluster with multiple primary nodes:
-
-- If a primary node fails, the steps that are running on the
-  primary node are marked as FAILED. Any data that were written
-  locally are lost. However, the status FAILED may not reflect the real
-  state of the steps.
-- If a running step has started a YARN application when the
-  primary node fails, the step can continue and succeed due to the
-  automatic failover of the primary node.
-- It is recommended that you check the status of steps by referring to
-  the output of the jobs. For example, MapReduce jobs use a
-  `_SUCCESS` file to determine if the job completes
-  successfully.
-- It is recommended that you set ActionOnFailure parameter to CONTINUE,
-  or CANCEL\_AND\_WAIT, instead of TERMINATE\_JOB\_FLOW, or
-  TERMINATE\_CLUSTER.
+The following are considerations for working with steps in an Amazon EMR cluster with multiple primary nodes:
++ If a primary node fails, the steps that are running on the primary node are marked as FAILED. Any data that were written locally are lost. However, the status FAILED may not reflect the real state of the steps.
++ If a running step has started a YARN application when the primary node fails, the step can continue and succeed due to the automatic failover of the primary node.
++ It is recommended that you check the status of steps by referring to the output of the jobs. For example, MapReduce jobs use a `_SUCCESS` file to determine if the job completes successfully.
++ It is recommended that you set ActionOnFailure parameter to CONTINUE, or CANCEL\_AND\_WAIT, instead of TERMINATE\_JOB\_FLOW, or TERMINATE\_CLUSTER.
 
 ### Automatic termination protection
+<a name="emr-plan-ha-termination-protection"></a>
 
-Amazon EMR automatically enables termination protection for all clusters with multiple primary
-nodes, and overrides any step execution settings that you supply when you
-create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster "UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster").
-To shut down a cluster with multiple primary nodes, you must
-first modify the cluster attributes to disable termination protection. For
-instructions, see [Terminate an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate "emr-plan-ha-launch.md#emr-plan-ha-launch-terminate").
+Amazon EMR automatically enables termination protection for all clusters with multiple primary nodes, and overrides any step execution settings that you supply when you create the cluster. You can disable termination protection after the cluster has been launched. See [Configuring termination protection for running clusters](UsingEMR_TerminationProtection.md#emr-termination-protection-running-cluster). To shut down a cluster with multiple primary nodes, you must first modify the cluster attributes to disable termination protection. For instructions, see [Terminate an Amazon EMR Cluster with multiple primary nodes](emr-plan-ha-launch.md#emr-plan-ha-launch-terminate).
 
-For more information about termination protection, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md "UsingEMR_TerminationProtection.md").
+For more information about termination protection, see [Using termination protection to protect your Amazon EMR clusters from accidental shut down](UsingEMR_TerminationProtection.md).
 
 ### Unsupported features in an Amazon EMR Cluster with multiple primary nodes
+<a name="emr-plan-ha-features-unsupported"></a>
 
-The following Amazon EMR features are currently not available in an
-Amazon EMR cluster with multiple primary nodes:
+The following Amazon EMR features are currently not available in an Amazon EMR cluster with multiple primary nodes:
++ EMR Notebooks
++ One-click access to persistent Spark history server
++ Persistent application user interfaces
++ One-click access to persistent application user interfaces is currently not available for Amazon EMR clusters with multiple primary nodes or for Amazon EMR clusters integrated with AWS Lake Formation.
++ Runtime role-based access control. For more information, see [Additional considerations](emr-steps-runtime-roles.md#emr-steps-runtime-roles-considerations) in [Runtime roles for Amazon EMR steps](emr-steps-runtime-roles.md).
++ Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation). For more information, see [Integrate Amazon EMR with AWS IAM Identity Center](emr-idc.md).
 
-- EMR Notebooks
-- One-click access to persistent Spark history server
-- Persistent application user interfaces
-- One-click access to persistent application user interfaces is
-  currently not available for Amazon EMR clusters with multiple
-  primary nodes or for Amazon EMR clusters integrated with AWS Lake
-  Formation.
-- Runtime role-based access control. For
-  more information, see [Additional considerations](emr-steps-runtime-roles.md#emr-steps-runtime-roles-considerations "emr-steps-runtime-roles.md#emr-steps-runtime-roles-considerations") in
-  [Runtime roles for Amazon EMR steps](emr-steps-runtime-roles.md "emr-steps-runtime-roles.md").
-- Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation). For
-  more information, see [Integrate Amazon EMR with AWS IAM Identity Center](emr-idc.md "emr-idc.md").
-
-###### Note
-
-To use Kerberos authentication in your cluster, you must configure an
-external KDC.
-
-Beginning with Amazon EMR version 5.27.0, you can configure HDFS Transparent
-encryption on an Amazon EMR cluster with multiple primary nodes. For more information, see [Transparent encryption in
-HDFS on Amazon EMR](../ReleaseGuide/emr-encryption-tdehdfs.md "../ReleaseGuide/emr-encryption-tdehdfs.md").
+**Note**  
+ To use Kerberos authentication in your cluster, you must configure an external KDC.  
+Beginning with Amazon EMR version 5.27.0, you can configure HDFS Transparent encryption on an Amazon EMR cluster with multiple primary nodes. For more information, see [Transparent encryption in HDFS on Amazon EMR](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-tdehdfs.html).

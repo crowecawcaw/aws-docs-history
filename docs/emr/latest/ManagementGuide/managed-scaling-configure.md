@@ -1,71 +1,55 @@
+
+
 # Configure managed scaling for Amazon EMR
+<a name="managed-scaling-configure"></a>
 
-The following sections explain how to launch an EMR cluster that uses managed
-scaling with the AWS Management Console, the AWS SDK for Java, or the AWS Command Line Interface.
+The following sections explain how to launch an EMR cluster that uses managed scaling with the AWS Management Console, the AWS SDK for Java, or the AWS Command Line Interface.
 
-###### Topics
-
-- [Use the AWS Management Console to configure managed scaling](#managed-scaling-console "#managed-scaling-console")
-- [Use the AWS CLI to configure managed scaling](#managed-scaling-cli "#managed-scaling-cli")
-- [Use AWS SDK for Java to configure managed scaling](#managed-scaling-sdk "#managed-scaling-sdk")
+**Topics**
++ [Use the AWS Management Console to configure managed scaling](#managed-scaling-console)
++ [Use the AWS CLI to configure managed scaling](#managed-scaling-cli)
++ [Use AWS SDK for Java to configure managed scaling](#managed-scaling-sdk)
 
 ## Use the AWS Management Console to configure managed scaling
+<a name="managed-scaling-console"></a>
 
-You can use the Amazon EMR console to configure managed scaling when you create a
-cluster or to change a managed scaling policy for a running cluster.
+You can use the Amazon EMR console to configure managed scaling when you create a cluster or to change a managed scaling policy for a running cluster.
 
-Console
+------
+#### [ Console ]
 
-###### To configure managed scaling when you create a cluster with the console
+**To configure managed scaling when you create a cluster with the console**
 
-1. Sign in to the AWS Management Console, and open the Amazon EMR console at
-   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
-2. Under **EMR on EC2** in the left
-   navigation pane, choose **Clusters**, and
-   then choose **Create cluster**.
-3. Choose an Amazon EMR release **emr-5.30.0** or
-   later, except version **emr-6.0.0**.
-4. Under **Cluster scaling and provisioning
-   option**, choose
-   **Use EMR-managed scaling**.
-   Specify the **Minimum** and
-   **Maximum** number of instances, the
-   **Maximum core node** instances, and
-   the **Maximum On-Demand** instances.
-5. Choose any other options that apply to your cluster.
-6. To launch your cluster, choose **Create
-   cluster**.
+1. Sign in to the AWS Management Console, and open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr).
 
-###### To configure managed scaling on an existing cluster with the console
+1. Under **EMR on EC2** in the left navigation pane, choose **Clusters**, and then choose **Create cluster**.
 
-1. Sign in to the AWS Management Console, and open the Amazon EMR console at
-   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
-2. Under **EMR on EC2** in the left
-   navigation pane, choose **Clusters**, and
-   select the cluster that you want to update.
-3. On the **Instances** tab of the cluster
-   details page, find the **Instance group
-   settings** section. Select **Edit
-   cluster scaling** to specify new values for the
-   **Minimum** and
-   **Maximum** number of instances and the
-   **On-Demand** limit.
+1. Choose an Amazon EMR release **emr-5.30.0** or later, except version **emr-6.0.0**. 
+
+1. Under **Cluster scaling and provisioning option**, choose **Use EMR-managed scaling**. Specify the **Minimum** and **Maximum** number of instances, the **Maximum core node** instances, and the **Maximum On-Demand** instances.
+
+1. Choose any other options that apply to your cluster. 
+
+1. To launch your cluster, choose **Create cluster**.
+
+**To configure managed scaling on an existing cluster with the console**
+
+1. Sign in to the AWS Management Console, and open the Amazon EMR console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr).
+
+1. Under **EMR on EC2** in the left navigation pane, choose **Clusters**, and select the cluster that you want to update.
+
+1. On the **Instances** tab of the cluster details page, find the **Instance group settings** section. Select **Edit cluster scaling** to specify new values for the **Minimum** and **Maximum** number of instances and the **On-Demand** limit.
+
+------
 
 ## Use the AWS CLI to configure managed scaling
+<a name="managed-scaling-cli"></a>
 
-You can use AWS CLI commands for Amazon EMR to configure managed scaling when you
-create a cluster. You can use a shorthand syntax, specifying the JSON
-configuration inline within the relevant commands, or you can reference a file
-containing the configuration JSON. You can also apply a managed scaling policy
-to an existing cluster and remove a managed scaling policy that was previously
-applied. In addition, you can retrieve details of a scaling policy configuration
-from a running cluster.
+You can use AWS CLI commands for Amazon EMR to configure managed scaling when you create a cluster. You can use a shorthand syntax, specifying the JSON configuration inline within the relevant commands, or you can reference a file containing the configuration JSON. You can also apply a managed scaling policy to an existing cluster and remove a managed scaling policy that was previously applied. In addition, you can retrieve details of a scaling policy configuration from a running cluster.
 
-**Enabling Managed Scaling During Cluster
-Launch**
+**Enabling Managed Scaling During Cluster Launch**
 
-You can enable managed scaling during cluster launch as the following example
-demonstrates.
+You can enable managed scaling during cluster launch as the following example demonstrates.
 
 ```
 aws emr create-cluster \
@@ -79,88 +63,75 @@ aws emr create-cluster \
  --managed-scaling-policy ComputeLimits='{MinimumCapacityUnits=2,MaximumCapacityUnits=4,UnitType=Instances}'
 ```
 
-You can also specify a managed policy configuration using the
---managed-scaling-policy option when you use `create-cluster`.
+You can also specify a managed policy configuration using the --managed-scaling-policy option when you use `create-cluster`. 
 
-**Applying a Managed Scaling Policy to an Existing
-Cluster**
+**Applying a Managed Scaling Policy to an Existing Cluster**
 
-You can apply a managed scaling policy to an existing cluster as the following
-example demonstrates.
+You can apply a managed scaling policy to an existing cluster as the following example demonstrates.
 
 ```
-aws emr put-managed-scaling-policy
---cluster-id `j-123456`
---managed-scaling-policy ComputeLimits='{MinimumCapacityUnits=`1`,
-MaximumCapacityUnits=`10`,  MaximumOnDemandCapacityUnits=`10`, UnitType=`Instances`}'
+aws emr put-managed-scaling-policy  
+--cluster-id {{j-123456}}  
+--managed-scaling-policy ComputeLimits='{MinimumCapacityUnits={{1}},
+MaximumCapacityUnits={{10}},  MaximumOnDemandCapacityUnits={{10}}, UnitType={{Instances}}}'
 ```
 
-You can also apply a managed scaling policy to an existing cluster by using
-the `aws emr put-managed-scaling-policy` command. The following
-example uses a reference to a JSON file, `managedscaleconfig.json`,
-that specifies the managed scaling policy configuration.
+You can also apply a managed scaling policy to an existing cluster by using the `aws emr put-managed-scaling-policy` command. The following example uses a reference to a JSON file, `managedscaleconfig.json`, that specifies the managed scaling policy configuration.
 
 ```
-aws emr put-managed-scaling-policy --cluster-id `j-123456` --managed-scaling-policy file://./managedscaleconfig.json
+aws emr put-managed-scaling-policy --cluster-id {{j-123456}} --managed-scaling-policy file://./managedscaleconfig.json
 ```
 
-The following example shows the contents of the
-`managedscaleconfig.json` file, which defines the managed scaling
-policy.
+The following example shows the contents of the `managedscaleconfig.json` file, which defines the managed scaling policy.
 
 ```
 {
     "ComputeLimits": {
-        "UnitType": "`Instances`",
-        "MinimumCapacityUnits": `1`,
-        "MaximumCapacityUnits": `10`,
-        "MaximumOnDemandCapacityUnits": `10`
+        "UnitType": "{{Instances}}",
+        "MinimumCapacityUnits": {{1}},
+        "MaximumCapacityUnits": {{10}},
+        "MaximumOnDemandCapacityUnits": {{10}}
     }
 }
 ```
 
-**Retrieving a Managed Scaling Policy
-Configuration**
+**Retrieving a Managed Scaling Policy Configuration**
 
-The `GetManagedScalingPolicy` command retrieves the policy
-configuration. For example, the following command retrieves the configuration
-for the cluster with a cluster ID of `j-123456`.
+The `GetManagedScalingPolicy` command retrieves the policy configuration. For example, the following command retrieves the configuration for the cluster with a cluster ID of `j-123456`.
 
 ```
-aws emr get-managed-scaling-policy --cluster-id `j-123456`
+aws emr get-managed-scaling-policy --cluster-id {{j-123456}}
 ```
 
 The command produces the following example output.
 
 ```
-{
-   "ManagedScalingPolicy": {
-      "ComputeLimits": {
-         "MinimumCapacityUnits": `1`,
-         "MaximumOnDemandCapacityUnits": `10`,
-         "MaximumCapacityUnits": `10`,
-         "UnitType": "Instances"
-      }
-   }
-}
+ 1. {
+ 2.    "ManagedScalingPolicy": { 
+ 3.       "ComputeLimits": { 
+ 4.          "MinimumCapacityUnits": {{1}},
+ 5.          "MaximumOnDemandCapacityUnits": {{10}},
+ 6.          "MaximumCapacityUnits": {{10}},
+ 7.          "UnitType": "Instances"
+ 8.       }
+ 9.    }
+10. }
 ```
 
-For more information about using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](../../../cli/latest/reference/emr.md "../../../cli/latest/reference/emr.md").
+For more information about using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](https://docs.aws.amazon.com/cli/latest/reference/emr).
 
 **Removing Managed Scaling Policy**
 
-The `RemoveManagedScalingPolicy` command removes the policy
-configuration. For example, the following command removes the configuration for
-the cluster with a cluster ID of `j-123456`.
+The `RemoveManagedScalingPolicy` command removes the policy configuration. For example, the following command removes the configuration for the cluster with a cluster ID of `j-123456`.
 
 ```
-aws emr remove-managed-scaling-policy --cluster-id `j-123456`
+aws emr remove-managed-scaling-policy --cluster-id {{j-123456}}
 ```
 
 ## Use AWS SDK for Java to configure managed scaling
+<a name="managed-scaling-sdk"></a>
 
-The following program excerpt shows how to configure managed scaling using the
-AWS SDK for Java:
+The following program excerpt shows how to configure managed scaling using the AWS SDK for Java:
 
 ```
 package com.amazonaws.emr.sample;
@@ -188,7 +159,7 @@ public class CreateClusterWithManagedScalingWithIG {
 
 	public static void main(String[] args) {
 		AWSCredentials credentialsFromProfile = getCreadentials("AWS-Profile-Name-Here");
-
+		
 		/**
 		 * Create an Amazon EMR client with the credentials and region specified in order to create the cluster
 		 */
@@ -196,7 +167,7 @@ public class CreateClusterWithManagedScalingWithIG {
 			.withCredentials(new AWSStaticCredentialsProvider(credentialsFromProfile))
 			.withRegion(Regions.US_EAST_1)
 			.build();
-
+		
 		/**
 		 * Create Instance Groups - Primary, Core, Task
 		 */
@@ -204,14 +175,14 @@ public class CreateClusterWithManagedScalingWithIG {
 				.withInstanceCount(1)
 				.withInstanceRole("MASTER")
 				.withInstanceType("m4.large")
-				.withMarket("ON_DEMAND");
-
+				.withMarket("ON_DEMAND"); 
+				
 		InstanceGroupConfig instanceGroupConfigCore = new InstanceGroupConfig()
 			.withInstanceCount(4)
 			.withInstanceRole("CORE")
 			.withInstanceType("m4.large")
 			.withMarket("ON_DEMAND");
-
+			
 		InstanceGroupConfig instanceGroupConfigTask = new InstanceGroupConfig()
 			.withInstanceCount(5)
 			.withInstanceRole("TASK")
@@ -222,7 +193,7 @@ public class CreateClusterWithManagedScalingWithIG {
 		igConfigs.add(instanceGroupConfigMaster);
 		igConfigs.add(instanceGroupConfigCore);
 		igConfigs.add(instanceGroupConfigTask);
-
+		
         /**
          *  specify applications to be installed and configured when Amazon EMR creates the cluster
          */
@@ -230,12 +201,12 @@ public class CreateClusterWithManagedScalingWithIG {
 		Application spark = new Application().withName("Spark");
 		Application ganglia = new Application().withName("Ganglia");
 		Application zeppelin = new Application().withName("Zeppelin");
-
-		/**
-		 * Managed Scaling Configuration -
+		
+		/** 
+		 * Managed Scaling Configuration - 
          * Using UnitType=Instances for clusters composed of instance groups
 		 *
-         * Other options are:
+         * Other options are: 
          * UnitType = VCPU ( for clusters composed of instance groups)
          * UnitType = InstanceFleetUnits ( for clusters composed of instance fleets)
          **/
@@ -243,10 +214,10 @@ public class CreateClusterWithManagedScalingWithIG {
 				.withMinimumCapacityUnits(1)
 				.withMaximumCapacityUnits(20)
 				.withUnitType(ComputeLimitsUnitType.Instances);
-
+		
 		ManagedScalingPolicy managedScalingPolicy = new ManagedScalingPolicy();
 		managedScalingPolicy.setComputeLimits(computeLimits);
-
+		
 		// create the cluster with a managed scaling policy
 		RunJobFlowRequest request = new RunJobFlowRequest()
 	       		.withName("EMR_Managed_Scaling_TestCluster")
@@ -257,19 +228,19 @@ public class CreateClusterWithManagedScalingWithIG {
 	       		.withJobFlowRole("EMR_EC2_DefaultRole")  // If you use a custom Amazon EMR role for EC2 instance profile, replace the default role with the custom Amazon EMR role.
 	       		.withInstances(new JobFlowInstancesConfig().withInstanceGroups(igConfigs)
 	       	   		.withEc2SubnetId("subnet-123456789012345")
-	           		.withEc2KeyName("my-ec2-key-name")
-	           		.withKeepJobFlowAliveWhenNoSteps(true))
+	           		.withEc2KeyName("my-ec2-key-name") 
+	           		.withKeepJobFlowAliveWhenNoSteps(true))    
 	       		.withManagedScalingPolicy(managedScalingPolicy);
-	   RunJobFlowResult result = emr.runJobFlow(request);
-
+	   RunJobFlowResult result = emr.runJobFlow(request); 
+	   
 	   System.out.println("The cluster ID is " + result.toString());
 	}
-
+	
 	public static AWSCredentials getCredentials(String profileName) {
 		// specifies any named profile in .aws/credentials as the credentials provider
 		try {
 			return new ProfileCredentialsProvider("AWS-Profile-Name-Here")
-					.getCredentials();
+					.getCredentials(); 
         } catch (Exception e) {
             throw new AmazonClientException(
                     "Cannot load credentials from .aws/credentials file. " +
@@ -277,7 +248,7 @@ public class CreateClusterWithManagedScalingWithIG {
                     e);
         }
 	}
-
+	
 	public CreateClusterWithManagedScalingWithIG() { }
 }
 ```

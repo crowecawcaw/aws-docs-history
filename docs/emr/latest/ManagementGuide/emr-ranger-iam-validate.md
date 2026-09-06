@@ -1,4 +1,6 @@
-# Validate your permissions for Amazon EMR integration with Apache Ranger
 
-See [Apache Ranger troubleshooting](emr-ranger-troubleshooting.md "emr-ranger-troubleshooting.md") for instructions on validating
-permissions.
+
+# Validate your permissions for Amazon EMR integration with Apache Ranger
+<a name="emr-ranger-iam-validate"></a>
+
+See [Apache Ranger troubleshooting](emr-ranger-troubleshooting.md) for instructions on validating permissions.

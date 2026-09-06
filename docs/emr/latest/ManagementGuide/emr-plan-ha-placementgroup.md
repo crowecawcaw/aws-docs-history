@@ -1,112 +1,76 @@
+
+
 # Amazon EMR integration with EC2 placement groups
+<a name="emr-plan-ha-placementgroup"></a>
 
-When you launch an Amazon EMR multiple primary node cluster on Amazon EC2, you have the
-option to use placement group strategies to specify how you want the primary node
-instances deployed to protect against hardware failure.
+When you launch an Amazon EMR multiple primary node cluster on Amazon EC2, you have the option to use placement group strategies to specify how you want the primary node instances deployed to protect against hardware failure.
 
-Placement group strategies are supported starting with Amazon EMR version 5.23.0 as an
-option for multiple primary node clusters. Currently, only primary node types
-are supported by the placement group strategy, and the `SPREAD` strategy is
-applied to those primary nodes. The `SPREAD` strategy places a small
-group of instances across separate underlying hardware to guard against the loss of
-multiple primary nodes in the event of a hardware failure. Note that an instance
-launch request could fail if there is insufficient unique hardware to fulfill the
-request. For more information about EC2 placement strategies and limitations, see [Placement
-groups](../../../AWSEC2/latest/UserGuide/placement-groups.md "../../../AWSEC2/latest/UserGuide/placement-groups.md") in the _EC2 User Guide for Linux
-Instances_.
+Placement group strategies are supported starting with Amazon EMR version 5.23.0 as an option for multiple primary node clusters. Currently, only primary node types are supported by the placement group strategy, and the `SPREAD` strategy is applied to those primary nodes. The `SPREAD` strategy places a small group of instances across separate underlying hardware to guard against the loss of multiple primary nodes in the event of a hardware failure. Note that an instance launch request could fail if there is insufficient unique hardware to fulfill the request. For more information about EC2 placement strategies and limitations, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *EC2 User Guide for Linux Instances*.
 
-There is an initial limit from Amazon EC2 of 500 placement group strategy-enabled
-clusters that can be launched per AWS region. Contact AWS support to request an
-increase in the number of allowed placement groups. You can identify EC2 placement
-groups Amazon EMR creates by tracking the key-value pair that Amazon EMR associates with the Amazon EMR
-placement group strategy. For more information about EC2 cluster instance tags, see
-[View cluster instances in Amazon EC2](UsingEMR_Tagging.md "UsingEMR_Tagging.md").
+There is an initial limit from Amazon EC2 of 500 placement group strategy-enabled clusters that can be launched per AWS region. Contact AWS support to request an increase in the number of allowed placement groups. You can identify EC2 placement groups Amazon EMR creates by tracking the key-value pair that Amazon EMR associates with the Amazon EMR placement group strategy. For more information about EC2 cluster instance tags, see [View cluster instances in Amazon EC2](UsingEMR_Tagging.md).
 
 ## Attach the placement group managed policy to the Amazon EMRrole
+<a name="emr-plan-ha-launch-pg-policy"></a>
 
-The placement group strategy requires a managed policy called
-`AmazonElasticMapReducePlacementGroupPolicy`, which allows Amazon EMR to
-create, delete, and describe placement groups on Amazon EC2. You must attach
-`AmazonElasticMapReducePlacementGroupPolicy` to the service role for
-Amazon EMR before you launch an Amazon EMR cluster with multiple primary nodes.
+The placement group strategy requires a managed policy called `AmazonElasticMapReducePlacementGroupPolicy`, which allows Amazon EMR to create, delete, and describe placement groups on Amazon EC2. You must attach `AmazonElasticMapReducePlacementGroupPolicy` to the service role for Amazon EMR before you launch an Amazon EMR cluster with multiple primary nodes. 
 
-You can alternatively attach the `AmazonEMRServicePolicy_v2` managed
-policy to the Amazon EMR service role instead of the placement group managed policy.
-`AmazonEMRServicePolicy_v2` allows the same access to placement
-groups on Amazon EC2 as the `AmazonElasticMapReducePlacementGroupPolicy`. For
-more information, see [Service role for Amazon EMR (EMR role)](emr-iam-role.md "emr-iam-role.md").
+You can alternatively attach the `AmazonEMRServicePolicy_v2` managed policy to the Amazon EMR service role instead of the placement group managed policy. `AmazonEMRServicePolicy_v2` allows the same access to placement groups on Amazon EC2 as the `AmazonElasticMapReducePlacementGroupPolicy`. For more information, see [Service role for Amazon EMR (EMR role)](emr-iam-role.md).
 
-The `AmazonElasticMapReducePlacementGroupPolicy` managed policy is the
-following JSON text that is created and administered by Amazon EMR.
+The `AmazonElasticMapReducePlacementGroupPolicy` managed policy is the following JSON text that is created and administered by Amazon EMR.
 
-###### Note
+**Note**  
+Because the `AmazonElasticMapReducePlacementGroupPolicy` managed policy is updated automatically, the policy shown here may be out-of-date. Use the AWS Management Console to view the current policy.
 
-Because the `AmazonElasticMapReducePlacementGroupPolicy` managed
-policy is updated automatically, the policy shown here may be out-of-date. Use
-the AWS Management Console to view the current policy.
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Resource": [
- "*"
- ],
- "Effect": "Allow",
- "Action": [
- "ec2:DeletePlacementGroup",
- "ec2:DescribePlacementGroups"
- ],
- "Sid": "AllowEC2Deleteplacementgroup"
- },
- {
- "Resource": [
- "arn:aws:ec2:*:*:placement-group/pg-*"
- ],
- "Effect": "Allow",
- "Action": [
- "ec2:CreatePlacementGroup"
- ],
- "Sid": "AllowEC2Createplacementgroup"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DeletePlacementGroup",
+        "ec2:DescribePlacementGroups"
+      ],
+      "Sid": "AllowEC2Deleteplacementgroup"
+    },
+    {
+      "Resource": [
+        "arn:aws:ec2:*:*:placement-group/pg-*"
+      ],
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreatePlacementGroup"
+      ],
+      "Sid": "AllowEC2Createplacementgroup"
+    }
+  ]
+}
 ```
+
+------
 
 ## Launch an Amazon EMR cluster with multiple primary nodes using placement group strategy
+<a name="emr-plan-ha-launch-pg-strategy"></a>
 
-To launch an Amazon EMR cluster that has multiple primary nodes with a placement group
-strategy, attach the placement group managed policy
-`AmazonElasticMapReducePlacementGroupPolicy` to the Amazon EMR role. For
-more information, see [Attach the placement group managed policy to the Amazon EMRrole](#emr-plan-ha-launch-pg-policy "#emr-plan-ha-launch-pg-policy").
+To launch an Amazon EMR cluster that has multiple primary nodes with a placement group strategy, attach the placement group managed policy `AmazonElasticMapReducePlacementGroupPolicy` to the Amazon EMR role. For more information, see [Attach the placement group managed policy to the Amazon EMRrole](#emr-plan-ha-launch-pg-policy).
 
-Every time you use this role to start an Amazon EMR cluster with multiple primary
-nodes, Amazon EMR attempts to launch a cluster with `SPREAD` strategy applied
-to its primary nodes. If you use a role that does not have the placement group
-managed policy `AmazonElasticMapReducePlacementGroupPolicy` attached to
-it, Amazon EMR attempts to launch an Amazon EMR cluster that has multiple primary nodes
-without a placement group strategy.
+Every time you use this role to start an Amazon EMR cluster with multiple primary nodes, Amazon EMR attempts to launch a cluster with `SPREAD` strategy applied to its primary nodes. If you use a role that does not have the placement group managed policy `AmazonElasticMapReducePlacementGroupPolicy` attached to it, Amazon EMR attempts to launch an Amazon EMR cluster that has multiple primary nodes without a placement group strategy.
 
-If you launch an Amazon EMR cluster that has multiple primary nodes with the
-`placement-group-configs` parameter using the Amazon EMRAPI or CLI, Amazon EMR
-only launches the cluster if the Amazon EMRrole has the placement group managed policy
-`AmazonElasticMapReducePlacementGroupPolicy` attached. If the
-Amazon EMRrole does not have the policy attached, the Amazon EMR cluster with multiple primary
-nodes start fails.
+If you launch an Amazon EMR cluster that has multiple primary nodes with the `placement-group-configs` parameter using the Amazon EMRAPI or CLI, Amazon EMR only launches the cluster if the Amazon EMRrole has the placement group managed policy `AmazonElasticMapReducePlacementGroupPolicy` attached. If the Amazon EMRrole does not have the policy attached, the Amazon EMR cluster with multiple primary nodes start fails.
 
-Amazon EMR API
+------
+#### [ Amazon EMR API ]
 
-###### Example – Use a placement group strategy to launch an instance group cluster with multiple primary nodes from the Amazon EMR API
-
-When you use the RunJobFlow action to create an Amazon EMR cluster with
-multiple primary nodes, set the `PlacementGroupConfigs`
-property to the following. Currently, the `MASTER`
-instance role automatically uses `SPREAD` as the
-placement group strategy.
+**Example – Use a placement group strategy to launch an instance group cluster with multiple primary nodes from the Amazon EMR API**  
+When you use the RunJobFlow action to create an Amazon EMR cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following. Currently, the `MASTER` instance role automatically uses `SPREAD` as the placement group strategy.  
 
 ```
 {
@@ -137,25 +101,15 @@ placement group strategy.
    "ServiceRole":"EMR_DefaultRole"
 }
 ```
++ Replace {{ha-cluster}} with the name of your high-availability cluster.
++ Replace {{subnet-22XXXX01}} with your subnet ID.
++ Replace the {{ec2\_key\_pair\_name}} with the name of your EC2 key pair for this cluster. EC2 key pair is optional and only required if you want to use SSH to access your cluster.
 
-- Replace `ha-cluster` with the name of
-  your high-availability cluster.
-- Replace `subnet-22XXXX01` with your
-  subnet ID.
-- Replace the `ec2_key_pair_name` with
-  the name of your EC2 key pair for this cluster. EC2 key pair is
-  optional and only required if you want to use SSH to access your
-  cluster.
+------
+#### [ AWS CLI ]
 
-AWS CLI
-
-###### Example – Use a placement group strategy to launch an instance fleet cluster with multiple primary nodes from the AWS Command Line Interface
-
-When you use the RunJobFlow action to create an Amazon EMR cluster with
-multiple primary nodes, set the `PlacementGroupConfigs`
-property to the following. Currently, the `MASTER`
-instance role automatically uses `SPREAD` as the
-placement group strategy.
+**Example – Use a placement group strategy to launch an instance fleet cluster with multiple primary nodes from the AWS Command Line Interface**  
+When you use the RunJobFlow action to create an Amazon EMR cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following. Currently, the `MASTER` instance role automatically uses `SPREAD` as the placement group strategy.  
 
 ```
 aws emr create-cluster \
@@ -231,36 +185,24 @@ aws emr create-cluster \
 --service-role EMR_DefaultRole \
 --applications Name=Hadoop Name=Spark
 ```
++ Replace {{ha-cluster}} with the name of your high-availability cluster.
++ Replace the {{ec2\_key\_pair\_name}} with the name of your EC2 key pair for this cluster. EC2 key pair is optional and only required if you want to use SSH to access your cluster.
++ Replace {{subnet-22XXXX01}} and {{subnet-22XXXX02}}with your subnet IDs.
 
-- Replace `ha-cluster` with the name of
-  your high-availability cluster.
-- Replace the `ec2_key_pair_name` with
-  the name of your EC2 key pair for this cluster. EC2 key pair is
-  optional and only required if you want to use SSH to access your
-  cluster.
-- Replace `subnet-22XXXX01` and
-  `subnet-22XXXX02`with your subnet
-  IDs.
+------
 
 ## Launch a cluster with multiple primary nodes without a placement group strategy
+<a name="emr-plan-ha-launch-no-pg-strategy"></a>
 
-For a cluster with multiple primary nodes to launch primary nodes without the placement
-group strategy, you need to do one of the following:
+For a cluster with multiple primary nodes to launch primary nodes without the placement group strategy, you need to do one of the following:
++ Remove the placement group managed policy `AmazonElasticMapReducePlacementGroupPolicy`from the Amazon EMRrole, or
++ Launch a cluster with multiple primary nodes with the `placement-group-configs` parameter using the Amazon EMRAPI or CLI choosing `NONE` as the placement group strategy.
 
-- Remove the placement group managed policy
-  `AmazonElasticMapReducePlacementGroupPolicy`from the
-  Amazon EMRrole, or
-- Launch a cluster with multiple primary nodes with the `placement-group-configs`
-  parameter using the Amazon EMRAPI or CLI choosing `NONE` as the
-  placement group strategy.
+------
+#### [ Amazon EMR API ]
 
-Amazon EMR API
-
-###### Example– Launching a cluster with multiple primary nodes without placement group strategy using the Amazon EMRAPI.
-
-When using the RunJobFlow action to create a cluster with multiple primary nodes,
-set the `PlacementGroupConfigs` property to the
-following.
+**Example – Launching a cluster with multiple primary nodes without placement group strategy using the Amazon EMRAPI.**  
+When using the RunJobFlow action to create a cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following.  
 
 ```
 {
@@ -292,23 +234,15 @@ following.
    "ServiceRole":"EMR_DefaultRole"
 }
 ```
++ Replace {{ha-cluster}} with the name of your high-availability cluster.
++ Replace {{subnet-22XXXX01}} with your subnet ID.
++ Replace the {{ec2\_key\_pair\_name}} with the name of your EC2 key pair for this cluster. EC2 key pair is optional and only required if you want to use SSH to access your cluster.
 
-- Replace `ha-cluster` with the name of
-  your high-availability cluster.
-- Replace `subnet-22XXXX01` with your
-  subnet ID.
-- Replace the `ec2_key_pair_name` with
-  the name of your EC2 key pair for this cluster. EC2 key pair is
-  optional and only required if you want to use SSH to access your
-  cluster.
+------
+#### [ Amazon EMR CLI ]
 
-Amazon EMR CLI
-
-###### Example– Launching a cluster with multiple primary nodes without a placement group strategy using the Amazon EMRCLI.
-
-When using the RunJobFlow action to create a cluster with multiple primary nodes,
-set the `PlacementGroupConfigs` property to the
-following.
+**Example – Launching a cluster with multiple primary nodes without a placement group strategy using the Amazon EMRCLI.**  
+When using the RunJobFlow action to create a cluster with multiple primary nodes, set the `PlacementGroupConfigs` property to the following.  
 
 ```
 aws emr create-cluster \
@@ -320,22 +254,18 @@ aws emr create-cluster \
 --service-role EMR_DefaultRole \
 --applications Name=Hadoop Name=Spark
 ```
++ Replace {{ha-cluster}} with the name of your high-availability cluster.
++ Replace {{subnet-22XXXX01}} with your subnet ID.
++ Replace the {{ec2\_key\_pair\_name}} with the name of your EC2 key pair for this cluster. EC2 key pair is optional and only required if you want to use SSH to access your cluster.
 
-- Replace `ha-cluster` with the name of
-  your high-availability cluster.
-- Replace `subnet-22XXXX01` with your
-  subnet ID.
-- Replace the `ec2_key_pair_name` with
-  the name of your EC2 key pair for this cluster. EC2 key pair is
-  optional and only required if you want to use SSH to access your
-  cluster.
+------
 
 ## Checking placement group strategy configuration attached to the cluster with multiple primary nodes
+<a name="emr-plan-ha-check-pg-using-api"></a>
 
-You can use the Amazon EMR describe cluster API to see the placement group strategy
-configuration attached to the cluster with multiple primary nodes.
+You can use the Amazon EMR describe cluster API to see the placement group strategy configuration attached to the cluster with multiple primary nodes.
 
-###### Example
+**Example**  
 
 ```
 aws emr describe-cluster --cluster-id "j-xxxxx"

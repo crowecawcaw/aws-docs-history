@@ -1,125 +1,117 @@
-# Configuration examples
 
-The following examples demonstrate security configurations and cluster
-configurations for common scenarios. AWS CLI commands are shown for
-brevity.
+
+# Configuration examples
+<a name="emr-kerberos-config-examples"></a>
+
+The following examples demonstrate security configurations and cluster configurations for common scenarios. AWS CLI commands are shown for brevity.
 
 ## Local KDC
+<a name="emr-kerberos-example-local-kdc"></a>
 
-The following commands create a cluster with a cluster-dedicated KDC
-running on the primary node. Additional configuration on the cluster is
-required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
+The following commands create a cluster with a cluster-dedicated KDC running on the primary node. Additional configuration on the cluster is required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md).
 
 **Create Security Configuration**
 
 ```
-aws emr create-security-configuration --name `LocalKDCSecurityConfig` \
+aws emr create-security-configuration --name {{LocalKDCSecurityConfig}} \
 --security-configuration '{"AuthenticationConfiguration": \
 {"KerberosConfiguration": {"Provider": "ClusterDedicatedKdc",\
-"ClusterDedicatedKdcConfiguration": {"TicketLifetimeInHours": `24` }}}}'
+"ClusterDedicatedKdcConfiguration": {"TicketLifetimeInHours": {{24}} }}}}'
 ```
 
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label `emr-7.13.0` \
---instance-count 3 --instance-type `m5.xlarge` \
---applications Name=`Hadoop` Name=`Hive` --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName=`MyEC2Key` \
+aws emr create-cluster --release-label {{emr-7.13.0}} \
+--instance-count 3 --instance-type {{m5.xlarge}} \
+--applications Name={{Hadoop}} Name={{Hive}} --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
 --service-role EMR_DefaultRole \
---security-configuration `LocalKDCSecurityConfig` \
---kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`MyPassword`
+--security-configuration {{LocalKDCSecurityConfig}} \
+--kerberos-attributes Realm={{EC2.INTERNAL}},KdcAdminPassword={{MyPassword}}
 ```
 
 ## Cluster-dedicated KDC with Active Directory cross-realm trust
+<a name="emr-kerberos-example-crossrealm"></a>
 
-The following commands create a cluster with a cluster-dedicated KDC
-running on the primary node with a cross-realm trust to an Active
-Directory domain. Additional configuration on the cluster and in Active
-Directory is required. For more information, see [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
+The following commands create a cluster with a cluster-dedicated KDC running on the primary node with a cross-realm trust to an Active Directory domain. Additional configuration on the cluster and in Active Directory is required. For more information, see [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md).
 
 **Create Security Configuration**
 
 ```
-aws emr create-security-configuration --name `LocalKDCWithADTrustSecurityConfig` \
+aws emr create-security-configuration --name {{LocalKDCWithADTrustSecurityConfig}} \
 --security-configuration '{"AuthenticationConfiguration": \
 {"KerberosConfiguration": {"Provider": "ClusterDedicatedKdc", \
-"ClusterDedicatedKdcConfiguration": {"TicketLifetimeInHours": `24`, \
-"CrossRealmTrustConfiguration": {"Realm":"`AD.DOMAIN.COM`", \
-"Domain":"`ad.domain.com`", "AdminServer":"`ad.domain.com`", \
-"KdcServer":"`ad.domain.com`"}}}}}'
+"ClusterDedicatedKdcConfiguration": {"TicketLifetimeInHours": {{24}}, \
+"CrossRealmTrustConfiguration": {"Realm":"{{AD.DOMAIN.COM}}", \
+"Domain":"{{ad.domain.com}}", "AdminServer":"{{ad.domain.com}}", \
+"KdcServer":"{{ad.domain.com}}"}}}}}'
 ```
 
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label `emr-7.13.0` \
---instance-count `3` --instance-type `m5.xlarge` --applications Name=`Hadoop` Name=`Hive` \
---ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName=`MyEC2Key` \
---service-role EMR_DefaultRole --security-configuration `KDCWithADTrustSecurityConfig` \
---kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`MyClusterKDCAdminPassword`,\
-ADDomainJoinUser=`ADUserLogonName`,ADDomainJoinPassword=`ADUserPassword`,\
-CrossRealmTrustPrincipalPassword=`MatchADTrustPassword`
+aws emr create-cluster --release-label {{emr-7.13.0}} \
+--instance-count {{3}} --instance-type {{m5.xlarge}} --applications Name={{Hadoop}} Name={{Hive}} \
+--ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
+--service-role EMR_DefaultRole --security-configuration {{KDCWithADTrustSecurityConfig}} \
+--kerberos-attributes Realm={{EC2.INTERNAL}},KdcAdminPassword={{MyClusterKDCAdminPassword}},\
+ADDomainJoinUser={{ADUserLogonName}},ADDomainJoinPassword={{ADUserPassword}},\
+CrossRealmTrustPrincipalPassword={{MatchADTrustPassword}}
 ```
 
 ## External KDC on a different cluster
+<a name="emr-kerberos-example-extkdc-cluster"></a>
 
-The following commands create a cluster that references a
-cluster-dedicated KDC on the primary node of a different cluster to
-authenticate principals. Additional configuration on the cluster is
-required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md "emr-kerberos-configuration-users.md").
+The following commands create a cluster that references a cluster-dedicated KDC on the primary node of a different cluster to authenticate principals. Additional configuration on the cluster is required. For more information, see [Configuring an Amazon EMR cluster for Kerberos-authenticated HDFS users and SSH connections](emr-kerberos-configuration-users.md).
 
 **Create Security Configuration**
 
 ```
-aws emr create-security-configuration --name `ExtKDCOnDifferentCluster` \
+aws emr create-security-configuration --name {{ExtKDCOnDifferentCluster}} \
 --security-configuration '{"AuthenticationConfiguration": \
 {"KerberosConfiguration": {"Provider": "ExternalKdc", \
 "ExternalKdcConfiguration": {"KdcServerType": "Single", \
-"AdminServer": "`MasterDNSOfKDCMaster:749`", \
-"KdcServer": "`MasterDNSOfKDCMaster:88`"}}}}'
+"AdminServer": "{{MasterDNSOfKDCMaster:749}}", \
+"KdcServer": "{{MasterDNSOfKDCMaster:88}}"}}}}'
 ```
 
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label `emr-7.13.0` \
---instance-count `3` --instance-type `m5.xlarge` \
+aws emr create-cluster --release-label {{emr-7.13.0}} \
+--instance-count {{3}} --instance-type {{m5.xlarge}} \
 --applications Name=Hadoop Name=Hive \
---ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName=`MyEC2Key` \
---service-role EMR_DefaultRole --security-configuration `ExtKDCOnDifferentCluster` \
---kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`KDCOnMasterPassword`
+--ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
+--service-role EMR_DefaultRole --security-configuration {{ExtKDCOnDifferentCluster}} \
+--kerberos-attributes Realm={{EC2.INTERNAL}},KdcAdminPassword={{KDCOnMasterPassword}}
 ```
 
 ## External cluster KDC with Active Directory cross-realm trust
+<a name="emr-kerberos-example-extkdc-ad-trust"></a>
 
-The following commands create a cluster with no KDC. The cluster
-references a cluster-dedicated KDC running on the primary node of another
-cluster to authenticate principals. That KDC has a cross-realm trust
-with an Active Directory domain controller. Additional configuration on
-the primary node with the KDC is required. For more information, see
-[Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md "emr-kerberos-cross-realm.md").
+The following commands create a cluster with no KDC. The cluster references a cluster-dedicated KDC running on the primary node of another cluster to authenticate principals. That KDC has a cross-realm trust with an Active Directory domain controller. Additional configuration on the primary node with the KDC is required. For more information, see [Tutorial: Configure a cross-realm trust with an Active Directory domain](emr-kerberos-cross-realm.md).
 
 **Create Security Configuration**
 
 ```
-aws emr create-security-configuration --name `ExtKDCWithADIntegration` \
+aws emr create-security-configuration --name {{ExtKDCWithADIntegration}} \
 --security-configuration '{"AuthenticationConfiguration": \
 {"KerberosConfiguration": {"Provider": "ExternalKdc", \
 "ExternalKdcConfiguration": {"KdcServerType": "Single", \
-"AdminServer": "`MasterDNSofClusterKDC`:749", \
-"KdcServer": "`MasterDNSofClusterKDC`.com:88", \
-"AdIntegrationConfiguration": {"AdRealm":"`AD.DOMAIN.COM`", \
-"AdDomain":"`ad.domain.com`", \
-"AdServer":"`ad.domain.com`"}}}}}'
+"AdminServer": "{{MasterDNSofClusterKDC}}:749", \
+"KdcServer": "{{MasterDNSofClusterKDC}}.com:88", \
+"AdIntegrationConfiguration": {"AdRealm":"{{AD.DOMAIN.COM}}", \
+"AdDomain":"{{ad.domain.com}}", \
+"AdServer":"{{ad.domain.com}}"}}}}}'
 ```
 
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label `emr-7.13.0` \
---instance-count `3` --instance-type `m5.xlarge` --applications Name=`Hadoop` Name=`Hive` \
---ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName=`MyEC2Key` \
---service-role EMR_DefaultRole --security-configuration `ExtKDCWithADIntegration` \
---kerberos-attributes Realm=`EC2.INTERNAL`,KdcAdminPassword=`KDCOnMasterPassword`,\
-ADDomainJoinUser=`MyPrivilegedADUserName`,ADDomainJoinPassword=`PasswordForADDomainJoinUser`
+aws emr create-cluster --release-label {{emr-7.13.0}} \
+--instance-count {{3}} --instance-type {{m5.xlarge}} --applications Name={{Hadoop}} Name={{Hive}} \
+--ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
+--service-role EMR_DefaultRole --security-configuration {{ExtKDCWithADIntegration}} \
+--kerberos-attributes Realm={{EC2.INTERNAL}},KdcAdminPassword={{KDCOnMasterPassword}},\
+ADDomainJoinUser={{MyPrivilegedADUserName}},ADDomainJoinPassword={{PasswordForADDomainJoinUser}}
 ```

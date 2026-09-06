@@ -1,60 +1,54 @@
+
+
 # Working with S3 Access Grants on an IAM Identity Center enabled EMR cluster
+<a name="emr-idc-s3ag"></a>
 
-You can integrate [S3 Access Grants](../../../AmazonS3/latest/userguide/access-grants.md "../../../AmazonS3/latest/userguide/access-grants.md")
-with your AWS IAM Identity Center enabled EMR cluster.
+You can integrate [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants.html) with your AWS IAM Identity Center enabled EMR cluster.
 
-Use S3 Access Grants to authorize access to your data sets from clusters that use
-Identity Center. Create grants to augment the permissions that you set for IAM users,
-groups, roles, or for a corporate directory. For more information, see [Using S3 Access Grants with Amazon EMR](emr-access-grants.md "emr-access-grants.md").
+Use S3 Access Grants to authorize access to your data sets from clusters that use Identity Center. Create grants to augment the permissions that you set for IAM users, groups, roles, or for a corporate directory. For more information, see [Using S3 Access Grants with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-access-grants.html).
 
-###### Topics
-
-- [Create an S3 Access Grants instance and location](#emr-idc-s3ag-instance "#emr-idc-s3ag-instance")
-- [Create grants for Identity Center identities](#emr-idc-s3ag-identities "#emr-idc-s3ag-identities")
+**Topics**
++ [Create an S3 Access Grants instance and location](#emr-idc-s3ag-instance)
++ [Create grants for Identity Center identities](#emr-idc-s3ag-identities)
 
 ## Create an S3 Access Grants instance and location
+<a name="emr-idc-s3ag-instance"></a>
 
-If you don't already have one, create an S3 Access Grants instance in the AWS Region
-where you want to launch your EMR cluster.
+If you don't already have one, create an S3 Access Grants instance in the AWS Region where you want to launch your EMR cluster. 
 
-Use the following AWS CLI command to create a new instance named
-`MyInstance`:
+Use the following AWS CLI command to create a new instance named `{{MyInstance}}`:
 
 ```
 aws s3control-access-grants create-access-grants-instance \
---account-id `12345678912` \
---identity-center-arn "`identity-center-instance-arn`" \
+--account-id {{12345678912}} \
+--identity-center-arn "{{identity-center-instance-arn}}" \
 ```
 
-Then, create an S3 Access Grants location, replacing the red values with your
-own:
+Then, create an S3 Access Grants location, replacing the red values with your own:
 
 ```
 aws s3control-access-grants create-access-grants-location \
---account-id `12345678912` \
+--account-id {{12345678912}} \
 --location-scope s3:// \
---iam-role-arn "`access-grant-role-arn`" \
---region `aa-example-1`
+--iam-role-arn "{{access-grant-role-arn}}" \
+--region {{aa-example-1}}
 ```
 
-###### Note
-
-Define the `iam-role-arn` parameter as the
-`accessGrantRole` ARN.
+**Note**  
+Define the `iam-role-arn` parameter as the `accessGrantRole` ARN.
 
 ## Create grants for Identity Center identities
+<a name="emr-idc-s3ag-identities"></a>
 
-Finally, create the grants for the identities that have access to your
-cluster:
+Finally, create the grants for the identities that have access to your cluster:
 
 ```
-
 aws s3control-access-grants create-access-grant \
---account-id `12345678912` \
+--account-id {{12345678912}} \
 --access-grants-location-id "default" \
---access-grants-location-configuration S3SubPrefix="`s3-bucket-prefix`"
+--access-grants-location-configuration S3SubPrefix="{{s3-bucket-prefix}}"
 --permission READ \
---grantee GranteeType=DIRECTORY_USER,GranteeIdentifier="`your-identity-center-user-id`"
+--grantee GranteeType=DIRECTORY_USER,GranteeIdentifier="{{your-identity-center-user-id}}"
 ```
 
 Example Output:

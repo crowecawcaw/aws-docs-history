@@ -1,56 +1,37 @@
+
+
 # Responding to Amazon EMR cluster insufficient instance capacity events
+<a name="emr-events-response-insuff-capacity"></a>
 
 ## Overview
+<a name="emr-events-response-insuff-capacity-overview"></a>
 
-Amazon EMR clusters return the event code `EC2 provisioning - Insufficient
- Instance Capacity` when the selected Availability Zone doesn't have enough
-capacity to fulfill your cluster start or resize request. The event emits
-periodically with both instance groups and instance fleets if Amazon EMR repeatedly
-encounters insufficient capacity exceptions and can't fulfill your provisioning
-request for a cluster start or cluster resize operation.
+Amazon EMR clusters return the event code `EC2 provisioning - Insufficient Instance Capacity` when the selected Availability Zone doesn't have enough capacity to fulfill your cluster start or resize request. The event emits periodically with both instance groups and instance fleets if Amazon EMR repeatedly encounters insufficient capacity exceptions and can't fulfill your provisioning request for a cluster start or cluster resize operation.
 
-This page describes how you can best respond to this event type when it occurs for
-your EMR cluster.
+This page describes how you can best respond to this event type when it occurs for your EMR cluster.
 
 ## Recommended response to an insufficient capacity event
+<a name="emr-events-response-insuff-capacity-rec"></a>
 
-We recommend that you respond to an insufficient-capacity event in one of the
-following ways:
+We recommend that you respond to an insufficient-capacity event in one of the following ways:
++ Wait for capacity to recover. Capacity shifts frequently, so an insufficient capacity exception can recover on its own. Your clusters will start or finish resizing as soon as Amazon EC2 capacity becomes available.
++ Alternatively, you can terminate your cluster, modify your instance type configurations, and create a new cluster with the updated cluster configuration request. For more information, see [Availability Zone flexibility for an Amazon EMR cluster](emr-flexibility.md).
 
-- Wait for capacity to recover. Capacity shifts frequently, so an
-  insufficient capacity exception can recover on its own. Your clusters will
-  start or finish resizing as soon as Amazon EC2 capacity becomes available.
-- Alternatively, you can terminate your cluster, modify your instance type
-  configurations, and create a new cluster with the updated cluster
-  configuration request. For more information, see [Availability Zone flexibility for an Amazon EMR cluster](emr-flexibility.md "emr-flexibility.md").
-
-You can also set up rules or automated responses to an insufficient capacity
-event, as described in the next section.
+You can also set up rules or automated responses to an insufficient capacity event, as described in the next section.
 
 ## Automated recovery from an insufficient capacity event
+<a name="emr-events-response-insuff-capacity-ex"></a>
 
-You can build automation in response to Amazon EMR events such as the ones with event
-code `EC2 provisioning - Insufficient Instance Capacity`. For example,
-the following AWS Lambda function terminates an EMR cluster with an instance group
-that uses On-Demand instances, and then creates a new EMR cluster with an instance
-group that contains different instance types than the original request.
+You can build automation in response to Amazon EMR events such as the ones with event code `EC2 provisioning - Insufficient Instance Capacity`. For example, the following AWS Lambda function terminates an EMR cluster with an instance group that uses On-Demand instances, and then creates a new EMR cluster with an instance group that contains different instance types than the original request.
 
 The following conditions trigger the automated process to occur:
++ The insufficient capacity event has been emitting for primary or core nodes for more than 20 minutes.
++ The cluster is not in a **READY** or **WAITING** state. For more information about EMR cluster states, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle).
 
-- The insufficient capacity event has been emitting for primary or core
-  nodes for more than 20 minutes.
-- The cluster is not in a **READY** or
-  **WAITING** state. For more information about
-  EMR cluster states, see [Understanding the cluster lifecycle](emr-overview.md#emr-overview-cluster-lifecycle "emr-overview.md#emr-overview-cluster-lifecycle").
+**Note**  
+When you build an automated process for an insufficient capacity exception, you should consider that the insufficient capacity event is recoverable. Capacity often shifts and your clusters will resume the resize or start operation as soon as Amazon EC2 capacity becomes available.
 
-###### Note
-
-When you build an automated process for an insufficient capacity exception,
-you should consider that the insufficient capacity event is recoverable.
-Capacity often shifts and your clusters will resume the resize or start
-operation as soon as Amazon EC2 capacity becomes available.
-
-###### Example function to respond to insufficient capacity event
+**Example function to respond to insufficient capacity event**  
 
 ```
 // Lambda code with Python 3.10 and handler is lambda_function.lambda_handler

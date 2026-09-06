@@ -1,59 +1,47 @@
-# Ways to compress the output of your Amazon EMR cluster
 
-There are different ways to compress output that results from data processing. The compression tools you use depend on properties of your data. Compression can improve performance when you transfer
-large amounts of data.
+
+# Ways to compress the output of your Amazon EMR cluster
+<a name="emr-plan-output-compression"></a>
+
+There are different ways to compress output that results from data processing. The compression tools you use depend on properties of your data. Compression can improve performance when you transfer large amounts of data.
 
 ## Output data compression
+<a name="HadoopOutputDataCompression"></a>
 
-This compresses the output of your Hadoop job. If you are using TextOutputFormat the result is a gzip'ed
-text file. If you are writing to SequenceFiles then the result is a SequenceFile which is compressed
-internally. This can be enabled by setting the configuration setting mapred.output.compress to true.
+ This compresses the output of your Hadoop job. If you are using TextOutputFormat the result is a gzip'ed text file. If you are writing to SequenceFiles then the result is a SequenceFile which is compressed internally. This can be enabled by setting the configuration setting mapred.output.compress to true. 
 
-If you are running a streaming job you can enable this by passing the streaming job these arguments.
-
-```
-
--jobconf mapred.output.compress=true
+ If you are running a streaming job you can enable this by passing the streaming job these arguments. 
 
 ```
-
-You can also use a bootstrap action to automatically compress all job outputs. Here is how to do that
-with the Ruby client.
-
+1. -jobconf mapred.output.compress=true
 ```
 
---bootstrap-actions s3://elasticmapreduce/bootstrap-actions/configure-hadoop \
---args "-s,mapred.output.compress=true"
+ You can also use a bootstrap action to automatically compress all job outputs. Here is how to do that with the Ruby client. 
 
 ```
-
-Finally, if are writing a Custom Jar you can enable output compression with the following line when
-creating your job.
-
+1.    
+2. --bootstrap-actions s3://elasticmapreduce/bootstrap-actions/configure-hadoop \
+3. --args "-s,mapred.output.compress=true"
 ```
 
-FileOutputFormat.setCompressOutput(conf, true);
+ Finally, if are writing a Custom Jar you can enable output compression with the following line when creating your job. 
 
+```
+1. FileOutputFormat.setCompressOutput(conf, true);
 ```
 
 ## Intermediate data compression
+<a name="HadoopIntermediateDataCompression"></a>
 
-If your job shuffles a significant amount data from the mappers to the reducers,
-you can see a performance improvement by enabling intermediate compression. Compress the
-map output and decompress it when it arrives on the core node. The configuration
-setting is mapred.compress.map.output. You can enable this similarly to output
-compression.
+ If your job shuffles a significant amount data from the mappers to the reducers, you can see a performance improvement by enabling intermediate compression. Compress the map output and decompress it when it arrives on the core node. The configuration setting is mapred.compress.map.output. You can enable this similarly to output compression. 
 
-When writing a Custom Jar, use the following command:
+ When writing a Custom Jar, use the following command: 
 
 ```
-
-conf.setCompressMapOutput(true);
-
+1. conf.setCompressMapOutput(true);
 ```
 
 ## Using the Snappy library with Amazon EMR
+<a name="emr-using-snappy"></a>
 
-Snappy is a compression and decompression library that is optimized for speed. It is available on Amazon EMR AMIs version 2.0 and later
-and is used as the default for intermediate compression. For more information about Snappy,
-go to [http://code.google.com/p/snappy/](http://code.google.com/p/snappy/ "http://code.google.com/p/snappy/").
+Snappy is a compression and decompression library that is optimized for speed. It is available on Amazon EMR AMIs version 2.0 and later and is used as the default for intermediate compression. For more information about Snappy, go to [http://code.google.com/p/snappy/](http://code.google.com/p/snappy/). 
