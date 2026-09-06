@@ -1,134 +1,103 @@
+
+
 # Operations
+<a name="operations"></a>
 
 The Amazon EventBridge Schemas REST API includes the following operations.
++ [CreateDiscoverer](v1-discoverers.md#CreateDiscoverer)
 
-- [CreateDiscoverer](v1-discoverers.md#CreateDiscoverer "v1-discoverers.md#CreateDiscoverer")
+  Creates a discoverer.
 
-Creates a discoverer.
+  Due to no name being passed in the CreateDiscoverer API call there is no resource to DENY against when the customer adds a resource ARN of an existing discoverer in their IAM policies.
++ [CreateRegistry](v1-registries-name-registryname.md#CreateRegistry)
 
-Due to no name being passed in the CreateDiscoverer API call there is no resource to DENY against when the customer adds a resource ARN of an existing discoverer in their IAM policies.
+  Creates a registry.
++ [CreateSchema](v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema)
 
-- [CreateRegistry](v1-registries-name-registryname.md#CreateRegistry "v1-registries-name-registryname.md#CreateRegistry")
-
-Creates a registry.
-
-- [CreateSchema](v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema "v1-registries-name-registryname-schemas-name-schemaname.md#CreateSchema")
-
-Creates a schema definition.
-
-###### Note
-
+  Creates a schema definition.
+**Note**  
 Inactive schemas will be deleted after two years.
++ [DeleteDiscoverer](v1-discoverers-id-discovererid.md#DeleteDiscoverer)
 
-- [DeleteDiscoverer](v1-discoverers-id-discovererid.md#DeleteDiscoverer "v1-discoverers-id-discovererid.md#DeleteDiscoverer")
+  Deletes a discoverer.
++ [DeleteRegistry](v1-registries-name-registryname.md#DeleteRegistry)
 
-Deletes a discoverer.
+  Deletes a Registry.
++ [DeleteResourcePolicy](v1-policy.md#DeleteResourcePolicy)
 
-- [DeleteRegistry](v1-registries-name-registryname.md#DeleteRegistry "v1-registries-name-registryname.md#DeleteRegistry")
+  Delete the resource-based policy attached to the specified registry.
++ [DeleteSchema](v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema)
 
-Deletes a Registry.
+  Delete a schema definition.
++ [DeleteSchemaVersion](v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion)
 
-- [DeleteResourcePolicy](v1-policy.md#DeleteResourcePolicy "v1-policy.md#DeleteResourcePolicy")
+  Delete the schema version definition
++ [DescribeCodeBinding](v1-registries-name-registryname-schemas-name-schemaname-language-language.md#DescribeCodeBinding)
 
-Delete the resource-based policy attached to the specified registry.
+  Describe the code binding URI.
++ [DescribeDiscoverer](v1-discoverers-id-discovererid.md#DescribeDiscoverer)
 
-- [DeleteSchema](v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema "v1-registries-name-registryname-schemas-name-schemaname.md#DeleteSchema")
+  Describes the discoverer.
++ [DescribeRegistry](v1-registries-name-registryname.md#DescribeRegistry)
 
-Delete a schema definition.
+  Describes the registry.
++ [DescribeSchema](v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema)
 
-- [DeleteSchemaVersion](v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion "v1-registries-name-registryname-schemas-name-schemaname-version-schemaversion.md#DeleteSchemaVersion")
+  Retrieve the schema definition.
++ [ExportSchema](v1-registries-name-registryname-schemas-name-schemaname-export.md#ExportSchema)
 
-Delete the schema version definition
+  Exports a schema.
++ [GetCodeBindingSource](v1-registries-name-registryname-schemas-name-schemaname-language-language-source.md#GetCodeBindingSource)
 
-- [DescribeCodeBinding](v1-registries-name-registryname-schemas-name-schemaname-language-language.md#DescribeCodeBinding "v1-registries-name-registryname-schemas-name-schemaname-language-language.md#DescribeCodeBinding")
+  Get the code binding source URI.
++ [GetDiscoveredSchema](v1-discover.md#GetDiscoveredSchema)
 
-Describe the code binding URI.
+  Get the discovered schema that was generated based on sampled events.
++ [GetResourcePolicy](v1-policy.md#GetResourcePolicy)
 
-- [DescribeDiscoverer](v1-discoverers-id-discovererid.md#DescribeDiscoverer "v1-discoverers-id-discovererid.md#DescribeDiscoverer")
+  Retrieves the resource-based policy attached to a given registry.
++ [ListDiscoverers](v1-discoverers.md#ListDiscoverers)
 
-Describes the discoverer.
+  List the discoverers.
++ [ListRegistries](v1-registries.md#ListRegistries)
 
-- [DescribeRegistry](v1-registries-name-registryname.md#DescribeRegistry "v1-registries-name-registryname.md#DescribeRegistry")
+  List the registries.
++ [ListSchemas](v1-registries-name-registryname-schemas.md#ListSchemas)
 
-Describes the registry.
+  List the schemas.
++ [ListSchemaVersions](v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions)
 
-- [DescribeSchema](v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema "v1-registries-name-registryname-schemas-name-schemaname.md#DescribeSchema")
+  Provides a list of the schema versions and related information.
++ [ListTagsForResource](tags-resource-arn.md#ListTagsForResource)
 
-Retrieve the schema definition.
+  Get tags for resource.
++ [PutCodeBinding](v1-registries-name-registryname-schemas-name-schemaname-language-language.md#PutCodeBinding)
 
-- [ExportSchema](v1-registries-name-registryname-schemas-name-schemaname-export.md#ExportSchema "v1-registries-name-registryname-schemas-name-schemaname-export.md#ExportSchema")
+  Put code binding URI
++ [PutResourcePolicy](v1-policy.md#PutResourcePolicy)
 
-Exports a schema.
+  The name of the policy.
++ [SearchSchemas](v1-registries-name-registryname-schemas-search.md#SearchSchemas)
 
-- [GetCodeBindingSource](v1-registries-name-registryname-schemas-name-schemaname-language-language-source.md#GetCodeBindingSource "v1-registries-name-registryname-schemas-name-schemaname-language-language-source.md#GetCodeBindingSource")
+  Search the schemas
++ [StartDiscoverer](v1-discoverers-id-discovererid-start.md#StartDiscoverer)
 
-Get the code binding source URI.
+  Starts the discoverer
++ [StopDiscoverer](v1-discoverers-id-discovererid-stop.md#StopDiscoverer)
 
-- [GetDiscoveredSchema](v1-discover.md#GetDiscoveredSchema "v1-discover.md#GetDiscoveredSchema")
+  Stops the discoverer
++ [TagResource](tags-resource-arn.md#TagResource)
 
-Get the discovered schema that was generated based on sampled events.
+  Add tags to a resource.
++ [UntagResource](tags-resource-arn.md#UntagResource)
 
-- [GetResourcePolicy](v1-policy.md#GetResourcePolicy "v1-policy.md#GetResourcePolicy")
+  Removes tags from a resource.
++ [UpdateDiscoverer](v1-discoverers-id-discovererid.md#UpdateDiscoverer)
 
-Retrieves the resource-based policy attached to a given registry.
+  Updates the discoverer
++ [UpdateRegistry](v1-registries-name-registryname.md#UpdateRegistry)
++ [UpdateSchema](v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema)
 
-- [ListDiscoverers](v1-discoverers.md#ListDiscoverers "v1-discoverers.md#ListDiscoverers")
-
-List the discoverers.
-
-- [ListRegistries](v1-registries.md#ListRegistries "v1-registries.md#ListRegistries")
-
-List the registries.
-
-- [ListSchemas](v1-registries-name-registryname-schemas.md#ListSchemas "v1-registries-name-registryname-schemas.md#ListSchemas")
-
-List the schemas.
-
-- [ListSchemaVersions](v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions "v1-registries-name-registryname-schemas-name-schemaname-versions.md#ListSchemaVersions")
-
-Provides a list of the schema versions and related information.
-
-- [ListTagsForResource](tags-resource-arn.md#ListTagsForResource "tags-resource-arn.md#ListTagsForResource")
-
-Get tags for resource.
-
-- [PutCodeBinding](v1-registries-name-registryname-schemas-name-schemaname-language-language.md#PutCodeBinding "v1-registries-name-registryname-schemas-name-schemaname-language-language.md#PutCodeBinding")
-
-Put code binding URI
-
-- [PutResourcePolicy](v1-policy.md#PutResourcePolicy "v1-policy.md#PutResourcePolicy")
-
-The name of the policy.
-
-- [SearchSchemas](v1-registries-name-registryname-schemas-search.md#SearchSchemas "v1-registries-name-registryname-schemas-search.md#SearchSchemas")
-
-Search the schemas
-
-- [StartDiscoverer](v1-discoverers-id-discovererid-start.md#StartDiscoverer "v1-discoverers-id-discovererid-start.md#StartDiscoverer")
-
-Starts the discoverer
-
-- [StopDiscoverer](v1-discoverers-id-discovererid-stop.md#StopDiscoverer "v1-discoverers-id-discovererid-stop.md#StopDiscoverer")
-
-Stops the discoverer
-
-- [TagResource](tags-resource-arn.md#TagResource "tags-resource-arn.md#TagResource")
-
-Add tags to a resource.
-
-- [UntagResource](tags-resource-arn.md#UntagResource "tags-resource-arn.md#UntagResource")
-
-Removes tags from a resource.
-
-- [UpdateDiscoverer](v1-discoverers-id-discovererid.md#UpdateDiscoverer "v1-discoverers-id-discovererid.md#UpdateDiscoverer")
-
-Updates the discoverer
-
-- [UpdateRegistry](v1-registries-name-registryname.md#UpdateRegistry "v1-registries-name-registryname.md#UpdateRegistry")
-- [UpdateSchema](v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema "v1-registries-name-registryname-schemas-name-schemaname.md#UpdateSchema")
-
-Updates the schema definition
-
-###### Note
-
+  Updates the schema definition
+**Note**  
 Inactive schemas will be deleted after two years.
