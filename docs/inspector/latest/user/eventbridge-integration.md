@@ -1,22 +1,21 @@
+
+
 # Amazon EventBridge event schema for Amazon Inspector events
+<a name="eventbridge-integration"></a>
 
-[Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") delivers a stream of real-time data from applications and other AWS services to targets, such as AWS Lambda functions, Amazon Simple Notification Service topics, and data streams in Amazon Kinesis Data Streams.
-To support integration with other applications, services, and systems, Amazon Inspector automatically publishes findings to EventBridge as [events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
-You can use Amazon Inspector to publish events for findings, coverage, and scans.
-This section provides example schemas for EventBridge events.
+ [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) delivers a stream of real-time data from applications and other AWS services to targets, such as AWS Lambda functions, Amazon Simple Notification Service topics, and data streams in Amazon Kinesis Data Streams. To support integration with other applications, services, and systems, Amazon Inspector automatically publishes findings to EventBridge as [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html). You can use Amazon Inspector to publish events for findings, coverage, and scans. This section provides example schemas for EventBridge events. 
 
-###### Topics
-
-- [Amazon EventBridge base schema for Amazon Inspector](#event-schema-basic "#event-schema-basic")
-- [Amazon Inspector finding event schema example](#event-finding "#event-finding")
-- [Amazon Inspector initial scan complete event schema example](#event-initial-scan "#event-initial-scan")
-- [Amazon Inspector coverage event schema example](#event-coverage-event "#event-coverage-event")
-- [Amazon Inspector auto enable schema example](#event-auto-enable "#event-auto-enable")
+**Topics**
++ [Amazon EventBridge base schema for Amazon Inspector](#event-schema-basic)
++ [Amazon Inspector finding event schema example](#event-finding)
++ [Amazon Inspector initial scan complete event schema example](#event-initial-scan)
++ [Amazon Inspector coverage event schema example](#event-coverage-event)
++ [Amazon Inspector auto enable schema example](#event-auto-enable)
 
 ## Amazon EventBridge base schema for Amazon Inspector
+<a name="event-schema-basic"></a>
 
-The following is an example of the basic schema for an EventBridge event for Amazon Inspector. Event
-details differ based on the type of event.
+The following is an example of the basic schema for an EventBridge event for Amazon Inspector. Event details differ based on the type of event.
 
 ```
 {
@@ -28,7 +27,7 @@ details differ based on the type of event.
     "time": "event timestamp (string)",
     "region": "AWS Region (string)",
     "resources": [
-        *IDs or ARNs of the resources involved in the event*
+        *IDs or ARNs of the resources involved in the event* 
     ],
     "detail": {
         *Details of an Amazon Inspector event type*
@@ -37,49 +36,29 @@ details differ based on the type of event.
 ```
 
 ## Amazon Inspector finding event schema example
+<a name="event-finding"></a>
 
-The following includes examples of the schema for an EventBridge event for Amazon Inspector findings.
-Finding events are created when Amazon Inspector identifies a software vulnerability or network issue in one of your resources.
-For a guide to creating notifications in response to this type of event, see [Creating custom responses to Amazon Inspector findings with Amazon EventBridge](findings-managing-automating-responses.md "findings-managing-automating-responses.md").
+ The following includes examples of the schema for an EventBridge event for Amazon Inspector findings. Finding events are created when Amazon Inspector identifies a software vulnerability or network issue in one of your resources. For a guide to creating notifications in response to this type of event, see [Creating custom responses to Amazon Inspector findings with Amazon EventBridge](findings-managing-automating-responses.md).
 
-The following fields identify a finding event:
+ The following fields identify a finding event: 
++  `detail-type` is set to `Inspector2 Finding`. 
++  `detail` describes the finding. 
++  `detail.resources.tags` is where key-value data is stored. 
 
-- `detail-type` is set to `Inspector2 Finding`.
-- `detail` describes the finding.
-- `detail.resources.tags` is where key-value data is stored.
+ Each object in `detail.resources` can also include the following fields. These fields are present for all resources, including AWS resources. 
 
-Each object in `detail.resources` can also include the following fields.
-These fields are present for all resources, including AWS resources.
+ For AWS resources, these fields appear alongside the AWS-specific fields. You can rely on a single, provider-agnostic representation regardless of where the resource is hosted. 
++  `provider` is the cloud provider of the resource, for example `AWS` or `AZURE`. 
++  `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID. For AWS resources, this matches the `account` field. 
++  `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field for `AZURE` resources. 
++  `detail.resources.details` contains a provider-agnostic resource detail object that corresponds to the resource `type`: `vm` for a virtual machine, `image` for a container image, or `serverlessFunction` for a serverless function. These are the multi-cloud equivalents of the `awsEc2Instance`, `awsEcrContainerImage`, and `awsLambdaFunction` objects. For AWS resources, Amazon Inspector also includes the provider-agnostic object alongside the corresponding AWS-specific object. For example, an Amazon EC2 instance finding includes both `awsEc2Instance` and `vm`. 
 
-For AWS resources, these fields appear alongside the AWS-specific fields. You can
-rely on a single, provider-agnostic representation regardless of where the resource is
-hosted.
+ You can filter the tabs to see finding event schemas for different resources and finding types. 
 
-- `provider` is the cloud provider of the resource, for example
-  `AWS` or `AZURE`.
-- `providerAccountId` is the cloud provider account identifier for the
-  resource, such as an Azure subscription ID. For AWS resources, this matches
-  the `account` field.
-- `providerOrgId` is the cloud provider organization or tenant
-  identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates
-  this field for `AZURE` resources.
-- `detail.resources.details` contains a provider-agnostic resource
-  detail object that corresponds to the resource `type`:
-  `vm` for a virtual machine, `image` for a container
-  image, or `serverlessFunction` for a serverless function. These are
-  the multi-cloud equivalents of the `awsEc2Instance`,
-  `awsEcrContainerImage`, and `awsLambdaFunction` objects.
-  For AWS resources, Amazon Inspector also includes the provider-agnostic object
-  alongside the corresponding AWS-specific object. For example, an Amazon EC2
-  instance finding includes both `awsEc2Instance` and
-  `vm`.
-
-You can filter the tabs to see finding event schemas for different resources and finding types.
-
-Amazon EC2 package vulnerability finding
+------
+#### [ Amazon EC2 package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "4d621919-f1f4-4201-a0e2-37e4e330ff51",
@@ -98,7 +77,7 @@ Amazon EC2 package vulnerability finding
             "score": 0.00043
         },
         "exploitAvailable": "NO",
-        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:59:44.356 UTC 2024",
         "fixAvailable": "YES",
         "inspectorScore": 4.8,
@@ -206,13 +185,12 @@ Amazon EC2 package vulnerability finding
         "updatedAt": "Wed Sep 04 17:00:36.951 UTC 2024"
     }
 }
-
 ```
 
-Amazon EC2 network reachability finding
+------
+#### [ Amazon EC2 network reachability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "9eb1603b-4263-19ec-8be2-33184694cb92",
@@ -225,7 +203,7 @@ Amazon EC2 network reachability finding
     "detail": {
         "awsAccountId": "123456789012",
         "description": "On the instance i-12345678901234567, the port range 22-22 is reachable from the InternetGateway igw-261bab4d from an attached ENI eni-094ad651219472857.",
-        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Thu Sep 05 13:06:56.334 UTC 2024",
         "lastObservedAt": "Thu Sep 05 13:06:56.334 UTC 2024",
         "networkReachabilityDetails": {
@@ -297,13 +275,12 @@ Amazon EC2 network reachability finding
         "updatedAt": "Thu Sep 05 13:06:56.334 UTC 2024"
     }
 }
-
 ```
 
-Amazon ECR package vulnerability finding
+------
+#### [ Amazon ECR package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "5325facf-a1aa-7d97-6bce-25fde6f6d2fc",
@@ -323,7 +300,7 @@ Amazon ECR package vulnerability finding
             "score": 0.00045
         },
         "exploitAvailable": "NO",
-        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
         "fixAvailable": "YES",
         "lastObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
@@ -412,13 +389,12 @@ Amazon ECR package vulnerability finding
         "updatedAt": "Wed Sep 04 16:55:38.411 UTC 2024"
     }
 }
-
 ```
 
-Lambda package vulnerability finding
+------
+#### [  Lambda package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "9eadd71a-e49c-9864-6ba9-2a5d3f83c88f",
@@ -440,7 +416,7 @@ Lambda package vulnerability finding
         "exploitabilityDetails": {
             "lastKnownExploitAt": "Sat Aug 31 00:04:50.000 UTC 2024"
         },
-        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
         "fixAvailable": "YES",
         "inspectorScore": 7.5,
@@ -533,13 +509,12 @@ Lambda package vulnerability finding
         "updatedAt": "Wed Sep 04 16:50:37.627 UTC 2024"
     }
 }
-
 ```
 
-Lambda code vulnerability finding
+------
+#### [ Lambda code vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "e764f7be-f931-ff1b-204b-8cab2d91724b",
@@ -576,7 +551,7 @@ Lambda code vulnerability finding
             "ruleId": "python-detect-hardcoded-aws-credentials"
         },
         "description": "Access credentials, such as passwords and access keys, should not be hardcoded in source code. Hardcoding credentials may cause leaks even after removing them. This is because version control systems might retain older versions of the code. Credentials should be stored securely and obtained from the runtime environment.",
-        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:eu-central-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:51:01.869 UTC 2024",
         "lastObservedAt": "Wed Sep 04 16:51:01.869 UTC 2024",
         "remediation": {
@@ -627,13 +602,12 @@ Lambda code vulnerability finding
         "updatedAt": "Wed Sep 04 16:51:01.869 UTC 2024"
     }
 }
-
 ```
 
-Azure virtual machine package vulnerability finding
+------
+#### [ Azure virtual machine package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "a1b2c3d4-1111-2222-3333-444455556666",
@@ -649,7 +623,7 @@ Azure virtual machine package vulnerability finding
         "awsAccountId": "123456789012",
         "description": "A package vulnerability was detected on an Azure virtual machine monitored by Amazon Inspector.",
         "exploitAvailable": "NO",
-        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:59:44.356 UTC 2024",
         "fixAvailable": "YES",
         "lastObservedAt": "Wed Sep 04 16:59:44.476 UTC 2024",
@@ -726,13 +700,12 @@ Azure virtual machine package vulnerability finding
         "updatedAt": "Wed Sep 04 17:00:36.951 UTC 2024"
     }
 }
-
 ```
 
-Azure container image package vulnerability finding
+------
+#### [ Azure container image package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "b2c3d4e5-2222-3333-4444-555566667777",
@@ -748,7 +721,7 @@ Azure container image package vulnerability finding
         "awsAccountId": "123456789012",
         "description": "A package vulnerability was detected in an Azure Container Registry image monitored by Amazon Inspector.",
         "exploitAvailable": "NO",
-        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
         "fixAvailable": "YES",
         "lastObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
@@ -810,13 +783,12 @@ Azure container image package vulnerability finding
         "updatedAt": "Wed Sep 04 16:55:38.411 UTC 2024"
     }
 }
-
 ```
 
-Azure function app package vulnerability finding
+------
+#### [ Azure function app package vulnerability finding ]
 
 ```
-
 {
     "version": "0",
     "id": "c3d4e5f6-3333-4444-5555-666677778888",
@@ -832,7 +804,7 @@ Azure function app package vulnerability finding
         "awsAccountId": "123456789012",
         "description": "A package vulnerability was detected in an Azure function app monitored by Amazon Inspector.",
         "exploitAvailable": "YES",
-        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/`FINDING_ID`",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
         "firstObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
         "fixAvailable": "YES",
         "lastObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
@@ -898,34 +870,28 @@ Azure function app package vulnerability finding
         "updatedAt": "Wed Sep 04 16:50:37.627 UTC 2024"
     }
 }
-
 ```
 
-###### Note
+------
 
-The detail value returns the JSON details of a single finding as an object. It
-does not return the entire findings response syntax, which supports multiple
-findings within an array.
+**Note**  
+The detail value returns the JSON details of a single finding as an object. It does not return the entire findings response syntax, which supports multiple findings within an array.
 
 ## Amazon Inspector initial scan complete event schema example
+<a name="event-initial-scan"></a>
 
-The following is an example of the EventBridge event schema for an Amazon Inspector event for completing
-an initial scan. This event is created when Amazon Inspector completes an initial scan of one of your
-resources.
+The following is an example of the EventBridge event schema for an Amazon Inspector event for completing an initial scan. This event is created when Amazon Inspector completes an initial scan of one of your resources.
 
 The following fields identify an initial scan complete event:
-
-- The `detail-type` field is set to `Inspector2 Scan`.
-- The `detail` object contains a `finding-severity-counts` object that
-  details the number of findings in the applicable severity categories, such as
-  `CRITICAL`, `HIGH`, and `MEDIUM`.
++ The `detail-type` field is set to `Inspector2 Scan`.
++ The `detail` object contains a `finding-severity-counts` object that details the number of findings in the applicable severity categories, such as `CRITICAL`, `HIGH`, and `MEDIUM`.
 
 Select from the options to see different initial scan event schemas by resource type.
 
-Amazon EC2 instance initial scan
+------
+#### [ Amazon EC2 instance initial scan ]
 
 ```
-
 {
     "version": "0",
     "id": "28a46762-6ac8-6cc4-4f55-bc9ab99af928",
@@ -949,13 +915,12 @@ Amazon EC2 instance initial scan
         "version": "1.0"
     }
 }
-
 ```
 
-Amazon ECR image initial scan
+------
+#### [ Amazon ECR image initial scan ]
 
 ```
-
 {
     "version": "0",
     "id": "fdaa751a-984c-a709-44f9-9a9da9cd3606",
@@ -983,14 +948,12 @@ Amazon ECR image initial scan
         "version": "1.0"
     }
 }
-
-
 ```
 
-Lambda function initial scan
+------
+#### [ Lambda function initial scan ]
 
 ```
-
 {
   "version": "0",
   "id": "4f290a7c-361b-c442-03c8-a629f6f20d6c",
@@ -1013,40 +976,29 @@ Lambda function initial scan
     "version": "1.0"
   }
 }
-
-
 ```
 
+------
+
 ## Amazon Inspector coverage event schema example
+<a name="event-coverage-event"></a>
 
-The following is an example of the EventBridge event schema for an Amazon Inspector event for coverage.
-This event is created when Amazon Inspector scan coverage for a resource is changed. The
-following fields identify a coverage event:
+The following is an example of the EventBridge event schema for an Amazon Inspector event for coverage. This event is created when Amazon Inspector scan coverage for a resource is changed. The following fields identify a coverage event:
++ The `detail-type` field is set to `Inspector2 Coverage`.
++ The `detail` object contains a `scanStatus` object that indicates the new scanning status for the resource.
 
-- The `detail-type` field is set to `Inspector2 Coverage`.
-- The `detail` object contains a `scanStatus` object that indicates the
-  new scanning status for the resource.
-
-The `detail` object also includes the following fields. These fields are
-present for all resources, including AWS resources.
-
-- `provider` is the cloud provider of the resource, for example
-  `AWS` or `AZURE`.
-- `providerAccountId` is the cloud provider account identifier for the
-  resource, such as an Azure subscription ID. For AWS resources, this matches the
-  `account` field.
-- `providerRegion` is the cloud provider region of the resource. For
-  AWS resources, this matches the `region` field.
-- `providerOrgId` is the cloud provider organization or tenant
-  identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field
-  for `AZURE` resources.
+The `detail` object also includes the following fields. These fields are present for all resources, including AWS resources.
++ `provider` is the cloud provider of the resource, for example `AWS` or `AZURE`.
++ `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID. For AWS resources, this matches the `account` field.
++ `providerRegion` is the cloud provider region of the resource. For AWS resources, this matches the `region` field.
++ `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field for `AZURE` resources.
 
 Select from the options to see different coverage event schemas by resource type.
 
-Amazon EC2 instance coverage
+------
+#### [ Amazon EC2 instance coverage ]
 
 ```
-
 {
     "version": "0",
     "id": "000adda5-0fbf-913e-bc0e-10f0376412aa",
@@ -1071,13 +1023,12 @@ Amazon EC2 instance coverage
         "version": "1.0"
     }
 }
-
 ```
 
-Azure virtual machine coverage
+------
+#### [ Azure virtual machine coverage ]
 
 ```
-
 {
     "version": "0",
     "id": "111b1dda-0fbf-913e-bc0e-10f0376412bb",
@@ -1103,32 +1054,30 @@ Azure virtual machine coverage
         "version": "1.0"
     }
 }
-
 ```
+
+------
 
 ## Amazon Inspector auto enable schema example
+<a name="event-auto-enable"></a>
 
-The auto-enable event is sent to the delegated admin when Amazon Inspector is unable to support the number of members in an organization.
-The following fields identify an auto-enable event:
-
-- The `detail-type` field is set to `Inspector2 AutoEnable`.
-- The `detail` object describes why the auto enable event failed.
+ The auto-enable event is sent to the delegated admin when Amazon Inspector is unable to support the number of members in an organization. The following fields identify an auto-enable event: 
++  The `detail-type` field is set to `Inspector2 AutoEnable`. 
++  The `detail` object describes why the auto enable event failed. 
 
 ```
-
-{
+{ 
     "version": "0",
-    "id": "85fc3613-e913-7fc4-a80c-a3753e4aa9ae",
-    "detail-type": "Inspector2 AutoEnable",
-    "source": "aws.inspector2",
-    "account": "123456789012",
-    "time": "2024-08-21T02:36:48Z",
-    "region": "us-east-1",
-    "detail": {
-        “version”: “1.0.0”,
-        “AutoEnableStatus”: “Failed”,
-        “Reason”: "The number of member accounts enabled with AWS Inspector has reached the maximum limit of 10,000"
-        }
+    "id": "85fc3613-e913-7fc4-a80c-a3753e4aa9ae", 
+    "detail-type": "Inspector2 AutoEnable", 
+    "source": "aws.inspector2", 
+    "account": "123456789012", 
+    "time": "2024-08-21T02:36:48Z", 
+    "region": "us-east-1", 
+    "detail": { 
+        “version”: “1.0.0”, 
+        “AutoEnableStatus”: “Failed”, 
+        “Reason”: "The number of member accounts enabled with AWS Inspector has reached the maximum limit of 10,000" 
+        } 
 }
-
 ```

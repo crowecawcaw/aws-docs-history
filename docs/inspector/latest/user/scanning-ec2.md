@@ -1,340 +1,217 @@
+
+
 # Scanning Amazon EC2 instances with Amazon Inspector
+<a name="scanning-ec2"></a>
 
-Amazon Inspector Amazon EC2 scanning extracts metadata from your EC2 instance before comparing the metadata against rules collected from security advisories.
-Amazon Inspector scans instances for package vulnerabilities and network reachability issues to produce [findings](findings-types.md "findings-types.md").
-Amazon Inspector performs network reachability scans once every 12 hours and package vulnerability scans on a variable cadence that depends on the scan method associated with the EC2 instance.
+ Amazon Inspector Amazon EC2 scanning extracts metadata from your EC2 instance before comparing the metadata against rules collected from security advisories. Amazon Inspector scans instances for package vulnerabilities and network reachability issues to produce [findings](https://docs.aws.amazon.com/inspector/latest/user/findings-types.html). Amazon Inspector performs network reachability scans once every 12 hours and package vulnerability scans on a variable cadence that depends on the scan method associated with the EC2 instance. 
 
-Package vulnerability scans can be performed using an [agent-based](scanning-ec2.md#agent-based "scanning-ec2.md#agent-based") or [agentless](scanning-ec2.md#agentless "scanning-ec2.md#agentless") scan method.
-Both of these scan methods determine how and when Amazon Inspector collects the software inventory from an EC2 instance for package vulnerability scans.
-Agent-based scanning collects software inventory from your instances using the Amazon EC2 Systems Manager (SSM) agent, and agentless scanning collects software inventory using Amazon EBS snapshots.
+ Package vulnerability scans can be performed using an [agent-based](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html#agent-based) or [agentless](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html#agentless) scan method. Both of these scan methods determine how and when Amazon Inspector collects the software inventory from an EC2 instance for package vulnerability scans. Agent-based scanning collects software inventory from your instances using the Amazon EC2 Systems Manager (SSM) agent, and agentless scanning collects software inventory using Amazon EBS snapshots. 
 
-Amazon Inspector uses the scan methods that you activate for your account.
-When you activate Amazon Inspector for the first time, your account is automatically enrolled in hybrid scanning, which uses both scan methods.
-However, you can [change this setting](scanning-ec2.md#scan-mode "scanning-ec2.md#scan-mode") at any time.
-For information about how to activate a scan type, see [Activating a scan type](activate-scans.md "activate-scans.md").
-This section provides information about Amazon EC2 scanning.
+ Amazon Inspector uses the scan methods that you activate for your account. When you activate Amazon Inspector for the first time, your account is automatically enrolled in hybrid scanning, which uses both scan methods. However, you can [change this setting](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html#scan-mode) at any time. For information about how to activate a scan type, see [Activating a scan type](https://docs.aws.amazon.com/inspector/latest/user/activate-scans.html). This section provides information about Amazon EC2 scanning. 
 
 ## Agent-based scanning
+<a name="agent-based"></a>
 
 ### Enhanced EC2 Scanning
+<a name="agent-based-upgraded"></a>
 
-Enhanced EC2 Scanning is performed using the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md"). This scanner is installed and updated using SSM associations. Customers can opt in by going to their Amazon Inspector console and visiting the **Settings** > **Scan Settings** page. Choose **Start Upgrade** to begin Enhanced EC2 Scanning.
+Enhanced EC2 Scanning is performed using the [Amazon Inspector VM Scanner](inspector-vm-scanner.md). This scanner is installed and updated using SSM associations. Customers can opt in by going to their Amazon Inspector console and visiting the **Settings** > **Scan Settings** page. Choose **Start Upgrade** to begin Enhanced EC2 Scanning.
 
-###### Recommendation
-
+**Recommendation**  
 We recommend that you upgrade to Enhanced EC2 Scanning. The Amazon Inspector VM Scanner uses the same scanning mechanism across operating systems and across other Amazon Inspector supported resources, which produces more consistent findings than the Amazon Inspector SSM plugin. On Windows in particular, it avoids the per‐query timeouts that can cause the Amazon Inspector SSM plugin to report findings inconsistently.
 
-1. Amazon Inspector creates SSM associations in your account to collect inventory from
-   your instances. These associations install plugins on individual instances to collect inventory.
-2. Using system tools like Systemd and Scheduled Tasks, Inspector VM Scanner extracts package inventory from an instance and communicates that information to Amazon Inspector.
-3. Amazon Inspector evaluates the extracted inventory and generates findings for any
-   detected vulnerabilities.
+1. Amazon Inspector creates SSM associations in your account to collect inventory from your instances. These associations install plugins on individual instances to collect inventory.
+
+1. Using system tools like Systemd and Scheduled Tasks, Inspector VM Scanner extracts package inventory from an instance and communicates that information to Amazon Inspector.
+
+1. Amazon Inspector evaluates the extracted inventory and generates findings for any detected vulnerabilities.
 
 ### Standard scanning
+<a name="agent-based-standard"></a>
 
-Agent-based scans are performed continuously using the Amazon Inspector SSM plugin on all eligible
-instances. For agent-based scans, Amazon Inspector uses SSM associations, and plugins installed
-through these associations, to collect software inventory from your instances. In
-addition to package vulnerability scans for operating system packages, Amazon Inspector
-agent-based scanning can also detect package vulnerabilities for application
-programming language packages through Amazon Inspector [deep inspection](deep-inspection.md "deep-inspection.md").
+Agent-based scans are performed continuously using the Amazon Inspector SSM plugin on all eligible instances. For agent-based scans, Amazon Inspector uses SSM associations, and plugins installed through these associations, to collect software inventory from your instances. In addition to package vulnerability scans for operating system packages, Amazon Inspector agent-based scanning can also detect package vulnerabilities for application programming language packages through Amazon Inspector [deep inspection](deep-inspection.md).
 
-The following process explains how Amazon Inspector uses SSM to collect inventory and perform
-agent-based scans:
+The following process explains how Amazon Inspector uses SSM to collect inventory and perform agent-based scans:
 
-1. Amazon Inspector creates SSM associations in your account to collect inventory from
-   your instances. These associations install plugins on individual instances to collect inventory.
-2. Using SSM, Amazon Inspector extracts package inventory from an instance.
-3. Amazon Inspector evaluates the extracted inventory and generates findings for any
-   detected vulnerabilities.
+1. Amazon Inspector creates SSM associations in your account to collect inventory from your instances. These associations install plugins on individual instances to collect inventory. 
 
-###### Note
+1. Using SSM, Amazon Inspector extracts package inventory from an instance.
 
-For agent-based scanning, the Amazon EC2 instance must be managed by SSM in same AWS account.
+1. Amazon Inspector evaluates the extracted inventory and generates findings for any detected vulnerabilities.
+
+**Note**  
+ For agent-based scanning, the Amazon EC2 instance must be managed by SSM in same AWS account. 
 
 ### Amazon VPC endpoint requirements for Enhanced EC2 Scanning on private Amazon EC2 instances
+<a name="agent-based-vpce"></a>
 
-You can run Enhanced EC2 Scanning on Amazon EC2 instances over an Amazon network. However, if you want to run Enhanced EC2 Scanning on private Amazon EC2 instances, you must create Amazon VPC endpoints. The following endpoints are required:
+ You can run Enhanced EC2 Scanning on Amazon EC2 instances over an Amazon network. However, if you want to run Enhanced EC2 Scanning on private Amazon EC2 instances, you must create Amazon VPC endpoints. The following endpoints are required: 
++ `com.amazonaws.{{region}}.ec2messages`
++ `com.amazonaws.{{region}}.inspector2-telemetry`
++ `com.amazonaws.{{region}}.s3`
++ `com.amazonaws.{{region}}.ssm`
++ `com.amazonaws.{{region}}.ssmmessages`
 
-- `com.amazonaws.`region`.ec2messages`
-- `com.amazonaws.`region`.inspector2-telemetry`
-- `com.amazonaws.`region`.s3`
-- `com.amazonaws.`region`.ssm`
-- `com.amazonaws.`region`.ssmmessages`
+ Where {{region}} is the Region code for the applicable AWS Region. 
 
-Where `region` is the Region code for the applicable AWS Region.
+ For more information, see [Improve the security of Amazon EC2 instances by using Amazon VPC endpoints for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html) in the *AWS Systems Manager User Guide*. 
 
-For more information, see [Improve the security of Amazon EC2 instances by using Amazon VPC endpoints for Systems Manager](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md") in the _AWS Systems Manager User Guide_.
-
-###### Note
-
-Currently, some AWS Regions don't support the `com.amazonaws.`region`.inspector2-telemetry` endpoint.
+**Note**  
+ Currently, some AWS Regions don't support the `com.amazonaws.{{region}}.inspector2-telemetry` endpoint. 
 
 ### Eligible instances
+<a name="agent-based-eligible"></a>
 
-Amazon Inspector will use the agent-based method to scan an instance if it meets the
-following conditions:
-
-- The instance has a supported OS. For a list of supported OS see the
-  **Agent-based scan support** column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
-- The instance is not excluded from scans by Amazon Inspector EC2 exclusion
-  tags.
+Amazon Inspector will use the agent-based method to scan an instance if it meets the following conditions:
++ The instance has a supported OS. For a list of supported OS see the **Agent-based scan support** column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2).
++ The instance is not excluded from scans by Amazon Inspector EC2 exclusion tags.
 
 ### Agent-based scan behaviors
+<a name="ec2-scan-behavior"></a>
 
-When using the agent-based scan method, Amazon Inspector initiates new vulnerability
-scans of EC2 instances in the following situations:
+When using the agent-based scan method, Amazon Inspector initiates new vulnerability scans of EC2 instances in the following situations:
++ When you launch a new EC2 instance.
++ When you install new software on an existing EC2 instance (Linux and Mac).
++ When Amazon Inspector adds a new common vulnerabilities and exposures (CVE) item to its database, and that CVE is relevant to your EC2 instance (Linux and Mac).
 
-- When you launch a new EC2 instance.
-- When you install new software on an existing EC2 instance (Linux and
-  Mac).
-- When Amazon Inspector adds a new common vulnerabilities and exposures (CVE) item
-  to its database, and that CVE is relevant to your EC2 instance (Linux and
-  Mac).
+Amazon Inspector updates the **Last scanned** field for an EC2 instance when an initial scan is completed. After this, the **Last scanned** field is updated when Amazon Inspector evaluates SSM inventory (every 30 minutes by default), or when an instance is re-scanned because a new CVE impacting that instance was added to the Amazon Inspector database.
 
-Amazon Inspector updates the **Last scanned** field for an EC2 instance when
-an initial scan is completed. After this, the **Last scanned**
-field is updated when Amazon Inspector evaluates SSM inventory (every 30 minutes by
-default), or when an instance is re-scanned because a new CVE impacting that
-instance was added to the Amazon Inspector database.
-
-You can check when an EC2 instance was last scanned for vulnerabilities from
-the Instances tab on the **Account management** page or by
-using the [ListCoverage](../../v2/APIReference/API_ListCoverage.md "../../v2/APIReference/API_ListCoverage.md") command.
+You can check when an EC2 instance was last scanned for vulnerabilities from the Instances tab on the **Account management** page or by using the [ListCoverage](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCoverage.html) command.
 
 ### Configuring the SSM Agent
+<a name="configure-ssm"></a>
 
-In order for Amazon Inspector to detect software vulnerabilities for an Amazon EC2 instance
-using the agent-based scan method, the instance must be a [managed
-instance](../../../systems-manager/latest/userguide/managed_instances.md "../../../systems-manager/latest/userguide/managed_instances.md") in Amazon EC2 Systems Manager (SSM). An SSM managed instance has the
-SSM Agent installed and running, and SSM has permission to manage the
-instance. If you are already using SSM to manage your instances, no other
-steps are needed for agent-based scans.
+In order for Amazon Inspector to detect software vulnerabilities for an Amazon EC2 instance using the agent-based scan method, the instance must be a [managed instance](https://docs.aws.amazon.com/systems-manager/latest/userguide/managed_instances.html) in Amazon EC2 Systems Manager (SSM). An SSM managed instance has the SSM Agent installed and running, and SSM has permission to manage the instance. If you are already using SSM to manage your instances, no other steps are needed for agent-based scans.
 
-The SSM Agent is installed by default on EC2 instances created from some Amazon
-Machine Images (AMIs). For more information, see [About SSM
-Agent](../../../systems-manager/latest/userguide/prereqs-ssm-agent.md "../../../systems-manager/latest/userguide/prereqs-ssm-agent.md") in the _AWS Systems Manager User
-Guide_. However, even if it's installed, you may need to activate the
-SSM Agent manually, and grant SSM permission to manage your instance.
+The SSM Agent is installed by default on EC2 instances created from some Amazon Machine Images (AMIs). For more information, see [About SSM Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/prereqs-ssm-agent.html) in the *AWS Systems Manager User Guide*. However, even if it's installed, you may need to activate the SSM Agent manually, and grant SSM permission to manage your instance.
 
-The following procedure describes how to configure an Amazon EC2 instance as a
-managed instance using an IAM instance profile. The procedure also provides
-links to more detailed information in the _AWS Systems Manager User
-Guide_.
+The following procedure describes how to configure an Amazon EC2 instance as a managed instance using an IAM instance profile. The procedure also provides links to more detailed information in the *AWS Systems Manager User Guide*.
 
-[AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") is the recommended
-policy to use when you attach an instance profile. This policy has all the
-permissions needed for Amazon Inspector EC2 scanning.
+[AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) is the recommended policy to use when you attach an instance profile. This policy has all the permissions needed for Amazon Inspector EC2 scanning.
 
-###### Note
+**Note**  
+You can also automate SSM management of all your EC2 instances, without the use of IAM instance profiles, by using SSM Default Host Management Configuration. For more information, see [Default Host Management Configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/managed-instances-default-host-management.html).
 
-You can also automate SSM management of all your EC2 instances, without
-the use of IAM instance profiles, by using SSM Default Host Management
-Configuration. For more information, see [Default Host Management Configuration](../../../systems-manager/latest/userguide/managed-instances-default-host-management.md "../../../systems-manager/latest/userguide/managed-instances-default-host-management.md").
+**To configure SSM for an Amazon EC2 instance**
 
-###### To configure SSM for an Amazon EC2 instance
+1. If it's not already installed by your operating system vendor, install the SSM Agent. For more information, see [Working with SSM Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html).
 
-1. If it's not already installed by your operating system vendor, install
-   the SSM Agent. For more information, see [Working with
-   SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md").
-2. Use the AWS CLI to verify that the SSM Agent is running. For more
-   information, see [Checking SSM Agent status and starting the agent](../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md "../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md").
-3. Grant permission for SSM to manage your instance. You can grant
-   permission by creating an IAM instance profile and attaching it to
-   your instance. We recommend using the [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") policy,
-   because this policy has the permissions for SSM Distributor, SSM
-   Inventory and SSM State manager, that Amazon Inspector needs for scans. For
-   instructions on creating an instance profile with these permissions and
-   attaching it to an instance, see [Configure instance permissions for
-   Systems Manager](../../../systems-manager/latest/userguide/setup-instance-permissions.md#instance-profile-add-permissions "../../../systems-manager/latest/userguide/setup-instance-permissions.md#instance-profile-add-permissions").
-4. (Optional) Activate automatic updates for the SSM Agent. For more
-   information, see [Automating updates to SSM Agent](../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md "../../../systems-manager/latest/userguide/ssm-agent-automatic-updates.md").
-5. (Optional) Configure Systems Manager to use an Amazon Virtual Private Cloud (Amazon VPC) endpoint. For
-   more information, see [Create
-   Amazon VPC endpoints](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md").
+1. Use the AWS CLI to verify that the SSM Agent is running. For more information, see [Checking SSM Agent status and starting the agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-status-and-restart.html).
+
+1. Grant permission for SSM to manage your instance. You can grant permission by creating an IAM instance profile and attaching it to your instance. We recommend using the [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) policy, because this policy has the permissions for SSM Distributor, SSM Inventory and SSM State manager, that Amazon Inspector needs for scans. For instructions on creating an instance profile with these permissions and attaching it to an instance, see [Configure instance permissions for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-instance-permissions.html#instance-profile-add-permissions).
+
+1. (Optional) Activate automatic updates for the SSM Agent. For more information, see [Automating updates to SSM Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-automatic-updates.html).
+
+1. (Optional) Configure Systems Manager to use an Amazon Virtual Private Cloud (Amazon VPC) endpoint. For more information, see [Create Amazon VPC endpoints](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html).
 
 #### SSM resources created for scanning
+<a name="ssm-resources"></a>
 
-Amazon Inspector requires a number of SSM resources in your account to run Amazon EC2 scans.
-The following resources are created when you first activate Amazon Inspector EC2 scanning:
+ Amazon Inspector requires a number of SSM resources in your account to run Amazon EC2 scans. The following resources are created when you first activate Amazon Inspector EC2 scanning: 
 
-###### Note
+**Note**  
+ If any of these SSM resources are deleted while Amazon Inspector Amazon EC2 scanning is activated for your account, Amazon Inspector will attempt to recreate them at the next scan interval. 
 
-If any of these SSM resources are deleted while Amazon Inspector Amazon EC2 scanning is activated for your account, Amazon Inspector will attempt to recreate them at the next scan interval.
+`InspectorInventoryCollection-do-not-delete`  
+This is a Systems Manager State Manager (SSM) association that Amazon Inspector uses to collect software application inventory from your Amazon EC2 instances. If your account already has an SSM association for collecting inventory from `InstanceIds*`, Amazon Inspector will use that instead of creating its own.
 
-`InspectorInventoryCollection-do-not-delete`
+`InspectorResourceDataSync-do-not-delete`  
+This is a resource data sync that Amazon Inspector uses to send collected inventory data from your Amazon EC2 instances to an Amazon S3 bucket owned by Amazon Inspector. For more information, see [Configuring resource data sync for Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html) in the *AWS Systems Manager User Guide*.
 
-This is a Systems Manager State Manager (SSM) association that Amazon Inspector
-uses to collect software application inventory from your Amazon EC2
-instances. If your account already has an SSM association for
-collecting inventory from `InstanceIds*`, Amazon Inspector will
-use that instead of creating its own.
+`InspectorVmScannerDistributor-do-not-delete`  
+This is an SSM association that Amazon Inspector uses to install and update the [Amazon Inspector VM Scanner](inspector-vm-scanner.md) on your Amazon EC2 instances.
 
-`InspectorResourceDataSync-do-not-delete`
+`InspectorDistributor-do-not-delete`  
+This is an SSM association Amazon Inspector uses for scanning Windows instances. This association installs the Amazon Inspector SSM plugin on your Windows instances. If the plugin file is inadvertently deleted this association will reinstall it at the next association interval. 
 
-This is a resource data sync that Amazon Inspector uses to send collected
-inventory data from your Amazon EC2 instances to an Amazon S3 bucket owned
-by Amazon Inspector. For more information, see [Configuring resource data sync for Inventory](../../../systems-manager/latest/userguide/sysman-inventory-datasync.md "../../../systems-manager/latest/userguide/sysman-inventory-datasync.md") in the
-_AWS Systems Manager User
-Guide_.
+`InvokeInspectorSsmPlugin-do-not-delete`  
+This is an SSM association Amazon Inspector uses for scanning Windows instances. This association allows Amazon Inspector to initiate scans using the plugin, you can also use it to set custom intervals for scans of Windows instances. For more information, see [Setting custom schedules for Windows instance scans](windows-scanning.md#windows-scan-schedule). 
 
-`InspectorVmScannerDistributor-do-not-delete`
+`InspectorLinuxDistributor-do-not-delete`  
+ This is an SSM association that Amazon Inspector uses for Amazon EC2 Linux deep inspection. This association installs the Amazon Inspector SSM plugin on your Linux instances. 
 
-This is an SSM association that Amazon Inspector uses to install and
-update the [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md") on
-your Amazon EC2 instances.
+`InvokeInspectorLinuxSsmPlugin-do-not-delete`  
+This is an SSM association Amazon Inspector uses for Amazon EC2 Linux deep inspection. This association allows Amazon Inspector to initiate scans using the plugin. 
 
-`InspectorDistributor-do-not-delete`
-
-This is an SSM association Amazon Inspector uses for scanning Windows
-instances. This association installs the Amazon Inspector SSM plugin on
-your Windows instances. If the plugin file is inadvertently
-deleted this association will reinstall it at the next
-association interval.
-
-`InvokeInspectorSsmPlugin-do-not-delete`
-
-This is an SSM association Amazon Inspector uses for scanning Windows
-instances. This association allows Amazon Inspector to initiate scans using
-the plugin, you can also use it to set custom intervals for
-scans of Windows instances. For more information, see [Setting custom schedules for Windows instance scans](windows-scanning.md#windows-scan-schedule "windows-scanning.md#windows-scan-schedule").
-
-`InspectorLinuxDistributor-do-not-delete`
-
-This is an SSM association that Amazon Inspector uses for Amazon EC2 Linux deep inspection.
-This association installs the Amazon Inspector SSM plugin on your Linux instances.
-
-`InvokeInspectorLinuxSsmPlugin-do-not-delete`
-
-This is an SSM association Amazon Inspector uses for Amazon EC2 Linux deep
-inspection. This association allows Amazon Inspector to initiate scans
-using the plugin.
-
-###### Note
-
-When you deactivate Amazon Inspector Amazon EC2 scanning or deep inspection, the SSM resource `InvokeInspectorLinuxSsmPlugin-do-not-delete` is no longer invoked.
+**Note**  
+ When you deactivate Amazon Inspector Amazon EC2 scanning or deep inspection, the SSM resource `InvokeInspectorLinuxSsmPlugin-do-not-delete` is no longer invoked. 
 
 ## Agentless scanning
+<a name="agentless"></a>
 
-Amazon Inspector uses the agentless scanning method on eligible instances when your account is in hybrid scanning mode.
-Hybrid scanning mode includes agent-based and agentless scans and is automatically enabled when you activate Amazon EC2 scanning.
+ Amazon Inspector uses the agentless scanning method on eligible instances when your account is in hybrid scanning mode. Hybrid scanning mode includes agent-based and agentless scans and is automatically enabled when you activate Amazon EC2 scanning. 
 
-For agentless scans, Amazon Inspector uses EBS snapshots to collect a software inventory from your instances.
-Agentless scanning scans instances for operating system and application programming language package vulnerabilities..
+ For agentless scans, Amazon Inspector uses EBS snapshots to collect a software inventory from your instances. Agentless scanning scans instances for operating system and application programming language package vulnerabilities.. 
 
-###### Note
+**Note**  
+When scanning Linux instances for application programming language package vulnerabilities, the agentless method scans all available paths, whereas agent-based scanning only scans the default paths and additional paths you specify as part of [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md). This may result in the same instance having different findings depending on whether it is scanned using the agent-based method or agentless method.
 
-When scanning Linux instances for application programming language package
-vulnerabilities, the agentless method scans all available paths, whereas
-agent-based scanning only scans the default paths and additional paths you
-specify as part of [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md"). This may result in the same instance
-having different findings depending on whether it is scanned using the
-agent-based method or agentless method.
+The following process explains how Amazon Inspector uses EBS snapshots to collect inventory and perform agentless scans:
 
-The following process explains how Amazon Inspector uses EBS snapshots to collect inventory
-and perform agentless scans:
+1. Amazon Inspector creates an EBS snapshot of all volumes attached to the instance. While Amazon Inspector is using it, the snapshot is stored in your account and tagged with `InspectorScan` as a tag key, and a unique scan ID as the tag value.
 
-1. Amazon Inspector creates an EBS snapshot of all volumes attached to the instance.
-   While Amazon Inspector is using it, the snapshot is stored in your account and tagged
-   with `InspectorScan` as a tag key, and a unique scan ID as the
-   tag value.
-2. Amazon Inspector retrieves data from the snapshots using [EBS direct
-   APIs](../../../AWSEC2/latest/UserGuide/ebs-accessing-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-accessing-snapshot.md") and evaluates them for vulnerabilities. Findings are
-   generated for any detected vulnerabilities.
-3. Amazon Inspector deletes the EBS snapshots it created in your account.
+1. Amazon Inspector retrieves data from the snapshots using [EBS direct APIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html) and evaluates them for vulnerabilities. Findings are generated for any detected vulnerabilities.
+
+1. Amazon Inspector deletes the EBS snapshots it created in your account.
 
 ### Eligible instances
+<a name="agentless-eligible"></a>
 
-Amazon Inspector will use the agentless method to scan an instance if it meets the following conditions:
-
-- The instance has a supported OS.
-  For more information, see the >Agent-based scan support column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
-- The instance has a status of `Unmanaged EC2 instance`, `Stale inventory`, or `No inventory`.
-- The instance is backed by Amazon EBS and has one of the following file system formats:
-
-  - `ext3`
-  - `ext4`
-  - `xfs`
-
-- The instance isn't excluded from scans through Amazon EC2 exclusion tags.
-- The number of volumes attached to the instance is less than 8 and have a combined size that's less than or equal to 1200 GB.
+ Amazon Inspector will use the agentless method to scan an instance if it meets the following conditions: 
++  The instance has a supported OS. For more information, see the >Agent-based scan support column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2). 
++  The instance has a status of `Unmanaged EC2 instance`, `Stale inventory`, or `No inventory`. 
++  The instance is backed by Amazon EBS and has one of the following file system formats: 
+  + `ext3`
+  + `ext4`
+  + `xfs`
++  The instance isn't excluded from scans through Amazon EC2 exclusion tags. 
++  The number of volumes attached to the instance is less than 8 and have a combined size that's less than or equal to 1200 GB. 
 
 ### Agentless scan behaviors
+<a name="agentless-ec2-scan-behavior"></a>
 
-When your account is configured for **Hybrid scanning**,
-Amazon Inspector performs agentless scans on eligible instances every 24 hours. Amazon Inspector
-detects and scans newly eligible instances every hour, which includes new
-instances without SSM agents, or pre-existing instances with statuses that have
-changed to `SSM_UNMANAGED`.
+When your account is configured for **Hybrid scanning**, Amazon Inspector performs agentless scans on eligible instances every 24 hours. Amazon Inspector detects and scans newly eligible instances every hour, which includes new instances without SSM agents, or pre-existing instances with statuses that have changed to `SSM_UNMANAGED`.
 
-Amazon Inspector updates the **Last scanned** field for an Amazon EC2
-instance whenever it scans extracted snapshots from an instance after an
-agentless scan.
+Amazon Inspector updates the **Last scanned** field for an Amazon EC2 instance whenever it scans extracted snapshots from an instance after an agentless scan.
 
-You can check when an EC2 instance was last scanned for vulnerabilities from
-the Instances tab on the Account management page or by using the [ListCoverage](../../v2/APIReference/API_ListCoverage.md "../../v2/APIReference/API_ListCoverage.md") command.
+You can check when an EC2 instance was last scanned for vulnerabilities from the Instances tab on the Account management page or by using the [ListCoverage](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCoverage.html) command.
 
 ## Managing scan mode
+<a name="scan-mode"></a>
 
-Your EC2 scan mode determines which scan methods Amazon Inspector will use when performing
-EC2 scans in your account. You can view the scan mode for your account from the EC2
-scanning settings page under **General settings**. Standalone
-accounts or Amazon Inspector delegated administrators can change the scan mode. When you set
-the scan mode as the Amazon Inspector delegated administrator that scan mode is set for all
-member accounts in your organization. Amazon Inspector has the following scan modes:
+Your EC2 scan mode determines which scan methods Amazon Inspector will use when performing EC2 scans in your account. You can view the scan mode for your account from the EC2 scanning settings page under **General settings**. Standalone accounts or Amazon Inspector delegated administrators can change the scan mode. When you set the scan mode as the Amazon Inspector delegated administrator that scan mode is set for all member accounts in your organization. Amazon Inspector has the following scan modes:
 
-**Agent-based scanning** – In this scan mode, Amazon Inspector will
-exclusively use the agent-based scan method when scanning for package
-vulnerabilities. This scan mode only scans SSM managed instances in your account,
-but has the benefit of providing continuous scans in response to new CVE’s or
-changes to the instances. Agent-based scanning also provides Amazon Inspector deep Inspection
-for eligible instances. This is the default scan mode for newly activated
-accounts.
+**Agent-based scanning** – In this scan mode, Amazon Inspector will exclusively use the agent-based scan method when scanning for package vulnerabilities. This scan mode only scans SSM managed instances in your account, but has the benefit of providing continuous scans in response to new CVE’s or changes to the instances. Agent-based scanning also provides Amazon Inspector deep Inspection for eligible instances. This is the default scan mode for newly activated accounts.
 
-**Hybrid scanning** – In this scan mode, Amazon Inspector uses a
-combination of both agent-based and agentless methods to scan for package
-vulnerabilities. For eligible EC2 instances that have the SSM agent installed and
-configured, Amazon Inspector uses the agent-based method. For eligible instances that aren't
-SSM managed, Amazon Inspector will use the agentless method for eligible EBS-backed
-instances.
+**Hybrid scanning** – In this scan mode, Amazon Inspector uses a combination of both agent-based and agentless methods to scan for package vulnerabilities. For eligible EC2 instances that have the SSM agent installed and configured, Amazon Inspector uses the agent-based method. For eligible instances that aren't SSM managed, Amazon Inspector will use the agentless method for eligible EBS-backed instances.
 
-###### To change the scan mode
+**To change the scan mode**
 
-1. Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home").
-2. Using the AWS Region selector in the upper-right corner of the page,
-   select the Region where you want to change your EC2 scan mode.
-3. From the side navigation panel, under **General
-   settings**, select **EC2 scanning
-   settings**.
-4. Under **Scan Mode**, select
-   **Edit**.
-5. Choose a scan mode and then select **Save
-   changes**.
+1.  Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home). 
+
+1. Using the AWS Region selector in the upper-right corner of the page, select the Region where you want to change your EC2 scan mode.
+
+1. From the side navigation panel, under **General settings**, select **EC2 scanning settings**.
+
+1. Under **Scan Mode**, select **Edit**.
+
+1. Choose a scan mode and then select **Save changes**.
 
 ## Excluding instances from Amazon Inspector scans
+<a name="exclude-ec2"></a>
 
-You can exclude Linux and Windows instances from Amazon Inspector scans by tagging these instances with the `InspectorEc2Exclusion` key.
-Tag key is case-insensitive. Including a tag value is optional.
-For information about adding tags, see [Tag your Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md").
+ You can exclude Linux and Windows instances from Amazon Inspector scans by tagging these instances with the `InspectorEc2Exclusion` key. Tag key is case-insensitive. Including a tag value is optional. For information about adding tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html). 
 
-When you tag an instance for exclusion from Amazon Inspector scans, Amazon Inspector marks the instance as excluded and won't create findings for it.
-However, the Amazon Inspector SSM plugin will continue to be invoked.
-To prevent the plugin from being invoked, you must [allow access to tags in instance metadata](../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS").
+ When you tag an instance for exclusion from Amazon Inspector scans, Amazon Inspector marks the instance as excluded and won't create findings for it. However, the Amazon Inspector SSM plugin will continue to be invoked. To prevent the plugin from being invoked, you must [allow access to tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html#allow-access-to-tags-in-IMDS). 
 
-###### Note
+**Note**  
+ You're not charged for excluded instances. 
 
-You're not charged for excluded instances.
-
-Additionally, you can exclude an instance from agentless scans by tagging the AWS KMS key used to encrypt that volume with the `InspectorEc2Exclusion` tag.
-For more information, see [Tagging keys](../../../kms/latest/developerguide/tagging-keys.md "../../../kms/latest/developerguide/tagging-keys.md").
+ Additionally, you can exclude an instance from agentless scans by tagging the AWS KMS key used to encrypt that volume with the `InspectorEc2Exclusion` tag. For more information, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys). 
 
 ## Supported operating systems
+<a name="supported-instance"></a>
 
-Amazon Inspector scans supported Mac, Windows, and Linux instances for vulnerabilities in
-operating system packages. For Linux instances, Amazon Inspector can produce findings for
-application programming language packages using [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md"). For Mac and Windows instances only operating
-system packages are scanned.
+Amazon Inspector scans supported Mac, Windows, and Linux instances for vulnerabilities in operating system packages. For Linux instances, Amazon Inspector can produce findings for application programming language packages using [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md). For Mac and Windows instances only operating system packages are scanned. 
 
-For information about supported operating systems, including which operating
-systems can be scanned without an SSM agent, see [Amazon EC2
-instances status values](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
+For information about supported operating systems, including which operating systems can be scanned without an SSM agent, see [Amazon EC2 instances status values](supported.md#supported-os-ec2).

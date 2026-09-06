@@ -1,18 +1,16 @@
-# Amazon Inspector SBOM Generator SSL/TLS certificate scans
 
-This section describes how to use the Amazon Inspector SBOM Generator to inventory SSL/TLS certificates.
-The Sbomgen inventories SSL/TLS certificates by searching for certificates in predefined locations as well as directories provided by the user.
-The feature is intended to enable users to inventory SSL/TLS certificates as well as identify expired certificates.
-CA certificates will also appear in the output inventory.
+
+# Amazon Inspector SBOM Generator SSL/TLS certificate scans
+<a name="sbom-generator-ssl-tls-certificate-scans"></a>
+
+ This section describes how to use the Amazon Inspector SBOM Generator to inventory SSL/TLS certificates. The Sbomgen inventories SSL/TLS certificates by searching for certificates in predefined locations as well as directories provided by the user. The feature is intended to enable users to inventory SSL/TLS certificates as well as identify expired certificates. CA certificates will also appear in the output inventory. 
 
 ## Using Sbomgen certificate scans
+<a name="w2aac39c29b5"></a>
 
-You can enable SSL/TLS certificate inventory collection using the `--scanners certificates` argument.
-Certificate scans can be combined with any of the other scanners.
-By default, certificate scans are not enabled.
+ You can enable SSL/TLS certificate inventory collection using the `--scanners certificates` argument. Certificate scans can be combined with any of the other scanners. By default, certificate scans are not enabled. 
 
-The Sbomgen searches different locations for certificates depending on the artifact being scanned.
-In all cases, the Sbomgen attempts to extract certificates in files with the following extensions.
+ The Sbomgen searches different locations for certificates depending on the artifact being scanned. In all cases, the Sbomgen attempts to extract certificates in files with the following extensions. 
 
 ```
 .pem
@@ -25,24 +23,14 @@ In all cases, the Sbomgen attempts to extract certificates in files with the fol
 .pfx
 ```
 
-###### The localhost artifact type
+**The localhost artifact type**  
+ If the certificate scanner is enabled and the artifact type is localhost, the Sbomgen recursively looks for certificates in `/etc/*/ssl`, `/opt/*/ssl/certs`, `/usr/local/*/ssl`, and `/var/lib/*/certs`, where `*` is not empty. User-provided directories will be searched recursively, regardless of what directories are named. Typically, CA/system certificates are not placed in these paths. These certificates are often in folders named `pki`, `ca-certs`, or `CA`. They also may appear in the default localhost scan paths. 
 
-If the certificate scanner is enabled and the artifact type is localhost, the Sbomgen recursively looks for certificates in `/etc/*/ssl`, `/opt/*/ssl/certs`, `/usr/local/*/ssl`, and `/var/lib/*/certs`, where `*` is not empty.
-User-provided directories will be searched recursively, regardless of what directories are named.
-Typically, CA/system certificates are not placed in these paths.
-These certificates are often in folders named `pki`, `ca-certs`, or `CA`.
-They also may appear in the default localhost scan paths.
+**Directory and container artifacts**  
+ When scanning directory or container artifacts, the Sbomgen searches for certificates located anywhere on the artifact. 
 
-###### Directory and container artifacts
-
-When scanning directory or container artifacts, the Sbomgen searches for certificates located anywhere on the artifact.
-
-###### Example certificate scan commands
-
-The following contains example certificate scan commands.
-One generates an SBOM that only contains certificates in a local directory.
-Another generates an SBOM that contains certificates and Alpine, Debian, and Rhel packages in a local directory.
-Another generates an SBOM that contains certificates found in common certificate locations.
+**Example certificate scan commands**  
+ The following contains example certificate scan commands. One generates an SBOM that only contains certificates in a local directory. Another generates an SBOM that contains certificates and Alpine, Debian, and Rhel packages in a local directory. Another generates an SBOM that contains certificates found in common certificate locations. 
 
 ```
 # generate SBOM only containing certificates in a local directory
@@ -55,10 +43,8 @@ Another generates an SBOM that contains certificates found in common certificate
 ./inspector-sbomgen localhost --scanners certificates
 ```
 
-###### Example file component
-
-The following contains two example certificate finding components.
-When a certificate expires, you can view an extra property that identifies the expiration date.
+**Example file component**  
+ The following contains two example certificate finding components. When a certificate expires, you can view an extra property that identifies the expiration date. 
 
 ```
 {
@@ -89,10 +75,8 @@ When a certificate expires, you can view an extra property that identifies the e
 }
 ```
 
-###### Example vulnerability response component
-
-Running the Amazon Inspector SBOM Generator with the `--scan-sbom` flag sends the resulting SBOM to Amazon Inspector for vulnerability scanning.
-The following is an example of a certificate finding for a vulnerability response component.
+**Example vulnerability response component**  
+ Running the Amazon Inspector SBOM Generator with the `--scan-sbom` flag sends the resulting SBOM to Amazon Inspector for vulnerability scanning. The following is an example of a certificate finding for a vulnerability response component. 
 
 ```
 {

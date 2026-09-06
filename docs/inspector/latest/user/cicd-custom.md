@@ -1,75 +1,67 @@
+
+
 # Creating a custom CI/CD pipeline integration with Amazon Inspector Scan
+<a name="cicd-custom"></a>
 
-We recommend that you use the [Amazon Inspector CI/CD plugins](sbom-generator.md "sbom-generator.md") if the Amazon Inspector CI/CD plugins are available for your CI/CD solution.
-If the Amazon Inspector CI/CD plugins aren't available for your CI/CD solution, you can use a combination of the Amazon Inspector SBOM Generator and the Amazon Inspector Scan API to create a custom CI/CD integration.
-The following steps describe how to create a custom CI/CD pipeline integration with Amazon Inspector Scan.
+ We recommend that you use the [Amazon Inspector CI/CD plugins](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html) if the Amazon Inspector CI/CD plugins are available for your CI/CD solution. If the Amazon Inspector CI/CD plugins aren't available for your CI/CD solution, you can use a combination of the Amazon Inspector SBOM Generator and the Amazon Inspector Scan API to create a custom CI/CD integration. The following steps describe how to create a custom CI/CD pipeline integration with Amazon Inspector Scan. 
 
-###### Tip
-
-You can use the [Amazon Inspector SBOM Generator (Sbomgen)](sbom-generator.md#install-sbomgen "sbom-generator.md#install-sbomgen") to skip Step 3 and Step 4 if you want to [generate and scan your SBOM in a single command](cicd-custom.md#generate-scan-sbom.html "cicd-custom.md#generate-scan-sbom.html").
+**Tip**  
+ You can use the [Amazon Inspector SBOM Generator (Sbomgen)](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#install-sbomgen) to skip Step 3 and Step 4 if you want to [generate and scan your SBOM in a single command](https://docs.aws.amazon.com/inspector/latest/user/cicd-custom.html#generate-scan-sbom.html). 
 
 ## Step 1. Configuring AWS account
+<a name="configure-account"></a>
 
-Configure an AWS account that provides access to the Amazon Inspector Scan API.
-For more information, see [Setting up an AWS account to use the Amazon Inspector CI/CD integration](configure-cicd-account.md "configure-cicd-account.md").
+ Configure an AWS account that provides access to the Amazon Inspector Scan API. For more information, see [Setting up an AWS account to use the Amazon Inspector CI/CD integration](configure-cicd-account.md). 
 
 ## Step 2. Installing Sbomgen binary
+<a name="install-sbom-binary"></a>
 
-Install and configure the Sbomgen binary.
-For more information, see [Installing Sbomgen](sbom-generator.md#install-sbomgen "sbom-generator.md#install-sbomgen").
+ Install and configure the Sbomgen binary. For more information, see [Installing Sbomgen](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#install-sbomgen). 
 
 ## Step 3. Using Sbomgen
+<a name="use-sbom-generator"></a>
 
-Use the Sbomgen to create an SBOM file for a container image that you want to scan.
+ Use the Sbomgen to create an SBOM file for a container image that you want to scan. 
 
-You can use the following example.
-Replace `image:id` with the name of the image that you to scan.
-Replace `sbom_path.json` with the location where you want to save the SBOM output.
+ You can use the following example. Replace {{`image:id`}} with the name of the image that you to scan. Replace {{`sbom_path.json`}} with the location where you want to save the SBOM output. 
 
-###### Example
-
-`./inspector-sbomgen container --image `image:id` -o sbom_path.json`
+**Example**  
+ `./inspector-sbomgen container --image {{image:id}} -o sbom_path.json` 
 
 ## Step 4. Calling the Amazon Inspector Scan API
+<a name="call-api"></a>
 
-Call the `inspector-scan` API to scan the generated SBOM and provide a vulnerability report.
+ Call the `inspector-scan` API to scan the generated SBOM and provide a vulnerability report. 
 
-You can use the following example.
-Replace `sbom_path.json` with the location of a valid CycloneDX compatible SBOM file.
-Replace `ENDPOINT` with the API endpoint for the AWS Region where you're currently authenticated.
-Replace `REGION` with the corresponding Region.
+ You can use the following example. Replace {{sbom\_path.json}} with the location of a valid CycloneDX compatible SBOM file. Replace {{ENDPOINT}} with the API endpoint for the AWS Region where you're currently authenticated. Replace {{REGION}} with the corresponding Region. 
 
-###### Example
+**Example**  
+ `aws inspector-scan scan-sbom --sbom file://{{sbom_path.json}} --endpoint {{ENDPOINT-URL}} --region {{REGION}}` 
 
-`aws inspector-scan scan-sbom --sbom file://`sbom_path.json`--endpoint`ENDPOINT-URL`--region`REGION``
-
-For a complete list of AWS Regions and endpoints, see [Regions and endpoints](inspector_regions.md#inspector-scan-endpoints "inspector_regions.md#inspector-scan-endpoints").
+ For a complete list of AWS Regions and endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/inspector/latest/user/inspector_regions.html#inspector-scan-endpoints). 
 
 ## (Optional) Step 5. Generate and scan SBOM in a single command
+<a name="generate-scan-sbom"></a>
 
-###### Note
+**Note**  
+ Only complete this step if you skipped Step 3 and Step 4. 
 
-Only complete this step if you skipped Step 3 and Step 4.
+ Generate and scan your SBOM in a single command using the `--scan-bom` flag. 
 
-Generate and scan your SBOM in a single command using the `--scan-bom` flag.
+ You can use the following example. Replace {{`image:id`}} with the name of the image that you want to scan. Replace {{profile}} with the corresponding profile. Replace {{REGION}} with the corresponding Region. Replace {{/tmp/scan.json}} with the location of the scan.json file in the tmp directory. 
 
-You can use the following example.
-Replace `image:id` with the name of the image that you want to scan.
-Replace `profile` with the corresponding profile.
-Replace `REGION` with the corresponding Region.
-Replace `/tmp/scan.json` with the location of the scan.json file in the tmp directory.
+**Example**  
+ `./inspector-sbomgen container --image {{image:id}} --scan-sbom --aws-profile {{profile}} --aws-region {{REGION}} -o {{/tmp/scan.json}}` 
 
-###### Example
-
-`./inspector-sbomgen container --image `image:id`--scan-sbom --aws-profile`profile`--aws-region`REGION`-o`/tmp/scan.json``
-
-For a complete list of AWS Regions and endpoints, see [Regions and endpoints](inspector_regions.md#inspector-scan-endpoints "inspector_regions.md#inspector-scan-endpoints").
+ For a complete list of AWS Regions and endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/inspector/latest/user/inspector_regions.html#inspector-scan-endpoints). 
 
 ## API output formats
+<a name="API-output-samples"></a>
 
-The Amazon Inspector Scan API can output a vulnerability report in CycloneDX 1.5
-format or Amazon Inspector finding JSON. The default can be changed using the
-`--output-format` flag.
+The Amazon Inspector Scan API can output a vulnerability report in CycloneDX 1.5 format or Amazon Inspector finding JSON. The default can be changed using the `--output-format` flag.
+
+### Example of CycloneDX 1.5 format output - Linux
+<a name="cyclone-format"></a>
 
 ```
 {
@@ -276,6 +268,9 @@ format or Amazon Inspector finding JSON. The default can be changed using the
 }
 ```
 
+### Example of CycloneDX 1.5 format output - Windows
+<a name="cyclone-format-windows"></a>
+
 ```
 {
   "sbom": {
@@ -416,6 +411,9 @@ format or Amazon Inspector finding JSON. The default can be changed using the
 }
 ```
 
+### Example of Inspector format output - Linux
+<a name="inspector-format"></a>
+
 ```
 {
   "status": "SBOM parsed successfully, 1 vulnerability found",
@@ -503,8 +501,10 @@ format or Amazon Inspector finding JSON. The default can be changed using the
     ]
   }
 }
-
 ```
+
+### Example of Inspector format output - Windows
+<a name="inspector-format-windows"></a>
 
 ```
 {

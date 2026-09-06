@@ -1,27 +1,25 @@
-# Amazon Inspector SBOM Generator license collection
 
-The Amazon Inspector SBOM Generator helps track license information in a software bill of materials (SBOM).
-It collects license information from supported packages across operating systems and programming languages.
-With standardized license expressions in your generated SBOM, you can understand your licensing obligations.
+
+# Amazon Inspector SBOM Generator license collection
+<a name="sbom-generator-license-collection"></a>
+
+ The Amazon Inspector SBOM Generator helps track license information in a software bill of materials (SBOM). It collects license information from supported packages across operating systems and programming languages. With standardized license expressions in your generated SBOM, you can understand your licensing obligations. 
 
 ## Collect license information
+<a name="w2aac39c31b5"></a>
 
-###### Example command
-
-The following example shows how to collect license information from a directory.
+**Example command**  
+ The following example shows how to collect license information from a directory. 
 
 ```
-
 ./inspector-sbomgen directory --path /path/to/your/directory/ --collect-licenses
-
 ```
 
-###### SBOM component example
-
-The following example shows a component entry in the generated SBOM.
+**SBOM component example**  
+ The following example shows a component entry in the generated SBOM. 
 
 ```
-"components": [
+"components": [   
     {
       "bom-ref": "comp-2",
       "type": "application",
@@ -38,58 +36,51 @@ The following example shows a component entry in the generated SBOM.
 ```
 
 ## Supported packages
+<a name="w2aac39c31b7"></a>
 
-The following programming languages and operating system packages are supported for license collection.
+ The following programming languages and operating system packages are supported for license collection. 
 
-| Target       | Package manager  | License information source                                                                                                                                                                              | Type                 |
-| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| Alma Linux   | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Amazon Linux | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| CentOS       | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Fedora       | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| OpenSUSE     | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Oracle Linux | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Photon OS    | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| RHEL         | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Rocky Linux  | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| SLES         | RPM              | • /usr/lib/sysimage/rpm/rpmdb.sqlite<br>• /usr/lib/sysimage/rpm/Packages<br>• /usr/lib/sysimage/rpm/Packages.db<br>• /var/lib/rpm/rpmdb.sqlite<br>• /var/lib/rpm/Packages<br>• /var/lib/rpm/Packages.db | OS                   |
-| Alpine Linux | APK              | `/lib/apk/db/installed`                                                                                                                                                                                 | OS                   |
-| Chainguard   | APK              | `/lib/apk/db/installed`                                                                                                                                                                                 | OS                   |
-| Debian       | DPKG             | `/usr/share/doc/*/copyright`                                                                                                                                                                            | OS                   |
-| Ubuntu       | DPKG             | `/usr/share/doc/*/copyright`                                                                                                                                                                            | OS                   |
-| Node.js      | Javascript       | `node_modules/*/package.json`                                                                                                                                                                           | Programing language  |
-| PHP          | Composer package | • `composer.lock`<br>• `/vendor/composer/installed.json`                                                                                                                                                | Programing language  |
-| Go           | Go               | `LICENSE`                                                                                                                                                                                               | Programing language  |
-| Python       | Python/Egg/Wheel | • `.dist-info/METADATA`<br>• `.egg-info`<br>• `.egg-info/PKG-INFO`                                                                                                                                      | Programing language  |
-| Ruby         | RubyGem          | `*.gemspec`                                                                                                                                                                                             | Programing language  |
-| Rust         | crate            | `Cargo.toml`                                                                                                                                                                                            | Programming language |
+
+| Target | Package manager | License information source | Type | 
+| --- | --- | --- | --- | 
+| Alma Linux | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Amazon Linux | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| CentOS | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Fedora | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| OpenSUSE | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Oracle Linux | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Photon OS | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| RHEL | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Rocky Linux | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| SLES | RPM |  +   /usr/lib/sysimage/rpm/rpmdb.sqlite  <br />+   /usr/lib/sysimage/rpm/Packages  <br />+   /usr/lib/sysimage/rpm/Packages.db  <br />+   /var/lib/rpm/rpmdb.sqlite  <br />+   /var/lib/rpm/Packages  <br />+   /var/lib/rpm/Packages.db    | OS | 
+| Alpine Linux | APK | /lib/apk/db/installed | OS | 
+| Chainguard | APK | /lib/apk/db/installed | OS | 
+| Debian | DPKG | /usr/share/doc/\*/copyright | OS | 
+| Ubuntu | DPKG | /usr/share/doc/\*/copyright | OS | 
+| Node.js | Javascript | node\_modules/\*/package.json | Programing language | 
+| PHP | Composer package |  +  `composer.lock` <br />+  `/vendor/composer/installed.json`   | Programing language | 
+| Go | Go | LICENSE | Programing language | 
+| Python | Python/Egg/Wheel |  +   `.dist-info/METADATA`  <br />+   `.egg-info`  <br />+   `.egg-info/PKG-INFO`    | Programing language | 
+| Ruby | RubyGem | \*.gemspec | Programing language | 
+| Rust | crate | Cargo.toml | Programming language | 
 
 ### License expression standardization
+<a name="w2aac39c31b7b7"></a>
 
-The SPDX license expressions format provides accurate representation of licensing terms found in open source software.
-The Amazon Inspector SBOM Generator standardizes all license information into SPDX license expressions through rules described in this section.
-The rules provide consistency and compatibility across licensing information.
+ The SPDX license expressions format provides accurate representation of licensing terms found in open source software. The Amazon Inspector SBOM Generator standardizes all license information into SPDX license expressions through rules described in this section. The rules provide consistency and compatibility across licensing information. 
 
-###### SPDX short form identifier mapping
+**SPDX short form identifier mapping**  
+ All license names are mapped to SPDX short form identifiers. For example, `MIT License` is shortened to `MIT`. 
 
-All license names are mapped to SPDX short form identifiers.
-For example, `MIT License` is shortened to `MIT`.
-
-###### Multiple license combination
-
-You can combine more than one license with the `AND` operator.
-The following is an example command showing how to format your command.
+**Multiple license combination**  
+ You can combine more than one license with the `AND` operator. The following is an example command showing how to format your command. 
 
 ```
-
 MIT AND Apache-2.0
-
 ```
 
-###### Custom license prefix
+**Custom license prefix**  
+ Custom licenses are prefixed with `LicenseRef`, such as `LicenseRef-CompanyPrivate`. 
 
-Custom licenses are prefixed with `LicenseRef`, such as `LicenseRef-CompanyPrivate`.
-
-###### Custom exception prefix
-
-Custom exceptions are prefixed with `AdditionRef-`, such as `AdditionRef-CustomException`.
+**Custom exception prefix**  
+ Custom exceptions are prefixed with `AdditionRef-`, such as `AdditionRef-CustomException`. 

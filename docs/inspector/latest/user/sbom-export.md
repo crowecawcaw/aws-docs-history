@@ -1,34 +1,27 @@
+
+
 # Exporting SBOMs with Amazon Inspector
+<a name="sbom-export"></a>
 
-A software bill of materials (SBOM) is a nested inventory of all the open-source and third-party software components in your codebase.
-Amazon Inspector provides SBOMs for individual resources in your environment.
-You can use the Amazon Inspector console or Amazon Inspector API to generate SBOMs for your resources.
-You can export SBOMs for all resources that Amazon Inspector supports and monitors.
-Exported SBOMs provide information about your software supply.
-You can review the status of your resources by [assessing the coverage of your AWS environment](assessing-coverage.md "assessing-coverage.md").
-This section describes how to configure and export SBOMs.
+ A software bill of materials (SBOM) is a nested inventory of all the open-source and third-party software components in your codebase. Amazon Inspector provides SBOMs for individual resources in your environment. You can use the Amazon Inspector console or Amazon Inspector API to generate SBOMs for your resources. You can export SBOMs for all resources that Amazon Inspector supports and monitors. Exported SBOMs provide information about your software supply. You can review the status of your resources by [assessing the coverage of your AWS environment](https://docs.aws.amazon.com/inspector/latest/user/assessing-coverage.html). This section describes how to configure and export SBOMs. 
 
-Some software components and package managers use version ranges or dynamic references instead of fixed versions for dependencies.
-This practice creates unresolved hashes, where Amazon Inspector identifies a hash or jar file but cannot map it to a specific name and version for vulnerability detection.
-Amazon Inspector now includes these unresolved hashes in Software Bill of Materials (SBOM) exports.
-While these packages cannot be scanned for vulnerabilities, their hash values are available within the exported components list.
+ Some software components and package managers use version ranges or dynamic references instead of fixed versions for dependencies. This practice creates unresolved hashes, where Amazon Inspector identifies a hash or jar file but cannot map it to a specific name and version for vulnerability detection. Amazon Inspector now includes these unresolved hashes in Software Bill of Materials (SBOM) exports. While these packages cannot be scanned for vulnerabilities, their hash values are available within the exported components list. 
 
-###### Tip
-
-As of February 28, 2026, Amazon Inspector now supports exporting SBOMs for agentless Amazon EC2 Windows instances. Exporting SBOMs for agent-based Amazon EC2 Windows instances is currently not supported.
+**Tip**  
+ As of February 28, 2026, Amazon Inspector now supports exporting SBOMs for agentless Amazon EC2 Windows instances. Exporting SBOMs for agent-based Amazon EC2 Windows instances is currently not supported. 
 
 ## Amazon Inspector formats
+<a name="sbom-formats"></a>
 
 Amazon Inspector supports exporting SBOMs in **CycloneDX 1.4** and **SPDX 2.3** compatible formats. Amazon Inspector exports SBOMs as `JSON` files to the Amazon S3 bucket you choose.
 
-###### Note
+**Note**  
+SPDX format exports from Amazon Inspector are compatible with systems using **SPDX 2.3**, however they don't contain the Creative Commons Zero (CC0) field. This is because including this field would allow users to redistribute or edit the material.
 
-SPDX format exports from Amazon Inspector are compatible with systems using **SPDX
-2.3**, however they don't contain the Creative Commons Zero (CC0)
-field. This is because including this field would allow users to redistribute or edit the material.
+### Example of CycloneDX 1.4 SBOM format from Amazon Inspector
+<a name="cyclone-schema"></a>
 
 ```
-
                     {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
@@ -107,11 +100,12 @@ field. This is because including this field would allow users to redistribute or
     }
   ]
 }
-
 ```
 
-```
+### Example of SPDX 2.3 SBOM format from Amazon Inspector
+<a name="cyclone-schema"></a>
 
+```
 {
 	"name": "409870544328/EC2/i-022fba820db137c64/ami-074ea14c08effb2d8",
 	"spdxVersion": "SPDX-2.3",
@@ -220,56 +214,65 @@ field. This is because including this field would allow users to redistribute or
 	],
 	"SPDXID": "SPDXRef-DOCUMENT"
 }
-
 ```
 
 ## Filters for SBOMs
+<a name="sbom-filters"></a>
 
 When you export SBOMs you can include filters to create reports for specific subsets of resources. If you don’t supply a filter the SBOMs for all active, supported resources are exported. And if you are a delegated administrator this includes resources for all members too. The following filters are available:
-
-- **AccountID** —
-  This filter can be used to export SBOMs for any resources associated with specific
-  Account ID.
-- **EC2 instance tag** —
-  This filter can be used to export SBOMs for EC2 instances with specific tags.
-- **Function name** —
-  This filter can be used to export SBOMs for specific Lambda functions.
-- **Image tag** —
-  This filter can be used to export SBOMs for container images with specific
-  tags.
-- **Lambda function tag** — This filter can be used to export SBOMs for Lambda functions with specific
-  tags.
-- **Resource type** —
-  This filter can be used to filter resource type: EC2/ECR/Lambda.
-- **Resource ID** — This filter can be used to export an SBOM for a specific resource.
-- **Repository name** —This filter can be used to generate SBOMs for container images in specific
-  repositories.
++  **AccountID** — This filter can be used to export SBOMs for any resources associated with specific Account ID. 
++  **EC2 instance tag** — This filter can be used to export SBOMs for EC2 instances with specific tags. 
++ **Function name** — This filter can be used to export SBOMs for specific Lambda functions. 
++  **Image tag** — This filter can be used to export SBOMs for container images with specific tags. 
++  **Lambda function tag** — This filter can be used to export SBOMs for Lambda functions with specific tags. 
++  **Resource type** — This filter can be used to filter resource type: EC2/ECR/Lambda. 
++  **Resource ID** — This filter can be used to export an SBOM for a specific resource. 
++  **Repository name** —This filter can be used to generate SBOMs for container images in specific repositories. 
 
 ## Configure and export SBOMs
+<a name="sbom-create"></a>
 
-To export SBOMs, you must first configure an Amazon S3 bucket and a AWS KMS key that Amazon Inspector is allowed to use. You can use filters to export SBOMs for specific subsets of your resources. To export SBOMs for multiple accounts in an AWS Organization, follow these steps while signed in as the Amazon Inspector delegated administrator.
+To export SBOMs, you must first configure an Amazon S3 bucket and a AWS KMS key that Amazon Inspector is allowed to use. You can use filters to export SBOMs for specific subsets of your resources. To export SBOMs for multiple accounts in an AWS Organization, follow these steps while signed in as the Amazon Inspector delegated administrator. 
 
-###### Prerequisites
+**Prerequisites**
++ Supported resources that are being actively monitored by Amazon Inspector.
++ An Amazon S3 bucket configured with a policy that allows Amazon Inspector to add object to. For information on configuring the policy see [Configure export permissions](findings-managing-exporting-reports.md#findings-managing-exporting-permissions).
++ An AWS KMS key configured with a policy that allows Amazon Inspector to use to encrypt your reports. For information on configuring the policy see [Configure an AWS KMS key for export](findings-managing-exporting-reports.md#findings-managing-exporting-KMS).
 
-- Supported resources that are being actively monitored by Amazon Inspector.
-- An Amazon S3 bucket configured with a policy that allows Amazon Inspector to add object to. For information on configuring the policy see [Configure export permissions](findings-managing-exporting-reports.md#findings-managing-exporting-permissions "findings-managing-exporting-reports.md#findings-managing-exporting-permissions").
-- An AWS KMS key configured with a policy that allows Amazon Inspector to use to encrypt your reports. For information on configuring the policy see [Configure an AWS KMS key for export](findings-managing-exporting-reports.md#findings-managing-exporting-KMS "findings-managing-exporting-reports.md#findings-managing-exporting-KMS").
-
-###### Note
-
-If you have previously configured an Amazon S3 bucket and an AWS KMS key for [findings export](findings-managing-exporting-reports.md "findings-managing-exporting-reports.md") you can use the same bucket and key for SBOM export.
+**Note**  
+If you have previously configured an Amazon S3 bucket and an AWS KMS key for [findings export](findings-managing-exporting-reports.md) you can use the same bucket and key for SBOM export.
 
 Choose your preferred access method to export an SBOM.
 
-Console1. Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home"). 2. Using the AWS Region selector in the upper-right corner of the page,
-select the Region with the resources you want to export SBOM for. 3. In the navigation pane, choose **Export SBOMs**. 4. (Optional) In the **Export SBOMs** page, use the **Add filter** menu to select a subset of resources to create reports for. If no filter is provided Amazon Inspector will export reports for all active resources. If you are a delegated administrator this will include all active resources in your organization. 5. Under **Export setting** select the format you want for the SBOM. 6. Enter an **Amazon S3 URI** or choose **Browse Amazon S3** to select an Amazon S3 location to store the SBOM. 7. Enter a **AWS KMS key** configured for Amazon Inspector to use to encrypt your reports.
+------
+#### [ Console ]
 
-API* To export SBOMs for your resources programmatically, use the [CreateSbomExport](../../v2/APIReference/API_CreateSbomExport.md "../../v2/APIReference/API_CreateSbomExport.md") operation of the Amazon Inspector API.
+1.  Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home). 
 
-In your request, use the `reportFormat` parameter to specify the SBOM output format, choose `CYCLONEDX_1_4` or `SPDX_2_3`. The `s3Destination` parameter is required and you must specify an S3 bucket configured with a policy that allows Amazon Inspector to write to it. Optionally use `resourceFilterCriteria` parameters to limit the scope of the report to specific resources.
+1. Using the AWS Region selector in the upper-right corner of the page, select the Region with the resources you want to export SBOM for.
 
-AWS CLI* To export SBOMs for your resources using the AWS Command Line Interface run the following command:
+1.  In the navigation pane, choose **Export SBOMs**. 
 
-`aws inspector2 create-sbom-export --report-format `FORMAT` --s3-destination bucketName=`amzn-s3-demo-bucket1`,keyPrefix=`PREFIX`,kmsKeyArn=`arn:aws:kms:Region:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
+1.  (Optional) In the **Export SBOMs** page, use the **Add filter** menu to select a subset of resources to create reports for. If no filter is provided Amazon Inspector will export reports for all active resources. If you are a delegated administrator this will include all active resources in your organization. 
 
-In your request, replace `FORMAT` with the format of your choice, `CYCLONEDX_1_4` or `SPDX_2_3`. Then replace the `user input placeholders` for the s3 destination with the name of the S3 bucket to export to, the prefix to use for the output in S3, and the ARN for the KMS key you are using to encrypt the reports.
+1. Under **Export setting** select the format you want for the SBOM.
+
+1.  Enter an **Amazon S3 URI** or choose **Browse Amazon S3** to select an Amazon S3 location to store the SBOM. 
+
+1.  Enter a **AWS KMS key** configured for Amazon Inspector to use to encrypt your reports. 
+
+------
+#### [ API ]
++ To export SBOMs for your resources programmatically, use the [CreateSbomExport](https://docs.aws.amazon.com/inspector/v2/APIReference/API_CreateSbomExport.html) operation of the Amazon Inspector API.
+
+  In your request, use the `reportFormat` parameter to specify the SBOM output format, choose `CYCLONEDX_1_4` or `SPDX_2_3`. The `s3Destination` parameter is required and you must specify an S3 bucket configured with a policy that allows Amazon Inspector to write to it. Optionally use `resourceFilterCriteria` parameters to limit the scope of the report to specific resources.
+
+------
+#### [ AWS CLI ]
++ To export SBOMs for your resources using the AWS Command Line Interface run the following command:
+
+  `aws inspector2 create-sbom-export --report-format {{FORMAT}} --s3-destination bucketName={{amzn-s3-demo-bucket1}},keyPrefix={{PREFIX}},kmsKeyArn={{arn:aws:kms:Region:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}}`
+
+  In your request, replace {{FORMAT}} with the format of your choice, `CYCLONEDX_1_4` or `SPDX_2_3`. Then replace the {{`user input placeholders`}} for the s3 destination with the name of the S3 bucket to export to, the prefix to use for the output in S3, and the ARN for the KMS key you are using to encrypt the reports.
+
+------
