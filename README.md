@@ -1,11 +1,11 @@
 # AWS Documentation Archive
 
-This repository provides weekly snapshots of AWS documentation converted to Markdown format. It's useful if you need:
+This repository provides weekly snapshots of AWS-authored Markdown documentation. It's useful if you need:
 
 - **Markdown versions of AWS docs** for giving context to AI agents, training models, or offline reference
 - **Historical tracking** of how AWS documentation changes over time
 
-The repository automatically crawls the AWS documentation index once per week, converts the HTML pages to Markdown, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
+The repository automatically crawls the AWS documentation index once per week, downloads the Markdown provided by AWS, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
 
 ## Running the crawler
 
@@ -55,4 +55,3 @@ or modifying any files from `docs/`, you must:
 
 No rights are granted with respect to the AWS trademarks, service marks, or
 logos that may appear in the archived content.
-

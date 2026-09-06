@@ -1,7 +1,7 @@
 """AWS documentation crawler using sitemap-based discovery.
 
-This crawler downloads AWS documentation pages and converts them to Markdown.
-It uses AWS's sitemap.xml files to discover all services and pages.
+This crawler downloads AWS-provided Markdown for pages discovered through the
+AWS sitemap.xml files.
 """
 
 from __future__ import annotations
@@ -11,7 +11,6 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import json
 import logging
-import os
 import posixpath
 import queue
 import re
@@ -21,13 +20,11 @@ import sys
 import threading
 import time
 import xml.etree.ElementTree as ET
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 from typing import Optional
-from urllib.parse import urljoin, urlparse, urlunparse
+from urllib.parse import urlparse, urlunparse
 
 import requests
-from bs4 import BeautifulSoup, Tag
-import markdownify
 
 from aws_docs import (
     DOCS_BASE_URL,
@@ -36,75 +33,9 @@ from aws_docs import (
     normalise_url,
 )
 
-CONTENT_SELECTORS = [
-    "main",
-    "article",
-    "#main-content",
-    ".main-content",
-    "#content",
-    ".content",
-    "div[role='main']",
-    "#awsdocs-content",
-    ".awsui-article",
-]
-
-NAVIGATION_SELECTORS = [
-    "noscript",
-    ".prev-next",
-    "#main-col-footer",
-    ".awsdocs-page-utilities",
-    "#quick-feedback-yes",
-    "#quick-feedback-no",
-    ".page-loading-indicator",
-    "#tools-panel",
-    ".doc-cookie-banner",
-    "awsdocs-copyright",
-    "awsdocs-thumb-feedback",
-]
-
-TAGS_TO_STRIP = [
-    "script",
-    "style",
-    "noscript",
-    "meta",
-    "link",
-    "footer",
-    "nav",
-    "aside",
-    "header",
-    "awsdocs-cookie-consent-container",
-    "awsdocs-feedback-container",
-    "awsdocs-page-header",
-    "awsdocs-page-header-container",
-    "awsdocs-filter-selector",
-    "awsdocs-breadcrumb-container",
-    "awsdocs-page-footer",
-    "awsdocs-page-footer-container",
-    "awsdocs-footer",
-    "awsdocs-cookie-banner",
-    "js-show-more-buttons",
-    "js-show-more-text",
-    "feedback-container",
-    "feedback-section",
-    "doc-feedback-container",
-    "doc-feedback-section",
-    "warning-container",
-    "warning-section",
-    "cookie-banner",
-    "cookie-notice",
-    "copyright-section",
-    "legal-section",
-    "terms-section",
-]
-
 LOGGER = logging.getLogger(__name__)
 
 MODULE_ROOT = Path(__file__).resolve().parent
-
-IMAGE_HOST = "docs.aws.amazon.com"
-IMAGE_PATH_PREFIX = "/images/"
-ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".svg"}
-MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard
 
 SITEMAP_INDEX_URL = f"{DOCS_BASE_URL}/sitemap_index.xml"
 
@@ -133,23 +64,6 @@ NON_SERVICE_PATTERNS = {
     "prefixes": ("sdk-for-", "aws-sdk-", "tk-", "toolkit-"),
     "substrings": ("toolkit", "-sdk", "-cli"),
 }
-
-
-def build_local_image_path(image_path: str, output_root: Path) -> Path:
-    """Translate an AWS Docs image path into a local filesystem destination."""
-    if not image_path.startswith(IMAGE_PATH_PREFIX):
-        raise ValueError(f"Image path must start with {IMAGE_PATH_PREFIX!r}: {image_path!r}")
-
-    relative_path = image_path[len(IMAGE_PATH_PREFIX):]
-    safe_parts = [
-        part for part in PurePosixPath(relative_path).parts
-        if part not in {"..", "."}
-    ]
-
-    if not safe_parts:
-        raise ValueError(f"Image path did not contain any usable segments: {image_path!r}")
-
-    return output_root.joinpath(*safe_parts)
 
 
 def looks_like_non_service(identifier: str) -> bool:
@@ -239,121 +153,6 @@ class LinkChecker:
         return True
 
 
-def extract_main_content(soup: BeautifulSoup) -> Tag:
-    """Extract the main documentation content from the parsed HTML page."""
-    main = (
-        next(
-            (
-                candidate
-                for selector in CONTENT_SELECTORS
-                if (candidate := soup.select_one(selector))
-            ),
-            None,
-        )
-        or soup.body
-        or soup
-    )
-
-    for selector in NAVIGATION_SELECTORS:
-        for element in main.select(selector):
-            element.decompose()
-
-    return main
-
-
-class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
-    """Custom markdownify converter that handles complex table cells.
-
-    AWS documentation tables often contain multi-paragraph content and lists
-    within cells. The default markdownify converter breaks these across
-    multiple lines, creating invalid markdown tables. This custom converter
-    keeps all cell content on a single line by:
-    1. Removing newlines from cell content
-    2. Converting list markers (* -) to <br>• for readability
-    3. Separating paragraphs with <br> to maintain visual structure
-    """
-
-    def convert_td(self, el, text, convert_as_inline):
-        """Convert table data cell, cleaning multi-line content."""
-        text = self._clean_cell_text(text)
-        return ' ' + text + ' |'
-
-    def convert_th(self, el, text, convert_as_inline):
-        """Convert table header cell, cleaning multi-line content."""
-        text = self._clean_cell_text(text)
-        return ' ' + text + ' |'
-
-    def _clean_cell_text(self, text):
-        """Clean cell text, using <br> to separate paragraphs and list items."""
-        if not text:
-            return ''
-
-        # First split by newlines, then handle lines that have list markers mid-line
-        lines = text.split('\n')
-        result_parts = []
-
-        for line in lines:
-            line = line.strip()
-            if not line:
-                continue
-
-            # Check if line starts with a list marker
-            if line.startswith('* ') or line.startswith('- '):
-                item_text = line[2:].strip()
-                if result_parts:
-                    result_parts.append('<br>• ' + item_text)
-                else:
-                    result_parts.append('• ' + item_text)
-            # Check if line contains list markers mid-line (markdownify sometimes does this)
-            elif '* ' in line or '- ' in line:
-                # Split on list markers and process each part
-                import re
-                # Split on * or - followed by space, keeping the delimiter pattern
-                parts = re.split(r'(\* |- )', line)
-                for i, part in enumerate(parts):
-                    if not part or part in ('* ', '- '):
-                        continue
-                    if i > 0 and parts[i-1] in ('* ', '- '):
-                        # This is a list item
-                        if result_parts:
-                            result_parts.append('<br>• ' + part.strip())
-                        else:
-                            result_parts.append('• ' + part.strip())
-                    else:
-                        # Regular text
-                        if result_parts:
-                            result_parts.append('<br>' + part.strip())
-                        else:
-                            result_parts.append(part.strip())
-            else:
-                # Regular paragraph - use <br> separator if not first
-                if result_parts:
-                    result_parts.append('<br>' + line)
-                else:
-                    result_parts.append(line)
-
-        # Join without spaces since <br> handles separation
-        return ''.join(result_parts)
-
-
-def convert_html_to_markdown(html: str) -> str:
-    """Convert HTML content to Markdown using custom AWS docs converter."""
-    content = AwsDocsMarkdownConverter(
-        heading_style=markdownify.ATX,
-        autolinks=True,
-        default_title=True,
-        escape_asterisks=True,
-        escape_underscores=True,
-        newline_style="SPACES",
-        strip=TAGS_TO_STRIP,
-    ).convert(html)
-
-    if not content:
-        return ""
-
-    return content.strip() + "\n"
-
-
 def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
     """Translate a documentation URL into a Markdown output path.
 
@@ -380,183 +179,16 @@ def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
     return output_root / relative_path if output_root else relative_path
 
 
-def convert_tag_to_markdown(
-    url: str,
-    main: Tag,
-    *,
-    output_path: Path,
-    output_root: Path,
-) -> str:
-    """Convert an extracted HTML fragment into Markdown."""
-    for anchor in main.find_all("a"):
-        if anchor.find_parent(["code", "pre"]):
-            anchor.replace_with(anchor.get_text())
+def url_to_markdown_url(url: str) -> str:
+    """Translate an AWS documentation page URL to its Markdown endpoint."""
+    parsed = urlparse(url)
+    path = parsed.path.rstrip("/")
 
-    rewrite_doc_links(main, url, base_output=output_path, output_root=output_root)
-    markdown = convert_html_to_markdown(str(main))
-    return markdown
+    if path.endswith(".html"):
+        path = path[:-5]
 
-
-def rewrite_doc_links(
-    container: Tag,
-    base_url: str,
-    *,
-    base_output: Path,
-    output_root: Path,
-) -> None:
-    """Rewrite internal documentation links to point at local Markdown files."""
-    base_host = urlparse(base_url).netloc
-
-    for anchor in container.find_all("a", href=True):
-        href = anchor["href"].strip()
-
-        if not href or href.startswith("#") or href.startswith("mailto:"):
-            continue
-
-        absolute = urljoin(base_url, href)
-        parsed = urlparse(absolute)
-
-        if parsed.netloc != base_host:
-            continue
-
-        fragment = parsed.fragment
-        cleaned = urlunparse(parsed._replace(fragment="", query=""))
-        cleaned = normalise_url(cleaned)
-
-        target_output = url_to_output_path(cleaned, output_root)
-        relative_path = os.path.relpath(target_output, start=base_output.parent)
-        relative_href = Path(relative_path).as_posix()
-
-        if fragment:
-            relative_href = f"{relative_href}#{fragment}"
-
-        anchor["href"] = relative_href
-
-
-class ImageHandler:
-    """Handle image downloading and rewriting for documentation pages."""
-
-    def __init__(
-        self,
-        output_dir: Path,
-        session: requests.Session,
-        rate_limiter: RequestRateLimiter,
-    ) -> None:
-        self.output_dir = output_dir
-        self.session = session
-        self.rate_limiter = rate_limiter
-        self._downloaded_images: set[str] = set()
-        self._lock = threading.Lock()
-
-    def download_and_rewrite_images(
-        self, container: Tag, page_url: str, page_output: Path
-    ) -> None:
-        """Download images and rewrite their references in the HTML container."""
-        for image in container.find_all("img"):
-            sources: list[str] = []
-            raw_src = ""
-            for attr in ("src", "data-src", "data-awsdocs-src"):
-                value = image.get(attr)
-                if isinstance(value, str):
-                    stripped = value.strip()
-                    if stripped:
-                        raw_src = raw_src or stripped
-                        sources.append(attr)
-
-            if not raw_src:
-                continue
-
-            rewritten = self._rewrite_single_image(raw_src, page_url, page_output)
-            if rewritten:
-                for attr in sources or ["src"]:
-                    image[attr] = rewritten
-
-    def _rewrite_single_image(
-        self, raw_src: str, page_url: str, page_output: Path
-    ) -> Optional[str]:
-        """Download an image and return the rewritten relative path."""
-        absolute_url = normalise_url(urljoin(page_url, raw_src))
-        parsed = urlparse(absolute_url)
-
-        if parsed.scheme not in {"http", "https"}:
-            return None
-        if parsed.netloc != IMAGE_HOST:
-            return None
-        if not parsed.path.startswith(IMAGE_PATH_PREFIX):
-            return None
-
-        extension = Path(parsed.path).suffix.lower()
-        if extension not in ALLOWED_IMAGE_EXTENSIONS:
-            return None
-
-        local_path = build_local_image_path(parsed.path, self.output_dir)
-        if not self._download_image(absolute_url, local_path):
-            return None
-
-        relative_path = os.path.relpath(local_path, start=page_output.parent)
-        return Path(relative_path).as_posix()
-
-    def _download_image(self, image_url: str, destination: Path) -> bool:
-        destination.parent.mkdir(parents=True, exist_ok=True)
-
-        if destination.exists():
-            return True
-
-        with self._lock:
-            if image_url in self._downloaded_images:
-                return destination.exists()
-            self._downloaded_images.add(image_url)
-
-        try:
-            self.rate_limiter.acquire()
-            response = self.session.get(image_url, stream=True, timeout=30)
-            response.raise_for_status()
-        except requests.RequestException as exc:
-            LOGGER.warning("Failed to download image %s: %s", image_url, exc)
-            with self._lock:
-                self._downloaded_images.discard(image_url)
-            return False
-
-        content_length = response.headers.get("Content-Length")
-        if content_length:
-            try:
-                if int(content_length) > MAX_IMAGE_BYTES:
-                    LOGGER.warning(
-                        "Skipping image %s because it exceeds the %d byte limit",
-                        image_url,
-                        MAX_IMAGE_BYTES,
-                    )
-                    with self._lock:
-                        self._downloaded_images.discard(image_url)
-                    response.close()
-                    return False
-            except ValueError:
-                pass
-
-        bytes_written = 0
-        try:
-            with destination.open("wb") as handle:
-                for chunk in response.iter_content(chunk_size=8192):
-                    if not chunk:
-                        continue
-                    bytes_written += len(chunk)
-                    if bytes_written > MAX_IMAGE_BYTES:
-                        LOGGER.warning(
-                            "Skipping image %s because it exceeded the %d byte limit while downloading",
-                            image_url,
-                            MAX_IMAGE_BYTES,
-                        )
-                        response.close()
-                        handle.close()
-                        destination.unlink(missing_ok=True)
-                        with self._lock:
-                            self._downloaded_images.discard(image_url)
-                        return False
-                    handle.write(chunk)
-        finally:
-            response.close()
-
-        return True
+    path = f"{path}.md"
+    return urlunparse(parsed._replace(path=path, fragment="", query=""))
 
 
 class AwsDocsCrawler:
@@ -585,7 +217,6 @@ class AwsDocsCrawler:
         self._visited_urls: set[str] = set()
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
-        self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
 
         # Link checker and service URL filter (set per-guide during processing)
         self._link_checker: Optional[LinkChecker] = None
@@ -852,30 +483,35 @@ class AwsDocsCrawler:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
-        """Process a single URL: fetch, convert, and save."""
+        """Download a page's AWS-provided Markdown and save it."""
         # Check if already visited
         with self._known_urls_lock:
             if url in self._visited_urls:
                 LOGGER.debug("Skipping already visited URL: %s", url)
                 return
 
-        LOGGER.debug("Fetching %s", url)
-
         if not self._link_checker or not self._link_checker(url):
             LOGGER.debug("Skipping %s because it does not look like an HTML page", url)
             return
 
+        markdown_url = url_to_markdown_url(url)
+        LOGGER.debug("Fetching %s", markdown_url)
+
         try:
             self._rate_limiter.acquire()
-            response = self.session.get(url, timeout=30)
+            response = self.session.get(markdown_url, timeout=30)
             response.raise_for_status()
         except requests.RequestException as exc:
-            LOGGER.warning("Failed to fetch %s: %s", url, exc)
+            LOGGER.warning("Failed to fetch Markdown for %s: %s", url, exc)
             return
 
         content_type = response.headers.get("Content-Type", "")
-        if "text/html" not in content_type:
-            LOGGER.debug("Skipping %s due to non-HTML content type %s", url, content_type)
+        if "text/markdown" not in content_type.lower():
+            LOGGER.warning(
+                "Skipping %s due to non-Markdown content type %s",
+                markdown_url,
+                content_type,
+            )
             return
 
         if "charset=" not in content_type.lower():
@@ -883,20 +519,9 @@ class AwsDocsCrawler:
             if apparent:
                 response.encoding = apparent
 
-        html = response.text
-        soup = BeautifulSoup(html, "html.parser")
-        main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
-        self._image_handler.download_and_rewrite_images(main, url, output_path)
-        markdown = convert_tag_to_markdown(
-            url,
-            main,
-            output_path=output_path,
-            output_root=self.output_dir,
-        )
-
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(markdown, encoding="utf-8")
+        output_path.write_text(response.text, encoding="utf-8")
 
         with self._known_urls_lock:
             self._visited_urls.add(url)
@@ -935,7 +560,7 @@ class AwsDocsCrawler:
         *,
         enable_commit: bool = False,
     ) -> tuple[int, bool]:
-        """Process a single service guide: crawl, format, and optionally commit.
+        """Process a single service guide: crawl and optionally commit.
 
         Returns:
             Tuple of (pages_crawled, commit_success)
@@ -990,11 +615,7 @@ class AwsDocsCrawler:
         path = path.strip().strip("/")
         guide_dir = self.output_dir / path
 
-        # Step 6: Run prettier on the guide
-        LOGGER.info("Formatting markdown files with prettier...")
-        run_prettier_on_guide(guide_dir)
-
-        # Step 7: Commit if enabled
+        # Step 6: Commit if enabled
         commit_success = False
         if enable_commit:
             LOGGER.info("Committing changes for %s...", service_url)
@@ -1214,31 +835,6 @@ def clean_guide_directory(output_dir: Path, service_url: str) -> None:
             shutil.rmtree(guide_dir)
         except Exception as exc:
             LOGGER.warning("Failed to clean directory %s: %s", guide_dir, exc)
-
-
-def run_prettier_on_guide(guide_dir: Path) -> bool:
-    """Run prettier on all markdown files in a guide directory."""
-    if not guide_dir.exists() or not guide_dir.is_dir():
-        LOGGER.warning("Guide directory does not exist: %s", guide_dir)
-        return False
-
-    try:
-        LOGGER.info("Running prettier on %s", guide_dir)
-        # Use glob pattern relative to the guide directory
-        pattern = f"{guide_dir}/**/*.md"
-        subprocess.run(
-            ["npx", "--yes", "prettier", "--write", pattern],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        return True
-    except subprocess.CalledProcessError as exc:
-        LOGGER.warning("Prettier failed for %s: %s", guide_dir, exc)
-        return False
-    except FileNotFoundError:
-        LOGGER.warning("npx/prettier not found. Skipping prettier formatting.")
-        return False
 
 
 def prettify_slug(slug: str | None) -> str:
