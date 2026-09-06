@@ -1,6 +1,9 @@
-# Automotive Data Mesh
 
-The Automotive Data Mesh provides the foundational platform infrastructure that enables decentralized data ownership while maintaining centralized governance. Built on Amazon DataZone V2 and the AWS analytics stack, this solution creates a unified workspace where data engineers, ML engineers, and business analysts can collaborate on automotive use cases while maintaining data quality, security, and compliance. One foundation deploy publishes 9 governed data products — spanning vehicle telemetry, EV operations, customer data, service records, and the vehicle knowledge base — through a DataZone V2 domain with 9 producer projects and cross-cutting governance. See [Data products](data-products.md "data-products.md") for the full product catalog and [Platform foundation](platform-foundation.md "platform-foundation.md") for deploy topology.
+
+# Automotive Data Mesh
+<a name="automotive-data-mesh"></a>
+
+The Automotive Data Mesh provides the foundational platform infrastructure that enables decentralized data ownership while maintaining centralized governance. Built on Amazon DataZone V2 and the AWS analytics stack, this solution creates a unified workspace where data engineers, ML engineers, and business analysts can collaborate on automotive use cases while maintaining data quality, security, and compliance. One foundation deploy publishes 9 governed data products — spanning vehicle telemetry, EV operations, customer data, service records, and the vehicle knowledge base — through a DataZone V2 domain with 9 producer projects and cross-cutting governance. See [Data products](data-products.md) for the full product catalog and [Platform foundation](platform-foundation.md) for deploy topology.
 
 Traditional centralized data architectures create bottlenecks that prevent automotive organizations from realizing the full value of their data. Data mesh addresses these challenges through four core principles: domain-oriented decentralized data ownership, data as a product, self-service data platform, and federated computational governance. This approach enables automotive organizations to scale their data capabilities while maintaining security, compliance, and data quality standards.
 

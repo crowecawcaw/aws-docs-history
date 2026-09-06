@@ -1,4 +1,7 @@
+
+
 # Agentic Enterprise
+<a name="agentic-enterprise"></a>
 
 Agentic Enterprise is the pattern catalog for building AI agents and AI-assisted workloads on top of ADP’s governed data products. Where the other chapters in this guide describe how ADP publishes and governs automotive data, this chapter describes how that governed data becomes the foundation for intelligent, autonomous, and semi-autonomous consumption — conversational agents that answer customer questions, natural-language interfaces for business users, and machine learning pipelines that train on clean, joined data without each team re-solving data access on its own. It is not a single deployable stack; it is a growing collection of demonstrated patterns, each traceable to ADP’s nine governed data products.
 

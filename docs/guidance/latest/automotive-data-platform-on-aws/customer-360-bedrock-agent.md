@@ -1,21 +1,21 @@
+
+
 # Bedrock AI Agent
+<a name="customer-360-bedrock-agent"></a>
 
 The Bedrock AI Agent provides conversational analytics with natural language queries and AI-powered recommendations.
 
 ## Building the knowledge base
+<a name="building-the-knowledge-base"></a>
 
 The knowledge base stores remediation playbooks as vector embeddings for semantic search.
 
 ### Aurora PostgreSQL with pgvector
+<a name="aurora-postgresql-with-pgvector"></a>
 
-**Cluster configuration**:
-\* Engine: Aurora PostgreSQL 15.4
-\* Instance: db.r6g.large (Graviton3)
-\* Scaling: Serverless v2 (0.5-2 ACUs)
-\* Multi-AZ: Enabled
-\* Encryption: KMS at rest, TLS in transit
+ **Cluster configuration**: \* Engine: Aurora PostgreSQL 15.4 \* Instance: db.r6g.large (Graviton3) \* Scaling: Serverless v2 (0.5-2 ACUs) \* Multi-AZ: Enabled \* Encryption: KMS at rest, TLS in transit
 
-**Vector table schema**:
+ **Vector table schema**:
 
 ```
 CREATE EXTENSION vector;
@@ -31,29 +31,16 @@ USING hnsw (embedding vector_cosine_ops);
 ```
 
 ### Knowledge base content
+<a name="knowledge-base-content"></a>
 
-**Battery remediation playbook**:
-\* Supplier batch defects
-\* Thermal management issues
-\* BMS failures
-\* Charging problems
-\* Success rates and timelines
+ **Battery remediation playbook**: \* Supplier batch defects \* Thermal management issues \* BMS failures \* Charging problems \* Success rates and timelines
 
-**Customer churn analysis playbook**:
-\* Churn risk factors
-\* Retention strategies by segment
-\* Proactive engagement tactics
-\* Win-back campaigns
-\* ROI calculations
+ **Customer churn analysis playbook**: \* Churn risk factors \* Retention strategies by segment \* Proactive engagement tactics \* Win-back campaigns \* ROI calculations
 
-**Analytics metadata guide**:
-\* Data schema and tables
-\* KPI calculations
-\* Metric thresholds
-\* Query examples
-\* Dashboard interpretation
+ **Analytics metadata guide**: \* Data schema and tables \* KPI calculations \* Metric thresholds \* Query examples \* Dashboard interpretation
 
 ### Document format
+<a name="document-format"></a>
 
 Documents stored as markdown for rich context:
 
@@ -86,6 +73,7 @@ Supplier defect in thermal management affecting 12,000 vehicles
 ```
 
 ### Knowledge base ingestion
+<a name="knowledge-base-ingestion"></a>
 
 To populate the knowledge base, documents are uploaded to S3 and an ingestion job is started:
 
@@ -101,24 +89,23 @@ aws bedrock-agent start-ingestion-job \
 ```
 
 ### Chunking strategy
+<a name="chunking-strategy"></a>
 
-**Document chunking configuration**:
-\* 500 tokens per chunk
-\* 50 token overlap
-\* Keep related info together
-\* Use markdown structure
+ **Document chunking configuration**: \* 500 tokens per chunk \* 50 token overlap \* Keep related info together \* Use markdown structure
 
 These parameters balance retrieval precision with context completeness. A 500-token chunk is large enough to include the full context of a remediation step (symptom, root cause, recommended action, success metrics) without splitting related content across chunks. The 50-token overlap ensures that sentences near chunk boundaries appear in adjacent chunks, preventing retrieval gaps when a query matches content that spans a boundary.
 
 ## Building action groups
+<a name="building-action-groups"></a>
 
 Action groups enable the agent to query real-time customer data.
 
 ### Action group 1: Query customer health
+<a name="action-group-1-query-customer-health"></a>
 
-**Purpose**: Retrieve health scores, churn risk, lifetime value
+ **Purpose**: Retrieve health scores, churn risk, lifetime value
 
-**Lambda function**:
+ **Lambda function**:
 
 ```
 def query_customer_health(params):
@@ -138,8 +125,9 @@ def query_customer_health(params):
 ```
 
 ### Action group 2: Query at-risk revenue
+<a name="action-group-2-query-at-risk-revenue"></a>
 
-**Purpose**: Calculate revenue at risk by segment
+ **Purpose**: Calculate revenue at risk by segment
 
 ```
 def query_at_risk_customers(params):
@@ -157,8 +145,9 @@ def query_at_risk_customers(params):
 ```
 
 ### Action group 3: Query sentiment trends
+<a name="action-group-3-query-sentiment-trends"></a>
 
-**Purpose**: Analyze sentiment and NPS trends
+ **Purpose**: Analyze sentiment and NPS trends
 
 ```
 def query_customer_trends(params):
@@ -176,14 +165,16 @@ def query_customer_trends(params):
 ```
 
 ## Configuring the Bedrock agent
+<a name="configuring-the-bedrock-agent"></a>
 
 The agent orchestrates knowledge base retrieval and action group execution.
 
 ### Agent configuration
+<a name="agent-configuration"></a>
 
-**Foundation model**: Claude 3.5 Sonnet v2
+ **Foundation model**: Claude 3.5 Sonnet v2
 
-**Agent instructions**:
+ **Agent instructions**:
 
 ```
 You are a customer analytics expert helping automotive teams
@@ -204,6 +195,7 @@ Guidelines:
 ```
 
 ### Adding knowledge base
+<a name="adding-knowledge-base"></a>
 
 ```
 aws bedrock-agent associate-agent-knowledge-base \
@@ -213,6 +205,7 @@ aws bedrock-agent associate-agent-knowledge-base \
 ```
 
 ### Adding action groups
+<a name="adding-action-groups"></a>
 
 ```
 aws bedrock-agent create-agent-action-group \
@@ -222,8 +215,9 @@ aws bedrock-agent create-agent-action-group \
 ```
 
 ### Configuring guardrails
+<a name="configuring-guardrails"></a>
 
-**PII filtering**:
+ **PII filtering**:
 
 ```
 aws bedrock create-guardrail \
@@ -238,10 +232,12 @@ aws bedrock create-guardrail \
 ```
 
 ## Using the AI agent
+<a name="using-the-ai-agent"></a>
 
 The agent provides conversational analytics through natural language.
 
 ### Example conversation: Declining sentiment
+<a name="example-conversation-declining-sentiment"></a>
 
 ```
 User: "What's causing declining customer sentiment?"
@@ -277,6 +273,7 @@ From Battery Remediation Playbook:
 ```
 
 ### Example conversation: Segment analysis
+<a name="example-conversation-segment-analysis"></a>
 
 ```
 User: "Which customer segments are at highest risk?"
@@ -303,18 +300,14 @@ revenue impact and clear remediation path.
 ```
 
 ## Optimization and best practices
+<a name="optimization-and-best-practices"></a>
 
 ### Agent instruction tuning
+<a name="agent-instruction-tuning"></a>
 
-**Iterative improvement**:
+ **Iterative improvement**: 1. Test with common questions 2. Review response quality 3. Refine instructions for clarity 4. Add examples for complex scenarios 5. Test edge cases
 
-1. Test with common questions
-2. Review response quality
-3. Refine instructions for clarity
-4. Add examples for complex scenarios
-5. Test edge cases
-
-**Instruction patterns**:
+ **Instruction patterns**:
 
 ```
 # Good: Specific and actionable
@@ -329,51 +322,34 @@ revenue impact and clear remediation path.
 ```
 
 ### Knowledge base optimization
+<a name="knowledge-base-optimization"></a>
 
-**Document quality**:
-\* Use clear section headers
-\* Include specific metrics
-\* Add real-world examples
-\* Update regularly
-\* Remove outdated information
+ **Document quality**: \* Use clear section headers \* Include specific metrics \* Add real-world examples \* Update regularly \* Remove outdated information
 
-**Chunking strategy**:
-\* 500 tokens per chunk
-\* 50 token overlap
-\* Keep related info together
-\* Use markdown structure
+ **Chunking strategy**: \* 500 tokens per chunk \* 50 token overlap \* Keep related info together \* Use markdown structure
 
 ### Cost optimization
+<a name="cost-optimization"></a>
 
-**Estimated monthly costs** (us-east-1 region):
+ **Estimated monthly costs** (us-east-1 region):
 
-| Service                           | Usage                            | Monthly Cost  | Notes                                 |
-| --------------------------------- | -------------------------------- | ------------- | ------------------------------------- |
-| Amazon Aurora Serverless v2       | 0.5-2 ACU, pgvector              | $45-90        | Auto-pause after 5 min idle           |
-| Amazon Bedrock (Claude Sonnet)    | 1,000 queries/mo, ~2K tokens avg | $30-60        | Input ~$0.003/1K, Output ~$0.015/1K   |
-| Amazon Bedrock (Titan Embeddings) | 500K embeddings                  | $5            | KB sync and retrieval                 |
-| Amazon QuickSight Enterprise      | 1 author + 5 readers             | $67           | $24/author + $5/reader + SPICE        |
-| Amazon Athena                     | 100 GB scanned/mo                | $0.50         | $5/TB, partitioned tables reduce cost |
-| AWS Glue ETL                      | 2 DPU, 10 runs/mo                | $9            | Crawler + ETL jobs                    |
-| Amazon S3                         | 10 GB data lake                  | $0.25         | 11 datasets + synthetic data          |
-| AWS Lambda                        | 5,000 invocations                | $1            | Agent tool executor                   |
-| **Total**                         |                                  | **~$160-235** | Scales with query volume              |
 
-**Cost optimization tips**:
+| Service | Usage | Monthly Cost | Notes | 
+| --- | --- | --- | --- | 
+| Amazon Aurora Serverless v2 | 0.5-2 ACU, pgvector | $45-90 | Auto-pause after 5 min idle | 
+| Amazon Bedrock (Claude Sonnet) | 1,000 queries/mo, \~2K tokens avg | $30-60 | Input \~$0.003/1K, Output \~$0.015/1K | 
+| Amazon Bedrock (Titan Embeddings) | 500K embeddings | $5 | KB sync and retrieval | 
+| Amazon QuickSight Enterprise | 1 author \+ 5 readers | $67 | $24/author \+ $5/reader \+ SPICE | 
+| Amazon Athena | 100 GB scanned/mo | $0.50 | $5/TB, partitioned tables reduce cost | 
+| AWS Glue ETL | 2 DPU, 10 runs/mo | $9 | Crawler \+ ETL jobs | 
+| Amazon S3 | 10 GB data lake | $0.25 | 11 datasets \+ synthetic data | 
+| AWS Lambda | 5,000 invocations | $1 | Agent tool executor | 
+|  **Total**  |  |  **\~$160-235**  | Scales with query volume | 
 
-**Aurora Serverless**:
-\* Auto-pause after 5 minutes idle
-\* Min ACU: 0.5, Max: 2
-\* Use read replicas only if needed
+ **Cost optimization tips**:
 
-**Bedrock costs**:
-\* Input tokens: ~$0.003 per 1K
-\* Output tokens: ~$0.015 per 1K
-\* Embeddings: ~$0.0001 per 1K
-\* Optimize prompt length
+ **Aurora Serverless**: \* Auto-pause after 5 minutes idle \* Min ACU: 0.5, Max: 2 \* Use read replicas only if needed
 
-**Athena costs**:
-\* $5 per TB scanned
-\* Use partitioned tables
-\* Leverage views
-\* Set result limits
+ **Bedrock costs**: \* Input tokens: \~$0.003 per 1K \* Output tokens: \~$0.015 per 1K \* Embeddings: \~$0.0001 per 1K \* Optimize prompt length
+
+ **Athena costs**: \* $5 per TB scanned \* Use partitioned tables \* Leverage views \* Set result limits
