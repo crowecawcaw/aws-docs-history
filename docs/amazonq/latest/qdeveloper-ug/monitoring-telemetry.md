@@ -1,14 +1,12 @@
+
+
 # Identifying actions by specific users with Amazon CloudWatch Logs
+<a name="monitoring-telemetry"></a>
 
-It's possible to get user-level metrics on your Amazon Q Developer usage. To figure out which user
-has taken a particular action, look for the events called SendTelemetryEvent, and examine
-the JSON object of type SendTelemetryEventRequest that they contain. Within that object, the
-schema appears as follows.
+It's possible to get user-level metrics on your Amazon Q Developer usage. To figure out which user has taken a particular action, look for the events called SendTelemetryEvent, and examine the JSON object of type SendTelemetryEventRequest that they contain. Within that object, the schema appears as follows.
 
-###### Tip
-
-You can also output individual users' activity in Amazon Q Developer to a report in CSV
-format. For more information, see [Viewing the activity of specific users in Amazon Q Developer](q-admin-user-telemetry.md "q-admin-user-telemetry.md").
+**Tip**  
+You can also output individual users' activity in Amazon Q Developer to a report in CSV format. For more information, see [Viewing the activity of specific users in Amazon Q Developer](q-admin-user-telemetry.md).
 
 ```
 http://json-schema.org/draft-07/schema#",
@@ -611,77 +609,54 @@ http://json-schema.org/draft-07/schema#",
                 "description": "The arn of the Q Profile used to configure individual user accounts."
 ```
 
-[Show moreShow less](# "#")Observe that a SendTelemetryEvent may contain one of a number of telemetry events. Each of
-these describes a specific interaction between the development environment.
+Observe that a SendTelemetryEvent may contain one of a number of telemetry events. Each of these describes a specific interaction between the development environment.
 
 A more detailed description of each event appears in the following sections.
 
 ## UserTriggerDecisionEvent
+<a name="monitoring-telemetry-user-trigger"></a>
 
-This event is triggered when a user interacts with a suggestion made by Amazon Q. It
-captures whether the suggestion was accepted, rejected, or modified, along with relevant
-metadata.
-
-- `completionType`: Whether the completion was a block or a
-  line.
-- `suggestionState`: Whether the user accepted, rejected, or
-  discarded the suggestion.
+This event is triggered when a user interacts with a suggestion made by Amazon Q. It captures whether the suggestion was accepted, rejected, or modified, along with relevant metadata.
++ `completionType`: Whether the completion was a block or a line.
++ `suggestionState`: Whether the user accepted, rejected, or discarded the suggestion.
 
 ## CodeScanEvent
+<a name="monitoring-telemetry-code-scan"></a>
 
-This event is logged when a code scan is performed. It helps track the scope and
-result of the scan, providing insights into security and code quality checks.
-
-- `codeScanJobId`: The unique identifier for the code scan
-  job.
-- `codeAnalysisScope`: Whether the scan was performed at the file
-  level or the project level.
-- `programmingLanguage`: The language being scanned.
+This event is logged when a code scan is performed. It helps track the scope and result of the scan, providing insights into security and code quality checks.
++ `codeScanJobId`: The unique identifier for the code scan job.
++ `codeAnalysisScope`: Whether the scan was performed at the file level or the project level.
++ `programmingLanguage`: The language being scanned.
 
 ## CodeScanRemediationsEvent
+<a name="monitoring-telemetry-remediations"></a>
 
-This event captures user interactions with Amazon Q’s remediation suggestions, such as
-applying fixes or viewing issue details.
-
-- `CodeScanRemediationsEventType`: The type of remediation action
-  taken (e.g., viewing details or applying a fix).
-- `includesFix`: A boolean indicating whether the code issue includes
-  a suggested fix.
+This event captures user interactions with Amazon Q’s remediation suggestions, such as applying fixes or viewing issue details.
++ `CodeScanRemediationsEventType`: The type of remediation action taken (e.g., viewing details or applying a fix).
++ `includesFix`: A boolean indicating whether the code issue includes a suggested fix.
 
 ## ChatAddMessageEvent
+<a name="monitoring-telemetry-add-message"></a>
 
-This event is triggered when a new message is added to an ongoing chat conversation.
-It captures the user’s intent and any code snippets involved.
-
-- `conversationId`: The unique identifier for the
-  conversation.
-- `messageId`: The unique identifier for the chat message.
-- `userIntent`: The user’s intent, such as improving code or
-  explaining code.
-- `programmingLanguage`: The language related to the chat
-  message.
+This event is triggered when a new message is added to an ongoing chat conversation. It captures the user’s intent and any code snippets involved.
++ `conversationId`: The unique identifier for the conversation.
++ `messageId`: The unique identifier for the chat message.
++ `userIntent`: The user’s intent, such as improving code or explaining code.
++ `programmingLanguage`: The language related to the chat message.
 
 ## ChatInteractWithMessageEvent
+<a name="monitoring-telemetry-interact-message"></a>
 
-This event captures when users interact with chat messages, such as copying code
-snippets, clicking links, or hovering over references.
-
-- `interactionType`: The type of interaction (for example, copy,
-  hover, click).
-- `interactionTarget`: The target of the interaction (for example, a
-  code snippet or a link).
-- `acceptedCharacterCount`: The number of characters from the message
-  that were accepted.
-- `acceptedSnippetHasReference`: A boolean indicating if the accepted
-  snippet included a reference.
+This event captures when users interact with chat messages, such as copying code snippets, clicking links, or hovering over references.
++ `interactionType`: The type of interaction (for example, copy, hover, click).
++ `interactionTarget`: The target of the interaction (for example, a code snippet or a link).
++ `acceptedCharacterCount`: The number of characters from the message that were accepted.
++ `acceptedSnippetHasReference`: A boolean indicating if the accepted snippet included a reference.
 
 ## TerminalUserInteractionEvent
+<a name="monitoring-telemetry-interact-event"></a>
 
-This event logs user interactions with terminal commands or completions in the
-terminal environment.
-
-- `terminalUserInteractionEventType`: The type of interaction (for
-  example, terminal translation or code completion).
-- `isCompletionAccepted`: A boolean indicating whether the completion
-  was accepted by the user.
-- `duration`: The time taken for the interaction.
+This event logs user interactions with terminal commands or completions in the terminal environment.
++ `terminalUserInteractionEventType`: The type of interaction (for example, terminal translation or code completion).
++ `isCompletionAccepted`: A boolean indicating whether the completion was accepted by the user.
++ `duration`: The time taken for the interaction.

@@ -1,57 +1,58 @@
+
+
 # MCP governance for Q Developer
+<a name="mcp-governance"></a>
 
-Pro-tier customers using IAM Identity Center as the sign-in method can control MCP access for users within their
-organization. By default, your users can use any MCP server in their Q client. As an administrator, you have the
-ability to either entirely disable the use of MCP servers by your users, or specify a vetted list of MCP servers
-that your users are allowed use.
+ Pro-tier customers using IAM Identity Center as the sign-in method can control MCP access for users within their organization. By default, your users can use any MCP server in their Q client. As an administrator, you have the ability to either entirely disable the use of MCP servers by your users, or specify a vetted list of MCP servers that your users are allowed use. 
 
-You control these restrictions using an MCP on/off toggle and an MCP registry. The MCP toggle and
-registry attributes are part of the [Q Developer profile](subscribe-understanding-profile.md "subscribe-understanding-profile.md"),
-which can be defined at an organization level or at an account level, with the account-level profile superseding
-the organizational-level profile. You can specify a default MCP policy for your organization
-and override it for specific accounts; for example, disable MCP for the organization but enable it with an allow-list for certain teams (accounts).
+ You control these restrictions using an MCP on/off toggle and an MCP registry. The MCP toggle and registry attributes are part of the [Q Developer profile](subscribe-understanding-profile.md), which can be defined at an organization level or at an account level, with the account-level profile superseding the organizational-level profile. You can specify a default MCP policy for your organization and override it for specific accounts; for example, disable MCP for the organization but enable it with an allow-list for certain teams (accounts). 
 
-###### Note
-
-Both the toggle and the registry settings are enforced on the client side. Be aware that your end users could
-circumvent it.
+**Note**  
+ Both the toggle and the registry settings are enforced on the client side. Be aware that your end users could circumvent it. 
 
 ## Disabling MCP for your organization
+<a name="disabling-mcp"></a>
 
 To disable MCP for your account or organization:
 
 1. Open the Kiro console.
-2. Choose **Settings**.
-3. Choose the **Q Developer** tab.
-4. Toggle **Model Context Protocol (MCP)** to **Off**.
+
+1. Choose **Settings**. 
+
+1. Choose the **Q Developer** tab.
+
+1.  Toggle **Model Context Protocol (MCP)** to **Off**. 
 
 ## Specifying an MCP allow-list for your organization
+<a name="allow-listing-mcp"></a>
 
-To control which MCP servers your users can access, create a JSON file with the allowed servers, serve it over HTTPS, and add the URL to your Q Developer profile.
-Q Developer clients using this profile allow users to access only the MCP servers in your allow-list.
+ To control which MCP servers your users can access, create a JSON file with the allowed servers, serve it over HTTPS, and add the URL to your Q Developer profile. Q Developer clients using this profile allow users to access only the MCP servers in your allow-list. 
 
 ### Specifying the MCP registry URL
+<a name="specifying-registry-url"></a>
 
 1. Open the Kiro console.
-2. Choose **Settings**.
-3. Choose the **Q Developer** tab.
-4. Ensure **Model Context Protocol (MCP)** is **On**.
-5. In the **MCP Registry URL** field, choose **Edit**.
-6. Enter the URL of an MCP registry JSON file containing the allow-listed MCP servers.
-7. Choose **Save**.
 
-The MCP registry URL is encrypted both in transit and at rest in accordance with
-[our data encryption policy](data-encryption.md "data-encryption.md").
+1. Choose **Settings**.
+
+1. Choose the **Q Developer** tab.
+
+1.  Ensure **Model Context Protocol (MCP)** is **On**. 
+
+1.  In the **MCP Registry URL** field, choose **Edit**. 
+
+1.  Enter the URL of an MCP registry JSON file containing the allow-listed MCP servers. 
+
+1. Choose **Save**.
+
+ The MCP registry URL is encrypted both in transit and at rest in accordance with [our data encryption policy](data-encryption.md). 
 
 ### MCP registry file format
+<a name="registry-file-format"></a>
 
-The format of the registry JSON file is a subset of the server schema JSON in the
-[MCP registry standard](https://github.com/modelcontextprotocol/registry "https://github.com/modelcontextprotocol/registry") v0.1.
-The JSON schema definition for the subset supported by Q Developer is available in the
-[registry schema](#registry-schema "#registry-schema") section at the end of this document.
+ The format of the registry JSON file is a subset of the server schema JSON in the [MCP registry standard](https://github.com/modelcontextprotocol/registry) v0.1. The JSON schema definition for the subset supported by Q Developer is available in the [registry schema](#registry-schema) section at the end of this document. 
 
-The following example shows an MCP registry file containing both a remote (HTTP) and a local
-(stdio) MCP server definition.
+ The following example shows an MCP registry file containing both a remote (HTTP) and a local (stdio) MCP server definition. 
 
 ```
 {
@@ -116,83 +117,78 @@ The following example shows an MCP registry file containing both a remote (HTTP)
 }
 ```
 
-The following table lists the properties for the registry JSON file. All properties are mandatory, unless
-otherwise noted. See the [registry schema](#registry-schema "#registry-schema") section for the full JSON
-schema.
+ The following table lists the properties for the registry JSON file. All properties are mandatory, unless otherwise noted. See the [registry schema](#registry-schema) section for the full JSON schema. 
 
-Nested attributes appear indented from their parent. For example, "headers" is a child
-attribute of "remotes", and "name" and "value" are child attributes of "headers".
+ Nested attributes appear indented from their parent. For example, "headers" is a child attribute of "remotes", and "name" and "value" are child attributes of "headers". 
 
-| Attribute                           | Description                                                                                                                                                                                                                                                                                                                      | Optional? | Example value                                |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------- |
-| **Common attributes**               |                                                                                                                                                                                                                                                                                                                                  |           |                                              |
-| name                                | Server name. Must be unique within a given registry file.                                                                                                                                                                                                                                                                        |           | "aws-ccapi-mcp"                              |
-| title                               | Human-readable server name.                                                                                                                                                                                                                                                                                                      | Yes       | "AWS CC API"                                 |
-| description                         | Description of server.                                                                                                                                                                                                                                                                                                           |           | "Manage AWS infra through natural language." |
-| version                             | Version of server. Semantic versioning (x.y.z) is strongly recommended.                                                                                                                                                                                                                                                          |           | "1.0.2"                                      |
-| **Remote (HTTP) server attributes** |                                                                                                                                                                                                                                                                                                                                  |           |                                              |
-| remotes                             | Array with exactly one entry specifying the remote endpoint.                                                                                                                                                                                                                                                                     |           | -                                            |
-| type                                | Must be one of "streamable-http" or "sse".                                                                                                                                                                                                                                                                                       |           | "streamable-http"                            |
-| url                                 | MCP server endpoint URL.                                                                                                                                                                                                                                                                                                         |           | "https://mcp.figma.com/mcp"                  |
-| headers                             | Array of HTTP headers to include in each request.                                                                                                                                                                                                                                                                                | Yes       | -                                            |
-| name                                | HTTP header name.                                                                                                                                                                                                                                                                                                                |           | "Authorization"                              |
-| value                               | HTTP header value.                                                                                                                                                                                                                                                                                                               |           | "Bearer mF\_9.B5f-4.1JqM"                    |
-| **Local (stdio) server attributes** |                                                                                                                                                                                                                                                                                                                                  |           |                                              |
-| packages                            | Array with exactly one entry containing the MCP server definition.                                                                                                                                                                                                                                                               |           | -                                            |
-| registryType                        | Must be one of "npm", "pypi", or "oci".<br>The following package runners are used to download and run the MCP server package:<br>• For registry type "npm", the "npx" runner is used<br>• For "pypi", "uvx" is used<br>• For "oci", "docker" is used<br>Client machines must have the appropriate package runners pre-installed. |           | “npm”                                        |
-| registryBaseUrl                     | Package registry URL.                                                                                                                                                                                                                                                                                                            | Yes       | "https://npm.acme.com"                       |
-| identifier                          | Server package identifier.                                                                                                                                                                                                                                                                                                       |           | "@acme/my-server"                            |
-| transport                           | Object with exactly one property, "type".                                                                                                                                                                                                                                                                                        |           | -                                            |
-| type                                | Must be "stdio".                                                                                                                                                                                                                                                                                                                 |           | “stdio”                                      |
-| runtimeArguments                    | Array of arguments provided to the runtime, that is, to npx, uvx or docker.                                                                                                                                                                                                                                                      | Yes       | -                                            |
-| type                                | Must be "positional".                                                                                                                                                                                                                                                                                                            |           | “positional”                                 |
-| value                               | Runtime argument value.                                                                                                                                                                                                                                                                                                          |           | “-q”                                         |
-| packageArguments                    | Array of arguments provided to the MCP server.                                                                                                                                                                                                                                                                                   | Yes       | -                                            |
-| type                                | Must be "positional".                                                                                                                                                                                                                                                                                                            |           | “positional”                                 |
-| value                               | Package argument value.                                                                                                                                                                                                                                                                                                          |           | “start”                                      |
-| environmentVariables                | Array of env vars to set before starting the server.                                                                                                                                                                                                                                                                             | Yes       | -                                            |
-| name                                | Environment variable name.                                                                                                                                                                                                                                                                                                       |           | "LOG\_LEVEL"                                 |
-| value                               | Environment variable value.                                                                                                                                                                                                                                                                                                      |           | “INFO”                                       |
+
+| Attribute | Description | Optional? | Example value | 
+| --- | --- | --- | --- | 
+| **Common attributes** |  |  |  | 
+| name | Server name. Must be unique within a given registry file. |  | "aws-ccapi-mcp" | 
+| title | Human-readable server name. | Yes | "AWS CC API" | 
+| description | Description of server. |  | "Manage AWS infra through natural language." | 
+| version | Version of server. Semantic versioning (x.y.z) is strongly recommended. |  | "1.0.2" | 
+| **Remote (HTTP) server attributes** |  |  |  | 
+| remotes | Array with exactly one entry specifying the remote endpoint. |  | - | 
+|   type | Must be one of "streamable-http" or "sse". |  | "streamable-http" | 
+|   url | MCP server endpoint URL. |  | "https://mcp.figma.com/mcp" | 
+|   headers | Array of HTTP headers to include in each request. | Yes | - | 
+|     name | HTTP header name. |  | "Authorization" | 
+|     value | HTTP header value. |  | "Bearer mF\_9.B5f-4.1JqM" | 
+| **Local (stdio) server attributes** |  |  |  | 
+| packages | Array with exactly one entry containing the MCP server definition. |  | - | 
+|   registryType | Must be one of "npm", "pypi", or "oci".<br />The following package runners are used to download and run the MCP server package:+ For registry type "npm", the "npx" runner is used<br />+ For "pypi", "uvx" is used<br />+ For "oci", "docker" is used<br />Client machines must have the appropriate package runners pre-installed. |  | “npm” | 
+|   registryBaseUrl | Package registry URL. | Yes | "https://npm.acme.com" | 
+|   identifier | Server package identifier. |  | "@acme/my-server" | 
+|   transport | Object with exactly one property, "type". |  | - | 
+|     type | Must be "stdio". |  | “stdio” | 
+|   runtimeArguments | Array of arguments provided to the runtime, that is, to npx, uvx or docker. | Yes | - | 
+|     type | Must be "positional". |  | “positional” | 
+|     value | Runtime argument value. |  | “-q” | 
+|   packageArguments | Array of arguments provided to the MCP server. | Yes | - | 
+|     type | Must be "positional". |  | “positional” | 
+|     value | Package argument value. |  | “start” | 
+|   environmentVariables | Array of env vars to set before starting the server. | Yes | - | 
+|     name | Environment variable name. |  | "LOG\_LEVEL" | 
+|     value | Environment variable value. |  | “INFO” | 
 
 ### Serving the MCP registry file
+<a name="serving-mcp-registry"></a>
 
-Serve the MCP registry JSON file over HTTPS using any web server, such as Amazon S3,
-Apache, or nginx. The URL must be accessible to Q Developer clients on your users' computers but can be private to your
-corporate network.
+ Serve the MCP registry JSON file over HTTPS using any web server, such as Amazon S3, Apache, or nginx. The URL must be accessible to Q Developer clients on your users' computers but can be private to your corporate network. 
 
-The HTTPS endpoint must have a valid SSL certificate signed by a trusted Certificate
-Authority. Self-signed certificates are not supported.
+ The HTTPS endpoint must have a valid SSL certificate signed by a trusted Certificate Authority. Self-signed certificates are not supported. 
 
-Q Developer fetches the MCP registry at startup and every 24 hours. During periodic synchronization, if a locally installed MCP server is no longer in the registry, Q Developer terminates that server
-and prevents users from adding it back. If the locally installed server has a different
-version than the server in the registry, Q Developer relaunches the server with the version defined in the
-registry.
+ Q Developer fetches the MCP registry at startup and every 24 hours. During periodic synchronization, if a locally installed MCP server is no longer in the registry, Q Developer terminates that server and prevents users from adding it back. If the locally installed server has a different version than the server in the registry, Q Developer relaunches the server with the version defined in the registry. 
 
 ### Q Developer plugins
+<a name="mcp-registry-q-dev-plugins"></a>
 
-When users launch Q Developer, it checks whether a registry URL is defined in the profile. If so, it
-retrieves the registry JSON at that URL and enforces that users can only use the MCP servers defined in the
-registry. When users add an MCP server, Q Developer displays a list of servers from the registry.
+ When users launch Q Developer, it checks whether a registry URL is defined in the profile. If so, it retrieves the registry JSON at that URL and enforces that users can only use the MCP servers defined in the registry. When users add an MCP server, Q Developer displays a list of servers from the registry. 
 
-![Screenshot showing the addition of MCP servers defined in the registry.](images/q-mcp-registry-add-server.png)
+![Screenshot showing the addition of MCP servers defined in the registry.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-mcp-registry-add-server.png)
 
-Registry MCP server parameters (URL, package identifier, runtimeArguments, and so forth) are read-only. However, users can:
+
+ Registry MCP server parameters (URL, package identifier, runtimeArguments, and so forth) are read-only. However, users can: 
 
 1. Adjust MCP tool permissions (“Ask to run”, “Always run”, or “Deny”).
-2. Select MCP server scope (Global or Workspace).
-3. Change the request timeout.
-4. Specify additional environment variables for local MCP servers.
-5. Specify additional HTTP headers for remote MCP servers.
 
-###### Note
+1. Select MCP server scope (Global or Workspace).
 
-User-specified environment variables or HTTP headers override registry definitions. This allows users to specify attributes specific to their
-setup, such as authentication keys or local folder paths.
+1. Change the request timeout.
+
+1. Specify additional environment variables for local MCP servers.
+
+1. Specify additional HTTP headers for remote MCP servers.
+
+**Note**  
+ User-specified environment variables or HTTP headers override registry definitions. This allows users to specify attributes specific to their setup, such as authentication keys or local folder paths. 
 
 ### MCP registry JSON schema
+<a name="registry-schema"></a>
 
-The following JSON schema defines the MCP registry file format supported by Q Developer. You can use this
-schema to validate any registry files that you create.
+ The following JSON schema defines the MCP registry file format supported by Q Developer. You can use this schema to validate any registry files that you create. 
 
 ```
 {
@@ -466,5 +462,4 @@ schema to validate any registry files that you create.
   ],
   "type": "object"
 }
-
 ```

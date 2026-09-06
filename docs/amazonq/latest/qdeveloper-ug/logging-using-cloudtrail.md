@@ -1,72 +1,41 @@
+
+
 # Logging Amazon Q Developer API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon Q Developer Pro is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or an AWS service in Amazon Q. CloudTrail captures all API calls for Amazon Q as events.
-The calls captured include calls from the Amazon Q console and code calls to the Amazon Q API
-operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for Amazon Q. If you don’t configure a trail, you can still view
-the most recent events in the CloudTrail console in **Event
-history**. Using the information collected by CloudTrail, you can determine the request
-that was made to Amazon Q, the IP address from which the request was made, who made the
-request, when it was made, and additional details.
+Amazon Q Developer Pro is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Q. CloudTrail captures all API calls for Amazon Q as events. The calls captured include calls from the Amazon Q console and code calls to the Amazon Q API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Q. If you don’t configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Q, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Amazon Q Developer information in CloudTrail
+<a name="q-developer-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs
-in Amazon Q Developer, that activity is recorded in a CloudTrail event along with other AWS service events
-in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing Events with
-CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User
-Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Amazon Q Developer, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for Amazon Q,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all
-AWS Regions. The trail logs events from all Regions in the AWS partition and delivers
-the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
-AWS services to further analyze and act upon the event data collected in CloudTrail logs. For
-more information, see the following topics in the _AWS CloudTrail User
-Guide_:
+For an ongoing record of events in your AWS account, including events for Amazon Q, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following topics in the *AWS CloudTrail User Guide*:
++  [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) 
++  [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations) 
++  [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html) 
++  [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) 
++  [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html) 
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Amazon Q Developer actions are logged by CloudTrail and generate entries in the CloudTrail log files.
 
-All Amazon Q Developer actions are logged by CloudTrail and generate entries in the CloudTrail log
-files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials
++ Whether the request was made with temporary security credentials for a role or federated user
++ Whether the request was made by another AWS service
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials
-- Whether the request was made with temporary security credentials for a role or
-  federated user
-- Whether the request was made by another AWS service
-
-For more information, see [CloudTrail
-userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User
-Guide_.
+For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Understanding Amazon Q Developer log file entries
+<a name="understanding-q-developer-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren’t an ordered stack trace of the public API calls, so they don’t appear in any specific
-order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren’t an ordered stack trace of the public API calls, so they don’t appear in any specific order.
 
-Amazon Q Developer also makes API calls with a `dryRun` parameter to verify that you have
-the necessary permissions for the action, without actually making the request. Calls to Amazon Q Developer
-APIs with the `dryRun` parameter are captured as events and recorded in a CloudTrail log with
-`"dryRun" : true` in the `requestParameters` field.
+Amazon Q Developer also makes API calls with a `dryRun` parameter to verify that you have the necessary permissions for the action, without actually making the request. Calls to Amazon Q Developer APIs with the `dryRun` parameter are captured as events and recorded in a CloudTrail log with `"dryRun" : true` in the `requestParameters` field.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`SendMessage` action.
+The following example shows a CloudTrail log entry that demonstrates the `SendMessage` action.
 
 ```
 {
@@ -139,8 +108,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`PassRequest` action.
+The following example shows a CloudTrail log entry that demonstrates the `PassRequest` action.
 
 ```
 {
@@ -158,7 +126,7 @@ The following example shows a CloudTrail log entry that demonstrates the
             "arn": "arn:aws:iam::555555555555:user/Mary",
             "accountId": "555555555555",
             "userName": "Mary"
-
+    
         },
         "attributes": {
             "creationDate": "2024-04-10T20:03:01Z",
@@ -184,8 +152,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates Amazon Q calling
-the `s3:ListBuckets` action on your behalf.
+The following example shows a CloudTrail log entry that demonstrates Amazon Q calling the `s3:ListBuckets` action on your behalf.
 
 ```
 {
@@ -238,5 +205,4 @@ the `s3:ListBuckets` action on your behalf.
     "vpcEndpointId": "vpce-EXAMPLE1234",
     "eventCategory": "Management"
 }
-
 ```

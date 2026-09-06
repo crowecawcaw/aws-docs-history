@@ -1,189 +1,199 @@
+
+
 # Generating inline suggestions with Amazon Q Developer
+<a name="inline-suggestions"></a>
 
-###### End of support notice
+**End of support notice**  
+On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html).
 
-On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](q-developer-ide-end-of-support.md "q-developer-ide-end-of-support.md").
+Amazon Q can provide you with code recommendations in real time. As you write code, Amazon Q automatically generates suggestions based on your existing code and comments. Your personalized recommendations can vary in size and scope, ranging from a single line comment to fully formed functions.
 
-Amazon Q can provide you with code recommendations in real time. As you write
-code, Amazon Q automatically generates suggestions based on your existing code and comments.
-Your personalized recommendations can vary in size and scope, ranging from a single line
-comment to fully formed functions.
+When you start typing out single lines of code or comments, Amazon Q makes suggestions based on your current and previous inputs. Filenames are also taken into consideration.
 
-When you start typing out single lines of code or comments, Amazon Q makes suggestions
-based on your current and previous inputs. Filenames are also taken into consideration.
+Inline suggestions are automatically enabled when you download the Amazon Q extension. To get started, start writing code, and Amazon Q will begin generating code suggestions.
 
-Inline suggestions are automatically enabled when you download the Amazon Q extension. To
-get started, start writing code, and Amazon Q will begin generating code suggestions.
+You can also customize the suggestions Amazon Q generates to your software development team's internal libraries, proprietary algorithmic techniques, and enterprise code style.
 
-You can also customize the suggestions Amazon Q generates to your software development
-team's internal libraries, proprietary algorithmic techniques, and enterprise code style.
-
-###### Topics
-
-- [Pausing suggestions with Amazon Q](#toggling-suggestions "#toggling-suggestions")
-- [Amazon Q code completion in action](#what-is-walkthrough "#what-is-walkthrough")
-- [Generating inline suggestions in AWS coding environments](setting-up-AWS-coding-env.md "setting-up-AWS-coding-env.md")
-- [Using shortcut keys](actions-and-shortcuts.md "actions-and-shortcuts.md")
-- [Using code references](code-reference.md "code-reference.md")
-- [Code examples](inline-suggestions-code-examples.md "inline-suggestions-code-examples.md")
+**Topics**
++ [Pausing suggestions with Amazon Q](#toggling-suggestions)
++ [Amazon Q code completion in action](#what-is-walkthrough)
++ [Generating inline suggestions in AWS coding environments](setting-up-AWS-coding-env.md)
++ [Using shortcut keys](actions-and-shortcuts.md)
++ [Using code references](code-reference.md)
++ [Code examples](inline-suggestions-code-examples.md)
 
 ## Pausing suggestions with Amazon Q
+<a name="toggling-suggestions"></a>
 
 Choose your IDE to see steps for pausing and resuming inline code suggestions in Amazon Q.
 
-Visual Studio Code
+------
+#### [ Visual Studio Code ]
 
-1. In VS Code, choose **Amazon Q** from the
-   IDE component tray.
+1. In VS Code, choose **Amazon Q** from the IDE component tray.
 
-The Amazon Q task bar opens. 2. Choose **Pause Auto-Suggestions** or **Resume
-Auto-Suggestions**.
+   The Amazon Q task bar opens. 
+
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 
 The following image shows the Amazon Q task bar in VS Code.
 
-![The Amazon Q task bar in VS Code.](images/VSC-taskbar.png)
+![The Amazon Q task bar in VS Code.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VSC-taskbar.png)
 
-JetBrains
 
-1. In your JetBrains IDE, choose **Amazon Q** from the
-   IDE status bar.
+------
+#### [ JetBrains ]
 
-The Amazon Q task bar opens. 2. Choose **Pause Auto-Suggestions** or **Resume
-Auto-Suggestions**.
+1. In your JetBrains IDE, choose **Amazon Q** from the IDE status bar.
+
+   The Amazon Q task bar opens. 
+
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 
 The following image shows the Amazon Q task bar in a JetBrains IDE.
 
-![The Amazon Q task bar in a JetBrains IDE.](images/JB-taskbar.png)
+![The Amazon Q task bar in a JetBrains IDE.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/JB-taskbar.png)
 
-Eclipse
 
-1. In your Eclipse IDE, choose the **Amazon Q** icon
-   in the IDE toolbar.
-2. With the Amazon Q chat tab open, choose the ellipsis icon in the
-   chat panel header. The Amazon Q task bar opens.
+------
+#### [ Eclipse ]
 
-The following image shows the Amazon Q task bar in an Eclipse IDE.
+1. In your Eclipse IDE, choose the **Amazon Q** icon in the IDE toolbar. 
 
-![The Amazon Q task bar in an Eclipse IDE.](images/eclipse-taskbar.png) 3. Choose **Pause Auto-Suggestions** or **Resume
-Auto-Suggestions**.
+1. With the Amazon Q chat tab open, choose the ellipsis icon in the chat panel header. The Amazon Q task bar opens.
 
-Visual Studio
+   The following image shows the Amazon Q task bar in an Eclipse IDE.  
+![The Amazon Q task bar in an Eclipse IDE.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png)
+
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+
+------
+#### [ Visual Studio ]
 
 1. From the edge of the window, choose the Amazon Q icon.
-2. Select **Pause Auto-Suggesions** or **Resume Auto-Suggestions**
+
+1. Select **Pause Auto-Suggesions** or **Resume Auto-Suggestions**
 
 The following image shows the Amazon Q task bar in a Visual Studio.
 
-![The Developer Tools menu in Visual Studio.](images/vstudio-toggle-suggestions.png)
+![The Developer Tools menu in Visual Studio.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vstudio-toggle-suggestions.png)
 
-AWS Cloud9
+
+------
+#### [ AWS Cloud9 ]
+
 Amazon Q does not support toggling suggestions on and off in AWS Cloud9.
 
-To stop receiving Amazon Q suggestions in AWS Cloud9, remove the IAM policy that gives
-Amazon Q access to AWS Cloud9 from the role or user that you are using to access AWS Cloud9.
+To stop receiving Amazon Q suggestions in AWS Cloud9, remove the IAM policy that gives Amazon Q access to AWS Cloud9 from the role or user that you are using to access AWS Cloud9. 
 
-AWS Lambda
+------
+#### [ AWS Lambda ]
+
 To deactivate or re-activate Amazon Q code suggestions in Lambda:
 
 1. In the Lambda console, open the screen for a particular Lambda function.
-2. In the **Code source** section, from the toolbar, choose **Tools**.
-3. From the dropdown menu, choose **Amazon Q Code Suggestions.**
 
-Amazon SageMaker AI Studio
+1. In the **Code source** section, from the toolbar, choose **Tools**.
+
+1. From the dropdown menu, choose **Amazon Q Code Suggestions.**
+
+------
+#### [ Amazon SageMaker AI Studio ]
 
 1. In the SageMaker AI Studio console, choose Amazon Q from the IDE status bar.
 
-The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+   The Amazon Q panel will open.
 
-JupyterLab
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+
+------
+#### [ JupyterLab ]
 
 1. In the JupyterLab console, choose Amazon Q from the IDE status bar.
 
-The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+   The Amazon Q panel will open.
 
-AWS Glue Studio Notebook
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+
+------
+#### [ AWS Glue Studio Notebook ]
 
 1. In the AWS Glue Studio Notebook console, choose Amazon Q from the IDE status bar.
 
-The Amazon Q panel will open. 2. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+   The Amazon Q panel will open.
+
+1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
+
+------
 
 ## Amazon Q code completion in action
+<a name="what-is-walkthrough"></a>
 
-This section demonstrates how Amazon Q can help you write a complete application. This
-application creates an Amazon S3 bucket and a Amazon DynamoDB table, plus a unit test that validates
-both tasks.
+This section demonstrates how Amazon Q can help you write a complete application. This application creates an Amazon S3 bucket and a Amazon DynamoDB table, plus a unit test that validates both tasks.
 
-Here, Amazon Q helps the developer choose which libraries to import. Using the arrow
-keys, the developer toggles through multiple suggestions.
+Here, Amazon Q helps the developer choose which libraries to import. Using the arrow keys, the developer toggles through multiple suggestions.
 
-![An example of the block completion feature.](images/whatis-demo-1.gif)
+![An example of the block completion feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-1.gif)
 
-Here, the developer enters a comment, describing the code they intend to write on the
-next line.
 
-Amazon Q correctly anticipates the method to be called. The developer can accept the
-suggestion with the tab key.
+Here, the developer enters a comment, describing the code they intend to write on the next line.
 
-![alt_text](images/whatis-demo-2.png)
+Amazon Q correctly anticipates the method to be called. The developer can accept the suggestion with the tab key.
+
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-2.png)
+
 
 Here, the developer prepares to define constants.
 
-Amazon Q correctly anticipates that the first constant will be `REGION` and
-that its value will be `us-east-1`, which is the default.
+Amazon Q correctly anticipates that the first constant will be `REGION` and that its value will be `us-east-1`, which is the default.
 
-![alt_text](images/whatis-demo-3.png)
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-3.png)
 
-Here, the developer prepares to write code that will open sessions between the user and
-both Amazon S3 and DynamoDB.
+
+Here, the developer prepares to write code that will open sessions between the user and both Amazon S3 and DynamoDB.
 
 Amazon Q, familiar with AWS APIs and SDKs, suggests the correct format.
 
-![alt_text](images/whatis-demo-4.1.png)
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-4.1.png)
 
-The developer has merely written the name of the function that will create the bucket.
-But based on that (and the context), Amazon Q offers a full function, complete with
-try/except clauses.
 
-Notice the use of `TEST_BUCKET_NAME, which is a constant declared earlier in the
- same file.`
+The developer has merely written the name of the function that will create the bucket. But based on that (and the context), Amazon Q offers a full function, complete with try/except clauses.
 
-![alt_text](images/whatis-demo-5.png)
+Notice the use of `TEST_BUCKET_NAME, which is a constant declared earlier in the same file.`
 
-The developer has only just begun to type in the name of the function that will create a
-DynamoDB table. But Amazon Q can tell where this is going.
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-5.png)
 
-Notice that the suggestion accounts for the DynamoDB session created earlier, and even
-mentions it in a comment.
 
-![alt_text](images/whatis-demo-6.png)
+The developer has only just begun to type in the name of the function that will create a DynamoDB table. But Amazon Q can tell where this is going.
 
-The developer has done little more than write the name of the unit test class, when
-Amazon Q offers to complete it.
+Notice that the suggestion accounts for the DynamoDB session created earlier, and even mentions it in a comment.
 
-Notice the built-in references to the two functions created earlier in the same
-file.
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-6.png)
 
-The developer has only just begun to type in the name of the function that will create a
-DynamoDB table. But Amazon Q can tell where this is going.
 
-Notice that the suggestion accounts for the DynamoDB session created earlier, and even
-mentions it in a comment.
+The developer has done little more than write the name of the unit test class, when Amazon Q offers to complete it.
 
-![alt_text](images/whatis-demo-7.png)
+Notice the built-in references to the two functions created earlier in the same file.
 
-Based only on a comment and the context, Amazon Q supplies the entire main
-function.
+The developer has only just begun to type in the name of the function that will create a DynamoDB table. But Amazon Q can tell where this is going.
 
-![alt_text](images/whatis-demo-8.1.png)
+Notice that the suggestion accounts for the DynamoDB session created earlier, and even mentions it in a comment.
+
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-7.png)
+
+
+Based only on a comment and the context, Amazon Q supplies the entire main function.
+
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-8.1.png)
+
 
 All that's left is the main guard, and Amazon Q knows it.
 
-Based only on a comment and the context, Amazon Q supplies the entire main
-function.
+Based only on a comment and the context, Amazon Q supplies the entire main function.
 
-![alt_text](images/whatis-demo-9.png)
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-9.png)
 
-Finally, the developer runs the unit test from the terminal of the same IDE where the
-coding took place.
 
-![alt_text](images/whatis-demo-10.png)
+Finally, the developer runs the unit test from the terminal of the same IDE where the coding took place.
+
+![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-10.png)

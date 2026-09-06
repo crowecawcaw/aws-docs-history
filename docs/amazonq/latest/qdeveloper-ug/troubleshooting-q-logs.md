@@ -1,261 +1,252 @@
+
+
 # Accessing and using Amazon Q Developer logs
+<a name="troubleshooting-q-logs"></a>
 
 Amazon Q Developer generates detailed logs that can help you diagnose and resolve issues. This guide shows you how to access logs for different Amazon Q interfaces and configure logging levels to get the information you need for troubleshooting.
 
 **Quick Navigation:**
-
-- [Log Access Overview](#log-access-overview "#log-access-overview")
-- [IDE Extension Logs](#ide-logs "#ide-logs")
-- [Amazon Q CLI Logs](#cli-logs "#cli-logs")
-- [Common Log Patterns and Solutions](#common-log-patterns "#common-log-patterns")
-- [Getting Help with Log Analysis](#getting-help-with-logs "#getting-help-with-logs")
++ [Log Access Overview](#log-access-overview)
++ [IDE Extension Logs](#ide-logs)
++ [Amazon Q CLI Logs](#cli-logs)
++ [Common Log Patterns and Solutions](#common-log-patterns)
++ [Getting Help with Log Analysis](#getting-help-with-logs)
 
 ## Log access overview
+<a name="log-access-overview"></a>
 
 There are two main ways to access Amazon Q Developer logs, depending on how you're using the service:
++ **IDE Extensions** - VS Code and JetBrains IDEs have a "Show Logs" button for accessing Amazon Q specific logs
++ **Command Line Interface (Amazon Q CLI)** - Logs are stored locally in temporary directories with configurable detail levels
 
-- **IDE Extensions** - VS Code and JetBrains IDEs have a "Show Logs" button for accessing Amazon Q specific logs
-- **Command Line Interface (Amazon Q CLI)** - Logs are stored locally in temporary directories with configurable detail levels
-
-###### Important
-
+**Important**  
 Log files may contain sensitive information from your conversations and interactions with Amazon Q, including file paths, code snippets, command outputs, account IDs, and resource names. Exercise caution when sharing log files with others.
 
 ## IDE extension logs
+<a name="ide-logs"></a>
 
 ### Accessing logs through the IDE interface
+<a name="ide-logs-ui"></a>
 
 1. Open the Amazon Q chat panel in your IDE (VS Code or JetBrains)
-2. Click the **Show Logs** button in the chat panel header
-3. Acknowledge the sensitivity warning that appears
-4. The log file location will open in your system's file manager for review
+
+1. Click the **Show Logs** button in the chat panel header
+
+1. Acknowledge the sensitivity warning that appears
+
+1. The log file location will open in your system's file manager for review
 
 ### Analyzing IDE extension logs
+<a name="ide-logs-analysis"></a>
 
 When reviewing IDE extension logs, look for:
-
-- **Error messages** - Lines containing "ERROR" or "FATAL" indicate critical issues
-- **Authentication issues** - Look for authentication or credential-related errors
-- **Network connectivity** - Connection timeouts or network-related errors
-- **Feature-specific errors** - Issues related to code suggestions, chat, or other specific features
++ **Error messages** - Lines containing "ERROR" or "FATAL" indicate critical issues
++ **Authentication issues** - Look for authentication or credential-related errors
++ **Network connectivity** - Connection timeouts or network-related errors
++ **Feature-specific errors** - Issues related to code suggestions, chat, or other specific features
 
 ## Amazon Q CLI Logs
+<a name="cli-logs"></a>
 
 The Amazon Q CLI automatically generates comprehensive logs for all operations, regardless of verbosity settings. Logs are always written to files, while verbosity flags only control what appears in the terminal output.
 
 ### Amazon Q CLI log locations and files
+<a name="cli-log-locations"></a>
 
 Amazon Q CLI logs are automatically stored in the following locations:
 
-| Operating System | Log Location                                                |
-| ---------------- | ----------------------------------------------------------- |
-| macOS            | `$TMPDIR/qlog/` (typically `/var/folders/.../qlog/`)        |
-| Linux/WSL        | `$XDG_RUNTIME_DIR/qlog/` or `$TMPDIR/qlog/` or `/tmp/qlog/` |
-| Windows          | `%TEMP%\qlog\`                                              |
+
+| Operating System | Log Location | 
+| --- | --- | 
+| macOS | $TMPDIR/qlog/ (typically /var/folders/.../qlog/) | 
+| Linux/WSL | $XDG\_RUNTIME\_DIR/qlog/ or $TMPDIR/qlog/ or /tmp/qlog/ | 
+| Windows | %TEMP%\\qlog\\ | 
 
 The Amazon Q CLI creates multiple specialized log files automatically:
 
-`chat.log` - **Main Amazon Q CLI wrapper logs** including:
+`chat.log` - **Main Amazon Q CLI wrapper logs** including:  
++ Amazon Q CLI initialization and startup operations
++ AWS SDK calls (Cognito Identity, authentication flows)
++ Network operations (HTTP/TLS connections, certificate handling)
++ Low-level system operations (telemetry, socket connections)
++ AWS service endpoint resolution and connection pooling
++ Detailed debugging information for infrastructure components
 
-- Amazon Q CLI initialization and startup operations
-- AWS SDK calls (Cognito Identity, authentication flows)
-- Network operations (HTTP/TLS connections, certificate handling)
-- Low-level system operations (telemetry, socket connections)
-- AWS service endpoint resolution and connection pooling
-- Detailed debugging information for infrastructure components
+`qchat.log` - **Chat application-specific logs** including:  
++ Chat application errors and state processing issues
++ MCP (Model Context Protocol) server management and connection errors
++ Application-level migration issues
++ User interaction interruptions and chat processing failures
++ Higher-level application logic errors
 
-`qchat.log` - **Chat application-specific logs** including:
+`mcp.log` - Model Context Protocol server logs (populated when using MCP servers)  
 
-- Chat application errors and state processing issues
-- MCP (Model Context Protocol) server management and connection errors
-- Application-level migration issues
-- User interaction interruptions and chat processing failures
-- Higher-level application logic errors
-
-`mcp.log` - Model Context Protocol server logs (populated when using MCP servers)
-
-`translate.log` - Natural language to shell translation logs (populated when using translate feature)
+`translate.log` - Natural language to shell translation logs (populated when using translate feature)  
 
 #### Key differences between log files
+<a name="cli-log-file-differences"></a>
 
 **Scope and detail differences:**
-
-- `chat.log`: Comprehensive system-level logging covering the entire Q CLI infrastructure
-- `qchat.log`: Focused application-level logging specific to chat functionality
++ `chat.log`: Comprehensive system-level logging covering the entire Q CLI infrastructure
++ `qchat.log`: Focused application-level logging specific to chat functionality
 
 **Content focus differences:**
++ `chat.log`: AWS SDK internals, networking protocols, authentication flows, system operations
++ `qchat.log`: Chat logic, MCP server lifecycle, user experience issues, application errors
 
-- `chat.log`: AWS SDK internals, networking protocols, authentication flows, system operations
-- `qchat.log`: Chat logic, MCP server lifecycle, user experience issues, application errors
-
-###### Note
-
+**Note**  
 Log files are stored only on your local machine and are not sent to AWS. All log files are created automatically when you first use the CLI, even without verbose flags.
 
 ### Amazon Q CLI troubleshooting workflow
+<a name="cli-troubleshooting-workflow"></a>
 
 Follow this approach to gather diagnostic information from the logs.
 
 1. Identify the log directory for your system:
 
-On Linux/WSL:
+   On Linux/WSL:
 
-```
-echo $XDG_RUNTIME_DIR/qlog/
-```
+   ```
+   echo $XDG_RUNTIME_DIR/qlog/
+   ```
 
-On macOS:
+   On macOS:
 
-```
-echo $TMPDIR/qlog/
-```
+   ```
+   echo $TMPDIR/qlog/
+   ```
 
-On Windows:
+   On Windows:
 
-```
-echo %TEMP%\qlog\
-```
+   ```
+   echo %TEMP%\qlog\
+   ```
 
-2. Run the Amazon Q CLI command with maximum verbosity to see detailed output in your terminal:
+1. Run the Amazon Q CLI command with maximum verbosity to see detailed output in your terminal:
 
-```
-q -vvv chat
-```
+   ```
+   q -vvv chat
+   ```
 
-3. Reproduce the issue you're experiencing
-4. Exit the Amazon Q CLI and examine the relevant log files. For most issues, check both main log files:
+1. Reproduce the issue you're experiencing
 
-On macOS/Linux:
+1. Exit the Amazon Q CLI and examine the relevant log files. For most issues, check both main log files:
 
-```
-less -r $XDG_RUNTIME_DIR/qlog/qchat.log
-less -r $XDG_RUNTIME_DIR/qlog/chat.log
-```
+   On macOS/Linux:
 
-Alternative on macOS:
+   ```
+   less -r $XDG_RUNTIME_DIR/qlog/qchat.log
+   less -r $XDG_RUNTIME_DIR/qlog/chat.log
+   ```
 
-```
-less -r $TMPDIR/qlog/qchat.log
-less -r $TMPDIR/qlog/chat.log
-```
+   Alternative on macOS:
 
-On Windows:
+   ```
+   less -r $TMPDIR/qlog/qchat.log
+   less -r $TMPDIR/qlog/chat.log
+   ```
 
-```
-type %TEMP%\qlog\qchat.log
-type %TEMP%\qlog\chat.log
-```
+   On Windows:
 
-5. For real-time log monitoring during troubleshooting, use:
+   ```
+   type %TEMP%\qlog\qchat.log
+   type %TEMP%\qlog\chat.log
+   ```
 
-Monitor all log files simultaneously:
+1. For real-time log monitoring during troubleshooting, use:
 
-```
-tail -f $XDG_RUNTIME_DIR/qlog/*.log
-```
+   Monitor all log files simultaneously:
 
-Monitor specific files:
+   ```
+   tail -f $XDG_RUNTIME_DIR/qlog/*.log
+   ```
 
-```
-tail -f $XDG_RUNTIME_DIR/qlog/qchat.log
-```
+   Monitor specific files:
 
-```
-tail -f $XDG_RUNTIME_DIR/qlog/chat.log
-```
+   ```
+   tail -f $XDG_RUNTIME_DIR/qlog/qchat.log
+   ```
+
+   ```
+   tail -f $XDG_RUNTIME_DIR/qlog/chat.log
+   ```
 
 ### Analyzing Amazon Q CLI logs
+<a name="cli-log-analysis"></a>
 
 Amazon Q CLI logs use standard logging levels to categorize information by importance:
 
-ERROR
+ERROR  
 Critical issues that prevent normal operation - start here when troubleshooting
 
-WARN
+WARN  
 Potential problems that don't stop functionality but should be noted
 
-INFO
+INFO  
 General operational messages about what the application is doing
 
-DEBUG
+DEBUG  
 Detailed technical information useful for deeper investigation
 
 When examining Amazon Q CLI logs, focus on these key areas in the different log files:
 
-`qchat.log` analysis - Application-level issues including:
+`qchat.log` analysis - Application-level issues including:  
++ **ERROR chat\_cli::cli::chat** - Chat processing and state management errors
++ **ERROR chat\_cli::cli::agent** - Migration and agent-related problems
++ **ERROR chat\_cli::telemetry** - Telemetry validation and transmission failures
 
-- **ERROR chat\_cli::cli::chat** - Chat processing and state management errors
-- **ERROR chat\_cli::cli::agent** - Migration and agent-related problems
-- **ERROR chat\_cli::telemetry** - Telemetry validation and transmission failures
-
-`chat.log` analysis - Runtime operational details including:
-
-- **DEBUG q\_cli::cli** - Amazon Q CLI command execution and initialization
-- **DEBUG aws\_sdk\_\*** - AWS SDK operations and service calls
-- **DEBUG rustls::\*** - TLS/SSL connection establishment and certificate handling
-- **DEBUG hyper\_\*** - HTTP connection management and network operations
-- **ERROR fig\_telemetry** - System telemetry and socket connection issues
+`chat.log` analysis - Runtime operational details including:  
++ **DEBUG q\_cli::cli** - Amazon Q CLI command execution and initialization
++ **DEBUG aws\_sdk\_\*** - AWS SDK operations and service calls
++ **DEBUG rustls::\*** - TLS/SSL connection establishment and certificate handling
++ **DEBUG hyper\_\*** - HTTP connection management and network operations
++ **ERROR fig\_telemetry** - System telemetry and socket connection issues
 
 General analysis tips:
++ **Timestamps** - Correlate log entries with when issues occurred
++ **Error patterns** - Look for repeated errors or error cascades
++ **Request IDs** - Track specific API calls and their outcomes
++ **Connection states** - Monitor network connectivity and authentication status
 
-- **Timestamps** - Correlate log entries with when issues occurred
-- **Error patterns** - Look for repeated errors or error cascades
-- **Request IDs** - Track specific API calls and their outcomes
-- **Connection states** - Monitor network connectivity and authentication status
-
-###### Tip
-
+**Tip**  
 Use tools like **grep**, **awk**, or text editors with search functionality to filter logs for specific error messages or patterns. For example: **grep -i error $XDG\_RUNTIME\_DIR/qlog/\*.log**
 
 ## Common log patterns and solutions
+<a name="common-log-patterns"></a>
 
 Here are some common issues you might find in logs and their typical solutions:
 
-MCP server connection errors
-
-**Log pattern (in qchat.log):** "Background listening thread for client [server-name]: RecvError(Closed)" or "All senders dropped for transport layer"
-
+MCP server connection errors  
+**Log pattern (in qchat.log):** "Background listening thread for client [server-name]: RecvError(Closed)" or "All senders dropped for transport layer"  
 **Solution:** MCP server processes have stopped running. This is typically expected behavior when exiting the Amazon Q CLI or when servers shut down normally.
 
-Chat processing interruptions
+Chat processing interruptions  
+**Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool\_uses: None }"  
+**Solution:** This occurs when chat operations are cancelled by the user (e.g., Ctrl\+C) and is expected behavior.
 
-**Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool\_uses: None }"
-
-**Solution:** This occurs when chat operations are cancelled by the user (e.g., Ctrl+C) and is expected behavior.
-
-Telemetry validation errors
-
-**Log pattern (in qchat.log):** "Failed to send cw telemetry event err=ValidationError [ValidationException]: Improperly formed request"
-
+Telemetry validation errors  
+**Log pattern (in qchat.log):** "Failed to send cw telemetry event err=ValidationError [ValidationException]: Improperly formed request"  
 **Solution:** These are typically non-critical telemetry transmission issues that don't affect core functionality.
 
-Migration warnings
-
-**Log pattern (in qchat.log):** "Migration did not happen for the following reason: Aborting migration"
-
+Migration warnings  
+**Log pattern (in qchat.log):** "Migration did not happen for the following reason: Aborting migration"  
 **Solution:** This is typically a non-critical warning related to configuration migration and can usually be ignored.
 
-Authentication failures
-
-**Log pattern (in chat.log):** Authentication-related errors in AWS SDK operations
-
+Authentication failures  
+**Log pattern (in chat.log):** Authentication-related errors in AWS SDK operations  
 **Solution:** Run **q login** to re-authenticate or check your AWS credentials
 
-Network connectivity issues
-
-**Log pattern (in chat.log):** "Connection timeout", "Network unreachable", or failed HTTP connections
-
+Network connectivity issues  
+**Log pattern (in chat.log):** "Connection timeout", "Network unreachable", or failed HTTP connections  
 **Solution:** Check your internet connection and firewall settings
 
-AWS SDK operation failures
-
-**Log pattern (in chat.log):** Failed Cognito Identity operations or credential retrieval errors
-
+AWS SDK operation failures  
+**Log pattern (in chat.log):** Failed Cognito Identity operations or credential retrieval errors  
 **Solution:** Check your AWS credentials and network connectivity. May require re-authentication
 
 ## Getting help with log analysis
+<a name="getting-help-with-logs"></a>
 
 If you need assistance analyzing logs or resolving issues:
-
-- When contacting support, include relevant log excerpts (with sensitive information removed)
-- Provide context about when the issue occurs and steps to reproduce it
++ When contacting support, include relevant log excerpts (with sensitive information removed)
++ Provide context about when the issue occurs and steps to reproduce it
