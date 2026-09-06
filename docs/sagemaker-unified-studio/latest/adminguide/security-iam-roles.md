@@ -1,11 +1,13 @@
+
+
 # IAM roles for Amazon SageMaker Unified Studio
+<a name="security-iam-roles"></a>
 
-###### Topics
-
-- [AmazonSageMakerDomainExecution role](AmazonSageMakerDomainExecution.md "AmazonSageMakerDomainExecution.md")
-- [AmazonSageMakerDomainService role](AmazonSageMakerDomainService.md "AmazonSageMakerDomainService.md")
-- [AmazonSageMakerManageAccess-<region>-<domainId> role](AmazonSageMakerManageAccess.md "AmazonSageMakerManageAccess.md")
-- [AmazonSageMakerProvisioning-<domainAccountId> role](AmazonSageMakerProvisioning.md "AmazonSageMakerProvisioning.md")
-- [AmazonDataZoneBedrockModelManagementRole](AmazonDataZoneBedrockModelManagementRole.md "AmazonDataZoneBedrockModelManagementRole.md")
-- [AmazonDataZoneBedrockFMConsumptionRole](AmazonDataZoneBedrockFMConsumptionRole.md "AmazonDataZoneBedrockFMConsumptionRole.md")
-- [AmazonSageMakerQueryExecution](AmazonSageMakerQueryExecution.md "AmazonSageMakerQueryExecution.md")
+**Topics**
++ [AmazonSageMakerDomainExecution role](AmazonSageMakerDomainExecution.md)
++ [AmazonSageMakerDomainService role](AmazonSageMakerDomainService.md)
++ [AmazonSageMakerManageAccess-<region>-<domainId> role](AmazonSageMakerManageAccess.md)
++ [AmazonSageMakerProvisioning-<domainAccountId> role](AmazonSageMakerProvisioning.md)
++ [AmazonDataZoneBedrockModelManagementRole](AmazonDataZoneBedrockModelManagementRole.md)
++ [AmazonDataZoneBedrockFMConsumptionRole](AmazonDataZoneBedrockFMConsumptionRole.md)
++ [AmazonSageMakerQueryExecution](AmazonSageMakerQueryExecution.md)

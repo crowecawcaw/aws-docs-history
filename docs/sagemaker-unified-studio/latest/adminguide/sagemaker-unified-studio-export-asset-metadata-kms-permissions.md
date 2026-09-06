@@ -1,36 +1,26 @@
+
+
 # KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio
+<a name="sagemaker-unified-studio-export-asset-metadata-kms-permissions"></a>
 
-###### Topics
-
-- [Granting the Amazon SageMaker Catalog export service principal and S3 Tables maintenance service principal permissions to your KMS key](#export-asset-metadata-kms-permissions-service-principal "#export-asset-metadata-kms-permissions-service-principal")
-- [IAM permissions required for the principal for exporting](#export-asset-metadata-kms-permissions-service-principal-exporting "#export-asset-metadata-kms-permissions-service-principal-exporting")
+**Topics**
++ [Granting the Amazon SageMaker Catalog export service principal and S3 Tables maintenance service principal permissions to your KMS key](#export-asset-metadata-kms-permissions-service-principal)
++ [IAM permissions required for the principal for exporting](#export-asset-metadata-kms-permissions-service-principal-exporting)
 
 ## Granting the Amazon SageMaker Catalog export service principal and S3 Tables maintenance service principal permissions to your KMS key
+<a name="export-asset-metadata-kms-permissions-service-principal"></a>
 
-All data in S3 tables are encrypted with SSE-S3 encryption by default. You can
-choose to encrypt your data with AWS Key Management Service (AWS KMS) keys
-(SSE-KMS). If you choose to encrypt your data with KMS keys, you must have
-additional permissions.
+All data in S3 tables are encrypted with SSE-S3 encryption by default. You can choose to encrypt your data with AWS Key Management Service (AWS KMS) keys (SSE-KMS). If you choose to encrypt your data with KMS keys, you must have additional permissions.
 
-For Amazon SageMaker Catalog, these permissions are required so that your data can
-be encrypted when exporting the data into the S3 tables. Note that the KMS key used
-for export feature can be same or different than the one used for Amazon SageMaker
-Catalog domain. To read more about how Amazon SageMaker Catalog domain data
-encryption works at rest, see [Data encryption at rest for Amazon DataZone](../../../datazone/latest/userguide/encryption-rest-datazone.md "../../../datazone/latest/userguide/encryption-rest-datazone.md").
+For Amazon SageMaker Catalog, these permissions are required so that your data can be encrypted when exporting the data into the S3 tables. Note that the KMS key used for export feature can be same or different than the one used for Amazon SageMaker Catalog domain. To read more about how Amazon SageMaker Catalog domain data encryption works at rest, see [Data encryption at rest for Amazon DataZone](https://docs.aws.amazon.com/datazone/latest/userguide/encryption-rest-datazone.html).
 
-To allow Amazon SageMaker Catalog access on SSE-KMS encrypted tables, you can use
-the following example key policy. The policy allows
-`maintenance.s3tables.amazonaws.com` service principal to use a
-specific KMS key for encrypting and decrypting tables in a specific table bucket. To
-use the policy, replace the user input placeholders with your own
-information:
+To allow Amazon SageMaker Catalog access on SSE-KMS encrypted tables, you can use the following example key policy. The policy allows `maintenance.s3tables.amazonaws.com` service principal to use a specific KMS key for encrypting and decrypting tables in a specific table bucket. To use the policy, replace the user input placeholders with your own information:
 
-To read more about the S3 maintenance service principal, see [Permissions required for S3 Tables SSE-KMS encryption](../../../AmazonS3/latest/userguide/s3-tables-kms-permissions.md "../../../AmazonS3/latest/userguide/s3-tables-kms-permissions.md").
+To read more about the S3 maintenance service principal, see [Permissions required for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
 
 ```
-
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	                  
     "Statement": [
         {
             "Sid": "EnableSystemTablesKeyUsage",
@@ -43,7 +33,7 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
+            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
             "Condition": {
                 "StringEquals": {
                     "aws:SourceAccount": "111122223333"
@@ -60,52 +50,46 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
+            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
             "Condition": {
                 "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:111122223333:bucket/*"
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:{{region}}:111122223333:bucket/*"
                 }
             }
         }
     ]
 }
-
 ```
 
 ## IAM permissions required for the principal for exporting
+<a name="export-asset-metadata-kms-permissions-service-principal-exporting"></a>
 
-When your Amazon SageMaker Catalog domain is encrypted using AWS Key Management
-Service (AWS KMS) keys, you need to grant permissions to the principals that will
-allow them to enable [exporting](../userguide/export-asset-metadata.md "../userguide/export-asset-metadata.md") the asset metadata. The policy below grants the IAM principal
-access to decrypt a specific Amazon SageMaker Catalog domain.
+When your Amazon SageMaker Catalog domain is encrypted using AWS Key Management Service (AWS KMS) keys, you need to grant permissions to the principals that will allow them to enable [exporting](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/export-asset-metadata.html) the asset metadata. The policy below grants the IAM principal access to decrypt a specific Amazon SageMaker Catalog domain.
 
-To read more about how Amazon SageMaker Catalog domain data encryption works at
-rest, see [Data encryption at rest for Amazon DataZone](../../../datazone/latest/userguide/encryption-rest-datazone.md "../../../datazone/latest/userguide/encryption-rest-datazone.md").
+To read more about how Amazon SageMaker Catalog domain data encryption works at rest, see [Data encryption at rest for Amazon DataZone](https://docs.aws.amazon.com/datazone/latest/userguide/encryption-rest-datazone.html).
 
 ```
-
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
 
         {
             "Sid": "Allow access to principal to manage an Amazon SageMaker catalog domain with the given domain id",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::111122223333:role/`ExampleRole`"
+                "AWS": "arn:aws:iam::111122223333:role/{{ExampleRole}}"
             },
             "Action": [
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "arn:aws:kms:`region`:111122223333:key/`key-id`",
+            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
             "Condition": {
                 "StringEquals": {
-                    "kms:EncryptionContext:aws:datazone:domainId": "`dzd_sampleid`"
+                    "kms:EncryptionContext:aws:datazone:domainId": "{{dzd_sampleid}}"
                 }
             }
         }
     ]
 }
-
 ```
