@@ -350,3 +350,19 @@ of the following supported instance types.
 - Compute optimized: `c3.large` | `c3.xlarge` | `c3.2xlarge` | `c3.4xlarge` | `c3.8xlarge` | `cc1.4xlarge` | `cc2.8xlarge`
 - Memory optimized: `r3.large` | `r3.xlarge` | `r3.2xlarge` | `r3.4xlarge` | `r3.8xlarge` | `cr1.8xlarge`
 - Storage optimized: `i2.xlarge` | `i2.2xlarge` | `i2.4xlarge` | `i2.8xlarge` | `hi1.4xlarge` | `hi1.8xlarge`
+
+**Import or export fails because of cross-partition symbolic links**
+
+VM Import/Export might fail for images where files are relative symbolic links that
+point to a different partition. During import or export, the service analyzes
+disk partitions independently, so it cannot follow relative symbolic links
+that cross partition boundaries.
+
+A common example is Rocky Linux 8 in UEFI mode, where
+`/boot/grub2/grubenv` is a symbolic link to a file on
+the EFI System Partition. However, any relative symbolic link that references
+a file on a different partition can cause this issue.
+
+To resolve this issue, replace any affected relative symbolic links with a
+copy of the file they reference. After making the change, recreate the disk
+image or AMI and retry the operation.
