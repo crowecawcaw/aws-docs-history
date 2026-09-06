@@ -1,43 +1,35 @@
+
+
 # UpdatePipeSourceManagedStreamingKafkaParameters
+<a name="API_UpdatePipeSourceManagedStreamingKafkaParameters"></a>
 
 The parameters for using an MSK stream as a source.
 
 ## Contents
+<a name="API_UpdatePipeSourceManagedStreamingKafkaParameters_Contents"></a>
 
-**BatchSize**
-
-The maximum number of records to include in each batch.
-
-Type: Integer
-
-Valid Range: Minimum value of 1. Maximum value of 10000.
-
+ ** BatchSize **   <a name="eventbridge-Type-UpdatePipeSourceManagedStreamingKafkaParameters-BatchSize"></a>
+The maximum number of records to include in each batch.  
+Type: Integer  
+Valid Range: Minimum value of 1. Maximum value of 10000.  
 Required: No
 
-**Credentials**
-
-The credentials needed to access the resource.
-
-Type: [MSKAccessCredentials](API_MSKAccessCredentials.md "API_MSKAccessCredentials.md") object
-
-**Note:** This object is a Union. Only one member of this object can be specified or returned.
-
+ ** Credentials **   <a name="eventbridge-Type-UpdatePipeSourceManagedStreamingKafkaParameters-Credentials"></a>
+The credentials needed to access the resource.  
+Type: [MSKAccessCredentials](API_MSKAccessCredentials.md) object  
+ **Note: **This object is a Union. Only one member of this object can be specified or returned.  
 Required: No
 
-**MaximumBatchingWindowInSeconds**
-
-The maximum length of a time to wait for events.
-
-Type: Integer
-
-Valid Range: Minimum value of 0. Maximum value of 300.
-
+ ** MaximumBatchingWindowInSeconds **   <a name="eventbridge-Type-UpdatePipeSourceManagedStreamingKafkaParameters-MaximumBatchingWindowInSeconds"></a>
+The maximum length of a time to wait for events.  
+Type: Integer  
+Valid Range: Minimum value of 0. Maximum value of 300.  
 Required: No
 
 ## See Also
+<a name="API_UpdatePipeSourceManagedStreamingKafkaParameters_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md "../../../goto/SdkForCpp/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md "../../../goto/SdkForJavaV2/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md "../../../goto/SdkForRubyV3/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/pipes-2015-10-07/UpdatePipeSourceManagedStreamingKafkaParameters) 
