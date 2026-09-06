@@ -373,7 +373,7 @@ In the Amazon VPC console or using the AWS CLI, confirm that your VPC route tabl
 ```
 aws ec2 describe-route-tables \
   --route-table-ids `ROUTE_TABLE_ID` \
-  --query "RouteTables[].Routes[?DestinationCidrBlock=='[.replaceable]`POD_CIDR`']"
+  --query "RouteTables[].Routes[?DestinationCidrBlock=='POD_CIDR']"
 ```
 
 Each hybrid pod CIDR should have a route with the `NetworkInterfaceId` set to the leader instance’s primary ENI.

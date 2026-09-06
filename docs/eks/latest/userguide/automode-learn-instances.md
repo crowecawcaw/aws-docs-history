@@ -72,9 +72,9 @@ EKS Auto Mode supports the following instance types:
 
 | Family                              | Instance Types                                                                                                                                                               |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Compute Optimized (C)               | c9g, c8a, c8g, c8gb, c8gd, c8gn, c8i, c8i-flex, c8id, c7a, c7g, c7gd, c7gn, c7i, c7i-flex, c6a, c6g, c6gd, c6gn, c6i, c6id, c6in, c5, c5a, c5ad, c5d, c5n, c4                |
+| Compute Optimized (C)               | c9g, c9gd, c8a, c8g, c8gb, c8gd, c8gn, c8i, c8i-flex, c8ib, c8id, c7a, c7g, c7gd, c7gn, c7i, c7i-flex, c6a, c6g, c6gd, c6gn, c6i, c6id, c6in, c5, c5a, c5ad, c5d, c5n, c4    |
 | General Purpose (M)                 | m9gd, m8a, m8azn, m8g, m8gb, m8gd, m8gn, m8i, m8i-flex, m8id, m7a, m7g, m7gd, m7i, m7i-flex, m6a, m6g, m6gd, m6i, m6id, m6idn, m6in, m5, m5a, m5ad, m5d, m5dn, m5n, m5zn, m4 |
-| Memory Optimized (R)                | r8a, r8g, r8gb, r8gd, r8gn, r8i, r8i-flex, r8id, r7a, r7g, r7gd, r7i, r7iz, r6a, r6g, r6gd, r6i, r6id, r6idn, r6in, r5, r5a, r5ad, r5b, r5d, r5dn, r5n, r4                   |
+| Memory Optimized (R)                | r9g, r8a, r8g, r8gb, r8gd, r8gn, r8i, r8i-flex, r8id, r7a, r7g, r7gd, r7i, r7iz, r6a, r6g, r6gd, r6i, r6id, r6idn, r6in, r5, r5a, r5ad, r5b, r5d, r5dn, r5n, r4              |
 | Burstable (T)                       | t4g, t3, t3a, t2                                                                                                                                                             |
 | High Memory (Z/X)                   | z1d, x8aedz, x8g, x8i, x2gd                                                                                                                                                  |
 | Storage Optimized (I/D)             | i8g, i8ge, i7i, i7ie, i4g, is4gen, im4gn, i4i, i3, i3en, d3, d3en                                                                                                            |

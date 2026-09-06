@@ -293,11 +293,12 @@ Webhooks provide several benefits:
 ### Webhook endpoint
 
 The webhook URL follows the pattern `${serverUrl}/api/webhook`, where `serverUrl` is your Argo CD server URL.
+To find your server URL, see [Argo CD endpoint URL](working-with-argocd.md#argocd-endpoint-url "working-with-argocd.md#argocd-endpoint-url").
 
-For example, if your Argo CD server URL is `https://abc123.eks-capabilities.us-west-2.amazonaws.com`, the webhook URL is:
+For example, if your Argo CD server URL is `https://my-argocd-dc855fdf-111122223333.eks-capabilities.us-west-2.amazonaws.com`, the webhook URL is:
 
 ```
-https://abc123.eks-capabilities.us-west-2.amazonaws.com/api/webhook
+https://my-argocd-dc855fdf-111122223333.eks-capabilities.us-west-2.amazonaws.com/api/webhook
 ```
 
 ### Configure webhooks by Git provider

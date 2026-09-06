@@ -58,16 +58,15 @@ This is recommended for environments with strict network security requirements.
 ### Create a VPC endpoint for EKS Capabilities
 
 Create an interface VPC endpoint for the EKS Capabilities service in your VPC.
-Replace `vpc-id`, `subnet-id-1`, `subnet-id-2`, `sg-id`, and `region-code` with your own values:
+Replace `vpc-id`, `subnet-id-1 subnet-id-2`, `sg-id`, and `region-code` with your own values:
 
 ```
 aws ec2 create-vpc-endpoint \
   --vpc-endpoint-type Interface \
   --service-name com.amazonaws.`region-code`.eks-capabilities \
-  --vpc-id `vpc-xxxxxxxx` \
-  --subnet-ids `subnet-xxxxxxxx`
-            `subnet-yyyyyyyy` \
-  --security-group-ids `sg-xxxxxxxx` \
+  --vpc-id `vpc-id` \
+  --subnet-ids `subnet-id-1 subnet-id-2` \
+  --security-group-ids `sg-id` \
   --region `region-code`
 
 ```
@@ -125,7 +124,7 @@ aws eks create-capability \
     "argoCd": {
       "awsIdc": {
         "idcInstanceArn": "'$IDC_INSTANCE_ARN'",
-        "idcRegion": "'[.replaceable]`idc-region-code`'"
+        "idcRegion": "'idc-region-code'"
       },
       "rbacRoleMappings": [{
         "role": "ADMIN",
@@ -151,14 +150,14 @@ aws eks create-capability \
   --delete-propagation-policy RETAIN \
   --network-configuration '{
     "elasticNetworkInterfaces": {
-      "vpcEndpointId": "'[.replaceable]`vpce-xxxxxxxx`'"
+      "vpcEndpointId": "'vpce-xxxxxxxx'"
     }
   }' \
   --configuration '{
     "argoCd": {
       "awsIdc": {
         "idcInstanceArn": "'$IDC_INSTANCE_ARN'",
-        "idcRegion": "'[.replaceable]`idc-region-code`'"
+        "idcRegion": "'idc-region-code'"
       },
       "rbacRoleMappings": [{
         "role": "ADMIN",

@@ -338,13 +338,28 @@ kubectl get all -n `my-namespace` -o json | \
 To resolve this:
 
 - Make sure the controller that owns the blocking finalizer is healthy and running.
-- If the owning controller is healthy but the finalizer is not being processed, remove the blocking finalizer from the stuck resource:
+- If the owning controller is healthy but the finalizer is not being processed, remove the blocking finalizer from the stuck resource.
+
+Using the finalizer list that the previous command printed, set the list to the finalizers you want to keep and leave out only the blocking one.
+Replace `finalizer-a` and `finalizer-b` with those names:
 
 ```
 kubectl patch `resource-kind`
             `resource-name` -n `my-namespace` \
-  --type json -p '[{"op": "remove", "path": "/metadata/finalizers/0"}]'
+  --type merge -p '{"metadata":{"finalizers":["finalizer-a","finalizer-b"]}}'
 ```
+
+If the blocking finalizer is the only one on the resource, pass an empty list: `--type merge -p '{"metadata":{"finalizers":[]}}'`.
+
+###### Warning
+
+Set the finalizer list explicitly rather than removing an entry by position.
+A resource can carry finalizers from more than one controller.
+Finalizers aren’t in a guaranteed order.
+Removing the first entry can delete the wrong finalizer, which leaves the blocking one in place and the resource still stuck.
+
+Removing a finalizer also skips whatever cleanup the owning controller would have performed, which can leave AWS resources behind with no record of them in your cluster.
+Only do this after you have confirmed the owning controller cannot process the finalizer.
 
 ### Failed sync does not auto-retry to the same revision
 

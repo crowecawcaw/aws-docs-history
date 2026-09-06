@@ -58,8 +58,8 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
         spec:
           cluster:
             name: my-cluster
-            apiServerEndpoint: [.replaceable]https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
-            certificateAuthority: [.replaceable]Y2VydGlmaWNhdGVBdXRob3JpdHk=
+            apiServerEndpoint: https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
+            certificateAuthority: Y2VydGlmaWNhdGVBdXRob3JpdHk=
             ...
         ```
 

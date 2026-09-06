@@ -24,7 +24,7 @@ Pods running on hybrid nodes are not reachable from resources in the VPC, such a
 ```
 aws ec2 describe-route-tables \
   --route-table-ids `ROUTE_TABLE_ID` \
-  --query "RouteTables[].Routes[?DestinationCidrBlock=='[.replaceable]`POD_CIDR`']"
+  --query "RouteTables[].Routes[?DestinationCidrBlock=='POD_CIDR']"
 ```
 
 If routes are missing, check the gateway logs for route table errors. If routes point to the wrong ENI, a failover may not have completed successfully. 2. **Check gateway pod status and leader election.** Confirm that two gateway pods are running and one holds the leader lease:

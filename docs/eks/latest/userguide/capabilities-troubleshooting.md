@@ -141,12 +141,10 @@ When troubleshooting, check the status of the resources you created:
 kubectl get `resource-kind` -A
 
 # Describe a specific resource to see conditions and events
-kubectl describe `resource-kind`
-         `resource-name` -n `namespace`
+kubectl describe `resource-kind resource-name` -n `namespace`
 
 # View resource status conditions
-kubectl get `resource-kind`
-         `resource-name` -n `namespace` -o jsonpath='{.status.conditions}'
+kubectl get `resource-kind resource-name` -n `namespace` -o jsonpath='{.status.conditions}'
 
 # View events related to the resource
 kubectl get events --field-selector involvedObject.name=`resource-name` -n `namespace`

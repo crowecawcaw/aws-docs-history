@@ -114,7 +114,7 @@ kubectl get endpointslice -A | grep "kube-dns"
 ```
 
 ```
-kubectl get endpointslice [.replaceable]`kube-dns-<id>`  -n kube-system -o yaml
+kubectl get endpointslice `kube-dns-<id>`  -n kube-system -o yaml
 ```
 
 ```

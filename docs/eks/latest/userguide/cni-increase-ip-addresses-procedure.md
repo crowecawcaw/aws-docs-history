@@ -131,13 +131,13 @@ You can replace the example values with a value greater than zero.
     	kind: NodeConfig
     	spec:
     	 cluster:
-    	   apiServerEndpoint: [.replaceable]`my-cluster`
-    	   certificateAuthority: [.replaceable]`LS0t...`
-    	   cidr: [.replaceable]`10.100.0.0/16`
-    	   name: [.replaceable]`my-cluster
+    	   apiServerEndpoint: `my-cluster`
+    	   certificateAuthority: `LS0t...`
+    	   cidr: `10.100.0.0/16`
+    	   name: `my-cluster`
     	 kubelet:
     	   config:
-    	     maxPods: [.replaceable]`110`
+    	     maxPods: `110`
     	--//--
     	```
 
