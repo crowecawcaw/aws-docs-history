@@ -15,7 +15,7 @@ There is no additional cost for integrating and using Multi-party approval teams
 logically air-gapped vaults (storage and cross-region transfers charges apply,
 as shown on the [pricing](https://aws.amazon.com/backup/pricing "https://aws.amazon.com/backup/pricing") page).
 
-An an AWS Backup customer, you can use Multi-party approval to grant approval capabilities
+As an AWS Backup customer, you can use Multi-party approval to grant approval capabilities
 of some operations to a group of trusted individuals who can collaboratively approve
 access to a logically air-gapped vault from a separately-created recovery account in the
 case of suspected malicious activity that may compromise use of the primary
@@ -123,7 +123,7 @@ US East (N. Virginia).
 ## Multi-party approval terms, concepts, and user personas
 
 Multi-party approval in your logically air-gapped vault is an integration of AWS Organizations,
-AWS Account Management, and AWS Backup, along with AWS Identity and Access Management ( IAM) and AWS RAM (RAM) features. Through the
+AWS Account Management, and AWS Backup, along with AWS Identity and Access Management (IAM) and AWS RAM (RAM) features. Through the
 CLI, you can interact with each service to send the appropriate commands. You can also use
 the console, but you will need to navigate to the appropriate service’s console to
 complete specific tasks.

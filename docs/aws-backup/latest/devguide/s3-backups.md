@@ -122,16 +122,9 @@ maximum object size supported by Amazon S3.
 AWS Backup supports backup and restore of general purpose S3 buckets. Directory buckets are
 not supported at this time.
 
-The upper limit of a quantity of a resource (known as a quota), such as a bucket, allowed in an AWS
-account depends on the service. [Amazon S3 quotas](../../../AmazonS3/latest/userguide/BucketRestrictions.md "../../../AmazonS3/latest/userguide/BucketRestrictions.md") are
-different from [AWS Backup quotas](aws-backup-limits.md "aws-backup-limits.md").
-
-In each AWS account, you can create backups for up to 100 buckets by default. You
-are able to request a quota increase up to 1,000 buckets.
-
-Accounts with excess of 1,000 buckets are subject to quota limits; when requests
-exceed the quota, it may result in failed jobs. It is a best practice to limit an account
-to 1,000 buckets.
+AWS Backup supports all general purpose S3 buckets in your account, matching the Amazon S3
+bucket quota you have configured. For information about S3 bucket quotas, see [Amazon S3
+quotas](../../../AmazonS3/latest/userguide/BucketRestrictions.md "../../../AmazonS3/latest/userguide/BucketRestrictions.md").
 
 ## Supported S3 Storage Classes
 
@@ -201,10 +194,23 @@ incremental at object-level.
 
 ## Amazon EventBridge dependency for S3 continuous backups
 
-When you enroll an S3 bucket in AWS Backup continuous backup, AWS Backup automatically creates
-an Amazon EventBridge managed rule in your account (named
-`AwsBackupManagedRule-`N``). This rule subscribes to
-the following S3 events on your bucket and forwards them to the AWS Backup service:
+AWS Backup uses Amazon EventBridge to receive S3 object events that drive backup operations. AWS Backup
+supports two methods of Amazon EventBridge event configuration:
+
+- **System tag-based event configuration
+  (recommended)**: AWS Backup tags your bucket with the
+  `aws:backup:enabled` system tag and creates a single managed Amazon EventBridge rule
+  (named `AwsBackupManagedRule-BucketSystemTag`) that filters on this tag. S3
+  includes the tag in every event notification sent to Amazon EventBridge. This method supports
+  all general purpose buckets in your account, matching your Amazon S3 bucket quota.
+- **Bucket-ARN-based event configuration**: If the
+  backup role does not have `s3:ListTagsForResource` permission, AWS Backup
+  creates managed Amazon EventBridge rules (named
+  `AwsBackupManagedRule-`N``) that list individual
+  bucket ARNs. This method supports up to 1,000 buckets per account.
+
+In both methods, the managed rule subscribes to the following S3 events and forwards
+them to the AWS Backup service:
 
 - Object Created
 - Object ACL Updated
@@ -349,6 +355,36 @@ Amazon EventBridge permissions to allow AWS Backup to manage the
 The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup`
 already includes these permissions. If you use a custom IAM role, you must add them
 explicitly.
+
+### Required permissions for system tag-based event configuration
+
+To use system tag-based event configuration and protect more than 1,000 S3 buckets,
+the IAM role used for S3 backup jobs must have the following permission:
+
+```
+{
+  "Sid": "S3BucketTagReadPermissions",
+  "Effect": "Allow",
+  "Action": [
+    "s3:ListTagsForResource"
+  ],
+  "Resource": "arn:aws:s3:::*"
+}
+```
+
+The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup`
+includes this permission. If you use a custom IAM role, you must add it explicitly.
+Without this permission, AWS Backup falls back to bucket-ARN-based event configuration,
+which supports up to 1,000 buckets.
+
+AWS Backup applies and removes the `aws:backup:enabled` system tag on your S3
+buckets automatically. Tagging and untagging of system tags does not require additional
+IAM permissions in the backup role.
+
+###### Note
+
+The `aws:backup:enabled` system tag does not count toward the 50
+user-tag limit per S3 bucket.
 
 ### Re-enable continuous backup coverage
 

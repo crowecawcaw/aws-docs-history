@@ -810,8 +810,8 @@ requirement:
             "Effect": "Allow",
             "Action": "kms:DescribeKey",
             "Resource": [
-                "arn:aws:kms:*:[source-account-id]:key/*",  - Source logically air-gapped vault CMK -
-                "arn:aws:kms:*:[destination-account-id]:key/*".  - Destination logically air-gapped vault CMK -
+                "arn:aws:kms:*:[source-account-id]:key/*",  //[Source logically air-gapped vault CMK]
+                "arn:aws:kms:*:[destination-account-id]:key/*"  //[Destination logically air-gapped vault CMK]
             ]
         },
         {
@@ -819,15 +819,15 @@ requirement:
             "Effect": "Allow",
             "Action": "kms:CreateGrant",
             "Resource": [
-                "arn:aws:kms:*:[source-account-id]:key/*",  - Source logically air-gapped vault CMK -
-                "arn:aws:kms:*:[destination-account-id]:key/*".  - Destination logically air-gapped vault CMK -
-            ]
+                "arn:aws:kms:*:[source-account-id]:key/*",  //[Source logically air-gapped vault CMK]
+                "arn:aws:kms:*:[destination-account-id]:key/*"  //[Destination logically air-gapped vault CMK]
+            ],
             "Condition": {
                 "Bool": {
                     "kms:GrantIsForAWSResource": "true"
                 }
             }
-        },
+        }
     ]
 }
 ```

@@ -14,8 +14,9 @@ file recovery, data validation, compliance auditing, and forensic investigation 
 waiting for a full restore to complete.
 
 While a backup access point is active for a recovery point, AWS Backup pauses lifecycle
-transitions and blocks deletion of that recovery point. This protects your data from being
-removed while applications are actively reading it. You must delete all backup access points
+deletion and blocks manual deletion of that recovery point. This protects your data from being
+removed while applications are actively reading it. Backup tiering to lower-cost warm storage,
+which is configured separately, is not affected. You must delete all backup access points
 associated with a recovery point before the recovery point can be deleted or
 lifecycled.
 
@@ -35,7 +36,7 @@ When you create a backup access point, AWS Backup performs the following steps:
    or COMPLETED)
 2. Creates a backup access point resource in AWS Backup with status CREATING
 3. Provisions an S3 access point on your behalf (asynchronously)
-4. Pauses lifecycle for the associated recovery point
+4. Pauses lifecycle deletion and blocks manual deletion of the associated recovery point
 5. Updates the backup access point status to AVAILABLE
 
 Once the backup access point is AVAILABLE, you call `DescribeBackupAccessPoint`
@@ -358,6 +359,9 @@ While one or more active access points exist for a recovery point:
 - **Manual deletion is blocked.** Calls to
   `DeleteRecoveryPoint` return an error until all access points are
   deleted.
+- **Tiering is not affected.** Backup tiering to lower-cost
+  warm storage is configured independently and continues to apply normally while access
+  points are active.
 
 You can still update the recovery point lifecycle (for example, changing the
 delete-after-days value), but the deletion will not be enforced until all backup access points
@@ -454,13 +458,6 @@ subscribe, see [Monitoring AWS Backup](monitoring.md "monitoring.md").
   point, wait for sometime before you attempt to create a new backup access point with the
   same name in the same account and Region. Attempting to reuse the name before it becomes
   available returns a `ConflictException`.
-- **S3 object key restrictions**: Objects named
-  `.` or `..` are not accessible through backup access points. Object
-  keys that start with `./` or `../`, contain `/./` or
-  `/../`, contain consecutive slashes (`//`), or end with
-  `/.`, `/..`, or `/` are also inaccessible. Attempting to
-  access any object with these keys through a backup access point will return an
-  `InvalidKey` error.
 
 ## Troubleshooting
 

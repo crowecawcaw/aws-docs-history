@@ -168,7 +168,12 @@ JSON
  "Service":"config.amazonaws.com"
  },
  "Action":"s3:GetBucketAcl",
- "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition":{
+ "StringEquals":{
+ "aws:SourceAccount":"`111122223333`"
+ }
+ }
  },
  {
  "Sid":"AWSConfigBucketExistenceCheck",
@@ -177,7 +182,12 @@ JSON
  "Service":"config.amazonaws.com"
  },
  "Action":"s3:ListBucket",
- "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition":{
+ "StringEquals":{
+ "aws:SourceAccount":"`111122223333`"
+ }
+ }
  },
  {
  "Sid":"AWSConfigBucketDelivery",
@@ -186,7 +196,12 @@ JSON
  "Service":"config.amazonaws.com"
  },
  "Action":"s3:PutObject",
- "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ "Resource":"arn:aws:s3:::`amzn-s3-demo-bucket`/*",
+ "Condition":{
+ "StringEquals":{
+ "aws:SourceAccount":"`111122223333`"
+ }
+ }
  }
  ]
 }`
