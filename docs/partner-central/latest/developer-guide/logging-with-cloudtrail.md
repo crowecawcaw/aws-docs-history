@@ -1,36 +1,27 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Logging the AWS Partner Central Selling API
+<a name="logging-with-cloudtrail"></a>
 
-[AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") is a service that enables governance, compliance, operational auditing, and
-risk auditing of your AWS account. With AWS CloudTrail, you can log, continuously monitor, and
-retain account activity related to actions across your AWS infrastructure. AWS Partner Central API
-activity is recorded as events in CloudTrail. You can create a trail, a configuration that
-enables delivery of events as log files to an Amazon S3 bucket.
+ [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With AWS CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. AWS Partner Central API activity is recorded as events in CloudTrail. You can create a trail, a configuration that enables delivery of events as log files to an Amazon S3 bucket. 
 
 ## Overview
+<a name="overview"></a>
 
-The AWS Partner Central API is integrated with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures all API
-calls for AWS Partner Central as events. The calls captured include calls from the AWS Partner Central and from
-code calls to the AWS Partner Central API operations.
+ The AWS Partner Central API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures all API calls for AWS Partner Central as events. The calls captured include calls from the AWS Partner Central and from code calls to the AWS Partner Central API operations. 
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for AWS Partner Central. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console in Event history.
+ If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Partner Central. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in Event history. 
 
-Using the information collected by CloudTrail, you can determine the request that was
-made to AWS Partner Central, the IP address from which the request was made, who made the request, when
-it was made, and additional details.
+ Using the information collected by CloudTrail, you can determine the request that was made to AWS Partner Central, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
 ## Understanding AWS Partner Central Selling API log file entries
+<a name="understanding-aws-partner-central-log-file-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket. When your trail tracks AWS Partner Central events, CloudTrail processes the events as log files
-across all the regions. Each log file can contain one or more events.
+ A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket. When your trail tracks AWS Partner Central events, CloudTrail processes the events as log files across all the regions. Each log file can contain one or more events. 
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ListOpportunities` action on AWS Partner Central:
+ The following example shows a CloudTrail log entry that demonstrates the `ListOpportunities` action on AWS Partner Central: 
 
 ```
 {
@@ -61,14 +52,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-In this example, the `ListOpportunities` action was called by the IAM user
-named CloudTrailTestUser. The action was called in the _us-east-1_
-AWS Region, and the request was made on October 17, 2023 at 21:49:23 UTC.
+ In this example, the `ListOpportunities` action was called by the IAM user named CloudTrailTestUser. The action was called in the *us-east-1* AWS Region, and the request was made on October 17, 2023 at 21:49:23 UTC. 
 
 ## Fields in AWS Partner Central Selling API log file entries
+<a name="fields-in-aws-partner-central-log-file-entries"></a>
 
-Each entry in a CloudTrail log file contains information about who made a request, the
-resources acted upon in the request, and the response elements returned by AWS Partner Central. The
-list of fields in a log entry, such as `eventVersion`, `userIdentity`,
-and `eventTime`, provide detailed information about the action. For example, the
-`sourceIPAddress` field shows the IP address that the request was made from.
+ Each entry in a CloudTrail log file contains information about who made a request, the resources acted upon in the request, and the response elements returned by AWS Partner Central. The list of fields in a log entry, such as `eventVersion`, `userIdentity`, and `eventTime`, provide detailed information about the action. For example, the `sourceIPAddress` field shows the IP address that the request was made from. 

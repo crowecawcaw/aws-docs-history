@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `StartEngagementFromOpportunityTask` with an AWS SDK
+<a name="example_partnercentral-selling_StartEngagementFromOpportunityTask_section"></a>
 
 The following code examples show how to use `StartEngagementFromOpportunityTask`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Initiates the engagement process from an existing opportunity by accepting the engagement invitation and creating a corresponding opportunity in the partner’s system.
+**SDK for Java 2.x**  
+Initiates the engagement process from an existing opportunity by accepting the engagement invitation and creating a corresponding opportunity in the partner’s system.  
 
 ```
 package org.example;
@@ -40,18 +43,18 @@ public class StartEngagementFromOpportunityTask {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	
     	StartEngagementFromOpportunityTaskResponse response = getResponse(opportunityId);
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
 	static StartEngagementFromOpportunityTaskResponse getResponse(String opportunityId) {
-
+		
 		StartEngagementFromOpportunityTaskRequest submitOpportunityRequest = StartEngagementFromOpportunityTaskRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.identifier(opportunityId)
@@ -60,26 +63,20 @@ public class StartEngagementFromOpportunityTask {
         		.build();
 
 		StartEngagementFromOpportunityTaskResponse response = client.startEngagementFromOpportunityTask(submitOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [StartEngagementFromOpportunityTask](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Initiates the engagement process from an existing opportunity by accepting the engagement invitation and creating a corresponding opportunity in the partner’s system.  
 
 ```
-
-- For API details, see
-  [StartEngagementFromOpportunityTask](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Initiates the engagement process from an existing opportunity by accepting the engagement invitation and creating a corresponding opportunity in the partner’s system.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -103,9 +100,9 @@ partner_central_client = boto3.client(
 )
 
 def start_engagement_from_opportunity_task(identifier):
-
+    
     start_engagement_from_opportunity_task_request ={
-            "AwsSubmission": {
+            "AwsSubmission": { 
                 "InvolvementType": "Co-Sell",
                 "Visibility": "Full"
             },
@@ -122,7 +119,7 @@ def start_engagement_from_opportunity_task(identifier):
             # Catch all client exceptions
             print(err.response)
             return None
-
+   
 def usage_demo():
     identifier = "O5465588"
 
@@ -136,14 +133,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [StartEngagementFromOpportunityTask](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartEngagementFromOpportunityTask](../../../goto/boto3/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask.md "../../../goto/boto3/partnercentral-selling-2022-07-26/StartEngagementFromOpportunityTask.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

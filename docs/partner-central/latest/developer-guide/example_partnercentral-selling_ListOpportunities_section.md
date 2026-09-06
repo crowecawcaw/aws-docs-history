@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `ListOpportunities` with an AWS SDK
+<a name="example_partnercentral-selling_ListOpportunities_section"></a>
 
 The following code examples show how to use `ListOpportunities`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-List opportunities.
+**SDK for .NET**  
+List opportunities.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -71,22 +74,16 @@ namespace AWSExample
         }
     }
 }
+```
++  For API details, see [ListOpportunities](https://docs.aws.amazon.com/goto/DotNetSDKV3/partnercentral-selling-2022-07-26/ListOpportunities) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+List opportunities.  
 
 ```
-
-- For API details, see
-  [ListOpportunities](../../../goto/DotNetSDKV3/partnercentral-selling-2022-07-26/ListOpportunities.md "../../../goto/DotNetSDKV3/partnercentral-selling-2022-07-26/ListOpportunities.md")
-  in _AWS SDK for .NET API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-List opportunities.
-
-```
-
 package main
 
 import (
@@ -123,19 +120,14 @@ func main() {
 	jsonOutput, err := json.MarshalIndent(output, "", "    ")
 	fmt.Println(string(jsonOutput))
 }
-
-
 ```
++  For API details, see [ListOpportunities](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/partnercentralselling#Client.ListOpportunities) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListOpportunities](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/partnercentralselling#Client.ListOpportunities "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/partnercentralselling#Client.ListOpportunities")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-List opportunities.
+**SDK for Java 2.x**  
+List opportunities.  
 
 ```
 package org.example;
@@ -160,30 +152,30 @@ import software.amazon.awssdk.services.partnercentralselling.model.OpportunitySu
  */
 
 public class ListOpportunititesPaging {
-
+	
 	static PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
     	List<OpportunitySummary> opportunitySummaries = getResponse();
         ReferenceCodesUtils.formatOutput(opportunitySummaries);
     }
-
+    
     private static List<OpportunitySummary> getResponse() {
     	List<OpportunitySummary> opportunitySummaries = new ArrayList<OpportunitySummary>();
-
+		
 		ListOpportunitiesRequest listOpportunityRequest = ListOpportunitiesRequest.builder()
                 .catalog(CATALOG_TO_USE)
         		.maxResults(5)
         		.build();
-
+        
     	ListOpportunitiesResponse response = client.listOpportunities(listOpportunityRequest);
-
+    	
     	opportunitySummaries.addAll(response.opportunitySummaries());
-
+    	
     	while (response.nextToken() != null && response.nextToken().length() > 0) {
     		listOpportunityRequest = ListOpportunitiesRequest.builder()
                     .catalog(CATALOG_TO_USE)
@@ -193,28 +185,22 @@ public class ListOpportunititesPaging {
     		response = client.listOpportunities(listOpportunityRequest);
     		opportunitySummaries.addAll(response.opportunitySummaries());
     	}
-
+        
     	client.close();
-
+    	
         return opportunitySummaries;
 	}
 }
+```
++  For API details, see [ListOpportunities](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/ListOpportunities) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+List opportunities.  
 
 ```
-
-- For API details, see
-  [ListOpportunities](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/ListOpportunities.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/ListOpportunities.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-List opportunities.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -270,14 +256,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [ListOpportunities](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/ListOpportunities) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListOpportunities](../../../goto/boto3/partnercentral-selling-2022-07-26/ListOpportunities.md "../../../goto/boto3/partnercentral-selling-2022-07-26/ListOpportunities.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

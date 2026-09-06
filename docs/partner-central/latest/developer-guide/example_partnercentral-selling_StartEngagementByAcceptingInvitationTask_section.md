@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `StartEngagementByAcceptingInvitationTask` with an AWS SDK
+<a name="example_partnercentral-selling_StartEngagementByAcceptingInvitationTask_section"></a>
 
 The following code examples show how to use `StartEngagementByAcceptingInvitationTask`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Starts the engagement by accepting an EngagementInvitation.
+**SDK for Java 2.x**  
+Starts the engagement by accepting an EngagementInvitation.  
 
 ```
 package org.example;
@@ -34,44 +37,44 @@ PC-API-04: Start Engagement By Accepting InvitationTask for AWS Originated(AO) o
 */
 
 public class StartEngagementByAcceptingInvitationTask {
-
+	
 	static PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
-            .credentialsProvider(DefaultCredentialsProvider.create())
+            .credentialsProvider(DefaultCredentialsProvider.create())            
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
 	static String clientToken = "test-a30d161";
 
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	
     	StartEngagementByAcceptingInvitationTaskResponse response = getResponse(opportunityId);
-
+    	
     	if ( response == null) {
     		System.out.println("Opportunity is not AWS Originated.");
     	} else {
     		ReferenceCodesUtils.formatOutput(response);
     	}
     }
-
+    
     private static GetEngagementInvitationResponse getInvitation(String invitationId) {
-
+		
     	GetEngagementInvitationRequest getRequest = GetEngagementInvitationRequest.builder()
         		.catalog(Constants.CATALOG_TO_USE)
         		.identifier(invitationId)
         		.build();
 
 		GetEngagementInvitationResponse response = client.getEngagementInvitation(getRequest);
-
+        
         return response;
 	}
 
 	static StartEngagementByAcceptingInvitationTaskResponse getResponse(String invitationId) {
-
+		
 		if ( getInvitation(invitationId).status().equals(InvitationStatus.PENDING)) {
-			StartEngagementByAcceptingInvitationTaskRequest acceptOpportunityRequest =
+			StartEngagementByAcceptingInvitationTaskRequest acceptOpportunityRequest = 
 					StartEngagementByAcceptingInvitationTaskRequest.builder()
 					.catalog(Constants.CATALOG_TO_USE)
 	        		.identifier(invitationId)
@@ -84,22 +87,16 @@ public class StartEngagementByAcceptingInvitationTask {
 		return null;
 	}
 }
+```
++  For API details, see [StartEngagementByAcceptingInvitationTask](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Starts the engagement by accepting an EngagementInvitation.  
 
 ```
-
-- For API details, see
-  [StartEngagementByAcceptingInvitationTask](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Starts the engagement by accepting an EngagementInvitation.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -170,14 +167,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [StartEngagementByAcceptingInvitationTask](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartEngagementByAcceptingInvitationTask](../../../goto/boto3/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask.md "../../../goto/boto3/partnercentral-selling-2022-07-26/StartEngagementByAcceptingInvitationTask.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

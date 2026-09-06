@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `UpdateOpportunity` with an AWS SDK
+<a name="example_partnercentral-selling_UpdateOpportunity_section"></a>
 
 The following code examples show how to use `UpdateOpportunity`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Update an opportunity.
+**SDK for Java 2.x**  
+Update an opportunity.  
 
 ```
 package org.example;
@@ -53,59 +56,59 @@ import com.google.gson.ToNumberPolicy;
  */
 
 public class UpdateOpportunity {
-
+	
 	static final Gson GSON = new GsonBuilder()
 			.setObjectToNumberStrategy(ToNumberPolicy.LAZILY_PARSED_NUMBER)
 			.registerTypeAdapter(String.class, new StringSerializer())
 			.create();
-
+	
 	static PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
 	static String OPPORTUNITY_ORIGIN = ORIGIN_PARTNER_ORIGINATED;
 
 	public static void main(String[] args) {
 
 		String inputFile = "updateOpportunity.json";
-
+		
 		if (args.length > 0)
 			inputFile = args[0];
-
+		
 		UpdateOpportunityResponse response = updateOpportunity(inputFile);
-
+		
 		client.close();
 	}
-
+	
 	public static GetOpportunityResponse getResponse(String opportunityId) {
 
         GetOpportunityRequest getOpportunityRequest = GetOpportunityRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.identifier(opportunityId)
         		.build();
-
+        
         GetOpportunityResponse response = client.getOpportunity(getOpportunityRequest);
         System.out.println(opportunityId + ":" + response);
         return response;
 	}
-
+	
 	public static UpdateOpportunityResponse updateOpportunity(String inputFile) {
-
+		
 		String inputString = ReferenceCodesUtils.readInputFileToString(inputFile);
 
 		Root root = GSON.fromJson(inputString, Root.class);
 		GetOpportunityResponse response = getResponse(root.identifier);
 
-		if (response != null
+		if (response != null 
 				&& response.lifeCycle() != null
 				&& response.lifeCycle().reviewStatus() != null
 				&& response.lifeCycle().reviewStatus() != ReviewStatus.SUBMITTED
 				&& response.lifeCycle().reviewStatus() != ReviewStatus.IN_REVIEW) {
-
+			
 			List<NextStepsHistory> nextStepsHistories = new ArrayList<NextStepsHistory>();
-			if ( root.lifeCycle != null && root.lifeCycle.nextStepsHistories != null) {
+			if ( root.lifeCycle != null && root.lifeCycle.nextStepsHistories != null) {		
 				for (org.example.entity.NextStepsHistory nextStepsHistoryJson : root.lifeCycle.nextStepsHistories) {
 					NextStepsHistory nextStepsHistory = NextStepsHistory.builder()
 							.time(Instant.parse(nextStepsHistoryJson.time))
@@ -114,7 +117,7 @@ public class UpdateOpportunity {
 					nextStepsHistories.add(nextStepsHistory);
 				}
 			}
-
+			
 			LifeCycle lifeCycle = null;
 			if ( root.lifeCycle != null ) {
 				lifeCycle = LifeCycle.builder()
@@ -128,7 +131,7 @@ public class UpdateOpportunity {
 					.targetCloseDate(root.lifeCycle.targetCloseDate)
 					.build();
 			}
-
+			
 			Marketing marketing = null;
 			if ( root.marketing != null ) {
 				marketing = Marketing.builder()
@@ -138,7 +141,7 @@ public class UpdateOpportunity {
 						.source(root.marketing.source)
 						.useCases(root.marketing.useCases)
 						.build();
-
+						
 			}
 
 			Address address = null;
@@ -156,7 +159,7 @@ public class UpdateOpportunity {
 			}
 
 			List<Contact> contacts = new ArrayList<Contact>();
-			if ( root.customer != null && root.customer.contacts != null) {
+			if ( root.customer != null && root.customer.contacts != null) {		
 				for (org.example.entity.Contact jsonContact : root.customer.contacts) {
 					Contact contact = Contact.builder()
 			                .email(jsonContact.email)
@@ -218,22 +221,16 @@ public class UpdateOpportunity {
 		}
     }
 }
+```
++  For API details, see [UpdateOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/UpdateOpportunity) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Update an opportunity.  
 
 ```
-
-- For API details, see
-  [UpdateOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/UpdateOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/UpdateOpportunity.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Update an opportunity.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -274,7 +271,7 @@ def get_opportunity(identifier):
 def update_opportunity():
     update_opportunity_request_orig = sd.stringify_json("src/update_opportunity/update_opportunity_technical_validation.json")
     update_opportunity_request = helper.remove_nulls(update_opportunity_request_orig)
-
+    
     try:
         # Perform an API call
         response = partner_central_client.update_opportunity(**update_opportunity_request)
@@ -304,13 +301,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
 ```
++  For API details, see [UpdateOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/UpdateOpportunity) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/UpdateOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/UpdateOpportunity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

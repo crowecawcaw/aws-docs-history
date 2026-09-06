@@ -1,91 +1,95 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Testing in a sandbox for the AWS Partner Central Channel API
+<a name="testing-sandbox-channel"></a>
 
 Accounts in sandbox are not eligible for channel benefits, and are not validated against all program requirements.
 
 ## How to use the sandbox
+<a name="use-sandbox"></a>
 
 To use the sandbox, complete the following steps:
 
 1. Create an IAM role:
 
-Create an IAM role in the AWS account linked with your AWS Partner Central account. 2. Assign Policy:
+   Create an IAM role in the AWS account linked with your AWS Partner Central account.
 
-Assign the following policy to the IAM role. For more information, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
+1. Assign Policy:
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "ChannelManagement",
-      "Effect": "Allow",
-      "Action": [
-        "partnercentral:CreateProgramManagementAccount",
-        "partnercentral:UpdateProgramManagementAccount",
-        "partnercentral:DeleteProgramManagementAccount",
-        "partnercentral:ListProgramManagementAccounts",
-        "partnercentral:GetProgramManagementAccount",
-        "partnercentral:CreateRelationship",
-        "partnercentral:UpdateRelationship",
-        "partnercentral:DeleteRelationship",
-        "partnercentral:GetRelationship",
-        "partnercentral:ListRelationships",
-        "partnercentral:CreateChannelHandshake",
-        "partnercentral:AcceptChannelHandshake",
-        "partnercentral:RejectChannelHandshake",
-        "partnercentral:CancelChannelHandshake",
-        "partnercentral:ListChannelHandshakes"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "partnercentral:Catalog": [
-            "Sandbox"
-          ]
-        }
-      }
-    },
-    {
-      "Sid": "TaggingAccess",
-      "Effect": "Allow",
-      "Action": [
-        "partnercentral:TagResource",
-        "partnercentral:UntagResource",
-        "partnercentral:ListTagsForResource"
-      ],
-      "Resource": [
-        "arn:aws:partnercentral:*:*:catalog/Sandbox/program-management-account/*",
-        "arn:aws:partnercentral:*:*:catalog/Sandbox/channel-handshake/*"
-      ],
-      "Condition": {
-        "StringEquals": {
-          "partnercentral:Catalog": [
-            "Sandbox"
-          ]
-        }
-      }
-    }
-  ]
-}
-```
+   Assign the following policy to the IAM role. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
 
-3. Use IAM role credentials:
+   ```
+   {
+     "Version": "2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Sid": "ChannelManagement",
+         "Effect": "Allow",
+         "Action": [
+           "partnercentral:CreateProgramManagementAccount",
+           "partnercentral:UpdateProgramManagementAccount",
+           "partnercentral:DeleteProgramManagementAccount",
+           "partnercentral:ListProgramManagementAccounts",
+           "partnercentral:GetProgramManagementAccount",
+           "partnercentral:CreateRelationship",
+           "partnercentral:UpdateRelationship",
+           "partnercentral:DeleteRelationship",
+           "partnercentral:GetRelationship",
+           "partnercentral:ListRelationships",
+           "partnercentral:CreateChannelHandshake",
+           "partnercentral:AcceptChannelHandshake",
+           "partnercentral:RejectChannelHandshake",
+           "partnercentral:CancelChannelHandshake",
+           "partnercentral:ListChannelHandshakes"
+         ],
+         "Resource": "*",
+         "Condition": {
+           "StringEquals": {
+             "partnercentral:Catalog": [
+               "Sandbox"
+             ]
+           }
+         }
+       },
+       {
+         "Sid": "TaggingAccess",
+         "Effect": "Allow",
+         "Action": [
+           "partnercentral:TagResource",
+           "partnercentral:UntagResource",
+           "partnercentral:ListTagsForResource"
+         ],
+         "Resource": [
+           "arn:aws:partnercentral:*:*:catalog/Sandbox/program-management-account/*",
+           "arn:aws:partnercentral:*:*:catalog/Sandbox/channel-handshake/*"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "partnercentral:Catalog": [
+               "Sandbox"
+             ]
+           }
+         }
+       }
+     ]
+   }
+   ```
 
-Use the credentials (secret key and access key) of this IAM role in your solution to
-perform the API actions.
+1. Use IAM role credentials:
+
+   Use the credentials (secret key and access key) of this IAM role in your solution to perform the API actions.
 
 ## Testing AWS actions
+<a name="testing-aws-actions"></a>
 
-During the testing phase, it is often necessary to simulate AWS actions. This
-simulation enables partners to thoroughly test the complete end-to-end flow of their
-integration with AWS services. Each request includes a catalog parameter, which determines the data environment.
+During the testing phase, it is often necessary to simulate AWS actions. This simulation enables partners to thoroughly test the complete end-to-end flow of their integration with AWS services. Each request includes a catalog parameter, which determines the data environment.
 
 ### Simulating the creation of a Program Management Account
+<a name="simulating-pma"></a>
 
-To simulate the creation of a Program Management Account, in the payload of the
-`CreateProgramManagementAccount` action, include `"catalog": "Sandbox"` in the payload.
+To simulate the creation of a Program Management Account, in the payload of the `CreateProgramManagementAccount` action, include `"catalog": "Sandbox"` in the payload.
 
 For example:
 
@@ -106,6 +110,7 @@ For example:
 ```
 
 ### Simulating updates to a Relationship
+<a name="simulate-relationship-updates"></a>
 
 To simulate updates on a relationship, use the `UpdateRelationship` action with `"catalog": "Sandbox"` in the payload.
 
@@ -121,13 +126,16 @@ For example:
 ```
 
 ## Additional testing notes
+<a name="additional-testing-notes"></a>
 
 1. To test other actions, set `"catalog": "Sandbox"` in the payload.
-2. To move to production, change the catalog value from `Sandbox` to `AWS`.
+
+1. To move to production, change the catalog value from `Sandbox` to `AWS`.
 
 ## Testing events in the sandbox environment
+<a name="testing-events"></a>
 
-Partners can consume events from the sandbox environment to help test the event-based implementations. Set up EventBridge in the same AWS account with rules to listen for sandbox events by specifying `catalog: Sandbox` in the event details. For more information, see [Notifications for the AWS Partner Central Channel API](channel-api-events.md "channel-api-events.md").
+Partners can consume events from the sandbox environment to help test the event-based implementations. Set up EventBridge in the same AWS account with rules to listen for sandbox events by specifying `catalog: Sandbox` in the event details. For more information, see [Notifications for the AWS Partner Central Channel API](channel-api-events.md).
 
 Example event rule:
 
@@ -140,24 +148,25 @@ Example event rule:
 }
 ```
 
-Event rules that specify `catalog` as `Sandbox` will only match
-events coming from the sandbox, generated by the actions you perform in the sandbox
-environment.
+Event rules that specify `catalog` as `Sandbox` will only match events coming from the sandbox, generated by the actions you perform in the sandbox environment.
 
 ## Getting help
+<a name="getting-help"></a>
 
 If you encounter challenges in testing, or if you need to test a specific scenario not covered here, please reach out to support by raising a case through the following steps:
 
-1. Sign in to the [AWS Partner Central](https://partnercentral.awspartner.com/ "https://partnercentral.awspartner.com/")
-   with your AWS Partner Network credentials.
-2. On the [Support Center for
-   Partner Central](https://partnercentral.awspartner.com/support "https://partnercentral.awspartner.com/support"), choose `Open New Case` to log a new case. Complete
-   the fields as follows:
+1. Sign in to the [AWS Partner Central](https://partnercentral.awspartner.com/) with your AWS Partner Network credentials.
+
+1. On the [Support Center for Partner Central](https://partnercentral.awspartner.com/support), choose `Open New Case` to log a new case. Complete the fields as follows:
 
    1. Type of support case: `Channel Program`
-   2. Question regarding: `General Program Inquiry`
-   3. Get specific: Select the most appropriate Channel case type.
-   4. Subject: Include a brief description of the request.
-   5. Description: Provide a detailed description of issues, questions, errors, and
-      troubleshooting steps.
-   6. Attachments: Include logs and screenshots, where applicable.
+
+   1. Question regarding: `General Program Inquiry`
+
+   1. Get specific: Select the most appropriate Channel case type.
+
+   1. Subject: Include a brief description of the request.
+
+   1. Description: Provide a detailed description of issues, questions, errors, and troubleshooting steps.
+
+   1. Attachments: Include logs and screenshots, where applicable.

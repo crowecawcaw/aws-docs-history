@@ -1,19 +1,20 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `DisassociateOpportunity` with an AWS SDK
+<a name="example_partnercentral-selling_DisassociateOpportunity_section"></a>
 
 The following code examples show how to use `DisassociateOpportunity`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Update associated entity of an opportunity](example_partnercentral-selling__UpdateAssociatedEntity_section.md) 
 
-- [Update associated entity of an opportunity](example_partnercentral-selling__UpdateAssociatedEntity_section.md "example_partnercentral-selling__UpdateAssociatedEntity_section.md")
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Remove an existing association between an Opportunity and related entities.
+**SDK for Java 2.x**  
+Remove an existing association between an Opportunity and related entities.  
 
 ```
 package org.example;
@@ -35,7 +36,7 @@ Purpose
 PC-API -14 Removing a Solution
 PC-API -15 Removing an offer
 PC-API -16 Removing a product
-entity_type = Solutions | AWSProducts | AWSMarketplaceOffers
+entity_type = Solutions | AWSProducts | AWSMarketplaceOffers 
 */
 
 public class DisassociateOpportunity {
@@ -45,50 +46,44 @@ public class DisassociateOpportunity {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	
     	String entityType = "Solutions";
-
+    	
     	String entityIdentifier = "S-0000000";
-
+    	
     	DisassociateOpportunityResponse response = getResponse(opportunityId, entityType, entityIdentifier );
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
 	static DisassociateOpportunityResponse getResponse(String opportunityId, String entityType, String entityIdentifier) {
-
+		
 		DisassociateOpportunityRequest disassociateOpportunityRequest = DisassociateOpportunityRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.opportunityIdentifier(opportunityId)
         		.relatedEntityType(entityType)
         		.relatedEntityIdentifier(entityIdentifier)
         		.build();
-
+        
         DisassociateOpportunityResponse response = client.disassociateOpportunity(disassociateOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [DisassociateOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Remove an existing association between an Opportunity and related entities.  
 
 ```
-
-- For API details, see
-  [DisassociateOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Remove an existing association between an Opportunity and related entities.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -114,9 +109,9 @@ partner_central_client = boto3.client(
 def disassociate_opportunity(entity_type, entity_identifier, opportunityIdentifier):
     disassociate_opportunity_request ={
         "Catalog": CATALOG_TO_USE,
-	    "OpportunityIdentifier" : opportunityIdentifier,
-        "RelatedEntityType" : entity_type,
-        "RelatedEntityIdentifier" : entity_identifier
+	    "OpportunityIdentifier" : opportunityIdentifier, 
+        "RelatedEntityType" : entity_type, 
+        "RelatedEntityIdentifier" : entity_identifier 
     }
     try:
         # Perform an API call
@@ -128,7 +123,7 @@ def disassociate_opportunity(entity_type, entity_identifier, opportunityIdentifi
         print(err.response)
 
 def usage_demo():
-    #entity_type = Solutions | AWSProducts | AWSMarketplaceOffers
+    #entity_type = Solutions | AWSProducts | AWSMarketplaceOffers 
     entity_type = "Solutions"
     entity_identifier = "S-0049999"
     opportunityIdentifier = "O4397574"
@@ -143,14 +138,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [DisassociateOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DisassociateOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

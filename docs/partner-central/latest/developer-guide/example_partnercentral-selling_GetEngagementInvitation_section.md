@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `GetEngagementInvitation` with an AWS SDK
+<a name="example_partnercentral-selling_GetEngagementInvitation_section"></a>
 
 The following code examples show how to use `GetEngagementInvitation`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Retrieves the details of an engagement invitation shared by AWS with a partner.
+**SDK for Java 2.x**  
+Retrieves the details of an engagement invitation shared by AWS with a partner.  
 
 ```
 package org.example;
@@ -37,50 +40,44 @@ public class GetEngagementInvitation {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	    	
     	GetEngagementInvitationResponse response = getResponse(opportunityId);
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
 	static GetEngagementInvitationResponse getResponse(String opportunityId) {
-
+		
 		GetEngagementInvitationRequest getOpportunityRequest = GetEngagementInvitationRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.identifier(opportunityId)
         		.build();
-
+        
 		GetEngagementInvitationResponse response = client.getEngagementInvitation(getOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [GetEngagementInvitation](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetEngagementInvitation) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Retrieves the details of an engagement invitation shared by AWS with a partner.  
 
 ```
-
-- For API details, see
-  [GetEngagementInvitation](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetEngagementInvitation.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetEngagementInvitation.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Retrieves the details of an engagement invitation shared by AWS with a partner.
-
-```
-
 #!/usr/bin/env python
 
 """
 Purpose
-PC-API-22  GetOpportunityEngagementInvitation - Retrieves details of a specific engagement invitation.
-This operation allows partners to view the invitation and its associated information,
+PC-API-22  GetOpportunityEngagementInvitation - Retrieves details of a specific engagement invitation. 
+This operation allows partners to view the invitation and its associated information, 
 such as the customer, project, and lifecycle details.
 """
 import json
@@ -124,14 +121,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [GetEngagementInvitation](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/GetEngagementInvitation) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetEngagementInvitation](../../../goto/boto3/partnercentral-selling-2022-07-26/GetEngagementInvitation.md "../../../goto/boto3/partnercentral-selling-2022-07-26/GetEngagementInvitation.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

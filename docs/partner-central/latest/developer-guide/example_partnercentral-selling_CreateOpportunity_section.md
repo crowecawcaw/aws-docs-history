@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `CreateOpportunity` with an AWS SDK
+<a name="example_partnercentral-selling_CreateOpportunity_section"></a>
 
 The following code examples show how to use `CreateOpportunity`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-Create an opportunity.
+**SDK for .NET**  
+Create an opportunity.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -124,18 +127,14 @@ namespace AWSExample
         }
     }
 }
-
 ```
++  For API details, see [CreateOpportunity](https://docs.aws.amazon.com/goto/DotNetSDKV3/partnercentral-selling-2022-07-26/CreateOpportunity) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateOpportunity](../../../goto/DotNetSDKV3/partnercentral-selling-2022-07-26/CreateOpportunity.md "../../../goto/DotNetSDKV3/partnercentral-selling-2022-07-26/CreateOpportunity.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Create an opportunity.
+**SDK for Java 2.x**  
+Create an opportunity.  
 
 ```
 package org.example;
@@ -173,12 +172,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.ToNumberPolicy;
 
 public class CreateOpportunity {
-
+	
 	static final Gson GSON = new GsonBuilder()
 			.setObjectToNumberStrategy(ToNumberPolicy.LAZILY_PARSED_NUMBER)
 			.registerTypeAdapter(String.class, new StringSerializer())
 			.create();
-
+	
 	static PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
             .credentialsProvider(DefaultCredentialsProvider.create())
@@ -188,23 +187,23 @@ public class CreateOpportunity {
 	public static void main(String[] args) {
 
 		String inputFile = "CreateOpportunity2.json";
-
+		
 		if (args.length > 0)
 			inputFile = args[0];
-
+		
 		CreateOpportunityResponse response = createOpportunity(inputFile);
-
+		
 		client.close();
 	}
-
+	
 	static CreateOpportunityResponse createOpportunity(String inputFile) {
-
+		
 		String inputString = ReferenceCodesUtils.readInputFileToString(inputFile);
-
+		
 		Root root = GSON.fromJson(inputString, Root.class);
-
+				
 		List<NextStepsHistory> nextStepsHistories = new ArrayList<NextStepsHistory>();
-		if ( root.lifeCycle != null && root.lifeCycle.nextStepsHistories != null) {
+		if ( root.lifeCycle != null && root.lifeCycle.nextStepsHistories != null) {		
 			for (org.example.entity.NextStepsHistory nextStepsHistoryJson : root.lifeCycle.nextStepsHistories) {
 				NextStepsHistory nextStepsHistory = NextStepsHistory.builder()
 						.time(Instant.parse(nextStepsHistoryJson.time))
@@ -213,7 +212,7 @@ public class CreateOpportunity {
 				nextStepsHistories.add(nextStepsHistory);
 			}
 		}
-
+		
 		LifeCycle lifeCycle = null;
 		if ( root.lifeCycle != null ) {
 			lifeCycle = LifeCycle.builder()
@@ -227,7 +226,7 @@ public class CreateOpportunity {
 				.targetCloseDate(root.lifeCycle.targetCloseDate)
 				.build();
 		}
-
+		
 		Marketing marketing = null;
 		if ( root.marketing != null ) {
 			marketing = Marketing.builder()
@@ -237,9 +236,9 @@ public class CreateOpportunity {
 					.source(root.marketing.source)
 					.useCases(root.marketing.useCases)
 					.build();
-
+					
 		}
-
+		
 		Address address = null;
 		if ( root.customer != null && root.customer.account != null && root.customer.account.address != null ) {
 			address = Address.builder()
@@ -250,7 +249,7 @@ public class CreateOpportunity {
                 .streetAddress(root.customer.account.address.streetAddress)
                 .build();
 		}
-
+		
 		Account account = null;
 		if ( root.customer != null && root.customer.account!= null) {
 			account = Account.builder()
@@ -263,9 +262,9 @@ public class CreateOpportunity {
                 .websiteUrl(root.customer.account.websiteUrl)
                 .build();
 		}
-
+		
 		List<Contact> contacts = new ArrayList<Contact>();
-		if ( root.customer != null && root.customer.contacts != null) {
+		if ( root.customer != null && root.customer.contacts != null) {		
 			for (org.example.entity.Contact jsonContact : root.customer.contacts) {
 				Contact contact = Contact.builder()
 		                .email(jsonContact.email)
@@ -282,7 +281,7 @@ public class CreateOpportunity {
 				.account(account)
 				.contacts(contacts)
 				.build();
-
+		
 		Contact oportunityTeamContact = null;
 		if (root.opportunityTeam != null && root.opportunityTeam.get(0) != null ) {
 			oportunityTeamContact = Contact.builder()
@@ -293,7 +292,7 @@ public class CreateOpportunity {
                 .businessTitle(root.opportunityTeam.get(0).businessTitle)
                 .build();
 		}
-
+		
 		List<ExpectedCustomerSpend> expectedCustomerSpends = new ArrayList<ExpectedCustomerSpend>();
 		if ( root.project != null && root.project.expectedCustomerSpend != null) {
 			for (org.example.entity.ExpectedCustomerSpend expectedCustomerSpendJson : root.project.expectedCustomerSpend) {
@@ -307,7 +306,7 @@ public class CreateOpportunity {
 				expectedCustomerSpends.add(expectedCustomerSpend);
 			}
         }
-
+        
         Project project = null;
         if ( root.project != null) {
         	project = Project.builder()
@@ -321,7 +320,7 @@ public class CreateOpportunity {
                 .otherSolutionDescription(root.project.otherSolutionDescription)
                 .build();
         }
-
+        
         SoftwareRevenue softwareRevenue = null;
         if ( root.softwareRevenue != null) {
         	MonetaryValue monetaryValue = null;
@@ -338,7 +337,7 @@ public class CreateOpportunity {
         			.value(monetaryValue)
         			.build();
         }
-
+		
 		// Building the Actual CreateOpportunity Request
 		CreateOpportunityRequest createOpportunityRequest = CreateOpportunityRequest.builder()
 				.catalog(CATALOG_TO_USE)
@@ -355,7 +354,7 @@ public class CreateOpportunity {
 				.opportunityTeam(oportunityTeamContact)
 				.softwareRevenue(softwareRevenue)
 				.build();
-
+		
 		CreateOpportunityResponse response = client.createOpportunity(createOpportunityRequest);
 		System.out.println("Successfully created: " + response);
 
@@ -363,22 +362,16 @@ public class CreateOpportunity {
     }
 
 }
+```
++  For API details, see [CreateOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/CreateOpportunity) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Create an opportunity.  
 
 ```
-
-- For API details, see
-  [CreateOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/CreateOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/CreateOpportunity.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Create an opportunity.
-
-```
-
 #!/usr/bin/env python
 import boto3
 import logging
@@ -397,7 +390,7 @@ def create_opportunity(partner_central_client):
     try:
         # Perform an API call
         response = partner_central_client.create_opportunity(**create_opportunity_request)
-
+        
         helper.pretty_print_datetime(response)
 
         # Retrieve the opportunity details
@@ -427,13 +420,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
 ```
++  For API details, see [CreateOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/CreateOpportunity) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/CreateOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/CreateOpportunity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

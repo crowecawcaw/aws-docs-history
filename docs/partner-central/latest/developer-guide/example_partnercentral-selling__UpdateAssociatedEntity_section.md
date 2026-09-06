@@ -1,23 +1,20 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Update associated entity of an opportunity
+<a name="example_partnercentral-selling__UpdateAssociatedEntity_section"></a>
 
 The following code examples show how to:
++ Disassociate an old entity.
++ Associate a new entity.
 
-- Disassociate an old entity.
-- Associate a new entity.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Scenarios](https://github.com/aws-samples/partner-crm-integration-samples/tree/main/partner-central-api-sample-codes/java_preview "https://github.com/aws-samples/partner-crm-integration-samples/tree/main/partner-central-api-sample-codes/java_preview")
-repository.
-
-Update associated entity of an opportunity
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Scenarios](https://github.com/aws-samples/partner-crm-integration-samples/tree/main/partner-central-api-sample-codes/java_preview) repository. 
+Update associated entity of an opportunity  
 
 ```
 package org.example;
@@ -48,35 +45,35 @@ public class ReplaceSolution {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	
     	String entityType = "Solutions";
     	String originalEntityIdentifier = "S-0000000";
     	String newEntityIdentifier = "S-0011111";
-
+    	
     	disassociateOppornitityResponse(opportunityId, entityType, originalEntityIdentifier );
     	AssociateOpportunityResponse associateOpportunityResponse = associateOpportunityResponse(opportunityId, entityType, newEntityIdentifier );
-
+    	
     	ReferenceCodesUtils.formatOutput(associateOpportunityResponse);
     }
 
 	private static AssociateOpportunityResponse associateOpportunityResponse(String opportunityId, String entityType, String entityIdentifier) {
-
+		
         AssociateOpportunityRequest associateOpportunityRequest = AssociateOpportunityRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.opportunityIdentifier(opportunityId)
         		.relatedEntityType(entityType)
         		.relatedEntityIdentifier(entityIdentifier)
         		.build();
-
+        
         AssociateOpportunityResponse response = client.associateOpportunity(associateOpportunityRequest);
-
+        
         return response;
 	}
-
+	
 	private static DisassociateOpportunityResponse disassociateOppornitityResponse(String opportunityId, String entityType, String entityIdentifier) {
 		PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
@@ -90,35 +87,25 @@ public class ReplaceSolution {
         		.relatedEntityType(entityType)
         		.relatedEntityIdentifier(entityIdentifier)
         		.build();
-
+        
         DisassociateOpportunityResponse response = client.disassociateOpportunity(disassociateOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AssociateOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssociateOpportunity)
+  + [DisassociateOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity)
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/partner-central-api-sample-codes/python_preview/#code-examples). 
+Update Associated Entity of an opportunity  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [AssociateOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssociateOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssociateOpportunity.md")
-  - [DisassociateOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/DisassociateOpportunity.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/partner-central-api-sample-codes/python_preview/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/partner-central-api-sample-codes/python_preview/#code-examples").
-
-Update Associated Entity of an opportunity
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -142,16 +129,16 @@ partner_central_client = boto3.client(
 def replace_solution(original_entity_identifier, new_entity_identifier, opportunityIdentifier):
     disassociate_opportunity_request ={
         "Catalog": CATALOG_TO_USE,
-	    "OpportunityIdentifier" : opportunityIdentifier,
-        "RelatedEntityType" : "Solutions",
-        "RelatedEntityIdentifier" : original_entity_identifier
+	    "OpportunityIdentifier" : opportunityIdentifier, 
+        "RelatedEntityType" : "Solutions", 
+        "RelatedEntityIdentifier" : original_entity_identifier 
     }
 
     associate_opportunity_request ={
         "Catalog": CATALOG_TO_USE,
-	    "OpportunityIdentifier" : opportunityIdentifier,
-        "RelatedEntityType" : "Solutions",
-        "RelatedEntityIdentifier" : new_entity_identifier
+	    "OpportunityIdentifier" : opportunityIdentifier, 
+        "RelatedEntityType" : "Solutions", 
+        "RelatedEntityIdentifier" : new_entity_identifier 
     }
     try:
         # Perform an API call
@@ -178,15 +165,11 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AssociateOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/AssociateOpportunity)
+  + [DisassociateOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AssociateOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/AssociateOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/AssociateOpportunity.md")
-  - [DisassociateOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/DisassociateOpportunity.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

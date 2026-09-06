@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `GetAwsOpportunitySummary` with an AWS SDK
+<a name="example_partnercentral-selling_GetAwsOpportunitySummary_section"></a>
 
 The following code examples show how to use `GetAwsOpportunitySummary`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Retrieves a summary of an AWS Opportunity.
+**SDK for Java 2.x**  
+Retrieves a summary of an AWS Opportunity.  
 
 ```
 package org.example;
@@ -37,13 +40,13 @@ public class GetAwsOpportunitySummary {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	
     	GetAwsOpportunitySummaryResponse response = getResponse(opportunityId);
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
@@ -53,28 +56,22 @@ public class GetAwsOpportunitySummary {
 				.catalog(Constants.CATALOG_TO_USE)
         		.relatedOpportunityIdentifier(opportunityId)
         		.build();
-
+        
 		GetAwsOpportunitySummaryResponse response = client.getAwsOpportunitySummary(getOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [GetAwsOpportunitySummary](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Retrieves a summary of an AWS Opportunity.  
 
 ```
-
-- For API details, see
-  [GetAwsOpportunitySummary](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Retrieves a summary of an AWS Opportunity.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -122,14 +119,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [GetAwsOpportunitySummary](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAwsOpportunitySummary](../../../goto/boto3/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary.md "../../../goto/boto3/partnercentral-selling-2022-07-26/GetAwsOpportunitySummary.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `AssignOpportunity` with an AWS SDK
+<a name="example_partnercentral-selling_AssignOpportunity_section"></a>
 
 The following code examples show how to use `AssignOpportunity`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Reassign an existing Opportunity to another user.
+**SDK for Java 2.x**  
+Reassign an existing Opportunity to another user.  
 
 ```
 package org.example;
@@ -32,7 +35,7 @@ PC-API-07 Assigning a new owner
 */
 
 public class AssignOpportunity {
-
+	
 	static PartnerCentralSellingClient client = PartnerCentralSellingClient.builder()
             .region(Region.US_EAST_1)
             .credentialsProvider(DefaultCredentialsProvider.create())
@@ -40,24 +43,24 @@ public class AssignOpportunity {
             .build();
 
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
-
+    	    	
     	String assigneeFirstName = "John";
-
+    	
     	String assigneeLastName = "Doe";
-
+    	
     	String assigneeEmail = "test@test.com";
-
+    	
     	String businessTitle = "PartnerAccountManager";
-
+    	
     	AssignOpportunityResponse response = getResponse(opportunityId, assigneeFirstName, assigneeLastName, assigneeEmail, businessTitle);
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
 	static AssignOpportunityResponse getResponse(String opportunityId, String assigneeFirstName, String assigneeLastName, String assigneeEmail, String businessTitle) {
-
+				
 		AssignOpportunityRequest assignOpportunityRequest = AssignOpportunityRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.identifier(opportunityId)
@@ -68,28 +71,22 @@ public class AssignOpportunity {
         				.businessTitle(businessTitle)
         				.build())
         		.build();
-
+        
         AssignOpportunityResponse response = client.assignOpportunity(assignOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [AssignOpportunity](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssignOpportunity) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Reassign an existing Opportunity to another user.  
 
 ```
-
-- For API details, see
-  [AssignOpportunity](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssignOpportunity.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/AssignOpportunity.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Reassign an existing Opportunity to another user.
-
-```
-
 #!/usr/bin/env python
 
 """
@@ -114,7 +111,7 @@ def assign_opportunity(identifier):
     assign_opportunity_request ={
         "Catalog": CATALOG_TO_USE,
 	    "Identifier": identifier,
-        "Assignee": {
+        "Assignee": { 
             "BusinessTitle": "OpportunityOwner",
             "Email": "test@test.com",
             "FirstName": "John",
@@ -143,14 +140,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [AssignOpportunity](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/AssignOpportunity) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AssignOpportunity](../../../goto/boto3/partnercentral-selling-2022-07-26/AssignOpportunity.md "../../../goto/boto3/partnercentral-selling-2022-07-26/AssignOpportunity.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

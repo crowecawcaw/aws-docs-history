@@ -1,63 +1,47 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Logging the AWS Partner Central Revenue Attribution API
+<a name="logging-prm"></a>
 
-[AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") is a
-service that enables governance, compliance, operational auditing, and risk auditing of your
-AWS account. With AWS CloudTrail, you can log, continuously monitor, and retain account activity
-related to actions across your AWS infrastructure. AWS Partner Central Revenue Measurement API
-activity is recorded as events in CloudTrail. You can create a trail, a configuration that
-enables delivery of events as log files to an Amazon S3 bucket.
+ [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With AWS CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. AWS Partner Central Revenue Measurement API activity is recorded as events in CloudTrail. You can create a trail, a configuration that enables delivery of events as log files to an Amazon S3 bucket.
 
 ## Overview
+<a name="overview-prm"></a>
 
-The AWS Partner Central Revenue Measurement API is integrated with AWS CloudTrail, a service that
-provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central.
-CloudTrail captures all API calls for AWS Partner Central Revenue Attribution as events. The calls
-captured include calls from the AWS Partner Central console and from code calls to the AWS Partner Central
-Revenue Measurement API operations.
+The AWS Partner Central Revenue Measurement API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures all API calls for AWS Partner Central Revenue Attribution as events. The calls captured include calls from the AWS Partner Central console and from code calls to the AWS Partner Central Revenue Measurement API operations.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for AWS Partner Central Revenue Measurement. If you don't
-configure a trail, you can still view the most recent events in the CloudTrail console
-in **Event history**.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Partner Central Revenue Measurement. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**.
 
-Using the information collected by CloudTrail, you can determine the request that was
-made to AWS Partner Central Revenue Measurement, the IP address from which the request was made,
-who made the request, when it was made, and additional details.
+Using the information collected by CloudTrail, you can determine the request that was made to AWS Partner Central Revenue Measurement, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-The following AWS Partner Central Revenue Measurement API actions are logged in
-CloudTrail:
-
-- `CreateRevenueAttribution`
-- `UpdateRevenueAttribution`
-- `GetRevenueAttribution`
-- `ListRevenueAttributions`
-- `TagResource`
-- `UntagResource`
-- `ListTagsForResource`
-- `CreateMarketplaceRevenueShare`
-- `GetMarketplaceRevenueShare`
-- `ListMarketplaceRevenueShares`
-- `CreateMarketplaceRevenueShareAllocation`
-- `GetMarketplaceRevenueShareAllocation`
-- `UpdateMarketplaceRevenueShareAllocation`
-- `ListMarketplaceRevenueShareAllocations`
-- `StartRevenueAttributionAllocationsTask`
-- `GetRevenueAttributionAllocationsTask`
-- `ListRevenueAttributionAllocations`
-- `GetRevenueAttributionAllocation`
+The following AWS Partner Central Revenue Measurement API actions are logged in CloudTrail:
++ `CreateRevenueAttribution`
++ `UpdateRevenueAttribution`
++ `GetRevenueAttribution`
++ `ListRevenueAttributions`
++ `TagResource`
++ `UntagResource`
++ `ListTagsForResource`
++ `CreateMarketplaceRevenueShare`
++ `GetMarketplaceRevenueShare`
++ `ListMarketplaceRevenueShares`
++ `CreateMarketplaceRevenueShareAllocation`
++ `GetMarketplaceRevenueShareAllocation`
++ `UpdateMarketplaceRevenueShareAllocation`
++ `ListMarketplaceRevenueShareAllocations`
++ `StartRevenueAttributionAllocationsTask`
++ `GetRevenueAttributionAllocationsTask`
++ `ListRevenueAttributionAllocations`
++ `GetRevenueAttributionAllocation`
 
 ## Understanding AWS Partner Central Revenue Measurement API log file entries
+<a name="understanding-aws-partner-central-prm-log-file-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon
-S3 bucket. When your trail tracks AWS Partner Central Revenue Measurement events, CloudTrail
-processes the events as log files across all the regions. Each log file can contain one
-or more events.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket. When your trail tracks AWS Partner Central Revenue Measurement events, CloudTrail processes the events as log files across all the regions. Each log file can contain one or more events.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateRevenueAttribution` action on AWS Partner Central Revenue
-Attribution:
+The following example shows a CloudTrail log entry that demonstrates the `CreateRevenueAttribution` action on AWS Partner Central Revenue Attribution:
 
 ```
 {
@@ -97,18 +81,9 @@ Attribution:
 }
 ```
 
-In this example, the `CreateRevenueAttribution` action was called by the
-IAM user named CloudTrailTestUser. The action was called in the
-_us-east-1_ AWS Region, and the request was made on June 2, 2026
-at 11:53:54 UTC. A new revenue attribution resource was created with the ID
-`ra-0123456789abcdef0`.
+In this example, the `CreateRevenueAttribution` action was called by the IAM user named CloudTrailTestUser. The action was called in the *us-east-1* AWS Region, and the request was made on June 2, 2026 at 11:53:54 UTC. A new revenue attribution resource was created with the ID `ra-0123456789abcdef0`.
 
 ## Fields in AWS Partner Central Revenue Measurement API log file entries
+<a name="fields-in-aws-partner-central-prm-log-file-entries"></a>
 
-Each entry in a CloudTrail log file contains information about who made a request,
-the resources acted upon in the request, and the response elements returned by
-AWS Partner Central Revenue Measurement. The list of fields in a log entry, such as
-`eventVersion`, `userIdentity`, and `eventTime`,
-provide detailed information about the action. For example, the
-`sourceIPAddress` field shows the IP address that the request was made
-from.
+Each entry in a CloudTrail log file contains information about who made a request, the resources acted upon in the request, and the response elements returned by AWS Partner Central Revenue Measurement. The list of fields in a log entry, such as `eventVersion`, `userIdentity`, and `eventTime`, provide detailed information about the action. For example, the `sourceIPAddress` field shows the IP address that the request was made from.

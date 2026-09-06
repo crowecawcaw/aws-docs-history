@@ -1,14 +1,17 @@
-The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](https://docs.aws.amazon.com/partner-central/latest/APIReference/Welcome.html).
 
 # Use `RejectEngagementInvitation` with an AWS SDK
+<a name="example_partnercentral-selling_RejectEngagementInvitation_section"></a>
 
 The following code examples show how to use `RejectEngagementInvitation`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Rejects an EngagementInvitation that AWS shared.
+**SDK for Java 2.x**  
+Rejects an EngagementInvitation that AWS shared.  
 
 ```
 package org.example;
@@ -37,18 +40,18 @@ public class RejectEngagementInvitation {
             .credentialsProvider(DefaultCredentialsProvider.create())
             .httpClient(ApacheHttpClient.builder().build())
             .build();
-
+	
     public static void main(String[] args) {
-
+    	
     	String opportunityId = args.length > 0 ? args[0] : OPPORTUNITY_ID;
 
 		RejectEngagementInvitationResponse response = getResponse(opportunityId);
-
+    	
     	ReferenceCodesUtils.formatOutput(response);
     }
 
 	static RejectEngagementInvitationResponse getResponse(String invitationId) {
-
+		
         RejectEngagementInvitationRequest rejectOpportunityRequest = RejectEngagementInvitationRequest.builder()
 				.catalog(Constants.CATALOG_TO_USE)
         		.identifier(invitationId)
@@ -56,34 +59,28 @@ public class RejectEngagementInvitation {
         		.build();
 
 		RejectEngagementInvitationResponse response = client.rejectEngagementInvitation(rejectOpportunityRequest);
-
+        
         return response;
 	}
 }
+```
++  For API details, see [RejectEngagementInvitation](https://docs.aws.amazon.com/goto/SdkForJavaV2/partnercentral-selling-2022-07-26/RejectEngagementInvitation) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Rejects an EngagementInvitation that AWS shared.  
 
 ```
-
-- For API details, see
-  [RejectEngagementInvitation](../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/RejectEngagementInvitation.md "../../../goto/SdkForJavaV2/partnercentral-selling-2022-07-26/RejectEngagementInvitation.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Rejects an EngagementInvitation that AWS shared.
-
-```
-
 #!/usr/bin/env python
 
 """
 Purpose
-PC-API-05 AWS Originated AO rejection - RejectOpportunityEngagementInvitation - Rejects a engagement invitation.
-This action indicates that the partner does not wish to participate in the engagement and
+PC-API-05 AWS Originated AO rejection - RejectOpportunityEngagementInvitation - Rejects a engagement invitation. 
+This action indicates that the partner does not wish to participate in the engagement and 
 provides a reason for the rejection.
-Upon rejection, a OpportunityEngagementInvitationRejected event is triggered.
+Upon rejection, a OpportunityEngagementInvitationRejected event is triggered. 
 Subsequently, the invitation will no longer be available for the partner to act on.
 """
 import json
@@ -129,14 +126,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [RejectEngagementInvitation](https://docs.aws.amazon.com/goto/boto3/partnercentral-selling-2022-07-26/RejectEngagementInvitation) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [RejectEngagementInvitation](../../../goto/boto3/partnercentral-selling-2022-07-26/RejectEngagementInvitation.md "../../../goto/boto3/partnercentral-selling-2022-07-26/RejectEngagementInvitation.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Partner Central API with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
