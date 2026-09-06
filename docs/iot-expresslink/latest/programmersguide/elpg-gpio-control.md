@@ -1,90 +1,70 @@
+
+
 # 14 GPIO control (new with v1.3)
+<a name="elpg-gpio-control"></a>
 
-General Purpose I/O control is provided to allow ExpressLink modules to act as I/O expanders for the host processor by allowing control with
-serial interface of additional pins beyond the basic set defined in section 2.2.
-This command group is optional, and dependent on the capabilities of the connectivity module and underlying SoC.
-GPIOs will be numbered 0..MaxIO and made available individually to operate in digital and analog input/output modes, as available.
-Each I/O has an associated output register which can be set independently of the control mode.
-Reading I/O inputs will always report the current state of the pin.
+General Purpose I/O control is provided to allow ExpressLink modules to act as I/O expanders for the host processor by allowing control with serial interface of additional pins beyond the basic set defined in section 2.2. This command group is optional, and dependent on the capabilities of the connectivity module and underlying SoC. GPIOs will be numbered 0..MaxIO and made available individually to operate in digital and analog input/output modes, as available. Each I/O has an associated output register which can be set independently of the control mode. Reading I/O inputs will always report the current state of the pin.
 
-`14.1.1.1`   The number of GPIO pins available (MaxIO), their physical location and DC characteristics (current drive, voltage thresholds)
-is dependent on the specific module (and underlying SoC) capabilities and must be detailed in the vendor module datasheet.
+**14.1.1.1**   The number of GPIO pins available (MaxIO), their physical location and DC characteristics (current drive, voltage thresholds) is dependent on the specific module (and underlying SoC) capabilities and must be detailed in the vendor module datasheet.
 
-`14.1.1.2`   Testing of the GPIO functionality is limited to a few pins during the device qualification,
-leaving to the partner the responsibility to ensure its proper operation on all pins supported.
+**14.1.1.2**   Testing of the GPIO functionality is limited to a few pins during the device qualification, leaving to the partner the responsibility to ensure its proper operation on all pins supported.
 
-`14.1.1.3`   Pin configuration is volatile and is initially set to all digital inputs after a power cycle or a reset command.
+**14.1.1.3**   Pin configuration is volatile and is initially set to all digital inputs after a power cycle or a reset command.
 
-## 14.1.2 GPIO# SET »Set pin output value to high«
+## 14.1.2 GPIO\# SET »Set pin output value to high«
+<a name="elpg-gpio-set-command"></a>
 
-Set the GPIO# pin to a logic high value.
+Set the GPIO\# pin to a logic high value.Returns:
 
-###### Returns:
-
-`14.1.2.1`   `OK 1*{EOL}*`
-
+**14.1.2.1**   `OK 1{EOL}`  
 Returns the new output register value.
 
-`14.1.2.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.2.2**   `ERR7 OUT OF RANGE{EOL}`  
+If the \# index is greater than the available number of GPIOs.
 
-If the # index is greater than the available number of GPIOs.
-
-`14.1.2.3`   `ERR25 NOT ALLOWED*{EOL}*`
-
+**14.1.2.3**   `ERR25 NOT ALLOWED{EOL}`  
 If the GPIO is configured in an analog mode (input or output).
 
-## 14.1.3 GPIO# CLR »Set pin output value to low«
+## 14.1.3 GPIO\# CLR »Set pin output value to low«
+<a name="elpg-gpio-clr-command"></a>
 
-Sets the GPIO# pin to a logic low value.
+Sets the GPIO\# pin to a logic low value.Returns:
 
-###### Returns:
-
-`14.1.3.1`   `OK 0*{EOL}*`
-
+**14.1.3.1**   `OK 0{EOL}`  
 Returns the new output register value.
 
-`14.1.3.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.3.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.3.3`   `ERR25 NOT ALLOWED*{EOL}*`
-
+**14.1.3.3**   `ERR25 NOT ALLOWED{EOL}`  
 The GPIO is configured in analog mode (input or output).
 
-## 14.1.4 GPIO# TOGGLE »Toggle output value«
+## 14.1.4 GPIO\# TOGGLE »Toggle output value«
+<a name="elpg-gpio-toggle-command"></a>
 
-Inverts the output logic value of the GPIO# pin.
+Inverts the output logic value of the GPIO\# pin.Returns:
 
-###### Returns:
-
-`14.1.4.1`   `OK 0/1*{EOL}*`
-
+**14.1.4.1**   `OK 0/1{EOL}`  
 Returns the new output register value.
 
-`14.1.4.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.4.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.4.3`   `ERR25 NOT ALLOWED*{EOL}*`
-
+**14.1.4.3**   `ERR25 NOT ALLOWED{EOL}`  
 The GPIO is configured in analog mode (input or output).
 
-## 14.1.5 GPIO# OUTPUT »Enable output mode«
+## 14.1.5 GPIO\# OUTPUT »Enable output mode«
+<a name="elpg-gpio-output-command"></a>
 
-Enables the GPIO# pin digital output mode and publishes the current output register value to the pin.
+Enables the GPIO\# pin digital output mode and publishes the current output register value to the pin.Returns:
 
-###### Returns:
-
-`14.1.5.1`   `OK 0/1*{EOL}*`
-
+**14.1.5.1**   `OK 0/1{EOL}`  
 Returns the current output register binary value.
 
-`14.1.5.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.5.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.5.3`   `ERR17 MODE NOT AVAILABLE*{EOL}*`
-
+**14.1.5.3**   `ERR17 MODE NOT AVAILABLE{EOL}`  
 The GPIO cannot be configured as a digital output.
 
 Example:
@@ -103,37 +83,30 @@ AT+GPIO1 TOGGLE{EOL}                 # Toggle the pin (turn the LED off)
 OK 0{EOL}
 ```
 
-## 14.1.6 GPIO# INPUT »Enable input mode«
+## 14.1.6 GPIO\# INPUT »Enable input mode«
+<a name="elpg-gpio-input-command"></a>
 
-Sets the pin mode to digital input mode and releases the pin output control.
+Sets the pin mode to digital input mode and releases the pin output control.Returns:
 
-###### Returns:
-
-`14.1.6.1`   `OK 0/1*{EOL}*`
-
+**14.1.6.1**   `OK 0/1{EOL}`  
 Returns the current digital input value.
 
-`14.1.6.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.6.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.6.3`   `ERR17 MODE NOT AVAILABLE*{EOL}*`
-
+**14.1.6.3**   `ERR17 MODE NOT AVAILABLE{EOL}`  
 The GPIO cannot be configured as a digital input.
 
-## 14.1.7 GPIO# READ »Read current pin value«
+## 14.1.7 GPIO\# READ »Read current pin value«
+<a name="elpg-gpio-read-command"></a>
 
-Reads the input value of the GPIO. If the pin is configured for digital input or output modes, this returns the current logic value present on the actual pin. If the GPIO# is configured for analog input or output modes, this returns the current ADC reading or the output register (decimal integer) value.
+Reads the input value of the GPIO. If the pin is configured for digital input or output modes, this returns the current logic value present on the actual pin. If the GPIO\# is configured for analog input or output modes, this returns the current ADC reading or the output register (decimal integer) value.Returns:
 
-###### Returns:
-
-`14.1.7.1`   `OK *{value}**{EOL}*`
-
+**14.1.7.1**   `OK {value}{EOL}`  
 Returns the current GPIO value.
 
-`14.1.7.2`   `ERR7 OUT OF RANGE*{EOL}*`
-
-The # index exceeds the available number of GPIOs.
+**14.1.7.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
 Example:
 
@@ -147,24 +120,20 @@ AT+GPIO2 READ{EOL}                  # Read the current value of pin2
 OK 0{EOL}                           # Input is low (the push button is being pressed)
 ```
 
-## 14.1.8 GPIO# ANALOG »Enable analog input mode«
+## 14.1.8 GPIO\# ANALOG »Enable analog input mode«
+<a name="elpg-gpio-analog-command"></a>
 
 The maximum integer (IOMaxInt) value is provided in the response to allow the host processor to scale the following readings. This command implementation is optional and must be documented on the device datasheet if available.
 
-`14.1.8.1`   The IOMaxInt value depends on the module ADC resolution (IOMaxInt = 2^resolution) and must be documented in the module datasheet.
+**14.1.8.1**   The IOMaxInt value depends on the module ADC resolution (IOMaxInt = 2^resolution) and must be documented in the module datasheet.Returns:
 
-###### Returns:
-
-`14.1.8.2`   `OK *{IOMaxInt}**{EOL}*`
-
+**14.1.8.2**   `OK {IOMaxInt}{EOL}`  
 Returns the maximum input integer value.
 
-`14.1.8.3`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.8.3**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.8.4`   `ERR17 MODE NOT AVAILABLE*{EOL}*`
-
+**14.1.8.4**   `ERR17 MODE NOT AVAILABLE{EOL}`  
 The GPIO cannot be configured as an analog input.
 
 Example:
@@ -177,41 +146,33 @@ AT+GPIO3 READ{EOL}                  # Sample pin3 and convert the analog input
 OK 512{EOL}                         # The analog input is at mid-scale (potentiometer middle)
 ```
 
-## 14.1.9 GPIO# DAC »Enable analog output mode«
+## 14.1.9 GPIO\# DAC »Enable analog output mode«
+<a name="elpg-gpio-dac-command"></a>
 
-Disconnects the digital output logic and enables the digital to analog (DAC) feature. Publishes the output value. The maximum integer (IOMaxInt) value is provided in the response to allow the host processor to scale the output values. This command implementation is optional and must be documented on the device datasheet if available.
+Disconnects the digital output logic and enables the digital to analog (DAC) feature. Publishes the output value. The maximum integer (IOMaxInt) value is provided in the response to allow the host processor to scale the output values. This command implementation is optional and must be documented on the device datasheet if available.Returns:
 
-###### Returns:
-
-`14.1.9.1`   `OK *{IOMaxInt}**{EOL}*`
-
+**14.1.9.1**   `OK {IOMaxInt}{EOL}`  
 Returns the maximum output integer value.
 
-`14.1.9.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.9.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.9.3`   `ERR17 MODE NOT AVAILABLE*{EOL}*`
-
+**14.1.9.3**   `ERR17 MODE NOT AVAILABLE{EOL}`  
 The GPIO cannot be configured as an analog output.
 
-## 14.1.10 GPIO# WRITE {value} »Set a new output register value«
+## 14.1.10 GPIO\# WRITE {value} »Set a new output register value«
+<a name="elpg-gpio-write-command"></a>
 
-Assigns a new value to GPIO# pin output register. You can use this command to assign non-binary values to the output register (e.g., to assign analog outputs). This command implementation is optional and must be documented on the device datasheet if available.
+Assigns a new value to GPIO\# pin output register. You can use this command to assign non-binary values to the output register (e.g., to assign analog outputs). This command implementation is optional and must be documented on the device datasheet if available.Returns:
 
-###### Returns:
-
-`14.1.10.1`   `OK *{value}**{EOL}*`
-
+**14.1.10.1**   `OK {value}{EOL}`  
 Returns the new output register value.
 
-`14.1.10.2`   `ERR7 OUT OF RANGE*{EOL}*`
+**14.1.10.2**   `ERR7 OUT OF RANGE{EOL}`  
+The \# index exceeds the available number of GPIOs.
 
-The # index exceeds the available number of GPIOs.
-
-`14.1.10.3`  
-
-If the assigned new value is greater than IOMaxInt for the GPIO current mode, the new value is _reduced modulo IOMaxInt_.
+**14.1.10.3**    
+If the assigned new value is greater than IOMaxInt for the GPIO current mode, the new value is *reduced modulo IOMaxInt*.
 
 Example 1 - Analog output write:
 
