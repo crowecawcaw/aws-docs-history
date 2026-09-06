@@ -376,7 +376,7 @@ stream impacting 50% of requests.
         {
             "Effect": "Allow",
             "Action": "kinesis:InjectApiError",
-            "Resource": "*"
+            "Resource": "*",
             "Condition": {
                 "ForAllValues:StringEquals": {
                     "kinesis:FisActionId": [
@@ -385,7 +385,7 @@ stream impacting 50% of requests.
                     ],
                     "kinesis:FisTargetArns": [
                         "arn:aws:kinesis:us-east-1:111122223333:stream/stream-name"
-                    ],
+                    ]
                 },
                 "NumericEquals": {
                     "kinesis:FisInjectPercentage": "50"
@@ -394,7 +394,7 @@ stream impacting 50% of requests.
         },
         {
              "Action": [
-                   "kinesis:DescribeStreamSummary",
+                   "kinesis:DescribeStreamSummary"
               ],
              "Resource": "*",
              "Effect": "Allow"

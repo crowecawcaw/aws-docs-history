@@ -83,7 +83,7 @@ You can use pre-configured AWS FIS SSM documents with the
 - The pre-configured SSM documents provided by AWS FIS are supported only on the
   following operating systems:
 
-  - Amazon Linux 2023, Amazon Linux 2
+  - Amazon Linux 2023
   - Ubuntu
   - RHEL 8, 9
   - CentOS 9
