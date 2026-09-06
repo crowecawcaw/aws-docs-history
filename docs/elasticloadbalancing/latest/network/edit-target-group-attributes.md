@@ -1,138 +1,98 @@
+
+
 # Edit target group attributes for your Network Load Balancer
+<a name="edit-target-group-attributes"></a>
 
 After you create a target group for your Network Load Balancer, you can edit its target group attributes.
 
-###### Target group attributes
-
-- [Client IP preservation](#client-ip-preservation "#client-ip-preservation")
-- [Deregistration delay](#deregistration-delay "#deregistration-delay")
-- [Proxy protocol](#proxy-protocol "#proxy-protocol")
-- [Sticky sessions](#sticky-sessions "#sticky-sessions")
-- [Cross-zone load balancing](#target-group-cross-zone "#target-group-cross-zone")
-- [Connection termination for unhealthy targets](#unhealthy-target-connection-termination "#unhealthy-target-connection-termination")
-- [Unhealthy draining interval](#unhealthy-draining-interval "#unhealthy-draining-interval")
+**Topics**
++ [Client IP preservation](#client-ip-preservation)
++ [Deregistration delay](#deregistration-delay)
++ [Proxy protocol](#proxy-protocol)
++ [Sticky sessions](#sticky-sessions)
++ [Cross-zone load balancing](#target-group-cross-zone)
++ [Connection termination for unhealthy targets](#unhealthy-target-connection-termination)
++ [Unhealthy draining interval](#unhealthy-draining-interval)
 
 ## Client IP preservation
+<a name="client-ip-preservation"></a>
 
-Network Load Balancers can preserve the source IP addresses of clients when routing requests to
-backend targets. When you disable client IP preservation, the source IP address
-is the private IP address of the Network Load Balancer.
+Network Load Balancers can preserve the source IP addresses of clients when routing requests to backend targets. When you disable client IP preservation, the source IP address is the private IP address of the Network Load Balancer.
 
-By default, client IP preservation is enabled (and can't be disabled) for instance
-and IP type target groups with UDP, TCP\_UDP, QUIC, and TCP\_QUIC protocols. However, you can enable or
-disable client IP preservation for TCP and TLS target groups using the
-`preserve_client_ip.enabled` target group attribute.
+By default, client IP preservation is enabled (and can't be disabled) for instance and IP type target groups with UDP, TCP\_UDP, QUIC, and TCP\_QUIC protocols. However, you can enable or disable client IP preservation for TCP and TLS target groups using the `preserve_client_ip.enabled` target group attribute.
 
-###### Default settings
+**Default settings**
++ Instance type target groups: Enabled
++ IP type target groups (UDP, TCP\_UDP, QUIC, TCP\_QUIC): Enabled
++ IP type target groups (TCP, TLS): Disabled
 
-- Instance type target groups: Enabled
-- IP type target groups (UDP, TCP\_UDP, QUIC, TCP\_QUIC): Enabled
-- IP type target groups (TCP, TLS): Disabled
+**When client IP preservation is enabled**  
+The following table describes the IP addresses that targets receive when client IP preservation is enabled.
 
-###### When client IP preservation is enabled
 
-The following table describes the IP addresses that targets receive
-when client IP preservation is enabled.
+| Targets | IPv4 client requests | IPv6 client requests | 
+| --- | --- | --- | 
+| Instance type (IPv4) | Client IPv4 address | Load balancer IPv4 address | 
+| IP type (IPv4) | Client IPv4 address | Load balancer IPv4 address | 
+| IP type (IPv6) | Load balancer IPv6 address | Client IPv6 address | 
 
-| Targets              | IPv4 client requests       | IPv6 client requests       |
-| -------------------- | -------------------------- | -------------------------- |
-| Instance type (IPv4) | Client IPv4 address        | Load balancer IPv4 address |
-| IP type (IPv4)       | Client IPv4 address        | Load balancer IPv4 address |
-| IP type (IPv6)       | Load balancer IPv6 address | Client IPv6 address        |
+**When client IP preservation is disabled**  
+The following table describes the IP addresses that targets receive when client IP preservation is disabled.
 
-###### When client IP preservation is disabled
 
-The following table describes the IP addresses that targets receive when
-client IP preservation is disabled.
+| Targets | IPv4 client requests | IPv6 client requests | 
+| --- | --- | --- | 
+| Instance type (IPv4) | Load balancer IPv4 address | Load balancer IPv4 address | 
+| IP type (IPv4) | Load balancer IPv4 address | Load balancer IPv4 address | 
+| IP type (IPv6) | Load balancer IPv6 address | Load balancer IPv6 address | 
 
-| Targets              | IPv4 client requests       | IPv6 client requests       |
-| -------------------- | -------------------------- | -------------------------- |
-| Instance type (IPv4) | Load balancer IPv4 address | Load balancer IPv4 address |
-| IP type (IPv4)       | Load balancer IPv4 address | Load balancer IPv4 address |
-| IP type (IPv6)       | Load balancer IPv6 address | Load balancer IPv6 address |
+**Requirements and considerations**
++ Client IP preservation changes take effect only for new TCP connections.
++ When client IP preservation is enabled, the traffic must flow directly from the Network Load Balancer to the target. The target must be located in the same VPC as the load balancer or in a peered VPC in the same Region.
++ Client IP preservation is not supported when targets are reached through a transit gateway.
++ Client IP preservation is not supported when using a Gateway Load Balancer endpoint to inspect traffic between the Network Load Balancer and the target (instance or IP address), even if the target is in the same VPC as the Network Load Balancer.
++ The following instance types do not support client IP preservation: C1, CC1, CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1, M2, M3, and T1. We recommend that you register these instance types as IP addresses with client IP preservation disabled.
++ Client IP preservation has no effect on inbound traffic from AWS PrivateLink. The source IP address of the AWS PrivateLink traffic is always the private IP address of the Network Load Balancer.
++ Client IP preservation is not supported when a target group contains AWS PrivateLink network interfaces, or the network interface of another Network Load Balancer. This causes a loss of communication to those targets.
++ Client IP preservation has no effect on traffic converted from IPv6 to IPv4. The source IP address of this type of traffic is always the private IP address of the Network Load Balancer.
++ When you specify targets by Application Load Balancer type, the client IP of all incoming traffic is preserved by the Network Load Balancer and is sent to the Application Load Balancer. The Application Load Balancer then appends the client IP to the `X-Forwarded-For` request header before sending it to the target.
++ NAT loopback, also known as hairpinning, is not supported when client IP preservation is enabled. This occurs when using internal Network Load Balancers, and the target registered behind a Network Load Balancer creates connections to the same Network Load Balancer. The connection can be routed to the target which is attempting to create the connection, leading to connection errors. We recommend not connecting to a Network Load Balancer from targets behind same Network Load Balancer, alternatively you can also prevent this type of connection error by disabling client IP preservation. If you need the client IP address, you can use retrieve it using Proxy Protocol v2. For more information, see [Proxy protocol](#proxy-protocol).
++ When client IP preservation is disabled, a Network Load Balancer supports 55,000 simultaneous connections or about 55,000 connections per minute to each unique target (IP address and port). If you exceed these connections, there is an increased chance of port allocation errors, resulting in failures to establish new connections. For more information, see [Port allocation errors for backend flows](load-balancer-troubleshooting.md#port-allocation-errors-privatelink).
 
-###### Requirements and considerations
+------
+#### [ Console ]
 
-- Client IP preservation changes take effect only for new TCP
-  connections.
-- When client IP preservation is enabled, the traffic must flow directly
-  from the Network Load Balancer to the target. The target must be located in the same VPC as
-  the load balancer or in a peered VPC in the same Region.
-- Client IP preservation is not supported when targets are reached through a
-  transit gateway.
-- Client IP preservation is not supported when using a Gateway Load Balancer endpoint to
-  inspect traffic between the Network Load Balancer and the target (instance or IP address),
-  even if the target is in the same VPC as the Network Load Balancer.
-- The following instance types do not support client IP preservation: C1, CC1,
-  CC2, CG1, CG2, CR1, G1, G2, HI1, HS1, M1, M2, M3, and T1. We recommend that you
-  register these instance types as IP addresses with client IP preservation
-  disabled.
-- Client IP preservation has no effect on inbound traffic from
-  AWS PrivateLink. The source IP address of the AWS PrivateLink traffic is always
-  the private IP address of the Network Load Balancer.
-- Client IP preservation is not supported when a target group contains
-  AWS PrivateLink network interfaces, or the network interface of another Network Load Balancer.
-  This causes a loss of communication to those targets.
-- Client IP preservation has no effect on traffic converted from IPv6 to
-  IPv4. The source IP address of this type of traffic is always the private IP
-  address of the Network Load Balancer.
-- When you specify targets by Application Load Balancer type, the client IP of all incoming traffic
-  is preserved by the Network Load Balancer and is sent to the Application Load Balancer. The Application Load Balancer then appends the
-  client IP to the `X-Forwarded-For` request header before sending it
-  to the target.
-- NAT loopback, also known as hairpinning, is not supported when client IP
-  preservation is enabled. This occurs when using internal Network Load Balancers, and the
-  target registered behind a Network Load Balancer creates connections to the same Network Load Balancer. The
-  connection can be routed to the target which is attempting to create the
-  connection, leading to connection errors. We recommend not connecting to a
-  Network Load Balancer from targets behind same Network Load Balancer, alternatively you can also prevent
-  this type of connection error by disabling client IP preservation. If you
-  need the client IP address, you can use retrieve it using Proxy Protocol v2.
-  For more information, see [Proxy protocol](#proxy-protocol "#proxy-protocol").
-- When client IP preservation is disabled, a Network Load Balancer supports 55,000 simultaneous
-  connections or about 55,000 connections per minute to each unique target (IP
-  address and port). If you exceed these connections, there is an increased chance
-  of port allocation errors, resulting in failures to establish new connections.
-  For more information, see [Port allocation errors for backend flows](load-balancer-troubleshooting.md#port-allocation-errors-privatelink "load-balancer-troubleshooting.md#port-allocation-errors-privatelink").
+**To modify client IP preservation**
 
-Console
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### To modify client IP preservation
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit** and find the
-   **Traffic configuration** pane.
-5. To enable client IP preservation, turn on **Preserve client
-   IP addresses**. To disable client IP preservation,
-   turn off **Preserve client IP addresses**.
-6. Choose **Save changes**.
+1. Choose the name of the target group to open its details page.
 
-AWS CLI
+1. On the **Attributes** tab, choose **Edit** and find the **Traffic configuration** pane.
 
-###### To enable client IP preservation
+1. To enable client IP preservation, turn on **Preserve client IP addresses**. To disable client IP preservation, turn off **Preserve client IP addresses**.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`preserve_client_ip.enabled` attribute.
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To enable client IP preservation**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `preserve_client_ip.enabled` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=preserve_client_ip.enabled,Value=`true`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=preserve_client_ip.enabled,Value={{true}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To enable client IP preservation
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource to
-include the `preserve_client_ip.enabled`
-attribute.
+**To enable client IP preservation**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `preserve_client_ip.enabled` attribute.
 
 ```
 Resources:
@@ -144,75 +104,58 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "preserve_client_ip.enabled"
-          Value: "`true`"
+          Value: "{{true}}"
 ```
+
+------
 
 ## Deregistration delay
+<a name="deregistration-delay"></a>
 
-When a target is deregistered, the load balancer stops creating new connections to the
-target. The load balancer uses connection draining to ensure that in-flight traffic
-completes on the existing connections. If the deregistered target stays healthy and an
-existing connection is not idle, the load balancer can continue to send traffic to the
-target. To ensure that existing connections are closed, you can do one of the following:
-enable the target group attribute for connection termination, ensure that the instance
-is unhealthy before you deregister it, or periodically close client connections.
+When a target is deregistered, the load balancer stops creating new connections to the target. The load balancer uses connection draining to ensure that in-flight traffic completes on the existing connections. If the deregistered target stays healthy and an existing connection is not idle, the load balancer can continue to send traffic to the target. To ensure that existing connections are closed, you can do one of the following: enable the target group attribute for connection termination, ensure that the instance is unhealthy before you deregister it, or periodically close client connections.
 
-The initial state of a deregistering target is `draining`, during which the
-target will stop receiving new connections. However, the target may still receive connections
-due to configuration propagation delay. By default, the load balancer changes
-the state of a deregistering target to `unused` after 300 seconds. To change
-the amount of time that the load balancer waits before changing the state of a deregistering
-target to `unused`, update the deregistration delay value. We recommend that you
-specify a value of at least 120 seconds to ensure that requests are completed. For QUIC traffic the value is
-always 300 seconds, and can't be adjusted.
+The initial state of a deregistering target is `draining`, during which the target will stop receiving new connections. However, the target may still receive connections due to configuration propagation delay. By default, the load balancer changes the state of a deregistering target to `unused` after 300 seconds. To change the amount of time that the load balancer waits before changing the state of a deregistering target to `unused`, update the deregistration delay value. We recommend that you specify a value of at least 120 seconds to ensure that requests are completed. For QUIC traffic the value is always 300 seconds, and can't be adjusted.
 
-If you enable the target group attribute for connection termination, connections to
-deregistered targets are closed shortly after the end of the deregistration
-timeout.
+If you enable the target group attribute for connection termination, connections to deregistered targets are closed shortly after the end of the deregistration timeout.
 
-Console
+------
+#### [ Console ]
 
-###### To modify the deregistration delay attributes
+**To modify the deregistration delay attributes**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. To change the deregistration timeout, enter a new value for
-   **Deregistration delay**. To ensure that
-   existing connections are closed after you deregister targets, select
-   **Terminate connections on deregistration**.
-6. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-###### To modify the deregistration delay attributes
+1. Choose the name of the target group to open its details page.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`deregistration_delay.timeout_seconds` and
-`deregistration_delay.connection_termination.enabled` attributes.
+1. On the **Attributes** tab, choose **Edit**.
+
+1. To change the deregistration timeout, enter a new value for **Deregistration delay**. To ensure that existing connections are closed after you deregister targets, select **Terminate connections on deregistration**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To modify the deregistration delay attributes**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `deregistration_delay.timeout_seconds` and `deregistration_delay.connection_termination.enabled` attributes.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
+    --target-group-arn {{target-group-arn}} \
     --attributes \
-      "Key=deregistration_delay.timeout_seconds,Value=`60`" \
-      "Key=deregistration_delay.connection_termination.enabled,Value=`true`"
+      "Key=deregistration_delay.timeout_seconds,Value={{60}}" \
+      "Key=deregistration_delay.connection_termination.enabled,Value={{true}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To modify the deregistration delay attributes
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `deregistration_delay.timeout_seconds`
-and `deregistration_delay.connection_termination.enabled` attributes.
+**To modify the deregistration delay attributes**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `deregistration_delay.timeout_seconds` and `deregistration_delay.connection_termination.enabled` attributes.
 
 ```
 Resources:
@@ -224,120 +167,101 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "deregistration_delay.timeout_seconds"
-          Value: "`60`"
+          Value: "{{60}}" 
         - Key: "deregistration_delay.connection_termination.enabled"
-          Value: "`true`"
+          Value: "{{true}}"
 ```
 
+------
+
 ## Proxy protocol
+<a name="proxy-protocol"></a>
 
-Network Load Balancers use proxy protocol version 2 to send additional connection information such as
-the source and destination. Proxy protocol version 2 provides a binary encoding of the
-proxy protocol header.
+Network Load Balancers use proxy protocol version 2 to send additional connection information such as the source and destination. Proxy protocol version 2 provides a binary encoding of the proxy protocol header.
 
-With TCP listeners, the load balancer prepends a proxy protocol header to the TCP
-data. It does not discard or overwrite any existing data, including any incoming
-proxy protocol headers sent by the client or any other proxies, load balancers, or
-servers in the network path. Therefore, it is possible to receive more than one
-proxy protocol header. Also, if there is another network path to your targets
-outside of your Network Load Balancer, the first proxy protocol header might not be the one from the
-load balancer.
+With TCP listeners, the load balancer prepends a proxy protocol header to the TCP data. It does not discard or overwrite any existing data, including any incoming proxy protocol headers sent by the client or any other proxies, load balancers, or servers in the network path. Therefore, it is possible to receive more than one proxy protocol header. Also, if there is another network path to your targets outside of your Network Load Balancer, the first proxy protocol header might not be the one from the load balancer.
 
-TLS listeners do not support incoming connections with proxy protocol headers
-sent by the client or any other proxies.
+TLS listeners do not support incoming connections with proxy protocol headers sent by the client or any other proxies.
 
 QUIC traffic does not support proxy protocol version 2.
 
-If you specify targets by IP address, the source IP addresses provided to your
-applications depend on the protocol of the target group as follows:
-
-- TCP and TLS: By default, client IP preservation is disabled, and the source
-  IP addresses provided to your applications are the private IP addresses of the
-  load balancer nodes. To preserve the client's IP address, ensure that the
-  target is located within the same VPC or a peered VPC and enable client IP
-  preservation. If you need the IP address of the client and these conditions are
-  not met, enable the proxy protocol and get the client IP address from the proxy
-  protocol header.
-- UDP and TCP\_UDP: The source IP addresses are the IP addresses of the clients,
-  as client IP preservation is enabled by default for these protocols and cannot
-  be disabled. If you specify targets by instance ID, the source IP addresses
-  provided to your applications are the client IP addresses. However, if you
-  prefer, you can enable proxy protocol and get the client IP addresses from
-  the proxy protocol header.
+If you specify targets by IP address, the source IP addresses provided to your applications depend on the protocol of the target group as follows:
++ TCP and TLS: By default, client IP preservation is disabled, and the source IP addresses provided to your applications are the private IP addresses of the load balancer nodes. To preserve the client's IP address, ensure that the target is located within the same VPC or a peered VPC and enable client IP preservation. If you need the IP address of the client and these conditions are not met, enable the proxy protocol and get the client IP address from the proxy protocol header.
++ UDP and TCP\_UDP: The source IP addresses are the IP addresses of the clients, as client IP preservation is enabled by default for these protocols and cannot be disabled. If you specify targets by instance ID, the source IP addresses provided to your applications are the client IP addresses. However, if you prefer, you can enable proxy protocol and get the client IP addresses from the proxy protocol header.
 
 ### Health check connections
+<a name="health-check-connections"></a>
 
-After you enable proxy protocol, the proxy protocol header is also included in
-health check connections from the load balancer. However, with health check
-connections, the client connection information is not sent in the proxy protocol
-header.
+After you enable proxy protocol, the proxy protocol header is also included in health check connections from the load balancer. However, with health check connections, the client connection information is not sent in the proxy protocol header.
 
-Targets can fail health checks if they can't parse the proxy protocol header.
-For example, they might return the following error: HTTP 400: Bad request.
+Targets can fail health checks if they can't parse the proxy protocol header. For example, they might return the following error: HTTP 400: Bad request.
 
 ### VPC endpoint services
+<a name="custom-tlv"></a>
 
-For traffic coming from service consumers through a [VPC endpoint service](../../../vpc/latest/privatelink/concepts.md "../../../vpc/latest/privatelink/concepts.md"), the
-source IP addresses provided to your applications are the private IP addresses of
-the load balancer nodes. If your applications need the IP addresses of the service
-consumers, enable proxy protocol and get them from the proxy protocol header.
+For traffic coming from service consumers through a [VPC endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html), the source IP addresses provided to your applications are the private IP addresses of the load balancer nodes. If your applications need the IP addresses of the service consumers, enable proxy protocol and get them from the proxy protocol header.
 
-The proxy protocol header also includes the ID of the endpoint. This information
-is encoded using a custom Type-Length-Value (TLV) vector as follows.
+The proxy protocol header also includes the ID of the endpoint. This information is encoded using a custom Type-Length-Value (TLV) vector as follows.
 
-| Field                           | Length (in octets)     | Description                        |
-| ------------------------------- | ---------------------- | ---------------------------------- |
-| Type                            | 1                      | PP2\_TYPE\_AWS (0xEA)              |
-| Length                          | 2                      | The length of value                |
-| Value                           | 1                      | PP2\_SUBTYPE\_AWS\_VPCE\_ID (0x01) |
-| variable (value length minus 1) | The ID of the endpoint |
 
-For an example that parses TLV type 0xEA, see [https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot](https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot "https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot").
+
+- ** Type **
+  - **Length (in octets):** 1
+  - **Description:** PP2\_TYPE\_AWS (0xEA)
+
+- ** Length **
+  - **Length (in octets):** 2
+  - **Description:** The length of value
+
+- ** Value **
+  - **Length (in octets):** 1 / **Description:** PP2\_SUBTYPE\_AWS\_VPCE\_ID (0x01)
+  - **Length (in octets):** variable (value length minus 1) / **Description:** The ID of the endpoint
+
+
+
+For an example that parses TLV type 0xEA, see [https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot](https://github.com/aws/elastic-load-balancing-tools/tree/master/proprot).
 
 ### Enable proxy protocol
+<a name="enable-proxy-protocol"></a>
 
-Before you enable proxy protocol on a target group, make sure that your
-applications expect and can parse the proxy protocol v2 header, otherwise, they
-might fail. For more information, see [PROXY protocol
-versions 1 and 2](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt "https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt").
+Before you enable proxy protocol on a target group, make sure that your applications expect and can parse the proxy protocol v2 header, otherwise, they might fail. For more information, see [PROXY protocol versions 1 and 2](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
-Console
+------
+#### [ Console ]
 
-###### To enable proxy protocol version 2
+**To enable proxy protocol version 2**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**, choose **Target
-   Groups**.
-3. Choose the name the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. On the **Edit attributes** page, select
-   **Proxy protocol v2**.
-6. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-###### To enable proxy protocol version 2
+1. Choose the name the target group to open its details page.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`proxy_protocol_v2.enabled` attribute.
+1. On the **Attributes** tab, choose **Edit**.
+
+1. On the **Edit attributes** page, select **Proxy protocol v2**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To enable proxy protocol version 2**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `proxy_protocol_v2.enabled` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=proxy_protocol_v2.enabled,Value=`true`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=proxy_protocol_v2.enabled,Value={{true}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To enable proxy protocol version 2
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `proxy_protocol_v2.enabled` attribute.
+**To enable proxy protocol version 2**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `proxy_protocol_v2.enabled` attribute.
 
 ```
 Resources:
@@ -349,65 +273,58 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "proxy_protocol_v2.enabled"
-          Value: "`true`"
+          Value: "{{true}}"
 ```
+
+------
 
 ## Sticky sessions
+<a name="sticky-sessions"></a>
 
-Sticky sessions are a mechanism to route client traffic to the same target in a target
-group. This is useful for servers that maintain state information in order to provide a
-continuous experience to clients.
+Sticky sessions are a mechanism to route client traffic to the same target in a target group. This is useful for servers that maintain state information in order to provide a continuous experience to clients.
 
-###### Considerations
+**Considerations**
++ Using sticky sessions can lead to an uneven distribution of connections and flows, which might impact the availability of your targets. For example, all clients behind the same NAT device have the same source IP address. Therefore, all traffic from these clients is routed to the same target.
++ The load balancer might reset the sticky sessions for a target group if the health state of any of its targets changes or if you register or deregister targets with the target group.
++ When the stickiness attribute is turned on for a target group, passive health checks are not supported. For more information, see [ Health checks for your target groups](target-group-health-checks.md).
++ Sticky sessions are not supported for TLS or QUIC listeners.
 
-- Using sticky sessions can lead to an uneven distribution of connections and
-  flows, which might impact the availability of your targets. For example, all
-  clients behind the same NAT device have the same source IP address. Therefore,
-  all traffic from these clients is routed to the same target.
-- The load balancer might reset the sticky sessions for a target group if the
-  health state of any of its targets changes or if you register or deregister
-  targets with the target group.
-- When the stickiness attribute is turned on for a target group, passive health
-  checks are not supported. For more information, see [Health checks for your target groups](target-group-health-checks.md "target-group-health-checks.md").
-- Sticky sessions are not supported for TLS or QUIC listeners.
+------
+#### [ Console ]
 
-Console
+**To enable sticky sessions**
 
-###### To enable sticky sessions
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. Under **Target selection configuration**, turn on
-   **Stickiness**.
-6. Choose **Save changes**.
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-AWS CLI
+1. Choose the name of the target group to open its details page.
 
-###### To enable sticky sessions
+1. On the **Attributes** tab, choose **Edit**.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`stickiness.enabled` attribute.
+1. Under **Target selection configuration**, turn on **Stickiness**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To enable sticky sessions**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `stickiness.enabled` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=stickiness.enabled,Value=`true`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=stickiness.enabled,Value={{true}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To enable sticky sessions
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `stickiness.enabled` attribute.
+**To enable sticky sessions**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `stickiness.enabled` attribute.
 
 ```
 Resources:
@@ -419,81 +336,63 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "stickiness.enabled"
-          Value: "`true`"
+          Value: "{{true}}"
 ```
+
+------
 
 ## Cross-zone load balancing for target groups
+<a name="target-group-cross-zone"></a>
 
-The nodes for your load balancer distribute requests from clients to registered
-targets. When cross-zone load balancing is on, each load balancer node distributes
-traffic across the registered targets in all registered Availability Zones. When cross-zone
-load balancing is off, each load balancer node distributes traffic across only the
-registered targets in its Availability Zone. This could be used if zonal failure domains
-are preferred over regional, ensuring that a healthy zone isn't impacted by an
-unhealthy zone, or for overall latency improvements.
+The nodes for your load balancer distribute requests from clients to registered targets. When cross-zone load balancing is on, each load balancer node distributes traffic across the registered targets in all registered Availability Zones. When cross-zone load balancing is off, each load balancer node distributes traffic across only the registered targets in its Availability Zone. This could be used if zonal failure domains are preferred over regional, ensuring that a healthy zone isn't impacted by an unhealthy zone, or for overall latency improvements.
 
-With Network Load Balancers, cross-zone load balancing is disabled by default at the load balancer level,
-but you can enable it at any time. For target groups, the default is to use the load
-balancer setting, but you can override the default by explicitly enabling or disabling
-cross-zone load balancing at the target group level.
+With Network Load Balancers, cross-zone load balancing is disabled by default at the load balancer level, but you can enable it at any time. For target groups, the default is to use the load balancer setting, but you can override the default by explicitly enabling or disabling cross-zone load balancing at the target group level.
 
-###### Considerations
+**Considerations**
++ When enabling cross-zone load balancing for a Network Load Balancer, EC2 data transfer charges apply. For more information, see [Understanding data transfer charges](https://docs.aws.amazon.com/cur/latest/userguide/cur-data-transfers-charges.html) in the *AWS Data Exports User Guide*
++ The target group setting determines the load balancing behavior for the target group. For example, if cross-zone load balancing is enabled at the load balancer level and disabled at the target group level, traffic sent to the target group is not routed across Availability Zones.
++ When cross-zone load balancing is disabled, ensure that you have enough target capacity in each of the load balancer Availability Zones, so that each zone can serve its associated workload.
++ When cross-zone load balancing is disabled, ensure that all target groups participate in the same Availability Zones. An empty Availability Zone is considered unhealthy.
++ You can enable or disable cross-zone load balancing at the target group level if the target group type is `instance` or `ip`. If the target group type is `alb`, the target group always inherits the cross-zone load balancing setting from the load balancer.
 
-- When enabling cross-zone load balancing for a Network Load Balancer, EC2 data transfer charges
-  apply. For more information, see [Understanding data
-  transfer charges](../../../cur/latest/userguide/cur-data-transfers-charges.md "../../../cur/latest/userguide/cur-data-transfers-charges.md") in the _AWS Data Exports User Guide_
-- The target group setting determines the load balancing behavior for the
-  target group. For example, if cross-zone load balancing is enabled at the
-  load balancer level and disabled at the target group level, traffic sent
-  to the target group is not routed across Availability Zones.
-- When cross-zone load balancing is disabled, ensure that you have enough target
-  capacity in each of the load balancer Availability Zones, so that each zone
-  can serve its associated workload.
-- When cross-zone load balancing is disabled, ensure that all target groups
-  participate in the same Availability Zones. An empty Availability Zone
-  is considered unhealthy.
-- You can enable or disable cross-zone load balancing at the target group level if the
-  target group type is `instance` or `ip`. If the target
-  group type is `alb`, the target group always inherits the cross-zone
-  load balancing setting from the load balancer.
+For more information about enabling cross-zone load balancing at the load balancer level, see [Cross-zone load balancing](edit-load-balancer-attributes.md#load-balancer-cross-zone).
 
-For more information about enabling cross-zone load balancing at the load balancer level,
-see [Cross-zone load balancing](edit-load-balancer-attributes.md#load-balancer-cross-zone "edit-load-balancer-attributes.md#load-balancer-cross-zone").
+------
+#### [ Console ]
 
-Console
+**To enable cross-zone load balancing for a target group**
 
-###### To enable cross-zone load balancing for a target group
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, under **Load Balancing**, select **Target Groups**.
-3. Select the name of the target group to open its details page.
-4. On the **Attributes** tab, choose **Edit**.
-5. On the **Edit target group attributes** page, select
-   **On** for **Cross-zone load balancing**.
-6. Choose **Save changes**.
+1. On the navigation pane, under **Load Balancing**, select **Target Groups**.
 
-AWS CLI
+1. Select the name of the target group to open its details page.
 
-###### To enable cross-zone load balancing for a target group
+1. On the **Attributes** tab, choose **Edit**.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md")
-command with the `load_balancing.cross_zone.enabled` attribute.
+1. On the **Edit target group attributes** page, select **On** for **Cross-zone load balancing**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To enable cross-zone load balancing for a target group**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `load_balancing.cross_zone.enabled` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=load_balancing.cross_zone.enabled,Value=`true`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=load_balancing.cross_zone.enabled,Value={{true}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To enable cross-zone load balancing for a target group
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `load_balancing.cross_zone.enabled` attribute.
+**To enable cross-zone load balancing for a target group**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `load_balancing.cross_zone.enabled` attribute.
 
 ```
 Resources:
@@ -505,57 +404,54 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "load_balancing.cross_zone.enabled"
-          Value: "`true`"
+          Value: "{{true}}"
 ```
 
-## Connection termination for unhealthy targets
+------
 
-Connection termination is enabled by default. When the target of a Network Load Balancer fails the
-configured health checks and is deemed unhealthy, the load balancer terminates established
-connections and stops routing new connections to the target. With connection termination
-disabled the target is still considered unhealthy and won't receive new connections, but
-established connections are kept active, allowing them to gracefully close.
+## Connection termination for unhealthy targets
+<a name="unhealthy-target-connection-termination"></a>
+
+Connection termination is enabled by default. When the target of a Network Load Balancer fails the configured health checks and is deemed unhealthy, the load balancer terminates established connections and stops routing new connections to the target. With connection termination disabled the target is still considered unhealthy and won't receive new connections, but established connections are kept active, allowing them to gracefully close.
 
 Connection termination for unhealthy targets is configured at the target group level.
 
-Console
+------
+#### [ Console ]
 
-###### To modify the connection termination attribute
+**To modify the connection termination attribute**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. Under **Target unhealthy state management**, choose whether
-   **Terminate connections when targets become unhealthy** is enabled or disabled.
-6. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-###### To disable the connection termination attribute
+1. Choose the name of the target group to open its details page.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`target_health_state.unhealthy.connection_termination.enabled` attribute.
+1. On the **Attributes** tab, choose **Edit**.
+
+1. Under **Target unhealthy state management**, choose whether **Terminate connections when targets become unhealthy** is enabled or disabled.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To disable the connection termination attribute**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `target_health_state.unhealthy.connection_termination.enabled` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=target_health_state.unhealthy.connection_termination.enabled,Value=`false`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=target_health_state.unhealthy.connection_termination.enabled,Value={{false}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To disable the connection termination attribute
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `target_health_state.unhealthy.connection_termination.enabled`
-attribute.
+**To disable the connection termination attribute**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `target_health_state.unhealthy.connection_termination.enabled` attribute.
 
 ```
 Resources:
@@ -567,60 +463,57 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "target_health_state.unhealthy.connection_termination.enabled"
-          Value: "`false`"
+          Value: "{{false}}"
 ```
+
+------
 
 ## Unhealthy draining interval
+<a name="unhealthy-draining-interval"></a>
 
-Targets in the `unhealthy.draining` state are considered unhealthy, do not receive new
-connections, but retain established connections for the configured interval. The unhealthy connection
-interval determines the amount of time the target remains in the `unhealthy.draining` state
-before its state becomes `unhealthy`. If the target passes health checks during the unhealthy
-connection interval, its state becomes `healthy` again. If a deregistration is triggered,
-the targets state becomes `draining` and the deregistration delay timeout begins.
+Targets in the `unhealthy.draining` state are considered unhealthy, do not receive new connections, but retain established connections for the configured interval. The unhealthy connection interval determines the amount of time the target remains in the `unhealthy.draining` state before its state becomes `unhealthy`. If the target passes health checks during the unhealthy connection interval, its state becomes `healthy` again. If a deregistration is triggered, the targets state becomes `draining` and the deregistration delay timeout begins.
 
-###### Requirement
-
+**Requirement**  
 Connection termination must be disabled before enabling unhealthy draining interval.
 
-Console
+------
+#### [ Console ]
 
-###### To modify the unhealthy draining interval
+**To modify the unhealthy draining interval**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. Under **Target unhealthy state management**, make sure
-   **Terminate connections when targets become unhealthy** is turned off.
-6. Enter a value for **Unhealthy draining interval**.
-7. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-###### To modify the unhealthy draining interval
+1. Choose the name of the target group to open its details page.
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command with the
-`target_health_state.unhealthy.draining_interval_seconds` attribute.
+1. On the **Attributes** tab, choose **Edit**.
+
+1. Under **Target unhealthy state management**, make sure **Terminate connections when targets become unhealthy** is turned off.
+
+1. Enter a value for **Unhealthy draining interval**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To modify the unhealthy draining interval**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `target_health_state.unhealthy.draining_interval_seconds` attribute.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
-    --attributes "Key=target_health_state.unhealthy.draining_interval_seconds,Value=`60`"
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=target_health_state.unhealthy.draining_interval_seconds,Value={{60}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To modify the unhealthy draining interval
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource
-to include the `target_health_state.unhealthy.draining_interval_seconds` attribute.
+**To modify the unhealthy draining interval**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup ](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `target_health_state.unhealthy.draining_interval_seconds` attribute.
 
 ```
 Resources:
@@ -632,7 +525,9 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "target_health_state.unhealthy.draining_interval_seconds"
-          Value: "`60`"
+          Value: "{{60}}"
 ```
+
+------

@@ -1,57 +1,60 @@
+
+
 # Update a TLS listener for your Network Load Balancer
+<a name="listener-update-certificates"></a>
 
-After you create a TLS listener, you can replace the default certificate, add or
-remove certificates from the certificate list, update the security policy, or update the
-ALPN policy.
+After you create a TLS listener, you can replace the default certificate, add or remove certificates from the certificate list, update the security policy, or update the ALPN policy.
 
-###### Tasks
-
-- [Replace the default certificate](#replace-default-certificate "#replace-default-certificate")
-- [Add certificates to the certificate list](#add-certificates "#add-certificates")
-- [Remove certificates from the certificate list](#remove-certificates "#remove-certificates")
-- [Update the security policy](#update-security-policy "#update-security-policy")
-- [Update the ALPN policy](#update-alpn-policy "#update-alpn-policy")
+**Topics**
++ [Replace the default certificate](#replace-default-certificate)
++ [Add certificates to the certificate list](#add-certificates)
++ [Remove certificates from the certificate list](#remove-certificates)
++ [Update the security policy](#update-security-policy)
++ [Update the ALPN policy](#update-alpn-policy)
 
 ## Replace the default certificate
+<a name="replace-default-certificate"></a>
 
-You can replace the default certificate for your TLS listener as needed.
-For more information, see [Default certificate](tls-listener-certificates.md#default-certificate "tls-listener-certificates.md#default-certificate").
+You can replace the default certificate for your TLS listener as needed. For more information, see [Default certificate](tls-listener-certificates.md#default-certificate).
 
-Console
+------
+#### [ Console ]
 
-###### To replace the default certificate
+**To replace the default certificate**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, choose **Load Balancers**.
-3. Select the load balancer.
-4. On the **Listeners and rules** tab, choose the text in the **Protocol:Port**
-   column to open the detail page for the listener.
-5. On the **Certificates** tab, choose **Change default**.
-6. Within the **ACM and IAM certificates** table, select a new default certificate.
-7. (Optional) By default, we select **Add previous default certificate to listener certificate list**.
-   We recommend that you keep this option selected, unless you currently have no listener certificates for SNI
-   and rely on TLS session resumption.
-8. Choose **Save as default**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. On the navigation pane, choose **Load Balancers**.
 
-###### To replace the default certificate
+1. Select the load balancer.
 
-Use the [modify-listener](../../../cli/latest/reference/elbv2/modify-listener.md "../../../cli/latest/reference/elbv2/modify-listener.md") command.
+1. On the **Listeners and rules** tab, choose the text in the **Protocol:Port** column to open the detail page for the listener.
+
+1. On the **Certificates** tab, choose **Change default**.
+
+1. Within the **ACM and IAM certificates** table, select a new default certificate.
+
+1. (Optional) By default, we select **Add previous default certificate to listener certificate list**. We recommend that you keep this option selected, unless you currently have no listener certificates for SNI and rely on TLS session resumption.
+
+1. Choose **Save as default**.
+
+------
+#### [ AWS CLI ]
+
+**To replace the default certificate**  
+Use the [modify-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-listener.html) command.
 
 ```
 aws elbv2 modify-listener \
-    --listener-arn `listener-arn` \
-    --certificates CertificateArn=`new-default-certificate-arn`
+    --listener-arn {{listener-arn}} \
+    --certificates CertificateArn={{new-default-certificate-arn}}
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To replace the default certificate
-
-Update the [AWS::ElasticLoadBalancingV2::Listener](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") resource with the
-new default certificate.
+**To replace the default certificate**  
+Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource with the new default certificate.
 
 ```
 Resources:
@@ -66,72 +69,74 @@ Resources:
           TargetGroupArn: !Ref myTargetGroup
       SslPolicy: "ELBSecurityPolicy-TLS13-1-2-2021-06"
       Certificates:
-        - CertificateArn: "`new-default-certificate-arn`"
+        - CertificateArn: "{{new-default-certificate-arn}}"
 ```
 
+------
+
 ## Add certificates to the certificate list
+<a name="add-certificates"></a>
 
-You can add certificates to the certificate list for your listener using the
-following procedure. When you first create a TLS listener, the certificate list is
-empty. You can add the default certificate to the certificate list to ensure that
-this certificate is used with the SNI protocol even if it is replaced as the default
-certificate. For more information, see [Certificate list](tls-listener-certificates.md#sni-certificate-list "tls-listener-certificates.md#sni-certificate-list").
+You can add certificates to the certificate list for your listener using the following procedure. When you first create a TLS listener, the certificate list is empty. You can add the default certificate to the certificate list to ensure that this certificate is used with the SNI protocol even if it is replaced as the default certificate. For more information, see [Certificate list](tls-listener-certificates.md#sni-certificate-list).
 
-Console
+------
+#### [ Console ]
 
-###### To add certificates to the certificate list
+**To add certificates to the certificate list**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners and rules** tab, choose the text in the
-   **Protocol:Port** column to open the detail page for the
-   listener.
-5. Choose the **Certificates** tab.
-6. To add the default certificate to the list, choose **Add default to list**.
-7. To add nondefault certificates to the list, do the following:
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. In the navigation pane, choose **Load Balancers**.
+
+1. Choose the name of the load balancer to open its detail page.
+
+1. On the **Listeners and rules** tab, choose the text in the **Protocol:Port** column to open the detail page for the listener.
+
+1. Choose the **Certificates** tab.
+
+1. To add the default certificate to the list, choose **Add default to list**.
+
+1. To add nondefault certificates to the list, do the following:
 
    1. Choose **Add certificate**.
-   2. To add certificates that are already managed by ACM or IAM, select the
-      check boxes for the certificates and choose **Include as pending
-      below**.
-   3. To add a certificate that isn't managed by ACM or IAM, choose
-      **Import certificate**, complete the form, and choose
-      **Import**.
-   4. Choose **Add pending certificates**.
 
-AWS CLI
+   1. To add certificates that are already managed by ACM or IAM, select the check boxes for the certificates and choose **Include as pending below**.
 
-###### To add certificates to the certificate list
+   1. To add a certificate that isn't managed by ACM or IAM, choose **Import certificate**, complete the form, and choose **Import**.
 
-Use the [add-listener-certificates](../../../cli/latest/reference/elbv2/add-listener-certificates.md "../../../cli/latest/reference/elbv2/add-listener-certificates.md") command.
+   1. Choose **Add pending certificates**.
+
+------
+#### [ AWS CLI ]
+
+**To add certificates to the certificate list**  
+Use the [add-listener-certificates](https://docs.aws.amazon.com/cli/latest/reference/elbv2/add-listener-certificates.html) command.
 
 ```
 aws elbv2 add-listener-certificates \
-    --listener-arn `listener-arn` \
+    --listener-arn {{listener-arn}} \
     --certificates \
-        CertificateArn=`certificate-arn-1` \
-        CertificateArn=`certificate-arn-2` \
-        CertificateArn=`certificate-arn-3`
+        CertificateArn={{certificate-arn-1}} \
+        CertificateArn={{certificate-arn-2}} \
+        CertificateArn={{certificate-arn-3}}
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To add certificates to the certificate list
-
-Define a resource of type [AWS::ElasticLoadBalancingV2::ListenerCertificate](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.md").
+**To add certificates to the certificate list**  
+Define a resource of type [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 
 ```
-Resources:
+Resources: 
   myCertificateList:
     Type: 'AWS::ElasticLoadBalancingV2::ListenerCertificate'
     Properties:
       ListenerArn: !Ref myTLSListener
       Certificates:
-        - CertificateArn: "`certificate-arn-1`"
-        - CertificateArn: "`certificate-arn-2`"
-        - CertificateArn: "`certificate-arn-3`"
+        - CertificateArn: "{{certificate-arn-1}}"
+        - CertificateArn: "{{certificate-arn-2}}"
+        - CertificateArn: "{{certificate-arn-3}}"
 
   myTLSListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
@@ -141,96 +146,95 @@ Resources:
       Port: 443
       SslPolicy: "ELBSecurityPolicy-TLS13-1-2-2021-06"
       Certificates:
-        - CertificateArn: "*certificate-arn-1*"
+        - CertificateArn: "certificate-arn-1"
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref myTargetGroup
 ```
 
+------
+
 ## Remove certificates from the certificate list
+<a name="remove-certificates"></a>
 
-You can remove certificates from the certificate list for a TLS listener using the
-following procedure. After you remove a certificate, the listener can no longer
-create connections using that certificate. To ensure that clients are not impacted,
-add a new certificate to the list and confirm that connections are working before
-you remove a certificate from the list.
+You can remove certificates from the certificate list for a TLS listener using the following procedure. After you remove a certificate, the listener can no longer create connections using that certificate. To ensure that clients are not impacted, add a new certificate to the list and confirm that connections are working before you remove a certificate from the list.
 
-To remove the default certificate for a TLS listener, see [Replace the default certificate](#replace-default-certificate "#replace-default-certificate").
+To remove the default certificate for a TLS listener, see [Replace the default certificate](#replace-default-certificate).
 
-Console
+------
+#### [ Console ]
 
-###### To remove certificates from the certificate list
+**To remove certificates from the certificate list**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners and rules** tab, choose the text in the
-   **Protocol:Port** column to open the detail page for the
-   listener.
-5. On the **Certificates** tab, select the check boxes for
-   the certificates and choose **Remove**.
-6. When prompted for confirmation, enter `confirm`
-   and choose **Remove**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Load Balancers**.
 
-###### To remove certificates from the certificate list
+1. Choose the name of the load balancer to open its detail page.
 
-Use the [remove-listener-certificates](../../../cli/latest/reference/elbv2/remove-listener-certificates.md "../../../cli/latest/reference/elbv2/remove-listener-certificates.md") command.
+1. On the **Listeners and rules** tab, choose the text in the **Protocol:Port** column to open the detail page for the listener.
+
+1. On the **Certificates** tab, select the check boxes for the certificates and choose **Remove**.
+
+1. When prompted for confirmation, enter **confirm** and choose **Remove**.
+
+------
+#### [ AWS CLI ]
+
+**To remove certificates from the certificate list**  
+Use the [remove-listener-certificates](https://docs.aws.amazon.com/cli/latest/reference/elbv2/remove-listener-certificates.html) command.
 
 ```
 aws elbv2 remove-listener-certificates \
-    --listener-arn `listener-arn` \
-    --certificates CertificateArn=`certificate-arn`
+    --listener-arn {{listener-arn}} \
+    --certificates CertificateArn={{certificate-arn}}
 ```
 
+------
+
 ## Update the security policy
+<a name="update-security-policy"></a>
 
-When you create a TLS listener, you can select the security policy that meets your
-needs. When a new security policy is added, you can update your TLS listener to use
-the new security policy. Network Load Balancers do not support custom security policies. For more
-information, see [Security policies for your Network Load Balancer](describe-ssl-policies.md "describe-ssl-policies.md").
+When you create a TLS listener, you can select the security policy that meets your needs. When a new security policy is added, you can update your TLS listener to use the new security policy. Network Load Balancers do not support custom security policies. For more information, see [Security policies for your Network Load Balancer](describe-ssl-policies.md).
 
-Updating the security policy can result in disruptions if the load balancer is
-handling a high volume of traffic. To decrease the possibility of disruptions when
-your load balancer is handling a high volume of traffic, create an additional load
-balancer to help handle the traffic or request an LCU reservation.
+Updating the security policy can result in disruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of disruptions when your load balancer is handling a high volume of traffic, create an additional load balancer to help handle the traffic or request an LCU reservation.
 
-Console
+------
+#### [ Console ]
 
-###### To update the security policy
+**To update the security policy**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners and rules** tab, choose the text in the
-   **Protocol:Port** column to open the detail page for the
-   listener.
-5. Choose **Actions**, **Edit listener**.
-6. In the **Secure listener settings** section, under
-   **Security policy**, choose a new security policy.
-7. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Load Balancers**.
 
-###### To update the security policy
+1. Choose the name of the load balancer to open its detail page.
 
-Use the [modify-listener](../../../cli/latest/reference/elbv2/modify-listener.md "../../../cli/latest/reference/elbv2/modify-listener.md") command.
+1. On the **Listeners and rules** tab, choose the text in the **Protocol:Port** column to open the detail page for the listener.
+
+1. Choose **Actions**, **Edit listener**.
+
+1. In the **Secure listener settings** section, under **Security policy**, choose a new security policy.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To update the security policy**  
+Use the [modify-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-listener.html) command.
 
 ```
 aws elbv2 modify-listener \
-    --listener-arn `listener-arn` \
-    --ssl-policy `ELBSecurityPolicy-TLS13-1-2-Res-2021-06`
+    --listener-arn {{listener-arn}} \
+    --ssl-policy {{ELBSecurityPolicy-TLS13-1-2-Res-2021-06}}
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To update the security policy
-
-Update the [AWS::ElasticLoadBalancingV2::Listener](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") resource with the
-new security policy.
+**To update the security policy**  
+Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource with the new security policy.
 
 ```
 Resources:
@@ -240,54 +244,57 @@ Resources:
       LoadBalancerArn: !Ref myLoadBalancer
       Protocol: TLS
       Port: 443
-      SslPolicy: "`ELBSecurityPolicy-TLS13-1-2-2021-06`"
+      SslPolicy: "{{ELBSecurityPolicy-TLS13-1-2-2021-06}}"
       Certificates:
-        - CertificateArn: "*default-certificate-arn*"
+        - CertificateArn: "default-certificate-arn"
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref myTargetGroup
 ```
 
+------
+
 ## Update the ALPN policy
+<a name="update-alpn-policy"></a>
 
-You can update the ALPN policy for your TLS listener as needed. For
-more information, see [ALPN policies](load-balancer-listeners.md#alpn-policies "load-balancer-listeners.md#alpn-policies").
+You can update the ALPN policy for your TLS listener as needed. For more information, see [ALPN policies](load-balancer-listeners.md#alpn-policies).
 
-Console
+------
+#### [ Console ]
 
-###### To update the ALPN policy
+**To update the ALPN policy**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Load Balancers**.
-3. Choose the name of the load balancer to open its detail page.
-4. On the **Listeners and rules** tab, choose the text in the
-   **Protocol:Port** column to open the detail page for the
-   listener.
-5. Choose **Actions**, **Edit listener**.
-6. In the **Secure listener settings** section, for
-   **ALPN policy**, choose a policy to enable ALPN or
-   choose **None** to disable ALPN.
-7. Choose **Save changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Load Balancers**.
 
-###### To update the ALPN policy
+1. Choose the name of the load balancer to open its detail page.
 
-Use the [modify-listener](../../../cli/latest/reference/elbv2/modify-listener.md "../../../cli/latest/reference/elbv2/modify-listener.md") command.
+1. On the **Listeners and rules** tab, choose the text in the **Protocol:Port** column to open the detail page for the listener.
+
+1. Choose **Actions**, **Edit listener**.
+
+1. In the **Secure listener settings** section, for **ALPN policy**, choose a policy to enable ALPN or choose **None** to disable ALPN.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To update the ALPN policy**  
+Use the [modify-listener](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-listener.html) command.
 
 ```
 aws elbv2 modify-listener \
-    --listener-arn `listener-arn` \
-    --alpn-policy `HTTP2Preferred`
+    --listener-arn {{listener-arn}} \
+    --alpn-policy {{HTTP2Preferred}}
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To update the ALPN policy
-
-Update the [AWS::ElasticLoadBalancingV2::Listener](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") resource to
-include the ALPN policy.
+**To update the ALPN policy**  
+Update the [AWS::ElasticLoadBalancingV2::Listener](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html) resource to include the ALPN policy.
 
 ```
 Resources:
@@ -299,10 +306,12 @@ Resources:
       Port: 443
       SslPolicy: "ELBSecurityPolicy-TLS13-1-2-Res-2021-06"
       AlpnPolicy:
-        - `HTTP2Preferred`
+        - {{HTTP2Preferred}}
       Certificates:
-        - CertificateArn: "*certificate-arn*"
+        - CertificateArn: "certificate-arn"
       DefaultActions:
         - Type: forward
           TargetGroupArn: !Ref myTargetGroup
 ```
+
+------

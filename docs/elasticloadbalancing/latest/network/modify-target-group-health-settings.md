@@ -1,78 +1,66 @@
+
+
 # Update the target group health settings for your Network Load Balancer
+<a name="modify-target-group-health-settings"></a>
 
-By default, Network Load Balancers monitor the health of targets and route requests to healthy targets.
-However, if the load balancer doesn't have enough healthy targets, it automatically sends
-traffic to all registered targets (fail open). You can modify the target group health
-settings for your target group to define the thresholds for DNS failover and routing
-failover. For more information, see [Target group health](load-balancer-target-groups.md#target-group-health "load-balancer-target-groups.md#target-group-health").
+By default, Network Load Balancers monitor the health of targets and route requests to healthy targets. However, if the load balancer doesn't have enough healthy targets, it automatically sends traffic to all registered targets (fail open). You can modify the target group health settings for your target group to define the thresholds for DNS failover and routing failover. For more information, see [Target group health](load-balancer-target-groups.md#target-group-health).
 
-Console
+------
+#### [ Console ]
 
-###### To update the target group health settings
+**To update the target group health settings**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Load Balancing**,
-   choose **Target Groups**.
-3. Choose the name of the target group to open its details
-   page.
-4. On the **Attributes** tab, choose
-   **Edit**.
-5. Expand **Target group health requirements**.
-6. For **Configuration type**, we recommend that
-   you choose **Unified configuration**, which sets
-   the same threshold for both DNS failover and routing failover.
-7. For **Healthy state requirements**, do one of
-   the following:
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-   - Choose **Minimum healthy target count**, and then
-     enter a number from 1 to the maximum number of targets for your
-     target group.
-   - Choose **Minimum healthy target percentage**,
-     and then enter a number from 1 to 100.
+1. In the navigation pane, under **Load Balancing**, choose **Target Groups**.
 
-8. The informational text indicates whether cross-zone load balancing
-   is enabled for the target group. If cross-zone load balancing is disabled,
-   you can enable it to ensure that you have enough capacity. Under
-   **Target selection configuration**, update
-   **Cross-zone load balancing**.
+1. Choose the name of the target group to open its details page.
 
-The following text indicates that cross-zone load balancing is disabled:
+1. On the **Attributes** tab, choose **Edit**.
 
-```
-Healthy state requirements apply to each zone independently.
-```
+1. Expand **Target group health requirements**.
 
-The following text indicates that cross-zone load balancing is enabled:
+1. For **Configuration type**, we recommend that you choose **Unified configuration**, which sets the same threshold for both DNS failover and routing failover.
 
-```
-Healthy state requirements apply to the total targets across all applicable zones.
-```
+1. For **Healthy state requirements**, do one of the following:
+   + Choose **Minimum healthy target count**, and then enter a number from 1 to the maximum number of targets for your target group.
+   + Choose **Minimum healthy target percentage**, and then enter a number from 1 to 100.
 
-9. Choose **Save changes**.
+1. The informational text indicates whether cross-zone load balancing is enabled for the target group. If cross-zone load balancing is disabled, you can enable it to ensure that you have enough capacity. Under **Target selection configuration**, update **Cross-zone load balancing**.
 
-AWS CLI
+   The following text indicates that cross-zone load balancing is disabled:
 
-###### To update the target group health settings
+   ```
+   Healthy state requirements apply to each zone independently.
+   ```
 
-Use the [modify-target-group-attributes](../../../cli/latest/reference/elbv2/modify-target-group-attributes.md "../../../cli/latest/reference/elbv2/modify-target-group-attributes.md") command. The following example
-sets the healthy threshold for both unhealthy state actions to 50%.
+   The following text indicates that cross-zone load balancing is enabled:
+
+   ```
+   Healthy state requirements apply to the total targets across all applicable zones.
+   ```
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To update the target group health settings**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command. The following example sets the healthy threshold for both unhealthy state actions to 50%.
 
 ```
 aws elbv2 modify-target-group-attributes \
-    --target-group-arn `target-group-arn` \
+    --target-group-arn {{target-group-arn}} \
     --attributes \
-      "Key=target_group_health.dns_failover.minimum_healthy_targets.percentage,Value=`50`" \
-      "Key=target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage,Value=`50`"
+      "Key=target_group_health.dns_failover.minimum_healthy_targets.percentage,Value={{50}}" \
+      "Key=target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage,Value={{50}}"
 ```
 
-CloudFormation
+------
+#### [ CloudFormation ]
 
-###### To modify target group health settings
-
-Update the [AWS::ElasticLoadBalancingV2::TargetGroup](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.md") resource.
-The following example sets the healthy threshold for both
-unhealthy state actions to 50%.
+**To modify target group health settings**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource. The following example sets the healthy threshold for both unhealthy state actions to 50%.
 
 ```
 Resources:
@@ -84,9 +72,11 @@ Resources:
       Port: 80
       TargetType: ip
       VpcId: !Ref myVPC
-      TargetGroupAttributes:
+      TargetGroupAttributes: 
         - Key: "target_group_health.dns_failover.minimum_healthy_targets.percentage"
-          Value: "`50`"
+          Value: "{{50}}"
         - Key: "target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage"
-          Value: "`50`"
+          Value: "{{50}}"
 ```
+
+------
