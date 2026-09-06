@@ -1,27 +1,32 @@
+
+
 # Guidance for creating solutions in AWS Partner Central
+<a name="guidance-for-solution"></a>
 
 ## Determining which solutions to create
+<a name="determining-solutions-to-create"></a>
 
 Any opportunity you share or that is shared with you through ACE requires a solution you create in AWS Partner Central to be linked. We recommend you prioritize what you're actively selling on AWS. Given the time and resource investment for validating your solutions, work with your team and Partner Development Manager (if available) to determine which solutions should be validated through either an AWS FTR or AWS Specialization. Solutions don't need to be validated to be linked to an opportunity.
 
 ## Describing your solution(s)
+<a name="describing-your-solutions"></a>
 
 When creating a solution in AWS Partner Central, describe your solutions the same way you would describe them to your customers. Consider:
++ How you market them on your website
++ How your sales teams position them to customers
++ What customer problems or needs the solution solves
++ The customer profile
++ The outcomes you can deliver to customers
++ How to clearly describe your product and AWS capabilities
 
-- How you market them on your website
-- How your sales teams position them to customers
-- What customer problems or needs the solution solves
-- The customer profile
-- The outcomes you can deliver to customers
-- How to clearly describe your product and AWS capabilities
-
-###### Tip
-
+**Tip**  
 Partners tend to see more success when they demonstrate what they're specialized in and align to specific use cases, industries, and so on.
 
 ## Understanding Solutions and Products
+<a name="understanding-solutions-and-products"></a>
 
 ### Product association requirement for your solution creation
+<a name="product-association-requirement"></a>
 
 To help you effectively represent your offerings in AWS Partner Central, it's important to understand how we define solutions and products, and why we ask you to associate them.
 
