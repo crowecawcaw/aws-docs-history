@@ -1,41 +1,24 @@
+
+
 # Amazon EventBridge event schema for Macie findings
+<a name="findings-publish-event-schemas"></a>
 
-To support integration with other applications, services, and systems, such as monitoring
-or event management systems, Amazon Macie automatically publishes findings to Amazon EventBridge as
-events. EventBridge, formerly Amazon CloudWatch Events, is a serverless event bus service that delivers a stream
-of real-time data from applications and other AWS services to targets such as AWS Lambda
-functions, Amazon Simple Notification Service topics, and Amazon Kinesis streams. To learn more about EventBridge, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+To support integration with other applications, services, and systems, such as monitoring or event management systems, Amazon Macie automatically publishes findings to Amazon EventBridge as events. EventBridge, formerly Amazon CloudWatch Events, is a serverless event bus service that delivers a stream of real-time data from applications and other AWS services to targets such as AWS Lambda functions, Amazon Simple Notification Service topics, and Amazon Kinesis streams. To learn more about EventBridge, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). 
 
-###### Note
+**Note**  
+If you currently use CloudWatch Events, note that EventBridge and CloudWatch Events are the same underlying service and API. However, EventBridge includes additional features that enable you to receive events from software as a service (SaaS) applications and your own applications. Because the underlying service and API are the same, the event schema for Macie findings is also the same.
 
-If you currently use CloudWatch Events, note that EventBridge and CloudWatch Events are the same underlying service
-and API. However, EventBridge includes additional features that enable you to receive events
-from software as a service (SaaS) applications and your own applications. Because the
-underlying service and API are the same, the event schema for Macie findings is also the
-same.
+Macie automatically publishes events for all new findings and subsequent occurrences of existing policy findings, except findings that are archived automatically by a [suppression rule](findings-suppression.md). The events are JSON objects that conform to the EventBridge schema for AWS events. Each event contains a JSON representation of a particular finding. Because the data is structured as an EventBridge event, you can more easily monitor, process, and act upon a finding by using other applications, services, and tools. For details about how and when Macie publishes events for findings, see [Configuring publication settings for findings](findings-publish-frequency.md).
 
-Macie automatically publishes events for all new findings and subsequent occurrences of
-existing policy findings, except findings that are archived automatically by a [suppression rule](findings-suppression.md "findings-suppression.md"). The events are JSON objects that
-conform to the EventBridge schema for AWS events. Each event contains a JSON representation of a
-particular finding. Because the data is structured as an EventBridge event, you can more easily
-monitor, process, and act upon a finding by using other applications, services, and tools.
-For details about how and when Macie publishes events for findings, see [Configuring publication settings
-for findings](findings-publish-frequency.md "findings-publish-frequency.md").
-
-###### Topics
-
-- [Event schema for Macie findings](#findings-publish-event-schema "#findings-publish-event-schema")
-- [Example of an event for a policy finding](#findings-publish-event-example-policy "#findings-publish-event-example-policy")
-- [Example of an event for a sensitive data finding](#findings-publish-event-example-classification "#findings-publish-event-example-classification")
+**Topics**
++ [Event schema for Macie findings](#findings-publish-event-schema)
++ [Example of an event for a policy finding](#findings-publish-event-example-policy)
++ [Example of an event for a sensitive data finding](#findings-publish-event-example-classification)
 
 ## Event schema for Macie findings
+<a name="findings-publish-event-schema"></a>
 
-The following example shows the schema of an [Amazon EventBridge event](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") for an
-Amazon Macie finding. For detailed descriptions of the fields that can be included in a
-finding event, see [Findings](../APIReference/findings-describe.md "../APIReference/findings-describe.md") in the
-_Amazon Macie API Reference_. The structure and fields
-of a finding event map closely to the `Finding` object of the Amazon Macie
-API.
+The following example shows the schema of an [Amazon EventBridge event](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) for an Amazon Macie finding. For detailed descriptions of the fields that can be included in a finding event, see [Findings](https://docs.aws.amazon.com/macie/latest/APIReference/findings-describe.html) in the *Amazon Macie API Reference*. The structure and fields of a finding event map closely to the `Finding` object of the Amazon Macie API.
 
 ```
 {
@@ -49,40 +32,26 @@ API.
     "resources": [
         <-- ARNs of the resources involved in the event -->
     ],
-    "detail": {
+    "detail": { 
         <-- Details of a policy or sensitive data finding -->
     },
-    "policyDetails": null, <-- Additional details of a policy finding or *null* for a sensitive data finding -->
+    "policyDetails": null, <-- Additional details of a policy finding or null for a sensitive data finding -->
     "sample": Boolean,
     "archived": Boolean
 }
 ```
 
 ## Example of an event for a policy finding
+<a name="findings-publish-event-example-policy"></a>
 
-The following example uses sample data to demonstrate the structure and nature of
-objects and fields in an Amazon EventBridge event for a [policy finding](findings-types.md#findings-policy-types "findings-types.md#findings-policy-types"). In this example, the event reports a subsequent occurrence
-of an existing policy finding: Amazon Macie detected that block public access settings were
-disabled for an S3 bucket. The following fields and values can help you determine that
-this is the case:
+The following example uses sample data to demonstrate the structure and nature of objects and fields in an Amazon EventBridge event for a [policy finding](findings-types.md#findings-policy-types). In this example, the event reports a subsequent occurrence of an existing policy finding: Amazon Macie detected that block public access settings were disabled for an S3 bucket. The following fields and values can help you determine that this is the case:
++ The `type` field is set to `Policy:IAMUser/S3BlockPublicAccessDisabled`.
++ The `createdAt` and `updatedAt` fields have different values. This is one indicator that the event reports a subsequent occurrence of an existing policy finding. The values for these fields would be the same if the event reported a new finding.
++ The `count` field is set to `2`, which indicates that this is the second occurrence of the finding.
++ The `category` field is set to `POLICY`.
++ The value for the `classificationDetails` field is `null`, which helps differentiate this event for a policy finding from an event for a sensitive data finding. For a sensitive data finding, this value would be a set of objects and fields that provide information about how and what sensitive data was found.
 
-- The `type` field is set to
-  `Policy:IAMUser/S3BlockPublicAccessDisabled`.
-- The `createdAt` and `updatedAt` fields have different
-  values. This is one indicator that the event reports a subsequent occurrence of
-  an existing policy finding. The values for these fields would be the same if the
-  event reported a new finding.
-- The `count` field is set to `2`, which indicates that
-  this is the second occurrence of the finding.
-- The `category` field is set to `POLICY`.
-- The value for the `classificationDetails` field is
-  `null`, which helps differentiate this event for a policy finding
-  from an event for a sensitive data finding. For a sensitive data finding, this
-  value would be a set of objects and fields that provide information about how
-  and what sensitive data was found.
-
-Also note that the value for the `sample` field is `true`. This
-value emphasizes that this is an example event for use in the documentation.
+Also note that the value for the `sample` field is `true`. This value emphasizes that this is an example event for use in the documentation.
 
 ```
 {
@@ -128,7 +97,7 @@ value emphasizes that this is an example event for use in the documentation.
                         "key": "Team",
                         "value": "Recruiting"
                     }
-                ],
+                ],                
                 "defaultServerSideEncryption": {
                     "encryptionType": "aws:kms",
                     "kmsMasterKeyId": "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
@@ -236,31 +205,16 @@ value emphasizes that this is an example event for use in the documentation.
 ```
 
 ## Example of an event for a sensitive data finding
+<a name="findings-publish-event-example-classification"></a>
 
-The following example uses sample data to demonstrate the structure and nature of
-objects and fields in an Amazon EventBridge event for a [sensitive data finding](findings-types.md#findings-sensitive-data-types "findings-types.md#findings-sensitive-data-types"). In this
-example, the event reports a new sensitive data finding: Amazon Macie found multiple
-categories and types of sensitive data in an S3 object. The following fields and values
-can you help you determine that this is the case:
+The following example uses sample data to demonstrate the structure and nature of objects and fields in an Amazon EventBridge event for a [sensitive data finding](findings-types.md#findings-sensitive-data-types). In this example, the event reports a new sensitive data finding: Amazon Macie found multiple categories and types of sensitive data in an S3 object. The following fields and values can you help you determine that this is the case:
++ The `type` field is set to `SensitiveData:S3Object/Multiple`.
++ The `createdAt` and `updatedAt` fields have the same values. Unlike policy findings, this is always the case for sensitive data findings. All sensitive data findings are considered new.
++ The `count` field is set to `1`, which indicates that this is a new finding. Unlike policy findings, this is always the case for sensitive data findings. All sensitive data findings are considered unique (new).
++ The `category` field is set to `CLASSIFICATION`.
++ The value for the `policyDetails` field is `null`, which helps differentiate this event for a sensitive data finding from an event for a policy finding. For a policy finding, this value would be a set of objects and fields that provide information about a potential policy violation or issue with the security or privacy of an S3 bucket.
 
-- The `type` field is set to
-  `SensitiveData:S3Object/Multiple`.
-- The `createdAt` and `updatedAt` fields have the same
-  values. Unlike policy findings, this is always the case for sensitive data
-  findings. All sensitive data findings are considered new.
-- The `count` field is set to `1`, which indicates that
-  this is a new finding. Unlike policy findings, this is always the case for
-  sensitive data findings. All sensitive data findings are considered unique
-  (new).
-- The `category` field is set to `CLASSIFICATION`.
-- The value for the `policyDetails` field is `null`, which
-  helps differentiate this event for a sensitive data finding from an event for a
-  policy finding. For a policy finding, this value would be a set of objects and
-  fields that provide information about a potential policy violation or issue with
-  the security or privacy of an S3 bucket.
-
-Also note that the value for the `sample` field is `true`. This
-value emphasizes that this is an example event for use in the documentation.
+Also note that the value for the `sample` field is `true`. This value emphasizes that this is an example event for use in the documentation.
 
 ```
 {
@@ -366,7 +320,7 @@ value emphasizes that this is an example event for use in the documentation.
                     }
                 ],
                 "publicAccess": false,
-                "etag": "6bb7fd4fa9d36d6b8fb8882caexample"
+                "etag": "6bb7fd4fa9d36d6b8fb8882caexample" 
             }
         },
         "category": "CLASSIFICATION",

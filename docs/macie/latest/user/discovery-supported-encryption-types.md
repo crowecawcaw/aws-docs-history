@@ -1,170 +1,84 @@
+
+
 # Analyzing encrypted Amazon S3 objects
+<a name="discovery-supported-encryption-types"></a>
 
-When you enable Amazon Macie for your AWS account, Macie creates a [service-linked role](service-linked-roles.md "service-linked-roles.md") that grants Macie the
-permissions that it requires to call Amazon Simple Storage Service (Amazon S3) and other AWS services on your
-behalf. A service-linked role simplifies the process of setting up an AWS service because
-you don't have to manually add permissions for the service to complete actions on your
-behalf. To learn about this type of role, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _AWS Identity and Access Management User Guide_.
+When you enable Amazon Macie for your AWS account, Macie creates a [service-linked role](service-linked-roles.md) that grants Macie the permissions that it requires to call Amazon Simple Storage Service (Amazon S3) and other AWS services on your behalf. A service-linked role simplifies the process of setting up an AWS service because you don't have to manually add permissions for the service to complete actions on your behalf. To learn about this type of role, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *AWS Identity and Access Management User Guide*.
 
-The permissions policy for the Macie service-linked role
-(`AWSServiceRoleForAmazonMacie`) allows Macie to perform actions that include
-retrieving information about your S3 buckets and objects, and retrieving and analyzing
-objects in your S3 buckets. If your account is the Macie administrator account for an organization, the
-policy also allows Macie to perform these actions on your behalf for member accounts in your
-organization.
+The permissions policy for the Macie service-linked role (`AWSServiceRoleForAmazonMacie`) allows Macie to perform actions that include retrieving information about your S3 buckets and objects, and retrieving and analyzing objects in your S3 buckets. If your account is the Macie administrator account for an organization, the policy also allows Macie to perform these actions on your behalf for member accounts in your organization.
 
-If an S3 object is encrypted, the permissions policy for the Macie service-linked role
-typically grants Macie the permissions that it requires to decrypt the object. However, this
-depends on the type of encryption that was used. It can also depend on whether Macie is
-allowed to use the appropriate encryption key.
+If an S3 object is encrypted, the permissions policy for the Macie service-linked role typically grants Macie the permissions that it requires to decrypt the object. However, this depends on the type of encryption that was used. It can also depend on whether Macie is allowed to use the appropriate encryption key.
 
-###### Topics
-
-- [Encryption
-  options for S3 objects](#discovery-supported-encryption-types-matrix "#discovery-supported-encryption-types-matrix")
-- [Allowing Macie to
-  use a customer managed AWS KMS key](#discovery-supported-encryption-cmk-configuration "#discovery-supported-encryption-cmk-configuration")
+**Topics**
++ [Encryption options for S3 objects](#discovery-supported-encryption-types-matrix)
++ [Allowing Macie to use a customer managed AWS KMS key](#discovery-supported-encryption-cmk-configuration)
 
 ## Encryption options for Amazon S3 objects
+<a name="discovery-supported-encryption-types-matrix"></a>
 
-Amazon S3 supports multiple encryption options for S3 objects. For most of these options,
-Amazon Macie can decrypt an object by using the Macie service-linked role for your account.
-However, this depends on the type of encryption that was used to encrypt an object.
+Amazon S3 supports multiple encryption options for S3 objects. For most of these options, Amazon Macie can decrypt an object by using the Macie service-linked role for your account. However, this depends on the type of encryption that was used to encrypt an object.
 
-Server-side encryption with Amazon S3 managed keys
-(SSE-S3)
+**Server-side encryption with Amazon S3 managed keys (SSE-S3)**  
+If an object is encrypted using server-side encryption with an Amazon S3 managed key (SSE-S3), Macie can decrypt the object.  
+To learn about this type of encryption, see [Using server-side encryption with Amazon S3 managed keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service User Guide*.
 
-If an object is encrypted using server-side encryption with an Amazon S3 managed key (SSE-S3),
-Macie can decrypt the object.
+**Server-side encryption with AWS KMS keys (DSSE-KMS and SSE-KMS)**  
+If an object is encrypted using dual-layer server-side encryption or server-side encryption with an AWS managed AWS KMS key (DSSE-KMS or SSE-KMS), Macie can decrypt the object.  
+If an object is encrypted using dual-layer server-side encryption or server-side encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Macie can decrypt the object only if you [allow Macie to use the key](#discovery-supported-encryption-cmk-configuration). This is the case for objects that are encrypted with KMS keys managed entirely within AWS KMS and KMS keys in an external key store. If Macie isn't allowed to use the applicable KMS key, Macie can only store and report metadata for the object.  
+To learn about these types of encryption, see [Using dual-layer server-side encryption with AWS KMS keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingDSSEncryption.html) and [Using server-side encryption with AWS KMS keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html) in the *Amazon Simple Storage Service User Guide*.  
+You can automatically generate a list of all the customer managed AWS KMS keys that Macie needs to access to analyze objects in S3 buckets for your account. To do this, run the AWS KMS Permission Analyzer script, which is available from the [Amazon Macie Scripts](https://github.com/aws-samples/amazon-macie-scripts) repository on GitHub. The script can also generate an additional script of AWS Command Line Interface (AWS CLI) commands. You can optionally run those commands to update the requisite configuration settings and policies for KMS keys that you specify.
 
-To learn about this type of encryption, see [Using
-server-side encryption with Amazon S3 managed keys](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") in the _Amazon Simple Storage Service User Guide_.
+**Server-side encryption with customer-provided keys (SSE-C)**  
+If an object is encrypted using server-side encryption with a customer-provided key (SSE-C), Macie can't decrypt the object. Macie can only store and report metadata for the object.  
+To learn about this type of encryption, see [Using server-side encryption with customer-provided keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) in the *Amazon Simple Storage Service User Guide*.
 
-Server-side encryption with AWS KMS keys (DSSE-KMS and
-SSE-KMS)
+**Client-side encryption**  
+If an object is encrypted using client-side encryption, Macie can't decrypt the object. Macie can only store and report metadata for the object. For example, Macie can report the size of the object and the tags that are associated with the object.   
+To learn about this type of encryption in the context of Amazon S3, see [Protecting data by using client-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html) in the *Amazon Simple Storage Service User Guide*.
 
-If an object is encrypted using dual-layer server-side encryption or server-side
-encryption with an AWS managed AWS KMS key (DSSE-KMS or SSE-KMS), Macie
-can decrypt the object.
+You can [filter your bucket inventory](monitoring-s3-inventory-filter.md) in Macie to determine which S3 buckets store objects that use certain types of encryption. You can also determine which buckets use certain types of server-side encryption by default when storing new objects. The following table provides examples of filters that you can apply to your bucket inventory to find this information.
 
-If an object is encrypted using dual-layer server-side encryption or server-side
-encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS),
-Macie can decrypt the object only if you [allow Macie
-to use the key](#discovery-supported-encryption-cmk-configuration "#discovery-supported-encryption-cmk-configuration"). This is the case for objects that are encrypted
-with KMS keys managed entirely within AWS KMS and KMS keys in an external
-key store. If Macie isn't allowed to use the applicable KMS key, Macie can
-only store and report metadata for the object.
 
-To learn about these types of encryption, see [Using dual-layer
-server-side encryption with AWS KMS keys](../../../AmazonS3/latest/userguide/UsingDSSEncryption.md "../../../AmazonS3/latest/userguide/UsingDSSEncryption.md") and [Using
-server-side encryption with AWS KMS keys](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_.
+| To show buckets that... | Apply this filter... | 
+| --- | --- | 
+| Store objects that use SSE-C encryption | Object count by encryption is Customer provided and From = 1 | 
+| Store objects that use DSSE-KMS or SSE-KMS encryption | Object count by encryption is AWS KMS managed and From = 1 | 
+| Store objects that use SSE-S3 encryption | Object count by encryption is Amazon S3 managed and From = 1 | 
+| Store objects that use client-side encryption (or aren't encrypted) | Object count by encryption is No encryption and From = 1 | 
+| Encrypt new objects by default using DSSE-KMS encryption | Default encryption = aws:kms:dsse | 
+| Encrypt new objects by default using SSE-KMS encryption | Default encryption = aws:kms | 
+| Encrypt new objects by default using SSE-S3 encryption | Default encryption = AES256 | 
 
-###### Tip
-
-You can automatically generate a list of all the customer managed AWS KMS keys that
-Macie needs to access to analyze objects in S3 buckets for your account.
-To do this, run the AWS KMS Permission Analyzer script, which is available
-from the [Amazon Macie
-Scripts](https://github.com/aws-samples/amazon-macie-scripts "https://github.com/aws-samples/amazon-macie-scripts") repository on GitHub. The script can also generate
-an additional script of AWS Command Line Interface (AWS CLI) commands. You can optionally
-run those commands to update the requisite configuration settings and
-policies for KMS keys that you specify.
-
-Server-side encryption with customer-provided keys
-(SSE-C)
-
-If an object is encrypted using server-side encryption with a customer-provided key
-(SSE-C), Macie can't decrypt the object. Macie can only store and report
-metadata for the object.
-
-To learn about this type of encryption, see [Using server-side encryption with customer-provided keys](../../../AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.md "../../../AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.md") in the
-_Amazon Simple Storage Service User Guide_.
-
-Client-side encryption
-
-If an object is encrypted using client-side encryption, Macie can't decrypt the object.
-Macie can only store and report metadata for the object. For example, Macie
-can report the size of the object and the tags that are associated with the
-object.
-
-To learn about this type of encryption in the context of Amazon S3, see [Protecting data by using client-side encryption](../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md "../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md") in the
-_Amazon Simple Storage Service User Guide_.
-
-You can [filter your bucket inventory](monitoring-s3-inventory-filter.md "monitoring-s3-inventory-filter.md")
-in Macie to determine which S3 buckets store objects that use certain types of
-encryption. You can also determine which buckets use certain types of server-side
-encryption by default when storing new objects. The following table provides examples of
-filters that you can apply to your bucket inventory to find this information.
-
-| To show buckets that...                                                | Apply this filter...                                                                      |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Store objects that use SSE-C encryption                                | *_Object count by encryption_<br>• is *_Customer<br>provided_<br>• and *_From_<br>• = _1_ |
-| Store objects that use DSSE-KMS or SSE-KMS encryption                  | *_Object count by encryption_<br>• is *_AWS KMS<br>managed_<br>• and *_From_<br>• = _1_   |
-| Store objects that use SSE-S3 encryption                               | *_Object count by encryption_<br>• is *_Amazon S3<br>managed_<br>• and *_From_<br>• = _1_ |
-| Store objects that use client-side encryption (or aren't<br>encrypted) | *_Object count by encryption_<br>• is *_No<br>encryption_<br>• and *_From_<br>• =<br>_1_  |
-| Encrypt new objects by default using DSSE-KMS encryption               | *_Default encryption_<br>• =<br>**aws:kms:dsse**                                          |
-| Encrypt new objects by default using SSE-KMS encryption                | *_Default encryption_<br>• =<br>**aws:kms**                                               |
-| Encrypt new objects by default using SSE-S3 encryption                 | *_Default encryption_<br>• =<br>**AES256**                                                |
-
-If a bucket is configured to encrypt new objects by default using DSSE-KMS or SSE-KMS
-encryption, you can also determine which AWS KMS key is used. To do this, choose the
-bucket on the **S3 buckets** page. In the bucket details panel, under
-**Server-side encryption**, refer to the
-**AWS KMS key** field. This field shows the Amazon Resource Name
-(ARN) or unique identifier (key ID) for the key.
+If a bucket is configured to encrypt new objects by default using DSSE-KMS or SSE-KMS encryption, you can also determine which AWS KMS key is used. To do this, choose the bucket on the **S3 buckets** page. In the bucket details panel, under **Server-side encryption**, refer to the **AWS KMS key** field. This field shows the Amazon Resource Name (ARN) or unique identifier (key ID) for the key.
 
 ## Allowing Macie to use a customer managed AWS KMS key
+<a name="discovery-supported-encryption-cmk-configuration"></a>
 
-If an Amazon S3 object is encrypted using dual-layer server-side encryption or server-side
-encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Amazon Macie can
-decrypt the object only if it is allowed to use the key. How to provide this access
-depends on whether the account that owns the key also owns the S3 bucket that stores the
-object:
+If an Amazon S3 object is encrypted using dual-layer server-side encryption or server-side encryption with a customer managed AWS KMS key (DSSE-KMS or SSE-KMS), Amazon Macie can decrypt the object only if it is allowed to use the key. How to provide this access depends on whether the account that owns the key also owns the S3 bucket that stores the object:
++ If the same account owns the AWS KMS key and the bucket, a user of the account has to update the key's policy. 
++ If one account owns the AWS KMS key and a different account owns the bucket, a user of the account that owns the key has to allow cross-account access to the key.
 
-- If the same account owns the AWS KMS key and the bucket, a user of the account has to
-  update the key's policy.
-- If one account owns the AWS KMS key and a different account owns the bucket, a user of
-  the account that owns the key has to allow cross-account access to the
-  key.
-
-This topic describes how to perform these tasks and provides examples for both scenarios. To
-learn more about allowing access to customer managed AWS KMS keys, see [KMS key
-access and permissions](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_.
+This topic describes how to perform these tasks and provides examples for both scenarios. To learn more about allowing access to customer managed AWS KMS keys, see [KMS key access and permissions](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*.
 
 ### Allowing same-account access to a customer managed key
+<a name="discovery-supported-encryption-cmk-configuration-1account"></a>
 
-If the same account owns both the AWS KMS key and the S3 bucket, a user of the account
-has to add a statement to the policy for the key. The additional statement must
-allow the Macie service-linked role for the account to decrypt data by using the
-key. For detailed information about updating a key policy, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_.
+If the same account owns both the AWS KMS key and the S3 bucket, a user of the account has to add a statement to the policy for the key. The additional statement must allow the Macie service-linked role for the account to decrypt data by using the key. For detailed information about updating a key policy, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) in the *AWS Key Management Service Developer Guide*.
 
 In the statement:
++ The `Principal` element must specify the Amazon Resource Name (ARN) of the Macie service-linked role for the account that owns the AWS KMS key and the S3 bucket.
 
-- The `Principal` element must specify the Amazon Resource Name (ARN) of the
-  Macie service-linked role for the account that owns the AWS KMS key and
-  the S3 bucket.
+  If the account is in an opt-in AWS Region, the ARN must also include the appropriate Region code for the Region. For example, if the account is in the Middle East (Bahrain) Region, which has the Region code *me-south-1*, the `Principal` element must specify `arn:aws:iam::{{123456789012}}:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`, where {{123456789012}} is the account ID for the account. For a list of Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/macie.html) in the *AWS General Reference*.
++ The `Action` array must specify the `kms:Decrypt` action. This is the only AWS KMS action that Macie must be allowed to perform to decrypt an S3 object that's encrypted with the key.
 
-If the account is in an opt-in AWS Region, the ARN must also include the appropriate
-Region code for the Region. For example, if the account is in the
-Middle East (Bahrain) Region, which has the Region code _me-south-1_, the `Principal` element must specify
-`arn:aws:iam::`123456789012`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`,
-where `123456789012` is the account ID for
-the account. For a list of Region codes for the Regions where Macie is
-currently available, see [Amazon Macie
-endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in the _AWS General Reference_.
-
-- The `Action` array must specify the `kms:Decrypt` action. This is
-  the only AWS KMS action that Macie must be allowed to perform to decrypt an S3
-  object that's encrypted with the key.
-
-The following is an example of the statement to add to the policy for an AWS KMS key.
+The following is an example of the statement to add to the policy for an AWS KMS key. 
 
 ```
 {
     "Sid": "Allow the Macie service-linked role to use the key",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "arn:aws:iam::`123456789012`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
+        "AWS": "arn:aws:iam::{{123456789012}}:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
     },
     "Action": [
         "kms:Decrypt"
@@ -173,62 +87,32 @@ The following is an example of the statement to add to the policy for an AWS KMS
 }
 ```
 
-In the preceding example:
+In the preceding example: 
++ The `AWS` field in the `Principal` element specifies the ARN of the Macie service-linked role (`AWSServiceRoleForAmazonMacie`) for the account. It allows the Macie service-linked role to perform the action specified by the policy statement. {{123456789012}} is an example account ID. Replace this value with the account ID for the account that owns the KMS key and the S3 bucket.
++ The `Action` array specifies the action that the Macie service-linked role is allowed to perform using the KMS key—decrypt ciphertext that's encrypted with the key.
 
-- The `AWS` field in the `Principal` element specifies the ARN of
-  the Macie service-linked role (`AWSServiceRoleForAmazonMacie`)
-  for the account. It allows the Macie service-linked role to perform the
-  action specified by the policy statement.
-  `123456789012` is an example account
-  ID. Replace this value with the account ID for the account that owns the
-  KMS key and the S3 bucket.
-- The `Action` array specifies the action that the Macie service-linked role is
-  allowed to perform using the KMS key—decrypt ciphertext that's
-  encrypted with the key.
-
-Where you add this statement to a key policy depends on the structure and elements
-that the policy currently contains. When you add the statement, ensure that the syntax
-is valid. Key policies use JSON format. This means that you have to also add a comma
-before or after the statement, depending on where you add the statement to the policy.
+Where you add this statement to a key policy depends on the structure and elements that the policy currently contains. When you add the statement, ensure that the syntax is valid. Key policies use JSON format. This means that you have to also add a comma before or after the statement, depending on where you add the statement to the policy. 
 
 ### Allowing cross-account access to a customer managed key
+<a name="discovery-supported-encryption-cmk-configuration-xaccount"></a>
 
-If one account owns the AWS KMS key (_key
-owner_) and a different account owns the S3 bucket (_bucket owner_), the key owner has to provide the bucket
-owner with cross-account access to the KMS key. To do this, the key owner first
-ensures that the key's policy allows the bucket owner to both use the key and create
-a grant for the key. The bucket owner then creates a grant for the key. A _grant_ is a policy instrument that allows AWS
-principals to use KMS keys in cryptographic operations if the conditions specified
-by the grant are met. In this case, the grant delegates the relevant permissions to
-the Macie service-linked role for the bucket owner's account.
+If one account owns the AWS KMS key (*key owner*) and a different account owns the S3 bucket (*bucket owner*), the key owner has to provide the bucket owner with cross-account access to the KMS key. To do this, the key owner first ensures that the key's policy allows the bucket owner to both use the key and create a grant for the key. The bucket owner then creates a grant for the key. A *grant* is a policy instrument that allows AWS principals to use KMS keys in cryptographic operations if the conditions specified by the grant are met. In this case, the grant delegates the relevant permissions to the Macie service-linked role for the bucket owner's account.
 
-For detailed information about updating a key policy, see [Changing a key
-policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer Guide_. To
-learn about grants, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the
-_AWS Key Management Service Developer Guide_.
+For detailed information about updating a key policy, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) in the *AWS Key Management Service Developer Guide*. To learn about grants, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*.
 
-###### Step 1: Update the key policy
+**Step 1: Update the key policy**  
+In the key policy, the key owner should ensure that the policy includes two statements:
++ The first statement allows the bucket owner to use the key to decrypt data.
++ The second statement allows the bucket owner to create a grant for the Macie service-linked role for their (the bucket owner's) account.
 
-In the key policy, the key owner should ensure that the policy includes two
-statements:
-
-- The first statement allows the bucket owner to use the key to decrypt
-  data.
-- The second statement allows the bucket owner to create a grant for the
-  Macie service-linked role for their (the bucket owner's) account.
-
-In the first statement, the `Principal` element must specify the ARN of
-the bucket owner's account. The `Action` array must specify the
-`kms:Decrypt` action. This is the only AWS KMS action that Macie must
-be allowed to perform to decrypt an object that's encrypted with the key. The
-following is an example of this statement in the policy for an AWS KMS key.
+In the first statement, the `Principal` element must specify the ARN of the bucket owner's account. The `Action` array must specify the `kms:Decrypt` action. This is the only AWS KMS action that Macie must be allowed to perform to decrypt an object that's encrypted with the key. The following is an example of this statement in the policy for an AWS KMS key. 
 
 ```
 {
-    "Sid": "Allow account `111122223333` to use the key",
+    "Sid": "Allow account {{111122223333}} to use the key",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "arn:aws:iam::`111122223333`:root"
+        "AWS": "arn:aws:iam::{{111122223333}}:root"
     },
     "Action": [
         "kms:Decrypt"
@@ -237,33 +121,18 @@ following is an example of this statement in the policy for an AWS KMS key.
 }
 ```
 
-In the preceding example:
+In the preceding example: 
++ The `AWS` field in the `Principal` element specifies the ARN of the bucket owner's account ({{111122223333}}). It allows the bucket owner to perform the action specified by the policy statement. {{111122223333}} is an example account ID. Replace this value with the account ID for the bucket owner's account.
++ The `Action` array specifies the action that the bucket owner is allowed to perform using the KMS key—decrypt ciphertext that's encrypted with the key.
 
-- The `AWS` field in the `Principal` element
-  specifies the ARN of the bucket owner's account
-  (`111122223333`). It allows the
-  bucket owner to perform the action specified by the policy statement.
-  `111122223333` is an example account
-  ID. Replace this value with the account ID for the bucket owner's
-  account.
-- The `Action` array specifies the action that the bucket owner
-  is allowed to perform using the KMS key—decrypt ciphertext that's
-  encrypted with the key.
-
-The second statement in the key policy allows the bucket owner to create a grant
-for the Macie service-linked role for their account. In this statement, the
-`Principal` element must specify the ARN of the bucket's owner's
-account. The `Action` array must specify the `kms:CreateGrant`
-action. A `Condition` element can filter access to the
-`kms:CreateGrant` action specified in the statement. The following is
-an example of this statement in the policy for an AWS KMS key.
+The second statement in the key policy allows the bucket owner to create a grant for the Macie service-linked role for their account. In this statement, the `Principal` element must specify the ARN of the bucket's owner's account. The `Action` array must specify the `kms:CreateGrant` action. A `Condition` element can filter access to the `kms:CreateGrant` action specified in the statement. The following is an example of this statement in the policy for an AWS KMS key.
 
 ```
 {
-    "Sid": "Allow account `111122223333` to create a grant",
+    "Sid": "Allow account {{111122223333}} to create a grant",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "arn:aws:iam::`111122223333`:root"
+        "AWS": "arn:aws:iam::{{111122223333}}:root"
     },
     "Action": [
         "kms:CreateGrant"
@@ -271,119 +140,52 @@ an example of this statement in the policy for an AWS KMS key.
     "Resource": "*",
     "Condition": {
         "StringEquals": {
-            "kms:GranteePrincipal": "arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
+            "kms:GranteePrincipal": "arn:aws:iam::{{111122223333}}:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie"
         }
     }
 }
 ```
 
 In the preceding example:
++ The `AWS` field in the `Principal` element specifies the ARN of the bucket owner's account ({{111122223333}}). It allows the bucket owner to perform the action specified by the policy statement. {{111122223333}} is an example account ID. Replace this value with the account ID for the bucket owner's account.
++ The `Action` array specifies the action that the bucket owner is allowed to perform on the KMS key—create a grant for the key.
++ The `Condition` element uses the `StringEquals` [condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) and the `kms:GranteePrincipal` [condition key](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys) to filter access to the action specified by the policy statement. In this case, the bucket owner can create a grant only for the specified `GranteePrincipal`, which is the ARN of the Macie service-linked role for their account. In that ARN, {{111122223333}} is an example account ID. Replace this value with the account ID for the bucket owner's account.
 
-- The `AWS` field in the `Principal` element specifies
-  the ARN of the bucket owner's account
-  (`111122223333`). It allows the
-  bucket owner to perform the action specified by the policy statement.
-  `111122223333` is an example account
-  ID. Replace this value with the account ID for the bucket owner's
-  account.
-- The `Action` array specifies the action that the bucket owner
-  is allowed to perform on the KMS key—create a grant for the
-  key.
-- The `Condition` element uses the `StringEquals`
-  [condition operator](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") and the `kms:GranteePrincipal`
-  [condition key](../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys "../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys") to filter access to the action specified by the
-  policy statement. In this case, the bucket owner can create a grant only for
-  the specified `GranteePrincipal`, which is the ARN of the Macie
-  service-linked role for their account. In that ARN,
-  `111122223333` is an example account
-  ID. Replace this value with the account ID for the bucket owner's
-  account.
+  If the bucket owner's account is in an opt-in AWS Region, also include the appropriate Region code in the ARN of the Macie service-linked role. For example, if the account is in the Middle East (Bahrain) Region, which has the Region code *me-south-1*, replace `macie.amazonaws.com` with `macie.me-south-1.amazonaws.com` in the ARN. For a list of Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/macie.html) in the *AWS General Reference*.
 
-If the bucket owner's account is in an opt-in AWS Region, also include
-the appropriate Region code in the ARN of the Macie service-linked role. For
-example, if the account is in the Middle East (Bahrain) Region, which has the Region code
-_me-south-1_, replace
-`macie.amazonaws.com` with
-`macie.me-south-1.amazonaws.com` in the ARN. For a list of
-Region codes for the Regions where Macie is currently available, see [Amazon Macie endpoints and quotas](../../../general/latest/gr/macie.md "../../../general/latest/gr/macie.md") in
-the _AWS General Reference_.
+Where the key owner adds these statements to the key policy depends on the structure and elements that the policy currently contains. When the key owner adds the statements, they should ensure that the syntax is valid. Key policies use JSON format. This means that the key owner has to also add a comma before or after each statement, depending on where they add the statement to the policy.
 
-Where the key owner adds these statements to the key policy depends on the
-structure and elements that the policy currently contains. When the key owner adds
-the statements, they should ensure that the syntax is valid. Key policies use JSON
-format. This means that the key owner has to also add a comma before or after each
-statement, depending on where they add the statement to the policy.
+**Step 2: Create a grant**  
+After the key owner updates the key policy as necessary, the bucket owner must create a grant for the key. The grant delegates the relevant permissions to the Macie service-linked role for their (the bucket owner's) account. Before the bucket owner creates the grant, they should verify that they're allowed to perform the `kms:CreateGrant` action for their account. This action allows them to add a grant to an existing, customer managed AWS KMS key.
 
-###### Step 2: Create a grant
+To create the grant, the bucket owner can use the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation of the AWS Key Management Service API. When the bucket owner creates the grant, they should specify the following values for the required parameters:
++ `KeyId` – The ARN of the KMS key. For cross-account access to a KMS key, this value must be an ARN. It can't be a key ID.
++ `GranteePrincipal` – The ARN of the Macie service-linked role (`AWSServiceRoleForAmazonMacie`) for their account. This value should be `arn:aws:iam::{{111122223333}}:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie`, where {{111122223333}} is the account ID for the bucket owner's account.
 
-After the key owner updates the key policy as necessary, the bucket owner must
-create a grant for the key. The grant delegates the relevant permissions to the
-Macie service-linked role for their (the bucket owner's) account. Before the
-bucket owner creates the grant, they should verify that they're allowed to
-perform the `kms:CreateGrant` action for their account. This action
-allows them to add a grant to an existing, customer managed
-AWS KMS key.
+  If their account is in an opt-in Region, the ARN must include the appropriate Region code. For example, if their account is in the Middle East (Bahrain) Region, which has the Region code *me-south-1*, the ARN should be `arn:aws:iam::{{111122223333}}:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`, where {{111122223333}} is the account ID for the bucket owner's account.
++ `Operations` – The AWS KMS decrypt action (`Decrypt`). This is the only AWS KMS action that Macie must be allowed to perform to decrypt an object that's encrypted with the KMS key.
 
-To create the grant, the bucket owner can use the [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") operation
-of the AWS Key Management Service API. When the bucket owner creates the grant, they should specify
-the following values for the required parameters:
-
-- `KeyId` – The ARN of the KMS key. For cross-account
-  access to a KMS key, this value must be an ARN. It can't be a key ID.
-- `GranteePrincipal` – The ARN of the Macie service-linked
-  role (`AWSServiceRoleForAmazonMacie`) for their account. This
-  value should be
-  `arn:aws:iam::`111122223333`:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie`,
-  where `111122223333` is the account ID
-  for the bucket owner's account.
-
-If their account is in an opt-in Region, the ARN must include the
-appropriate Region code. For example, if their account is in the
-Middle East (Bahrain) Region, which has the Region code _me-south-1_, the ARN should be
-`arn:aws:iam::`111122223333`:role/aws-service-role/macie.me-south-1.amazonaws.com/AWSServiceRoleForAmazonMacie`,
-where `111122223333` is the account ID
-for the bucket owner's account.
-
-- `Operations` – The AWS KMS decrypt action
-  (`Decrypt`). This is the only AWS KMS action that Macie must be
-  allowed to perform to decrypt an object that's encrypted with the
-  KMS key.
-
-To create a grant for a customer managed KMS key by using the AWS Command Line Interface (AWS CLI),
-run the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command. The following example shows how. The example is
-formatted for Microsoft Windows and it uses the caret (^) line-continuation
-character to improve readability.
+To create a grant for a customer managed KMS key by using the AWS Command Line Interface (AWS CLI), run the [create-grant](https://docs.aws.amazon.com/cli/latest/reference/kms/create-grant.html) command. The following example shows how. The example is formatted for Microsoft Windows and it uses the caret (^) line-continuation character to improve readability.
 
 ```
-`C:\>` `aws kms create-grant ^
---key-id `arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab` ^
---grantee-principal `arn:aws:iam::111122223333:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie` ^
---operations "Decrypt"`
+C:\> aws kms create-grant ^
+--key-id {{arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab}} ^
+--grantee-principal {{arn:aws:iam::111122223333:role/aws-service-role/macie.amazonaws.com/AWSServiceRoleForAmazonMacie}} ^
+--operations "Decrypt"
 ```
 
 Where:
++ `key-id` specifies the ARN of the KMS key to apply the grant to.
++ `grantee-principal` specifies the ARN of the Macie service-linked role for the account that's allowed to perform the action specified by the grant. This value should match the ARN specified by the `kms:GranteePrincipal` condition of the second statement in the key policy.
++ `operations` specifies the action that the grant allows the specified principal to perform—decrypt ciphertext that's encrypted with the KMS key.
 
-- `key-id` specifies the ARN of the KMS key to apply the grant
-  to.
-- `grantee-principal` specifies the ARN of the Macie service-linked role for the
-  account that's allowed to perform the action specified by the grant. This
-  value should match the ARN specified by the
-  `kms:GranteePrincipal` condition of the second statement in
-  the key policy.
-- `operations` specifies the action that the grant allows the specified
-  principal to perform—decrypt ciphertext that's encrypted with the
-  KMS key.
-
-If the command runs successfully, you receive output similar to the
-following.
+If the command runs successfully, you receive output similar to the following.
 
 ```
-`{
- "GrantToken": "<grant token>",
- "GrantId": "1a2b3c4d2f5e69f440bae30eaec9570bb1fb7358824f9ddfa1aa5a0dab1a59b2"
-}`
+{
+    "GrantToken": "<grant token>",
+    "GrantId": "1a2b3c4d2f5e69f440bae30eaec9570bb1fb7358824f9ddfa1aa5a0dab1a59b2"
+}
 ```
 
-Where `GrantToken` is a unique, non-secret, variable-length,
-base64-encoded string that represents the grant that was created, and
-`GrantId` is the unique identifier for the grant.
+Where `GrantToken` is a unique, non-secret, variable-length, base64-encoded string that represents the grant that was created, and `GrantId` is the unique identifier for the grant.

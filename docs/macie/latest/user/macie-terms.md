@@ -1,377 +1,242 @@
-# Concepts and terminology in Macie
 
-In Amazon Macie, we build on common AWS concepts and terminology and use these additional
-terms.
+
+# Concepts and terminology in Macie
+<a name="macie-terms"></a>
+
+In Amazon Macie, we build on common AWS concepts and terminology and use these additional terms.
 
 ## account
+<a name="macie-terms-account"></a>
 
-A standard AWS account that contains your AWS resources and the identities that
-can access those resources.
+A standard AWS account that contains your AWS resources and the identities that can access those resources.
 
-To use Macie, you sign in to AWS with your AWS account credentials, select the
-AWS Region in which you want to use Macie, and then enable Macie for your
-AWS account in that Region. For more information, see [Getting started with Macie](getting-started.md "getting-started.md").
+To use Macie, you sign in to AWS with your AWS account credentials, select the AWS Region in which you want to use Macie, and then enable Macie for your AWS account in that Region. For more information, see [Getting started with Macie](getting-started.md).
 
 There are three types of accounts in Macie:
++ **Administrator account** – This type of account manages Macie accounts for an organization. An *organization* is a set of Macie accounts that are associated with each other and centrally managed as a group of related accounts in a specific AWS Region.
++ **Member account** – This type of account is associated with and managed by the Macie administrator account for an organization.
++ **Standalone account** – This type of account is neither an administrator nor a member account. It isn’t part of an organization.
 
-- **Administrator account** – This type of
-  account manages Macie accounts for an organization. An _organization_ is a set of Macie accounts that are associated with
-  each other and centrally managed as a group of related accounts in a specific
-  AWS Region.
-- **Member account** – This type of account
-  is associated with and managed by the Macie administrator account for an
-  organization.
-- **Standalone account** – This type of
-  account is neither an administrator nor a member account. It isn’t part of an
-  organization.
-
-You can add Macie accounts to an organization in two ways: by integrating Macie with
-AWS Organizations or by sending and accepting Macie membership invitations. For more information,
-see [Managing multiple accounts](macie-accounts.md "macie-accounts.md").
+You can add Macie accounts to an organization in two ways: by integrating Macie with AWS Organizations or by sending and accepting Macie membership invitations. For more information, see [Managing multiple accounts](macie-accounts.md).
 
 ## administrator account
+<a name="macie-terms-administrator-account"></a>
 
-In Macie, an account that manages Macie accounts for an organization. An _organization_ is a set of Macie accounts that are associated
-with each other and centrally managed as a group of related accounts in a specific
-AWS Region.
+In Macie, an account that manages Macie accounts for an organization. An *organization* is a set of Macie accounts that are associated with each other and centrally managed as a group of related accounts in a specific AWS Region.
 
-Users of a Macie administrator account have access to Amazon Simple Storage Service (Amazon S3) inventory data,
-[policy findings](#macie-terms-policy-finding "#macie-terms-policy-finding"), and certain Macie
-settings and resources for all the accounts in their organization. They can also perform
-[automated sensitive data discovery](#macie-terms-asdd "#macie-terms-asdd") and run [sensitive data discovery jobs](#macie-terms-discovery-job "#macie-terms-discovery-job") to detect
-sensitive data in S3 buckets that the accounts own. Depending on how an account is
-designated as an administrator account, they may also be able to perform additional
-tasks for other accounts in their organization.
+Users of a Macie administrator account have access to Amazon Simple Storage Service (Amazon S3) inventory data, [policy findings](#macie-terms-policy-finding), and certain Macie settings and resources for all the accounts in their organization. They can also perform [automated sensitive data discovery](#macie-terms-asdd) and run [sensitive data discovery jobs](#macie-terms-discovery-job) to detect sensitive data in S3 buckets that the accounts own. Depending on how an account is designated as an administrator account, they may also be able to perform additional tasks for other accounts in their organization.
 
-For more information, see [Managing multiple accounts](macie-accounts.md "macie-accounts.md").
+For more information, see [Managing multiple accounts](macie-accounts.md).
 
 ## allow list
+<a name="macie-terms-allow-list"></a>
 
-In Macie, an allow list specifies text or a text pattern that you want Macie to ignore
-when it inspects S3 objects for sensitive data.
+In Macie, an allow list specifies text or a text pattern that you want Macie to ignore when it inspects S3 objects for sensitive data.
 
-You can create two types of allow lists in Macie: a plaintext file that lists specific
-words and other kinds of character sequences to ignore, or a regular expression
-(_regex_) that defines a text pattern to ignore. If
-an object contains text that matches an entry or pattern in an allow list, Macie doesn't
-report the text in [sensitive data
-findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding"), statistics, and other types of results. This is the case even if
-the text matches the criteria of a [managed data
-identifier](#macie-terms-mdi "#macie-terms-mdi") or a [custom data
-identifier](#macie-terms-cdi "#macie-terms-cdi").
+You can create two types of allow lists in Macie: a plaintext file that lists specific words and other kinds of character sequences to ignore, or a regular expression (*regex*) that defines a text pattern to ignore. If an object contains text that matches an entry or pattern in an allow list, Macie doesn't report the text in [sensitive data findings](#macie-terms-sensitive-data-finding), statistics, and other types of results. This is the case even if the text matches the criteria of a [managed data identifier](#macie-terms-mdi) or a [custom data identifier](#macie-terms-cdi).
 
-For more information, see [Defining sensitive data exceptions with allow
-lists](allow-lists.md "allow-lists.md").
+For more information, see [Defining sensitive data exceptions with allow lists](allow-lists.md).
 
 ## automated sensitive data discovery
+<a name="macie-terms-asdd"></a>
 
-A series of automated analysis activities that Macie continually performs to identify
-and select representative objects from S3 buckets, and inspect the selected objects for
-sensitive data.
+A series of automated analysis activities that Macie continually performs to identify and select representative objects from S3 buckets, and inspect the selected objects for sensitive data.
 
-As the analyses progress, Macie produces records of the sensitive data that it finds
-([sensitive data findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding"))
-and the analysis that it performs ([sensitive data discovery results](#macie-terms-discovery-result "#macie-terms-discovery-result")). Macie also updates statistics and other
-information that it provides about Amazon S3 data.
+As the analyses progress, Macie produces records of the sensitive data that it finds ([sensitive data findings](#macie-terms-sensitive-data-finding)) and the analysis that it performs ([sensitive data discovery results](#macie-terms-discovery-result)). Macie also updates statistics and other information that it provides about Amazon S3 data.
 
-For more information, see [Performing automated sensitive data
-discovery](discovery-asdd.md "discovery-asdd.md").
+For more information, see [Performing automated sensitive data discovery](discovery-asdd.md).
 
 ## AWS Security Finding Format (ASFF)
+<a name="macie-terms-asff"></a>
 
-A standardized JSON format for the contents of [findings](#macie-terms-finding "#macie-terms-finding") that are published to or generated by AWS Security Hub CSPM. The ASFF includes
-details about the source of a security issue, the affected resources, and the status of
-a finding.
+A standardized JSON format for the contents of [findings](#macie-terms-finding) that are published to or generated by AWS Security Hub CSPM. The ASFF includes details about the source of a security issue, the affected resources, and the status of a finding.
 
-For information about ASFF, see [AWS Security
-Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User
-Guide_. For information about publishing Macie findings to Security Hub CSPM, see
-[Evaluating findings with
-AWS Security Hub CSPM](securityhub-integration.md "securityhub-integration.md").
+For information about ASFF, see [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) in the *AWS Security Hub User Guide*. For information about publishing Macie findings to Security Hub CSPM, see [Evaluating findings with AWS Security Hub CSPM](securityhub-integration.md).
 
 ## classifiable bytes or size
+<a name="macie-terms-classifiable-size"></a>
 
-In the S3 bucket statistics that Macie provides, the total storage size of all the
-[classifiable objects](#macie-terms-classifiable-object "#macie-terms-classifiable-object") in an S3
-bucket.
+In the S3 bucket statistics that Macie provides, the total storage size of all the [classifiable objects](#macie-terms-classifiable-object) in an S3 bucket.
 
-If versioning is enabled for a bucket, this value is based on the storage size of the
-latest version of each classifiable object in the bucket. If an object is a compressed
-file, this value doesn’t reflect the actual size of the file’s contents after the file
-is decompressed.
+If versioning is enabled for a bucket, this value is based on the storage size of the latest version of each classifiable object in the bucket. If an object is a compressed file, this value doesn’t reflect the actual size of the file’s contents after the file is decompressed.
 
-For more information, see [Reviewing your S3 bucket
-inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md") and [Assessing your Amazon S3 security
-posture](monitoring-s3-dashboard.md "monitoring-s3-dashboard.md").
+For more information, see [Reviewing your S3 bucket inventory](monitoring-s3-inventory-review.md) and [Assessing your Amazon S3 security posture](monitoring-s3-dashboard.md).
 
 ## classifiable object
+<a name="macie-terms-classifiable-object"></a>
 
 An S3 object that Macie can analyze to detect sensitive data.
 
-When calculating S3 bucket statistics, Macie determines that an object is _classifiable_ based on the object’s storage class and file
-name extension. An object is _classifiable_ if it uses
-a supported Amazon S3 storage class and has a file name extension for a supported file or
-storage format.
+When calculating S3 bucket statistics, Macie determines that an object is *classifiable* based on the object’s storage class and file name extension. An object is *classifiable* if it uses a supported Amazon S3 storage class and has a file name extension for a supported file or storage format.
 
-For more information, see [Reviewing your S3 bucket
-inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md") and [Supported storage classes and
-formats](discovery-supported-storage.md "discovery-supported-storage.md").
+For more information, see [Reviewing your S3 bucket inventory](monitoring-s3-inventory-review.md) and [Supported storage classes and formats](discovery-supported-storage.md).
 
-For sensitive data discovery, Macie determines that an object is _classifiable_ based on the object’s storage class, file name
-extension, and contents. An object is _classifiable_
-if: it uses a supported Amazon S3 storage class, it has a file name extension for a supported
-file or storage format, and Macie verified that it can extract and analyze data from the
-object.
+For sensitive data discovery, Macie determines that an object is *classifiable* based on the object’s storage class, file name extension, and contents. An object is *classifiable* if: it uses a supported Amazon S3 storage class, it has a file name extension for a supported file or storage format, and Macie verified that it can extract and analyze data from the object.
 
-For more information, see [Discovering sensitive data](data-classification.md "data-classification.md") and [Supported storage classes and
-formats](discovery-supported-storage.md "discovery-supported-storage.md").
+For more information, see [Discovering sensitive data](data-classification.md) and [Supported storage classes and formats](discovery-supported-storage.md).
 
 ## custom data identifier
+<a name="macie-terms-cdi"></a>
 
 A set of criteria that you define to detect sensitive data.
 
-The criteria consist of a regular expression (_regex_) that defines a text pattern to match and, optionally, character
-sequences and a proximity rule that refine the results. The character sequences can
-be:
+The criteria consist of a regular expression (*regex*) that defines a text pattern to match and, optionally, character sequences and a proximity rule that refine the results. The character sequences can be:
++ *Keywords*, which are words or phrases that must be in proximity of text that matches the regex, or
++ *Ignore words*, which are words or phrases to exclude from the results.
 
-- _Keywords_, which are words or phrases that
-  must be in proximity of text that matches the regex, or
-- _Ignore words_, which are words or phrases to
-  exclude from the results.
+In addition to detection criteria, you can define custom severity settings for the [sensitive data findings](#macie-terms-sensitive-data-finding) that a custom data identifier produces.
 
-In addition to detection criteria, you can define custom severity settings for the
-[sensitive data findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding")
-that a custom data identifier produces.
-
-For more information, see [Building custom data
-identifiers](custom-data-identifiers.md "custom-data-identifiers.md").
+For more information, see [Building custom data identifiers](custom-data-identifiers.md).
 
 ## filter rule
+<a name="macie-terms-filter-rule"></a>
 
-A set of attribute-based filter criteria that you create and save to analyze [findings](#macie-terms-finding "#macie-terms-finding") on the Amazon Macie console. Filter rules
-can help you perform consistent analysis of findings that have specific characteristics,
-such as all high-severity findings that report a specific type of sensitive data.
+A set of attribute-based filter criteria that you create and save to analyze [findings](#macie-terms-finding) on the Amazon Macie console. Filter rules can help you perform consistent analysis of findings that have specific characteristics, such as all high-severity findings that report a specific type of sensitive data.
 
-For more information, see [Defining filter
-rules](findings-filter-rule-procedures.md "findings-filter-rule-procedures.md").
+For more information, see [Defining filter rules](findings-filter-rule-procedures.md).
 
 ## finding
+<a name="macie-terms-finding"></a>
 
-A detailed report of sensitive data that Macie found in an S3 object or a potential
-issue with the security or privacy of an S3 general purpose bucket. Each finding
-provides details such as a severity rating, information about the affected resource, and
-when Macie found the data or issue.
+A detailed report of sensitive data that Macie found in an S3 object or a potential issue with the security or privacy of an S3 general purpose bucket. Each finding provides details such as a severity rating, information about the affected resource, and when Macie found the data or issue.
 
-Macie generates two categories of findings: [sensitive data findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding"), for
-sensitive data that Macie detects in S3 objects, and [policy findings](#macie-terms-policy-finding "#macie-terms-policy-finding"), for potential issues
-that Macie detects with the security and access control settings for S3 buckets. Within
-each category, there are specific types of findings.
+Macie generates two categories of findings: [sensitive data findings](#macie-terms-sensitive-data-finding), for sensitive data that Macie detects in S3 objects, and [policy findings](#macie-terms-policy-finding), for potential issues that Macie detects with the security and access control settings for S3 buckets. Within each category, there are specific types of findings.
 
-For more information, see [Types of findings](findings-types.md "findings-types.md").
+For more information, see [Types of findings](findings-types.md).
 
 ## finding event
+<a name="macie-terms-finding-event"></a>
 
-An Amazon EventBridge event that contains the details of a [sensitive data finding](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding") or [policy finding](#macie-terms-policy-finding "#macie-terms-policy-finding").
+An Amazon EventBridge event that contains the details of a [sensitive data finding](#macie-terms-sensitive-data-finding) or [policy finding](#macie-terms-policy-finding).
 
-Macie automatically publishes sensitive data findings and policy findings to Amazon EventBridge
-as _events_. An event is a JSON object that conforms to
-the EventBridge schema for AWS events. You can use these events to monitor, process, and act
-upon findings by using other applications, services, and systems.
+Macie automatically publishes sensitive data findings and policy findings to Amazon EventBridge as *events*. An event is a JSON object that conforms to the EventBridge schema for AWS events. You can use these events to monitor, process, and act upon findings by using other applications, services, and systems.
 
-For more information, see [Processing findings with
-Amazon EventBridge](findings-monitor-events-eventbridge.md "findings-monitor-events-eventbridge.md") and [Amazon EventBridge event schema for
-findings](findings-publish-event-schemas.md "findings-publish-event-schemas.md").
+For more information, see [Processing findings with Amazon EventBridge](findings-monitor-events-eventbridge.md) and [Amazon EventBridge event schema for findings](findings-publish-event-schemas.md).
 
 ## job
+<a name="macie-terms-job"></a>
 
-See [sensitive data discovery
-job](#macie-terms-discovery-job "#macie-terms-discovery-job").
+See [sensitive data discovery job](#macie-terms-discovery-job).
 
 ## managed data identifier
+<a name="macie-terms-mdi"></a>
 
-A set of built-in criteria and techniques that are designed to detect a specific type
-of sensitive data. Examples of sensitive data include credit card numbers, AWS secret
-access keys, or passport numbers for a particular country or region. These identifiers
-can detect a large and growing list of sensitive data types for many countries and
-regions.
+A set of built-in criteria and techniques that are designed to detect a specific type of sensitive data. Examples of sensitive data include credit card numbers, AWS secret access keys, or passport numbers for a particular country or region. These identifiers can detect a large and growing list of sensitive data types for many countries and regions.
 
-For more information, see [Using managed data
-identifiers](managed-data-identifiers.md "managed-data-identifiers.md").
+For more information, see [Using managed data identifiers](managed-data-identifiers.md).
 
 ## member account
+<a name="macie-terms-member-account"></a>
 
-A Macie account that’s managed by the designated Macie [administrator account](#macie-terms-administrator-account "#macie-terms-administrator-account") for an
-organization. An _organization_ is a set of Macie
-accounts that are associated with each other and centrally managed as a group of related
-accounts in a specific AWS Region.
+A Macie account that’s managed by the designated Macie [administrator account](#macie-terms-administrator-account) for an organization. An *organization* is a set of Macie accounts that are associated with each other and centrally managed as a group of related accounts in a specific AWS Region.
 
-An account can become a member account in two ways: by integrating Macie with the
-account’s organization in AWS Organizations or by accepting a Macie membership invitation.
+An account can become a member account in two ways: by integrating Macie with the account’s organization in AWS Organizations or by accepting a Macie membership invitation.
 
-If you have a member account, your Macie administrator has access to Amazon S3 inventory
-data, [policy findings](#macie-terms-policy-finding "#macie-terms-policy-finding"), and certain
-Macie settings and resources for your account. Your administrator can also perform [automated sensitive data discovery](#macie-terms-asdd "#macie-terms-asdd") and run [sensitive data discovery jobs](#macie-terms-discovery-job "#macie-terms-discovery-job") to detect
-sensitive data in your S3 buckets. They may also be able to perform additional tasks for
-your account, depending on how your account became a member account.
+If you have a member account, your Macie administrator has access to Amazon S3 inventory data, [policy findings](#macie-terms-policy-finding), and certain Macie settings and resources for your account. Your administrator can also perform [automated sensitive data discovery](#macie-terms-asdd) and run [sensitive data discovery jobs](#macie-terms-discovery-job) to detect sensitive data in your S3 buckets. They may also be able to perform additional tasks for your account, depending on how your account became a member account.
 
-For more information, see [Managing multiple accounts](macie-accounts.md "macie-accounts.md").
+For more information, see [Managing multiple accounts](macie-accounts.md).
 
 ## organization
+<a name="macie-terms-organization"></a>
 
-A set of Macie accounts that are associated with each other and centrally managed as a
-group of related accounts in a specific AWS Region.
+A set of Macie accounts that are associated with each other and centrally managed as a group of related accounts in a specific AWS Region.
 
-Each organization consists of a designated Macie [administrator account](#macie-terms-administrator-account "#macie-terms-administrator-account") and one or
-more associated [member accounts](#macie-terms-member-account "#macie-terms-member-account"). The
-administrator account can access certain Macie settings, data, and resources for member
-accounts. You can create an organization in two ways: by integrating Macie with AWS Organizations
-or by sending and accepting membership invitations in Macie.
+Each organization consists of a designated Macie [administrator account](#macie-terms-administrator-account) and one or more associated [member accounts](#macie-terms-member-account). The administrator account can access certain Macie settings, data, and resources for member accounts. You can create an organization in two ways: by integrating Macie with AWS Organizations or by sending and accepting membership invitations in Macie.
 
-For more information, see [Managing multiple accounts](macie-accounts.md "macie-accounts.md").
+For more information, see [Managing multiple accounts](macie-accounts.md).
 
 ## policy finding
+<a name="macie-terms-policy-finding"></a>
 
-A detailed report of a potential policy violation or issue with the security and
-access control settings for an S3 general purpose bucket. The details include a severity
-rating, information about the affected resource, and when Macie found the issue.
+A detailed report of a potential policy violation or issue with the security and access control settings for an S3 general purpose bucket. The details include a severity rating, information about the affected resource, and when Macie found the issue.
 
-Macie generates policy findings when the policies or settings for an S3 general
-purpose bucket are changed in a way that reduces the security or privacy of the bucket
-and the bucket's objects. Macie generates these findings as part of its ongoing
-monitoring activities for your Amazon S3 data. Macie can generate several types of policy
-findings.
+Macie generates policy findings when the policies or settings for an S3 general purpose bucket are changed in a way that reduces the security or privacy of the bucket and the bucket's objects. Macie generates these findings as part of its ongoing monitoring activities for your Amazon S3 data. Macie can generate several types of policy findings.
 
-For more information, see [Types of findings](findings-types.md "findings-types.md") and [Monitoring data security and
-privacy](monitoring-s3.md "monitoring-s3.md").
+For more information, see [Types of findings](findings-types.md) and [Monitoring data security and privacy](monitoring-s3.md).
 
 ## sample finding
+<a name="macie-terms-sample-finding"></a>
 
-A [finding](#macie-terms-finding "#macie-terms-finding") that uses example data and
-placeholder values to demonstrate the kinds of information that a finding might
-contain.
+A [finding](#macie-terms-finding) that uses example data and placeholder values to demonstrate the kinds of information that a finding might contain.
 
-For more information, see [Working with sample findings](findings-samples.md "findings-samples.md").
+For more information, see [Working with sample findings](findings-samples.md).
 
 ## sensitive data finding
+<a name="macie-terms-sensitive-data-finding"></a>
 
-A detailed report of sensitive data that Macie found in an S3 object. The details
-include a severity rating, information about the affected resource, the type and number
-of occurrences of the sensitive data that Macie found, and when Macie found the
-sensitive data.
+A detailed report of sensitive data that Macie found in an S3 object. The details include a severity rating, information about the affected resource, the type and number of occurrences of the sensitive data that Macie found, and when Macie found the sensitive data.
 
-Macie generates sensitive data findings if it detects sensitive data in S3 objects
-that it analyzes when you run [sensitive data discovery jobs](#macie-terms-discovery-job "#macie-terms-discovery-job") or it performs [automated sensitive data discovery](#macie-terms-asdd "#macie-terms-asdd"). Macie can generate several types of sensitive data
-findings.
+Macie generates sensitive data findings if it detects sensitive data in S3 objects that it analyzes when you run [sensitive data discovery jobs](#macie-terms-discovery-job) or it performs [automated sensitive data discovery](#macie-terms-asdd). Macie can generate several types of sensitive data findings.
 
-For more information, see [Types of findings](findings-types.md "findings-types.md") and [Discovering sensitive data](data-classification.md "data-classification.md").
+For more information, see [Types of findings](findings-types.md) and [Discovering sensitive data](data-classification.md).
 
 ## sensitive data discovery job
+<a name="macie-terms-discovery-job"></a>
 
-Also referred to as a _job_, a series of automated
-processing and analysis tasks that Macie performs to detect and report sensitive data in
-S3 objects. When you create a job, you specify how often you want the job to run, and
-you define the scope and nature of the job’s analysis.
+Also referred to as a *job*, a series of automated processing and analysis tasks that Macie performs to detect and report sensitive data in S3 objects. When you create a job, you specify how often you want the job to run, and you define the scope and nature of the job’s analysis.
 
-When a job runs, Macie produces records of the sensitive data that it finds ([sensitive data findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding")) and the
-analysis that it performs ([sensitive data
-discovery results](#macie-terms-discovery-result "#macie-terms-discovery-result")). Macie also publishes logging data to Amazon CloudWatch Logs.
+When a job runs, Macie produces records of the sensitive data that it finds ([sensitive data findings](#macie-terms-sensitive-data-finding)) and the analysis that it performs ([sensitive data discovery results](#macie-terms-discovery-result)). Macie also publishes logging data to Amazon CloudWatch Logs.
 
-For more information, see [Running sensitive data discovery
-jobs](discovery-jobs.md "discovery-jobs.md").
+For more information, see [Running sensitive data discovery jobs](discovery-jobs.md).
 
 ## sensitive data discovery result
+<a name="macie-terms-discovery-result"></a>
 
-A record that logs details about the analysis that Macie performed on an S3 object to
-determine whether the object contains sensitive data. Macie generates and writes these
-records to JSON Lines (.jsonl) files, which it encrypts and stores in an S3 bucket that
-you specify. The records adhere to a standardized schema.
+A record that logs details about the analysis that Macie performed on an S3 object to determine whether the object contains sensitive data. Macie generates and writes these records to JSON Lines (.jsonl) files, which it encrypts and stores in an S3 bucket that you specify. The records adhere to a standardized schema.
 
-When you run a [sensitive data discovery
-job](#macie-terms-discovery-job "#macie-terms-discovery-job") or Macie performs [automated sensitive data discovery](#macie-terms-asdd "#macie-terms-asdd"),
-Macie creates a sensitive data discovery result for each object that's included in the
-scope of the analysis. This includes:
+When you run a [sensitive data discovery job](#macie-terms-discovery-job) or Macie performs [automated sensitive data discovery](#macie-terms-asdd), Macie creates a sensitive data discovery result for each object that's included in the scope of the analysis. This includes:
++ Objects that Macie finds sensitive data in, and therefore also produce [sensitive data findings](#macie-terms-sensitive-data-finding).
++ Objects that Macie doesn’t find sensitive data in, and therefore don’t produce sensitive data findings.
++ Objects that Macie can’t analyze due to errors or issues such as permissions settings or use of an unsupported file or storage format.
 
-- Objects that Macie finds sensitive data in, and therefore also produce [sensitive data
-  findings](#macie-terms-sensitive-data-finding "#macie-terms-sensitive-data-finding").
-- Objects that Macie doesn’t find sensitive data in, and therefore don’t produce
-  sensitive data findings.
-- Objects that Macie can’t analyze due to errors or issues such as permissions
-  settings or use of an unsupported file or storage format.
-
-For more information, see [Storing and retaining
-sensitive data discovery results](discovery-results-repository-s3.md "discovery-results-repository-s3.md").
+For more information, see [Storing and retaining sensitive data discovery results](discovery-results-repository-s3.md).
 
 ## session
+<a name="macie-terms-session"></a>
 
-A resource that represents the Macie service for a specific AWS account in a
-specific AWS Region. An AWS account can have only one Macie session in each
-Region.
+A resource that represents the Macie service for a specific AWS account in a specific AWS Region. An AWS account can have only one Macie session in each Region.
 
-When you enable Macie for the first time, the service generates a Macie session for
-your account in the current Region. It also assigns a unique identifier to that session.
-The session enables Macie to become operational for your account in the Region.
+When you enable Macie for the first time, the service generates a Macie session for your account in the current Region. It also assigns a unique identifier to that session. The session enables Macie to become operational for your account in the Region.
 
 ## standalone account
+<a name="macie-terms-standalone-account"></a>
 
-A Macie account that’s neither an administrator nor a member account in an [organization](#macie-terms-organization "#macie-terms-organization"). The account isn’t part of an
-organization.
+A Macie account that’s neither an administrator nor a member account in an [organization](#macie-terms-organization). The account isn’t part of an organization.
 
 ## suppressed finding
+<a name="macie-terms-suppressed-finding"></a>
 
-A [finding](#macie-terms-finding "#macie-terms-finding") that was archived automatically
-by a [suppression rule](#macie-terms-suppression-rule "#macie-terms-suppression-rule"). That is to
-say, Macie automatically changed the status of the finding to _archived_ because the finding matched the criteria of a suppression rule
-when Macie generated the finding.
+A [finding](#macie-terms-finding) that was archived automatically by a [suppression rule](#macie-terms-suppression-rule). That is to say, Macie automatically changed the status of the finding to *archived* because the finding matched the criteria of a suppression rule when Macie generated the finding.
 
-For more information, see [Suppressing findings](findings-suppression.md "findings-suppression.md").
+For more information, see [Suppressing findings](findings-suppression.md).
 
 ## suppression rule
+<a name="macie-terms-suppression-rule"></a>
 
-A set of attribute-based filter criteria that you create and save to archive
-(_suppress_) [findings](#macie-terms-finding "#macie-terms-finding") automatically. Suppression rules are helpful in situations where
-you've reviewed a class of findings and don't want to be notified of them again.
+A set of attribute-based filter criteria that you create and save to archive (*suppress*) [findings](#macie-terms-finding) automatically. Suppression rules are helpful in situations where you've reviewed a class of findings and don't want to be notified of them again.
 
-If you suppress findings with a suppression rule, Macie continues to generate findings
-that match the rule's criteria. However, Macie automatically changes the status of the
-findings to _archived_. This means that the findings
-don't appear by default on the Amazon Macie console and Macie doesn’t publish them to other
-AWS services.
+If you suppress findings with a suppression rule, Macie continues to generate findings that match the rule's criteria. However, Macie automatically changes the status of the findings to *archived*. This means that the findings don't appear by default on the Amazon Macie console and Macie doesn’t publish them to other AWS services.
 
-For more information, see [Suppressing findings](findings-suppression.md "findings-suppression.md").
+For more information, see [Suppressing findings](findings-suppression.md).
 
 ## unclassifiable bytes or size
+<a name="macie-terms-unclassifiable-size"></a>
 
-In the S3 bucket statistics that Macie provides, the total storage size of all the
-[unclassifiable objects](#macie-terms-unclassifiable-object "#macie-terms-unclassifiable-object") in
-an S3 bucket.
+In the S3 bucket statistics that Macie provides, the total storage size of all the [unclassifiable objects](#macie-terms-unclassifiable-object) in an S3 bucket.
 
-If versioning is enabled for a bucket, this value is based on the storage size of the
-latest version of each unclassifiable object in the bucket. If an object is a compressed
-file, this value doesn’t reflect the actual size of the file’s contents after the file
-is decompressed.
+If versioning is enabled for a bucket, this value is based on the storage size of the latest version of each unclassifiable object in the bucket. If an object is a compressed file, this value doesn’t reflect the actual size of the file’s contents after the file is decompressed.
 
-For more information, see [Reviewing your S3 bucket
-inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md") and [Assessing your Amazon S3 security
-posture](monitoring-s3-dashboard.md "monitoring-s3-dashboard.md").
+For more information, see [Reviewing your S3 bucket inventory](monitoring-s3-inventory-review.md) and [Assessing your Amazon S3 security posture](monitoring-s3-dashboard.md).
 
 ## unclassifiable object
+<a name="macie-terms-unclassifiable-object"></a>
 
 An S3 object that Macie can’t analyze to detect sensitive data.
 
-When calculating S3 bucket statistics, Macie determines that an object is _unclassifiable_ based on the object’s storage class and file
-name extension. An object is _unclassifiable_ if it
-doesn’t use a supported Amazon S3 storage class or doesn’t have a file name extension for a
-supported file or storage format.
+When calculating S3 bucket statistics, Macie determines that an object is *unclassifiable* based on the object’s storage class and file name extension. An object is *unclassifiable* if it doesn’t use a supported Amazon S3 storage class or doesn’t have a file name extension for a supported file or storage format.
 
-For more information, see [Reviewing your S3 bucket
-inventory](monitoring-s3-inventory-review.md "monitoring-s3-inventory-review.md") and [Supported storage classes and
-formats](discovery-supported-storage.md "discovery-supported-storage.md").
+For more information, see [Reviewing your S3 bucket inventory](monitoring-s3-inventory-review.md) and [Supported storage classes and formats](discovery-supported-storage.md).
 
-For sensitive data discovery, Macie determines that an object is _unclassifiable_ based on the object’s storage class, file
-name extension, and contents. An object is _unclassifiable_ if: it doesn’t use a supported Amazon S3 storage class, it
-doesn’t have a file name extension for a supported file or storage format, or Macie
-wasn’t able to extract and analyze data from the object. For example, the object is a
-malformed file.
+For sensitive data discovery, Macie determines that an object is *unclassifiable* based on the object’s storage class, file name extension, and contents. An object is *unclassifiable* if: it doesn’t use a supported Amazon S3 storage class, it doesn’t have a file name extension for a supported file or storage format, or Macie wasn’t able to extract and analyze data from the object. For example, the object is a malformed file.
 
-For more information, see [Discovering sensitive data](data-classification.md "data-classification.md") and [Supported storage classes and
-formats](discovery-supported-storage.md "discovery-supported-storage.md").
+For more information, see [Discovering sensitive data](data-classification.md) and [Supported storage classes and formats](discovery-supported-storage.md).
