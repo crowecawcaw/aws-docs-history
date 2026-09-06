@@ -1,18 +1,15 @@
+
+
 # Event structure
+<a name="overiew-event-structure"></a>
 
-Events are represented as JSON objects, and they all have a similar structure, and the
-same top-level fields. These top-level fields contain the event's metadata, such as the
-source of the event, the account and region in which it occurred, and the time at which
-it occurred. For more information about event metadata, see [AWS service event
-metadata](../userguide/eb-events-structure.md "../userguide/eb-events-structure.md") in the _EventBridge User Guide_.
+Events are represented as JSON objects, and they all have a similar structure, and the same top-level fields. These top-level fields contain the event's metadata, such as the source of the event, the account and region in which it occurred, and the time at which it occurred. For more information about event metadata, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *EventBridge User Guide*.
 
-The combination of the **source** and
-**detail-type** fields identify the service that has generated the event, and the type of event, respectively.
-For example, in the following event snippet, `source` identifies the originating AWS service as CloudFormation, while `detail-type` shows that the event represent a change in a stack's status.
+The combination of the **source** and **detail-type** fields identify the service that has generated the event, and the type of event, respectively. For example, in the following event snippet, `source` identifies the originating AWS service as CloudFormation, while `detail-type` shows that the event represent a change in a stack's status.
 
 ```
 {
-  . . .
+  . . . 
   "source": "aws.cloudformation",
   . . .
   "detail-type": "CloudFormation Stack Status Change",
@@ -20,10 +17,7 @@ For example, in the following event snippet, `source` identifies the originating
 }
 ```
 
-The contents of the **detail** field are different depending on which
-service generated the event, and what the event is. If we examine the complete event, we
-can see the specific stack involved, and that the event was generated when its status
-became `CREATE_COMPLETE`.
+The contents of the **detail** field are different depending on which service generated the event, and what the event is. If we examine the complete event, we can see the specific stack involved, and that the event was generated when its status became `CREATE_COMPLETE`.
 
 ```
 {
@@ -45,5 +39,4 @@ became `CREATE_COMPLETE`.
 }
 ```
 
-Knowing the structure and fields present in an event enables you to create an event pattern to match against that event. For more information, see
-[Event patterns](../userguide/eb-event-patterns.md "../userguide/eb-event-patterns.md") in the _EventBridge User Guide_
+Knowing the structure and fields present in an event enables you to create an event pattern to match against that event. For more information, see [Event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *EventBridge User Guide*
