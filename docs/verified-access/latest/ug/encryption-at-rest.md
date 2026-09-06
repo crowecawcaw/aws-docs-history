@@ -1,143 +1,101 @@
+
+
 # Data encryption at rest for AWS Verified Access
+<a name="encryption-at-rest"></a>
 
-AWS Verified Access encrypts data at rest by default, using AWS owned KMS keys. When
-encryption of data at rest happens by default, it helps reduce the operational overhead and
-complexity that are involved in protecting sensitive data. At the same time, it enables you to
-build secure applications that meet strict encryption compliance and regulatory requirements.
-The following sections provide the details of how Verified Access uses KMS keys for data
-encryption at rest.
+AWS Verified Access encrypts data at rest by default, using AWS owned KMS keys. When encryption of data at rest happens by default, it helps reduce the operational overhead and complexity that are involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements. The following sections provide the details of how Verified Access uses KMS keys for data encryption at rest.
 
-###### Contents
-
-- [Verified Access and KMS keys](#kms-keys "#kms-keys")
-- [Personally identifiable information](#types-of-pii "#types-of-pii")
-- [How AWS Verified Access uses grants in AWS KMS](#encryption-grant "#encryption-grant")
-- [Using customer managed keys with Verified Access](#using-cmk "#using-cmk")
-- [Specifying a customer managed key for Verified Access resources](#enable-additional-encryption "#enable-additional-encryption")
-- [AWS Verified Access encryption context](#encryption-context "#encryption-context")
-- [Monitoring your encryption keys for AWS Verified Access](#monitor-key-use "#monitor-key-use")
+**Topics**
++ [Verified Access and KMS keys](#kms-keys)
++ [Personally identifiable information](#types-of-pii)
++ [How AWS Verified Access uses grants in AWS KMS](#encryption-grant)
++ [Using customer managed keys with Verified Access](#using-cmk)
++ [Specifying a customer managed key for Verified Access resources](#enable-additional-encryption)
++ [AWS Verified Access encryption context](#encryption-context)
++ [Monitoring your encryption keys for AWS Verified Access](#monitor-key-use)
 
 ## Verified Access and KMS keys
+<a name="kms-keys"></a>
 
-###### AWS owned keys
+**AWS owned keys**  
+Verified Access uses KMS keys to automatically encrypt personally identifiable information (PII). This happens by default, and you can't yourself view, manage, use, or audit the use of the AWS owned keys. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*.
 
-Verified Access uses KMS keys to automatically encrypt personally identifiable information
-(PII). This happens by default, and you can't yourself view, manage, use, or audit the use
-of the AWS owned keys. However, you don't have to take any action or change any programs
-to protect the keys that encrypt your data. For more information, see [AWS
-owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
+While you can't disable this layer of encryption or select an alternate encryption type, you can add a second layer of encryption over the existing AWS owned encryption keys by choosing a customer managed key when you create your Verified Access resources.
 
-While you can't disable this layer of encryption or select an alternate encryption type,
-you can add a second layer of encryption over the existing AWS owned encryption keys by
-choosing a customer managed key when you create your Verified Access resources.
+**Customer managed keys**  
+Verified Access supports the use of symmetric customer managed keys that you create and manage, to add a second layer of encryption over the existing default encryption. Because you have full control of this layer of encryption, you can perform such tasks as: 
++ Establishing and maintaining key policies
++ Establishing and maintaining IAM policies and grants
++ Enabling and disabling key policies
++ Rotating key cryptographic material
++ Adding tags
++ Creating key aliases
++ Scheduling keys for deletion
 
-###### Customer managed keys
+For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide*.
 
-Verified Access supports the use of symmetric customer managed keys that you create and manage, to
-add a second layer of encryption over the existing default encryption. Because you have
-full control of this layer of encryption, you can perform such tasks as:
-
-- Establishing and maintaining key policies
-- Establishing and maintaining IAM policies and grants
-- Enabling and disabling key policies
-- Rotating key cryptographic material
-- Adding tags
-- Creating key aliases
-- Scheduling keys for deletion
-
-For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the
-_AWS Key Management Service Developer Guide_.
-
-###### Note
-
-Verified Access automatically enables encryption at rest using AWS owned keys to protect
-personally identifiable data at no charge.
-
-However, AWS KMS charges will apply when you use a customer managed key. For more information
-about pricing, see the [AWS Key Management Service
-pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+**Note**  
+Verified Access automatically enables encryption at rest using AWS owned keys to protect personally identifiable data at no charge.   
+However, AWS KMS charges will apply when you use a customer managed key. For more information about pricing, see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/).
 
 ## Personally identifiable information
+<a name="types-of-pii"></a>
 
-The following table summarizes the personally identifiable information (PII) that
-Verified Access uses, and how it is encrypted.
+The following table summarizes the personally identifiable information (PII) that Verified Access uses, and how it is encrypted.
 
-| Data type                                                                                                                                                                                                     | AWS owned key encryption | Customer managed key encryption (Optional) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
-| `Trust provider (user-type)`User-type trust providers contain<br>OIDC options such as AuthorizationEndpoint, UserInfoEndpoint, ClientId,<br>ClientSecret, and so on, which are considered PII.                | Enabled                  | Enabled                                    |
-| `Trust provider (device-type)`Device-type trust providers<br>contain a TenantId, which is considered PII.                                                                                                     | Enabled                  | Enabled                                    |
-| `Group policy`Provided during creation or modification of<br>Verified Access group. Contains rules for authorizing access requests. Might contain PII<br>such as username and email address, and so on.       | Enabled                  | Enabled                                    |
-| `Endpoint policy`Provided during creation or modification of<br>Verified Access endpoint. Contains rules for authorizing access requests. Might contain<br>PII such as username and email address, and so on. | Enabled                  | Enabled                                    |
+
+| Data type | AWS owned key encryption | Customer managed key encryption (Optional) | 
+| --- | --- | --- | 
+| Trust provider (user-type)User-type trust providers contain OIDC options such as AuthorizationEndpoint, UserInfoEndpoint, ClientId, ClientSecret, and so on, which are considered PII. | Enabled | Enabled | 
+| Trust provider (device-type)Device-type trust providers contain a TenantId, which is considered PII. | Enabled | Enabled | 
+| Group policyProvided during creation or modification of Verified Access group. Contains rules for authorizing access requests. Might contain PII such as username and email address, and so on. | Enabled | Enabled | 
+| Endpoint policyProvided during creation or modification of Verified Access endpoint. Contains rules for authorizing access requests. Might contain PII such as username and email address, and so on. | Enabled | Enabled | 
 
 ## How AWS Verified Access uses grants in AWS KMS
+<a name="encryption-grant"></a>
 
-Verified Access requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key.
+Verified Access requires a [grant](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed key.
 
-When you create Verified Access resources encrypted with a customer managed key, Verified Access creates a
-grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS.
-Grants in AWS KMS are used to give Verified Access the access to a customer managed key in your account.
+When you create Verified Access resources encrypted with a customer managed key, Verified Access creates a grant on your behalf by sending a [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) request to AWS KMS. Grants in AWS KMS are used to give Verified Access the access to a customer managed key in your account.
 
-Verified Access requires the grant to use your customer managed key for the following internal
-operations:
+Verified Access requires the grant to use your customer managed key for the following internal operations:
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so that they can be used to decrypt your data.
++ Send [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) requests to AWS KMS to delete a grant.
 
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted data keys so that they can
-  be used to decrypt your data.
-- Send [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") requests to AWS KMS to delete a grant.
-
-You can revoke access to the grant, or remove the service's access to the customer managed key at
-any time. If you do, Verified Access won't be able to access any of the data that's encrypted by
-the customer managed key, which affects operations that are dependent on that data.
+You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Verified Access won't be able to access any of the data that's encrypted by the customer managed key, which affects operations that are dependent on that data.
 
 ## Using customer managed keys with Verified Access
+<a name="using-cmk"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. Follow
-the steps for [Creating a symmetric
-encryption key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") in the _AWS Key Management Service Developer Guide_.
+ You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. Follow the steps for [Creating a symmetric encryption key](https://docs.aws.amazon.com/kms/latest/developerguide/create-symmetric-cmk.html) in the *AWS Key Management Service Developer Guide*.
 
 **Key policies**
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly one
-key policy, which contains statements that determine who can use the key and how they can
-use it. When you create your customer managed key, you can specify a key policy. For more information,
-see [Key policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
-_AWS Key Management Service Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed key with your Verified Access resources, the following API operations
-must be permitted in the key policy:
+To use your customer managed key with your Verified Access resources, the following API operations must be permitted in the key policy:
++ `[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html)` – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) Verified Access requires. For more information, see [Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html), in the *AWS Key Management Service Developer Guide*.
 
-- `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control
-  access to a specified KMS key, which allows access to [grant
-  operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Verified Access requires. For more information, see [Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"),
-  in the _AWS Key Management Service Developer Guide_.
-
-This allows Verified Access to do the following:
-
-    + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data
-     key and store it, because the data key isn't immediately used to encrypt.
-    + Call `Decrypt` to use the stored encrypted data key to access
-     encrypted data.
-    + Set up a retiring principal to allow the service to
-     `RetireGrant`.
-
-- `kms:DescribeKey` – Provides the customer managed key details to allow Verified Access
-  to validate the key.
-- `kms:GenerateDataKey` – Allows Verified Access to use key for encrypting
-  data.
-- `kms:Decrypt` – Allow Verified Access to decrypt the encrypted data
-  keys.
+  This allows Verified Access to do the following:
+  + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt.
+  + Call `Decrypt` to use the stored encrypted data key to access encrypted data.
+  + Set up a retiring principal to allow the service to `RetireGrant`.
++ `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html)` – Provides the customer managed key details to allow Verified Access to validate the key.
++ `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html)` – Allows Verified Access to use key for encrypting data.
++ `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)` – Allow Verified Access to decrypt the encrypted data keys.
 
 The following is an example key policy you can use for Verified Access.
 
 ```
-"Statement" : [
+"Statement" : [ 
     {
       "Sid" : "Allow access to principals authorized to use Verified Access",
       "Effect" : "Allow",
       "Principal" : {
         "AWS" : "*"
       },
-      "Action" : [
-        "kms:DescribeKey",
+      "Action" : [ 
+        "kms:DescribeKey", 
         "kms:CreateGrant",
         "kms:GenerateDataKey",
         "kms:Decrypt"
@@ -155,7 +113,7 @@ The following is an example key policy you can use for Verified Access.
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:root"
        },
-      "Action" : [
+      "Action" : [ 
         "kms:*"
        ],
       "Resource": "arn:aws:kms:region:111122223333:key/key_ID"
@@ -166,7 +124,7 @@ The following is an example key policy you can use for Verified Access.
       "Principal" : {
         "AWS" : "arn:aws:iam::111122223333:root"
       },
-      "Action" : [
+      "Action" : [ 
         "kms:Describe*",
         "kms:Get*",
         "kms:List*",
@@ -177,42 +135,29 @@ The following is an example key policy you can use for Verified Access.
   ]
 ```
 
-For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md")
-in the _AWS Key Management Service Developer Guide_.
+For more information, see [Creating a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) and [troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the *AWS Key Management Service Developer Guide*.
 
 ## Specifying a customer managed key for Verified Access resources
+<a name="enable-additional-encryption"></a>
 
-You can specify a customer managed key to provide a second layer encryption for the following
-resources:
+You can specify a customer managed key to provide a second layer encryption for the following resources:
++ [Verified Access group](verified-access-groups.md) 
++ [Verified Access endpoint](verified-access-endpoints.md) 
++ [Verified Access trust provider](trust-providers.md)
 
-- [Verified Access group](verified-access-groups.md "verified-access-groups.md")
-- [Verified Access endpoint](verified-access-endpoints.md "verified-access-endpoints.md")
-- [Verified Access trust provider](trust-providers.md "trust-providers.md")
+When you create any of these resources using the AWS Management Console, you can specify a customer managed key in the **Additional encryption -- optional** section. During the process, select the **Customize encryption settings (advanced)** check box, then enter the AWS KMS key ID you want to use. This can also be done when modifying an existing resource, or by using the AWS CLI.
 
-When you create any of these resources using the AWS Management Console, you can specify a customer managed key
-in the **Additional encryption -- optional** section. During the process,
-select the **Customize encryption settings (advanced)** check box, then
-enter the AWS KMS key ID you want to use. This can also be done when modifying an existing
-resource, or by using the AWS CLI.
-
-###### Note
-
+**Note**  
 If the customer managed key used to add additional encryption to any of the above resources is lost, the configuration values for the resources will no longer be accessible. The resources can be modified however, by using the AWS Management Console or AWS CLI, to apply a new customer managed key and reset the configuration values.
 
 ## AWS Verified Access encryption context
+<a name="encryption-context"></a>
 
-An [encryption context](../../../kms/latest/developerguide/encrypt_context.md "../../../kms/latest/developerguide/encrypt_context.md")
-is an optional set of key-value pairs that contain additional contextual information about
-the data. AWS KMS uses the encryption context as additional authenticated data to support
-authenticated encryption. When you include an encryption context in a request to
-encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you
-include the same encryption context in the request.
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html) is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request.
 
 **AWS Verified Access encryption context**
 
-Verified Access uses the same encryption context in all AWS KMS cryptographic operations, where
-the key is `aws:verified-access:arn` and the value is the resource Amazon Resource
-Name (ARN). Below are the encryption contexts for Verified Access resources.
+Verified Access uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:verified-access:arn` and the value is the resource Amazon Resource Name (ARN). Below are the encryption contexts for Verified Access resources.
 
 **Verified Access trust provider**
 
@@ -242,21 +187,16 @@ Name (ARN). Below are the encryption contexts for Verified Access resources.
 ```
 
 ## Monitoring your encryption keys for AWS Verified Access
+<a name="monitor-key-use"></a>
 
-When you use a customer managed KMS key with your AWS Verified Access resources, you can use
-[AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to track
-requests that Verified Access sends to AWS KMS.
+When you use a customer managed KMS key with your AWS Verified Access resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track requests that Verified Access sends to AWS KMS.
 
-The following examples are AWS CloudTrail events for `CreateGrant`,
-`RetireGrant`, `Decrypt`, `DescribeKey`, and
-`GenerateDataKey`, which monitor KMS operations called by Verified Access to access
-data that's encrypted by your customer managed KMS key:
+The following examples are AWS CloudTrail events for `CreateGrant`, `RetireGrant`, `Decrypt`, `DescribeKey`, and `GenerateDataKey`, which monitor KMS operations called by Verified Access to access data that's encrypted by your customer managed KMS key:
 
-CreateGrant
-When you use a customer managed key to encrypt your resources, Verified Access sends a
-`CreateGrant` request on your behalf to access the key in your AWS
-account. The grant that Verified Access creates is specific to the resource that's
-associated with the customer managed key.
+------
+#### [ CreateGrant ]
+
+When you use a customer managed key to encrypt your resources, Verified Access sends a `CreateGrant` request on your behalf to access the key in your AWS account. The grant that Verified Access creates is specific to the resource that's associated with the customer managed key. 
 
 The following example event records the `CreateGrant` operation:
 
@@ -327,9 +267,10 @@ The following example event records the `CreateGrant` operation:
 }
 ```
 
-RetireGrant
-Verified Access uses the `RetireGrant` operation to remove a grant when you
-delete a resource.
+------
+#### [ RetireGrant ]
+
+Verified Access uses the `RetireGrant` operation to remove a grant when you delete a resource.
 
 The following example event records the `RetireGrant` operation:
 
@@ -388,9 +329,10 @@ The following example event records the `RetireGrant` operation:
 }
 ```
 
-Decrypt
-Verified Access calls the `Decrypt` operation to use the stored encrypted
-data key to access the encrypted data.
+------
+#### [ Decrypt ]
+
+Verified Access calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data.
 
 The following example event records the `Decrypt` operation:
 
@@ -451,10 +393,10 @@ The following example event records the `Decrypt` operation:
 }
 ```
 
-DescribeKey
-Verified Access uses the `DescribeKey` operation to verify whether the
-customer managed key that's associated with your resource exists in the account and
-Region.
+------
+#### [ DescribeKey ]
+
+Verified Access uses the `DescribeKey` operation to verify whether the customer managed key that's associated with your resource exists in the account and Region.
 
 The following example event records the `DescribeKey` operation:
 
@@ -510,7 +452,9 @@ The following example event records the `DescribeKey` operation:
 }
 ```
 
-GenerateDataKey
+------
+#### [ GenerateDataKey ]
+
 The following example event records the `GenerateDataKey` operation:
 
 ```
@@ -569,3 +513,5 @@ The following example event records the `GenerateDataKey` operation:
     "eventCategory": "Management"
 }
 ```
+
+------

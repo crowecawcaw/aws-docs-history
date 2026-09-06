@@ -1,36 +1,32 @@
+
+
 # Verified Access policy statement structure
+<a name="auth-policies-policy-statement-struct"></a>
 
 The following table shows the structure of a Verified Access policy.
 
-| Component        | Syntax                                                                       |
-| ---------------- | ---------------------------------------------------------------------------- |
-| effect           | `permit                                                                      | forbid` |
-| scope            | `(principal, action, resource)`                                              |
-| condition clause | ``<br>when {<br>context.`policy-reference-name`.`attribute-name`<br>};<br>`` |
+
+| Component | Syntax | 
+| --- | --- | 
+| effect | `permit \| forbid` | 
+| scope | `(principal, action, resource)` | 
+| condition clause | <pre>when {<br />    context.{{policy-reference-name}}.{{attribute-name}}             <br />};</pre>  | 
 
 ## Policy components
+<a name="auth-policies-policy-components"></a>
 
 A Verified Access policy contains the following components:
++ **Effect** – Either `permit` (allow) or `forbid` (deny) access.
++ **Scope** – The principals, actions, and resources to which the effect applies. You can leave the scope in Cedar undefined by not identifying specific principals, actions, or resources. In this case, the policy applies to all possible principals, actions, and resources.
++ **Condition clause** – The context in which the effect applies.
 
-- Effect – Either `permit` (allow)
-  or `forbid` (deny) access.
-- Scope – The principals, actions, and
-  resources to which the effect applies. You can leave the scope in Cedar undefined by not
-  identifying specific principals, actions, or resources. In this case, the policy applies
-  to all possible principals, actions, and resources.
-- **Condition clause** – The context in
-  which the effect applies.
-
-###### Important
-
-For Verified Access, policies are fully expressed by referring to trust data in the condition
-clause. **The policy scope must always be kept undefined**. You
-can then specify access using identity and device trust context in the condition clause.
+**Important**  
+For Verified Access, policies are fully expressed by referring to trust data in the condition clause. **The policy scope must always be kept undefined**. You can then specify access using identity and device trust context in the condition clause.
 
 ## Comments
+<a name="auth-policies-policy-comments"></a>
 
-You can include comments in your AWS Verified Access policies. Comments are defined as a
-line starting with `//` and ending with a newline character.
+You can include comments in your AWS Verified Access policies. Comments are defined as a line starting with `//` and ending with a newline character.
 
 The following example shows comments in a policy.
 
@@ -46,28 +42,28 @@ when {
 ```
 
 ## Multiple clauses
+<a name="auth-policies-multiple-clauses"></a>
 
-You can use more than one condition clause in a policy statement using the
-`&&` operator.
+You can use more than one condition clause in a policy statement using the `&&` operator.
 
 ```
 permit(principal,action,resource)
 when{
- context.`policy-reference-name`.`attribute1` &&
- context.`policy-reference-name`.`attribute2`
+ context.{{policy-reference-name}}.{{attribute1}} &&
+ context.{{policy-reference-name}}.{{attribute2}}
 };
 ```
 
-For additional examples, see [Verified Access example policies](trust-data-iam-add-pol.md "trust-data-iam-add-pol.md").
+For additional examples, see [Verified Access example policies](trust-data-iam-add-pol.md).
 
 ## Reserved characters
+<a name="auth-policies-semicolon"></a>
 
-The following example shows how to write a policy if a context property uses a
-`:` (semicolon), which is a reserved character in the policy language.
+The following example shows how to write a policy if a context property uses a `:` (semicolon), which is a reserved character in the policy language.
 
 ```
-permit(principal, action, resource)
+permit(principal, action, resource) 
 when {
-    context.`policy-reference-name`["namespace:groups"].contains("finance")
+    context.{{policy-reference-name}}["namespace:groups"].contains("finance")
 };
 ```

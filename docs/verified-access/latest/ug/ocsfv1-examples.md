@@ -1,14 +1,17 @@
+
+
 # OCSF version 1.0.0-rc.2 log examples for Verified Access
+<a name="ocsfv1-examples"></a>
 
 The following are sample logs using OCSF version 1.0.0-rc.2.
 
-###### Examples
-
-- [Access granted with trust context included](#ocsfv1-with-trust "#ocsfv1-with-trust")
-- [Access granted with trust context omitted](#ocsfv1-without-trust "#ocsfv1-without-trust")
-- [Assign privileges with network CIDR endpoint](#ocsfv1-with-tcp "#ocsfv1-with-tcp")
+**Topics**
++ [Access granted with trust context included](#ocsfv1-with-trust)
++ [Access granted with trust context omitted](#ocsfv1-without-trust)
++ [Assign privileges with network CIDR endpoint](#ocsfv1-with-tcp)
 
 ## Access granted with trust context included
+<a name="ocsfv1-with-trust"></a>
 
 ```
 {
@@ -134,6 +137,7 @@ The following are sample logs using OCSF version 1.0.0-rc.2.
 ```
 
 ## Access granted with trust context omitted
+<a name="ocsfv1-without-trust"></a>
 
 ```
 {
@@ -222,6 +226,9 @@ The following are sample logs using OCSF version 1.0.0-rc.2.
 ```
 
 ## Assign privileges with network CIDR endpoint
+<a name="ocsfv1-with-tcp"></a>
+
+
 
 ```
 {

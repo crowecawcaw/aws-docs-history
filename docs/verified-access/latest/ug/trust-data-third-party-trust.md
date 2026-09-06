@@ -1,55 +1,35 @@
+
+
 # Third-party trust provider context for Verified Access trust data
+<a name="trust-data-third-party-trust"></a>
 
-This section describes the trust data provided to AWS Verified Access by third-party trust
-providers.
+This section describes the trust data provided to AWS Verified Access by third-party trust providers.
 
-###### Note
+**Note**  
+The context key for your trust provider comes from the policy reference name that you configure when you create the trust provider. For example, if you configure the policy reference name as "idp123", the context key will be "context.idp123". Ensure you are using the correct context key when you create the policy.
 
-The context key for your trust provider comes from the policy reference name that you
-configure when you create the trust provider. For example, if you configure the policy
-reference name as "idp123", the context key will be "context.idp123". Ensure you are using
-the correct context key when you create the policy.
-
-###### Contents
-
-- [Browser extension](#trust-data-browser "#trust-data-browser")
-- [Jamf](#trust-data-iam-jamf "#trust-data-iam-jamf")
-- [CrowdStrike](#trust-data-iam-cs "#trust-data-iam-cs")
-- [JumpCloud](#trust-data-jc "#trust-data-jc")
+**Topics**
++ [Browser extension](#trust-data-browser)
++ [Jamf](#trust-data-iam-jamf)
++ [CrowdStrike](#trust-data-iam-cs)
++ [JumpCloud](#trust-data-jc)
 
 ## Browser extension
+<a name="trust-data-browser"></a>
 
-If you plan to incorporate device trust context into your access policies, then you will
-need either the AWS Verified Access browser extension, or another partner's browser extension. Verified Access currently supports Google Chrome
-and Mozilla Firefox browsers.
+If you plan to incorporate device trust context into your access policies, then you will need either the AWS Verified Access browser extension, or another partner's browser extension. Verified Access currently supports Google Chrome and Mozilla Firefox browsers.
 
-We currently support three device trust providers: Jamf (which supports macOS devices), CrowdStrike (which supports Windows 11 and Windows 10 devices), and JumpCloud (which supports both Windows and MacOS).
-
-- If you're using **Jamf** trust data in your policies,
-  your users must download and install the AWS Verified Access browser extension from the [Chrome web store](https://chromewebstore.google.com/category/extensions "https://chromewebstore.google.com/category/extensions")
-  or [Firefox Add-on site](https://addons.mozilla.org/en-US/firefox/ "https://addons.mozilla.org/en-US/firefox/") on
-  their devices.
-- If you are using **CrowdStrike** trust data in your
-  policies, first your users need to install the [AWS Verified Access Native Messaging Host](https://d3p8dc6667u8pq.cloudfront.net/WPF/latest/AWS_Verified_Access_Native_Messaging_Host.msi "https://d3p8dc6667u8pq.cloudfront.net/WPF/latest/AWS_Verified_Access_Native_Messaging_Host.msi") (direct download link). This component is
-  required to get the trust data from the CrowdStrike agent running on users’ devices.
-  Then, after installing this component, users must install the AWS Verified Access browser
-  extension from the [Chrome web store](https://chromewebstore.google.com/category/extensions "https://chromewebstore.google.com/category/extensions") or [Firefox Add-on site](https://addons.mozilla.org/en-US/firefox/ "https://addons.mozilla.org/en-US/firefox/") on their devices.
-- If you're using **JumpCloud**,
-  your users must have the JumpCloud browser extension from the
-  [Chrome web
-  store](https://chromewebstore.google.com/category/extensions "https://chromewebstore.google.com/category/extensions") or [Firefox
-  Add-on site](https://addons.mozilla.org/en-US/firefox/ "https://addons.mozilla.org/en-US/firefox/") installed on their devices.
+We currently support three device trust providers: Jamf (which supports macOS devices), CrowdStrike (which supports Windows 11 and Windows 10 devices), and JumpCloud (which supports both Windows and MacOS). 
++ If you're using **Jamf** trust data in your policies, your users must download and install the AWS Verified Access browser extension from the [Chrome web store](https://chromewebstore.google.com/category/extensions) or [Firefox Add-on site](https://addons.mozilla.org/en-US/firefox/) on their devices.
++ If you are using **CrowdStrike** trust data in your policies, first your users need to install the [AWS Verified Access Native Messaging Host](https://d3p8dc6667u8pq.cloudfront.net/WPF/latest/AWS_Verified_Access_Native_Messaging_Host.msi) (direct download link). This component is required to get the trust data from the CrowdStrike agent running on users’ devices. Then, after installing this component, users must install the AWS Verified Access browser extension from the [Chrome web store](https://chromewebstore.google.com/category/extensions) or [Firefox Add-on site](https://addons.mozilla.org/en-US/firefox/) on their devices.
++ If you're using **JumpCloud**, your users must have the JumpCloud browser extension from the [Chrome web store](https://chromewebstore.google.com/category/extensions) or [Firefox Add-on site](https://addons.mozilla.org/en-US/firefox/) installed on their devices.
 
 ## Jamf
+<a name="trust-data-iam-jamf"></a>
 
-Jamf is a third-party trust provider. When a policy is evaluated, if you define Jamf
-as a trust provider, Verified Access includes the trust data in the Cedar context under the key you
-specify as “Policy Reference Name” on the trust provider configuration. You can write a
-policy that evaluates against the trust data if you choose. The following [JSON schema](https://json-schema.org/ "https://json-schema.org/") shows which data is included in the
-evaluation.
+Jamf is a third-party trust provider. When a policy is evaluated, if you define Jamf as a trust provider, Verified Access includes the trust data in the Cedar context under the key you specify as “Policy Reference Name” on the trust provider configuration. You can write a policy that evaluates against the trust data if you choose. The following [JSON schema](https://json-schema.org/) shows which data is included in the evaluation.
 
-For more information about using Jamf with Verified Access, see [Integrating AWS Verified Access with Jamf Device Identity](https://docs.jamf.com/technical-papers/jamf-security/aws-verified-access/index.html "https://docs.jamf.com/technical-papers/jamf-security/aws-verified-access/index.html") on the Jamf
-website.
+For more information about using Jamf with Verified Access, see [Integrating AWS Verified Access with Jamf Device Identity](https://docs.jamf.com/technical-papers/jamf-security/aws-verified-access/index.html) on the Jamf website.
 
 ```
 {
@@ -98,8 +78,7 @@ website.
 }
 ```
 
-The following is an example of a policy that evaluates against the trust data provided
-by Jamf.
+The following is an example of a policy that evaluates against the trust data provided by Jamf.
 
 ```
 permit(principal, action, resource) when {
@@ -107,8 +86,7 @@ permit(principal, action, resource) when {
 };
 ```
 
-Cedar provides a useful `.contains()` function to help with enums like
-Jamf’s risk score.
+Cedar provides a useful `.contains()` function to help with enums like Jamf’s risk score.
 
 ```
 permit(principal, action, resource) when {
@@ -117,15 +95,11 @@ permit(principal, action, resource) when {
 ```
 
 ## CrowdStrike
+<a name="trust-data-iam-cs"></a>
 
-CrowdStrike is a third-party trust provider. When a policy is evaluated, if you define
-CrowdStrike as a trust provider, Verified Access includes the trust data in the Cedar context under
-the key you specify as “Policy Reference Name” on the trust provider configuration. You can
-write a policy that evaluates against the trust data if you choose. The following [JSON schema](https://json-schema.org/ "https://json-schema.org/") shows which data is included in the
-evaluation.
+CrowdStrike is a third-party trust provider. When a policy is evaluated, if you define CrowdStrike as a trust provider, Verified Access includes the trust data in the Cedar context under the key you specify as “Policy Reference Name” on the trust provider configuration. You can write a policy that evaluates against the trust data if you choose. The following [JSON schema](https://json-schema.org/) shows which data is included in the evaluation.
 
-For more information about using CrowdStrike with Verified Access, see [Securing private applications
-with CrowdStrike and AWS Verified Access](https://github.com/CrowdStrike/aws-verified-access/ "https://github.com/CrowdStrike/aws-verified-access/") on the GitHub website.
+For more information about using CrowdStrike with Verified Access, see [Securing private applications with CrowdStrike and AWS Verified Access](https://github.com/CrowdStrike/aws-verified-access/) on the GitHub website.
 
 ```
 {
@@ -192,8 +166,7 @@ with CrowdStrike and AWS Verified Access](https://github.com/CrowdStrike/aws-ver
 }
 ```
 
-The following is an example of a policy that evaluates against the trust data provided
-by CrowdStrike.
+The following is an example of a policy that evaluates against the trust data provided by CrowdStrike.
 
 ```
 permit(principal, action, resource) when {
@@ -202,15 +175,11 @@ permit(principal, action, resource) when {
 ```
 
 ## JumpCloud
+<a name="trust-data-jc"></a>
 
-JumpCloud is a third-party trust provider. When a policy is evaluated, if you define
-JumpCloud as a trust provider, Verified Access includes the trust data in the Cedar context
-under the key you specify as “Policy Reference Name” on the trust provider configuration.
-You can write a policy that evaluates against the trust data if you choose. The following
-[JSON schema](https://json-schema.org/ "https://json-schema.org/") shows which data is included
-in the evaluation.
+JumpCloud is a third-party trust provider. When a policy is evaluated, if you define JumpCloud as a trust provider, Verified Access includes the trust data in the Cedar context under the key you specify as “Policy Reference Name” on the trust provider configuration. You can write a policy that evaluates against the trust data if you choose. The following [JSON schema](https://json-schema.org/) shows which data is included in the evaluation.
 
-For more information about using JumpCloud with AWS Verified Access, see [Integrating JumpCloud and AWS Verified Access](https://jumpcloud.com/support/integrate-with-aws-verified-access "https://jumpcloud.com/support/integrate-with-aws-verified-access") on the JumpCloud website.
+For more information about using JumpCloud with AWS Verified Access, see [Integrating JumpCloud and AWS Verified Access](https://jumpcloud.com/support/integrate-with-aws-verified-access) on the JumpCloud website.
 
 ```
 {
@@ -259,8 +228,7 @@ For more information about using JumpCloud with AWS Verified Access, see [Integr
 }
 ```
 
-The following is an example of a policy that evaluates against the trust context provided
-by JumpCloud.
+The following is an example of a policy that evaluates against the trust context provided by JumpCloud.
 
 ```
 permit(principal, action, resource) when {

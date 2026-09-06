@@ -1,29 +1,26 @@
-# User claims passing and signature verification in Verified Access
 
-After an AWS Verified Access instance authenticates a user successfully, it sends the user claims
-received from the IdP to the Verified Access endpoint. The user claims are signed so that applications
-can verify the signatures and also verify that the claims were sent by Verified Access. During this
-process, the following HTTP header is added:
+
+# User claims passing and signature verification in Verified Access
+<a name="user-claims-passing"></a>
+
+After an AWS Verified Access instance authenticates a user successfully, it sends the user claims received from the IdP to the Verified Access endpoint. The user claims are signed so that applications can verify the signatures and also verify that the claims were sent by Verified Access. During this process, the following HTTP header is added:
 
 `x-amzn-ava-user-context`
 
-This header contains the user claims in JSON web token (JWT) format. The JWT format
-includes a header, payload, and signature that are base64 URL encoded. Verified Access uses ES384 (ECDSA
-signature algorithm using SHA-384 hash algorithm) to generate the JWT signature.
+This header contains the user claims in JSON web token (JWT) format. The JWT format includes a header, payload, and signature that are base64 URL encoded. Verified Access uses ES384 (ECDSA signature algorithm using SHA-384 hash algorithm) to generate the JWT signature.
 
 Applications can use these claims for personalization or other user specific experiences. Application developers should educate themselves regarding the level of uniqueness and verification of each claim provided by the identity provider before use. In general, the `sub` claim is the best way to identify a given user.
 
-###### Contents
-
-- [JWT for OIDC user claims](#oidc-sample "#oidc-sample")
-- [JWT for IAM Identity Center user claims](#IdC-sample "#IdC-sample")
-- [Public keys](#public-keys "#public-keys")
-- [Retrieving and decoding JWT](#sample-code "#sample-code")
+**Topics**
++ [JWT for OIDC user claims](#oidc-sample)
++ [JWT for IAM Identity Center user claims](#IdC-sample)
++ [Public keys](#public-keys)
++ [Retrieving and decoding JWT](#sample-code)
 
 ## Example: Signed JWT for OIDC user claims
+<a name="oidc-sample"></a>
 
-The following examples demonstrate what the header and payload for OIDC user claims
-will look like in the JWT format.
+The following examples demonstrate what the header and payload for OIDC user claims will look like in the JWT format.
 
 Example header:
 
@@ -31,7 +28,7 @@ Example header:
 {
    "alg": "ES384",
    "kid": "12345678-1234-1234-1234-123456789012",
-   "signer": "arn:aws:ec2:us-east-1:123456789012:verified-access-instance/vai-abc123xzy321a2b3c",
+   "signer": "arn:aws:ec2:us-east-1:123456789012:verified-access-instance/vai-abc123xzy321a2b3c", 
    "iss": "OIDC Issuer URL",
    "exp": "expiration" (120 secs)
 }
@@ -64,12 +61,11 @@ Example payload:
 ```
 
 ## Example: Signed JWT for IAM Identity Center user claims
+<a name="IdC-sample"></a>
 
-The following examples demonstrate what the header and payload for IAM Identity Center user claims
-will look like in the JWT format.
+The following examples demonstrate what the header and payload for IAM Identity Center user claims will look like in the JWT format.
 
-###### Note
-
+**Note**  
 For IAM Identity Center, only user information will be included in the claims.
 
 Example header:
@@ -78,7 +74,7 @@ Example header:
 {
    "alg": "ES384",
    "kid": "12345678-1234-1234-1234-123456789012",
-   "signer": "arn:aws:ec2:us-east-1:123456789012:verified-access-instance/vai-abc123xzy321a2b3c",
+   "signer": "arn:aws:ec2:us-east-1:123456789012:verified-access-instance/vai-abc123xzy321a2b3c", 
    "iss": "arn:aws:ec2:us-east-1:123456789012:verified-access-trust-provider/vatp-abc123xzy321a2b3c",
    "exp": "expiration" (120 secs)
 }
@@ -100,26 +96,22 @@ Example payload:
 ```
 
 ## Public keys
+<a name="public-keys"></a>
 
-Because Verified Access instances do not encrypt user claims, we recommend that you configure
-Verified Access endpoints to use HTTPS. If you configure your Verified Access endpoint to use HTTP, be sure to
-restrict the traffic to the endpoint using security groups.
+Because Verified Access instances do not encrypt user claims, we recommend that you configure Verified Access endpoints to use HTTPS. If you configure your Verified Access endpoint to use HTTP, be sure to restrict the traffic to the endpoint using security groups.
 
-To ensure security, you must verify the signature before doing any authorization based
-on the claims, and validate that the `signer` field in the JWT header contains
-the expected Verified Access instance ARN.
+To ensure security, you must verify the signature before doing any authorization based on the claims, and validate that the `signer` field in the JWT header contains the expected Verified Access instance ARN.
 
-To get the public key, get the key ID from the JWT header and use it to look up the
-public key from the endpoint.
+To get the public key, get the key ID from the JWT header and use it to look up the public key from the endpoint.
 
 The endpoint for each AWS Region is as follows:
 
 `https://public-keys.prod.verified-access.<region>.amazonaws.com/<key-id>`
 
 ## Example: Retrieving and decoding JWT
+<a name="sample-code"></a>
 
-The following code example shows how to get the key ID, public key, and payload in
-Python 3.9.
+The following code example shows how to get the key ID, public key, and payload in Python 3.9.
 
 ```
 import jwt
@@ -128,7 +120,7 @@ import base64
 import json
 
 # Step 1: Validate the signer
-expected_verified_access_instance_arn = 'arn:aws:ec2:`region-code`:`account-id`:verified-access-instance/`verified-access-instance-id`'
+expected_verified_access_instance_arn = 'arn:aws:ec2:{{region-code}}:{{account-id}}:verified-access-instance/{{verified-access-instance-id}}'
 
 encoded_jwt = headers.dict['x-amzn-ava-user-context']
 jwt_headers = encoded_jwt.split('.')[0]

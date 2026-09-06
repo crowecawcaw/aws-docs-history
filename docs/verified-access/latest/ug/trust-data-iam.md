@@ -1,19 +1,14 @@
+
+
 # AWS IAM Identity Center context for Verified Access trust data
+<a name="trust-data-iam"></a>
 
-When a policy is evaluated, if you define AWS IAM Identity Center as a trust provider, AWS Verified Access
-includes the trust data in the Cedar context under the key you specify as “Policy Reference
-Name” on the trust provider configuration. You can write a policy that evaluates against the
-trust data if you choose.
+When a policy is evaluated, if you define AWS IAM Identity Center as a trust provider, AWS Verified Access includes the trust data in the Cedar context under the key you specify as “Policy Reference Name” on the trust provider configuration. You can write a policy that evaluates against the trust data if you choose.
 
-###### Note
+**Note**  
+The context key for your trust provider comes from the policy reference name that you configure when you create the trust provider. For example, if you configure the policy reference name as "idp123", the context key will be "context.idp123". Check that you are using the correct context key when you create the policy.
 
-The context key for your trust provider comes from the policy reference name that you
-configure when you create the trust provider. For example, if you configure the policy
-reference name as "idp123", the context key will be "context.idp123". Check that you are
-using the correct context key when you create the policy.
-
-The following [JSON schema](https://json-schema.org/ "https://json-schema.org/") shows which data
-is included in the evaluation.
+The following [JSON schema](https://json-schema.org/) shows which data is included in the evaluation.
 
 ```
 {
@@ -66,8 +61,7 @@ is included in the evaluation.
  }
 ```
 
-The following is an example of a policy that evaluates against the trust data provided
-by AWS IAM Identity Center.
+The following is an example of a policy that evaluates against the trust data provided by AWS IAM Identity Center.
 
 ```
 permit(principal, action, resource) when {
@@ -77,7 +71,5 @@ permit(principal, action, resource) when {
  };
 ```
 
-###### Note
-
-As group names can be changed, IAM Identity Center refers to groups using their group ID. This helps
-avoid breaking a policy statement when changing the name of a group.
+**Note**  
+As group names can be changed, IAM Identity Center refers to groups using their group ID. This helps avoid breaking a policy statement when changing the name of a group.

@@ -1,20 +1,20 @@
-# Default context for Verified Access trust data
 
-AWS Verified Access includes some elements about the current request by default in all Cedar
-evaluations regardless of your configured trust providers. You can write a policy that
-evaluates against the data if you choose.
+
+# Default context for Verified Access trust data
+<a name="trust-data-default-context"></a>
+
+AWS Verified Access includes some elements about the current request by default in all Cedar evaluations regardless of your configured trust providers. You can write a policy that evaluates against the data if you choose.
 
 The following are examples of the data that is included in the evaluation.
 
-###### Examples
-
-- [HTTP request](#default-context-http-request "#default-context-http-request")
-- [TCP flow](#default-context-tcp-flow "#default-context-tcp-flow")
+**Topics**
++ [HTTP request](#default-context-http-request)
++ [TCP flow](#default-context-tcp-flow)
 
 ## HTTP request
+<a name="default-context-http-request"></a>
 
-When a policy is evaluated, Verified Access includes data about the current HTTP request in the
-Cedar context under the `context.http_request` key.
+When a policy is evaluated, Verified Access includes data about the current HTTP request in the Cedar context under the `context.http_request` key.
 
 ```
 {
@@ -46,7 +46,7 @@ Cedar context under the `context.http_request` key.
             "description": "The value of the X-Forwarded-For request header",
             "example": "17.7.7.1"
         },
-        "port": {
+        "port": { 
            "type": "integer",
            "description": "The endpoint port",
            "example": 443
@@ -65,8 +65,7 @@ Cedar context under the `context.http_request` key.
 }
 ```
 
-###### Policy example
-
+**Policy example**  
 The following is an example Cedar policy that uses the HTTP request data.
 
 ```
@@ -77,9 +76,9 @@ forbid(principal, action, resource) when {
 ```
 
 ## TCP flow
+<a name="default-context-tcp-flow"></a>
 
-When a policy is evaluated, Verified Access includes data about the current TCP flow in the
-Cedar context under the `context.tcp_flow` key.
+When a policy is evaluated, Verified Access includes data about the current TCP flow in the Cedar context under the `context.tcp_flow` key.
 
 ```
 {

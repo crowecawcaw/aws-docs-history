@@ -1,20 +1,22 @@
+
+
 # OCSF version 0.1 log examples for Verified Access
+<a name="ocsfv01-examples"></a>
 
 The following are sample logs using OCSF version 0.1.
 
-###### Examples
-
-- [Access granted with OIDC](#access-granted-oidc "#access-granted-oidc")
-- [Access granted with OIDC and JAMF](#access-granted-oidc-jamf "#access-granted-oidc-jamf")
-- [Access granted with OIDC and CrowdStrike](#access-granted-oidc-crowdstrike "#access-granted-oidc-crowdstrike")
-- [Access denied due to a missing cookie](#access-denied-cookie "#access-denied-cookie")
-- [Access denied by policy](#access-denied-policy "#access-denied-policy")
-- [Unknown log entry](#unknown-access "#unknown-access")
+**Topics**
++ [Access granted with OIDC](#access-granted-oidc)
++ [Access granted with OIDC and JAMF](#access-granted-oidc-jamf)
++ [Access granted with OIDC and CrowdStrike](#access-granted-oidc-crowdstrike)
++ [Access denied due to a missing cookie](#access-denied-cookie)
++ [Access denied by policy](#access-denied-policy)
++ [Unknown log entry](#unknown-access)
 
 ## Access granted with OIDC
+<a name="access-granted-oidc"></a>
 
-In this example log entry, Verified Access allows access to an endpoint with an OIDC
-user trust provider.
+In this example log entry, Verified Access allows access to an endpoint with an OIDC user trust provider.
 
 ```
 {
@@ -102,9 +104,9 @@ user trust provider.
 ```
 
 ## Access granted with OIDC and JAMF
+<a name="access-granted-oidc-jamf"></a>
 
-In this example log entry, Verified Access allows access to an endpoint with both OIDC
-and JAMF device trust providers.
+In this example log entry, Verified Access allows access to an endpoint with both OIDC and JAMF device trust providers.
 
 ```
 {
@@ -193,9 +195,9 @@ and JAMF device trust providers.
 ```
 
 ## Access granted with OIDC and CrowdStrike
+<a name="access-granted-oidc-crowdstrike"></a>
 
-In this example log entry, Verified Access allows access to an endpoint with both OIDC
-and CrowdStrike device trust providers.
+In this example log entry, Verified Access allows access to an endpoint with both OIDC and CrowdStrike device trust providers.
 
 ```
 {
@@ -292,9 +294,9 @@ and CrowdStrike device trust providers.
 ```
 
 ## Access denied due to a missing cookie
+<a name="access-denied-cookie"></a>
 
-In this example log entry, Verified Access denies access due to a missing authentication
-cookie.
+In this example log entry, Verified Access denies access due to a missing authentication cookie.
 
 ```
 {
@@ -359,9 +361,9 @@ cookie.
 ```
 
 ## Access denied by policy
+<a name="access-denied-policy"></a>
 
-In this example log entry, Verified Access denies an authenticated request because the
-request is not allowed by the access policies.
+In this example log entry, Verified Access denies an authenticated request because the request is not allowed by the access policies.
 
 ```
 {
@@ -442,10 +444,9 @@ request is not allowed by the access policies.
 ```
 
 ## Unknown log entry
+<a name="unknown-access"></a>
 
-In this example log entry, Verified Access can't generate a complete log entry so it
-emits an unknown log entry. This ensures that every request appears in the access
-log.
+In this example log entry, Verified Access can't generate a complete log entry so it emits an unknown log entry. This ensures that every request appears in the access log.
 
 ```
 {
