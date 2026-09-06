@@ -1,135 +1,90 @@
+
+
 # Example: Sending data to Kinesis Video Streams using the PutMedia API
+<a name="examples-putmedia"></a>
 
-This example demonstrates how to use the [PutMedia](API_dataplane_PutMedia.md "API_dataplane_PutMedia.md") API. It shows how
-to send data that's already in a container format (MKV). If your data must be assembled
-into a container format before sending (for example, if you are assembling camera video
-data into frames), see [Upload to Kinesis Video Streams](producer-sdk.md "producer-sdk.md").
+This example demonstrates how to use the [PutMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html) API. It shows how to send data that's already in a container format (MKV). If your data must be assembled into a container format before sending (for example, if you are assembling camera video data into frames), see [Upload to Kinesis Video Streams](producer-sdk.md).
 
-###### Note
+**Note**  
+The `PutMedia` operation is available only in the C\+\+ and Java SDKs. This is due to the full-duplex management of connections, data flow, and acknowledgements. It's not supported in other languages.
 
-The `PutMedia` operation is available only in the C++ and Java SDKs.
-This is due to the full-duplex management of connections, data flow, and
-acknowledgements. It's not supported in other languages.
-
-###### This example includes the following steps:
-
-- [Download and configure the code](#examples-putmedia-download "#examples-putmedia-download")
-- [Write and examine the code](#examples-putmedia-write "#examples-putmedia-write")
-- [Run and verify the code](#examples-putmedia-run "#examples-putmedia-run")
+**Topics**
++ [Download and configure the code](#examples-putmedia-download)
++ [Write and examine the code](#examples-putmedia-write)
++ [Run and verify the code](#examples-putmedia-run)
 
 ## Download and configure the code
+<a name="examples-putmedia-download"></a>
 
-Follow the steps to download the Java example code, import the project into your
-Java IDE, configure the library locations, and configure the code to use your AWS
-credentials.
+Follow the steps to download the Java example code, import the project into your Java IDE, configure the library locations, and configure the code to use your AWS credentials.
 
-1. Create a directory and clone the example source code from the GitHub
-   repository. The `PutMedia` example is part of the [Java](producer-sdk-javaapi.md "producer-sdk-javaapi.md").
+1. Create a directory and clone the example source code from the GitHub repository. The `PutMedia` example is part of the [Java](producer-sdk-javaapi.md).
 
-```
-git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java
-```
+   ```
+   git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java
+   ```
 
-2. Open the Java IDE that you're using (for example, [Eclipse](https://www.eclipse.org/ "https://www.eclipse.org/") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")), and import
-   the Apache Maven project that you downloaded:
+1. Open the Java IDE that you're using (for example, [Eclipse](https://www.eclipse.org/) or [IntelliJ IDEA](https://www.jetbrains.com/idea/)), and import the Apache Maven project that you downloaded: 
+   + **In Eclipse:** Choose **File**, **Import**, **Maven**, **Existing Maven Projects**, and navigate to the root of the downloaded package. Select the `pom.xml` file.
+   + **In IntelliJ Idea: ** Choose **Import**. Navigate to the `pom.xml` file in the root of the downloaded package.
 
-   - **In Eclipse:** Choose
-     **File**, **Import**,
-     **Maven**, **Existing Maven
-     Projects**, and navigate to the root of the downloaded
-     package. Select the `pom.xml` file.
-   - **In IntelliJ Idea:** Choose
-     **Import**. Navigate to the
-     `pom.xml` file in the root of the downloaded
-     package.
-     For more information, see the related IDE documentation.
+    For more information, see the related IDE documentation.
 
-3. Update the project so that the IDE can find the libraries that you
-   imported.
+1. Update the project so that the IDE can find the libraries that you imported.
+   + For IntelliJ IDEA, do the following:
 
-   - For IntelliJ IDEA, do the following:
+     1. Open the context (right-click) menu for the project's **lib** directory, and choose **Add as library**.
 
-     1. Open the context (right-click) menu for the project's
-        **lib** directory, and choose
-        **Add as library**.
-     2. Choose **File**, then
-        choose**Project Structure**.
-     3. Under **Project Settings**, choose
-        **Modules**.
-     4. In the **Sources** tab, set
-        **Language Level** to
-        `7` or higher.
+     1. Choose **File**, then choose**Project Structure**. 
 
-   - For Eclipse, do the following:
+     1. Under **Project Settings**, choose **Modules**. 
 
-     1. Open the context (right-click) menu for the project, and
-        choose **Properties**, **Java Build
-        Path**, **Source**. Then do
-        the following:
+     1. In the **Sources** tab, set **Language Level** to **7** or higher.
+   + For Eclipse, do the following:
 
-        1. On the **Source** tab,
-           double-click **Native library
-           location**.
-        2. In the **Native Library Folder
-           Configuration** wizard, choose
-           **Workspace**.
-        3. In the **Native Library Folder**
-           selection, choose the **lib**
-           directory in the project.
+     1. Open the context (right-click) menu for the project, and choose **Properties**, **Java Build Path**, **Source**. Then do the following:
 
-     2. Open the context (right-click) menu for the project, and
-        choose **Properties**. Then do the
-        following:
+        1. On the **Source** tab, double-click **Native library location**.
 
-        1. On the **Libraries** tab, choose
-           **Add Jars**.
-        2. In the **JAR selection** wizard,
-           choose all the .jars in the project's
-           `lib` directory.
+        1. In the **Native Library Folder Configuration** wizard, choose **Workspace**.
+
+        1. In the **Native Library Folder** selection, choose the **lib** directory in the project.
+
+     1. Open the context (right-click) menu for the project, and choose **Properties**. Then do the following:
+
+        1. On the **Libraries** tab, choose **Add Jars**.
+
+        1. In the **JAR selection** wizard, choose all the .jars in the project's `lib` directory.
 
 ## Write and examine the code
+<a name="examples-putmedia-write"></a>
 
-The `PutMedia` API example (`PutMediaDemo`) shows
-the following coding pattern:
+The `PutMedia` API example (`PutMediaDemo`) shows the following coding pattern:
 
-###### Topics
+**Topics**
++ [Create the PutMediaClient](#producersdk-javaapi-writecode-putmediaapi-putmediaclient)
++ [Stream media and pause the thread](#producersdk-javaapi-writecode-putmediaapi-run)
 
-- [Create the PutMediaClient](#producersdk-javaapi-writecode-putmediaapi-putmediaclient "#producersdk-javaapi-writecode-putmediaapi-putmediaclient")
-- [Stream media and pause the thread](#producersdk-javaapi-writecode-putmediaapi-run "#producersdk-javaapi-writecode-putmediaapi-run")
-
-The code examples in this section are from the `PutMediaDemo`
-class.
+The code examples in this section are from the `PutMediaDemo` class.
 
 ### Create the PutMediaClient
+<a name="producersdk-javaapi-writecode-putmediaapi-putmediaclient"></a>
 
-Creating the `PutMediaClient` object requires the following
-parameters:
+Creating the `PutMediaClient` object requires the following parameters:
++ The URI for the `PutMedia` endpoint.
++ An `InputStream` pointing to the MKV file to stream.
++ The stream name. This example uses the stream that was created in the [Use the Java producer library](producer-sdk-javaapi.md) (`my-stream`). To use a different stream, change the following parameter:
 
-- The URI for the `PutMedia` endpoint.
-- An `InputStream` pointing to the MKV file to stream.
-- The stream name. This example uses the stream that was created in the
-  [Use the Java producer library](producer-sdk-javaapi.md "producer-sdk-javaapi.md") (`my-stream`). To
-  use a different stream, change the following parameter:
-
-```
-private static final String STREAM_NAME="my-stream";
-```
-
-###### Note
-
-The `PutMedia` API example doesn't create a stream. You
-must create a stream either by using the test application for the
-[Use the Java producer library](producer-sdk-javaapi.md "producer-sdk-javaapi.md"), the Kinesis Video Streams console, or
-the AWS CLI.
-
-- The current timestamp.
-- The time code type. The example uses `RELATIVE`, indicating
-  that the timestamp is relative to the start of the container.
-- An `AWSKinesisVideoV4Signer` object that verifies that the
-  received packets were sent by the authorized sender.
-- The maximum upstream bandwidth in Kbps.
-- An `AckConsumer` object to receive packet received
-  acknowledgements.
+  ```
+  private static final String STREAM_NAME="my-stream";
+  ```
+**Note**  
+The `PutMedia` API example doesn't create a stream. You must create a stream either by using the test application for the [Use the Java producer library](producer-sdk-javaapi.md), the Kinesis Video Streams console, or the AWS CLI.
++ The current timestamp.
++ The time code type. The example uses `RELATIVE`, indicating that the timestamp is relative to the start of the container.
++ An `AWSKinesisVideoV4Signer` object that verifies that the received packets were sent by the authorized sender.
++ The maximum upstream bandwidth in Kbps.
++ An `AckConsumer` object to receive packet received acknowledgements.
 
 The following code creates the `PutMediaClient` object:
 
@@ -163,11 +118,9 @@ final PutMediaClient client = PutMediaClient.builder()
 ```
 
 ### Stream media and pause the thread
+<a name="producersdk-javaapi-writecode-putmediaapi-run"></a>
 
-After the client is created, the sample starts asynchronous streaming with
-`putMediaInBackground`. The main thread is then paused with
-`latch.await` until the `AckConsumer` returns, at
-which point the client is closed.
+After the client is created, the sample starts asynchronous streaming with `putMediaInBackground`. The main thread is then paused with `latch.await` until the `AckConsumer` returns, at which point the client is closed.
 
 ```
  /* start streaming video in a background thread */
@@ -181,52 +134,47 @@ which point the client is closed.
 ```
 
 ## Run and verify the code
+<a name="examples-putmedia-run"></a>
 
 To run the `PutMedia` API example, do the following:
 
-1. Create a stream named `my-stream` in the Kinesis Video Streams console or by
-   using the AWS CLI.
-2. Change your working directory to the Java producer SDK directory:
+1. Create a stream named `my-stream` in the Kinesis Video Streams console or by using the AWS CLI.
 
-```
-cd /<YOUR_FOLDER_PATH_WHERE_SDK_IS_DOWNLOADED>/amazon-kinesis-video-streams-producer-sdk-java/
-```
+1. Change your working directory to the Java producer SDK directory:
 
-3. Compile the Java SDK and demo application:
+   ```
+   cd /<YOUR_FOLDER_PATH_WHERE_SDK_IS_DOWNLOADED>/amazon-kinesis-video-streams-producer-sdk-java/
+   ```
 
-```
-mvn package
-```
+1. Compile the Java SDK and demo application:
 
-4. Create a temporary filename in the `/tmp` directory:
+   ```
+   mvn package
+   ```
 
-```
-jar_files=$(mktemp)
-```
+1. Create a temporary filename in the `/tmp` directory:
 
-5. Create a classpath string of dependencies from the local repository to a
-   file:
+   ```
+   jar_files=$(mktemp)
+   ```
 
-```
-mvn -Dmdep.outputFile=$jar_files dependency:build-classpath
-```
+1. Create a classpath string of dependencies from the local repository to a file:
 
-6. Set the value of the `LD_LIBRARY_PATH` environment variable as
-   follows:
+   ```
+   mvn -Dmdep.outputFile=$jar_files dependency:build-classpath
+   ```
 
-```
-export LD_LIBRARY_PATH=/<YOUR_FOLDER_PATH_WHERE_SDK_IS_DOWNLOADED>/amazon-kinesis-video-streams-producer-sdk-cpp/kinesis-video-native-build/downloads/local/lib:$LD_LIBRARY_PATH
-$ classpath_values=$(cat $jar_files)
-```
+1. Set the value of the `LD_LIBRARY_PATH` environment variable as follows:
 
-7. Run the demo from the command line as follows, providing your AWS
-   credentials:
+   ```
+   export LD_LIBRARY_PATH=/<YOUR_FOLDER_PATH_WHERE_SDK_IS_DOWNLOADED>/amazon-kinesis-video-streams-producer-sdk-cpp/kinesis-video-native-build/downloads/local/lib:$LD_LIBRARY_PATH
+   $ classpath_values=$(cat $jar_files)
+   ```
 
-```
-java -classpath target/kinesisvideo-java-demo-1.0-SNAPSHOT.jar:$classpath_values -Daws.accessKeyId=${ACCESS_KEY} -Daws.secretKey=${SECRET_KEY} -Djava.library.path=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/kinesis-video-native-build com.amazonaws.kinesisvideo.demoapp.DemoAppMain
-```
+1. Run the demo from the command line as follows, providing your AWS credentials:
 
-8. Open the [Kinesis Video Streams
-   console](https://console.aws.amazon.com/kinesisvideo/home/ "https://console.aws.amazon.com/kinesisvideo/home/"), and choose your stream on the **Manage
-   Streams** page. The video plays in the **Video
-   Preview** pane.
+   ```
+   java -classpath target/kinesisvideo-java-demo-1.0-SNAPSHOT.jar:$classpath_values -Daws.accessKeyId=${ACCESS_KEY} -Daws.secretKey=${SECRET_KEY} -Djava.library.path=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/kinesis-video-native-build com.amazonaws.kinesisvideo.demoapp.DemoAppMain
+   ```
+
+1. Open the [Kinesis Video Streams console](https://console.aws.amazon.com/kinesisvideo/home/), and choose your stream on the **Manage Streams** page. The video plays in the **Video Preview** pane.

@@ -1,7 +1,9 @@
-# Clean up resources
 
-In order to avoid memory leaks, do the following to unregister a media source from the
-client and free the client.
+
+# Clean up resources
+<a name="producersdk-javaapi-cleanup"></a>
+
+In order to avoid memory leaks, do the following to unregister a media source from the client and free the client.
 
 ```
 try {
@@ -12,7 +14,7 @@ try {
 }
 ```
 
-If you added any items to the cache using the [`CachedInfoMultiAuthServiceCallbacks`](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java/blob/master/src/main/java/com/amazonaws/kinesisvideo/java/service/CachedInfoMultiAuthServiceCallbacksImpl.java "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java/blob/master/src/main/java/com/amazonaws/kinesisvideo/java/service/CachedInfoMultiAuthServiceCallbacksImpl.java"), for example:
+If you added any items to the cache using the [`CachedInfoMultiAuthServiceCallbacks`](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-java/blob/master/src/main/java/com/amazonaws/kinesisvideo/java/service/CachedInfoMultiAuthServiceCallbacksImpl.java), for example:
 
 ```
 serviceCallbacks.addStreamInfoToCache(streamName, streamInfo);

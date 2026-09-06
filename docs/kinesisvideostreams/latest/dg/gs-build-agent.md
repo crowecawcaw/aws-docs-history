@@ -1,168 +1,130 @@
+
+
 # Build the Amazon Kinesis Video Streams Edge Agent
+<a name="gs-build-agent"></a>
 
-###### Build the Amazon Kinesis Video Streams Edge Agent
+**Build the Amazon Kinesis Video Streams Edge Agent**
 
-1. Download the `tar` file using the link that was provided to
-   you.
+1. Download the `tar` file using the link that was provided to you.
 
-If you completed the Amazon Kinesis Video Streams Edge Agent interest form, check your email for
-the download link. If you haven't completed the form, complete it [here](https://pages.awscloud.com/GLOBAL-launch-DL-KVS-Edge-2023-learn.html "https://pages.awscloud.com/GLOBAL-launch-DL-KVS-Edge-2023-learn.html"). 2. Verify the checksum. 3. Extract the binaries and jar in your device.
+   If you completed the Amazon Kinesis Video Streams Edge Agent interest form, check your email for the download link. If you haven't completed the form, complete it [here](https://pages.awscloud.com/GLOBAL-launch-DL-KVS-Edge-2023-learn.html).
 
-Type: `tar -xvf kvs-edge-agent.tar.gz`.
+1. Verify the checksum.
 
-After extraction, your folder structure will look like the
-following:
+1. Extract the binaries and jar in your device.
 
-```
-kvs-edge-agent/LICENSE
-kvs-edge-agent/THIRD-PARTY-LICENSES
-kvs-edge-agent/pom.xml
-kvs-edge-agent/KvsEdgeComponent
-kvs-edge-agent/KvsEdgeComponent/recipes
-kvs-edge-agent/KvsEdgeComponent/recipes/recipe.yaml
-kvs-edge-agent/KvsEdgeComponent/artifacts
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/edge_log_config
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/kvs-edge-agent.jar
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/libgstkvssink.so
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/libIngestorPipelineJNI.so
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/lib
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/lib/libcproducer.so
-kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/lib/libKinesisVideoProducer.so
-```
+   Type: `tar -xvf kvs-edge-agent.tar.gz`.
 
-###### Note
+   After extraction, your folder structure will look like the following:
 
-The release folder name should be set up in a way that reflects the
-latest binary release number. For example, a 1.0.0 release will have the
-folder name set as 1.0.0. 4. Build the dependencies jar.
+   ```
+   kvs-edge-agent/LICENSE
+   kvs-edge-agent/THIRD-PARTY-LICENSES
+   kvs-edge-agent/pom.xml
+   kvs-edge-agent/KvsEdgeComponent
+   kvs-edge-agent/KvsEdgeComponent/recipes
+   kvs-edge-agent/KvsEdgeComponent/recipes/recipe.yaml
+   kvs-edge-agent/KvsEdgeComponent/artifacts
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/edge_log_config
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/kvs-edge-agent.jar
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/libgstkvssink.so
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/libIngestorPipelineJNI.so
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/lib
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/lib/libcproducer.so
+   kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/lib/libKinesisVideoProducer.so
+   ```
+**Note**  
+The release folder name should be set up in a way that reflects the latest binary release number. For example, a 1.0.0 release will have the folder name set as 1.0.0. 
 
-###### Note
+1. Build the dependencies jar. 
+**Note**  
+The jar included with the `kvs-edge-agent.tar.gz` does not have the dependencies. Use the following steps to build those libraries.
 
-The jar included with the `kvs-edge-agent.tar.gz` does not
-have the dependencies. Use the following steps to build those
-libraries.
+   Navigate to the `kvs-edge-agent` folder that contains `pom.xml`. 
 
-Navigate to the `kvs-edge-agent` folder that contains
-`pom.xml`.
+   Type `mvn clean package`.
 
-Type `mvn clean package`.
+   This generates a jar file containing the dependencies the Amazon Kinesis Video Streams Edge Agent requires at `kvs-edge-agent/target/libs.jar`.
 
-This generates a jar file containing the dependencies the Amazon Kinesis Video Streams Edge Agent
-requires at `kvs-edge-agent/target/libs.jar`. 5. Place the `libs.jar` into the folder that contains the
-component's artifacts.
+1. Place the `libs.jar` into the folder that contains the component's artifacts.
 
-Type `mv ./target/libs.jar
- ./KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/`. 6. Set environment variables using the values from previous steps. The
-following table provides descriptions for the variables.
+   Type `mv ./target/libs.jar ./KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/`.
 
-| Environment Variable Name           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWS_REGION`                        | Yes      | The Region that is used.<br>**Example:*<br>• us-west-2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `AWS_IOT_CA_CERT`                   | Yes      | File path to the CA certificate used to establish trust<br>with the backend service through TLS.<br>**Example:**<br>`/`file`/`path`/`to`/AmazonRootCA1.pem`                                                                                                                                                                                                                                                                                                                                                                           |
-| `AWS_IOT_CORE_CERT`                 | Yes      | File path to the X.509 certificate.<br>**Example:**<br>`/`file`/`path`/`to`/`certificateID-certificate`.pem.crt`                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `AWS_IOT_CORE_CREDENTIAL_ENDPOINT`  | Yes      | The [AWS IoT Core credential endpoint provider](../../../iot/latest/developerguide/authorizing-direct-aws.md "../../../iot/latest/developerguide/authorizing-direct-aws.md") endpoint<br>for your AWS account.<br>**Example:**<br>``credential-account-specific-prefix`.credentials.iot.`aws-region`.amazonaws.com`                                                                                                                                                                                                                   |
-| `AWS_IOT_CORE_DATA_ATS_ENDPOINT`    | Yes      | The [AWS IoT Core data plane endpoint](../../../general/latest/gr/iot-core.md#iot-core-data-plane-endpoints "../../../general/latest/gr/iot-core.md#iot-core-data-plane-endpoints") for your AWS<br>account.<br>**Example:**<br>``data-account-specific-prefix`.iot.`aws-region`.amazonaws.com`                                                                                                                                                                                                                                       |
-| `AWS_IOT_CORE_PRIVATE_KEY`          | Yes      | File path to the private key used in the public/private<br>key pair. For more information, see [Key<br>management in AWS IoT](../../../iot/latest/developerguide/key-management.md "../../../iot/latest/developerguide/key-management.md").<br>**Example:**<br>`/`file`/`path`/`to`/`certificateID-private`.pem.key`                                                                                                                                                                                                                  |
-| `AWS_IOT_CORE_ROLE_ALIAS`           | Yes      | The name of the role alias pointing to the AWS IAM<br>role to use when connecting to AWS IoT Core.<br>**Example:**<br>`kvs-edge-role-alias`                                                                                                                                                                                                                                                                                                                                                                                           |
-| `AWS_IOT_CORE_THING_NAME`           | Yes      | The name of the AWS IoT thing that the application is being<br>run on.<br>**Example:**<br>`my-edge-device-thing`                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `GST_PLUGIN_PATH`                   | Yes      | File path pointing to the folder that contains the<br>`gstkvssink` and<br>`IngestorPipelineJNI` platform-dependent<br>libraries. Lets GStreamer load these plugins. For more<br>information, see [Download, build, and configure the GStreamer element](examples-gstreamer-plugin.md#examples-gstreamer-plugin-download "examples-gstreamer-plugin.md#examples-gstreamer-plugin-download").<br>**Example:**<br>`/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/` |
-| `LD_LIBRARY_PATH`                   | Yes      | File path pointing to the directory containing the<br>`cproducer` and<br>`KinesisVideoProducer` platform-dependent<br>libraries.<br>**Example:**<br>`/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion`/lib/`                                                                                                                                                                                                                                                        |
-| `AWS_KVS_EDGE_CLOUDWATCH_ENABLED`   | No       | Determines if the Amazon Kinesis Video Streams Edge Agent will post job health<br>metrics onto Amazon CloudWatch.<br>Accepted values: `TRUE`/`FALSE`<br>(case insensitive). Defaults to `FALSE` if not<br>provided.<br>**Example:*<br>• FALSE                                                                                                                                                                                                                                                                                         |
-| `AWS_KVS_EDGE_LOG_LEVEL`            | No       | The level of logging the Amazon Kinesis Video Streams Edge Agent outputs.<br>Accepted values:<br>• OFF<br>• ALL<br>• FATAL<br>• ERROR<br>• WARN<br>• INFO, default, if not provided<br>• DEBUG<br>• TRACE<br>**Example:**<br>`INFO`                                                                                                                                                                                                                                                                                                   |
-| `AWS_KVS_EDGE_LOG_MAX_FILE_SIZE`    | No       | Once the log file reaches this size, a rollover will<br>occur.<br>• **Min:** 0<br>• **Max:** 10000<br>• **Default:** 20, if<br>not provided<br>• **Units:** Megabytes<br>(MB)<br>**Example:*<br>• 5                                                                                                                                                                                                                                                                                                                                   |
-| `AWS_KVS_EDGE_LOG_OUTPUT_DIRECTORY` | No       | The file path pointing to the directory where the<br>Amazon Kinesis Video Streams Edge Agent logs are output. Defaults to<br>`./log` if not provided.<br>**Example:**<br>`/`file`/`path`/`                                                                                                                                                                                                                                                                                                                                            |
-| `AWS_KVS_EDGE_LOG_ROLLOVER_COUNT`   | No       | The number of rolled-over logs to keep before<br>deleting.<br>• **Min:** 1<br>• **Max:** 100<br>• **Default:** 10, if<br>not provided<br>**Example:*<br>• 20                                                                                                                                                                                                                                                                                                                                                                          |
-| `AWS_KVS_EDGE_RECORDING_DIRECTORY`  | No       | File path pointing to the directory recorded media will be<br>written to. Defaults to the current directory if not<br>provided.<br>**Example:**<br>`/`file`/`path`/`                                                                                                                                                                                                                                                                                                                                                                  |
-| `GST_DEBUG`                         | No       | Specifies the level of GStreamer logs to output. For more<br>information, see the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c").<br>**Example:*<br>• 0                                                                                                                                                                                                                       |
-| `GST_DEBUG_FILE`                    | No       | Specifies the output file of the GStreamer debug logs. If<br>unset, debug logs get output to standard error. For more<br>information, see the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/running.html?gi-language=c").<br>**Example:**<br>`/`tmp`/`gstreamer-logging`.log`                                                                                                                             |
+1. Set environment variables using the values from previous steps. The following table provides descriptions for the variables.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-build-agent.html)
 
-7. Clear the GStreamer cache. Type:
+1. Clear the GStreamer cache. Type:
 
-```
-rm ~/.cache/gstreamer-1.0/registry.`your-os-architecture`.bin
-```
+   ```
+   rm ~/.cache/gstreamer-1.0/registry.{{your-os-architecture}}.bin
+   ```
 
-For more information, see the [GStreamer registry documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/gstregistry.html?gi-language=c "https://gstreamer.freedesktop.org/documentation/gstreamer/gstregistry.html?gi-language=c"). 8. Prepare and run the java command. The Amazon Kinesis Video Streams Edge Agent accepts the
-following arguments:
+   For more information, see the [GStreamer registry documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/gstregistry.html?gi-language=c).
 
-| Java Property Name  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `java.library.path` | No       | File path pointing to the folder containing the<br>`gstkvssink` and<br>`IngestorPipelineJNI` dependent libraries. If<br>not provided, the Amazon Kinesis Video Streams Edge Agent will search for them in<br>the current directory.<br>ImportantThe Amazon Kinesis Video Streams Edge Agent won't function correctly if it<br>can't locate these files.<br>**Example:**<br>`/`file`/`path`/` |
+1. Prepare and run the java command. The Amazon Kinesis Video Streams Edge Agent accepts the following arguments:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-build-agent.html)
 
-To set these, add
-`-D`java-property-name`=`value``
-to the java command used to run the jar.
+   To set these, add `-D{{java-property-name}}={{value}}` to the java command used to run the jar.
 
-For example:
+   For example:
 
-```
-java -Djava.library.path=/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion` \
-  --add-opens java.base/jdk.internal.misc=ALL-UNNAMED \
-  -Dio.netty.tryReflectionSetAccessible=true \
-  -cp kvs-edge-agent.jar:libs.jar \
-  com.amazonaws.kinesisvideo.edge.controller.ControllerApp
-```
+   ```
+   java -Djava.library.path=/{{download-location}}/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}} \
+     --add-opens java.base/jdk.internal.misc=ALL-UNNAMED \
+     -Dio.netty.tryReflectionSetAccessible=true \
+     -cp kvs-edge-agent.jar:libs.jar \
+     com.amazonaws.kinesisvideo.edge.controller.ControllerApp
+   ```
+**Important**  
+Run the java command above from the same directory as `/{{download-location}}/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}`.
 
-###### Important
+1. Send configurations to the application using the AWS CLI.
 
-Run the java command above from the same directory as
-`/`download-location`/kvs-edge-agent/KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/`EdgeAgentVersion``. 9. Send configurations to the application using the AWS CLI.
+   1. Create a new file, `{{example-edge-configuration}}.json`. 
 
-    1. Create a new file,
-     ``example-edge-configuration`.json`.
+      Paste the following code into the file. This is a sample configuration that records daily from 9:00:00 AM to 4:59:59 PM (according to the system time on your AWS IoT device). It also uploads the recorded media daily from 7:00:00 PM to 9:59:59 PM.
 
+      For more information, see [StartEdgeConfigurationUpdate](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_StartEdgeConfigurationUpdate.html).
 
-    Paste the following code into the file. This is a sample
-     configuration that records daily from 9:00:00 AM to 4:59:59 PM
-     (according to the system time on your AWS IoT device). It also uploads
-     the recorded media daily from 7:00:00 PM to 9:59:59 PM.
+      ```
+      {
+          "StreamARN": "arn:aws:kinesisvideo:{{your-region}}:{{your-account-id}}:stream/{{your-stream}}/{{0123456789012}}",
+          "EdgeConfig": {
+              "HubDeviceArn": "arn:aws:iot:{{your-region}}:{{your-account-id}}:thing/{{kvs-edge-agent-demo}}",
+              "RecorderConfig": {
+                  "MediaSourceConfig": {
+                      "MediaUriSecretArn": "arn:aws:secretsmanager:{{your-region}}:{{your-account-id}}:secret:{{your-secret}}-{{dRbHJQ}}",
+                      "MediaUriType": "RTSP_URI"
+                  },
+                  "ScheduleConfig": {
+                      "ScheduleExpression": "0 0 9,10,11,12,13,14,15,16 ? * * *",
+                      "DurationInSeconds": 3599
+                  }
+              },
+              "UploaderConfig": {
+                  "ScheduleConfig": {
+                      "ScheduleExpression": "0 0 19,20,21 ? * * *",
+                      "DurationInSeconds": 3599
+                  }
+              },
+              "DeletionConfig": {
+                  "EdgeRetentionInHours": 15,
+                  "LocalSizeConfig": {
+                    "MaxLocalMediaSizeInMB": 2800,
+                    "StrategyOnFullSize": "DELETE_OLDEST_MEDIA"
+                  },
+                  "DeleteAfterUpload": true
+              }
+          }
+      }
+      ```
 
+   1. To send the file to the Amazon Kinesis Video Streams Edge Agent, type the following in the AWS CLI:
 
-    For more information, see [StartEdgeConfigurationUpdate](../APIReference/API_StartEdgeConfigurationUpdate.md "../APIReference/API_StartEdgeConfigurationUpdate.md").
+      ```
+      aws kinesisvideo start-edge-configuration-update --cli-input-json "file://{{example-edge-configuration}}.json"
+      ```
 
-
-
-    ```
-    {
-        "StreamARN": "arn:aws:kinesisvideo:`your-region`:`your-account-id`:stream/`your-stream`/`0123456789012`",
-        "EdgeConfig": {
-            "HubDeviceArn": "arn:aws:iot:`your-region`:`your-account-id`:thing/`kvs-edge-agent-demo`",
-            "RecorderConfig": {
-                "MediaSourceConfig": {
-                    "MediaUriSecretArn": "arn:aws:secretsmanager:`your-region`:`your-account-id`:secret:`your-secret`-`dRbHJQ`",
-                    "MediaUriType": "RTSP_URI"
-                },
-                "ScheduleConfig": {
-                    "ScheduleExpression": "0 0 9,10,11,12,13,14,15,16 ? * * *",
-                    "DurationInSeconds": 3599
-                }
-            },
-            "UploaderConfig": {
-                "ScheduleConfig": {
-                    "ScheduleExpression": "0 0 19,20,21 ? * * *",
-                    "DurationInSeconds": 3599
-                }
-            },
-            "DeletionConfig": {
-                "EdgeRetentionInHours": 15,
-                "LocalSizeConfig": {
-                  "MaxLocalMediaSizeInMB": 2800,
-                  "StrategyOnFullSize": "DELETE_OLDEST_MEDIA"
-                },
-                "DeleteAfterUpload": true
-            }
-        }
-    }
-    ```
-    2. To send the file to the Amazon Kinesis Video Streams Edge Agent, type the following in the
-     AWS CLI:
-
-
-
-    ```
-    aws kinesisvideo start-edge-configuration-update --cli-input-json "file://`example-edge-configuration`.json"
-    ```
-
-10. Repeat the previous step for each stream for the Amazon Kinesis Video Streams Edge Agent.
+1. Repeat the previous step for each stream for the Amazon Kinesis Video Streams Edge Agent.

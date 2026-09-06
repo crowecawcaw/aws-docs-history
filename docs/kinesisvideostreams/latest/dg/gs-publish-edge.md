@@ -1,169 +1,141 @@
+
+
 # Install the AWS IoT Greengrass log manager component on the device
+<a name="gs-publish-edge"></a>
 
-###### Note
+**Note**  
+Be aware of the [CloudWatch quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html).
 
-Be aware of the [CloudWatch
-quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md").
+Follow these procedures to configure the Amazon Kinesis Video Streams Edge Agent logs to automatically upload to CloudWatch using the AWS IoT Greengrass log manager component. This is an optional step.
 
-Follow these procedures to configure the Amazon Kinesis Video Streams Edge Agent logs to automatically
-upload to CloudWatch using the AWS IoT Greengrass log manager component. This is an optional
-step.
+**Install the AWS IoT Greengrass log manager component**
 
-###### Install the AWS IoT Greengrass log manager component
+1. Confirm that the AWS IoT Greengrass device role has the [appropriate permissions](https://docs.aws.amazon.com/greengrass/v2/developerguide/log-manager-component.html#log-manager-component-requirements).
 
-1. Confirm that the AWS IoT Greengrass device role has the [appropriate permissions](../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-requirements "../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-requirements").
+   1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-   1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-   2. Click **Roles** in the left navigation.
-   3. Choose the name of the TES role created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md "gs-setup-gg.md"). Use the search bar if necessary.
-   4. Select the `GreengrassV2TokenExchangeRoleAccess`
-      policy.
-   5. Select the JSON tab and verify that the policy looks like the
-      following:
+   1. Click **Roles** in the left navigation.
 
-   JSON
+   1. Choose the name of the TES role created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md). Use the search bar if necessary.
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Action": [
-    "logs:CreateLogGroup",
-    "logs:CreateLogStream",
-    "logs:PutLogEvents",
-    "logs:DescribeLogStreams",
-    "s3:GetBucketLocation"
-    ],
-    "Resource": "*"
-    }
-    ]
-   }`
+   1. Select the `GreengrassV2TokenExchangeRoleAccess` policy.
 
-   ```
-   6. If the `GreengrassV2TokenExchangeRoleAccess` policy
-      doesn't exist, or if some required permissions are missing, create a
-      new IAM policy with these permissions and attach it to the TES
-      role created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md "gs-setup-gg.md").
+   1. Select the JSON tab and verify that the policy looks like the following:
 
-2. Sign in to the AWS Management Console and open the AWS IoT Core console at
-   [https://console.aws.amazon.com/iot/](https://console.aws.amazon.com/iot/ "https://console.aws.amazon.com/iot/"). Verify that the appropriate Region is selected.
-3. In the left navigation, choose **Greengrass devices**,
-   **Deployments**.
+------
+#### [ JSON ]
 
-Choose the deployment with the same target as the thing you created in
-[Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md "gs-setup-gg.md"). 4. In the top right corner, select **Actions**, then choose
-**Revise**.
+****  
 
-In the pop-up that appears, choose **Revise
-deployment**. 5. Complete the following sections:
+      ```
+      {
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "logs:CreateLogGroup",
+                      "logs:CreateLogStream",
+                      "logs:PutLogEvents",
+                      "logs:DescribeLogStreams",
+                      "s3:GetBucketLocation"
+                  ],
+                  "Resource": "*"
+              }
+          ]
+      }
+      ```
 
-    1. **Step 1: Specify target.** Choose
-     **Next**.
-    2. **Step 2: Select components.**
+------
 
+   1. If the `GreengrassV2TokenExchangeRoleAccess` policy doesn't exist, or if some required permissions are missing, create a new IAM policy with these permissions and attach it to the TES role created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md).
 
-    	1. Verify that the **aws.greengrass.Cli**
-    	 component and
-    	 **aws.greengrass.SecretManager**
-    	 components are still selected.
+1. Sign in to the AWS Management Console and open the AWS IoT Core console at [https://console.aws.amazon.com/iot/](https://console.aws.amazon.com/iot/). Verify that the appropriate Region is selected.
 
+1. In the left navigation, choose **Greengrass devices**, **Deployments**.
 
-    	###### Important
+   Choose the deployment with the same target as the thing you created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md).
 
-    	Don't uninstall these components.
-    	2. Toggle the **Show only selected
-    	 components** switch and search for
-    	 **aws.greengrass.LogManager**.
-    	3. Select the box next to
-    	 **aws.greengrass.LogManager**, then
-    	 choose **Next**.
-    3. **Step 3: Configure components.** Configure the
-     AWS IoT Greengrass log manager component to upload the logs generated by the
-     Amazon Kinesis Video Streams Edge Agent.
+1. In the top right corner, select **Actions**, then choose **Revise**.
 
+   In the pop-up that appears, choose **Revise deployment**.
 
-    Select the **aws.greengrass.LogManager**
-     component, then choose **Configure
-     component**.
+1. Complete the following sections:
 
+   1. **Step 1: Specify target.** Choose **Next**.
 
-    In the screen that appears, paste the following log manager
-     configuration in the **Configuration to merge**
-     box.
+   1. **Step 2: Select components.**
 
+      1. Verify that the **aws.greengrass.Cli** component and **aws.greengrass.SecretManager** components are still selected.
+**Important**  
+Don't uninstall these components.
 
+      1. Toggle the **Show only selected components** switch and search for **aws.greengrass.LogManager**.
 
-    ```
-    {
-        "logsUploaderConfiguration": {
-            "componentLogsConfigurationMap": {
-                "aws.kinesisvideo.KvsEdgeComponent/java_kvs.log": {
-                    "diskSpaceLimit": "`100`",
-                    "diskSpaceLimitUnit": "MB",
-                    "logFileDirectoryPath": "/`greengrass`/`v2`/work/aws.kinesisvideo.KvsEdgeComponent/log",
-                    "logFileRegex": "java_kvs.log\\w*"
-                },
-                "aws.kinesisvideo.KvsEdgeComponent/cpp_kvs_edge.log": {
-                    "diskSpaceLimit": "`100`",
-                    "diskSpaceLimitUnit": "MB",
-                    "logFileDirectoryPath": "/`greengrass`/`v2`/work/aws.kinesisvideo.KvsEdgeComponent/log",
-                    "logFileRegex": "cpp_kvs_edge.log\\w*"
-                },
-                "aws.kinesisvideo.KvsEdgeComponent/cpp_kvssink.log": {
-                    "diskSpaceLimit": "`100`",
-                    "diskSpaceLimitUnit": "MB",
-                    "logFileDirectoryPath": "/`greengrass`/`v2`/work/aws.kinesisvideo.KvsEdgeComponent/log",
-                    "logFileRegex": "cpp_kvssink.log\\w*"
-                },
-                "aws.kinesisvideo.KvsEdgeComponent/cpp_kvs_streams.log": {
-                    "diskSpaceLimit": "`100`",
-                    "diskSpaceLimitUnit": "MB",
-                    "logFileDirectoryPath": "/`greengrass`/`v2`/work/aws.kinesisvideo.KvsEdgeComponent/log",
-                    "logFileRegex": "cpp_kvs_streams.log\\w*"
-                }
-            }
-        },
-        "periodicUploadIntervalSec": "`1`"
-    }
-    ```
+      1. Select the box next to **aws.greengrass.LogManager**, then choose **Next**.
 
-    ###### Important
+   1. **Step 3: Configure components.** Configure the AWS IoT Greengrass log manager component to upload the logs generated by the Amazon Kinesis Video Streams Edge Agent.
 
-    The `logFileDirectoryPath` in the preceding
-     configuration assumes that the default logging output location
-     is used.
+      Select the **aws.greengrass.LogManager** component, then choose **Configure component**.
 
+      In the screen that appears, paste the following log manager configuration in the **Configuration to merge** box.
 
-    ###### Note
+      ```
+      {
+          "logsUploaderConfiguration": {
+              "componentLogsConfigurationMap": {
+                  "aws.kinesisvideo.KvsEdgeComponent/java_kvs.log": {
+                      "diskSpaceLimit": "{{100}}",
+                      "diskSpaceLimitUnit": "MB",
+                      "logFileDirectoryPath": "/{{greengrass}}/{{v2}}/work/aws.kinesisvideo.KvsEdgeComponent/log",
+                      "logFileRegex": "java_kvs.log\\w*"
+                  },
+                  "aws.kinesisvideo.KvsEdgeComponent/cpp_kvs_edge.log": {
+                      "diskSpaceLimit": "{{100}}",
+                      "diskSpaceLimitUnit": "MB",
+                      "logFileDirectoryPath": "/{{greengrass}}/{{v2}}/work/aws.kinesisvideo.KvsEdgeComponent/log",
+                      "logFileRegex": "cpp_kvs_edge.log\\w*"
+                  },
+                  "aws.kinesisvideo.KvsEdgeComponent/cpp_kvssink.log": {
+                      "diskSpaceLimit": "{{100}}",
+                      "diskSpaceLimitUnit": "MB",
+                      "logFileDirectoryPath": "/{{greengrass}}/{{v2}}/work/aws.kinesisvideo.KvsEdgeComponent/log",
+                      "logFileRegex": "cpp_kvssink.log\\w*"
+                  },
+                  "aws.kinesisvideo.KvsEdgeComponent/cpp_kvs_streams.log": {
+                      "diskSpaceLimit": "{{100}}",
+                      "diskSpaceLimitUnit": "MB",
+                      "logFileDirectoryPath": "/{{greengrass}}/{{v2}}/work/aws.kinesisvideo.KvsEdgeComponent/log",
+                      "logFileRegex": "cpp_kvs_streams.log\\w*"
+                  }
+              }
+          },
+          "periodicUploadIntervalSec": "{{1}}"
+      }
+      ```
+**Important**  
+The `logFileDirectoryPath` in the preceding configuration assumes that the default logging output location is used.
+**Note**  
+For more information about each of the parameters for the log manager configuration, see the [Log manager](https://docs.aws.amazon.com/greengrass/v2/developerguide/log-manager-component.html#log-manager-component-configuration) section of the AWS IoT Greengrass Version 2 Developer Guide.
 
-    For more information about each of the parameters for the log
-     manager configuration, see the [Log manager](../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-configuration "../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-configuration") section of the AWS IoT Greengrass Version 2 Developer Guide.
+      Once you finish, select **Confirm**, then choose **Next**.
 
+   1. **Step 4: Configure advanced settings.** Select **Next**.
 
-    Once you finish, select **Confirm**, then choose
-     **Next**.
-    4. **Step 4: Configure advanced settings.** Select
-     **Next**.
-    5. **Step 5: Review.** Select
-     **Deploy**.
+   1. **Step 5: Review.** Select **Deploy**.
 
-6. Confirm that the AWS log manager component and permissions were
-installed correctly. 7. On the Ubuntu Amazon EC2 instance, type `sudo
- /greengrass/v2/bin/greengrass-cli component details --name
- aws.greengrass.LogManager` to verify the component received the
-updated configuration. 8. Inspect the AWS IoT Greengrass core logs.
+1. Confirm that the AWS log manager component and permissions were installed correctly.
 
-Type `sudo less /greengrass/v2/logs/greengrass.log`.
+1. On the Ubuntu Amazon EC2 instance, type `sudo /greengrass/v2/bin/greengrass-cli component details --name aws.greengrass.LogManager` to verify the component received the updated configuration.
 
-Review for deployment errors.
+1. Inspect the AWS IoT Greengrass core logs.
 
-If there was an error, revise the deployment to remove the
-`aws.greengrass.LogManager` component.
+   Type `sudo less /greengrass/v2/logs/greengrass.log`.
 
-Type `sudo service greengrass restart` to restart the AWS IoT Greengrass core
-service.
+   Review for deployment errors.
 
-If the deployment error was related to missing permissions, review [Add permissions to the token exchange service (TES) role](gs-add-permissions.md "gs-add-permissions.md") to make sure that the TES role has proper
-permissions. Then, repeat this section.
+   If there was an error, revise the deployment to remove the `aws.greengrass.LogManager` component.
+
+   Type `sudo service greengrass restart` to restart the AWS IoT Greengrass core service.
+
+   If the deployment error was related to missing permissions, review [Add permissions to the token exchange service (TES) role](gs-add-permissions.md) to make sure that the TES role has proper permissions. Then, repeat this section.
