@@ -21,6 +21,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 - [Data protection in Amazon Kinesis Data Streams](server-side-encryption.md "server-side-encryption.md")
 - [Controlling access to Amazon Kinesis Data Streams resources using IAM](controlling-access.md "controlling-access.md")
+- [Test your permissions and request inputs with dry run](kds-dryrun-validation.md "kds-dryrun-validation.md")
 - [Compliance validation for Amazon Kinesis Data Streams](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Kinesis Data Streams](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon Kinesis Data Streams](infrastructure-security.md "infrastructure-security.md")

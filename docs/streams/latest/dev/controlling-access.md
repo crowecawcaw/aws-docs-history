@@ -40,6 +40,7 @@ _Amazon CloudWatch User Guide_.
 - [Share your data stream with another account](#sharing-data-streams "#sharing-data-streams")
 - [Configure an AWS Lambda function to read from Kinesis Data Streams in another account](#sharing-data-streams-example "#sharing-data-streams-example")
 - [Share access using resource-based policies](resource-based-policy-examples.md "resource-based-policy-examples.md")
+- [Access control for streaming tables and Amazon S3 delivery](controlling-access-data-delivery.md "controlling-access-data-delivery.md")
 
 ## Policy syntax
 

@@ -161,3 +161,35 @@ about granting permissions to producer and consumer applications, see [Permissio
 Using server-side encryption incurs AWS Key Management Service (AWS KMS) costs. For more
 information, see [AWS Key
 Management Service Pricing](http://aws.amazon.com/kms/pricing "http://aws.amazon.com/kms/pricing").
+
+### Data delivery
+
+_Data delivery_ is a fully managed capability that delivers
+streaming data from a Kinesis data stream to an analytics or storage destination without any
+infrastructure to manage. There are no connectors, consumer applications, or compute
+resources to provision. Kinesis Data Streams reads from your stream, buffers and aggregates records,
+and delivers them to your configured destination within minutes. Data delivery
+supports two destination types: streaming tables on Apache Iceberg, and general
+purpose Amazon S3 buckets. For more information, see [Streaming tables and S3 delivery for Amazon Kinesis Data Streams](data-delivery.md "data-delivery.md").
+
+#### Delivery to streaming tables in Iceberg format
+
+Continuously materialize streaming data as queryable Apache Iceberg tables on
+Amazon S3 Tables with no ETL pipeline required. Delivery to streaming tables
+continuously materializes stream records as Apache Iceberg tables on Amazon S3
+Tables. Built-in intelligent inline compaction eliminates small file
+proliferation and keeps query performance predictable without sacrificing data
+freshness. Query or transform data with any engine, including Apache Spark,
+Trino, Apache Flink, or Amazon Athena, for real-time analytics directly on your
+streaming data.
+
+#### Delivery to Amazon S3
+
+Deliver streaming data in source format to Amazon S3 buckets for backup, archival,
+and downstream data processing. Delivery to Amazon S3 delivers streaming records
+directly to general purpose Amazon S3 buckets in the original source format. Use
+this capability for long-term data retention, compliance archival, replay and
+reprocessing workflows, or as a staging layer for downstream batch processing
+pipelines. Combined with delivery to streaming tables, you can build a complete
+lakehouse architecture with real-time queryable tables for analytics alongside
+full-fidelity raw backup in Amazon S3.
