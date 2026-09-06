@@ -1,14 +1,12 @@
-# Create a document signer certificate
 
-This Java sample shows how to use the [BlankEndEntityCertificate\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_APIPassthrough") template to create a [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html "https://www.iso.org/standard/69084.html")-compliant
-document signer certificate. You must generate base64-encoded values for
-`KeyUsage`, `IssuerAlternativeName`, and
-`CRLDistributionPoint` and pass them through
-`CustomExtensions`.
+
+# Create a document signer certificate
+<a name="JavaApiMDL-IssueDS"></a>
+
+This Java sample shows how to use the [BlankEndEntityCertificate\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough) template to create a [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html)-compliant document signer certificate. You must generate base64-encoded values for `KeyUsage`, `IssuerAlternativeName`, and `CRLDistributionPoint` and pass them through `CustomExtensions`.
 
 The example calls the following AWS Private CA API action:
-
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
 
 ```
 package com.amazonaws.samples.mdl;
@@ -176,5 +174,4 @@ public class IssueDocumentSignerCertificate {
         System.out.println("mDL DS Certificate Arn: " + arn);
     }
 }
-
 ```

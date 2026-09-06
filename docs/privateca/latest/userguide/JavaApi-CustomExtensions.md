@@ -1,16 +1,16 @@
+
+
 # Create certificates with custom extensions
+<a name="JavaApi-CustomExtensions"></a>
 
-The [CustomExtension](../APIReference/API_CustomExtension.md "../APIReference/API_CustomExtension.md") object
-allows administrators to set custom X.509 extensions in private certificates. Customized
-certificates must be created using one of the ApiPassthrough templates. For more information
-about templates, see [AWS Private CA template varieties](template-varieties.md "template-varieties.md"). For more information about using custom extensions, see [Issue private end-entity certificates](PcaIssueCert.md "PcaIssueCert.md").
+The [CustomExtension](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CustomExtension.html) object allows administrators to set custom X.509 extensions in private certificates. Customized certificates must be created using one of the ApiPassthrough templates. For more information about templates, see [AWS Private CA template varieties](template-varieties.md). For more information about using custom extensions, see [Issue private end-entity certificates](PcaIssueCert.md).
 
-###### Topics
-
-- [Activate a subordinate CA with the NameConstraints extension](#Sub_CA_NameConstraints "#Sub_CA_NameConstraints")
-- [Issue a certificate with the QC statement extension](#Certificate_QC_statement "#Certificate_QC_statement")
+**Topics**
++ [Activate a subordinate CA with the NameConstraints extension](#Sub_CA_NameConstraints)
++ [Issue a certificate with the QC statement extension](#Certificate_QC_statement)
 
 ## Activate a subordinate CA with the NameConstraints extension
+<a name="Sub_CA_NameConstraints"></a>
 
 ```
 package com.amazonaws.samples;
@@ -138,7 +138,7 @@ public class SubordinateCAActivationWithNameConstraints {
        String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
        EndpointConfiguration endpoint =
            new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+       
        // Create a client that you can use to make requests.
        AWSACMPCA client = AWSACMPCAClientBuilder.standard()
            .withEndpointConfiguration(endpoint)
@@ -339,7 +339,7 @@ public class SubordinateCAActivationWithNameConstraints {
 
        // Set the certificate authority ARN.
        certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+               
        // Create waiter to wait on successful creation of the certificate file.
        Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
        try {
@@ -425,6 +425,7 @@ public class SubordinateCAActivationWithNameConstraints {
 ```
 
 ## Issue a certificate with the QC statement extension
+<a name="Certificate_QC_statement"></a>
 
 ```
 package com.amazonaws.samples;

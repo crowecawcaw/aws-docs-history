@@ -1,26 +1,19 @@
+
+
 # Activate an issuing authority certificate authority (IACA) certificate
+<a name="JavaApiMDL-ActivateIACA"></a>
 
-This Java sample shows how to use the [BlankRootCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough") template to create and
-install an [ISO/IEC mDL
-standard](https://www.iso.org/standard/69084.html "https://www.iso.org/standard/69084.html")-compliant issuing authority certificate authority (IACA) certificate. You
-must generate base64-encoded values for `KeyUsage`,
-`IssuerAlternativeName`, and `CRLDistributionPoint`, and pass them
-through `CustomExtensions`.
+This Java sample shows how to use the [BlankRootCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough) template to create and install an [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html)-compliant issuing authority certificate authority (IACA) certificate. You must generate base64-encoded values for `KeyUsage`, `IssuerAlternativeName`, and `CRLDistributionPoint`, and pass them through `CustomExtensions`.
 
-###### Note
-
-The IACA link certificate establishes a trust path from the old IACA root certificate
-to the new IACA root certificate. The issuing authority can generate and distribute an
-IACA link certificate during the IACA re-key process. You cannot issue an IACA link
-certificate by using an IACA root certificate with `pathLen=0` set.
+**Note**  
+The IACA link certificate establishes a trust path from the old IACA root certificate to the new IACA root certificate. The issuing authority can generate and distribute an IACA link certificate during the IACA re-key process. You cannot issue an IACA link certificate by using an IACA root certificate with `pathLen=0` set.
 
 The example calls the following AWS Private CA API actions:
-
-- [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-- [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-- [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
-- [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md")
++ [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
++ [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html)
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
++ [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
++ [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
 
 ```
 package com.amazonaws.samples.mdl;
@@ -365,5 +358,4 @@ public class IssuingAuthorityCertificateAuthorityActivation {
         return ByteBuffer.wrap(bytes);
     }
 }
-
 ```

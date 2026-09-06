@@ -1,13 +1,11 @@
+
+
 # GetCertificate
+<a name="JavaApi-GetCertificate"></a>
 
-The following Java sample shows how to use the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") operation.
+The following Java sample shows how to use the [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html) operation.
 
-The operation retrieves a certificate from your private CA. The ARN of the certificate is
-returned when you call the [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md") operation. You must specify both the ARN of your private CA and
-the ARN of the issued certificate when calling the `GetCertificate` operation. You
-can retrieve the certificate if it is in the `ISSUED` state. You can call the
-[CreateCertificateAuthorityAuditReport](../APIReference/API_CreateCertificateAuthorityAuditReport.md "../APIReference/API_CreateCertificateAuthorityAuditReport.md") operation to create a report that contains
-information about all of the certificates issued and revoked by your private CA.
+The operation retrieves a certificate from your private CA. The ARN of the certificate is returned when you call the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) operation. You must specify both the ARN of your private CA and the ARN of the issued certificate when calling the `GetCertificate` operation. You can retrieve the certificate if it is in the `ISSUED` state. You can call the [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html) operation to create a report that contains information about all of the certificates issued and revoked by your private CA.
 
 ```
 package com.amazonaws.samples;
@@ -52,7 +50,7 @@ public class GetCertificate {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -62,16 +60,16 @@ public class GetCertificate {
          .withEndpointConfiguration(endpoint)
          .withCredentials(new AWSStaticCredentialsProvider(credentials))
          .build();
-
+         
       // Create a request object.
       GetCertificateRequest req = new GetCertificateRequest();
 
       // Set the certificate ARN.
-      req.withCertificateArn("arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`");
+      req.withCertificateArn("arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}");
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
-
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
+            
       // Create waiter to wait on successful creation of the certificate file.
       Waiter<GetCertificateRequest> waiter = client.waiters().certificateIssued();
       try {
@@ -108,14 +106,12 @@ public class GetCertificate {
 }
 ```
 
-Your output should be a certificate chain similar to the following for the certificate
-authority (CA) and certificate that you specified.
+Your output should be a certificate chain similar to the following for the certificate authority (CA) and certificate that you specified. 
 
 ```
------BEGIN CERTIFICATE----- `base64-encoded certificate` -----END CERTIFICATE-----
+-----BEGIN CERTIFICATE----- {{base64-encoded certificate}} -----END CERTIFICATE-----
 
------BEGIN CERTIFICATE----- `base64-encoded certificate` -----END CERTIFICATE-----
+-----BEGIN CERTIFICATE----- {{base64-encoded certificate}} -----END CERTIFICATE-----
 
------BEGIN CERTIFICATE----- `base64-encoded certificate` -----END CERTIFICATE-----
-
+-----BEGIN CERTIFICATE----- {{base64-encoded certificate}} -----END CERTIFICATE-----
 ```

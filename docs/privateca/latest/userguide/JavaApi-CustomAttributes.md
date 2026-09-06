@@ -1,41 +1,36 @@
+
+
 # Create CAs and certificates with custom subject names
+<a name="JavaApi-CustomAttributes"></a>
 
-The [CustomAttribute](../APIReference/API_CustomAttribute.md "../APIReference/API_CustomAttribute.md") object
-allows administrators to pass custom object identifiers (OIDs) to private CAs and
-certificates. Custom OIDs can be used to create specialized subject-name hierarchies that
-reflect the structure and needs of your organization. Customized certificates must be
-created using one of the `ApiPassthrough` templates. For more information about
-templates, see [AWS Private CA template varieties](template-varieties.md "template-varieties.md"). For
-more information about using custom attrributes, see [Issue private end-entity certificates](PcaIssueCert.md "PcaIssueCert.md") and [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
+The [CustomAttribute](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CustomAttribute.html) object allows administrators to pass custom object identifiers (OIDs) to private CAs and certificates. Custom OIDs can be used to create specialized subject-name hierarchies that reflect the structure and needs of your organization. Customized certificates must be created using one of the `ApiPassthrough` templates. For more information about templates, see [AWS Private CA template varieties](template-varieties.md). For more information about using custom attrributes, see [Issue private end-entity certificates](PcaIssueCert.md) and [Create a private CA in AWS Private CA](create-CA.md).
 
-You cannot use `StandardAttributes` in conjunction with
-`CustomAttributes`. However, you can pass standard OIDs as part of a
-`CustomAttributes`. The default subject name OIDs are listed in the following
-table:
+You cannot use `StandardAttributes` in conjunction with `CustomAttributes`. However, you can pass standard OIDs as part of a `CustomAttributes`. The default subject name OIDs are listed in the following table:
 
-| Subject name               | Object ID |
-| -------------------------- | --------- |
-| Country                    | 2.5.4.6   |
-| CommonName                 | 2.5.4.3   |
-| DistinguishedNameQualifier | 2.5.4.46  |
-| GenerationQualifier        | 2.5.4.44  |
-| GivenName                  | 2.5.4.42  |
-| Initials                   | 2.5.4.43  |
-| Locality                   | 2.5.4.7   |
-| Organization               | 2.5.4.10  |
-| OrganizationalUnit         | 2.5.4.11  |
-| Pseudonym                  | 2.5.4.65  |
-| SerialNumber               | 2.5.4.5   |
-| State                      | 2.5.4.8   |
-| Surname                    | 2.5.4.4   |
-| Title                      | 2.5.4.12  |
 
-###### Topics
+| Subject name | Object ID | 
+| --- | --- | 
+| Country | 2.5.4.6 | 
+| CommonName | 2.5.4.3 | 
+| DistinguishedNameQualifier | 2.5.4.46 | 
+| GenerationQualifier | 2.5.4.44 | 
+| GivenName | 2.5.4.42 | 
+| Initials | 2.5.4.43 | 
+| Locality | 2.5.4.7 | 
+| Organization | 2.5.4.10 | 
+| OrganizationalUnit | 2.5.4.11 | 
+| Pseudonym | 2.5.4.65 | 
+| SerialNumber | 2.5.4.5 | 
+| State | 2.5.4.8 | 
+| Surname | 2.5.4.4 | 
+| Title | 2.5.4.12 | 
 
-- [Create CA with CustomAttribute](#CA_CustomAttribute "#CA_CustomAttribute")
-- [Issue a certificate with CustomAttribute](#Certificate_CustomAttribute "#Certificate_CustomAttribute")
+**Topics**
++ [Create CA with CustomAttribute](#CA_CustomAttribute)
++ [Issue a certificate with CustomAttribute](#Certificate_CustomAttribute)
 
 ## Create CA with CustomAttribute
+<a name="CA_CustomAttribute"></a>
 
 ```
 package com.amazonaws.samples;
@@ -88,19 +83,19 @@ public class CreateCertificateAuthorityWithCustomAttributes {
                    "location (C:\\Users\\joneps\\.aws\\credentials), and is in valid format.",
                    e);
         }
-
+       
         // Define the endpoint for your sample.
         String endpointRegion = "us-west-2";  // Substitute your region here, e.g. "us-west-2"
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+       
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
             .withCredentials(new AWSStaticCredentialsProvider(credentials))
             .build();
-
+    
         // Define custom attributes
         List<CustomAttribute> customAttributes = Arrays.asList(
             new CustomAttribute()
@@ -136,25 +131,25 @@ public class CreateCertificateAuthorityWithCustomAttributes {
 
         RevocationConfiguration revokeConfig = new RevocationConfiguration();
         revokeConfig.setCrlConfiguration(crlConfigure);
-
+      
         // Define a certificate authority type: ROOT or SUBORDINATE
         CertificateAuthorityType caType = CertificateAuthorityType.SUBORDINATE;
-
+      
         // Create a tag - method 1
         Tag tag1 = new Tag();
         tag1.withKey("PrivateCA");
         tag1.withValue("Sample");
-
+      
         // Create a tag - method 2
         Tag tag2 = new Tag()
             .withKey("Purpose")
             .withValue("WebServices");
-
+      
         // Add the tags to a collection.
         ArrayList<Tag> tags = new ArrayList<Tag>();
         tags.add(tag1);
         tags.add(tag2);
-
+      
         // Create the request object.
         CreateCertificateAuthorityRequest req = new CreateCertificateAuthorityRequest();
         req.withCertificateAuthorityConfiguration(configCA);
@@ -162,7 +157,7 @@ public class CreateCertificateAuthorityWithCustomAttributes {
         req.withIdempotencyToken("1234");
         req.withCertificateAuthorityType(caType);
         req.withTags(tags);
-
+      
 
         // Create the private CA.
         CreateCertificateAuthorityResult result = null;
@@ -184,6 +179,7 @@ public class CreateCertificateAuthorityWithCustomAttributes {
 ```
 
 ## Issue a certificate with CustomAttribute
+<a name="Certificate_CustomAttribute"></a>
 
 ```
 package com.amazonaws.samples;

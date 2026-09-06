@@ -1,12 +1,11 @@
+
+
 # ListPermissions
+<a name="JavaApi-ListPermissions"></a>
 
-The following Java sample shows how to use the [ListPermissions](../APIReference/API_ListPermissions.md "../APIReference/API_ListPermissions.md") operation.
+The following Java sample shows how to use the [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) operation.
 
-This operation lists the permissions, if any, that your private CA has assigned.
-Permissions, including `IssueCertificate`, `GetCertificate`, and
-`ListPermissions`, can be assigned to an AWS service principal with the
-[CreatePermission](../APIReference/API_CreatePermission.md "../APIReference/API_CreatePermission.md") operation,
-and revoked with the [DeletePermissions](../APIReference/API_DeletePermission.md "../APIReference/API_DeletePermission.md") operation.
+This operation lists the permissions, if any, that your private CA has assigned. Permissions, including `IssueCertificate`, `GetCertificate`, and `ListPermissions`, can be assigned to an AWS service principal with the [CreatePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html) operation, and revoked with the [DeletePermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html) operation.
 
 ```
 package com.amazonaws.samples;
@@ -44,7 +43,7 @@ public class ListPermissions {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -57,7 +56,7 @@ public class ListPermissions {
 
       // Create a request object and set the CA ARN.
       ListPermissionsRequest req = new ListPermissionsRequest();
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // List the tags.
       ListPermissionsResult result = null;
@@ -79,12 +78,11 @@ public class ListPermissions {
 }
 ```
 
-If the designated private CA has assigned permissions to a service principal, your output
-should be similar to the following:
+If the designated private CA has assigned permissions to a service principal, your output should be similar to the following:
 
 ```
 [{
-       Arn: arn:aws:acm-pca:`region`:`account`:permission/`12345678-1234-1234-1234-123456789012`,
+       Arn: arn:aws:acm-pca:{{region}}:{{account}}:permission/{{12345678-1234-1234-1234-123456789012}},
        CreatedAt: WedFeb0317: 05: 39PST2019,
        Prinicpal: acm.amazonaws.com,
        Permissions: {
@@ -92,6 +90,6 @@ should be similar to the following:
             GET_CERTIFICATE,
             DELETE,CERTIFICATE
        },
-       SourceAccount: `account`
+       SourceAccount: {{account}}
 }]
 ```

@@ -1,11 +1,11 @@
+
+
 # DeletePermission
+<a name="JavaApi-DeletePermission"></a>
 
-The following Java sample shows how to use the [DeletePermission](../APIReference/API_DeletePermission.md "../APIReference/API_DeletePermission.md") operation.
+The following Java sample shows how to use the [DeletePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html) operation.
 
-The operation deletes permissions that a private CA delegated to an AWS service principal
-using the [CreatePermissions](../APIReference/API_CreatePermission.md "../APIReference/API_CreatePermission.md")
-operation. You can find a CA's ARN by calling the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md")
-function. You can inspect the permissions that a CA granted by calling the [ListPermissions](../APIReference/API_ListPermissions.md "../APIReference/API_ListPermissions.md") function.
+The operation deletes permissions that a private CA delegated to an AWS service principal using the [CreatePermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html) operation. You can find a CA's ARN by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) function. You can inspect the permissions that a CA granted by calling the [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -42,7 +42,7 @@ public class DeletePermission {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -56,12 +56,12 @@ public class DeletePermission {
       // Create a request object.
       DeletePermissionRequest req =
           new DeletePermissionRequest();
-
+          
       //  Set the certificate authority ARN.
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
-
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
+      
       // Set the AWS service principal.
-      req.setPrincipal("`acm.amazonaws.com`");
+      req.setPrincipal("{{acm.amazonaws.com}}");
 
       // Create a result object.
       DeletePermissionResult result = null;

@@ -1,16 +1,11 @@
+
+
 # TagCertificateAuthorities
+<a name="JavaApi-TagPCA"></a>
 
-The following Java sample shows how to use the [TagCertificateAuthority](../APIReference/API_TagCertificateAuthority.md "../APIReference/API_TagCertificateAuthority.md")
-operation.
+The following Java sample shows how to use the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) operation.
 
-This operation adds one or more tags to your private CA. Tags are labels that you can use
-to identify and organize your AWS resources. Each tag consists of a key and an optional
-value. When you call this operation, you specify the private CA by its Amazon Resource Name
-(ARN). You specify the tag by using a key-value pair. To identify a specific characteristic
-of that CA, you can apply a tag to just one private CA. Or, to filter for a common
-relationship among those CAs, you can apply the same tag to multiple private CAs. To remove
-one or more tags, use the [UntagCertificateAuthority](../APIReference/API_UntagCertificateAuthority.md "../APIReference/API_UntagCertificateAuthority.md") operation. Call the [ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md") operation to see what tags are
-associated with your CA.
+This operation adds one or more tags to your private CA. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. When you call this operation, you specify the private CA by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. To identify a specific characteristic of that CA, you can apply a tag to just one private CA. Or, to filter for a common relationship among those CAs, you can apply the same tag to multiple private CAs. To remove one or more tags, use the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) operation. Call the [ListTags](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html) operation to see what tags are associated with your CA.
 
 ```
 package com.amazonaws.samples;
@@ -49,7 +44,7 @@ public class TagCertificateAuthorities {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -62,13 +57,13 @@ public class TagCertificateAuthorities {
 
       // Create a tag - method 1
       Tag tag1 = new Tag();
-      tag1.withKey("`Administrator`");
-      tag1.withValue("`Bob`");
+      tag1.withKey("{{Administrator}}");
+      tag1.withValue("{{Bob}}");
 
       // Create a tag - method 2
       Tag tag2 = new Tag()
-          .withKey("`Purpose`")
-          .withValue("`WebServices`");
+          .withKey("{{Purpose}}")
+          .withValue("{{WebServices}}");
 
       // Add the tags to a collection.
       ArrayList<Tag> tags = new ArrayList<Tag>();
@@ -77,7 +72,7 @@ public class TagCertificateAuthorities {
 
       // Create a request object and specify the certificate authority ARN.
       TagCertificateAuthorityRequest req = new TagCertificateAuthorityRequest();
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
       req.setTags(tags);
 
       // Add a tag

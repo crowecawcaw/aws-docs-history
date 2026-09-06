@@ -1,18 +1,13 @@
+
+
 # CreatePermission
+<a name="JavaApi-CreatePermission"></a>
 
-The following Java sample shows how to use the [CreatePermission](../APIReference/API_CreatePermission.md "../APIReference/API_CreatePermission.md") operation.
+The following Java sample shows how to use the [CreatePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html) operation.
 
-The operation assigns access permissions from a private CA to a designated AWS service
-principal. Services can be given permission to create and retrieve certificates from a private
-CA, as well as list the active permissions that the private CA has granted. In order to
-automatically renew certificates through ACM, you must assign all possible permissions
-(`IssueCertificate`, `GetCertificate`, and `ListPermissions`) from the CA to the
-ACM service principal (`acm.amazonaws.com`). You can find a CA's ARN by calling
-the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") function.
+The operation assigns access permissions from a private CA to a designated AWS service principal. Services can be given permission to create and retrieve certificates from a private CA, as well as list the active permissions that the private CA has granted. In order to automatically renew certificates through ACM, you must assign all possible permissions (`IssueCertificate`, `GetCertificate`, and `ListPermissions`) from the CA to the ACM service principal (`acm.amazonaws.com`). You can find a CA's ARN by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) function.
 
-Once a permission is created, you can inspect it with the [ListPermissions](../APIReference/API_ListPermissions.md "../APIReference/API_ListPermissions.md") function or delete it
-with the [DeletePermission](../APIReference/API_DeletePermission.md "../APIReference/API_DeletePermission.md")
-function.
+Once a permission is created, you can inspect it with the [ListPermissions](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html) function or delete it with the [DeletePermission](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -53,7 +48,7 @@ public class CreatePermission {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -67,10 +62,10 @@ public class CreatePermission {
       // Create a request object.
       CreatePermissionRequest req =
           new CreatePermissionRequest();
-
+          
       //  Set the certificate authority ARN.
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
-
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
+            
       // Set the permissions to give the user.
       ArrayList<String> permissions = new ArrayList<>();
       permissions.add("IssueCertificate");
@@ -78,9 +73,9 @@ public class CreatePermission {
       permissions.add("ListPermissions");
 
       req.setActions(permissions);
-
+      
       // Set the Principal.
-      req.setPrincipal("`acm.amazonaws.com`");
+      req.setPrincipal("{{acm.amazonaws.com}}");
 
       // Create a result object.
       CreatePermissionResult result = null;

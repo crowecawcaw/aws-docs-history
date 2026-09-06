@@ -1,15 +1,14 @@
-# Create a Device Attestation Certificate (DAC)
 
-This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough") template to
-create a [Matter](https://buildwithmatter.com "https://buildwithmatter.com") Device
-Attestation Certificate. You must generate a Base64-encoded KeyUsage value and pass it
-through a CustomExtension.
+
+# Create a Device Attestation Certificate (DAC)
+<a name="JavaApiCBC-DeviceAttestationCertificate"></a>
+
+This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough) template to create a [Matter](https://buildwithmatter.com) Device Attestation Certificate. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
 The example calls the following AWS Private CA API action:
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
 
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-  If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md "TroubleshootPcaMatter.md") in the
-  Troubleshooting section.
+If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
 ```
 package com.amazonaws.samples.matter;
@@ -149,7 +148,7 @@ public class IssueDeviceAttestationCertificate {
       customKeyUsageExtension.setObjectIdentifier("2.5.29.15"); // KeyUsage Extension OID
       customKeyUsageExtension.setValue(base64EncodedKUValue);
       customKeyUsageExtension.setCritical(true);
-
+      
       Extensions extensions = new Extensions();
       extensions.setCustomExtensions(Arrays.asList(customKeyUsageExtension));
       apiPassthrough.setExtensions(extensions);

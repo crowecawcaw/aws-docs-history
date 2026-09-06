@@ -1,14 +1,13 @@
+
+
 # Using CreateCertificateAuthority to support Active Directory
+<a name="JavaApi-CreatePrivateCertificateAuthorityAD"></a>
 
-The following Java sample shows how to use the [CreateCerticateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-operation to create a CA that can be installed in the Enterprise NTAuth store of Microsoft
-Active Directory (AD).
+The following Java sample shows how to use the [CreateCerticateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) operation to create a CA that can be installed in the Enterprise NTAuth store of Microsoft Active Directory (AD).
 
-The operation creates a private root certificate authority (CA) using custom object
-identifiers (OIDs). For more information and an AWS CLI example of an equivalent operation,
-see [Create a CA for Active Directory login](create-CA.md#example_5 "create-CA.md#example_5").
+The operation creates a private root certificate authority (CA) using custom object identifiers (OIDs). For more information and an AWS CLI example of an equivalent operation, see [Create a CA for Active Directory login](create-CA.md#example_5). 
 
-If successful, this function returns the Amazon Resource Name (ARN) of the CA.
+If successful, this function returns the Amazon Resource Name (ARN) of the CA. 
 
 ```
 package com.amazonaws.samples.appstream;
@@ -87,7 +86,7 @@ import lombok.SneakyThrows;
 public class RootCAActivation {
     public static void main(String[] args) throws Exception {
         // Define the endpoint region for your sample.
-        String endpointRegion = "`region`";  // Substitute your region here, e.g. "ap-southeast-2"
+        String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "ap-southeast-2"
 
         // Define custom attributes
         List<CustomAttribute> customAttributes = Arrays.asList(
@@ -100,7 +99,7 @@ public class RootCAActivation {
             new CustomAttribute()
                 .withObjectIdentifier("0.9.2342.19200300.100.1.25") // OID for Domain Component
                 .withValue("com")
-
+            
         );
 
         // Define a CA subject.
@@ -142,7 +141,7 @@ public class RootCAActivation {
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+        
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
@@ -158,7 +157,7 @@ public class RootCAActivation {
         createCARequest.withCertificateAuthorityConfiguration(configCA);
         createCARequest.withIdempotencyToken("123987");
         createCARequest.withCertificateAuthorityType(CAtype);
-
+        
         // Create the private CA.
         CreateCertificateAuthorityResult createCAResult = null;
         try {
@@ -174,7 +173,7 @@ public class RootCAActivation {
         // Retrieve the ARN of the private CA.
         String rootCAArn = createCAResult.getCertificateAuthorityArn();
         System.out.println("Root CA Arn: " + rootCAArn);
-
+        
         return rootCAArn;
     }
 
@@ -268,7 +267,7 @@ public class RootCAActivation {
 
         return rootCertificateArn;
     }
-
+    
     private static String GetCertificate(String rootCertificateArn, String rootCAArn, AWSACMPCA client) {
 
         // Create a request object.
@@ -279,7 +278,7 @@ public class RootCAActivation {
 
         // Set the certificate authority ARN.
         certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+                
         // Create waiter to wait on successful creation of the certificate file.
         Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
         try {
@@ -352,7 +351,7 @@ public class RootCAActivation {
         System.out.println("Root CA certificate successfully imported.");
         System.out.println("Root CA activated successfully.");
     }
-
+    
     private static ByteBuffer stringToByteBuffer(final String string) {
         if (Objects.isNull(string)) {
             return null;
@@ -366,5 +365,5 @@ public class RootCAActivation {
 Your output should be similar to the following:
 
 ```
-arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`
+arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}
 ```

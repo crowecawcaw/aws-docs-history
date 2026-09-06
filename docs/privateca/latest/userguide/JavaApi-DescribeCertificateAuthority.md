@@ -1,22 +1,18 @@
+
+
 # DescribeCertificateAuthority
+<a name="JavaApi-DescribeCertificateAuthority"></a>
 
-The following Java sample shows how to use the [DescribeCertificateAuthority](../APIReference/API_DescribeCertificateAuthority.md "../APIReference/API_DescribeCertificateAuthority.md") operation.
+The following Java sample shows how to use the [DescribeCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html) operation.
 
-The operation lists information about your private certificate authority (CA). You must
-specify the ARN (Amazon Resource Name) of the private CA. The output contains the status of
-your CA. This can be any of the following:
-
-- `CREATING` – AWS Private CA is creating your private certificate
-  authority.
-- `PENDING_CERTIFICATE` – The certificate is pending. You must use
-  your on-premises root or subordinate CA to sign your private CA CSR and then import it
-  into PCA.
-- `ACTIVE` – Your private CA is active.
-- `DISABLED` – Your private CA has been disabled.
-- `EXPIRED` – Your private CA certificate has expired.
-- `FAILED` – Your private CA cannot be created.
-- `DELETED` – Your private CA is within the restoration period, after
-  which it will be permanently deleted.
+The operation lists information about your private certificate authority (CA). You must specify the ARN (Amazon Resource Name) of the private CA. The output contains the status of your CA. This can be any of the following: 
++ `CREATING` – AWS Private CA is creating your private certificate authority.
++ `PENDING_CERTIFICATE` – The certificate is pending. You must use your on-premises root or subordinate CA to sign your private CA CSR and then import it into PCA. 
++ `ACTIVE` – Your private CA is active.
++ `DISABLED` – Your private CA has been disabled.
++ `EXPIRED` – Your private CA certificate has expired.
++ `FAILED` – Your private CA cannot be created.
++ `DELETED` – Your private CA is within the restoration period, after which it will be permanently deleted.
 
 ```
 package com.amazonaws.samples;
@@ -52,7 +48,7 @@ public class DescribeCertificateAuthority {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -67,7 +63,7 @@ public class DescribeCertificateAuthority {
       DescribeCertificateAuthorityRequest req = new DescribeCertificateAuthorityRequest();
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Create a result object.
       DescribeCertificateAuthorityResult result = null;

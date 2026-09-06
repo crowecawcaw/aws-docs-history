@@ -1,12 +1,11 @@
+
+
 # RevokeCertificate
+<a name="JavaApi-RevokeCertificate"></a>
 
-The following Java sample shows how to use the [RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md")
-operation.
+The following Java sample shows how to use the [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) operation.
 
-This operation revokes a certificate that you issued by calling the [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md") operation. If you
-enabled a certificate revocation list (CRL) when you created or updated your private CA,
-information about the revoked certificates is included in the CRL. AWS Private CA writes the CRL
-to an Amazon S3 bucket that you specify. For more information, see the [CrlConfiguration](../APIReference/API_CrlConfiguration.md "../APIReference/API_CrlConfiguration.md") structure.
+This operation revokes a certificate that you issued by calling the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) operation. If you enabled a certificate revocation list (CRL) when you created or updated your private CA, information about the revoked certificates is included in the CRL. AWS Private CA writes the CRL to an Amazon S3 bucket that you specify. For more information, see the [CrlConfiguration](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html) structure. 
 
 ```
 package com.amazonaws.samples;
@@ -45,7 +44,7 @@ public class RevokeCertificate {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -60,10 +59,10 @@ public class RevokeCertificate {
       RevokeCertificateRequest req = new RevokeCertificateRequest();
 
       // Set the certificate authority ARN.
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Set the certificate serial number.
-      req.setCertificateSerial("`79:3f:0d:5b:6a:04:12:5e:2c:9c:fb:52:37:35:98:fe`");
+      req.setCertificateSerial("{{79:3f:0d:5b:6a:04:12:5e:2c:9c:fb:52:37:35:98:fe}}");
 
       // Set the RevocationReason.
       req.withRevocationReason(RevocationReason.<<KEY_COMPROMISE>>);

@@ -1,11 +1,11 @@
+
+
 # GetCertificateAuthorityCertificate
+<a name="JavaApi-GetCACertificate"></a>
 
-The following Java sample shows how to use the [GetCertificateAuthorityCertificate](../APIReference/API_GetCertificateAuthorityCertificate.md "../APIReference/API_GetCertificateAuthorityCertificate.md") operation.
+The following Java sample shows how to use the [GetCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html) operation.
 
-This operation retrieves the certificate and certificate chain for your private certificate
-authority (CA). Both the certificate and the chain are base64-encoded strings in PEM format.
-The chain does not include the CA certificate. Each certificate in the chain signs the one
-before it.
+This operation retrieves the certificate and certificate chain for your private certificate authority (CA). Both the certificate and the chain are base64-encoded strings in PEM format. The chain does not include the CA certificate. Each certificate in the chain signs the one before it.
 
 ```
 package com.amazonaws.samples;
@@ -41,7 +41,7 @@ public class GetCertificateAuthorityCertificate {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -57,7 +57,7 @@ public class GetCertificateAuthorityCertificate {
             new GetCertificateAuthorityCertificateRequest();
 
       // Set the certificate authority ARN,
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Create a result object.
       GetCertificateAuthorityCertificateResult result = null;
@@ -80,12 +80,10 @@ public class GetCertificateAuthorityCertificate {
 }
 ```
 
-Your output should be a certificate and chain similar to the following for the certificate
-authority (CA) that you specified.
+Your output should be a certificate and chain similar to the following for the certificate authority (CA) that you specified. 
 
 ```
------BEGIN CERTIFICATE----- `base64-encoded certificate` -----END CERTIFICATE-----
-
------BEGIN CERTIFICATE----- `base64-encoded certificate` -----END CERTIFICATE-----
-
+-----BEGIN CERTIFICATE----- {{base64-encoded certificate}} -----END CERTIFICATE-----
+	
+-----BEGIN CERTIFICATE----- {{base64-encoded certificate}} -----END CERTIFICATE-----
 ```

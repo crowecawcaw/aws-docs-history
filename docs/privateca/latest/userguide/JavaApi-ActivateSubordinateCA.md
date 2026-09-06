@@ -1,14 +1,15 @@
+
+
 # Create and activate a subordinate CA programmatically
+<a name="JavaApi-ActivateSubordinateCA"></a>
 
-This Java sample shows how to activate a subordinate CA using the following AWS Private CA API
-actions:
-
-- [GetCertificateAuthorityCertificate](../APIReference/API_GetCertificateAuthorityCertificate.md "../APIReference/API_GetCertificateAuthorityCertificate.md")
-- [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-- [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-- [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
-- [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md")
+This Java sample shows how to activate a subordinate CA using the following AWS Private CA API actions:
++ [GetCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html)
++ [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
++ [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html)
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
++ [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
++ [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
 
 ```
 package com.amazonaws.samples;
@@ -75,19 +76,19 @@ public class SubordinateCAActivation {
 
     public static void main(String[] args) throws Exception {
         // Place your own Root CA ARN here.
-        String rootCAArn = "arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`";
+        String rootCAArn = "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}";
 
         // Define the endpoint region for your sample.
-        String endpointRegion = "`region`"; // Substitute your region here, e.g. "us-west-2"
+        String endpointRegion = "{{region}}"; // Substitute your region here, e.g. "us-west-2"
 
         // Define a CA subject.
         ASN1Subject subject = new ASN1Subject();
-        subject.setOrganization("`Example Organization`");
-        subject.setOrganizationalUnit("`Example`");
-        subject.setCountry("`US`");
-        subject.setState("`Virginia`");
-        subject.setLocality("`Arlington`");
-        subject.setCommonName("`www.example.com`");
+        subject.setOrganization("{{Example Organization}}");
+        subject.setOrganizationalUnit("{{Example}}");
+        subject.setCountry("{{US}}");
+        subject.setState("{{Virginia}}");
+        subject.setLocality("{{Arlington}}");
+        subject.setCommonName("{{www.example.com}}");
 
         // Define the CA configuration.
         CertificateAuthorityConfiguration configCA = new CertificateAuthorityConfiguration();
@@ -100,7 +101,7 @@ public class SubordinateCAActivation {
         crlConfigure.withEnabled(true);
         crlConfigure.withExpirationInDays(365);
         crlConfigure.withCustomCname(null);
-        crlConfigure.withS3BucketName("`your-bucket-name`");
+        crlConfigure.withS3BucketName("{{your-bucket-name}}");
 
         // Define a certificate authority type
         CertificateAuthorityType CAtype = CertificateAuthorityType.SUBORDINATE;
@@ -133,7 +134,7 @@ public class SubordinateCAActivation {
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+        
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
@@ -303,7 +304,7 @@ public class SubordinateCAActivation {
 
         // Set the certificate authority ARN.
         certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+                
         // Create waiter to wait on successful creation of the certificate file.
         Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
         try {

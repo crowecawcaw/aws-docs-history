@@ -1,19 +1,18 @@
-# Activate a Root CA for Node Operational Certificates (NOC).
 
-This Java sample shows how to use the [RootCACertificate\_APIPassthrough/V1 definition](template-definitions.md#RootCACertificate_APIPassthrough "template-definitions.md#RootCACertificate_APIPassthrough") template to create and install a
-[Matter](https://buildwithmatter.com "https://buildwithmatter.com") Root CA certificate to issue NOCs.
-The AuthorityKeyIdentifier (AKI) extension is optional for NOC Root CA certificates. To set an AKI, you must generate a Base64-encoded AKI value and pass it through a
-CustomExtension.
+
+# Activate a Root CA for Node Operational Certificates (NOC).
+<a name="JavaApiCBC-ActivateRootCA"></a>
+
+This Java sample shows how to use the [RootCACertificate\_APIPassthrough/V1 definition](template-definitions.md#RootCACertificate_APIPassthrough) template to create and install a [Matter](https://buildwithmatter.com) Root CA certificate to issue NOCs. The AuthorityKeyIdentifier (AKI) extension is optional for NOC Root CA certificates. To set an AKI, you must generate a Base64-encoded AKI value and pass it through a CustomExtension. 
 
 The example calls the following AWS Private CA API actions:
++ [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
++ [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html)
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
++ [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
++ [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
 
-- [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-- [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-- [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
-- [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md")
-  If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md "TroubleshootPcaMatter.md") in the
-  Troubleshooting section.
+If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
 ```
 package com.amazonaws.samples.matter;
@@ -143,7 +142,7 @@ public class RootCAActivation {
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+        
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
@@ -159,7 +158,7 @@ public class RootCAActivation {
         createCARequest.withCertificateAuthorityConfiguration(configCA);
         createCARequest.withIdempotencyToken("123987");
         createCARequest.withCertificateAuthorityType(CAtype);
-
+        
         // Create the private CA.
         CreateCertificateAuthorityResult createCAResult = null;
         try {
@@ -175,7 +174,7 @@ public class RootCAActivation {
         // Retrieve the ARN of the private CA.
         String rootCAArn = createCAResult.getCertificateAuthorityArn();
         System.out.println("Root CA Arn: " + rootCAArn);
-
+        
         return rootCAArn;
     }
 
@@ -223,7 +222,7 @@ public class RootCAActivation {
     private static String generateAuthorityKeyIdentifier(final String csrPEM) {
         PKCS10CertificationRequest csr = getPKCS10CertificationRequest(csrPEM);
         SubjectPublicKeyInfo spki = csr.getSubjectPublicKeyInfo();
-
+        
         JcaX509ExtensionUtils extensionUtils = new JcaX509ExtensionUtils();
         byte[] akiBytes = extensionUtils.createAuthorityKeyIdentifier(spki).getEncoded();
 
@@ -270,12 +269,12 @@ public class RootCAActivation {
 
         // Generate Base64 encoded extension value for AuthorityKeyIdentifier
         String base64EncodedExtValue = generateAuthorityKeyIdentifier(csr);
-
+  
         // Generate custom extension
         CustomExtension customExtension = new CustomExtension();
         customExtension.setObjectIdentifier("2.5.29.35"); // AuthorityKeyIdentifier Extension OID
         customExtension.setValue(base64EncodedExtValue);
-
+  
         // Add custom extension to api-passthrough
         ApiPassthrough apiPassthrough = new ApiPassthrough();
         Extensions extensions = new Extensions();
@@ -307,7 +306,7 @@ public class RootCAActivation {
 
         return rootCertificateArn;
     }
-
+    
     private static String GetCertificate(String rootCertificateArn, String rootCAArn, AWSACMPCA client) {
 
         // Create a request object.
@@ -318,7 +317,7 @@ public class RootCAActivation {
 
         // Set the certificate authority ARN.
         certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+                
         // Create waiter to wait on successful creation of the certificate file.
         Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
         try {
@@ -391,7 +390,7 @@ public class RootCAActivation {
         System.out.println("Root CA certificate successfully imported.");
         System.out.println("Root CA activated successfully.");
     }
-
+    
     private static ByteBuffer stringToByteBuffer(final String string) {
         if (Objects.isNull(string)) {
             return null;

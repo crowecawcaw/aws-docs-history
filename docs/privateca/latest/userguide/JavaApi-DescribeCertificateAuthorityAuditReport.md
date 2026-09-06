@@ -1,11 +1,11 @@
+
+
 # DescribeCertificateAuthorityAuditReport
+<a name="JavaApi-DescribeCertificateAuthorityAuditReport"></a>
 
-The following Java sample shows how to use the [DescribeCertificateAuthorityAuditReport](../APIReference/API_DescribeCertificateAuthorityAuditReport.md "../APIReference/API_DescribeCertificateAuthorityAuditReport.md") operation.
+The following Java sample shows how to use the [DescribeCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthorityAuditReport.html) operation.
 
-The operation lists information about a specific audit report that you created by calling
-the [CreateCertificateAuthorityAuditReport](../APIReference/API_CreateCertificateAuthorityAuditReport.md "../APIReference/API_CreateCertificateAuthorityAuditReport.md") operation. Audit information is created
-every time the certificate authority (CA) private key is used. The private key is used when
-you issue a certificate, sign a CRL, or revoke a certificate.
+The operation lists information about a specific audit report that you created by calling the [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html) operation. Audit information is created every time the certificate authority (CA) private key is used. The private key is used when you issue a certificate, sign a CRL, or revoke a certificate. 
 
 ```
 package com.amazonaws.samples;
@@ -48,7 +48,7 @@ public class DescribeCertificateAuthorityAuditReport {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -64,11 +64,11 @@ public class DescribeCertificateAuthorityAuditReport {
             new DescribeCertificateAuthorityAuditReportRequest();
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Set the audit report ID.
-      req.withAuditReportId("`11111111-2222-3333-4444-555555555555`");
-
+      req.withAuditReportId("{{11111111-2222-3333-4444-555555555555}}");
+      
       // Create waiter to wait on successful creation of the audit report file.
       Waiter<DescribeCertificateAuthorityAuditReportRequest> waiter = client.waiters().auditReportCreated();
       try {
@@ -109,8 +109,7 @@ Your output should be similar to the following:
 
 ```
 SUCCESS
-`your-audit-report-bucket-name`
-audit-report/`a4119411-8153-498a-a607-2cb77b858043`/`25211c3d-f2fe-479f-b437-fe2b3612bc45`.json
+{{your-audit-report-bucket-name}}
+audit-report/{{a4119411-8153-498a-a607-2cb77b858043}}/{{25211c3d-f2fe-479f-b437-fe2b3612bc45}}.json
 Tue Jan 16 13:07:58 PST 2018
-
 ```

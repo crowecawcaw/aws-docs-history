@@ -1,14 +1,11 @@
+
+
 # UntagCertificateAuthority
+<a name="JavaApi-UnTagPCA"></a>
 
-The following Java sample shows how to use the [UntagCertificateAuthority](../APIReference/API_UntagCertificateAuthority.md "../APIReference/API_UntagCertificateAuthority.md")
-operation.
+The following Java sample shows how to use the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) operation.
 
-This operation removes one or more tags from your private CA. A tag consists of a
-key-value pair. If you do not specify the value portion of the tag when calling this
-operation, the tag is removed regardless of value. If you specify a value, the tag is
-removed only if it is associated with the specified value. To add tags to a private CA, use
-the [TagCertificateAuthority](../APIReference/API_TagCertificateAuthority.md "../APIReference/API_TagCertificateAuthority.md") operation. Call the [ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md") operation to see what tags are
-associated with your CA.
+This operation removes one or more tags from your private CA. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this operation, the tag is removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value. To add tags to a private CA, use the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) operation. Call the [ListTags](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html) operation to see what tags are associated with your CA. 
 
 ```
 package com.amazonaws.samples;
@@ -46,7 +43,7 @@ public class UntagCertificateAuthority {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -59,8 +56,8 @@ public class UntagCertificateAuthority {
 
       // Create a Tag object with the tag to delete.
       Tag tag = new Tag();
-      tag.withKey("`Administrator`");
-      tag.withValue("`Bob`");
+      tag.withKey("{{Administrator}}");
+      tag.withValue("{{Bob}}");
 
       // Add the tags to a collection.
       ArrayList<Tag> tags = new ArrayList<Tag>();
@@ -68,7 +65,7 @@ public class UntagCertificateAuthority {
 
       // Create a request object and specify the certificate authority ARN.
       UntagCertificateAuthorityRequest req = new UntagCertificateAuthorityRequest();
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
       req.withTags(tags);
 
       // Delete the tag

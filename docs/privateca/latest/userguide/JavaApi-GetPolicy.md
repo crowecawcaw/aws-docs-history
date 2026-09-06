@@ -1,13 +1,13 @@
+
+
 # GetPolicy
+<a name="JavaApi-GetPolicy"></a>
 
-The following Java sample shows how to use the [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md") operation.
+The following Java sample shows how to use the [GetPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html) operation.
 
-The operation retrieves the resource-based policy attached to a private CA. A
-resource-based policy is used to enable cross-account CA sharing. You can find the ARN of a
-private CA by calling the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") action.
+The operation retrieves the resource-based policy attached to a private CA. A resource-based policy is used to enable cross-account CA sharing. You can find the ARN of a private CA by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) action.
 
-Related API actions include [PutPolicy](../APIReference/API_PutPolicy.md "../APIReference/API_PutPolicy.md")
-and [DeletePolicy](../APIReference/API_DeletePolicy.md "../APIReference/API_DeletePolicy.md").
+Related API actions include [PutPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html) and [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html).
 
 ```
 package com.amazonaws.samples;
@@ -44,7 +44,7 @@ public class GetPolicy {
         }
 
         // Define the endpoint for your sample.
-        String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+        String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -59,7 +59,7 @@ public class GetPolicy {
         GetPolicyRequest req = new GetPolicyRequest();
 
         // Set the resource ARN.
-        req.withResourceArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+        req.withResourceArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
         // Retrieve a list of your CAs.
         GetPolicyResult result= null;

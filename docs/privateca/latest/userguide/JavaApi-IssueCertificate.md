@@ -1,17 +1,14 @@
+
+
 # IssueCertificate
+<a name="JavaApi-IssueCertificate"></a>
 
-The following Java sample shows how to use the [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md") operation.
+The following Java sample shows how to use the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) operation.
 
-This operation uses your private certificate authority (CA) to issue an end-entity
-certificate. This operation returns the Amazon Resource Name (ARN) of the certificate. You can
-retrieve the certificate by calling the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") and specifying the ARN.
+This operation uses your private certificate authority (CA) to issue an end-entity certificate. This operation returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html) and specifying the ARN.
 
-###### Note
-
-The [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-operation requires you to specify a certificate template. This example uses the
-`EndEntityCertificate/V1` template. For information about all of the
-available templates, see [Use AWS Private CA certificate templates](UsingTemplates.md "UsingTemplates.md").
+**Note**  
+The [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) operation requires you to specify a certificate template. This example uses the `EndEntityCertificate/V1` template. For information about all of the available templates, see [Use AWS Private CA certificate templates](UsingTemplates.md).
 
 ```
 package com.amazonaws.samples;
@@ -63,7 +60,7 @@ public class IssueCertificate {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -78,18 +75,18 @@ public class IssueCertificate {
       IssueCertificateRequest req = new IssueCertificateRequest();
 
       // Set the CA ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Specify the certificate signing request (CSR) for the certificate to be signed and issued.
       String strCSR =
-      "`-----BEGIN CERTIFICATE REQUEST-----\n`" +
-      "`base64-encoded certificate\n`" +
-      "`-----END CERTIFICATE REQUEST-----\n`";
+      "{{-----BEGIN CERTIFICATE REQUEST-----\n}}" +
+      "{{base64-encoded certificate\n}}" +
+      "{{-----END CERTIFICATE REQUEST-----\n}}";
       ByteBuffer csrByteBuffer = stringToByteBuffer(strCSR);
       req.setCsr(csrByteBuffer);
 
       // Specify the template for the issued certificate.
-      req.withTemplateArn("arn:aws:acm-pca:::template/`EndEntityCertificate/V1`");
+      req.withTemplateArn("arn:aws:acm-pca:::template/{{EndEntityCertificate/V1}}");
 
       // Set the signing algorithm.
       req.withSigningAlgorithm(SigningAlgorithm.SHA256WITHRSA);
@@ -131,5 +128,5 @@ public class IssueCertificate {
 Your output should be similar to the following:
 
 ```
-arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`
+arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}
 ```

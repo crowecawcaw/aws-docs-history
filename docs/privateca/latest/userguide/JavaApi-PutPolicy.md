@@ -1,15 +1,13 @@
+
+
 # PutPolicy
+<a name="JavaApi-PutPolicy"></a>
 
-The following Java sample shows how to use the [PutPolicy](../APIReference/API_PutPolicy.md "../APIReference/API_PutPolicy.md") operation.
+The following Java sample shows how to use the [PutPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html) operation.
 
-The operation attaches a resource-based policy to a private CA, enabling cross-account
-sharing. When authorized by a policy, a principal residing in another AWS account can
-issue and renew private end-entity certificates using a private CA that it does not own. You
-can find the ARN of a private CA by calling the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") action. For examples of policies, see the AWS Private CA
-guidance on [Resource-Based Policies](pca-rbp.md "pca-rbp.md").
+The operation attaches a resource-based policy to a private CA, enabling cross-account sharing. When authorized by a policy, a principal residing in another AWS account can issue and renew private end-entity certificates using a private CA that it does not own. You can find the ARN of a private CA by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) action. For examples of policies, see the AWS Private CA guidance on [Resource-Based Policies](https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html).
 
-Once a policy is attached to a CA, you can inspect it with the [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md") action or delete it with the
-[DeletePolicy](../APIReference/API_DeletePolicy.md "../APIReference/API_DeletePolicy.md") action.
+Once a policy is attached to a CA, you can inspect it with the [GetPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html) action or delete it with the [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html) action.
 
 ```
 package com.amazonaws.samples;
@@ -53,7 +51,7 @@ public class PutPolicy {
         }
 
         // Define the endpoint for your sample.
-        String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+        String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -68,11 +66,11 @@ public class PutPolicy {
         PutPolicyRequest req = new PutPolicyRequest();
 
         // Set the resource ARN.
-        req.withResourceArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+        req.withResourceArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
         // Import and set the policy.
         // Note: This code assumes the file "ShareResourceWithAccountPolicy.json" is in a folder titled policy.
-        String policy = new String(Files.readAllBytes(Paths.get("`policy`", "`ShareResourceWithAccountPolicy.json`")));
+        String policy = new String(Files.readAllBytes(Paths.get("{{policy}}", "{{ShareResourceWithAccountPolicy.json}}")));
         req.withPolicy(policy);
 
         // Retrieve a list of your CAs.

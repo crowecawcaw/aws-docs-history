@@ -1,8 +1,9 @@
-# RestoreCertificateAuthority
 
-The following Java sample shows how to use the [RestoreCertificateAuthority](../APIReference/API_RestoreCertificateAuthority.md "../APIReference/API_RestoreCertificateAuthority.md") operation. A private CA can be restored at any time
-during its restoration period. Currently, this period can last 7 to 30 days from the date of
-deletion and can be defined when you delete the CA. For more information, see [Restore a CA](PCARestoreCA.md "PCARestoreCA.md"). See also the [DeleteCertificateAuthority](JavaApi-DeleteCertificateAuthority.md "JavaApi-DeleteCertificateAuthority.md") Java example.
+
+# RestoreCertificateAuthority
+<a name="JavaApi-RestoreCertificateAuthority"></a>
+
+The following Java sample shows how to use the [RestoreCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html) operation. A private CA can be restored at any time during its restoration period. Currently, this period can last 7 to 30 days from the date of deletion and can be defined when you delete the CA. For more information, see [Restore a CA](PCARestoreCA.md). See also the [DeleteCertificateAuthority](JavaApi-DeleteCertificateAuthority.md) Java example. 
 
 ```
 package com.amazonaws.samples;
@@ -37,7 +38,7 @@ public class RestoreCertificateAuthority {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -52,7 +53,7 @@ public class RestoreCertificateAuthority {
       RestoreCertificateAuthorityRequest req = new RestoreCertificateAuthorityRequest();
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Restore the CA.
       try {

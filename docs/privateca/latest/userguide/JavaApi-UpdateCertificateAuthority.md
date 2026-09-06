@@ -1,11 +1,11 @@
+
+
 # UpdateCertificateAuthority
+<a name="JavaApi-UpdateCertificateAuthority"></a>
 
-The following Java sample shows how to use the [UpdateCertificateAuthority](../APIReference/API_UpdateCertificateAuthority.md "../APIReference/API_UpdateCertificateAuthority.md") operation.
+The following Java sample shows how to use the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation.
 
-The operation updates the status or configuration of a private certificate authority (CA).
-Your private CA must be in the `ACTIVE` or `DISABLED` state before you
-can update it. You can disable a private CA that is in the `ACTIVE`
-state or make a CA that is in the `DISABLED` state active again.
+The operation updates the status or configuration of a private certificate authority (CA). Your private CA must be in the `ACTIVE` or `DISABLED` state before you can update it. You can disable a private CA that is in the `ACTIVE` state or make a CA that is in the `DISABLED` state active again.
 
 ```
 package com.amazonaws.samples;
@@ -46,7 +46,7 @@ public class UpdateCertificateAuthority {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -61,7 +61,7 @@ public class UpdateCertificateAuthority {
       UpdateCertificateAuthorityRequest req = new UpdateCertificateAuthorityRequest();
 
       // Set the ARN of the private CA that you want to update.
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Define the certificate revocation list configuration. If you do not want to
       // update the CRL configuration, leave the CrlConfiguration structure alone and
@@ -69,8 +69,8 @@ public class UpdateCertificateAuthority {
       CrlConfiguration crlConfigure = new CrlConfiguration();
       crlConfigure.withEnabled(true);
       crlConfigure.withExpirationInDays(365);
-      crlConfigure.withCustomCname("`your-custom-name`");
-      crlConfigure.withS3BucketName("`your-bucket-name`");
+      crlConfigure.withCustomCname("{{your-custom-name}}");
+      crlConfigure.withS3BucketName("{{your-bucket-name}}");
 
       // Set the CRL configuration onto your UpdateCertificateAuthorityRequest object.
       // If you do not want to change your CRL configuration, do not use the

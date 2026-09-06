@@ -1,14 +1,14 @@
-# Create a Node Operational Certificate (NOC)
 
-This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough") template to
-create a [Matter](https://buildwithmatter.com "https://buildwithmatter.com") Node Operational
-Certificate. You must generate a Base64-encoded KeyUsage value and pass it through a
-CustomExtension.
+
+# Create a Node Operational Certificate (NOC)
+<a name="JavaApiCBC-NodeOperatingCertificate"></a>
+
+This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough) template to create a [Matter](https://buildwithmatter.com) Node Operational Certificate. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
 The example calls the following AWS Private CA API action:
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
 
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-  If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md "TroubleshootPcaMatter.md") in the Troubleshooting section.
+If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
 ```
 package com.amazonaws.samples.matter;
@@ -163,7 +163,7 @@ public class IssueNodeOperatingCertificate {
       customExtendedKeyUsageExtension.setObjectIdentifier("2.5.29.37"); // ExtendedKeyUsage Extension OID
       customExtendedKeyUsageExtension.setValue(base64EncodedEKUValue);
       customExtendedKeyUsageExtension.setCritical(true);
-
+      
       // Set KeyUsage and ExtendedKeyUsage extension to api-passthrough
       Extensions extensions = new Extensions();
       extensions.setCustomExtensions(Arrays.asList(customKeyUsageExtension, customExtendedKeyUsageExtension));

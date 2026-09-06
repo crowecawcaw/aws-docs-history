@@ -1,9 +1,11 @@
+
+
 # ListCertificateAuthorities
+<a name="JavaApi-ListCertificateAuthorities"></a>
 
-The following Java sample shows how to use the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") operation.
+The following Java sample shows how to use the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) operation.
 
-This operation lists the private certificate authorities (CAs) that you created using the
-[CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md") operation.
+This operation lists the private certificate authorities (CAs) that you created using the [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) operation.
 
 ```
 package com.amazonaws.samples;
@@ -36,7 +38,7 @@ public class ListCertificateAuthorities {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -65,12 +67,11 @@ public class ListCertificateAuthorities {
 }
 ```
 
-If you have any certificate authorities to list, your output should be similar to the
-following:
+If you have any certificate authorities to list, your output should be similar to the following:
 
 ```
 [{
-	Arn: arn: aws: acm-pca: `region`: `account`: certificate-authority/`12345678-1234-1234-1234-123456789012`,
+	Arn: arn: aws: acm-pca: {{region}}: {{account}}: certificate-authority/{{12345678-1234-1234-1234-123456789012}},
 	CreatedAt: TueNov0712: 05: 39PST2017,
 	LastStateChangeAt: WedJan1012: 35: 39PST2018,
 	Type: SUBORDINATE,
@@ -87,20 +88,20 @@ following:
 			State: Washington,
 			CommonName: www.example.com,
 			Locality: Seattle,
-
+			
 		}
 	},
 	RevocationConfiguration: {
 		CrlConfiguration: {
 			Enabled: true,
 			ExpirationInDays: 3650,
-			CustomCname: `your-custom-name`,
-			S3BucketName: `your-bucket-name`
+			CustomCname: {{your-custom-name}},
+			S3BucketName: {{your-bucket-name}}
 		}
 	}
 },
 {
-	Arn: arn: aws: acm-pca: `region`: `account`>: certificate-authority/`12345678-1234-1234-1234-123456789012`,
+	Arn: arn: aws: acm-pca: {{region}}: {{account}}>: certificate-authority/{{12345678-1234-1234-1234-123456789012}},
 	CreatedAt: WedSep1312: 54: 52PDT2017,
 	LastStateChangeAt: WedSep1312: 54: 52PDT2017,
 	Type: SUBORDINATE,
@@ -118,20 +119,20 @@ following:
 			State: Washington,
 			CommonName: www.example.com,
 			Locality: Seattle,
-
+			
 		}
 	},
 	RevocationConfiguration: {
 		CrlConfiguration: {
 			Enabled: false,
 			ExpirationInDays: 5,
-			CustomCname: `your-custom-name`,
-			S3BucketName: `your-bucket-name`
+			CustomCname: {{your-custom-name}},
+			S3BucketName: {{your-bucket-name}}
 		}
 	}
 },
 {
-	Arn: arn: aws: acm-pca: `region`: `account`>: certificate-authority/`12345678-1234-1234-1234-123456789012`,
+	Arn: arn: aws: acm-pca: {{region}}: {{account}}>: certificate-authority/{{12345678-1234-1234-1234-123456789012}},
 	CreatedAt: FriJan1213: 57: 11PST2018,
 	LastStateChangeAt: FriJan1213: 57: 11PST2018,
 	Type: SUBORDINATE,
@@ -146,20 +147,20 @@ following:
 			State: WA,
 			CommonName: www.examplesrus.com,
 			Locality: Seattle,
-
+			
 		}
 	},
 	RevocationConfiguration: {
 		CrlConfiguration: {
 			Enabled: true,
 			ExpirationInDays: 365,
-			CustomCname: `your-custom-name`,
-			S3BucketName: `your-bucket-name`
+			CustomCname: {{your-custom-name}},
+			S3BucketName: {{your-bucket-name}}
 		}
 	}
 },
 {
-	Arn: arn: aws: acm-pca: `region`: `account`>: certificate-authority/`12345678-1234-1234-1234-123456789012`,
+	Arn: arn: aws: acm-pca: {{region}}: {{account}}>: certificate-authority/{{12345678-1234-1234-1234-123456789012}},
 	CreatedAt: FriJan0511: 14: 21PST2018,
 	LastStateChangeAt: FriJan0511: 14: 21PST2018,
 	Type: SUBORDINATE,
@@ -177,15 +178,15 @@ following:
 			State: WA,
 			CommonName: www.example.com,
 			Locality: Seattle,
-
+			
 		}
 	},
 	RevocationConfiguration: {
 		CrlConfiguration: {
 			Enabled: true,
 			ExpirationInDays: 3650,
-			CustomCname: `your-custom-name`,
-			S3BucketName: `your-bucket-name`
+			CustomCname: {{your-custom-name}},
+			S3BucketName: {{your-bucket-name}}
 		}
 	}
 }]

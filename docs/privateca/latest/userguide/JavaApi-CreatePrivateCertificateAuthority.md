@@ -1,25 +1,23 @@
+
+
 # CreateCertificateAuthority
+<a name="JavaApi-CreatePrivateCertificateAuthority"></a>
 
-The following Java sample shows how to use the [CreateCerticateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-operation.
+The following Java sample shows how to use the [CreateCerticateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) operation.
 
-The operation creates a private subordinate certificate authority (CA). You must specify
-the CA configuration, the revocation configuration, the CA type, and an optional idempotency
-token.
+The operation creates a private subordinate certificate authority (CA). You must specify the CA configuration, the revocation configuration, the CA type, and an optional idempotency token.
 
 The CA configuration specifies the following:
++ The name of the algorithm and key size to be used to create the CA private key
++ The type of signing algorithm that the CA uses to sign its own Certificate Signing Request, CRLs, and OCSP responses
++ X.500 subject information
 
-- The name of the algorithm and key size to be used to create the CA private
-  key
-- The type of signing algorithm that the CA uses to sign its own Certificate Signing Request, CRLs, and OCSP responses
-- X.500 subject information
-  The CRL configuration specifies the following:
+The CRL configuration specifies the following:
++ The CRL expiration period in days (the validity period of the CRL)
++ The Amazon S3 bucket that will contain the CRL
++ A CNAME alias for the S3 bucket that is included in certificates issued by the CA
 
-- The CRL expiration period in days (the validity period of the CRL)
-- The Amazon S3 bucket that will contain the CRL
-- A CNAME alias for the S3 bucket that is included in certificates issued by the
-  CA
-  If successful, this function returns the Amazon Resource Name (ARN) of the CA.
+If successful, this function returns the Amazon Resource Name (ARN) of the CA. 
 
 ```
 package com.amazonaws.samples;
@@ -70,27 +68,27 @@ public class CreateCertificateAuthority {
                    "location (C:\\Users\\joneps\\.aws\\credentials), and is in valid format.",
                    e);
         }
-
+       
         // Define the endpoint for your sample.
-        String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+        String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+       
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
             .withCredentials(new AWSStaticCredentialsProvider(credentials))
             .build();
-
+    
         // Define a CA subject.
         ASN1Subject subject = new ASN1Subject();
-        subject.setOrganization("`Example Organization`");
-        subject.setOrganizationalUnit("`Example`");
-        subject.setCountry("`US`");
-        subject.setState("`Virginia`");
-        subject.setLocality("`Arlington`");
-        subject.setCommonName("`www.example.com`");
+        subject.setOrganization("{{Example Organization}}");
+        subject.setOrganizationalUnit("{{Example}}");
+        subject.setCountry("{{US}}");
+        subject.setState("{{Virginia}}");
+        subject.setLocality("{{Arlington}}");
+        subject.setCommonName("{{www.example.com}}");
 
         // Define the CA configuration.
         CertificateAuthorityConfiguration configCA = new CertificateAuthorityConfiguration();
@@ -103,29 +101,29 @@ public class CreateCertificateAuthority {
         crlConfigure.withEnabled(true);
         crlConfigure.withExpirationInDays(365);
         crlConfigure.withCustomCname(null);
-        crlConfigure.withS3BucketName("`your-bucket-name`");
+        crlConfigure.withS3BucketName("{{your-bucket-name}}");
 
         RevocationConfiguration revokeConfig = new RevocationConfiguration();
         revokeConfig.setCrlConfiguration(crlConfigure);
-
+      
         // Define a certificate authority type: ROOT or SUBORDINATE
         CertificateAuthorityType CAtype = CertificateAuthorityType.<<SUBORDINATE>>;
-
+      
         // Create a tag - method 1
         Tag tag1 = new Tag();
-        tag1.withKey("`PrivateCA`");
-        tag1.withValue("`Sample`");
-
+        tag1.withKey("{{PrivateCA}}");
+        tag1.withValue("{{Sample}}");
+      
         // Create a tag - method 2
         Tag tag2 = new Tag()
-            .withKey("`Purpose`")
-            .withValue("`WebServices`");
-
+            .withKey("{{Purpose}}")
+            .withValue("{{WebServices}}");
+      
         // Add the tags to a collection.
         ArrayList<Tag> tags = new ArrayList<Tag>();
         tags.add(tag1);
         tags.add(tag2);
-
+      
         // Create the request object.
         CreateCertificateAuthorityRequest req = new CreateCertificateAuthorityRequest();
         req.withCertificateAuthorityConfiguration(configCA);
@@ -133,7 +131,7 @@ public class CreateCertificateAuthority {
         req.withIdempotencyToken("123987");
         req.withCertificateAuthorityType(CAtype);
         req.withTags(tags);
-
+      
 
         // Create the private CA.
         CreateCertificateAuthorityResult result = null;
@@ -157,5 +155,5 @@ public class CreateCertificateAuthority {
 Your output should be similar to the following:
 
 ```
-arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`
+arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}
 ```

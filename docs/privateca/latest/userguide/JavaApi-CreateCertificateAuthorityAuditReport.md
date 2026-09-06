@@ -1,16 +1,14 @@
+
+
 # CreateCertificateAuthorityAuditReport
+<a name="JavaApi-CreateCertificateAuthorityAuditReport"></a>
 
-The following Java sample shows how to use the [CreateCertificateAuthorityAuditReport](../APIReference/API_CreateCertificateAuthorityAuditReport.md "../APIReference/API_CreateCertificateAuthorityAuditReport.md") operation.
+The following Java sample shows how to use the [CreateCertificateAuthorityAuditReport](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html) operation.
 
-The operation creates an audit report that lists every time a certificate is issued or
-revoked. The report is saved in the Amazon S3 bucket that you specify on input. You can generate a
-new report once every 30 minutes.
+The operation creates an audit report that lists every time a certificate is issued or revoked. The report is saved in the Amazon S3 bucket that you specify on input. You can generate a new report once every 30 minutes. 
 
-###### Note
-
-Audit report generation is not supported for certificate authorities that have issued
-more than 100 million certificates. If you call this operation for such a CA, the service
-returns a `LimitExceededException`.
+**Note**  
+Audit report generation is not supported for certificate authorities that have issued more than 100 million certificates. If you call this operation for such a CA, the service returns a `LimitExceededException`.
 
 ```
 package com.amazonaws.samples;
@@ -50,7 +48,7 @@ public class CreateCertificateAuthorityAuditReport {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -66,10 +64,10 @@ public class CreateCertificateAuthorityAuditReport {
           new CreateCertificateAuthorityAuditReportRequest();
 
       // Set the certificate authority ARN.
-      req.setCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.setCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Specify the S3 bucket name for your report.
-      req.setS3BucketName("`your-bucket-name`");
+      req.setS3BucketName("{{your-bucket-name}}");
 
       // Specify the audit response format.
       req.setAuditReportResponseFormat("JSON");
@@ -107,7 +105,6 @@ public class CreateCertificateAuthorityAuditReport {
 Your output should be similar to the following:
 
 ```
-`58904752-7de3-4bdf-ba89-6953e48c3cc7`
-audit-report/`16075838-061c-4f7a-b54b-49bbc111bcff`/`58904752-7de3-4bdf-ba89-6953e48c3cc7`.json
-
+{{58904752-7de3-4bdf-ba89-6953e48c3cc7}}
+audit-report/{{16075838-061c-4f7a-b54b-49bbc111bcff}}/{{58904752-7de3-4bdf-ba89-6953e48c3cc7}}.json
 ```

@@ -1,100 +1,62 @@
+
+
 # Log Connector for SCEP API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail-c4scep"></a>
 
-Connector for Simple Certificate Enrollment Protocol (SCEP) is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, client, or an AWS service. CloudTrail captures all API calls for
-Connector for SCEP as events. The calls captured include calls from the Connector for SCEP console and
-code calls to the Connector for SCEP API operations. If you create a trail, you can enable
-continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Connector for SCEP. If
-you don't configure a trail, you can still view the most recent events in the CloudTrail console
-in **Event history**. Using the information collected by CloudTrail, you can
-determine the request that was made to Connector for SCEP, the IP address from which the request
-was made, who made the request, when it was made, and additional details.
+Connector for Simple Certificate Enrollment Protocol (SCEP) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, client, or an AWS service. CloudTrail captures all API calls for Connector for SCEP as events. The calls captured include calls from the Connector for SCEP console and code calls to the Connector for SCEP API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Connector for SCEP. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Connector for SCEP, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Connector for SCEP information in CloudTrail
+<a name="c4scep-service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs
-in Connector for SCEP, that activity is recorded in a CloudTrail event along with other AWS service events
-in **Event history**. You can view, search, and download recent events in
-your AWS account. For more information, see [Viewing events with CloudTrail Event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Connector for SCEP, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Connector for SCEP,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
-By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail
-logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket
-that you specify. Additionally, you can configure other AWS services to further analyze and act
-upon the event data collected in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Connector for SCEP, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log
-  files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log
-  files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Connector for SCEP actions are logged by CloudTrail and are documented in the [Connector for SCEP API reference](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/Welcome.html). For example, calls to the `CreateConnector`, `GetConnector` and `CreateChallenge` actions generate entries in the CloudTrail log files.
 
-All Connector for SCEP actions are logged by CloudTrail and are documented in the [Connector for SCEP API reference](../../../pca-connector-scep/latest/APIReference/Welcome.md "../../../pca-connector-scep/latest/APIReference/Welcome.md"). For example,
-calls to the `CreateConnector`, `GetConnector` and `CreateChallenge` actions generate
-entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
++ Whether the request was made by a SCEP client device.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-- Whether the request was made by a SCEP client device.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Connector for SCEP management events
+<a name="c4scep-management-events"></a>
 
 Connector for SCEP integrates with CloudTrail to record API actions made by a user, a role, or an AWS service in Connector for SCEP. You can use CloudTrail to monitor Connector for SCEP API requests in real time and store logs in Amazon Simple Storage Service, Amazon CloudWatch Logs, and Amazon CloudWatch Events. Connector for SCEP supports logging the following actions as events in CloudTrail log files:
-
-- [CreateChallenge](../../../pca-connector-scep/latest/APIReference/API_CreateChallenge.md "../../../pca-connector-scep/latest/APIReference/API_CreateChallenge.md")
-- [CreateConnector](../../../pca-connector-scep/latest/APIReference/API_CreateConnector.md "../../../pca-connector-scep/latest/APIReference/API_CreateConnector.md")
-- [GetConnector](../../../pca-connector-scep/latest/APIReference/API_GetConnector.md "../../../pca-connector-scep/latest/APIReference/API_GetConnector.md")
-- [GetChallengeMetadata](../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md")
-- [GetChallengePassword](../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md")
-- [DeleteConnector](../../../pca-connector-scep/latest/APIReference/API_DeleteConnector.md "../../../pca-connector-scep/latest/APIReference/API_DeleteConnector.md")
-- [DeleteChallenge](../../../pca-connector-scep/latest/APIReference/API_DeleteChallenge.md "../../../pca-connector-scep/latest/APIReference/API_DeleteChallenge.md")
++ [CreateChallenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html)
++ [CreateConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateConnector.html)
++ [GetConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetConnector.html)
++ [GetChallengeMetadata](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.html)
++ [GetChallengePassword](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengePassword.html)
++ [DeleteConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteConnector.html)
++ [DeleteChallenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteChallenge.html)
 
 ## Connector for SCEP data events in CloudTrail
+<a name="c4scep-cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource for example, when your client sends a SCEP `GetCACaps` message to a connector endpoint. These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
-any data events, and the CloudTrail **Event history** doesn't record them.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource for example, when your client sends a SCEP `GetCACaps` message to a connector endpoint. These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log any data events, and the CloudTrail **Event history** doesn't record them.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the `AWS::PCAConnectorSCEP::Connector` resource type by using
-the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data
-events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the `AWS::PCAConnectorSCEP::Connector` resource type by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the Connector for SCEP resource type for which you can log data events.
-The **Data event type (console)** column shows the value to
-choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
-value, which you would specify when configuring advanced event selectors using the AWS CLI or
-CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
-calls logged to CloudTrail for the resource type.
+The following table lists the Connector for SCEP resource type for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Data event type (console) | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Connector**             | `AWS::PCAConnectorSCEP::Connector` | • `PKIOperationGet` - Generated if an HTTP GET SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br>• `PKIOperationPost` - Generated if an HTTP POST SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br>• `GetCACaps` - Generated if a SCEP request containing a `GetCACaps` message is made to the dataplane endpoint of a connector.<br>• `GetCACert` - Generated if a SCEP request containing a `GetCACert` message is made to the dataplane endpoint of a connector. |
 
-You can configure advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log only those events that
-are important to you. The following example is the JSON view of a data event configuration
-that logs events for a specific function only. For more information about these fields, see
-[AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| Connector |  AWS::PCAConnectorSCEP::Connector  |  + `PKIOperationGet` - Generated if an HTTP GET SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br />+ `PKIOperationPost` - Generated if an HTTP POST SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br />+ `GetCACaps` - Generated if a SCEP request containing a `GetCACaps` message is made to the dataplane endpoint of a connector.<br />+ `GetCACert` - Generated if a SCEP request containing a `GetCACert` message is made to the dataplane endpoint of a connector.  | 
+
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. The following example is the JSON view of a data event configuration that logs events for a specific function only. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ```
 [
@@ -116,7 +78,7 @@ _AWS CloudTrail API Reference_.
       {
         "field": "resources.ARN",
         "equals": [
-          "`arn:aws:pca-connector-scep:US West (N. California):111122223333:connector/11223344-1122-2233-3344-cae95a00d2a7`"
+          "{{arn:aws:pca-connector-scep:US West (N. California):111122223333:connector/11223344-1122-2233-3344-cae95a00d2a7}}"
         ]
       }
     ]
@@ -125,15 +87,11 @@ _AWS CloudTrail API Reference_.
 ```
 
 ## Example entries
+<a name="c4scep-understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-###### Example 1: Management event, `CreateConnector`
-
+**Example 1: Management event, `CreateConnector`**  
 The following example shows a CloudTrail log entry that demonstrates the `CreateConnector` action.
 
 ```
@@ -182,8 +140,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         }
 ```
 
-###### Example 2: Management event, `CreateChallenge`
-
+**Example 2: Management event, `CreateChallenge`**  
 The following example shows a CloudTrail log entry that demonstrates the `CreateChallenge` action.
 
 ```
@@ -238,8 +195,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
         }
 ```
 
-###### Example 3: Management event, `GetChallengePassword`
-
+**Example 3: Management event, `GetChallengePassword`**  
 The following example shows a CloudTrail log entry that demonstrates the `GetChallengePassword` action.
 
 ```
@@ -286,8 +242,7 @@ The following example shows a CloudTrail log entry that demonstrates the `GetCha
         }
 ```
 
-###### Example 4: Data event, `PkiOperationPost`
-
+**Example 4: Data event, `PkiOperationPost`**  
 The following example shows a CloudTrail log entry that demonstrates a failed `PkiOperationPost` call. The log includes an error code and error message with an explanation of the failure.
 
 ```

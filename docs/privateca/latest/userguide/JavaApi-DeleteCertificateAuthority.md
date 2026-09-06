@@ -1,24 +1,13 @@
+
+
 # DeleteCertificateAuthority
+<a name="JavaApi-DeleteCertificateAuthority"></a>
 
-The following Java sample shows how to use the [DeleteCertificateAuthority](../APIReference/API_DeleteCertificateAuthority.md "../APIReference/API_DeleteCertificateAuthority.md")
-operation.
+The following Java sample shows how to use the [DeleteCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html) operation.
 
-This operation deletes the private certificate authority (CA) that you created using the
-[CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md") operation. The `DeleteCertificateAuthority`
-operation requires that you provide an ARN for the CA to be deleted. You can find the ARN by
-calling the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") operation. You can delete the private CA immediately if
-its status is `CREATING` or `PENDING_CERTIFICATE`. If you have already
-imported the certificate, however, you cannot delete it immediately. You must first disable
-the CA by calling the [UpdateCertificateAuthority](../APIReference/API_UpdateCertificateAuthority.md "../APIReference/API_UpdateCertificateAuthority.md") operation and set the `Status` parameter to
-`DISABLED`. You can then use the `PermanentDeletionTimeInDays`
-parameter in the `DeleteCertificateAuthority` operation to specify the number of
-days, from 7 to 30. During that period the private CA can be restored to `disabled`
-status. By default, if you do not set the `PermanentDeletionTimeInDays` parameter,
-the restoration period is 30 days. After this period expires, the private CA is permanently
-deleted and cannot be restored. For more information, see [Restore a CA](PCARestoreCA.md "PCARestoreCA.md").
+This operation deletes the private certificate authority (CA) that you created using the [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) operation. The `DeleteCertificateAuthority` operation requires that you provide an ARN for the CA to be deleted. You can find the ARN by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) operation. You can delete the private CA immediately if its status is `CREATING` or `PENDING_CERTIFICATE`. If you have already imported the certificate, however, you cannot delete it immediately. You must first disable the CA by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation and set the `Status` parameter to `DISABLED`. You can then use the `PermanentDeletionTimeInDays` parameter in the `DeleteCertificateAuthority` operation to specify the number of days, from 7 to 30. During that period the private CA can be restored to `disabled` status. By default, if you do not set the `PermanentDeletionTimeInDays` parameter, the restoration period is 30 days. After this period expires, the private CA is permanently deleted and cannot be restored. For more information, see [Restore a CA](PCARestoreCA.md). 
 
-For a Java example that shows you how to use the [RestoreCertificateAuthority](../APIReference/API_RestoreCertificateAuthority.md "../APIReference/API_RestoreCertificateAuthority.md")
-operation, see [RestoreCertificateAuthority](JavaApi-RestoreCertificateAuthority.md "JavaApi-RestoreCertificateAuthority.md").
+For a Java example that shows you how to use the [RestoreCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html) operation, see [RestoreCertificateAuthority](JavaApi-RestoreCertificateAuthority.md). 
 
 ```
 package com.amazonaws.samples;
@@ -54,7 +43,7 @@ public class DeleteCertificateAuthority {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -69,10 +58,10 @@ public class DeleteCertificateAuthority {
       DeleteCertificateAuthorityRequest req = new DeleteCertificateAuthorityRequest();
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
-
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
+            
       // Set the recovery period.
-      req.withPermanentDeletionTimeInDays(12);
+      req.withPermanentDeletionTimeInDays(12);            
 
       // Delete the CA.
       try {

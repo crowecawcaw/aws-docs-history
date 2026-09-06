@@ -1,152 +1,157 @@
+
+
 # Get started with AWS Private CA Connector for Kubernetes.
+<a name="PcaKubernetes-get-started"></a>
 
-The following topics show how to use AWS Private CA to secure communications in a Kubernetes
-cluster. For another example, refer to [Encryption in transit for Kubernetes](https://github.com/aws-samples/sample-encryption-in-transit-for-kubernetes "https://github.com/aws-samples/sample-encryption-in-transit-for-kubernetes") on GitHub.
+The following topics show how to use AWS Private CA to secure communications in a Kubernetes cluster. For another example, refer to [ Encryption in transit for Kubernetes ](https://github.com/aws-samples/sample-encryption-in-transit-for-kubernetes) on GitHub.
 
-You can use a private certificate authority to secure communications with your Amazon EKS
-clusters. Before you begin, ensure that you have the following:
+You can use a private certificate authority to secure communications with your Amazon EKS clusters. Before you begin, ensure that you have the following:
++ An AWS account with appropriate permissions scoped to your security policies.
 
-- An AWS account with appropriate permissions scoped to your security
-  policies.
+------
+#### [ Amazon EKS clusters ]
 
-Amazon EKS clusters
-JSONJSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "IAM",
- "Effect": "Allow",
- "Action": [
- "iam:CreateRole",
- "iam:AttachRolePolicy",
- "iam:GetRole"
- ],
- "Resource": "*"
- },
- {
- "Sid": "EKS",
- "Effect": "Allow",
- "Action": [
- "eks:CreateAddon",
- "eks:DescribeAddon",
- "eks:CreatePodIdentityAssociation",
- "eks:DescribeCluster"
- ],
- "Resource": "*"
- },
- {
- "Sid": "IAMPassRole",
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": "arn:aws:iam::*:role/CertManagerPrivateCARole"
- }
- ]
-}`
+****  
 
-```
+  ```
+  {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Sid": "IAM",
+        "Effect": "Allow",
+        "Action": [
+          "iam:CreateRole",
+          "iam:AttachRolePolicy",
+          "iam:GetRole"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "EKS",
+        "Effect": "Allow",
+        "Action": [
+          "eks:CreateAddon",
+          "eks:DescribeAddon",
+          "eks:CreatePodIdentityAssociation",
+          "eks:DescribeCluster"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "IAMPassRole",
+        "Effect": "Allow",
+        "Action": [
+          "iam:PassRole"
+        ],
+        "Resource": "arn:aws:iam::*:role/CertManagerPrivateCARole"
+      }
+    ]
+  }
+  ```
 
-Other clusters
-JSONJSON
+------
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "GetAndIssuePCACertificates",
- "Effect": "Allow",
- "Action": [
- "acm-pca:GetCertificate",
- "acm-pca:IssueCertificate"
- ],
- "Resource": "*"
- },
- {
- "Sid": "RolesAnywhere",
- "Effect": "Allow",
- "Action": [
- "rolesanywhere:CreateProfile"
- ],
- "Resource": "*"
- },
- {
- "Sid": "IAM",
- "Effect": "Allow",
- "Action": [
- "iam:CreateRole",
- "iam:AttachRolePolicy"
- ],
- "Resource": "*"
- },
- {
- "Sid": "IAMPassRole",
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": "arn:aws:iam::*:role/CertManagerPrivateCARole"
- }
- ]
-}`
+------
+#### [ Other clusters ]
 
-```
+------
+#### [ JSON ]
 
-- A Kubernetes cluster. To create a Amazon Elastic Kubernetes Service cluster, refer to the [Amazon EKS quickstart
-  guide](../../../eks/latest/userguide/quickstart.md "../../../eks/latest/userguide/quickstart.md"). For simplicity, create an environment variable to hold the
-  cluster name:
+****  
 
-```
-export CLUSTER=`aws-privateca-demo`
-```
+  ```
+  {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Sid": "GetAndIssuePCACertificates",
+        "Effect": "Allow",
+        "Action": [
+          "acm-pca:GetCertificate",
+          "acm-pca:IssueCertificate"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "RolesAnywhere",
+        "Effect": "Allow",
+        "Action": [
+          "rolesanywhere:CreateProfile"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "IAM",
+        "Effect": "Allow",
+        "Action": [
+          "iam:CreateRole",
+          "iam:AttachRolePolicy"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "IAMPassRole",
+        "Effect": "Allow",
+        "Action": [
+          "iam:PassRole"
+        ],
+        "Resource": "arn:aws:iam::*:role/CertManagerPrivateCARole"
+      }
+    ]
+  }
+  ```
 
-- The AWS Region where your CA and Amazon EKS cluster are located. For simplicity,
-  create an environment variable to hold the Region:
+------
 
-```
-export REGION=``aws-region``
-```
+------
++ A Kubernetes cluster. To create a Amazon Elastic Kubernetes Service cluster, refer to the [Amazon EKS quickstart guide](https://docs.aws.amazon.com/eks/latest/userguide/quickstart.html). For simplicity, create an environment variable to hold the cluster name:
 
-- The Amazon Resource Name (ARN) of a AWS Private CA private certificate authority. For
-  simplicity, create an environment variable to hold the private CA ARN:
+  ```
+  export CLUSTER={{aws-privateca-demo}}
+  ```
 
-```
-export CA_ARN="arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`"
-```
+  
++ The AWS Region where your CA and Amazon EKS cluster are located. For simplicity, create an environment variable to hold the Region:
 
-To create a private CA, refer to [https://docs.aws.amazon.com/privateca/latest/userguide/create-CA.html](create-CA.md "create-CA.md")Create a
-private CA in AWS Private CA
+  ```
+  export REGION={{{{aws-region}}}}
+  ```
++ The Amazon Resource Name (ARN) of a AWS Private CA private certificate authority. For simplicity, create an environment variable to hold the private CA ARN:
 
-- A computer with the following software installed:
+  ```
+  export CA_ARN="arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
+  ```
 
-  - [AWS CLI v2](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md")
-    configured
-  - [kubectl v1.13+](https://kubernetes.io/docs/tasks/tools/install-kubectl/ "https://kubernetes.io/docs/tasks/tools/install-kubectl/")
-  - For non-Amazon EKS clusters, [Helm v3](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/")
+  To create a private CA, refer to [https://docs.aws.amazon.com/privateca/latest/userguide/create-CA.html](https://docs.aws.amazon.com/privateca/latest/userguide/create-CA.html)Create a private CA in AWS Private CA
++ A computer with the following software installed:
+  + [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) configured
+  + [kubectl v1.13\+](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+  + For non-Amazon EKS clusters, [Helm v3](https://helm.sh/docs/intro/install/)
 
 ## Install cert-manager
+<a name="kubernetes-install-cert-manager"></a>
 
-To use a private CA, you must install the `cert-manager>` add-on that
-requests certificates, distributes them, and automates certificate renewal. You must
-also install the `aws-private-ca-issuer` plugin that allows you to issue
-private certificates from AWS Private CA. Use the following steps to install the add-on and
-plugin.
+To use a private CA, you must install the `cert-manager>` add-on that requests certificates, distributes them, and automates certificate renewal. You must also install the `aws-private-ca-issuer` plugin that allows you to issue private certificates from AWS Private CA. Use the following steps to install the add-on and plugin.
 
-Amazon EKS clusters
+------
+#### [ Amazon EKS clusters ]
+
 Install `cert-manager` as an Amazon EKS add-on:
 
 ```
 aws eks create-addon \
-  --cluster-name `$CLUSTER` \
+  --cluster-name {{$CLUSTER}} \
   --addon-name cert-manager \
   --region $REGION
 ```
 
-Other clusters
+------
+#### [ Other clusters ]
+
 Install `cert-manager` using Helm:
 
 ```
@@ -159,127 +164,135 @@ helm install cert-manager jetstack/cert-manager \
   --set crds.enabled=true
 ```
 
+------
+
 ## Configure IAM permissions
+<a name="kubernetes-iam-permissions"></a>
 
-The `aws-privateca-issuer` plugin requires permission the interact with
-AWS Private CA. For Amazon EKS clusters you use the pod identity. For other clusters you use
-AWS Identity and Access Management Roles Anywhere.
+The `aws-privateca-issuer` plugin requires permission the interact with AWS Private CA. For Amazon EKS clusters you use the pod identity. For other clusters you use AWS Identity and Access Management Roles Anywhere.
 
-Fist, create an IAM policy. The policy uses the
-`AWSPrivateCAConnectorForKubernetesPolicy` managed policy. For more
-information about the policy, refer to [AWSPrivateCAConnectorForKubernetesPolicy](../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md") in the _AWS Managed
-policy reference guide_.
+Fist, create an IAM policy. The policy uses the `AWSPrivateCAConnectorForKubernetesPolicy` managed policy. For more information about the policy, refer to [AWSPrivateCAConnectorForKubernetesPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.html) in the *AWS Managed policy reference guide*.
 
-Amazon EKS clusters
+------
+#### [ Amazon EKS clusters ]
 
-1. Create a file named `trust-policy.json` containing the
-   following trust policy:
+1. Create a file named `trust-policy.json` containing the following trust policy:
 
-JSONJSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "TrustPolicyForEKSClusters",
- "Effect": "Allow",
- "Principal": {
- "Service": "pods.eks.amazonaws.com"
- },
- "Action": [
- "sts:AssumeRole",
- "sts:TagSession"
- ]
- }
- ]
-}`
+****  
 
-```
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Sid": "TrustPolicyForEKSClusters",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "pods.eks.amazonaws.com"
+         },
+         "Action": [
+           "sts:AssumeRole",
+           "sts:TagSession"
+         ]
+       }
+     ]
+   }
+   ```
 
-2. Run the following commands to create an IAM role:
+------
 
-```
-ROLE_ARN=$(aws iam create-role \
-  --role-name CertManagerPrivateCARole \
-  --assume-role-policy-document file://trust-policy.json \
-  --region $REGION \
-  --output text \
-  --query "Role.Arn")
+1. Run the following commands to create an IAM role:
 
- aws iam attach-role-policy \
-  --role-name CertManagerPrivateCARole \
-  --policy-arn arn:aws:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy
-```
+   ```
+   ROLE_ARN=$(aws iam create-role \
+     --role-name CertManagerPrivateCARole \
+     --assume-role-policy-document file://trust-policy.json \
+     --region $REGION \
+     --output text \
+     --query "Role.Arn")
+    
+    aws iam attach-role-policy \
+     --role-name CertManagerPrivateCARole \
+     --policy-arn arn:aws:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy
+   ```
 
-Other clusters
+------
+#### [ Other clusters ]
 
-1. Create a trust anchor that trusts the private CA stored in
-   `CA_ARN`. For instructions, refer to [Getting started with IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/getting-started.md "../../../rolesanywhere/latest/userguide/getting-started.md"). Create an environment
-   variable to store the trust anchor ARN:
+1. Create a trust anchor that trusts the private CA stored in `CA_ARN`. For instructions, refer to [Getting started with IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/getting-started.html). Create an environment variable to store the trust anchor ARN:
 
-```
-export TRUST_ANCHOR_ARN=`trustAnchorArn`
-```
+   ```
+   export TRUST_ANCHOR_ARN={{trustAnchorArn}}
+   ```
 
-2. Create a file called `trust-policy.json` containing the
-   following trust policy:
+1. Create a file called `trust-policy.json` containing the following trust policy:
 
-JSONJSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "TrustPolicyForSelfManagedOrOnPremiseClusters",
- "Effect": "Allow",
- "Principal": {
- "Service": "rolesanywhere.amazonaws.com"
- },
- "Action": [
- "sts:AssumeRole",
- "sts:SetSourceIdentity",
- "sts:TagSession"
- ],
- "Condition": {
- "ArnEquals": {
- "aws:SourceArn": [
- "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TRUST_ANCHOR_ARN"
- ]
- },
- "StringEquals": {
- "aws:PrincipalTag/x509Subject/CN": "aws-privateca-issuer"
- }
- }
- }
- ]
-}`
+****  
 
-```
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "TrustPolicyForSelfManagedOrOnPremiseClusters",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "rolesanywhere.amazonaws.com"
+               },
+               "Action": [
+                   "sts:AssumeRole",
+                   "sts:SetSourceIdentity",
+                   "sts:TagSession"
+               ],
+               "Condition": {
+                   "ArnEquals": {
+                       "aws:SourceArn": [
+                           "arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/TRUST_ANCHOR_ARN"
+                       ]
+                   },
+                   "StringEquals": {
+                       "aws:PrincipalTag/x509Subject/CN": "aws-privateca-issuer"
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-3. Run the following commands to create an IAM role:
+------
 
-```
-ROLE_ARN=$(aws iam create-role \
-  --role-name CertManagerPrivateCARole \
-  --assume-role-policy-document file://trust-policy.json \
-  --query "Role.Arn" \
-  --region $REGION \
-  --output text)
+1. Run the following commands to create an IAM role:
 
- aws iam attach-role-policy \
-  --role-name CertManagerPrivateCARole \
-  --region $REGION \
-  --policy-arn arn:aws:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy
-```
+   ```
+   ROLE_ARN=$(aws iam create-role \
+     --role-name CertManagerPrivateCARole \
+     --assume-role-policy-document file://trust-policy.json \
+     --query "Role.Arn" \
+     --region $REGION \
+     --output text)
+     
+    aws iam attach-role-policy \
+     --role-name CertManagerPrivateCARole \
+     --region $REGION \
+     --policy-arn arn:aws:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy
+   ```
+
+------
 
 ## Install and configure the AWS Private CA cluster issuer
+<a name="kubernetes-install-aws-private-ca-cluster-issuer"></a>
 
-To install the `aws-privateca-connector-for-kubernetes` add-on, use the
-following commands:
+To install the `aws-privateca-connector-for-kubernetes` add-on, use the following commands: 
 
-Amazon EKS clusters
+------
+#### [ Amazon EKS clusters ]
+
 Create the add-on:
 
 ```
@@ -302,143 +315,146 @@ aws eks describe-addon \
   --query 'addon.status'
 ```
 
-Other clusters
+------
+#### [ Other clusters ]
 
 1. Create a profile in IAM Roles Anywhere:
 
-```
-PROFILE_ARN=$(aws rolesanywhere create-profile \
-  --name "privateca-profile" \
-  --role-arns "$ROLE_ARN" \
-  --region "$REGION" \
-  --query 'profile.profileArn' \
-  --enabled \
-  --output text)
-```
+   ```
+   PROFILE_ARN=$(aws rolesanywhere create-profile \
+     --name "privateca-profile" \
+     --role-arns "$ROLE_ARN" \
+     --region "$REGION" \
+     --query 'profile.profileArn' \
+     --enabled \
+     --output text)
+   ```
 
-2. Generate a client certificate for use with the Connector for Kubernetes and
-   IAM Roles Anywhere to authenticate with AWS Private CA:
+1. Generate a client certificate for use with the Connector for Kubernetes and IAM Roles Anywhere to authenticate with AWS Private CA:
 
    1. Generate a private key for the client certificate:
 
-   ```
-   openssl genrsa -out client.key 2048
-   ```
-   2. Generate a certificate signing request (CSR) for the
-      client certificate:
+      ```
+      openssl genrsa -out client.key 2048
+      ```
 
-   ```
-   openssl req -new \
-     -key client.key \
-     -out client.csr \
-     -subj "/CN=aws-privateca-issuer"
-   ```
-   3. Issue the client certificate from AWS Private CA:
+   1. Generate a certificate signing request (CSR) for the client certificate:
 
-   ```
-   CERT_ARN=$(aws acm-pca issue-certificate \
-     --signing-algorithm SHA256WITHRSA \
-     --csr fileb://client.csr \
-     --validity Value=1,Type=DAYS \
-     --certificate-authority-arn "$CA_ARN" \
-     --region "$REGION" \
-     --query 'CertificateArn' \
-     --output text)
-   ```
-   4. Store the client certificate locally:
+      ```
+      openssl req -new \
+        -key client.key \
+        -out client.csr \
+        -subj "/CN=aws-privateca-issuer"
+      ```
 
-   ```
-   aws acm-pca get-certificate \
-     --certificate-authority-arn $CA_ARN \
-     --certificate-arn $CERT_ARN \
-     --region $REGION \
-     --query 'Certificate'
-     --output text > pca-issuer-client-cert.pem
-   ```
+   1. Issue the client certificate from AWS Private CA:
 
-3. Install the AWS Private CA issuer in the cluster with the client
-   certificate:
+      ```
+      CERT_ARN=$(aws acm-pca issue-certificate \
+        --signing-algorithm SHA256WITHRSA \
+        --csr fileb://client.csr \
+        --validity Value=1,Type=DAYS \
+        --certificate-authority-arn "$CA_ARN" \
+        --region "$REGION" \
+        --query 'CertificateArn' \
+        --output text)
+      ```
+
+   1. Store the client certificate locally:
+
+      ```
+      aws acm-pca get-certificate \
+        --certificate-authority-arn $CA_ARN \
+        --certificate-arn $CERT_ARN \
+        --region $REGION \
+        --query 'Certificate' 
+        --output text > pca-issuer-client-cert.pem
+      ```
+
+1. Install the AWS Private CA issuer in the cluster with the client certificate:
 
    1. Add the `awspca` Helm repository:
 
-   ```
-   helm repo add awspca https://cert-manager.github.io/aws-privateca-issuer
-   helm repo update
-   ```
-   2. Create a namespace:
+      ```
+      helm repo add awspca https://cert-manager.github.io/aws-privateca-issuer 
+      helm repo update
+      ```
 
-   ```
-   kubectl create namespace aws-privateca-issuer
-   ```
-   3. Put the certificate created earlier into a secret:
+   1. Create a namespace:
 
-   ```
-   kubectl create secret tls aws-privateca-credentials \
-     -n aws-privateca-issuer \
-     --cert=pca-issuer-client-cert.pem \
-     --key=client.key
-   ```
+      ```
+      kubectl create namespace aws-privateca-issuer
+      ```
 
-4. Install the AWS Private CA issuer with IAM Roles Anywhere:
+   1. Put the certificate created earlier into a secret:
 
-   1. Create a file named `values.yaml` to configure
-      the AWS Private CA issuer plugin to use with IAM Roles Anywhere:
+      ```
+      kubectl create secret tls aws-privateca-credentials \
+        -n aws-privateca-issuer \
+        --cert=pca-issuer-client-cert.pem \
+        --key=client.key
+      ```
 
-   ```
-   cat > values.yaml <<EOF
-   env:
-     AWS_EC2_METADATA_SERVICE_ENDPOINT: "http://127.0.0.1:9911"
+1. Install the AWS Private CA issuer with IAM Roles Anywhere:
 
-   extraContainers:
-     - name: "rolesanywhere-credential-helper"
-       image: "public.ecr.aws/rolesanywhere/credential-helper:latest"
-       command: ["aws_signing_helper"]
-       args:
-         - "serve"
-         - "--private-key"
-         - "/etc/cert/tls.key"
-         - "--certificate"
-         - "/etc/cert/tls.crt"
-         - "--role-arn"
-         - "$ROLE_ARN"
-         - "--profile-arn"
-         - "$PROFILE_ARN"
-         - "--trust-anchor-arn"
-         - "$TRUST_ANCHOR_ARN"
-       volumeMounts:
-         - name: cert
-           mountPath: /etc/cert/
-           readOnly: true
+   1. Create a file named `values.yaml` to configure the AWS Private CA issuer plugin to use with IAM Roles Anywhere: 
 
-   volumes:
-     - name: cert
-       secret:
-         secretName: aws-privateca-credentials
-   EOF
-   ```
-   2. Install the AWS Private CA issuer with IAM Roles Anywhere:
+      ```
+      cat > values.yaml <<EOF
+      env:
+        AWS_EC2_METADATA_SERVICE_ENDPOINT: "http://127.0.0.1:9911"
+      
+      extraContainers:
+        - name: "rolesanywhere-credential-helper"
+          image: "public.ecr.aws/rolesanywhere/credential-helper:latest"
+          command: ["aws_signing_helper"]
+          args:
+            - "serve"
+            - "--private-key"
+            - "/etc/cert/tls.key"
+            - "--certificate"
+            - "/etc/cert/tls.crt"
+            - "--role-arn"
+            - "$ROLE_ARN"
+            - "--profile-arn"
+            - "$PROFILE_ARN"
+            - "--trust-anchor-arn"
+            - "$TRUST_ANCHOR_ARN"
+          volumeMounts:
+            - name: cert
+              mountPath: /etc/cert/
+              readOnly: true
+      
+      volumes:
+        - name: cert
+          secret:
+            secretName: aws-privateca-credentials
+      EOF
+      ```
 
-   ```
-   helm install aws-privateca-issuer awspca/aws-privateca-issuer \
-     -n aws-privateca-issuer \
-     -f values.yaml
-   ```
+   1. Install the AWS Private CA issuer with IAM Roles Anywhere:
 
-Wait for the issuer to be ready. Use the following command:
+      ```
+      helm install aws-privateca-issuer awspca/aws-privateca-issuer \
+        -n aws-privateca-issuer \
+        -f values.yaml
+      ```
+
+------
+
+Wait for the issuer to be ready. Use the following command: 
 
 ```
 kubectl wait --for=condition=ready pods --all -n aws-privateca-issuer --timeout=120s
 ```
 
-And then verify the installation to make sure that all pods have reached the
-`READY` state:
+And then verify the installation to make sure that all pods have reached the `READY` state:
 
 ```
 kubectl -n aws-privateca-issuer get all
 ```
 
-To configure the `aws-private-ca-cluster-issuer`, create a YAML file named
-`cluster-issuer.yaml`containing the configuration of the issuer:
+To configure the `aws-private-ca-cluster-issuer`, create a YAML file named `cluster-issuer.yaml`containing the configuration of the issuer:
 
 ```
 cat > cluster-issuer.yaml <<EOF
@@ -477,65 +493,62 @@ Status:
 ```
 
 ## Manage the AWS Private CA client certificate with cert-manager
+<a name="kubernetes-manage-pca-certificate"></a>
 
-If you are not using an Amazon EKS cluster, after you manually bootstrap a trusted certificate in
-`aws-privateca-issuer` you can transition to a client authentication
-certificate managed by `cert-manager`. This allows `cert-manager`
-to automatically renew the client authentication certificate.
+If you are not using an Amazon EKS cluster, after you manually bootstrap a trusted certificate in `aws-privateca-issuer` you can transition to a client authentication certificate managed by `cert-manager`. This allows `cert-manager` to automatically renew the client authentication certificate.
 
 1. Create a file called `pca-auth-cert.yaml`:
 
-```
-cat > pca-auth-cert.yaml <<EOF
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: aws-privateca-client-cert
-  namespace: aws-privateca-issuer
-spec:
-  secretName: aws-privateca-credentials
-  duration: 168h
-  renewBefore: 48h
-  commonName: aws-privateca-issuer
-  privateKey:
-    algorithm: ECDSA
-    size: 256
-    rotationPolicy: Always
-  usages:
-    - client auth
-  issuerRef:
-    name: aws-privateca-cluster-issuer
-    kind: AWSPCAClusterIssuer
-    group: awspca.cert-manager.io
-EOF
-```
+   ```
+   cat > pca-auth-cert.yaml <<EOF
+   apiVersion: cert-manager.io/v1
+   kind: Certificate
+   metadata:
+     name: aws-privateca-client-cert
+     namespace: aws-privateca-issuer
+   spec:
+     secretName: aws-privateca-credentials
+     duration: 168h
+     renewBefore: 48h
+     commonName: aws-privateca-issuer
+     privateKey:
+       algorithm: ECDSA
+       size: 256
+       rotationPolicy: Always
+     usages:
+       - client auth
+     issuerRef:
+       name: aws-privateca-cluster-issuer
+       kind: AWSPCAClusterIssuer
+       group: awspca.cert-manager.io
+   EOF
+   ```
 
-2. Create the new managed client authentication certificate:
+1. Create the new managed client authentication certificate:
 
-```
-kubectl apply -f pca-auth-cert.yaml
-```
+   ```
+   kubectl apply -f pca-auth-cert.yaml
+   ```
 
-3. Validate that the certificate was created:
+1. Validate that the certificate was created:
 
-```
-kubectl get certificate aws-privateca-client-cert -n aws-privateca-issuer
-```
+   ```
+   kubectl get certificate aws-privateca-client-cert -n aws-privateca-issuer
+   ```
 
-You should see a response similar to the following:
+   You should see a response similar to the following:
 
-```
-NAME                        READY   SECRET                      AGE
-aws-privateca-client-cert   True    aws-privateca-credentials   19m
-```
+   ```
+   NAME                        READY   SECRET                      AGE
+   aws-privateca-client-cert   True    aws-privateca-credentials   19m
+   ```
 
 ## Issue your first TLS certificate
+<a name="kubernetes-issue-certificate"></a>
 
-Now that the `cert-manager` and `aws-privateca-issuer` are
-installed, you can issue a certificate.
+Now that the `cert-manager` and `aws-privateca-issuer` are installed, you can issue a certificate.
 
-Create a YAML file named `certificate.yaml` containing the certificate
-resource:
+Create a YAML file named `certificate.yaml` containing the certificate resource:
 
 ```
 cat > certificate.yaml <<EOF

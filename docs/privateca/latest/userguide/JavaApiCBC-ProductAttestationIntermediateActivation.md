@@ -1,20 +1,19 @@
-# Activate an Product Attestation Intermediate (PAI)
 
-This Java sample shows how to use the [BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough") template to
-create and install a [Matter](https://buildwithmatter.com "https://buildwithmatter.com")
-Subordinate CA (PAI) certificate for product attestation. You must generate a Base64-encoded
-KeyUsage value and pass it through a CustomExtension.
+
+# Activate an Product Attestation Intermediate (PAI)
+<a name="JavaApiCBC-ProductAttestationIntermediateActivation"></a>
+
+This Java sample shows how to use the [BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough) template to create and install a [Matter](https://buildwithmatter.com) Subordinate CA (PAI) certificate for product attestation. You must generate a Base64-encoded KeyUsage value and pass it through a CustomExtension.
 
 The example calls the following AWS Private CA API actions:
++ [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
++ [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html)
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
++ [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
++ [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
++ [GetCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html)
 
-- [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-- [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-- [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
-- [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md")
-- [GetCertificateAuthorityCertificate](../APIReference/API_GetCertificateAuthorityCertificate.md "../APIReference/API_GetCertificateAuthorityCertificate.md")
-  If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md "TroubleshootPcaMatter.md") in the
-  Troubleshooting section.
+If you encounter problems, see [Troubleshoot AWS Private CA Matter-compliant certificate errors](TroubleshootPcaMatter.md) in the Troubleshooting section.
 
 ```
 package com.amazonaws.samples.matter;
@@ -131,7 +130,7 @@ public class ProductAttestationIntermediateActivation {
         crlConfigure.withS3BucketName("your-bucket-name");
         crlConfigure.withS3ObjectAcl("BUCKET_OWNER_FULL_CONTROL");
         crlConfigure.withCrlDistributionPointConfiguration(CDPConfigure);
-
+        
         // Define a certificate authority type
         CertificateAuthorityType CAtype = CertificateAuthorityType.SUBORDINATE;
 
@@ -163,7 +162,7 @@ public class ProductAttestationIntermediateActivation {
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+        
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
@@ -204,7 +203,7 @@ public class ProductAttestationIntermediateActivation {
     private static String CreateCertificateAuthority(CertificateAuthorityConfiguration configCA, CrlConfiguration crlConfigure, CertificateAuthorityType CAtype, AWSACMPCA client) {
         RevocationConfiguration revokeConfig = new RevocationConfiguration();
         revokeConfig.setCrlConfiguration(crlConfigure);
-
+        
         // Create the request object.
         CreateCertificateAuthorityRequest createCARequest = new CreateCertificateAuthorityRequest();
         createCARequest.withCertificateAuthorityConfiguration(configCA);
@@ -357,7 +356,7 @@ public class ProductAttestationIntermediateActivation {
 
         // Set the certificate authority ARN.
         certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+                
         // Create waiter to wait on successful creation of the certificate file.
         Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
         try {

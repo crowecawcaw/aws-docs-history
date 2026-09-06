@@ -1,13 +1,14 @@
+
+
 # Create and activate a root CA programmatically
+<a name="JavaApi-ActivateRootCA"></a>
 
-This Java sample shows how to activate a root CA using the following AWS Private CA API
-actions:
-
-- [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-- [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-- [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
-- [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md")
-- [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md")
+This Java sample shows how to activate a root CA using the following AWS Private CA API actions:
++ [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html)
++ [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html)
++ [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)
++ [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html)
++ [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html)
 
 ```
 package com.amazonaws.samples;
@@ -72,16 +73,16 @@ import com.amazonaws.waiters.WaiterUnrecoverableException;
 public class RootCAActivation {
     public static void main(String[] args) throws Exception {
         // Define the endpoint region for your sample.
-        String endpointRegion = "`region`"; // Substitute your region here, e.g. "us-west-2"
+        String endpointRegion = "{{region}}"; // Substitute your region here, e.g. "us-west-2"
 
         // Define a CA subject.
         ASN1Subject subject = new ASN1Subject();
-        subject.setOrganization("`Example Organization`");
-        subject.setOrganizationalUnit("`Example`");
-        subject.setCountry("`US`");
-        subject.setState("`Virginia`");
-        subject.setLocality("`Arlington`");
-        subject.setCommonName("`www.example.com`");
+        subject.setOrganization("{{Example Organization}}");
+        subject.setOrganizationalUnit("{{Example}}");
+        subject.setCountry("{{US}}");
+        subject.setState("{{Virginia}}");
+        subject.setLocality("{{Arlington}}");
+        subject.setCommonName("{{www.example.com}}");
 
         // Define the CA configuration.
         CertificateAuthorityConfiguration configCA = new CertificateAuthorityConfiguration();
@@ -94,7 +95,7 @@ public class RootCAActivation {
         crlConfigure.withEnabled(true);
         crlConfigure.withExpirationInDays(365);
         crlConfigure.withCustomCname(null);
-        crlConfigure.withS3BucketName("`your-bucket-name`");
+        crlConfigure.withS3BucketName("{{your-bucket-name}}");
 
         // Define a certificate authority type
         CertificateAuthorityType CAtype = CertificateAuthorityType.ROOT;
@@ -125,7 +126,7 @@ public class RootCAActivation {
         String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
         EndpointConfiguration endpoint =
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
-
+        
         // Create a client that you can use to make requests.
         AWSACMPCA client = AWSACMPCAClientBuilder.standard()
             .withEndpointConfiguration(endpoint)
@@ -145,7 +146,7 @@ public class RootCAActivation {
         createCARequest.withRevocationConfiguration(revokeConfig);
         createCARequest.withIdempotencyToken("123987");
         createCARequest.withCertificateAuthorityType(CAtype);
-
+        
         // Create the private CA.
         CreateCertificateAuthorityResult createCAResult = null;
         try {
@@ -161,7 +162,7 @@ public class RootCAActivation {
         // Retrieve the ARN of the private CA.
         String rootCAArn = createCAResult.getCertificateAuthorityArn();
         System.out.println("Root CA Arn: " + rootCAArn);
-
+        
         return rootCAArn;
     }
 
@@ -255,7 +256,7 @@ public class RootCAActivation {
 
         return rootCertificateArn;
     }
-
+    
     private static String GetCertificate(String rootCertificateArn, String rootCAArn, AWSACMPCA client) {
 
         // Create a request object.
@@ -266,7 +267,7 @@ public class RootCAActivation {
 
         // Set the certificate authority ARN.
         certificateRequest.withCertificateAuthorityArn(rootCAArn);
-
+                
         // Create waiter to wait on successful creation of the certificate file.
         Waiter<GetCertificateRequest> getCertificateWaiter = client.waiters().certificateIssued();
         try {
@@ -339,7 +340,7 @@ public class RootCAActivation {
         System.out.println("Root CA certificate successfully imported.");
         System.out.println("Root CA activated successfully.");
     }
-
+    
     private static ByteBuffer stringToByteBuffer(final String string) {
         if (Objects.isNull(string)) {
             return null;

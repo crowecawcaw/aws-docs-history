@@ -1,49 +1,64 @@
+
+
 # AWS managed policies
+<a name="auth-AwsManagedPolicies"></a>
 
-AWS Private CA includes a set of predefined AWS managed policies for AWS Private CA
-administrators, users, and auditors. Understanding these policies can help you
-implement [Customer managed policies](auth-CustManagedPolicies.md "auth-CustManagedPolicies.md").
+AWS Private CA includes a set of predefined AWS managed policies for AWS Private CA administrators, users, and auditors. Understanding these policies can help you implement [Customer managed policies](auth-CustManagedPolicies.md).
 
-Choose any of the policies listed below to see details and sample policy
-code.
+Choose any of the policies listed below to see details and sample policy code.
+
+## AWSPrivateCAFullAccess
+<a name="AWSPrivateCAFullAccess"></a>
 
 Grants unrestricted administrative control.
 
-For a JSON listing of the policy details, see [AWSPrivateCAFullAccess](../../../aws-managed-policy/latest/reference/AWSPrivateCAFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAFullAccess.md").
+For a JSON listing of the policy details, see [AWSPrivateCAFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAFullAccess.html).
+
+## AWSPrivateCAReadOnly
+<a name="AWSPrivateCAFullAccess"></a>
 
 Grants access limited to read-only API operations.
 
-For a JSON listing of the policy details, see [AWSPrivateCAReadOnly](../../../aws-managed-policy/latest/reference/AWSPrivateCAReadOnly.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAReadOnly.md").
+For a JSON listing of the policy details, see [AWSPrivateCAReadOnly](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAReadOnly.html).
 
-Grants ability to issue and revoke CA certificates. This policy has no
-other administrative capabilities and no ability to issue end-entity
-certificates. Permissions are mutually exclusive with the **User** policy.
+## AWSPrivateCAPrivilegedUser
+<a name="AWSPrivateCAFullAccess"></a>
 
-For a JSON listing of the policy details, see [AWSPrivateCAPrivilegedUser](../../../aws-managed-policy/latest/reference/AWSPrivateCAPrivilegedUser.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAPrivilegedUser.md").
+Grants ability to issue and revoke CA certificates. This policy has no other administrative capabilities and no ability to issue end-entity certificates. Permissions are mutually exclusive with the **User** policy. 
 
-Grant ability to issue and revoke end-entity certificates. This policy has
-no administrative capabilities and no ability to issue CA certificates.
-Permissions are mutually exclusive with the **PrivilegedUser** policy.
+For a JSON listing of the policy details, see [AWSPrivateCAPrivilegedUser](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAPrivilegedUser.html).
 
-For a JSON listing of the policy details, see [AWSPrivateCAUser](../../../aws-managed-policy/latest/reference/AWSPrivateCAUser.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAUser.md").
+## AWSPrivateCAUser
+<a name="AWSPrivateCAUser"></a>
 
-Grant access to read-only API operations and permission to generate a CA
-audit report.
+Grant ability to issue and revoke end-entity certificates. This policy has no administrative capabilities and no ability to issue CA certificates. Permissions are mutually exclusive with the **PrivilegedUser** policy.
 
-For a JSON listing of the policy details, see [AWSPrivateCAAuditor](../../../aws-managed-policy/latest/reference/AWSPrivateCAAuditor.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAAuditor.md").
+For a JSON listing of the policy details, see [AWSPrivateCAUser](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAUser.html).
 
-Grants essential permissions for the AWS Private CA Connector for Kubernetes.
+## AWSPrivateCAAuditor
+<a name="AWSPrivateCAAuditor"></a>
 
-For a JSON listing of the policy details, see [AWSPrivateCAConnectorForKubernetesPolicy](../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md").
+Grant access to read-only API operations and permission to generate a CA audit report. 
+
+For a JSON listing of the policy details, see [AWSPrivateCAAuditor](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAAuditor.html).
+
+## AWSPrivateCAConnectorForKubernetesPolicy
+<a name="AWSPrivateCAConnectorForKubernetesPolicy"></a>
+
+Grants essential permissions for the AWS Private CA Connector for Kubernetes. 
+
+For a JSON listing of the policy details, see [AWSPrivateCAConnectorForKubernetesPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.html).
 
 ## Updates to AWS managed policies for AWS Private CA
+<a name="managed-policy-updates"></a>
 
-In the following table, view details about updates to AWS managed policies
-for AWS Private CA since the service began tracking these changes. For automatic
-alerts about all changes to AWS Private CA, subscribe to the RSS feed on the [Document History](dochistory.md "dochistory.md") page.
+In the following table, view details about updates to AWS managed policies for AWS Private CA since the service began tracking these changes. For automatic alerts about all changes to AWS Private CA, subscribe to the RSS feed on the [Document History](dochistory.md) page.
 
-Managed policy changes| Change | Description | Date |
-| --- | --- | --- |
-| New Policy: AWSPrivateCAConnectorForKubernetesPolicy | New managed policy introduced for use with AWS Private CA Connector for Kubernetes. | May 19, 2025 |
-| AWSPrivateCAPrivilegedUser and AWSPrivateCAUser<br>• Updated<br>policy | Replaced `StringLike` with `ArnLike`,<br>and `StringNotLike` with<br>`ArnNotLike`.<br>Updated template arn to include wild cards<br>`arn:aws:acm-pca:::template` to<br>`arn:aws:acm-pca:*:*:template`. | January 22, 2025 |
-| New policy names:<br>• `AWSPrivateCAFullAccess`<br>• `AWSPrivateCAReadOnly`<br>• `AWSPrivateCAPrivilegedUser`<br>• `AWSPrivateCAAuditor`<br>• `AWSPrivateCAUser` | Policy name prefixes were changed from<br>`AWSCertificateManagerPrivateCA` to<br>`AWSPrivateCA`.<br>Functionality remains unchanged. | February 13, 2023 |
+
+**Managed policy changes**  
+
+| Change | Description  | Date | 
+| --- | --- | --- | 
+| New Policy: AWSPrivateCAConnectorForKubernetesPolicy | New managed policy introduced for use with AWS Private CA Connector for Kubernetes. | May 19, 2025 | 
+| AWSPrivateCAPrivilegedUser and AWSPrivateCAUser - Updated policy | Replaced `StringLike` with `ArnLike`, and `StringNotLike` with `ArnNotLike`.<br />Updated template arn to include wild cards `arn:aws:acm-pca:::template` to `arn:aws:acm-pca:*:*:template`. | January 22, 2025 | 
+| New policy names:+  `AWSPrivateCAFullAccess` <br />+  `AWSPrivateCAReadOnly` <br />+  `AWSPrivateCAPrivilegedUser` <br />+  `AWSPrivateCAAuditor` <br />+  `AWSPrivateCAUser`  | Policy name prefixes were changed from `AWSCertificateManagerPrivateCA` to `AWSPrivateCA`.<br />Functionality remains unchanged. | February 13, 2023 | 

@@ -1,13 +1,11 @@
+
+
 # ImportCertificateAuthorityCertificate
+<a name="JavaApi-ImportCertificateAuthorityCertificate"></a>
 
-The following Java sample shows how to use the [ImportCertificateAuthorityCertificate](../APIReference/API_ImportCertificateAuthorityCertificate.md "../APIReference/API_ImportCertificateAuthorityCertificate.md") operation.
+The following Java sample shows how to use the [ImportCertificateAuthorityCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html) operation.
 
-This operation imports your signed private CA certificate into AWS Private CA. Before you can
-call this operation, you must create the private certificate authority by calling the [CreateCertificateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
-operation. You must then generate a certificate signing request (CSR) by calling the [GetCertificateAuthorityCsr](../APIReference/API_GetCertificateAuthorityCsr.md "../APIReference/API_GetCertificateAuthorityCsr.md")
-operation. Take the CSR to your on-premises CA and use your root certificate or a subordinate
-certificate to sign it. Create a certificate chain and copy the signed certificate and the
-certificate chain to your working directory.
+This operation imports your signed private CA certificate into AWS Private CA. Before you can call this operation, you must create the private certificate authority by calling the [CreateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html) operation. You must then generate a certificate signing request (CSR) by calling the [GetCertificateAuthorityCsr](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html) operation. Take the CSR to your on-premises CA and use your root certificate or a subordinate certificate to sign it. Create a certificate chain and copy the signed certificate and the certificate chain to your working directory. 
 
 ```
 package com.amazonaws.samples;
@@ -58,7 +56,7 @@ public class ImportCertificateAuthorityCertificate {
       }
 
       // Define the endpoint for your sample.
-      String endpointRegion = "`region`";  // Substitute your region here, e.g. "us-west-2"
+      String endpointRegion = "{{region}}";  // Substitute your region here, e.g. "us-west-2"
       String endpointProtocol = "https://acm-pca." + endpointRegion + ".amazonaws.com/";
       EndpointConfiguration endpoint =
           new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
@@ -75,22 +73,22 @@ public class ImportCertificateAuthorityCertificate {
 
       // Set the signed certificate.
       String strCertificate =
-            "`-----BEGIN CERTIFICATE-----\n`" +
-            "`base64-encoded certificate\n`" +
-            "`-----END CERTIFICATE-----\n`";
+            "{{-----BEGIN CERTIFICATE-----\n}}" +
+            "{{base64-encoded certificate\n}}" +
+            "{{-----END CERTIFICATE-----\n}}";
       ByteBuffer certByteBuffer = stringToByteBuffer(strCertificate);
       req.setCertificate(certByteBuffer);
 
       // Set the certificate chain.
       String strCertificateChain =
-            "`-----BEGIN CERTIFICATE-----\n`" +
-            "`base64-encoded certificate\n`" +
-            "`-----END CERTIFICATE-----\n`";
+            "{{-----BEGIN CERTIFICATE-----\n}}" +
+            "{{base64-encoded certificate\n}}" +
+            "{{-----END CERTIFICATE-----\n}}";
       ByteBuffer chainByteBuffer = stringToByteBuffer(strCertificateChain);
       req.setCertificateChain(chainByteBuffer);
 
       // Set the certificate authority ARN.
-      req.withCertificateAuthorityArn("arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566`");
+      req.withCertificateAuthorityArn("arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}");
 
       // Import the certificate.
       try {

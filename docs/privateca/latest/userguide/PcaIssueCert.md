@@ -1,82 +1,55 @@
+
+
 # Issue private end-entity certificates
+<a name="PcaIssueCert"></a>
 
-With a private CA in place, you can request private end-entity certificates from
-either AWS Certificate Manager (ACM) or AWS Private CA. The capabilities of both services are compared in
-the following table.
+With a private CA in place, you can request private end-entity certificates from either AWS Certificate Manager (ACM) or AWS Private CA. The capabilities of both services are compared in the following table.
 
-| Capability                                                       | ACM                                                                                                                                                                    | AWS Private CA                                                                                                                             |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Issue end-entity certificates                                    | ✓ (using [RequestCertificate](../../../acm/latest/APIReference/API_RequestCertificate.md "../../../acm/latest/APIReference/API_RequestCertificate.md") or the console) | ✓ (using [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md"))                            |
-| Association with load balancers and internet-facing AWS services | ✓                                                                                                                                                                      | Not supported                                                                                                                              |
-| Managed certificate renewal                                      | ✓                                                                                                                                                                      | Indirectly [supported](../../../acm/latest/userguide/managed-renewal.md "../../../acm/latest/userguide/managed-renewal.md")<br>through ACM |
-| Console support                                                  | ✓                                                                                                                                                                      | Not supported                                                                                                                              |
-| API support                                                      | ✓                                                                                                                                                                      | ✓                                                                                                                                          |
-| CLI support                                                      | ✓                                                                                                                                                                      | ✓                                                                                                                                          |
 
-When AWS Private CA creates a certificate, it follows a template that specifies the
-certificate type and path length. If no template ARN is supplied to the API or CLI
-statement creating the certificate, the [EndEntityCertificate/V1](template-definitions.md#EndEntityCertificate-V1 "template-definitions.md#EndEntityCertificate-V1") template is applied by default. For more information
-about available certificate templates, see [Use AWS Private CA certificate templates](UsingTemplates.md "UsingTemplates.md").
 
-While ACM certificates are designed around public trust, AWS Private CA serves the needs
-of your private PKI. Consequently, you can configure certificates using the AWS Private CA API
-and CLI in ways not permitted by ACM. These include the following:
+|  Capability  |  ACM  |  AWS Private CA  | 
+| --- | --- | --- | 
+| Issue end-entity certificates | ✓ (using [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) or the console) | ✓ (using [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html)) | 
+| Association with load balancers and internet-facing AWS services | ✓ | Not supported | 
+| Managed certificate renewal | ✓ | Indirectly [supported](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) through ACM | 
+| Console support | ✓ | Not supported | 
+| API support | ✓ | ✓ | 
+| CLI support | ✓ | ✓ | 
 
-- Creating a certificate with any Subject name.
-- Using any of the [supported
-  private key algorithms and key lengths](supported-algorithms.md "supported-algorithms.md").
-- Using any of the [supported
-  signing algorithms](supported-algorithms.md "supported-algorithms.md").
-- Specifying any validity period for your private [CA](PcaCreateCa.md "PcaCreateCa.md") and private [certificates](PcaIssueCert.md "PcaIssueCert.md").
-  After creating a private TLS certificate using AWS Private CA, you can [import](../../../acm/latest/userguide/import-certificate-api-cli.md "../../../acm/latest/userguide/import-certificate-api-cli.md") it into ACM and use
-  it with a supported AWS service.
+When AWS Private CA creates a certificate, it follows a template that specifies the certificate type and path length. If no template ARN is supplied to the API or CLI statement creating the certificate, the [EndEntityCertificate/V1](template-definitions.md#EndEntityCertificate-V1) template is applied by default. For more information about available certificate templates, see [Use AWS Private CA certificate templates](UsingTemplates.md).
 
-###### Note
+While ACM certificates are designed around public trust, AWS Private CA serves the needs of your private PKI. Consequently, you can configure certificates using the AWS Private CA API and CLI in ways not permitted by ACM. These include the following:
++ Creating a certificate with any Subject name.
++ Using any of the [supported private key algorithms and key lengths](https://docs.aws.amazon.com/privateca/latest/userguide/supported-algorithms.html).
++ Using any of the [supported signing algorithms](https://docs.aws.amazon.com/privateca/latest/userguide/supported-algorithms.html).
++ Specifying any validity period for your private [CA](PcaCreateCa.html) and private [certificates](PcaIssueCert.html).
 
-Certificates created with the procedure below, using the
-**issue-certificate** command, or with the [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md") API action,
-cannot be directly exported for use outside AWS. However, you can use your private CA
-to sign certificates issued through ACM, and those certificates can be exported along
-with their secret keys. For more information, see [Requesting a private
-certificate](../../../acm/latest/userguide/gs-acm-request-private.md "../../../acm/latest/userguide/gs-acm-request-private.md") and [Exporting a
-private certificate](../../../acm/latest/userguide/export-private.md "../../../acm/latest/userguide/export-private.md") in the _ACM User
-Guide_.
+After creating a private TLS certificate using AWS Private CA, you can [import](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate-api-cli.html) it into ACM and use it with a supported AWS service.
+
+**Note**  
+Certificates created with the procedure below, using the **issue-certificate** command, or with the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) API action, cannot be directly exported for use outside AWS. However, you can use your private CA to sign certificates issued through ACM, and those certificates can be exported along with their secret keys. For more information, see [Requesting a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) and [Exporting a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html) in the *ACM User Guide*.
 
 ## Issue a standard certificate (AWS CLI)
+<a name="IssueCertCli"></a>
 
-You can use the AWS Private CA CLI command [issue-certificate](../../../cli/latest/reference/acm-pca/issue-certificate.md "../../../cli/latest/reference/acm-pca/issue-certificate.md") or the API action
-[IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md") to
-request an end-entity certificate. This command requires the Amazon Resource Name (ARN)
-of the private CA that you want to use to issue the certificate. You must also generate
-a certificate signing request (CSR) using a program such as [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/").
+You can use the AWS Private CA CLI command [issue-certificate](https://docs.aws.amazon.com/cli/latest/reference/acm-pca/issue-certificate.html) or the API action [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) to request an end-entity certificate. This command requires the Amazon Resource Name (ARN) of the private CA that you want to use to issue the certificate. You must also generate a certificate signing request (CSR) using a program such as [OpenSSL](https://www.openssl.org/).
 
-If you use the AWS Private CA API or AWS CLI to issue a private certificate, the
-certificate is unmanaged, meaning that you cannot use the ACM console, ACM CLI, or
-ACM API to view or export it, and the certificate is not automatically renewed.
-However, you can use the PCA [get-certificate](../../../cli/latest/reference/acm-pca/get-certificate.md "../../../cli/latest/reference/acm-pca/get-certificate.md") command to retrieve the certificate details, and if you own
-the CA, you can create an [audit report](PcaAuditReport.md "PcaAuditReport.md").
+If you use the AWS Private CA API or AWS CLI to issue a private certificate, the certificate is unmanaged, meaning that you cannot use the ACM console, ACM CLI, or ACM API to view or export it, and the certificate is not automatically renewed. However, you can use the PCA [get-certificate](https://docs.aws.amazon.com/cli/latest/reference/acm-pca/get-certificate.html) command to retrieve the certificate details, and if you own the CA, you can create an [audit report](PcaAuditReport.md).
 
 **Considerations when creating certificates**
++ In compliance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280), the length of the domain name (technically, the Common Name) that you provide cannot exceed 64 octets (characters), including periods. To add a longer domain name, specify it in the Subject Alternative Name field, which supports names up to 253 octets in length. 
++ If you are using AWS CLI version 1.6.3 or later, use the prefix `fileb://` when specifying base64-encoded input files such as CSRs. This ensures that AWS Private CA parses the data correctly.
 
-- In compliance with [RFC
-  5280](https://datatracker.ietf.org/doc/html/rfc5280 "https://datatracker.ietf.org/doc/html/rfc5280"), the length of the domain name (technically, the Common Name) that you provide
-  cannot exceed 64 octets (characters), including periods. To add a longer domain name, specify it in the Subject Alternative
-  Name field, which supports names up to 253 octets in length.
-- If you are using AWS CLI version 1.6.3 or later, use the prefix
-  `fileb://` when specifying base64-encoded input files such as CSRs.
-  This ensures that AWS Private CA parses the data correctly.
-
-The following OpenSSL command generates a CSR and a private key for a
-certificate:
+The following OpenSSL command generates a CSR and a private key for a certificate:
 
 ```
-`$` `openssl req -out `csr.pem` -new -newkey rsa:`2048` -nodes -keyout `private-key.pem``
+$ openssl req -out {{csr.pem}} -new -newkey rsa:{{2048}} -nodes -keyout {{private-key.pem}}
 ```
 
 You can inspect the content of the CSR as follows:
 
 ```
-`$` `openssl req -in `csr.pem` -text -noout`
+$ openssl req -in {{csr.pem}} -text -noout
 ```
 
 The resulting output should resemble the following abbreviated example:
@@ -112,65 +85,53 @@ Certificate Request:
          0b:53:e5:22
 ```
 
-The following command creates a certificate. Because no template is specified, a base
-end-entity certificate is issued by default.
+The following command creates a certificate. Because no template is specified, a base end-entity certificate is issued by default.
 
 ```
-`$` `aws acm-pca issue-certificate \
- --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566` \
- --csr fileb://`csr.pem` \
- --signing-algorithm "`SHA256WITHRSA`" \
- --validity Value=`365`,Type="`DAYS`"`
+$ aws acm-pca issue-certificate \
+      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
+      --csr fileb://{{csr.pem}} \
+      --signing-algorithm "{{SHA256WITHRSA}}" \
+      --validity Value={{365}},Type="{{DAYS}}"
 ```
 
 The ARN of the issued certificate is returned:
 
 ```
 {
-   "CertificateArn":"arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`"
+   "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
 ```
 
-###### Note
-
-AWS Private CA immediately returns an ARN with a serial number when it receives the
-**issue-certificate** command. However, certificate processing happens
-asynchronously and can still fail. If this happens, a **get-certificate**
-command using the new ARN will also fail.
+**Note**  
+AWS Private CA immediately returns an ARN with a serial number when it receives the **issue-certificate** command. However, certificate processing happens asynchronously and can still fail. If this happens, a **get-certificate** command using the new ARN will also fail.
 
 ## Issue a certificate with a custom subject name using an APIPassthrough template
+<a name="custom-subject-1"></a>
 
-In this example, a certificate is issued containing customized subject name elements.
-In addition to supplying a CSR like the one in [Issue a standard certificate (AWS CLI)](#IssueCertCli "#IssueCertCli"), you pass two additional arguments to the
-**issue-certificate** command: the ARN of an APIPassthrough template,
-and a JSON configuration file that specifies the custom attributes and their object
-identifiers (OIDs). You cannot use `StandardAttributes` in conjunction with
-`CustomAttributes`. however, you can pass standard OIDs as part of
-`CustomAttributes`. The default subject name OIDs are listed in the
-following table (information from [RFC 4519](https://www.rfc-editor.org/rfc/rfc4519 "https://www.rfc-editor.org/rfc/rfc4519") and [Global OID reference
-database](https://oidref.com "https://oidref.com")):
+In this example, a certificate is issued containing customized subject name elements. In addition to supplying a CSR like the one in [Issue a standard certificate (AWS CLI)](#IssueCertCli), you pass two additional arguments to the **issue-certificate** command: the ARN of an APIPassthrough template, and a JSON configuration file that specifies the custom attributes and their object identifiers (OIDs). You cannot use `StandardAttributes` in conjunction with `CustomAttributes`. however, you can pass standard OIDs as part of `CustomAttributes`. The default subject name OIDs are listed in the following table (information from [RFC 4519](https://www.rfc-editor.org/rfc/rfc4519) and [Global OID reference database](https://oidref.com)):
 
-| Subject name                               | Abbreviation | Object ID                  |
-| ------------------------------------------ | ------------ | -------------------------- |
-| countryName                                | c            | 2.5.4.6                    |
-| commonName                                 | cn           | 2.5.4.3                    |
-| dnQualifier [distinguished name qualifier] |              | 2.5.4.46                   |
-| generationQualifier                        |              | 2.5.4.44                   |
-| givenName                                  |              | 2.5.4.42                   |
-| initials                                   |              | 2.5.4.43                   |
-| locality                                   | l            | 2.5.4.7                    |
-| organizationName                           | o            | 2.5.4.10                   |
-| organizationalUnitName                     | ou           | 2.5.4.11                   |
-| pseudonym                                  |              | 2.5.4.65                   |
-| serialNumber                               |              | 2.5.4.5                    |
-| st [state]                                 |              | 2.5.4.8                    |
-| surname                                    | sn           | 2.5.4.4                    |
-| title                                      |              | 2.5.4.12                   |
-| domainComponent                            | dc           | 0.9.2342.19200300.100.1.25 |
-| userid                                     |              | 0.9.2342.19200300.100.1.1  |
 
-The sample configuration file `api_passthrough_config.txt` contains the
-following code:
+|  Subject name  |  Abbreviation  |  Object ID  | 
+| --- | --- | --- | 
+| countryName | c | 2.5.4.6 | 
+| commonName | cn | 2.5.4.3 | 
+| dnQualifier [distinguished name qualifier] |  | 2.5.4.46 | 
+| generationQualifier |  | 2.5.4.44 | 
+| givenName |  | 2.5.4.42 | 
+| initials |  | 2.5.4.43 | 
+| locality | l | 2.5.4.7 | 
+| organizationName | o | 2.5.4.10 | 
+| organizationalUnitName | ou | 2.5.4.11 | 
+| pseudonym |  | 2.5.4.65 | 
+| serialNumber |  | 2.5.4.5 | 
+| st [state] |  | 2.5.4.8 | 
+| surname | sn | 2.5.4.4 | 
+| title |  | 2.5.4.12 | 
+| domainComponent | dc | 0.9.2342.19200300.100.1.25 | 
+| userid |  | 0.9.2342.19200300.100.1.1 | 
+
+The sample configuration file `api_passthrough_config.txt` contains the following code:
 
 ```
 {
@@ -196,53 +157,47 @@ following code:
 Use the following command to issue the certificate:
 
 ```
-`$` `aws acm-pca issue-certificate \
- --validity Type=`DAYS`,Value=`10`
- --signing-algorithm "`SHA256WITHRSA`" \
- --csr fileb://`csr.pem` \
- --api-passthrough file://`api_passthrough_config.txt` \
- --template-arn arn:aws:acm-pca:::template/BlankEndEntityCertificate_APIPassthrough/V1 \
- --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566``
+$ aws acm-pca issue-certificate \
+      --validity Type={{DAYS}},Value={{10}} 
+      --signing-algorithm "{{SHA256WITHRSA}}" \
+      --csr fileb://{{csr.pem}} \
+      --api-passthrough file://{{api_passthrough_config.txt}} \
+      --template-arn arn:aws:acm-pca:::template/BlankEndEntityCertificate_APIPassthrough/V1 \
+      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}
 ```
 
 The ARN of the issued certificate is returned:
 
 ```
 {
-   "CertificateArn":"arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`"
+   "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
 ```
 
 Retrieve the certificate locally as follows:
 
 ```
-`$` `aws acm-pca get-certificate \
- --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566` \
- --certificate-arn arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID` | \
- jq -r .'Certificate' > `cert.pem``
+$ aws acm-pca get-certificate \
+      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
+      --certificate-arn arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}} | \
+      jq -r .'Certificate' > {{cert.pem}}
 ```
 
 You can inspect the certificate's contents using OpenSSL:
 
 ```
-`$` `openssl x509 -in `cert.pem` -text -noout`
+$ openssl x509 -in {{cert.pem}} -text -noout
 ```
 
-###### Note
-
-It is also possible to create a private CA that passes custom attributes to each
-certificate it
-issues.
+**Note**  
+It is also possible to create a private CA that passes custom attributes to each certificate it issues.
 
 ## Issue a certificate with custom extensions using an APIPassthrough template
+<a name="custom-subject-2"></a>
 
-In this example, a certificate is issued that contains customized extensions. For
-this you need to pass three arguments to the **issue-certificate**
-command: the ARN of an APIPassthrough template, and a JSON configuration file that
-specifies the custom extensions, and a CSR like the one shown in [Issue a standard certificate (AWS CLI)](#IssueCertCli "#IssueCertCli").
+In this example, a certificate is issued that contains customized extensions. For this you need to pass three arguments to the **issue-certificate** command: the ARN of an APIPassthrough template, and a JSON configuration file that specifies the custom extensions, and a CSR like the one shown in [Issue a standard certificate (AWS CLI)](#IssueCertCli). 
 
-The sample configuration file `api_passthrough_config.txt` contains the
-following code:
+The sample configuration file `api_passthrough_config.txt` contains the following code:
 
 ```
 {
@@ -261,34 +216,34 @@ following code:
 The customized certificate is issued as follows:
 
 ```
-`$` `aws acm-pca issue-certificate \
- --validity Type=DAYS,Value=10
- --signing-algorithm "SHA256WITHRSA" \
- --csr fileb://`csr.pem` \
- --api-passthrough file://`api_passthrough_config.txt` \
- --template-arn arn:aws:acm-pca:::template/EndEntityCertificate_APIPassthrough/V1 \
- --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566``
+$ aws acm-pca issue-certificate \
+      --validity Type=DAYS,Value=10 
+      --signing-algorithm "SHA256WITHRSA" \
+      --csr fileb://{{csr.pem}} \
+      --api-passthrough file://{{api_passthrough_config.txt}} \
+      --template-arn arn:aws:acm-pca:::template/EndEntityCertificate_APIPassthrough/V1 \
+      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}
 ```
 
 The ARN of the issued certificate is returned:
 
 ```
 {
-   "CertificateArn":"arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID`"
+   "CertificateArn":"arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}}"
 }
 ```
 
 Retrieve the certificate locally as follows:
 
 ```
-`$` `aws acm-pca get-certificate \
- --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566` \
- --certificate-arn arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID`/certificate/`certificate_ID` | \
- jq -r .'Certificate' > `cert.pem``
+$ aws acm-pca get-certificate \
+      --certificate-authority-arn arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}} \
+      --certificate-arn arn:aws:acm-pca:{{region}}:{{account}}:certificate-authority/{{CA_ID}}/certificate/{{certificate_ID}} | \
+      jq -r .'Certificate' > {{cert.pem}}
 ```
 
 You can inspect the certificate's contents using OpenSSL:
 
 ```
-`$` `openssl x509 -in `cert.pem` -text -noout`
+$ openssl x509 -in {{cert.pem}} -text -noout
 ```

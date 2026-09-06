@@ -1,13 +1,13 @@
+
+
 # DeletePolicy
+<a name="JavaApi-DeletePolicy"></a>
 
-The following Java sample shows how to use the [DeletePolicy](../APIReference/API_DeletePolicy.md "../APIReference/API_DeletePolicy.md") operation.
+The following Java sample shows how to use the [DeletePolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html) operation.
 
-The operation delete the resource-based policy attached to a private CA. A resource-based
-policy is used to enable cross-account CA sharing. You can find the ARN of a private CA by
-calling the [ListCertificateAuthorities](../APIReference/API_ListCertificateAuthorities.md "../APIReference/API_ListCertificateAuthorities.md") action.
+The operation delete the resource-based policy attached to a private CA. A resource-based policy is used to enable cross-account CA sharing. You can find the ARN of a private CA by calling the [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html) action.
 
-Related API actions include [PutPolicy](../APIReference/API_PutPolicy.md "../APIReference/API_PutPolicy.md")
-and [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md").
+Related API actions include [PutPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html) and [GetPolicy](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html).
 
 ```
 package com.amazonaws.samples;
@@ -46,9 +46,9 @@ public class DeletePolicy {
         }
 
         // Define the endpoint for your sample.
-        String endpointRegion = "`us-west-2`";  // Substitute your Region here, e.g. "us-west-2"
-        String endpointProtocol = "https://acm-pca." + `endpointRegion` + ".amazonaws.com/";
-        EndpointConfiguration endpoint =
+        String endpointRegion = "{{us-west-2}}";  // Substitute your Region here, e.g. "us-west-2"
+        String endpointProtocol = "https://acm-pca." + {{endpointRegion}} + ".amazonaws.com/";
+        EndpointConfiguration endpoint = 
             new AwsClientBuilder.EndpointConfiguration(endpointProtocol, endpointRegion);
 
         // Create a client that you can use to make requests.
@@ -61,7 +61,7 @@ public class DeletePolicy {
         DeletePolicyRequest req = new DeletePolicyRequest();
 
         // Set the resource ARN.
-        req.withResourceArn("arn:aws:acm-pca:`us-west-2`:111122223333:certificate-authority/11223344-44ee-aa22-bb33-4cd2d13f1f18");
+        req.withResourceArn("arn:aws:acm-pca:{{us-west-2}}:111122223333:certificate-authority/11223344-44ee-aa22-bb33-4cd2d13f1f18");
 
         // Retrieve a list of your CAs.
         DeletePolicyResult result = null;
