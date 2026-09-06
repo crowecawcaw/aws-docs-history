@@ -1,14 +1,11 @@
+
+
 # Chinese (Cantonese) (yue-CN)
+<a name="ph-table-cantonese"></a>
 
-The following table lists the Jyutping and International Phonetic Alphabet (IPA)
-phonemes for the Cantonese voice that is supported by Amazon Polly. Jyutping is a romanization
-system of Cantonese which is commonly used in academia and among Cantonese speakers. IPA
-and X-SAMPA are not commonly used but are available for English support. The IPA and
-X-SAMPA symbols in the table are for reference only and should not be used for Chinese
-transcription. Jyutping examples and the corresponding visemes are also shown.
+The following table lists the Jyutping and International Phonetic Alphabet (IPA) phonemes for the Cantonese voice that is supported by Amazon Polly. Jyutping is a romanization system of Cantonese which is commonly used in academia and among Cantonese speakers. IPA and X-SAMPA are not commonly used but are available for English support. The IPA and X-SAMPA symbols in the table are for reference only and should not be used for Chinese transcription. Jyutping examples and the corresponding visemes are also shown. 
 
-To make Amazon Polly use phonetic pronunciation with Jyutping, use the `phoneme
- alphabet="x-amazon-`jyutping`"`tag.
+To make Amazon Polly use phonetic pronunciation with Jyutping, use the `phoneme alphabet="x-amazon-{{jyutping}}"`tag.
 
 The following examples show this with each standard.
 
@@ -16,7 +13,7 @@ Jyutping:
 
 ```
 <speak>
-     你講 <phoneme alphabet="x-amazon-jyutping" ph="sing2">醒</phoneme>。
+     你講 <phoneme alphabet="x-amazon-jyutping" ph="sing2">醒</phoneme>。 
      我講 <phoneme alphabet="x-amazon-jyutping" ph="seng2">醒</phoneme>。
 </speak>
 ```
@@ -25,7 +22,7 @@ IPA:
 
 ```
 <speak>
-     你講 <phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan</phoneme>。
+     你講 <phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan</phoneme>。 
      我講 <phoneme alphabet="ipa" ph="ˈpi.kæn">pecan</phoneme>。
 </speak>
 ```
@@ -34,67 +31,74 @@ X-SAMPA:
 
 ```
 <speak>
-     你講 <phoneme alphabet='x-sampa' ph='pI"kA:n'>pecan</phoneme>。
+     你講 <phoneme alphabet='x-sampa' ph='pI"kA:n'>pecan</phoneme>。 
      我講 <phoneme alphabet='x-sampa' ph='"pi.k{n'>pecan</phoneme>。
 </speak>
 ```
 
-###### Note
+**Note**  
+Amazon Polly accepts Cantonese input encoded in UTF-8 only. 
 
-Amazon Polly accepts Cantonese input encoded in UTF-8 only.
 
-Phoneme/Viseme Table| Jyutping | IPA | X-SAMPA | Description | Jyutping Example | Viseme |
-| --- | --- | --- | --- | --- | --- |
-| **Consonants** |
-| b | p | p | voiceless bilabial plosive | 巴, **b**aa1 | p |
-| c | tsʰ | ts\_h | aspirated voiceless alveolar affricate | 叉, **c**aa1 | s |
-| d | t | t | voiceless alveolar plosive | 打, **d**aa2 | t |
-| f | f | f | voiceless labiodental fricative | 花, **f**aa1 | f |
-| g | k | k | voiceless velar plosive | 家, **g**aa1 | k |
-| gw | kʷ | k\_w | labialized voiceless velar plosive | 瓜, **gw**aa1 | u |
-| h | h | h | voiceless glottal fricative | 哈, **h**aa1 | k |
-| k | kʰ | k\_h | aspirated voiceless velar plosive | 卡, **k**aa1 | k |
-| kw | kʷʰ | k\_wh | labialized aspirated voiceless velar plosive | 誇, **kw**aa1 | u |
-| l | l | l | alveolar lateral approximant | 啦, **l**aa1 | t |
-| m | m | m | bilabial nasal | 媽, **m**aa1 | p |
-| m | m | m= | syllabic bilabial nasal | 唔, **m**4 | p |
-| ng | ŋ | N | velar nasal | 牙, **ng**aa4 | k |
-| ng | ŋ | N= | syllabic velar nasal | 吳, **ng**4 | k |
-| n | n | n | alveolar nasal | 拿, **n**aa4 | t |
-| p | pʰ | p\_h | aspirated voiceless bilabial plosive | 趴, **p**aa1 | p |
-| s | s | s | voiceless alveolar fricative | 沙, **s**aa1 | s |
-| t | tʰ | t\_h | aspirated voiceless alveolar plosive | 他, **t**aa1 | t |
-| w | w | w | labio-velar approximant | 娃, **w**aa1 | u |
-| y | j | j | palatal approximant | 也, **j**aa5 | i |
-| z | ts | ts | voiceless alveolar affricate | 渣, **z**aa1 | s |
-| **Vowels** |
-| a | ɐ | 6 | near-open central vowel | 吉, g**a**t1 | a |
-| aa | ɑ | A | open back unrounded vowel | 家, g**aa**1 | a |
-| aai | ɑi | Ai | dipthong | 街, g**aai**1 | a |
-| aau | ɑu | Au | dipthong | 交, g**aau**1 | a |
-| ai | ɐi | 6i | dipthong | 雞, g**ai**1 | a |
-| au | ɐu | 6u | dipthong | 溝, k**au**1 | a |
-| e | ɛ | E | open-mid front unrounded vowel | 爹, d**e**1 | E |
-| ei | ei | ei | dipthong | 基, g**ei**1 | e |
-| eo | ɵ | 8 | close-mid central rounded vowel | 春, c**eo**n1 | o |
-| eoi | ɵy | 8y | diphthong | 居, g**eoi**1 | o |
-| eu | ɛu | Eu | diphthong | 掉 in 掉垃圾, d**eu**6 | E |
-| i | i | i | close front unrounded vowel | 斯, **si**1 | i |
-| i | I | l | near-close near-front unrounded vowel | 激, gik1 | i |
-| iu | iu | iu | diphthong | 驕, g**iu**1 | i |
-| o | ɔ | O | open-mid back rounded vowel | 哥, g**o**1 | O |
-| oe | œ | 9 | open-mid front rounded vowel | 鋸, g**oe**3 | O |
-| oi | ɔi | Oi | dipthong | 該, g**oi**1 | O |
-| ou | ou | ou | dipthong | 高, g**ou**1 | o |
-| u | u | u | close back rounded vowel | 姑, g**u**1 | u |
-| u | ʊ | U | near-close near-back rounded vowel | 谷, g**u**k5 | u |
-| ui | ui | ui | dipthong | 攰, g**ui**6 | u |
-| yu | y | y | close front rounded vowel | 於, j**yu**1 | u |
-| **Tone marks and Additional<br>Symbols** |
-| 1 | | | high level | 詩, si**1** | |
-| 2 | | | medium rising | 史, si**2** | |
-| 3 | | | medium level | 試, si**3** | |
-| 4 | | | very low level | 時, si**4** | |
-| 5 | | | low rising | 市, si**5** | |
-| 6 | | | low level | 是, si**6** | |
-| - | . | . | syllable boundary | 語音 jyu5-jam1 | |
+**Phoneme/Viseme Table**  
+
+<table>
+<thead>
+  <tr><th>Jyutping</th><th>IPA</th><th>X-SAMPA</th><th>Description</th><th>Jyutping Example</th><th>Viseme</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="6"><b>Consonants</b></td></tr>
+  <tr><td>b</td><td>p </td><td>p</td><td>voiceless bilabial plosive </td><td>巴, <b>b</b>aa1</td><td>p </td></tr>
+  <tr><td>c</td><td>tsʰ</td><td>ts_h</td><td>aspirated voiceless alveolar affricate </td><td>叉, <b>c</b>aa1</td><td>s</td></tr>
+  <tr><td>d</td><td>t </td><td>t</td><td>voiceless alveolar plosive </td><td>打, <b>d</b>aa2 </td><td>t </td></tr>
+  <tr><td>f</td><td>f</td><td>f</td><td>voiceless labiodental fricative</td><td>花, <b>f</b>aa1 </td><td>f </td></tr>
+  <tr><td>g</td><td>k </td><td>k</td><td>voiceless velar plosive</td><td>家, <b>g</b>aa1</td><td>k </td></tr>
+  <tr><td>gw</td><td>kʷ </td><td>k_w</td><td>labialized voiceless velar plosive</td><td>瓜, <b>gw</b>aa1 </td><td>u </td></tr>
+  <tr><td>h</td><td>h </td><td>h</td><td>voiceless glottal fricative </td><td>哈, <b>h</b>aa1 </td><td>k </td></tr>
+  <tr><td>k</td><td>kʰ </td><td>k_h</td><td>aspirated voiceless velar plosive</td><td>卡, <b>k</b>aa1 </td><td>k </td></tr>
+  <tr><td>kw</td><td>kʷʰ</td><td>k_wh</td><td>labialized aspirated voiceless velar plosive</td><td>誇, <b>kw</b>aa1</td><td>u </td></tr>
+  <tr><td>l</td><td>l</td><td>l</td><td>alveolar lateral approximant</td><td>啦, <b>l</b>aa1 </td><td>t </td></tr>
+  <tr><td>m</td><td>m </td><td>m</td><td>bilabial nasal </td><td>媽, <b>m</b>aa1 </td><td>p </td></tr>
+  <tr><td>m</td><td>m </td><td>m=</td><td>syllabic bilabial nasal</td><td>唔, <b>m</b>4 </td><td>p </td></tr>
+  <tr><td>ng</td><td>ŋ</td><td>N</td><td>velar nasal </td><td>牙, <b>ng</b>aa4 </td><td>k </td></tr>
+  <tr><td>ng</td><td>ŋ</td><td>N=</td><td>syllabic velar nasal</td><td>吳, <b>ng</b>4 </td><td>k </td></tr>
+  <tr><td>n</td><td>n </td><td>n</td><td>alveolar nasal</td><td>拿, <b>n</b>aa4 </td><td>t </td></tr>
+  <tr><td>p</td><td>pʰ</td><td>p_h</td><td>aspirated voiceless bilabial plosive</td><td>趴, <b>p</b>aa1 </td><td>p</td></tr>
+  <tr><td>s</td><td>s</td><td>s</td><td>voiceless alveolar fricative </td><td>沙, <b>s</b>aa1 </td><td>s </td></tr>
+  <tr><td>t</td><td>tʰ</td><td>t_h</td><td>aspirated voiceless alveolar plosive</td><td>他, <b>t</b>aa1 </td><td>t </td></tr>
+  <tr><td>w</td><td>w</td><td>w</td><td>labio-velar approximant</td><td>娃, <b>w</b>aa1 </td><td>u </td></tr>
+  <tr><td>y</td><td>j</td><td>j</td><td>palatal approximant </td><td>也, <b>j</b>aa5 </td><td>i </td></tr>
+  <tr><td>z</td><td>ts</td><td>ts</td><td>voiceless alveolar affricate</td><td>渣, <b>z</b>aa1 </td><td>s </td></tr>
+  <tr><td colspan="6"><b>Vowels</b></td></tr>
+  <tr><td>a</td><td>ɐ </td><td>6</td><td>near-open central vowel</td><td>吉, g<b>a</b>t1 </td><td>a </td></tr>
+  <tr><td>aa</td><td>ɑ</td><td>A</td><td>open back unrounded vowel</td><td>家, g<b>aa</b>1 </td><td>a</td></tr>
+  <tr><td>aai</td><td>ɑi</td><td>Ai</td><td>dipthong</td><td>街, g<b>aai</b>1 </td><td>a </td></tr>
+  <tr><td>aau</td><td>ɑu</td><td>Au</td><td>dipthong</td><td>交, g<b>aau</b>1 </td><td>a </td></tr>
+  <tr><td>ai</td><td>ɐi</td><td>6i</td><td>dipthong</td><td>雞, g<b>ai</b>1</td><td>a </td></tr>
+  <tr><td>au</td><td>ɐu</td><td>6u</td><td>dipthong</td><td>溝, k<b>au</b>1</td><td>a </td></tr>
+  <tr><td>e</td><td>ɛ</td><td>E</td><td>open-mid front unrounded vowel</td><td>爹, d<b>e</b>1</td><td>E</td></tr>
+  <tr><td>ei</td><td>ei</td><td>ei</td><td>dipthong</td><td>基, g<b>ei</b>1</td><td>e</td></tr>
+  <tr><td>eo</td><td>ɵ</td><td>8</td><td>close-mid central rounded vowel </td><td>春, c<b>eo</b>n1</td><td>o</td></tr>
+  <tr><td>eoi</td><td>ɵy</td><td>8y</td><td>diphthong </td><td>居, g<b>eoi</b>1</td><td>o</td></tr>
+  <tr><td>eu</td><td>ɛu</td><td>Eu</td><td>diphthong </td><td>掉 in 掉垃圾, d<b>eu</b>6</td><td>E</td></tr>
+  <tr><td>i</td><td>i </td><td>i</td><td>close front unrounded vowel</td><td>斯, <b>si</b>1</td><td>i </td></tr>
+  <tr><td>i</td><td>I</td><td>l</td><td>near-close near-front unrounded vowel</td><td>激, gik<b></b>1</td><td>i </td></tr>
+  <tr><td>iu</td><td>iu </td><td>iu</td><td>diphthong </td><td>驕, g<b>iu</b>1</td><td>i</td></tr>
+  <tr><td>o</td><td>ɔ</td><td>O</td><td>open-mid back rounded vowel </td><td>哥, g<b>o</b>1</td><td>O </td></tr>
+  <tr><td>oe</td><td>œ</td><td>9</td><td>open-mid front rounded vowel</td><td>鋸, g<b>oe</b>3</td><td>O</td></tr>
+  <tr><td>oi</td><td>ɔi</td><td>Oi</td><td>dipthong</td><td>該, g<b>oi</b>1</td><td>O</td></tr>
+  <tr><td>ou</td><td>ou</td><td>ou</td><td>dipthong</td><td>高, g<b>ou</b>1</td><td>o</td></tr>
+  <tr><td>u</td><td>u</td><td>u</td><td>close back rounded vowel</td><td>姑, g<b>u</b>1</td><td>u</td></tr>
+  <tr><td>u</td><td>ʊ</td><td>U</td><td>near-close near-back rounded vowel</td><td>谷, g<b>u</b>k5</td><td>u</td></tr>
+  <tr><td>ui</td><td>ui</td><td>ui</td><td>dipthong</td><td>攰, g<b>ui</b>6</td><td>u</td></tr>
+  <tr><td>yu</td><td>y</td><td>y</td><td>close front rounded vowel</td><td>於, j<b>yu</b>1</td><td>u</td></tr>
+  <tr><td colspan="6"><b>Tone marks and Additional Symbols</b></td></tr>
+  <tr><td>1</td><td> </td><td></td><td>high level</td><td>詩, si<b>1</b> </td><td></td></tr>
+  <tr><td>2</td><td> </td><td></td><td>medium rising</td><td>史, si<b>2</b></td><td></td></tr>
+  <tr><td>3</td><td> </td><td></td><td>medium level</td><td>試, si<b>3</b></td><td></td></tr>
+  <tr><td>4</td><td> </td><td></td><td>very low level</td><td>時, si<b>4</b></td><td></td></tr>
+  <tr><td>5</td><td> </td><td></td><td>low rising</td><td>市, si<b>5</b></td><td></td></tr>
+  <tr><td>6</td><td> </td><td></td><td>low level</td><td>是, si<b>6</b></td><td></td></tr>
+  <tr><td>-</td><td>.</td><td>.</td><td>syllable boundary</td><td>語音 jyu5-jam1</td><td> </td></tr>
+</tbody>
+</table>

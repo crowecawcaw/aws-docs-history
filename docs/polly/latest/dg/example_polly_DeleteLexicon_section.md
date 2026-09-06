@@ -1,21 +1,18 @@
+
+
 # Use `DeleteLexicon` with an AWS SDK or CLI
+<a name="example_polly_DeleteLexicon_section"></a>
 
 The following code examples show how to use `DeleteLexicon`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md) 
 
-- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
 ```
     using System;
@@ -67,46 +64,29 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
+```
++  For API details, see [DeleteLexicon](https://docs.aws.amazon.com/goto/DotNetSDKV3/polly-2016-06-10/DeleteLexicon) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete a lexicon**  
+The following `delete-lexicon` example deletes the specified lexicon.  
 
 ```
-
-- For API details, see
-  [DeleteLexicon](../../../goto/DotNetSDKV3/polly-2016-06-10/DeleteLexicon.md "../../../goto/DotNetSDKV3/polly-2016-06-10/DeleteLexicon.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a lexicon**
-
-The following `delete-lexicon` example deletes the specified lexicon.
-
+aws polly delete-lexicon \
+    --name {{w3c}}
 ```
-`aws polly delete-lexicon \
- --name `w3c``
+This command produces no output.  
+For more information, see [Using the DeleteLexicon operation](https://docs.aws.amazon.com/polly/latest/dg/gs-delete-lexicon.html) in the *Amazon Polly Developer Guide*.  
++  For API details, see [DeleteLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ SAP ABAP ]
 
-This command produces no output.
-
-For more information, see [Using the DeleteLexicon operation](gs-delete-lexicon.md "gs-delete-lexicon.md") in the _Amazon Polly Developer Guide_.
-
-- For API details, see
-  [DeleteLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html")
-  in _AWS CLI Command Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -117,14 +97,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plyservicefailureex.
         MESSAGE 'Service failure occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteLexicon](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteLexicon](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

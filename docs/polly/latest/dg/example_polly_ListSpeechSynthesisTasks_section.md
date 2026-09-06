@@ -1,21 +1,21 @@
+
+
 # Use `ListSpeechSynthesisTasks` with an AWS SDK or CLI
+<a name="example_polly_ListSpeechSynthesisTasks_section"></a>
 
 The following code examples show how to use `ListSpeechSynthesisTasks`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list your speech synthesis tasks**
-
-The following `list-speech-synthesis-tasks` example lists your speech synthesis tasks.
-
-```
-`aws polly list-speech-synthesis-tasks`
+**AWS CLI**  
+**To list your speech synthesis tasks**  
+The following `list-speech-synthesis-tasks` example lists your speech synthesis tasks.  
 
 ```
-
-Output:
+aws polly list-speech-synthesis-tasks
+```
+Output:  
 
 ```
 {
@@ -33,22 +33,14 @@ Output:
     ]
 }
 ```
+For more information, see [Creating long audio files](https://docs.aws.amazon.com/polly/latest/dg/longer-cli.html) in the *Amazon Polly Developer Guide*.  
++  For API details, see [ListSpeechSynthesisTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/list-speech-synthesis-tasks.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating long audio files](longer-cli.md "longer-cli.md") in the _Amazon Polly Developer Guide_.
+------
+#### [ SAP ABAP ]
 
-- For API details, see
-  [ListSpeechSynthesisTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/list-speech-synthesis-tasks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/list-speech-synthesis-tasks.html")
-  in _AWS CLI Command Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -74,14 +66,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plyservicefailureex.
         MESSAGE 'Service failure occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListSpeechSynthesisTasks](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListSpeechSynthesisTasks](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

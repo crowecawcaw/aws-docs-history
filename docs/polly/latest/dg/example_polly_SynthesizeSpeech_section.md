@@ -1,21 +1,18 @@
+
+
 # Use `SynthesizeSpeech` with an AWS SDK
+<a name="example_polly_SynthesizeSpeech_section"></a>
 
 The following code examples show how to use `SynthesizeSpeech`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md) 
 
-- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
 ```
     using System;
@@ -89,12 +86,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"Saved {outputFileName} to disk.");
         }
     }
-
-
-
 ```
-
-Synthesize speech from text using speech marks with Amazon Polly using an AWS SDK.
+Synthesize speech from text using speech marks with Amazon Polly using an AWS SDK.  
 
 ```
     using System;
@@ -144,24 +137,14 @@ Synthesize speech from text using speech marks with Amazon Polly using an AWS SD
             }
         }
     }
-
-
-
 ```
++  For API details, see [SynthesizeSpeech](https://docs.aws.amazon.com/goto/DotNetSDKV3/polly-2016-06-10/SynthesizeSpeech) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SynthesizeSpeech](../../../goto/DotNetSDKV3/polly-2016-06-10/SynthesizeSpeech.md "../../../goto/DotNetSDKV3/polly-2016-06-10/SynthesizeSpeech.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples). 
 
 ```
 import javazoom.jl.decoder.JavaLayerException;
@@ -250,23 +233,14 @@ public class PollyDemo {
         return synthRes;
     }
 }
-
-
 ```
++  For API details, see [SynthesizeSpeech](https://docs.aws.amazon.com/goto/SdkForJavaV2/polly-2016-06-10/SynthesizeSpeech) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SynthesizeSpeech](../../../goto/SdkForJavaV2/polly-2016-06-10/SynthesizeSpeech.md "../../../goto/SdkForJavaV2/polly-2016-06-10/SynthesizeSpeech.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
 ```
 class PollyWrapper:
@@ -330,27 +304,16 @@ class PollyWrapper:
             raise
         else:
             return audio_stream, visemes
+```
++  For API details, see [SynthesizeSpeech](https://docs.aws.amazon.com/goto/boto3/polly-2016-06-10/SynthesizeSpeech) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples). 
 
 ```
-
-- For API details, see
-  [SynthesizeSpeech](../../../goto/boto3/polly-2016-06-10/SynthesizeSpeech.md "../../../goto/boto3/polly-2016-06-10/SynthesizeSpeech.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples").
-
-```
-
 require 'aws-sdk-polly' # In v2: require 'aws-sdk'
 
 begin
@@ -399,23 +362,14 @@ rescue StandardError => e
   puts 'Error message:'
   puts e.message
 end
-
-
 ```
++  For API details, see [SynthesizeSpeech](https://docs.aws.amazon.com/goto/SdkForRubyV3/polly-2016-06-10/SynthesizeSpeech) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [SynthesizeSpeech](../../../goto/SdkForRubyV3/polly-2016-06-10/SynthesizeSpeech.md "../../../goto/SdkForRubyV3/polly-2016-06-10/SynthesizeSpeech.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples). 
 
 ```
 async fn synthesize(client: &Client, filename: &str) -> Result<(), Error> {
@@ -449,23 +403,14 @@ async fn synthesize(client: &Client, filename: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [SynthesizeSpeech](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.synthesize_speech) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [SynthesizeSpeech](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.synthesize_speech "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.synthesize_speech")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -494,14 +439,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plytextlengthexcdex.
         MESSAGE 'Text length exceeded maximum.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [SynthesizeSpeech](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SynthesizeSpeech](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

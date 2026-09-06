@@ -1,21 +1,23 @@
+
+
 # iOS example
+<a name="examples-ios"></a>
 
-The following example uses the iOS SDK for Amazon Polly to read the specified text
-using a voice selected from a list of voices.
+The following example uses the iOS SDK for Amazon Polly to read the specified text using a voice selected from a list of voices.
 
-The code shown here covers the major tasks but does not handle errors. For the
-complete code, see [AWS Mobile SDK for iOS Amazon Polly demo](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift "https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift").
+The code shown here covers the major tasks but does not handle errors. For the complete code, see [AWS Mobile SDK for iOS Amazon Polly demo](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/Polly-Sample/Swift).
 
-###### Initialize
+**Initialize**  
+
 
 ```
 // Region of Amazon Polly.
 let AwsRegion = AWSRegionType.usEast1
-
+ 
 // Cognito pool ID. Pool needs to be unauthenticated pool with
 // Amazon Polly permissions.
-let CognitoIdentityPoolId = "`YourCognitoIdentityPoolId`"
-
+let CognitoIdentityPoolId = "{{YourCognitoIdentityPoolId}}"
+ 
 // Initialize the Amazon Cognito credentials provider.
 let credentialProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, identityPoolId: CognitoIdentityPoolId)
 
@@ -23,7 +25,8 @@ let credentialProvider = AWSCognitoCredentialsProvider(regionType: AwsRegion, id
 var audioPlayer = AVPlayer()
 ```
 
-###### Get List of Available Voices
+**Get List of Available Voices**  
+
 
 ```
 // Use the configuration as default
@@ -32,7 +35,7 @@ AWSServiceManager.default().defaultServiceConfiguration = configuration
 // Get all the voices (no parameters specified in input) from Amazon Polly
 // This creates an async task.
 let task = AWSPolly.default().describeVoices(AWSPollyDescribeVoicesInput())
-
+ 
 // When the request is done, asynchronously do the following block
 // (we ignore all the errors, but in a real-world scenario they need
 // to be handled)
@@ -40,12 +43,13 @@ task.continue(successBlock: { (awsTask: AWSTask) -> Any? in
       // awsTask.result is an instance of AWSPollyDescribeVoicesOutput in
       // case of the "describeVoices" method
       let voices = (awsTask.result! as AWSPollyDescribeVoicesOutput).voices
-
+ 
       return nil
 })
 ```
 
-###### Synthesize Speech
+**Synthesize Speech**  
+
 
 ```
 // First, Amazon Polly requires an input, which we need to prepare.

@@ -1,57 +1,66 @@
+
+
 # Turkish (tr-TR)
+<a name="ph-table-turkish"></a>
 
-The following table lists the International Phonetic Alphabet (IPA) phonemes, the
-Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the
-corresponding visemes for the Turkish voice supported by Amazon Polly.
+The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Turkish voice supported by Amazon Polly.
 
-Phoneme/Viseme Table| IPA | X-SAMPA | Description | Example | Viseme |
-| --- | --- | --- | --- | --- |
-| **Consonants** |
-| ɾ | 4 | alveolar flap | du**r**um | t |
-| ɾ̝̊ | 4\_0\_r | voiceless fricated alveolar flap | bi**r** | t |
-| ɾ̝ | 4\_r | fricated alveolar flap | **r**af | t |
-| b | b | voiced bilabial plosive | **r**af | p |
-| c | c | voiceless palatal plosive | **k**edi | k |
-| d | d | voiced alveolar plosive | **d**e**d**e | t |
-| d͡ʒ | dZ | voiced postalveolar affricate | **c**am | S |
-| f | f | voiceless labiodental fricative | **f**are | f |
-| g | g | voiced velar plosiv | **g**alibi | k |
-| h | h | voiceless glottal fricative | **h**asta | k |
-| j | j | palatal approximant | **y**at | i |
-| ɟ | J\ | voiced palatal plosive | **g**enç | J |
-| k | k | voiceless velar plosive | a**k**ıl | k |
-| l | l | alveolar lateral approximant | **l**a**l**e | t |
-| ɫ | 5 | velarized alveolar lateral approximant | **l**abirent | t |
-| m | m | bilabial nasal | **m**aaş | p |
-| n | n | alveolar nasal | a**n**ı | t |
-| p | p | voiceless bilabial plosive | i**p** | p |
-| s | s | voiceless alveolar fricative | **s**es | s |
-| ʃ | S | voiceless postalveolar fricative | a**ş**ı | S |
-| t | t | voiceless alveolar plosive | ü**t**ü | t |
-| t͡ʃ | tS | voiceless postalveolar affricate | **ç**aba | S |
-| v | v | voiced labiodental fricative | ek**v**ator, kah**v**eci, ak**v**aryum, is**v**eçli,<br>teş**v**iki, cet**v**el | f |
-| z | z | voiced alveolar fricative | **v**er | s |
-| ʒ | Z | voiced postalveolar fricative | a**z**ık | S |
-| **Vowels** |
-| ø | 2 | close-mid front rounded vowel | g**ö**l | 0 |
-| œ | 9 | open-mid front rounded vowel | banliy**ö** | O |
-| a | a | open front unrounded vowel | k**a**l | a |
-| a: | a: | long open front unrounded vowel | d**a**v**a**cı | a |
-| æ | { | near-open front unrounded vowel | özl**e**m, güv**e**nlik, gür**e**l, som**e**rsault | a |
-| e | e | close-mid front unrounded vowel | k**e**çi | e |
-| ɛ | E | open-mid front unrounded vowel | ded**e** | E |
-| i | i | close front unrounded vowel | b**i**r | i |
-| i: | i: | long close front unrounded vowel | **i**zah | i |
-| ɪ | I | near-close near-front unrounded vowel | keç**i** | i |
-| ɯ | M | close back unrounded vowel | k**ı**l | i |
-| o | o | close-mid back rounded vowel | k**o**l | o |
-| o: | o: | long close-mid back rounded vowel | d**o**lar | o |
-| u | u | close back rounded vowel | d**u**r**u**m | u |
-| u: | u: | long close back rounded vowel | r**u**hum | u |
-| ʊ | U | near-close near-back rounded vowel | dol**u** | u |
-| y | y | close front rounded vowel | g**ü**venlik | u |
-| ʏ | Y | near-close near-front rounded vowel | aş**ı** | u |
-| **Additional Symbols** |
-| ˈ | " | primary stress | Ala**ba**ma | |
-| ˌ | % | secondary stress | **A**labama | |
-| . | . | syllable boundary | A.la.ba.ma | |
+
+**Phoneme/Viseme Table**  
+
+<table>
+<thead>
+  <tr><th>IPA</th><th>X-SAMPA</th><th>Description</th><th>Example</th><th>Viseme</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="5"><b>Consonants</b></td></tr>
+  <tr><td>ɾ</td><td>4</td><td>alveolar flap</td><td>du<b>r</b>um</td><td>t</td></tr>
+  <tr><td>ɾ̝̊</td><td>4_0_r</td><td>voiceless fricated alveolar flap</td><td>bi<b>r</b></td><td>t</td></tr>
+  <tr><td>ɾ̝</td><td>4_r</td><td>fricated alveolar flap</td><td><b>r</b>af</td><td>t</td></tr>
+  <tr><td>b</td><td>b</td><td>voiced bilabial plosive</td><td><b>r</b>af</td><td>p</td></tr>
+  <tr><td>c</td><td>c</td><td>voiceless palatal plosive</td><td><b>k</b>edi</td><td>k</td></tr>
+  <tr><td>d</td><td>d</td><td>voiced alveolar plosive</td><td><b>d</b>e<b>d</b>e</td><td>t</td></tr>
+  <tr><td>d͡ʒ</td><td>dZ</td><td>voiced postalveolar affricate</td><td><b>c</b>am</td><td>S</td></tr>
+  <tr><td>f</td><td>f</td><td>voiceless labiodental fricative</td><td><b>f</b>are</td><td>f</td></tr>
+  <tr><td>g</td><td>g</td><td>voiced velar plosiv</td><td><b>g</b>alibi</td><td>k</td></tr>
+  <tr><td>h</td><td>h</td><td>voiceless glottal fricative</td><td><b>h</b>asta</td><td>k</td></tr>
+  <tr><td>j</td><td>j</td><td>palatal approximant</td><td><b>y</b>at</td><td>i</td></tr>
+  <tr><td>ɟ</td><td>J\</td><td>voiced palatal plosive</td><td><b>g</b>enç</td><td>J</td></tr>
+  <tr><td>k</td><td>k</td><td>voiceless velar plosive</td><td>a<b>k</b>ıl</td><td>k</td></tr>
+  <tr><td>l</td><td>l</td><td>alveolar lateral approximant</td><td><b>l</b>a<b>l</b>e</td><td>t</td></tr>
+  <tr><td>ɫ</td><td>5</td><td>velarized alveolar lateral approximant</td><td><b>l</b>abirent</td><td>t</td></tr>
+  <tr><td>m</td><td>m</td><td>bilabial nasal</td><td><b>m</b>aaş</td><td>p</td></tr>
+  <tr><td>n</td><td>n</td><td>alveolar nasal</td><td>a<b>n</b>ı</td><td>t</td></tr>
+  <tr><td>p</td><td>p</td><td>voiceless bilabial plosive</td><td>i<b>p</b></td><td>p</td></tr>
+  <tr><td>s</td><td>s</td><td>voiceless alveolar fricative</td><td><b>s</b>es</td><td>s</td></tr>
+  <tr><td>ʃ</td><td>S</td><td>voiceless postalveolar fricative</td><td>a<b>ş</b>ı</td><td>S</td></tr>
+  <tr><td>t</td><td>t</td><td>voiceless alveolar plosive</td><td>ü<b>t</b>ü</td><td>t</td></tr>
+  <tr><td>t͡ʃ</td><td>tS</td><td>voiceless postalveolar affricate</td><td><b>ç</b>aba</td><td>S</td></tr>
+  <tr><td>v</td><td>v</td><td>voiced labiodental fricative</td><td>ek<b>v</b>ator, kah<b>v</b>eci, ak<b>v</b>aryum, is<b>v</b>eçli, teş<b>v</b>iki, cet<b>v</b>el</td><td>f</td></tr>
+  <tr><td>z</td><td>z</td><td>voiced alveolar fricative</td><td><b>v</b>er</td><td>s</td></tr>
+  <tr><td>ʒ</td><td>Z</td><td>voiced postalveolar fricative</td><td>a<b>z</b>ık</td><td>S</td></tr>
+  <tr><td colspan="5"><b>Vowels</b></td></tr>
+  <tr><td>ø</td><td>2</td><td>close-mid front rounded vowel</td><td>g<b>ö</b>l</td><td>0</td></tr>
+  <tr><td>œ</td><td>9</td><td>open-mid front rounded vowel</td><td>banliy<b>ö</b></td><td>O</td></tr>
+  <tr><td>a</td><td>a</td><td>open front unrounded vowel</td><td>k<b>a</b>l</td><td>a</td></tr>
+  <tr><td>a:</td><td>a:</td><td>long open front unrounded vowel</td><td>d<b>a</b>v<b>a</b>cı</td><td>a</td></tr>
+  <tr><td>æ</td><td>{</td><td>near-open front unrounded vowel</td><td>özl<b>e</b>m, güv<b>e</b>nlik, gür<b>e</b>l, som<b>e</b>rsault</td><td>a</td></tr>
+  <tr><td>e</td><td>e</td><td>close-mid front unrounded vowel</td><td>k<b>e</b>çi</td><td>e</td></tr>
+  <tr><td>ɛ</td><td>E</td><td>open-mid front unrounded vowel</td><td>ded<b>e</b></td><td>E</td></tr>
+  <tr><td>i</td><td>i</td><td>close front unrounded vowel</td><td>b<b>i</b>r</td><td>i</td></tr>
+  <tr><td>i:</td><td>i:</td><td>long close front unrounded vowel</td><td><b>i</b>zah</td><td>i</td></tr>
+  <tr><td>ɪ</td><td>I</td><td>near-close near-front unrounded vowel</td><td>keç<b>i</b></td><td>i</td></tr>
+  <tr><td>ɯ</td><td>M</td><td>close back unrounded vowel</td><td>k<b>ı</b>l</td><td>i</td></tr>
+  <tr><td>o</td><td>o</td><td>close-mid back rounded vowel</td><td>k<b>o</b>l</td><td>o</td></tr>
+  <tr><td>o:</td><td>o:</td><td>long close-mid back rounded vowel</td><td>d<b>o</b>lar</td><td>o</td></tr>
+  <tr><td>u</td><td>u</td><td>close back rounded vowel</td><td>d<b>u</b>r<b>u</b>m</td><td>u</td></tr>
+  <tr><td>u:</td><td>u:</td><td>long close back rounded vowel</td><td>r<b>u</b>hum</td><td>u</td></tr>
+  <tr><td>ʊ</td><td>U</td><td>near-close near-back rounded vowel</td><td>dol<b>u</b></td><td>u</td></tr>
+  <tr><td>y</td><td>y</td><td>close front rounded vowel</td><td>g<b>ü</b>venlik</td><td>u</td></tr>
+  <tr><td>ʏ</td><td>Y</td><td>near-close near-front rounded vowel</td><td>aş<b>ı</b></td><td>u</td></tr>
+  <tr><td colspan="5"><b>Additional Symbols</b></td></tr>
+  <tr><td>ˈ</td><td>"</td><td>primary stress</td><td>Ala<b>ba</b>ma</td><td></td></tr>
+  <tr><td>ˌ</td><td>%</td><td>secondary stress</td><td><b>A</b>labama</td><td></td></tr>
+  <tr><td>.</td><td>.</td><td>syllable boundary</td><td>A.la.ba.ma</td><td></td></tr>
+</tbody>
+</table>

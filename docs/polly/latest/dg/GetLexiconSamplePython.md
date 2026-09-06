@@ -1,16 +1,13 @@
+
+
 # GetLexicon
+<a name="GetLexiconSamplePython"></a>
 
-The following Python code uses the AWS SDK for Python (Boto) to retrieve all lexicons
-stored in an AWS Region. The example accepts a lexicon name as a command line
-parameter and fetches that lexicon only, printing out the tmp path where it has
-been saved locally.
+The following Python code uses the AWS SDK for Python (Boto) to retrieve all lexicons stored in an AWS Region. The example accepts a lexicon name as a command line parameter and fetches that lexicon only, printing out the tmp path where it has been saved locally.
 
-The following code example uses default credentials stored in the AWS SDK
-configuration file. For information about creating the configuration file, see
-[Setting up the AWS CLI](setup-cli.md "setup-cli.md").
+The following code example uses default credentials stored in the AWS SDK configuration file. For information about creating the configuration file, see [Setting up the AWS CLI](setup-cli.md). 
 
-For more information on this operation, see the reference for the [`GetLexicon`](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md")
-API.
+For more information on this operation, see the reference for the [`GetLexicon`](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetLexicon.html) API. 
 
 ```
 from argparse import ArgumentParser

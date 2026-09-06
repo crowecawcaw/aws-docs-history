@@ -1,9 +1,14 @@
+
+
 # PutLexicon
+<a name="PutLexiconSample"></a>
 
-The following Java code sample show how to use Java-based applications to store a
-pronunciation lexicon in an AWS Region.
+The following Java code sample show how to use Java-based applications to store a pronunciation lexicon in an AWS Region.
 
-For more information on this operation, see the reference for the [`PutLexicon`](../APIReference/API_PutLexicon.md "../APIReference/API_PutLexicon.md") API.
+For more information on this operation, see the reference for the [`PutLexicon`](https://docs.aws.amazon.com/polly/latest/APIReference/API_PutLexicon.html) API. 
+
+## SDK v2
+<a name="put-sdk-v2"></a>
 
 ```
 /*
@@ -64,13 +69,16 @@ public class PutLexiconSample {
 }
 ```
 
+## SDK v1
+<a name="put-sdk-v1"></a>
+
 ```
 package com.amazonaws.polly.samples;
-
+ 
 import com.amazonaws.services.polly.AmazonPolly;
 import com.amazonaws.services.polly.AmazonPollyClientBuilder;
 import com.amazonaws.services.polly.model.PutLexiconRequest;
-
+ 
 public class PutLexiconSample {
     AmazonPolly client = AmazonPollyClientBuilder.defaultClient();
 
@@ -79,14 +87,14 @@ public class PutLexiconSample {
             "xsi:schemaLocation=\"http://www.w3.org/2005/01/pronunciation-lexicon http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd\" " +
             "alphabet=\"ipa\" xml:lang=\"en-US\">" +
             "<lexeme><grapheme>test1</grapheme><alias>test2</alias></lexeme>" +
-            "</lexicon>";
+            "</lexicon>";   
     private String LEXICON_NAME = "SampleLexicon";
-
+ 
     public void putLexicon() {
         PutLexiconRequest putLexiconRequest = new PutLexiconRequest()
                 .withContent(LEXICON_CONTENT)
                 .withName(LEXICON_NAME);
-
+ 
         try {
             client.putLexicon(putLexiconRequest);
         } catch (Exception e) {

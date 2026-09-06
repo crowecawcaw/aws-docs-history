@@ -1,9 +1,12 @@
-# Python example: Python Server Code (server.py)
 
-This section provides the code for the Python server described in [Python example (HTML5 Client and Python Server)](examples-python.md "examples-python.md").
+
+# Python example: Python Server Code (server.py)
+<a name="example-Python-server-code"></a>
+
+This section provides the code for the Python server described in [Python example (HTML5 Client and Python Server)](examples-python.md).
 
 ```
-"""
+""" 
 Example Python 2.7+/3.3+ Application
 
 This application consists of a HTTP 1.1 server using the HTTP chunked transfer

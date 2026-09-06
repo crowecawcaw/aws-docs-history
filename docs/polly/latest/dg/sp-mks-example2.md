@@ -1,13 +1,11 @@
+
+
 # Speech marks with SSML example
+<a name="sp-mks-example2"></a>
 
-The process of generating speech marks from SSML-enhanced text is similar to the
-process when SSML is not present. Use the `synthesize-speech` command,
-and specify the SSML-enhanced text and the type of speech marks that you want, as
-shown in the following example. To make the example easier to read, we don't
-include viseme speech marks, but these could be included as well.
+The process of generating speech marks from SSML-enhanced text is similar to the process when SSML is not present. Use the `synthesize-speech` command, and specify the SSML-enhanced text and the type of speech marks that you want, as shown in the following example. To make the example easier to read, we don't include viseme speech marks, but these could be included as well.
 
-The following AWS CLI example is formatted for Unix, Linux, and macOS.
-For Windows, replace the backslash (\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
+The following AWS CLI example is formatted for Unix, Linux, and macOS. For Windows, replace the backslash (\\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
 
 ```
 aws polly synthesize-speech \
@@ -19,8 +17,7 @@ aws polly synthesize-speech \
   output.txt
 ```
 
-When you make this request, Amazon Polly returns the following in the .txt
-file:
+When you make this request, Amazon Polly returns the following in the .txt file:
 
 ```
 {"time":0,"type":"sentence","start":31,"end":95,"value":"Mary had <break time=\"300ms\"\/>a little <mark name=\"animal\"\/>lamb"}

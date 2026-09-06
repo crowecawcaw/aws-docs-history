@@ -1,25 +1,25 @@
+
+
 # Use `StartSpeechSynthesisTask` with an AWS SDK or CLI
+<a name="example_polly_StartSpeechSynthesisTask_section"></a>
 
 The following code examples show how to use `StartSpeechSynthesisTask`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To synthesize text**
-
-The following `start-speech-synthesis-task` example synthesizes the text in `text_file.txt` and stores the resulting MP3 file in the specified bucket.
-
-```
-`aws polly start-speech-synthesis-task \
- --output-format `mp3` \
- --output-s3-bucket-name `amzn-s3-demo-bucket` \
- --text `file://text_file.txt` \
- --voice-id `Joanna``
+**AWS CLI**  
+**To synthesize text**  
+The following `start-speech-synthesis-task` example synthesizes the text in `text_file.txt` and stores the resulting MP3 file in the specified bucket.  
 
 ```
-
-Output:
+aws polly start-speech-synthesis-task \
+    --output-format {{mp3}} \
+    --output-s3-bucket-name {{amzn-s3-demo-bucket}} \
+    --text  {{file://text_file.txt}} \
+    --voice-id {{Joanna}}
+```
+Output:  
 
 ```
 {
@@ -35,22 +35,14 @@ Output:
     }
 }
 ```
+For more information, see [Creating long audio files](https://docs.aws.amazon.com/polly/latest/dg/longer-cli.html) in the *Amazon Polly Developer Guide*.  
++  For API details, see [StartSpeechSynthesisTask](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/start-speech-synthesis-task.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating long audio files](longer-cli.md "longer-cli.md") in the _Amazon Polly Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [StartSpeechSynthesisTask](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/start-speech-synthesis-task.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/start-speech-synthesis-task.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
 ```
 class PollyWrapper:
@@ -144,24 +136,14 @@ class PollyWrapper:
                 ]
 
             return audio_stream, visemes
-
-
-
 ```
++  For API details, see [StartSpeechSynthesisTask](https://docs.aws.amazon.com/goto/boto3/polly-2016-06-10/StartSpeechSynthesisTask) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartSpeechSynthesisTask](../../../goto/boto3/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/boto3/polly-2016-06-10/StartSpeechSynthesisTask.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -211,14 +193,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plytextlengthexcdex.
         MESSAGE 'Text length exceeded maximum.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartSpeechSynthesisTask](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartSpeechSynthesisTask](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

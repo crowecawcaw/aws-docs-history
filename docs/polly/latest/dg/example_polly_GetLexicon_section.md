@@ -1,21 +1,18 @@
+
+
 # Use `GetLexicon` with an AWS SDK or CLI
+<a name="example_polly_GetLexicon_section"></a>
 
 The following code examples show how to use `GetLexicon`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md) 
 
-- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
 ```
     using System;
@@ -56,30 +53,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [GetLexicon](https://docs.aws.amazon.com/goto/DotNetSDKV3/polly-2016-06-10/GetLexicon) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To retrieve the content of a lexicon**  
+The following `get-lexicon` example retrieves the content of the specified pronunciation lexicon.  
 
 ```
-
-- For API details, see
-  [GetLexicon](../../../goto/DotNetSDKV3/polly-2016-06-10/GetLexicon.md "../../../goto/DotNetSDKV3/polly-2016-06-10/GetLexicon.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve the content of a lexicon**
-
-The following `get-lexicon` example retrieves the content of the specified pronunciation lexicon.
-
+aws polly get-lexicon \
+    --name {{w3c}}
 ```
-`aws polly get-lexicon \
- --name `w3c``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -97,22 +85,14 @@ Output:
     }
 }
 ```
+For more information, see [Using the GetLexicon operation](https://docs.aws.amazon.com/polly/latest/dg/gs-get-lexicon.html) in the *Amazon Polly Developer Guide*.  
++  For API details, see [GetLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/get-lexicon.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using the GetLexicon operation](gs-get-lexicon.md "gs-get-lexicon.md") in the _Amazon Polly Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [GetLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/get-lexicon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/get-lexicon.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
 ```
 class PollyWrapper:
@@ -143,24 +123,14 @@ class PollyWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [GetLexicon](https://docs.aws.amazon.com/goto/boto3/polly-2016-06-10/GetLexicon) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetLexicon](../../../goto/boto3/polly-2016-06-10/GetLexicon.md "../../../goto/boto3/polly-2016-06-10/GetLexicon.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -175,14 +145,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plyservicefailureex.
         MESSAGE 'Service failure occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetLexicon](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetLexicon](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

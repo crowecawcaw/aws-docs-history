@@ -1,17 +1,19 @@
+
+
 # Android example
+<a name="examples-android"></a>
 
-The following example uses the Android SDK for Amazon Polly to read the specified
-text using a voice selected from a list of voices.
+The following example uses the Android SDK for Amazon Polly to read the specified text using a voice selected from a list of voices.
 
-The code shown here covers the major tasks but does not handle errors. For the
-complete code, see the [AWS Mobile SDK for Android Amazon Polly demo](https://github.com/awslabs/aws-sdk-android-samples/tree/master/PollyDemo "https://github.com/awslabs/aws-sdk-android-samples/tree/master/PollyDemo").
+The code shown here covers the major tasks but does not handle errors. For the complete code, see the [AWS Mobile SDK for Android Amazon Polly demo](https://github.com/awslabs/aws-sdk-android-samples/tree/master/PollyDemo).
 
-###### Initialize
+**Initialize**  
+
 
 ```
 // Cognito pool ID. Pool needs to be unauthenticated pool with
 // Amazon Polly permissions.
-String COGNITO_POOL_ID = "`YourCognitoIdentityPoolId`";
+String COGNITO_POOL_ID = "{{YourCognitoIdentityPoolId}}";
 
 // Region of Amazon Polly.
 Regions MY_REGION = Regions.US_EAST_1;
@@ -27,7 +29,8 @@ CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCreden
 AmazonPollyPresigningClient client = new AmazonPollyPresigningClient(credentialsProvider);
 ```
 
-###### Get List of Available Voices
+**Get List of Available Voices**  
+
 
 ```
 // Create describe voices request.
@@ -38,7 +41,8 @@ DescribeVoicesResult describeVoicesResult = client.describeVoices(describeVoices
 List<Voice> voices = describeVoicesResult.getVoices();
 ```
 
-###### Get URL for Audio Stream
+**Get URL for Audio Stream**  
+
 
 ```
 // Create speech synthesis request.
@@ -56,7 +60,8 @@ URL presignedSynthesizeSpeechUrl =
         client.getPresignedSynthesizeSpeechUrl(synthesizeSpeechPresignRequest);
 ```
 
-###### Play Synthesized Speech
+**Play Synthesized Speech**  
+
 
 ```
 // Use MediaPlayer: https://developer.android.com/guide/topics/media/mediaplayer.html

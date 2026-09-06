@@ -1,61 +1,70 @@
+
+
 # English (British) (en-GB)
+<a name="ph-table-english-uk"></a>
 
-The following table lists the International Phonetic Alphabet (IPA) phonemes, the
-Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the
-corresponding visemes for the British English voices that are supported by Amazon Polly.
+The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the British English voices that are supported by Amazon Polly.
 
-Phoneme/Viseme Table| IPA | X-SAMPA | Description | Example | Viseme |
-| --- | --- | --- | --- | --- |
-| **Consonants** |
-| b | b | voiced bilabial plosive | **b**ed | p |
-| d | d | voiced alveolar plosive | **d**ig | t |
-| d͡ʒ | dZ | voiced postalveolar affricate | **j**ump | S |
-| ð | D | voiced dental fricative | **th**en | T |
-| f | f | voiceless labiodental fricative | **f**ive | f |
-| g | g | voiced velar plosive | **g**ame | k |
-| h | h | voiceless glottal fricative | **h**ouse | k |
-| j | j | palatal approximant | **y**es | i |
-| k | k | voiceless velar plosive | **c**at | k |
-| l | l | alveolar lateral approximant | **l**ay | t |
-| l̩ | l= | syllabic alveolar lateral approximant | batt**le** | t |
-| m | m | bilabial nasal | **m**ouse | p |
-| m̩ | m= | syllabic bilabial nasal | anth**em** | p |
-| n | n | alveolar nasal | **n**ap | t |
-| n̩ | n= | syllabic alveolar nasal | butto**n** | t |
-| ŋ | N | velar nasal | thi**ng** | k |
-| p | p | voiceless bilabial plosive | **p**in | p |
-| ɹ | r\ | alveolar approximant | **r**ed | r |
-| s | s | voiceless alveolar fricative | **s**eem | s |
-| ʃ | S | voiceless postalveolar fricative | **sh**ip | S |
-| t | t | voiceless alveolar plosive | **t**ask | t |
-| t͡ʃ | tS | voiceless postalveolar affricate | **ch**art | S |
-| Θ | T | voiceless dental fricative | **th**in | T |
-| v | v | voiced labiodental fricative | **v**est | f |
-| w | w | labial-velar approximant | **w**est | u |
-| z | z | voiced alveolar fricative | **z**ero | s |
-| ʒ | Z | voiced postalveolar fricative | vi**s**ion | S |
-| **Vowels** |
-| ə | @ | mid central vowel | **a**ren**a** | @ |
-| əʊ | @U | diphthong | g**oa**t | @ |
-| æ | { | near open-front unrounded vowel | tr**a**p | a |
-| aɪ | aI | diphthong | pr**i**ce | a |
-| aʊ | aU | diphthong | m**ou**th | a |
-| ɑː | A: | long open-back unrounded vowel | f**a**ther | a |
-| eɪ | eI | diphthong | f**a**ce | e |
-| ɜː | 3: | long open mid-central unrounded vowel | n**ur**se | E |
-| ɛ | E | open mid-front unrounded vowel | dr**e**ss | E |
-| ɛə | E@ | diphthong | squ**are** | E |
-| i: | i | long close front unrounded vowel | fl**ee**ce | i |
-| ɪ | I | near-close near-front unrounded vowel | k**i**t | i |
-| ɪə | I@ | diphthong | n**ear** | i |
-| ɔː | O: | long open-mid back rounded vowel | th**ou**ght | O |
-| ɔɪ | OI | Diphthong | ch**oi**ce | O |
-| ɒ | Q | open back rounded vowel | l**o**t | O |
-| u: | u: | long close-back rounded vowel | g**oo**se | u |
-| ʊ | U | near-close near-back rounded vowel | f**oo**t | u |
-| ʊə | U@ | diphthong | c**u**re | u |
-| ʌ | V | Open-mid-back unrounded vowel | str**u**t | E |
-| **Additional Symbols** |
-| ˈ | " | primary stress | Ala**ba**ma | |
-| ˌ | % | secondary stress | **A**labama | |
-| . | . | syllable boundary | A.la.ba.ma | |
+
+**Phoneme/Viseme Table**  
+
+<table>
+<thead>
+  <tr><th>IPA</th><th>X-SAMPA</th><th>Description</th><th>Example</th><th>Viseme</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="5"><b>Consonants</b></td></tr>
+  <tr><td>b</td><td>b</td><td>voiced bilabial plosive</td><td><b>b</b>ed</td><td>p</td></tr>
+  <tr><td>d</td><td>d</td><td>voiced alveolar plosive</td><td><b>d</b>ig</td><td>t</td></tr>
+  <tr><td>d͡ʒ</td><td>dZ</td><td>voiced postalveolar affricate</td><td><b>j</b>ump</td><td>S</td></tr>
+  <tr><td>ð</td><td>D</td><td>voiced dental fricative</td><td><b>th</b>en</td><td>T</td></tr>
+  <tr><td>f</td><td>f</td><td>voiceless labiodental fricative</td><td><b>f</b>ive</td><td>f</td></tr>
+  <tr><td>g</td><td>g</td><td>voiced velar plosive</td><td><b>g</b>ame</td><td>k</td></tr>
+  <tr><td>h</td><td>h</td><td>voiceless glottal fricative</td><td><b>h</b>ouse</td><td>k</td></tr>
+  <tr><td>j</td><td>j</td><td>palatal approximant</td><td><b>y</b>es</td><td>i</td></tr>
+  <tr><td>k</td><td>k</td><td>voiceless velar plosive</td><td><b>c</b>at</td><td>k</td></tr>
+  <tr><td>l</td><td>l</td><td>alveolar lateral approximant</td><td><b>l</b>ay</td><td>t</td></tr>
+  <tr><td>l̩</td><td>l=</td><td>syllabic alveolar lateral approximant</td><td>batt<b>le</b></td><td>t</td></tr>
+  <tr><td>m</td><td>m</td><td>bilabial nasal</td><td><b>m</b>ouse</td><td>p</td></tr>
+  <tr><td>m̩</td><td>m=</td><td>syllabic bilabial nasal</td><td>anth<b>em</b></td><td>p</td></tr>
+  <tr><td>n</td><td>n</td><td>alveolar nasal</td><td><b>n</b>ap</td><td>t</td></tr>
+  <tr><td>n̩</td><td>n=</td><td>syllabic alveolar nasal</td><td>butto<b>n</b></td><td>t</td></tr>
+  <tr><td>ŋ</td><td>N</td><td>velar nasal</td><td>thi<b>ng</b></td><td>k</td></tr>
+  <tr><td>p</td><td>p</td><td>voiceless bilabial plosive</td><td><b>p</b>in</td><td>p</td></tr>
+  <tr><td>ɹ</td><td>r\</td><td>alveolar approximant</td><td><b>r</b>ed</td><td>r</td></tr>
+  <tr><td>s</td><td>s</td><td>voiceless alveolar fricative</td><td><b>s</b>eem</td><td>s</td></tr>
+  <tr><td>ʃ</td><td>S</td><td>voiceless postalveolar fricative</td><td><b>sh</b>ip</td><td>S</td></tr>
+  <tr><td>t</td><td>t</td><td>voiceless alveolar plosive</td><td><b>t</b>ask</td><td>t</td></tr>
+  <tr><td>t͡ʃ</td><td>tS</td><td>voiceless postalveolar affricate</td><td><b>ch</b>art</td><td>S</td></tr>
+  <tr><td>Θ</td><td>T</td><td>voiceless dental fricative</td><td><b>th</b>in</td><td>T</td></tr>
+  <tr><td>v</td><td>v</td><td>voiced labiodental fricative</td><td><b>v</b>est</td><td>f</td></tr>
+  <tr><td>w</td><td>w</td><td>labial-velar approximant</td><td><b>w</b>est</td><td>u</td></tr>
+  <tr><td>z</td><td>z</td><td>voiced alveolar fricative</td><td><b>z</b>ero</td><td>s</td></tr>
+  <tr><td>ʒ</td><td>Z</td><td>voiced postalveolar fricative</td><td>vi<b>s</b>ion</td><td>S</td></tr>
+  <tr><td colspan="5"><b>Vowels</b></td></tr>
+  <tr><td>ə</td><td>@</td><td>mid central vowel</td><td><b>a</b>ren<b>a</b></td><td>@</td></tr>
+  <tr><td>əʊ</td><td>@U</td><td>diphthong</td><td>g<b>oa</b>t</td><td>@</td></tr>
+  <tr><td>æ</td><td>{</td><td>near open-front unrounded vowel</td><td>tr<b>a</b>p</td><td>a</td></tr>
+  <tr><td>aɪ</td><td>aI</td><td>diphthong</td><td>pr<b>i</b>ce</td><td>a</td></tr>
+  <tr><td>aʊ</td><td>aU</td><td>diphthong</td><td>m<b>ou</b>th</td><td>a</td></tr>
+  <tr><td>ɑː</td><td>A:</td><td>long open-back unrounded vowel</td><td>f<b>a</b>ther</td><td>a</td></tr>
+  <tr><td>eɪ</td><td>eI</td><td>diphthong</td><td>f<b>a</b>ce</td><td>e</td></tr>
+  <tr><td>ɜː</td><td>3:</td><td>long open mid-central unrounded vowel</td><td>n<b>ur</b>se</td><td>E</td></tr>
+  <tr><td>ɛ</td><td>E</td><td>open mid-front unrounded vowel</td><td>dr<b>e</b>ss</td><td>E</td></tr>
+  <tr><td>ɛə</td><td>E@</td><td>diphthong</td><td>squ<b>are</b></td><td>E</td></tr>
+  <tr><td>i:</td><td>i</td><td>long close front unrounded vowel</td><td>fl<b>ee</b>ce</td><td>i</td></tr>
+  <tr><td>ɪ</td><td>I</td><td>near-close near-front unrounded vowel</td><td>k<b>i</b>t</td><td>i</td></tr>
+  <tr><td>ɪə</td><td>I@</td><td>diphthong</td><td>n<b>ear</b></td><td>i</td></tr>
+  <tr><td>ɔː</td><td>O:</td><td>long open-mid back rounded vowel</td><td>th<b>ou</b>ght</td><td>O</td></tr>
+  <tr><td>ɔɪ</td><td>OI</td><td>Diphthong</td><td>ch<b>oi</b>ce</td><td>O</td></tr>
+  <tr><td>ɒ</td><td>Q</td><td>open back rounded vowel</td><td>l<b>o</b>t</td><td>O</td></tr>
+  <tr><td>u:</td><td>u:</td><td>long close-back rounded vowel</td><td>g<b>oo</b>se</td><td>u</td></tr>
+  <tr><td>ʊ</td><td>U</td><td>near-close near-back rounded vowel</td><td>f<b>oo</b>t</td><td>u</td></tr>
+  <tr><td>ʊə</td><td>U@</td><td>diphthong</td><td>c<b>u</b>re</td><td>u</td></tr>
+  <tr><td>ʌ</td><td>V</td><td>Open-mid-back unrounded vowel</td><td>str<b>u</b>t</td><td>E</td></tr>
+  <tr><td colspan="5"><b>Additional Symbols</b></td></tr>
+  <tr><td>ˈ</td><td>"</td><td>primary stress</td><td>Ala<b>ba</b>ma</td><td></td></tr>
+  <tr><td>ˌ</td><td>%</td><td>secondary stress</td><td><b>A</b>labama</td><td></td></tr>
+  <tr><td>.</td><td>.</td><td>syllable boundary</td><td>A.la.ba.ma</td><td></td></tr>
+</tbody>
+</table>

@@ -1,9 +1,14 @@
+
+
 # GetLexicon
+<a name="GetLexiconSample"></a>
 
-The following Java code sample show how to use Java-based applications to produce the
-content of a specific pronunciation lexicon stored in a AWS Region.
+The following Java code sample show how to use Java-based applications to produce the content of a specific pronunciation lexicon stored in a AWS Region. 
 
-For more information on this operation, see the reference for the [`GetLexicon`](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md") API.
+For more information on this operation, see the reference for the [`GetLexicon`](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetLexicon.html) API. 
+
+## SDK v2
+<a name="get-sdk-v2"></a>
 
 ```
 /*
@@ -59,22 +64,25 @@ public class GetLexiconSample {
 }
 ```
 
+## SDK v1
+<a name="get-sdk-v1"></a>
+
 ```
 package com.amazonaws.polly.samples;
-
+ 
 import com.amazonaws.services.polly.AmazonPolly;
 import com.amazonaws.services.polly.AmazonPollyClientBuilder;
 import com.amazonaws.services.polly.model.GetLexiconRequest;
 import com.amazonaws.services.polly.model.GetLexiconResult;
-
+ 
 public class GetLexiconSample {
     private String LEXICON_NAME = "SampleLexicon";
-
+ 
     AmazonPolly client = AmazonPollyClientBuilder.defaultClient();
-
+ 
     public void getLexicon() {
         GetLexiconRequest getLexiconRequest = new GetLexiconRequest().withName(LEXICON_NAME);
-
+ 
         try {
             GetLexiconResult getLexiconResult = client.getLexicon(getLexiconRequest);
             System.out.println("Lexicon: " + getLexiconResult.getLexicon());

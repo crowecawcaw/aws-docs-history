@@ -1,10 +1,9 @@
-# Using multiple lexicons
 
-You can apply up to five lexicons to your text. If the same grapheme appears in more
-than one lexicon that you apply to your text, the order in which they are applied can
-make a difference in the resulting speech. For example, given the following text,
-"Hello, my name is Bob." and two lexemes in different lexicons that both use the
-grapheme `Bob`.
+
+# Using multiple lexicons
+<a name="lexicons-applying"></a>
+
+You can apply up to five lexicons to your text. If the same grapheme appears in more than one lexicon that you apply to your text, the order in which they are applied can make a difference in the resulting speech. For example, given the following text, "Hello, my name is Bob." and two lexemes in different lexicons that both use the grapheme `Bob`.
 
 **LexA**
 
@@ -24,11 +23,9 @@ grapheme `Bob`.
 </lexeme>
 ```
 
-If the lexicons are listed in the order LexA and then LexB, the synthesized speech will be "Hello,
-my name is Robert." If they are listed in the order LexB and then LexA, the synthesized speech
-is "Hello, my name is Bobby."
+If the lexicons are listed in the order LexA and then LexB, the synthesized speech will be "Hello, my name is Robert." If they are listed in the order LexB and then LexA, the synthesized speech is "Hello, my name is Bobby."
 
-###### Example– Applying LexA Before LexB
+**Example – Applying LexA Before LexB**  
 
 ```
 aws polly synthesize-speech \
@@ -38,10 +35,9 @@ aws polly synthesize-speech \
 --voice-id Justin \
 bobAB.mp3
 ```
-
 **Speech output:** "Hello, my name is Robert."
 
-###### Example– Applying LexB before LexA
+**Example – Applying LexB before LexA**  
 
 ```
 aws polly synthesize-speech \
@@ -51,7 +47,6 @@ aws polly synthesize-speech \
 --voice-id Justin \
 bobBA.mp3
 ```
-
 **Speech output:** "Hello, my name is Bobby."
 
-For information about applying lexicons using the Amazon Polly console, see [Applying lexicons (Synthesizing Speech)](managing-lexicons-console-synthesize-speech.md "managing-lexicons-console-synthesize-speech.md").
+For information about applying lexicons using the Amazon Polly console, see [Applying lexicons (Synthesizing Speech)](managing-lexicons-console-synthesize-speech.md).

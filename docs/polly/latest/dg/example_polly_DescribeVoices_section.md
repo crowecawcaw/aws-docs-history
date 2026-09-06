@@ -1,21 +1,18 @@
+
+
 # Use `DescribeVoices` with an AWS SDK
+<a name="example_polly_DescribeVoices_section"></a>
 
 The following code examples show how to use `DescribeVoices`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md) 
 
-- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
 ```
     using System;
@@ -77,24 +74,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($" Name: {voice.Name}\tGender: {voice.Gender}\tLanguageName: {voice.LanguageName}");
         }
     }
-
-
-
 ```
++  For API details, see [DescribeVoices](https://docs.aws.amazon.com/goto/DotNetSDKV3/polly-2016-06-10/DescribeVoices) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeVoices](../../../goto/DotNetSDKV3/polly-2016-06-10/DescribeVoices.md "../../../goto/DotNetSDKV3/polly-2016-06-10/DescribeVoices.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/polly#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -142,23 +129,14 @@ public class DescribeVoicesSample {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeVoices](https://docs.aws.amazon.com/goto/SdkForJavaV2/polly-2016-06-10/DescribeVoices) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeVoices](../../../goto/SdkForJavaV2/polly-2016-06-10/DescribeVoices.md "../../../goto/SdkForJavaV2/polly-2016-06-10/DescribeVoices.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
 ```
 class PollyWrapper:
@@ -189,27 +167,16 @@ class PollyWrapper:
             raise
         else:
             return self.voice_metadata
+```
++  For API details, see [DescribeVoices](https://docs.aws.amazon.com/goto/boto3/polly-2016-06-10/DescribeVoices) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeVoices](../../../goto/boto3/polly-2016-06-10/DescribeVoices.md "../../../goto/boto3/polly-2016-06-10/DescribeVoices.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/polly#code-examples").
-
-```
-
 require 'aws-sdk-polly' # In v2: require 'aws-sdk'
 
 begin
@@ -231,23 +198,14 @@ rescue StandardError => e
   puts 'Error message:'
   puts e.message
 end
-
-
 ```
++  For API details, see [DescribeVoices](https://docs.aws.amazon.com/goto/SdkForRubyV3/polly-2016-06-10/DescribeVoices) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeVoices](../../../goto/SdkForRubyV3/polly-2016-06-10/DescribeVoices.md "../../../goto/SdkForRubyV3/polly-2016-06-10/DescribeVoices.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples). 
 
 ```
 async fn list_voices(client: &Client) -> Result<(), Error> {
@@ -270,23 +228,14 @@ async fn list_voices(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeVoices](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.describe_voices) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeVoices](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.describe_voices "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.describe_voices")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -310,14 +259,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plyservicefailureex.
         MESSAGE 'Service failure occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeVoices](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeVoices](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

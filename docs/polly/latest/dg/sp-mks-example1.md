@@ -1,11 +1,11 @@
+
+
 # Speech marks without SSML example
+<a name="sp-mks-example1"></a>
 
-The following example shows you what requested metadata looks like on your screen
-for the simple sentence: "Mary had a little lamb." For simplicity, we don't include
-SSML speech marks in this example.
+The following example shows you what requested metadata looks like on your screen for the simple sentence: "Mary had a little lamb." For simplicity, we don't include SSML speech marks in this example.
 
-The following AWS CLI example is formatted for Unix, Linux, and macOS.
-For Windows, replace the backslash (\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
+The following AWS CLI example is formatted for Unix, Linux, and macOS. For Windows, replace the backslash (\\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
 
 ```
 aws polly synthesize-speech \
@@ -16,8 +16,7 @@ aws polly synthesize-speech \
   MaryLamb.txt
 ```
 
-When you make this request, Amazon Polly returns the following in the .txt
-file:
+When you make this request, Amazon Polly returns the following in the .txt file:
 
 ```
 {"time":0,"type":"sentence","start":0,"end":23,"value":"Mary had a little lamb."}
@@ -43,11 +42,7 @@ file:
 {"time":1082,"type":"viseme","value":"p"}
 ```
 
-In this output, each part of the text is broken out in terms
-of speech marks:
-
-- The sentence "Mary had a little lamb."
-- Each word in the text: "Mary", "had", "a", "little",
-  and "lamb."
-- The viseme for each sound in the corresponding audio stream: "p", "E",
-  "r", "i", and so on. For more information on visemes see [Visemes and Amazon Polly](viseme.md "viseme.md").
+In this output, each part of the text is broken out in terms of speech marks:
++ The sentence "Mary had a little lamb."
++ Each word in the text: "Mary", "had", "a", "little", and "lamb."
++ The viseme for each sound in the corresponding audio stream: "p", "E", "r", "i", and so on. For more information on visemes see [Visemes and Amazon Polly](viseme.md).

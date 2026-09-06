@@ -1,21 +1,18 @@
+
+
 # Use `PutLexicon` with an AWS SDK or CLI
+<a name="example_polly_PutLexicon_section"></a>
 
 The following code examples show how to use `PutLexicon`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md) 
 
-- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
 ```
     using System;
@@ -63,31 +60,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [PutLexicon](https://docs.aws.amazon.com/goto/DotNetSDKV3/polly-2016-06-10/PutLexicon) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To store a lexicon**  
+The following `put-lexicon` example stores the specified pronunciation lexicon. The `example.pls` file specifies a W3C PLS-compliant lexicon.  
 
 ```
-
-- For API details, see
-  [PutLexicon](../../../goto/DotNetSDKV3/polly-2016-06-10/PutLexicon.md "../../../goto/DotNetSDKV3/polly-2016-06-10/PutLexicon.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To store a lexicon**
-
-The following `put-lexicon` example stores the specified pronunciation lexicon. The `example.pls` file specifies a W3C PLS-compliant lexicon.
-
+aws polly put-lexicon \
+    --name {{w3c}} \
+    --content {{file://example.pls}}
 ```
-`aws polly put-lexicon \
- --name `w3c` \
- --content `file://example.pls``
-
-```
-
-Contents of `example.pls`
+Contents of `example.pls`  
 
 ```
 {
@@ -106,24 +94,15 @@ Contents of `example.pls`
     </lexicon>
 }
 ```
+This command produces no output.  
+For more information, see [Using the PutLexicon operation](https://docs.aws.amazon.com/polly/latest/dg/gs-put-lexicon.html) in the *Amazon Polly Developer Guide*.  
++  For API details, see [PutLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/put-lexicon.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Python ]
 
-For more information, see [Using the PutLexicon operation](gs-put-lexicon.md "gs-put-lexicon.md") in the _Amazon Polly Developer Guide_.
-
-- For API details, see
-  [PutLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/put-lexicon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/put-lexicon.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
 ```
 class PollyWrapper:
@@ -153,24 +132,14 @@ class PollyWrapper:
         except ClientError:
             logger.exception("Couldn't create lexicon %s.")
             raise
-
-
-
 ```
++  For API details, see [PutLexicon](https://docs.aws.amazon.com/goto/boto3/polly-2016-06-10/PutLexicon) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutLexicon](../../../goto/boto3/polly-2016-06-10/PutLexicon.md "../../../goto/boto3/polly-2016-06-10/PutLexicon.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/polly#code-examples). 
 
 ```
 async fn make_lexicon(client: &Client, name: &str, from: &str, to: &str) -> Result<(), Error> {
@@ -192,23 +161,14 @@ async fn make_lexicon(client: &Client, name: &str, from: &str, to: &str) -> Resu
 
     Ok(())
 }
-
-
 ```
++  For API details, see [PutLexicon](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.put_lexicon) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [PutLexicon](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.put_lexicon "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.put_lexicon")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
 ```
     TRY.
@@ -231,14 +191,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_plyunsuppedplslangu00.
         MESSAGE 'Unsupported PLS language.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutLexicon](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutLexicon](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,18 +1,16 @@
+
+
 # Getting started with text-to-speech synthesis
+<a name="example_polly_GettingStarted_082_section"></a>
 
 The following code example shows how to:
++ Clean up resources
 
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/082-amazon-polly-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/082-amazon-polly-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/082-amazon-polly-gs) repository. 
 
 ```
 #!/bin/bash
@@ -65,7 +63,7 @@ cleanup() {
     echo "===========================================================" | tee -a "$LOG_FILE"
     echo "CLEANUP PROCESS" | tee -a "$LOG_FILE"
     echo "===========================================================" | tee -a "$LOG_FILE"
-
+    
     # Delete lexicon if it exists
     if [[ -n "${LEXICON_NAME:-}" ]]; then
         echo "Deleting lexicon: $LEXICON_NAME" | tee -a "$LOG_FILE"
@@ -75,7 +73,7 @@ cleanup() {
             echo "Warning: Failed to delete lexicon." | tee -a "$LOG_FILE"
         fi
     fi
-
+    
     # Remove audio files
     for file in output.mp3 ssml-output.mp3 lexicon-output.mp3 example.pls; do
         if [[ -f "$file" ]]; then
@@ -83,7 +81,7 @@ cleanup() {
             echo "Removed $file" | tee -a "$LOG_FILE"
         fi
     done
-
+    
     echo "Cleanup complete." | tee -a "$LOG_FILE"
 }
 
@@ -162,12 +160,12 @@ echo "Creating lexicon file..." | tee -a "$LOG_FILE"
 LEXICON_FILE="${WORK_DIR}/example.pls"
 cat > "$LEXICON_FILE" << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
-<lexicon version="1.0"
+<lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-      alphabet="ipa"
+      alphabet="ipa" 
       xml:lang="en-US">
   <lexeme>
     <grapheme>AWS</grapheme>
@@ -233,19 +231,16 @@ cleanup
 echo "" | tee -a "$LOG_FILE"
 echo "Tutorial completed successfully!" | tee -a "$LOG_FILE"
 echo "Log file: $LOG_FILE" | tee -a "$LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [DeleteLexicon](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/DeleteLexicon)
+  + [DescribeVoices](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/DescribeVoices)
+  + [GetLexicon](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/GetLexicon)
+  + [Help](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/Help)
+  + [ListLexicons](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/ListLexicons)
+  + [PutLexicon](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/PutLexicon)
+  + [SynthesizeSpeech](https://docs.aws.amazon.com/goto/aws-cli/polly-2016-06-10/SynthesizeSpeech)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [DeleteLexicon](../../../goto/aws-cli/polly-2016-06-10/DeleteLexicon.md "../../../goto/aws-cli/polly-2016-06-10/DeleteLexicon.md")
-  - [DescribeVoices](../../../goto/aws-cli/polly-2016-06-10/DescribeVoices.md "../../../goto/aws-cli/polly-2016-06-10/DescribeVoices.md")
-  - [GetLexicon](../../../goto/aws-cli/polly-2016-06-10/GetLexicon.md "../../../goto/aws-cli/polly-2016-06-10/GetLexicon.md")
-  - [Help](../../../goto/aws-cli/polly-2016-06-10/Help.md "../../../goto/aws-cli/polly-2016-06-10/Help.md")
-  - [ListLexicons](../../../goto/aws-cli/polly-2016-06-10/ListLexicons.md "../../../goto/aws-cli/polly-2016-06-10/ListLexicons.md")
-  - [PutLexicon](../../../goto/aws-cli/polly-2016-06-10/PutLexicon.md "../../../goto/aws-cli/polly-2016-06-10/PutLexicon.md")
-  - [SynthesizeSpeech](../../../goto/aws-cli/polly-2016-06-10/SynthesizeSpeech.md "../../../goto/aws-cli/polly-2016-06-10/SynthesizeSpeech.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

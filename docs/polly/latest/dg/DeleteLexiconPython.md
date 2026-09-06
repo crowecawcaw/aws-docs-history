@@ -1,15 +1,13 @@
+
+
 # DeleteLexicon
+<a name="DeleteLexiconPython"></a>
 
-The following Python code example uses the AWS SDK for Python (Boto) to delete a lexicon in
-the region specified in your local AWS configuration. The example deletes only
-the specified lexicon. It asks you to confirm that you want to proceed before
-actually deleting the lexicon.
+The following Python code example uses the AWS SDK for Python (Boto) to delete a lexicon in the region specified in your local AWS configuration. The example deletes only the specified lexicon. It asks you to confirm that you want to proceed before actually deleting the lexicon.
 
-The following code example uses default credentials stored in the AWS SDK
-configuration file. For information about creating the configuration file, see
-[Setting up the AWS CLI](setup-cli.md "setup-cli.md").
+The following code example uses default credentials stored in the AWS SDK configuration file. For information about creating the configuration file, see [Setting up the AWS CLI](setup-cli.md). 
 
-For more information on this operation, see the reference for the [`DeleteLexicon`](../APIReference/API_DeleteLexicon.md "../APIReference/API_DeleteLexicon.md") API.
+For more information on this operation, see the reference for the [`DeleteLexicon`](https://docs.aws.amazon.com/polly/latest/APIReference/API_DeleteLexicon.html) API. 
 
 ```
 from argparse import ArgumentParser

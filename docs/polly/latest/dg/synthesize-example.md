@@ -1,77 +1,76 @@
+
+
 # Synthesizing speech with Amazon Polly example
+<a name="synthesize-example"></a>
 
 This page presents a short speech synthesis example performed in the console, the AWS CLI, and with Python. This example performs speech synthesis from plain text, not SSML.
 
-Console
+------
+#### [ Console ]
 
-###### Synthesize speech on the console
+**Synthesize speech on the console**
 
-1. Sign in to the AWS Management Console and open the Amazon Polly console at [https://console.aws.amazon.com/polly/](https://console.aws.amazon.com/polly/ "https://console.aws.amazon.com/polly/").
-2. Choose the **Text-to-Speech** tab. The text field will load with example text so you can quickly try out Amazon Polly.
-3. Turn off **SSML**.
-4. Type or paste this text into the input box.
+1. Sign in to the AWS Management Console and open the Amazon Polly console at [https://console.aws.amazon.com/polly/](https://console.aws.amazon.com/polly/).
 
-```
-He was caught up in the game. In the middle of the 10/3/2014 W3C meeting he shouted, "Score!" quite loudly.
-```
+1. Choose the **Text-to-Speech** tab. The text field will load with example text so you can quickly try out Amazon Polly.
 
-5. Under **Engine**, choose **Generative**, **Long Form**, **Neural**, or **Standard**.
-6. Choose a language and AWS Region, then choose a voice. (If you select **Neural** for **Engine**, only the languages and voices that support NTTS are available. All Standard and Long Form voices are disabled.)
-7. To listen to the speech immediately, choose **Listen**.
-8. To save the speech to a file, do one of the following:
+1. Turn off **SSML**.
+
+1. Type or paste this text into the input box.
+
+   ```
+   He was caught up in the game. In the middle of the 10/3/2014 W3C meeting he shouted, "Score!" quite loudly.
+   ```
+
+1. Under **Engine**, choose **Generative**, **Long Form**, **Neural**, or **Standard**.
+
+1. Choose a language and AWS Region, then choose a voice. (If you select **Neural** for **Engine**, only the languages and voices that support NTTS are available. All Standard and Long Form voices are disabled.)
+
+1. To listen to the speech immediately, choose **Listen**.
+
+1. To save the speech to a file, do one of the following:
 
    1. Choose **Download**.
-   2. To change to a different file format, expand **Additional
-      settings**, turn on **Speech file format
-      settings**, choose the file format that you want (such as MP3, OGG, PCM,
-      Mu-law, or A-law), and
-      then choose **Download**.
 
-AWS CLI
+   1. To change to a different file format, expand **Additional settings**, turn on **Speech file format settings**, choose the file format that you want (such as MP3, OGG, PCM, Mu-law, or A-law), and then choose **Download**. 
+
+------
+#### [ AWS CLI ]
+
 In this exercise, you call the `SynthesizeSpeech` operation by passing input text. You can save the resulting audio as a file and verify its content.
 
-1. Run the `synthesize-speech` AWS CLI command to synthesize sample
-   text to an audio file (`hello.mp3`).
+1. Run the `synthesize-speech` AWS CLI command to synthesize sample text to an audio file (`hello.mp3`). 
 
-The following AWS CLI example is formatted for Unix, Linux, and macOS.
-For Windows, replace the backslash (\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
+   The following AWS CLI example is formatted for Unix, Linux, and macOS. For Windows, replace the backslash (\\) Unix continuation character at the end of each line with a caret (^) and use full quotation marks (") around the input text with single quotes (') for interior tags.
 
-```
-aws polly synthesize-speech \
-    --output-format mp3 \
-    --voice-id Joanna \
-    --text 'Hello, my name is Joanna. I learned about the W3C on 10/3 of last year.' \
-    hello.mp3
-```
+   ```
+   aws polly synthesize-speech \
+       --output-format mp3 \
+       --voice-id Joanna \
+       --text 'Hello, my name is Joanna. I learned about the W3C on 10/3 of last year.' \
+       hello.mp3
+   ```
 
-In the call to `synthesize-speech`, you provide sample text to
-be synthesized by a voice of your choice. You must provide a voice ID
-(explained in the following step) and an output format. The command saves
-the resulting audio to the `hello.mp3` file. In addition
-to the MP3 file, the operation sends the following output to the console.
+   In the call to `synthesize-speech`, you provide sample text to be synthesized by a voice of your choice. You must provide a voice ID (explained in the following step) and an output format. The command saves the resulting audio to the `hello.mp3` file. In addition to the MP3 file, the operation sends the following output to the console. 
 
-```
-{
-        "ContentType": "audio/mpeg",
-        "RequestCharacters": "71"
-}
-```
+   ```
+   {
+           "ContentType": "audio/mpeg", 
+           "RequestCharacters": "71"
+   }
+   ```
 
-2. Play the resulting `hello.mp3` file to verify the
-   synthesized speech.
+1. Play the resulting `hello.mp3` file to verify the synthesized speech. 
 
-Python
-To test the Python example code, you need the AWS SDK for Python (Boto). For instruction, see
-[AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/").
+------
+#### [ Python ]
+
+To test the Python example code, you need the AWS SDK for Python (Boto). For instruction, see [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). 
 
 The Python code in this example performs the following actions:
-
-- Invokes the AWS SDK for Python (Boto) to send a `SynthesizeSpeech` request
-  to Amazon Polly (by providing some text as input).
-- Accesses the resulting audio stream in the response and saves the audio to
-  a file (`speech.mp3`) on your local disk.
-- Plays the audio file with the default audio player for your local
-  system.
++ Invokes the AWS SDK for Python (Boto) to send a `SynthesizeSpeech` request to Amazon Polly (by providing some text as input). 
++ Accesses the resulting audio stream in the response and saves the audio to a file (`speech.mp3`) on your local disk. 
++ Plays the audio file with the default audio player for your local system. 
 
 Save the code to a file (example.py) and run it.
 
@@ -131,8 +130,9 @@ else:
     subprocess.call([opener, output])
 ```
 
-For more in-depth examples, see the following topics:
+------
 
-- [Using SSML on the console](ssml-to-speech-console.md "ssml-to-speech-console.md")
-- [Applying lexicons (Synthesizing Speech)](managing-lexicons-console-synthesize-speech.md "managing-lexicons-console-synthesize-speech.md")
-- [Sample code and applications for Amazon Polly](samples-and-examples.md "samples-and-examples.md")
+For more in-depth examples, see the following topics:
++ [Using SSML on the console](ssml-to-speech-console.md) 
++ [Applying lexicons (Synthesizing Speech)](managing-lexicons-console-synthesize-speech.md) 
++ [Sample code and applications for Amazon Polly](samples-and-examples.md) 
