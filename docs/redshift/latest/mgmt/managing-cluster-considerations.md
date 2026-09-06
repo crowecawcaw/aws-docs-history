@@ -365,7 +365,9 @@ DC2 node type clusters to RG or RA3 with elastic resize. For more information, s
 
 ###### Note
 
-To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster must run patch version P201 or later. To migrate to rg.large or rg.12xlarge, your source cluster must run P202 or later. DC2 clusters can migrate to RG regardless of patch version.
+To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster must run patch version P201 or later.
+To migrate to rg.large or rg.12xlarge, your source cluster must run P202 or later. To create or migrate to a single-node rg.large cluster, your cluster must run P204 or later.
+DC2 clusters can migrate to RG regardless of patch version.
 
 The following table shows recommendations when upgrading to RG node types. (These
 recommendations also apply to reserved nodes.)
@@ -474,7 +476,8 @@ documentation:
 
 **Patch Version**
 
-To migrate from RA3 to RG, your source cluster must meet the minimum required patch version: P201 for rg.xlarge and rg.4xlarge, and P202 for rg.large and rg.12xlarge. DC2 clusters can migrate to RG regardless of patch version. Before migrating, test your workloads by restoring a snapshot to an RG cluster before moving production traffic. For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201 "cluster-versions.md#cluster-version-201") and [Amazon Redshift patch 202](cluster-versions.md#cluster-version-202 "cluster-versions.md#cluster-version-202").
+To migrate from RA3 to RG, your source cluster must meet the minimum required patch version: P201 for rg.xlarge and rg.4xlarge, P202 for multi-node rg.large and rg.12xlarge and P204 for single-node rg.large. DC2 clusters can migrate to RG regardless of patch version. Before migrating, test your workloads by restoring a snapshot to an RG cluster before moving production traffic.
+For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201 "cluster-versions.md#cluster-version-201"), [Amazon Redshift patch 202](cluster-versions.md#cluster-version-202 "cluster-versions.md#cluster-version-202") and [Amazon Redshift patch 204](cluster-versions.md#cluster-version-204 "cluster-versions.md#cluster-version-204").
 
 **Spectrum workloads**
 

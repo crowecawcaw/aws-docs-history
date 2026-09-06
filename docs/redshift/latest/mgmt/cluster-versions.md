@@ -75,6 +75,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Added support for single-node rg.large clusters. This is the minimum required cluster version to create a single-node rg.large cluster.
 - Added a query\_uuid column to system tables and views, providing a globally unique query identifier that persists across cluster pause/resume cycles.
 - Added user\_query\_id to stl\_udf\_log table to remove dependency on stl\_user\_query\_map joins in sys\_ view definitions.
 - Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.

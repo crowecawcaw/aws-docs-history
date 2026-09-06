@@ -139,6 +139,7 @@ The following table describes specifications for RG nodes.
 
 | Node type              | vCPU | RAM (GiB) | Default slices per node | Managed storage limit per node<br>1 | Node range with create cluster | Total managed storage capacity<br>2 |
 | ---------------------- | ---- | --------- | ----------------------- | ----------------------------------- | ------------------------------ | ----------------------------------- |
+| rg.large (single-node) | 2    | 16        | 2                       | 1 TB                                | 1                              | 1 TB                                |
 | rg.large (multi-node)  | 2    | 16        | 2                       | 8 TB                                | 2–16                           | 128 TB                              |
 | rg.xlarge (multi-node) | 4    | 32        | 2                       | 32 TB                               | 2–163                          | 1024 TB3                            |
 | rg.4xlarge             | 16   | 128       | 8                       | 128 TB                              | 2–324                          | 8192 TB4                            |

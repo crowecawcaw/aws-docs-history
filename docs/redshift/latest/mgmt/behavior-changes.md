@@ -17,6 +17,7 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
+- [SUPER data type supports larger individual strings starting with Patch 205](#super-large-strings-patch205 "#super-large-strings-patch205")
 - [AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026](#kms-permission-serverless-aug2026 "#kms-permission-serverless-aug2026")
 - [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204](#user-lockout-patch204 "#user-lockout-patch204")
 - [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026 "#snapshot-billing-model-jun2026")
@@ -28,6 +29,69 @@ The following describes upcoming behavior changes.
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting September 30, 2026](#tls-changes-sep2026 "#tls-changes-sep2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+
+### SUPER data type supports larger individual strings starting with Patch 205
+
+Starting with Patch 205, Amazon Redshift supports individual strings up to 16,000,000 bytes
+within the SUPER data type (used to store semistructured data). This limit also applies to
+in-memory string operations. To use this capability, create a
+database parameter group and set the `enable_large_strings_opt_in` parameter to
+`Yes`. Then, attach the parameter group to your data warehouse. For provisioned
+clusters, you must reboot the cluster to apply the parameter change.
+
+This change might affect you if you use SUPER data types to store large JSON documents.
+It might also affect you if your workloads rely on `VARCHAR(MAX)` in views,
+user-defined functions (UDFs), or stored procedures that process strings longer than
+65,535 bytes.
+
+When you set `enable_large_strings_opt_in` to `Yes`, in-memory
+operations resolve `VARCHAR(MAX)` to `VARCHAR(16000000)`. These
+operations include `CAST`, views, UDFs, and stored procedures.
+They can then process strings longer than 65,535 bytes. This change doesn't affect
+persistent storage for VARCHAR columns. `CREATE TABLE` with
+`VARCHAR(MAX)` continues to create `VARCHAR(65535)` columns. When you
+set the parameter to `No`, Amazon Redshift preserves the existing behavior of your data
+warehouse. To check the current state of your data warehouse, run
+`SELECT is_large_string_enabled();`.
+
+When you set `enable_large_strings_opt_in` to `Yes`:
+
+- `COPY` and `INSERT` into SUPER columns support sizes larger
+  than the previous 65,535-byte limit. String functions such as `JSON_PARSE`,
+  `JSON_SERIALIZE`, and `LISTAGG` also support these larger
+  sizes.
+- Existing views, UDFs, and stored procedures remain capped at 65,535 bytes until you
+  recreate them.
+- If an existing view uses `VARCHAR(MAX)` and other objects (such as other
+  views) depend on it, `CREATE OR REPLACE VIEW` fails. The error is "cannot
+  change data type of view column." To update the view, drop the dependent objects, drop
+  and recreate the view, then recreate the dependent objects. You can replace views that
+  use `VARCHAR(MAX)` and have no dependent objects without these extra
+  steps.
+- Keep this setting aligned between the data sharing producer and consumer data
+  warehouses.
+
+When you set `enable_large_strings_opt_in` to `No`:
+
+- You can't `COPY` or `INSERT` strings longer than 65,535 bytes
+  into SUPER columns. You can still read existing strings through SUPER. However, casting
+  to `VARCHAR(MAX)` truncates the value to 65,535 bytes.
+- String functions such as `JSON_PARSE`, `JSON_SERIALIZE`, and
+  `LISTAGG` can't process VARCHAR values longer than 65,535 bytes.
+- You can't query views, stored procedures, and UDFs that process string literals
+  longer than 65,535 bytes.
+- If you created a view with `VARCHAR(MAX)` while the parameter was set to
+  `Yes`, and other objects (such as other views) depend on it,
+  `CREATE OR REPLACE VIEW` fails with the same "cannot change data type of
+  view column" error. Follow the same remediation steps described in the preceding
+  list.
+- A cross-instance snapshot restore can fail to ingest long strings. This failure
+  occurs when the snapshot contains strings longer than 65,535 bytes in a SUPER column.
+  It happens when you restore that snapshot to a cluster where this parameter is set to
+  `No`.
+
+For more information about patch versions, see
+[Cluster versions for Amazon Redshift](cluster-versions.md "cluster-versions.md").
 
 ### AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026
 

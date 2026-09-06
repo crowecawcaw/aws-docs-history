@@ -67,7 +67,7 @@ tables, and functions.
 for the editor.
 
 - A
-  ![The more actions icon used in the AWS Console.](images/qev2-more.png)
+  ![The more actions icon used in the AWS Console.](/images/redshift/latest/mgmt/images/qev2-more.png)
 
 **More** icon to display more actions in the
 editor. Such as:

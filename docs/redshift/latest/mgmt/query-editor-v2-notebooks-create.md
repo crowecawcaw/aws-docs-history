@@ -11,7 +11,7 @@ single document.
 ###### To create a notebook
 
 1. From the navigator menu, choose the Editor icon (
-   ![Horizontal lines representing redacted or censored text.](images/qev2-align-left.png)
+   ![Horizontal lines representing redacted or censored text.](/images/redshift/latest/mgmt/images/qev2-align-left.png)
    ).
 2. Choose the plus icon (
    ![Plus sign icon representing an addition or new item action.](images/add-plus.png)

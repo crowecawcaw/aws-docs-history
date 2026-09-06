@@ -174,6 +174,20 @@ then, the normal Reserved Nodes logic is applied to calculate the bill. For more
 information, see [Consolidated
 Billing](../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md "../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md") in the AWS Billing User Guide.
 
+## Things to consider before changing node type on a cluster that uses Reserved Instances
+
+You can change the node type of a cluster by changing either the node family or the
+node size using the resize feature (elastic or classic). When you
+change the node type, the reserved node purchases that are associated with the cluster
+don't change automatically. The existing reservations remain tied to the original
+node type. You continue to be billed for these reservations until their term ends.
+Meanwhile, the nodes of the new type might be billed at the on-demand rate.
+
+Because of this, for changes to your Reserved Instances, we recommend that you contact
+your AWS account team or [AWS Billing
+Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") before you change the node type of a cluster that uses reserved
+nodes. They can guide you appropriately.
+
 ## Reserved node examples
 
 The scenarios in this section demonstrate how nodes accrue charges based on on-demand
