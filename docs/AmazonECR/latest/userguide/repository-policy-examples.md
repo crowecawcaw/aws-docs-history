@@ -1,247 +1,245 @@
+
+
 # Private repository policy examples in Amazon ECR
+<a name="repository-policy-examples"></a>
 
-###### Important
+**Important**  
+The repository policy examples on this page are meant to be applied to Amazon ECR private repositories. They will not work properly if used with an IAM principal directly unless modified to specify the Amazon ECR repository as the resource. For more information on setting repository policies, see [Setting a private repository policy statement in Amazon ECR](set-repository-policy.md).
 
-The repository policy examples on this page are meant to be applied to Amazon ECR
-private repositories. They will not work properly if used with an IAM principal
-directly unless modified to specify the Amazon ECR repository as the resource. For more
-information on setting repository policies, see [Setting a private repository policy statement in Amazon ECR](set-repository-policy.md "set-repository-policy.md").
+Amazon ECR repository policies are a subset of IAM policies that are scoped for, and specifically used for, controlling access to individual Amazon ECR repositories. IAM policies are generally used to apply permissions for the entire Amazon ECR service but can also be used to control access to specific resources as well. For more information, see [Repository policies vs IAM policies](repository-policies.md#repository-policy-vs-iam-policy).
 
-Amazon ECR repository policies are a subset of IAM policies that are scoped for, and
-specifically used for, controlling access to individual Amazon ECR repositories. IAM
-policies are generally used to apply permissions for the entire Amazon ECR service but can
-also be used to control access to specific resources as well. For more information, see
-[Repository policies vs IAM policies](repository-policies.md#repository-policy-vs-iam-policy "repository-policies.md#repository-policy-vs-iam-policy").
+The following repository policy examples show permission statements that you could use to control access to your Amazon ECR private repositories.
 
-The following repository policy examples show permission statements that you could use
-to control access to your Amazon ECR private repositories.
-
-###### Important
-
-Amazon ECR requires that users have permission to make calls to the
-`ecr:GetAuthorizationToken` API through an IAM policy before they
-can authenticate to a registry and push or pull any images from any Amazon ECR
-repository. Amazon ECR provides several managed IAM policies to control user access at
-varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+**Important**  
+Amazon ECR requires that users have permission to make calls to the `ecr:GetAuthorizationToken` API through an IAM policy before they can authenticate to a registry and push or pull any images from any Amazon ECR repository. Amazon ECR provides several managed IAM policies to control user access at varying levels. For more information, see [Amazon Elastic Container Registry Identity-based policy examples](security_iam_id-based-policy-examples.md).
 
 ## Example: Allow one or more users
+<a name="IAM_within_account"></a>
 
-The following repository policy allows one or more users to push and pull images
-to and from a repository.
+The following repository policy allows one or more users to push and pull images to and from a repository.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowPushPull",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/`push-pull-user-1`",
- "arn:aws:iam::`111122223333`:user/`push-pull-user-2`"
- ]
- },
- "Action": [
- "ecr:BatchGetImage",
- "ecr:BatchCheckLayerAvailability",
- "ecr:CompleteLayerUpload",
- "ecr:GetDownloadUrlForLayer",
- "ecr:InitiateLayerUpload",
- "ecr:PutImage",
- "ecr:UploadLayerPart"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowPushPull",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::{{111122223333}}:user/{{push-pull-user-1}}",
+                    "arn:aws:iam::{{111122223333}}:user/{{push-pull-user-2}}"
+                ]
+            },
+            "Action": [
+                "ecr:BatchGetImage",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:CompleteLayerUpload",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:InitiateLayerUpload",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+------
 
 ## Example: Allow another account
+<a name="IAM_allow_other_accounts"></a>
 
 The following repository policy allows a specific account to push images.
 
-###### Important
+**Important**  
+The account you are granting permissions to must have the Region you are creating the repository policy in enabled, otherwise an error will occur.
 
-The account you are granting permissions to must have the Region you are
-creating the repository policy in enabled, otherwise an error will occur.
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowCrossAccountPush",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:root"
- },
- "Action": [
- "ecr:BatchCheckLayerAvailability",
- "ecr:CompleteLayerUpload",
- "ecr:InitiateLayerUpload",
- "ecr:PutImage",
- "ecr:UploadLayerPart"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowCrossAccountPush",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{111122223333}}:root"
+            },
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:CompleteLayerUpload",
+                "ecr:InitiateLayerUpload",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-The following repository policy allows some users to pull images
-(`pull-user-1` and
-`pull-user-2`) while providing full access to another
-(`admin-user`).
+------
 
-###### Note
+The following repository policy allows some users to pull images ({{pull-user-1}} and {{pull-user-2}}) while providing full access to another ({{admin-user}}).
 
-For more complicated repository policies that are not
-currently supported in the AWS Management Console, you can apply the policy with the [**set-repository-policy**](../../../cli/latest/reference/ecr/set-repository-policy.md "../../../cli/latest/reference/ecr/set-repository-policy.md") AWS CLI command.
+**Note**  
+For more complicated repository policies that are not currently supported in the AWS Management Console, you can apply the policy with the [**set-repository-policy**](https://docs.aws.amazon.com/cli/latest/reference/ecr/set-repository-policy.html) AWS CLI command.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowPull",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/`pull-user-1`",
- "arn:aws:iam::`111122223333`:user/`pull-user-2`"
- ]
- },
- "Action": [
- "ecr:BatchGetImage",
- "ecr:GetDownloadUrlForLayer"
- ],
- "Resource": "*"
- },
- {
- "Sid": "AllowAll",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:user/`admin-user`"
- },
- "Action": [
- "ecr:*"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowPull",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::{{111122223333}}:user/{{pull-user-1}}",
+                    "arn:aws:iam::{{111122223333}}:user/{{pull-user-2}}"
+                ]
+            },
+            "Action": [
+                "ecr:BatchGetImage",
+                "ecr:GetDownloadUrlForLayer"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowAll",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{111122223333}}:user/{{admin-user}}"
+            },
+            "Action": [
+                "ecr:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
+
+------
 
 ## Example: Deny all
+<a name="IAM_deny_all"></a>
 
-The following repository policy denies all users in all accounts the ability to
-pull images.
+The following repository policy denies all users in all accounts the ability to pull images.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DenyPull",
- "Effect": "Deny",
- "Principal": "*",
- "Action": [
- "ecr:BatchGetImage",
- "ecr:GetDownloadUrlForLayer"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DenyPull",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "ecr:BatchGetImage",
+                "ecr:GetDownloadUrlForLayer"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+------
 
 ## Example: Restricting access to specific IP addresses
+<a name="IAM_restrict_ip"></a>
 
-The following example denies permissions to any user to perform any Amazon ECR
-operations when applied to a repository from a specific range of addresses.
+The following example denies permissions to any user to perform any Amazon ECR operations when applied to a repository from a specific range of addresses.
 
-The condition in this statement identifies the `54.240.143.*` range of
-allowed Internet Protocol version 4 (IPv4) IP addresses.
+The condition in this statement identifies the `54.240.143.*` range of allowed Internet Protocol version 4 (IPv4) IP addresses.
 
-The `Condition` block uses the `NotIpAddress` conditions and
-the `aws:SourceIp` condition key, which is an AWS-wide condition key.
-For more information about these condition keys, see [AWS Global
-Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md"). The `aws:sourceIp` IPv4 values use
-the standard CIDR notation. For more information, see [IP Address Condition Operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_IPAddress "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_IPAddress") in the _IAM User Guide_.
+The `Condition` block uses the `NotIpAddress` conditions and the `aws:SourceIp` condition key, which is an AWS-wide condition key. For more information about these condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html). The `aws:sourceIp` IPv4 values use the standard CIDR notation. For more information, see [IP Address Condition Operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_IPAddress) in the *IAM User Guide*.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Id": "`ECRPolicyId1`",
- "Statement": [
- {
- "Sid": "`IPAllow`",
- "Effect": "Deny",
- "Principal": "*",
- "Action": "ecr:*",
- "Resource": "*",
- "Condition": {
- "NotIpAddress": {
- "aws:SourceIp": "`54.240.143.0/24`"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Id": "{{ECRPolicyId1}}",
+    "Statement": [
+        {
+            "Sid": "{{IPAllow}}",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "ecr:*",
+            "Resource": "*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "{{54.240.143.0/24}}"
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
 
 ## Example: Allow an AWS service
+<a name="IAM_service_linked"></a>
 
-The following repository policy allows AWS CodeBuild access to the Amazon ECR API actions
-necessary for integration with that service. When using the following example, you
-should use the `aws:SourceArn` and `aws:SourceAccount`
-condition keys to scope which resources can assume these permissions. For more
-information, see [Amazon ECR sample for
-CodeBuild](../../../codebuild/latest/userguide/sample-ecr.md "../../../codebuild/latest/userguide/sample-ecr.md") in the _AWS CodeBuild User Guide_.
+The following repository policy allows AWS CodeBuild access to the Amazon ECR API actions necessary for integration with that service. When using the following example, you should use the `aws:SourceArn` and `aws:SourceAccount` condition keys to scope which resources can assume these permissions. For more information, see [Amazon ECR sample for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html) in the *AWS CodeBuild User Guide*.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"CodeBuildAccess",
- "Effect":"Allow",
- "Principal":{
- "Service":"codebuild.amazonaws.com"
- },
- "Action":[
- "ecr:BatchGetImage",
- "ecr:GetDownloadUrlForLayer"
- ],
- "Resource": "*",
- "Condition":{
- "ArnLike":{
- "aws:SourceArn":"arn:aws:codebuild:us-east-1:`123456789012`:project/`project-name`"
- },
- "StringEquals":{
- "aws:SourceAccount":"`123456789012`"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement":[
+      {
+         "Sid":"CodeBuildAccess",
+         "Effect":"Allow",
+         "Principal":{
+            "Service":"codebuild.amazonaws.com"
+         },
+         "Action":[
+            "ecr:BatchGetImage",
+            "ecr:GetDownloadUrlForLayer"
+         ],
+         "Resource": "*",
+         "Condition":{
+            "ArnLike":{
+               "aws:SourceArn":"arn:aws:codebuild:us-east-1:{{123456789012}}:project/{{project-name}}"
+            },
+            "StringEquals":{
+               "aws:SourceAccount":"{{123456789012}}"
+            }
+         }
+      }
+   ]
+}
+```
+
+------

@@ -1,16 +1,15 @@
+
+
 # Use `PushImageCmd` with an AWS SDK
+<a name="example_ecr_PushImageCmd_section"></a>
 
 The following code examples show how to use `PushImageCmd`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -54,26 +53,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         authResponseFuture.join();
     }
+```
++  For API details, see [PushImageCmd](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/PushImageCmd) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [PushImageCmd](../../../goto/SdkForJavaV2/ecr-2015-09-21/PushImageCmd.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/PushImageCmd.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Pushes a Docker image to an Amazon Elastic Container Registry (ECR) repository.
      *
@@ -119,14 +108,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             }
         }
     }
-
-
 ```
++  For API details, see [PushImageCmd](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PushImageCmd](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

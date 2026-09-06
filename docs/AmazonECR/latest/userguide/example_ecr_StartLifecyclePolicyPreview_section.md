@@ -1,28 +1,26 @@
+
+
 # Use `StartLifecyclePolicyPreview` with an AWS SDK or CLI
+<a name="example_ecr_StartLifecyclePolicyPreview_section"></a>
 
 The following code examples show how to use `StartLifecyclePolicyPreview`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md) 
 
-- [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a lifecycle policy preview**
-
-The following `start-lifecycle-policy-preview` example creates a lifecycle policy preview defined by a JSON file for the specified repository.
+**AWS CLI**  
+**To create a lifecycle policy preview**  
+The following `start-lifecycle-policy-preview` example creates a lifecycle policy preview defined by a JSON file for the specified repository.  
 
 ```
-`aws ecr start-lifecycle-policy-preview \
- --repository-name `"project-a/amazon-ecs-sample"` \
- --lifecycle-policy-text `"file://policy.json"``
-
+aws ecr start-lifecycle-policy-preview \
+    --repository-name {{"project-a/amazon-ecs-sample"}} \
+    --lifecycle-policy-text {{"file://policy.json"}}
 ```
-
-Contents of `policy.json`:
+Contents of `policy.json`:  
 
 ```
 {
@@ -43,8 +41,7 @@ Contents of `policy.json`:
    ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -54,20 +51,13 @@ Output:
    "status": "IN_PROGRESS"
 }
 ```
++  For API details, see [StartLifecyclePolicyPreview](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/start-lifecycle-policy-preview.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [StartLifecyclePolicyPreview](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/start-lifecycle-policy-preview.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/start-lifecycle-policy-preview.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -107,26 +97,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         // Wait for the CompletableFuture to complete.
         response.join();
     }
+```
++  For API details, see [StartLifecyclePolicyPreview](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [StartLifecyclePolicyPreview](../../../goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Verifies the existence of an image in an Amazon Elastic Container Registry (Amazon ECR) repository asynchronously.
      *
@@ -159,14 +139,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             }
         }
     }
-
-
 ```
++  For API details, see [StartLifecyclePolicyPreview](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [StartLifecyclePolicyPreview](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

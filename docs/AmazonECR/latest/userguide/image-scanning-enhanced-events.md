@@ -1,18 +1,13 @@
+
+
 # EventBridge events sent for enhanced scanning in Amazon ECR
+<a name="image-scanning-enhanced-events"></a>
 
-When enhanced scanning is turned on, Amazon ECR sends an event to EventBridge when the scan
-frequency for a repository is changed. Amazon Inspector sends events to EventBridge when an initial
-scan is completed and when an image scan finding is created, updated, or
-closed.
+When enhanced scanning is turned on, Amazon ECR sends an event to EventBridge when the scan frequency for a repository is changed. Amazon Inspector sends events to EventBridge when an initial scan is completed and when an image scan finding is created, updated, or closed.
 
-**Event for a repository scan frequency
-change**
+ **Event for a repository scan frequency change** 
 
-When enhanced scanning is turned on for your registry, the following event is sent
-by Amazon ECR when there is a change with a resource that has enhanced scanning turned
-on. This includes new repositories being created, the scan frequency for a
-repository being changed, or when images are created or deleted in repositories with
-enhanced scanning turned on. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md "image-scanning.md").
+When enhanced scanning is turned on for your registry, the following event is sent by Amazon ECR when there is a change with a resource that has enhanced scanning turned on. This includes new repositories being created, the scan frequency for a repository being changed, or when images are created or deleted in repositories with enhanced scanning turned on. For more information, see [Scan images for software vulnerabilities in Amazon ECR](image-scanning.md).
 
 ```
 {
@@ -20,27 +15,27 @@ enhanced scanning turned on. For more information, see [Scan images for software
 	"id": "0c18352a-a4d4-6853-ef53-0abEXAMPLE",
 	"detail-type": "ECR Scan Resource Change",
 	"source": "aws.ecr",
-	"account": "`123456789012`",
+	"account": "{{123456789012}}",
 	"time": "2021-10-14T20:53:46Z",
-	"region": "`us-east-1`",
+	"region": "{{us-east-1}}",
 	"resources": [],
 	"detail": {
 		"action-type": "SCAN_FREQUENCY_CHANGE",
 		"repositories": [{
 				"repository-name": "repository-1",
-				"repository-arn": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/repository-1",
+				"repository-arn": "arn:aws:ecr:{{us-east-1}}:{{123456789012}}:repository/repository-1",
 				"scan-frequency": "SCAN_ON_PUSH",
 				"previous-scan-frequency": "MANUAL"
 			},
 			{
 				"repository-name": "repository-2",
-				"repository-arn": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/repository-2",
+				"repository-arn": "arn:aws:ecr:{{us-east-1}}:{{123456789012}}:repository/repository-2",
 				"scan-frequency": "CONTINUOUS_SCAN",
 				"previous-scan-frequency": "SCAN_ON_PUSH"
 			},
 			{
 				"repository-name": "repository-3",
-				"repository-arn": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/repository-3",
+				"repository-arn": "arn:aws:ecr:{{us-east-1}}:{{123456789012}}:repository/repository-3",
 				"scan-frequency": "CONTINUOUS_SCAN",
 				"previous-scan-frequency": "SCAN_ON_PUSH"
 			}
@@ -51,14 +46,9 @@ enhanced scanning turned on. For more information, see [Scan images for software
 }
 ```
 
-**Event for an initial image scan (enhanced
-scanning)**
+ **Event for an initial image scan (enhanced scanning)** 
 
-When enhanced scanning is turned on for your registry, the following event is sent
-by Amazon Inspector when the initial image scan is completed. The `finding-severity-counts`
-parameter will only return a value for a severity level if one exists. For example,
-if the image contains no findings at `CRITICAL` level, then no critical
-count is returned. For more information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
+When enhanced scanning is turned on for your registry, the following event is sent by Amazon Inspector when the initial image scan is completed. The `finding-severity-counts` parameter will only return a value for a severity level if one exists. For example, if the image contains no findings at `CRITICAL` level, then no critical count is returned. For more information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md).
 
 Event pattern:
 
@@ -77,11 +67,11 @@ Example output:
     "id": "739c0d3c-4f02-85c7-5a88-94a9EXAMPLE",
     "detail-type": "Inspector2 Scan",
     "source": "aws.inspector2",
-    "account": "`123456789012`",
+    "account": "{{123456789012}}",
     "time": "2021-12-03T18:03:16Z",
     "region": "us-east-2",
     "resources": [
-        "arn:aws:ecr:us-east-2:`123456789012`:repository/amazon/amazon-ecs-sample"
+        "arn:aws:ecr:us-east-2:{{123456789012}}:repository/amazon/amazon-ecs-sample"
     ],
     "detail": {
         "scan-status": "INITIAL_SCAN_COMPLETE",
@@ -100,12 +90,9 @@ Example output:
 }
 ```
 
-**Event for an image scan finding update (enhanced
-scanning)**
+ **Event for an image scan finding update (enhanced scanning)** 
 
-When enhanced scanning is turned on for your registry, the following event is sent
-by Amazon Inspector when the image scan finding is created, updated, or closed. For more
-information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md "image-scanning-enhanced.md").
+When enhanced scanning is turned on for your registry, the following event is sent by Amazon Inspector when the image scan finding is created, updated, or closed. For more information, see [Scan images for OS and programming language package vulnerabilities in Amazon ECR](image-scanning-enhanced.md).
 
 Event pattern:
 
@@ -124,16 +111,16 @@ Example output:
     "id": "42dbea55-45ad-b2b4-87a8-afaEXAMPLE",
     "detail-type": "Inspector2 Finding",
     "source": "aws.inspector2",
-    "account": "`123456789012`",
+    "account": "{{123456789012}}",
     "time": "2021-12-03T18:02:30Z",
     "region": "us-east-2",
     "resources": [
-        "arn:aws:ecr:us-east-2:`123456789012`:repository/amazon/amazon-ecs-sample/sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77eEXAMPLE"
+        "arn:aws:ecr:us-east-2:{{123456789012}}:repository/amazon/amazon-ecs-sample/sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77eEXAMPLE"
     ],
     "detail": {
-        "awsAccountId": "`123456789012`",
+        "awsAccountId": "{{123456789012}}",
         "description": "In libssh2 v1.9.0 and earlier versions, the SSH_MSG_DISCONNECT logic in packet.c has an integer overflow in a bounds check, enabling an attacker to specify an arbitrary (out-of-bounds) offset for a subsequent memory read. A crafted SSH server may be able to disclose sensitive information or cause a denial of service condition on the client system when a user connects to the server.",
-        "findingArn": "arn:aws:inspector2:us-east-2:`123456789012`:finding/be674aaddd0f75ac632055EXAMPLE",
+        "findingArn": "arn:aws:inspector2:us-east-2:{{123456789012}}:finding/be674aaddd0f75ac632055EXAMPLE",
         "firstObservedAt": "Dec 3, 2021, 6:02:30 PM",
         "inspectorScore": 6.5,
         "inspectorScoreDetails": {
@@ -210,7 +197,7 @@ Example output:
                         "repositoryName": "amazon/amazon-ecs-sample"
                     }
                 },
-                "id": "arn:aws:ecr:us-east-2:`123456789012`:repository/amazon/amazon-ecs-sample/sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77EXAMPLE",
+                "id": "arn:aws:ecr:us-east-2:{{123456789012}}:repository/amazon/amazon-ecs-sample/sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77EXAMPLE",
                 "partition": "N/A",
                 "region": "N/A",
                 "type": "AWS_ECR_CONTAINER_IMAGE"

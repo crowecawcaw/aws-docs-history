@@ -1,53 +1,57 @@
+
+
 # Manually scanning an image for OS vulnerabilities in Amazon ECR
+<a name="manual-scan"></a>
 
-If your repositories aren't configured to **scan on push**, you
-can manually start image scans. An image can be scanned once per 24 hours. The 24
-hours includes the initial scan on push, if configured, and any manual scans.
+If your repositories aren't configured to **scan on push**, you can manually start image scans. An image can be scanned once per 24 hours. The 24 hours includes the initial scan on push, if configured, and any manual scans.
 
-For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in Amazon ECR](image-scanning-troubleshooting.md "image-scanning-troubleshooting.md").
+For troubleshooting details for some common issues when scanning images, see [Troubleshooting image scanning in Amazon ECR](image-scanning-troubleshooting.md).
 
-AWS Management Console
-Use the following steps to start a manual image scan using the
-AWS Management Console.
+------
+#### [ AWS Management Console ]
 
-1. Open the Amazon ECR console at [https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories "https://console.aws.amazon.com/ecr/private-registry/repositories")
-2. From the navigation bar, choose the Region to create your
-   repository in.
-3. In the navigation pane, choose **Repositories**
-   .
-4. On the **Repositories** page, choose the
-   repository that contains the image to scan.
-5. On the **Images** page, select the image to
-   scan and then choose **Scan**.
+Use the following steps to start a manual image scan using the AWS Management Console.
 
-AWS CLI
+1.  Open the Amazon ECR console at [ https://console.aws.amazon.com/ecr/private-registry/repositories](https://console.aws.amazon.com/ecr/private-registry/repositories)
 
-- [start-image-scan](../../../cli/latest/reference/ecr/start-image-scan.md "../../../cli/latest/reference/ecr/start-image-scan.md") (AWS CLI)
+1. From the navigation bar, choose the Region to create your repository in.
 
-The following example uses an image tag.
+1. In the navigation pane, choose **Repositories** .
 
-```
-`aws ecr start-image-scan --repository-name `name` --image-id imageTag=`tag_name` --region `us-east-2``
-```
+1. On the **Repositories** page, choose the repository that contains the image to scan.
 
-The following example uses an image digest.
+1. On the **Images** page, select the image to scan and then choose **Scan**.
 
-```
-`aws ecr start-image-scan --repository-name `name` --image-id imageDigest=`sha256_hash` --region `us-east-2``
-```
+------
+#### [ AWS CLI ]
++ [ start-image-scan](https://docs.aws.amazon.com/cli/latest/reference/ecr/start-image-scan.html) (AWS CLI)
 
-AWS Tools for Windows PowerShell
+  The following example uses an image tag.
 
-- [Get-ECRImageScanFinding](../../../powershell/latest/reference/items/Start-ECRImageScan.md "../../../powershell/latest/reference/items/Start-ECRImageScan.md") (AWS Tools for Windows PowerShell)
+  ```
+  aws ecr start-image-scan --repository-name {{name}} --image-id imageTag={{tag_name}} --region {{us-east-2}}
+  ```
 
-The following example uses an image tag.
+  The following example uses an image digest.
 
-```
-`Start-ECRImageScan -RepositoryName `name` -ImageId_ImageTag `tag_name` -Region `us-east-2` -Force`
-```
+  ```
+  aws ecr start-image-scan --repository-name {{name}} --image-id imageDigest={{sha256_hash}} --region {{us-east-2}}
+  ```
 
-The following example uses an image digest.
+------
+#### [ AWS Tools for Windows PowerShell ]
++ [ Get-ECRImageScanFinding](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-ECRImageScan.html) (AWS Tools for Windows PowerShell)
 
-```
-`Start-ECRImageScan -RepositoryName `name` -ImageId_ImageDigest `sha256_hash` -Region `us-east-2` -Force`
-```
+  The following example uses an image tag.
+
+  ```
+  Start-ECRImageScan -RepositoryName {{name}} -ImageId_ImageTag {{tag_name}} -Region {{us-east-2}} -Force
+  ```
+
+  The following example uses an image digest.
+
+  ```
+  Start-ECRImageScan -RepositoryName {{name}} -ImageId_ImageDigest {{sha256_hash}} -Region {{us-east-2}} -Force
+  ```
+
+------

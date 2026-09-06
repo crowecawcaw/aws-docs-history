@@ -1,28 +1,26 @@
+
+
 # Use `DescribeImages` with an AWS SDK or CLI
+<a name="example_ecr_DescribeImages_section"></a>
 
 The following code examples show how to use `DescribeImages`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md) 
 
-- [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe an image in a repository**
-
-The following `describe-images` example displays details about an image in the `cluster-autoscaler` repository with the tag `v1.13.6`.
+**AWS CLI**  
+**To describe an image in a repository**  
+The following `describe-images` example displays details about an image in the `cluster-autoscaler` repository with the tag `v1.13.6`.  
 
 ```
-`aws ecr describe-images \
- --repository-name `cluster-autoscaler` \
- --image-ids `imageTag=v1.13.6``
-
+aws ecr describe-images \
+    --repository-name {{cluster-autoscaler}} \
+    --image-ids {{imageTag=v1.13.6}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -40,20 +38,13 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-images.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-images.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -93,26 +84,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         // Wait for the CompletableFuture to complete.
         response.join();
     }
+```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeImages](../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Verifies the existence of an image in an Amazon Elastic Container Registry (Amazon ECR) repository asynchronously.
      *
@@ -145,23 +126,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             }
         }
     }
-
-
 ```
++  For API details, see [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 class ECRWrapper:
@@ -207,24 +179,14 @@ class ECRWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/DescribeImages) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeImages](../../../goto/boto3/ecr-2015-09-21/DescribeImages.md "../../../goto/boto3/ecr-2015-09-21/DescribeImages.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
 ```
     TRY.
@@ -247,14 +209,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ecrinvalidparameterex.
         MESSAGE 'Invalid parameter provided.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeImages](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

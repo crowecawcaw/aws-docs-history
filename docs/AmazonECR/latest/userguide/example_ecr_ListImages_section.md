@@ -1,22 +1,22 @@
+
+
 # Use `ListImages` with an AWS SDK or CLI
+<a name="example_ecr_ListImages_section"></a>
 
 The following code examples show how to use `ListImages`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list the images in a repository**
-
-The following `list-images` example displays a list of the images in the `cluster-autoscaler` repository.
-
-```
-`aws ecr list-images \
- --repository-name `cluster-autoscaler``
+**AWS CLI**  
+**To list the images in a repository**  
+The following `list-images` example displays a list of the images in the `cluster-autoscaler` repository.  
 
 ```
-
-Output:
+aws ecr list-images \
+    --repository-name {{cluster-autoscaler}}
+```
+Output:  
 
 ```
 {
@@ -36,20 +36,13 @@ Output:
     ]
 }
 ```
++  For API details, see [ListImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/list-images.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/list-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/list-images.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ecr#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ecr#code-examples). 
 
 ```
 async fn show_images(
@@ -76,14 +69,9 @@ async fn show_images(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListImages](https://docs.rs/aws-sdk-ecr/latest/aws_sdk_ecr/client/struct.Client.html#method.list_images) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListImages](https://docs.rs/aws-sdk-ecr/latest/aws_sdk_ecr/client/struct.Client.html#method.list_images "https://docs.rs/aws-sdk-ecr/latest/aws_sdk_ecr/client/struct.Client.html#method.list_images")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

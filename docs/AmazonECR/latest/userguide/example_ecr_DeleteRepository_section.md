@@ -1,29 +1,27 @@
+
+
 # Use `DeleteRepository` with an AWS SDK or CLI
+<a name="example_ecr_DeleteRepository_section"></a>
 
 The following code examples show how to use `DeleteRepository`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md) 
++  [Getting started with container registries](example_ecr_GettingStarted_078_section.md) 
 
-- [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
-- [Getting started with container registries](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete a repository**
-
-The following `delete-repository` example command force deletes the specified repository in the default registry for an account. The `--force` flag is required if the repository contains images.
+**AWS CLI**  
+**To delete a repository**  
+The following `delete-repository` example command force deletes the specified repository in the default registry for an account. The `--force` flag is required if the repository contains images.  
 
 ```
-`aws ecr delete-repository \
- --repository-name `ubuntu` \
- --force`
-
+aws ecr delete-repository \
+    --repository-name {{ubuntu}} \
+    --force
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -34,22 +32,14 @@ Output:
     }
 }
 ```
+For more information, see [Deleting a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-delete.html) in the *Amazon ECR User Guide*.  
++  For API details, see [DeleteRepository](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/delete-repository.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Deleting a Repository](repository-delete.md "repository-delete.md") in the _Amazon ECR User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteRepository](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/delete-repository.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/delete-repository.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -87,26 +77,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         // Wait for the CompletableFuture to complete
         response.join();
     }
+```
++  For API details, see [DeleteRepository](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [DeleteRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Deletes an ECR (Elastic Container Registry) repository.
      *
@@ -128,23 +108,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             println("You have successfully deleted the $repoName repository")
         }
     }
-
-
 ```
++  For API details, see [DeleteRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 class ECRWrapper:
@@ -180,24 +151,14 @@ class ECRWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteRepository](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/DeleteRepository) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteRepository](../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md "../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
 ```
     TRY.
@@ -209,14 +170,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ecrrepositorynotfndex.
         MESSAGE 'Repository not found.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteRepository](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteRepository](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

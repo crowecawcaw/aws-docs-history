@@ -1,32 +1,30 @@
+
+
 # Use `SetRepositoryPolicy` with an AWS SDK or CLI
+<a name="example_ecr_SetRepositoryPolicy_section"></a>
 
 The following code examples show how to use `SetRepositoryPolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md) 
 
-- [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To set the repository policy for a repository**
-
-The following `set-repository-policy` example attaches a repository policy contained in a file to the `cluster-autoscaler` repository.
+**AWS CLI**  
+**To set the repository policy for a repository**  
+The following `set-repository-policy` example attaches a repository policy contained in a file to the `cluster-autoscaler` repository.  
 
 ```
-`aws ecr set-repository-policy \
- --repository-name `cluster-autoscaler` \
- --policy-text `file://my-policy.json``
-
+aws ecr set-repository-policy \
+    --repository-name {{cluster-autoscaler}} \
+    --policy-text {{file://my-policy.json}}
 ```
-
-Contents of `my-policy.json`:
+Contents of `my-policy.json`:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement" : [
         {
             "Sid" : "allow public pull",
@@ -41,8 +39,7 @@ Contents of `my-policy.json`:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -51,20 +48,13 @@ Output:
     "policyText": "{\n  \"Version\" : \"2008-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"allow public pull\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : \"*\",\n    \"Action\" : [ \"ecr:BatchCheckLayerAvailability\", \"ecr:BatchGetImage\", \"ecr:GetDownloadUrlForLayer\" ]\n  } ]\n}"
 }
 ```
++  For API details, see [SetRepositoryPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/set-repository-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SetRepositoryPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/set-repository-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/set-repository-policy.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -83,7 +73,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
          */
         String policyDocumentTemplate = """
              {
-              "Version":"2012-10-17",
+              "Version":"2012-10-17",		 	 	 
               "Statement" : [ {
                 "Sid" : "new statement",
                 "Effect" : "Allow",
@@ -119,26 +109,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         });
         response.join();
     }
+```
++  For API details, see [SetRepositoryPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [SetRepositoryPolicy](../../../goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Sets the repository policy for the specified ECR repository.
      *
@@ -152,7 +132,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
         val policyDocumentTemplate =
             """
              {
-              "Version":"2012-10-17",
+              "Version":"2012-10-17",		 	 	 
               "Statement" : [ {
                 "Sid" : "new statement",
                 "Effect" : "Allow",
@@ -162,7 +142,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
                 "Action" : "ecr:BatchGetImage"
               } ]
             }
-
+             
             """.trimIndent()
         val setRepositoryPolicyRequest =
             SetRepositoryPolicyRequest {
@@ -177,23 +157,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             }
         }
     }
-
-
 ```
++  For API details, see [SetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [SetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 class ECRWrapper:
@@ -234,12 +205,8 @@ class ECRWrapper:
                     err.response["Error"]["Message"],
                 )
                 raise
-
-
-
 ```
-
-Example that grants an IAM role download access.
+Example that grants an IAM role download access.  
 
 ```
     def grant_role_download_access(self, role_arn: str):
@@ -249,7 +216,7 @@ Example that grants an IAM role download access.
         :param role_arn: The ARN of the role to grant access to.
         """
         policy_json = {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "AllowDownload",
@@ -263,29 +230,19 @@ Example that grants an IAM role download access.
         self.ecr_wrapper.set_repository_policy(
             self.repository_name, json.dumps(policy_json)
         )
-
-
-
 ```
++  For API details, see [SetRepositoryPolicy](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/SetRepositoryPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SetRepositoryPolicy](../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md "../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
 ```
     TRY.
         " iv_repository_name = 'my-repository'
-        " iv_policy_text = '{"Version":"2012-10-17","Statement":[...]}'
+        " iv_policy_text = '{"Version":"2012-10-17",		 	 	 "Statement":[...]}'
         lo_ecr->setrepositorypolicy(
           iv_repositoryname = iv_repository_name
           iv_policytext = iv_policy_text ).
@@ -293,14 +250,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ecrrepositorynotfndex.
         MESSAGE 'Repository not found.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [SetRepositoryPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SetRepositoryPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

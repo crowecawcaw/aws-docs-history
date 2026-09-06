@@ -1,28 +1,26 @@
+
+
 # Use `CreateRepository` with an AWS SDK or CLI
+<a name="example_ecr_CreateRepository_section"></a>
 
 The following code examples show how to use `CreateRepository`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md) 
++  [Getting started with container registries](example_ecr_GettingStarted_078_section.md) 
 
-- [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
-- [Getting started with container registries](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a repository**
-
-The following `create-repository` example creates a repository inside the specified namespace in the default registry for an account.
+**AWS CLI**  
+**Example 1: To create a repository**  
+The following `create-repository` example creates a repository inside the specified namespace in the default registry for an account.  
 
 ```
-`aws ecr create-repository \
- --repository-name `project-a/sample-repo``
-
+aws ecr create-repository \
+    --repository-name {{project-a/sample-repo}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -33,21 +31,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Creating a Repository](repository-create.md "repository-create.md") in the _Amazon ECR User Guide_.
-
-**Example 2: To create a repository configured with image tag immutability**
-
-The following `create-repository` example creates a repository configured for tag immutability in the default registry for an account.
+For more information, see [Creating a Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html) in the *Amazon ECR User Guide*.  
+**Example 2: To create a repository configured with image tag immutability**  
+The following `create-repository` example creates a repository configured for tag immutability in the default registry for an account.  
 
 ```
-`aws ecr create-repository \
- --repository-name `project-a/sample-repo` \
- --image-tag-mutability `IMMUTABLE``
-
+aws ecr create-repository \
+    --repository-name {{project-a/sample-repo}} \
+    --image-tag-mutability {{IMMUTABLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -59,21 +52,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Image Tag Mutability](image-tag-mutability.md "image-tag-mutability.md") in the _Amazon ECR User Guide_.
-
-**Example 3: To create a repository configured with a scanning configuration**
-
-The following `create-repository` example creates a repository configured to perform a vulnerability scan on image push in the default registry for an account.
+For more information, see [Image Tag Mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html) in the *Amazon ECR User Guide*.  
+**Example 3: To create a repository configured with a scanning configuration**  
+The following `create-repository` example creates a repository configured to perform a vulnerability scan on image push in the default registry for an account.  
 
 ```
-`aws ecr create-repository \
- --repository-name `project-a/sample-repo` \
- --image-scanning-configuration `scanOnPush=true``
-
+aws ecr create-repository \
+    --repository-name {{project-a/sample-repo}} \
+    --image-scanning-configuration {{scanOnPush=true}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -87,22 +75,14 @@ Output:
     }
 }
 ```
+For more information, see [Image Scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) in the *Amazon ECR User Guide*.  
++  For API details, see [CreateRepository](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/create-repository.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Image Scanning](image-scanning.md "image-scanning.md") in the _Amazon ECR User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateRepository](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/create-repository.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/create-repository.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
     /**
@@ -149,26 +129,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }
     }
+```
++  For API details, see [CreateRepository](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-```
-
     /**
      * Creates an Amazon Elastic Container Registry (Amazon ECR) repository.
      *
@@ -196,23 +166,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
             null
         }
     }
-
-
 ```
++  For API details, see [CreateRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 class ECRWrapper:
@@ -254,24 +215,14 @@ class ECRWrapper:
                     err.response["Error"]["Message"],
                 )
                 raise
-
-
-
 ```
++  For API details, see [CreateRepository](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/CreateRepository) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateRepository](../../../goto/boto3/ecr-2015-09-21/CreateRepository.md "../../../goto/boto3/ecr-2015-09-21/CreateRepository.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
 ```
     TRY.
@@ -292,14 +243,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           MESSAGE |Repository { iv_repository_name } already exists.| TYPE 'I'.
         ENDIF.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateRepository](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateRepository](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

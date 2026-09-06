@@ -1,28 +1,25 @@
+
+
 # Learn the basics of Amazon ECR with an AWS SDK
+<a name="example_ecr_Scenario_RepositoryManagement_section"></a>
 
 The following code examples show how to:
++ Create an Amazon ECR repository.
++ Set repository policies.
++ Retrieve repository URIs.
++ Get Amazon ECR authorization tokens.
++ Set lifecycle policies for Amazon ECR repositories.
++ Push a Docker image to an Amazon ECR repository.
++ Verify the existence of an image in an Amazon ECR repository.
++ List Amazon ECR repositories for your account and get details about them.
++ Delete Amazon ECR repositories.
 
-- Create an Amazon ECR repository.
-- Set repository policies.
-- Retrieve repository URIs.
-- Get Amazon ECR authorization tokens.
-- Set lifecycle policies for Amazon ECR repositories.
-- Push a Docker image to an Amazon ECR repository.
-- Verify the existence of an image in an Amazon ECR repository.
-- List Amazon ECR repositories for your account and get details about them.
-- Delete Amazon ECR repositories.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
-
-Run an interactive scenario demonstrating Amazon ECR features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
+Run an interactive scenario demonstrating Amazon ECR features.  
 
 ```
 import software.amazon.awssdk.services.ecr.model.EcrException;
@@ -59,7 +56,7 @@ public class ECRScenario {
 
             Where:
                iamRoleARN - The IAM role ARN that has the necessary permissions to access and manage the Amazon ECR repository.
-               accountId - Your AWS account number.
+               accountId - Your AWS account number. 
             """;
 
         if (args.length != 2) {
@@ -74,25 +71,25 @@ public class ECRScenario {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
-             The Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry
-             service provided by AWS. It allows developers and organizations to securely
-             store, manage, and deploy Docker container images.
-             ECR provides a simple and scalable way to manage container images throughout their lifecycle,
+             The Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry 
+             service provided by AWS. It allows developers and organizations to securely 
+             store, manage, and deploy Docker container images. 
+             ECR provides a simple and scalable way to manage container images throughout their lifecycle, 
              from building and testing to production deployment.\s
-
-             The `EcrAsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to
-             programmatically interact with the Amazon ECR service. This allows developers to
-             automate the storage, retrieval, and management of container images as part of their application
-             deployment pipelines. With ECR, teams can focus on building and deploying their
-             applications without having to worry about the underlying infrastructure required to
+                         
+             The `EcrAsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to 
+             programmatically interact with the Amazon ECR service. This allows developers to 
+             automate the storage, retrieval, and management of container images as part of their application 
+             deployment pipelines. With ECR, teams can focus on building and deploying their 
+             applications without having to worry about the underlying infrastructure required to 
              host and manage a container registry.
-
-            This scenario walks you through how to perform key operations for this service.
+             
+            This scenario walks you through how to perform key operations for this service.  
             Let's get started...
-
+                       
             You have two choices:
             1 - Run the entire program.
-            2 - Delete an existing Amazon ECR repository named echo-text (created from a previous execution of
+            2 - Delete an existing Amazon ECR repository named echo-text (created from a previous execution of 
             this program that did not complete).
             """);
 
@@ -117,12 +114,12 @@ public class ECRScenario {
 
         System.out.println("""
            1. Create an ECR repository.
-
-           The first task is to ensure we have a local Docker image named echo-text.
-           If this image exists, then an Amazon ECR repository is created.
-
-           An ECR repository is a private Docker container repository provided
-           by Amazon Web Services (AWS). It is a managed service that makes it easy
+            
+           The first task is to ensure we have a local Docker image named echo-text. 
+           If this image exists, then an Amazon ECR repository is created. 
+           
+           An ECR repository is a private Docker container repository provided 
+           by Amazon Web Services (AWS). It is a managed service that makes it easy 
            to store, manage, and deploy Docker container images.\s
            """ );
 
@@ -154,11 +151,11 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
         2. Set an ECR repository policy.
-
+        
         Setting an ECR repository policy using the `setRepositoryPolicy` function is crucial for maintaining
-        the security and integrity of your container images. The repository policy allows you to
-        define specific rules and restrictions for accessing and managing the images stored within your ECR
-        repository.
+        the security and integrity of your container images. The repository policy allows you to 
+        define specific rules and restrictions for accessing and managing the images stored within your ECR 
+        repository.    
         """);
         waitForInputToContinue(scanner);
         try {
@@ -179,8 +176,8 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
         3. Display ECR repository policy.
-
-        Now we will retrieve the ECR policy to ensure it was successfully set.
+       
+        Now we will retrieve the ECR policy to ensure it was successfully set.   
         """);
         waitForInputToContinue(scanner);
         try {
@@ -201,14 +198,14 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
         4. Retrieve an ECR authorization token.
-
-        You need an authorization token to securely access and interact with the Amazon ECR registry.
-        The `getAuthorizationToken` method of the `EcrAsyncClient` is responsible for securely accessing
-        and interacting with an Amazon ECR repository. This operation is responsible for obtaining a
-        valid authorization token, which is required to authenticate your requests to the ECR service.
-
-        Without a valid authorization token, you would not be able to perform any operations on the
-        ECR repository, such as pushing, pulling, or managing your Docker images.
+       
+        You need an authorization token to securely access and interact with the Amazon ECR registry. 
+        The `getAuthorizationToken` method of the `EcrAsyncClient` is responsible for securely accessing 
+        and interacting with an Amazon ECR repository. This operation is responsible for obtaining a 
+        valid authorization token, which is required to authenticate your requests to the ECR service. 
+        
+        Without a valid authorization token, you would not be able to perform any operations on the 
+        ECR repository, such as pushing, pulling, or managing your Docker images.    
         """);
         waitForInputToContinue(scanner);
         try {
@@ -226,12 +223,12 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
         5. Get the ECR Repository URI.
-
-        The URI  of an Amazon ECR repository is important. When you want to deploy a container image to
-        a container orchestration platform like Amazon Elastic Kubernetes Service (EKS)
-        or Amazon Elastic Container Service (ECS), you need to specify the full image URI,
-        which includes the ECR repository URI. This allows the container runtime to pull the
-        correct container image from the ECR repository.
+                    
+        The URI  of an Amazon ECR repository is important. When you want to deploy a container image to 
+        a container orchestration platform like Amazon Elastic Kubernetes Service (EKS) 
+        or Amazon Elastic Container Service (ECS), you need to specify the full image URI, 
+        which includes the ECR repository URI. This allows the container runtime to pull the 
+        correct container image from the ECR repository.    
        """);
         waitForInputToContinue(scanner);
 
@@ -251,13 +248,13 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
             6. Set an ECR Lifecycle Policy.
-
-            An ECR Lifecycle Policy is used to manage the lifecycle of Docker images stored in your ECR repositories.
-            These policies allow you to automatically remove old or unused Docker images from your repositories,
-            freeing up storage space and reducing costs.
-
+                        
+            An ECR Lifecycle Policy is used to manage the lifecycle of Docker images stored in your ECR repositories. 
+            These policies allow you to automatically remove old or unused Docker images from your repositories, 
+            freeing up storage space and reducing costs.    
+                    
             This example policy helps to maintain the size and efficiency of the container registry
-            by automatically removing older and potentially unused images, ensuring that the
+            by automatically removing older and potentially unused images, ensuring that the 
             storage is optimized and the registry remains up-to-date.
             """);
         waitForInputToContinue(scanner);
@@ -274,11 +271,11 @@ public class ECRScenario {
         System.out.println(DASHES);
         System.out.println("""
         7. Push a docker image to the Amazon ECR Repository.
-
+            
         The `pushImageCmd()` method pushes a local Docker image to an Amazon ECR repository.
         It sets up the Docker client by connecting to the local Docker host using the default port.
         It then retrieves the authorization token for the ECR repository by making a call to the AWS SDK.
-
+            
         The method uses the authorization token to create an `AuthConfig` object, which is used to authenticate
         the Docker client when pushing the image. Finally, the method tags the Docker image with the specified
         repository name and image tag, and then pushes the image to the ECR repository using the Docker client.
@@ -340,8 +337,8 @@ public class ECRScenario {
         System.out.println("10. Delete the ECR Repository.");
         System.out.println(
         """
-        If the repository isn't empty, you must either delete the contents of the repository
-        or use the force option (used in this scenario) to delete the repository and have Amazon ECR delete all of its contents
+        If the repository isn't empty, you must either delete the contents of the repository 
+        or use the force option (used in this scenario) to delete the repository and have Amazon ECR delete all of its contents 
         on your behalf.
         """);
         System.out.println("Would you like to delete the Amazon ECR Repository? (y/n)");
@@ -384,11 +381,8 @@ public class ECRScenario {
        }
    }
 }
-
-
 ```
-
-A wrapper class for Amazon ECR SDK methods.
+A wrapper class for Amazon ECR SDK methods.  
 
 ```
 import com.github.dockerjava.api.DockerClient;
@@ -782,7 +776,7 @@ public class ECRActions {
          */
         String policyDocumentTemplate = """
              {
-              "Version":"2012-10-17",
+              "Version":"2012-10-17",		 	 	 
               "Statement" : [ {
                 "Sid" : "new statement",
                 "Effect" : "Allow",
@@ -890,32 +884,23 @@ public class ECRActions {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateRepository](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository)
+  + [DeleteRepository](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages)
+  + [DescribeRepositories](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/DescribeRepositories)
+  + [GetAuthorizationToken](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/GetAuthorizationToken)
+  + [GetRepositoryPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/GetRepositoryPolicy)
+  + [SetRepositoryPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy)
+  + [StartLifecyclePolicyPreview](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-  - [CreateRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md")
-  - [DeleteRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md")
-  - [DescribeImages](../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md")
-  - [DescribeRepositories](../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeRepositories.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeRepositories.md")
-  - [GetAuthorizationToken](../../../goto/SdkForJavaV2/ecr-2015-09-21/GetAuthorizationToken.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/GetAuthorizationToken.md")
-  - [GetRepositoryPolicy](../../../goto/SdkForJavaV2/ecr-2015-09-21/GetRepositoryPolicy.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/GetRepositoryPolicy.md")
-  - [SetRepositoryPolicy](../../../goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/SetRepositoryPolicy.md")
-  - [StartLifecyclePolicyPreview](../../../goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/StartLifecyclePolicyPreview.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
-
-Run an interactive scenario demonstrating Amazon ECR features.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
+Run an interactive scenario demonstrating Amazon ECR features.  
 
 ```
 import java.util.Scanner
@@ -950,8 +935,8 @@ suspend fun main(args: Array<String>) {
 
         Where:
            iamRoleARN - The IAM role ARN that has the necessary permissions to access and manage the Amazon ECR repository.
-           accountId - Your AWS account number.
-
+           accountId - Your AWS account number. 
+        
         """.trimIndent()
 
     if (args.size != 2) {
@@ -967,27 +952,27 @@ suspend fun main(args: Array<String>) {
 
     println(
         """
-        The Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry
-        service provided by AWS. It allows developers and organizations to securely
-        store, manage, and deploy Docker container images.
-        ECR provides a simple and scalable way to manage container images throughout their lifecycle,
-        from building and testing to production deployment.
-
-        The `EcrClient` service client that is part of the AWS SDK for Kotlin provides a set of methods to
-        programmatically interact with the Amazon ECR service. This allows developers to
-        automate the storage, retrieval, and management of container images as part of their application
-        deployment pipelines. With ECR, teams can focus on building and deploying their
-        applications without having to worry about the underlying infrastructure required to
+        The Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry 
+        service provided by AWS. It allows developers and organizations to securely 
+        store, manage, and deploy Docker container images. 
+        ECR provides a simple and scalable way to manage container images throughout their lifecycle, 
+        from building and testing to production deployment. 
+                        
+        The `EcrClient` service client that is part of the AWS SDK for Kotlin provides a set of methods to 
+        programmatically interact with the Amazon ECR service. This allows developers to 
+        automate the storage, retrieval, and management of container images as part of their application 
+        deployment pipelines. With ECR, teams can focus on building and deploying their 
+        applications without having to worry about the underlying infrastructure required to 
         host and manage a container registry.
-
-        This scenario walks you through how to perform key operations for this service.
+            
+        This scenario walks you through how to perform key operations for this service.  
         Let's get started...
-
+        
          You have two choices:
             1 - Run the entire program.
-            2 - Delete an existing Amazon ECR repository named echo-text (created from a previous execution of
+            2 - Delete an existing Amazon ECR repository named echo-text (created from a previous execution of 
             this program that did not complete).
-
+          
         """.trimIndent(),
     )
 
@@ -1012,14 +997,14 @@ suspend fun main(args: Array<String>) {
     println(
         """
         1. Create an ECR repository.
-
-        The first task is to ensure we have a local Docker image named echo-text.
-        If this image exists, then an Amazon ECR repository is created.
-
-        An ECR repository is a private Docker container repository provided
-        by Amazon Web Services (AWS). It is a managed service that makes it easy
-        to store, manage, and deploy Docker container images.
-
+         
+        The first task is to ensure we have a local Docker image named echo-text. 
+        If this image exists, then an Amazon ECR repository is created. 
+        
+        An ECR repository is a private Docker container repository provided 
+        by Amazon Web Services (AWS). It is a managed service that makes it easy 
+        to store, manage, and deploy Docker container images. 
+        
         """.trimIndent(),
     )
 
@@ -1042,12 +1027,12 @@ suspend fun main(args: Array<String>) {
     println(
         """
         2. Set an ECR repository policy.
-
+        
         Setting an ECR repository policy using the `setRepositoryPolicy` function is crucial for maintaining
-        the security and integrity of your container images. The repository policy allows you to
-        define specific rules and restrictions for accessing and managing the images stored within your ECR
-        repository.
-
+        the security and integrity of your container images. The repository policy allows you to 
+        define specific rules and restrictions for accessing and managing the images stored within your ECR 
+        repository.    
+        
         """.trimIndent(),
     )
     waitForInputToContinue(scanner)
@@ -1058,8 +1043,8 @@ suspend fun main(args: Array<String>) {
     println(
         """
         3. Display ECR repository policy.
-
-        Now we will retrieve the ECR policy to ensure it was successfully set.
+        
+        Now we will retrieve the ECR policy to ensure it was successfully set.   
         """.trimIndent(),
     )
     waitForInputToContinue(scanner)
@@ -1072,15 +1057,15 @@ suspend fun main(args: Array<String>) {
     println(
         """
         4. Retrieve an ECR authorization token.
-
-        You need an authorization token to securely access and interact with the Amazon ECR registry.
-        The `getAuthorizationToken` method of the `EcrAsyncClient` is responsible for securely accessing
-        and interacting with an Amazon ECR repository. This operation is responsible for obtaining a
-        valid authorization token, which is required to authenticate your requests to the ECR service.
-
-        Without a valid authorization token, you would not be able to perform any operations on the
-        ECR repository, such as pushing, pulling, or managing your Docker images.
-
+        
+        You need an authorization token to securely access and interact with the Amazon ECR registry. 
+        The `getAuthorizationToken` method of the `EcrAsyncClient` is responsible for securely accessing 
+        and interacting with an Amazon ECR repository. This operation is responsible for obtaining a 
+        valid authorization token, which is required to authenticate your requests to the ECR service. 
+        
+        Without a valid authorization token, you would not be able to perform any operations on the 
+        ECR repository, such as pushing, pulling, or managing your Docker images.    
+        
         """.trimIndent(),
     )
     waitForInputToContinue(scanner)
@@ -1091,13 +1076,13 @@ suspend fun main(args: Array<String>) {
     println(
         """
         5. Get the ECR Repository URI.
-
-        The URI  of an Amazon ECR repository is important. When you want to deploy a container image to
-        a container orchestration platform like Amazon Elastic Kubernetes Service (EKS)
-        or Amazon Elastic Container Service (ECS), you need to specify the full image URI,
-        which includes the ECR repository URI. This allows the container runtime to pull the
-        correct container image from the ECR repository.
-
+                    
+        The URI  of an Amazon ECR repository is important. When you want to deploy a container image to 
+        a container orchestration platform like Amazon Elastic Kubernetes Service (EKS) 
+        or Amazon Elastic Container Service (ECS), you need to specify the full image URI, 
+        which includes the ECR repository URI. This allows the container runtime to pull the 
+        correct container image from the ECR repository.    
+        
         """.trimIndent(),
     )
     waitForInputToContinue(scanner)
@@ -1109,11 +1094,11 @@ suspend fun main(args: Array<String>) {
     println(
         """
         6. Set an ECR Lifecycle Policy.
-
-        An ECR Lifecycle Policy is used to manage the lifecycle of Docker images stored in your ECR repositories.
-        These policies allow you to automatically remove old or unused Docker images from your repositories,
-        freeing up storage space and reducing costs.
-
+                    
+        An ECR Lifecycle Policy is used to manage the lifecycle of Docker images stored in your ECR repositories. 
+        These policies allow you to automatically remove old or unused Docker images from your repositories, 
+        freeing up storage space and reducing costs.    
+        
         """.trimIndent(),
     )
     waitForInputToContinue(scanner)
@@ -1125,16 +1110,16 @@ suspend fun main(args: Array<String>) {
     println(
         """
         7. Push a docker image to the Amazon ECR Repository.
-
+            
         The `pushImageCmd()` method pushes a local Docker image to an Amazon ECR repository.
         It sets up the Docker client by connecting to the local Docker host using the default port.
         It then retrieves the authorization token for the ECR repository by making a call to the AWS SDK.
-
+            
         The method uses the authorization token to create an `AuthConfig` object, which is used to authenticate
         the Docker client when pushing the image. Finally, the method tags the Docker image with the specified
         repository name and image tag, and then pushes the image to the ECR repository using the Docker client.
         If the push operation is successful, the method prints a message indicating that the image was pushed to ECR.
-
+        
         """.trimIndent(),
     )
 
@@ -1155,15 +1140,15 @@ suspend fun main(args: Array<String>) {
     if (ans.equals("y", true)) {
         val instructions = """
         1. Authenticate with ECR - Before you can pull the image from Amazon ECR, you need to authenticate with the registry. You can do this using the AWS CLI:
-
+        
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $accountId.dkr.ecr.us-east-1.amazonaws.com
-
+        
         2. Describe the image using this command:
-
+        
            aws ecr describe-images --repository-name $repoName --image-ids imageTag=$localImageName
-
+        
         3. Run the Docker container and view the output using this command:
-
+        
            docker run --rm $accountId.dkr.ecr.us-east-1.amazonaws.com/$repoName:$localImageName
         """
         println(instructions)
@@ -1174,10 +1159,10 @@ suspend fun main(args: Array<String>) {
     println("10. Delete the ECR Repository.")
     println(
         """
-        If the repository isn't empty, you must either delete the contents of the repository
-        or use the force option (used in this scenario) to delete the repository and have Amazon ECR delete all of its contents
+        If the repository isn't empty, you must either delete the contents of the repository 
+        or use the force option (used in this scenario) to delete the repository and have Amazon ECR delete all of its contents 
         on your behalf.
-
+        
         """.trimIndent(),
     )
     println("Would you like to delete the Amazon ECR Repository? (y/n)")
@@ -1208,11 +1193,8 @@ private fun waitForInputToContinue(scanner: Scanner) {
         }
     }
 }
-
-
 ```
-
-A wrapper class for Amazon ECR SDK methods.
+A wrapper class for Amazon ECR SDK methods.  
 
 ```
 import aws.sdk.kotlin.services.ecr.EcrClient
@@ -1277,7 +1259,7 @@ class ECRActions {
                  }
             ]
             }
-
+            
             """.trimIndent()
         val lifecyclePolicyPreviewRequest =
             StartLifecyclePolicyPreviewRequest {
@@ -1369,7 +1351,7 @@ class ECRActions {
         val policyDocumentTemplate =
             """
              {
-              "Version":"2012-10-17",
+              "Version":"2012-10-17",		 	 	 
               "Statement" : [ {
                 "Sid" : "new statement",
                 "Effect" : "Allow",
@@ -1379,7 +1361,7 @@ class ECRActions {
                 "Action" : "ecr:BatchGetImage"
               } ]
             }
-
+             
             """.trimIndent()
         val setRepositoryPolicyRequest =
             SetRepositoryPolicyRequest {
@@ -1576,32 +1558,23 @@ class ECRActions {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeRepositories](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetAuthorizationToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [SetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartLifecyclePolicyPreview](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [CreateRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeRepositories](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetAuthorizationToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [SetRepositoryPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartLifecyclePolicyPreview](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class ECRGettingStarted:
@@ -1778,7 +1751,7 @@ storage is optimized and the registry remains up-to-date.
             """
 * Push a docker image to the Amazon ECR Repository.
 
-The Docker client uses the authorization token is used to authenticate the when pushing the image to the
+The Docker client uses the authorization token is used to authenticate the when pushing the image to the 
 ECR repository.
         """
         )
@@ -1863,7 +1836,7 @@ ECR repository.
         :param role_arn: The ARN of the role to grant access to.
         """
         policy_json = {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "AllowDownload",
@@ -1933,7 +1906,7 @@ if __name__ == "__main__":
     except docker.errors.DockerException as err:
         logging.error(
             """
-        The Python Docker client could not be created.
+        The Python Docker client could not be created. 
         Do you have Docker installed and running?
         Here is the error message:
         %s
@@ -1950,12 +1923,8 @@ if __name__ == "__main__":
         logging.exception("Something went wrong with the demo!")
         if demo is not None:
             demo.cleanup(False)
-
-
-
 ```
-
-ECRWrapper class that wraps Amazon ECR actions.
+ECRWrapper class that wraps Amazon ECR actions.  
 
 ```
 class ECRWrapper:
@@ -2156,24 +2125,17 @@ class ECRWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateRepository](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/CreateRepository)
+  + [DeleteRepository](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/DeleteRepository)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/DescribeImages)
+  + [DescribeRepositories](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/DescribeRepositories)
+  + [GetAuthorizationToken](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/GetAuthorizationToken)
+  + [GetRepositoryPolicy](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/GetRepositoryPolicy)
+  + [SetRepositoryPolicy](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/SetRepositoryPolicy)
+  + [StartLifecyclePolicyPreview](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/StartLifecyclePolicyPreview)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateRepository](../../../goto/boto3/ecr-2015-09-21/CreateRepository.md "../../../goto/boto3/ecr-2015-09-21/CreateRepository.md")
-  - [DeleteRepository](../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md "../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md")
-  - [DescribeImages](../../../goto/boto3/ecr-2015-09-21/DescribeImages.md "../../../goto/boto3/ecr-2015-09-21/DescribeImages.md")
-  - [DescribeRepositories](../../../goto/boto3/ecr-2015-09-21/DescribeRepositories.md "../../../goto/boto3/ecr-2015-09-21/DescribeRepositories.md")
-  - [GetAuthorizationToken](../../../goto/boto3/ecr-2015-09-21/GetAuthorizationToken.md "../../../goto/boto3/ecr-2015-09-21/GetAuthorizationToken.md")
-  - [GetRepositoryPolicy](../../../goto/boto3/ecr-2015-09-21/GetRepositoryPolicy.md "../../../goto/boto3/ecr-2015-09-21/GetRepositoryPolicy.md")
-  - [SetRepositoryPolicy](../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md "../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md")
-  - [StartLifecyclePolicyPreview](../../../goto/boto3/ecr-2015-09-21/StartLifecyclePolicyPreview.md "../../../goto/boto3/ecr-2015-09-21/StartLifecyclePolicyPreview.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Hello Amazon ECR
+<a name="example_ecr_Hello_section"></a>
 
 The following code examples show how to get started using Amazon ECR.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ecr#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -23,10 +22,10 @@ public class HelloECR {
 
     public static void main(String[] args) {
         final String usage = """
-            Usage:    <repositoryName>
+            Usage:    <repositoryName> 
 
             Where:
-               repositoryName - The name of the Amazon ECR repository.
+               repositoryName - The name of the Amazon ECR repository. 
             """;
 
         if (args.length != 1) {
@@ -52,23 +51,14 @@ public class HelloECR {
             .forEach(image -> System.out.println("The docker image tag is: " +image.imageTag()));
     }
 }
-
-
 ```
++  For API details, see [listImages](https://docs.aws.amazon.com/goto/SdkForJavaV2/ecr-2015-09-21/listImages) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [listImages](../../../goto/SdkForJavaV2/ecr-2015-09-21/listImages.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/listImages.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ecr#code-examples). 
 
 ```
 import aws.sdk.kotlin.services.ecr.EcrClient
@@ -77,11 +67,11 @@ import kotlin.system.exitProcess
 
 suspend fun main(args: Array<String>) {
     val usage = """
-            Usage: <repositoryName>
+            Usage: <repositoryName> 
 
             Where:
-               repositoryName - The name of the Amazon ECR repository.
-
+               repositoryName - The name of the Amazon ECR repository. 
+            
     """.trimIndent()
 
     if (args.size != 1) {
@@ -106,23 +96,14 @@ suspend fun listImageTags(repoName: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [listImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [listImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 import boto3
@@ -170,14 +151,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     hello_ecr(boto3.client("ecr"), args.repository_name)
-
-
 ```
++  For API details, see [listImages](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/listImages) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [listImages](../../../goto/boto3/ecr-2015-09-21/listImages.md "../../../goto/boto3/ecr-2015-09-21/listImages.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

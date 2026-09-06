@@ -1,23 +1,23 @@
+
+
 # Use `PutLifeCyclePolicy` with an AWS SDK or CLI
+<a name="example_ecr_PutLifeCyclePolicy_section"></a>
 
 The following code examples show how to use `PutLifeCyclePolicy`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a lifecycle policy**
-
-The following `put-lifecycle-policy` example creates a lifecycle policy for the specified repository in the default registry for an account.
-
-```
-`aws ecr put-lifecycle-policy \
- --repository-name `"project-a/amazon-ecs-sample"` \
- --lifecycle-policy-text `"file://policy.json"``
+**AWS CLI**  
+**To create a lifecycle policy**  
+The following `put-lifecycle-policy` example creates a lifecycle policy for the specified repository in the default registry for an account.  
 
 ```
-
-Contents of `policy.json`:
+aws ecr put-lifecycle-policy \
+    --repository-name {{"project-a/amazon-ecs-sample"}} \
+    --lifecycle-policy-text {{"file://policy.json"}}
+```
+Contents of `policy.json`:  
 
 ```
 {
@@ -38,8 +38,7 @@ Contents of `policy.json`:
    ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -48,22 +47,14 @@ Output:
    "lifecyclePolicyText": "{\"rules\":[{\"rulePriority\":1,\"description\":\"Expire images older than 14 days\",\"selection\":{\"tagStatus\":\"untagged\",\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"countNumber\":14},\"action\":{\"type\":\"expire\"}}]}"
 }
 ```
+For more information, see [Lifecycle Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.  
++  For API details, see [PutLifeCyclePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/put-life-cycle-policy.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Lifecycle Policies](LifecyclePolicies.md "LifecyclePolicies.md") in the _Amazon ECR User Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [PutLifeCyclePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/put-life-cycle-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/put-life-cycle-policy.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ecr#code-examples). 
 
 ```
 class ECRWrapper:
@@ -101,12 +92,8 @@ class ECRWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-Example that puts an expiration date policy.
+Example that puts an expiration date policy.  
 
 ```
     def put_expiration_policy(self):
@@ -132,24 +119,14 @@ Example that puts an expiration date policy.
         self.ecr_wrapper.put_lifecycle_policy(
             self.repository_name, json.dumps(policy_json)
         )
-
-
-
 ```
++  For API details, see [PutLifeCyclePolicy](https://docs.aws.amazon.com/goto/boto3/ecr-2015-09-21/PutLifeCyclePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutLifeCyclePolicy](../../../goto/boto3/ecr-2015-09-21/PutLifeCyclePolicy.md "../../../goto/boto3/ecr-2015-09-21/PutLifeCyclePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples). 
 
 ```
     TRY.
@@ -164,14 +141,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ecrvalidationex.
         MESSAGE 'Invalid lifecycle policy format.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutLifeCyclePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutLifeCyclePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
