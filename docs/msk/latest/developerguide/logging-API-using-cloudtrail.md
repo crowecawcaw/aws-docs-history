@@ -1,83 +1,52 @@
+
+
 # Log API calls with AWS CloudTrail
+<a name="logging-API-using-cloudtrail"></a>
 
-###### Note
 
-AWS CloudTrail logs are available for Amazon MSK only when you use
-[IAM access control](iam-access-control.md "iam-access-control.md").
 
-Amazon MSK is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or an AWS service in Amazon MSK. CloudTrail captures API calls for
-as events. The calls captured include calls from the Amazon MSK console and code
-calls to the Amazon MSK API operations. It also captures Apache Kafka actions such as
-creating and altering topics and groups.
+**Note**  
+AWS CloudTrail logs are available for Amazon MSK only when you use [IAM access control](iam-access-control.md).
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for Amazon MSK. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console in **Event
-history**. Using the information collected by CloudTrail, you can determine the
-request that was made to Amazon MSK or the Apache Kafka action, the IP address from
-which the request was made, who made the request, when it was made, and additional
-details.
+Amazon MSK is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon MSK. CloudTrail captures API calls for as events. The calls captured include calls from the Amazon MSK console and code calls to the Amazon MSK API operations. It also captures Apache Kafka actions such as creating and altering topics and groups.
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon MSK. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon MSK or the Apache Kafka action, the IP address from which the request was made, who made the request, when it was made, and additional details. 
+
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Amazon MSK information in CloudTrail
+<a name="msk-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your Amazon Web Services account when you create the account. When supported
-event activity occurs in an MSK cluster, that activity is recorded in a CloudTrail event along with
-other AWS service events in **Event history**. You can view,
-search, and download recent events in your Amazon Web Services account. For more information, see
-[Viewing Events with CloudTrail
-Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your Amazon Web Services account when you create the account. When supported event activity occurs in an MSK cluster, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your Amazon Web Services account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your Amazon Web Services account, including events for
-Amazon MSK, create a trail. A _trail_ enables CloudTrail to deliver log
-files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail
-applies to all Regions. The trail logs events from all Regions in the AWS
-partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally,
-you can configure other Amazon services to further analyze and act upon the event data
-collected in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your Amazon Web Services account, including events for Amazon MSK, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other Amazon services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview
-  for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Amazon MSK logs all [Amazon MSK operations](https://docs.aws.amazon.com/MSK/2.0/APIReference/operations.html) as events in CloudTrail log files. In addition, it logs the following Apache Kafka actions.
++ kafka-cluster:DescribeClusterDynamicConfiguration 
++ kafka-cluster:AlterClusterDynamicConfiguration 
++ kafka-cluster:CreateTopic 
++ kafka-cluster:DescribeTopicDynamicConfiguration 
++ kafka-cluster:AlterTopic 
++ kafka-cluster:AlterTopicDynamicConfiguration 
++ kafka-cluster:DeleteTopic
 
-Amazon MSK logs all [Amazon MSK operations](../../../MSK/2.0/APIReference/operations.md "../../../MSK/2.0/APIReference/operations.md") as events in CloudTrail log files. In addition, it logs the following Apache Kafka actions.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root user or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- kafka-cluster:DescribeClusterDynamicConfiguration
-- kafka-cluster:AlterClusterDynamicConfiguration
-- kafka-cluster:CreateTopic
-- kafka-cluster:DescribeTopicDynamicConfiguration
-- kafka-cluster:AlterTopic
-- kafka-cluster:AlterTopicDynamicConfiguration
-- kafka-cluster:DeleteTopic
-
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root user or AWS Identity and Access Management (IAM) user
-  credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Example: Amazon MSK log file entries
+<a name="understanding-msk-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the
-requested action, the date and time of the action, request parameters, and so on.
-CloudTrail log files aren't an ordered stack trace of the public API calls and Apache
-Kafka actions, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls and Apache Kafka actions, so they don't appear in any specific order.
 
-The following example shows CloudTrail log entries that demonstrate the
-`DescribeCluster` and `DeleteCluster` Amazon MSK actions.
+The following example shows CloudTrail log entries that demonstrate the `DescribeCluster` and `DeleteCluster` Amazon MSK actions.
 
 ```
 {
@@ -141,8 +110,7 @@ The following example shows CloudTrail log entries that demonstrate the
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`kafka-cluster:CreateTopic` action.
+The following example shows a CloudTrail log entry that demonstrates the `kafka-cluster:CreateTopic` action.
 
 ```
 {

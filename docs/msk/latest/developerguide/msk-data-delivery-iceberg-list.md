@@ -1,23 +1,30 @@
+
+
 # List Channels
+<a name="msk-data-delivery-iceberg-list"></a>
 
 ## Using the AWS Management Console
+<a name="msk-data-delivery-iceberg-list-console"></a>
 
-1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/").
-2. In the navigation pane, choose **Clusters**.
-3. Choose the name of your Amazon MSK Provisioned cluster with Express brokers.
-4. Choose the **Channel** tab.
+1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1\#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/).
+
+1. In the navigation pane, choose **Clusters**.
+
+1. Choose the name of your Amazon MSK Provisioned cluster with Express brokers.
+
+1. Choose the **Channel** tab.
 
 All Channels for the cluster are listed with name, state, destination type, and creation time.
 
 ## Using the AWS CLI
+<a name="msk-data-delivery-iceberg-list-cli"></a>
 
 ```
 aws kafka list-channels \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123"
 ```
 
-###### Note
-
+**Note**  
 Use `--topic-name-filter "orders-topic"` to return only Channels whose source topic name matches the value. Use `--max-results` and `--next-token` to page through results.
 
 Response:
@@ -44,8 +51,7 @@ Response:
 }
 ```
 
-###### Note
-
+**Note**  
 Channels that deliver to the other destination type appear in the same list output, each with its own `DestinationType` value.
 
-**API reference** — see `ListChannels` in the _Amazon MSK API Reference_.
+**API reference** — see `ListChannels` in the *Amazon MSK API Reference*.

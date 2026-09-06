@@ -1,9 +1,12 @@
-# Update a topic using the AWS CLI
 
-Run the following command, replacing `ClusterArn` with the Amazon Resource Name (ARN) of your cluster and `TopicName` with the name of the topic you want to update.
+
+# Update a topic using the AWS CLI
+<a name="update-topic-cli"></a>
+
+Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) of your cluster and {{TopicName}} with the name of the topic you want to update.
 
 ```
-aws kafka update-topic --cluster-arn `ClusterArn` --topic-name `TopicName` --partition-count 6
+aws kafka update-topic --cluster-arn {{ClusterArn}} --topic-name {{TopicName}} --partition-count 6
 ```
 
 The output of this command looks like the following JSON example.

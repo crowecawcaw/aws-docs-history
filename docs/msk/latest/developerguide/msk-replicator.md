@@ -1,4 +1,7 @@
+
+
 # Amazon MSK Replicator
+<a name="msk-replicator"></a>
 
 Amazon MSK Replicator is a fully managed feature of Amazon MSK that enables you to reliably replicate data across Amazon MSK clusters in different or the same AWS Region. MSK Replicator also supports data replication from self-managed Apache Kafka clusters (including on-premises, self-hosted on AWS, or other cloud providers) to Amazon MSK Provisioned clusters. Both the source and target clusters must be in the same AWS account when replicating between MSK clusters. With MSK Replicator, you can build regionally resilient streaming applications for increased availability and business continuity, and migrate Apache Kafka workloads from self-managed environments to Amazon MSK. MSK Replicator provides automatic asynchronous replication of data and consumer group offsets between MSK clusters, eliminating the need to write custom code, manage infrastructure, or setting up cross-region networking.
 
@@ -6,16 +9,14 @@ MSK Replicator automatically scales the underlying resources so that you can rep
 
 MSK Replicator supports both cross-region replication (CRR) and same-region replication (SRR). In cross-region replication, the source and target MSK clusters are in different AWS Regions. In same-region replication, both the source and target MSK clusters are in the same AWS Region. You need to create source and target MSK clusters before using them with MSK Replicator.
 
-###### Note
-
-MSK Replicator supports the following AWS Regions: US East (us-east-1, N. Virginia); US East (us-east-2, Ohio); US West (us-west-2, Oregon); Europe (eu-west-1, Ireland); Europe (eu-central-1, Frankfurt); Asia Pacific (ap-southeast-1, Singapore); Asia Pacific (ap-southeast-2, Sydney); Europe (eu-north-1, Stockholm); Asia Pacific (ap-south-1, Mumbai); Europe (eu-west-3, Paris); South America (sa-east-1, São Paulo); Asia Pacific (ap-northeast-2, Seoul); Europe (eu-west-2, London); Asia Pacific (ap-northeast-1, Tokyo); US West (us-west-1, N. California); Canada (ca-central-1, Central); China (Beijing) (cn-north-1); China (Ningxia) (cn-northwest-1); and 20+ additional regions.
+**Note**  
+MSK Replicator supports the following AWS Regions: US East (us-east-1, N. Virginia); US East (us-east-2, Ohio); US West (us-west-2, Oregon); Europe (eu-west-1, Ireland); Europe (eu-central-1, Frankfurt); Asia Pacific (ap-southeast-1, Singapore); Asia Pacific (ap-southeast-2, Sydney); Europe (eu-north-1, Stockholm); Asia Pacific (ap-south-1, Mumbai); Europe (eu-west-3, Paris); South America (sa-east-1, São Paulo); Asia Pacific (ap-northeast-2, Seoul); Europe (eu-west-2, London); Asia Pacific (ap-northeast-1, Tokyo); US West (us-west-1, N. California); Canada (ca-central-1, Central); China (Beijing) (cn-north-1); China (Ningxia) (cn-northwest-1); and 20\+ additional regions.
 
 Common uses for Amazon MSK Replicator:
-
-- Build multi-region streaming applications: Build highly available and fault-tolerant streaming applications for increased resiliency without setting up custom solutions.
-- Lower latency data access: Provide lower latency data access to consumers in different geographic regions.
-- Distribute data to your partners: Copy data from one Apache Kafka cluster to many Apache Kafka clusters, so that different teams/partners have their own copies of data.
-- Aggregate data for analytics: Copy data from multiple Apache Kafka clusters into one cluster for easily generating insights on aggregated real-time data.
-- Write locally, access your data globally: Set up multi-active replication to automatically propagate writes performed in one AWS Region to other Regions for providing data at lower latency and cost.
-- Migrate from self-managed Kafka clusters: Migrate Apache Kafka workloads from on-premises, self-hosted, or third-party managed Kafka deployments to Amazon MSK Provisioned clusters with consumer group offset synchronization for seamless application cutover.
-- For more information about replicator, see [Key concepts](msk-replicator-concepts.md "msk-replicator-concepts.md") and [Replication patterns](msk-replicator-patterns.md "msk-replicator-patterns.md").
++ Build multi-region streaming applications: Build highly available and fault-tolerant streaming applications for increased resiliency without setting up custom solutions.
++ Lower latency data access: Provide lower latency data access to consumers in different geographic regions.
++ Distribute data to your partners: Copy data from one Apache Kafka cluster to many Apache Kafka clusters, so that different teams/partners have their own copies of data.
++ Aggregate data for analytics: Copy data from multiple Apache Kafka clusters into one cluster for easily generating insights on aggregated real-time data.
++ Write locally, access your data globally: Set up multi-active replication to automatically propagate writes performed in one AWS Region to other Regions for providing data at lower latency and cost.
++ Migrate from self-managed Kafka clusters: Migrate Apache Kafka workloads from on-premises, self-hosted, or third-party managed Kafka deployments to Amazon MSK Provisioned clusters with consumer group offset synchronization for seamless application cutover.
++ For more information about replicator, see [Key concepts](msk-replicator-concepts.md) and [Replication patterns](msk-replicator-patterns.md).

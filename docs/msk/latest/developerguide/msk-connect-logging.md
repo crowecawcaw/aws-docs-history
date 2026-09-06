@@ -1,41 +1,28 @@
+
+
 # Logging for MSK Connect
+<a name="msk-connect-logging"></a>
 
-MSK Connect can write log events that you can use to debug your connector. When you create
-a connector, you can specify zero or more of the following log destinations:
+MSK Connect can write log events that you can use to debug your connector. When you create a connector, you can specify zero or more of the following log destinations:
++ Amazon CloudWatch Logs: You specify the log group to which you want MSK Connect to send your connector's log events. For information on how to create a log group, see [Create a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group) in the *CloudWatch Logs User Guide*.
++ Amazon S3: You specify the S3 bucket to which you want MSK Connect to send your connector's log events. For information on how to create an S3 bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*.
++ Amazon Data Firehose: You specify the delivery stream to which you want MSK Connect to send your connector's log events. For information on how to create a delivery stream, see [Creating an Amazon Data Firehose delivery stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Firehose User Guide*.
 
-- Amazon CloudWatch Logs: You specify the log group to which you want MSK Connect to send your connector's
-  log events. For information on how to create a log group, see [Create a log group](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group") in the _CloudWatch Logs User
-  Guide_.
-- Amazon S3: You specify the S3 bucket to which you want MSK Connect to send your connector's log
-  events. For information on how to create an S3 bucket, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User
-  Guide_.
-- Amazon Data Firehose: You specify the delivery stream to which you want MSK Connect to send your
-  connector's log events. For information on how to create a delivery stream, see
-  [Creating
-  an Amazon Data Firehose delivery stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the _Firehose User
-  Guide_.
+**Important**  
+MSK Connect applies internal rate limiting to connector log output. If a connector produces a high volume of log lines in a short period, some log lines may be dropped before delivery to any configured destination. This rate limiting applies equally to CloudWatch Logs, Amazon S3, and Amazon Data Firehose destinations. To avoid log loss, design your connector plugins to minimize excessive logging during burst periods.
 
-###### Important
-
-MSK Connect applies internal rate limiting to connector log output. If a connector
-produces a high volume of log lines in a short period, some log lines may be dropped
-before delivery to any configured destination. This rate limiting applies equally to
-CloudWatch Logs, Amazon S3, and Amazon Data Firehose destinations. To avoid log loss,
-design your connector plugins to minimize excessive logging during burst
-periods.
-
-To learn more about setting up logging, see [Enabling logging from certain AWS
-services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User
-Guide_.
+To learn more about setting up logging, see [Enabling logging from certain AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) in the *Amazon CloudWatch Logs User Guide*.
 
 MSK Connect emits the following types of log events:
 
-| Level   | Description                                                                 |
-| ------- | --------------------------------------------------------------------------- |
-| `INFO`  | Runtime events of interest at startup and shutdown.                         |
-| `WARN`  | Runtime situations that aren't errors but are undesirable or<br>unexpected. |
-| `FATAL` | Severe errors that cause premature termination.                             |
-| `ERROR` | Unexpected conditions and runtime errors that aren't fatal.                 |
+
+
+| Level | Description | 
+| --- | --- | 
+| INFO | Runtime events of interest at startup and shutdown. | 
+| WARN | Runtime situations that aren't errors but are undesirable or unexpected. | 
+| FATAL | Severe errors that cause premature termination. | 
+| ERROR | Unexpected conditions and runtime errors that aren't fatal. | 
 
 The following is an example of a log event sent to CloudWatch Logs:
 
@@ -44,29 +31,21 @@ The following is an example of a log event sent to CloudWatch Logs:
 ```
 
 ## Preventing secrets from appearing in connector logs
+<a name="msk-connect-logging-secrets"></a>
 
-###### Note
+**Note**  
+Sensitive configuration values can appear in connector logs if a plugin does not define those values as secret. Kafka Connect treats undefined configuration values the same as any other plaintext value.
 
-Sensitive configuration values can appear in connector logs if a plugin does not
-define those values as secret. Kafka Connect treats undefined configuration values
-the same as any other plaintext value.
-
-If your plugin defines a property as secret, Kafka Connect redacts the property's value
-from connector logs. For example, the following connector logs demonstrate that if a
-plugin defines `aws.secret.key` as a `PASSWORD` type, then its
-value is replaced with `**[hidden]**`.
+If your plugin defines a property as secret, Kafka Connect redacts the property's value from connector logs. For example, the following connector logs demonstrate that if a plugin defines `aws.secret.key` as a `PASSWORD` type, then its value is replaced with `[hidden]`.
 
 ```
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] [2022-01-11 15:18:55,150] INFO SecretsManagerConfigProviderConfig values:
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] aws.access.key = my_access_key
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] aws.region = us-east-1
-    2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] aws.secret.key = **[hidden]**
+    2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] aws.secret.key = [hidden]
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] secret.prefix =
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] secret.ttl.ms = 300000
     2022-01-11T15:18:55.000+00:00    [Worker-05e6586a48b5f331b] (com.github.jcustenborder.kafka.config.aws.SecretsManagerConfigProviderConfig:361)
 ```
 
-To prevent secrets from appearing in connector log files, a plugin developer must use the
-Kafka Connect enum constant [`ConfigDef.Type.PASSWORD`](https://kafka.apache.org/27/javadoc/org/apache/kafka/common/config/ConfigDef.Type.html#PASSWORD "https://kafka.apache.org/27/javadoc/org/apache/kafka/common/config/ConfigDef.Type.html#PASSWORD") to define sensitive properties.
-When a property is type `ConfigDef.Type.PASSWORD`, Kafka Connect excludes its
-value from connector logs even if the value is sent as plaintext.
+To prevent secrets from appearing in connector log files, a plugin developer must use the Kafka Connect enum constant [`ConfigDef.Type.PASSWORD`](https://kafka.apache.org/27/javadoc/org/apache/kafka/common/config/ConfigDef.Type.html#PASSWORD) to define sensitive properties. When a property is type `ConfigDef.Type.PASSWORD`, Kafka Connect excludes its value from connector logs even if the value is sent as plaintext. 

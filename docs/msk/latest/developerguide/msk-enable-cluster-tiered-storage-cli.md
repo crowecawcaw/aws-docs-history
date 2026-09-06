@@ -1,18 +1,19 @@
+
+
 # Enable tiered storage on an existing Amazon MSK cluster using AWS CLI
+<a name="msk-enable-cluster-tiered-storage-cli"></a>
 
-###### Note
+**Note**  
+You can enable tiered storage only if your cluster's log.cleanup.policy is set to `delete`, as compacted topics are not supported on tiered storage. Later, you can configure an individual topic's log.cleanup.policy to `compact` if tiered storage is not enabled on that particular topic. See [Topic-level configuration](https://docs.aws.amazon.com//msk/latest/developerguide/msk-configuration-properties.html#msk-topic-confinguration) for more details on supported configuration attributes.
 
-You can enable tiered storage only if your cluster's log.cleanup.policy is set to `delete`, as compacted topics are not supported on tiered storage. Later, you can configure an individual topic's log.cleanup.policy to `compact` if tiered storage is not enabled on that particular topic. See [Topic-level configuration](msk-configuration-properties.md#msk-topic-confinguration "msk-configuration-properties.md#msk-topic-confinguration") for more details on supported
-configuration attributes.
+1. **Update the Kafka version** – Cluster versions aren't simple integers. To find the current version of the cluster, use the `DescribeCluster` operation or the `describe-cluster` AWS CLI command. An example version is `KTVPDKIKX0DER`.
 
-1. Update the Kafka version – Cluster versions aren't simple integers. To find the current version of the cluster, use the `DescribeCluster` operation or the `describe-cluster` AWS CLI command. An example version is `KTVPDKIKX0DER`.
+   ```
+   aws kafka update-cluster-kafka-version --cluster-arn ClusterArn --current-version Current-Cluster-Version --target-kafka-version 3.6.0
+   ```
 
-```
-aws kafka update-cluster-kafka-version --cluster-arn ClusterArn --current-version Current-Cluster-Version --target-kafka-version 3.6.0
-```
+1. Edit cluster storage mode. The following code example shows editing the cluster storage mode to `TIERED` using the [`update-storage`](https://docs.aws.amazon.com/cli/latest/reference/kafka/update-storage.html) API.
 
-2. Edit cluster storage mode. The following code example shows editing the cluster storage mode to `TIERED` using the [`update-storage`](../../../cli/latest/reference/kafka/update-storage.md "../../../cli/latest/reference/kafka/update-storage.md") API.
-
-```
-aws kafka update-storage --current-version Current-Cluster-Version --cluster-arn Cluster-arn --storage-mode TIERED
-```
+   ```
+   aws kafka update-storage --current-version Current-Cluster-Version --cluster-arn Cluster-arn --storage-mode TIERED
+   ```

@@ -1,9 +1,11 @@
+
+
 # Log delivery permissions
+<a name="msk-replicator-perms-log-delivery"></a>
 
-Grant log delivery permissions to the _caller role_ (the IAM principal that calls `CreateReplicator`), not to the service execution role. These permissions do not involve the source or target clusters. You only need the snippets for the destinations you enable.
+Grant log delivery permissions to the *caller role* (the IAM principal that calls `CreateReplicator`), not to the service execution role. These permissions do not involve the source or target clusters. You only need the snippets for the destinations you enable.
 
-###### Amazon CloudWatch Logs destination
-
+**Amazon CloudWatch Logs destination**  
 Add the following statement when `cloudWatchLogs.enabled` is `true` in the `logDelivery` configuration.
 
 ```
@@ -23,8 +25,7 @@ Add the following statement when `cloudWatchLogs.enabled` is `true` in the `logD
 }
 ```
 
-###### Amazon S3 destination
-
+**Amazon S3 destination**  
 Add the following statements when `s3.enabled` is `true`. Replace `<logBucketName>` with your destination bucket name.
 
 ```
@@ -52,8 +53,7 @@ Add the following statements when `s3.enabled` is `true`. Replace `<logBucketNam
 ]
 ```
 
-###### Firehose destination
-
+**Firehose destination**  
 Add the following statements when `firehose.enabled` is `true`. Replace `<accountID>` with your AWS account ID.
 
 ```
@@ -81,4 +81,4 @@ Add the following statements when `firehose.enabled` is `true`. Replace `<accoun
 ]
 ```
 
-For more information about vended-logs permissions, see [Enabling logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-vended-logs-permissions.md "../../../AmazonCloudWatch/latest/logs/AWS-vended-logs-permissions.md").
+For more information about vended-logs permissions, see [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-vended-logs-permissions.html).

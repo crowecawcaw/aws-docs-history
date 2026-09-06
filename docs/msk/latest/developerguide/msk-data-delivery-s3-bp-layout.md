@@ -1,4 +1,6 @@
-# Object layout
 
-- Choose an output key template with time-based placeholders that matches how you query the data downstream.
-- Use GZIP or ZSTD compression to reduce storage costs for text-based payloads; choose the storage class (`STANDARD`, `INTELLIGENT_TIERING`, `GLACIER_IR`) based on access patterns.
+
+# Object layout
+<a name="msk-data-delivery-s3-bp-layout"></a>
++ Choose an output key template with time-based placeholders that matches how you query the data downstream.
++ Use GZIP or ZSTD compression to reduce storage costs for text-based payloads; choose the storage class (`STANDARD`, `INTELLIGENT_TIERING`, `GLACIER_IR`) based on access patterns.

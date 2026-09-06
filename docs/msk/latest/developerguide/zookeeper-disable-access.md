@@ -1,80 +1,81 @@
+
+
 # Disable or enable direct Apache ZooKeeper client access
+<a name="zookeeper-disable-access"></a>
 
 You can disable direct Apache ZooKeeper client access on your Amazon MSK Provisioned cluster to verify that your applications do not rely on direct ZooKeeper connections. When ZooKeeper access is disabled, clients can no longer connect to the Apache ZooKeeper nodes on ports 2181 (plaintext) and 2182 (TLS). You can re-enable ZooKeeper access at any time.
 
-###### Note
+**Note**  
+This feature is only available for Amazon MSK Provisioned clusters that use ZooKeeper metadata mode with Standard brokers. It is not available for the following cluster types:  
+Clusters running in KRaft metadata mode
+Clusters using Express brokers. ZooKeeper access is managed automatically in Express clusters and cannot be configured manually.
+Amazon MSK Serverless clusters
 
-This feature is only available for Amazon MSK Provisioned clusters that use ZooKeeper metadata mode with Standard brokers. It is not available for the following cluster types:
+**Disabling ZooKeeper access using the console**
 
-- Clusters running in KRaft metadata mode
-- Clusters using Express brokers. ZooKeeper access is managed automatically in Express clusters and cannot be configured manually.
-- Amazon MSK Serverless clusters
+1. Sign in to the AWS Management Console, and open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1\#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/).
 
-###### Disabling ZooKeeper access using the console
+1. In the list of clusters, choose the cluster on which you want to disable ZooKeeper access.
 
-1. Sign in to the AWS Management Console, and open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/").
-2. In the list of clusters, choose the cluster on which you want to disable ZooKeeper access.
-3. Choose the **Properties** tab, then find the **Network settings** section.
-4. Choose **Disable ZooKeeper access**.
+1. Choose the **Properties** tab, then find the **Network settings** section.
 
-###### Disabling ZooKeeper access using the AWS CLI
+1. Choose **Disable ZooKeeper access**.
 
-1. Run the following AWS CLI command, replacing `ClusterArn` and `Current-Cluster-Version` with the ARN and current version of the cluster. To find the current version of the cluster, use the [DescribeCluster](../../1.0/apireference/clusters-clusterarn.md#DescribeCluster "../../1.0/apireference/clusters-clusterarn.md#DescribeCluster") operation or the [describe-cluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html") AWS CLI command. An example version is `KTVPDKIKX0DER`.
+**Disabling ZooKeeper access using the AWS CLI**
 
-```
-aws kafka update-connectivity --cluster-arn `ClusterArn` --current-version `Current-Cluster-Version` --zookeeper-access '{"Enabled": false}'
-```
+1. Run the following AWS CLI command, replacing {{ClusterArn}} and {{Current-Cluster-Version}} with the ARN and current version of the cluster. To find the current version of the cluster, use the [DescribeCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DescribeCluster) operation or the [describe-cluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html) AWS CLI command. An example version is `KTVPDKIKX0DER`.
 
-The output of this `update-connectivity` command looks like the following JSON example.
+   ```
+   aws kafka update-connectivity --cluster-arn {{ClusterArn}} --current-version {{Current-Cluster-Version}} --zookeeper-access '{"Enabled": false}'
+   ```
 
-```
-{
-    "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
-    "ClusterOperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef"
-}
-```
+   The output of this `update-connectivity` command looks like the following JSON example.
 
-###### Note
+   ```
+   {
+       "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
+       "ClusterOperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef"
+   }
+   ```
+**Note**  
+To re-enable ZooKeeper access, use a similar AWS CLI command with the following value for `--zookeeper-access` instead:  
 
-To re-enable ZooKeeper access, use a similar AWS CLI command with the following value for `--zookeeper-access` instead:
+   ```
+   '{"Enabled": true}'
+   ```
 
-```
-'{"Enabled": true}'
-```
+1. To get the result of the `update-connectivity` operation, run the following command, replacing {{ClusterOperationArn}} with the ARN that you obtained in the output of the `update-connectivity` command.
 
-2. To get the result of the `update-connectivity` operation, run the following command, replacing `ClusterOperationArn` with the ARN that you obtained in the output of the `update-connectivity` command.
+   ```
+   aws kafka describe-cluster-operation --cluster-operation-arn {{ClusterOperationArn}}
+   ```
 
-```
-aws kafka describe-cluster-operation --cluster-operation-arn `ClusterOperationArn`
-```
+   The output of this `describe-cluster-operation` command looks like the following JSON example.
 
-The output of this `describe-cluster-operation` command looks like the following JSON example.
+   ```
+   {
+       "ClusterOperationInfo": {
+           "ClientRequestId": "982168a3-939f-11e9-8a62-538df00285db",
+           "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
+           "CreationTime": "2026-01-15T21:08:57.735Z",
+           "OperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef",
+           "OperationState": "UPDATE_COMPLETE",
+           "OperationType": "UPDATE_CONNECTIVITY",
+           "SourceClusterInfo": {
+               "ZookeeperAccess": {
+                   "Enabled": true
+               }
+           },
+           "TargetClusterInfo": {
+               "ZookeeperAccess": {
+                   "Enabled": false
+               }
+           }
+       }
+   }
+   ```
 
-```
-{
-    "ClusterOperationInfo": {
-        "ClientRequestId": "982168a3-939f-11e9-8a62-538df00285db",
-        "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
-        "CreationTime": "2026-01-15T21:08:57.735Z",
-        "OperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef",
-        "OperationState": "UPDATE_COMPLETE",
-        "OperationType": "UPDATE_CONNECTIVITY",
-        "SourceClusterInfo": {
-            "ZookeeperAccess": {
-                "Enabled": true
-            }
-        },
-        "TargetClusterInfo": {
-            "ZookeeperAccess": {
-                "Enabled": false
-            }
-        }
-    }
-}
-```
+   If `OperationState` has the value `UPDATE_IN_PROGRESS`, wait a while, then run the `describe-cluster-operation` command again.
 
-If `OperationState` has the value `UPDATE_IN_PROGRESS`, wait a while, then run the `describe-cluster-operation` command again.
-
-###### Disabling ZooKeeper access using the Amazon MSK API
-
-- To use the API to disable or enable ZooKeeper access on a cluster, see [UpdateConnectivity](../../1.0/apireference/clusters-clusterarn-connectivity.md "../../1.0/apireference/clusters-clusterarn-connectivity.md").
+**Disabling ZooKeeper access using the Amazon MSK API**
++ To use the API to disable or enable ZooKeeper access on a cluster, see [UpdateConnectivity](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-connectivity.html).

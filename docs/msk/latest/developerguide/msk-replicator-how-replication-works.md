@@ -1,6 +1,9 @@
-# How replication works
 
-When you create a Replicator, MSK Replicator deploys all required resources in the target cluster's AWS Region to optimize for data replication latency. MSK Replicator automatically copies all data from the cluster in the primary AWS Region called _source_ to the cluster in the destination Region called _target_. Source and target clusters can be in the same or different AWS Regions.
+
+# How replication works
+<a name="msk-replicator-how-replication-works"></a>
+
+When you create a Replicator, MSK Replicator deploys all required resources in the target cluster's AWS Region to optimize for data replication latency. MSK Replicator automatically copies all data from the cluster in the primary AWS Region called *source* to the cluster in the destination Region called *target*. Source and target clusters can be in the same or different AWS Regions.
 
 Replication latency varies based on many factors, including the network distance between the AWS Regions of your MSK clusters, the throughput capacity of your source and target clusters, and the number of partitions on your source and target clusters. MSK Replicator automatically scales the underlying resources so that you can replicate data on-demand without having to monitor or scale capacity.
 
@@ -10,4 +13,4 @@ MSK Replicator does not store your data. Data is consumed from your source clust
 
 MSK Replicator creates topics in the target cluster with a Replication Factor of 3. If you need to, you can modify the replication factor directly on the target cluster.
 
-![MSK Replicator source and target clusters](images/msk-replicator-diagram.png)
+![MSK Replicator source and target clusters](http://docs.aws.amazon.com/msk/latest/developerguide/images/msk-replicator-diagram.png)

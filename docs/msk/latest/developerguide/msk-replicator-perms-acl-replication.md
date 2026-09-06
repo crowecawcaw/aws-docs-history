@@ -1,11 +1,14 @@
+
+
 # ACL replication permissions
+<a name="msk-replicator-perms-acl-replication"></a>
 
 When `copyAccessControlListsForTopics` is enabled (the default), the replicator copies access control lists from the source cluster to the target cluster. Consumers on the target can then use the same authorization configuration.
 
 ## Service execution role IAM policy (MSK clusters)
+<a name="msk-replicator-perms-acl-replication-iam"></a>
 
-###### Source cluster
-
+**Source cluster**  
 The service execution role must have permission to read ACLs from the source cluster.
 
 ```
@@ -22,8 +25,7 @@ The service execution role must have permission to read ACLs from the source clu
 }
 ```
 
-###### Target cluster
-
+**Target cluster**  
 The service execution role must have permission to write ACLs to the target cluster.
 
 ```
@@ -42,19 +44,20 @@ The service execution role must have permission to write ACLs to the target clus
 ```
 
 ## Kafka ACLs (non-MSK clusters)
+<a name="msk-replicator-perms-acl-replication-acls"></a>
 
-###### Non-MSK as source
-
+**Non-MSK as source**  
 The replicator must have permission to describe ACLs on the source cluster.
 
-| Resource type | Pattern                   | Operations |
-| ------------- | ------------------------- | ---------- |
-| Cluster       | `kafka-cluster` (LITERAL) | Describe   |
 
-###### Non-MSK as target
+| Resource type | Pattern | Operations | 
+| --- | --- | --- | 
+| Cluster | `kafka-cluster` (LITERAL) | Describe | 
 
+**Non-MSK as target**  
 The replicator must have permission to alter ACLs on the target cluster.
 
-| Resource type | Pattern                   | Operations |
-| ------------- | ------------------------- | ---------- |
-| Cluster       | `kafka-cluster` (LITERAL) | Alter      |
+
+| Resource type | Pattern | Operations | 
+| --- | --- | --- | 
+| Cluster | `kafka-cluster` (LITERAL) | Alter | 

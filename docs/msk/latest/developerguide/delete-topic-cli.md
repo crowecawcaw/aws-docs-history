@@ -1,9 +1,12 @@
-# Delete a topic using the AWS CLI
 
-Run the following command, replacing `ClusterArn` with the Amazon Resource Name (ARN) of your cluster and `TopicName` with the name of the topic you want to delete.
+
+# Delete a topic using the AWS CLI
+<a name="delete-topic-cli"></a>
+
+Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) of your cluster and {{TopicName}} with the name of the topic you want to delete.
 
 ```
-aws kafka delete-topic --cluster-arn `ClusterArn` --topic-name `TopicName`
+aws kafka delete-topic --cluster-arn {{ClusterArn}} --topic-name {{TopicName}}
 ```
 
 The output of this command looks like the following JSON example.

@@ -1,9 +1,12 @@
-# Describe a topic using the AWS CLI
 
-Run the following command, replacing `ClusterArn` with the Amazon Resource Name (ARN) of your cluster and `TopicName` with the name of the topic you want to describe.
+
+# Describe a topic using the AWS CLI
+<a name="describe-topic-cli"></a>
+
+Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) of your cluster and {{TopicName}} with the name of the topic you want to describe.
 
 ```
-aws kafka describe-topic --cluster-arn `ClusterArn` --topic-name `TopicName`
+aws kafka describe-topic --cluster-arn {{ClusterArn}} --topic-name {{TopicName}}
 ```
 
 The output of this command looks like the following JSON example.
@@ -20,17 +23,22 @@ The output of this command looks like the following JSON example.
 ```
 
 ## Understanding topic status
+<a name="describe-topic-status"></a>
 
 The `status` field indicates the current state of the topic. The following table describes the possible status values.
 
-Topic status values| Status | Description |
-| --- | --- |
-| CREATING | The topic is being created. |
-| ACTIVE | The topic is active and ready for use. |
-| UPDATING | The topic configuration is being updated. |
-| DELETING | The topic is being deleted. |
+
+**Topic status values**  
+
+| Status | Description | 
+| --- | --- | 
+| CREATING | The topic is being created. | 
+| ACTIVE | The topic is active and ready for use. | 
+| UPDATING | The topic configuration is being updated. | 
+| DELETING | The topic is being deleted. | 
 
 ## Understanding topic configurations
+<a name="describe-topic-configs"></a>
 
 The `configs` field contains the topic's Kafka configuration properties, encoded in Base64 format. To view the configuration in a readable format, you need to decode the Base64 string.
 
@@ -47,4 +55,4 @@ compression.type=producer
 retention.ms=604800000
 ```
 
-For more information about topic-level configuration properties, see [Topic-level Amazon MSK configuration](msk-configuration-properties.md#msk-topic-confinguration "msk-configuration-properties.md#msk-topic-confinguration").
+For more information about topic-level configuration properties, see [Topic-level Amazon MSK configuration](msk-configuration-properties.md#msk-topic-confinguration).

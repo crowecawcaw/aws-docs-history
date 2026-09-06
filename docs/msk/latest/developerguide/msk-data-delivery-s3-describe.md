@@ -1,16 +1,25 @@
+
+
 # Describe a Channel
+<a name="msk-data-delivery-s3-describe"></a>
 
 ## Using the AWS Management Console
+<a name="msk-data-delivery-s3-describe-console"></a>
 
-1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/").
-2. In the navigation pane, choose **Clusters**.
-3. Choose the name of your Amazon MSK Provisioned cluster with Express brokers.
-4. Choose the **Channel** tab.
-5. Choose the name of the Channel to describe.
+1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1\#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/).
+
+1. In the navigation pane, choose **Clusters**.
+
+1. Choose the name of your Amazon MSK Provisioned cluster with Express brokers.
+
+1. Choose the **Channel** tab.
+
+1. Choose the name of the Channel to describe.
 
 The detail page shows source topic, destination, delivery settings, current state, and recent Amazon CloudWatch metrics.
 
 ## Using the AWS CLI
+<a name="msk-data-delivery-s3-describe-cli"></a>
 
 ```
 aws kafka describe-channel \
@@ -51,8 +60,7 @@ The following is an example response for an Amazon S3 general purpose bucket des
 }
 ```
 
-###### Note
-
+**Note**  
 `Status` is one of `CREATING`, `ACTIVE`, `UPDATING`, `DELETING`, `FAILED`, `SUSPENDING`, `SUSPENDED`. When `Status` is `FAILED`, the response includes a `StateInfo` object with a `Code` and `Message` describing the cause. While an operation is in flight (`CREATING`, `UPDATING`, `DELETING`), the response also includes `ClusterOperationArn`.
 
-**API reference** — see `DescribeChannel` in the _Amazon MSK API Reference_.
+**API reference** — see `DescribeChannel` in the *Amazon MSK API Reference*.

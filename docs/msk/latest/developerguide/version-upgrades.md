@@ -1,152 +1,136 @@
+
+
 # Upgrade the Apache Kafka version
+<a name="version-upgrades"></a>
 
 You can upgrade an existing MSK cluster to a newer version of Apache Kafka. Before upgrading your cluster's Kafka version, verify that your client-side software's version supports the features in the new Kafka version.
 
-For information about how to make a cluster highly available during an upgrade, see [Build highly available clusters](bestpractices.md#ensure-high-availability "bestpractices.md#ensure-high-availability").
+For information about how to make a cluster highly available during an upgrade, see [Build highly available clusters](bestpractices.md#ensure-high-availability).
 
-###### Upgrade the Apache Kafka version using the AWS Management Console
+**Upgrade the Apache Kafka version using the AWS Management Console**
 
-1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
-2. In the navigation bar, choose the Region where you created the MSK cluster.
-3. Choose the MSK cluster which you want to upgrade.
-4. On the **Properties** tab, choose **Upgrade** in the **Apache Kafka version** section.
-5. In the **Apache Kafka version** section, do the following:
+1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/).
 
-   1. In the _Choose Apache Kafka version_ dropdown list, choose the target version to which you want to upgrade. For example, choose `3.9.x`.
-   2. (Optional) Choose **View version compatibility** to verify compatibility between your cluster's current version and the available upgrade versions. Then, select **Choose** to proceed.
+1. In the navigation bar, choose the Region where you created the MSK cluster.
 
-   ###### Note
+1. Choose the MSK cluster which you want to upgrade.
 
-   You can migrate a ZooKeeper-based cluster to KRaft mode by selecting a KRaft-based target version (with a `.kraft` suffix). This performs an in-place migration of your cluster's metadata management from ZooKeeper to KRaft. For more information, see [Migrate from ZooKeeper to KRaft mode](zk-to-kraft-migration.md "zk-to-kraft-migration.md"). 3. (Optional) Choose the **Update cluster configuration** checkbox to apply configuration updates compatible with the new version. This enables the new version’s features and improvements.
+1. On the **Properties** tab, choose **Upgrade** in the **Apache Kafka version** section.
 
-   You can skip this step if you need to maintain your existing custom configurations.
+1. In the **Apache Kafka version** section, do the following:
 
-   ###### Note
+   1. In the *Choose Apache Kafka version* dropdown list, choose the target version to which you want to upgrade. For example, choose **3.9.x**.
 
-        * Server-side upgrades don't automatically update client applications.
-        * To maintain cluster stability, version downgrades aren't supported.
+   1. (Optional) Choose **View version compatibility** to verify compatibility between your cluster's current version and the available upgrade versions. Then, select **Choose** to proceed.
+**Note**  
+You can migrate a ZooKeeper-based cluster to KRaft mode by selecting a KRaft-based target version (with a `.kraft` suffix). This performs an in-place migration of your cluster's metadata management from ZooKeeper to KRaft. For more information, see [Migrate from ZooKeeper to KRaft mode](zk-to-kraft-migration.md).
 
-   4. Choose **Upgrade** to start the process.
+   1. (Optional) Choose the **Update cluster configuration** checkbox to apply configuration updates compatible with the new version. This enables the new version’s features and improvements.
 
-###### Upgrade the Apache Kafka version using the AWS CLI
+      You can skip this step if you need to maintain your existing custom configurations.
+**Note**  
+Server-side upgrades don't automatically update client applications.
+To maintain cluster stability, version downgrades aren't supported.
 
-1. Run the following command, replacing `ClusterArn` with the
-   Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't
-   have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md "msk-list-clusters.md").
+   1. Choose **Upgrade** to start the process.
 
-```
-aws kafka get-compatible-kafka-versions --cluster-arn `ClusterArn`
-```
+**Upgrade the Apache Kafka version using the AWS CLI**
 
-The output of this command includes a list of the Apache Kafka versions to
-which you can upgrade the cluster. It looks like the following example.
+1. Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md).
 
-```
-{
-    "CompatibleKafkaVersions": [
-        {
-            "SourceVersion": "2.2.1",
-            "TargetVersions": [
-                "2.3.1",
-                "2.4.1",
-                "2.4.1.1",
-                "2.5.1"
-            ]
-        }
-    ]
-}
-```
+   ```
+   aws kafka get-compatible-kafka-versions --cluster-arn {{ClusterArn}}
+   ```
 
-2. Run the following command, replacing `ClusterArn` with the
-   Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't
-   have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md "msk-list-clusters.md").
+   The output of this command includes a list of the Apache Kafka versions to which you can upgrade the cluster. It looks like the following example.
 
-Replace `Current-Cluster-Version` with the current
-version of the cluster. For `TargetVersion` you can
-specify any of the target versions from the output of the previous
-command.
+   ```
+   {
+       "CompatibleKafkaVersions": [
+           {
+               "SourceVersion": "2.2.1",
+               "TargetVersions": [
+                   "2.3.1",
+                   "2.4.1",
+                   "2.4.1.1",
+                   "2.5.1"
+               ]
+           }
+       ]
+   }
+   ```
 
-###### Important
+1. Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md).
 
-Cluster versions aren't simple integers. To find the current version of
-the cluster, use the [DescribeCluster](../../1.0/apireference/clusters-clusterarn.md#DescribeCluster "../../1.0/apireference/clusters-clusterarn.md#DescribeCluster") operation or the [describe-cluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html") AWS CLI command. An example version is `KTVPDKIKX0DER`.
+   Replace {{Current-Cluster-Version}} with the current version of the cluster. For {{TargetVersion}} you can specify any of the target versions from the output of the previous command.
+**Important**  
+Cluster versions aren't simple integers. To find the current version of the cluster, use the [DescribeCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DescribeCluster) operation or the [describe-cluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kafka/describe-cluster.html) AWS CLI command. An example version is `KTVPDKIKX0DER`.
 
-```
-aws kafka update-cluster-kafka-version --cluster-arn `ClusterArn` --current-version `Current-Cluster-Version` --target-kafka-version `TargetVersion`
-```
+   ```
+   aws kafka update-cluster-kafka-version --cluster-arn {{ClusterArn}} --current-version {{Current-Cluster-Version}} --target-kafka-version {{TargetVersion}}
+   ```
 
-The output of the previous command looks like the following JSON.
+   The output of the previous command looks like the following JSON.
 
-```
-{
+   ```
+   {
+       
+       "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
+       "ClusterOperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef"
+   }
+   ```
 
-    "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
-    "ClusterOperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef"
-}
-```
+1. To get the result of the `update-cluster-kafka-version` operation, run the following command, replacing {{ClusterOperationArn}} with the ARN that you obtained in the output of the `update-cluster-kafka-version` command.
 
-3. To get the result of the `update-cluster-kafka-version` operation,
-   run the following command, replacing
-   `ClusterOperationArn` with the ARN that you
-   obtained in the output of the `update-cluster-kafka-version`
-   command.
+   ```
+   aws kafka describe-cluster-operation --cluster-operation-arn {{ClusterOperationArn}}
+   ```
 
-```
-aws kafka describe-cluster-operation --cluster-operation-arn `ClusterOperationArn`
-```
+   The output of this `describe-cluster-operation` command looks like the following JSON example.
 
-The output of this `describe-cluster-operation` command looks like
-the following JSON example.
+   ```
+   {
+       "ClusterOperationInfo": {
+           "ClientRequestId": "62cd41d2-1206-4ebf-85a8-dbb2ba0fe259",
+           "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
+           "CreationTime": "2021-03-11T20:34:59.648000+00:00",
+           "OperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef",
+           "OperationState": "UPDATE_IN_PROGRESS",
+           "OperationSteps": [
+               {
+                   "StepInfo": {
+                       "StepStatus": "IN_PROGRESS"
+                   },
+                   "StepName": "INITIALIZE_UPDATE"
+               },
+               {
+                   "StepInfo": {
+                       "StepStatus": "PENDING"
+                   },
+                   "StepName": "UPDATE_APACHE_KAFKA_BINARIES"
+               },
+               {
+                   "StepInfo": {
+                       "StepStatus": "PENDING"
+                   },
+                   "StepName": "FINALIZE_UPDATE"
+               }
+           ],
+           "OperationType": "UPDATE_CLUSTER_KAFKA_VERSION",
+           "SourceClusterInfo": {
+               "KafkaVersion": "2.4.1"
+           },
+           "TargetClusterInfo": {
+               "KafkaVersion": "2.6.1"
+           }
+       }
+   }
+   ```
 
-```
-{
-    "ClusterOperationInfo": {
-        "ClientRequestId": "62cd41d2-1206-4ebf-85a8-dbb2ba0fe259",
-        "ClusterArn": "arn:aws:kafka:us-east-1:012345678012:cluster/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2",
-        "CreationTime": "2021-03-11T20:34:59.648000+00:00",
-        "OperationArn": "arn:aws:kafka:us-east-1:012345678012:cluster-operation/exampleClusterName/abcdefab-1234-abcd-5678-cdef0123ab01-2/0123abcd-abcd-4f7f-1234-9876543210ef",
-        "OperationState": "UPDATE_IN_PROGRESS",
-        "OperationSteps": [
-            {
-                "StepInfo": {
-                    "StepStatus": "IN_PROGRESS"
-                },
-                "StepName": "INITIALIZE_UPDATE"
-            },
-            {
-                "StepInfo": {
-                    "StepStatus": "PENDING"
-                },
-                "StepName": "UPDATE_APACHE_KAFKA_BINARIES"
-            },
-            {
-                "StepInfo": {
-                    "StepStatus": "PENDING"
-                },
-                "StepName": "FINALIZE_UPDATE"
-            }
-        ],
-        "OperationType": "UPDATE_CLUSTER_KAFKA_VERSION",
-        "SourceClusterInfo": {
-            "KafkaVersion": "2.4.1"
-        },
-        "TargetClusterInfo": {
-            "KafkaVersion": "2.6.1"
-        }
-    }
-}
-```
+   If `OperationState` has the value `UPDATE_IN_PROGRESS`, wait a while, then run the `describe-cluster-operation` command again. When the operation is complete, the value of `OperationState` becomes `UPDATE_COMPLETE`. Because the time required for Amazon MSK to complete the operation varies, you might need to check repeatedly until the operation is complete. 
 
-If `OperationState` has the value `UPDATE_IN_PROGRESS`,
-wait a while, then run the `describe-cluster-operation` command
-again. When the operation is complete, the value of `OperationState`
-becomes `UPDATE_COMPLETE`. Because the time required for Amazon MSK
-to complete the operation varies, you might need to check repeatedly until the
-operation is complete.
+**Upgrade the Apache Kafka version using the API**
 
-###### Upgrade the Apache Kafka version using the API
+1. Invoke the [GetCompatibleKafkaVersions](https://docs.aws.amazon.com//msk/1.0/apireference/compatible-kafka-versions.html#GetCompatibleKafkaVersions) operation to get a list of the Apache Kafka versions to which you can upgrade the cluster.
 
-1. Invoke the [GetCompatibleKafkaVersions](../../1.0/apireference/compatible-kafka-versions.md#GetCompatibleKafkaVersions "../../1.0/apireference/compatible-kafka-versions.md#GetCompatibleKafkaVersions") operation to get a list of the Apache
-   Kafka versions to which you can upgrade the cluster.
-2. Invoke the [UpdateClusterKafkaVersion](../../1.0/apireference/clusters-clusterarn-version.md#UpdateClusterKafkaVersion "../../1.0/apireference/clusters-clusterarn-version.md#UpdateClusterKafkaVersion") operation to upgrade the cluster to one of
-   the compatible Apache Kafka versions.
+1. Invoke the [UpdateClusterKafkaVersion](https://docs.aws.amazon.com//msk/1.0/apireference/clusters-clusterarn-version.html#UpdateClusterKafkaVersion) operation to upgrade the cluster to one of the compatible Apache Kafka versions.

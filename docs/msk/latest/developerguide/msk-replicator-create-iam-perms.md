@@ -1,16 +1,20 @@
+
+
 # IAM permissions required to create an MSK Replicator
+<a name="msk-replicator-create-iam-perms"></a>
 
-The IAM principal (user or role) that calls `CreateReplicator` needs the permissions described in this section. Attach this policy to the IAM identity that corresponds to your client. For general guidance on creating authorization policies, see [Create authorization policies](iam-access-control.md#create-iam-access-control-policies "iam-access-control.md#create-iam-access-control-policies").
+The IAM principal (user or role) that calls `CreateReplicator` needs the permissions described in this section. Attach this policy to the IAM identity that corresponds to your client. For general guidance on creating authorization policies, see [Create authorization policies](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#create-iam-access-control-policies).
 
-Start with the **base policy** below. If you also configure log delivery, append the snippet for each destination you use (see [Additional permissions for log delivery](msk-replicator-create-iam-perms-logs.md "msk-replicator-create-iam-perms-logs.md")). For self-managed Apache Kafka migration scenarios, see additional service execution role guidance in [Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned](msk-replicator-migrate-external.md "msk-replicator-migrate-external.md").
+Start with the **base policy** below. If you also configure log delivery, append the snippet for each destination you use (see [Additional permissions for log delivery](msk-replicator-create-iam-perms-logs.md)). For self-managed Apache Kafka migration scenarios, see additional service execution role guidance in [Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned](msk-replicator-migrate-external.md).
 
 ## Base IAM policy
+<a name="msk-replicator-create-iam-perms-base"></a>
 
 Replace the placeholders with your account ID, AWS Region, service execution role name, and source and target cluster ARNs. The action `kafka:TagResource` is only needed if you provide tags during creation.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Sid": "MSKReplicatorIAMPassRole",
@@ -83,6 +87,5 @@ Replace the placeholders with your account ID, AWS Region, service execution rol
 }
 ```
 
-###### Note
-
-The `ec2:DescribeSubnets`, `ec2:DescribeSecurityGroups`, and `ec2:DescribeVpcs` actions do not support resource-level permissions, so you must specify `"Resource": "*"`. See the [Actions, resources, and condition keys for Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md "../../../service-authorization/latest/reference/list_amazonec2.md") reference.
+**Note**  
+The `ec2:DescribeSubnets`, `ec2:DescribeSecurityGroups`, and `ec2:DescribeVpcs` actions do not support resource-level permissions, so you must specify `"Resource": "*"`. See the [Actions, resources, and condition keys for Amazon EC2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html) reference.

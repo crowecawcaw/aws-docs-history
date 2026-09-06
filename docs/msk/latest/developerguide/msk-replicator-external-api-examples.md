@@ -1,6 +1,10 @@
+
+
 # CreateReplicator API examples for self-managed Kafka clusters
+<a name="msk-replicator-external-api-examples"></a>
 
 ## Forward replication (Self-managed Kafka to MSK Provisioned)
+<a name="msk-replicator-external-forward"></a>
 
 Use the following AWS CLI command to create a Replicator that replicates data from your self-managed Kafka cluster to an Amazon MSK Provisioned cluster.
 
@@ -210,14 +214,14 @@ The client credentials assertion mechanism uses the service execution role's sig
 }
 ```
 
-The example includes `tokenEndpointTlsCertificateArn`, which is optional and needed only if your IDP presents a certificate issued by a private CA; omit it if your IDP uses a publicly trusted certificate. If your Kafka provider requires SASL extensions during the handshake, add them as `extension.<name>` entries in your secret rather than in the API request. See [Store credentials in AWS Secrets Manager](msk-replicator-external-prereqs.md#msk-replicator-external-secrets "msk-replicator-external-prereqs.md#msk-replicator-external-secrets").
+The example includes `tokenEndpointTlsCertificateArn`, which is optional and needed only if your IDP presents a certificate issued by a private CA; omit it if your IDP uses a publicly trusted certificate. If your Kafka provider requires SASL extensions during the handshake, add them as `extension.<name>` entries in your secret rather than in the API request. See [Store credentials in AWS Secrets Manager](msk-replicator-external-prereqs.md#msk-replicator-external-secrets).
 
 ## Bidirectional replication example
+<a name="msk-replicator-external-bidirectional"></a>
 
 To set up bidirectional replication for rollback capability, both the forward and reverse Replicators must be created with `consumerGroupOffsetSyncMode` set to `ENHANCED`. This ensures consumer group offsets are synchronized in a way that supports seamless cutover in either direction.
 
-###### Important
-
+**Important**  
 Register each cluster the same way in both Replicators. If a cluster is registered as an Amazon MSK cluster (`amazonMskCluster`, using its cluster ARN) in one Replicator, register it as an Amazon MSK cluster in the other as well. If it is registered as a self-managed Apache Kafka cluster (`apacheKafkaCluster`, using a bootstrap broker string), use that same type in both. Doing so ensures consistent tracking in MSK Replicator to prevent replication loops.
 
 **Using SASL/SCRAM authentication:**
@@ -451,6 +455,7 @@ aws kafka create-replicator \
 ```
 
 ## Verify Replicator status
+<a name="msk-replicator-external-verify"></a>
 
 Check the status of your Replicator using the `describe-replicator` CLI command:
 

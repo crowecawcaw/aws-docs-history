@@ -1,8 +1,12 @@
+
+
 # Service execution role
+<a name="msk-data-delivery-s3-iam-service-role"></a>
 
 A Channel assumes a service execution role to deliver data. The role needs a trust policy plus a permission policy that matches your destination type. The following policies are the authoritative reference for the required permissions.
 
 ## Trust policy
+<a name="msk-data-delivery-s3-iam-trust-policy"></a>
 
 ```
 {
@@ -27,11 +31,11 @@ A Channel assumes a service execution role to deliver data. The role needs a tru
 }
 ```
 
-###### Note
-
+**Note**  
 Use the `aws:SourceArn` and `aws:SourceAccount` conditions to prevent confused deputy attacks.
 
 ## Permission policy — Amazon S3 general purpose buckets
+<a name="msk-data-delivery-s3-iam-policy"></a>
 
 ```
 {
@@ -107,10 +111,9 @@ Use the `aws:SourceArn` and `aws:SourceAccount` conditions to prevent confused d
 }
 ```
 
-###### Note
-
+**Note**  
 The `KMSAccess` statement is required only when the delivery bucket uses a customer-managed KMS key.
 
 ## Additional permissions
-
-- **Amazon CloudWatch Logs (optional):** add `logs:CreateLogStream` and `logs:PutLogEvents` on the log group (see [Logging](msk-data-delivery-s3-logging.md "msk-data-delivery-s3-logging.md")).
+<a name="msk-data-delivery-s3-iam-additional"></a>
++ **Amazon CloudWatch Logs (optional):** add `logs:CreateLogStream` and `logs:PutLogEvents` on the log group (see [Logging](msk-data-delivery-s3-logging.md)).

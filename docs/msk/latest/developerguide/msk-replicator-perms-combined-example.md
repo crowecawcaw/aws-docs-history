@@ -1,10 +1,13 @@
+
+
 # Combined policy example
+<a name="msk-replicator-perms-combined-example"></a>
 
 The following example shows a complete service execution role policy for a replicator with all features enabled, including topic configuration replication and LEGACY offset sync mode. The example replicates topics matching `my-app-.*` between two MSK clusters. Replace all placeholder values with your actual resource identifiers.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Sid": "SourceClusterPermissions",
@@ -120,6 +123,5 @@ The following example shows a complete service execution role policy for a repli
 }
 ```
 
-###### Tip
-
-Start with the [Topic replication permissions](msk-replicator-perms-topic-replication.md "msk-replicator-perms-topic-replication.md") policy and only add the statements for optional features you have enabled. This follows the principle of least privilege and makes it easier to audit your permissions.
+**Tip**  
+Start with the [Topic replication permissions](msk-replicator-perms-topic-replication.md) policy and only add the statements for optional features you have enabled. This follows the principle of least privilege and makes it easier to audit your permissions.

@@ -1,4 +1,7 @@
+
+
 # Amazon CloudWatch Logs
+<a name="msk-data-delivery-iceberg-cw-logs"></a>
 
 A Channel can publish operational logs to a Amazon CloudWatch Logs log group, including schema resolution events, delivery attempts and outcomes, and error details for failed deliveries.
 

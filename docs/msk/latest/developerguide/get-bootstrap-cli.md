@@ -1,15 +1,15 @@
+
+
 # Get the bootstrap brokers using the AWS CLI
+<a name="get-bootstrap-cli"></a>
 
-Run the following command, replacing `ClusterArn` with the
-Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't
-have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md "msk-list-clusters.md").
+Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md).
 
 ```
-aws kafka get-bootstrap-brokers --cluster-arn `ClusterArn`
+aws kafka get-bootstrap-brokers --cluster-arn {{ClusterArn}}
 ```
 
-For an MSK cluster that uses [IAM access control](iam-access-control.md "iam-access-control.md"),
-the output of this command looks like the following JSON example.
+For an MSK cluster that uses [IAM access control](iam-access-control.md), the output of this command looks like the following JSON example.
 
 ```
 {
@@ -26,6 +26,4 @@ The following example shows the bootstrap brokers for a cluster that has public 
 }
 ```
 
-The bootstrap brokers string should contain three brokers from across the
-Availability Zones in which your MSK cluster is deployed (unless only two
-brokers are available).
+The bootstrap brokers string should contain three brokers from across the Availability Zones in which your MSK cluster is deployed (unless only two brokers are available). 
