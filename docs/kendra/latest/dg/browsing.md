@@ -1,41 +1,28 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Browsing an index
+<a name="browsing"></a>
 
-###### Note
+**Note**  
+Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
 
-Feature support varies by index type and search API being used. To see if this
-feature is supported for the index type and search API you’re using, see [Index
-types](hiw-index-types.md "hiw-index-types.md").
+You can browse documents by their attributes or facets without having to type a search query. Amazon Kendra *Index Browse* can help your users discover documents by freely browsing an index without a specific query in mind. This also helps your users broadly browse an index as a starting point in their search.
 
-You can browse documents by their attributes or facets without having to type a search
-query. Amazon Kendra
-_Index Browse_ can help your users discover documents by freely
-browsing an index without a specific query in mind. This also helps your users broadly
-browse an index as a starting point in their search.
+Index Browse can only be used for searching by document attribute or facet with a sorting type. You cannot search an entire index using Index Browse. If the query text is missing, then Amazon Kendra asks for a document attribute filter or a facet, and a sorting type.
 
-Index Browse can only be used for searching by document attribute or facet with a
-sorting type. You cannot search an entire index using Index Browse. If the query text is
-missing, then Amazon Kendra asks for a document attribute filter or a facet, and a
-sorting type.
+To allow index browsing using the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API, you must include [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/APIReference/API_AttributeFilter.html) or [Facet](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Facet.html), and [SortingConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_SortingConfiguration.html). To allow index browsing in the console, select your index under **Indexes** in the navigation menu, then select the option to search your index. In the search box, press the *Enter* key twice. Select the dropdown **Filter search results** to choose a filter and select the dropdown **Sort** to choose a sorting type.
 
-To allow index browsing using the [Query](../APIReference/API_Query.md "../APIReference/API_Query.md") API, you must include
-[AttributeFilter](../APIReference/API_AttributeFilter.md "../APIReference/API_AttributeFilter.md") or
-[Facet](../APIReference/API_Facet.md "../APIReference/API_Facet.md"), and [SortingConfiguration](../APIReference/API_SortingConfiguration.md "../APIReference/API_SortingConfiguration.md"). To allow index browsing in the console, select your
-index under **Indexes** in the navigation menu, then select the option
-to search your index. In the search box, press the _Enter_ key twice.
-Select the dropdown **Filter search results** to choose a filter and
-select the dropdown **Sort** to choose a sorting type.
+The following is an example of browsing an index for documents in the language Spanish in descending order of document creation date.
 
-The following is an example of browsing an index for documents in the language Spanish
-in descending order of document creation date.
-
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra query \
 --index-id "index-id" \
---attribute-filter '{
+--attribute-filter '{   
     "EqualsTo":{
       "Key": "_language_code",
       "Value": {
@@ -49,7 +36,8 @@ aws kendra query \
   }'
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -60,7 +48,7 @@ kendra = boto3.client("kendra")
 response = kendra.query(
         IndexId = "index-id",
         AttributeFilter = {
-            "EqualsTo": {
+            "EqualsTo": {      
                 "Key": "_language_code",
                 "Value": {
                     "StringValue": "es"
@@ -77,7 +65,7 @@ for query_result in response["ResultItems"]:
 
     print("-------------------")
     print("Type: " + str(query_result["Type"]))
-
+        
     if query_result["Type"]=="ANSWER" or query_result["Type"]=="QUESTION_ANSWER":
         answer_text = query_result["DocumentExcerpt"]["Text"]
         print(answer_text)
@@ -92,7 +80,8 @@ for query_result in response["ResultItems"]:
     print("------------------\n\n")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -120,12 +109,12 @@ public class SearchIndexExample {
                 .withSortOrder("DESC")
                 .build())
             .build());
-
+            
         QueryResult queryResult = kendra.query(queryRequest);
         for (QueryResultItem item : queryResult.getResultItems()) {
             System.out.println("----------------------");
             System.out.println(String.format("Type: %s", item.getType()));
-
+        
             switch (item.getType()) {
                 case QueryResultType.QUESTION_ANSWER:
                 case QueryResultType.ANSWER:
@@ -146,3 +135,5 @@ public class SearchIndexExample {
     }
 }
 ```
+
+------

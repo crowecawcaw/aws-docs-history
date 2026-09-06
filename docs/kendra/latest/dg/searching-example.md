@@ -1,656 +1,535 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Querying an index
+<a name="searching-example"></a>
 
-###### Note
+**Note**  
+Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
 
-Feature support varies by index type and search API being used. To see if this
-feature is supported for the index type and search API you’re using, see [Index
-types](hiw-index-types.md "hiw-index-types.md").
+When you search your index, Amazon Kendra uses all the information that you provided about your documents to determine the documents most relevant to the search terms entered. Some of the items that Amazon Kendra considers are:
++ The text or body of the document.
++ The title of the document.
++ Custom text fields that you have marked as searchable.
++ The date field that you have indicated should be used to determine the "freshness" of a document.
++ Any other field that could provide relevant information.
 
-When you search your index, Amazon Kendra uses all the information that you
-provided about your documents to determine the documents most relevant to the search
-terms entered. Some of the items that Amazon Kendra considers are:
+Amazon Kendra can also filter the response based on any field/attribute filters that you might have set for the search. For example, if you have a custom field called "department", you can filter the response to return only documents from a department called "legal". For more information, see [Custom fields or attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html).
 
-- The text or body of the document.
-- The title of the document.
-- Custom text fields that you have marked as searchable.
-- The date field that you have indicated should be used to determine the
-  "freshness" of a document.
-- Any other field that could provide relevant information.
-  Amazon Kendra can also filter the response based on any field/attribute filters
-  that you might have set for the search. For example, if you have a custom field called
-  "department", you can filter the response to return only documents from a department
-  called "legal". For more information, see [Custom fields or
-  attributes](custom-attributes.md "custom-attributes.md").
+Returned search results are sorted by the relevance that Amazon Kendra determines for each document. The results are paginated so that you can show a page at a time to your user.
 
-Returned search results are sorted by the relevance that Amazon Kendra determines
-for each document. The results are paginated so that you can show a page at a time to
-your user.
+To search documents that you have indexed with Amazon Kendra for Amazon Lex, use [AMAZON.KendraSearchIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_KendraConfiguration.html). For an example of configuring Amazon Kendra with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](https://docs.aws.amazon.com/lexv2/latest/dg/faq-bot-kendra-search.html).
 
-To search documents that you have indexed with Amazon Kendra for Amazon Lex, use [AMAZON.KendraSearchIntent](../../../lexv2/latest/APIReference/API_KendraConfiguration.md "../../../lexv2/latest/APIReference/API_KendraConfiguration.md"). For an example of configuring Amazon Kendra
-with Amazon Lex, see [Creating a FAQ Bot for an Amazon Kendra Index](../../../lexv2/latest/dg/faq-bot-kendra-search.md "../../../lexv2/latest/dg/faq-bot-kendra-search.md").
+The following example shows how to search an index. Amazon Kendra determines the type of the search result (answer, document, question-answer) that's best suited for the query. You can't configure Amazon Kendra to return a specific type of search response (answer, document, question-answer) to a query.
 
-The following example shows how to search an index. Amazon Kendra determines the
-type of the search result (answer, document, question-answer) that's best suited for the
-query. You can't configure Amazon Kendra to return a specific type of search
-response (answer, document, question-answer) to a query.
+For information about the query responses, see [Query responses and response types](query-responses-types.md).
 
-For information about the query responses, see [Query responses and response types](query-responses-types.md "query-responses-types.md").
-
-###### Topics
-
-- [Prerequisites](#searching-prerequisites "#searching-prerequisites")
-- [Searching an index (console)](#searching-index-console "#searching-index-console")
-- [Searching an index (SDK)](#searching-index-sdk "#searching-index-sdk")
-- [Searching an index (Postman)](#searching-index-postman "#searching-index-postman")
-- [Searching with advanced query syntax](#searching-index-query-syntax "#searching-index-query-syntax")
-- [Searching in languages](#searching-index-languages "#searching-index-languages")
+**Topics**
++ [Prerequisites](#searching-prerequisites)
++ [Searching an index (console)](#searching-index-console)
++ [Searching an index (SDK)](#searching-index-sdk)
++ [Searching an index (Postman)](#searching-index-postman)
++ [Searching with advanced query syntax](#searching-index-query-syntax)
++ [Searching in languages](#searching-index-languages)
 
 ## Prerequisites
+<a name="searching-prerequisites"></a>
 
-Before using the [Query](../APIReference/API_Query.md "../APIReference/API_Query.md") API to query an
-index:
-
-- Set up the required permissions for an index and connect to your data
-  source or batch upload your documents. For more information, see [IAM roles](iam-roles.md "iam-roles.md"). You use the Amazon Resource Name of the
-  role when you call the API to create an index and data source connector or
-  batch upload of documents.
-- Set up either the AWS Command Line Interface, an SDK, or go to the Amazon Kendra console. For more information, see [Setting up
-  Amazon Kendra](setup.md "setup.md").
-- Create an index and connect to a data source of documents or batch upload
-  documents. For more information, see [Creating an index](create-index.md "create-index.md") and
-  [Creating a data source connector](data-source.md "data-source.md").
+Before using the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API to query an index:
++ Set up the required permissions for an index and connect to your data source or batch upload your documents. For more information, see [IAM roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You use the Amazon Resource Name of the role when you call the API to create an index and data source connector or batch upload of documents.
++ Set up either the AWS Command Line Interface, an SDK, or go to the Amazon Kendra console. For more information, see [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html).
++ Create an index and connect to a data source of documents or batch upload documents. For more information, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and [Creating a data source connector](https://docs.aws.amazon.com/kendra/latest/dg/data-source.html).
 
 ## Searching an index (console)
+<a name="searching-index-console"></a>
 
-You can use the Amazon Kendra console to search and test your index. You can
-make queries and see the results.
+You can use the Amazon Kendra console to search and test your index. You can make queries and see the results.
 
-###### To search an index with the console
+**To search an index with the console**
 
-1. Sign in to the AWS Management Console and open the Amazon Kendra
-   console at [http://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra "https://console.aws.amazon.com/kendra").
-2. On the navigation pane, choose **Indexes**.
-3. Choose your index.
-4. In the navigation menu, choose the option to search your index.
-5. Enter a query in the text box and then press enter.
-6. Amazon Kendra returns the results of the search.
+1. Sign in to the AWS Management Console and open the Amazon Kendra console at [http://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra).
 
-You can also get the query ID for the search by selecting the lightbulb icon in
-the side panel.
+1. On the navigation pane, choose **Indexes**.
+
+1. Choose your index.
+
+1. In the navigation menu, choose the option to search your index.
+
+1. Enter a query in the text box and then press enter.
+
+1. Amazon Kendra returns the results of the search.
+
+You can also get the query ID for the search by selecting the lightbulb icon in the side panel.
 
 ## Searching an index (SDK)
+<a name="searching-index-sdk"></a>
 
-###### To search an index with Python or Java
+**To search an index with Python or Java**
++ The following example searches an index. Change the value of `query` to your search query and `index_id` or `indexId` to the index identifier of the index that you want to search.
 
-- The following example searches an index. Change the value of
-  `query` to your search query and `index_id` or
-  `indexId` to the index identifier of the index that you want
-  to search.
+  You can also get the query ID for the search as part of the response elements when you call the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API.
 
-You can also get the query ID for the search as part of the response
-elements when you call the [Query](../APIReference/API_Query.md "../APIReference/API_Query.md")
-API.
+------
+#### [ Python ]
 
-Python
+  ```
+  import boto3
+  import pprint
+  
+  kendra = boto3.client("kendra")
+  
+  # Provide the index ID
+  index_id = "index-id"
+  # Provide the query text
+  query = "query text"
+  
+  response = kendra.query(
+          QueryText = query,
+          IndexId = index_id)
+  
+  print("\nSearch results for query: " + query + "\n")        
+  
+  for query_result in response["ResultItems"]:
+  
+      print("-------------------")
+      print("Type: " + str(query_result["Type"]))
+          
+      if query_result["Type"]=="ANSWER" or query_result["Type"]=="QUESTION_ANSWER":
+          answer_text = query_result["DocumentExcerpt"]["Text"]
+          print(answer_text)
+  
+      if query_result["Type"]=="DOCUMENT":
+          if "DocumentTitle" in query_result:
+              document_title = query_result["DocumentTitle"]["Text"]
+              print("Title: " + document_title)
+          document_text = query_result["DocumentExcerpt"]["Text"]
+          print(document_text)
+  
+      print("------------------\n\n")
+  ```
 
-```
-import boto3
-import pprint
+------
+#### [ Java ]
 
-kendra = boto3.client("kendra")
+  ```
+  package com.amazonaws.kendra;
+  
+  import software.amazon.awssdk.services.kendra.KendraClient;
+  import software.amazon.awssdk.services.kendra.model.QueryRequest;
+  import software.amazon.awssdk.services.kendra.model.QueryResponse;
+  import software.amazon.awssdk.services.kendra.model.QueryResultItem;
+  
+  public class SearchIndexExample {
+      public static void main(String[] args) {
+          KendraClient kendra = KendraClient.builder().build();
+  
+          String query = "query text";
+          String indexId = "index-id";
+  
+          QueryRequest queryRequest = QueryRequest
+              .builder()
+              .queryText(query)
+              .indexId(indexId)
+              .build();
+  
+          QueryResponse queryResponse = kendra.query(queryRequest);
+  
+          System.out.println(String.format("\nSearch results for query: %s", query));
+          for(QueryResultItem item: queryResponse.resultItems()) {
+              System.out.println("----------------------");
+              System.out.println(String.format("Type: %s", item.type()));
+  
+              switch(item.type()) {
+                  case QUESTION_ANSWER:
+                  case ANSWER:
+                      String answerText = item.documentExcerpt().text();
+                      System.out.println(answerText);
+                      break;
+                  case DOCUMENT:
+                      String documentTitle = item.documentTitle().text();
+                      System.out.println(String.format("Title: %s", documentTitle));
+                      String documentExcerpt = item.documentExcerpt().text();
+                      System.out.println(String.format("Excerpt: %s", documentExcerpt));
+                      break;
+                  default:
+                      System.out.println(String.format("Unknown query result type: %s", item.type()));
+  
+              }
+  
+              System.out.println("-----------------------\n");
+          }
+      }
+  }
+  ```
 
-# Provide the index ID
-index_id = "index-id"
-# Provide the query text
-query = "query text"
-
-response = kendra.query(
-        QueryText = query,
-        IndexId = index_id)
-
-print("\nSearch results for query: " + query + "\n")
-
-for query_result in response["ResultItems"]:
-
-    print("-------------------")
-    print("Type: " + str(query_result["Type"]))
-
-    if query_result["Type"]=="ANSWER" or query_result["Type"]=="QUESTION_ANSWER":
-        answer_text = query_result["DocumentExcerpt"]["Text"]
-        print(answer_text)
-
-    if query_result["Type"]=="DOCUMENT":
-        if "DocumentTitle" in query_result:
-            document_title = query_result["DocumentTitle"]["Text"]
-            print("Title: " + document_title)
-        document_text = query_result["DocumentExcerpt"]["Text"]
-        print(document_text)
-
-    print("------------------\n\n")
-
-```
-
-Java
-
-```
-package com.amazonaws.kendra;
-
-import software.amazon.awssdk.services.kendra.KendraClient;
-import software.amazon.awssdk.services.kendra.model.QueryRequest;
-import software.amazon.awssdk.services.kendra.model.QueryResponse;
-import software.amazon.awssdk.services.kendra.model.QueryResultItem;
-
-public class SearchIndexExample {
-    public static void main(String[] args) {
-        KendraClient kendra = KendraClient.builder().build();
-
-        String query = "query text";
-        String indexId = "index-id";
-
-        QueryRequest queryRequest = QueryRequest
-            .builder()
-            .queryText(query)
-            .indexId(indexId)
-            .build();
-
-        QueryResponse queryResponse = kendra.query(queryRequest);
-
-        System.out.println(String.format("\nSearch results for query: %s", query));
-        for(QueryResultItem item: queryResponse.resultItems()) {
-            System.out.println("----------------------");
-            System.out.println(String.format("Type: %s", item.type()));
-
-            switch(item.type()) {
-                case QUESTION_ANSWER:
-                case ANSWER:
-                    String answerText = item.documentExcerpt().text();
-                    System.out.println(answerText);
-                    break;
-                case DOCUMENT:
-                    String documentTitle = item.documentTitle().text();
-                    System.out.println(String.format("Title: %s", documentTitle));
-                    String documentExcerpt = item.documentExcerpt().text();
-                    System.out.println(String.format("Excerpt: %s", documentExcerpt));
-                    break;
-                default:
-                    System.out.println(String.format("Unknown query result type: %s", item.type()));
-
-            }
-
-            System.out.println("-----------------------\n");
-        }
-    }
-}
-```
+------
 
 ## Searching an index (Postman)
+<a name="searching-index-postman"></a>
 
-You can use [Postman](https://www.postman.com/ "https://www.postman.com/") to query and
-test your Amazon Kendra index.
+You can use [Postman](https://www.postman.com/) to query and test your Amazon Kendra index.
 
-###### To search an index using Postman
+**To search an index using Postman**
 
-1. Create a new collection in Postman and set the request type to
-   **POST**.
-2. Enter the endpoint URL. For example,
-   *https://kendra.<region>.amazonaws.com*.
-3. Select the **Authorization** tab and enter the following
-   information.
+1. Create a new collection in Postman and set the request type to **POST**.
 
-   - **Type**—Select **AWS signature**.
-   - **AccessKey**—Enter the access key
-     generated when you create an IAM user.
-   - **SecretKey**—Enter the secret key
-     generated when you create an IAM user.
-   - **AWS Region**—Enter the
-     region of you index. For example,
-     _us-west-2_.
-   - **Service Name**—Enter
-     _kendra_. This is case sensitive, so must be
-     lower case.
+1. Enter the endpoint URL. For example, *https://kendra.<region>.amazonaws.com*.
 
-   ###### Warning
+1. Select the **Authorization** tab and enter the following information.
+   + **Type**—Select **AWS signature**.
+   + **AccessKey**—Enter the access key generated when you create an IAM user.
+   + **SecretKey**—Enter the secret key generated when you create an IAM user.
+   + **AWS Region**—Enter the region of you index. For example, *us-west-2*.
+   + **Service Name**—Enter *kendra*. This is case sensitive, so must be lower case.
+**Warning**  
+If you enter the incorrect service name or don't use lowercase, an error is thrown once you select **Send** to send the request: "Credential should be scoped to the correct service 'kendra'."  
+You must also check that you entered the correct access key and secret key.
 
-   If you enter the incorrect service name or don't use
-   lowercase, an error is thrown once you select
-   **Send** to send the request: "Credential
-   should be scoped to the correct service 'kendra'."
+1. Select the **Headers** tab and enter the following key and value information.
+   + Key: *X-Amz-Target*
 
-   You must also check that you entered the correct access key
-   and secret key.
+     Value: *com.amazonaws.kendra.AWSKendraFrontendService.Query*
+   + Key: *Content-Encoding*
 
-4. Select the **Headers** tab and enter the following key
-   and value information.
+     Value: *amz-1.0*
 
-   - Key: _X-Amz-Target_
+1. Select the **Body** tab and do the following.
+   + Choose the **raw** JSON type for the body of the request.
+   + Enter a JSON that includes your index ID and query text.
 
-   Value:
-   _com.amazonaws.kendra.AWSKendraFrontendService.Query_
-   - Key: _Content-Encoding_
+     ```
+     {
+         "IndexId": "{{index-id}}",
+         "QueryText": "enter a query here"
+     }
+     ```
+**Warning**  
+If your JSON doesn't use the correct indendation, an error is thrown: "SerializationException". Check the indendation in your JSON.
 
-   Value: _amz-1.0_
-
-5. Select the **Body** tab and do the following.
-
-   - Choose the **raw** JSON type for the body of the
-     request.
-   - Enter a JSON that includes your index ID and query text.
-
-   ```
-   {
-       "IndexId": "`index-id`",
-       "QueryText": "enter a query here"
-   }
-   ```
-
-   ###### Warning
-
-   If your JSON doesn't use the correct indendation, an error is
-   thrown: "SerializationException". Check the indendation in your
-   JSON.
-
-6. Select **Send** (near the top right).
+1. Select **Send** (near the top right).
 
 ## Searching with advanced query syntax
+<a name="searching-index-query-syntax"></a>
 
-You can create queries that are more specific than simple keyword or natural
-language queries by using advanced query syntax or operators. This includes ranges,
-Booleans, wildcards, and more. By using operators, you can give your query more
-context and further refine the search results.
+You can create queries that are more specific than simple keyword or natural language queries by using advanced query syntax or operators. This includes ranges, Booleans, wildcards, and more. By using operators, you can give your query more context and further refine the search results.
 
 Amazon Kendra supports the following operators.
-
-- Boolean: Logic to limit or broaden the search. For example, `amazon
- AND sports` limits the search to only search for documents
-  containing both terms.
-- Parentheses: Reads nested query terms in order of precedence. For example,
-  `(amazon AND sports) NOT rainforest` reads `(amazon AND
- sports)` before `NOT rainforest`.
-- Ranges: Date or numeric range values. Ranges can be inclusive, exclusive,
-  or unbounded. For example, you can search for documents that were last
-  updated between January 1st 2020 and December 31st 2020, inclusive of these
-  dates.
-- Fields: Uses a specific field to limit the search. For example, you can
-  search for documents that have 'United States' in the field
-  'location'.
-- Wildcards: Partially match a string of text. For example,
-  `Cloud*` could match CloudFormation. Amazon Kendra
-  currently only supports trailing wildcards.
-- Exact quotes: Exact match a string of text. For example, documents that
-  contain `"Amazon Kendra" "pricing"`.
++ Boolean: Logic to limit or broaden the search. For example, `amazon AND sports` limits the search to only search for documents containing both terms.
++ Parentheses: Reads nested query terms in order of precedence. For example, `(amazon AND sports) NOT rainforest` reads `(amazon AND sports)` before `NOT rainforest`.
++ Ranges: Date or numeric range values. Ranges can be inclusive, exclusive, or unbounded. For example, you can search for documents that were last updated between January 1st 2020 and December 31st 2020, inclusive of these dates.
++ Fields: Uses a specific field to limit the search. For example, you can search for documents that have 'United States' in the field 'location'.
++ Wildcards: Partially match a string of text. For example, `Cloud*` could match CloudFormation. Amazon Kendra currently only supports trailing wildcards.
++ Exact quotes: Exact match a string of text. For example, documents that contain `"Amazon Kendra" "pricing"`.
 
 You can use a combination of any of the above operators.
 
-Note that excessive use of operators or highly complex queries could impact query
-latency. Wildcards are some of the most expensive operators in terms of latency. A
-general rule is the more terms and operators that you use, the greater potential
-impact on latency. Other factors that affect latency include the average size of
-documents indexed, the size of your index, any filtering on search results, and the
-overall load on your Amazon Kendra index.
+Note that excessive use of operators or highly complex queries could impact query latency. Wildcards are some of the most expensive operators in terms of latency. A general rule is the more terms and operators that you use, the greater potential impact on latency. Other factors that affect latency include the average size of documents indexed, the size of your index, any filtering on search results, and the overall load on your Amazon Kendra index.
 
 ### Boolean
+<a name="query-syntax-boolean"></a>
 
-You can combine or exclude words using the Boolean operators `AND`,
-`OR`, `NOT`.
+You can combine or exclude words using the Boolean operators `AND`, `OR`, `NOT`.
 
 The following are examples of using Boolean operators.
 
-**`amazon AND sports`**
+ **`amazon AND sports`** 
 
-Returns search results that contain both the terms 'amazon' and 'sports' in
-the text, such as Amazon Prime video sports or other similar content.
+Returns search results that contain both the terms 'amazon' and 'sports' in the text, such as Amazon Prime video sports or other similar content.
 
-**`sports OR recreation`**
+ **`sports OR recreation`** 
 
-Returns search results that contain the terms 'sports' or 'recreation', or
-both, in the text.
+Returns search results that contain the terms 'sports' or 'recreation', or both, in the text.
 
-**`amazon NOT rainforest`**
+ **`amazon NOT rainforest`** 
 
-Returns search results that contain the term 'amazon' but not the term
-'rainforest' in the text. This is to search for documents about the company
-Amazon, not the Amazon Rainforest.
+Returns search results that contain the term 'amazon' but not the term 'rainforest' in the text. This is to search for documents about the company Amazon, not the Amazon Rainforest.
 
 ### Parentheses
+<a name="query-syntax-parentheses"></a>
 
-You can query nested words in order of precedence by using parentheses. The
-parentheses indicate to Amazon Kendra how a query should be read.
+You can query nested words in order of precedence by using parentheses. The parentheses indicate to Amazon Kendra how a query should be read.
 
 The following are examples of using parentheses operators.
 
-**`(amazon AND sports) NOT rainforest`**
+ **`(amazon AND sports) NOT rainforest`** 
 
-Returns documents that contain both the terms 'amazon' and 'sports' in the
-text, but not the term 'rainforest'. This is to search Amazon Prime video sports
-or other similar content, not adventure sports in the Amazon Rainforest. The
-parentheses help indicate that `amazon AND sports` should be read
-before `NOT rainforest`. The query should not be read as `amazon
- AND (sports NOT rainforest)`.
+Returns documents that contain both the terms 'amazon' and 'sports' in the text, but not the term 'rainforest'. This is to search Amazon Prime video sports or other similar content, not adventure sports in the Amazon Rainforest. The parentheses help indicate that `amazon AND sports` should be read before `NOT rainforest`. The query should not be read as `amazon AND (sports NOT rainforest)`.
 
-**`(amazon AND (sports OR recreation)) NOT
- rainforest`**
+ **`(amazon AND (sports OR recreation)) NOT rainforest`** 
 
-Returns documents that contain the terms 'sports' or 'recreation', or both,
-and the term 'amazon'. But it does not include the term 'rainforest'. This is to
-search Amazon Prime video sports or recreation, not adventure sports in the
-Amazon Rainforest. The parentheses help indicate that `sports OR
- recreation` should be read before combining with 'amazon', which is
-read before `NOT rainforest`. The query should not be read as
-`amazon AND (sports OR (recreation NOT rainforest))`.
+Returns documents that contain the terms 'sports' or 'recreation', or both, and the term 'amazon'. But it does not include the term 'rainforest'. This is to search Amazon Prime video sports or recreation, not adventure sports in the Amazon Rainforest. The parentheses help indicate that `sports OR recreation` should be read before combining with 'amazon', which is read before `NOT rainforest`. The query should not be read as `amazon AND (sports OR (recreation NOT rainforest))`.
 
 ### Ranges
+<a name="query-syntax-ranges"></a>
 
-You can use a range of values to filter the search results. You specify an
-attribute and the range values. This can be date or numeric type.
+You can use a range of values to filter the search results. You specify an attribute and the range values. This can be date or numeric type.
 
 Date ranges must be in the following formats:
++ Epoch
++ YYYY
++ YYYY-mm
++ YYYY-mm-dd
++ YYYY-mm-dd'T'HH
 
-- Epoch
-- YYYY
-- YYYY-mm
-- YYYY-mm-dd
-- YYYY-mm-dd'T'HH
-
-You can also specify whether to include or exclude the lower and higher values
-of the range.
+You can also specify whether to include or exclude the lower and higher values of the range.
 
 The following are examples of using range operators.
 
-**`_processed_date:>2019-12-31 AND
- _processed_date:<2021-01-01`**
+ **`_processed_date:>2019-12-31 AND _processed_date:<2021-01-01`** 
 
-Returns documents that were processed in 2020—greater than December
-31st 2019 and less than January 1st 2021.
+Returns documents that were processed in 2020—greater than December 31st 2019 and less than January 1st 2021.
 
-**`_processed_date:>=2020-01-01 AND
- _processed_date:<=2020-12-31`**
+ **`_processed_date:>=2020-01-01 AND _processed_date:<=2020-12-31`** 
 
-Returns documents that were processed in 2020—greater than or equal to
-January 1st 2020 and less than or equal to December 31st 2020.
+Returns documents that were processed in 2020—greater than or equal to January 1st 2020 and less than or equal to December 31st 2020.
 
-**`_document_likes:<1`**
+ **`_document_likes:<1`** 
 
-Returns documents with zero likes or no user feedback—less than 1
-like.
+Returns documents with zero likes or no user feedback—less than 1 like.
 
-You can specify whether a range should be treated as inclusive or exclusive of
-the given range values.
+You can specify whether a range should be treated as inclusive or exclusive of the given range values.
 
-**Inclusive**
+ **Inclusive** 
 
-**`_last_updated_at:[2020-01-01 TO
- 2020-12-31]`**
+ **`_last_updated_at:[2020-01-01 TO 2020-12-31]`** 
 
-Returns documents last updated in 2020—includes the days December 1st
-2020 and December 31st 2020.
+Returns documents last updated in 2020—includes the days December 1st 2020 and December 31st 2020.
 
-**Exclusive**
+ **Exclusive** 
 
-**`_last_updated_at:{2019-12-31 TO
- 2021-01-01}`**
+ **`_last_updated_at:{2019-12-31 TO 2021-01-01}`** 
 
-Returns documents last updated in 2020—excludes the days December 31st
-2019 and January 1st 2021.
+Returns documents last updated in 2020—excludes the days December 31st 2019 and January 1st 2021.
 
-For unbounded ranges that are neither inclusive or exclusive, simply use the
-< and > operators. For example, `_last_updated_at:>2019-12-31 AND
- _last_updated_at:<2021-01-01`
+For unbounded ranges that are neither inclusive or exclusive, simply use the < and > operators. For example, `_last_updated_at:>2019-12-31 AND _last_updated_at:<2021-01-01` 
 
 #### Fields
+<a name="query-syntax-fields"></a>
 
-You can limit your search to only return documents that meet a value in a
-specific field. The field can be of any type.
+You can limit your search to only return documents that meet a value in a specific field. The field can be of any type.
 
 The following are examples of using field-level context operators.
 
-**`status:"Incomplete" AND
- financial_year:2021`**
+ **`status:"Incomplete" AND financial_year:2021`** 
 
-Returns documents for the 2021 financial year with their status as
-incomplete.
+Returns documents for the 2021 financial year with their status as incomplete.
 
-**`(sports OR recreation) AND country:"United
- States" AND level:"professional"`**
+ **`(sports OR recreation) AND country:"United States" AND level:"professional"`** 
 
-Returns documents that discuss professional sports or recreation in the
-United States.
+Returns documents that discuss professional sports or recreation in the United States.
 
 #### Wildcards
+<a name="query-syntax-wildcards"></a>
 
-You can broaden your search to account for variants of words and phrases
-using the wildcard operator. This is useful when searching for name
-variants. Amazon Kendra currently only supports trailing wildcards. The
-number of prefix characters for a trailing wildcard must be greater than
-two.
+You can broaden your search to account for variants of words and phrases using the wildcard operator. This is useful when searching for name variants. Amazon Kendra currently only supports trailing wildcards. The number of prefix characters for a trailing wildcard must be greater than two.
 
 The following are examples of using wildcard operators.
 
-**`Cloud*`**
+ **`Cloud*`** 
 
-Returns documents that contain variants such as CloudFormation and
-CloudWatch.
+Returns documents that contain variants such as CloudFormation and CloudWatch.
 
-**`kendra*aws`**
+ **`kendra*aws`** 
 
 Returns documents that contain variants such as kendra.amazonaws.
 
-**`kendra*aws*`**
+ **`kendra*aws*`** 
 
-Returns documents that contain variants such as
-kendra.amazonaws.com
+Returns documents that contain variants such as kendra.amazonaws.com
 
 #### Exact quotes
+<a name="query-syntax-exact-quote"></a>
 
-You can use quotation marks to search for an exact match of a piece of
-text.
+You can use quotation marks to search for an exact match of a piece of text.
 
 The following are examples of using quotation marks.
 
-**`"Amazon Kendra" "pricing"`**
+ **`"Amazon Kendra" "pricing"`** 
 
-Returns documents that contain both the phrase 'Amazon Kendra' and
-the term 'pricing'. Documents must contain both 'Amazon Kendra' and
-'pricing' in order to return in the results.
+Returns documents that contain both the phrase 'Amazon Kendra' and the term 'pricing'. Documents must contain both 'Amazon Kendra' and 'pricing' in order to return in the results.
 
-**`"Amazon Kendra" "pricing"
- cost`**
+ **`"Amazon Kendra" "pricing" cost`** 
 
-Returns documents that contain both the phrase 'Amazon Kendra' and
-the term 'pricing', and optionally the term 'cost'. Documents must contain
-both 'Amazon Kendra' and 'pricing' in order to return in the results,
-but might not necessarily include 'cost'.
+Returns documents that contain both the phrase 'Amazon Kendra' and the term 'pricing', and optionally the term 'cost'. Documents must contain both 'Amazon Kendra' and 'pricing' in order to return in the results, but might not necessarily include 'cost'. 
 
 #### Invalid query syntax
+<a name="query-syntax-invalid"></a>
 
-Amazon Kendra issues a warning if there are problems with your query
-syntax or your query is currently not supported by Amazon Kendra. For
-more information, see the [API documentation for
-query warnings](../APIReference/API_Warning.md "../APIReference/API_Warning.md").
+Amazon Kendra issues a warning if there are problems with your query syntax or your query is currently not supported by Amazon Kendra. For more information, see the [API documentation for query warnings](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Warning.html).
 
 The following queries are examples of invalid query syntax.
 
-**`_last_updated_at:<2021-12-32`**
+ **`_last_updated_at:<2021-12-32`** 
 
-Invalid date. Day 32 does not exist in the Gregorian calendar, which is
-used by Amazon Kendra.
+Invalid date. Day 32 does not exist in the Gregorian calendar, which is used by Amazon Kendra.
 
-**`_view_count:ten`**
+ **`_view_count:ten`** 
 
-Invalid numeric value. Digits must be used to represent numeric
-values.
+Invalid numeric value. Digits must be used to represent numeric values.
 
-**`nonExistentField:123`**
+ **`nonExistentField:123`** 
 
-Invalid field search. The field must exist in order to use field
-search.
+Invalid field search. The field must exist in order to use field search.
 
-**`Product:[A TO D]`**
+ **`Product:[A TO D]`** 
 
 Invalid range. Numeric values or dates must be used for ranges.
 
-**`OR Hello`**
+ **`OR Hello`** 
 
-Invalid Boolean. Operators must be used with terms and placed between
-terms.
+Invalid Boolean. Operators must be used with terms and placed between terms.
 
 ## Searching in languages
+<a name="searching-index-languages"></a>
 
-You can search for documents in a supported language. You pass the language code
-in the [AttributeFilter](../APIReference/API_AttributeFilter.md "../APIReference/API_AttributeFilter.md") to return filtered documents in your chosen language.
-You can type the query in a supported language.
+You can search for documents in a supported language. You pass the language code in the [AttributeFilter](https://docs.aws.amazon.com/kendra/latest/APIReference/API_AttributeFilter.html) to return filtered documents in your chosen language. You can type the query in a supported language. 
 
-If you do not specify a language, Amazon Kendra queries documents in English
-by default. For more information on supported languages, including their codes, see
-[Adding documents in languages other than English](in-adding-languages.md "in-adding-languages.md").
+If you do not specify a language, Amazon Kendra queries documents in English by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 
-To search for documents in a supported language in the console, select your index,
-then select the option to search your index from the navigation menu. Choose the
-language that you want to return documents by selecting the search settings and then
-selecting a language from the dropdown **Language**.
+To search for documents in a supported language in the console, select your index, then select the option to search your index from the navigation menu. Choose the language that you want to return documents by selecting the search settings and then selecting a language from the dropdown **Language**.
 
 The following examples show how to search for documents in Spanish.
 
-###### To search an index in Spanish in the console
+**To search an index in Spanish in the console**
 
-1. Sign in to the AWS Management Console and open the Amazon Kendra
-   console at [http://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra "https://console.aws.amazon.com/kendra").
-2. In the navigation menu, choose **Indexes** and choose
-   your index.
-3. In the navigation menu, choose the option to search your index.
-4. In the search settings, select the **Languages** dropdown
-   and choose Spanish.
-5. Enter a query into the text box and then press enter.
-6. Amazon Kendra returns the results of the search in Spanish.
+1. Sign in to the AWS Management Console and open the Amazon Kendra console at [http://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra).
 
-###### To search an index in Spanish using the CLI, Python or Java
+1. In the navigation menu, choose **Indexes** and choose your index.
 
-- The following example searches an index in Spanish. Change the value
-  `searchString` to your search query and the value
-  `indexID` to the identifier of the index that you want to
-  search. The language code for Spanish is `es`. You can replace
-  this with your own language code.
+1. In the navigation menu, choose the option to search your index.
 
-CLI
+1. In the search settings, select the **Languages** dropdown and choose Spanish.
 
-```
-{
-  "EqualsTo":{
-    "Key": "_language_code",
-    "Value": {
-    "StringValue": "es"
+1. Enter a query into the text box and then press enter.
+
+1. Amazon Kendra returns the results of the search in Spanish.
+
+**To search an index in Spanish using the CLI, Python or Java**
++ The following example searches an index in Spanish. Change the value `searchString` to your search query and the value `indexID` to the identifier of the index that you want to search. The language code for Spanish is `es`. You can replace this with your own language code.
+
+------
+#### [ CLI ]
+
+  ```
+  {
+    "EqualsTo":{      
+      "Key": "_language_code",
+      "Value": {
+      "StringValue": "es"
+      }
     }
   }
-}
-```
+  ```
 
-Python
+------
+#### [ Python ]
 
-```
-import boto3
-import pprint
+  ```
+  import boto3
+  import pprint
+  
+  kendra = boto3.client("kendra")
+  
+  # Provide the index ID
+  index_id = "index-id"
+  # Provide the query text
+  query = "search-string"
+  
+  # Includes the index ID, query text, and language attribute filter
+  response = kendra.query(
+          QueryText = query,
+          IndexId = index_id,
+          AttributeFilter = {
+              "EqualsTo": {      
+                  "Key": "_language_code",
+                  "Value": {
+                      "StringValue": "es"
+                      }
+                  }
+              })
+  
+  print ("\nSearch results|Resultados de la búsqueda: " + query + "\n")        
+  
+  for query_result in response["ResultItems"]:
+  
+      print("-------------------")
+      print("Type: " + str(query_result["Type"]))
+          
+      if query_result["Type"]=="ANSWER" or query_result["Type"]=="QUESTION_ANSWER":
+          answer_text = query_result["DocumentExcerpt"]["Text"]
+          print(answer_text)
+  
+      if query_result["Type"]=="DOCUMENT":
+          if "DocumentTitle" in query_result:
+              document_title = query_result["DocumentTitle"]["Text"]
+              print("Title: " + document_title)
+          document_text = query_result["DocumentExcerpt"]["Text"]
+          print(document_text)
+  
+      print("------------------\n\n")
+  ```
 
-kendra = boto3.client("kendra")
+------
+#### [ Java ]
 
-# Provide the index ID
-index_id = "index-id"
-# Provide the query text
-query = "search-string"
+  ```
+  package com.amazonaws.kendra;
+  
+  import software.amazon.awssdk.services.kendra.KendraClient;
+  import software.amazon.awssdk.services.kendra.model.QueryRequest;
+  import software.amazon.awssdk.services.kendra.model.QueryResponse;
+  import software.amazon.awssdk.services.kendra.model.QueryResultItem;
+  
+  public class SearchIndexExample {
+      public static void main(String[] args) {
+          KendraClient kendra = KendraClient.builder().build();
+  
+          String query = "searchString";
+          String indexId = "indexID";
+  
+          QueryRequest queryRequest = QueryRequest.builder()
+              .queryText(query)
+              .indexId(indexId)
+              .attributeFilter(
+                   AttributeFilter.builder()
+                       .withEqualsTo(
+                           DocumentAttribute.builder()
+                               .withKey("_language_code")
+                               .withValue("es")
+                               .build())
+                       .build())
+              .build();
+  
+          QueryResponse queryResponse = kendra.query(queryRequest);
+  
+          System.out.println(String.format("\nSearch results|
+                                            Resultados de la búsqueda: %s", query));
+          for(QueryResultItem item: queryResponse.resultItems()) {
+              System.out.println("----------------------");
+              System.out.println(String.format("Type: %s", item.type()));
+  
+              switch(item.type()) {
+                  case QUESTION_ANSWER:
+                  case ANSWER:
+                      String answerText = item.documentExcerpt().text();
+                      System.out.println(answerText);
+                      break;
+                  case DOCUMENT:
+                      String documentTitle = item.documentTitle().text();
+                      System.out.println(String.format("Title: %s", documentTitle));
+                      String documentExcerpt = item.documentExcerpt().text();
+                      System.out.println(String.format("Excerpt: %s", documentExcerpt));
+                      break;
+                  default:
+                      System.out.println(String.format("Unknown query result type: %s", item.type()));
+  
+              }
+  
+              System.out.println("-----------------------\n");
+          }
+      }
+  }
+  ```
 
-# Includes the index ID, query text, and language attribute filter
-response = kendra.query(
-        QueryText = query,
-        IndexId = index_id,
-        AttributeFilter = {
-            "EqualsTo": {
-                "Key": "_language_code",
-                "Value": {
-                    "StringValue": "es"
-                    }
-                }
-            })
-
-print ("\nSearch results|Resultados de la búsqueda: " + query + "\n")
-
-for query_result in response["ResultItems"]:
-
-    print("-------------------")
-    print("Type: " + str(query_result["Type"]))
-
-    if query_result["Type"]=="ANSWER" or query_result["Type"]=="QUESTION_ANSWER":
-        answer_text = query_result["DocumentExcerpt"]["Text"]
-        print(answer_text)
-
-    if query_result["Type"]=="DOCUMENT":
-        if "DocumentTitle" in query_result:
-            document_title = query_result["DocumentTitle"]["Text"]
-            print("Title: " + document_title)
-        document_text = query_result["DocumentExcerpt"]["Text"]
-        print(document_text)
-
-    print("------------------\n\n")
-
-
-```
-
-Java
-
-```
-package com.amazonaws.kendra;
-
-import software.amazon.awssdk.services.kendra.KendraClient;
-import software.amazon.awssdk.services.kendra.model.QueryRequest;
-import software.amazon.awssdk.services.kendra.model.QueryResponse;
-import software.amazon.awssdk.services.kendra.model.QueryResultItem;
-
-public class SearchIndexExample {
-    public static void main(String[] args) {
-        KendraClient kendra = KendraClient.builder().build();
-
-        String query = "searchString";
-        String indexId = "indexID";
-
-        QueryRequest queryRequest = QueryRequest.builder()
-            .queryText(query)
-            .indexId(indexId)
-            .attributeFilter(
-                 AttributeFilter.builder()
-                     .withEqualsTo(
-                         DocumentAttribute.builder()
-                             .withKey("_language_code")
-                             .withValue("es")
-                             .build())
-                     .build())
-            .build();
-
-        QueryResponse queryResponse = kendra.query(queryRequest);
-
-        System.out.println(String.format("\nSearch results|
-                                          Resultados de la búsqueda: %s", query));
-        for(QueryResultItem item: queryResponse.resultItems()) {
-            System.out.println("----------------------");
-            System.out.println(String.format("Type: %s", item.type()));
-
-            switch(item.type()) {
-                case QUESTION_ANSWER:
-                case ANSWER:
-                    String answerText = item.documentExcerpt().text();
-                    System.out.println(answerText);
-                    break;
-                case DOCUMENT:
-                    String documentTitle = item.documentTitle().text();
-                    System.out.println(String.format("Title: %s", documentTitle));
-                    String documentExcerpt = item.documentExcerpt().text();
-                    System.out.println(String.format("Excerpt: %s", documentExcerpt));
-                    break;
-                default:
-                    System.out.println(String.format("Unknown query result type: %s", item.type()));
-
-            }
-
-            System.out.println("-----------------------\n");
-        }
-    }
-}
-```
+------

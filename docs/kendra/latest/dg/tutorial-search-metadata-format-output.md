@@ -1,533 +1,524 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Step 3: Formatting the entities analysis output as Amazon Kendra metadata
+<a name="tutorial-search-metadata-format-output"></a>
 
-To convert the entities extracted by Amazon Comprehend to the metadata format required by an Amazon Kendra
-index, you run a Python 3 script. The results of the conversion are stored in the
-`metadata` folder in your Amazon S3 bucket.
+To convert the entities extracted by Amazon Comprehend to the metadata format required by an Amazon Kendra index, you run a Python 3 script. The results of the conversion are stored in the `metadata` folder in your Amazon S3 bucket.
 
-For more information on Amazon Kendra metadata format and structure, see [S3 document
-metadata](s3-metadata.md "s3-metadata.md").
+For more information on Amazon Kendra metadata format and structure, see [S3 document metadata](https://docs.aws.amazon.com/kendra/latest/dg/s3-metadata.html).
 
-###### Topics
-
-- [Downloading and extracting the Amazon Comprehend output](#tutorial-search-metadata-format-output-download-extract "#tutorial-search-metadata-format-output-download-extract")
-- [Uploading the output into the S3 bucket](#tutorial-search-metadata-format-output-upload "#tutorial-search-metadata-format-output-upload")
-- [Converting the output to Amazon Kendra metadata format](#tutorial-search-metadata-format-output-script "#tutorial-search-metadata-format-output-script")
-- [Cleaning up your Amazon S3 bucket](#tutorial-search-metadata-format-output-cleanup "#tutorial-search-metadata-format-output-cleanup")
+**Topics**
++ [Downloading and extracting the Amazon Comprehend output](#tutorial-search-metadata-format-output-download-extract)
++ [Uploading the output into the S3 bucket](#tutorial-search-metadata-format-output-upload)
++ [Converting the output to Amazon Kendra metadata format](#tutorial-search-metadata-format-output-script)
++ [Cleaning up your Amazon S3 bucket](#tutorial-search-metadata-format-output-cleanup)
 
 ## Downloading and extracting the Amazon Comprehend output
+<a name="tutorial-search-metadata-format-output-download-extract"></a>
 
-To format the Amazon Comprehend entities analysis output, you must first download the Amazon Comprehend entities
-analysis `output.tar.gz` archive and extract the entities analysis
-file.
+To format the Amazon Comprehend entities analysis output, you must first download the Amazon Comprehend entities analysis `output.tar.gz` archive and extract the entities analysis file.
 
-1. In the Amazon Comprehend console navigation pane, navigate to **Analysis
-   jobs**.
-2. Choose your entities analysis job `data-entities-analysis`.
-3. Under **Output**, choose the link displayed next to
-   **Output data location**. This redirects you to the
-   `output.tar.gz` archive in your S3 bucket.
-4. In the **Overview** tab, choose
-   **Download**.
+### To download and extract the output file (Console)
+<a name="tutorial-search-metadata-download-extract-console"></a>
 
-###### Tip
+1. In the Amazon Comprehend console navigation pane, navigate to **Analysis jobs**.
 
-The output of all Amazon Comprehend analysis jobs have the same name. Renaming your
-archive will help you track it more easily. 5. Decompress and extract the downloaded Amazon Comprehend file to your device.
+1. Choose your entities analysis job `data-entities-analysis`.
 
-1. To access the name of the Amazon Comprehend auto-generated folder in your S3 bucket which
-   contains the results of the entities analysis job, use the [describe-entities-detection-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-entities-detection-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-entities-detection-job.html") command:
+1. Under **Output**, choose the link displayed next to **Output data location**. This redirects you to the `output.tar.gz` archive in your S3 bucket.
 
-Linux
+1. In the **Overview** tab, choose **Download**.
+**Tip**  
+The output of all Amazon Comprehend analysis jobs have the same name. Renaming your archive will help you track it more easily.
 
-```
-aws comprehend describe-entities-detection-job \
-          --job-id `entities-job-id` \
-          --region `aws-region`
-```
+1. Decompress and extract the downloaded Amazon Comprehend file to your device.
 
-Where:
+### To download and extract the output file (AWS CLI)
+<a name="tutorial-search-metadata-download-extract-cli"></a>
 
-    * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
-    * `aws-region` is your AWS region.
+1. To access the name of the Amazon Comprehend auto-generated folder in your S3 bucket which contains the results of the entities analysis job, use the [describe-entities-detection-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-entities-detection-job.html) command:
 
-macOS
+------
+#### [ Linux ]
 
-```
-aws comprehend describe-entities-detection-job \
-          --job-id `entities-job-id` \
-          --region `aws-region`
-```
+   ```
+   aws comprehend describe-entities-detection-job \
+             --job-id {{entities-job-id}} \
+             --region {{aws-region}}
+   ```
 
-Where:
+   Where:
+   + {{entities-job-id}} is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
+   + {{aws-region}} is your AWS region.
 
-    * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
-    * `aws-region` is your AWS region.
+------
+#### [ macOS ]
 
-Windows
+   ```
+   aws comprehend describe-entities-detection-job \
+             --job-id {{entities-job-id}} \
+             --region {{aws-region}}
+   ```
 
-```
-aws comprehend describe-entities-detection-job ^
-          --job-id `entities-job-id` ^
-          --region `aws-region`
-```
+   Where:
+   + {{entities-job-id}} is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
+   + {{aws-region}} is your AWS region.
 
-Where:
+------
+#### [ Windows ]
 
-    * `entities-job-id` is your saved
-     `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md "tutorial-search-metadata-entities-analysis.md"),
-    * `aws-region` is your AWS region.
+   ```
+   aws comprehend describe-entities-detection-job ^
+             --job-id {{entities-job-id}} ^
+             --region {{aws-region}}
+   ```
 
-2. From the `OutputDataConfig` object in your entities job description,
-copy and save the `S3Uri` value as `comprehend-S3uri` on a
-text editor.
+   Where:
+   + {{entities-job-id}} is your saved `comprehend-job-id` from [Step 2: Running an entities analysis job on Amazon Comprehend](tutorial-search-metadata-entities-analysis.md),
+   + {{aws-region}} is your AWS region.
 
-###### Note
+------
 
-The `S3Uri` value has a format similar to
-`s3://amzn-s3-demo-bucket/.../output/output.tar.gz`. 3. To download the entities output archive, use the [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html") command:
+1. From the `OutputDataConfig` object in your entities job description, copy and save the `S3Uri` value as `comprehend-S3uri` on a text editor.
+**Note**  
+The `S3Uri` value has a format similar to {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}}.
 
-Linux
+1. To download the entities output archive, use the [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html) command:
 
-```
-aws s3 cp `s3://amzn-s3-demo-bucket/.../output/output.tar.gz` `path/`output.tar.gz
-```
+------
+#### [ Linux ]
 
-Where:
+   ```
+   aws s3 cp {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} {{path/}}output.tar.gz
+   ```
 
-    * `s3://amzn-s3-demo-bucket/.../output/output.tar.gz`
-     is the `S3Uri` value you saved as
-     `comprehend-S3uri`,
-    * `path/` is the local directory where you wish
-     to save the output.
+   Where:
+   + {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} is the `S3Uri` value you saved as `comprehend-S3uri`,
+   + {{path/}} is the local directory where you wish to save the output.
 
-macOS
+------
+#### [ macOS ]
 
-```
-aws s3 cp `s3://amzn-s3-demo-bucket/.../output/output.tar.gz` `path/`output.tar.gz
-```
+   ```
+   aws s3 cp {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} {{path/}}output.tar.gz
+   ```
 
-Where:
+   Where:
+   + {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} is the `S3Uri` value you saved as `comprehend-S3uri`,
+   + {{path/}} is the local directory where you wish to save the output.
 
-    * `s3://amzn-s3-demo-bucket/.../output/output.tar.gz`
-     is the `S3Uri` value you saved as
-     `comprehend-S3uri`,
-    * `path/` is the local directory where you wish
-     to save the output.
+------
+#### [ Windows ]
 
-Windows
+   ```
+   aws s3 cp {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} {{path/}}output.tar.gz
+   ```
 
-```
-aws s3 cp `s3://amzn-s3-demo-bucket/.../output/output.tar.gz` `path/`output.tar.gz
-```
+   Where:
+   + {{s3://amzn-s3-demo-bucket/.../output/output.tar.gz}} is the `S3Uri` value you saved as `comprehend-S3uri`,
+   + {{path/}} is the local directory where you wish to save the output.
 
-Where:
+------
 
-    * `s3://amzn-s3-demo-bucket/.../output/output.tar.gz`
-     is the `S3Uri` value you saved as
-     `comprehend-S3uri`,
-    * `path/` is the local directory where you wish
-     to save the output.
+1. To extract the entities output, run the following command on a terminal window:
 
-4. To extract the entities output, run the following command on a terminal
-window:
+------
+#### [ Linux ]
 
-Linux
+   ```
+   tar -xf {{path/}}output.tar.gz -C {{path/}}
+   ```
 
-```
-tar -xf `path/`output.tar.gz -C `path/`
-```
+   Where:
+   + {{path/}} is the filepath to the downloaded `output.tar.gz` archive on your local device.
 
-Where:
+------
+#### [ macOS ]
 
-    * `path/` is the filepath to the downloaded
-     `output.tar.gz` archive on your local device.
+   ```
+   tar -xf {{path/}}output.tar.gz -C {{path/}}
+   ```
 
-macOS
+   Where:
+   + {{path/}} is the filepath to the downloaded `output.tar.gz` archive on your local device.
 
-```
-tar -xf `path/`output.tar.gz -C `path/`
-```
+------
+#### [ Windows ]
 
-Where:
+   ```
+   tar -xf {{path/}}output.tar.gz -C {{path/}}
+   ```
 
-    * `path/` is the filepath to the downloaded
-     `output.tar.gz` archive on your local device.
+   Where:
+   + {{path/}} is the filepath to the downloaded `output.tar.gz` archive on your local device.
 
-Windows
+------
 
-```
-tar -xf `path/`output.tar.gz -C `path/`
-```
-
-Where:
-
-    * `path/` is the filepath to the downloaded
-     `output.tar.gz` archive on your local device.
-
-At the end of this step, you should have a file on your device called
-`output` with a list of Amazon Comprehend identified entities.
+At the end of this step, you should have a file on your device called `output` with a list of Amazon Comprehend identified entities.
 
 ## Uploading the output into the S3 bucket
+<a name="tutorial-search-metadata-format-output-upload"></a>
 
-After downloading and extracting the Amazon Comprehend entities analysis file, you upload the
-extracted `output` file to your Amazon S3 bucket.
+After downloading and extracting the Amazon Comprehend entities analysis file, you upload the extracted `output` file to your Amazon S3 bucket.
 
-1. Open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In **Buckets**, click on the name of your bucket and then
-   choose **Upload**.
-3. In **Files and folders**, choose **Add
-   files**.
-4. In the dialog box, navigate to your extracted `output` file
-   in your device, select it, and choose **Open**.
-5. Keep the default settings for **Destination**,
-   **Permissions**, and **Properties**.
-6. Choose **Upload**.
-7. To upload the extracted `output` file to your bucket, use the
-   [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html") command:
+### To upload the extracted Amazon Comprehend output file (Console)
+<a name="tutorial-search-metadata-upload-output-console"></a>
 
-Linux
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-```
-aws s3 cp `path/`output s3://amzn-s3-demo-bucket/output
-```
+1. In **Buckets**, click on the name of your bucket and then choose **Upload**.
 
-Where:
+1. In **Files and folders**, choose **Add files**.
 
-    * `path/` is the local filepath to your
-     extracted `output` file,
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+1. In the dialog box, navigate to your extracted `output` file in your device, select it, and choose **Open**.
 
-macOS
+1. Keep the default settings for **Destination**, **Permissions**, and **Properties**.
 
-```
-aws s3 cp `path/`output s3://amzn-s3-demo-bucket/output
-```
+1. Choose **Upload**.
 
-Where:
+### To upload the extracted Amazon Comprehend output file (AWS CLI)
+<a name="tutorial-search-metadata-upload-output-cli"></a>
 
-    * `path/` is the local filepath to your
-     extracted `output` file,
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+1. To upload the extracted `output` file to your bucket, use the [copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html) command:
 
-Windows
+------
+#### [ Linux ]
 
-```
-aws s3 cp `path/`output s3://amzn-s3-demo-bucket/output
-```
+   ```
+   aws s3 cp {{path/}}output s3://amzn-s3-demo-bucket/output
+   ```
 
-Where:
+   Where:
+   + {{path/}} is the local filepath to your extracted `output` file,
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-    * `path/` is the local filepath to your
-     extracted `output` file,
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+------
+#### [ macOS ]
 
-2. To ensure that the `output` file was uploaded successfully to
-your S3 bucket, check its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
+   ```
+   aws s3 cp {{path/}}output s3://amzn-s3-demo-bucket/output
+   ```
 
-Linux
+   Where:
+   + {{path/}} is the local filepath to your extracted `output` file,
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+------
+#### [ Windows ]
 
-Where:
+   ```
+   aws s3 cp {{path/}}output s3://amzn-s3-demo-bucket/output
+   ```
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+   Where:
+   + {{path/}} is the local filepath to your extracted `output` file,
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-macOS
+------
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+1. To ensure that the `output` file was uploaded successfully to your S3 bucket, check its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html) command:
 
-Where:
+------
+#### [ Linux ]
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
 
-Windows
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+------
+#### [ macOS ]
 
-Where:
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
+
+------
+#### [ Windows ]
+
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
+
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
+
+------
 
 ## Converting the output to Amazon Kendra metadata format
+<a name="tutorial-search-metadata-format-output-script"></a>
 
-To convert the Amazon Comprehend output to Amazon Kendra metadata, you run a Python 3 script. If you are
-using the Console, you use AWS CloudShell for this step.
+To convert the Amazon Comprehend output to Amazon Kendra metadata, you run a Python 3 script. If you are using the Console, you use AWS CloudShell for this step.
 
-1. Download the [converter.py.zip](samples/converter.py.zip.md "samples/converter.py.zip.md") zipped file on your device.
-2. Extract the Python 3 file `converter.py`.
-3. Sign into the [AWS Management
-   Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/") and make sure your AWS region is set to the same region as your
-   S3 bucket and your Amazon Comprehend analysis job.
-4. Choose the **AWS CloudShell icon** or type **AWS
-   CloudShell** in the **Search** box on the top navigation
-   bar to launch an environment.
+### To run the Python 3 script (Console)
+<a name="tutorial-search-metadata-format-output-console"></a>
 
-###### Note
+1. Download the [converter.py.zip](https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip) zipped file on your device.
 
-When AWS CloudShell launches in a new browser window for the first time, a welcome
-panel displays and lists key features. The shell is ready for interaction after
-you close this panel and the command prompt displays. 5. After the terminal is prepared, choose **Actions** from the
-navigation pane and then choose **Upload file** from the
-menu. 6. In the dialog box that opens, choose **Select file** and then
-choose the downloaded Python 3 file `converter.py` from your
-device. Choose **Upload**. 7. In the AWS CloudShell environment, enter the following command:
+1. Extract the Python 3 file `converter.py`.
 
-```
-python3 converter.py
-```
+1. Sign into the [AWS Management Console](https://aws.amazon.com/console/) and make sure your AWS region is set to the same region as your S3 bucket and your Amazon Comprehend analysis job.
 
-8. When the shell interface prompts you to **Enter the name of your S3
-   bucket**, enter the name of your S3 bucket and press enter.
-9. When the shell interface prompts you to **Enter the full filepath to
-   your Comprehend output file**, enter `output` and
-   press enter.
-10. When the shell interface prompts you to **Enter the full filepath to
-    your metadata folder**, enter `metadata/` and press
-    enter.
+1. Choose the **AWS CloudShell icon** or type **AWS CloudShell** in the **Search** box on the top navigation bar to launch an environment.
+**Note**  
+When AWS CloudShell launches in a new browser window for the first time, a welcome panel displays and lists key features. The shell is ready for interaction after you close this panel and the command prompt displays.
 
-###### Important
+1. After the terminal is prepared, choose **Actions** from the navigation pane and then choose **Upload file** from the menu.
 
-For the metadata to be formatted correctly, the input values in steps 8-10 must be
-exact.
+1. In the dialog box that opens, choose **Select file** and then choose the downloaded Python 3 file `converter.py` from your device. Choose **Upload**.
 
-1. To download the Python 3 file `converter.py`, run the
-   following command on a terminal window:
+1. In the AWS CloudShell environment, enter the following command:
 
-Linux
+   ```
+   python3 converter.py
+   ```
 
-```
-curl -o `path/`converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
-```
+1. When the shell interface prompts you to **Enter the name of your S3 bucket**, enter the name of your S3 bucket and press enter.
 
-Where:
+1. When the shell interface prompts you to **Enter the full filepath to your Comprehend output file**, enter **output** and press enter.
 
-    * `path/` is the filepath to the location you
-     want to save the zipped file in.
+1. When the shell interface prompts you to **Enter the full filepath to your metadata folder**, enter **metadata/** and press enter.
 
-macOS
+**Important**  
+For the metadata to be formatted correctly, the input values in steps 8-10 must be exact.
 
-```
-curl -o `path/`converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
-```
+### To run the Python 3 script (AWS CLI)
+<a name="tutorial-search-metadata-format-output-cli"></a>
 
-Where:
+1. To download the Python 3 file `converter.py`, run the following command on a terminal window:
 
-    * `path/` is the filepath to the location you
-     want to save the zipped file in.
+------
+#### [ Linux ]
 
-Windows
+   ```
+   curl -o {{path/}}converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
+   ```
 
-```
-curl -o `path/`converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
-```
+   Where:
+   + {{path/}} is the filepath to the location you want to save the zipped file in.
 
-Where:
+------
+#### [ macOS ]
 
-    * `path/` is the filepath to the location you
-     want to save the zipped file in.
+   ```
+   curl -o {{path/}}converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
+   ```
 
-2. To extract the Python 3 file, run the following command on the terminal
-window:
+   Where:
+   + {{path/}} is the filepath to the location you want to save the zipped file in.
 
-Linux
+------
+#### [ Windows ]
 
-```
-unzip `path/`converter.py.zip -d `path/`
-```
+   ```
+   curl -o {{path/}}converter.py.zip https://docs.aws.amazon.com/kendra/latest/dg/samples/converter.py.zip
+   ```
 
-Where:
+   Where:
+   + {{path/}} is the filepath to the location you want to save the zipped file in.
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+------
 
-macOS
+1. To extract the Python 3 file, run the following command on the terminal window:
 
-```
-unzip `path/`converter.py.zip -d `path/`
-```
+------
+#### [ Linux ]
 
-Where:
+   ```
+   unzip {{path/}}converter.py.zip -d {{path/}}
+   ```
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-Windows
+------
+#### [ macOS ]
 
-```
-tar -xf `path/`converter.py.zip -C `path/`
-```
+   ```
+   unzip {{path/}}converter.py.zip -d {{path/}}
+   ```
 
-Where:
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+------
+#### [ Windows ]
 
-3. Make sure that Boto3 is installed on your device by running the following
-command.
+   ```
+   tar -xf {{path/}}converter.py.zip -C {{path/}}
+   ```
 
-Linux
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-```
-pip3 show boto3
-```
+------
 
-macOS
+1. Make sure that Boto3 is installed on your device by running the following command.
 
-```
-pip3 show boto3
-```
+------
+#### [ Linux ]
 
-Windows
+   ```
+   pip3 show boto3
+   ```
 
-```
-pip3 show boto3
-```
+------
+#### [ macOS ]
 
-###### Note
+   ```
+   pip3 show boto3
+   ```
 
-If you do not have Boto3 installed, run `pip3 install boto3` to
-install it. 4. To run the Python 3 script to convert the `output` file, run
-the following command.
+------
+#### [ Windows ]
 
-Linux
+   ```
+   pip3 show boto3
+   ```
 
-```
-python `path/`converter.py
-```
+------
+**Note**  
+If you do not have Boto3 installed, run `pip3 install boto3` to install it.
 
-Where:
+1. To run the Python 3 script to convert the `output` file, run the following command.
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+------
+#### [ Linux ]
 
-macOS
+   ```
+   python {{path/}}converter.py
+   ```
 
-```
-python `path/`converter.py
-```
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-Where:
+------
+#### [ macOS ]
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+   ```
+   python {{path/}}converter.py
+   ```
 
-Windows
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-```
-python `path/`converter.py
-```
+------
+#### [ Windows ]
 
-Where:
+   ```
+   python {{path/}}converter.py
+   ```
 
-    * `path/` is the filepath to your saved
-     `converter.py.zip`.
+   Where:
+   + {{path/}} is the filepath to your saved `converter.py.zip`.
 
-5. When the AWS CLI prompts you to `Enter the name of your S3 bucket`,
-enter the name of your S3 bucket and press enter. 6. When the AWS CLI prompts you to `Enter the full filepath to your Comprehend
- output file`, enter `output` and press enter. 7. When the AWS CLI prompts you to `Enter the full filepath to your metadata
- folder`, enter `metadata/` and press enter.
+------
 
-###### Important
+1. When the AWS CLI prompts you to `Enter the name of your S3 bucket`, enter the name of your S3 bucket and press enter.
 
-For the metadata to be formatted correctly, the input values in steps 5-7 must be
-exact.
+1. When the AWS CLI prompts you to `Enter the full filepath to your Comprehend output file`, enter **output** and press enter.
 
-At the end of this step, the formatted metadata is deposited inside the
-`metadata` folder in your S3 bucket.
+1. When the AWS CLI prompts you to `Enter the full filepath to your metadata folder`, enter **metadata/** and press enter.
+
+**Important**  
+For the metadata to be formatted correctly, the input values in steps 5-7 must be exact.
+
+At the end of this step, the formatted metadata is deposited inside the `metadata` folder in your S3 bucket.
 
 ## Cleaning up your Amazon S3 bucket
+<a name="tutorial-search-metadata-format-output-cleanup"></a>
 
-Since the Amazon Kendra index syncs all files stored in a bucket, we recommend you clean up your
-Amazon S3 bucket to prevent redundant search results.
+Since the Amazon Kendra index syncs all files stored in a bucket, we recommend you clean up your Amazon S3 bucket to prevent redundant search results.
 
-1. Open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In **Buckets**, choose your bucket and then select the Amazon Comprehend
-   entity analysis output folder, the Amazon Comprehend entity analysis `.temp` file,
-   and the extracted Amazon Comprehend `output` file.
-3. From the **Overview** tab choose
-   **Delete**.
-4. In **Delete objects**, choose **Permanently delete
-   objects?** and enter `permanently delete` in the
-   text input field.
-5. Choose **Delete objects**.
-6. To delete all files and folders in your S3 bucket except the
-   `data` and `metadata` folders, use the
-   [remove](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/rm.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/rm.html") command in the AWS CLI:
+### To clean up your Amazon S3 bucket (Console)
+<a name="tutorial-search-metadata-cleanup-bucket-console"></a>
 
-Linux
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-```
-aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
-```
+1. In **Buckets**, choose your bucket and then select the Amazon Comprehend entity analysis output folder, the Amazon Comprehend entity analysis `.temp` file, and the extracted Amazon Comprehend `output` file.
 
-Where:
+1. From the **Overview** tab choose **Delete**.
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+1. In **Delete objects**, choose **Permanently delete objects?** and enter **permanently delete** in the text input field.
 
-macOS
+1. Choose **Delete objects**.
 
-```
-aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
-```
+### To clean up your Amazon S3 bucket (AWS CLI)
+<a name="tutorial-search-metadata-cleanup-bucket-cli"></a>
 
-Where:
+1. To delete all files and folders in your S3 bucket except the `data` and `metadata` folders, use the [remove](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/rm.html) command in the AWS CLI:
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+------
+#### [ Linux ]
 
-Windows
+   ```
+   aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
+   ```
 
-```
-aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
-```
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-Where:
+------
+#### [ macOS ]
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+   ```
+   aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
+   ```
 
-2. To ensure that the objects were successfully deleted from your S3 bucket, check
-its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html") command:
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-Linux
+------
+#### [ Windows ]
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+   ```
+   aws s3 rm s3://amzn-s3-demo-bucket/ --recursive --exclude "data/*" --exclude "metadata/*"
+   ```
 
-Where:
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+------
 
-macOS
+1. To ensure that the objects were successfully deleted from your S3 bucket, check its contents by using the [list](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html) command:
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+------
+#### [ Linux ]
 
-Where:
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-Windows
+------
+#### [ macOS ]
 
-```
-aws s3 ls s3://amzn-s3-demo-bucket/
-```
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
 
-Where:
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
 
-    * amzn-s3-demo-bucket is the name of your S3 bucket.
+------
+#### [ Windows ]
 
-At the end of this step, you have converted the Amazon Comprehend entities analysis output to Amazon Kendra
-metadata. You are now ready to create an Amazon Kendra index.
+   ```
+   aws s3 ls s3://amzn-s3-demo-bucket/
+   ```
+
+   Where:
+   + amzn-s3-demo-bucket is the name of your S3 bucket.
+
+------
+
+At the end of this step, you have converted the Amazon Comprehend entities analysis output to Amazon Kendra metadata. You are now ready to create an Amazon Kendra index.

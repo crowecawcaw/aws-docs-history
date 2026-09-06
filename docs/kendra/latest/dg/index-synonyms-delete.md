@@ -1,29 +1,34 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Deleting a thesaurus
+<a name="index-synonyms-delete"></a>
 
-The following procedures show how to delete a thesaurus.
+The following procedures show how to delete a thesaurus. 
 
-Console
+------
+#### [ Console ]
 
-1. In the left navigation pane, under the index you want to modify, choose
-   **Synonyms**.
-2. On the **Synonym** page, select the thesaurus you want to
-   delete.
-3. On the **Thesaurus detail** page, choose
-   **Delete** and then confirm to delete.
+1. In the left navigation pane, under the index you want to modify, choose **Synonyms**. 
 
-CLI
-To delete a thesarus to an index with the AWS CLI, call
-`delete-thesaurus`:
+1. On the **Synonym** page, select the thesaurus you want to delete. 
+
+1. On the **Thesaurus detail** page, choose **Delete** and then confirm to delete. 
+
+------
+#### [ CLI ]
+
+To delete a thesarus to an index with the AWS CLI, call `delete-thesaurus`: 
 
 ```
 aws kendra delete-thesaurus \
---index-id `index-id` \
---id `thesaurus-id`
+--index-id {{index-id}} \
+--id {{thesaurus-id}}
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -33,8 +38,8 @@ kendra = boto3.client("kendra")
 
 print("Delete a thesaurus")
 
-thesaurus_id = "`thesaurus-id`"
-index_id = "`index-id`"
+thesaurus_id = "{{thesaurus-id}}"
+index_id = "{{index-id}}"
 
 try:
     kendra.delete_thesaurus(
@@ -48,7 +53,8 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -62,8 +68,8 @@ public class DeleteThesaurusExample {
 
     KendraClient kendra = KendraClient.builder().build();
 
-    String thesaurusId = "`thesaurus-id`";
-    String indexId = "`index-id`";
+    String thesaurusId = "{{thesaurus-id}}";
+    String indexId = "{{index-id}}";
 
     DeleteThesaurusRequest updateThesaurusRequest = DeleteThesaurusRequest
         .builder()
@@ -74,3 +80,5 @@ public class DeleteThesaurusExample {
   }
 }
 ```
+
+------

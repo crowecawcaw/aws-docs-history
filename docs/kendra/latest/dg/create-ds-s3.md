@@ -1,31 +1,32 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Creating an Amazon S3 data source
+<a name="create-ds-s3"></a>
 
-The following examples demonstrate creating an Amazon S3 data source. The
-examples assume that you have already created an index and an IAM role
-with permission to read the data from the index. For more information about the IAM role, see [IAM access
-roles](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds"). For more information about creating an index, see [Creating an
-index](create-index.md "create-index.md").
+The following examples demonstrate creating an Amazon S3 data source. The examples assume that you have already created an index and an IAM role with permission to read the data from the index. For more information about the IAM role, see [IAM access roles](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds). For more information about creating an index, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html).
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra create-data-source \
- --index-id `index ID` \
+ --index-id {{index ID}} \
  --name example-data-source \
  --type S3 \
- --configuration '{"S3Configuration":{"BucketName":"`bucket name`"}}'
- --role-arn 'arn:aws:iam::`account id`:role:/`role name`
+ --configuration '{"S3Configuration":{"BucketName":"{{bucket name}}"}}' 
+ --role-arn 'arn:aws:iam::{{account id}}:role:/{{role name}}
 ```
 
-Python
-The following snippet of Python code creates an Amazon S3 data
-source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md "gs-python.md").
+------
+#### [ Python ]
+
+The following snippet of Python code creates an Amazon S3 data source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md).
 
 ```
 print("Create an Amazon S3 data source.")
-
+    
     # Provide a name for the data source
     name = "getting-started-data-source"
     # Provide an optional description for the data source
@@ -52,31 +53,33 @@ print("Create an Amazon S3 data source.")
     )
 ```
 
-It can take some time to create your data source. You can monitor the progress by
-using the [DescribeDataSource](../APIReference/API_DescribeDataSource.md "../APIReference/API_DescribeDataSource.md") API. When the data source status is `ACTIVE`
-the data source is ready to use.
+------
+
+It can take some time to create your data source. You can monitor the progress by using the [DescribeDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DescribeDataSource.html) API. When the data source status is `ACTIVE` the data source is ready to use. 
 
 The following examples demonstrate getting the status of a data source.
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra describe-data-source \
- --index-id `index ID` \
- --id `data source ID`
+ --index-id {{index ID}} \
+ --id {{data source ID}}
 ```
 
-Python
-The following snippet of Python code gets information about an S3 data
-source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md "gs-python.md").
+------
+#### [ Python ]
+
+The following snippet of Python code gets information about an S3 data source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md).
 
 ```
 print("Wait for Amazon Kendra to create the data source.")
 
     while True:
         data_source_description = kendra.describe_data_source(
-            Id = "`data-source-id`",
-            IndexId = "`index-id`"
+            Id = "{{data-source-id}}",
+            IndexId = "{{index-id}}"
         )
         status = data_source_description["Status"]
         print(" Creating data source. Status: "+status)
@@ -85,29 +88,33 @@ print("Wait for Amazon Kendra to create the data source.")
             break
 ```
 
-This data source doesn't have a schedule, so it doesn't run automatically. To index
-the data source, you call [StartDataSourceSyncJob](../APIReference/API_StartDataSourceSyncJob.md "../APIReference/API_StartDataSourceSyncJob.md") to synchronize the index with the data
-source.
+------
+
+This data source doesn't have a schedule, so it doesn't run automatically. To index the data source, you call [StartDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/APIReference/API_StartDataSourceSyncJob.html) to synchronize the index with the data source.
 
 The following examples demonstrate synchronizing a data source.
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra start-data-source-sync-job \
- --index-id `index ID` \
- --id `data source ID`
+ --index-id {{index ID}} \
+ --id {{data source ID}}
 ```
 
-Python
-The following snippet of Python code synchronizes an Amazon S3
-data source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md "gs-python.md").
+------
+#### [ Python ]
+
+The following snippet of Python code synchronizes an Amazon S3 data source. For the complete example, see [Getting started (AWS SDK for Python (Boto3))](gs-python.md).
 
 ```
 print("Synchronize the data source.")
 
     sync_response = kendra.start_data_source_sync_job(
-        Id = "`data-source-id`",
-        IndexId = "`index-id`"
+        Id = "{{data-source-id}}",
+        IndexId = "{{index-id}}"
     )
 ```
+
+------

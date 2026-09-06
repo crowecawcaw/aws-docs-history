@@ -1,30 +1,16 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Queries
+<a name="hiw-query"></a>
 
-To get answers, users query an index. Users can use natural language in their queries.
-The response
-contains
-information, such as the title, a text excerpt, and the location of
-documents in the index that provide the best answer.
+To get answers, users query an index. Users can use natural language in their queries. The response contains information, such as the title, a text excerpt, and the location of documents in the index that provide the best answer.
 
-Amazon Kendra uses all of the information
-that
-you provide about your documents, not just the contents of the documents, to determine
-whether a
-document
-is relevant to the query. For example, if your
-index contains information about when documents were last updated, you can tell Amazon Kendra to assign a higher relevance to documents that were updated more
-recently.
+Amazon Kendra uses all of the information that you provide about your documents, not just the contents of the documents, to determine whether a document is relevant to the query. For example, if your index contains information about when documents were last updated, you can tell Amazon Kendra to assign a higher relevance to documents that were updated more recently.
 
-A query can also contain criteria for how to filter the response so that Amazon Kendra returns only documents that satisfy the filter criteria. For example, if
-you created an index field called _department_, you can
-filter the response so that only documents with the department field set to _legal_ are returned. For more information, see [Filtering
-search](filtering.md "filtering.md").
+A query can also contain criteria for how to filter the response so that Amazon Kendra returns only documents that satisfy the filter criteria. For example, if you created an index field called *department*, you can filter the response so that only documents with the department field set to *legal* are returned. For more information, see [Filtering search](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
 
-You can influence the results of a query by tuning the relevance of individual fields
-in the index. Tuning changes the importance of a field on the results. For example, if
-you raise the importance of documents with the category _new_, documents with this category are more likely to be included in the
-response. For more information, see [Tuning search relevance](tuning.md "tuning.md").
+You can influence the results of a query by tuning the relevance of individual fields in the index. Tuning changes the importance of a field on the results. For example, if you raise the importance of documents with the category *new*, documents with this category are more likely to be included in the response. For more information, see [Tuning search relevance](https://docs.aws.amazon.com/kendra/latest/dg/tuning.html).
 
-For more information about using queries, see [Searching an index](searching.md "searching.md").
+For more information about using queries, see [Searching an index](https://docs.aws.amazon.com/kendra/latest/dg/searching.html).

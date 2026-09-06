@@ -1,83 +1,58 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Amazon Kendra availability change
+<a name="kendra-availability-change"></a>
 
 ## Overview
+<a name="kendra-availability-change-overview"></a>
 
-After careful consideration, we have made the decision to put Amazon Kendra into
-Maintenance Mode, effective June 30, 2026. As of this date, there is no new feature
-or capability development for the service, and as of July 30, 2026, the service is
-no longer open to new customers.
+After careful consideration, we have made the decision to put Amazon Kendra into Maintenance Mode, effective June 30, 2026. As of this date, there is no new feature or capability development for the service, and as of July 30, 2026, the service is no longer open to new customers.
 
-During Maintenance Mode, the service remains fully supported and AWS will continue to
-provide bug fixes and security updates for existing customers, however new feature requests
-will no longer be considered.
+During Maintenance Mode, the service remains fully supported and AWS will continue to provide bug fixes and security updates for existing customers, however new feature requests will no longer be considered.
 
-We recommend that customers migrate their Kendra applications and implement any new
-search applications on Amazon Bedrock Managed Knowledge Base (BMKB) for similar
-capabilities to Kendra and more advanced features for generative AI and agentic AI use
-cases. Bedrock Managed Knowledge Base is a fully managed RAG solution, with built-in
-connectors, smart parsing, managed vector store with hybrid search, along with the
-ability to generate responses (with a Retrieve and Generate API) and do multi-step
-reasoning across multiple knowledge bases (with an Agentic Retrieval API). BMKB also
-gives you the ability to adjust the chunking strategies and embedding models to optimize
-for your specific application as well as choose the foundation model for response
-generation. This new level of features and flexibility comes with predictable costs based
-on the size of the knowledge base ingested, the number of queries performed and the LLM
-usage.
+We recommend that customers migrate their Kendra applications and implement any new search applications on Amazon Bedrock Managed Knowledge Base (BMKB) for similar capabilities to Kendra and more advanced features for generative AI and agentic AI use cases. Bedrock Managed Knowledge Base is a fully managed RAG solution, with built-in connectors, smart parsing, managed vector store with hybrid search, along with the ability to generate responses (with a Retrieve and Generate API) and do multi-step reasoning across multiple knowledge bases (with an Agentic Retrieval API). BMKB also gives you the ability to adjust the chunking strategies and embedding models to optimize for your specific application as well as choose the foundation model for response generation. This new level of features and flexibility comes with predictable costs based on the size of the knowledge base ingested, the number of queries performed and the LLM usage.
 
 ## Migration Guidance
+<a name="kendra-migration-guidance"></a>
 
-Migrating from Amazon Kendra to Amazon Bedrock Managed Knowledge Base (BMKB) is
-achievable for most enterprise search and RAG workloads with some careful planning. Not
-all Kendra features are directly available in Bedrock Managed Knowledge Base, but many
-can be implemented through workarounds. This guide provides a comprehensive, step-by-step
-migration path for existing Kendra customers to transition their applications to BMKB,
-including architecture mapping, API translation, code examples, feature gap analysis, and
-recommended workarounds.
+Migrating from Amazon Kendra to Amazon Bedrock Managed Knowledge Base (BMKB) is achievable for most enterprise search and RAG workloads with some careful planning. Not all Kendra features are directly available in Bedrock Managed Knowledge Base, but many can be implemented through workarounds. This guide provides a comprehensive, step-by-step migration path for existing Kendra customers to transition their applications to BMKB, including architecture mapping, API translation, code examples, feature gap analysis, and recommended workarounds.
 
 ### Amazon Bedrock Managed Knowledge Base Features
+<a name="kendra-migration-bmkb-features"></a>
 
-BMKB manages the entire RAG pipeline end-to-end. It supports embedding models
-including Amazon Titan Text Embeddings V2, Cohere Embed English v3, Cohere Embed
-Multilingual v3, Cohere Embed v4, and Amazon Nova Multimodal Embeddings—all
-fixed at 1024 dimensions with float32 vectors. The managed vector store is fully
-operated by Bedrock, eliminating the need to provision or manage OpenSearch, Aurora,
-or other vector databases. Chunking strategies include Default (fixed-size at
-approximately 300 tokens), Fixed-size (configurable maxTokens and
-overlapPercentage), Hierarchical (parent-child with level configurations), and No
-Chunking; semantic chunking is not supported for managed knowledge bases.
+BMKB manages the entire RAG pipeline end-to-end. It supports embedding models including Amazon Titan Text Embeddings V2, Cohere Embed English v3, Cohere Embed Multilingual v3, Cohere Embed v4, and Amazon Nova Multimodal Embeddings—all fixed at 1024 dimensions with float32 vectors. The managed vector store is fully operated by Bedrock, eliminating the need to provision or manage OpenSearch, Aurora, or other vector databases. Chunking strategies include Default (fixed-size at approximately 300 tokens), Fixed-size (configurable maxTokens and overlapPercentage), Hierarchical (parent-child with level configurations), and No Chunking; semantic chunking is not supported for managed knowledge bases.
 
-BMKB currently supports seven data source connectors: Amazon S3, Confluence,
-Microsoft SharePoint, Web Crawler, Google Drive, Microsoft OneDrive, and a Custom
-connector. The service always performs hybrid search (keyword plus semantic) and does
-not offer semantic-only search mode.
+BMKB currently supports seven data source connectors: Amazon S3, Confluence, Microsoft SharePoint, Web Crawler, Google Drive, Microsoft OneDrive, and a Custom connector. The service always performs hybrid search (keyword plus semantic) and does not offer semantic-only search mode.
 
-Architecture Comparison between Amazon Kendra and Bedrock Managed Knowledge Base| Feature | Kendra | Bedrock Managed Knowledge Base |
-| --- | --- | --- |
-| Native connectors | 32+ connectors | 7 connectors |
-| Embedding | Managed internally | Customer-selectable (Titan V2, Cohere, Nova) |
-| Vector store | Managed internally | Fully managed by Bedrock |
-| Search type | Keyword, semantic, or hybrid | Hybrid (keyword + semantic) |
-| RAG support | Requires external LLM integration | Native RetrieveAndGenerate API |
-| Agentic retrieval | Not available | Native multi-iteration retrieval |
-| Maximum results | 100 passages (Retrieve API) | 100 results (Retrieve API) |
+
+**Architecture Comparison between Amazon Kendra and Bedrock Managed Knowledge Base**  
+
+| Feature | Kendra | Bedrock Managed Knowledge Base | 
+| --- | --- | --- | 
+| Native connectors | 32\+ connectors | 7 connectors | 
+| Embedding | Managed internally | Customer-selectable (Titan V2, Cohere, Nova) | 
+| Vector store | Managed internally | Fully managed by Bedrock | 
+| Search type | Keyword, semantic, or hybrid | Hybrid (keyword \+ semantic) | 
+| RAG support | Requires external LLM integration | Native RetrieveAndGenerate API | 
+| Agentic retrieval | Not available | Native multi-iteration retrieval | 
+| Maximum results | 100 passages (Retrieve API) | 100 results (Retrieve API) | 
 
 ## Migration Steps
+<a name="kendra-migration-steps"></a>
 
 ### Amazon Bedrock Managed Knowledge Base Setup
+<a name="kendra-migration-bmkb-setup"></a>
 
 #### Step 1: Configure IAM Roles
+<a name="kendra-migration-step1-iam"></a>
 
-Create an IAM role that grants Bedrock permission to access your data sources
-and invoke embedding models. The trust policy must allow
-bedrock.amazonaws.com to assume the role, and the permissions policy must include
-access to your S3 buckets and the selected embedding model.
+Create an IAM role that grants Bedrock permission to access your data sources and invoke embedding models. The trust policy must allow bedrock.amazonaws.com to assume the role, and the permissions policy must include access to your S3 buckets and the selected embedding model.
 
 IAM Configuration (Python code):
 
 ```
-
 import boto3
 import json
 
@@ -122,16 +97,14 @@ iam.put_role_policy(
     PolicyName="BedrockKBPermissions",
     PolicyDocument=json.dumps(permissions_policy)
 )
-
 ```
 
 #### Step 2: Create a Managed Knowledge Base
+<a name="kendra-migration-step2-create-kb"></a>
 
-Use the CreateKnowledgeBase API with type MANAGED to create the knowledge
-base:
+Use the CreateKnowledgeBase API with type MANAGED to create the knowledge base:
 
 ```
-
 import boto3
 
 bedrock_agent = boto3.client("bedrock-agent", region_name="us-east-1")
@@ -155,15 +128,14 @@ response = bedrock_agent.create_knowledge_base(
 
 kb_id = response["knowledgeBase"]["knowledgeBaseId"]
 print(f"Created knowledge base: {kb_id}")
-
 ```
 
 #### Step 3: Configure Data Sources
+<a name="kendra-migration-step3-data-sources"></a>
 
 Create an S3 data source with the managed connector configuration:
 
 ```
-
 response = bedrock_agent.create_data_source(
     knowledgeBaseId=kb_id,
     name="my-s3-data-source",
@@ -193,21 +165,17 @@ response = bedrock_agent.create_data_source(
 
 data_source_id = response["dataSource"]["dataSourceId"]
 print(f"Created data source: {data_source_id}")
-
 ```
 
-###### Note
-
-CreateDataSource is asynchronous for Managed Knowledge Bases. The data
-source status transitions from CREATING to AVAILABLE, typically within 2–5
-minutes. Do not proceed to ingestion until the status is AVAILABLE.
+**Note**  
+CreateDataSource is asynchronous for Managed Knowledge Bases. The data source status transitions from CREATING to AVAILABLE, typically within 2–5 minutes. Do not proceed to ingestion until the status is AVAILABLE.
 
 #### Step 4: Start and Monitor Ingestion
+<a name="kendra-migration-step4-ingestion"></a>
 
 Trigger document ingestion and poll for completion:
 
 ```
-
 import time
 
 ingestion_response = bedrock_agent.start_ingestion_job(
@@ -241,29 +209,33 @@ while True:
         break
 
     time.sleep(30)
-
 ```
 
 ## API Migration Mapping and Code Examples
+<a name="kendra-migration-api-mapping"></a>
 
 ### API Operation Mapping
+<a name="kendra-migration-api-operation-mapping"></a>
 
-API Operation Mapping from Kendra to BMKB| Operation | Kendra API | BMKB API | Client |
-| --- | --- | --- | --- |
-| Create index/KB | kendra.create\_index() | bedrock-agent.create\_knowledge\_base() | kendra → bedrock-agent |
-| Add data source | kendra.create\_data\_source(Type="S3") | bedrock-agent.create\_data\_source() | kendra → bedrock-agent |
-| Sync/ingest docs | kendra.start\_data\_source\_sync\_job() | bedrock-agent.start\_ingestion\_job() | kendra → bedrock-agent |
-| Batch add docs | kendra.batch\_put\_document() | Not directly supported (use S3 upload + ingestion) | kendra → S3 + bedrock-agent |
-| Retrieve passages | kendra.retrieve(QueryText=...) | bedrock-agent-runtime.retrieve() | kendra → bedrock-agent-runtime |
-| Search with filters | AttributeFilter: {"EqualsTo": {...}} | filter: {"equals": {...}} | Same pattern, different syntax |
-| RAG generation | N/A (external LLM required) | bedrock-agent-runtime.retrieve\_and\_generate() | New capability |
+
+**API Operation Mapping from Kendra to BMKB**  
+
+| Operation | Kendra API | BMKB API | Client | 
+| --- | --- | --- | --- | 
+| Create index/KB | kendra.create\_index() | bedrock-agent.create\_knowledge\_base() | kendra → bedrock-agent | 
+| Add data source | kendra.create\_data\_source(Type="S3") | bedrock-agent.create\_data\_source() | kendra → bedrock-agent | 
+| Sync/ingest docs | kendra.start\_data\_source\_sync\_job() | bedrock-agent.start\_ingestion\_job() | kendra → bedrock-agent | 
+| Batch add docs | kendra.batch\_put\_document() | Not directly supported (use S3 upload \+ ingestion) | kendra → S3 \+ bedrock-agent | 
+| Retrieve passages | kendra.retrieve(QueryText=...) | bedrock-agent-runtime.retrieve() | kendra → bedrock-agent-runtime | 
+| Search with filters | AttributeFilter: {"EqualsTo": {...}} | filter: {"equals": {...}} | Same pattern, different syntax | 
+| RAG generation | N/A (external LLM required) | bedrock-agent-runtime.retrieve\_and\_generate() | New capability | 
 
 ### Migrating the Retrieve API
+<a name="kendra-migration-retrieve-api"></a>
 
 Before (Kendra):
 
 ```
-
 kendra_client = boto3.client("kendra")
 
 response = kendra_client.retrieve(
@@ -281,13 +253,11 @@ response = kendra_client.retrieve(
 for item in response["ResultItems"]:
     print(item["DocumentTitle"])
     print(item["Content"])
-
 ```
 
 After (BMKB):
 
 ```
-
 bedrock_runtime = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
 
 response = bedrock_runtime.retrieve(
@@ -312,20 +282,16 @@ for result in response["retrievalResults"]:
     print(f"Score: {result['score']}")
     print(f"Content: {result['content']['text']}")
     print(f"Source: {result['location']['s3Location']['uri']}")
-
 ```
 
-The key differences are: the query text moves from a top-level parameter to a
-nested retrievalQuery.text field; AttributeFilter becomes filter within
-managedSearchConfiguration; and results include a relevance score field.
+The key differences are: the query text moves from a top-level parameter to a nested retrievalQuery.text field; AttributeFilter becomes filter within managedSearchConfiguration; and results include a relevance score field.
 
 ### Using RetrieveAndGenerate for RAG
+<a name="kendra-migration-retrieve-and-generate"></a>
 
-BMKB provides a native RAG capability that eliminates the need to separately call
-an LLM after retrieval:
+BMKB provides a native RAG capability that eliminates the need to separately call an LLM after retrieval:
 
 ```
-
 response = bedrock_runtime.retrieve_and_generate(
     input={
         "text": "Explain how to configure VPC endpoints for S3 access"
@@ -351,72 +317,46 @@ print(response["output"]["text"])
 for citation in response.get("citations", []):
     for ref in citation.get("retrievedReferences", []):
         print(f"Source: {ref['location']['s3Location']['uri']}")
-
 ```
 
-This API returns a generated natural language response along with citations
-pointing back to the source documents, providing built-in RAG that Kendra does not
-natively offer.
+This API returns a generated natural language response along with citations pointing back to the source documents, providing built-in RAG that Kendra does not natively offer.
 
 ### Metadata Filter Syntax Translation
+<a name="kendra-migration-metadata-filters"></a>
 
-Metadata Filter Operator Mapping| Kendra AttributeFilter | BMKB Filter | Notes |
-| --- | --- | --- |
-| EqualsTo | equals | Direct mapping |
-| ContainsAll | in (partial) | BMKB uses set membership |
-| ContainsAny | in | Direct mapping |
-| GreaterThan | greaterThan | Direct mapping |
-| LessThan | lessThan | Direct mapping |
-| GreaterThanOrEquals | greaterThanOrEquals | Direct mapping |
-| LessThanOrEquals | lessThanOrEquals | Direct mapping |
-| NotFilter | notIn / notEquals | Use appropriate negation |
-| AndAllFilters | andAll | Direct mapping |
-| OrAllFilters | orAll | Direct mapping |
 
-###### Note
+**Metadata Filter Operator Mapping**  
 
-BMKB does not support startsWith or stringContains operators for managed
-knowledge bases. If your Kendra application uses wildcard or substring matching
-in filters, you will need to restructure your metadata schema to use exact-match
-or set-membership patterns instead.
+| Kendra AttributeFilter | BMKB Filter | Notes | 
+| --- | --- | --- | 
+| EqualsTo | equals | Direct mapping | 
+| ContainsAll | in (partial) | BMKB uses set membership | 
+| ContainsAny | in | Direct mapping | 
+| GreaterThan | greaterThan | Direct mapping | 
+| LessThan | lessThan | Direct mapping | 
+| GreaterThanOrEquals | greaterThanOrEquals | Direct mapping | 
+| LessThanOrEquals | lessThanOrEquals | Direct mapping | 
+| NotFilter | notIn / notEquals | Use appropriate negation | 
+| AndAllFilters | andAll | Direct mapping | 
+| OrAllFilters | orAll | Direct mapping | 
+
+**Note**  
+BMKB does not support startsWith or stringContains operators for managed knowledge bases. If your Kendra application uses wildcard or substring matching in filters, you will need to restructure your metadata schema to use exact-match or set-membership patterns instead.
 
 ## Feature Gaps and Workarounds
+<a name="kendra-migration-feature-gaps"></a>
 
-Not all Kendra features are available in BMKB. Query Suggestions, Faceted Search,
-Custom Synonyms, Spell Checking, Incremental Learning, and Document Enrichment are
-features that require workarounds in BMKB. This section discusses those
-workarounds.
+Not all Kendra features are available in BMKB. Query Suggestions, Faceted Search, Custom Synonyms, Spell Checking, Incremental Learning, and Document Enrichment are features that require workarounds in BMKB. This section discusses those workarounds.
 
-**Query Suggestions (Autocomplete)**
+**Query Suggestions (Autocomplete)**  
+Kendra provides the GetQuerySuggestions API that returns autocomplete suggestions based on indexed document vocabulary. BMKB does not currently offer this capability.  
+**Workaround:** Implement a custom autocomplete layer using Amazon OpenSearch Service with its built-in suggester functionality, or use an LLM-based query completion service. You can also leverage Bedrock Agents to reformulate partial queries before retrieval. A practical approach is to maintain a separate OpenSearch index of common query terms extracted from your document corpus and call its suggest API from your frontend before invoking BMKB retrieval.
 
-Kendra provides the GetQuerySuggestions API that returns autocomplete
-suggestions based on indexed document vocabulary. BMKB does not currently
-offer this capability.
-
-**Workaround:** Implement a custom
-autocomplete layer using Amazon OpenSearch Service with its built-in
-suggester functionality, or use an LLM-based query completion service. You
-can also leverage Bedrock Agents to reformulate partial queries before
-retrieval. A practical approach is to maintain a separate OpenSearch index of
-common query terms extracted from your document corpus and call its suggest
-API from your frontend before invoking BMKB retrieval.
-
-**Faceted Search**
-
-Kendra supports document attribute facets via the Facets parameter in the
-Query API, displaying up to 10 facet values per facet with document counts.
-BMKB's architecture does not support faceted search.
-
-**Workaround:** Simulate faceted navigation
-using metadata filtering. Tag documents with structured metadata attributes
-(department, author, document type, date range) in .metadata.json sidecar
-files. Present filter options in your application UI based on your known
-metadata schema, and apply the corresponding filter operators at query time.
-While this does not provide dynamic facet counts, it enables users to narrow
-results by category:
+**Faceted Search**  
+Kendra supports document attribute facets via the Facets parameter in the Query API, displaying up to 10 facet values per facet with document counts. BMKB's architecture does not support faceted search.  
+**Workaround:** Simulate faceted navigation using metadata filtering. Tag documents with structured metadata attributes (department, author, document type, date range) in .metadata.json sidecar files. Present filter options in your application UI based on your known metadata schema, and apply the corresponding filter operators at query time. While this does not provide dynamic facet counts, it enables users to narrow results by category:  
 
 ```
-
 # Simulating faceted search with metadata filters
 response = bedrock_runtime.retrieve(
     knowledgeBaseId="your-kb-id",
@@ -433,42 +373,21 @@ response = bedrock_runtime.retrieve(
         }
     }
 )
-
 ```
 
-**Custom Synonyms**
+**Custom Synonyms**  
+Kendra allows building a custom mapping of business-specific terms that are mapped to other terms for matching search results via a thesaurus file. BMKB does not currently support custom synonyms.  
+**Workaround:** Build a lightweight synonym expansion service in front of your BMKB queries:  
++ Maintain your existing Kendra thesaurus file (or a synonym dictionary in DynamoDB/S3)
++ Before calling the BMKB Retrieve or RetrieveAndGenerate API, expand the user's query by appending matched synonyms
++ Example: If the user queries "DNS issues", your app rewrites it to "DNS Route53 issues" before sending to BMKB
+This works particularly well because BMKB always uses hybrid search (keyword \+ semantic), so adding synonym terms to the query text will match on both keyword and semantic dimensions.
 
-Kendra allows building a custom mapping of business-specific terms that are
-mapped to other terms for matching search results via a thesaurus file. BMKB
-does not currently support custom synonyms.
-
-**Workaround:** Build a lightweight synonym
-expansion service in front of your BMKB queries:
-
-- Maintain your existing Kendra thesaurus file (or a synonym
-  dictionary in DynamoDB/S3)
-- Before calling the BMKB Retrieve or RetrieveAndGenerate API,
-  expand the user's query by appending matched synonyms
-- Example: If the user queries "DNS issues", your app rewrites it to
-  "DNS Route53 issues" before sending to BMKB
-
-This works particularly well because BMKB always uses hybrid search
-(keyword + semantic), so adding synonym terms to the query text will match on
-both keyword and semantic dimensions.
-
-**Spell Checking**
-
-Kendra provides automatic spell corrections based on indexed document
-vocabulary via SpellCorrectionConfiguration. BMKB does not currently support
-spell checking.
-
-**Workaround:** Add a preprocessing layer
-before sending queries to BMKB. Use an AWS Lambda function that invokes a
-spell-correction library (such as SymSpell or TextBlob) or calls an LLM for
-query correction:
+**Spell Checking**  
+Kendra provides automatic spell corrections based on indexed document vocabulary via SpellCorrectionConfiguration. BMKB does not currently support spell checking.  
+**Workaround:** Add a preprocessing layer before sending queries to BMKB. Use an AWS Lambda function that invokes a spell-correction library (such as SymSpell or TextBlob) or calls an LLM for query correction:  
 
 ```
-
 import boto3
 
 lambda_client = boto3.client("lambda")
@@ -488,79 +407,44 @@ def correct_and_retrieve(query_text, kb_id):
         retrievalQuery={"text": corrected_query},
         retrievalConfiguration={"managedSearchConfiguration": {"numberOfResults": 5}}
     )
-
 ```
 
-**Incremental Learning**
+**Incremental Learning**  
+Kendra supports the SubmitFeedback API for click-through signals and relevance feedback to improve ranking over time. BMKB does not offer this capability.  
+**Workaround:** Use BMKB's reranking models to improve relevance at query time. Build a custom feedback loop that stores user click and rating signals in an external data store (such as DynamoDB), and use those signals to adjust metadata boost weights or reranking parameters. For long-term improvement, consider periodically fine-tuning your embedding model based on collected relevance feedback.
 
-Kendra supports the SubmitFeedback API for click-through signals and
-relevance feedback to improve ranking over time. BMKB does not offer this
-capability.
-
-**Workaround:** Use BMKB's reranking models
-to improve relevance at query time. Build a custom feedback loop that stores
-user click and rating signals in an external data store (such as DynamoDB),
-and use those signals to adjust metadata boost weights or reranking
-parameters. For long-term improvement, consider periodically fine-tuning your
-embedding model based on collected relevance feedback.
-
-**Custom Document Enrichment**
-
-Kendra supports pre-extraction and post-extraction Lambda hooks that
-manipulate document content and metadata during ingestion. BMKB uses Smart
-Parsing for document processing but does not offer equivalent Lambda
-hooks.
-
-**Workaround:** Implement a preprocessing
-pipeline using AWS Step Functions or Lambda that transforms documents
-before they are placed in S3 for BMKB ingestion. This pipeline can perform
-content extraction, metadata enrichment, PII redaction, or format conversion
-before the documents reach the BMKB data source bucket.
+**Custom Document Enrichment**  
+Kendra supports pre-extraction and post-extraction Lambda hooks that manipulate document content and metadata during ingestion. BMKB uses Smart Parsing for document processing but does not offer equivalent Lambda hooks.  
+**Workaround:** Implement a preprocessing pipeline using AWS Step Functions or Lambda that transforms documents before they are placed in S3 for BMKB ingestion. This pipeline can perform content extraction, metadata enrichment, PII redaction, or format conversion before the documents reach the BMKB data source bucket.
 
 ## Data Source Migration Strategy
+<a name="kendra-migration-data-source-strategy"></a>
 
 ### Connector Coverage Gap
+<a name="kendra-migration-connector-gap"></a>
 
-Kendra supports 32 native connectors while BMKB supports 7. For data sources not
-directly supported by BMKB, the recommended approach is to export content to Amazon
-S3 and configure an S3 data source in BMKB.
+Kendra supports 32 native connectors while BMKB supports 7. For data sources not directly supported by BMKB, the recommended approach is to export content to Amazon S3 and configure an S3 data source in BMKB.
 
-**Migration pattern for unsupported connectors:**
-Create an automated pipeline (using AWS Lambda, Step Functions, or Amazon
-EventBridge Scheduler) that periodically extracts content from the source system via
-its API, writes documents to an S3 bucket with appropriate metadata JSON sidecar
-files, and triggers a BMKB ingestion job. This replicates the periodic sync behavior
-of Kendra connectors.
+**Migration pattern for unsupported connectors:** Create an automated pipeline (using AWS Lambda, Step Functions, or Amazon EventBridge Scheduler) that periodically extracts content from the source system via its API, writes documents to an S3 bucket with appropriate metadata JSON sidecar files, and triggers a BMKB ingestion job. This replicates the periodic sync behavior of Kendra connectors.
 
 ### Metadata Migration
+<a name="kendra-migration-metadata"></a>
 
-Kendra document attributes must be translated to BMKB metadata format. In Kendra,
-attributes are defined at the index level and attached to documents during ingestion.
-In BMKB, metadata is defined via .metadata.json sidecar files stored alongside
-source documents in S3, with a maximum size of 10 KB per file. Each attribute must
-be typed as STRING, NUMBER, or BOOLEAN.
+Kendra document attributes must be translated to BMKB metadata format. In Kendra, attributes are defined at the index level and attached to documents during ingestion. In BMKB, metadata is defined via .metadata.json sidecar files stored alongside source documents in S3, with a maximum size of 10 KB per file. Each attribute must be typed as STRING, NUMBER, or BOOLEAN.
 
 ### Chunking Strategy Selection
+<a name="kendra-migration-chunking"></a>
 
-When migrating from Kendra (which handles chunking internally), you must explicitly
-choose a chunking strategy for BMKB. For most migration scenarios, the Fixed-size
-strategy with 200 tokens and 30% overlap provides a good starting point. If your
-documents have clear hierarchical structure (chapters, sections, subsections),
-consider Hierarchical chunking for improved retrieval of both broad context and
-specific details.
+When migrating from Kendra (which handles chunking internally), you must explicitly choose a chunking strategy for BMKB. For most migration scenarios, the Fixed-size strategy with 200 tokens and 30% overlap provides a good starting point. If your documents have clear hierarchical structure (chapters, sections, subsections), consider Hierarchical chunking for improved retrieval of both broad context and specific details.
 
 ## Testing and Validation
+<a name="kendra-migration-testing"></a>
 
-To evaluate performance, run both Kendra and BMKB in parallel. Send identical queries
-to both services and compare results using the following dimensions: relevance quality
-(measured by NDCG or MRR against a golden test set), latency (p50, p95, p99 response
-times), throughput (queries per second under load), and completeness (percentage of
-expected documents retrieved).
+To evaluate performance, run both Kendra and BMKB in parallel. Send identical queries to both services and compare results using the following dimensions: relevance quality (measured by NDCG or MRR against a golden test set), latency (p50, p95, p99 response times), throughput (queries per second under load), and completeness (percentage of expected documents retrieved).
 
 Create a test harness that evaluates retrieval quality:
 
 ```
-
 def compare_retrieval(query, kendra_index_id, bmkb_kb_id):
     # Query Kendra
     kendra_results = kendra_client.retrieve(
@@ -586,24 +470,13 @@ def compare_retrieval(query, kendra_index_id, bmkb_kb_id):
     print(f"Query: {query}")
     print(f"Result overlap: {overlap}/10 documents in common")
     return overlap
-
 ```
 
-Before switching production traffic to BMKB, verify the following: all data sources
-are ingested and up-to-date with no failed documents; metadata filters produce expected
-results for all application filter patterns; access control workarounds correctly
-restrict unauthorized access; relevance benchmarks meet or exceed Kendra baseline
-quality; application error handling correctly processes BMKB response formats; and
-monitoring and alerting are configured for BMKB API errors and latency.
+Before switching production traffic to BMKB, verify the following: all data sources are ingested and up-to-date with no failed documents; metadata filters produce expected results for all application filter patterns; access control workarounds correctly restrict unauthorized access; relevance benchmarks meet or exceed Kendra baseline quality; application error handling correctly processes BMKB response formats; and monitoring and alerting are configured for BMKB API errors and latency.
 
 ## Summary
+<a name="kendra-migration-summary"></a>
 
-Migrating from Amazon Kendra to Bedrock Managed Knowledge Base requires two
-primary efforts: re-ingesting data sources into BMKB and rewriting application code to
-use BMKB APIs. While BMKB introduces powerful RAG-native capabilities including
-RetrieveAndGenerate and agentic retrieval, customers using enterprise search features
-such as faceting, query suggestions, custom synonyms, and incremental learning will need
-to implement workarounds as described in this guide.
+Migrating from Amazon Kendra to Bedrock Managed Knowledge Base requires two primary efforts: re-ingesting data sources into BMKB and rewriting application code to use BMKB APIs. While BMKB introduces powerful RAG-native capabilities including RetrieveAndGenerate and agentic retrieval, customers using enterprise search features such as faceting, query suggestions, custom synonyms, and incremental learning will need to implement workarounds as described in this guide.
 
-Please contact [AWS
-Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support") with any additional questions.
+Please contact [AWS Support](https://console.aws.amazon.com/support) with any additional questions.

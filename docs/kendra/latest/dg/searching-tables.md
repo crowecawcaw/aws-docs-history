@@ -1,73 +1,38 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Tabular search for HTML
+<a name="searching-tables"></a>
 
-###### Note
+**Note**  
+Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
 
-Feature support varies by index type and search API being used. To see if this
-feature is supported for the index type and search API you’re using, see [Index
-types](hiw-index-types.md "hiw-index-types.md").
+Amazon Kendra's tabular search feature can search and extract answers from tables embedded in HTML documents. When you search your index, Amazon Kendra includes an excerpt from a table if it's relevant to the query and provides useful information.
 
-Amazon Kendra's tabular search feature can search and extract answers from tables
-embedded in HTML documents. When you search your index, Amazon Kendra includes an
-excerpt from a table if it's relevant to the query and provides useful
-information.
+Amazon Kendra looks at all of the information within the body text of a document, including useful information in tables. For example, an index contains business reports with tables on operation costs, income, and other financial information. For the query, "what is the annual operation cost from 2020-2022?", Amazon Kendra can return an excerpt from a table that contains relevant table columns "Operations (millions USD)" and "Financial year", and table rows containing income values for 2020, 2021, and 2022. The table excerpt is included in the result, along with the document title, a link to the full document, and any other document fields you choose to include.
 
-Amazon Kendra looks at all of the information within the body text of a document,
-including useful information in tables. For example, an index contains business reports
-with tables on operation costs, income, and other financial information. For the query,
-"what is the annual operation cost from 2020-2022?", Amazon Kendra can return an
-excerpt from a table that contains relevant table columns "Operations (millions USD)"
-and "Financial year", and table rows containing income values for 2020, 2021, and 2022.
-The table excerpt is included in the result, along with the document title, a link to
-the full document, and any other document fields you choose to include.
+Table excerpts can be displayed in the search results whether the information is found in one cell of a table or multiple cells. For example, Amazon Kendra can display a table excerpt tailored to each of these kinds of queries:
++ "highest interest rate credit card in 2020"
++ "highest interest rate credit card from 2020-2022"
++ "top 3 highest interest rate credit cards in 2020-2022"
++ "credit cards with interest rates less than 10%"
++ "all available low interest credit cards"
 
-Table excerpts can be displayed in the search results whether the information is found
-in one cell of a table or multiple cells. For example, Amazon Kendra can display a
-table excerpt tailored to each of these kinds of queries:
+Amazon Kendra highlights the table cell or cells that are most relevant to the query. The most relevant cells with their corresponding rows, columns and column names are displayed in the search result. The table excerpt displays up to five columns and three rows, depending on how many table cells are relevant to the query and how many columns are available in the original table. The top most relevant cell is displayed in the table excerpt, along with the next most relevant cells.
 
-- "highest interest rate credit card in 2020"
-- "highest interest rate credit card from 2020-2022"
-- "top 3 highest interest rate credit cards in 2020-2022"
-- "credit cards with interest rates less than 10%"
-- "all available low interest credit cards"
-  Amazon Kendra highlights the table cell or cells that are most relevant to the
-  query. The most relevant cells with their corresponding rows, columns and column names
-  are displayed in the search result. The table excerpt displays up to five columns and
-  three rows, depending on how many table cells are relevant to the query and how many
-  columns are available in the original table. The top most relevant cell is displayed in
-  the table excerpt, along with the next most relevant cells.
+The response includes the confidence bucket (`MEDIUM`, `HIGH`, `VERY_HIGH`) to show how relevant the table answer is to the query. If a table cell value is `VERY_HIGH` in confidence, then it becomes the 'top answer' and is highlighted. For table cell values that are `HIGH` in confidence, then they are highlighted. For table cell values that are `MEDIUM` in confidence, then they are not highlighted. The overall confidence for the table answer is returned in the response. For example, if a table contains mostly table cells with `HIGH` confidence, then the overall confidence returned in the response for the table answer is `HIGH` confidence.
 
-The response includes the confidence bucket (`MEDIUM`, `HIGH`,
-`VERY_HIGH`) to show how relevant the table answer is to the query. If a
-table cell value is `VERY_HIGH` in confidence, then it becomes the 'top
-answer' and is highlighted. For table cell values that are `HIGH` in
-confidence, then they are highlighted. For table cell values that are
-`MEDIUM` in confidence, then they are not highlighted. The overall
-confidence for the table answer is returned in the response. For example, if a table
-contains mostly table cells with `HIGH` confidence, then the overall
-confidence returned in the response for the table answer is `HIGH`
-confidence.
-
-By default, tables aren't given a higher level of importance or more weight than other
-components of a document. Within a document, if a table is only slightly relevant to a
-query, but there's a highly relevant paragraph, Amazon Kendra returns an excerpt of
-the paragraph. Search results display the piece of content that provides the best
-possible answer and most useful information, in the same document or other documents. If
-the confidence for a table falls below `MEDIUM` confidence, then the table
-excerpt is not returned in the response.
+By default, tables aren't given a higher level of importance or more weight than other components of a document. Within a document, if a table is only slightly relevant to a query, but there's a highly relevant paragraph, Amazon Kendra returns an excerpt of the paragraph. Search results display the piece of content that provides the best possible answer and most useful information, in the same document or other documents. If the confidence for a table falls below `MEDIUM` confidence, then the table excerpt is not returned in the response.
 
 To use tabular search on an existing index, you must re-index your content.
 
-Amazon Kendra tabular search supports [synonyms](index-synonyms.md "index-synonyms.md") (including custom
-synonyms). Amazon Kendra only supports documents in English with HTML tables that
-are within the table tag.
+Amazon Kendra tabular search supports [synonyms](https://docs.aws.amazon.com/kendra/latest/dg/index-synonyms.html) (including custom synonyms). Amazon Kendra only supports documents in English with HTML tables that are within the table tag.
 
-The following example shows table excerpt included in the query result. To view a
-sample JSON with query responses, including table excerpts, see [Query
-responses and types](query-responses-types.md "query-responses-types.md").
+The following example shows table excerpt included in the query result. To view a sample JSON with query responses, including table excerpts, see [Query responses and types](https://docs.aws.amazon.com/kendra/latest/dg/query-responses-types.html).
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -84,22 +49,22 @@ response = kendra.query(
         QueryText = query,
         IndexId = index_id)
 
-print("\nSearch results for query: " + query + "\n")
+print("\nSearch results for query: " + query + "\n")        
 
 for query_result in response["ResultItems"]:
 
     print("-------------------")
     print("Type: " + str(query_result["Type"]))
     print("Type: " + str(query_result["Format"]))
-
+        
     if query_result["Type"]=="ANSWER" and query_result["Format"]=="TABLE":
         answer_table = query_result["TableExcerpt"]
         print(answer_table)
-
+        
     if query_result["Type"]=="ANSWER" and query_result["Format"]=="TEXT":
         answer_text = query_result["DocumentExcerpt"]
         print(answer_text)
-
+        
     if query_result["Type"]=="QUESTION_ANSWER":
         question_answer_text = query_result["DocumentExcerpt"]["Text"]
         print(question_answer_text)
@@ -114,7 +79,8 @@ for query_result in response["ResultItems"]:
     print("------------------\n\n")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -144,7 +110,7 @@ public class SearchIndexExample {
             System.out.println("----------------------");
             System.out.println(String.format("Type: %s", item.type()));
             System.out.println(String.format("Format: %s", item.format()));
-
+            
             switch(item.format()) {
                 case TABLE:
                     String answerTable = item.TableExcerpt();
@@ -180,3 +146,5 @@ public class SearchIndexExample {
     }
 }
 ```
+
+------

@@ -1,76 +1,50 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Adding documents directly to an index with batch upload
+<a name="in-adding-documents"></a>
 
-You can add documents directly to an index using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md")
-API. You can't add documents directly using the console. If you use the console, you
-connect to a data source to add documents to your index. Documents can be added from an
-S3 bucket or supplied as binary data. For a list of document types supported by Amazon Kendra see [Types of documents](index-document-types.md "index-document-types.md").
+You can add documents directly to an index using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchPutDocument.html) API. You can't add documents directly using the console. If you use the console, you connect to a data source to add documents to your index. Documents can be added from an S3 bucket or supplied as binary data. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html).
 
-Adding documents to an index using `BatchPutDocument` is an asynchronous
-operation. After you call the `BatchPutDocument` API, you use the [BatchGetDocumentStatus](../APIReference/API_BatchGetDocumentStatus.md "../APIReference/API_BatchGetDocumentStatus.md") API to monitor the progress of indexing your
-documents. When you call the `BatchGetDocumentStatus` API with a list of
-document IDs, it returns the status of the document. When the status of the document is
-`INDEXED` or `FAILED`, processing of the document is complete.
-When the status is `FAILED`, the `BatchGetDocumentStatus` API
-returns the reason that the document couldn't be indexed.
+Adding documents to an index using `BatchPutDocument` is an asynchronous operation. After you call the `BatchPutDocument` API, you use the [BatchGetDocumentStatus](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchGetDocumentStatus) API to monitor the progress of indexing your documents. When you call the `BatchGetDocumentStatus` API with a list of document IDs, it returns the status of the document. When the status of the document is `INDEXED` or `FAILED`, processing of the document is complete. When the status is `FAILED`, the `BatchGetDocumentStatus` API returns the reason that the document couldn't be indexed.
 
-If you want to alter your content and document metadata fields or attributes during
-the document ingestion process, see [Amazon Kendra Custom
-Document Enrichment](custom-document-enrichment.md "custom-document-enrichment.md"). If you want to use a custom data source, each document
-you submit using the `BatchPutDocument` API requires a data source ID and
-execution ID as attributes or fields. For more information, see [Required
-attributes for custom data sources](data-source-custom.md#custom-required-attributes "data-source-custom.md#custom-required-attributes").
+If you want to alter your content and document metadata fields or attributes during the document ingestion process, see [Amazon Kendra Custom Document Enrichment](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). If you want to use a custom data source, each document you submit using the `BatchPutDocument` API requires a data source ID and execution ID as attributes or fields. For more information, see [Required attributes for custom data sources](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html#custom-required-attributes).
 
-###### Note
+**Note**  
+Each document ID must be unique per index. You cannot create a data source to index your documents with their unique IDs and then use the `BatchPutDocument` API to index the same documents, or vice versa. You can delete a data source and then use the `BatchPutDocument` API to index the same documents, or vice versa. Using the `BatchPutDocument` and `BatchDeleteDocument` APIs in combination with an Amazon Kendra data source connector for the same set of documents could cause inconsistencies with your data. Instead, we recommend using the [Amazon Kendra custom data source connector](https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html).
 
-Each document ID must be unique per index. You cannot create a data source to
-index your documents with their unique IDs and then use the
-`BatchPutDocument` API to index the same documents, or vice versa.
-You can delete a data source and then use the `BatchPutDocument` API to
-index the same documents, or vice versa. Using the `BatchPutDocument` and
-`BatchDeleteDocument` APIs in combination with an Amazon Kendra
-data source connector for the same set of documents could cause inconsistencies with
-your data. Instead, we recommend using the [Amazon Kendra custom data
-source connector](data-source-custom.md "data-source-custom.md").
+The following developer guide documents show how to add documents directly to an index.
 
-The following developer guide documents show how to add documents directly to an
-index.
-
-###### Topics
-
-- [Adding documents with the BatchPutDocument API](#in-adding-binary-doc "#in-adding-binary-doc")
-- [Adding documents from an S3 bucket](#in-adding-plain-text "#in-adding-plain-text")
+**Topics**
++ [Adding documents with the BatchPutDocument API](#in-adding-binary-doc)
++ [Adding documents from an S3 bucket](#in-adding-plain-text)
 
 ## Adding documents with the BatchPutDocument API
+<a name="in-adding-binary-doc"></a>
 
-The following example adds a blob of text to an index by calling [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md").
-You can use the `BatchPutDocument` API to add documents directly to your
-index. For a list of document types supported by Amazon Kendra see [Types of
-documents](index-document-types.md "index-document-types.md").
+The following example adds a blob of text to an index by calling [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchPutDocument). You can use the `BatchPutDocument` API to add documents directly to your index. For a list of document types supported by Amazon Kendra see [Types of documents](https://docs.aws.amazon.com/kendra/latest/dg/index-document-types.html).
 
-For an example of creating an index using the AWS CLI and SDKs, see
-[Creating an
-index](create-index.md "create-index.md"). To set up the CLI and SDKs, see [Setting up Amazon Kendra](setup.md "setup.md").
+For an example of creating an index using the AWS CLI and SDKs, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html). To set up the CLI and SDKs, see [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html).
 
-###### Note
-
+**Note**  
 Files added to the index must be in a UTF-8 encoded byte stream.
 
 In the following examples, UTF-8 encoded text is added to the index.
 
-CLI
-In the AWS Command Line Interface, use the following command. The command
-is formatted for Linux and macOS. If you are using Windows, replace the
-Unix line continuation character (\) with a caret (^).
+------
+#### [ CLI ]
+
+In the AWS Command Line Interface, use the following command. The command is formatted for Linux and macOS. If you are using Windows, replace the Unix line continuation character (\\) with a caret (^).
 
 ```
 aws kendra batch-put-document \
-   --index-id `index-id` \
+   --index-id {{index-id}} \
    --documents '{"Id":"doc-id-1", "Blob":"Amazon.com is an online retailer.", "ContentType":"PLAIN_TEXT", "Title":"Information about Amazon.com"}'
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -103,7 +77,8 @@ result = kendra.batch_put_document(
 print(result)
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -141,32 +116,23 @@ public class AddDocumentsViaAPIExample {
         System.out.println(String.format("BatchPutDocument Result: %s", result));
     }
 }
-
 ```
 
+------
+
 ## Adding documents from an S3 bucket
+<a name="in-adding-plain-text"></a>
 
-You can add documents directly to your index from an Amazon S3 bucket
-using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md")
-API. You can add up to 10 documents in the same call. When you use an S3 bucket, you
-must provide an IAM role with permission to access the bucket that
-contains your documents. You specify the role in the `RoleArn`
-parameter.
+You can add documents directly to your index from an Amazon S3 bucket using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchPutDocument) API. You can add up to 10 documents in the same call. When you use an S3 bucket, you must provide an IAM role with permission to access the bucket that contains your documents. You specify the role in the `RoleArn` parameter.
 
-Using the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md")
-API to add documents from an Amazon S3 bucket is a one-time operation. To
-keep an index synchronized with the contents of a bucket, create an Amazon S3 data source. For more information, see [Amazon S3 data
-source](data-source-s3.md "data-source-s3.md").
+Using the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/APIReference/API_BatchPutDocument) API to add documents from an Amazon S3 bucket is a one-time operation. To keep an index synchronized with the contents of a bucket, create an Amazon S3 data source. For more information, see [Amazon S3 data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-s3.html).
 
-For an example of creating an index using the AWS CLI and SDKs, see
-[Creating an
-index](create-index.md "create-index.md"). To set up the CLI and SDKs, see [Setting up Amazon Kendra](setup.md "setup.md"). For
-information on creating an S3 bucket, see [Amazon Simple Storage Service documentation](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
+For an example of creating an index using the AWS CLI and SDKs, see [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html). To set up the CLI and SDKs, see [Setting up Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/setup.html). For information on creating an S3 bucket, see [Amazon Simple Storage Service documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
 
-In the following example, two Microsoft Word documents are added to the index
-using the `BatchPutDocument` API.
+In the following example, two Microsoft Word documents are added to the index using the `BatchPutDocument` API.
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -214,7 +180,8 @@ result = kendra.batch_put_document(
 print(result)
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -266,5 +233,6 @@ public class AddFilesFromS3Example {
         System.out.println(String.format("BatchPutDocument result: %s", result));
     }
 }
-
 ```
+
+------

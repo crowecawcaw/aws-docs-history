@@ -1,38 +1,35 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Setting up the AWS CLI
+<a name="aws-kendra-set-up-aws-cli"></a>
 
-The AWS Command Line Interface (AWS CLI) is a unified developer tool for managing AWS
-services, including Amazon Kendra. We recommend that you install it.
+The AWS Command Line Interface (AWS CLI) is a unified developer tool for managing AWS services, including Amazon Kendra. We recommend that you install it.
 
-1. To install the AWS CLI, follow the instructions in [Installing the AWS Command Line Interface](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md") in
-   the _AWS Command Line Interface User Guide_.
-2. To configure the AWS CLI and set up a profile to call the AWS CLI, follow the instructions
-   in [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User
-   Guide_.
-3. To confirm that the AWS CLI profile is configured properly, run the following
-   command:
+1. To install the AWS CLI, follow the instructions in [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*. 
 
-```
-aws configure --profile default
-```
+1. To configure the AWS CLI and set up a profile to call the AWS CLI, follow the instructions in [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*.
 
-If your profile has been configured correctly, you will see output similar to the
-following:
+1. To confirm that the AWS CLI profile is configured properly, run the following command:
 
-```
-AWS Access Key ID [****************52FQ]:
-AWS Secret Access Key [****************xgyZ]:
-Default region name [us-west-2]:
-Default output format [json]:
-```
+   ```
+   aws configure --profile default
+   ```
 
-4. To verify that the AWS CLI is configured for use with Amazon Kendra, run the following
-   commands:
+   If your profile has been configured correctly, you will see output similar to the following:
 
-```
-aws kendra help
-```
+   ```
+   AWS Access Key ID [****************52FQ]: 
+   AWS Secret Access Key [****************xgyZ]: 
+   Default region name [us-west-2]: 
+   Default output format [json]:
+   ```
 
-If the AWS CLI is configured correctly, you will see a list of the supported AWS CLI
-commands for Amazon Kendra, Amazon Kendra runtime, and Amazon Kendra events.
+1. To verify that the AWS CLI is configured for use with Amazon Kendra, run the following commands:
+
+   ```
+   aws kendra help
+   ```
+
+   If the AWS CLI is configured correctly, you will see a list of the supported AWS CLI commands for Amazon Kendra, Amazon Kendra runtime, and Amazon Kendra events.

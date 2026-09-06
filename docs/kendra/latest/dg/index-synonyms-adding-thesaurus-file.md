@@ -1,61 +1,62 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Adding a thesaurus to an index
+<a name="index-synonyms-adding-thesaurus-file"></a>
 
-The following procedures show how to add a thesaurus file containing synonyms to an index.
-It can take up to 30 minutes to see the effects of your updated thesaurus file. For more
-information about the thesaurus file, see [Creating a thesaurus file](index-synonyms-creating-thesaurus-file.md "index-synonyms-creating-thesaurus-file.md").
+The following procedures show how to add a thesaurus file containing synonyms to an index. It can take up to 30 minutes to see the effects of your updated thesaurus file. For more information about the thesaurus file, see [Creating a thesaurus file](index-synonyms-creating-thesaurus-file.md). 
 
-Console
+------
+#### [ Console ]
 
-###### To add a thesaurus
+**To add a thesaurus**
 
-1. In the left navigation pane, under the index where you want to add a list of
-   synonyms, your thesaurus, choose **Synonyms**.
-2. On the **Synonym** page, choose **Add
-   Thesaurus**.
-3. In **Define thesaurus**, give your thesaurus a name and an
-   optional description.
-4. In **Thesaurus settings**, provide the Amazon S3 path
-   to your thesaurus file. The file must be smaller than 5 MB.
-5. For **IAM Role**, select a role or select **Create a
-   new role** and specify a role name to create a new role. Amazon Kendra uses this role to access the Amazon S3 resource on your behalf. The IAM
-   role has the prefix "AmazonKendra-".
-6. Choose **Save** to save the configuration and add the
-   thesaurus. Once the thesaurus is ingested, it is active and synonyms are highlighted
-   in results. It can take up to 30 minutes to see the effects of your thesaurus file.
+1. In the left navigation pane, under the index where you want to add a list of synonyms, your thesaurus, choose **Synonyms**. 
 
-CLI
-To add a thesarus to an index with the AWS CLI, call
-`create-thesaurus`:
+1. On the **Synonym** page, choose **Add Thesaurus**. 
+
+1. In **Define thesaurus**, give your thesaurus a name and an optional description.
+
+1. In **Thesaurus settings**, provide the Amazon S3 path to your thesaurus file. The file must be smaller than 5 MB.
+
+1. For **IAM Role**, select a role or select **Create a new role** and specify a role name to create a new role. Amazon Kendra uses this role to access the Amazon S3 resource on your behalf. The IAM role has the prefix "AmazonKendra-". 
+
+1. Choose **Save** to save the configuration and add the thesaurus. Once the thesaurus is ingested, it is active and synonyms are highlighted in results. It can take up to 30 minutes to see the effects of your thesaurus file. 
+
+------
+#### [ CLI ]
+
+To add a thesarus to an index with the AWS CLI, call `create-thesaurus`: 
 
 ```
 aws kendra create-thesaurus \
---index-id `index-id` \
---name "`thesaurus-name`" \
---description "`thesaurus-description`" \
---source-s3-path "Bucket=`bucket-name`,Key=`thesaurus/synonyms.txt`" \
---role-arn `role-arn`
+--index-id {{index-id}} \
+--name "{{thesaurus-name}}" \
+--description "{{thesaurus-description}}" \
+--source-s3-path "Bucket={{bucket-name}},Key={{thesaurus/synonyms.txt}}" \
+--role-arn {{role-arn}}
 ```
 
 Call `list-thesauri` to see a list of thesauruses:
 
 ```
 aws kendra list-thesauri \
---index-id `index-id`
+--index-id {{index-id}}
 ```
 
 To view details for a thesaurus, call `describe-thesaurus`:
 
 ```
 aws kendra describe-thesaurus \
---index-id `index-id` \
---index-id `thesaurus-id`
+--index-id {{index-id}} \
+--index-id {{thesaurus-id}}
 ```
 
 It can take up to 30 minutes to see the effects of your thesaurus file.
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -67,14 +68,14 @@ kendra = boto3.client("kendra")
 
 print("Create a thesaurus")
 
-thesaurus_name = "`thesaurus-name`"
-thesaurus_description = "`thesaurus-description`"
-thesaurus_role_arn = "`role-arn`"
+thesaurus_name = "{{thesaurus-name}}"
+thesaurus_description = "{{thesaurus-description}}"
+thesaurus_role_arn = "{{role-arn}}"
 
-index_id = "`index-id`"
+index_id = "{{index-id}}"
 
-s3_bucket_name = "`bucket-name`"
-s3_key = "`thesaurus-file`"
+s3_bucket_name = "{{bucket-name}}"
+s3_key = "{{thesaurus-file}}"
 source_s3_path= {
     'Bucket': s3_bucket_name,
     'Key': s3_key
@@ -114,7 +115,8 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazonaws.kendra;
@@ -133,13 +135,13 @@ public class CreateThesaurusExample {
 
     KendraClient kendra = KendraClient.builder().build();
 
-    String thesaurusName = "`thesaurus-name`";
-    String thesaurusDescription = "`thesaurus-description`";
-    String thesaurusRoleArn = "`role-arn`";
+    String thesaurusName = "{{thesaurus-name}}";
+    String thesaurusDescription = "{{thesaurus-description}}";
+    String thesaurusRoleArn = "{{role-arn}}";
 
-    String s3BucketName = "`bucket-name`";
-    String s3Key = "`thesaurus-file`";
-    String indexId = "`index-id`";
+    String s3BucketName = "{{bucket-name}}";
+    String s3Key = "{{thesaurus-file}}";
+    String indexId = "{{index-id}}";
 
     System.out.println(String.format("Creating a thesaurus named %s", thesaurusName));
     CreateThesaurusRequest createThesaurusRequest = CreateThesaurusRequest
@@ -178,3 +180,5 @@ public class CreateThesaurusExample {
   }
 }
 ```
+
+------

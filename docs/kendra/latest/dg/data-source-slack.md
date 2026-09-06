@@ -1,400 +1,193 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Slack
+<a name="data-source-slack"></a>
 
-Slack is an enterprise communications app that lets users send messages and
-attachments through various public and private channels. You can use Amazon Kendra to
-index your Slack public and private channels, bot and archive messages, files
-and attachments, direct and group messages. You can also choose specific content to
-filter.
+Slack is an enterprise communications app that lets users send messages and attachments through various public and private channels. You can use Amazon Kendra to index your Slack public and private channels, bot and archive messages, files and attachments, direct and group messages. You can also choose specific content to filter.
 
-###### Note
+**Note**  
+Amazon Kendra now supports an upgraded Slack connector.  
+The console has been automatically upgraded for you. Any new connectors you create in the console will use the upgraded architecture. If you use the API, you must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `SlackConfiguration` object to configure your connector.  
+Connectors configured using the older console and API architecture will continue to function as configured. However, you won’t be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.  
+We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
 
-Amazon Kendra now supports an upgraded Slack connector.
+You can connect Amazon Kendra to your Slack data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/) or the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) API.
 
-The console has been automatically upgraded for you. Any new connectors you create in
-the console will use the upgraded architecture. If you use the API, you must now use the
-[TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") object instead of the
-`SlackConfiguration` object to configure your connector.
+For troubleshooting your Amazon Kendra Slack data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md).
 
-Connectors configured using the older console and API architecture will continue to
-function as configured. However, you won’t be able to edit or update them. If you want
-to edit or update your connector configuration, you must create a new connector.
-
-We recommended migrating your connector workflow to the upgraded version. Support for
-connectors configured using the older architecture is scheduled to end by June 2024.
-
-You can connect Amazon Kendra to your Slack data source using the [Amazon Kendra console](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/") or the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../APIReference/API_TemplateConfiguration.md") API.
-
-For troubleshooting your Amazon Kendra Slack data source connector, see [Troubleshooting data sources](troubleshooting-data-sources.md "troubleshooting-data-sources.md").
-
-###### Topics
-
-- [Supported features](#supported-features-slack "#supported-features-slack")
-- [Prerequisites](#prerequisites-slack "#prerequisites-slack")
-- [Connection instructions](#data-source-procedure-slack "#data-source-procedure-slack")
-- [Learn more](#slack-learn-more "#slack-learn-more")
+**Topics**
++ [Supported features](#supported-features-slack)
++ [Prerequisites](#prerequisites-slack)
++ [Connection instructions](#data-source-procedure-slack)
++ [Learn more](#slack-learn-more)
 
 ## Supported features
+<a name="supported-features-slack"></a>
 
-Amazon Kendra Slack data source connector supports the following
-features:
-
-- Field mappings
-- User access control
-- Inclusion/exclusion filters
-- Full and incremental content syncs
-- Virtual private cloud (VPC)
+Amazon Kendra Slack data source connector supports the following features:
++ Field mappings
++ User access control
++ Inclusion/exclusion filters
++ Full and incremental content syncs
++ Virtual private cloud (VPC)
 
 ## Prerequisites
+<a name="prerequisites-slack"></a>
 
-Before you can use Amazon Kendra to index your Slack data source,
-make these changes in your Slack and AWS accounts.
+Before you can use Amazon Kendra to index your Slack data source, make these changes in your Slack and AWS accounts.
 
 **In Slack, make sure you have:**
++ Configured a Slack Bot User OAuth token or Slack User OAuth token. You can choose either token to connect Amazon Kendra to your Slack data source. A token is required to use as your authentication credentials. See [Slack documentation on access tokens](https://api.slack.com/authentication/token-types) for more information.
+**Note**  
+If you use the bot token as part of your Slack credentials, you cannot index direct messages and group messages and you must add the bot token to the channel you want to index.
+**Note**  
+We recommend that you regularly refresh or rotate your credentials and secret. Provide only the necessary access level for your own security. We do **not** recommend that you re-use credentials and secrets across data sources, and connector versions 1.0 and 2.0 (where applicable).
++ Noted your Slack workspace team ID from your Slack workspace main page URL. For example, {{https://app.slack.com/client/T0123456789/... }} where {{T0123456789}} is the team ID.
++ Added the following Oauth scopes/permissions:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html)
++ Checked each document is unique in Slack and across other data sources you plan to use for the same index. Each data source that you want to use for an index must not contain the same document across the data sources. Document IDs are global to an index and must be unique per index.
 
-- Configured a Slack Bot User OAuth token or Slack User
-  OAuth token. You can choose either token to connect Amazon Kendra to your
-  Slack data source. A token is required to use as your authentication
-  credentials. See [Slack documentation
-  on access tokens](https://api.slack.com/authentication/token-types "https://api.slack.com/authentication/token-types") for more information.
+**In your AWS account, make sure you have:**
++ [Created an Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html) and, if using the API, noted the index ID.
++ [Created an IAM role](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds) for your data source and, if using the API, noted the ARN of the IAM role.
+**Note**  
+If you change your authentication type and credentials, you must update your IAM role to access the correct AWS Secrets Manager secret ID.
++ Stored your Slack authentication credentials in an AWS Secrets Manager secret and, if using the API, noted the ARN of the secret.
+**Note**  
+We recommend that you regularly refresh or rotate your credentials and secret. Provide only the necessary access level for your own security. We do **not** recommend that you re-use credentials and secrets across data sources, and connector versions 1.0 and 2.0 (where applicable).
 
-###### Note
-
-If you use the bot token as part of your Slack credentials,
-you cannot index direct messages and group messages and you must add the bot
-token to the channel you want to index.
-
-###### Note
-
-We recommend that you regularly refresh or rotate your credentials
-and secret. Provide only the necessary access level for your own security.
-We do **not** recommend that you re-use
-credentials and secrets across data sources, and connector versions 1.0 and
-2.0 (where applicable).
-
-- Noted your Slack workspace team ID from your Slack
-  workspace main page URL. For example,
-  `https://app.slack.com/client/T0123456789/...`
-  where `T0123456789` is the team ID.
-- Added the following Oauth scopes/permissions:
-
-| **User token<br>scope**                                                                                                                                                                                                                               | **Bot token<br>scope**                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| + channels:history<br>+ channels:read<br>+ emoji:read<br>+ files:read<br>+ groups:history<br>+ groups:read<br>+ im:history<br>+ im:read<br>+ mpim:history<br>+ mpim:read<br>+ team:read<br>+ users.profile:read<br>+ users:read<br>+ users:read.email | + channels:history<br>+ channels:manage<br>+ channels:read<br>+ conversations.connect:manage<br>+ conversations.connect:read<br>+ files:read<br>+ groups:history<br>+ groups:read<br>+ im:history<br>+ im:read<br>+ mpim:history<br>+ mpim:read<br>+ reactions:read<br>+ team:read<br>+ usergroups:read<br>+ users.profile:read<br>+ users:read<br>+ users:read.email |
-
-- Checked each document is unique in Slack and across other
-  data sources you plan to use for the same index. Each data source that you
-  want to use for an index must not contain the same document across the data
-  sources. Document IDs are global to an index and must be unique per index.
-
-**In your AWS account, make sure you
-have:**
-
-- [Created
-  an Amazon Kendra index](create-index.md "create-index.md") and, if using the API, noted the index
-  ID.
-- [Created an IAM role](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds") for your data source and, if
-  using the API, noted the ARN of the IAM role.
-
-###### Note
-
-If you change your authentication type and credentials, you must
-update your IAM role to access the correct AWS Secrets Manager secret ID.
-
-- Stored your Slack authentication credentials in an
-  AWS Secrets Manager secret and, if using the API, noted the ARN of the
-  secret.
-
-###### Note
-
-We recommend that you regularly refresh or rotate your credentials
-and secret. Provide only the necessary access level for your own security.
-We do **not** recommend that you re-use
-credentials and secrets across data sources, and connector versions 1.0 and
-2.0 (where applicable).
-
-If you don’t have an existing IAM role or secret, you can use the
-console to create a new IAM role and Secrets Manager secret when you
-connect your Slack data source to Amazon Kendra. If you are using the
-API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
+If you don’t have an existing IAM role or secret, you can use the console to create a new IAM role and Secrets Manager secret when you connect your Slack data source to Amazon Kendra. If you are using the API, you must provide the ARN of an existing IAM role and Secrets Manager secret, and an index ID.
 
 ## Connection instructions
+<a name="data-source-procedure-slack"></a>
 
-To connect Amazon Kendra to your Slack data source, you must provide
-the necessary details of your Slack data source so that Amazon Kendra can access
-your data. If you have not yet configured Slack for Amazon Kendra,
-see [Prerequisites](#prerequisites-slack "#prerequisites-slack").
+To connect Amazon Kendra to your Slack data source, you must provide the necessary details of your Slack data source so that Amazon Kendra can access your data. If you have not yet configured Slack for Amazon Kendra, see [Prerequisites](#prerequisites-slack).
 
-Console
-**To connect Amazon Kendra to
-Slack**
+------
+#### [ Console ]
 
-1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/").
-2. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes.
+**To connect Amazon Kendra to Slack** 
 
-###### Note
+1. Sign in to the AWS Management Console and open the [Amazon Kendra console](https://console.aws.amazon.com/kendra/).
 
-You can choose to configure or edit your **User access control** settings under **Index settings**. 3. On the **Getting started** page, choose **Add data source**. 4. On the **Add data source** page, choose **Slack connector**, and then choose **Add connector**.
-If using version 2 (if applicable), choose **Slack connector** with the "V2.0" tag. 5. On the **Specify data source details** page, enter the following information:
+1. From the left navigation pane, choose **Indexes** and then choose the index you want to use from the list of indexes.
+**Note**  
+You can choose to configure or edit your **User access control** settings under **Index settings**. 
 
-    1. In **Name and description**, for **Data source name**—Enter a name for your data source. You can include hyphens but not spaces.
-    2. (Optional) **Description**—Enter an optional description for your data source.
-    3. In **Default language**—Choose a language to filter your documents for the index. Unless you specify otherwise,
-     the language defaults to English. Language specified in the document metadata overrides the selected language.
-    4. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
-    5. Choose **Next**.
+1. On the **Getting started** page, choose **Add data source**.
 
-6. On the **Define access and security** page,
-enter the following information:
+1. On the **Add data source** page, choose **Slack connector**, and then choose **Add connector**. If using version 2 (if applicable), choose **Slack connector** with the "V2.0" tag.
 
-    1. For **Slack workspace team ID**—The
-     team ID of your Slack workspace. You can find your
-     team ID in your Slack
-     workspace main page URL. For example,
-     `https://app.slack.com/client/T0123456789/...`
-     where `T0123456789` is the team ID.
-    2. **Authorization**—Turn on or off access control list (ACL) information for your
-     documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
-     and groups can access. The ACL information is used to filter search results based on the user or
-     their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
-    3. **AWS Secrets Manager secret**—Choose an existing secret or create a new
-     Secrets Manager secret to store your Slack authentication
-     credentials. If you choose to create a new secret an AWS Secrets Manager
-     secret window opens.
+1. On the **Specify data source details** page, enter the following information:
 
+   1. In **Name and description**, for **Data source name**—Enter a name for your data source. You can include hyphens but not spaces.
 
-    	1. Enter following information in the
-    	 **Create an AWS
-    	 Secrets Manager secret
-    	 window**:
+   1. (Optional)** Description**—Enter an optional description for your data source.
 
+   1. In **Default language**—Choose a language to filter your documents for the index. Unless you specify otherwise, the language defaults to English. Language specified in the document metadata overrides the selected language.
 
-    		1. **Secret name**—A
-    		 name for your secret. The prefix
-    		 ‘AmazonKendra-Slack-’ is
-    		 automatically added to your secret name.
-    		2. For **Slack
-    		 token**—Enter the authentication
-    		 credential values you configured
-    		 Slack.
-    	2. Save and add your secret.
-    4. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
-     so, you must add **Subnets** and **VPC security groups**.
-    5. **Identity crawler**—Specify whether to turn on
-     Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-     (ACL) information for your documents to filter search results based on the user or their
-     group access to documents. If you have an ACL for your documents and choose to use your ACL,
-     you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-     [user
-     context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-     all documents can be publicly searched. If you want to use access control for your documents
-     and identity crawler is turned off, you can alternatively use the
-     [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-     API to upload user and group access information for user context filtering.
-    6. **IAM role**—Choose an existing IAM
-     role or create a new IAM role to access your repository credentials and index content.
+   1. In **Tags**, for **Add new tag**—Include optional tags to search and filter your resources or track your AWS costs.
 
+   1. Choose **Next**.
 
-    ###### Note
+1. On the **Define access and security** page, enter the following information:
 
-    IAM roles used for indexes cannot be used for data sources. If you are unsure
-     if an existing role is used for an index or FAQ, choose **Create a new role** to avoid
-     errors.
-    7. Choose **Next**.
+   1. For **Slack workspace team ID**—The team ID of your Slack workspace. You can find your team ID in your Slack workspace main page URL. For example, {{https://app.slack.com/client/T0123456789/...}} where {{T0123456789}} is the team ID.
 
-7. On the **Configure sync settings** page,
-enter the following information:
+   1. **Authorization**—Turn on or off access control list (ACL) information for your documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users and groups can access. The ACL information is used to filter search results based on the user or their group access to documents. For more information, see [User context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html#context-filter-user-incl-datasources).
 
-    1. **Select type of content**—Select
-     the Slack entities
-     or content types you want to crawl. You can choose from
-     all channels, public channels, private channels, group
-     messages, and private messages.
-    2. **Select crawl start
-     date**—Enter the date you want to start
-     crawling your content.
-    3. For **Additional configuration**—Choose
-     to include bot and archived messages and use regular expression
-     patterns to include or exclude certain content.
+   1. **AWS Secrets Manager secret**—Choose an existing secret or create a new Secrets Manager secret to store your Slack authentication credentials. If you choose to create a new secret an AWS Secrets Manager secret window opens.
 
+      1. Enter following information in the **Create an AWS Secrets Manager secret window**:
 
-    ###### Note
+         1. **Secret name**—A name for your secret. The prefix ‘AmazonKendra-Slack-’ is automatically added to your secret name.
 
-    If you choose to include for both channel IDs and channel names,
-     the Amazon Kendra Slack connector will
-     prioritize channel IDs over channel names.
+         1. For **Slack token**—Enter the authentication credential values you configured Slack. 
 
-    If you've chosen to include certain private and group messages, the
-     Amazon Kendra Slack connector will ignore all private
-     and group messages and only crawl the private and group messages you
-     specify.
-    4. **Sync mode**—Choose how you want to update
-     your index when your data source content changes. When you sync your
-     data source with Amazon Kendra for the first time, all content
-     is crawled and indexed by default. You must run a full sync of your
-     data if your initial sync failed, even if you don't choose full sync
-     as your sync mode option.
+      1. Save and add your secret.
 
+   1. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If so, you must add **Subnets** and **VPC security groups**.
 
+   1. **Identity crawler**—Specify whether to turn on Amazon Kendra’s identity crawler. The identity crawler uses the access control list (ACL) information for your documents to filter search results based on the user or their group access to documents. If you have an ACL for your documents and choose to use your ACL, you can then also choose to turn on Amazon Kendra’s identity crawler to configure [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html#context-filter-user-incl-datasources) of search results. Otherwise, if identity crawler is turned off, all documents can be publicly searched. If you want to use access control for your documents and identity crawler is turned off, you can alternatively use the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/APIReference/API_PutPrincipalMapping.html) API to upload user and group access information for user context filtering.
 
+   1. **IAM role**—Choose an existing IAM role or create a new IAM role to access your repository credentials and index content.
+**Note**  
+IAM roles used for indexes cannot be used for data sources. If you are unsure if an existing role is used for an index or FAQ, choose **Create a new role** to avoid errors.
 
-    	* Full sync: Freshly index all content, replacing existing
-    	 content each time your data source syncs with your index.
-    	* New, modified, deleted sync: Index only new, modified,
-    	 and deleted content each time your data source syncs with
-    	 your index. Amazon Kendra can use your data source's
-    	 mechanism for tracking content changes and index content
-    	 that changed since the last sync.
-    5. In **Sync run schedule**, for
-     **Frequency**—Choose how often to sync your
-     data source content and update your index.
-    6. Choose **Next**.
+   1. Choose **Next**.
 
-8. On the **Set field mappings** page, enter the
-following information:
+1. On the **Configure sync settings** page, enter the following information:
 
-    1. **Default data source
-     fields**—Select from the Amazon Kendra generated
-     default data source fields you want to map to your index.
-    2. **Add field**—To add custom data
-     source fields to create an index field name to map to
-     and the field data type.
-    3. Choose **Next**.
+   1. **Select type of content**—Select the Slack entities or content types you want to crawl. You can choose from all channels, public channels, private channels, group messages, and private messages.
 
-9. On the **Review and create** page, check that
-the information you have entered is correct and then select
-**Add data source**. You can also choose to edit your information from this page.
-Your data source will appear on the **Data sources** page after the data source has been
-added successfully.
+   1. **Select crawl start date**—Enter the date you want to start crawling your content.
 
-API
-**To connect Amazon Kendra to
-Slack**
+   1. For **Additional configuration**—Choose to include bot and archived messages and use regular expression patterns to include or exclude certain content.
+**Note**  
+If you choose to include for both channel IDs and channel names, the Amazon Kendra Slack connector will prioritize channel IDs over channel names.  
+If you've chosen to include certain private and group messages, the Amazon Kendra Slack connector will ignore all private and group messages and only crawl the private and group messages you specify.
 
-You must specify a JSON of the [data source
-schema](ds-schemas.md#ds-schema-slack "ds-schemas.md#ds-schema-slack") using the [TemplateConfiguration](API_TemplateConfiguration.md "API_TemplateConfiguration.md") API. You must
-provide the following information:
+   1. **Sync mode**—Choose how you want to update your index when your data source content changes. When you sync your data source with Amazon Kendra for the first time, all content is crawled and indexed by default. You must run a full sync of your data if your initial sync failed, even if you don't choose full sync as your sync mode option.
+      + Full sync: Freshly index all content, replacing existing content each time your data source syncs with your index.
+      + New, modified, deleted sync: Index only new, modified, and deleted content each time your data source syncs with your index. Amazon Kendra can use your data source's mechanism for tracking content changes and index content that changed since the last sync.
 
-- **Data
-  source**—Specify the data source type as
-  `SLACK` when you use the [TemplateConfiguration](API_TemplateConfiguration.md "API_TemplateConfiguration.md") JSON
-  schema. Also specify the data source as
-  `TEMPLATE` when you call
-  the [CreateDataSource](API_CreateDataSource.md "API_CreateDataSource.md") API.
-- **Slack workspace team
-  ID**—The Slack team ID you
-  copied from your Slack main page URL.
-- **Since date**—The date to
-  start crawling your data from your Slack workspace team. The
-  date must follow this format: yyyy-mm-dd.
-- **Sync mode**—Specify
-  how Amazon Kendra should update your index when your data source
-  content changes. When you sync your data source with Amazon Kendra
-  for the first time, all content is crawled and indexed by default.
-  You must run a full sync of your data if your initial sync failed,
-  even if you don't choose full sync as your sync mode option. You can
-  choose between:
+   1. In **Sync run schedule**, for **Frequency**—Choose how often to sync your data source content and update your index.
 
-  - `FORCED_FULL_CRAWL` to freshly index all content,
-    replacing existing content each time your data source syncs with
-    your index.
-  - `FULL_CRAWL` to index only new, modified, and deleted
-    content each time your data source syncs with your index. Amazon Kendra
-    can use your data source’s mechanism for tracking content changes and
-    index content that changed since the last sync.
-  - `CHANGE_LOG` to index only new and modified
-    content each time your data source syncs with your index. Amazon Kendra
-    can use your data source’s mechanism for tracking content changes and
-    index content that changed since the last sync.
+   1. Choose **Next**.
 
-- **Identity crawler**—Specify whether to turn on
-  Amazon Kendra’s identity crawler. The identity crawler uses the access control list
-  (ACL) information for your documents to filter search results based on the user or their
-  group access to documents. If you have an ACL for your documents and choose to use your ACL,
-  you can then also choose to turn on Amazon Kendra’s identity crawler to configure
-  [user
-  context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources") of search results. Otherwise, if identity crawler is turned off,
-  all documents can be publicly searched. If you want to use access control for your documents
-  and identity crawler is turned off, you can alternatively use the
-  [PutPrincipalMapping](../APIReference/API_PutPrincipalMapping.md "../APIReference/API_PutPrincipalMapping.md")
-  API to upload user and group access information for user context filtering.
-- **Secret Amazon Resource Name
-  (ARN)**—Provide the Amazon Resource
-  Name (ARN) of an Secrets Manager secret that contains the
-  authentication credentials for your Slack account.
-  The secret is stored in a JSON structure with the following keys:
+1. On the **Set field mappings** page, enter the following information:
 
-```
-{
-    "slackToken": "`token`"
-}
-```
+   1. **Default data source fields**—Select from the Amazon Kendra generated default data source fields you want to map to your index.
 
-- **IAM role**—Specify `RoleArn`
-  when you call `CreateDataSource` to provide an IAM role with permissions to access
-  your Secrets Manager secret and to call the required public
-  APIs for the Slack connector and Amazon Kendra.
-  For more information, see [IAM roles for Slack
-  data sources](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds").
+   1.  **Add field**—To add custom data source fields to create an index field name to map to and the field data type.
+
+   1. Choose **Next**.
+
+1. On the **Review and create** page, check that the information you have entered is correct and then select **Add data source**. You can also choose to edit your information from this page. Your data source will appear on the **Data sources** page after the data source has been added successfully.
+
+------
+#### [ API ]
+
+**To connect Amazon Kendra to Slack**
+
+You must specify a JSON of the [data source schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html#ds-schema-slack) using the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) API. You must provide the following information:
++ **Data source**—Specify the data source type as `SLACK` when you use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_TemplateConfiguration.html) JSON schema. Also specify the data source as `TEMPLATE` when you call the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html) API.
++ **Slack workspace team ID**—The Slack team ID you copied from your Slack main page URL.
++ **Since date**—The date to start crawling your data from your Slack workspace team. The date must follow this format: yyyy-mm-dd.
++ **Sync mode**—Specify how Amazon Kendra should update your index when your data source content changes. When you sync your data source with Amazon Kendra for the first time, all content is crawled and indexed by default. You must run a full sync of your data if your initial sync failed, even if you don't choose full sync as your sync mode option. You can choose between:
+  + `FORCED_FULL_CRAWL` to freshly index all content, replacing existing content each time your data source syncs with your index.
+  + `FULL_CRAWL` to index only new, modified, and deleted content each time your data source syncs with your index. Amazon Kendra can use your data source’s mechanism for tracking content changes and index content that changed since the last sync.
+  + `CHANGE_LOG` to index only new and modified content each time your data source syncs with your index. Amazon Kendra can use your data source’s mechanism for tracking content changes and index content that changed since the last sync.
++ **Identity crawler**—Specify whether to turn on Amazon Kendra’s identity crawler. The identity crawler uses the access control list (ACL) information for your documents to filter search results based on the user or their group access to documents. If you have an ACL for your documents and choose to use your ACL, you can then also choose to turn on Amazon Kendra’s identity crawler to configure [user context filtering](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html#context-filter-user-incl-datasources) of search results. Otherwise, if identity crawler is turned off, all documents can be publicly searched. If you want to use access control for your documents and identity crawler is turned off, you can alternatively use the [PutPrincipalMapping](https://docs.aws.amazon.com/kendra/latest/APIReference/API_PutPrincipalMapping.html) API to upload user and group access information for user context filtering.
++ **Secret Amazon Resource Name (ARN)**—Provide the Amazon Resource Name (ARN) of an Secrets Manager secret that contains the authentication credentials for your Slack account. The secret is stored in a JSON structure with the following keys:
+
+  ```
+  {
+      "slackToken": "{{token}}"
+  }
+  ```
++ **IAM role**—Specify `RoleArn` when you call `CreateDataSource` to provide an IAM role with permissions to access your Secrets Manager secret and to call the required public APIs for the Slack connector and Amazon Kendra. For more information, see [IAM roles for Slack data sources](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds).
 
 You can also add the following optional features:
++  **Virtual Private Cloud (VPC)**—Specify `VpcConfiguration` when you call `CreateDataSource`. For more information, see [Configuring Amazon Kendra to use an Amazon VPC](vpc-configuration.md).
++ **Specific channels**—Filter by public or private channels, and specify certain channels by their ID.
++ **Types of channels and messages**—Whether Amazon Kendra should index your public and private channels, your group and direct messages, and your bot and archived messages. If you use a bot token as part of your Slack authentication credentials, you must add the bot token to the channel you want to index. You cannot index direct messages and group messages using a bot token.
++ **Look back**—You can choose to configure a `lookBack` parameter so that the Slack connector crawls updated or deleted content up to a specified number of hours before your last connector sync.
++  **Inclusion and exclusion filters**—Specify whether to include or exclude certain Slack content. If you use a bot token as part of your Slack authentication credentials, you must add the bot token to the channel you want to index. You cannot index direct messages and group messages using a bot token.
+**Note**  
+Most data sources use regular expression patterns, which are inclusion or exclusion patterns referred to as filters. If you specify an inclusion filter, only content that matches the inclusion filter is indexed. Any document that doesn’t match the inclusion filter isn’t indexed. If you specify an inclusion and exclusion filter, documents that match the exclusion filter are not indexed, even if they match the inclusion filter.
++  **Field mappings**—Choose to map your Slack data source fields to your Amazon Kendra index fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html).
+**Note**  
+The document body field or the document body equivalent for your documents is required in order for Amazon Kendra to search your documents. You must map your document body field name in your data source to the index field name `_document_body`. All other fields are optional.
 
-- **Virtual Private Cloud
-  (VPC)**—Specify
-  `VpcConfiguration` when you call `CreateDataSource`.
-  For more information, see [Configuring Amazon Kendra to use an Amazon VPC](vpc-configuration.md "vpc-configuration.md").
-- **Specific channels**—Filter by public or
-  private channels, and specify certain channels by their ID.
-- **Types of channels and messages**—Whether
-  Amazon Kendra should index
-  your public and private channels, your group and direct
-  messages, and your bot and archived messages. If you use a bot token as part of
-  your Slack authentication credentials, you must add the bot
-  token to the channel you want to index. You cannot index direct
-  messages and group messages using a bot token.
-- **Look back**—You can
-  choose to configure a `lookBack` parameter so that
-  the Slack connector crawls updated or deleted content up to a
-  specified number of hours before your last connector
-  sync.
-- **Inclusion and exclusion
-  filters**—Specify whether to include or exclude
-  certain Slack content. If you use a bot token as part of
-  your Slack authentication credentials, you must add the bot
-  token to the channel you want to index. You cannot index direct
-  messages and group messages using a bot token.
+For a list of other important JSON keys to configure, see [Slack template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html#ds-schema-slack).
 
-###### Note
-
-Most data sources use regular expression patterns,
-which are inclusion or exclusion patterns referred to as filters.
-If you specify an inclusion filter, only content that
-matches the inclusion filter is indexed. Any document that
-doesn’t match the inclusion filter isn’t indexed. If you
-specify an inclusion and exclusion filter, documents that
-match the exclusion filter are not indexed, even if they
-match the inclusion filter.
-
-- **Field mappings**—Choose to map your Slack
-  data source fields to your
-  Amazon Kendra index fields. For more information, see
-  [Mapping data
-  source fields](field-mapping.md "field-mapping.md").
-
-###### Note
-
-The document body field or the document body equivalent for your documents is required
-in order for Amazon Kendra to search your documents. You must map your document body
-field name in your data source to the index field name `_document_body`. All other
-fields are optional.
-
-For a list of other important JSON keys to configure, see [Slack template schema](ds-schemas.md#ds-schema-slack "ds-schemas.md#ds-schema-slack").
+------
 
 ## Learn more
+<a name="slack-learn-more"></a>
 
-To learn more about integrating Amazon Kendra with your Slack data
-source, see:
-
-- [Unravel the knowledge in Slack workspaces with intelligent search using the
-  Amazon Kendra Slack connector](https://aws.amazon.com/blogs/machine-learning/unravel-the-knowledge-in-slack-workspaces-with-intelligent-search-using-the-amazon-kendra-slack-connector/ "https://aws.amazon.com/blogs/machine-learning/unravel-the-knowledge-in-slack-workspaces-with-intelligent-search-using-the-amazon-kendra-slack-connector/")
+To learn more about integrating Amazon Kendra with your Slack data source, see:
++ [Unravel the knowledge in Slack workspaces with intelligent search using the Amazon Kendra Slack connector](https://aws.amazon.com/blogs/machine-learning/unravel-the-knowledge-in-slack-workspaces-with-intelligent-search-using-the-amazon-kendra-slack-connector/)

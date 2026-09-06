@@ -1,19 +1,21 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Getting started (AWS SDK for Python (Boto3))
+<a name="gs-python"></a>
 
-The following program is an example of using Amazon Kendra in a Python program. The
-program performs the following actions:
+The following program is an example of using Amazon Kendra in a Python program. The program performs the following actions:
 
-1. Creates a new index using the [CreateIndex](../APIReference/API_CreateIndex.md "../APIReference/API_CreateIndex.md")
-   operation.
-2. Waits for index creation to complete. It uses the [DescribeIndex](../APIReference/API_DescribeIndex.md "../APIReference/API_DescribeIndex.md") operation
-   to monitor the status of the index.
-3. Once the index is active, it creates a data source using the [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md") operation.
-4. Waits for data source creation to complete. It uses the [DescribeDataSource](../APIReference/API_DescribeDataSource.md "../APIReference/API_DescribeDataSource.md")
-   operation to monitor the status of the data source.
-5. When the data source is active, it synchronizes the index with the contents of the
-   data source using the [StartDataSourceSyncJob](../APIReference/API_StartDataSourceSyncJob.md "../APIReference/API_StartDataSourceSyncJob.md") operation.
+1. Creates a new index using the [CreateIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html) operation.
+
+1. Waits for index creation to complete. It uses the [DescribeIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DescribeIndex.html) operation to monitor the status of the index.
+
+1. Once the index is active, it creates a data source using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) operation.
+
+1. Waits for data source creation to complete. It uses the [DescribeDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DescribeDataSource.html) operation to monitor the status of the data source.
+
+1. When the data source is active, it synchronizes the index with the contents of the data source using the [StartDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/APIReference/API_StartDataSourceSyncJob.html) operation.
 
 ```
 import boto3
@@ -58,14 +60,14 @@ try:
             break
 
     print("Create an S3 data source.")
-
+    
     # Provide a name for the data source
     data_source_name = "python-getting-started-data-source"
     # Provide an optional description for the data source
     data_source_description = "Getting started data source."
     # Provide the IAM role ARN required for data sources
     data_source_role_arn = "arn:aws:iam::${accountId}:role/KendraRoleForGettingStartedDataSource"
-    # Provide the data source connection information
+    # Provide the data source connection information 
     S3_bucket_name = "S3-bucket-name"
     data_source_type = "S3"
     # Configure the data source
@@ -74,9 +76,9 @@ try:
             "BucketName": S3_bucket_name
         }
     }
-
+    
     """
-    If you connect to your data source using a template schema,
+    If you connect to your data source using a template schema, 
     configure the template schema
     configuration = {"TemplateConfiguration":
         {
@@ -84,7 +86,7 @@ try:
         }
     }
     """
-
+    
     data_source_response = kendra.create_data_source(
         Name = data_source_name,
         Description = data_source_name,

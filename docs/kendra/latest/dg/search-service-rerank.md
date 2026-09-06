@@ -1,63 +1,40 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Semantically ranking a search service's results
+<a name="search-service-rerank"></a>
 
-Amazon Kendra Intelligent Ranking uses Amazon Kendra's semantic search
-capabilities to re-rank a search service's results. It does this by taking into
-account the search query's context, plus all the available information
-from the search service documents. Amazon Kendra Intelligent Ranking can
-improve simple keyword matching.
+Amazon Kendra Intelligent Ranking uses Amazon Kendra's semantic search capabilities to re-rank a search service's results. It does this by taking into account the search query's context, plus all the available information from the search service documents. Amazon Kendra Intelligent Ranking can improve simple keyword matching.
 
-The [CreateRescoreExecutionPlan](../APIReference/API_Ranking_CreateRescoreExecutionPlan.md "../APIReference/API_Ranking_CreateRescoreExecutionPlan.md")
-API creates an Amazon Kendra Intelligent Ranking resource used for
-provisioning the [Rescore](../APIReference/API_Ranking_Rescore.md "../APIReference/API_Ranking_Rescore.md") API. The
-`Rescore` API re-ranks search results from a search service such as
-[OpenSearch (self managed)](opensearch-rerank.md "opensearch-rerank.md").
+The [CreateRescoreExecutionPlan](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Ranking_CreateRescoreExecutionPlan.html) API creates an Amazon Kendra Intelligent Ranking resource used for provisioning the [Rescore](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Ranking_Rescore.html) API. The `Rescore` API re-ranks search results from a search service such as [OpenSearch (self managed)](https://docs.aws.amazon.com/kendra/latest/dg/opensearch-rerank.html).
 
-When you call `CreateRescoreExecutionPlan`, you set your required
-capacity units for re-ranking a search service's results. If you don't need
-more capacity units beyond the single unit default, don't change the default.
-Provide only a name for your rescore execution plan. You can set up to 1000 extra
-units. For information on what is included in a single capacity unit, see
-[Adjusting capacity](adjusting-capacity.md "adjusting-capacity.md").
-Once you provision Amazon Kendra Intelligent Ranking, you are charged hourly
-based on your set capacity units. See [free tier and pricing information](https://aws.amazon.com/kendra/intelligent-ranking-pricing/ "https://aws.amazon.com/kendra/intelligent-ranking-pricing/").
+When you call `CreateRescoreExecutionPlan`, you set your required capacity units for re-ranking a search service's results. If you don't need more capacity units beyond the single unit default, don't change the default. Provide only a name for your rescore execution plan. You can set up to 1000 extra units. For information on what is included in a single capacity unit, see [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html). Once you provision Amazon Kendra Intelligent Ranking, you are charged hourly based on your set capacity units. See [free tier and pricing information](https://aws.amazon.com/kendra/intelligent-ranking-pricing/).
 
-A rescore execution plan ID is generated and returned in the response when you
-call `CreateRescoreExecutionPlan`. The `Rescore` API uses
-the rescore execution plan ID to re-rank a search service's results using the
-capacity you set. You include the rescore execution plan ID in the configuration
-files of your search service. For example, if you use OpenSearch (self managed),
-you include the rescore execution plan ID in your docker-compose.yml or
-opensearch.yml file—see [Intelligently
-ranking OpenSearch (self service) results](opensearch-rerank.md "opensearch-rerank.md").
+A rescore execution plan ID is generated and returned in the response when you call `CreateRescoreExecutionPlan`. The `Rescore` API uses the rescore execution plan ID to re-rank a search service's results using the capacity you set. You include the rescore execution plan ID in the configuration files of your search service. For example, if you use OpenSearch (self managed), you include the rescore execution plan ID in your docker-compose.yml or opensearch.yml file—see [Intelligently ranking OpenSearch (self service) results](https://docs.aws.amazon.com/kendra/latest/dg/opensearch-rerank.html).
 
-An Amazon Resource Name (ARN) is also generated in the response when you call
-`CreateRescoreExecutionPlan`. You can use this ARN to create a
-permissions policy in AWS Identity and Access Management (IAM) to restrict user
-access to a specific ARN for a specific rescore execution plan. For an example of
-an IAM policy to grant permission to use the
-`Rescore` API for a specific rescore execution plan, see [Amazon Kendra Intelligent Ranking for self-managed OpenSearch](opensearch-rerank.md "opensearch-rerank.md").
+An Amazon Resource Name (ARN) is also generated in the response when you call `CreateRescoreExecutionPlan`. You can use this ARN to create a permissions policy in AWS Identity and Access Management (IAM) to restrict user access to a specific ARN for a specific rescore execution plan. For an example of an IAM policy to grant permission to use the `Rescore` API for a specific rescore execution plan, see [Amazon Kendra Intelligent Ranking for self-managed OpenSearch](https://docs.aws.amazon.com/kendra/latest/dg/opensearch-rerank.html).
 
-The following is an example of creating a rescore execution plan with capacity
-units set to 1.
+The following is an example of creating a rescore execution plan with capacity units set to 1.
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra-ranking create-rescore-execution-plan \
-  --name MyRescoreExecutionPlan \
+  --name MyRescoreExecutionPlan \ 
   --capacity-units '{"RescoreCapacityUnits":1}'
-
+ 
 Response:
-
+ 
 {
-    "Id": "<`rescore execution plan ID`>",
-    "Arn": "arn:aws:kendra-ranking:<`region`>:<`account-id`>:rescore-execution-plan/<`rescore-execution-plan-id`>"
+    "Id": "<{{rescore execution plan ID}}>",
+    "Arn": "arn:aws:kendra-ranking:<{{region}}>:<{{account-id}}>:rescore-execution-plan/<{{rescore-execution-plan-id}}>"
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -105,7 +82,8 @@ except ClientError as e:
 print("Program ends.")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 import java.util.concurrent.TimeUnit;
@@ -160,18 +138,21 @@ public class CreateRescoreExecutionPlanExample {
 }
 ```
 
-The following is an example of updating a rescore execution plan
-to set capacity units to 2.
+------
 
-CLI
+The following is an example of updating a rescore execution plan to set capacity units to 2.
+
+------
+#### [ CLI ]
 
 ```
 aws kendra-ranking update-rescore-execution-plan \
-  --id <`rescore execution plan ID`> \
+  --id <{{rescore execution plan ID}}> \ 
   --capacity-units '{"RescoreCapacityUnits":2}'
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -180,22 +161,22 @@ import pprint
 import time
 
 kendra_ranking = boto3.client("kendra-ranking")
-
+                    
 print("Update a rescore execution plan.")
-
+                    
 # Provide the ID of the rescore execution plan
-id = <`rescore execution plan ID`>
+id = <{{rescore execution plan ID}}>
 # Re-set your required additional capacity units
 capacity_units = 2
-
+                        
 try:
     kendra_ranking.update_rescore_execution_plan(
         Id = id,
         CapacityUnits = {"RescoreCapacityUnits":capacity_units}
     )
-
+                        
     print("Wait for Amazon Kendra to update the rescore execution plan.")
-
+                        
     while True:
         # Get the details of the rescore execution plan, such as the status
         rescore_execution_plan_description = kendra_ranking.describe_rescore_execution_plan(
@@ -207,14 +188,15 @@ try:
         time.sleep(60)
         if status != "UPDATING":
             break
-
+                        
 except ClientError as e:
         print("%s" % e)
-
+                        
 print("Program ends.")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 import java.util.concurrent.TimeUnit;
@@ -231,7 +213,7 @@ public class UpdateRescoreExecutionPlanExample {
 
   public static void main(String[] args) throws InterruptedException {
 
-    String rescoreExecutionPlanId = <`rescore execution plan ID`>;
+    String rescoreExecutionPlanId = <{{rescore execution plan ID}}>;
     int newCapacityUnits = 2;
 
     KendraRankingClient kendraRankingClient = KendraRankingClient.builder().build();
@@ -268,18 +250,22 @@ public class UpdateRescoreExecutionPlanExample {
 }
 ```
 
+------
+
 The following is an example of using the `Rescore` API.
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws kendra-ranking rescore \
-  --rescore-execution-plan-id <`rescore execution plan ID`> \
+  --rescore-execution-plan-id <{{rescore execution plan ID}}> \
   --search-query "intelligent systems" \
   --documents "[{\"Id\": \"DocId1\",\"Title\": \"Smart systems\", \"Body\": \"intelligent systems in everyday life\",\"OriginalScore\": 2.0}, {\"Id\": \"DocId2\",\"Title\": \"Smarter systems\", \"Body\": \"living with intelligent systems\",\"OriginalScore\": 1.0}]"
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -287,11 +273,11 @@ from botocore.exceptions import ClientError
 import pprint
 
 kendra_ranking = boto3.client("kendra-ranking")
-
+                    
 print("Use the Rescore API.")
-
+                    
 # Provide the ID of the rescore execution plan
-id = <`rescore execution plan ID`>
+id = <{{rescore execution plan ID}}>
 # The search query from the search service
 query = "intelligent systems"
 # The list of documents for Intelligent Ranking to rescore
@@ -299,24 +285,25 @@ document_list = [
     {"Id": "DocId1", "Title": "Smart systems", "Body": "intelligent systems in everyday life", "OriginalScore": 2.0},
     {"Id": "DocId2", "Title": "Smarter systems", "Body": "living with intelligent systems", "OriginalScore": 1.0}
 ]
-
+                        
 try:
     rescore_response = kendra_ranking.rescore(
         rescore_execution_plan_id = id,
         search_query = query,
         documents = document_list
     )
-
+    
     print(rescore_response["RescoreId"])
     print(rescore_resposne["ResultItems"])
-
+	
 except ClientError as e:
         print("%s" % e)
 
 print("Program ends.")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 import java.util.ArrayList;
@@ -331,7 +318,7 @@ public class RescoreExample {
 
   public static void main(String[] args) {
 
-    String rescoreExecutionPlanId = <`rescore execution plan ID`>;
+    String rescoreExecutionPlanId = <{{rescore execution plan ID}}>;
     String query = "intelligent systems";
 
     List<Document> documentList = new ArrayList<>();
@@ -361,9 +348,11 @@ public class RescoreExample {
             .documents(documentList)
             .build()
     );
-
+    
     System.out.println(rescoreResponse.rescoreId());
     System.out.println(rescoreResponse.resultItems());
   }
 }
 ```
+
+------

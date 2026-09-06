@@ -1,327 +1,339 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Step 5: Querying the Amazon Kendra index
+<a name="tutorial-search-metadata-query-kendra"></a>
 
-Your Amazon Kendra index is now ready for natural language queries. When you search your index,
-Amazon Kendra uses all the data and metadata you provided to return the most accurate answers to your
-search query.
+Your Amazon Kendra index is now ready for natural language queries. When you search your index, Amazon Kendra uses all the data and metadata you provided to return the most accurate answers to your search query.
 
 There are three kinds of queries that Amazon Kendra can answer:
++ Factoid queries ("who", "what", "when", or "where" questions)
++ Descriptive queries ("how" questions)
++ Keyword searches (questions whose intent and scope are not clear)
 
-- Factoid queries ("who", "what", "when", or "where" questions)
-- Descriptive queries ("how" questions)
-- Keyword searches (questions whose intent and scope are not clear)
-
-###### Topics
-
-- [Querying your Amazon Kendra index](#tutorial-search-metadata-query-kendra-basic "#tutorial-search-metadata-query-kendra-basic")
-- [Filtering your search results](#tutorial-search-metadata-query-kendra-filters "#tutorial-search-metadata-query-kendra-filters")
+**Topics**
++ [Querying your Amazon Kendra index](#tutorial-search-metadata-query-kendra-basic)
++ [Filtering your search results](#tutorial-search-metadata-query-kendra-filters)
 
 ## Querying your Amazon Kendra index
+<a name="tutorial-search-metadata-query-kendra-basic"></a>
 
-You can query your Amazon Kendra index using questions that correspond to the three kinds of
-queries that Amazon Kendra supports. For more information, see [Queries](searching-example.md "searching-example.md").
+You can query your Amazon Kendra index using questions that correspond to the three kinds of queries that Amazon Kendra supports. For more information, see [Queries](https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html).
 
-The example questions in this section have been chosen based on the sample
-dataset.
+The example questions in this section have been chosen based on the sample dataset.
 
-1. Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/").
-2. From the **Indexes** list, click on
-   `kendra-index`.
-3. From the left navigation menu, choose the option to search your index.
-4. To run a sample factoid query, enter `Who is Lewis
- Hamilton?` in the search box and press enter.
+### To query your Amazon Kendra index (Console)
+<a name="tutorial-search-metadata-query-index-console"></a>
 
-The first returned result is the Amazon Kendra suggested answer, together with the data
-file containing the answer. The rest of the results form the set of recommended
-documents.
+1. Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/).
 
-![Amazon Kendra search results page showing Formula One driver information for Lewis Hamilton.](images/tutorial-query1.png) 5. To run a descriptive query, enter `How does Formula One
- work?` in the search box and press enter.
+1. From the **Indexes** list, click on `kendra-index`.
 
-You will see another result returned by the Amazon Kendra console, this time with the
-relevant phrase highlighted.
+1. From the left navigation menu, choose the option to search your index.
 
-![Search results page showing query for How does Formula One work with 51 results displayed.](images/tutorial-query2.png) 6. To run a keyword search, enter `Formula One` in the search
-box and press enter.
+1. To run a sample factoid query, enter **Who is Lewis Hamilton?** in the search box and press enter.
 
-You will see another result returned by the Amazon Kendra console, followed by the
-results for all other mentions of the phrase in the dataset.
+   The first returned result is the Amazon Kendra suggested answer, together with the data file containing the answer. The rest of the results form the set of recommended documents.
 
-![Amazon Kendra search results page showing Formula One related answers with snippets.](images/tutorial-query3.png)
+   
 
-1. To run a sample factoid query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
+     
+![Amazon Kendra search results page showing Formula One driver information for Lewis Hamilton.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query1.png)
 
-Linux
+1. To run a descriptive query, enter **How does Formula One work?** in the search box and press enter.
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Who is Lewis Hamilton?"` \
-        --region `aws-region`
-```
+   You will see another result returned by the Amazon Kendra console, this time with the relevant phrase highlighted.
 
-Where:
+   
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+     
+![Search results page showing query for How does Formula One work with 51 results displayed.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query2.png)
 
-macOS
+1. To run a keyword search, enter **Formula One** in the search box and press enter.
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Who is Lewis Hamilton?"` \
-        --region `aws-region`
-```
+   You will see another result returned by the Amazon Kendra console, followed by the results for all other mentions of the phrase in the dataset.
 
-Where:
+   
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+     
+![Amazon Kendra search results page showing Formula One related answers with snippets.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query3.png)
 
-Windows
+### To query your Amazon Kendra index (AWS CLI)
+<a name="tutorial-search-metadata-query-index-cli"></a>
 
-```
-aws kendra query ^
-        --index-id `kendra-index-id` ^
-        --query-text `"Who is Lewis Hamilton?"` ^
-        --region `aws-region`
-```
+1. To run a sample factoid query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
-Where:
+------
+#### [ Linux ]
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Who is Lewis Hamilton?" \
+           --region {{aws-region}}
+   ```
 
-The AWS CLI displays the results of your query. 2. To run a sample descriptive query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Linux
+------
+#### [ macOS ]
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"How does Formula One work?"` \
-        --region `aws-region`
-```
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Who is Lewis Hamilton?" \
+           --region {{aws-region}}
+   ```
 
-Where:
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+------
+#### [ Windows ]
 
-macOS
+   ```
+   aws kendra query ^
+           --index-id {{kendra-index-id}} ^
+           --query-text "Who is Lewis Hamilton?" ^
+           --region {{aws-region}}
+   ```
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"How does Formula One work?"` \
-        --region `aws-region`
-```
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Where:
+------
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   The AWS CLI displays the results of your query.
 
-Windows
+1. To run a sample descriptive query, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
-```
-aws kendra query ^
-        --index-id `kendra-index-id` ^
-        --query-text `"How does Formula One work?"` ^
-        --region `aws-region`
-```
+------
+#### [ Linux ]
 
-Where:
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "How does Formula One work?" \
+           --region {{aws-region}}
+   ```
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-The AWS CLI displays the results to your query. 3. To run a sample keyword search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
+------
+#### [ macOS ]
 
-Linux
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "How does Formula One work?" \
+           --region {{aws-region}}
+   ```
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Formula One"` \
-        --region `aws-region`
-```
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Where:
+------
+#### [ Windows ]
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   ```
+   aws kendra query ^
+           --index-id {{kendra-index-id}} ^
+           --query-text "How does Formula One work?" ^
+           --region {{aws-region}}
+   ```
 
-macOS
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Formula One"` \
-        --region `aws-region`
-```
+------
 
-Where:
+   The AWS CLI displays the results to your query.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+1. To run a sample keyword search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
-Windows
+------
+#### [ Linux ]
 
-```
-aws kendra query ^
-        --index-id `kendra-index-id` ^
-        --query-text `"Formula One"` ^
-        --region `aws-region`
-```
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Formula One" \
+           --region {{aws-region}}
+   ```
 
-Where:
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+------
+#### [ macOS ]
 
-The AWS CLI displays the returned answers to your query.
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Formula One" \
+           --region {{aws-region}}
+   ```
+
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
+
+------
+#### [ Windows ]
+
+   ```
+   aws kendra query ^
+           --index-id {{kendra-index-id}} ^
+           --query-text "Formula One" ^
+           --region {{aws-region}}
+   ```
+
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
+
+------
+
+   The AWS CLI displays the returned answers to your query.
 
 ## Filtering your search results
+<a name="tutorial-search-metadata-query-kendra-filters"></a>
 
-You can filter and sort your search results using custom document attributes in the
-Amazon Kendra console. For more information on how Amazon Kendra processes queries, see [Filtering
-queries](filtering.md "filtering.md").
+You can filter and sort your search results using custom document attributes in the Amazon Kendra console. For more information on how Amazon Kendra processes queries, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
 
-1. Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/ "https://console.aws.amazon.com/kendra/").
-2. From the **Indexes** list, click on
-   `kendra-index`.
-3. From the left navigation menu, choose the option to search your index.
-4. In the search box, enter `Soccer matches` as a query and
-   press enter.
-5. From the left navigation menu, choose **Filter search results**
-   to see a list of facets you can use to filter your search.
-6. Select the check box for "Champions League" under the **EVENT**
-   subheading, to see your search results filtered only by the results containing
-   "Champions League".
+### To filter your search results (Console)
+<a name="tutorial-search-metadata-filter-index-console"></a>
 
-![Search results page showing four results for Soccer matches with filters and sorting options.](images/tutorial-filter.png)
+1. Open the Amazon Kendra console at [https://console.aws.amazon.com/kendra/](https://console.aws.amazon.com/kendra/).
 
-1. To see the entities of a specific type (such as `EVENT`) that are
-   available for a search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
+1. From the **Indexes** list, click on `kendra-index`.
 
-Linux
+1. From the left navigation menu, choose the option to search your index.
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Soccer matches"` \
-        --facets '[{"DocumentAttributeKey":"EVENT"}]' \
-        --region `aws-region`
-```
+1. In the search box, enter **Soccer matches** as a query and press enter.
 
-Where:
+1. From the left navigation menu, choose **Filter search results** to see a list of facets you can use to filter your search.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+1. Select the check box for "Champions League" under the **EVENT** subheading, to see your search results filtered only by the results containing "Champions League".
 
-macOS
+   
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Soccer matches"` \
-        --facets '[{"DocumentAttributeKey":"EVENT"}]' \
-        --region `aws-region`
-```
+     
+![Search results page showing four results for Soccer matches with filters and sorting options.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-filter.png)
 
-Where:
+### To filter your search results (AWS CLI)
+<a name="tutorial-search-metadata-filter-index-cli"></a>
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+1. To see the entities of a specific type (such as `EVENT`) that are available for a search, use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
-Windows
+------
+#### [ Linux ]
 
-```
-aws kendra query ^
-        --index-id `kendra-index-id` ^
-        --query-text `"Soccer matches"` ^
-        --facets '[{"DocumentAttributeKey":"EVENT"}]' ^
-        --region `aws-region`
-```
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Soccer matches" \
+           --facets '[{"DocumentAttributeKey":"EVENT"}]' \
+           --region {{aws-region}}
+   ```
 
-Where:
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+------
+#### [ macOS ]
 
-The AWS CLI displays the search results. To get a list of facets of type
-`EVENT`, navigate to the "FacetResults" section of the AWS CLI output to
-see a list of filterable facets with their counts. For example, one of the facets is
-"Champions League".
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Soccer matches" \
+           --facets '[{"DocumentAttributeKey":"EVENT"}]' \
+           --region {{aws-region}}
+   ```
 
-###### Note
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Instead of `EVENT`, you can choose any of the index fields you
-created in [Creating an Amazon Kendra index](tutorial-search-metadata-create-index-ingest.md#tutorial-search-metadata-create-index "tutorial-search-metadata-create-index-ingest.md#tutorial-search-metadata-create-index") for the
-`DocumentAttributeKey` value. 2. To run the same search but filter only by the results containing "Champions
-League", use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html") command:
+------
+#### [ Windows ]
 
-Linux
+   ```
+   aws kendra query ^
+           --index-id {{kendra-index-id}} ^
+           --query-text "Soccer matches" ^
+           --facets '[{"DocumentAttributeKey":"EVENT"}]' ^
+           --region {{aws-region}}
+   ```
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Soccer matches"` \
-        --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' \
-        --region `aws-region`
-```
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Where:
+------
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   The AWS CLI displays the search results. To get a list of facets of type `EVENT`, navigate to the "FacetResults" section of the AWS CLI output to see a list of filterable facets with their counts. For example, one of the facets is "Champions League".
+**Note**  
+Instead of `EVENT`, you can choose any of the index fields you created in [Creating an Amazon Kendra index](tutorial-search-metadata-create-index-ingest.md#tutorial-search-metadata-create-index) for the `DocumentAttributeKey` value.
 
-macOS
+1. To run the same search but filter only by the results containing "Champions League", use the [query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kendra/query.html) command:
 
-```
-aws kendra query \
-        --index-id `kendra-index-id` \
-        --query-text `"Soccer matches"` \
-        --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' \
-        --region `aws-region`
-```
+------
+#### [ Linux ]
 
-Where:
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Soccer matches" \
+           --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' \
+           --region {{aws-region}}
+   ```
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-Windows
+------
+#### [ macOS ]
 
-```
-aws kendra query ^
-        --index-id `kendra-index-id` ^
-        --query-text `"Soccer matches"` ^
-        --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' ^
-        --region `aws-region`
-```
+   ```
+   aws kendra query \
+           --index-id {{kendra-index-id}} \
+           --query-text "Soccer matches" \
+           --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' \
+           --region {{aws-region}}
+   ```
 
-Where:
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
 
-    * `kendra-index-id` is your saved
-     `kendra-index-id`,
-    * `aws-region` is your AWS region.
+------
+#### [ Windows ]
 
-The AWS CLI displays the filtered search results.
+   ```
+   aws kendra query ^
+           --index-id {{kendra-index-id}} ^
+           --query-text "Soccer matches" ^
+           --attribute-filter '{"ContainsAny":{"Key":"EVENT","Value":{"StringListValue":["Champions League"]}}}' ^
+           --region {{aws-region}}
+   ```
+
+   Where:
+   + {{kendra-index-id}} is your saved `kendra-index-id`,
+   + {{aws-region}} is your AWS region.
+
+------
+
+   The AWS CLI displays the filtered search results.

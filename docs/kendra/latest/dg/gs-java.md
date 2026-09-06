@@ -1,19 +1,21 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Getting started (AWS SDK for Java)
+<a name="gs-java"></a>
 
-The following program is an example of using Amazon Kendra in a Java program. The
-program performs the following actions:
+The following program is an example of using Amazon Kendra in a Java program. The program performs the following actions:
 
-1. Creates a new index using the [CreateIndex](../APIReference/API_CreateIndex.md "../APIReference/API_CreateIndex.md")
-   operation.
-2. Waits for index creation to complete. It uses the [DescribeIndex](../APIReference/API_DescribeIndex.md "../APIReference/API_DescribeIndex.md") operation
-   to monitor the status of the index.
-3. Once the index is active, it creates a data source using the [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md") operation.
-4. Waits for data source creation to complete. It uses the [DescribeDataSource](../APIReference/API_DescribeDataSource.md "../APIReference/API_DescribeDataSource.md")
-   operation to monitor the status of the data source.
-5. When the data source is active, it synchronizes the index with the contents of the
-   data source using the [StartDataSourceSyncJob](../APIReference/API_StartDataSourceSyncJob.md "../APIReference/API_StartDataSourceSyncJob.md") operation.
+1. Creates a new index using the [CreateIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html) operation.
+
+1. Waits for index creation to complete. It uses the [DescribeIndex](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DescribeIndex.html) operation to monitor the status of the index.
+
+1. Once the index is active, it creates a data source using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) operation.
+
+1. Waits for data source creation to complete. It uses the [DescribeDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_DescribeDataSource.html) operation to monitor the status of the data source.
+
+1. When the data source is active, it synchronizes the index with the contents of the data source using the [StartDataSourceSyncJob](https://docs.aws.amazon.com/kendra/latest/APIReference/API_StartDataSourceSyncJob.html) operation.
 
 ```
 package com.amazonaws.kendra;

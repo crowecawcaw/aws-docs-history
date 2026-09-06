@@ -1,54 +1,34 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Query responses and response types
+<a name="query-responses-types"></a>
 
-###### Note
-
-Feature support varies by index type and search API being used. To see if this
-feature is supported for the index type and search API you’re using, see [Index
-types](hiw-index-types.md "hiw-index-types.md").
+**Note**  
+Feature support varies by index type and search API being used. To see if this feature is supported for the index type and search API you’re using, see [Index types](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html).
 
 Amazon Kendra supports different query responses and response types.
 
 ## Query responses
+<a name="query-responses"></a>
 
-A call to the [Query](../APIReference/API_Query.md "../APIReference/API_Query.md") API returns
-information about the results of a search. The results are in an array of[QueryResultItem](../APIReference/API_QueryResultItem.md "../APIReference/API_QueryResultItem.md") objects (`ResultItems`). Each
-`QueryResultItem` includes a summary of the result. Document
-attributes associated with the query result are included.
+A call to the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API returns information about the results of a search. The results are in an array of[QueryResultItem](https://docs.aws.amazon.com/kendra/latest/APIReference/API_QueryResultItem.html) objects (`ResultItems`). Each `QueryResultItem` includes a summary of the result. Document attributes associated with the query result are included. 
 
-###### Summary information
+**Summary information**  
+The summary information varies depending on the type of result. In each case, it includes document text that matches the search term. It also includes highlight information that you can use to highlight the search text in your application's output. For example, if the search term is *what is the height of the Space Needle?*, the summary information includes text location for the words *height* and *space needle*. For information about response types, see [Query responses and response types](#query-responses-types).
 
-The summary information varies depending on the type of result. In each case,
-it includes document text that matches the search term. It also includes
-highlight information that you can use to highlight the search text in your
-application's output. For example, if the search term is _what is the
-height of the Space Needle?_, the summary information includes
-text location for the words _height_ and _space
-needle_. For information about response types, see [Query responses and response types](query-responses-types.md "query-responses-types.md").
+**Document attributes**  
+Each result contains document attributes for the document that matches a query. Some of the attributes are predefined, such as `DocumentId`, `DocumentTitle`, and `DocumentUri`. Others are custom attributes that you define. You can use document attributes to filter the response from the `Query` API. For example, you might want only the documents written by a specific author or a specific version of a document. For more information, see [Filtering and facet search](filtering.md). You specify document attributes when you add documents to an index. For more information, see [Custom fields or attributes](https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html).
 
-###### Document attributes
-
-Each result contains document attributes for the document that matches a
-query. Some of the attributes are predefined, such as `DocumentId`,
-`DocumentTitle`, and `DocumentUri`. Others are custom
-attributes that you define. You can use document attributes to filter the
-response from the `Query` API. For example, you might want only the
-documents written by a specific author or a specific version of a document. For
-more information, see [Filtering and facet search](filtering.md "filtering.md"). You
-specify document attributes when you add documents to an index. For more
-information, see [Custom fields or
-attributes](custom-attributes.md "custom-attributes.md").
-
-The following is sample JSON code for a query result. Note the document attributes
-in `DocumentAttributes` and `AdditionalAttributes`.
+The following is sample JSON code for a query result. Note the document attributes in `DocumentAttributes` and `AdditionalAttributes`. 
 
 ```
 {
-    "QueryId": "`query-id`",
+    "QueryId": "{{query-id}}",
     "ResultItems": [
         {
-            "Id": "`result-id`",
+            "Id": "{{result-id}}",
             "Type": "ANSWER",
             "AdditionalAttributes": [
                 {
@@ -56,7 +36,7 @@ in `DocumentAttributes` and `AdditionalAttributes`.
                     "ValueType": "TEXT_WITH_HIGHLIGHTS_VALUE",
                     "Value": {
                         "TextWithHighlightsValue": {
-                            "Text": "`text`",
+                            "Text": "{{text}}",
                             "Highlights": [
                                 {
                                     "BeginOffset": 55,
@@ -68,12 +48,12 @@ in `DocumentAttributes` and `AdditionalAttributes`.
                     }
                 }
             ],
-            "DocumentId": "`document-id`",
+            "DocumentId": "{{document-id}}",
             "DocumentTitle": {
-                "Text": "`title`"
+                "Text": "{{title}}"
             },
             "DocumentExcerpt": {
-                "Text": "`text`",
+                "Text": "{{text}}",
                 "Highlights": [
                     {
                         "BeginOffset": 0,
@@ -82,18 +62,18 @@ in `DocumentAttributes` and `AdditionalAttributes`.
                     }
                 ]
             },
-            "DocumentURI": "`uri`",
+            "DocumentURI": "{{uri}}",
             "DocumentAttributes": [],
-            "ScoreAttributes": "`score`",
-            "FeedbackToken": "`token`"
+            "ScoreAttributes": "{{score}}",
+            "FeedbackToken": "{{token}}"
         },
         {
-            "Id": "`result-id`",
+            "Id": "{{result-id}}",
             "Type": "ANSWER",
             "Format": "TABLE",
-            "DocumentId": "`document-id`",
+            "DocumentId": "{{document-id}}",
             "DocumentTitle": {
-                "Text": "`title`"
+                "Text": "{{title}}"
             },
             "TableExcerpt": {
                 "Rows": [{
@@ -101,63 +81,63 @@ in `DocumentAttributes` and `AdditionalAttributes`.
                         "Header": true,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": true,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": true,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": true,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }]
                 }, {
                     "Cells": [{
                         "Header": false,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": false,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": false,
                         "Highlighted": true,
                         "TopAnswer": true,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     }, {
                         "Header": false,
                         "Highlighted": false,
                         "TopAnswer": false,
-                        "Value": "`value`"
+                        "Value": "{{value}}"
                     ]}
                   }],
-                    "TotalNumberofRows": `number`
+                    "TotalNumberofRows": {{number}}
 			},
-            "DocumentURI": "`uri`",
-            "ScoreAttributes": "`score`",
-            "FeedbackToken": "`token`"
+            "DocumentURI": "{{uri}}",
+            "ScoreAttributes": "{{score}}",
+            "FeedbackToken": "{{token}}"
         },
         {
-            "Id": "`result-id`",
+            "Id": "{{result-id}}",
             "Type": "DOCUMENT",
             "AdditionalAttributes": [],
-            "DocumentId": "`document-id`",
+            "DocumentId": "{{document-id}}",
             "DocumentTitle": {
-                "Text": "`title`",
+                "Text": "{{title}}",
                 "Highlights": []
             },
             "DocumentExcerpt": {
-                "Text": "`text`",
+                "Text": "{{text}}",
                 "Highlights": [
                     {
                         "BeginOffset": 74,
@@ -166,50 +146,40 @@ in `DocumentAttributes` and `AdditionalAttributes`.
                     }
                 ]
             },
-            "DocumentURI": "`uri`",
+            "DocumentURI": "{{uri}}",
             "DocumentAttributes": [
                 {
                     "Key": "_source_uri",
                     "Value": {
-                        "StringValue": "`uri`"
+                        "StringValue": "{{uri}}"
                     }
                 }
             ],
-            "ScoreAttributes": "`score`",
-            "FeedbackToken": "`token`",
+            "ScoreAttributes": "{{score}}",
+            "FeedbackToken": "{{token}}",
         }
     ],
     "FacetResults": [],
-    "TotalNumberOfResults": `number`
+    "TotalNumberOfResults": {{number}}
 }
 ```
 
 ## Response types
+<a name="response-types"></a>
 
 Amazon Kendra returns three types of query response.
++ Answer (includes table answer)
++ Document
++ Question and answer
 
-- Answer (includes table answer)
-- Document
-- Question and answer
-
-The type of the response is returned in the `Type` response field of
-the [QueryResultItem](../APIReference/API_QueryResultItem.md "../APIReference/API_QueryResultItem.md") object.
+The type of the response is returned in the `Type` response field of the [QueryResultItem](https://docs.aws.amazon.com/kendra/latest/APIReference/API_QueryResultItem.html) object.
 
 ### Answer
+<a name="query-answer"></a>
 
-Amazon Kendra detected one or more question answers in the response. A
-factoid is the response to a who, what, when, or where question such as
-_Where is the nearest service center to me?_
-Amazon Kendra returns text in the index that best matches the query. The
-text is in the `AnswerText` field and contains highlight information
-for the search term within the response text. `AnswerText` includes
-the full document excerpt with highlighted text, while
-`DocumentExcerpt` includes the truncated (290 characters)
-document excerpt with highlighted text.
+Amazon Kendra detected one or more question answers in the response. A factoid is the response to a who, what, when, or where question such as *Where is the nearest service center to me?* Amazon Kendra returns text in the index that best matches the query. The text is in the `AnswerText` field and contains highlight information for the search term within the response text. `AnswerText` includes the full document excerpt with highlighted text, while `DocumentExcerpt` includes the truncated (290 characters) document excerpt with highlighted text.
 
-Amazon Kendra only returns one answer per document, and that is the
-answer with the highest confidence. To return multiple answers from a document,
-you must split the document into multiple documents.
+Amazon Kendra only returns one answer per document, and that is the answer with the highest confidence. To return multiple answers from a document, you must split the document into multiple documents.
 
 ```
 {
@@ -256,15 +226,9 @@ you must split the document into multiple documents.
 ```
 
 ### Document
+<a name="query-document"></a>
 
-Amazon Kendra returns ranked documents for those that match the search
-term. The ranking is based on the confidence that Amazon Kendra has in the
-accuracy of the search result. Information about the matching document is
-returned in the [QueryResultItem](../APIReference/API_QueryResultItem.md "../APIReference/API_QueryResultItem.md"). It includes the title of the document. The excerpt
-includes highlight information for search text and the section of matching text
-in the document. The URI for matching documents is in the `SourceURI`
-document attribute. The following sample JSON shows the document summary for a
-matching document.
+Amazon Kendra returns ranked documents for those that match the search term. The ranking is based on the confidence that Amazon Kendra has in the accuracy of the search result. Information about the matching document is returned in the [QueryResultItem](https://docs.aws.amazon.com/kendra/latest/APIReference/API_QueryResultItem.html). It includes the title of the document. The excerpt includes highlight information for search text and the section of matching text in the document. The URI for matching documents is in the `SourceURI` document attribute. The following sample JSON shows the document summary for a matching document.
 
 ```
 {
@@ -305,18 +269,15 @@ matching document.
 ```
 
 ### Question and answer
+<a name="query-question-answer"></a>
 
-A question and answer response is returned when Amazon Kendra matches a
-question with one of the frequently asked questions in your index. The response
-includes the matching question and answer in the [QueryResultItem](../APIReference/API_QueryResultItem.md "../APIReference/API_QueryResultItem.md") field. It also includes highlight information for
-query terms detected in query string. The following JSON shows a question and
-answer response. Note that the response includes the question text.
+A question and answer response is returned when Amazon Kendra matches a question with one of the frequently asked questions in your index. The response includes the matching question and answer in the [QueryResultItem](https://docs.aws.amazon.com/kendra/latest/APIReference/API_QueryResultItem.html) field. It also includes highlight information for query terms detected in query string. The following JSON shows a question and answer response. Note that the response includes the question text.
 
 ```
 {
     'AnswerText': {
         'TextWithHighlights': [
-
+            
         ],
         'Text': '605feet'
     },
@@ -354,5 +315,4 @@ answer response. Note that the response includes the question text.
 }
 ```
 
-For information about adding question and answer text to an index, see [Creating
-FAQ](in-creating-faq.md "in-creating-faq.md").
+For information about adding question and answer text to an index, see [Creating FAQ](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html).

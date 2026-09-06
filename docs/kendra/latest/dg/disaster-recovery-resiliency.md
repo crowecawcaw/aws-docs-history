@@ -1,19 +1,12 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Resilience in Amazon Kendra
+<a name="disaster-recovery-resiliency"></a>
 
-The AWS global infrastructure is built around AWS Regions and Availability Zones.
-AWS Regions provide multiple physically separated and isolated Availability Zones, which
-are connected with low-latency, high-throughput, and highly redundant networking. With
-Availability Zones, you can design and operate applications and databases that automatically
-fail over between zones without interruption. Availability Zones are more highly available,
-fault tolerant, and scalable than traditional single or multiple data center
-infrastructures.
+The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple physically separated and isolated Availability Zones, which are connected with low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can design and operate applications and databases that automatically fail over between zones without interruption. Availability Zones are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures. 
 
-For more information about AWS Regions and Availability Zones, see [AWS Global
-Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
 
-With AWS global infrastructure, Amazon Kendra Enterprise Edition is fault tolerant,
-scalable, and highly available. Rolling back to previous versions of an index is not
-currently supported, but you can refresh or recreate portions of your index by [deleting](API_BatchDeleteDocument.md "API_BatchDeleteDocument.md") and [adding](API_BatchPutDocument.md "API_BatchPutDocument.md") existing data sources
-back into your index.
+With AWS global infrastructure, Amazon Kendra Enterprise Edition is fault tolerant, scalable, and highly available. Rolling back to previous versions of an index is not currently supported, but you can refresh or recreate portions of your index by [deleting](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html) and [adding](https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html) existing data sources back into your index.

@@ -1,21 +1,15 @@
-Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
+
+Amazon Kendra is no longer open to new customers. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html).
 
 # Access control for Amazon S3 data sources
+<a name="s3-acl"></a>
 
-You can control access to documents in an Amazon S3 data source using a
-configuration file. You specify the file in the console or as the
-`AccessControlListConfiguration` parameter when you call the [CreateDataSource](../APIReference/API_CreateDataSource.md "../APIReference/API_CreateDataSource.md") or [UpdateDataSource](../APIReference/API_UpdateDataSource.md "../APIReference/API_UpdateDataSource.md")
-API.
+You can control access to documents in an Amazon S3 data source using a configuration file. You specify the file in the console or as the `AccessControlListConfiguration` parameter when you call the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) or [UpdateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_UpdateDataSource.html) API.
 
-The configuration file contains a JSON structure that identifies an S3 prefix and
-lists the access settings for the prefix. The prefix can be a path, or it can be an
-individual file. If the prefix is a path, the access settings apply to all of the files
-in that path. There is a maximum number of S3 prefixes in the JSON configuration file
-and a default maximum file size. For more information, see
-[Quotas for Amazon Kendra](quotas.md "quotas.md")
+The configuration file contains a JSON structure that identifies an S3 prefix and lists the access settings for the prefix. The prefix can be a path, or it can be an individual file. If the prefix is a path, the access settings apply to all of the files in that path. There is a maximum number of S3 prefixes in the JSON configuration file and a default maximum file size. For more information, see [Quotas for Amazon Kendra](quotas.md)
 
-You can specify both users and groups in the access settings. When you query the
-index, you specify user and group information. For more information, see [Filtering by user attribute](user-context-filter.md#context-filter-attribute "user-context-filter.md#context-filter-attribute").
+You can specify both users and groups in the access settings. When you query the index, you specify user and group information. For more information, see [Filtering by user attribute](user-context-filter.md#context-filter-attribute).
 
 The JSON structure for the configuration file must be in the following format:
 
