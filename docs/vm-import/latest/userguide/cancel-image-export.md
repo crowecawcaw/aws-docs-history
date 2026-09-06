@@ -1,30 +1,32 @@
+
+
 # Cancel an export image task
+<a name="cancel-image-export"></a>
 
-After you start an image export using VM Import/Export, you can cancel the export operation if needed.
-If you attempt to cancel the export task after it is complete or is in the process of
-transferring the final disk image, the cancel operation fails and returns an error.
+After you start an image export using VM Import/Export, you can cancel the export operation if needed. If you attempt to cancel the export task after it is complete or is in the process of transferring the final disk image, the cancel operation fails and returns an error.
 
-To describe your export image tasks, see [Monitor an export image task](monitor-image-export.md "monitor-image-export.md").
+To describe your export image tasks, see [Monitor an export image task](monitor-image-export.md).
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To cancel an export image task
-
-Use the [cancel-export-task](../../../cli/latest/reference/ec2/cancel-export-task.md "../../../cli/latest/reference/ec2/cancel-export-task.md") command. If the command succeeds, no
-output is returned.
+**To cancel an export image task**  
+Use the [cancel-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-export-task.html) command. If the command succeeds, no output is returned.
 
 ```
 aws ec2 cancel-export-task \
-    --export-task-id `export-ami-1234567890abcdef0`
+    --export-task-id {{export-ami-1234567890abcdef0}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To cancel an export image task
-
-Use the [Stop-EC2ExportTask](../../../powershell/latest/reference/items/Stop-EC2ExportTask.md "../../../powershell/latest/reference/items/Stop-EC2ExportTask.md") cmdlet.
+**To cancel an export image task**  
+Use the [Stop-EC2ExportTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2ExportTask.html) cmdlet.
 
 ```
 Stop-EC2ExportTask `
-    -ExportTaskId `export-ami-1234567890abcdef0`
+    -ExportTaskId {{export-ami-1234567890abcdef0}}
 ```
+
+------

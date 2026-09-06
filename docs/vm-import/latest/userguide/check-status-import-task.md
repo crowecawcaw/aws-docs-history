@@ -1,19 +1,19 @@
+
+
 # Monitor an import snapshot task
+<a name="check-status-import-task"></a>
 
-After you start an import snapshot task using VM Import/Export, you can monitor the import
-operation. If the task status is `active`, it means that the import
-task is in progress. The snapshot is ready to use when the status is `completed`.
+After you start an import snapshot task using VM Import/Export, you can monitor the import operation. If the task status is `active`, it means that the import task is in progress. The snapshot is ready to use when the status is `completed`.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To get the status of an import snapshot task
-
-Use the following [describe-import-snapshot-tasks](../../../cli/latest/reference/ec2/describe-import-snapshot-tasks.md "../../../cli/latest/reference/ec2/describe-import-snapshot-tasks.md")
-command.
+**To get the status of an import snapshot task**  
+Use the following [describe-import-snapshot-tasks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-import-snapshot-tasks.html) command.
 
 ```
 aws ec2 describe-import-snapshot-tasks \
-    --import-task-ids `import-snap-1234567890abcdef0`
+    --import-task-ids {{import-snap-1234567890abcdef0}}
 ```
 
 The following is example output.
@@ -41,10 +41,8 @@ The following is example output.
 }
 ```
 
-###### To get the status of all import snapshot tasks
-
-Use the following [describe-import-snapshot-tasks](../../../cli/latest/reference/ec2/describe-import-snapshot-tasks.md "../../../cli/latest/reference/ec2/describe-import-snapshot-tasks.md")
-command.
+**To get the status of all import snapshot tasks**  
+Use the following [describe-import-snapshot-tasks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-import-snapshot-tasks.html) command.
 
 ```
 aws ec2 describe-import-snapshot-tasks \
@@ -67,15 +65,15 @@ The following is example output. You can display any additional fields that you 
 +--------------+--------------------------------+-------------+-----------+----------------------+-------------------------+
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To get the status of an import snapshot task
-
-Use the [Get-EC2ImportSnapshotTask](../../../powershell/latest/reference/items/Get-EC2ImportSnapshotTask.md "../../../powershell/latest/reference/items/Get-EC2ImportSnapshotTask.md") cmdlet as follows.
+**To get the status of an import snapshot task**  
+Use the [Get-EC2ImportSnapshotTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImportSnapshotTask.html) cmdlet as follows.
 
 ```
 Get-EC2ImportSnapshotTask `
-    -ImportTaskId `import-snap-1234567890abcdef0` |
+    -ImportTaskId {{import-snap-1234567890abcdef0}} | 
         Format-List *,
            @{Name='SnapshotTaskDetail';Expression={ $_.SnapshotTaskDetail | Out-String }},
            @{Name='UserBucket';Expression={ $_.SnapshotTaskDetail.UserBucket | Out-String }}
@@ -87,31 +85,30 @@ The following is example output.
 Description        : My server VM
 ImportTaskId       : import-snap-1234567890abcdef0
 SnapshotTaskDetail : Amazon.EC2.Model.SnapshotTaskDetail
-Tags               :
-SnapshotTaskDetail :
-                     Description   :
+Tags               : 
+SnapshotTaskDetail : 
+                     Description   : 
                      DiskImageSize : 2495933952
-                     Encrypted     :
+                     Encrypted     : 
                      Format        : VMDK
-                     KmsKeyId      :
-                     Progress      :
+                     KmsKeyId      : 
+                     Progress      : 
                      SnapshotId    : snap-111222333444aaabb
                      Status        : completed
-                     StatusMessage :
-                     Url           :
+                     StatusMessage : 
+                     Url           : 
                      UserBucket    : Amazon.EC2.Model.UserBucketDetails
-UserBucket         :
+UserBucket         : 
                      S3Bucket : amzn-s3-demo-import-bucket
                      S3Key    : my-server-vm.vmdk
 ```
 
-###### To get the status of all import snapshot tasks
-
-Use the [Get-EC2ImportSnapshotTask](../../../powershell/latest/reference/items/Get-EC2ImportSnapshotTask.md "../../../powershell/latest/reference/items/Get-EC2ImportSnapshotTask.md") cmdlet as follows.
+**To get the status of all import snapshot tasks**  
+Use the [Get-EC2ImportSnapshotTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImportSnapshotTask.html) cmdlet as follows.
 
 ```
 Get-EC2ImportSnapshotTask |
-    Format-Table Description, ImportTaskId,
+    Format-Table Description, ImportTaskId, 
         @{Name='Status';Expression={$_.SnapshotTaskDetail.Status}},
         @{Name='Progress';Expression={$_.SnapshotTaskDetail.Progress}},
         @{Name='SnapshotID';Expression={$_.SnapshotTaskDetail.SnapshotID}},
@@ -128,3 +125,5 @@ My server VM import-snap-1234567890abcdef1 completed          snap-0450e07124000
 My server VM import-snap-1234567890abcdef2 completed          snap-0bd3ea32601111111 my-server-vm2.vmdk
 My server VM import-snap-1234567890abcdef3 deleted                                   my-server-vm3.vmdk
 ```
+
+------

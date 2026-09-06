@@ -1,21 +1,22 @@
+
+
 # Monitor an export image task
+<a name="monitor-image-export"></a>
 
 After you start an image export using VM Import/Export, you can monitor the export operation.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To monitor an export image task
-
-Use the following [describe-export-image-tasks](../../../cli/latest/reference/ec2/describe-export-image-tasks.md "../../../cli/latest/reference/ec2/describe-export-image-tasks.md") command.
+**To monitor an export image task**  
+Use the following [describe-export-image-tasks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-export-image-tasks.html) command.
 
 ```
 aws ec2 describe-export-image-tasks \
-    --export-image-task-ids `export-ami-1234567890abcdef0`
+    --export-image-task-ids {{export-ami-1234567890abcdef0}}
 ```
 
-The following is example output. The status shown is `active`, which
-means that the export task is in progress. The image is ready to use when the status is
-`completed`.
+The following is example output. The status shown is `active`, which means that the export task is in progress. The image is ready to use when the status is `completed`.
 
 ```
 {
@@ -35,9 +36,8 @@ means that the export task is in progress. The image is ready to use when the st
 }
 ```
 
-###### To monitor all export image tasks
-
-Use the following [describe-export-image-tasks](../../../cli/latest/reference/ec2/describe-export-image-tasks.md "../../../cli/latest/reference/ec2/describe-export-image-tasks.md") command.
+**To monitor all export image tasks**  
+Use the following [describe-export-image-tasks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-export-image-tasks.html) command.
 
 ```
 aws ec2 describe-export-image-tasks \
@@ -49,7 +49,6 @@ aws ec2 describe-export-image-tasks \
     Progress:Progress,\
     S3Bucket:S3ExportLocation.S3Bucket}" \
   --output table
-
 ```
 
 The following is example output.
@@ -65,22 +64,20 @@ The following is example output.
 +------------------------------+-------------------------------+------------------------+-----------+------------------------------+-------------+
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To monitor an export image task
-
-Use the [Get-EC2ExportImageTask](../../../powershell/latest/reference/items/Get-EC2ExportImageTask.md "../../../powershell/latest/reference/items/Get-EC2ExportImageTask.md") cmdlet as follows.
+**To monitor an export image task**  
+Use the [Get-EC2ExportImageTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportImageTask.html) cmdlet as follows.
 
 ```
 Get-EC2ExportImageTask `
-   -ExportImageTaskId `export-ami-1234567890abcdef0` |
-      Format-List *,
+   -ExportImageTaskId {{export-ami-1234567890abcdef0}} |
+      Format-List *, 
          @{Name='S3ExportLocation';Expression={$_.S3ExportLocation | Format-List | Out-String}}
 ```
 
-The following is example output. The status shown is `active`, which
-means that the export task is in progress. The image is ready to use when the status is
-`completed`.
+The following is example output. The status shown is `active`, which means that the export task is in progress. The image is ready to use when the status is `completed`.
 
 ```
 Description       : Jul 15 16:35 My image export
@@ -91,18 +88,17 @@ S3ExportLocation  : Amazon.EC2.Model.ExportTaskS3Location
 Status            : active
 StatusMessage     : converting
 Tags              : {}
-S3ExportLocation  :
+S3ExportLocation  : 
                     S3Bucket : amzn-s3-demo-export-bucket
                     S3Prefix : exports/
 ```
 
-###### To monitor all export image tasks
-
-Use the [Get-EC2ExportImageTask](../../../powershell/latest/reference/items/Get-EC2ExportImageTask.md "../../../powershell/latest/reference/items/Get-EC2ExportImageTask.md") cmdlet as follows.
+**To monitor all export image tasks**  
+Use the [Get-EC2ExportImageTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ExportImageTask.html) cmdlet as follows.
 
 ```
-Get-EC2ExportImageTask |
-   Format-Table Description, ExportImageTaskId, ImageId, Status, Progress,
+Get-EC2ExportImageTask | 
+   Format-Table Description, ExportImageTaskId, ImageId, Status, Progress,  
    @{Name='S3Bucket';Expression={$_.S3ExportLocation.S3Bucket}}
 ```
 
@@ -114,3 +110,5 @@ Description                  ExportImageTaskId            ImageId               
 Jul 15 16:35 My image export export-ami-1234567890abcdef0                       active    80       amzn-s3-demo-export-bucket
 Jul 15 16:31 My image export export-ami-1234567890abcdef1 ami-ab34567890abcdef0 completed          amzn-s3-demo-export-bucket
 ```
+
+------
