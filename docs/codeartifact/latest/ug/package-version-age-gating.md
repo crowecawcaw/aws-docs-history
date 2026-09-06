@@ -1,53 +1,25 @@
+
+
 # Gating packages on version age
+<a name="package-version-age-gating"></a>
 
-###### Important
+**Important**  
+Version age gating does not protect against vulnerabilities discovered in existing versions that have already passed the quarantine window. Use CodeArtifact with Amazon Inspector for vulnerability scanning of established packages.
 
-Version age gating does not protect against vulnerabilities discovered in existing
-versions that have already passed the quarantine window. Use CodeArtifact with Amazon Inspector
-for vulnerability scanning of established packages.
+When a package version is published to a public registry, the registry records the publish timestamp. CodeArtifact preserves these original upstream timestamps when it caches packages from external connections. You can read these timestamps in your CI/CD pipeline and reject versions that were published too recently.
 
-When a package version is published to a public registry, the registry records the publish
-timestamp. CodeArtifact preserves these original upstream timestamps when it caches packages from
-external connections. You can read these timestamps in your CI/CD pipeline and reject versions
-that were published too recently.
+Most malicious packages are detected and removed within hours of publication. A quarantine window of 3 to 7 days blocks the majority of supply chain attacks, including dependency confusion, maintainer account takeover, and typosquatting.
 
-Most malicious packages are detected and removed within hours of publication. A quarantine
-window of 3 to 7 days blocks the majority of supply chain attacks, including dependency
-confusion, maintainer account takeover, and typosquatting.
+**Note**  
+The examples in this topic query the CodeArtifact repository URL, which is the same endpoint your package manager uses to download packages. All requests require authentication. Pass a valid CodeArtifact authorization token in the `Authorization: Bearer` header. To get a token, run `aws codeartifact get-authorization-token` (see the CI/CD example later in this topic for the full invocation with `--domain` and `--domain-owner`).  
+Do not use the `publishedTime` field returned by `aws codeartifact describe-package-version` for age gating. This field is populated at ingestion time. For records where the original upstream publish time was not captured (including packages ingested before per-artifact timestamp capture was introduced, and certain ingestion paths), it silently falls back to the record's last-updated time. The API response does not indicate which of the two values you are reading, so you cannot rely on it as the upstream publish date. Use the per-format fields described in this topic instead.
 
-###### Note
-
-The examples in this topic query the CodeArtifact repository URL, which is the same
-endpoint your package manager uses to download packages. All requests require
-authentication. Pass a valid CodeArtifact authorization token in the
-`Authorization: Bearer` header. To get a token, run
-`aws codeartifact get-authorization-token` (see the CI/CD example later in
-this topic for the full invocation with `--domain` and
-`--domain-owner`).
-
-Do not use the `publishedTime` field returned by
-`aws codeartifact describe-package-version` for age gating. This field is
-populated at ingestion time. For records where the original upstream publish time was
-not captured (including packages ingested before per-artifact timestamp capture was
-introduced, and certain ingestion paths), it silently falls back to the record's
-last-updated time. The API response does not indicate which of the two values you are
-reading, so you cannot rely on it as the upstream publish date. Use the per-format
-fields described in this topic instead.
-
-The per-format details differ, but the gating pattern is the same for every format: read
-the upstream publish timestamp for each resolved version, compare it against your quarantine
-cutoff (the current time minus your chosen window), and fail the build if any version is
-newer than the cutoff. If you use more than one package format, you apply the same pattern
-with the format-specific field shown below.
+The per-format details differ, but the gating pattern is the same for every format: read the upstream publish timestamp for each resolved version, compare it against your quarantine cutoff (the current time minus your chosen window), and fail the build if any version is newer than the cutoff. If you use more than one package format, you apply the same pattern with the format-specific field shown below.
 
 ## npm
+<a name="package-version-age-gating-npm"></a>
 
-CodeArtifact returns the original npmjs.org publish timestamp for every version in the
-npm packument `time` field. Many package managers and security tools read
-this field natively. These include the Yarn 4 `npmMinimalAgeGate` option,
-the Renovate `minimumReleaseAge` setting, and the pnpm
-`minimumReleaseAge` setting, all of which work with CodeArtifact without
-modification.
+CodeArtifact returns the original npmjs.org publish timestamp for every version in the npm packument `time` field. Many package managers and security tools read this field natively. These include the Yarn 4 `npmMinimalAgeGate` option, the Renovate `minimumReleaseAge` setting, and the pnpm `minimumReleaseAge` setting, all of which work with CodeArtifact without modification.
 
 **Request:**
 
@@ -71,17 +43,12 @@ curl -H "Authorization: Bearer $CODEARTIFACT_AUTH_TOKEN" \
 }
 ```
 
-**Key field:** `time["<version>"]` —
-the value is the original publish date from npmjs.org. For example,
-`time["1.7.2"]` returns `2024-05-21T16:58:04.163Z`, which is
-the exact timestamp recorded by npmjs.org when that version was published.
-To gate on age, compare this value to the current time minus your quarantine window.
+**Key field:** `time["<version>"]` — the value is the original publish date from npmjs.org. For example, `time["1.7.2"]` returns `2024-05-21T16:58:04.163Z`, which is the exact timestamp recorded by npmjs.org when that version was published. To gate on age, compare this value to the current time minus your quarantine window.
 
 ## Maven
+<a name="package-version-age-gating-maven"></a>
 
-For Maven artifacts, CodeArtifact returns the original Maven Central publish timestamp in
-the `Last-Modified` HTTP response header when you download a file (JAR, POM,
-or other artifact).
+For Maven artifacts, CodeArtifact returns the original Maven Central publish timestamp in the `Last-Modified` HTTP response header when you download a file (JAR, POM, or other artifact).
 
 **Request:**
 
@@ -100,20 +67,15 @@ Last-Modified: Fri, 26 Feb 2021 20:40:52 GMT
 content-length: 22672
 ```
 
-**Key field:** `Last-Modified` header —
-this is the original publish date from Maven Central. Compare it to your quarantine
-cutoff to determine if the artifact is too new.
+**Key field:** `Last-Modified` header — this is the original publish date from Maven Central. Compare it to your quarantine cutoff to determine if the artifact is too new.
 
-###### Note
-
-The `<lastUpdated>` field inside `maven-metadata.xml`
-reflects when CodeArtifact last refreshed its cache, not the upstream publish date. Do not
-use `maven-metadata.xml` timestamps for age gating.
+**Note**  
+The `<lastUpdated>` field inside `maven-metadata.xml` reflects when CodeArtifact last refreshed its cache, not the upstream publish date. Do not use `maven-metadata.xml` timestamps for age gating.
 
 ## NuGet
+<a name="package-version-age-gating-nuget"></a>
 
-For NuGet packages, CodeArtifact returns the original nuget.org publish timestamp in the
-`published` field of the V3 registration response.
+For NuGet packages, CodeArtifact returns the original nuget.org publish timestamp in the `published` field of the V3 registration response.
 
 **Request:**
 
@@ -140,16 +102,12 @@ v3/registration4/newtonsoft.json/index.json
 }
 ```
 
-**Key field:** `catalogEntry.published` —
-this is the original publish date from nuget.org. For example,
-`"2023-03-08T07:42:54.647+00:00"` means Newtonsoft.Json 13.0.3 was
-published on March 8, 2023.
+**Key field:** `catalogEntry.published` — this is the original publish date from nuget.org. For example, `"2023-03-08T07:42:54.647+00:00"` means Newtonsoft.Json 13.0.3 was published on March 8, 2023.
 
 ## Cargo (Rust)
+<a name="package-version-age-gating-cargo"></a>
 
-For Cargo crates pulled from crates.io, CodeArtifact preserves the original publish
-timestamp in the crates.io V1 API `versions` response. Query the V1 API
-endpoint for a crate to read the per-version `created_at` timestamp.
+For Cargo crates pulled from crates.io, CodeArtifact preserves the original publish timestamp in the crates.io V1 API `versions` response. Query the V1 API endpoint for a crate to read the per-version `created_at` timestamp.
 
 **Request:**
 
@@ -159,24 +117,15 @@ curl -H "Authorization: Bearer $CODEARTIFACT_AUTH_TOKEN" \
 api/v1/crates/serde/versions
 ```
 
-**Key field:** The per-version `created_at`
-timestamp in the V1 `versions` response is the original crates.io publish
-date.
+**Key field:** The per-version `created_at` timestamp in the V1 `versions` response is the original crates.io publish date.
 
-###### Note
-
-Cargo uses the sparse index protocol
-(`<prefix>/<crate>`) for normal dependency resolution. The
-sparse index returns `vers`, `cksum`, `yanked`, and
-`features` for each version, but it does not include a publish timestamp.
-To gate Cargo dependencies on age, query the V1 API shown above in a separate step in
-your pipeline. The standard `cargo build` and `cargo update`
-commands do not call the V1 API.
+**Note**  
+Cargo uses the sparse index protocol (`<prefix>/<crate>`) for normal dependency resolution. The sparse index returns `vers`, `cksum`, `yanked`, and `features` for each version, but it does not include a publish timestamp. To gate Cargo dependencies on age, query the V1 API shown above in a separate step in your pipeline. The standard `cargo build` and `cargo update` commands do not call the V1 API.
 
 ## PyPI
+<a name="package-version-age-gating-pypi"></a>
 
-For Python packages, CodeArtifact supports PEP 691 (JSON Simple API) and PEP 700, which
-include the `upload-time` field for each distribution file.
+For Python packages, CodeArtifact supports PEP 691 (JSON Simple API) and PEP 700, which include the `upload-time` field for each distribution file.
 
 **Request:**
 
@@ -199,31 +148,21 @@ curl -H "Authorization: Bearer $CODEARTIFACT_AUTH_TOKEN" \
 }
 ```
 
-**Key field:** `upload-time` —
-this is the original publish date from PyPI. Tools such as `uv` support
-this natively:
+**Key field:** `upload-time` — this is the original publish date from PyPI. Tools such as `uv` support this natively:
 
 ```
 # Only install versions published before a specific date
 uv pip install --exclude-newer 2026-05-01T00:00:00Z -r requirements.txt
 ```
 
-###### Note
-
-The PEP 691 JSON API requires the `Accept: application/vnd.pypi.simple.v1+json`
-header. The default HTML Simple API does not include timestamps.
-
-For distribution files ingested before per-artifact upload-time capture was
-introduced (legacy records), the `upload-time` field may be absent from
-entries in `files[]`. Your gating logic should treat a missing
-`upload-time` as a version it cannot verify, and decide whether to allow
-or block it according to your policy.
+**Note**  
+The PEP 691 JSON API requires the `Accept: application/vnd.pypi.simple.v1+json` header. The default HTML Simple API does not include timestamps.  
+For distribution files ingested before per-artifact upload-time capture was introduced (legacy records), the `upload-time` field may be absent from entries in `files[]`. Your gating logic should treat a missing `upload-time` as a version it cannot verify, and decide whether to allow or block it according to your policy.
 
 ## Example: Gating npm packages in CI/CD
+<a name="package-version-age-gating-example"></a>
 
-The following Python script reads a `package-lock.json` file, queries
-CodeArtifact for the publish timestamp of each dependency, and exits with a non-zero status
-if any version was published within the quarantine window.
+The following Python script reads a `package-lock.json` file, queries CodeArtifact for the publish timestamp of each dependency, and exits with a non-zero status if any version was published within the quarantine window.
 
 ```
 #!/usr/bin/env python3
@@ -321,20 +260,24 @@ PASSED: all 847 packages older than 72 hours.
 ```
 
 ## Attacks mitigated
+<a name="package-version-age-gating-attacks"></a>
 
-| Attack type          | How it works                                                                                                           | How age gating helps                                                                                   |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Dependency confusion | Attacker publishes a high-version package with the same name as an<br>internal package to a public registry.           | The malicious version is brand new. Blocked by quarantine window.                                      |
-| Account takeover     | Attacker compromises a maintainer's credentials and publishes a<br>malicious update (for example, event-stream).       | The new version is held. Community detects and reverts it within<br>the quarantine period.             |
-| Typosquatting        | Attacker publishes a package with a name similar to a popular<br>package (for example, `lodashs` instead of `lodash`). | All versions of the typosquat package are new. Every version is<br>blocked.                            |
-| Star-jacking         | Attacker injects malware into a patch release of a legitimate<br>package they control.                                 | The malicious patch is a newly published version. Blocked until<br>it ages past the quarantine window. |
+
+| Attack type | How it works | How age gating helps | 
+| --- | --- | --- | 
+| Dependency confusion | Attacker publishes a high-version package with the same name as an internal package to a public registry. | The malicious version is brand new. Blocked by quarantine window. | 
+| Account takeover | Attacker compromises a maintainer's credentials and publishes a malicious update (for example, event-stream). | The new version is held. Community detects and reverts it within the quarantine period. | 
+| Typosquatting | Attacker publishes a package with a name similar to a popular package (for example, lodashs instead of lodash). | All versions of the typosquat package are new. Every version is blocked. | 
+| Star-jacking | Attacker injects malware into a patch release of a legitimate package they control. | The malicious patch is a newly published version. Blocked until it ages past the quarantine window. | 
 
 ## Supported formats summary
+<a name="package-version-age-gating-summary"></a>
 
-| Format | Where to read publish timestamp           | Key field                | Status    |
-| ------ | ----------------------------------------- | ------------------------ | --------- |
-| npm    | Packument response (`GET /<package>`)     | `time["<version>"]`      | Available |
-| Maven  | HTTP response header on artifact download | `Last-Modified`          | Available |
-| NuGet  | V3 registration index                     | `catalogEntry.published` | Available |
-| Cargo  | V1 API versions response                  | `created_at`             | Available |
-| PyPI   | PEP 691 JSON Simple API                   | `upload-time`            | Available |
+
+| Format | Where to read publish timestamp | Key field | Status | 
+| --- | --- | --- | --- | 
+| npm | Packument response (GET /<package>) | time["<version>"] | Available | 
+| Maven | HTTP response header on artifact download | Last-Modified | Available | 
+| NuGet | V3 registration index | catalogEntry.published | Available | 
+| Cargo | V1 API versions response | created\_at | Available | 
+| PyPI | PEP 691 JSON Simple API | upload-time | Available | 

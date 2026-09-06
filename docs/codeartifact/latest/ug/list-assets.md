@@ -1,32 +1,30 @@
+
+
 # List package version assets
+<a name="list-assets"></a>
 
-An _asset_ is an individual file (for example, an npm `.tgz`
-file or Maven POM or JAR file) stored in CodeArtifact that is associated with a package version.
-You can use the `list-package-version-assets` command to list the assets in each
-package version.
+An *asset* is an individual file (for example, an npm `.tgz` file or Maven POM or JAR file) stored in CodeArtifact that is associated with a package version. You can use the `list-package-version-assets` command to list the assets in each package version.
 
-Run the `list-package-version-assets` command to return the following information about each asset in
-your AWS account and your current AWS Region:
+Run the `list-package-version-assets` command to return the following information about each asset in your AWS account and your current AWS Region:
++  Its name. 
++  Its size, in bytes. 
++  A set of hash values used for checksum validation. 
 
-- Its name.
-- Its size, in bytes.
-- A set of hash values used for checksum validation.
-  For example, use the following command to list the assets of the Python package
-  `flatten-json`, version `0.1.7`.
+For example, use the following command to list the assets of the Python package `flatten-json`, version `0.1.7`.
 
 ```
-aws codeartifact list-package-version-assets --domain `my_domain` --domain-owner `111122223333` \
- --repository `my_repo` --format `pypi` --package `flatten-json` \
- --package-version `0.1.7`
+aws codeartifact list-package-version-assets --domain {{my_domain}} --domain-owner {{111122223333}} \
+ --repository {{my_repo}} --format {{pypi}} --package {{flatten-json}} \
+ --package-version {{0.1.7}}
 ```
 
 The following shows the output.
 
 ```
 {
-    "format": "`pypi`",
-    "package": "`flatten-json`",
-    "version": "`0.1.7`",
+    "format": "{{pypi}}",
+    "package": "{{flatten-json}}",
+    "version": "{{0.1.7}}",
     "versionRevision": "REVISION-SAMPLE-1-C7F4S5E9B772FC",
     "assets": [
         {
@@ -54,23 +52,23 @@ The following shows the output.
 ```
 
 ## List assets of an npm package
+<a name="list-assets-npm"></a>
 
-An npm package always has a single asset with a name of
-`package.tgz`. To list the assets of a scoped npm package, include the scope in the `--namespace` option.
+An npm package always has a single asset with a name of `package.tgz`. To list the assets of a scoped npm package, include the scope in the `--namespace` option.
 
 ```
-aws codeartifact list-package-version-assets --domain `my_domain` --domain-owner `111122223333` \
- --repository `my_repo` --format `npm` --package `webpack` \
- --namespace `types` --package-version `4.9.2`
+aws codeartifact list-package-version-assets --domain {{my_domain}} --domain-owner {{111122223333}} \
+ --repository {{my_repo}} --format {{npm}} --package {{webpack}} \
+ --namespace {{types}} --package-version {{4.9.2}}
 ```
 
 ## List assets of a Maven package
+<a name="list-assets-maven"></a>
 
-To list the assets of a Maven package, include the package namespace in the `--namespace` option.
-To list the assets of the Maven package `commons-cli:commons-cli`:
+To list the assets of a Maven package, include the package namespace in the `--namespace` option. To list the assets of the Maven package `commons-cli:commons-cli`:
 
 ```
-aws codeartifact list-package-version-assets --domain `my_domain` --domain-owner `111122223333` \
- --repository `my_repo` --format `maven` --package `commons-cli` \
- --namespace `commons-cli` --package-version `1.0`
+aws codeartifact list-package-version-assets --domain {{my_domain}} --domain-owner {{111122223333}} \
+ --repository {{my_repo}} --format {{maven}} --package {{commons-cli}} \
+ --namespace {{commons-cli}} --package-version {{1.0}}
 ```

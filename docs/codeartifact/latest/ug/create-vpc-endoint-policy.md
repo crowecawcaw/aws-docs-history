@@ -1,13 +1,14 @@
+
+
 # Create a VPC endpoint policy for CodeArtifact
+<a name="create-vpc-endoint-policy"></a>
 
-To create a VPC endpoint policy for CodeArtifact, specify the following:
+ To create a VPC endpoint policy for CodeArtifact, specify the following: 
++  The principal that can perform actions. 
++  The actions that can be performed. 
++  The resources that can have actions performed on them. 
 
-- The principal that can perform actions.
-- The actions that can be performed.
-- The resources that can have actions performed on them.
-  The following example policy specifies that principals in the account
-  123456789012 can call the `GetAuthorizationToken` API and fetch
-  packages from a CodeArtifact repository.
+ The following example policy specifies that principals in the account 123456789012 can call the `GetAuthorizationToken` API and fetch packages from a CodeArtifact repository. 
 
 ```
 {

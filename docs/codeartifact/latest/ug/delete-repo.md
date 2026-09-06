@@ -1,33 +1,34 @@
+
+
 # Delete a repository
+<a name="delete-repo"></a>
 
-You can delete a repository using the CodeArtifact console or the AWS CLI. After a repository has
-been deleted, you can no longer push packages to it or pull packages from it. All packages
-in the repository become permanently unavailable and cannot be restored. You can create a
-repository with the same name, but its contents will be empty.
+You can delete a repository using the CodeArtifact console or the AWS CLI. After a repository has been deleted, you can no longer push packages to it or pull packages from it. All packages in the repository become permanently unavailable and cannot be restored. You can create a repository with the same name, but its contents will be empty.
 
-###### Important
+**Important**  
+Deleting a repository cannot be undone. After you delete a repository, you are no longer able to recover it and it cannot be restored.
 
-Deleting a repository cannot be undone. After you delete a repository, you are no
-longer able to recover it and it cannot be restored.
-
-###### Topics
-
-- [Delete a repository (console)](#delete-repo-console "#delete-repo-console")
-- [Delete a repository (AWS CLI)](#delete-repo-cli "#delete-repo-cli")
-- [Protect repositories from being deleted](#delete-repo-protect "#delete-repo-protect")
+**Topics**
++ [Delete a repository (console)](#delete-repo-console)
++ [Delete a repository (AWS CLI)](#delete-repo-cli)
++ [Protect repositories from being deleted](#delete-repo-protect)
 
 ## Delete a repository (console)
+<a name="delete-repo-console"></a>
 
-1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home").
-2. On the navigation pane, choose **Repositories**, then choose the repository that you want to delete.
-3. Choose **Delete** and then follow the steps to delete the domain.
+1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home).
+
+1.  On the navigation pane, choose **Repositories**, then choose the repository that you want to delete. 
+
+1.  Choose **Delete** and then follow the steps to delete the domain. 
 
 ## Delete a repository (AWS CLI)
+<a name="delete-repo-cli"></a>
 
 Use the `delete-repository` command to delete a repository.
 
 ```
-aws codeartifact delete-repository --domain `my_domain` --domain-owner `111122223333` --repository `my_repo`
+aws codeartifact delete-repository --domain {{my_domain}} --domain-owner {{111122223333}} --repository {{my_repo}}
 ```
 
 Example output:
@@ -35,12 +36,12 @@ Example output:
 ```
 {
     "repository": {
-        "name": "`my_repo`",
-        "administratorAccount": "`123456789012`",
-        "domainName": "`my_domain`",
-        "domainOwner": "`123456789012`",
-        "arn": "arn:aws:codeartifact:`region-id`:`123456789012`:repository/`my_domain`/`my_repo`",
-        "description": "`My new repository`",
+        "name": "{{my_repo}}",
+        "administratorAccount": "{{123456789012}}",
+        "domainName": "{{my_domain}}",            
+        "domainOwner": "{{123456789012}}",
+        "arn": "arn:aws:codeartifact:{{region-id}}:{{123456789012}}:repository/{{my_domain}}/{{my_repo}}",
+        "description": "{{My new repository}}",
         "upstreams": [],
         "externalConnections": []
     }
@@ -48,75 +49,90 @@ Example output:
 ```
 
 ## Protect repositories from being deleted
+<a name="delete-repo-protect"></a>
 
 You can prevent a repository from being accidentally deleted by including a domain policy similar to the following:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DenyRepositoryDeletion",
- "Action": [
- "codeartifact:DeleteRepository"
- ],
- "Effect": "Deny",
- "Resource": "*",
- "Principal": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DenyRepositoryDeletion",
+            "Action": [
+                "codeartifact:DeleteRepository"
+            ],
+            "Effect": "Deny",
+            "Resource": "*",
+            "Principal": "*"
+        }
+    ]
+}
 ```
 
-This policy prevents all principals from deleting the repository, but if you decide later that you need to delete the repository,
-you can do so by following these steps:
+------
 
-1. In the domain policy, update the policy to the following:
+This policy prevents all principals from deleting the repository, but if you decide later that you need to delete the repository, you can do so by following these steps:
 
-JSON
+1.  In the domain policy, update the policy to the following:
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DenyRepositoryDeletion",
- "Action": [
- "codeartifact:DeleteRepository"
- ],
- "Effect": "Deny",
- "NotResource": "`arn:aws:iam::*:role/Service*`",
- "Principal": "*"
- }
- ]
-}`
+------
+#### [ JSON ]
 
-```
+****  
 
-Replace `repository-arn` with the ARN of the repository that you would like to delete. 2. In the AWS CodeArtifact console, choose **Repositories** and delete your chosen repository. 3. After you've deleted the repository, you can change the policy back to prevent accidental deletions.
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "DenyRepositoryDeletion",
+               "Action": [
+                   "codeartifact:DeleteRepository"
+               ],
+               "Effect": "Deny",
+               "NotResource": "{{arn:aws:iam::*:role/Service*}}",
+               "Principal": "*"
+           }
+       ]
+   }
+   ```
 
-JSON
+------
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DenyRepositoryDeletion",
- "Action": [
- "codeartifact:DeleteRepository"
- ],
- "Effect": "Deny",
- "Resource": "*",
- "Principal": "*"
- }
- ]
-}`
+   Replace {{repository-arn}} with the ARN of the repository that you would like to delete.
 
-```
+1.  In the AWS CodeArtifact console, choose **Repositories** and delete your chosen repository. 
 
-Alternatively, you can include the same deny statement in a repository policy. With this approach, you have more flexibility
-to protect high-value repositories from deletion.
+1.  After you've deleted the repository, you can change the policy back to prevent accidental deletions.
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "DenyRepositoryDeletion",
+               "Action": [
+                   "codeartifact:DeleteRepository"
+               ],
+               "Effect": "Deny",
+               "Resource": "*",
+               "Principal": "*"
+           }
+       ]
+   }
+   ```
+
+------
+
+Alternatively, you can include the same deny statement in a repository policy. With this approach, you have more flexibility to protect high-value repositories from deletion.
