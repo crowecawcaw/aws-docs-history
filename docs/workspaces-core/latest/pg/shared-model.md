@@ -61,6 +61,10 @@ The following responsibilities belong to your company:
   [Data Protection in Amazon EC2](../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-rest "../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-rest").
 - Additional monitoring, security, and analytic solutions. These solutions are also the
   responsibility of the customer or partner operating the solution.
+- The L1 hypervisor that you install inside a Amazon WorkSpaces Core Managed Instance when nested
+  virtualization is enabled (for example, KVM or Hyper-V), including its configuration, patching,
+  and security.
+- The L2 virtual machines that run on top of the L1 hypervisor, and all applications and data within the L1 and L2 layers, including their patching and security. For more information about the nested virtualization layers, see [Amazon EC2 nested virtualization](../../../AWSEC2/latest/UserGuide/amazon-ec2-nested-virtualization.md "../../../AWSEC2/latest/UserGuide/amazon-ec2-nested-virtualization.md").
 
 The following images show the shared responsibility model and shared responsibility with
 AWS and your partner.
