@@ -1,73 +1,50 @@
+
+
 # Re-platforming TIBCO EMS to Amazon MQ
+<a name="tibco-re-platform"></a>
 
-You can use the following procedure to migrate the TIBCO EMS architecture shown
-[here](tibco-ems-typical-architecture.md "tibco-ems-typical-architecture.md") to an equivalent Amazon MQ
-architecture without impacting _App 1_ or _App 2_:
+ You can use the following procedure to migrate the TIBCO EMS architecture shown [here](tibco-ems-typical-architecture.md) to an equivalent Amazon MQ architecture without impacting *App 1* or *App 2*: 
 
-1. Create an [active/standby broker](../developer-guide/active-standby-broker-deployment.md "../developer-guide/active-standby-broker-deployment.md")
-   in _us-east-1_ and another in _us-east-2_ named as
-   **AMQ\_ORANGE** and **AMQ\_APPLE**.
-2. Create a _Network Bridge_ between 2 brokers by adding a duplex network
-   connector definition to one of the queues:
+1. Create an [active/standby broker](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/active-standby-broker-deployment) in *us-east-1* and another in *us-east-2* named as **AMQ\_ORANGE** and **AMQ\_APPLE**.
 
-```
-<networkConnectors>
-    <networkConnector duplex="true" name="connector_AMQ_ORANGE_to_AMQ_APPLE" uri="masterslave:(ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-1.mq.us-east-2.amazonaws.com:61617,ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-2.mq.us-east-2.amazonaws.com:61617)" userName="amqadmin"/>
-</networkConnectors>
+1. Create a *Network Bridge* between 2 brokers by adding a duplex network connector definition to one of the queues:
 
-```
+   ```
+   <networkConnectors> 
+       <networkConnector duplex="true" name="connector_AMQ_ORANGE_to_AMQ_APPLE" uri="masterslave:(ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-1.mq.us-east-2.amazonaws.com:61617,ssl://b-d63bcc4d-682b-40a2-8227-31386bcf1e3d-2.mq.us-east-2.amazonaws.com:61617)" userName="amqadmin"/> 
+   </networkConnectors>
+   ```
 
-After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge
-created between both brokers as illustrated below:
+    After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge created between both brokers as illustrated below: ![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/tibco-replatform-fig-1.PNG) 
+**Note**  
+Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more information about using CloudFormation to set up Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.html).
 
-![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](images/tibco-replatform-fig-1.PNG)
+1.  Retrieve the list of static TIBCO EMS server destinations from the config files, `queues.conf` and `topics.conf` or by using the following `tibemsadmin` commands: 
 
-###### Note
+   ```
+   show queues * static
+   show topics * static
+   ```
 
-Steps 1 and 2 can be replicated using a
-AWS CloudFormation template. For more information about using CloudFormation to set up
-Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md"). 3. Retrieve the list of static TIBCO EMS server destinations from
-the config files, `queues.conf` and
-`topics.conf` or by using the following
-`tibemsadmin` commands:
+    When finished, update the Amazon MQ broker **AMQ\_ORANGE** configuration file to add startup destinations as shown here: 
 
-```
-`show queues * static
-show topics * static`
+   ```
+   <destinations>
+       <queue physicalName="FOO.BAR"/>
+       <topic physicalName="SOME.TOPIC"/>
+   </destinations>
+   ```
 
-```
+1.  Destination properties for TIBCO EMS can be found in queues.conf and topics.conf files. Per Destination level Policy can be set in Amazon MQ using the `destinationPolicy` section in the configuration file. 
 
-When finished, update the Amazon MQ broker **AMQ\_ORANGE** configuration file to add
-startup destinations as shown here:
+1.  Retrieve the list of TIBCO EMS Bridges from `bridges.conf`. For example, the Bridge from source topic `NOTIFY.FOOBAR` to target queues `FOO ` and `BAR` is shown as: 
 
-```
-<destinations>
-    <queue physicalName="FOO.BAR"/>
-    <topic physicalName="SOME.TOPIC"/>
-</destinations>
+   ```
+   [topic:NOTIFY.FOOBAR]
+   queue=FOO
+   queue=BAR
+   ```
 
-
-```
-
-4. Destination properties for TIBCO EMS can be found in queues.conf and topics.conf files.
-   Per Destination level Policy can be set in Amazon MQ using the `destinationPolicy`
-   section in the configuration file.
-5. Retrieve the list of TIBCO EMS Bridges from `bridges.conf`. For example,
-   the Bridge from source topic `NOTIFY.FOOBAR` to target queues `FOO` and `BAR`
-   is shown as:
-
-```
-[topic:NOTIFY.FOOBAR]
-queue=FOO
-queue=BAR
-```
-
-When finished, up the Amazon MQ broker **AMQ\_ORANGE** configuration
-file to add Composite Destinations that match TIBCO EMS bridges.
-
-###### Note
-
-_Simple Topic to Queue_
-bridges are needed in TIBCO EMS to support _m-hop_ routing. In
-Amazon MQ this is not needed and queues can be used directly
-with a [Network of Brokers](../developer-guide/network-of-brokers.md "../developer-guide/network-of-brokers.md").
+    When finished, up the Amazon MQ broker **AMQ\_ORANGE ** configuration file to add Composite Destinations that match TIBCO EMS bridges. 
+**Note**  
+ *Simple Topic to Queue* bridges are needed in TIBCO EMS to support *m-hop* routing. In Amazon MQ this is not needed and queues can be used directly with a [Network of Brokers](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/network-of-brokers). 
