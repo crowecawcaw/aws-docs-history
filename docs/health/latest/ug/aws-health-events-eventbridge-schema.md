@@ -1,50 +1,67 @@
-# Reference: AWS Health events Amazon EventBridge schema
 
-The following is the schema for AWS Health events. The contents of the details parameter
-follows in a second table. Sample payloads ares provided after the schema tables.
+
+# Reference: AWS Health events Amazon EventBridge schema
+<a name="aws-health-events-eventbridge-schema"></a>
+
+The following is the schema for AWS Health events. The contents of the details parameter follows in a second table. Sample payloads ares provided after the schema tables.
 
 ## AWS Health event schema
+<a name="aws-health-event-schema"></a>
 
-AWS Health event schema| Parameter | Description | Required |
-| --- | --- | --- |
-| **version** | EventBridge version, currently "0". | Yes |
-| **id** | The unique identifier for the EventBridge event. | Yes |
-| **detail-type** | The type of detail. For AWS Health events, supported values are<br>`&AWS Health Event` and `AWS Health Abuse<br>Event` | Yes |
-| **source** | The event bus source. For AWS Health events, the supported value is<br>`aws.health` | Yes |
-| **account** | The account ID to which the AWS Health event was sent .NoteFor organizational views this is a different account than the affected<br>account if it's received in the management account or delegated administrator<br>account. | Yes |
-| **time** | The time at which the notification was sent to EventBridge. Format:<br>`yyyy-mm-ddThh:mm:ssZ`. | Yes |
-| **region** | The AWS Region that the notification was delivered to.NoteThis field doesn't indicate the impacted Region for this AWS Health event.<br>That information is reported in `detail.eventRegion`. | Yes |
-| **resources** | Describes the list of affected resources, if any, within an account.<br>This field is empty if there are no resources referenced. | No |
-| **detail** | The section containing details of the AWS Health event, as described in<br>the table immediately following this one. | Yes |
+
+**AWS Health event schema**  
+
+<table>
+<thead>
+  <tr><th colspan="4">Parameter</th><th>Description</th><th>Required</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="4"><b>version</b></td><td>EventBridge version, currently "0".</td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>id</b></td><td>The unique identifier for the EventBridge event.</td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>detail-type</b></td><td>The type of detail. For AWS Health events, supported values are <code>&amp;AWS Health Event</code> and <code>AWS Health Abuse Event</code></td><td> Yes</td></tr>
+  <tr><td colspan="4"><b>source</b></td><td>The event bus source. For AWS Health events, the supported value is <code>aws.health</code></td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>account</b></td><td>The account ID to which the AWS Health event was sent . For organizational views this is a different account than the affected account if it's received in the management account or delegated administrator account. </td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>time</b></td><td>The time at which the notification was sent to EventBridge. Format: <code>yyyy-mm-ddThh:mm:ssZ</code>.</td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>region</b></td><td>The AWS Region that the notification was delivered to. This field doesn't indicate the impacted Region for this AWS Health event. That information is reported in <code>detail.eventRegion</code>. </td><td>Yes</td></tr>
+  <tr><td colspan="4"><b>resources</b></td><td>Describes the list of affected resources, if any, within an account.<br />This field is empty if there are no resources referenced.</td><td>No</td></tr>
+  <tr><td colspan="4"><b>detail</b></td><td>The section containing details of the AWS Health event, as described in the table immediately following this one.</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 
 ### Schema content of the 'details' parameter
+<a name="schema-details"></a>
 
 The following table documents the content of the **detail** parameter in the AWS Health event schema.
 
-AWS Health event schema: detail parameter content| 'detail' parameter content | Description | Required |
-| --- | --- | --- |
-| **eventArn** | The unique identifier for the AWS Health event for the specific Region,<br>including the Region and event ID.NoteAn event ARN isn't unique to a specific AWS account or Region. | Yes |
-| **service** | The AWS service affected by the AWS Health event. For example, Amazon EC2,<br>Amazon Simple Storage Service, Amazon Redshift, or Amazon Relational Database Service. | Yes |
-| **eventTypeCode** | The unique identifier for the event type. For example:<br>`AWS_EC2_INSTANCE_NETWORK_MAINTENANCE_SCHEDULED` and<br>`AWS_EC2_INSTANCE_REBOOT_MAINTENANCE_SCHEDULED`. Events that include<br>`MAINTENANCE_SCHEDULED` are generally pushed out approximately two<br>weeks before the start time.NoteAll new planned lifecycle events have the event type<br>`AWS_{SERVICE}_PLANNED_LIFECYCLE_EVENT`. | Yes |
-| **eventTypeCategory** | The category code of the event. The supported values include<br>`issue`, `accountNotification`,<br>`investigation`, and `scheduledChange`. | Yes |
-| **eventScopeCode** | Indicates whether the AWS Health event is account-specific or public.<br>Supported values are `ACCOUNT_SPECIFIC` or `PUBLIC`. | Yes |
-| **communicationId** | A unique identifier for this communication for the AWS Health event.<br>Messages with the same communication ID might be backup messages or pages of<br>a single AWS Health event. This identifier can be used with the account ID to<br>help de-duplicate messages.<br>With the AWS Health event pagination support, the communication ID includes<br>the page number to keep the communication ID unique across pages, for example,<br>12345678910-1. For more information, see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md"). | Yes |
-| **startTime** | The start time of the AWS Health event, in the format `DoW, DD, MMM,<br>YYYY, HH:MM:SS TZ`. The start time can be in the future for<br>scheduled events. | Yes |
-| **endTime** | The end time of the AWS Health event, in the format:`DoW, DD MMM YYYY<br>HH:MM:SS TZ`. The end time can't be provided for events scheduled<br>for a future time. | No |
-| **lastUpdatedTime** | The last update time for the AWS Health event, in the format `DoW, DD<br>MMM YYYY HH:MM:SS TZ`. | Yes |
-| **statusCode** | The status of the AWS Health event.<br>Supported values include `open`, `closed`, and<br>`upcoming`. | Yes |
-| **eventRegion** | The impacted Region described by this AWS Health event. | Yes |
-| **eventDescription** | A section that describes the AWS Health event. This includes fields for<br>language and text to describe the event.<br>• **language** – The code for the<br>language used in the AWS Health event. This is typically determined by the<br>Region that the event is published to. For example, in the<br>`us-east-1` Region, this is typically<br>`en_US`.<br>• **latestDescription** – Describes<br>the AWS Health event as it is rendered from the AWS Health API and<br>typically appears on the the AWS Health dashboard.<br>NoteFor public events, this contains only the latest update and not the<br>entire history of the event. | Yes |
-| **eventMetadata** | Additional event metadata that can be provided for the AWS Health<br>event.<br>• **<metadata key 1>** – Metadata<br>key-value pair strings: "keystring1": "keyvalue1"<br>The key-value pairs for event metadata are determined by the service<br>that sent the AWS Health event. | No |
-| **affectedEntities** | An array that describes the resource value and status of affected resources<br>within the AWS Health event.<br>• **entityValue** – The<br>resource/entity ID.<br>• **lastUpdatedtime** – The time when<br>this resource/entity status was last updated, in the format `DoW, DD<br>MMM YYYY HH:MM:SS TZ`.<br>• **status** – The status of the<br>affected resource/entity. Supported values include `IMPAIRED`,<br>`UNIMPAIRED`, `PENDING`, `RESOLVED`, and<br>`UNKNOWN`.<br>NoteFor planned lifecycle events, resource state updates are performed<br>asynchronously and periodically, and can have a delay of up to 72 hours in<br>rare occasions. For more information, see [What should I expect when I receive a planned lifecycle event notification?](aws-health-planned-lifecycle-events.md#planned-lifecycle-event-notifications "aws-health-planned-lifecycle-events.md#planned-lifecycle-event-notifications"). | No |
-| **page** | The page this message represents. For more information, see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").NotePagination occurs only on resources. If the 256KB size limit is exceeded<br>for another reason, the communication to fail. | Yes |
-| **totalPages** | The total number of pages for this health event. For more information,<br>see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").<br>You can use this value to determine whether you received all of the pages of<br>a multi-page communication for an account. | Yes |
-| **backupEvent** | This flag filters out backup events in the designated backup region within a<br>partition if customers don't want to leverage redundancy. This value can be true<br>or false. | Yes |
-| **affectedAccount** | The account ID of the impacted account.<br>This may be different from the value in the `account` field if<br>this health event is sent to an account that is part of an AWS Organizations and is<br>received in the management account or delegated administrator account. | Yes |
-| **actionability** | Metadata to activate programmatic determination of which events require<br>action without manual inspection. Possible (single) value can be<br>`ACTION_REQUIRED`, `ACTION_MAY_BE_REQUIRED`, or<br>`INFORMATIONAL`. | No |
-| **personas** | This list of metadata activates programmatic determination of which<br>stakeholder to route the event to. Possible (multiple) values are<br>`OPERATIONAL`, `SECURITY`, and `BILLING`. | No |
+
+**AWS Health event schema: detail parameter content**  
+
+| 'detail' parameter content | Description | Required | 
+| --- | --- | --- | 
+| eventArn | The unique identifier for the AWS Health event for the specific Region, including the Region and event ID. An event ARN isn't unique to a specific AWS account or Region.  | Yes | 
+| service | The AWS service affected by the AWS Health event. For example, Amazon EC2, Amazon Simple Storage Service, Amazon Redshift, or Amazon Relational Database Service.  | Yes | 
+| eventTypeCode | The unique identifier for the event type. For example: AWS\_EC2\_INSTANCE\_NETWORK\_MAINTENANCE\_SCHEDULED and AWS\_EC2\_INSTANCE\_REBOOT\_MAINTENANCE\_SCHEDULED. Events that include MAINTENANCE\_SCHEDULED are generally pushed out approximately two weeks before the start time. All new planned lifecycle events have the event type `AWS_{SERVICE}_PLANNED_LIFECYCLE_EVENT`.  | Yes | 
+| eventTypeCategory | The category code of the event. The supported values include issue, accountNotification, investigation, and scheduledChange. | Yes | 
+| eventScopeCode | Indicates whether the AWS Health event is account-specific or public. Supported values are ACCOUNT\_SPECIFIC or PUBLIC. | Yes | 
+| communicationId | A unique identifier for this communication for the AWS Health event.<br />Messages with the same communication ID might be backup messages or pages of a single AWS Health event. This identifier can be used with the account ID to help de-duplicate messages.<br />With the AWS Health event pagination support, the communication ID includes the page number to keep the communication ID unique across pages, for example, 12345678910-1. For more information, see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md). | Yes | 
+| startTime | The start time of the AWS Health event, in the format DoW, DD, MMM, YYYY, HH:MM:SS TZ. The start time can be in the future for scheduled events. | Yes | 
+| endTime | The end time of the AWS Health event, in the format:DoW, DD MMM YYYY HH:MM:SS TZ. The end time can't be provided for events scheduled for a future time. | No | 
+| lastUpdatedTime | The last update time for the AWS Health event, in the format DoW, DD MMM YYYY HH:MM:SS TZ. | Yes | 
+| statusCode | The status of the AWS Health event.<br />Supported values include `open`, `closed`, and `upcoming`. | Yes | 
+| eventRegion | The impacted Region described by this AWS Health event. | Yes | 
+| eventDescription | A section that describes the AWS Health event. This includes fields for language and text to describe the event.+  **language** – The code for the language used in the AWS Health event. This is typically determined by the Region that the event is published to. For example, in the `us-east-1` Region, this is typically `en_US`. <br />+  **latestDescription** – Describes the AWS Health event as it is rendered from the AWS Health API and typically appears on the the AWS Health dashboard.  For public events, this contains only the latest update and not the entire history of the event.   | Yes | 
+| eventMetadata | Additional event metadata that can be provided for the AWS Health event.+  **<metadata key 1>** – Metadata key-value pair strings: "keystring1": "keyvalue1" <br />The key-value pairs for event metadata are determined by the service that sent the AWS Health event.  | No | 
+| affectedEntities | An array that describes the resource value and status of affected resources within the AWS Health event.+  **entityValue** – The resource/entity ID. <br />+  **lastUpdatedtime** – The time when this resource/entity status was last updated, in the format `DoW, DD MMM YYYY HH:MM:SS TZ`. <br />+  **status** – The status of the affected resource/entity. Supported values include `IMPAIRED`, `UNIMPAIRED`, `PENDING`, `RESOLVED`, and `UNKNOWN`.  For planned lifecycle events, resource state updates are performed asynchronously and periodically, and can have a delay of up to 72 hours in rare occasions. For more information, see [What should I expect when I receive a planned lifecycle event notification?](aws-health-planned-lifecycle-events.md#planned-lifecycle-event-notifications).  | No | 
+| page | The page this message represents. For more information, see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md). Pagination occurs only on resources. If the 256KB size limit is exceeded for another reason, the communication to fail.  | Yes | 
+| totalPages | The total number of pages for this health event. For more information, see [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md).<br />You can use this value to determine whether you received all of the pages of a multi-page communication for an account. | Yes | 
+| backupEvent | This flag filters out backup events in the designated backup region within a partition if customers don't want to leverage redundancy. This value can be true or false. | Yes | 
+| affectedAccount | The account ID of the impacted account.<br />This may be different from the value in the `account` field if this health event is sent to an account that is part of an AWS Organizations and is received in the management account or delegated administrator account. | Yes | 
+| actionability | Metadata to activate programmatic determination of which events require action without manual inspection. Possible (single) value can be ACTION\_REQUIRED, ACTION\_MAY\_BE\_REQUIRED, or INFORMATIONAL. | No | 
+| personas | This list of metadata activates programmatic determination of which stakeholder to route the event to. Possible (multiple) values are OPERATIONAL, SECURITY, and BILLING. | No | 
 
 ## Public Health Event - Amazon EC2 operational issue
+<a name="amazon-ec2-operational-issue"></a>
 
 ```
 {
@@ -83,6 +100,7 @@ AWS Health event schema: detail parameter content| 'detail' parameter content | 
 ```
 
 ## Account-specific AWS Health Event - Elastic Load Balancing API Issue
+<a name="elastic-load-balancing-api-issue"></a>
 
 ```
 {
@@ -119,6 +137,7 @@ AWS Health event schema: detail parameter content| 'detail' parameter content | 
 ```
 
 ## Account-specific AWS Health Event - backup event for Amazon EC2 Instance Store Drive Performance Degraded
+<a name="amazon-ec2-instance-store-drive-performance-degraded"></a>
 
 ```
 {
@@ -160,6 +179,7 @@ AWS Health event schema: detail parameter content| 'detail' parameter content | 
 ```
 
 ## Account-specific AWS Health Event - Amazon EC2 Instance Retirement
+<a name="amazon-ec2-instance-retirement-scheduled"></a>
 
 ```
 {
@@ -208,6 +228,7 @@ AWS Health event schema: detail parameter content| 'detail' parameter content | 
 ```
 
 ## Account-specific AWS Health Event - Lambda Planned Lifecycle Event
+<a name="amazon-lambda-planned-lifecycle-event"></a>
 
 ```
 {

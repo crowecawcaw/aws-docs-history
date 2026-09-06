@@ -1,49 +1,38 @@
+
+
 # Disabling organizational view
+<a name="disable-organizational-view"></a>
 
-If you don't want to aggregate events for your organization, you can turn off this feature
-from the management account or you can disable organizational view by using the [DisableHealthServiceAccessForOrganization](../APIReference/API_DisableHealthServiceAccessForOrganization.md "../APIReference/API_DisableHealthServiceAccessForOrganization.md") API operation.
+If you don't want to aggregate events for your organization, you can turn off this feature from the management account or you can disable organizational view by using the [DisableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DisableHealthServiceAccessForOrganization.html) API operation.
 
-Disabling organizational view events (Console)
-AWS Health stops aggregating events for all other accounts in your
-organization. You can continue to view previous events from your organization
-until they're deleted.
+------
+#### [ Disabling organizational view events (Console) ]
 
-###### To disable organizational view
+AWS Health stops aggregating events for all other accounts in your organization. You can continue to view previous events from your organization until they're deleted.
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
-2. In the navigation pane, under **Your organization
-   health**, choose
-   **Configurations**.
-3. On the **Enable organizational view** page, choose
-   **Disable organizational view**.
+**To disable organizational view**
 
-After you turn off this feature, AWS Health no longer aggregates events from
-your organization. However, the service-linked role remains in the
-management account until you delete it through the AWS Identity and Access Management (IAM) console,
-IAM API, or AWS Command Line Interface (AWS CLI). For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
-_IAM User Guide_.
+1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/).
 
-Disabling organizational view events (CLI)
+1. In the navigation pane, under **Your organization health**, choose **Configurations**.
 
-###### Example
+1. On the **Enable organizational view** page, choose **Disable organizational view**.
 
-The following AWS CLI command disables this feature from your
-account.
+After you turn off this feature, AWS Health no longer aggregates events from your organization. However, the service-linked role remains in the management account until you delete it through the AWS Identity and Access Management (IAM) console, IAM API, or AWS Command Line Interface (AWS CLI). For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
+
+------
+#### [ Disabling organizational view events (CLI) ]
+
+**Example**  
+The following AWS CLI command disables this feature from your account.  
 
 ```
 aws health disable-health-service-access-for-organization --region us-east-1
 ```
 
-###### Note
+**Note**  
+You can also disable the organizational feature by using the Organizations [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) API operation. After you call this operation, AWS Health stops aggregating events for all other accounts in your organization. If you call the AWS Health API operations for organizational view, AWS Health returns an error. AWS Health continues to aggregate health events for your AWS account.
 
-You can also disable the organizational feature by using the Organizations [DisableAWSServiceAccess](../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md "../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md") API operation. After you call this
-operation, AWS Health stops aggregating events for all other accounts in
-your organization. If you call the AWS Health API operations for
-organizational view, AWS Health returns an error. AWS Health continues to
-aggregate health events for your AWS account.
+ After you disable this feature, AWS Health no longer aggregates events from your organization. However, the service-linked role remains in the management account until you delete it through the AWS Identity and Access Management (IAM) console, IAM API, or AWS CLI. For more information, see [Deleting a service-linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
 
-After you disable this feature, AWS Health no longer aggregates events from
-your organization. However, the service-linked role remains in the
-management account until you delete it through the AWS Identity and Access Management (IAM) console,
-IAM API, or AWS CLI. For more information, see [Deleting a service-linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
-_IAM User Guide_.
+------

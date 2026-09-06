@@ -1,14 +1,16 @@
-# Tutorial: Using the AWS Health API with Java examples
 
-The following Java code examples demonstrate how to initialize an AWS Health client and
-retrieve information about events and entities.
+
+# Tutorial: Using the AWS Health API with Java examples
+<a name="code-sample-java"></a>
+
+The following Java code examples demonstrate how to initialize an AWS Health client and retrieve information about events and entities.
 
 ## Step 1: Initialize credentials
+<a name="step-1"></a>
 
-Valid credentials are required to communicate with the AWS Health API. You can use
-the key pair of any IAM user associated with the AWS account.
+Valid credentials are required to communicate with the AWS Health API. You can use the key pair of any IAM user associated with the AWS account.
 
-Create and initialize an [AWSCredentials](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSCredentials.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSCredentials.md") instance:
+Create and initialize an [AWSCredentials](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSCredentials.html) instance:
 
 ```
 AWSCredentials credentials = null;
@@ -23,18 +25,18 @@ throw new AmazonClientException(
 ```
 
 ## Step 2: Initialize an AWS Health API client
+<a name="step-2"></a>
 
-Use the initialized credentials object from the previous step to create an AWS Health
-client:
+Use the initialized credentials object from the previous step to create an AWS Health client:
 
 ```
 import com.amazonaws.services.health.AWSHealthClient;
 
 AWSHealth awsHealthClient = new AWSHealthClient(credentials);
-
 ```
 
 ## Step 3: Use AWS Health API operations to get event information
+<a name="step-3"></a>
 
 **DescribeEvents**
 
@@ -47,7 +49,7 @@ import com.amazonaws.services.health.model.EventFilter;
 DescribeEventsRequest request = new DescribeEventsRequest();
 
 EventFilter filter = new EventFilter();
-// Filter on any field from the supported AWS Health EventFilter model.
+// Filter on any field from the supported AWS Health EventFilter model. 
 // Here is an example for Region us-east-1 events from the EC2 service.
 filter.setServices(singletonList("EC2"));
 filter.setRegions(singletonList("us-east-1"));
@@ -106,7 +108,7 @@ import com.amazonaws.services.health.model.EventDetails;
 DescribeEventDetailsRequest describeEventDetailsRequest = new DescribeEventDetailsRequest();
 // set event ARN and local value
 
-describeEventDetailsRequest.setEventArns(singletonList("arn:aws:health:us-east-1::event/`service`/`eventTypeCode`/`eventId`"));
+describeEventDetailsRequest.setEventArns(singletonList("arn:aws:health:us-east-1::event/{{service}}/{{eventTypeCode}}/{{eventId}}"));
 describeEventDetailsRequest.setLocale("en-US");
 filter.setEventArns
 DescribeEventDetailsResult describeEventDetailsResult = awsHealthClient.describeEventDetails(request);
@@ -135,7 +137,7 @@ import com.amdescribeEventDetailsRequestazonaws.services.health.model.DescribeAf
 DescribeAffectedEntitiesRequest request = new DescribeAffectedEntitiesRequest();
 EntityFilter filter = new EntityFilter();
 
-filter.setEventArns(singletonList("arn:aws:health:us-east-1::event/`service`/`eventTypeCode`/`eventId`"));
+filter.setEventArns(singletonList("arn:aws:health:us-east-1::event/{{service}}/{{eventTypeCode}}/{{eventId}}"));
 
 DescribeAffectedEntitiesResult response = awsHealthClient.describeAffectedEntities(request);
 
@@ -155,7 +157,7 @@ import com.amazonaws.services.health.model.EntityAggregate;
 
 DescribeEntityAggregatesRequest request = new DescribeEntityAggregatesRequest();
 
-request.setEventArns(singletonList("arn:aws:health:us-east-1::event/`service`/`eventTypeCode`/`eventId`"));
+request.setEventArns(singletonList("arn:aws:health:us-east-1::event/{{service}}/{{eventTypeCode}}/{{eventId}}"));
 
 DescribeEntityAggregatesResult response = awsHealthClient.describeEntityAggregates(request);
 
