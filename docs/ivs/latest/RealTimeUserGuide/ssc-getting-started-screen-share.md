@@ -1,20 +1,20 @@
+
+
 # Enabling Screen Share in IVS Server-Side Composition
+<a name="ssc-getting-started-screen-share"></a>
 
 To use a fixed screen-share layout, follow the steps below.
 
 ## Create the EncoderConfiguration Resource
+<a name="ssc-getting-started-screen-share-create-encoderconfiguration"></a>
 
-The command below creates an EncoderConfiguration resource that configures server-side
-composition parameters (video bitrate, framerate, and resolution).
+The command below creates an EncoderConfiguration resource that configures server-side composition parameters (video bitrate, framerate, and resolution).
 
 ```
 aws ivs-realtime create-encoder-configuration --name "test-ssc-with-screen-share" --video={bitrate=2000000,framerate=30,height=720,width=1280}
 ```
 
-Create a stage participant token with a `screen-share` attribute. Since we
-will specify `screen-share` as the name of the `featured` slot, we
-need to create a stage token with the `screen-share` attribute set to
-`true`:
+Create a stage participant token with a `screen-share` attribute. Since we will specify `screen-share` as the name of the `featured` slot, we need to create a stage token with the `screen-share` attribute set to `true`:
 
 ```
 aws ivs-realtime create-participant-token --stage-arn "arn:aws:ivs:us-east-1:123456789012:stage/u9OiE29bT7Xp" --attributes screen-share=true
@@ -36,6 +36,7 @@ The response is:
 ```
 
 ## Start the Composition
+<a name="ssc-getting-started-screen-share-start-mediapublish"></a>
 
 To start the composition using the screen-share feature, we use this command:
 
@@ -76,13 +77,13 @@ The response is:
 }
 ```
 
-When the stage participant `E813MFklPWLF` joins the stage, that
-participant’s video will be displayed in the featured slot, and all other stage
-publishers will be rendered below the slot:
+When the stage participant `E813MFklPWLF` joins the stage, that participant’s video will be displayed in the featured slot, and all other stage publishers will be rendered below the slot:
 
-![Starting the Composition using the screen-share feature.](images/ssc_StartComposition.png)
+![Starting the Composition using the screen-share feature.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_StartComposition.png)
+
 
 ## Stop the Composition
+<a name="ssc-getting-started-screen-share-stop-mediapublish"></a>
 
 To stop a composition at any point, call the StopComposition operation:
 

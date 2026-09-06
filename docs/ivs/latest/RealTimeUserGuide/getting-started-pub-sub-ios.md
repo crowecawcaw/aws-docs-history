@@ -1,13 +1,14 @@
-# Publish & Subscribe with the IVS iOS Broadcast SDK
 
-This section takes you through the steps involved in publishing and subscribing to
-a stage using your iOS app.
+
+# Publish & Subscribe with the IVS iOS Broadcast SDK
+<a name="getting-started-pub-sub-ios"></a>
+
+This section takes you through the steps involved in publishing and subscribing to a stage using your iOS app.
 
 ## Create Views
+<a name="getting-started-pub-sub-ios-views"></a>
 
-We start by using the auto-created `ViewController.swift` file to
-import `AmazonIVSBroadcast` and then add some `@IBOutlets`
-to link:
+We start by using the auto-created `ViewController.swift` file to import `AmazonIVSBroadcast` and then add some `@IBOutlets` to link:
 
 ```
 import AmazonIVSBroadcast
@@ -21,65 +22,49 @@ class ViewController: UIViewController {
     @IBOutlet private var collectionViewParticipants: UICollectionView!
 ```
 
-Now we create those views and link them up in `Main.storyboard`.
-Here is the view structure that we’ll use:
+Now we create those views and link them up in `Main.storyboard`. Here is the view structure that we’ll use:
 
-![Use Main.storyboard to create an iOS view.](images/Publish_iOS_1.png)
+![Use Main.storyboard to create an iOS view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_1.png)
 
-For AutoLayout configuration, we need to customize three views. The first view
-is **Collection View Participants** (a
-`UICollectionView`). Bound **Leading**, **Trailing**, and
-**Bottom** to **Safe
-Area**. Also bound **Top** to
-**Controls Container**.
 
-![Customize iOS Collection View Participants view.](images/Publish_iOS_2.png)
+For AutoLayout configuration, we need to customize three views. The first view is **Collection View Participants** (a `UICollectionView`). Bound **Leading**, **Trailing**, and **Bottom** to **Safe Area**. Also bound **Top** to **Controls Container**.
 
-The second view is **Controls Container**. Bound
-**Leading**, **Trailing**, and **Top** to **Safe Area**:
+![Customize iOS Collection View Participants view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_2.png)
 
-![Customize iOS Controls Container view.](images/Publish_iOS_3.png)
 
-The third and last view is **Vertical Stack
-View**. Bound **Top**, **Leading**, **Trailing**,
-and **Bottom** to **Superview**. For styling, set the spacing to 8 instead of 0.
+The second view is **Controls Container**. Bound **Leading**, **Trailing**, and **Top** to **Safe Area**:
 
-![Customize iOS Vertical Stack view.](images/Publish_iOS_4.png)
+![Customize iOS Controls Container view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_3.png)
 
-The **UIStackViews** will handle the layout of
-the remaining views. For all three **UIStackViews**, use **Fill** as the
-**Alignment** and **Distribution**.
 
-![Customize remaining iOS views with UIStackViews.](images/Publish_iOS_5.png)
+The third and last view is **Vertical Stack View**. Bound **Top**, **Leading**, **Trailing**, and **Bottom** to **Superview**. For styling, set the spacing to 8 instead of 0.
 
-Finally, let’s link these views to our `ViewController`. From
-above, map the following views:
+![Customize iOS Vertical Stack view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_4.png)
 
-- **Text Field Join** binds to
-  `textFieldToken`.
-- **Button Join** binds to
-  `buttonJoin`.
-- **Label State** binds to
-  `labelState`.
-- **Switch Publish** binds to
-  `switchPublish`.
-- **Collection View Participants** binds to
-  `collectionViewParticipants`.
 
-Also use this time to set the `dataSource` of the **Collection View Participants** item to the owning
-`ViewController`:
+The **UIStackViews** will handle the layout of the remaining views. For all three **UIStackViews**, use **Fill** as the **Alignment** and **Distribution**.
 
-![Set the dataSource of Collection View Participants for iOS app.](images/Publish_iOS_6.png)
+![Customize remaining iOS views with UIStackViews.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_5.png)
 
-Now we create the `UICollectionViewCell` subclass in which to
-render the participants. Start by creating a new **Cocoa
-Touch Class** file:
 
-![Create a UICollectionViewCell to render iOS real-time participants.](images/Publish_iOS_7.png)
+Finally, let’s link these views to our `ViewController`. From above, map the following views:
++ **Text Field Join** binds to `textFieldToken`.
++ **Button Join** binds to `buttonJoin`.
++ **Label State** binds to `labelState`.
++ **Switch Publish** binds to `switchPublish`.
++ **Collection View Participants** binds to `collectionViewParticipants`.
 
-Name it `ParticipantUICollectionViewCell` and make it a subclass of
-`UICollectionViewCell` in Swift. We start in the Swift file
-again, creating our `@IBOutlets` to link:
+Also use this time to set the `dataSource` of the **Collection View Participants** item to the owning `ViewController`:
+
+![Set the dataSource of Collection View Participants for iOS app.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_6.png)
+
+
+Now we create the `UICollectionViewCell` subclass in which to render the participants. Start by creating a new **Cocoa Touch Class** file:
+
+![Create a UICollectionViewCell to render iOS real-time participants.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_7.png)
+
+
+Name it `ParticipantUICollectionViewCell` and make it a subclass of `UICollectionViewCell` in Swift. We start in the Swift file again, creating our `@IBOutlets` to link:
 
 ```
 import AmazonIVSBroadcast
@@ -97,30 +82,28 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
 
 In the associated XIB file, create this view hierarchy:
 
-![Create iOS view hierarchy in associated XIB file.](images/Publish_iOS_8.png)
+![Create iOS view hierarchy in associated XIB file.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_8.png)
 
-For AutoLayout, we’ll modify three views again. The first view is **View Preview Container**. Set **Trailing**, **Leading**, **Top**, and **Bottom** to
-**Participant Collection View Cell**.
 
-![Customize iOS View Preview Container view.](images/Publish_iOS_9.png)
+For AutoLayout, we’ll modify three views again. The first view is **View Preview Container**. Set **Trailing**, **Leading**, **Top**, and **Bottom** to **Participant Collection View Cell**.
 
-The second view is **View**. Set **Leading** and **Top** to
-**Participant Collection View Cell** and change
-the value to 4.
+![Customize iOS View Preview Container view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_9.png)
 
-![Customize iOS View view.](images/Publish_iOS_10.png)
 
-The third view is **Stack View**. Set **Trailing**, **Leading**,
-**Top**, and **Bottom** to **Superview** and change
-the value to 4.
+The second view is **View**. Set **Leading** and **Top** to **Participant Collection View Cell** and change the value to 4.
 
-![Customize iOS Stack View view.](images/Publish_iOS_11.png)
+![Customize iOS View view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_10.png)
+
+
+The third view is **Stack View**. Set **Trailing**, **Leading**, **Top**, and **Bottom** to **Superview** and change the value to 4.
+
+![Customize iOS Stack View view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_11.png)
+
 
 ## Permissions and Idle Timer
+<a name="getting-started-pub-sub-ios-perms"></a>
 
-Going back to our `ViewController`, we will disable the system idle
-timer to prevent the device from going to sleep while our application is being
-used:
+Going back to our `ViewController`, we will disable the system idle timer to prevent the device from going to sleep while our application is being used:
 
 ```
 override func viewDidAppear(_ animated: Bool) {
@@ -173,9 +156,9 @@ private func checkOrGetPermission(for mediaType: AVMediaType, _ result: @escapin
 ```
 
 ## App State
+<a name="getting-started-pub-sub-ios-app-state"></a>
 
-We need to configure our `collectionViewParticipants` with the
-layout file that we created earlier:
+We need to configure our `collectionViewParticipants` with the layout file that we created earlier:
 
 ```
 override func viewDidLoad() {
@@ -186,9 +169,7 @@ override func viewDidLoad() {
 }
 ```
 
-To represent each participant, we create a simple struct called
-`StageParticipant`. This can be included in the
-`ViewController.swift` file, or a new file can be created.
+To represent each participant, we create a simple struct called `StageParticipant`. This can be included in the `ViewController.swift` file, or a new file can be created.
 
 ```
 import Foundation
@@ -208,16 +189,13 @@ struct StageParticipant {
 }
 ```
 
-To track those participants, we keep an array of them as a private property in
-our `ViewController`:
+To track those participants, we keep an array of them as a private property in our `ViewController`:
 
 ```
 private var participants = [StageParticipant]()
 ```
 
-This property will be used to power our
-`UICollectionViewDataSource` that was linked from the storyboard
-earlier:
+This property will be used to power our `UICollectionViewDataSource` that was linked from the storyboard earlier:
 
 ```
 extension ViewController: UICollectionViewDataSource {
@@ -238,8 +216,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 ```
 
-To see your own preview before joining a stage, we create a local participant
-immediately:
+To see your own preview before joining a stage, we create a local participant immediately:
 
 ```
 override func viewDidLoad() {
@@ -248,13 +225,9 @@ override func viewDidLoad() {
 }
 ```
 
-This results in a participant cell being rendered immediately once the app is
-running, representing the local participant.
+This results in a participant cell being rendered immediately once the app is running, representing the local participant.
 
-Users want to be able to see themselves before joining a stage, so next we
-implement the `setupLocalUser()` method that gets called from the
-permissions-handling code earlier. We store the camera and microphone reference
-as `IVSLocalStageStream` objects.
+Users want to be able to see themselves before joining a stage, so next we implement the `setupLocalUser()` method that gets called from the permissions-handling code earlier. We store the camera and microphone reference as `IVSLocalStageStream` objects.
 
 ```
 private var streams = [IVSLocalStageStream]()
@@ -279,14 +252,7 @@ private func setupLocalUser() {
 }
 ```
 
-Here we’ve found the device’s camera and microphone through the SDK and stored
-them in our local `streams` object, then assigned the
-`streams` array of the first participant (the local participant
-that we created earlier) to our `streams`. Finally we call
-`participantsChanged` with an `index` of 0 and
-`changeType` of `updated`. That function is a helper
-function for updating our `UICollectionView` with nice animations.
-Here’s what it looks like:
+Here we’ve found the device’s camera and microphone through the SDK and stored them in our local `streams` object, then assigned the `streams` array of the first participant (the local participant that we created earlier) to our `streams`. Finally we call `participantsChanged` with an `index` of 0 and `changeType` of `updated`. That function is a helper function for updating our `UICollectionView` with nice animations. Here’s what it looks like:
 
 ```
 private func participantsChanged(index: Int, changeType: ChangeType) {
@@ -306,8 +272,7 @@ private func participantsChanged(index: Int, changeType: ChangeType) {
 }
 ```
 
-Don’t worry about `cell.set` yet; we’ll get to that later, but
-that’s where we will render the cell’s contents based on the participant.
+Don’t worry about `cell.set` yet; we’ll get to that later, but that’s where we will render the cell’s contents based on the participant.
 
 The `ChangeType` is a simple enum:
 
@@ -317,9 +282,7 @@ enum ChangeType {
 }
 ```
 
-Finally, we want to keep track of whether the stage is connected. We use a
-simple `bool` to track that, which will automatically update our UI
-when it is updated itself.
+Finally, we want to keep track of whether the stage is connected. We use a simple `bool` to track that, which will automatically update our UI when it is updated itself.
 
 ```
 private var connectingOrConnected = false {
@@ -331,13 +294,12 @@ private var connectingOrConnected = false {
 ```
 
 ## Implement the Stage SDK
+<a name="getting-started-pub-sub-ios-stage-sdk"></a>
 
-Three core [concepts](ios-publish-subscribe.md#ios-publish-subscribe-concepts "ios-publish-subscribe.md#ios-publish-subscribe-concepts")
-underlie real-time functionality: stage, strategy, and renderer. The design goal
-is minimizing the amount of client-side logic necessary to build a working
-product.
+Three core [concepts](ios-publish-subscribe.md#ios-publish-subscribe-concepts) underlie real-time functionality: stage, strategy, and renderer. The design goal is minimizing the amount of client-side logic necessary to build a working product.
 
 ### IVSStageStrategy
+<a name="getting-started-pub-sub-ios-stage-sdk-strategy"></a>
 
 Our `IVSStageStrategy` implementation is simple:
 
@@ -361,20 +323,12 @@ extension ViewController: IVSStageStrategy {
 }
 ```
 
-To summarize, we only publish if the publish switch is in the “on”
-position, and if we publish we will publish the streams that we collected
-earlier. Finally, for this sample, we always subscribe to other
-participants, receiving both their audio and video.
+To summarize, we only publish if the publish switch is in the “on” position, and if we publish we will publish the streams that we collected earlier. Finally, for this sample, we always subscribe to other participants, receiving both their audio and video.
 
 ### IVSStageRenderer
+<a name="getting-started-pub-sub-ios-stage-sdk-renderer"></a>
 
-The `IVSStageRenderer` implementation also is fairly simple,
-though given the number of functions it contains quite a bit more code. The
-general approach in this renderer is to update our `participants`
-array when the SDK notifies us of a change to a participant. There are
-certain scenarios where we handle local participants differently, because we
-have decided to manage them ourselves so they can see their camera preview
-before joining.
+The `IVSStageRenderer` implementation also is fairly simple, though given the number of functions it contains quite a bit more code. The general approach in this renderer is to update our `participants` array when the SDK notifies us of a change to a participant. There are certain scenarios where we handle local participants differently, because we have decided to manage them ourselves so they can see their camera preview before joining.
 
 ```
 extension ViewController: IVSStageRenderer {
@@ -472,8 +426,7 @@ extension ViewController: IVSStageRenderer {
 }
 ```
 
-This code uses an extension to convert the connection state into
-human-friendly text:
+This code uses an extension to convert the connection state into human-friendly text:
 
 ```
 extension IVSStageConnectionState {
@@ -489,18 +442,11 @@ extension IVSStageConnectionState {
 ```
 
 ## Implementing a Custom UICollectionViewLayout
+<a name="getting-started-pub-sub-ios-layout"></a>
 
-Laying out different numbers of participants can be complex. You want them to
-take up the entire parent view’s frame but you don’t want to handle each
-participant configuration independently. To make this easy, we’ll walk through
-implementing a `UICollectionViewLayout`.
+Laying out different numbers of participants can be complex. You want them to take up the entire parent view’s frame but you don’t want to handle each participant configuration independently. To make this easy, we’ll walk through implementing a `UICollectionViewLayout`.
 
-Create another new file, `ParticipantCollectionViewLayout.swift`,
-which should extend `UICollectionViewLayout`. This class will use
-another class called `StageLayoutCalculator`, which we’ll cover soon.
-The class receives calculated frame values for each participant and then
-generates the necessary `UICollectionViewLayoutAttributes`
-objects.
+Create another new file, `ParticipantCollectionViewLayout.swift`, which should extend `UICollectionViewLayout`. This class will use another class called `StageLayoutCalculator`, which we’ll cover soon. The class receives calculated frame values for each participant and then generates the necessary `UICollectionViewLayoutAttributes` objects.
 
 ```
 import Foundation
@@ -593,12 +539,7 @@ class ParticipantCollectionViewLayout: UICollectionViewLayout {
 }
 ```
 
-More important is the `StageLayoutCalculator.swift` class. It is
-designed to calculate the frames for each participant based on the number of
-participants in a flow-based row/column layout. Each row is the same height as
-the others, but the columns can be different widths per row. See the code
-comment above the `layouts` variable for a description of how to
-customize this behavior.
+More important is the `StageLayoutCalculator.swift` class. It is designed to calculate the frames for each participant based on the number of participants in a flow-based row/column layout. Each row is the same height as the others, but the columns can be different widths per row. See the code comment above the `layouts` variable for a description of how to customize this behavior.
 
 ```
 import Foundation
@@ -694,23 +635,17 @@ class StageLayoutCalculator {
 }
 ```
 
-Back in `Main.storyboard`, be sure to set the layout class for the
-`UICollectionView` to the class we just created:
+Back in `Main.storyboard`, be sure to set the layout class for the `UICollectionView` to the class we just created:
 
-![Xcode interface showing storyboard with UICollectionView and its layout settings.](images/Publish_iOS_12.png)
+![Xcode interface showing storyboard with UICollectionView and its layout settings.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_12.png)
+
 
 ## Hooking Up UI Actions
+<a name="getting-started-pub-sub-ios-actions"></a>
 
-We are getting close, there are a few `IBActions` that we need to
-create.
+We are getting close, there are a few `IBActions` that we need to create.
 
-First we’ll handle the join button. It responds differently based on the value
-of `connectingOrConnected`. When it is already connected, it just
-leaves the stage. If it is disconnected, it reads the text from the token
-`UITextField` and creates a new `IVSStage` with that
-text. Then we add our `ViewController` as the `strategy`,
-`errorDelegate`, and renderer for the `IVSStage`, and
-finally we join the stage asynchronously.
+First we’ll handle the join button. It responds differently based on the value of `connectingOrConnected`. When it is already connected, it just leaves the stage. If it is disconnected, it reads the text from the token `UITextField` and creates a new `IVSStage` with that text. Then we add our `ViewController` as the `strategy`, `errorDelegate`, and renderer for the `IVSStage`, and finally we join the stage asynchronously.
 
 ```
 @IBAction private func joinTapped(_ sender: UIButton) {
@@ -749,25 +684,19 @@ The other UI action we need to hook up is the publish switch:
 ```
 
 ## Rendering the Participants
+<a name="getting-started-pub-sub-ios-participants"></a>
 
-Finally, we need to render the data we receive from the SDK onto the
-participant cell that we created earlier. We already have the
-`UICollectionView` logic finished, so we just need to implement
-the `set` API in
-`ParticipantCollectionViewCell.swift`.
+Finally, we need to render the data we receive from the SDK onto the participant cell that we created earlier. We already have the `UICollectionView` logic finished, so we just need to implement the `set` API in `ParticipantCollectionViewCell.swift`.
 
-We’ll start by adding the `empty` function and then walk through it
-step by step:
+We’ll start by adding the `empty` function and then walk through it step by step:
 
 ```
 func set(participant: StageParticipant) {
-
+   
 }
 ```
 
-First we handle the easy state, the participant ID, publish state, and
-subscribe state. For these, we just update our `UILabels`
-directly:
+First we handle the easy state, the participant ID, publish state, and subscribe state. For these, we just update our `UILabels` directly:
 
 ```
 labelParticipantId.text = participant.isLocal ? "You (\(participant.participantId ?? "Disconnected"))" : participant.participantId
@@ -775,8 +704,7 @@ labelPublishState.text = participant.publishState.text
 labelSubscribeState.text = participant.subscribeState.text
 ```
 
-The text properties of the publish and subscribe enums come from local
-extensions:
+The text properties of the publish and subscribe enums come from local extensions:
 
 ```
 extension IVSParticipantPublishState {
@@ -802,10 +730,7 @@ extension IVSParticipantSubscribeState {
 }
 ```
 
-Next we update the audio and video muted states. To get the muted states we
-need to find the `IVSImageDevice` and `IVSAudioDevice`
-from the `streams` array. To optimize performance, we will remember
-the last devices attached.
+Next we update the audio and video muted states. To get the muted states we need to find the `IVSImageDevice` and `IVSAudioDevice` from the `streams` array. To optimize performance, we will remember the last devices attached.
 
 ```
 // This belongs outside `set(participant:)`
@@ -831,8 +756,7 @@ labelVideoMuted.text = "Video Muted: \(newImageStream?.isMuted != false)"
 labelAudioMuted.text = "Audio Muted: \(newAudioStream?.isMuted != false)"
 ```
 
-Finally we want to render a preview for the `imageDevice` and
-display audio stats from the `audioDevice`:
+Finally we want to render a preview for the `imageDevice` and display audio stats from the `audioDevice`:
 
 ```
 if existingImageStream !== newImageStream {
@@ -850,8 +774,7 @@ if existingAudioStream !== newAudioStream {
 }
 ```
 
-The last function we need to create is `updatePreview()`, which
-adds a preview of the participant to our view:
+The last function we need to create is `updatePreview()`, which adds a preview of the participant to our view:
 
 ```
 private func updatePreview() {
@@ -865,8 +788,7 @@ private func updatePreview() {
 }
 ```
 
-The above uses a helper function on `UIView` to make embedding
-subviews easier:
+The above uses a helper function on `UIView` to make embedding subviews easier:
 
 ```
 extension UIView {

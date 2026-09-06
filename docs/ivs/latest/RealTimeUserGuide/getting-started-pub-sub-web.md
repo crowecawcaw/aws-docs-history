@@ -1,12 +1,14 @@
-# Publish & Subscribe with the IVS Web Broadcast SDK
 
-This section takes you through the steps involved in publishing and subscribing to
-a stage using your web app.
+
+# Publish & Subscribe with the IVS Web Broadcast SDK
+<a name="getting-started-pub-sub-web"></a>
+
+This section takes you through the steps involved in publishing and subscribing to a stage using your web app.
 
 ## Create HTML Boilerplate
+<a name="getting-started-pub-sub-web-html"></a>
 
-First let's create the HTML boilerplate and import the library as a script
-tag:
+First let's create the HTML boilerplate and import the library as a script tag:
 
 ```
 <!DOCTYPE html>
@@ -31,11 +33,9 @@ tag:
 ```
 
 ## Accept Token Input and Add Join/Leave Buttons
+<a name="getting-started-pub-sub-web-join"></a>
 
-Here we fill in the body with our input controls. These take as input the
-token, and they set up **Join** and **Leave** buttons. Typically applications will request
-the token from your application's API, but for this example you'll copy and
-paste the token into the token input.
+Here we fill in the body with our input controls. These take as input the token, and they set up **Join** and **Leave** buttons. Typically applications will request the token from your application's API, but for this example you'll copy and paste the token into the token input.
 
 ```
 <h1>IVS Real-Time Streaming</h1>
@@ -49,10 +49,9 @@ paste the token into the token input.
 ```
 
 ## Add Media Container Elements
+<a name="getting-started-pub-sub-web-media"></a>
 
-These elements will hold the media for our local and remote participants. We
-add a script tag to load our application's logic defined in
-`app.js`.
+These elements will hold the media for our local and remote participants. We add a script tag to load our application's logic defined in `app.js`.
 
 ```
 <!-- Local Participant -->
@@ -63,18 +62,17 @@ add a script tag to load our application's logic defined in
 
 <!-- Load Script -->
 <script src="./app.js"></script>
-
 ```
 
-This completes the HTML page and you should see this when loading
-`index.html` in a browser:
+This completes the HTML page and you should see this when loading `index.html` in a browser:
 
-![View Real-Time Streaming in a browser: HTML setup complete.](images/RT_Browser_View.png)
+![View Real-Time Streaming in a browser: HTML setup complete.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/RT_Browser_View.png)
+
 
 ## Create app.js
+<a name="getting-started-pub-sub-web-appjs"></a>
 
-Let's move to defining the contents of our `app.js` file. Begin by
-importing all the requisite properties from the SDK's global:
+Let's move to defining the contents of our `app.js` file. Begin by importing all the requisite properties from the SDK's global:
 
 ```
 const {
@@ -88,9 +86,9 @@ const {
 ```
 
 ## Create Application Variables
+<a name="getting-started-pub-sub-web-vars"></a>
 
-Establish variables to hold references to our **Join** and **Leave** button HTML
-elements and store state for the application:
+Establish variables to hold references to our **Join** and **Leave** button HTML elements and store state for the application:
 
 ```
 let joinButton = document.getElementById("join-button");
@@ -107,13 +105,11 @@ let micStageStream;
 ```
 
 ## Create joinStage 1: Define the Function and Validate Input
+<a name="getting-started-pub-sub-web-joinstage1"></a>
 
-The `joinStage` function takes the input token, creates a
-connection to the stage, and begins to publish video and audio retrieved from
-`getUserMedia`.
+The `joinStage` function takes the input token, creates a connection to the stage, and begins to publish video and audio retrieved from `getUserMedia`.
 
-To start, we define the function and validate the state and token input. We'll
-flesh out this function in the next few sections.
+To start, we define the function and validate the state and token input. We'll flesh out this function in the next few sections.
 
 ```
 const joinStage = async () => {
@@ -135,6 +131,7 @@ const joinStage = async () => {
 ```
 
 ## Create joinStage 2: Get Media to Publish
+<a name="getting-started-pub-sub-web-joinstage2"></a>
 
 Here is the media that will be published to the stage:
 
@@ -164,13 +161,11 @@ micStageStream = new LocalStageStream(localMic.getAudioTracks()[0]);
 ```
 
 ## Create joinStage 3: Define the Stage Strategy and Create the Stage
+<a name="getting-started-pub-sub-web-joinstage3"></a>
 
-This stage strategy is the heart of the decision logic that the SDK uses to
-decide what to publish and which participants to subscribe to. For more
-information on the function's purpose, see [Strategy](web-publish-subscribe.md#web-publish-subscribe-concepts-strategy "web-publish-subscribe.md#web-publish-subscribe-concepts-strategy").
+This stage strategy is the heart of the decision logic that the SDK uses to decide what to publish and which participants to subscribe to. For more information on the function's purpose, see [Strategy](web-publish-subscribe.md#web-publish-subscribe-concepts-strategy).
 
-This strategy is simple. After joining the stage, publish the streams we just
-retrieved and subscribe to every remote participant's audio and video:
+This strategy is simple. After joining the stage, publish the streams we just retrieved and subscribe to every remote participant's audio and video:
 
 ```
 const strategy = {
@@ -189,16 +184,11 @@ stage = new Stage(token, strategy);
 ```
 
 ## Create joinStage 4: Handle Stage Events and Render Media
+<a name="getting-started-pub-sub-web-joinstage4"></a>
 
-Stages emit many events. We'll need to listen to the
-`STAGE_PARTICIPANT_STREAMS_ADDED` and
-`STAGE_PARTICIPANT_LEFT` to render and remove media to and from
-the page. A more exhaustive set of events are listed in [Events](web-publish-subscribe.md#web-publish-subscribe-concepts-events "web-publish-subscribe.md#web-publish-subscribe-concepts-events").
+Stages emit many events. We'll need to listen to the `STAGE_PARTICIPANT_STREAMS_ADDED` and `STAGE_PARTICIPANT_LEFT` to render and remove media to and from the page. A more exhaustive set of events are listed in [Events](web-publish-subscribe.md#web-publish-subscribe-concepts-events).
 
-Note that we create four helper functions here to assist us in managing
-necessary DOM elements: `setupParticipant`,
-`teardownParticipant`, `createVideoEl`, and
-`createContainer`.
+Note that we create four helper functions here to assist us in managing necessary DOM elements: `setupParticipant`, `teardownParticipant`, `createVideoEl`, and `createContainer`.
 
 ```
 stage.on(StageEvents.STAGE_CONNECTION_STATE_CHANGED, (state) => {
@@ -287,9 +277,9 @@ function createContainer(id) {
 ```
 
 ## Create joinStage 5: Join the Stage
+<a name="getting-started-pub-sub-web-joinstage5"></a>
 
-Let's complete our `joinStage` function by finally joining the
-stage!
+Let's complete our `joinStage` function by finally joining the stage\!
 
 ```
 try {
@@ -299,13 +289,12 @@ try {
   connected = false;
   console.error(err.message);
 }
-
 ```
 
 ## Create leaveStage
+<a name="getting-started-pub-sub-web-leavestage"></a>
 
-Define the `leaveStage` function which the leave button will
-invoke.
+Define the `leaveStage` function which the leave button will invoke.
 
 ```
 const leaveStage = async () => {
@@ -317,10 +306,9 @@ const leaveStage = async () => {
 ```
 
 ## Initialize Input-Event Handlers
+<a name="getting-started-pub-sub-web-handlers"></a>
 
-We'll add one last function to our `app.js` file. This function is
-invoked immediately when the page loads and establishes event handlers for
-joining and leaving the stage.
+We'll add one last function to our `app.js` file. This function is invoked immediately when the page loads and establishes event handlers for joining and leaving the stage.
 
 ```
 const init = async () => {
@@ -348,11 +336,11 @@ init(); // call the function
 ```
 
 ## Run the Application and Provide a Token
+<a name="getting-started-pub-sub-run-app"></a>
 
-At this point you can share the web page locally or with others, [open the page](#getting-started-pub-sub-web-media "#getting-started-pub-sub-web-media"), and put in
-a participant token and join the stage.
+At this point you can share the web page locally or with others, [open the page](#getting-started-pub-sub-web-media), and put in a participant token and join the stage.
 
 ## What’s Next?
+<a name="getting-started-pub-sub-next"></a>
 
-For more detailed examples involving npm, React, and more, see the [IVS Broadcast SDK: Web Guide (Real-Time Streaming
-Guide)](broadcast-web.md "broadcast-web.md").
+For more detailed examples involving npm, React, and more, see the [IVS Broadcast SDK: Web Guide (Real-Time Streaming Guide)](broadcast-web.md).

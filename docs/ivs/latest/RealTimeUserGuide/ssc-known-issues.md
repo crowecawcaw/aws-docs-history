@@ -1,9 +1,9 @@
+
+
 # Known Issues and Workarounds
+<a name="ssc-known-issues"></a>
 
-This section lists known issues that you might encounter when using IVS server-side
-composition and suggests potential workarounds.
+This section lists known issues that you might encounter when using IVS server-side composition and suggests potential workarounds.
++ Some compositions may exhibit brief audio stuttering after periods of silence.
 
-- Some compositions may exhibit brief audio stuttering after periods of
-  silence.
-
-**Workaround:** None
+  **Workaround:** None

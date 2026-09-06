@@ -1,60 +1,49 @@
+
+
 # Using Amazon EventBridge with IVS Real-Time Streaming
+<a name="eventbridge"></a>
 
-You can use Amazon EventBridge to monitor your Amazon Interactive Video Service (IVS)
-streams.
+You can use Amazon EventBridge to monitor your Amazon Interactive Video Service (IVS) streams.
 
-Amazon IVS sends change events about the status of your streams to Amazon EventBridge. All
-events that are delivered are valid. However, events are sent on a best-effort basis, which
-means there is no guarantee that:
+Amazon IVS sends change events about the status of your streams to Amazon EventBridge. All events that are delivered are valid. However, events are sent on a best-effort basis, which means there is no guarantee that:
++ Events are delivered — A designated event can occur (e.g., a participant published) but it is possible that Amazon IVS will not send a corresponding event to EventBridge. Amazon IVS tries to deliver events for several hours before giving up.
++ Events that are delivered will arrive in a specified timeframe — You may receive events up to a few hours old.
++ Events are delivered in order — Events may be out of order, especially if they are sent within a short time of each other. For example, you could see Participant Unpublished before Participant Published.
 
-- Events are delivered — A designated event can occur (e.g., a participant
-  published) but it is possible that Amazon IVS will not send a corresponding event to
-  EventBridge. Amazon IVS tries to deliver events for several hours before giving
-  up.
-- Events that are delivered will arrive in a specified timeframe — You may receive
-  events up to a few hours old.
-- Events are delivered in order — Events may be out of order, especially if they are
-  sent within a short time of each other. For example, you could see Participant
-  Unpublished before Participant Published.
-  While it's rare for events to be missing, late, or out of sequence, you should handle
-  these possibilities if you write business-critical programs that depend on the order or
-  existence of notification events.
+While it's rare for events to be missing, late, or out of sequence, you should handle these possibilities if you write business-critical programs that depend on the order or existence of notification events.
 
 You can create EventBridge rules for any of the following events.
 
-| Event Type                             | Event                         | Sent When ...                                                                                                                                                                                                                                               |
-| -------------------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IVS Composition State Change           | Destination Failure           | An attempt to output to a Destination failed (e.g., the S3 bucket was not<br>found, access was denied to the S3 bucket, or the stream already exists for<br>an RTMP destination).                                                                           |
-| IVS Composition State Change           | Destination Start             | Output to a Destination successfully started.                                                                                                                                                                                                               |
-| IVS Composition State Change           | Destination End               | Output to a Destination finished.                                                                                                                                                                                                                           |
-| IVS Composition State Change           | Destination Reconnecting      | Output to a Destination was interrupted and a reconnect is being<br>attempted.                                                                                                                                                                              |
-| IVS Composition State Change           | Session Start                 | A Composition session was created. This event fires when a Composition<br>process pipeline successfully initializes. At this point, the Composition<br>pipeline has successfully subscribed to a Stage and is receiving media and<br>able to compose video. |
-| IVS Composition State Change           | Session End                   | A Composition session completed.                                                                                                                                                                                                                            |
-| IVS Composition State Change           | Session Failure               | A Composition pipeline failed due to a stage being deleted, one or more<br>outputs failing, or any other internal error.                                                                                                                                    |
-| IVS Participant Recording State Change | Recording Start               | A publisher has connected to the stage and is being recorded to<br>S3.                                                                                                                                                                                      |
-| IVS Participant Recording State Change | Recording End                 | A publisher has disconnected from the stage and all remaining files have<br>been written to S3.                                                                                                                                                             |
-| IVS Participant Recording State Change | Recording Start Failure       | A publisher connects to the stage, but recording fails to start due to<br>errors (e.g., if an S3 bucket is not found or cannot be accessed). This<br>publisher's live stream is not recorded.                                                               |
-| IVS Participant Recording State Change | Recording End Failure         | Recording ends with failure, due to errors encountered during recording<br>(e.g., if an S3 bucket is not found or cannot be accessed). Some objects may<br>still be written to the configured storage location.                                             |
-| IVS Stage Update                       | Participant Published         | A participant begins publishing to a stage.                                                                                                                                                                                                                 |
-| IVS Stage Update                       | Participant Unpublished       | A participant has stopped publishing to a stage.                                                                                                                                                                                                            |
-| IVS Stage Update                       | Participant Publish Error     | A participant's attempt to publish to a stage failed.                                                                                                                                                                                                       |
-| IVS Stage Update                       | Participant Replication Start | A participant replication starts.                                                                                                                                                                                                                           |
-| IVS Stage Update                       | Participant Replication End   | A participant replication ends. A replication can end due to a<br>StopParticipantReplication API operation, if the publisher has stopped<br>publishing, or if the publisher has stopped publishing and the reconnect<br>window has expired.                 |
-| IVS Stage Update                       | Token Exchanged               | An existing participant token is exchanged for a new one. This exchange<br>results in upgraded or downgraded token capabilities and/or updated token<br>attributes.                                                                                         |
+
+| Event Type | Event | Sent When ... | 
+| --- | --- | --- | 
+| IVS Composition State Change | Destination Failure | An attempt to output to a Destination failed (e.g., the S3 bucket was not found, access was denied to the S3 bucket, or the stream already exists for an RTMP destination). | 
+| IVS Composition State Change | Destination Start | Output to a Destination successfully started. | 
+| IVS Composition State Change | Destination End | Output to a Destination finished. | 
+| IVS Composition State Change | Destination Reconnecting | Output to a Destination was interrupted and a reconnect is being attempted. | 
+| IVS Composition State Change | Session Start | A Composition session was created. This event fires when a Composition process pipeline successfully initializes. At this point, the Composition pipeline has successfully subscribed to a Stage and is receiving media and able to compose video. | 
+| IVS Composition State Change | Session End | A Composition session completed. | 
+| IVS Composition State Change | Session Failure | A Composition pipeline failed due to a stage being deleted, one or more outputs failing, or any other internal error. | 
+| IVS Participant Recording State Change | Recording Start | A publisher has connected to the stage and is being recorded to S3. | 
+| IVS Participant Recording State Change | Recording End | A publisher has disconnected from the stage and all remaining files have been written to S3. | 
+| IVS Participant Recording State Change | Recording Start Failure | A publisher connects to the stage, but recording fails to start due to errors (e.g., if an S3 bucket is not found or cannot be accessed). This publisher's live stream is not recorded. | 
+| IVS Participant Recording State Change | Recording End Failure | Recording ends with failure, due to errors encountered during recording (e.g., if an S3 bucket is not found or cannot be accessed). Some objects may still be written to the configured storage location. | 
+| IVS Stage Update | Participant Published | A participant begins publishing to a stage. | 
+| IVS Stage Update | Participant Unpublished | A participant has stopped publishing to a stage. | 
+| IVS Stage Update | Participant Publish Error | A participant's attempt to publish to a stage failed. | 
+| IVS Stage Update | Participant Replication Start | A participant replication starts. | 
+| IVS Stage Update | Participant Replication End | A participant replication ends. A replication can end due to a StopParticipantReplication API operation, if the publisher has stopped publishing, or if the publisher has stopped publishing and the reconnect window has expired. | 
+| IVS Stage Update | Token Exchanged  | An existing participant token is exchanged for a new one. This exchange results in upgraded or downgraded token capabilities and/or updated token attributes.  | 
 
 ## Creating Amazon EventBridge Rules for Amazon IVS
+<a name="eventbridge-creating-rules"></a>
 
-You can create a rule that triggers on an event emitted by Amazon IVS. Follow the
-steps in [Create a rule in Amazon
-EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _Amazon EventBridge User
-Guide_. When selecting a service, choose **Interactive
-Video Service (IVS)**.
+You can create a rule that triggers on an event emitted by Amazon IVS. Follow the steps in [Create a rule in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*. When selecting a service, choose **Interactive Video Service (IVS)**.
 
 ## Examples: Composition State Change
+<a name="eventbridge-examples-mediapublish-state-change"></a>
 
-**Destination Failure**: This event is sent when an
-attempt to output to a Destination failed (e.g., the S3 bucket was not found, access was
-denied to the S3 bucket, or the stream already exists for an RTMP destination.
+**Destination Failure**: This event is sent when an attempt to output to a Destination failed (e.g., the S3 bucket was not found, access was denied to the S3 bucket, or the stream already exists for an RTMP destination.
 
 ```
 {
@@ -71,25 +60,24 @@ denied to the S3 bucket, or the stream already exists for an RTMP destination.
    "detail": {
      "event_name": "Destination Failure",
      "stage_arn": "<stage-arn>",
-     "id": "<Destination-id>",
-     "error_code": "e.g., AccessDeniedException",
-     "reason": "e.g., Access denied to S3 bucket. Please verify your bucket policy"
+     "id": "<Destination-id>", 
+     "error_code": "e.g., AccessDeniedException", 
+     "reason": "e.g., Access denied to S3 bucket. Please verify your bucket policy" 
    }
 }
 ```
 
-The following table lists `error_code` and `reason` values for
-Destination Failure events, along with troubleshooting guidance:
+The following table lists `error_code` and `reason` values for Destination Failure events, along with troubleshooting guidance: 
 
-| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
-| ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
-| AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |
-| ConflictException         | Stream already exists                                         | Verify no other broadcast is active on the same RTMP destination<br>channel.  |
-| InternalServerException   | Service internal error                                        | Retry the operation. If the issue persists, contact AWS<br>Support.           |
 
-**Destination Start**: This event is sent when output to
-a Destination successfully started.
+| error\_code  | reason | Troubleshooting Guidance | 
+| --- | --- | --- | 
+| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists. | Verify your S3 bucket exists and is in the correct region. | 
+| AccessDeniedException | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary permissions. | 
+| ConflictException | Stream already exists | Verify no other broadcast is active on the same RTMP destination channel. | 
+| InternalServerException | Service internal error | Retry the operation. If the issue persists, contact AWS Support. | 
+
+**Destination Start**: This event is sent when output to a Destination successfully started.
 
 ```
 {
@@ -111,8 +99,7 @@ a Destination successfully started.
 }
 ```
 
-**Destination End**: This event is sent when output to a
-Destination finished.
+**Destination End**: This event is sent when output to a Destination finished.
 
 ```
 {
@@ -134,8 +121,7 @@ Destination finished.
 }
 ```
 
-**Destination Reconnecting**: This event is sent when
-output to a Destination was interrupted and a reconnect is being attempted.
+**Destination Reconnecting**: This event is sent when output to a Destination was interrupted and a reconnect is being attempted.
 
 ```
 {
@@ -157,10 +143,7 @@ output to a Destination was interrupted and a reconnect is being attempted.
 }
 ```
 
-**Session Start**: This event is sent when a Composition
-session was created. This event fires when a Composition process pipeline successfully
-initializes. At this point, the Composition pipeline has successfully subscribed to a
-Stage and is receiving media and able to compose video.
+**Session Start**: This event is sent when a Composition session was created. This event fires when a Composition process pipeline successfully initializes. At this point, the Composition pipeline has successfully subscribed to a Stage and is receiving media and able to compose video. 
 
 ```
 {
@@ -181,8 +164,7 @@ Stage and is receiving media and able to compose video.
 }
 ```
 
-**Session End**: This event is sent when a Composition
-session completed and all resources were deleted.
+**Session End**: This event is sent when a Composition session completed and all resources were deleted.
 
 ```
 {
@@ -203,9 +185,7 @@ session completed and all resources were deleted.
 }
 ```
 
-**Session Failure**: This event is sent when a
-Composition pipeline failed due to a stage being deleted, one or more outputs failing,
-or any other internal error.
+**Session Failure**: This event is sent when a Composition pipeline failed due to a stage being deleted, one or more outputs failing, or any other internal error.
 
 ```
 {
@@ -222,25 +202,25 @@ or any other internal error.
    "detail": {
      "event_name": "Session Failure",
      "stage_arn": "<stage-arn>",
-     "error_code": "e.g., DestinationFailure",
+     "error_code": "e.g., DestinationFailure", 
      "reason": "e.g. One or more outputs failed"
    }
 }
 ```
 
-The following table lists `error_code` and `reason` values for
-Session Failure events, along with troubleshooting guidance:
+The following table lists `error_code` and `reason` values for Session Failure events, along with troubleshooting guidance: 
 
-| error\_code             | reason                     | Troubleshooting Guidance                                            |
-| ----------------------- | -------------------------- | ------------------------------------------------------------------- |
-| StageDeleted            | Stage has been deleted     | Verify the stage exists before starting a composition.              |
-| DestinationFailure      | One or more outputs failed | Check individual destination errors.                                |
-| InternalServerException | Service internal error     | Retry the operation. If the issue persists, contact AWS<br>Support. |
+
+| error\_code  | reason | Troubleshooting Guidance | 
+| --- | --- | --- | 
+| StageDeleted | Stage has been deleted | Verify the stage exists before starting a composition. | 
+| DestinationFailure | One or more outputs failed | Check individual destination errors. | 
+| InternalServerException | Service internal error | Retry the operation. If the issue persists, contact AWS Support. | 
 
 ## Examples: Individual Participant Recording State Change
+<a name="eventbridge-examples-individual-participant-recording-state-change"></a>
 
-**Recording Start**: This event is sent when a publisher
-has connected to the stage and is being recorded to S3.
+**Recording Start**: This event is sent when a publisher has connected to the stage and is being recorded to S3.
 
 ```
 {
@@ -262,8 +242,7 @@ has connected to the stage and is being recorded to S3.
 }
 ```
 
-**Recording End**: This event is sent when a publisher
-has disconnected from the stage and all remaining files have been written to S3.
+**Recording End**: This event is sent when a publisher has disconnected from the stage and all remaining files have been written to S3.
 
 ```
 {
@@ -286,10 +265,7 @@ has disconnected from the stage and all remaining files have been written to S3.
 }
 ```
 
-**Recording Start Failure**: This event is sent when a
-publisher connects to the stage, but recording fails to start due to errors (e.g., if an
-S3 bucket is not found or cannot be accessed). The publisher's live stream is not
-recorded.
+**Recording Start Failure**: This event is sent when a publisher connects to the stage, but recording fails to start due to errors (e.g., if an S3 bucket is not found or cannot be accessed). The publisher's live stream is not recorded.
 
 ```
 {
@@ -307,26 +283,23 @@ recorded.
       "participant_id": "xYz1c2d3e4f",
       "recording_s3_bucket_name": "bucket-name",
       "recording_s3_key_prefix": "<stage_id>/<session_id>/<participant_id>/2024-01-01T12-00-55Z",
-      "error_code": "e.g., AccessDeniedException",
+      "error_code": "e.g., AccessDeniedException", 
       "reason": "e.g., Access denied to S3 bucket. Please verify your bucket policy"
    }
 }
 ```
 
-The following table lists `error_code` and `reason` values for
-Recording Start Failure events, along with troubleshooting guidance:
+The following table lists `error_code` and `reason` values for Recording Start Failure events, along with troubleshooting guidance: 
 
-| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
-| ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
-| AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |
-| ValidationException       | Video codec not supported for recording                       | Verify the publisher is using a supported video codec.                        |
-| InternalServerException   | Service internal error                                        | Retry the operation. If the issue persists, contact AWS<br>Support.           |
 
-**Recording End Failure**: This event is sent when the
-recording ends with failure, due to errors encountered during recording (e.g., if an S3
-bucket is not found or cannot be accessed). Some objects may still be written to the
-configured storage location.
+| error\_code  | reason | Troubleshooting Guidance | 
+| --- | --- | --- | 
+| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists. | Verify your S3 bucket exists and is in the correct region. | 
+| AccessDeniedException | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary permissions. | 
+| ValidationException | Video codec not supported for recording | Verify the publisher is using a supported video codec. | 
+| InternalServerException | Service internal error | Retry the operation. If the issue persists, contact AWS Support. | 
+
+**Recording End Failure**: This event is sent when the recording ends with failure, due to errors encountered during recording (e.g., if an S3 bucket is not found or cannot be accessed). Some objects may still be written to the configured storage location.
 
 ```
 {
@@ -345,36 +318,29 @@ configured storage location.
       "recording_s3_bucket_name": "bucket-name",
       "recording_s3_key_prefix": "<stage_id>/<session_id>/<participant_id>/2024-01-01T12-00-55Z",
       "recording_duration_ms": 547327,
-      "error_code": "e.g., AccessDeniedException",
-      "reason": "e.g., Access denied to S3 bucket. Please verify your bucket policy"
+      "error_code": "e.g., AccessDeniedException", 
+      "reason": "e.g., Access denied to S3 bucket. Please verify your bucket policy" 
    }
 }
 ```
 
-The following table lists `error_code` and `reason` values for
-Recording End Failure events, along with troubleshooting guidance:
+The following table lists `error_code` and `reason` values for Recording End Failure events, along with troubleshooting guidance: 
 
-| error\_code               | reason                                                        | Troubleshooting Guidance                                                      |
-| ------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists.        | Verify your S3 bucket exists and is in the correct region.                    |
-| AccessDeniedException     | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary<br>permissions. |
-| InternalServerException   | Service internal error                                        | Retry the operation. If the issue persists, contact AWS<br>Support.           |
 
-Note that, if individual participant recording merge is enabled, and if a stage
-publisher disconnects from a stage and then reconnects, IVS tries to record to the same
-S3 prefix as the previous session. As a consequence, in the above examples, the
-`session_id` component of `recording_s3_key_prefix` can have a
-different value than the `session_id` field in `detail`. See [Merge Fragmented Individual Participant
-Recordings](rt-individual-participant-recording.md#ind-part-rec-merge-frag "rt-individual-participant-recording.md#ind-part-rec-merge-frag").
+| error\_code  | reason | Troubleshooting Guidance | 
+| --- | --- | --- | 
+| ResourceNotFoundException | S3 bucket not found. Please verify your bucket exists. | Verify your S3 bucket exists and is in the correct region. | 
+| AccessDeniedException | Access denied to S3 bucket. Please verify your bucket policy. | Verify your S3 bucket policy grants IVS service the necessary permissions. | 
+| InternalServerException  | Service internal error | Retry the operation. If the issue persists, contact AWS Support. | 
+
+Note that, if individual participant recording merge is enabled, and if a stage publisher disconnects from a stage and then reconnects, IVS tries to record to the same S3 prefix as the previous session. As a consequence, in the above examples, the `session_id` component of `recording_s3_key_prefix` can have a different value than the `session_id` field in `detail`. See [Merge Fragmented Individual Participant Recordings](rt-individual-participant-recording.md#ind-part-rec-merge-frag).
 
 ## Examples: Stage Update
+<a name="eventbridge-examples-stage-update"></a>
 
-Stage update events include an event name (which classifies the event) and metadata
-about the event. The metadata includes the participant ID which triggered the event, the
-associated stage and session IDs, and the user ID.
+Stage update events include an event name (which classifies the event) and metadata about the event. The metadata includes the participant ID which triggered the event, the associated stage and session IDs, and the user ID.
 
-**Participant Published**: This event is sent when a
-participant begins publishing to a stage.
+**Participant Published**: This event is sent when a participant begins publishing to a stage.
 
 ```
 {
@@ -391,8 +357,8 @@ participant begins publishing to a stage.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Published",
-        "event_time": "2025-11-18T16:40:32Z",
-        "event_time_precise": "2025-11-18T16:40:32.123456Z",
+        "event_time": "2025-11-18T16:40:32Z", 
+        "event_time_precise": "2025-11-18T16:40:32.123456Z", 
 	"user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "replica": true,
@@ -402,8 +368,7 @@ participant begins publishing to a stage.
 }
 ```
 
-**Participant Unpublished**: This event is sent when a
-participant has stopped publishing to a stage.
+**Participant Unpublished**: This event is sent when a participant has stopped publishing to a stage.
 
 ```
 {
@@ -420,7 +385,7 @@ participant has stopped publishing to a stage.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Unpublished",
-	"event_time": "2025-11-18T16:40:32Z",
+	"event_time": "2025-11-18T16:40:32Z", 
 	"event_time_precise": "2025-11-18T16:40:32.123456Z",
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
@@ -431,8 +396,7 @@ participant has stopped publishing to a stage.
 }
 ```
 
-**Participant Publish Error**: This event is sent when a
-participant's attempt to publish to a stage failed.
+**Participant Publish Error**: This event is sent when a participant's attempt to publish to a stage failed.
 
 ```
 {
@@ -460,8 +424,7 @@ participant's attempt to publish to a stage failed.
 }
 ```
 
-**Participant Replication Start**: This event is sent
-when a participant replication starts.
+**Participant Replication Start**: This event is sent when a participant replication starts.
 
 ```
 {
@@ -478,7 +441,7 @@ when a participant replication starts.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Replication Start",
-        "event_time": "2025-11-18T16:40:32Z",
+        "event_time": "2025-11-18T16:40:32Z", 
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "destination_stage_arn": "arn:aws:ivs:us-west-2:123456789012:stage/XYZdef1G2hij",
@@ -487,10 +450,7 @@ when a participant replication starts.
 }
 ```
 
-**Participant Replication End**: This event is sent when
-a participant replication ends. A replication can end due to a
-StopParticipantReplication API operation, if the publisher has stopped publishing, or if
-the publisher has stopped publishing and the reconnect window has expired.
+**Participant Replication End**: This event is sent when a participant replication ends. A replication can end due to a StopParticipantReplication API operation, if the publisher has stopped publishing, or if the publisher has stopped publishing and the reconnect window has expired.
 
 ```
 {
@@ -507,7 +467,7 @@ the publisher has stopped publishing and the reconnect window has expired.
     "detail": {
         "session_id": "st-ZyXwvu1T2s",
         "event_name": "Participant Replication End",
-        "event_time": "2025-11-18T16:40:32Z",
+        "event_time": "2025-11-18T16:40:32Z", 
         "user_id": "Your User Id",
         "participant_id": "xYz1c2d3e4f",
         "destination_stage_arn": "arn:aws:ivs:us-west-2:123456789012:stage/XYZdef1G2hij",
@@ -516,44 +476,42 @@ the publisher has stopped publishing and the reconnect window has expired.
 }
 ```
 
-**Token Exchanged**: This event is sent when an existing
-participant token is exchanged for a new one, resulting in upgraded or downgraded token
-capabilities and/or updated token attributes.
+**Token Exchanged**: This event is sent when an existing participant token is exchanged for a new one, resulting in upgraded or downgraded token capabilities and/or updated token attributes.
 
 ```
-{
-    "version": "0",
-    "id": "12345678-1a23-4567-a1bc-1a2b34567890",
-    "detail-type": "IVS Stage Update",
-    "source": "aws.ivs",
-    "account": "123456789012",
-    "time": "2020-06-23T20:12:36Z",
+{ 
+    "version": "0", 
+    "id": "12345678-1a23-4567-a1bc-1a2b34567890", 
+    "detail-type": "IVS Stage Update", 
+    "source": "aws.ivs", 
+    "account": "123456789012", 
+    "time": "2020-06-23T20:12:36Z", 
     "region": "us-west-2",
-    "resources": [
-        "arn:aws:ivs:us-west-2:123456789012:stage/AbCdef1G2hij"
-    ],
-    "detail": {
-        "session_id": "st-ZyXwvu1T2s",
-        "event_name": "Token Exchanged",
-        "event_time": "2025-11-12T20:54:53Z",
-        "user_id": "UpdatedUser",
-        "participant_id": "xYz1c2d3e4f",
-        "previous_token": {
-            "capabilities": ["SUBSCRIBE"],
-            "attributes": {
-                "role": "viewer"
-            },
-            "user_id": "InitialUser",
-            "expiration_time": "2025-11-12T21:54:52Z"
-        },
-        "new_token": {
-            "capabilities": ["SUBSCRIBE", "PUBLISH"],
-            "attributes": {
-                "role": "moderator"
-            },
-            "user_id": "UpdatedUser",
-            "expiration_time": "2025-11-12T22:54:52Z"
-        }
-    }
+    "resources": [ 
+        "arn:aws:ivs:us-west-2:123456789012:stage/AbCdef1G2hij" 
+    ], 
+    "detail": { 
+        "session_id": "st-ZyXwvu1T2s", 
+        "event_name": "Token Exchanged", 
+        "event_time": "2025-11-12T20:54:53Z", 
+        "user_id": "UpdatedUser", 
+        "participant_id": "xYz1c2d3e4f", 
+        "previous_token": { 
+            "capabilities": ["SUBSCRIBE"], 
+            "attributes": { 
+                "role": "viewer" 
+            }, 
+            "user_id": "InitialUser", 
+            "expiration_time": "2025-11-12T21:54:52Z" 
+        }, 
+        "new_token": { 
+            "capabilities": ["SUBSCRIBE", "PUBLISH"], 
+            "attributes": { 
+                "role": "moderator" 
+            }, 
+            "user_id": "UpdatedUser", 
+            "expiration_time": "2025-11-12T22:54:52Z" 
+        } 
+    } 
 }
 ```

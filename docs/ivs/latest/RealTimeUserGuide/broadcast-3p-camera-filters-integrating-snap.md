@@ -1,35 +1,49 @@
+
+
 # Using Snap with the IVS Broadcast SDK
+<a name="broadcast-3p-camera-filters-integrating-snap"></a>
 
 This document explains how to use Snap’s Camera Kit SDK with the IVS broadcast SDK.
 
 ## Web
+<a name="integrating-snap-web"></a>
 
-This section assumes you are already familiar with [publishing and subscribing to video using
-the Web Broadcast SDK](getting-started-pub-sub-web.md "getting-started-pub-sub-web.md").
+This section assumes you are already familiar with [publishing and subscribing to video using the Web Broadcast SDK](getting-started-pub-sub-web.md).
 
-To integrate Snap’s Camera Kit SDK with the IVS real-time streaming Web broadcast
-SDK, you need to:
+To integrate Snap’s Camera Kit SDK with the IVS real-time streaming Web broadcast SDK, you need to:
 
-1. Install the Camera Kit SDK and Webpack. (Our example uses Webpack as the
-   bundler, but you can use any bundler of your choice.)
-2. Create `index.html`.
-3. Add setup elements.
-4. Create `index.css`.
-5. Display and set up participants.
-6. Display connected cameras and microphones.
-7. Create a Camera Kit session.
-8. Fetch lenses and populate lens selector.
-9. Render the output from a Camera Kit session to a canvas.
-10. Create a function to populate the Lens dropdown.
-11. Provide Camera Kit with a media source for rendering and publish a
-    `LocalStageStream`.
-12. Create `package.json`.
-13. Create a Webpack config file.
-14. Set up an HTTPS server and test.
+1. Install the Camera Kit SDK and Webpack. (Our example uses Webpack as the bundler, but you can use any bundler of your choice.)
+
+1. Create `index.html`.
+
+1. Add setup elements.
+
+1. Create `index.css`.
+
+1. Display and set up participants.
+
+1. Display connected cameras and microphones.
+
+1. Create a Camera Kit session.
+
+1. Fetch lenses and populate lens selector.
+
+1. Render the output from a Camera Kit session to a canvas.
+
+1. Create a function to populate the Lens dropdown.
+
+1. Provide Camera Kit with a media source for rendering and publish a `LocalStageStream`.
+
+1. Create `package.json`.
+
+1. Create a Webpack config file.
+
+1. Set up an HTTPS server and test.
 
 Each of these steps is described below.
 
 ### Install the Camera Kit SDK and Webpack
+<a name="integrating-snap-web-install-camera-kit"></a>
 
 In this example we use Webpack as our bundler; however, you can use any bundler.
 
@@ -38,10 +52,12 @@ npm i @snap/camera-kit webpack webpack-cli
 ```
 
 ### Create index.html
+<a name="integrating-snap-web-create-index"></a>
 
-Next, create the HTML boilerplate and import the Web broadcast SDK as a script
-tag. In the following code, be sure to replace `<SDK version>`
-with the broadcast SDK version that you are using.
+Next, create the HTML boilerplate and import the Web broadcast SDK as a script tag. In the following code, be sure to replace `<SDK version>` with the broadcast SDK version that you are using.
+
+#### HTML
+<a name="integrating-snap-web-create-index-code"></a>
 
 ```
 <!--
@@ -75,23 +91,25 @@ with the broadcast SDK version that you are using.
     <p>This sample is used to demonstrate basic HTML / JS usage. <b><a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/multiple-hosts.html">Use the AWS CLI</a></b> to create a <b>Stage</b> and a corresponding <b>ParticipantToken</b>. Multiple participants can load this page and put in their own tokens. You can <b><a href="https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-guides/stages#glossary" target="_blank">read more about stages in our public docs.</a></b></p>
   </header>
   <hr />
-
+  
   <!-- Setup Controls -->
-
+ 
   <!-- Display Local Participants -->
-
+  
   <!-- Lens Selector -->
 
   <!-- Display Remote Participants -->
 
   <!-- Load All Desired Scripts -->
-
-
 ```
 
 ### Add Setup Elements
+<a name="integrating-snap-web-add-setup-elements"></a>
 
 Create the HTML for selecting a camera, microphone, and lens and specifying a participant token:
+
+#### HTML
+<a name="integrating-snap-web-setup-controls-code"></a>
 
 ```
 <!-- Setup Controls -->
@@ -121,8 +139,10 @@ Create the HTML for selecting a camera, microphone, and lens and specifying a pa
   </div>
 ```
 
-Add additional HTML beneath that to display camera feeds from local and remote
-participants:
+Add additional HTML beneath that to display camera feeds from local and remote participants:
+
+#### HTML
+<a name="integrating-snap-web-local-remote-participants-code"></a>
 
 ```
  <!-- Local Participant -->
@@ -136,21 +156,19 @@ participants:
     </div>
   </div>
 
-
+  
   <hr style="margin-top: 5rem"/>
-
+  
   <!-- Remote Participants -->
   <div class="row">
     <div id="remote-media"></div>
   </div>
 ```
 
-Load additional logic, including helper methods for setting up the camera and
-the bundled JavaScript file. (Later in this section, you will create these
-JavaScript files and bundle them into a single file, so you can import Camera
-Kit as a module. The bundled JavaScript file will contain the logic for setting
-up Camera Kit, applying a Lens, and publishing the camera feed with a Lens
-applied to a stage.) Add closing tags for the `body` and `html` elements to complete the creation of `index.html`.
+Load additional logic, including helper methods for setting up the camera and the bundled JavaScript file. (Later in this section, you will create these JavaScript files and bundle them into a single file, so you can import Camera Kit as a module. The bundled JavaScript file will contain the logic for setting up Camera Kit, applying a Lens, and publishing the camera feed with a Lens applied to a stage.) Add closing tags for the `body` and `html` elements to complete the creation of `index.html`.
+
+#### HTML
+<a name="integrating-snap-web-load-all-scripts-code"></a>
 
 ```
 <!-- Load all Desired Scripts -->
@@ -160,12 +178,15 @@ applied to a stage.) Add closing tags for the `body` and `html` elements to comp
   <script src="./dist/bundle.js"></script>
 </body>
 </html>
-
 ```
 
 ### Create index.css
+<a name="integrating-snap-web-create-index-css"></a>
 
 Create a CSS source file to style the page. We will not be going over this code so as to focus on the logic for managing a Stage and integrating with Snap’s Camera Kit SDK.
+
+#### CSS
+<a name="integrating-snap-web-create-index-css-code"></a>
 
 ```
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
@@ -282,9 +303,12 @@ video {
 ```
 
 ### Display and Set Up Participants
+<a name="integrating-snap-web-setup-participants"></a>
 
-Next, create `helpers.js`, which contains helper methods that you
-will use to display and set up participants:
+Next, create `helpers.js`, which contains helper methods that you will use to display and set up participants:
+
+#### JavaScript
+<a name="integrating-snap-web-setup-participants-code"></a>
 
 ```
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
@@ -336,9 +360,12 @@ function createContainer(id) {
 ```
 
 ### Display Connected Cameras and Microphones
+<a name="integrating-snap-web-display-cameras-microphones"></a>
 
-Next, create `media-devices.js`, which contains helper methods for
-displaying cameras and microphones connected to your device:
+Next, create `media-devices.js`, which contains helper methods for displaying cameras and microphones connected to your device:
+
+#### JavaScript
+<a name="integrating-snap-web-display-cameras-microphones-code"></a>
 
 ```
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
@@ -407,9 +434,12 @@ async function getMic(deviceId) {
 ```
 
 ### Create a Camera Kit Session
+<a name="integrating-snap-web-camera-kit-session"></a>
 
-Create `stages.js`, which contains the logic for applying a Lens to
-the camera feed and publishing the feed to a stage. We recommend copying and pasting the following code block into `stages.js`. You can then review the code piece by piece to understand what’s going on in the following sections.
+Create `stages.js`, which contains the logic for applying a Lens to the camera feed and publishing the feed to a stage. We recommend copying and pasting the following code block into `stages.js`. You can then review the code piece by piece to understand what’s going on in the following sections.
+
+#### JavaScript
+<a name="integrating-snap-web-camera-kit-session-code"></a>
 
 ```
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
@@ -623,7 +653,10 @@ const leaveStage = async () => {
 init();
 ```
 
-In the first part of this file, we import the broadcast SDK and Camera Kit Web SDK and initialize the variables we will use with each SDK. We create a Camera Kit session by calling `createSession` after [bootstrapping the Camera Kit Web SDK](https://kit.snapchat.com/reference/CameraKit/web/0.7.0/index.html#bootstrapping-the-sdk "https://kit.snapchat.com/reference/CameraKit/web/0.7.0/index.html#bootstrapping-the-sdk"). Note that a canvas element object is passed to a session; this tells Camera Kit to render into that canvas.
+In the first part of this file, we import the broadcast SDK and Camera Kit Web SDK and initialize the variables we will use with each SDK. We create a Camera Kit session by calling `createSession` after [bootstrapping the Camera Kit Web SDK](https://kit.snapchat.com/reference/CameraKit/web/0.7.0/index.html#bootstrapping-the-sdk). Note that a canvas element object is passed to a session; this tells Camera Kit to render into that canvas.
+
+#### JavaScript
+<a name="integrating-snap-web-camera-kit-session-code-2"></a>
 
 ```
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
@@ -678,11 +711,12 @@ const init = async () => {
 ```
 
 ### Fetch Lenses and Populate Lens Selector
+<a name="integrating-snap-web-fetch-apply-lens"></a>
 
-To fetch your Lenses, replace the placeholder for the Lens Group ID with your
-own, which can be found in the [Camera Kit Developer Portal](https://camera-kit.snapchat.com/ "https://camera-kit.snapchat.com/"). Populate the Lens selection dropdown
-using the `populateLensSelector()` function which we will create
-later.
+To fetch your Lenses, replace the placeholder for the Lens Group ID with your own, which can be found in the [Camera Kit Developer Portal](https://camera-kit.snapchat.com/). Populate the Lens selection dropdown using the `populateLensSelector()` function which we will create later.
+
+#### JavaScript
+<a name="integrating-snap-web-fetch-apply-lens-code"></a>
 
 ```
 session = await cameraKit.createSession({ liveRenderTarget });
@@ -695,14 +729,12 @@ session = await cameraKit.createSession({ liveRenderTarget });
 ```
 
 ### Render the Output from a Camera Kit Session to a Canvas
+<a name="integrating-snap-web-render-output-to-canvas"></a>
 
-Use the [captureStream](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream") method to return a `MediaStream` of the
-canvas’s contents. The canvas will contain a video stream of the camera feed
-with a Lens applied. Also, add event listeners for buttons to mute the camera
-and microphone as well as event listeners for joining and leaving a stage. In
-the event listener for joining a stage, we pass in a Camera Kit session and the
-`MediaStream` from the canvas so it can be published to a
-stage.
+Use the [captureStream](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream) method to return a `MediaStream` of the canvas’s contents. The canvas will contain a video stream of the camera feed with a Lens applied. Also, add event listeners for buttons to mute the camera and microphone as well as event listeners for joining and leaving a stage. In the event listener for joining a stage, we pass in a Camera Kit session and the `MediaStream` from the canvas so it can be published to a stage.
+
+#### JavaScript
+<a name="integrating-snap-web-render-output-to-canvas-code"></a>
 
 ```
 const snapStream = liveRenderTarget.captureStream();
@@ -732,8 +764,12 @@ const snapStream = liveRenderTarget.captureStream();
 ```
 
 ### Create a Function to Populate the Lens Dropdown
+<a name="integrating-snap-web-populate-lens-dropdown"></a>
 
 Create the following function to populate the **Lens** selector with the lenses fetched earlier. The **Lens** selector is a UI element on the page that lets you select from a list of lenses to apply to the camera feed. Also, create the `handleLensChange` callback function to apply the specified lens when it is selected from the **Lens** dropdown.
+
+#### JavaScript
+<a name="integrating-snap-web-populate-lens-dropdown-code"></a>
 
 ```
 const populateLensSelector = (lenses) => {
@@ -756,27 +792,14 @@ const handleLensChange = (event) => {
 ```
 
 ### Provide Camera Kit with a Media Source for Rendering and Publish a LocalStageStream
+<a name="integrating-snap-web-publish-localstagestream"></a>
 
-To publish a video stream with a Lens applied, create a function called
-`setCameraKitSource` to pass in the `MediaStream`
-captured from the canvas earlier. The `MediaStream` from the canvas
-isn’t doing anything at the moment because we have not incorporated our local
-camera feed yet. We can incorporate our local camera feed by calling the
-`getCamera` helper method and assigning it to
-`localCamera` . We can then pass in our local camera feed (via
-`localCamera`) and the session object to
-`setCameraKitSource`. The `setCameraKitSource`
-function converts our local camera feed to a [source of media for CameraKit](https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#creating-a-camerakitsource "https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#creating-a-camerakitsource") by calling
-`createMediaStreamSource`. The media source for
-`CameraKit` is then [transformed](https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#2d-transforms "https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#2d-transforms") to mirror the front-facing camera. The Lens effect is
-then applied to the media source and rendered to the output canvas by calling
-`session.play()`.
+To publish a video stream with a Lens applied, create a function called `setCameraKitSource` to pass in the `MediaStream` captured from the canvas earlier. The `MediaStream` from the canvas isn’t doing anything at the moment because we have not incorporated our local camera feed yet. We can incorporate our local camera feed by calling the `getCamera` helper method and assigning it to `localCamera` . We can then pass in our local camera feed (via `localCamera`) and the session object to `setCameraKitSource`. The `setCameraKitSource` function converts our local camera feed to a [source of media for CameraKit](https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#creating-a-camerakitsource) by calling `createMediaStreamSource`. The media source for `CameraKit` is then [transformed](https://docs.snap.com/camera-kit/integrate-sdk/web/web-configuration#2d-transforms) to mirror the front-facing camera. The Lens effect is then applied to the media source and rendered to the output canvas by calling `session.play()`.
 
-With Lens now applied to the `MediaStream` captured from the
-canvas, we can then proceed to publishing it to a stage. We do that by creating
-a `LocalStageStream` with the video tracks from the
-`MediaStream`. An instance of `LocalStageStream` can
-then be passed in to a `StageStrategy` to be published.
+With Lens now applied to the `MediaStream` captured from the canvas, we can then proceed to publishing it to a stage. We do that by creating a `LocalStageStream` with the video tracks from the `MediaStream`. An instance of `LocalStageStream` can then be passed in to a `StageStrategy` to be published.
+
+#### JavaScript
+<a name="integrating-snap-web-publish-localstagestream-code"></a>
 
 ```
 async function setCameraKitSource(session, mediaStream) {
@@ -823,6 +846,9 @@ const joinStage = async (session, snapStream) => {
 ```
 
 The remaining code below is for creating and managing our stage:
+
+#### JavaScript
+<a name="integrating-snap-web-create-manage-stage-code"></a>
 
 ```
 stage = new Stage(token, strategy);
@@ -895,10 +921,12 @@ init();
 ```
 
 ### Create package.json
+<a name="integrating-snap-web-package-json"></a>
 
-Create `package.json` and add the following JSON configuration.
-This file defines our dependencies and includes a script command for bundling
-our code.
+Create `package.json` and add the following JSON configuration. This file defines our dependencies and includes a script command for bundling our code.
+
+#### JSON Configuration
+<a name="integrating-snap-web-package-json-code"></a>
 
 ```
 {
@@ -923,10 +951,12 @@ our code.
 ```
 
 ### Create a Webpack Config File
+<a name="integrating-snap-web-webpack-config"></a>
 
-Create `webpack.config.js` and add the following code. This bundles
-the code we created thus far so that we can use the import statement to use
-Camera Kit.
+Create `webpack.config.js` and add the following code. This bundles the code we created thus far so that we can use the import statement to use Camera Kit.
+
+#### JavaScript
+<a name="integrating-snap-web-webpack-config-code"></a>
 
 ```
 const path = require('path');
@@ -939,24 +969,23 @@ module.exports = {
 };
 ```
 
-Finally, run `npm run build` to bundle your JavaScript as
-defined in the Webpack config file. For testing purposes, you can then serve HTML and JavaScript from your local computer. In this example, we use Python’s `http.server` module.
+Finally, run `npm run build` to bundle your JavaScript as defined in the Webpack config file. For testing purposes, you can then serve HTML and JavaScript from your local computer. In this example, we use Python’s `http.server` module. 
 
 ### Set Up an HTTPS Server and Test
+<a name="integrating-snap-web-https-server-test"></a>
 
 To test our code, we need to set up an HTTPS server. Using an HTTPS server for local development and testing of your web app's integration with the Snap Camera Kit SDK will help avoid CORS (Cross-Origin Resource Sharing) issues.
 
-Open a terminal and navigate to the directory where you created all the code
-up to this point. Run the following command to generate a self-signed SSL/TLS
-certificate and private key:
+Open a terminal and navigate to the directory where you created all the code up to this point. Run the following command to generate a self-signed SSL/TLS certificate and private key:
 
 ```
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 ```
 
-This creates two files: `key.pem` (the private key) and
-`cert.pem` (the self-signed certificate). Create a new Python
-file named `https_server.py` and add the following code:
+This creates two files: `key.pem` (the private key) and `cert.pem` (the self-signed certificate). Create a new Python file named `https_server.py` and add the following code:
+
+#### Python
+<a name="integrating-snap-web-https-server-test-code"></a>
 
 ```
 import http.server
@@ -977,54 +1006,38 @@ httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
 print(f'Starting HTTPS server on https://localhost:4443, serving {DIRECTORY}')
 httpd.serve_forever()
-
 ```
 
-Open a terminal, navigate to the directory where you created the
-`https_server.py` file, and run the following command:
+Open a terminal, navigate to the directory where you created the `https_server.py` file, and run the following command:
 
 ```
 python3 https_server.py
 ```
 
-This starts the HTTPS server on https://localhost:4443, serving files from the
-current directory. Make sure that the `cert.pem` and
-`key.pem` files are in the same directory as the
-`https_server.py` file.
+This starts the HTTPS server on https://localhost:4443, serving files from the current directory. Make sure that the `cert.pem` and `key.pem` files are in the same directory as the `https_server.py` file.
 
-Open your browser and navigate to https://localhost:4443. Since this is a
-self-signed SSL/TLS certificate, it will not be trusted by your web browser, so
-you will get a warning. Since this is only for testing purposes, you can bypass
-the warning. You should then see the AR effect for the Snap Lens you specified
-earlier applied to your camera feed on screen.
+Open your browser and navigate to https://localhost:4443. Since this is a self-signed SSL/TLS certificate, it will not be trusted by your web browser, so you will get a warning. Since this is only for testing purposes, you can bypass the warning. You should then see the AR effect for the Snap Lens you specified earlier applied to your camera feed on screen.
 
-Note that this setup using Python's built-in `http.server` and `ssl` modules is
-suitable for local development and testing purposes, but it is not recommended
-for a production environment. The self-signed SSL/TLS certificate used in this
-setup is not trusted by web browsers and other clients, which means users will
-encounter security warnings when accessing the server. Also, although we use
-Python’s built-in http.server and ssl modules in this example, you may choose to
-use another HTTPS server solution.
+Note that this setup using Python's built-in `http.server` and `ssl` modules is suitable for local development and testing purposes, but it is not recommended for a production environment. The self-signed SSL/TLS certificate used in this setup is not trusted by web browsers and other clients, which means users will encounter security warnings when accessing the server. Also, although we use Python’s built-in http.server and ssl modules in this example, you may choose to use another HTTPS server solution.
 
 ## Android
+<a name="integrating-snap-android"></a>
 
-To integrate Snap’s Camera Kit SDK with the IVS Android broadcast SDK, you must
-install the Camera Kit SDK, initialize a Camera Kit session, apply a Lens and feed
-the Camera Kit session’s output to the custom-image input source.
+To integrate Snap’s Camera Kit SDK with the IVS Android broadcast SDK, you must install the Camera Kit SDK, initialize a Camera Kit session, apply a Lens and feed the Camera Kit session’s output to the custom-image input source.
 
-To install the Camera Kit SDK, add the following to your module’s
-`build.gradle` file. Replace `$cameraKitVersion` with the
-[latest Camera Kit SDK version](https://docs.snap.com/camera-kit/integrate-sdk/mobile/changelog-mobile "https://docs.snap.com/camera-kit/integrate-sdk/mobile/changelog-mobile").
+To install the Camera Kit SDK, add the following to your module’s `build.gradle` file. Replace `$cameraKitVersion` with the [latest Camera Kit SDK version](https://docs.snap.com/camera-kit/integrate-sdk/mobile/changelog-mobile).
+
+### Java
+<a name="integrating-snap-android-install-camerakit-sdk-code"></a>
 
 ```
 implementation "com.snap.camerakit:camerakit:$cameraKitVersion"
 ```
 
-Initialize and obtain a `cameraKitSession`. Camera Kit also provides a
-convenient wrapper for Android’s [CameraX](https://developer.android.com/media/camera/camerax "https://developer.android.com/media/camera/camerax") APIs, so
-you don’t have to write complicated logic to use CameraX with Camera Kit. You can
-use the `CameraXImageProcessorSource` object as a [Source](https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-source/index.html "https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-source/index.html") for [ImageProcessor](https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-image-processor/index.html "https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-image-processor/index.html"), which allows you to start camera-preview streaming
-frames.
+Initialize and obtain a `cameraKitSession`. Camera Kit also provides a convenient wrapper for Android’s [CameraX](https://developer.android.com/media/camera/camerax) APIs, so you don’t have to write complicated logic to use CameraX with Camera Kit. You can use the `CameraXImageProcessorSource` object as a [Source](https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-source/index.html) for [ImageProcessor](https://snapchat.github.io/camera-kit-reference/api/android/latest/-camera-kit/com.snap.camerakit/-image-processor/index.html), which allows you to start camera-preview streaming frames.
+
+### Java
+<a name="integrating-snap-android-initialize-camerakitsession-code"></a>
 
 ```
  protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -1034,7 +1047,7 @@ frames.
 
         // Camera Kit support implementation of ImageProcessor that is backed by CameraX library:
         // https://developer.android.com/training/camerax
-        CameraXImageProcessorSource imageProcessorSource = new CameraXImageProcessorSource(
+        CameraXImageProcessorSource imageProcessorSource = new CameraXImageProcessorSource( 
             this /*context*/, this /*lifecycleOwner*/
         );
         imageProcessorSource.startPreview(true /*cameraFacingFront*/);
@@ -1047,10 +1060,12 @@ frames.
 ```
 
 ### Fetch and Apply Lenses
+<a name="integrating-snap-android-fetch-apply-lenses"></a>
 
-You can
-configure Lenses and their ordering in the carousel on the [Camera Kit Developer
-Portal](https://camera-kit.snapchat.com/ "https://camera-kit.snapchat.com/"):
+You can configure Lenses and their ordering in the carousel on the [Camera Kit Developer Portal](https://camera-kit.snapchat.com/):
+
+#### Java
+<a name="integrating-snap-android-configure-lenses-code"></a>
 
 ```
 // Fetch lenses from repository and apply them
@@ -1063,12 +1078,10 @@ cameraKitSession.getLenses().getRepository().get(new Available(LENS_GROUP_ID), a
 });
 ```
 
-To broadcast, send processed frames to the underlying `Surface` of
-a custom image source. Use a `DeviceDiscovery` object and create a
-`CustomImageSource` to return a `SurfaceSource`. You
-can then render the output from a `CameraKit` session to the
-underlying `Surface` provided by the
-`SurfaceSource`.
+To broadcast, send processed frames to the underlying `Surface` of a custom image source. Use a `DeviceDiscovery` object and create a `CustomImageSource` to return a `SurfaceSource`. You can then render the output from a `CameraKit` session to the underlying `Surface` provided by the `SurfaceSource`.
+
+#### Java
+<a name="integrating-snap-android-broadcast-code"></a>
 
 ```
 val publishStreams = ArrayList<LocalStageStream>()
@@ -1079,7 +1092,7 @@ val customSource = deviceDiscovery.createImageInputSource(BroadcastConfiguration
 cameraKitSession.processor.connectOutput(outputFrom(customSource.inputSurface))
 val customStream = ImageLocalStageStream(customSource)
 
-// After rendering the output from a Camera Kit session to the Surface, you can
+// After rendering the output from a Camera Kit session to the Surface, you can 
 // then return it as a LocalStageStream to be published by the Broadcast SDK
 val customStream: ImageLocalStageStream = ImageLocalStageStream(surfaceSource)
 publishStreams.add(customStream)

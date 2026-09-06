@@ -1,17 +1,17 @@
-# Publish & Subscribe with the IVS Android Broadcast SDK
 
-This section takes you through the steps involved in publishing and subscribing to
-a stage using your Android app.
+
+# Publish & Subscribe with the IVS Android Broadcast SDK
+<a name="getting-started-pub-sub-android"></a>
+
+This section takes you through the steps involved in publishing and subscribing to a stage using your Android app.
 
 ## Create Views
+<a name="getting-started-pub-sub-android-views"></a>
 
-We start by creating a simple layout for our app using the auto-created
-`activity_main.xml` file. The layout contains an
-`EditText` to add a token, a Join `Button`, a
-`TextView` to show the stage state, and a `CheckBox`
-to toggle publishing.
+We start by creating a simple layout for our app using the auto-created `activity_main.xml` file. The layout contains an `EditText` to add a token, a Join `Button`, a `TextView` to show the stage state, and a `CheckBox` to toggle publishing.
 
-![Set up the publishing layout for your Android app.](images/Publish_Android_1.png)
+![Set up the publishing layout for your Android app.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_1.png)
+
 
 Here is the XML behind the view:
 
@@ -107,8 +107,7 @@ Here is the XML behind the view:
 <layout>
 ```
 
-We referenced a couple of string IDs here, so we’ll create our entire
-`strings.xml` file now:
+We referenced a couple of string IDs here, so we’ll create our entire `strings.xml` file now:
 
 ```
 <resources>
@@ -146,20 +145,17 @@ override fun onCreate(savedInstanceState: Bundle?) {
     textViewState = findViewById(R.id.main_state)
     editTextToken = findViewById(R.id.main_token)
 }
-
 ```
 
-Now we create an item view for our `RecyclerView`. To do this,
-right-click your `res/layout` directory and select **New > Layout Resource File**. Name this new file
-`item_stage_participant.xml`.
+Now we create an item view for our `RecyclerView`. To do this, right-click your `res/layout` directory and select **New > Layout Resource File**. Name this new file `item_stage_participant.xml`.
 
-![Create an item view for your Android app RecyclerView.](images/Publish_Android_2.png)
+![Create an item view for your Android app RecyclerView.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_2.png)
 
-The layout for this item is simple: it contains a view for rendering a
-participant’s video stream and a list of labels for displaying information about
-the participant:
 
-![Create an item view for your Android app RecyclerView - labels.](images/Publish_Android_3.png)
+The layout for this item is simple: it contains a view for rendering a participant’s video stream and a list of labels for displaying information about the participant:
+
+![Create an item view for your Android app RecyclerView - labels.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_3.png)
+
 
 Here is the XML:
 
@@ -244,10 +240,7 @@ Here is the XML:
 </com.amazonaws.ivs.realtime.basicrealtime.ParticipantItem>
 ```
 
-This XML file inflates a class we haven’t created yet,
-`ParticipantItem`. Because the XML includes the full namespace,
-be sure to update this XML file to your namespace. Let’s create this class and
-set up the views, but otherwise leave it blank for now.
+This XML file inflates a class we haven’t created yet, `ParticipantItem`. Because the XML includes the full namespace, be sure to update this XML file to your namespace. Let’s create this class and set up the views, but otherwise leave it blank for now.
 
 Create a new Kotlin class, `ParticipantItem`:
 
@@ -289,9 +282,9 @@ class ParticipantItem @JvmOverloads constructor(
 ```
 
 ## Permissions
+<a name="getting-started-pub-sub-android-perms"></a>
 
-To use the camera and microphone, you need to request permissions from the
-user. We follow a standard permissions flow for this:
+To use the camera and microphone, you need to request permissions from the user. We follow a standard permissions flow for this:
 
 ```
 override fun onStart() {
@@ -326,10 +319,9 @@ private fun Context.hasPermissions(permissions: List<String>): Boolean {
 ```
 
 ## App State
+<a name="getting-started-pub-sub-android-app-state"></a>
 
-Our application keeps track of the participants locally in a
-`MainViewModel.kt` and the state will be communicated back to the
-`MainActivity` using Kotlin’s [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/ "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/").
+Our application keeps track of the participants locally in a `MainViewModel.kt` and the state will be communicated back to the `MainActivity` using Kotlin’s [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/).
 
 Create a new Kotlin class `MainViewModel`:
 
@@ -352,9 +344,7 @@ import androidx.activity.viewModels
 private val viewModel: MainViewModel by viewModels()
 ```
 
-To use `AndroidViewModel` and these Kotlin `ViewModel`
-extensions, you’ll need to add the following to your module’s
-`build.gradle` file:
+To use `AndroidViewModel` and these Kotlin `ViewModel` extensions, you’ll need to add the following to your module’s `build.gradle` file:
 
 ```
 implementation 'androidx.core:core-ktx:1.10.1'
@@ -370,11 +360,9 @@ implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 ```
 
 ### RecyclerView Adapter
+<a name="getting-started-pub-sub-android-app-state-recycler"></a>
 
-We’ll create a simple `RecyclerView.Adapter` subclass to keep
-track of our participants and update our `RecyclerView` on stage
-events. But first, we need a class that represents a participant. Create a
-new Kotlin class `StageParticipant`:
+We’ll create a simple `RecyclerView.Adapter` subclass to keep track of our participants and update our `RecyclerView` on stage events. But first, we need a class that represents a participant. Create a new Kotlin class `StageParticipant`:
 
 ```
 package com.amazonaws.ivs.realtime.basicrealtime
@@ -398,9 +386,7 @@ class StageParticipant(val isLocal: Boolean, var participantId: String?) {
 }
 ```
 
-We’ll use this class in the `ParticipantAdapter` class that
-we’ll create next. We start by defining the class and creating a variable to
-track the participants:
+We’ll use this class in the `ParticipantAdapter` class that we’ll create next. We start by defining the class and creating a variable to track the participants:
 
 ```
 package com.amazonaws.ivs.realtime.basicrealtime
@@ -414,15 +400,13 @@ class ParticipantAdapter : RecyclerView.Adapter<ParticipantAdapter.ViewHolder>()
     private val participants = mutableListOf<StageParticipant>()
 ```
 
-We also have to define our `RecyclerView.ViewHolder` before
-implementing the rest of the overrides:
+We also have to define our `RecyclerView.ViewHolder` before implementing the rest of the overrides:
 
 ```
 class ViewHolder(val participantItem: ParticipantItem) : RecyclerView.ViewHolder(participantItem)
 ```
 
-Using this, we can implement the standard
-`RecyclerView.Adapter` overrides:
+Using this, we can implement the standard `RecyclerView.Adapter` overrides:
 
 ```
 override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -455,9 +439,7 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: Mutab
 }
 ```
 
-Finally, we add new methods that we will call from our
-`MainViewModel` when changes to participants are made. These
-methods are standard CRUD operations on the adapter.
+Finally, we add new methods that we will call from our `MainViewModel` when changes to participants are made. These methods are standard CRUD operations on the adapter.
 
 ```
 fun participantJoined(participant: StageParticipant) {
@@ -482,17 +464,16 @@ fun participantUpdated(participantId: String?, update: (participant: StagePartic
 }
 ```
 
-Back in `MainViewModel` we need to create and hold a reference
-to this adapter:
+Back in `MainViewModel` we need to create and hold a reference to this adapter:
 
 ```
 internal val participantAdapter = ParticipantAdapter()
 ```
 
 ## Stage State
+<a name="getting-started-pub-sub-android-views-stage-state"></a>
 
-We also need to track some stage state within `MainViewModel`.
-Let’s define those properties now:
+We also need to track some stage state within `MainViewModel`. Let’s define those properties now:
 
 ```
 private val _connectionState = MutableStateFlow(Stage.ConnectionState.DISCONNECTED)
@@ -510,8 +491,7 @@ private var stage: Stage? = null
 private var streams = mutableListOf<LocalStageStream>()
 ```
 
-To see your own preview before joining a stage, we create a local participant
-immediately:
+To see your own preview before joining a stage, we create a local participant immediately:
 
 ```
 init {
@@ -523,9 +503,7 @@ init {
 }
 ```
 
-We want to make sure we clean up these resources when our
-`ViewModel` is cleaned up. We override `onCleared()`
-right away, so we don’t forget to clean these resources.
+We want to make sure we clean up these resources when our `ViewModel` is cleaned up. We override `onCleared()` right away, so we don’t forget to clean these resources.
 
 ```
 override fun onCleared() {
@@ -536,9 +514,7 @@ override fun onCleared() {
 }
 ```
 
-Now we populate our local `streams` property as soon as permissions
-are granted, implementing the `permissionsGranted` method that we
-called earlier:
+Now we populate our local `streams` property as soon as permissions are granted, implementing the `permissionsGranted` method that we called earlier:
 
 ```
 internal fun permissionGranted() {
@@ -567,13 +543,12 @@ internal fun permissionGranted() {
 ```
 
 ## Implementing the Stage SDK
+<a name="getting-started-pub-sub-android-stage-sdk"></a>
 
-Three core [concepts](android-publish-subscribe.md#android-publish-subscribe-concepts "android-publish-subscribe.md#android-publish-subscribe-concepts")
-underlie real-time functionality: stage, strategy, and renderer. The design goal
-is minimizing the amount of client-side logic necessary to build a working
-product.
+Three core [concepts](android-publish-subscribe.md#android-publish-subscribe-concepts) underlie real-time functionality: stage, strategy, and renderer. The design goal is minimizing the amount of client-side logic necessary to build a working product.
 
 ### Stage.Strategy
+<a name="getting-started-pub-sub-android-stage-sdk-strategy"></a>
 
 Our `Stage.Strategy` implementation is simple:
 
@@ -597,20 +572,12 @@ override fun shouldSubscribeToParticipant(stage: Stage, participantInfo: Partici
 }
 ```
 
-To summarize, we publish based on our internal `publishEnabled`
-state, and if we publish we will publish the streams we collected earlier.
-Finally for this sample, we always subscribe to other participants,
-receiving both their audio and video.
+To summarize, we publish based on our internal `publishEnabled` state, and if we publish we will publish the streams we collected earlier. Finally for this sample, we always subscribe to other participants, receiving both their audio and video.
 
 ### StageRenderer
+<a name="getting-started-pub-sub-android-stage-sdk-renderer"></a>
 
-The `StageRenderer` implementation also is fairly simple,
-though given the number of functions it contains quite a bit more code. The
-general approach in this renderer is to update our
-`ParticipantAdapter` when the SDK notifies us of a change to
-a participant. There are certain scenarios where we handle local
-participants differently, because we have decided to manage them ourselves
-so they can see their camera preview before joining.
+The `StageRenderer` implementation also is fairly simple, though given the number of functions it contains quite a bit more code. The general approach in this renderer is to update our `ParticipantAdapter` when the SDK notifies us of a change to a participant. There are certain scenarios where we handle local participants differently, because we have decided to manage them ourselves so they can see their camera preview before joining.
 
 ```
 override fun onError(exception: BroadcastException) {
@@ -718,18 +685,11 @@ override fun onStreamsMutedChanged(
 ```
 
 ## Implementing a Custom RecyclerView LayoutManager
+<a name="getting-started-pub-sub-android-layout"></a>
 
-Laying out different numbers of participants can be complex. You want them to
-take up the entire parent view’s frame but you don’t want to handle each
-participant configuration independently. To make this easy, we’ll walk through
-implementing a `RecyclerView.LayoutManager`.
+Laying out different numbers of participants can be complex. You want them to take up the entire parent view’s frame but you don’t want to handle each participant configuration independently. To make this easy, we’ll walk through implementing a `RecyclerView.LayoutManager`.
 
-Create another new class, `StageLayoutManager`, which should extend
-`GridLayoutManager`. This class is designed to calculate the
-layout for each participant based on the number of participants in a flow-based
-row/column layout. Each row is the same height as the others, but columns can be
-different widths per row. See the code comment above the `layouts`
-variable for a description of how to customize this behavior.
+Create another new class, `StageLayoutManager`, which should extend `GridLayoutManager`. This class is designed to calculate the layout for each participant based on the number of participants in a flow-based row/column layout. Each row is the same height as the others, but columns can be different widths per row. See the code comment above the `layouts` variable for a description of how to customize this behavior.
 
 ```
 package com.amazonaws.ivs.realtime.basicrealtime
@@ -828,23 +788,20 @@ class StageLayoutManager(context: Context?) : GridLayoutManager(context, 6) {
 }
 ```
 
-Back in `MainActivity.kt` we need to set the adapter and layout
-manager for our `RecyclerView`:
+Back in `MainActivity.kt` we need to set the adapter and layout manager for our `RecyclerView`:
 
 ```
 // In onCreate after setting recyclerView.
 recyclerView.layoutManager = StageLayoutManager(this)
 recyclerView.adapter = viewModel.participantAdapter
-
 ```
 
 ## Hooking Up UI Actions
+<a name="getting-started-pub-sub-android-actions"></a>
 
-We are getting close; there are just a few UI actions that we need to hook
-up.
+We are getting close; there are just a few UI actions that we need to hook up.
 
-First we’ll have our `MainActivity` observe the
-`StateFlow` changes from `MainViewModel`:
+First we’ll have our `MainActivity` observe the `StateFlow` changes from `MainViewModel`:
 
 ```
 // At the end of your onCreate method
@@ -869,8 +826,7 @@ checkboxPublish.setOnCheckedChangeListener { _, isChecked ->
 }
 ```
 
-Both of the above call functionality in our `MainViewModel`, which
-we implement now:
+Both of the above call functionality in our `MainViewModel`, which we implement now:
 
 ```
 internal fun joinStage(token: String) {
@@ -902,14 +858,11 @@ internal fun setPublishEnabled(enabled: Boolean) {
 ```
 
 ## Rendering the Participants
+<a name="getting-started-pub-sub-android-participants"></a>
 
-Finally, we need to render the data we receive from the SDK onto the
-participant item that we created earlier. We already have the
-`RecyclerView` logic finished, so we just need to implement the
-`bind` API in `ParticipantItem`.
+Finally, we need to render the data we receive from the SDK onto the participant item that we created earlier. We already have the `RecyclerView` logic finished, so we just need to implement the `bind` API in `ParticipantItem`.
 
-We’ll start by adding the empty function and then walk through it step by
-step:
+We’ll start by adding the empty function and then walk through it step by step:
 
 ```
 fun bind(participant: StageParticipant) {
@@ -917,9 +870,7 @@ fun bind(participant: StageParticipant) {
 }
 ```
 
-First we’ll handle the easy state, the participant ID, publish state, and
-subscribe state. For these, we just update our `TextViews`
-directly:
+First we’ll handle the easy state, the participant ID, publish state, and subscribe state. For these, we just update our `TextViews` directly:
 
 ```
 val participantId = if (participant.isLocal) {
@@ -932,10 +883,7 @@ textViewPublish.text = participant.publishState.name
 textViewSubscribe.text = participant.subscribeState.name
 ```
 
-Next we’ll update the audio and video muted states. To get the muted state, we
-need to find the `ImageDevice` and `AudioDevice` from the
-streams array. To optimize performance, we remember the last attached device
-IDs.
+Next we’ll update the audio and video muted states. To get the muted state, we need to find the `ImageDevice` and `AudioDevice` from the streams array. To optimize performance, we remember the last attached device IDs.
 
 ```
 // This belongs outside the `bind` API.

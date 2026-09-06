@@ -1,27 +1,21 @@
-# IVS Broadcast SDK: Mobile Audio Modes | Real-Time Streaming
 
-Audio quality is an important part of any real-team media experience, and there isn’t a
-one-size-fits-all audio configuration that works best for every use case. To ensure that
-your users have the best experience when listening to an IVS real-time stream, our mobile
-SDKs provide several preset audio configurations, as well as more powerful customizations as
-needed.
+
+# IVS Broadcast SDK: Mobile Audio Modes \| Real-Time Streaming
+<a name="broadcast-mobile-audio-modes"></a>
+
+Audio quality is an important part of any real-team media experience, and there isn’t a one-size-fits-all audio configuration that works best for every use case. To ensure that your users have the best experience when listening to an IVS real-time stream, our mobile SDKs provide several preset audio configurations, as well as more powerful customizations as needed.
 
 ## Introduction
+<a name="broadcast-mobile-audio-modes-introduction"></a>
 
-The IVS mobile broadcast SDKs provide a `StageAudioManager` class. This
-class is designed to be the single point of contact for controlling the underlying audio
-modes on both platforms. On Android, this controls the [AudioManager](https://developer.android.com/reference/android/media/AudioManager "https://developer.android.com/reference/android/media/AudioManager"), including the audio mode, audio source, content type, usage,
-and communication devices. On iOS, it controls the application [AVAudioSession](https://developer.apple.com/documentation/avfaudio/avaudiosession "https://developer.apple.com/documentation/avfaudio/avaudiosession"), as well as whether [voiceProcessing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc "https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc") is enabled.
+The IVS mobile broadcast SDKs provide a `StageAudioManager` class. This class is designed to be the single point of contact for controlling the underlying audio modes on both platforms. On Android, this controls the [AudioManager](https://developer.android.com/reference/android/media/AudioManager), including the audio mode, audio source, content type, usage, and communication devices. On iOS, it controls the application [AVAudioSession](https://developer.apple.com/documentation/avfaudio/avaudiosession), as well as whether [voiceProcessing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc) is enabled.
 
-**Important**: Do not interact with
-`AVAudioSession` or `AudioManager` directly while the IVS
-real-time broadcast SDK is active. Doing so could result in the loss of audio, or audio
-being recorded from or played back on the wrong device.
+**Important**: Do not interact with `AVAudioSession` or `AudioManager` directly while the IVS real-time broadcast SDK is active. Doing so could result in the loss of audio, or audio being recorded from or played back on the wrong device.
 
-Before you create your first `DeviceDiscovery` or `Stage`
-object, the `StageAudioManager` class must be configured.
+Before you create your first `DeviceDiscovery` or `Stage` object, the `StageAudioManager` class must be configured.
 
-Android (Kotlin)
+------
+#### [ Android (Kotlin) ]
 
 ```
 StageAudioManager.getInstance(context).setPreset(StageAudioManager.UseCasePreset.VIDEO_CHAT) // The default value
@@ -30,10 +24,10 @@ val deviceDiscovery = DeviceDiscovery(context)
 val stage = Stage(context, token, this)
 
 // Other Stage implementation code
-
 ```
 
-iOS (Swift)
+------
+#### [ iOS (Swift) ]
 
 ```
 IVSStageAudioManager.sharedInstance().setPreset(.videoChat) // The default value
@@ -42,93 +36,77 @@ let deviceDiscovery = IVSDeviceDiscovery()
 let stage = try? IVSStage(token: token, strategy: self)
 
 // Other Stage implementation code
-
 ```
 
-If nothing is set on the `StageAudioManager` before initialization of a
-`DeviceDiscovery` or `Stage` instance, the
-`VideoChat` preset is applied automatically.
+------
+
+If nothing is set on the `StageAudioManager` before initialization of a `DeviceDiscovery` or `Stage` instance, the `VideoChat` preset is applied automatically.
 
 ## Audio Use Case Presets
+<a name="broadcast-mobile-audio-modes-presets"></a>
 
-The real-time broadcast SDK provides three presets, each tailored to common use cases,
-as described below. For each preset, we cover five key categories that differentiate the
-presets from each other.
+The real-time broadcast SDK provides three presets, each tailored to common use cases, as described below. For each preset, we cover five key categories that differentiate the presets from each other.
 
-The **Volume Rocker** category refers to the type of
-volume (media volume or call volume) that is used or changed via the physical volume
-rockers on the device. Note that this impacts volume when switching audio modes. For
-example, suppose the device volume is set to the maximum value while using the Video
-Chat preset. Switching to the Subscribe Only preset causes a different volume level from
-the operating system, which could lead to a significant volume change on the
-device.
+The **Volume Rocker** category refers to the type of volume (media volume or call volume) that is used or changed via the physical volume rockers on the device. Note that this impacts volume when switching audio modes. For example, suppose the device volume is set to the maximum value while using the Video Chat preset. Switching to the Subscribe Only preset causes a different volume level from the operating system, which could lead to a significant volume change on the device.
 
 ### Video Chat
+<a name="audio-modes-presets-video-chat"></a>
 
-This is the default preset, designed for when the local device is going to have a
-real-time conversation with other participants.
+This is the default preset, designed for when the local device is going to have a real-time conversation with other participants.
 
-**Known issue on iOS**: Using this preset and not
-attaching a microphone causes audio to play through the earpiece instead of the
-device speaker. Use this preset only in combination with a microphone.
+**Known issue on iOS**: Using this preset and not attaching a microphone causes audio to play through the earpiece instead of the device speaker. Use this preset only in combination with a microphone.
 
-| Category                 | Android                                                                    | iOS                                                                                                                                                                             |
-| ------------------------ | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Echo Cancellation**    | Enabled                                                                    | Enabled                                                                                                                                                                         |
-| **Noise Suppression**    | Enabled                                                                    | Enabled                                                                                                                                                                         |
-| **Volume Rocker**        | Call Volume                                                                | Call Volume                                                                                                                                                                     |
-| **Microphone Selection** | Limited based on the OS. USB microphones may not be<br>available.          | Limited based on the OS. USB and Bluetooth microphones may<br>not be available.<br>Bluetooth headsets that handle both input and output together<br>should work; e.g., AirPods. |
-| **Audio Output**         | Any output device should work.                                             | Limited based on the OS. Wired headsets may not be<br>available.                                                                                                                |
-| **Audio Quality**        | Medium / Low. It will sound like a phone call, not like<br>media playback. | Medium / Low. It will sound like a phone call, not like<br>media playback.                                                                                                      |
+
+| Category | Android | iOS | 
+| --- | --- | --- | 
+| Echo Cancellation | Enabled | Enabled | 
+| Noise Suppression | Enabled | Enabled | 
+| Volume Rocker | Call Volume | Call Volume | 
+| Microphone Selection | Limited based on the OS. USB microphones may not be available. | Limited based on the OS. USB and Bluetooth microphones may not be available.<br />Bluetooth headsets that handle both input and output together should work; e.g., AirPods. | 
+| Audio Output | Any output device should work. | Limited based on the OS. Wired headsets may not be available. | 
+| Audio Quality | Medium / Low. It will sound like a phone call, not like media playback. | Medium / Low. It will sound like a phone call, not like media playback. | 
 
 ### Subscribe Only
+<a name="audio-modes-presets-subscribe-only"></a>
 
-This preset is designed for when you plan to subscribe to other publishing
-participants but not publish yourself. It focuses on audio quality and supporting
-all available output devices.
+This preset is designed for when you plan to subscribe to other publishing participants but not publish yourself. It focuses on audio quality and supporting all available output devices.
 
-| Category                 | Android                                                               | iOS                                                                   |
-| ------------------------ | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Echo Cancellation**    | Disabled                                                              | Disabled                                                              |
-| **Noise Suppression**    | Disabled                                                              | Disabled                                                              |
-| **Volume Rocker**        | Media Volume                                                          | Media Volume                                                          |
-| **Microphone Selection** | N/A, this preset is not designed for<br>publishing.                   | N/A, this preset is not designed for<br>publishing.                   |
-| **Audio Output**         | Any output device should work.                                        | Any output device should work.                                        |
-| **Audio Quality**        | High. Any media type should come through clearly, including<br>music. | High. Any media type should come through clearly, including<br>music. |
+
+| Category | Android | iOS | 
+| --- | --- | --- | 
+| Echo Cancellation | Disabled | Disabled | 
+| Noise Suppression | Disabled | Disabled | 
+| Volume Rocker | Media Volume | Media Volume | 
+| Microphone Selection | N/A, this preset is not designed for publishing. | N/A, this preset is not designed for publishing. | 
+| Audio Output | Any output device should work. | Any output device should work. | 
+| Audio Quality | High. Any media type should come through clearly, including music. | High. Any media type should come through clearly, including music. | 
 
 ### Studio
+<a name="audio-modes-presets-studio"></a>
 
-This preset is designed for high quality subscribing while maintaining the ability
-to publish. It requires the recording and playback hardware to provide echo
-cancellation. A use case here would be using a USB microphone and a wired headset.
-The SDK will maintain the highest quality audio while relying on the physical
-separation of those devices from causing echo.
+This preset is designed for high quality subscribing while maintaining the ability to publish. It requires the recording and playback hardware to provide echo cancellation. A use case here would be using a USB microphone and a wired headset. The SDK will maintain the highest quality audio while relying on the physical separation of those devices from causing echo.
 
-| Category                 | Android                                                                                                                                                                                               | iOS                                                                                                                                                                                                                               |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Echo Cancellation**    | Disabled                                                                                                                                                                                              | Disabled                                                                                                                                                                                                                          |
-| **Noise Supression**     | Disabled                                                                                                                                                                                              | Disabled                                                                                                                                                                                                                          |
-| **Volume Rocker**        | Media Volume in most cases. Call Volume when a Bluetooth<br>microphone is connected.                                                                                                                  | Media Volume                                                                                                                                                                                                                      |
-| **Microphone Selection** | Any microphone should work.                                                                                                                                                                           | Any microphone should work.                                                                                                                                                                                                       |
-| **Audio Output**         | Any output device should work.                                                                                                                                                                        | Any output device should work.                                                                                                                                                                                                    |
-| **Audio Quality**        | High. Both sides should be able to send music and hear it<br>clearly on the other side.<br>When a Bluetooth headset is connected, audio quality will drop<br>due to Bluetooth SCO mode being enabled. | High. Both sides should be able to send music and hear it<br>clearly on the other side.<br>When a Bluetooth headset is connected, audio quality may drop<br>due to Bluetooth SCO mode being enabled, depending on the<br>headset. |
+
+| Category | Android | iOS | 
+| --- | --- | --- | 
+| Echo Cancellation | Disabled | Disabled | 
+| Noise Supression | Disabled | Disabled | 
+| Volume Rocker | Media Volume in most cases. Call Volume when a Bluetooth microphone is connected.  | Media Volume | 
+| Microphone Selection | Any microphone should work. | Any microphone should work. | 
+| Audio Output | Any output device should work. | Any output device should work. | 
+| Audio Quality | High. Both sides should be able to send music and hear it clearly on the other side.<br />When a Bluetooth headset is connected, audio quality will drop due to Bluetooth SCO mode being enabled. | High. Both sides should be able to send music and hear it clearly on the other side.<br />When a Bluetooth headset is connected, audio quality may drop due to Bluetooth SCO mode being enabled, depending on the headset.  | 
 
 ## Advanced Use Cases
+<a name="broadcast-mobile-audio-modes-advanced-use-cases"></a>
 
-Beyond the presets, both the iOS and Android real-time streaming broadcast SDKs allow
-configuring the underlying platform audio modes:
+Beyond the presets, both the iOS and Android real-time streaming broadcast SDKs allow configuring the underlying platform audio modes:
++ On Android, set the [AudioSource](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource), [Usage](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM), and [ContentType](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_MOVIE).
++ On iOS, use [AVAudioSession.Category](https://developer.apple.com/documentation/avfaudio/avaudiosession/category), [AVAudioSession.CategoryOptions](https://developer.apple.com/documentation/avfaudio/avaudiosession/categoryoptions), [AVAudioSession.Mode](https://developer.apple.com/documentation/avfaudio/avaudiosession/mode), and the ability to toggle if [voice processing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc) is enabled or not while publishing.
 
-- On Android, set the [AudioSource](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource "https://developer.android.com/reference/android/media/MediaRecorder.AudioSource"), [Usage](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM "https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM"), and [ContentType](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_MOVIE "https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_MOVIE").
-- On iOS, use [AVAudioSession.Category](https://developer.apple.com/documentation/avfaudio/avaudiosession/category "https://developer.apple.com/documentation/avfaudio/avaudiosession/category"), [AVAudioSession.CategoryOptions](https://developer.apple.com/documentation/avfaudio/avaudiosession/categoryoptions "https://developer.apple.com/documentation/avfaudio/avaudiosession/categoryoptions"), [AVAudioSession.Mode](https://developer.apple.com/documentation/avfaudio/avaudiosession/mode "https://developer.apple.com/documentation/avfaudio/avaudiosession/mode"), and the ability to toggle if [voice processing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc "https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc") is enabled or not while publishing.
+Note: When using these audio SDK methods, it is possible to incorrectly configure the underlying audio session. For example, using the `.allowBluetooth` option on iOS in combination with the `.playback` category creates an invalid audio configuration and the SDK cannot record or play back audio. These methods are designed to be used only when an application has specific audio-session requirements that have been validated.
 
-Note: When using these audio SDK methods, it is possible to incorrectly configure the
-underlying audio session. For example, using the `.allowBluetooth` option on
-iOS in combination with the `.playback` category creates an invalid audio
-configuration and the SDK cannot record or play back audio. These methods are designed
-to be used only when an application has specific audio-session requirements that have
-been validated.
-
-Android (Kotlin)
+------
+#### [ Android (Kotlin) ]
 
 ```
 // This would act similar to the Subscribe Only preset, but it uses a different ContentType.
@@ -140,10 +118,10 @@ StageAudioManager.getInstance(context)
 val stage = Stage(context, token, this)
 
 // Other Stage implementation code
-
 ```
 
-iOS (Swift)
+------
+#### [ iOS (Swift) ]
 
 ```
 // This would act similar to the Subscribe Only preset, but it uses a different mode and options.
@@ -155,93 +133,60 @@ IVSStageAudioManager.sharedInstance()
 let stage = try? IVSStage(token: token, strategy: self)
 
 // Other Stage implementation code
-
 ```
 
+------
+
 ### iOS Echo Cancellation
+<a name="advanced-use-cases-ios_echo_cancellation"></a>
 
-Echo cancellation on iOS can be independently controlled via
-`IVSStageAudioManager` as well using its
-`echoCancellationEnabled` method. This method controls whether [voice processing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc "https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc") is enabled on the input and output nodes of the
-underlying `AVAudioEngine` used by the SDK. It is important to understand
-the effect of changing this property manually:
-
-- The `AVAudioEngine` property is honored only if the SDK’s
-  microphone is active; this is necessary due to the iOS requirement that
-  voice processing be enabled on both the input and output nodes
-  simultaneously. Normally this is done by using the microphone returned by
-  `IVSDeviceDiscovery` to create an
-  `IVSLocalStageStream` to publish. Alternately, the microphone
-  can be enabled, without being used to publish, by attaching an
-  `IVSAudioDeviceStatsCallback` to the microphone itself. This
-  alternate approach is useful if echo cancellation is needed while using a
-  custom audio-source-based microphone instead of the IVS SDK’s
-  microphone.
-- Enabling the `AVAudioEngine` property requires a mode of
-  `.videoChat` or `.voiceChat`. Requesting a
-  different mode causes iOS’s underlying audio framework to fight the SDK,
-  causing audio loss.
-- Enabling `AVAudioEngine` automatically enables the
-  `.allowBluetooth` option.
+Echo cancellation on iOS can be independently controlled via `IVSStageAudioManager` as well using its `echoCancellationEnabled` method. This method controls whether [voice processing](https://developer.apple.com/documentation/avfaudio/avaudioionode/3152101-voiceprocessingenabled?language=objc) is enabled on the input and output nodes of the underlying `AVAudioEngine` used by the SDK. It is important to understand the effect of changing this property manually:
++ The `AVAudioEngine` property is honored only if the SDK’s microphone is active; this is necessary due to the iOS requirement that voice processing be enabled on both the input and output nodes simultaneously. Normally this is done by using the microphone returned by `IVSDeviceDiscovery` to create an `IVSLocalStageStream` to publish. Alternately, the microphone can be enabled, without being used to publish, by attaching an `IVSAudioDeviceStatsCallback` to the microphone itself. This alternate approach is useful if echo cancellation is needed while using a custom audio-source-based microphone instead of the IVS SDK’s microphone.
++ Enabling the `AVAudioEngine` property requires a mode of `.videoChat` or `.voiceChat`. Requesting a different mode causes iOS’s underlying audio framework to fight the SDK, causing audio loss.
++ Enabling `AVAudioEngine` automatically enables the `.allowBluetooth `option.
 
 Behaviors can differ depending on the device and iOS version.
 
 ### iOS Custom Audio Sources
+<a name="advanced-use-cases-ios_custom_audio_sources"></a>
 
-Custom audio sources can be used with the SDK by using
-`IVSDeviceDiscovery.createAudioSource`. When connecting to a Stage,
-the IVS real-time streaming broadcast SDK still manages an internal
-`AVAudioEngine` instance for audio playback, even if the SDK’s
-microphone is not used. As a result, the values provided to
-`IVSStageAudioManager` must be compatible with the audio being
-provided by the custom audio source.
+Custom audio sources can be used with the SDK by using `IVSDeviceDiscovery.createAudioSource`. When connecting to a Stage, the IVS real-time streaming broadcast SDK still manages an internal `AVAudioEngine` instance for audio playback, even if the SDK’s microphone is not used. As a result, the values provided to `IVSStageAudioManager` must be compatible with the audio being provided by the custom audio source.
 
-If the custom audio source being used to publish is recording from the microphone
-but managed by the host application, the echo-cancellation SDK above will not work
-unless the SDK-managed microphone is activated. To work around that requirement, see
-[iOS Echo Cancellation](#advanced-use-cases-ios_echo_cancellation "#advanced-use-cases-ios_echo_cancellation").
+If the custom audio source being used to publish is recording from the microphone but managed by the host application, the echo-cancellation SDK above will not work unless the SDK-managed microphone is activated. To work around that requirement, see [iOS Echo Cancellation](#advanced-use-cases-ios_echo_cancellation).
 
 ### Publishing with Bluetooth on Android
+<a name="advanced-use-cases-bluetooth-android"></a>
 
-The SDK automatically reverts to the `VIDEO_CHAT` preset on Android
-when the following conditions are met:
+The SDK automatically reverts to the `VIDEO_CHAT` preset on Android when the following conditions are met:
++ The assigned configuration does not use the `VOICE_COMMUNICATION` usage value.
++ A Bluetooth microphone is connected to the device.
++ The local participant is publishing to a Stage.
 
-- The assigned configuration does not use the
-  `VOICE_COMMUNICATION` usage value.
-- A Bluetooth microphone is connected to the device.
-- The local participant is publishing to a Stage.
-
-This is a limitation of the Android operating system in regard to how Bluetooth
-headsets are used for recording audio.
+This is a limitation of the Android operating system in regard to how Bluetooth headsets are used for recording audio.
 
 ## Integrating with Other SDKs
+<a name="broadcast-mobile-audio-modes-integrating-other-sdks"></a>
 
-Because both iOS and Android support only one active audio mode per application, it is
-common to run into conflicts if your application uses multiple SDKs that require control
-of the audio mode. When you run into these conflicts, there are some common resolution
-strategies to try, explained below.
+Because both iOS and Android support only one active audio mode per application, it is common to run into conflicts if your application uses multiple SDKs that require control of the audio mode. When you run into these conflicts, there are some common resolution strategies to try, explained below.
 
 ### Match Audio Mode Values
+<a name="integrating-other-sdks-match-values"></a>
 
-Using either the IVS SDK’s advanced audio-configuration options or the other SDK’s
-functionality, have the two SDKs align on the underlying values.
+Using either the IVS SDK’s advanced audio-configuration options or the other SDK’s functionality, have the two SDKs align on the underlying values.
 
 ### Agora
+<a name="integrating-other-sdks-agora"></a>
 
 #### iOS
+<a name="integrating-other-sdks-agora-ios"></a>
 
-On iOS, telling the Agora SDK to keep the `AVAudioSession` active
-will prevent it from deactivating while the IVS real-time streaming broadcast
-SDK is using it.
+On iOS, telling the Agora SDK to keep the `AVAudioSession` active will prevent it from deactivating while the IVS real-time streaming broadcast SDK is using it.
 
 ```
 myRtcEngine.SetParameters("{\"che.audio.keep.audiosession\":true}");
 ```
 
 #### Android
+<a name="integrating-other-sdks-agora-android"></a>
 
-Avoid calling `setEnableSpeakerphone` on `RtcEngine`,
-and call `enableLocalAudio(false)` while publishing with the IVS
-real-time streaming broadcast SDK. You can call
-`enableLocalAudio(true)` again when the IVS SDK is not
-publishing.
+Avoid calling `setEnableSpeakerphone` on `RtcEngine`, and call `enableLocalAudio(false)` while publishing with the IVS real-time streaming broadcast SDK. You can call `enableLocalAudio(true)` again when the IVS SDK is not publishing.
