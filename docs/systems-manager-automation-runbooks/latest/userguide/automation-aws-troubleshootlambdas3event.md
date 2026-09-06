@@ -56,8 +56,11 @@ notifications triggers the Lambda function.
 The `AutomationAssumeRole` parameter requires the following actions to
 use the runbook successfully.
 
+- `lambda:GetFunction`
 - `lambda:GetPolicy`
+- `lambda:ListTags`
 - `s3:GetBucketNotification`
+- `s3:ListBucket`
 
 **Document Steps**
 
