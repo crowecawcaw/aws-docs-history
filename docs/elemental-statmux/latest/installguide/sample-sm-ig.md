@@ -1,14 +1,14 @@
-This is version 2.20 of the AWS Elemental Statmux documentation.
-This is the latest version. For prior versions, see the
-_Previous Versions_ section of [AWS Elemental Statmux
-and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
+
+
+This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Sample Install
+<a name="sample-sm-ig"></a>
 
 Following is a screen printout of a typical install, showing the prompts and possible responses.
 
 ```
-[elemental@hostname ~] **sudo sh ./elemental\_production\_statmux\_2.20.0.12345.run -z -t**
+[elemental@hostname ~] sudo sh ./elemental_production_statmux_2.20.0.12345.run -z -t
 Verifying archive integrity... All good.
 Uncompressing Elemental Installer  100%
 /tmp/selfgz142612827/elemental_system_update/rpms /tmp/selfgz142612827
@@ -117,31 +117,31 @@ IMPORTANT INFORMATION
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Do you agree to these terms? [N] `y`
+Do you agree to these terms? [N] y
 ```
 
 You are prompted to configure the network and update the password.
 
 ```
 Enter this server's Hostname: [elemental@hostname ~]statmux-01
-Detected 2 ethernet devices
-Configuring eth0
+Detected 2 ethernet devices 
+Configuring eth0 
 
-Does eth0 use DHCP to get its IP address? [Y]
-Would you like to configure eth1? [N]
-The firewall for this system is currently enabled. Would you like to disable it? [N]
+Does eth0 use DHCP to get its IP address? [Y] 
+Would you like to configure eth1? [N] 
+The firewall for this system is currently enabled. Would you like to disable it? [N] 
 For security purposes, we require that you change the default password.
 ```
 
@@ -221,14 +221,14 @@ Starting services...
 Starting system logger: [60G[[0;32m  OK  [0;39m]
 Starting httpd: httpd.worker: Could not reliably determine the server's fully qualified domain name, using ::1 for ServerName
 [60G[[0;32m  OK  [0;39m]
-Starting ntpd:
+Starting ntpd: 
 Starting snmpd: [60G[[0;32m  OK  [0;39m]
 ```
 
 You are prompted to start elemental\_se.
 
 ```
-Would you like to start the Elemental service now? [Y]
+Would you like to start the Elemental service now? [Y] 
 Starting elemental_se:     [  OK  ]
 Starting elemental-motd:   [60G[[0;32m  OK  [0;39m]
 Starting elemental-issue:  [  OK  ]
