@@ -16,7 +16,7 @@ Here are a few examples to illustrate how you can use traffic dials to change th
 
 **Upgrade your application by Region**
 If you want to upgrade an application in a Region or do maintenance, first set the traffic dial to 0
-to cut off traffic for the Region. When you complete the work and you're ready bring the Region back into service,
+to cut off traffic for the Region. When you complete the work and you're ready to bring the Region back into service,
 adjust the traffic dial to 100 to dial the traffic back up.
 
 **Mix traffic between two Regions**

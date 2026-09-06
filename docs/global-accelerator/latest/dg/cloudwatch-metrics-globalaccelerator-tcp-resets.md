@@ -43,14 +43,14 @@ The following are common reasons that Global Accelerator sends a TCP reset:
 - If Global Accelerator receives an unexpected packet while building the connection with either the client
   or the endpoint during the TCP handshake, Global Accelerator generates a TCP reset.
 
-If you see a stable number of `AGA_Reset_Count` metrics for an accelerator, this is because the
+If you see a stable number of `TCP_AGA_Reset_Count` metrics for an accelerator, this is because the
 client or the endpoint sent data towards Global Accelerator to a closed or expired connection.
 
 Not all increases in TCP reset metrics are cause for concern nor do they always indicate an issue that needs to be
 addressed. Review the information provided in the following sections of this topic to understand the scenarios
 that can cause a temporary increase in RSTs, such as endpoint resource scaling.
 
-If you notice a sharp increase in `AGA_Reset_Count` metrics and the increase aligns with related
+If you notice a sharp increase in `TCP_AGA_Reset_Count` metrics and the increase aligns with related
 metrics changes on the endpoint side, such as a scale up, scale down, or an unhealthy endpoint, the endpoint
 might have become unreachable and triggered the Global Accelerator TCP reset. If you can't locate the source of ongoing
 TCP reset increases or can't address the issue yourself, you can get help investigating the issue by contacting

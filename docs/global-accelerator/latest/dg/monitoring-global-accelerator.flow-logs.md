@@ -30,7 +30,7 @@ more information, see _Vended Logs_ under the _Logs_ tab at
 Using Amazon Athena and Amazon Quick with your Global Accelerator flow log data can help you troubleshoot reachability
 issues for your application, identify security vulnerabilities, and get an overview of how users access
 your application. To learn more, see the following AWS blog post:
-[Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Quick](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/").
+[Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/").
 
 ###### Contents
 
@@ -55,11 +55,11 @@ and accessed.
    your log files:
 
 ```
-aws globalaccelerator update-accelerator-attributes
-       --accelerator-arn arn:aws:globalaccelerator::`012345678901`:accelerator/`1234abcd-abcd-1234-abcd-1234abcdefgh`
-       --region us-west-2
-       --flow-logs-enabled
-       --flow-logs-s3-bucket `s3-bucket-name`
+aws globalaccelerator update-accelerator-attributes \
+       --accelerator-arn arn:aws:globalaccelerator::`012345678901`:accelerator/`1234abcd-abcd-1234-abcd-1234abcdefgh` \
+       --region us-west-2 \
+       --flow-logs-enabled \
+       --flow-logs-s3-bucket `s3-bucket-name` \
        --flow-logs-s3-prefix `s3-bucket-prefix`
 ```
 

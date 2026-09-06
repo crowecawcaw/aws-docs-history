@@ -15,10 +15,10 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy: AWSServiceRoleForGlobalAccelerator
+## AWS managed policy: AWSGlobalAcceleratorSLRPolicy
 
-You can't attach `AWSServiceRoleForGlobalAccelerator` to your IAM entities.
-This policy is attached to a service-linked role that allows AWS Global Accelerator to access AWS
+You can't attach the `AWSGlobalAcceleratorSLRPolicy` managed policy to your IAM entities.
+This policy is attached to the `AWSServiceRoleForGlobalAccelerator` service-linked role, which allows AWS Global Accelerator to access AWS
 services and resources that are used or managed by Global Accelerator. For more information, see
 [Service-linked role for AWS Global Accelerator](using-service-linked-roles.md "using-service-linked-roles.md").
 

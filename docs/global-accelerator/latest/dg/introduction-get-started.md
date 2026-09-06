@@ -28,7 +28,7 @@ applied only to traffic that is already directed to the endpoint group, not all
 listener traffic. By default, the traffic dial is set to 100% for all regional
 endpoint groups.
 
-For a custom routing accelerators, traffic is deterministically routed to a specific destination in a
+For a custom routing accelerator, traffic is deterministically routed to a specific destination in a
 VPC subnet, based on the listener port that the traffic is received on. 5. **Add endpoints to endpoint groups:** The endpoints
 that you add depend on the type of accelerator.
 

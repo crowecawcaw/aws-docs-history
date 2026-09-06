@@ -9,7 +9,7 @@ Global Accelerator provides the following three main avenues for logging and tra
 
 **Amazon CloudWatch metrics and alarms**
 Using CloudWatch, you can monitor, in real time, your AWS resources and the applications that
-you run on AWS. As soon as your accelerator is deployed, CloudWatch begins collect and tracking metrics for Global Accelerator. Metrics
+you run on AWS. As soon as your accelerator is deployed, CloudWatch begins collecting and tracking metrics for Global Accelerator. Metrics
 are variables that you can view for confirmation that traffic is flowing, or that you can measure over time.
 
 You can use metrics, for example, to verify that traffic is flowing through Global Accelerator to your endpoints, and back out
@@ -20,9 +20,9 @@ exceeds a certain threshold for a period of time.
 For more information, see [Using Amazon CloudWatch with AWS Global Accelerator](cloudwatch-monitoring.md "cloudwatch-monitoring.md").
 
 **Global Accelerator flow logs**
-Server flow logs are logs that you set up in Global Accelerator that provide detailed
+Flow logs are logs that you set up in Global Accelerator that provide detailed
 records about traffic that flows through an accelerator to an
-endpoint. Server flow logs are useful for many applications, for example, for security and access audits. For more
+endpoint. Flow logs are useful for many applications, for example, for security and access audits. For more
 information, see [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md "monitoring-global-accelerator.flow-logs.md").
 
 **AWS CloudTrail logs**

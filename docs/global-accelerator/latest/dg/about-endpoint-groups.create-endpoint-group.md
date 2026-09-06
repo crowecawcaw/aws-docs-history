@@ -3,7 +3,7 @@
 You work with endpoint groups on the AWS Global Accelerator console or by using an API operation. You
 can add or remove endpoints from an endpoint group at any time.
 
-This section explains how to add a standard endpoint groups on the AWS Global Accelerator console. If you
+This section explains how to add a standard endpoint group on the AWS Global Accelerator console. If you
 want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
 # To add a standard endpoint group

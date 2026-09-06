@@ -14,7 +14,7 @@ messaging sessions.
 
 Your application can call a Global Accelerator API and receive a full static mapping of Global Accelerator ports and their
 associated destination IP addresses and ports. You can save that static mapping, and then your
-matchmaking service use it to route users to specific destination EC2 instances. You don't have
+matchmaking service uses it to route users to specific destination EC2 instances. You don't have
 to make any modifications to your client software to start using Global Accelerator with your application.
 
 To configure a custom routing accelerator, you select a VPC subnet endpoint. Then you define a destination port range that

@@ -46,12 +46,12 @@ When you create a port override, keep the following in mind:
 - **Health check continues to use the original port.**
   If you specify a port override for a port that is configured as a health check port, the health
   check still uses the original port, not the override port. For example, say that you specify
-  health checks on listener port 80, and you also specify a port override from listener port 80
-  to endpoint port 480. Health checks continue to use endpoint port 80. However, user traffic that
+  health checks on port 80, and you also specify a port override from listener port 80
+  to endpoint port 480. Health checks continue to use port 80 on the endpoint (the default mapping). However, user traffic that
   comes in through port 80 goes to port 480 on the endpoint.
 
 This behavior maintains consistency between Network Load Balancer, Application Load Balancer, EC2 instance, and Elastic IP address
-endpoints. Because Network Load Balancers and Application Load Balancers don’t map health check ports to a different endpoint ports
+endpoints. Because Network Load Balancers and Application Load Balancers don’t map health check ports to a different endpoint port
 when you specify a port override in Global Accelerator, it would be inconsistent for Global Accelerator to map health
 check ports to different endpoint ports for EC2 instance and Elastic IP address endpoints.
 

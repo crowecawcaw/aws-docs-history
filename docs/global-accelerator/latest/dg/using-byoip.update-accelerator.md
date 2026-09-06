@@ -45,14 +45,14 @@ keep in mind the following:
 
 - You can change the BYOIP address for both standard accelerators and custom routing accelerators. After you create an
   accelerator with one or two BYOIP addresses, that accelerator must always have at least one BYOIP address. However, you can update
-  the accelerator to change one or both static IP addresses to use a BYOIP addresses or to change the BYOIP address
+  the accelerator to change one or both static IP addresses to use a BYOIP address or to change the BYOIP address
 - If you have an accelerator with two BYOIP static IP addresses, you can change only one of them to use a static IP
   address assigned by Global Accelerator. Note the following about changing a BYOIP static IP address for an accelerator to a Global Accelerator-assigned static
   IP address:
 
-  - You can only change the address back to one of your original Global Accelerator static IP addresses if you
-    make the change _within 10 days_ of when you changed it to a BYOIP address.
-    After 10 days, the original static IP address is returned to the Global Accelerator IP address pool and reused. After that,
+  - You can only change the address back to your original BYOIP static IP address if you
+    make the change _within 10 days_ of when you changed it to a Global Accelerator-assigned address.
+    After 10 days, the original BYOIP static IP address is released and can no longer be restored. After that,
     if you update your accelerator to change a BYOIP address to a Global Accelerator-assigned IP address, you are assigned a new IP
     address from the Global Accelerator IP address pool.
   - You can't change both BYOIP static IP addresses to use Global Accelerator static IP addresses instead. To use two

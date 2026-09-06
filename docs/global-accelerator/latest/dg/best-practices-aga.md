@@ -45,7 +45,7 @@ The following examples illustrate how this works:
   network interfaces in subnetA and subnetB
   to Accelerator1, and then add an ALB2 with elastic network interfaces in subnetA and subnetC
   to Accelerator2, Global Accelerator creates three elastic network interfaces: one in subnetA, one in
-  subnetB, and one in subnetC. The elastic network interface in subnetA delivers traffic on
+  subnetB, and one in subnetC. The elastic network interface in subnetA delivers traffic
   for both Accelerator1 and Accelerator2.
 
 As shown in Example 3, elastic network interfaces are reused across accelerators

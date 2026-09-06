@@ -7,7 +7,7 @@ original client is preserved for packets that arrive at the load balancer.
 Endpoints on custom routing accelerators always have the client IP address preserved. There are three types of endpoints for
 standard accelerators that can preserve the source IP address of the
 client in incoming packets: Application Load Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. There are requirements and
-limitations for specific resources that you add as endpoint with client IP address
+limitations for specific resources that you add as endpoints with client IP address
 preservation. For more information, see [Transition endpoints with client IP address preservation](about-endpoints.sipp.md "about-endpoints.sipp.md").
 
 Note that Global Accelerator does not support client IP address preservation for the following endpoint types:

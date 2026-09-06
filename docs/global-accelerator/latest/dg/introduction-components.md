@@ -84,7 +84,7 @@ releases across different AWS Regions.
 An endpoint is the resource that Global Accelerator directs traffic to.
 
 Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses. An Application Load Balancer endpoint can
-be an internet-facing or internal. Traffic for standard accelerators is routed to endpoints based on
+be internet-facing or internal. Traffic for standard accelerators is routed to endpoints based on
 the health of the endpoint along with configuration options that you choose, such as endpoint weights. For each
 endpoint, you can configure weights, which are numbers that you can use to
 specify the proportion of traffic to route to each one. This can be useful,

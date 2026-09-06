@@ -9,7 +9,7 @@ to Amazon EC2 instance destinations in virtual private cloud (VPC) subnet endpoi
 - [Step 1: Create a custom routing accelerator](#getting-started-accelerator-custom "#getting-started-accelerator-custom")
 - [Step 2: Add listeners](#getting-started-create-listeners-custom "#getting-started-create-listeners-custom")
 - [Step 3: Add endpoint groups](#getting-started-add-endpoint-groups-custom "#getting-started-add-endpoint-groups-custom")
-- [Step 4: Add endpoints](#getting-started-add-endpoints-custom "#getting-started-add-endpoints-custom")
+- [Step 4: Add VPC subnet endpoints](#getting-started-add-endpoints-custom "#getting-started-add-endpoints-custom")
 - [Step 5 (optional): Delete your accelerator](#getting-started-delete-accelerator-custom "#getting-started-delete-accelerator-custom")
 
 ## Before you begin
@@ -20,8 +20,7 @@ include multiple Amazon EC2 instances. For instructions for creating the resourc
 the following:
 
 - Create a VPC subnet. For more information, see [Create and Configure Your VPC](../../../directoryservice/latest/admin-guide/gsg_create_vpc.md "../../../directoryservice/latest/admin-guide/gsg_create_vpc.md") in the _Directory Service Administration Guide_.
-- Optionally, launch one or more Amazon EC2 instances in your VPC. For more information, see [Create your EC2 resources and launch
-  your EC2 instance](../../../efs/latest/ug/gs-step-one-create-ec2-resources.md "../../../efs/latest/ug/gs-step-one-create-ec2-resources.md") in the _Amazon EC2 User Guide_.
+- Optionally, launch one or more Amazon EC2 instances in your VPC. For more information, see [Get started with Amazon EC2](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the _Amazon EC2 User Guide_.
 
 When you create a resource to add to Global Accelerator, be aware of the following:
 

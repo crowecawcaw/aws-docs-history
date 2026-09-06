@@ -16,7 +16,7 @@ Cross-account support in Global Accelerator enables you to do the following:
   the same CIDR block, reducing the number of CIDR blocks that you require.
   You can work with cross-account attachments and resources in the Global Accelerator console, or by using Global Accelerator API operations
   with the AWS Command Line Interface (AWS CLI) or an AWS SDK. For example, as a principal, you can use the
-  [UpdateEndpoints](../api/API_AddEndpoints.md "../api/API_AddEndpoints.md")
+  [AddEndpoints](../api/API_AddEndpoints.md "../api/API_AddEndpoints.md")
   operation to add a cross-account resource as an endpoint for an accelerator. When you use the API operation, you specify
   the cross-account attachment ARN and the endpoint ID. For more information, see the
   [AWS Global Accelerator API Reference Guide](../api/Welcome.md "../api/Welcome.md").

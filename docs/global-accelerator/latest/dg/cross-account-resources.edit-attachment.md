@@ -2,7 +2,7 @@
 
 Follow the steps in this section to edit a cross-account attachment using the AWS Global Accelerator console.
 
-This section explains how to edit a cross-acount attachment by using
+This section explains how to edit a cross-account attachment by using
 the AWS Global Accelerator console. To learn about using API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
 You can edit a cross-account attachment to add or remove principals or resources, rename the attachment, or

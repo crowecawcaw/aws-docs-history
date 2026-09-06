@@ -12,7 +12,7 @@ one AWS Region or multiple Regions.
 
 ###### Important
 
-By default, Global Accelerator provides you with static IP addresses that are associated with your accelerator
+By default, Global Accelerator provides you with static IP addresses that are associated with your accelerator.
 The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and
 it no longer accepts or routes traffic. However, when you _delete_ an accelerator, you lose the
 Global Accelerator static IP addresses that are assigned to the accelerator, so that you can no longer route traffic by using them.

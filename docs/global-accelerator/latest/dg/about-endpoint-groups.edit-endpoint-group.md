@@ -1,6 +1,6 @@
 # Edit a standard endpoint group
 
-This section explains how to edit a standard endpoint groups on the AWS Global Accelerator console. If you
+This section explains how to edit a standard endpoint group on the AWS Global Accelerator console. If you
 want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
 # To edit an endpoint group

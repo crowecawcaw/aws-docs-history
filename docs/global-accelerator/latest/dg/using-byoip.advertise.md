@@ -64,7 +64,7 @@ accelerator using the console or using API operations, see [Delete accelerator](
 The following is an example of requesting Global Accelerator to withdraw an address range.
 
 ```
-aws globalaccelerator --region us-west-2 withdraw-byoip-cidr
+aws globalaccelerator --region us-west-2 withdraw-byoip-cidr \
     --cidr 203.0.113.0/24
 
 ```

@@ -31,11 +31,11 @@ chapter includes steps for working with tagging in the console. For more informa
 about working with tags by using the AWS CLI and the Global Accelerator API, including CLI examples,
 see the following operations in the _AWS Global Accelerator API Reference_:
 
-- [CreateAccelerator](../api/CreateAccelerator.md "../api/CreateAccelerator.md")
-- [CreateCrossAccountAttachment](../api/CreateCrossAccountAttachment.md "../api/CreateCrossAccountAttachment.md")
-- [TagResource](../api/TagResource.md "../api/TagResource.md")
-- [UntagResource](../api/UntagResource.md "../api/UntagResource.md")
-- [ListTagsForResource](../api/ListTagsForResource.md "../api/ListTagsForResource.md")
+- [CreateAccelerator](../api/API_CreateAccelerator.md "../api/API_CreateAccelerator.md")
+- [CreateCrossAccountAttachment](../api/API_CreateCrossAccountAttachment.md "../api/API_CreateCrossAccountAttachment.md")
+- [TagResource](../api/API_TagResource.md "../api/API_TagResource.md")
+- [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md")
+- [ListTagsForResource](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
 
 ## Tagging support in Global Accelerator
 

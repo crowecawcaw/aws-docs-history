@@ -9,8 +9,9 @@ Amazon EC2 instances, Network Load Balancers, and Application Load Balancers:
   with the Network Load Balancer to include the IP address of the original client in the IP header of the packet
   so that your application can access it.
 - For an Application Load Balancer endpoint with client IP
-  address preservation, Global Accelerator works together with the Application Load Balancer to provide an
-  `X-Forwarded` header, `X-Forwarded-For`, that includes the
+  address preservation, Global Accelerator preserves the client IP address in the traffic
+  that it sends to the Application Load Balancer. The Application Load Balancer then provides an
+  `X-Forwarded-For` header that includes the
   IP address of the original client so that your web tier can access it.
   HTTP requests and HTTP responses use header fields to send information about the HTTP
   messages. Header fields are colon-separated name-value pairs that are separated by a

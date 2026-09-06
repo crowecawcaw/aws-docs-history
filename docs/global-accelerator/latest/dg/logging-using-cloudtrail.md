@@ -65,6 +65,7 @@ ordered stack trace of the public API calls, so they don't appear in any specifi
 
 The following example shows a CloudTrail log entry that includes the following Global Accelerator actions:
 
+- Creating an accelerator: `eventName` is `CreateAccelerator`.
 - Listing the accelerators for an account: `eventName` is `ListAccelerators`.
 - Creating a listener: `eventName` is `CreateListener`.
 - Updating a listener: `eventName` is `UpdateListener`.

@@ -4,7 +4,7 @@ When you create and work with custom routing accelerators in AWS Global Accelera
 restrictions in mind.
 
 **Supported endpoint destinations**
-The virtual public cloud (VPC) subnet endpoints in a custom routing accelerator can only include EC2 instances. No other
+The virtual private cloud (VPC) subnet endpoints in a custom routing accelerator can only include EC2 instances. No other
 resources, such as load balancers, are supported for custom routing accelerators. The types of EC2 instances that are supported with Global Accelerator
 are listed in [Endpoints for standard accelerators in AWS Global Accelerator](about-endpoints.md "about-endpoints.md").
 

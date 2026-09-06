@@ -68,15 +68,15 @@ _Service Authorization Reference_.
 Policy actions in Global Accelerator use the following prefix before the action:
 
 ```
-aws-globalaccelerator
+globalaccelerator
 ```
 
 To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "aws-globalaccelerator:`action1`",
-      "aws-globalaccelerator:`action2`"
+      "globalaccelerator:`action1`",
+      "globalaccelerator:`action2`"
          ]
 ```
 
@@ -85,7 +85,7 @@ actions that begin with the word `Describe`, include the following
 action:
 
 ```
-"Action": "aws-globalaccelerator:Describe*"
+"Action": "globalaccelerator:Describe*"
 ```
 
 To view examples of Global Accelerator identity-based policies, see [Identity-based policy examples for AWS Global Accelerator](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

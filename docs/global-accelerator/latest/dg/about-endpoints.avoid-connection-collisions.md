@@ -5,7 +5,7 @@ occur when users (with the same source IP and source port) access resources in G
 collisions can result in TCP connection time delays for traffic that goes through your accelerators.
 
 You can avoid these delays by configuring your accelerators with _port overrides_,
-a feature in Global Accelerator that enables you to route incoming traffic to a different destination
+a feature in Global Accelerator that enables you to route incoming traffic to different destination
 ports on your accelerator endpoints. Follow the guidance in this section to learn about how to use port overrides to prevent
 the connection collisions and avoid potential TCP connection time delays.
 

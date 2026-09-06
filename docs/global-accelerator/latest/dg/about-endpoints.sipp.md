@@ -1,7 +1,7 @@
 # Transition endpoints with client IP address preservation
 
 If you haven't yet configured client IP address preservation for the endpoints in your accelerator,
-follow the guidance in this section add and transition one or more endpoints to
+follow the guidance in this section to add and transition one or more endpoints to
 endpoints that preserve the user’s client IP address. You can choose to transition an Application Load Balancer, Network Load Balancer with security groups, or an Elastic
 IP address endpoint to a corresponding endpoint—a corresponding load balancer endpoint or an
 EC2 instance endpoint—that has client IP address preservation.
@@ -58,7 +58,7 @@ client IP address preservation) to reduce the weights for existing endpoints so 
 2. Choose **Edit**.
 3. On the **Edit endpoint** page, in the **Weight** field,
    enter a lower number than the current number. For example, if the weight for an existing endpoint is 255, you could
-   enter a weight of 220 for the new endpoint (with client IP address preservation).
+   enter a weight of 220 for the existing endpoint (without client IP address preservation).
 4. Choose **Save changes**.
 
 After you’ve tested with a small portion of the original traffic by setting the weight for
@@ -70,7 +70,7 @@ new Application Load Balancer endpoint with client IP address preservation enabl
 Gradually shift traffic from the original Application Load Balancer to the new Application Load Balancer by increasing the
 weight for the new Application Load Balancer and decreasing the weight for the original Application Load Balancer. For example:
 
-- Original weight → 190 new weight 10
+- Original weight 190 → new weight 10
 - Original weight 180 → new weight 20
 - Original weight 170 → new weight 30, and so on.
 

@@ -31,7 +31,7 @@ port for health checks instead, review your security group configuration to make
 allow public traffic on the port.
 
 For example, if your listener is configured on port 80, then your health check port is also 80. If you
-choose to configure health ports on another port, for example, port 83, then make sure that
+choose to configure health check ports on another port, for example, port 83, then make sure that
 you configure your security groups to allow traffic on port 83 only from IP addresses that are in the
 IP address range for Route 53 health checks.
 
@@ -43,7 +43,7 @@ you specify for each endpoint type for your accelerator.
 In addition, make sure that the health checks that you choose for endpoints with HTTP workloads are
 representative of the overall health of your application, and that you follow the guidance for ensuring
 access to health checks that is described in the preceding section,
-[Ensure security and access for health checks](#GAX-HCsecurityaccessguidance "#GAX-HCsecurityaccessguidance").
+[Ensure access for your accelerator health checks](#GAX-HCsecurityaccessguidance "#GAX-HCsecurityaccessguidance").
 
 The following guidelines apply to each specified endpoint type:
 
@@ -57,7 +57,7 @@ The following guidelines apply to each specified endpoint type:
   For load balancer endpoints, configure health checks by using Elastic Load Balancing configuration options.
   For more information, see [Health checks for your target groups](../../../elasticloadbalancing/latest/network/target-group-health-checks.md "../../../elasticloadbalancing/latest/network/target-group-health-checks.md").
   - Global Accelerator considers an Application Load Balancer healthy if every target group has at least one healthy target. For more information,
-    see [Health checks for your target groups](../../../elasticloadbalancing/latest/network/target-group-health-checks.md "../../../elasticloadbalancing/latest/network/target-group-health-checks.md").
+    see [Health checks for your target groups](../../../elasticloadbalancing/latest/application/target-group-health-checks.md "../../../elasticloadbalancing/latest/application/target-group-health-checks.md").
   - Global Accelerator considers a Network Load Balancer healthy if there is at least one healthy Availability Zone. An Availability Zone
     is healthy if it has a healthy target in all load balancer target groups that it is in.
 
@@ -80,7 +80,7 @@ The following guidelines apply to each specified endpoint type:
   endpoint is the same as the port that you specify for the health check in Global Accelerator. If the port
   numbers aren't the same, or if you haven't set up a TCP server for the endpoint, Global Accelerator marks
   the endpoint as unhealthy, regardless of the endpoint's health.
-  - Make sure to follow the [guidance for security and access](#GAX-HCsecurityaccessguidance "#GAX-HCsecurityaccessguidance")
+  - Make sure to follow the [Ensure access for your accelerator health checks](#GAX-HCsecurityaccessguidance "#GAX-HCsecurityaccessguidance") section
     when you configure ports for health checks for your EC2 instance or Elastic IP address endpoints.
 
 ## Set health check options

@@ -18,8 +18,8 @@ created in the previous section, not the ROA message.
 The following is an example of provisioning an address range.
 
 ```
-aws globalaccelerator --region us-west-2 provision-byoip-cidr
-    --cidr 203.0.113.0/24
+aws globalaccelerator --region us-west-2 provision-byoip-cidr \
+    --cidr 203.0.113.0/24 \
     --cidr-authorization-context Message="$text_message",Signature="$signed_message"
 
 ```
