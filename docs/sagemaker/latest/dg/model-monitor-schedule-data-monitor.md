@@ -1,33 +1,24 @@
+
+
 # Schedule data quality monitoring jobs
+<a name="model-monitor-schedule-data-monitor"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+After you create your baseline, you can call the `create_monitoring_schedule()` method of your `DefaultModelMonitor` class instance to schedule an hourly data quality monitor. The following sections show you how to create a data quality monitor for a model deployed to a real-time endpoint as well as for a batch transform job.
 
-After you create your baseline, you can call the
-`create_monitoring_schedule()` method of your
-`DefaultModelMonitor` class instance to schedule an hourly data
-quality monitor. The following sections show you how to create a data quality
-monitor for a model deployed to a real-time endpoint as well as for a batch
-transform job.
-
-###### Important
-
-You can specify either a batch transform input or an endpoint input,
-but not both, when you create your monitoring schedule.
+**Important**  
+You can specify either a batch transform input or an endpoint input, but not both, when you create your monitoring schedule.
 
 ## Data quality monitoring for models deployed to real-time endpoints
+<a name="model-monitor-data-quality-rt"></a>
 
-To schedule a data quality monitor for a real-time endpoint, pass your
-`EndpointInput` instance to the `endpoint_input`
-argument of your `DefaultModelMonitor` instance, as shown in the
-following code sample:
+To schedule a data quality monitor for a real-time endpoint, pass your `EndpointInput` instance to the `endpoint_input` argument of your `DefaultModelMonitor` instance, as shown in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
-
+                
 data_quality_model_monitor = DefaultModelMonitor(
    role=get_execution_role(),
    ...
@@ -50,16 +41,13 @@ schedule = data_quality_model_monitor.create_monitoring_schedule(
 ```
 
 ## Data quality monitoring for batch transform jobs
+<a name="model-monitor-data-quality-bt"></a>
 
-To schedule a data quality monitor for a batch transform job, pass your
-`BatchTransformInput` instance to the
-`batch_transform_input` argument of your
-`DefaultModelMonitor` instance, as shown in the following code
-sample:
+To schedule a data quality monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `DefaultModelMonitor` instance, as shown in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
-
+                
 data_quality_model_monitor = DefaultModelMonitor(
    role=get_execution_role(),
    ...

@@ -1,15 +1,12 @@
+
+
 # Use the `smdebug` client library to create a custom rule as a Python script
+<a name="debugger-custom-rules-python-script"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
-Amazon SageMaker Debugger is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
-
-The `smdebug` Rule API provides an interface to set up your own custom rules.
-The following python script is a sample of how to construct a custom rule, `CustomGradientRule`.
-This tutorial custom rule watches if the gradients are getting too large and set the default threshold as 10.
-The custom rule takes a base trial created by a SageMaker AI estimator when it initiates training job.
+The `smdebug` Rule API provides an interface to set up your own custom rules. The following python script is a sample of how to construct a custom rule, `CustomGradientRule`. This tutorial custom rule watches if the gradients are getting too large and set the default threshold as 10. The custom rule takes a base trial created by a SageMaker AI estimator when it initiates training job. 
 
 ```
 from smdebug.rules.rule import Rule
@@ -28,5 +25,4 @@ class CustomGradientRule(Rule):
         return False
 ```
 
-You can add multiple custom rule classes as many as you want in the same python script
-and deploy them to any training job trials by constructing custom rule objects in the following section.
+You can add multiple custom rule classes as many as you want in the same python script and deploy them to any training job trials by constructing custom rule objects in the following section.

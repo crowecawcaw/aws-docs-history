@@ -1,24 +1,23 @@
-# k-NN Request and Response Formats
 
-All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in
-[Common Data Formats - Inference](cdf-inference.md "cdf-inference.md"). This topic contains a list of the
-available output formats for the SageMaker AI k-nearest-neighbor algorithm.
+
+# k-NN Request and Response Formats
+<a name="kNN-inference-formats"></a>
+
+All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common Data Formats - Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html). This topic contains a list of the available output formats for the SageMaker AI k-nearest-neighbor algorithm.
 
 ## INPUT: CSV Request Format
+<a name="kNN-input-csv"></a>
 
 content-type: text/csv
 
 ```
 1.2,1.3,9.6,20.3
-
 ```
 
-This accepts a `label_size` or
-encoding
-parameter. It assumes a `label_size` of 0 and a utf-8
-encoding.
+This accepts a `label_size` or encoding parameter. It assumes a `label_size` of 0 and a utf-8 encoding.
 
 ## INPUT: JSON Request Format
+<a name="kNN-input-json"></a>
 
 content-type: application/json
 
@@ -28,10 +27,10 @@ content-type: application/json
     {"data": {"features": {"values": [-3, -1, -4, 2]}}},
     {"features": [3.0, 0.1, 0.04, 0.002]}]
 }
-
 ```
 
 ## INPUT: JSONLINES Request Format
+<a name="kNN-input-jsonlines"></a>
 
 content-type: application/jsonlines
 
@@ -41,6 +40,7 @@ content-type: application/jsonlines
 ```
 
 ## INPUT: RECORDIO Request Format
+<a name="kNN-input-recordio"></a>
 
 content-type: application/x-recordio-protobuf
 
@@ -66,6 +66,7 @@ content-type: application/x-recordio-protobuf
 ```
 
 ## OUTPUT: JSON Response Format
+<a name="kNN-output-json"></a>
 
 accept: application/json
 
@@ -79,6 +80,7 @@ accept: application/json
 ```
 
 ## OUTPUT: JSONLINES Response Format
+<a name="kNN-output-jsonlines"></a>
 
 accept: application/jsonlines
 
@@ -88,10 +90,9 @@ accept: application/jsonlines
 ```
 
 ## OUTPUT: VERBOSE JSON Response Format
+<a name="KNN-output-verbose-json"></a>
 
-In verbose mode, the API provides the search results with the distances vector
-sorted from smallest to largest, with corresponding elements in the labels vector.
-In this example, k is set to 3.
+In verbose mode, the API provides the search results with the distances vector sorted from smallest to largest, with corresponding elements in the labels vector. In this example, k is set to 3.
 
 accept: application/json; verbose=true
 
@@ -113,6 +114,7 @@ accept: application/json; verbose=true
 ```
 
 ## OUTPUT: RECORDIO-PROTOBUF Response Format
+<a name="kNN-output-recordio-protobuf"></a>
 
 content-type: application/x-recordio-protobuf
 
@@ -138,10 +140,9 @@ content-type: application/x-recordio-protobuf
 ```
 
 ## OUTPUT: VERBOSE RECORDIO-PROTOBUF Response Format
+<a name="kNN-output-verbose-recordio"></a>
 
-In verbose mode, the API provides the search results with the distances vector
-sorted from smallest to largest, with corresponding elements in the labels vector.
-In this example, k is set to 3.
+In verbose mode, the API provides the search results with the distances vector sorted from smallest to largest, with corresponding elements in the labels vector. In this example, k is set to 3.
 
 accept: application/x-recordio-protobuf; verbose=true
 
@@ -179,6 +180,7 @@ accept: application/x-recordio-protobuf; verbose=true
 ```
 
 ## SAMPLE OUTPUT for the k-NN Algorithm
+<a name="kNN-sample-output"></a>
 
 For regressor tasks:
 

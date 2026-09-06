@@ -1,18 +1,14 @@
-# Data Formats for Object2Vec Inference
 
-The following page describes the input request and output response formats
-for getting scoring inference from the Amazon SageMaker AI Object2Vec model.
+
+# Data Formats for Object2Vec Inference
+<a name="object2vec-inference-formats"></a>
+
+The following page describes the input request and output response formats for getting scoring inference from the Amazon SageMaker AI Object2Vec model.
 
 ## GPU optimization: Classification or Regression
+<a name="object2vec-inference-gpu-optimize-classification"></a>
 
-Due to GPU memory scarcity, the `INFERENCE_PREFERRED_MODE` environment
-variable can be specified to optimize on whether the classification/regression
-or the
-[Output: Encoder Embeddings](object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data "object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data") inference network is loaded
-into GPU. If the majority of your inference is for classification or regression,
-specify `INFERENCE_PREFERRED_MODE=classification`. The following is a
-Batch Transform example of using 4 instances of p3.2xlarge that optimizes for
-classification/regression inference:
+Due to GPU memory scarcity, the `INFERENCE_PREFERRED_MODE` environment variable can be specified to optimize on whether the classification/regression or the [Output: Encoder Embeddings](object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data) inference network is loaded into GPU. If the majority of your inference is for classification or regression, specify `INFERENCE_PREFERRED_MODE=classification`. The following is a Batch Transform example of using 4 instances of p3.2xlarge that optimizes for classification/regression inference:
 
 ```
 transformer = o2v.transformer(instance_count=4,
@@ -25,9 +21,9 @@ transformer = o2v.transformer(instance_count=4,
 ```
 
 ## Input: Classification or Regression Request Format
+<a name="object2vec-in-inference-data"></a>
 
-Content-type:
-application/json
+Content-type: application/json
 
 ```
 {
@@ -39,8 +35,7 @@ application/json
 }
 ```
 
-Content-type:
-application/jsonlines
+Content-type: application/jsonlines
 
 ```
 {"in0": [6, 17, 606, 19, 53, 67, 52, 12, 5, 10, 15, 10178, 7, 33, 652, 80, 15, 69, 821, 4], "in1": [16, 21, 13, 45, 14, 9, 80, 59, 164, 4]}
@@ -48,13 +43,12 @@ application/jsonlines
 {"in0": [774, 14, 21, 206], "in1": [21, 366, 125]}
 ```
 
-For classification problems, the length of the scores vector corresponds to
-`num_classes`. For regression problems, the length is 1.
+For classification problems, the length of the scores vector corresponds to `num_classes`. For regression problems, the length is 1.
 
 ## Output: Classification or Regression Response Format
+<a name="object2vec-out-inference-data"></a>
 
-Accept:
-application/json
+Accept: application/json
 
 ```
 {
@@ -77,8 +71,7 @@ application/json
 }
 ```
 
-Accept:
-application/jsonlines
+Accept: application/jsonlines
 
 ```
 {"scores":[0.195667684078216,0.395351558923721,0.408980727195739]}
@@ -86,5 +79,4 @@ application/jsonlines
 {"scores":[0.280087798833847,0.368331134319305,0.351581096649169]}
 ```
 
-In both the classification and regression formats, the scores apply to individual
-labels.
+In both the classification and regression formats, the scores apply to individual labels. 

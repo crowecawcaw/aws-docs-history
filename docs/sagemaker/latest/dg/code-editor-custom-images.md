@@ -1,52 +1,38 @@
+
+
 # Custom images
+<a name="code-editor-custom-images"></a>
 
-If you need functionality that is different than what's provided by SageMaker distribution,
-you can bring your own image with your custom extensions and packages. You can also use it
-to personalize the Code Editor UI for your own branding or compliance needs.
+If you need functionality that is different than what's provided by SageMaker distribution, you can bring your own image with your custom extensions and packages. You can also use it to personalize the Code Editor UI for your own branding or compliance needs.
 
-The following page will provide Code Editor-specific information and templates to create your
-own custom SageMaker AI images. This is meant to supplement the Amazon SageMaker Studio information and
-instructions on creating your own SageMaker AI image and bringing your own image to Studio. To
-learn about custom Amazon SageMaker AI images and how to bring your own image to Studio, see [Bring your own image (BYOI)](studio-updated-byoi.md "studio-updated-byoi.md").
+The following page will provide Code Editor-specific information and templates to create your own custom SageMaker AI images. This is meant to supplement the Amazon SageMaker Studio information and instructions on creating your own SageMaker AI image and bringing your own image to Studio. To learn about custom Amazon SageMaker AI images and how to bring your own image to Studio, see [Bring your own image (BYOI)](studio-updated-byoi.md). 
 
-###### Topics
-
-- [Health check and URL for applications](#code-editor-custom-images-app-healthcheck "#code-editor-custom-images-app-healthcheck")
-- [Dockerfile examples](#code-editor-custom-images-dockerfile-templates "#code-editor-custom-images-dockerfile-templates")
+**Topics**
++ [Health check and URL for applications](#code-editor-custom-images-app-healthcheck)
++ [Dockerfile examples](#code-editor-custom-images-dockerfile-templates)
 
 ## Health check and URL for applications
+<a name="code-editor-custom-images-app-healthcheck"></a>
++ `Base URL` – The base URL for the BYOI application must be `CodeEditor/default`. You can only have one application and it must always be named `default`.
++ Health check endpoint – You must host your Code Editor server at 0.0.0.0 port 8888 for SageMaker AI to detect it.
++  Authentication – You must pass `--without-connection-token` when opening `sagemaker-code-editor` to allow SageMaker AI to authenticate your users.
 
-- `Base URL` – The base URL for the BYOI application must be
-  `CodeEditor/default`. You can only have one application and it must
-  always be named `default`.
-- Health check endpoint – You must host your Code Editor server at 0.0.0.0 port 8888
-  for SageMaker AI to detect it.
-- Authentication – You must pass `--without-connection-token` when
-  opening `sagemaker-code-editor` to allow SageMaker AI to authenticate your
-  users.
-
-###### Note
-
-If you are using Amazon SageMaker Distribution as the base image, these requirements are
-already taken care of as part of the included `entrypoint-code-editor`
-script.
+**Note**  
+If you are using Amazon SageMaker Distribution as the base image, these requirements are already taken care of as part of the included `entrypoint-code-editor` script.
 
 ## Dockerfile examples
+<a name="code-editor-custom-images-dockerfile-templates"></a>
 
-The following examples are `Dockerfile`s that meets the above
-information and [Custom image specifications](studio-updated-byoi-specs.md "studio-updated-byoi-specs.md").
+The following examples are `Dockerfile`s that meets the above information and [Custom image specifications](studio-updated-byoi-specs.md).
 
-###### Note
+**Note**  
+If you are bringing your own image to SageMaker Unified Studio, you will need to follow the [Dockerfile specifications](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/byoi-specifications.html) in the *Amazon SageMaker Unified Studio User Guide*.  
+`Dockerfile` examples for SageMaker Unified Studio can be found in [Dockerfile example](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/byoi-specifications.html#byoi-specifications-example) in the *Amazon SageMaker Unified Studio User Guide*.
 
-If you are bringing your own image to SageMaker Unified Studio, you will need to follow the [Dockerfile
-specifications](../../../sagemaker-unified-studio/latest/userguide/byoi-specifications.md "../../../sagemaker-unified-studio/latest/userguide/byoi-specifications.md") in the _Amazon SageMaker Unified Studio User Guide_.
+------
+#### [ Example micromamba Dockerfile ]
 
-`Dockerfile` examples for SageMaker Unified Studio can be found in [Dockerfile example](../../../sagemaker-unified-studio/latest/userguide/byoi-specifications.md#byoi-specifications-example "../../../sagemaker-unified-studio/latest/userguide/byoi-specifications.md#byoi-specifications-example") in the _Amazon SageMaker Unified Studio User
-Guide_.
-
-Example micromamba Dockerfile
-The following is an example Dockerfile to create an image from scratch using a
-[`micromamba`](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html "https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html") base environment:
+The following is an example Dockerfile to create an image from scratch using a [`micromamba`](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html) base environment: 
 
 ```
 FROM mambaorg/micromamba:latest
@@ -67,9 +53,10 @@ CMD eval "$(micromamba shell hook --shell=bash)"; \
         --base-path "/CodeEditor/default"
 ```
 
-Example SageMaker AI Distribution Dockerfile
-The following is an example Dockerfile to create an image based on [Amazon SageMaker AI
-Distribution](https://github.com/aws/sagemaker-distribution/tree/main "https://github.com/aws/sagemaker-distribution/tree/main"):
+------
+#### [ Example SageMaker AI Distribution Dockerfile ]
+
+The following is an example Dockerfile to create an image based on [Amazon SageMaker AI Distribution](https://github.com/aws/sagemaker-distribution/tree/main):
 
 ```
 FROM public.ecr.aws/sagemaker/sagemaker-distribution:latest-cpu
@@ -98,3 +85,5 @@ RUN \
 USER $MAMBA_USER
 ENTRYPOINT ["entrypoint-code-editor"]
 ```
+
+------

@@ -1,29 +1,31 @@
-# Update SageMaker Canvas for Your Users
 
-You can update to the latest version of Amazon SageMaker Canvas as either a user or an IT administrator.
-You can update Amazon SageMaker Canvas for a single user at a time.
+
+# Update SageMaker Canvas for Your Users
+<a name="canvas-update"></a>
+
+You can update to the latest version of Amazon SageMaker Canvas as either a user or an IT administrator. You can update Amazon SageMaker Canvas for a single user at a time.
 
 To update the Amazon SageMaker Canvas application, you must delete the previous version.
 
-###### Important
+**Important**  
+Deleting the previous version of Amazon SageMaker Canvas doesn't delete the data or models that the users have created.
 
-Deleting the previous version of Amazon SageMaker Canvas doesn't delete the data or models that the
-users have created.
+Use the following procedure to log in to AWS, open Amazon SageMaker AI domain, and update Amazon SageMaker Canvas. The users can start using the SageMaker Canvas application when they log back in.
 
-Use the following procedure to log in to AWS, open Amazon SageMaker AI domain, and update
-Amazon SageMaker Canvas. The users can start using the SageMaker Canvas application when they log back in.
+1. Sign in to the Amazon SageMaker AI console at [Amazon SageMaker Runtime](https://console.aws.amazon.com/sagemaker/).
 
-1. Sign in to the Amazon SageMaker AI console at [Amazon SageMaker Runtime](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2. On the left navigation pane, choose **Admin configurations**.
-3. Under **Admin configurations**, choose
-   **domains**.
-4. On the **Domains** page, choose your domain.
-5. From the list of **User profiles**, choose a user profile.
-6. For the list of **Apps**, find the Canvas application (the
-   **App type** says **Canvas**) and choose
-   **Delete app**.
-7. Complete the dialog box and choose **Confirm action**.
-   The following image shows the user profile page and highlights the **Delete
-   app** action from the preceding procedure.
+1. On the left navigation pane, choose **Admin configurations**.
 
-![Screenshot of the user profile page with the Delete app action highlighted.](images/studio/canvas/canvas-update-app-1.png)
+1. Under **Admin configurations**, choose **domains**. 
+
+1. On the **Domains** page, choose your domain.
+
+1. From the list of **User profiles**, choose a user profile.
+
+1. For the list of **Apps**, find the Canvas application (the **App type** says **Canvas**) and choose **Delete app**.
+
+1. Complete the dialog box and choose **Confirm action**.
+
+The following image shows the user profile page and highlights the **Delete app** action from the preceding procedure.
+
+![Screenshot of the user profile page with the Delete app action highlighted.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-update-app-1.png)

@@ -1,29 +1,22 @@
+
+
 # Ground Truth Security and Permissions
+<a name="sms-security-general"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
-Amazon SageMaker Ground Truth is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Ground Truth, but we do not plan to introduce new features.
+Use the topics on this page to learn about Ground Truth security features and how to configure AWS Identity and Access Management (IAM) permissions to allow a user or role to create a labeling job. Additionally, learn how to create an *execution role*. An execution role is the role that you specify when you create a labeling job. This role is used to start your labeling job.
 
-Use the topics on this page to learn about Ground Truth security features and how to configure
-AWS Identity and Access Management (IAM) permissions to allow a user or role to create a labeling job.
-Additionally, learn how to create an _execution role_. An
-execution role is the role that you specify when you create a labeling job. This role is
-used to start your labeling job.
+If you are a new user and want to get started quickly, or if you do not require granular permissions, see [Use IAM Managed Policies with Ground Truth](sms-security-permissions-get-started.md).
 
-If you are a new user and want to get started quickly, or if you do not require granular
-permissions, see [Use IAM Managed Policies with Ground Truth](sms-security-permissions-get-started.md "sms-security-permissions-get-started.md").
+For more information about IAM users and roles, see [Identities (Users, Groups, and Roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the IAM User Guide. 
 
-For more information about IAM users and roles, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the
-IAM User Guide.
+To learn more about using IAM with SageMaker AI, see [AWS Identity and Access Management for Amazon SageMaker AI](security-iam.md).
 
-To learn more about using IAM with SageMaker AI, see [AWS Identity and Access Management for Amazon SageMaker AI](security-iam.md "security-iam.md").
-
-###### Topics
-
-- [CORS Requirement for Input Image Data](sms-cors-update.md "sms-cors-update.md")
-- [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md "sms-security-permission.md")
-- [Using Amazon SageMaker Ground Truth in an Amazon Virtual Private Cloud](sms-vpc.md "sms-vpc.md")
-- [Output Data and Storage Volume Encryption](sms-security.md "sms-security.md")
-- [Workforce Authentication and Restrictions](sms-security-workforce-authentication.md "sms-security-workforce-authentication.md")
+**Topics**
++ [CORS Requirement for Input Image Data](sms-cors-update.md)
++ [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md)
++ [Using Amazon SageMaker Ground Truth in an Amazon Virtual Private Cloud](sms-vpc.md)
++ [Output Data and Storage Volume Encryption](sms-security.md)
++ [Workforce Authentication and Restrictions](sms-security-workforce-authentication.md)

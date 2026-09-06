@@ -1,24 +1,22 @@
+
+
 # Pipeline parameters
+<a name="build-and-manage-parameters"></a>
 
-You can introduce variables into your pipeline definition using parameters. You can
-reference parameters that you define throughout your pipeline definition. Parameters have a
-default value, which you can override by specifying parameter values when starting a pipeline
-execution. The default value must be an instance matching the parameter type. All parameters
-used in step definitions must be defined in your pipeline definition. This topic describes the
-parameters that you can define and how to implement them.
+You can introduce variables into your pipeline definition using parameters. You can reference parameters that you define throughout your pipeline definition. Parameters have a default value, which you can override by specifying parameter values when starting a pipeline execution. The default value must be an instance matching the parameter type. All parameters used in step definitions must be defined in your pipeline definition. This topic describes the parameters that you can define and how to implement them.
 
-Amazon SageMaker Pipelines supports the following parameter types:
+Amazon SageMaker Pipelines supports the following parameter types: 
++  `ParameterString` – Representing a string parameter. 
++  `ParameterInteger` – Representing an integer parameter. 
++  `ParameterFloat` – Representing a float parameter.
++  `ParameterBoolean` – Representing a Boolean Python type.
 
-- `ParameterString` – Representing a string parameter.
-- `ParameterInteger` – Representing an integer parameter.
-- `ParameterFloat` – Representing a float parameter.
-- `ParameterBoolean` – Representing a Boolean Python type.
-  Parameters take the following format:
+Parameters take the following format:
 
 ```
-`<parameter>` = `<parameter_type>`(
-    name="`<parameter_name>`",
-    default_value=`<default_value>`
+{{<parameter>}} = {{<parameter_type>}}(
+    name="{{<parameter_name>}}",
+    default_value={{<default_value>}}
 )
 ```
 
@@ -38,8 +36,7 @@ processing_instance_count = ParameterInteger(
 )
 ```
 
-You pass the parameter when creating your pipeline as shown in the following
-example.
+You pass the parameter when creating your pipeline as shown in the following example.
 
 ```
 pipeline = Pipeline(
@@ -51,8 +48,7 @@ pipeline = Pipeline(
 )
 ```
 
-You can also pass a parameter value that differs from the default value to a pipeline
-execution, as shown in the following example.
+You can also pass a parameter value that differs from the default value to a pipeline execution, as shown in the following example.
 
 ```
 execution = pipeline.start(
@@ -63,7 +59,6 @@ execution = pipeline.start(
 )
 ```
 
-You can manipulate parameters with SageMaker Python SDK functions like `sagemaker.workflow.functions.Join`. For more information on parameters,
-see [SageMaker Pipelines Parameters](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameters "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameters").
+You can manipulate parameters with SageMaker Python SDK functions like `[ sagemaker.workflow.functions.Join](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#sagemaker.workflow.functions.Join)`. For more information on parameters, see [ SageMaker Pipelines Parameters](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameters).
 
-For known limitations of Pipelines Parameters, see _[Limitations - Parameterization](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameterization "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameterization")_ in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+For known limitations of Pipelines Parameters, see *[Limitations - Parameterization](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#parameterization)* in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable).

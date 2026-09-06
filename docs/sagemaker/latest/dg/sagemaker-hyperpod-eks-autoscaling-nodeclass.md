@@ -1,161 +1,124 @@
+
+
 # Create a NodeClass
+<a name="sagemaker-hyperpod-eks-autoscaling-nodeclass"></a>
 
-###### Important
+**Important**  
+You must start with 0 nodes in your instance group and let Karpenter handle the autoscaling. If you start with more than 0 nodes, Karpenter will scale them down to 0.
 
-You must start with 0 nodes in your instance group and let Karpenter handle the
-autoscaling. If you start with more than 0 nodes, Karpenter will scale them down to 0.
-
-A node class (`NodeClass`) defines infrastructure-level settings that apply
-to groups of nodes in your Amazon EKS cluster, including network configuration, storage
-settings, and resource tagging. A `HyperPodNodeClass` is a custom
-`NodeClass` that maps to pre-created instance groups in SageMaker HyperPod,
-defining constraints around which instance types and Availability Zones are supported
-for Karpenter's autoscaling decisions.
+A node class (`NodeClass`) defines infrastructure-level settings that apply to groups of nodes in your Amazon EKS cluster, including network configuration, storage settings, and resource tagging. A `HyperPodNodeClass` is a custom `NodeClass` that maps to pre-created instance groups in SageMaker HyperPod, defining constraints around which instance types and Availability Zones are supported for Karpenter's autoscaling decisions.
 
 **Considerations for creating a node class**
++ You can specify up to 10 instance groups in a `NodeClass`.
++ Instance groups that use `InstanceRequirements` (flexible instance groups) can contain multiple instance types within a single instance group. This simplifies your `NodeClass` configuration because you can reference fewer instance groups to cover the same set of instance types and Availability Zones. For example, instead of creating 6 instance groups (3 instance types × 2 AZs), you can create a single flexible instance group that covers all combinations. Note that `InstanceType` and `InstanceRequirements` are mutually exclusive—you must specify one or the other for each instance group.
++ When using GPU partitioning with MIG (Multi-Instance GPU), Karpenter can automatically provision nodes with MIG-enabled instance groups. Ensure your instance groups include MIG-supported instance types (ml.p4d.24xlarge, ml.p5.48xlarge, or ml.p5e/p5en.48xlarge) and configure the appropriate MIG labels during cluster creation. For more information about configuring GPU partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md).
++ If custom labels are applied to instance groups, you can view them in the `desiredLabels` field when querying the `HyperpodNodeClass` status. This includes MIG configuration labels such as `nvidia.com/mig.config`. When incoming jobs request MIG resources, Karpenter will automatically scale instances with the appropriate MIG labels applied.
++ If you choose to delete an instance group, we recommend removing it from your `NodeClass` before deleting it from your HyperPod cluster. If an instance group is deleted while it is used in a `NodeClass`, the `NodeClass` will be marked as not `Ready` for provisioning and won't be used for subsequent scaling operations until the instance group is removed from `NodeClass`.
++ When you remove instance groups from a `NodeClass`, Karpenter will detect a drift on the nodes that were managed by Karpenter in the instance group(s) and disrupt the nodes based on your disruption budget controls.
++ Subnets used by the instance group should belong to the same AZ. Subnets are specified either using `OverrideVpcConfig` at the instance group level or the cluster level. `VpcConfig` is used by default.
++ Only on-demand capacity is supported at this time. Instance groups with Training plan or reserved capacity are not supported.
++ Instance groups with `DeepHealthChecks (DHC)` are not supported. This is because a DHC takes around 60-90 minutes to complete and pods will remain in pending state during that time which can cause over-provisioning.
 
-- You can specify up to 10 instance groups in a `NodeClass`.
-- Instance groups that use `InstanceRequirements` (flexible instance
-  groups) can contain multiple instance types within a single instance group. This
-  simplifies your `NodeClass` configuration because you can reference
-  fewer instance groups to cover the same set of instance types and Availability
-  Zones. For example, instead of creating 6 instance groups (3 instance types × 2
-  AZs), you can create a single flexible instance group that covers all
-  combinations. Note that `InstanceType` and
-  `InstanceRequirements` are mutually exclusive—you must specify
-  one or the other for each instance group.
-- When using GPU partitioning with MIG (Multi-Instance GPU), Karpenter can
-  automatically provision nodes with MIG-enabled instance groups. Ensure your
-  instance groups include MIG-supported instance types (ml.p4d.24xlarge,
-  ml.p5.48xlarge, or ml.p5e/p5en.48xlarge) and configure the appropriate MIG
-  labels during cluster creation. For more information about configuring GPU
-  partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md").
-- If custom labels are applied to instance groups, you can view them in the
-  `desiredLabels` field when querying the `HyperpodNodeClass`
-  status. This includes MIG configuration labels such as
-  `nvidia.com/mig.config`. When incoming jobs request MIG resources,
-  Karpenter will automatically scale instances with the appropriate MIG labels
-  applied.
-- If you choose to delete an instance group, we recommend removing it from your
-  `NodeClass` before deleting it from your HyperPod
-  cluster. If an instance group is deleted while it is used in a
-  `NodeClass`, the `NodeClass` will be marked as not
-  `Ready` for provisioning and won't be used for subsequent scaling
-  operations until the instance group is removed from
-  `NodeClass`.
-- When you remove instance groups from a `NodeClass`, Karpenter will
-  detect a drift on the nodes that were managed by Karpenter in the instance
-  group(s) and disrupt the nodes based on your disruption budget controls.
-- Subnets used by the instance group should belong to the same AZ. Subnets are
-  specified either using `OverrideVpcConfig` at the instance group
-  level or the cluster level. `VpcConfig` is used by default.
-- Only on-demand capacity is supported at this time. Instance groups with
-  Training plan or reserved capacity are not supported.
-- Instance groups with `DeepHealthChecks (DHC)` are not supported.
-  This is because a DHC takes around 60-90 minutes to complete and pods will
-  remain in pending state during that time which can cause
-  over-provisioning.
-  The following steps cover how to create a `NodeClass`.
+The following steps cover how to create a `NodeClass`.
 
-1. Create a YAML file (for example, nodeclass.yaml) with your
-   `NodeClass` configuration.
-2. Apply the configuration to your cluster using kubectl.
-3. Reference the `NodeClass` in your `NodePool`
-   configuration.
-4. Here's a sample `NodeClass` that uses a ml.c5.xlarge and
-   ml.c5.4xlarge instance types:
+1. Create a YAML file (for example, nodeclass.yaml) with your `NodeClass` configuration.
 
-```
-apiVersion: karpenter.sagemaker.amazonaws.com/v1
-kind: HyperpodNodeClass
-metadata:
-  name: sample-nc
-spec:
-  instanceGroups:
-    # name of InstanceGroup in HyperPod cluster. InstanceGroup needs to pre-created
-    # MaxItems: 10
-    - auto-c5-xaz1
-    - auto-c5-4xaz2
-```
+1. Apply the configuration to your cluster using kubectl.
 
-5. Apply the configuration:
+1. Reference the `NodeClass` in your `NodePool` configuration.
 
-```
-kubectl apply -f nodeclass.yaml
-```
+1. Here's a sample `NodeClass` that uses a ml.c5.xlarge and ml.c5.4xlarge instance types:
 
-6. Monitor the NodeClass status to ensure the Ready condition in status is set to
-   True:
+   ```
+   apiVersion: karpenter.sagemaker.amazonaws.com/v1
+   kind: HyperpodNodeClass
+   metadata:
+     name: sample-nc
+   spec:
+     instanceGroups:
+       # name of InstanceGroup in HyperPod cluster. InstanceGroup needs to pre-created
+       # MaxItems: 10
+       - auto-c5-xaz1
+       - auto-c5-4xaz2
+   ```
 
-```
-kubectl get hyperpodnodeclass sample-nc -o yaml
-```
+1. Apply the configuration:
 
-```
-apiVersion: karpenter.sagemaker.amazonaws.com/v1
-kind: HyperpodNodeClass
-metadata:
-  creationTimestamp: "<timestamp>"
-  name: sample-nc
-  uid: <resource-uid>
-spec:
-  instanceGroups:
-  - auto-c5-az1
-  - auto-c5-4xaz2
-status:
-  conditions:
-  // true when all IGs in the spec are present in SageMaker cluster, false otherwise
-  - lastTransitionTime: "<timestamp>"
-    message: ""
-    observedGeneration: 3
-    reason: InstanceGroupReady
-    status: "True"
-    type: InstanceGroupReady
-  // true if subnets of IGs are discoverable, false otherwise
-  - lastTransitionTime: "<timestamp>"
-    message: ""
-    observedGeneration: 3
-    reason: SubnetsReady
-    status: "True"
-    type: SubnetsReady
-  // true when all dependent resources are Ready [InstanceGroup, Subnets]
-  - lastTransitionTime: "<timestamp>"
-    message: ""
-    observedGeneration: 3
-    reason: Ready
-    status: "True"
-    type: Ready
-  instanceGroups:
-  - desiredLabels:
-    - key: <custom_label_key>
-      value: <custom_label_value>
-    - key: nvidia.com/mig.config
-      value: all-1g.5gb
-    instanceTypes:
-    - ml.c5.xlarge
-    name: auto-c5-az1
-    subnets:
-    - id: <subnet-id>
-      zone: <availability-zone-a>
-      zoneId: <zone-id-a>
-  - instanceTypes:
-    - ml.c5.4xlarge
-    name: auto-c5-4xaz2
-    subnets:
-    - id: <subnet-id>
-      zone: <availability-zone-b>
-      zoneId: <zone-id-b>
-  # Flexible instance group with multiple instance types
-  - instanceTypes:
-    - ml.p5.48xlarge
-    - ml.p4d.24xlarge
-    - ml.g6.48xlarge
-    name: inference-workers
-    subnets:
-    - id: <subnet-id>
-      zone: <availability-zone-a>
-      zoneId: <zone-id-a>
-    - id: <subnet-id>
-      zone: <availability-zone-b>
-      zoneId: <zone-id-b>
-```
+   ```
+   kubectl apply -f nodeclass.yaml
+   ```
+
+1. Monitor the NodeClass status to ensure the Ready condition in status is set to True:
+
+   ```
+   kubectl get hyperpodnodeclass sample-nc -o yaml
+   ```
+
+   ```
+   apiVersion: karpenter.sagemaker.amazonaws.com/v1
+   kind: HyperpodNodeClass
+   metadata:
+     creationTimestamp: "<timestamp>"
+     name: sample-nc
+     uid: <resource-uid>
+   spec:
+     instanceGroups:
+     - auto-c5-az1
+     - auto-c5-4xaz2
+   status:
+     conditions:
+     // true when all IGs in the spec are present in SageMaker cluster, false otherwise
+     - lastTransitionTime: "<timestamp>"
+       message: ""
+       observedGeneration: 3
+       reason: InstanceGroupReady
+       status: "True"
+       type: InstanceGroupReady
+     // true if subnets of IGs are discoverable, false otherwise
+     - lastTransitionTime: "<timestamp>"
+       message: ""
+       observedGeneration: 3
+       reason: SubnetsReady
+       status: "True"
+       type: SubnetsReady
+     // true when all dependent resources are Ready [InstanceGroup, Subnets]
+     - lastTransitionTime: "<timestamp>"
+       message: ""
+       observedGeneration: 3
+       reason: Ready
+       status: "True"
+       type: Ready
+     instanceGroups:
+     - desiredLabels:
+       - key: <custom_label_key>
+         value: <custom_label_value>
+       - key: nvidia.com/mig.config
+         value: all-1g.5gb
+       instanceTypes:
+       - ml.c5.xlarge
+       name: auto-c5-az1
+       subnets:
+       - id: <subnet-id>
+         zone: <availability-zone-a>
+         zoneId: <zone-id-a>
+     - instanceTypes:
+       - ml.c5.4xlarge
+       name: auto-c5-4xaz2
+       subnets:
+       - id: <subnet-id>
+         zone: <availability-zone-b>
+         zoneId: <zone-id-b>
+     # Flexible instance group with multiple instance types
+     - instanceTypes:
+       - ml.p5.48xlarge
+       - ml.p4d.24xlarge
+       - ml.g6.48xlarge
+       name: inference-workers
+       subnets:
+       - id: <subnet-id>
+         zone: <availability-zone-a>
+         zoneId: <zone-id-a>
+       - id: <subnet-id>
+         zone: <availability-zone-b>
+         zoneId: <zone-id-b>
+   ```

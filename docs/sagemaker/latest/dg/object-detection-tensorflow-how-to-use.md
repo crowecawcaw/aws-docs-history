@@ -1,35 +1,18 @@
+
+
 # How to use the SageMaker AI Object Detection - TensorFlow algorithm
+<a name="object-detection-tensorflow-how-to-use"></a>
 
-You can use Object Detection - TensorFlow as an Amazon SageMaker AI built-in algorithm. The
-following section describes how to use Object Detection - TensorFlow with the SageMaker AI Python
-SDK. For information on how to use Object Detection - TensorFlow from the Amazon SageMaker Studio Classic
-UI, see [SageMaker JumpStart pretrained models](studio-jumpstart.md "studio-jumpstart.md").
+You can use Object Detection - TensorFlow as an Amazon SageMaker AI built-in algorithm. The following section describes how to use Object Detection - TensorFlow with the SageMaker AI Python SDK. For information on how to use Object Detection - TensorFlow from the Amazon SageMaker Studio Classic UI, see [SageMaker JumpStart pretrained models](studio-jumpstart.md).
 
-The Object Detection - TensorFlow algorithm supports transfer learning using any of the
-compatible pretrained TensorFlow models. For a list of all available pretrained models, see
-[TensorFlow Models](object-detection-tensorflow-Models.md "object-detection-tensorflow-Models.md"). Every pretrained model has a
-unique `model_id`. The following example uses ResNet50
-(`model_id`:
-`tensorflow-od1-ssd-resnet50-v1-fpn-640x640-coco17-tpu-8`) to fine-tune
-on a custom dataset. The pretrained models are all pre-downloaded from the TensorFlow Hub and
-stored in Amazon S3 buckets so that training jobs can run in network isolation. Use these
-pre-generated model training artifacts to construct a SageMaker AI ModelTrainer.
+The Object Detection - TensorFlow algorithm supports transfer learning using any of the compatible pretrained TensorFlow models. For a list of all available pretrained models, see [TensorFlow Models](object-detection-tensorflow-Models.md). Every pretrained model has a unique `model_id`. The following example uses ResNet50 (`model_id`: `tensorflow-od1-ssd-resnet50-v1-fpn-640x640-coco17-tpu-8`) to fine-tune on a custom dataset. The pretrained models are all pre-downloaded from the TensorFlow Hub and stored in Amazon S3 buckets so that training jobs can run in network isolation. Use these pre-generated model training artifacts to construct a SageMaker AI ModelTrainer.
 
-First, retrieve the Docker image URI, training script URI, and pretrained model URI.
-Then, change the hyperparameters as you see fit. You can see a Python dictionary of all
-available hyperparameters and their default values with
-`hyperparameters.retrieve_default`. For more information, see [Object Detection - TensorFlow Hyperparameters](object-detection-tensorflow-Hyperparameter.md "object-detection-tensorflow-Hyperparameter.md"). Use these
-values to construct a SageMaker AI ModelTrainer.
+First, retrieve the Docker image URI, training script URI, and pretrained model URI. Then, change the hyperparameters as you see fit. You can see a Python dictionary of all available hyperparameters and their default values with `hyperparameters.retrieve_default`. For more information, see [Object Detection - TensorFlow Hyperparameters](object-detection-tensorflow-Hyperparameter.md). Use these values to construct a SageMaker AI ModelTrainer.
 
-###### Note
+**Note**  
+Default hyperparameter values are different for different models. For example, for larger models, the default number of epochs is smaller. 
 
-Default hyperparameter values are different for different models. For example, for larger
-models, the default number of epochs is smaller.
-
-This example uses the [`PennFudanPed`](https://www.cis.upenn.edu/~jshi/ped_html/#pub1 "https://www.cis.upenn.edu/~jshi/ped_html/#pub1") dataset, which contains images of
-pedestriants in the street. We pre-downloaded the dataset and made it available with
-Amazon S3. To fine-tune your model, call `.train()` using the Amazon S3 location of your
-training dataset.
+This example uses the [`PennFudanPed`](https://www.cis.upenn.edu/~jshi/ped_html/#pub1) dataset, which contains images of pedestriants in the street. We pre-downloaded the dataset and made it available with Amazon S3. To fine-tune your model, call `.train()` using the Amazon S3 location of your training dataset.
 
 ```
 from sagemaker.core import image_uris
@@ -87,5 +70,4 @@ tf_od_model_trainer.train(
 )
 ```
 
-For more information about how to use the SageMaker AI Object Detection - TensorFlow algorithm for
-transfer learning on a custom dataset, see the [Introduction to SageMaker TensorFlow - Object Detection](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_tensorflow/Amazon_Tensorflow_Object_Detection.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_tensorflow/Amazon_Tensorflow_Object_Detection.ipynb") notebook.
+For more information about how to use the SageMaker AI Object Detection - TensorFlow algorithm for transfer learning on a custom dataset, see the [Introduction to SageMaker TensorFlow - Object Detection](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_tensorflow/Amazon_Tensorflow_Object_Detection.ipynb) notebook.

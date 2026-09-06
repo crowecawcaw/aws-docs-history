@@ -1,8 +1,9 @@
-# Run Your Processing Container Using the SageMaker AI Python SDK
 
-You can use the SageMaker Python SDK to run your own processing image. The following example shows how to run your own
-processing container with one input from Amazon Simple Storage Service (Amazon S3) and one output to
-Amazon S3.
+
+# Run Your Processing Container Using the SageMaker AI Python SDK
+<a name="byoc-run"></a>
+
+You can use the SageMaker Python SDK to run your own processing image. The following example shows how to run your own processing container with one input from Amazon Simple Storage Service (Amazon S3) and one output to Amazon S3.
 
 ```
 from sagemaker.core.resources import ProcessingJob
@@ -46,11 +47,6 @@ processing_job = ProcessingJob.create(
 )
 ```
 
-Instead of building your processing code into your processing image, you can
-provide a `ScriptProcessor` with your image and the command that you want
-to run, along with the code that you want to run inside that container. For an
-example, see [Run Scripts with Your Own Processing Container](processing-container-run-scripts.md "processing-container-run-scripts.md").
+Instead of building your processing code into your processing image, you can provide a `ScriptProcessor` with your image and the command that you want to run, along with the code that you want to run inside that container. For an example, see [Run Scripts with Your Own Processing Container](processing-container-run-scripts.md).
 
-You can also use the scikit-learn image that Amazon SageMaker Processing provides to run scikit-learn
-scripts. For an example, see
-[Run a Processing Job with scikit-learn](use-scikit-learn-processing-container.md "use-scikit-learn-processing-container.md").
+You can also use the scikit-learn image that Amazon SageMaker Processing provides to run scikit-learn scripts. For an example, see [Run a Processing Job with scikit-learn](use-scikit-learn-processing-container.md). 

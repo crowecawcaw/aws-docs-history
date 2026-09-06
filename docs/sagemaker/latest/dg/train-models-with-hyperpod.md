@@ -1,15 +1,19 @@
+
+
 # Train a PyTorch model
+<a name="train-models-with-hyperpod"></a>
 
 This topic walks you through the process of training a PyTorch model using HyperPod.
 
-In this scenario, let's train a PyTorch model using the `hyp-pytorch-job` template, which simplifies job creation by exposing commonly used parameters.
-The model artifacts will be stored in an S3 bucket for later use in inference. However, this is optional, and you can choose your preferred storage location.
+In this scenario, let's train a PyTorch model using the `hyp-pytorch-job` template, which simplifies job creation by exposing commonly used parameters. The model artifacts will be stored in an S3 bucket for later use in inference. However, this is optional, and you can choose your preferred storage location.
 
 ## Create a training job
+<a name="create-training-job"></a>
 
 You can train the model using either the CLI or Python SDK.
 
 ### Using the CLI
+<a name="using-cli"></a>
 
 Create a training job with the following command:
 
@@ -36,26 +40,24 @@ hyp create hyp-pytorch-job \
 ```
 
 **Key required parameters explained**:
++ `--job-name`: Unique identifier for your training job
++ `--image`: Docker image containing your training environment
 
-- `--job-name`: Unique identifier for your training job
-- `--image`: Docker image containing your training environment
-
-This command starts a training job named `test-pytorch-job`. The `--output-s3-uri` specifies where the trained model artifacts will be stored,
-for example, `s3://my-bucket/model-artifacts`. Note this location, as you’ll need it for deploying the custom model.
+This command starts a training job named `test-pytorch-job`. The `--output-s3-uri` specifies where the trained model artifacts will be stored, for example, `s3://my-bucket/model-artifacts`. Note this location, as you’ll need it for deploying the custom model.
 
 ### Using the Python SDK
+<a name="using-python-sdk"></a>
 
 For programmatic control, use the SDK. Create a Python script to launch the same training job.
 
 ```
-
 from sagemaker.hyperpod import HyperPodPytorchJob
-from sagemaker.hyperpod.job
+from sagemaker.hyperpod.job 
 import ReplicaSpec, Template, Spec, Container, Resources, RunPolicy, Metadata
 
 # Define job specifications
 nproc_per_node = "1"  # Number of processes per node
-replica_specs =
+replica_specs = 
 [
     ReplicaSpec
     (
@@ -69,24 +71,24 @@ replica_specs =
                     Container
                     (
                         # Container name
-                        name="container-name",
-
+                        name="container-name",  
+                        
                         # Training image
-                        image="448049793756.dkr.ecr.us-west-2.amazonaws.com/ptjob:mnist",
-
+                        image="448049793756.dkr.ecr.us-west-2.amazonaws.com/ptjob:mnist",  
+                        
                         # Always pull image
-                        image_pull_policy="Always",
+                        image_pull_policy="Always",  
                         resources=Resources\
                         (
                             # No GPUs requested
-                            requests={"nvidia.com/gpu": "0"},
+                            requests={"nvidia.com/gpu": "0"},  
                             # No GPU limit
-                            limits={"nvidia.com/gpu": "0"},
+                            limits={"nvidia.com/gpu": "0"},   
                         ),
                         # Command to run
-                        command=["python", "train.py"],
+                        command=["python", "train.py"],  
                         # Script arguments
-                        args=["--epochs", "10", "--batch-size", "32"],
+                        args=["--epochs", "10", "--batch-size", "32"],  
                     )
                 ]
             )
@@ -94,33 +96,33 @@ replica_specs =
     )
 ]
 # Keep pods after completion
-run_policy = RunPolicy(clean_pod_policy="None")
+run_policy = RunPolicy(clean_pod_policy="None")  
 
 # Create and start the PyTorch job
 pytorch_job = HyperPodPytorchJob
 (
     # Job name
-    metadata = Metadata(name="demo"),
+    metadata = Metadata(name="demo"),  
     # Processes per node
-    nproc_per_node = nproc_per_node,
+    nproc_per_node = nproc_per_node,   
     # Replica specifications
-    replica_specs = replica_specs,
+    replica_specs = replica_specs,     
     # Run policy
-    run_policy = run_policy,
+    run_policy = run_policy,           
     # S3 location for artifacts
-    output_s3_uri="s3://my-bucket/model-artifacts"
+    output_s3_uri="s3://my-bucket/model-artifacts"  
 )
 # Launch the job
 pytorch_job.create()
-
-
 ```
 
 ## Monitor your training job
+<a name="monitor-training-job"></a>
 
 Monitor your job's progress with these commands:
 
 ### Using the CLI
+<a name="monitor-cli"></a>
 
 ```
 # Check job status
@@ -137,10 +139,10 @@ hyp get-logs hyp-pytorch-job \
 
 **Note**: Training time varies based on model complexity and instance type. Monitor the logs to track progress.
 
-These commands help you verify the job’s status and troubleshoot issues. Once the job completes successfully, the model artifacts are saved to
-`s3://my-bucket/model-artifacts`.
+These commands help you verify the job’s status and troubleshoot issues. Once the job completes successfully, the model artifacts are saved to `s3://my-bucket/model-artifacts`.
 
 ### Using the Python SDK
+<a name="monitor-python-sdk"></a>
 
 Add the following code to your Python script:
 
@@ -162,10 +164,9 @@ print(pytorch_job.status.model_dump())
 ```
 
 ## Next steps
+<a name="next-steps"></a>
 
-After training, the model artifacts are stored in the S3 bucket you specified (`s3://my-bucket/model-artifacts`). You can use these artifacts to deploy a model.
-Currently, you must manually manage the transition from training to inference. This involves:
-
-- **Locating artifacts**: Check the S3 bucket (`s3://my-bucket/model-artifacts`) to confirm the trained model files are present.
-- **Recording the path**: Note the exact S3 path (e.g., `s3://my-bucket/model-artifacts/test-pytorch-job/model.tar.gz`) for use in the inference setup.
-- **Referencing in deployment**: Provide this S3 path when configuring the custom endpoint to ensure the correct model is loaded.
+After training, the model artifacts are stored in the S3 bucket you specified (`s3://my-bucket/model-artifacts`). You can use these artifacts to deploy a model. Currently, you must manually manage the transition from training to inference. This involves:
++ **Locating artifacts**: Check the S3 bucket (`s3://my-bucket/model-artifacts`) to confirm the trained model files are present.
++ **Recording the path**: Note the exact S3 path (e.g., `s3://my-bucket/model-artifacts/test-pytorch-job/model.tar.gz`) for use in the inference setup.
++ **Referencing in deployment**: Provide this S3 path when configuring the custom endpoint to ensure the correct model is loaded.

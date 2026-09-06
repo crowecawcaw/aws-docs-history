@@ -1,49 +1,40 @@
-# Preparing your agent
 
-Before you can launch a training job, you need to set up an agent that can participate in
-the training loop. This section walks you through how to configure and deploy your agent,
-whether you are using Amazon Bedrock AgentCore for managed hosting or bringing your own
-infrastructure with a custom agent.
+
+# Preparing your agent
+<a name="model-customize-mtrl-agent"></a>
+
+Before you can launch a training job, you need to set up an agent that can participate in the training loop. This section walks you through how to configure and deploy your agent, whether you are using Amazon Bedrock AgentCore for managed hosting or bringing your own infrastructure with a custom agent.
 
 ## Agent code integration overview
+<a name="model-customize-mtrl-agent-overview"></a>
 
-During training, SageMaker AI sends prompts from your training dataset to your agent. Your
-agent processes each prompt, calls the policy model for a response, and takes actions in
-your environment such as calling tools. The policy model is the model being trained. It
-starts as your base model and its weights are updated over time as it receives feedback
-through the training loop. Based on the outcome, your agent reports a reward back to
-SageMaker AI to complete the training loop. This repeats for all prompts in your dataset, and
-the policy model improves over time based on the rewards collected.
+During training, SageMaker AI sends prompts from your training dataset to your agent. Your agent processes each prompt, calls the policy model for a response, and takes actions in your environment such as calling tools. The policy model is the model being trained. It starts as your base model and its weights are updated over time as it receives feedback through the training loop. Based on the outcome, your agent reports a reward back to SageMaker AI to complete the training loop. This repeats for all prompts in your dataset, and the policy model improves over time based on the rewards collected.
 
 ## SageMaker AI Job Runtime Service
+<a name="model-customize-mtrl-agent-runtime-service"></a>
 
-During training, your agent communicates with the SageMaker AI Job Runtime Service to call the
-policy model for inference and report results back to the trainer. The SDK decorator
-handles this integration automatically, but if your agent has custom requirements, you
-can call the Runtime APIs directly.
+During training, your agent communicates with the SageMaker AI Job Runtime Service to call the policy model for inference and report results back to the trainer. The SDK decorator handles this integration automatically, but if your agent has custom requirements, you can call the Runtime APIs directly.
 
 **Endpoint**
 
-`https://job-runtime.sagemaker.`region`.api.aws`
+`https://job-runtime.sagemaker.{{region}}.api.aws`
 
 **APIs**
 
-| API                        | Purpose                                               | When to call                                                  |
-| -------------------------- | ----------------------------------------------------- | ------------------------------------------------------------- |
-| `Sample`                   | Call the policy model for a single inference response | Each turn where your agent needs model output                 |
-| `SampleWithResponseStream` | Call the policy model with streaming response (SSE)   | Same as Sample, when you need token-by-token streaming        |
-| `CompleteRollout`          | Signal that the rollout is finished                   | After your agent completes all turns for a prompt             |
-| `UpdateReward`             | Report the reward score for the complete rollout      | After computing reward, typically called with CompleteRollout |
 
-###### Note
+| API | Purpose | When to call | 
+| --- | --- | --- | 
+| Sample | Call the policy model for a single inference response | Each turn where your agent needs model output | 
+| SampleWithResponseStream | Call the policy model with streaming response (SSE) | Same as Sample, when you need token-by-token streaming | 
+| CompleteRollout | Signal that the rollout is finished | After your agent completes all turns for a prompt | 
+| UpdateReward | Report the reward score for the complete rollout | After computing reward, typically called with CompleteRollout | 
 
-Both `Sample` and `SampleWithResponseStream` are
-OpenAI-compatible APIs.
+**Note**  
+Both `Sample` and `SampleWithResponseStream` are OpenAI-compatible APIs.
 
 **Authentication**
 
-Your agent authenticates with the Runtime Service using bearer tokens. Generate a
-token using the SDK:
+Your agent authenticates with the Runtime Service using bearer tokens. Generate a token using the SDK:
 
 ```
 from sagemaker.core.token_generator import generate_token
@@ -98,44 +89,27 @@ response = requests.post(
 ```
 
 ## Agent deployment options
+<a name="model-customize-mtrl-agent-options"></a>
 
 SageMaker AI supports two options for connecting your agent to the training loop:
-
-- **Bedrock AgentCore:** Deploy your agent to
-  Amazon Bedrock AgentCore for fully managed hosting. SageMaker AI calls your agent
-  directly during training with no additional infrastructure setup required. This
-  option works best for agents built with the Strands SDK.
-- **Bring your own agent:** Host your agent in any
-  environment, including Amazon EKS, Amazon EC2, or your own infrastructure, and
-  connect it to the training loop through a Lambda forwarder. The Lambda forwarder
-  is a Lambda function that acts as a bridge between SageMaker AI and your agent, giving
-  SageMaker AI a consistent way to reach your agent without requiring direct access to
-  your infrastructure or credentials. This option is a good fit when you want full
-  control over your hosting environment or want to use an agent framework of your
-  choice.
++ **Bedrock AgentCore:** Deploy your agent to Amazon Bedrock AgentCore for fully managed hosting. SageMaker AI calls your agent directly during training with no additional infrastructure setup required. This option works best for agents built with the Strands SDK.
++ **Bring your own agent:** Host your agent in any environment, including Amazon EKS, Amazon EC2, or your own infrastructure, and connect it to the training loop through a Lambda forwarder. The Lambda forwarder is a Lambda function that acts as a bridge between SageMaker AI and your agent, giving SageMaker AI a consistent way to reach your agent without requiring direct access to your infrastructure or credentials. This option is a good fit when you want full control over your hosting environment or want to use an agent framework of your choice.
 
 ## Scenario 1: Agents on Bedrock AgentCore Runtime
+<a name="model-customize-mtrl-agent-agentcore"></a>
 
-Deploy your agent to Amazon Bedrock AgentCore for fully managed hosting. SageMaker AI invokes
-your agent during the model training.
+Deploy your agent to Amazon Bedrock AgentCore for fully managed hosting. SageMaker AI invokes your agent during the model training.
 
 ### Prerequisites
+<a name="model-customize-mtrl-agent-agentcore-prereqs"></a>
 
 Before you begin, complete the following prerequisites.
 
 **Bedrock AgentCore execution role**
 
-During training, SageMaker AI assumes your SageMaker execution role to invoke your agent.
-Your agent also needs its own separate role, called the Bedrock AgentCore execution
-role, to call the RFT Runtime for model inference and reward reporting. The RFT
-Runtime is the SageMaker AI service endpoint your agent communicates with during training.
-It handles two things: serving responses from the policy model during inference, and
-receiving the reward your agent reports at the end of each rollout.
+During training, SageMaker AI assumes your SageMaker execution role to invoke your agent. Your agent also needs its own separate role, called the Bedrock AgentCore execution role, to call the RFT Runtime for model inference and reward reporting. The RFT Runtime is the SageMaker AI service endpoint your agent communicates with during training. It handles two things: serving responses from the policy model during inference, and receiving the reward your agent reports at the end of each rollout.
 
-Create the Bedrock AgentCore execution role with the following trust policy. This
-policy grants Bedrock AgentCore permission to assume the role on your behalf during
-training. Without it, Bedrock AgentCore cannot access your container image or call
-the RFT Runtime.
+Create the Bedrock AgentCore execution role with the following trust policy. This policy grants Bedrock AgentCore permission to assume the role on your behalf during training. Without it, Bedrock AgentCore cannot access your container image or call the RFT Runtime.
 
 ```
 {
@@ -148,22 +122,16 @@ the RFT Runtime.
 }
 ```
 
-Then attach the **AmazonSageMakerJobRuntimeAccess**
-managed policy to this role. This grants the permissions your agent needs to call
-the policy model for inference and report results during training.
+Then attach the **AmazonSageMakerJobRuntimeAccess** managed policy to this role. This grants the permissions your agent needs to call the policy model for inference and report results during training.
 
 ### Write or update your agent code
+<a name="model-customize-mtrl-agent-agentcore-code"></a>
 
-Your agent must use the [`sagemaker-train`](https://github.com/aws/sagemaker-python-sdk/tree/master/sagemaker-train "https://github.com/aws/sagemaker-python-sdk/tree/master/sagemaker-train") SDK and apply the
-`@sagemaker_rft_handler` decorator to your agent's entry point function.
-This decorator sets up the HTTP server that AgentCore invokes during training,
-listening for incoming rollout requests and routing prompts to your entrypoint
-function.
+Your agent must use the [`sagemaker-train`](https://github.com/aws/sagemaker-python-sdk/tree/master/sagemaker-train) SDK and apply the `@sagemaker_rft_handler` decorator to your agent's entry point function. This decorator sets up the HTTP server that AgentCore invokes during training, listening for incoming rollout requests and routing prompts to your entrypoint function.
 
 **Install the SDK**
 
-Install the SDK in your agent's environment using one of the following
-methods.
+Install the SDK in your agent's environment using one of the following methods.
 
 Option 1: Direct install
 
@@ -171,8 +139,7 @@ Option 1: Direct install
 pip install sagemaker-train
 ```
 
-Option 2: Build and install wheels individually. Use this if the direct install
-exceeds your environment's size constraints.
+Option 2: Build and install wheels individually. Use this if the direct install exceeds your environment's size constraints.
 
 ```
 # Clone the SDK repository
@@ -192,21 +159,16 @@ pip install ./sagemaker-core/dist/sagemaker_core-*.whl
 
 **Authentication**
 
-Your agent authenticates with SageMaker AI using bearer tokens. Generate a token using the
-SDK's `generate_token()` method and pass it as the API key when calling
-the policy model for inference.
+Your agent authenticates with SageMaker AI using bearer tokens. Generate a token using the SDK's `generate_token()` method and pass it as the API key when calling the policy model for inference.
 
 **Agent requirements**
 
 Your agent must do the following for each rollout:
-
-- Receive a rollout request containing a prompt
-- Call the policy model for a response
-- Execute actions in your environment such as tool calls or API
-  requests
-- Repeat the previous two steps for multiple turns until the task is
-  complete
-- Return a reward score
++ Receive a rollout request containing a prompt
++ Call the policy model for a response
++ Execute actions in your environment such as tool calls or API requests
++ Repeat the previous two steps for multiple turns until the task is complete
++ Return a reward score
 
 The following example shows a basic agent template using the Strands SDK:
 
@@ -247,14 +209,11 @@ def handle_rollout(payload):
 ```
 
 ### Deploy your agent to Bedrock AgentCore
+<a name="model-customize-mtrl-agent-agentcore-deploy"></a>
 
-Deploy your agent to Amazon Bedrock AgentCore following the AgentCore development
-guide.
+Deploy your agent to Amazon Bedrock AgentCore following the AgentCore development guide.
 
-Once you have deployed your agent using the AgentCore CLI, note the Agent Runtime
-ARN from the output. You need this when creating your training job. The Runtime ARN
-follows the format of
-`arn:aws:bedrock-agentcore:<region>:<account-id>:runtime/<agent-name>`.
+Once you have deployed your agent using the AgentCore CLI, note the Agent Runtime ARN from the output. You need this when creating your training job. The Runtime ARN follows the format of `arn:aws:bedrock-agentcore:<region>:<account-id>:runtime/<agent-name>`.
 
 Verify your agent is deployed and healthy:
 
@@ -263,30 +222,22 @@ aws bedrock-agentcore-control list-agent-runtimes --region us-west-2
 ```
 
 ## Scenario 2: Custom Agent with Lambda Forwarder
+<a name="model-customize-mtrl-agent-custom"></a>
 
-In addition to Bedrock AgentCore, SageMaker AI supports custom agents hosted in any
-environment. Your agent connects to the training loop through a Lambda forwarder, giving
-you the flexibility to use any agent framework and hosting platform of your
-choice.
+In addition to Bedrock AgentCore, SageMaker AI supports custom agents hosted in any environment. Your agent connects to the training loop through a Lambda forwarder, giving you the flexibility to use any agent framework and hosting platform of your choice.
 
-Your agent can be built using any framework or platform, such as Strands Agents SDK,
-or your own custom implementation. It can run on any compute environment including
-Amazon Bedrock AgentCore, Amazon EKS, Amazon EC2, AWS Fargate, or your own
-infrastructure.
+Your agent can be built using any framework or platform, such as Strands Agents SDK, or your own custom implementation. It can run on any compute environment including Amazon Bedrock AgentCore, Amazon EKS, Amazon EC2, AWS Fargate, or your own infrastructure.
 
-The Lambda function receives rollout requests from SageMaker AI and forwards them to your
-agent's HTTP endpoint.
+The Lambda function receives rollout requests from SageMaker AI and forwards them to your agent's HTTP endpoint.
 
-The following sections provide more information about setting up a custom agent with a
-Lambda forwarder, with examples using a custom agent deployed on Amazon EKS.
+The following sections provide more information about setting up a custom agent with a Lambda forwarder, with examples using a custom agent deployed on Amazon EKS.
 
 ### Prerequisites
+<a name="model-customize-mtrl-agent-custom-prereqs"></a>
 
 **Lambda execution role**
 
-During training, SageMaker AI assumes your SageMaker execution role to invoke your Lambda
-forwarder. The Lambda function requires its own execution role so that AWS Lambda
-can run it. This role allows Lambda to run and write logs.
+During training, SageMaker AI assumes your SageMaker execution role to invoke your Lambda forwarder. The Lambda function requires its own execution role so that AWS Lambda can run it. This role allows Lambda to run and write logs.
 
 ```
 aws iam create-role \
@@ -306,15 +257,13 @@ aws iam attach-role-policy \
 ```
 
 ### Write your agent code
+<a name="model-customize-mtrl-agent-custom-code"></a>
 
-Your agent must expose an HTTP endpoint that accepts rollout requests and
-interacts with the RFT Runtime service, by calling it for model inference and
-reporting the rewards once the task is complete.
+Your agent must expose an HTTP endpoint that accepts rollout requests and interacts with the RFT Runtime service, by calling it for model inference and reporting the rewards once the task is complete.
 
 **Rollout request format**
 
-Your agent receives requests in the following format from the Lambda
-forwarder:
+Your agent receives requests in the following format from the Lambda forwarder:
 
 ```
 {
@@ -334,14 +283,12 @@ forwarder:
 **Agent expectations**
 
 For Amazon SageMaker AI to successfully complete rollouts, your agent must:
-
-- Accept rollout requests from the Lambda forwarder
-- Call the RFT Runtime for model inference using the provided headers and
-  token
-- Execute actions in your environment (tools, APIs, etc.)
-- Support multiple inference calls per rollout (multi-turn)
-- Report the trajectory as complete when the task is finished
-- Submit a reward score to the RFT Runtime
++ Accept rollout requests from the Lambda forwarder
++ Call the RFT Runtime for model inference using the provided headers and token
++ Execute actions in your environment (tools, APIs, etc.)
++ Support multiple inference calls per rollout (multi-turn)
++ Report the trajectory as complete when the task is finished
++ Submit a reward score to the RFT Runtime
 
 The following example shows a custom agent with a FastAPI endpoint:
 
@@ -428,18 +375,15 @@ pip install sagemaker-train fastapi uvicorn openai
 ```
 
 ### Deploy your agent
+<a name="model-customize-mtrl-agent-custom-deploy"></a>
 
-Your agent can run on any compute environment. It needs outbound network access to
-reach the SageMaker AI Runtime for inference and reward reporting. If the Lambda forwarder
-calls your agent directly, your agent must also expose an HTTP endpoint reachable
-from Lambda.
+Your agent can run on any compute environment. It needs outbound network access to reach the SageMaker AI Runtime for inference and reward reporting. If the Lambda forwarder calls your agent directly, your agent must also expose an HTTP endpoint reachable from Lambda.
 
 The following steps deploy a custom agent to Amazon EKS.
 
 **Create an EKS cluster**
 
-For full EKS setup instructions, see the EKS Getting Started guide. The following
-is a minimal setup for this example:
+For full EKS setup instructions, see the EKS Getting Started guide. The following is a minimal setup for this example:
 
 ```
 eksctl create cluster \
@@ -532,14 +476,11 @@ curl -s "http://$AGENT_ENDPOINT/health"
 ```
 
 ### Create your Lambda forwarder
+<a name="model-customize-mtrl-agent-custom-lambda"></a>
 
-The Lambda forwarder receives rollout requests from SageMaker AI and forwards them to your
-agent. The main thing to customize is the `_call_agent()` function, which
-translates the rollout request into your agent's API format.
+The Lambda forwarder receives rollout requests from SageMaker AI and forwards them to your agent. The main thing to customize is the `_call_agent()` function, which translates the rollout request into your agent's API format.
 
-If your agent doesn't have a public HTTP endpoint, you can replace the HTTP call
-in `_call_agent()` with an SQS `send_message` and have your
-agent poll the queue instead.
+If your agent doesn't have a public HTTP endpoint, you can replace the HTTP call in `_call_agent()` with an SQS `send_message` and have your agent poll the queue instead.
 
 ```
 """
@@ -696,9 +637,5 @@ aws lambda invoke \
   /tmp/response.json && cat /tmp/response.json
 ```
 
-###### Note
-
-This test confirms that Lambda is deployed and can reach your agent. The
-rollout won't complete successfully because no active training job exists, so an
-error response is expected. Check your agent's logs to confirm it received the
-request.
+**Note**  
+This test confirms that Lambda is deployed and can reach your agent. The rollout won't complete successfully because no active training job exists, so an error response is expected. Check your agent's logs to confirm it received the request.

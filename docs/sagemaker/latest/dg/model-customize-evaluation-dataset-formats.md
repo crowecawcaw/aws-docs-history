@@ -1,15 +1,21 @@
+
+
 # Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks
+<a name="model-customize-evaluation-dataset-formats"></a>
 
 The Custom Scorer and LLM-as-judge evaluation types require a custom dataset JSONL file located in AWS S3. You must provide the file as a JSON Lines file adhering to one of the following supported formats. The examples in this doc are expanded for clarity.
 
 Each format has its own nuances but at a minimum all require a user prompt.
 
-Required Fields| Field | Required |
-| --- | --- |
-| User Prompt | Yes |
-| System Prompt | No |
-| Ground truth | Only for Custom Scorer |
-| Category | No |
+
+**Required Fields**  
+
+| Field | Required | 
+| --- | --- | 
+| User Prompt | Yes | 
+| System Prompt | No | 
+| Ground truth | Only for Custom Scorer | 
+| Category | No | 
 
 **1. OpenAI Format**
 
@@ -109,19 +115,18 @@ Support for both standard format (string) and conversational format (messages ar
 
 **5. Verl Format**
 
-The Verl format (both current and legacy formats) is supported for reinforcement learning use cases. Verl docs for reference: [https://verl.readthedocs.io/en/latest/preparation/prepare\_data.html](https://verl.readthedocs.io/en/latest/preparation/prepare_data.html "https://verl.readthedocs.io/en/latest/preparation/prepare_data.html")
+The Verl format (both current and legacy formats) is supported for reinforcement learning use cases. Verl docs for reference: [https://verl.readthedocs.io/en/latest/preparation/prepare\_data.html](https://verl.readthedocs.io/en/latest/preparation/prepare_data.html)
 
 Users of the VERL format typically do not provide a ground truth response. If you want to provide one anyways, use either of the fields `extra_info.answer` or `reward_model.ground_truth`; `extra_info` takes precedence.
 
 SageMaker preserves the following VERL-specific fields as metadata if present:
-
-- `id`
-- `data_source`
-- `ability`
-- `reward_model`
-- `extra_info`
-- `attributes`
-- `difficulty`
++ `id`
++ `data_source`
++ `ability`
++ `reward_model`
++ `extra_info`
++ `attributes`
++ `difficulty`
 
 ```
 # Newest VERL format where `prompt` is an array of messages.

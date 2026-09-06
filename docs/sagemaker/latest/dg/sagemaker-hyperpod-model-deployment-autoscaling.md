@@ -1,20 +1,16 @@
+
+
 # Autoscaling policies for your HyperPod inference model deployment
+<a name="sagemaker-hyperpod-model-deployment-autoscaling"></a>
 
-This following information provides practical examples and configurations for
-implementing autoscaling policies on Amazon SageMaker HyperPod inference model deployments.
+This following information provides practical examples and configurations for implementing autoscaling policies on Amazon SageMaker HyperPod inference model deployments. 
 
-You'll learn how to configure automatic scaling using the built-in
-`autoScalingSpec` in your deployment YAML files, as well as how to create
-standalone KEDA `ScaledObject` configurations for advanced scaling scenarios.
-The examples cover scaling triggers based on CloudWatch metrics, Amazon SQS queue lengths,
-Prometheus queries, and resource utilization metrics like CPU and memory.
+You'll learn how to configure automatic scaling using the built-in `autoScalingSpec` in your deployment YAML files, as well as how to create standalone KEDA `ScaledObject` configurations for advanced scaling scenarios. The examples cover scaling triggers based on CloudWatch metrics, Amazon SQS queue lengths, Prometheus queries, and resource utilization metrics like CPU and memory. 
 
 ## Using autoScalingSpec in deployment YAML
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-yaml"></a>
 
-Amazon SageMaker HyperPod inference operator provides built-in autoscaling capabilities for
-model deployments using metrics from CloudWatch and Amazon Managed Prometheus (AMP). The
-following deployment YAML example includes an `autoScalingSpec` section
-that defines the configuration values for scaling your model deployment.
+Amazon SageMaker HyperPod inference operator provides built-in autoscaling capabilities for model deployments using metrics from CloudWatch and Amazon Managed Prometheus (AMP). The following deployment YAML example includes an `autoScalingSpec` section that defines the configuration values for scaling your model deployment.
 
 ```
 apiVersion: inference.sagemaker.aws.amazon.com/v1
@@ -64,7 +60,7 @@ spec:
             value: "deepsek7bsme624"
           - name: "VariantName"
             value: "AllTraffic"
-    prometheusTrigger:
+    prometheusTrigger: 
         name: "Prometheus-Trigger"
         useCachedMetrics: false
         serverAddress: http://<prometheus-host>:9090
@@ -77,192 +73,74 @@ spec:
 ```
 
 ### Explanation of fields used in deployment YAML
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-fields"></a>
 
-`minReplicaCount` (Optional, Integer)
+`minReplicaCount` (Optional, Integer)  
+Specifies the minimum number of model deployment replicas to maintain in the cluster. During scale-down events, the deployment scales down to this minimum number of pods. Must be greater than or equal to 0. Default: 1.
 
-Specifies the minimum number of model deployment replicas to
-maintain in the cluster. During scale-down events, the deployment
-scales down to this minimum number of pods. Must be greater than or
-equal to 0. Default: 1.
+`maxReplicaCount` (Optional, Integer)  
+Specifies the maximum number of model deployment replicas to maintain in the cluster. Must be greater than or equal to `minReplicaCount`. During scale-up events, the deployment scales up to this maximum number of pods. Default: 5.
 
-`maxReplicaCount` (Optional, Integer)
+`pollingInterval` (Optional, Integer)  
+The time interval in seconds for querying metrics. Minimum: 0. Default: 30 seconds.
 
-Specifies the maximum number of model deployment replicas to
-maintain in the cluster. Must be greater than or equal to
-`minReplicaCount`. During scale-up events, the
-deployment scales up to this maximum number of pods. Default: 5.
+`cooldownPeriod` (Optional, Integer)  
+The time interval in seconds to wait before scaling down from 1 to 0 pods during a scale-down event. Only applies when `minReplicaCount` is set to 0. Minimum: 0. Default: 300 seconds.
 
-`pollingInterval` (Optional, Integer)
+`initialCooldownPeriod` (Optional, Integer)  
+The time interval in seconds to wait before scaling down from 1 to 0 pods during initial deployment. Only applies when `minReplicaCount` is set to 0. Minimum: 0. Default: 300 seconds.
 
-The time interval in seconds for querying metrics. Minimum: 0.
-Default: 30 seconds.
+`scaleDownStabilizationTime` (Optional, Integer)  
+The stabilization time window in seconds after a scale-down trigger activates before scaling down occurs. Minimum: 0. Default: 300 seconds.
 
-`cooldownPeriod` (Optional, Integer)
+`scaleUpStabilizationTime` (Optional, Integer)  
+The stabilization time window in seconds after a scale-up trigger activates before scaling up occurs. Minimum: 0. Default: 0 seconds.
 
-The time interval in seconds to wait before scaling down from 1 to
-0 pods during a scale-down event. Only applies when
-`minReplicaCount` is set to 0. Minimum: 0. Default:
-300 seconds.
+`cloudWatchTrigger`  
+The trigger configuration for CloudWatch metrics used in autoscaling decisions. The following fields are available in `cloudWatchTrigger`:  
++ `name` (Optional, String) - Name for the CloudWatch trigger. If not provided, uses the default format: <model-deployment-name>-scaled-object-cloudwatch-trigger.
++ `useCachedMetrics` (Optional, Boolean) - Determines whether to cache metrics queried by KEDA. KEDA queries metrics using the pollingInterval, while the Horizontal Pod Autoscaler (HPA) requests metrics from KEDA every 15 seconds. When set to true, queried metrics are cached and used to serve HPA requests. Default: true.
++ `namespace` (Required, String) - The CloudWatch namespace for the metric to query.
++ `metricName` (Required, String) - The name of the CloudWatch metric.
++ `dimensions` (Optional, List) - The list of dimensions for the metric. Each dimension includes a name (dimension name - String) and value (dimension value - String).
++ `targetValue` (Required, Float) - The target value for the CloudWatch metric used in autoscaling decisions.
++ `activationTargetValue` (Optional, Float) - The target value for the CloudWatch metric used when scaling from 0 to 1 pod. Only applies when `minReplicaCount` is set to 0. Default: 0.
++ `minValue` (Optional, Float) - The value to use when the CloudWatch query returns no data. Default: 0.
++ `metricCollectionStartTime` (Optional, Integer) - The start time for the metric query, calculated as T-metricCollectionStartTime. Must be greater than or equal to metricCollectionPeriod. Default: 300 seconds.
++ `metricCollectionPeriod` (Optional, Integer) - The duration for the metric query in seconds. Must be a CloudWatch-supported value (1, 5, 10, 30, or a multiple of 60). Default: 300 seconds.
++ `metricStat` (Optional, String) - The statistic type for the CloudWatch query. Default: `Average`.
++ `metricType` (Optional, String) - Defines how the metric is used for scaling calculations. Default: `Average`. Allowed values: `Average`, `Value`.
+  + **Average**: Desired replicas = ceil (Metric Value) / (targetValue)
+  + **Value**: Desired replicas = (current replicas) × ceil (Metric Value) / (targetValue)
 
-`initialCooldownPeriod` (Optional, Integer)
-
-The time interval in seconds to wait before scaling down from 1 to
-0 pods during initial deployment. Only applies when
-`minReplicaCount` is set to 0. Minimum: 0. Default:
-300 seconds.
-
-`scaleDownStabilizationTime` (Optional, Integer)
-
-The stabilization time window in seconds after a scale-down
-trigger activates before scaling down occurs. Minimum: 0. Default:
-300 seconds.
-
-`scaleUpStabilizationTime` (Optional, Integer)
-
-The stabilization time window in seconds after a scale-up trigger
-activates before scaling up occurs. Minimum: 0. Default: 0
-seconds.
-
-`cloudWatchTrigger`
-
-The trigger configuration for CloudWatch metrics used in autoscaling
-decisions. The following fields are available in
-`cloudWatchTrigger`:
-
-- `name` (Optional, String) - Name for the
-  CloudWatch trigger. If not provided, uses the default
-  format:
-  <model-deployment-name>-scaled-object-cloudwatch-trigger.
-- `useCachedMetrics` (Optional, Boolean) -
-  Determines whether to cache metrics queried by KEDA. KEDA
-  queries metrics using the pollingInterval, while the
-  Horizontal Pod Autoscaler (HPA) requests metrics from KEDA
-  every 15 seconds. When set to true, queried metrics are
-  cached and used to serve HPA requests. Default: true.
-- `namespace` (Required, String) - The CloudWatch
-  namespace for the metric to query.
-- `metricName` (Required, String) - The name of
-  the CloudWatch metric.
-- `dimensions` (Optional, List) - The list of
-  dimensions for the metric. Each dimension includes a name
-  (dimension name - String) and value (dimension value -
-  String).
-- `targetValue` (Required, Float) - The target
-  value for the CloudWatch metric used in autoscaling
-  decisions.
-- `activationTargetValue` (Optional, Float) - The
-  target value for the CloudWatch metric used when scaling
-  from 0 to 1 pod. Only applies when
-  `minReplicaCount` is set to 0. Default:
-
-0.
-
-- `minValue` (Optional, Float) - The value to use
-  when the CloudWatch query returns no data. Default:
-
-0.
-
-- `metricCollectionStartTime` (Optional, Integer)
-
-* The start time for the metric query, calculated as
-  T-metricCollectionStartTime. Must be greater than or equal
-  to metricCollectionPeriod. Default: 300 seconds.
-
-- `metricCollectionPeriod` (Optional, Integer) -
-  The duration for the metric query in seconds. Must be a
-  CloudWatch-supported value (1, 5, 10, 30, or a multiple of
-  60). Default: 300 seconds.
-- `metricStat` (Optional, String) - The statistic
-  type for the CloudWatch query. Default:
-  `Average`.
-- `metricType` (Optional, String) - Defines how
-  the metric is used for scaling calculations. Default:
-  `Average`. Allowed values:
-  `Average`, `Value`.
-
-  - **Average**: Desired
-    replicas = ceil (Metric Value) /
-    (targetValue)
-  - **Value**: Desired
-    replicas = (current replicas) × ceil (Metric Value)
-    / (targetValue)
-
-`prometheusTrigger`
-
-The trigger configuration for Amazon Managed Prometheus (AMP)
-metrics used in autoscaling decisions. The following fields are
-available in `prometheusTrigger`:
-
-- `name` (Optional, String) - Name for the
-  CloudWatch trigger. If not provided, uses the default
-  format:
-  <model-deployment-name>-scaled-object-cloudwatch-trigger.
-- `useCachedMetrics` (Optional, Boolean) -
-  Determines whether to cache metrics queried by KEDA. KEDA
-  queries metrics using the pollingInterval, while the
-  Horizontal Pod Autoscaler (HPA) requests metrics from KEDA
-  every 15 seconds. When set to true, queried metrics are
-  cached and used to serve HPA requests. Default: true.
-- `serverAddress` (Required, String) - The
-  address of the AMP server. Must use the format:
-  <https://aps-workspaces.<region>.amazonaws.com/workspaces/<workspace\_id>
-- `query` (Required, String) - The PromQL query
-  used for the metric. Must return a scalar value.
-- `targetValue` (Required, Float) - The target
-  value for the CloudWatch metric used in autoscaling
-  decisions.
-- `activationTargetValue` (Optional, Float) - The
-  target value for the CloudWatch metric used when scaling
-  from 0 to 1 pod. Only applies when
-  `minReplicaCount` is set to 0. Default:
-
-0.
-
-- `namespace` (Optional, String) - The namespace
-  to use for namespaced queries. Default: empty string
-  (`""`).
-- `customHeaders` (Optional, String) - Custom
-  headers to include when querying the Prometheus endpoint.
-  Default: empty string ("").
-- `metricType` (Optional, String) - Defines how
-  the metric is used for scaling calculations. Default:
-  `Average`. Allowed values:
-  `Average`, `Value`.
-
-  - **Average**: Desired
-    replicas = ceil (Metric Value) /
-    (targetValue)
-  - **Value**: Desired
-    replicas = (current replicas) × ceil (Metric Value)
-    / (targetValue)
+`prometheusTrigger`  
+The trigger configuration for Amazon Managed Prometheus (AMP) metrics used in autoscaling decisions. The following fields are available in `prometheusTrigger`:  
++ `name` (Optional, String) - Name for the CloudWatch trigger. If not provided, uses the default format: <model-deployment-name>-scaled-object-cloudwatch-trigger.
++ `useCachedMetrics` (Optional, Boolean) - Determines whether to cache metrics queried by KEDA. KEDA queries metrics using the pollingInterval, while the Horizontal Pod Autoscaler (HPA) requests metrics from KEDA every 15 seconds. When set to true, queried metrics are cached and used to serve HPA requests. Default: true.
++ `serverAddress` (Required, String) - The address of the AMP server. Must use the format: <https://aps-workspaces.<region>.amazonaws.com/workspaces/<workspace\_id>
++ `query` (Required, String) - The PromQL query used for the metric. Must return a scalar value.
++ `targetValue` (Required, Float) - The target value for the CloudWatch metric used in autoscaling decisions.
++ `activationTargetValue` (Optional, Float) - The target value for the CloudWatch metric used when scaling from 0 to 1 pod. Only applies when `minReplicaCount` is set to 0. Default: 0.
++ `namespace` (Optional, String) - The namespace to use for namespaced queries. Default: empty string (`""`).
++ `customHeaders` (Optional, String) - Custom headers to include when querying the Prometheus endpoint. Default: empty string ("").
++ `metricType` (Optional, String) - Defines how the metric is used for scaling calculations. Default: `Average`. Allowed values: `Average`, `Value`.
+  + **Average**: Desired replicas = ceil (Metric Value) / (targetValue)
+  + **Value**: Desired replicas = (current replicas) × ceil (Metric Value) / (targetValue)
 
 ## Using KEDA ScaledObject yaml definitions through kubectl
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl"></a>
 
-In addition to configuring autoscaling through the autoScalingSpec section in your
-deployment YAML, you can create and apply standalone KEDA `ScaledObject`
-YAML definitions using kubectl.
+In addition to configuring autoscaling through the autoScalingSpec section in your deployment YAML, you can create and apply standalone KEDA `ScaledObject` YAML definitions using kubectl.
 
-This approach provides greater flexibility for complex scaling scenarios and
-allows you to manage autoscaling policies independently from your model deployments.
-KEDA `ScaledObject` configurations support a [wide range of scaling triggers](https://keda.sh/docs/2.17/scalers/ "https://keda.sh/docs/2.17/scalers/")
-including CloudWatch metrics, Amazon SQS queue lengths, Prometheus queries, and resource-based
-metrics like CPU and memory utilization. You can apply these configurations to
-existing model deployments by referencing the deployment name in the scaleTargetRef
-section of the ScaledObject specification.
+This approach provides greater flexibility for complex scaling scenarios and allows you to manage autoscaling policies independently from your model deployments. KEDA `ScaledObject` configurations support a [wide range of scaling triggers](https://keda.sh/docs/2.17/scalers/) including CloudWatch metrics, Amazon SQS queue lengths, Prometheus queries, and resource-based metrics like CPU and memory utilization. You can apply these configurations to existing model deployments by referencing the deployment name in the scaleTargetRef section of the ScaledObject specification.
 
-###### Note
-
-Ensure the keda operator role provided during the HyperPod Inference
-operator installation has adequate permissions to query the metrics defined in
-the scaled object triggers.
+**Note**  
+Ensure the keda operator role provided during the HyperPod Inference operator installation has adequate permissions to query the metrics defined in the scaled object triggers.
 
 ### CloudWatch metrics
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-cw"></a>
 
-The following KEDA yaml policy uses CloudWatch metrics as a trigger to perform
-autoscaling on a kubernetes deployment. The policy queries the number of
-invocations for a Sagemaker endpoint and scales the number of deployment pods.
-The complete list of parameters supported by KEDA for
-`aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/aws-cloudwatch/](https://keda.sh/docs/2.17/scalers/aws-cloudwatch/ "https://keda.sh/docs/2.17/scalers/aws-cloudwatch/").
+The following KEDA yaml policy uses CloudWatch metrics as a trigger to perform autoscaling on a kubernetes deployment. The policy queries the number of invocations for a Sagemaker endpoint and scales the number of deployment pods. The complete list of parameters supported by KEDA for `aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/aws-cloudwatch/](https://keda.sh/docs/2.17/scalers/aws-cloudwatch/).
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -294,12 +172,9 @@ spec:
 ```
 
 ### Amazon SQS metrics
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-sqs"></a>
 
-The following KEDA yaml policy uses Amazon SQS metrics as a trigger to perform
-autoscaling on a kubernetes deployment. The policy queries the number of
-invocations for a Sagemaker endpoint and scales the number of deployment pods.
-The complete list of parameters supported by KEDA for
-`aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/aws-sqs/](https://keda.sh/docs/2.17/scalers/aws-sqs/ "https://keda.sh/docs/2.17/scalers/aws-sqs/").
+The following KEDA yaml policy uses Amazon SQS metrics as a trigger to perform autoscaling on a kubernetes deployment. The policy queries the number of invocations for a Sagemaker endpoint and scales the number of deployment pods. The complete list of parameters supported by KEDA for `aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/aws-sqs/](https://keda.sh/docs/2.17/scalers/aws-sqs/).
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -326,12 +201,9 @@ spec:
 ```
 
 ### Prometheus metrics
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-prometheus"></a>
 
-The following KEDA yaml policy uses Prometheus metrics as a trigger to perform
-autoscaling on a kubernetes deployment. The policy queries the number of
-invocations for a Sagemaker endpoint and scales the number of deployment pods.
-The complete list of parameters supported by KEDA for
-`aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/ "https://keda.sh/docs/2.17/scalers/prometheus/").
+The following KEDA yaml policy uses Prometheus metrics as a trigger to perform autoscaling on a kubernetes deployment. The policy queries the number of invocations for a Sagemaker endpoint and scales the number of deployment pods. The complete list of parameters supported by KEDA for `aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/).
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -355,18 +227,15 @@ spec:
       threshold: '100.50'
       namespace: example-namespace  # for namespaced queries, eg. Thanos
       customHeaders: X-Client-Id=cid,X-Tenant-Id=tid,X-Organization-Id=oid # Optional. Custom headers to include in query. In case of auth header, use the custom authentication or relevant authModes.
-      unsafeSsl: "false" #  Default is `false`, Used for skipping certificate check when having self-signed certs for Prometheus endpoint
+      unsafeSsl: "false" #  Default is `false`, Used for skipping certificate check when having self-signed certs for Prometheus endpoint    
       timeout: 1000 # Custom timeout for the HTTP client used in this scaler
       identityOwner: operator
 ```
 
 ### CPU metrics
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-cpu"></a>
 
-The following KEDA yaml policy uses cpu metric as a trigger to perform
-autoscaling on a kubernetes deployment. The policy queries the number of
-invocations for a Sagemaker endpoint and scales the number of deployment pods.
-The complete list of parameters supported by KEDA for
-`aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/ "https://keda.sh/docs/2.17/scalers/prometheus/").
+The following KEDA yaml policy uses cpu metric as a trigger to perform autoscaling on a kubernetes deployment. The policy queries the number of invocations for a Sagemaker endpoint and scales the number of deployment pods. The complete list of parameters supported by KEDA for `aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/).
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -391,12 +260,9 @@ spec:
 ```
 
 ### Memory metrics
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-memory"></a>
 
-The following KEDA yaml policy uses Prometheus metrics query as a trigger to
-perform autoscaling on a kubernetes deployment. The policy queries the number of
-invocations for a Sagemaker endpoint and scales the number of deployment pods.
-The complete list of parameters supported by KEDA for
-`aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/ "https://keda.sh/docs/2.17/scalers/prometheus/").
+The following KEDA yaml policy uses Prometheus metrics query as a trigger to perform autoscaling on a kubernetes deployment. The policy queries the number of invocations for a Sagemaker endpoint and scales the number of deployment pods. The complete list of parameters supported by KEDA for `aws-cloudwatch` trigger can be found at [https://keda.sh/docs/2.17/scalers/prometheus/](https://keda.sh/docs/2.17/scalers/prometheus/).
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -421,22 +287,12 @@ spec:
 ```
 
 ## Sample Prometheus policy for scaling down to 0 pods
+<a name="sagemaker-hyperpod-model-deployment-autoscaling-kubectl-sample"></a>
 
-The following KEDA yaml policy uses prometheus metrics query as a trigger to
-perform autoscaling on a kubernetes deployment. This policy uses a
-`minReplicaCount` of 0 which enables KEDA to scale the deployment
-down to 0 pods. When `minReplicaCount` is set to 0, you need to provide
-an activation criteria to bring up the first pod, after the pods scale down
-to 0. For the Prometheus trigger, this value is provided by
-`activationThreshold`. For the SQS queue, it comes from
-`activationQueueLength`.
+The following KEDA yaml policy uses prometheus metrics query as a trigger to perform autoscaling on a kubernetes deployment. This policy uses a `minReplicaCount` of 0 which enables KEDA to scale the deployment down to 0 pods. When `minReplicaCount` is set to 0, you need to provide an activation criteria to bring up the first pod, after the pods scale down to 0. For the Prometheus trigger, this value is provided by `activationThreshold`. For the SQS queue, it comes from `activationQueueLength`.
 
-###### Note
-
-While using `minReplicaCount` of 0, make sure the activation does
-not depend on a metric that is being generated by the pods. When the pods scale
-down to 0, that metric will never be generated and the pods will not scale up
-again.
+**Note**  
+While using `minReplicaCount` of 0, make sure the activation does not depend on a metric that is being generated by the pods. When the pods scale down to 0, that metric will never be generated and the pods will not scale up again.
 
 ```
 apiVersion: keda.sh/v1alpha1
@@ -466,8 +322,5 @@ spec:
       identityOwner: operator
 ```
 
-###### Note
-
-The CPU and Memory triggers can scale to 0 only when you define at least one
-additional scaler which is not CPU or Memory (eg. SQS + CPU, or Prometheus +
-CPU).
+**Note**  
+The CPU and Memory triggers can scale to 0 only when you define at least one additional scaler which is not CPU or Memory (eg. SQS \+ CPU, or Prometheus \+ CPU). 

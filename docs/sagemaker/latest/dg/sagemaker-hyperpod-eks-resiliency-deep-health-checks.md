@@ -1,64 +1,53 @@
-# Deep health checks
 
-SageMaker HyperPod performs _deep health checks_ on cluster instances
-during the creation and update of HyperPod clusters. You can also request
-deep health checks on-demand for a SageMaker HyperPod cluster using
-[StartClusterHealthCheck](../APIReference/API_StartClusterHealthCheck.md "../APIReference/API_StartClusterHealthCheck.md")
-API. The deep health checks ensure the reliability and stability of the SageMaker HyperPod
-clusters by testing the underlying hardware and infrastructure components. This proactive
-approach helps identify and mitigate potential issues early in the cluster lifecycle.
+
+# Deep health checks
+<a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks"></a>
+
+SageMaker HyperPod performs *deep health checks* on cluster instances during the creation and update of HyperPod clusters. You can also request deep health checks on-demand for a SageMaker HyperPod cluster using [StartClusterHealthCheck](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartClusterHealthCheck.html) API. The deep health checks ensure the reliability and stability of the SageMaker HyperPod clusters by testing the underlying hardware and infrastructure components. This proactive approach helps identify and mitigate potential issues early in the cluster lifecycle.
 
 ## List of deep health checks done by SageMaker HyperPod
+<a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks-list"></a>
 
 SageMaker HyperPod runs the following deep health checks.
 
 **Instance-level deep health checks**
 
-| Category    | Utility name                                                                                                                                                                                  | Instance type compatibility | Description                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accelerator | GPU/NVLink count                                                                                                                                                                              | GPU                         | Verifies GPU/NVLink counts.                                                                                                                                                                                                                                                                                                                                                                       |
-| Accelerator | [DCGM diagnostics](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/dcgm-diagnostics.html "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/dcgm-diagnostics.html") level 4 | GPU                         | Assesses the health and functionality of NVIDIA GPUs by running<br>DCGM (NVIDIA Data Center GPU Manager) diagnostics at level 4,<br>including additional memory tests.                                                                                                                                                                                                                            |
-| Accelerator | Neuron sysfs                                                                                                                                                                                  | Trainium                    | For Trainium-powered instances, the health of the Neuron devices<br>is determined by reading counters from [Neuron sysfs](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html") propagated directly by the Neuron<br>driver. |
-| Accelerator | Neuron hardware check                                                                                                                                                                         | Trainium                    | Runs a training workload and verifies the results to test the hardware.                                                                                                                                                                                                                                                                                                                           |
-| Accelerator | NCCOM local test                                                                                                                                                                              | Trainium                    | Evaluates the performance of collective communication operations<br>on single Trainium nodes                                                                                                                                                                                                                                                                                                      |
-| Network     | EFA                                                                                                                                                                                           | GPU and Trainium            | Runs latency and bandwidth benchmarking on the attached EFA<br>device.                                                                                                                                                                                                                                                                                                                            |
+
+| Category | Utility name | Instance type compatibility | Description | 
+| --- | --- | --- | --- | 
+| Accelerator | GPU/NVLink count | GPU | Verifies GPU/NVLink counts. | 
+| Accelerator | [DCGM diagnostics](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/dcgm-diagnostics.html) level 4 | GPU | Assesses the health and functionality of NVIDIA GPUs by running DCGM (NVIDIA Data Center GPU Manager) diagnostics at level 4, including additional memory tests. | 
+| Accelerator | Neuron sysfs | Trainium | For Trainium-powered instances, the health of the Neuron devices is determined by reading counters from [Neuron sysfs](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-sysfs-user-guide.html) propagated directly by the Neuron driver. | 
+| Accelerator | Neuron hardware check | Trainium | Runs a training workload and verifies the results to test the hardware. | 
+| Accelerator | NCCOM local test | Trainium | Evaluates the performance of collective communication operations on single Trainium nodes | 
+| Network | EFA | GPU and Trainium | Runs latency and bandwidth benchmarking on the attached EFA device. | 
 
 **Cluster-level deep health checks**
 
-| Category    | Utility name       | Instance type compatibility | Description                                                                                   |
-| ----------- | ------------------ | --------------------------- | --------------------------------------------------------------------------------------------- |
-| Accelerator | NCCL test          | GPU                         | Verifies the performance of collective communication operations<br>on multiple NVIDIA GPUs    |
-| Accelerator | NCCOM cluster test | Trainium                    | Verifies the performance of collective communication operations<br>on multiple Trainium nodes |
 
-###### Deep health checks with flexible instance groups
+| Category | Utility name | Instance type compatibility | Description | 
+| --- | --- | --- | --- | 
+| Accelerator | NCCL test | GPU | Verifies the performance of collective communication operations on multiple NVIDIA GPUs | 
+| Accelerator | NCCOM cluster test | Trainium | Verifies the performance of collective communication operations on multiple Trainium nodes | 
 
-For instance groups that use `InstanceRequirements` with multiple
-instance types, deep health checks behave as follows:
-
-- Instance-level deep health checks run only on eligible GPU instance
-  types. CPU instance types within a flexible instance group are
-  skipped.
-- Cluster-level connectivity tests (such as NCCL AllReduce) run only
-  between instances of the same type within the instance group. This
-  ensures accurate test results that reflect the networking capabilities
-  of each instance type.
-- If deep health checks are enabled, at least one instance type in the
-  flexible instance group must support deep health checks.
+**Deep health checks with flexible instance groups**  
+For instance groups that use `InstanceRequirements` with multiple instance types, deep health checks behave as follows:  
+Instance-level deep health checks run only on eligible GPU instance types. CPU instance types within a flexible instance group are skipped.
+Cluster-level connectivity tests (such as NCCL AllReduce) run only between instances of the same type within the instance group. This ensures accurate test results that reflect the networking capabilities of each instance type.
+If deep health checks are enabled, at least one instance type in the flexible instance group must support deep health checks.
 
 ## Logs from the deep health checks
+<a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks-log"></a>
 
 The following are example logs from the SageMaker HyperPod deep health checks.
 
-**Cluster-level logs**
+**Cluster-level logs** 
 
-The cluster-level deep health check logs are stored in your CloudWatch log group at
-`/aws/sagemaker/Clusters/**<cluster\_name>**/**<cluster\_id>**`
+The cluster-level deep health check logs are stored in your CloudWatch log group at `/aws/sagemaker/Clusters/<cluster_name>/<cluster_id>`
 
-The log streams are logged at
-`DeepHealthCheckResults/<log_stream_id>`.
+The log streams are logged at `DeepHealthCheckResults/<log_stream_id>`.
 
-As an example shown below, the deep health check output logs show the instance ID
-that failed the checks with the cause of the failure.
+As an example shown below, the deep health check output logs show the instance ID that failed the checks with the cause of the failure.
 
 ```
 {
@@ -68,18 +57,15 @@ that failed the checks with the cause of the failure.
 }
 ```
 
-**Instance-level logs**
+**Instance-level logs** 
 
-The instance-level deep health check logs are stored at
-`/var/log/aws/clusters/sagemaker-deep-health-check.log` on each node.
-SSH into the node and open the log file by running the following command.
+The instance-level deep health check logs are stored at `/var/log/aws/clusters/sagemaker-deep-health-check.log` on each node. SSH into the node and open the log file by running the following command.
 
 ```
 cat /var/log/aws/clusters/sagemaker-deep-health-check.log
 ```
 
-The following is an example output of the hardware stress, [NVIDIA DCGM](https://developer.nvidia.com/dcgm "https://developer.nvidia.com/dcgm") stress, and EFA
-connectivity test.
+The following is an example output of the hardware stress, [NVIDIA DCGM](https://developer.nvidia.com/dcgm) stress, and EFA connectivity test.
 
 ```
 # Hardware Stress Test output
@@ -104,7 +90,7 @@ The following is an example output of the NCCL connectivity test.
 ```
 #       size         count      type   redop    root     time   algbw   busbw #wrong     time   algbw   busbw #wrong
 
-#        (B)    (elements)                               (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)       
 
            8             2     float     sum      -1    353.9    0.00    0.00      0    304.2    0.00    0.00      0
           16             4     float     sum      -1    352.8    0.00    0.00      0    422.9    0.00    0.00      0
@@ -142,7 +128,7 @@ The following is an example output of the NCCL connectivity test.
 
 2024-08-20T16:22:43.831-07:00
 
-# Avg bus bandwidth    : 0.488398
+# Avg bus bandwidth    : 0.488398 
 
 2024-08-20T23:22:43Z    info    Nccl test successful. Summary: NcclMaxAlgoBw: 1.190000, NcclAvgAlgoBw: 0.488398, NcclThresholdAlgoBw: 1.180000, NcclOutOfBoundError: OK, NcclOperations: all_reduce_perf, NcclTotalDevices: 2, NcclNodes: 2, NcclClusterMessage:
 ```

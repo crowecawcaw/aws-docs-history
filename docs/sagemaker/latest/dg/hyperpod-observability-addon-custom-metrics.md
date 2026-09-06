@@ -1,37 +1,17 @@
+
+
 # Creating custom SageMaker HyperPod cluster metrics
+<a name="hyperpod-observability-addon-custom-metrics"></a>
 
-The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on provides hundreds of
-health, performance, and efficiency metrics out-of-the-box. In addition to those
-metrics, you might need to monitor custom metrics specific to your applications
-or business needs that aren't captured by default metrics, such as
-model-specific performance indicators, data processing statistics, or
-application-specific measurements. To address this need, you can implement
-custom metrics collection using OpenTelemetry by integrating a Python code
-snippet into your application.
+The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on provides hundreds of health, performance, and efficiency metrics out-of-the-box. In addition to those metrics, you might need to monitor custom metrics specific to your applications or business needs that aren't captured by default metrics, such as model-specific performance indicators, data processing statistics, or application-specific measurements. To address this need, you can implement custom metrics collection using OpenTelemetry by integrating a Python code snippet into your application.
 
-To create custom metrics, first run the following shell command to install the
-core OpenTelemetry components needed to instrument Python applications for
-observability. This installation makes it possible for Python applications that
-run on SageMaker HyperPod clusters to emit custom telemetry data. That data gets
-collected by the OpenTelemetry collector and forwarded to the observability
-infrastructure.
+To create custom metrics, first run the following shell command to install the core OpenTelemetry components needed to instrument Python applications for observability. This installation makes it possible for Python applications that run on SageMaker HyperPod clusters to emit custom telemetry data. That data gets collected by the OpenTelemetry collector and forwarded to the observability infrastructure.
 
 ```
 pip install opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp-proto-grpc
 ```
 
-The following example script configures an OpenTelemetry metrics pipeline that
-automatically tags metrics with pod and node information, ensuring proper
-attribution within your cluster, and sends these metrics to the SageMaker HyperPod
-built-in observability stack every second. The script establishes a connection
-to the SageMaker HyperPod metrics collector, sets up appropriate resource attributes
-for identification, and provides a meter interface through which you can create
-various types of metrics (counters, gauges, or histograms) to track any aspect
-of your application's performance. Custom metrics integrate with the
-SageMaker HyperPod monitoring dashboards alongside system metrics. This integration
-allows for comprehensive observability through a single interface where you can
-create custom alerts, visualizations, and reports to monitor your workload's
-complete performance profile.
+The following example script configures an OpenTelemetry metrics pipeline that automatically tags metrics with pod and node information, ensuring proper attribution within your cluster, and sends these metrics to the SageMaker HyperPod built-in observability stack every second. The script establishes a connection to the SageMaker HyperPod metrics collector, sets up appropriate resource attributes for identification, and provides a meter interface through which you can create various types of metrics (counters, gauges, or histograms) to track any aspect of your application's performance. Custom metrics integrate with the SageMaker HyperPod monitoring dashboards alongside system metrics. This integration allows for comprehensive observability through a single interface where you can create custom alerts, visualizations, and reports to monitor your workload's complete performance profile.
 
 ```
 import os

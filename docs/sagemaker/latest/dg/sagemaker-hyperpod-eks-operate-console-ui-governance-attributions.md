@@ -1,15 +1,17 @@
+
+
 # Attribution document for Amazon SageMaker HyperPod task governance
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-attributions"></a>
 
-In the following you can learn about attributions and third-party licenses for
-material used in Amazon SageMaker HyperPod task governance.
+In the following you can learn about attributions and third-party licenses for material used in Amazon SageMaker HyperPod task governance.
 
-###### Topics
+**Topics**
++ [[base-files](https://packages.debian.org/bookworm/base-files)](#hp-eks-task-governance-attributions-base-files)
++ [[netbase](https://packages.debian.org/source/stable/netbase)](#hp-eks-task-governance-attributions-netbase)
++ [[golang-lru](https://github.com/hashicorp/golang-lru)](#hp-eks-task-governance-attributions-golang-lru)
 
-- [base-files](#hp-eks-task-governance-attributions-base-files "#hp-eks-task-governance-attributions-base-files")
-- [netbase](#hp-eks-task-governance-attributions-netbase "#hp-eks-task-governance-attributions-netbase")
-- [golang-lru](#hp-eks-task-governance-attributions-golang-lru "#hp-eks-task-governance-attributions-golang-lru")
-
-## [base-files](https://packages.debian.org/bookworm/base-files "https://packages.debian.org/bookworm/base-files")
+## [base-files](https://packages.debian.org/bookworm/base-files)
+<a name="hp-eks-task-governance-attributions-base-files"></a>
 
 ```
 This is the Debian prepackaged version of the Debian Base System
@@ -42,7 +44,8 @@ On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 ```
 
-## [netbase](https://packages.debian.org/source/stable/netbase "https://packages.debian.org/source/stable/netbase")
+## [netbase](https://packages.debian.org/source/stable/netbase)
+<a name="hp-eks-task-governance-attributions-netbase"></a>
 
 ```
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
@@ -75,7 +78,8 @@ License: GPL-2
  version 2 can be found in '/usr/share/common-licenses/GPL-2'.
 ```
 
-## [golang-lru](https://github.com/hashicorp/golang-lru "https://github.com/hashicorp/golang-lru")
+## [golang-lru](https://github.com/hashicorp/golang-lru)
+<a name="hp-eks-task-governance-attributions-golang-lru"></a>
 
 ```
 Copyright © 2014 HashiCorp, Inc.

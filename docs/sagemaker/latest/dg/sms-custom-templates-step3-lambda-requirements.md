@@ -1,123 +1,106 @@
+
+
 # Using pre-annotation and post-annotation Lambda functions
+<a name="sms-custom-templates-step3-lambda-requirements"></a>
 
 Use these topics to learn about the syntax of the requests sent to pre-annotation and post-annotation Lambda functions, and the required response syntax that Ground Truth uses in custom labeling workflows.
 
-###### Topics
-
-- [Pre-annotation Lambda](#sms-custom-templates-step3-prelambda "#sms-custom-templates-step3-prelambda")
-- [Post-annotation Lambda](#sms-custom-templates-step3-postlambda "#sms-custom-templates-step3-postlambda")
+**Topics**
++ [Pre-annotation Lambda](#sms-custom-templates-step3-prelambda)
++ [Post-annotation Lambda](#sms-custom-templates-step3-postlambda)
 
 ## Pre-annotation Lambda
+<a name="sms-custom-templates-step3-prelambda"></a>
 
 Before a labeling task is sent to the worker, a optional pre-annotation Lambda function can be invoked.
 
-Ground Truth sends your Lambda function a JSON formatted request to provide details
-about the labeling job and the data object.
+Ground Truth sends your Lambda function a JSON formatted request to provide details about the labeling job and the data object.
 
 The following are 2 example JSON formatted requests.
 
-Data object identified with "source-ref"
+------
+#### [ Data object identified with "source-ref" ]
 
 ```
 {
     "version": "2018-10-16",
-    "labelingJobArn": `<labelingJobArn>`
+    "labelingJobArn": {{<labelingJobArn>}}
     "dataObject" : {
-        "source-ref": `<s3Uri>`
+        "source-ref": {{<s3Uri>}}
     }
 }
 ```
 
-Data object identified with "source"
+------
+#### [ Data object identified with "source" ]
 
 ```
 {
     "version": "2018-10-16",
-    "labelingJobArn": `<labelingJobArn>`
+    "labelingJobArn": {{<labelingJobArn>}}
     "dataObject" : {
-        "source": `<string>`
+        "source": {{<string>}}
     }
 }
 ```
 
-The following list contains the pre-annotation request schemas. Each parameter is described below.
+------
 
-- `version` (string): This is a version number used
-  internally by Ground Truth.
-- `labelingJobArn` (string): This is the Amazon Resource
-  Name, or ARN, of your labeling job. This ARN can be used to reference
-  the labeling job when using Ground Truth API operations such as
-  `DescribeLabelingJob`.
-- The `dataObject` (JSON object): The key contains a single
-  JSON line, either from your input manifest file or sent from Amazon SNS. The
-  JSON line objects in your manifest can be up to 100 kilobytes in size
-  and contain a variety of data. For a very basic image annotation job,
-  the `dataObject` JSON may just contain a
-  `source-ref` key, identifying the image to be annotated.
-  If the data object (for example, a line of text) is included directly in
-  the input manifest file, the data object is identified with
-  `source`. If you create a verification or adjustment job,
-  this line may contain label data and metadata from the previous labeling
-  job.
+ The following list contains the pre-annotation request schemas. Each parameter is described below.
++ `version` (string): This is a version number used internally by Ground Truth.
++ `labelingJobArn` (string): This is the Amazon Resource Name, or ARN, of your labeling job. This ARN can be used to reference the labeling job when using Ground Truth API operations such as `DescribeLabelingJob`.
++ The `dataObject` (JSON object): The key contains a single JSON line, either from your input manifest file or sent from Amazon SNS. The JSON line objects in your manifest can be up to 100 kilobytes in size and contain a variety of data. For a very basic image annotation job, the `dataObject` JSON may just contain a `source-ref` key, identifying the image to be annotated. If the data object (for example, a line of text) is included directly in the input manifest file, the data object is identified with `source`. If you create a verification or adjustment job, this line may contain label data and metadata from the previous labeling job.
 
-The following tabbed examples show examples of a pre-annotation request.
-Each parameter in these example requests is explained below the tabbed
-table.
+The following tabbed examples show examples of a pre-annotation request. Each parameter in these example requests is explained below the tabbed table.
 
-Data object identified with "source-ref"
+------
+#### [ Data object identified with "source-ref" ]
 
 ```
 {
     "version": "2018-10-16",
-    "labelingJobArn": "arn:aws:sagemaker:`us-west-2`:`111122223333`:labeling-job/<labeling_job_name>"
+    "labelingJobArn": "arn:aws:sagemaker:us-west-2:111122223333:labeling-job/<labeling_job_name>"
     "dataObject" : {
-        "source-ref": `"s3://input-data-bucket/data-object-file-name"`
+        "source-ref": "s3://input-data-bucket/data-object-file-name"
     }
 }
 ```
 
-Data object identified with "source"
+------
+#### [ Data object identified with "source" ]
 
 ```
 {
     "version": "2018-10-16",
-    "labelingJobArn": "arn:aws:sagemaker:<aws_region>:`111122223333`:labeling-job/<labeling_job_name>"
+    "labelingJobArn": "arn:aws:sagemaker:<aws_region>:111122223333:labeling-job/<labeling_job_name>"
     "dataObject" : {
         "source": "Sue purchased 10 shares of the stock on April 10th, 2020"
     }
 }
 ```
 
+------
+
 In return, Ground Truth requires a response formatted like the following:
 
-###### Example of expected return data
+**Example of expected return data**  
 
 ```
 {
-    "taskInput": `<json object>`,
-    "isHumanAnnotationRequired": `<boolean>` # Optional
+    "taskInput": {{<json object>}},
+    "isHumanAnnotationRequired": {{<boolean>}} # Optional
 }
 ```
 
-In the previous example, the `<json object>` needs to contain _all_ the data your custom worker task template needs. If
-you're doing a bounding box task where the instructions stay the same all the
-time, it may just be the HTTP(S) or Amazon S3 resource for your image file. If it's a
-sentiment analysis task and different objects may have different choices, it is
-the object reference as a string and the choices as an array of strings.
+In the previous example, the `<json object>` needs to contain *all* the data your custom worker task template needs. If you're doing a bounding box task where the instructions stay the same all the time, it may just be the HTTP(S) or Amazon S3 resource for your image file. If it's a sentiment analysis task and different objects may have different choices, it is the object reference as a string and the choices as an array of strings.
 
-###### Implications of isHumanAnnotationRequired
+**Implications of `isHumanAnnotationRequired`**  
+This value is optional because it defaults to `true`. The primary use case for explicitly setting it is when you want to exclude this data object from being labeled by human workers. 
 
-This value is optional because it defaults to `true`. The
-primary use case for explicitly setting it is when you want to exclude this
-data object from being labeled by human workers.
-
-If you have a mix of objects in your manifest, with some requiring human
-annotation and some not needing it, you can include a
-`isHumanAnnotationRequired` value in each data object. You can
-add logic to your pre-annotation Lambda to dynamically determine if an object
-requires annotation, and set this boolean value accordingly.
+If you have a mix of objects in your manifest, with some requiring human annotation and some not needing it, you can include a `isHumanAnnotationRequired` value in each data object. You can add logic to your pre-annotation Lambda to dynamically determine if an object requires annotation, and set this boolean value accordingly.
 
 ### Examples of pre-annotation Lambda functions
+<a name="sms-custom-templates-step3-prelambda-example"></a>
 
 The following basic pre-annotation Lambda function accesses the JSON object in `dataObject` from the initial request, and returns it in the `taskInput` parameter.
 
@@ -130,26 +113,19 @@ def lambda_handler(event, context):
     }
 ```
 
-Assuming the input manifest file uses `"source-ref"` to identify
-data objects, the worker task template used in the same labeling job as this
-pre-annotation Lambda must include a Liquid element like the following to ingest
-`dataObject`:
+Assuming the input manifest file uses `"source-ref"` to identify data objects, the worker task template used in the same labeling job as this pre-annotation Lambda must include a Liquid element like the following to ingest `dataObject`:
 
 ```
 {{ task.input.source-ref | grant_read_access }}
 ```
 
-If the input manifest file used `source` to identify the data
-object, the work task template can ingest `dataObject` with the
-following:
+If the input manifest file used `source` to identify the data object, the work task template can ingest `dataObject` with the following:
 
 ```
 {{ task.input.source }}
 ```
 
-The following pre-annotation Lambda example includes logic to identify the key
-used in `dataObject`, and to point to that data object using
-`taskObject` in the Lambda's return statement.
+The following pre-annotation Lambda example includes logic to identify the key used in `dataObject`, and to point to that data object using `taskObject` in the Lambda's return statement.
 
 ```
 import json
@@ -186,54 +162,37 @@ def lambda_handler(event, context):
 ```
 
 ## Post-annotation Lambda
+<a name="sms-custom-templates-step3-postlambda"></a>
 
-When all workers have annotated the data object or when [`TaskAvailabilityLifetimeInSeconds`](../APIReference/API_HumanLoopConfig.md#SageMaker-Type-HumanLoopConfig-TaskAvailabilityLifetimeInSeconds "../APIReference/API_HumanLoopConfig.md#SageMaker-Type-HumanLoopConfig-TaskAvailabilityLifetimeInSeconds") has been
-reached, whichever comes first, Ground Truth sends those annotations to your
-post-annotation Lambda. This Lambda is generally used for [Annotation consolidation](sms-annotation-consolidation.md "sms-annotation-consolidation.md").
+When all workers have annotated the data object or when [`TaskAvailabilityLifetimeInSeconds`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HumanLoopConfig.html#SageMaker-Type-HumanLoopConfig-TaskAvailabilityLifetimeInSeconds) has been reached, whichever comes first, Ground Truth sends those annotations to your post-annotation Lambda. This Lambda is generally used for [Annotation consolidation](sms-annotation-consolidation.md).
 
-###### Note
+**Note**  
+To see an example of a post-consolidation Lambda function, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py) in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe) GitHub repository.
 
-To see an example of a post-consolidation Lambda function, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository.
-
-The following code block contains the post-annotation request schema. Each
-parameter is described in the following bulleted list.
+The following code block contains the post-annotation request schema. Each parameter is described in the following bulleted list.
 
 ```
 {
     "version": "2018-10-16",
-    "labelingJobArn": `<string>`,
-    "labelCategories": [`<string>`],
-    "labelAttributeName": `<string>`,
-    "roleArn" : `<string>`,
+    "labelingJobArn": {{<string>}},
+    "labelCategories": [{{<string>}}],
+    "labelAttributeName": {{<string>}},
+    "roleArn" : {{<string>}},
     "payload": {
-        "s3Uri": `<string>`
+        "s3Uri": {{<string>}}
     }
  }
 ```
++ `version` (string): A version number used internally by Ground Truth.
++ `labelingJobArn` (string): The Amazon Resource Name, or ARN, of your labeling job. This ARN can be used to reference the labeling job when using Ground Truth API operations such as `DescribeLabelingJob`.
++ `labelCategories` (list of strings): Includes the label categories and other attributes you either specified in the console, or that you include in the label category configuration file.
++ `labelAttributeName` (string): Either the name of your labeling job, or the label attribute name you specify when you create the labeling job.
++ `roleArn` (string): The Amazon Resource Name (ARN) of the IAM execution role you specify when you create the labeling job. 
++ `payload` (JSON object): A JSON that includes an `s3Uri` key, which identifies the location of the annotation data for that data object in Amazon S3. The second code block below shows an example of this annotation file.
 
-- `version` (string): A version number used internally by
-  Ground Truth.
-- `labelingJobArn` (string): The Amazon Resource Name, or
-  ARN, of your labeling job. This ARN can be used to reference the
-  labeling job when using Ground Truth API operations such as
-  `DescribeLabelingJob`.
-- `labelCategories` (list of strings): Includes the label
-  categories and other attributes you either specified in the console, or
-  that you include in the label category configuration file.
-- `labelAttributeName` (string): Either the name of your
-  labeling job, or the label attribute name you specify when you create
-  the labeling job.
-- `roleArn` (string): The Amazon Resource Name (ARN) of the
-  IAM execution role you specify when you create the labeling job.
-- `payload` (JSON object): A JSON that includes an
-  `s3Uri` key, which identifies the location of the
-  annotation data for that data object in Amazon S3. The second code block
-  below shows an example of this annotation file.
+The following code block contains an example of a post-annotation request. Each parameter in this example request is explained below the code block.
 
-The following code block contains an example of a post-annotation request.
-Each parameter in this example request is explained below the code block.
-
-###### Example of an post-annotation Lambda request
+**Example of an post-annotation Lambda request**  
 
 ```
 {
@@ -248,66 +207,43 @@ Each parameter in this example request is explained below the code block.
  }
 ```
 
-###### Note
+**Note**  
+If no worker works on the data object and `TaskAvailabilityLifetimeInSeconds` has been reached, the data object is marked as failed and not included as part of post-annotation Lambda invocation.
 
-If no worker works on the data object and
-`TaskAvailabilityLifetimeInSeconds` has been reached, the
-data object is marked as failed and not included as part of post-annotation
-Lambda invocation.
-
-The following code block contains the payload schema. This is the file that is
-indicated by the `s3Uri` parameter in the post-annotation Lambda
-request `payload` JSON object. For example, if the previous code
-block is the post-annotation Lambda request, the following annotation file is
-located at `s3://amzn-s3-demo-bucket/annotations.json`.
+The following code block contains the payload schema. This is the file that is indicated by the `s3Uri` parameter in the post-annotation Lambda request `payload` JSON object. For example, if the previous code block is the post-annotation Lambda request, the following annotation file is located at `s3://amzn-s3-demo-bucket/annotations.json`.
 
 Each parameter is described in the following bulleted list.
 
-###### Example of an annotation file
+**Example of an annotation file**  
 
 ```
 [
     {
-        "datasetObjectId": `<string>`,
+        "datasetObjectId": {{<string>}},
         "dataObject": {
-            "s3Uri": `<string>`,
-            "content": `<string>`
+            "s3Uri": {{<string>}},
+            "content": {{<string>}}
         },
         "annotations": [{
-            "workerId": `<string>`,
+            "workerId": {{<string>}},
             "annotationData": {
-                "content": `<string>`,
-                "s3Uri": `<string>`
+                "content": {{<string>}},
+                "s3Uri": {{<string>}}
             }
        }]
     }
 ]
 ```
++ `datasetObjectId` (string): Identifies a unique ID that Ground Truth assigns to each data object you send to the labeling job.
++ `dataObject` (JSON object): The data object that was labeled. If the data object is included in the input manifest file and identified using the `source` key (for example, a string), `dataObject` includes a `content` key, which identifies the data object. Otherwise, the location of the data object (for example, a link or S3 URI) is identified with `s3Uri`.
++ `annotations` (list of JSON objects): This list contains a single JSON object for each annotation submitted by workers for that `dataObject`. A single JSON object contains a unique `workerId` that can be used to identify the worker that submitted that annotation. The `annotationData` key contains one of the following:
+  + `content` (string): Contains the annotation data. 
+  + `s3Uri` (string): Contains an S3 URI that identifies the location of the annotation data.
 
-- `datasetObjectId` (string): Identifies a unique ID that
-  Ground Truth assigns to each data object you send to the labeling job.
-- `dataObject` (JSON object): The data object that was
-  labeled. If the data object is included in the input manifest file and
-  identified using the `source` key (for example, a string),
-  `dataObject` includes a `content` key, which
-  identifies the data object. Otherwise, the location of the data object
-  (for example, a link or S3 URI) is identified with
-  `s3Uri`.
-- `annotations` (list of JSON objects): This list contains a
-  single JSON object for each annotation submitted by workers for that
-  `dataObject`. A single JSON object contains a unique
-  `workerId` that can be used to identify the worker that
-  submitted that annotation. The `annotationData` key contains
-  one of the following:
+The following table contains examples of the content that you may find in payload for different types of annotation.
 
-  - `content` (string): Contains the annotation data.
-  - `s3Uri` (string): Contains an S3 URI that
-    identifies the location of the annotation data.
-
-The following table contains examples of the content that you may find in
-payload for different types of annotation.
-
-Named Entity Recognition Payload
+------
+#### [ Named Entity Recognition Payload ]
 
 ```
 [
@@ -328,7 +264,8 @@ Named Entity Recognition Payload
 ]
 ```
 
-Semantic Segmentation Payload
+------
+#### [ Semantic Segmentation Payload ]
 
 ```
 [
@@ -349,7 +286,8 @@ Semantic Segmentation Payload
   ]
 ```
 
-Bounding Box Payload
+------
+#### [ Bounding Box Payload ]
 
 ```
 [
@@ -370,10 +308,9 @@ Bounding Box Payload
  ]
 ```
 
-Your post-annotation Lambda function may contain logic similar to the following
-to loop through and access all annotations contained in the request. For a full
-example, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py") in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe "https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe") GitHub repository. In this GitHub
-example, you must add your own annotation consolidation logic.
+------
+
+Your post-annotation Lambda function may contain logic similar to the following to loop through and access all annotations contained in the request. For a full example, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py) in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe) GitHub repository. In this GitHub example, you must add your own annotation consolidation logic. 
 
 ```
 for i in range(len(annotations)):
@@ -388,36 +325,31 @@ for i in range(len(annotations)):
             .format(log_prefix, worker_id, annotation_from_single_worker))
 ```
 
-###### Tip
-
-When you run consolidation algorithms on the data, you can use an AWS
-database service to store results, or you can pass the processed results
-back to Ground Truth. The data you return to Ground Truth is stored in consolidated
-annotation manifests in the S3 bucket specified for output during the
-configuration of the labeling job.
+**Tip**  
+When you run consolidation algorithms on the data, you can use an AWS database service to store results, or you can pass the processed results back to Ground Truth. The data you return to Ground Truth is stored in consolidated annotation manifests in the S3 bucket specified for output during the configuration of the labeling job.
 
 In return, Ground Truth requires a response formatted like the following:
 
-###### Example of expected return data
+**Example of expected return data**  
 
 ```
 [
-   {
-        "datasetObjectId": `<string>`,
+   {        
+        "datasetObjectId": {{<string>}},
         "consolidatedAnnotation": {
             "content": {
-                "`<labelattributename>`": {
-                    `# ... label content`
+                "{{<labelattributename>}}": {
+                    {{# ... label content}}
                 }
             }
         }
     },
-   {
-        "datasetObjectId": `<string>`,
+   {        
+        "datasetObjectId": {{<string>}},
         "consolidatedAnnotation": {
             "content": {
-                "`<labelattributename>`": {
-                    `# ... label content`
+                "{{<labelattributename>}}": {
+                    {{# ... label content}}
                 }
             }
         }
@@ -427,29 +359,24 @@ In return, Ground Truth requires a response formatted like the following:
     .
 ]
 ```
+At this point, all the data you're sending to your S3 bucket, other than the `datasetObjectId`, is in the `content` object.
 
-At this point, all the data you're sending to your S3 bucket, other than
-the `datasetObjectId`, is in the `content`
-object.
+When you return annotations in `content`, this results in an entry in your job's output manifest like the following:
 
-When you return annotations in `content`, this results in an entry
-in your job's output manifest like the following:
-
-###### Example of label format in output manifest
+**Example of label format in output manifest**  
 
 ```
-{  "source-ref"/"source" : "`<s3uri or content>`",
-   "<`labelAttributeName>`": {
-        `# ... label content from you`
-    },
-   "`<labelAttributeName>`-metadata": { # This will be added by Ground Truth
-        "job_name": `<labelingJobName>`,
+{  "source-ref"/"source" : "{{<s3uri or content>}}", 
+   "<{{labelAttributeName>}}": {
+        {{# ... label content from you}}
+    },   
+   "{{<labelAttributeName>}}-metadata": { # This will be added by Ground Truth
+        "job_name": {{<labelingJobName>}},
         "type": "groundTruth/custom",
-        "human-annotated": "yes",
+        "human-annotated": "yes", 
         "creation_date": <date> # Timestamp of when received from Post-labeling Lambda
     }
 }
 ```
 
-Because of the potentially complex nature of a custom template and the data it
-collects, Ground Truth does not offer further processing of the data.
+Because of the potentially complex nature of a custom template and the data it collects, Ground Truth does not offer further processing of the data.

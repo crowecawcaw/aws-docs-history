@@ -1,55 +1,40 @@
+
+
 # Manage Model
+<a name="edge-manage-model"></a>
 
-The Edge Manager agent can load multiple models at a time and make
-inference with loaded models on edge devices. The number of models the agent can load
-is determined by the available memory on the device. The agent validates the model signature and loads
-into memory all the artifacts produced by the edge packaging job. This step
-requires all the required certificates described in previous steps to be
-installed along with rest of the binary installation. If the model’s signature
-cannot be validated, then loading of the model fails with appropriate return
-code and reason.
+The Edge Manager agent can load multiple models at a time and make inference with loaded models on edge devices. The number of models the agent can load is determined by the available memory on the device. The agent validates the model signature and loads into memory all the artifacts produced by the edge packaging job. This step requires all the required certificates described in previous steps to be installed along with rest of the binary installation. If the model’s signature cannot be validated, then loading of the model fails with appropriate return code and reason.
 
-SageMaker Edge Manager agent provides a list of Model Management APIs that
-implement control plane and data plane APIs on edge devices. Along
-with this documentation, we recommend going through the sample client
-implementation which shows canonical usage of the below described APIs.
+SageMaker Edge Manager agent provides a list of Model Management APIs that implement control plane and data plane APIs on edge devices. Along with this documentation, we recommend going through the sample client implementation which shows canonical usage of the below described APIs.
 
-The `proto` file is available as a part of the release artifacts
-(inside the release tarball). In this doc, we list and describe the
-usage of APIs listed in this `proto` file.
+The `proto` file is available as a part of the release artifacts (inside the release tarball). In this doc, we list and describe the usage of APIs listed in this `proto` file.
 
-###### Note
+**Note**  
+There is one-to-one mapping for these APIs on Windows release and a sample code for an application implement in C\# is shared with the release artifacts for Windows. Below instructions are for running the Agent as a standalone process, applicable for to the release artifacts for Linux.
 
-There is one-to-one mapping for these APIs on Windows release
-and a sample code for an application implement in C# is shared
-with the release artifacts for Windows. Below instructions are
-for running the Agent as a standalone process, applicable for
-to the release artifacts for Linux.
+Extract the archive based on your OS. Where `VERSION` is broken into three components: `<MAJOR_VERSION>.<YYYY-MM-DD>-<SHA-7>`. See [Installing the Edge Manager agent](edge-device-fleet-manual.md#edge-device-fleet-installation) for information on how to obtain the release version (`<MAJOR_VERSION>`), time stamp of the release artifact (`<YYYY-MM-DD>`), and the repository commit ID (`SHA-7`)
 
-Extract the archive based on your OS. Where `VERSION`
-is broken into three
-components: `<MAJOR_VERSION>.<YYYY-MM-DD>-<SHA-7>`.
-See [Installing the Edge Manager agent](edge-device-fleet-manual.md#edge-device-fleet-installation "edge-device-fleet-manual.md#edge-device-fleet-installation") for information on
-how to obtain the release version (`<MAJOR_VERSION>`),
-time stamp of the release artifact (`<YYYY-MM-DD>`),
-and the repository commit ID (`SHA-7`)
+------
+#### [ Linux ]
 
-Linux
 The zip archive can be extracted with the command:
 
 ```
-tar -xvzf `<VERSION>`.tgz
+tar -xvzf {{<VERSION>}}.tgz
 ```
 
-Windows
+------
+#### [ Windows ]
+
 The zip archive can be extracted with the UI or command:
 
 ```
-unzip `<VERSION>`.tgz
+unzip {{<VERSION>}}.tgz
 ```
 
-The release artifact hierarchy (after extracting the `tar/zip` archive) is
-shown below. The agent `proto` file is available under `api/`.
+------
+
+The release artifact hierarchy (after extracting the `tar/zip` archive) is shown below. The agent `proto` file is available under `api/`.
 
 ```
 0.20201205.7ee4b0b
@@ -75,24 +60,19 @@ shown below. The agent `proto` file is available under `api/`.
 └── street_small.bmp
 ```
 
-###### Topics
-
-- [Load Model](#edge-manage-model-loadmodel "#edge-manage-model-loadmodel")
-- [Unload Model](#edge-manage-model-unloadmodel "#edge-manage-model-unloadmodel")
-- [List Models](#edge-manage-model-listmodels "#edge-manage-model-listmodels")
-- [Describe Model](#edge-manage-model-describemodel "#edge-manage-model-describemodel")
-- [Capture Data](#edge-manage-model-capturedata "#edge-manage-model-capturedata")
-- [Get Capture Status](#edge-manage-model-getcapturedata "#edge-manage-model-getcapturedata")
-- [Predict](#edge-manage-model-predict "#edge-manage-model-predict")
+**Topics**
++ [Load Model](#edge-manage-model-loadmodel)
++ [Unload Model](#edge-manage-model-unloadmodel)
++ [List Models](#edge-manage-model-listmodels)
++ [Describe Model](#edge-manage-model-describemodel)
++ [Capture Data](#edge-manage-model-capturedata)
++ [Get Capture Status](#edge-manage-model-getcapturedata)
++ [Predict](#edge-manage-model-predict)
 
 ## Load Model
+<a name="edge-manage-model-loadmodel"></a>
 
-The Edge Manager agent supports loading multiple models. This API validates the
-model signature and loads into memory all the artifacts produced by the
-`EdgePackagingJob` operation. This step requires all the required
-certificates to be installed along with rest of the agent binary installation. If the
-model’s signature cannot be validated then this step fails with appropriate return code
-and error messages in the log.
+The Edge Manager agent supports loading multiple models. This API validates the model signature and loads into memory all the artifacts produced by the `EdgePackagingJob` operation. This step requires all the required certificates to be installed along with rest of the agent binary installation. If the model’s signature cannot be validated then this step fails with appropriate return code and error messages in the log.
 
 ```
 // perform load for a model
@@ -112,7 +92,8 @@ and error messages in the log.
 rpc LoadModel(LoadModelRequest) returns (LoadModelResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 //
@@ -124,7 +105,8 @@ message LoadModelRequest {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 //
@@ -153,12 +135,12 @@ message Model {
 }
 ```
 
-## Unload Model
+------
 
-Unloads a previously loaded model. It is identified via
-the model alias which was provided during `loadModel`.
-If the alias is not found or model is not loaded then
-returns error.
+## Unload Model
+<a name="edge-manage-model-unloadmodel"></a>
+
+Unloads a previously loaded model. It is identified via the model alias which was provided during `loadModel`. If the alias is not found or model is not loaded then returns error.
 
 ```
 //
@@ -172,7 +154,8 @@ returns error.
 rpc UnLoadModel(UnLoadModelRequest) returns (UnLoadModelResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 //
@@ -183,7 +166,8 @@ message UnLoadModelRequest {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 //
@@ -192,7 +176,10 @@ Output
 message UnLoadModelResponse {}
 ```
 
+------
+
 ## List Models
+<a name="edge-manage-model-listmodels"></a>
 
 Lists all the loaded models and their aliases.
 
@@ -207,7 +194,8 @@ Lists all the loaded models and their aliases.
 rpc ListModels(ListModelsRequest) returns (ListModelsResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 //
@@ -216,7 +204,8 @@ Input
 message ListModelsRequest {}
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 //
@@ -227,7 +216,10 @@ message ListModelsResponse {
 }
 ```
 
+------
+
 ## Describe Model
+<a name="edge-manage-model-describemodel"></a>
 
 Describes a model that is loaded on the agent.
 
@@ -242,7 +234,8 @@ Describes a model that is loaded on the agent.
 rpc DescribeModel(DescribeModelRequest) returns (DescribeModelResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 //
@@ -253,7 +246,8 @@ message DescribeModelRequest {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 //
@@ -264,13 +258,12 @@ message DescribeModelResponse {
 }
 ```
 
-## Capture Data
+------
 
-Allows the client application to capture input and output
-tensors in Amazon S3 bucket, and optionally the auxiliary. The client
-application is expected to pass a unique capture ID along with
-each call to this API. This can be later used to query
-status of the capture.
+## Capture Data
+<a name="edge-manage-model-capturedata"></a>
+
+Allows the client application to capture input and output tensors in Amazon S3 bucket, and optionally the auxiliary. The client application is expected to pass a unique capture ID along with each call to this API. This can be later used to query status of the capture.
 
 ```
 //
@@ -287,7 +280,8 @@ status of the capture.
 rpc CaptureData(CaptureDataRequest) returns (CaptureDataResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 enum Encoding {
@@ -345,7 +339,8 @@ message CaptureDataRequest {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 //
@@ -354,14 +349,12 @@ Output
 message CaptureDataResponse {}
 ```
 
-## Get Capture Status
+------
 
-Depending on the models loaded the input and output tensors can
-be large (for many edge devices). Capture to the cloud can be time
-consuming. So the `CaptureData()` is implemented as an asynchronous
-operation. A capture ID is a unique identifier that the client provides
-during capture data call, this ID can be used to query the status
-of the asynchronous call.
+## Get Capture Status
+<a name="edge-manage-model-getcapturedata"></a>
+
+Depending on the models loaded the input and output tensors can be large (for many edge devices). Capture to the cloud can be time consuming. So the `CaptureData()` is implemented as an asynchronous operation. A capture ID is a unique identifier that the client provides during capture data call, this ID can be used to query the status of the asynchronous call.
 
 ```
 //
@@ -375,7 +368,8 @@ of the asynchronous call.
 rpc GetCaptureDataStatus(GetCaptureDataStatusRequest) returns (GetCaptureDataStatusResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 //
@@ -386,7 +380,8 @@ message GetCaptureDataStatusRequest {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
 ```
 enum CaptureDataStatus {
@@ -404,12 +399,12 @@ message GetCaptureDataStatusResponse {
 }
 ```
 
-## Predict
+------
 
-The `predict` API performs inference on a previously loaded
-model. It accepts a request in the form of a tensor that is
-directly fed into the neural network. The output is the output
-tensor (or scalar) from the model. This is a blocking call.
+## Predict
+<a name="edge-manage-model-predict"></a>
+
+The `predict` API performs inference on a previously loaded model. It accepts a request in the form of a tensor that is directly fed into the neural network. The output is the output tensor (or scalar) from the model. This is a blocking call.
 
 ```
 //
@@ -438,7 +433,8 @@ tensor (or scalar) from the model. This is a blocking call.
 rpc Predict(PredictRequest) returns (PredictResponse);
 ```
 
-Input
+------
+#### [ Input ]
 
 ```
 // request for Predict rpc call
@@ -507,12 +503,11 @@ message SharedMemoryHandle {
 }
 ```
 
-Output
+------
+#### [ Output ]
 
-###### Note
-
-The `PredictResponse` only returns
-`Tensors` and not `SharedMemoryHandle`.
+**Note**  
+The `PredictResponse` only returns `Tensors` and not `SharedMemoryHandle`.
 
 ```
 // response for Predict rpc call
@@ -521,3 +516,5 @@ message PredictResponse {
    repeated Tensor tensors = 1;
 }
 ```
+
+------

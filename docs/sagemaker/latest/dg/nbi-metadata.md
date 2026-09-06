@@ -1,30 +1,23 @@
+
+
 # Notebook Instance Metadata
+<a name="nbi-metadata"></a>
 
-When you create a notebook instance, Amazon SageMaker AI creates a JSON file on the instance at
-the location `/opt/ml/metadata/resource-metadata.json` that contains
-the `ResourceName` and `ResourceArn` of the notebook instance. You
-can access this metadata from anywhere within the notebook instance, including in
-lifecycle configurations. For information about notebook instance lifecycle
-configurations, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md").
+When you create a notebook instance, Amazon SageMaker AI creates a JSON file on the instance at the location `/opt/ml/metadata/resource-metadata.json` that contains the `ResourceName` and `ResourceArn` of the notebook instance. You can access this metadata from anywhere within the notebook instance, including in lifecycle configurations. For information about notebook instance lifecycle configurations, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md).
 
-###### Note
+**Note**  
+The `resource-metadata.json` file can be modified with root access.
 
-The `resource-metadata.json` file can be modified with root
-access.
-
-The `resource-metadata.json` file has the following
-structure:
+The `resource-metadata.json` file has the following structure:
 
 ```
 {
-    "ResourceArn": "`NotebookInstanceArn`",
-    "ResourceName": "`NotebookInstanceName`"
+    "ResourceArn": "{{NotebookInstanceArn}}",
+    "ResourceName": "{{NotebookInstanceName}}"
 }
 ```
 
-You can use this metadata from within the notebook instance to get other information
-about the notebook instance. For example, the following commands get the tags associated
-with the notebook instance:
+You can use this metadata from within the notebook instance to get other information about the notebook instance. For example, the following commands get the tags associated with the notebook instance:
 
 ```
 NOTEBOOK_ARN=$(jq '.ResourceArn'

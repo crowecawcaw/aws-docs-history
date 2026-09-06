@@ -1,26 +1,18 @@
+
+
 # Logging Q Developer conversations with AWS CloudTrail
+<a name="canvas-q-cloudtrail"></a>
 
-AWS CloudTrail is a service that records actions taken by users, roles, or AWS services in
-Amazon SageMaker AI. CloudTrail captures API calls resulting from your interactions with Amazon Q Developer (a
-conversational AI assistant) while using SageMaker Canvas (a no-code ML interface). CloudTrail data shows
-request details, the IP address of the requester, who made the request, and when.
+AWS CloudTrail is a service that records actions taken by users, roles, or AWS services in Amazon SageMaker AI. CloudTrail captures API calls resulting from your interactions with Amazon Q Developer (a conversational AI assistant) while using SageMaker Canvas (a no-code ML interface). CloudTrail data shows request details, the IP address of the requester, who made the request, and when.
 
-Your interactions with Q Developer are sent as `SendConversation` API
-calls to the SageMaker AI Data Science Assistant service, which is an internal service that
-Canvas leverages on the backend. The event source for `SendConversation`
-API calls is `sagemaker-data-science-assistant.amazonaws.com`.
+Your interactions with Q Developer are sent as `SendConversation` API calls to the SageMaker AI Data Science Assistant service, which is an internal service that Canvas leverages on the backend. The event source for `SendConversation` API calls is `sagemaker-data-science-assistant.amazonaws.com`.
 
-###### Note
+**Note**  
+For privacy and security reasons, the content of your conversations is hidden in the logs, appearing as `HIDDEN_DUE_TO_SECURITY_REASONS` in the request and response elements.
 
-For privacy and security reasons, the content of your conversations is hidden in
-the logs, appearing as `HIDDEN_DUE_TO_SECURITY_REASONS` in the request
-and response elements.
+To learn more about CloudTrail, see the [*AWS CloudTrail User Guide*](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html). To learn more about CloudTrail in SageMaker AI, see [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md).
 
-To learn more about CloudTrail, see the [_AWS CloudTrail User Guide_](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"). To learn more about CloudTrail
-in SageMaker AI, see [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
-
-The following is an example log file entry for the `SendConversation`
-API:
+The following is an example log file entry for the `SendConversation` API:
 
 ```
 {

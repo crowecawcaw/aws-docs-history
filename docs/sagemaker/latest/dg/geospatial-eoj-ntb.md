@@ -1,21 +1,24 @@
+
+
 # Create an Earth Observation Job Using a Amazon SageMaker Studio Classic Notebook with a SageMaker geospatial Image
+<a name="geospatial-eoj-ntb"></a>
 
-###### Note
-
-Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any
-previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+**Note**  
+Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
 
 **To use a SageMaker Studio Classic notebook with a SageMaker geospatial image:**
 
-1. From the **Launcher**, choose **Change environment**
-   under **Notebooks and compute resources**.
-2. Next, the **Change environment** dialog opens.
-3. Select the **Image** dropdown
-   and choose **Geospatial 1.0**. The **Instance type** should be **ml.geospatial.interactive**.
-   Do not change the default values for other settings.
-4. Choose **Select**.
-5. Choose **Create notebook**.
-   You can initiate an EOJ using a Amazon SageMaker Studio Classic notebook with a SageMaker geospatial image using the code provided below.
+1. From the **Launcher**, choose **Change environment** under **Notebooks and compute resources**.
+
+1. Next, the **Change environment** dialog opens.
+
+1. Select the **Image** dropdown and choose **Geospatial 1.0**. The **Instance type** should be **ml.geospatial.interactive**. Do not change the default values for other settings.
+
+1. Choose **Select**.
+
+1. Choose **Create notebook**.
+
+You can initiate an EOJ using a Amazon SageMaker Studio Classic notebook with a SageMaker geospatial image using the code provided below.
 
 ```
 import boto3
@@ -73,7 +76,7 @@ while search_rdc_args.get("NextToken", True):
         tci_urls.append(tci_url)
 
     search_rdc_args["NextToken"] = search_result.get("NextToken")
-
+        
 # Perform land cover segmentation on images returned from the sentinel dataset.
 eoj_input_config = {
     "RasterDataCollectionQuery": {
@@ -113,9 +116,7 @@ response = sg_client.start_earth_observation_job(
 )
 ```
 
-After your EOJ is created, the `Arn` is returned to you. You use the `Arn` to identify a job and perform further operations.
-To get the status of a job, you can run
-`sg_client.get_earth_observation_job(Arn = response['Arn'])`.
+After your EOJ is created, the `Arn` is returned to you. You use the `Arn` to identify a job and perform further operations. To get the status of a job, you can run `sg_client.get_earth_observation_job(Arn = response['Arn'])`.
 
 The following example shows how to query the status of an EOJ until it is completed.
 
@@ -127,8 +128,7 @@ job_details = sg_client.get_earth_observation_job(Arn=eoj_arn)
 sg_client.list_earth_observation_jobs()["EarthObservationJobSummaries"]
 ```
 
-After the EOJ is completed, you can visualize the EOJ outputs directly in the notebook.
-The following example shows you how an interactive map can be rendered.
+After the EOJ is completed, you can visualize the EOJ outputs directly in the notebook. The following example shows you how an interactive map can be rendered.
 
 ```
 map = sagemaker_geospatial_map.create_map({
@@ -139,8 +139,7 @@ map.set_sagemaker_geospatial_client(sg_client)
 map.render()
 ```
 
-The following example shows how the map can be centered
-on an area of interest and the input and output of the EOJ can be rendered as separate layers within the map.
+The following example shows how the map can be centered on an area of interest and the input and output of the EOJ can be rendered as separate layers within the map.
 
 ```
 # visualize the area of interest
@@ -168,11 +167,7 @@ output_layer = map.visualize_eoj_output(
 )
 ```
 
-You can use the `export_earth_observation_job` function to export the EOJ results to your Amazon S3 bucket.
-The export function makes it convenient to share results across teams. SageMaker AI also simplifies dataset management.
-We can simply share the EOJ results using the job ARN, instead of crawling thousands of files in the S3 bucket.
-Each EOJ becomes an asset in the data catalog, as results can be grouped by the job ARN.
-The following example shows how you can export the results of an EOJ.
+You can use the `export_earth_observation_job` function to export the EOJ results to your Amazon S3 bucket. The export function makes it convenient to share results across teams. SageMaker AI also simplifies dataset management. We can simply share the EOJ results using the job ARN, instead of crawling thousands of files in the S3 bucket. Each EOJ becomes an asset in the data catalog, as results can be grouped by the job ARN. The following example shows how you can export the results of an EOJ.
 
 ```
 sagemaker_session = Session()
@@ -196,13 +191,10 @@ You can monitor the status of your export job using the following snippet.
 # Monitor the export job status
 export_job_details = sg_client.get_earth_observation_job(Arn=export_response["Arn"])
 {k: v for k, v in export_job_details.items() if k in ["Arn", "Status", "DurationInSeconds"]}
-
 ```
 
 You are not charged the storage fees after you delete the EOJ.
 
-For an example that showcases how to run an EOJ, see this
-[blog post](https://aws.amazon.com/blogs/machine-learning/monitoring-lake-mead-drought-using-the-new-amazon-sagemaker-geospatial-capabilities/ "https://aws.amazon.com/blogs/machine-learning/monitoring-lake-mead-drought-using-the-new-amazon-sagemaker-geospatial-capabilities/").
+For an example that showcases how to run an EOJ, see this [blog post](https://aws.amazon.com/blogs/machine-learning/monitoring-lake-mead-drought-using-the-new-amazon-sagemaker-geospatial-capabilities/).
 
-For more example notebooks on SageMaker geospatial capabilities,
-see this [GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-geospatial "https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-geospatial").
+For more example notebooks on SageMaker geospatial capabilities, see this [GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-geospatial).

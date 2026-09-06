@@ -1,104 +1,93 @@
+
+
 # Supported framework images, AWS Regions, and instance types
+<a name="profiler-support"></a>
 
-###### Note
+**Note**  
+End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
 
-End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources.
-For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+This feature supports the following machine learning frameworks and AWS Regions.
 
-This feature supports the following machine learning frameworks and
-AWS Regions.
-
-###### Note
-
-To use this feature, make sure that you have installed the SageMaker Python SDK [version 2.180.0](https://pypi.org/project/sagemaker/2.180.0/ "https://pypi.org/project/sagemaker/2.180.0/") or
-later.
+**Note**  
+To use this feature, make sure that you have installed the SageMaker Python SDK [version 2.180.0](https://pypi.org/project/sagemaker/2.180.0/) or later.
 
 ## SageMaker AI framework images pre-installed with SageMaker Profiler
+<a name="profiler-support-frameworks"></a>
 
-SageMaker Profiler is pre-installed in the following [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only").
+SageMaker Profiler is pre-installed in the following [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only).
 
 ### PyTorch images
+<a name="profiler-support-frameworks-pytorch"></a>
 
-| PyTorch versions | AWS DLC image URI                                                                                                                                                                                                            |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.2.0            | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:2.2.0-gpu-py310-cu121-ubuntu20.04-sagemaker                                                                                                                 |
-| 2.1.0            | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker                                                                                                                 |
-| 2.0.1            | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:2.0.1-gpu-py310-cu118-ubuntu20.04-sagemaker<br>`763104351884`.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:2.0.1-gpu-py310-cu121-ubuntu20.04-sagemaker |
-| 1.13.1           | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:1.13.1-gpu-py39-cu117-ubuntu20.04-sagemaker                                                                                                                 |
+
+| PyTorch versions | AWS DLC image URI | 
+| --- | --- | 
+| 2.2.0 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.2.0-gpu-py310-cu121-ubuntu20.04-sagemaker | 
+| 2.1.0 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker | 
+| 2.0.1 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.0.1-gpu-py310-cu118-ubuntu20.04-sagemaker<br />{{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.0.1-gpu-py310-cu121-ubuntu20.04-sagemaker | 
+| 1.13.1 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:1.13.1-gpu-py39-cu117-ubuntu20.04-sagemaker | 
 
 ### TensorFlow images
+<a name="profiler-support-frameworks-tensorflow"></a>
 
-| TensorFlow versions | AWS DLC image URI                                                                                                |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| 2.13.0              | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.13.0-gpu-py310-cu118-ubuntu20.04-sagemaker |
-| 2.12.0              | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.12.0-gpu-py310-cu118-ubuntu20.04-sagemaker |
-| 2.11.0              | `763104351884`.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.11.0-gpu-py39-cu112-ubuntu20.04-sagemaker  |
 
-###### Important
+| TensorFlow versions | AWS DLC image URI | 
+| --- | --- | 
+| 2.13.0 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.13.0-gpu-py310-cu118-ubuntu20.04-sagemaker | 
+| 2.12.0 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.12.0-gpu-py310-cu118-ubuntu20.04-sagemaker | 
+| 2.11.0 | {{763104351884}}.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.11.0-gpu-py39-cu112-ubuntu20.04-sagemaker | 
 
-Distribution and maintenance of the framework containers in the preceding
-tables are under the [Framework Support Policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md") managed by the AWS Deep Learning
-Containers service. We highly recommend you to upgrade to the [currently
-supported framework versions](https://aws.amazon.com/releasenotes/dlc-support-policy/ "https://aws.amazon.com/releasenotes/dlc-support-policy/"), if you are using prior framework
-versions that are no longer supported.
+**Important**  
+Distribution and maintenance of the framework containers in the preceding tables are under the [Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html) managed by the AWS Deep Learning Containers service. We highly recommend you to upgrade to the [currently supported framework versions](https://aws.amazon.com/releasenotes/dlc-support-policy/), if you are using prior framework versions that are no longer supported.
 
-###### Note
-
-If you want to use SageMaker Profiler for other framework images or your own Docker
-images, you can install SageMaker Profiler using the SageMaker Profiler Python package binary files
-provided in the following section.
+**Note**  
+If you want to use SageMaker Profiler for other framework images or your own Docker images, you can install SageMaker Profiler using the SageMaker Profiler Python package binary files provided in the following section.
 
 ## SageMaker Profiler Python package binary files
+<a name="profiler-python-package"></a>
 
-If you want to configure your own Docker container, use SageMaker Profiler in other
-pre-built containers for PyTorch and TensorFlow, or install the SageMaker Profiler Python
-package locally, use one the following binary files. Depending on the Python and
-CUDA versions in your environment, choose one of the following.
+If you want to configure your own Docker container, use SageMaker Profiler in other pre-built containers for PyTorch and TensorFlow, or install the SageMaker Profiler Python package locally, use one the following binary files. Depending on the Python and CUDA versions in your environment, choose one of the following.
 
 ### PyTorch
-
-- Python3.8, CUDA 11.3: [`https://smppy.s3.amazonaws.com/pytorch/cu113/smprof-0.3.334-cp38-cp38-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu113/smprof-0.3.334-cp38-cp38-linux_x86_64.whl "https://smppy.s3.amazonaws.com/pytorch/cu113/smprof-0.3.334-cp38-cp38-linux_x86_64.whl")
-- Python3.9, CUDA 11.7: [`https://smppy.s3.amazonaws.com/pytorch/cu117/smprof-0.3.334-cp39-cp39-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu117/smprof-0.3.334-cp39-cp39-linux_x86_64.whl "https://smppy.s3.amazonaws.com/pytorch/cu117/smprof-0.3.334-cp39-cp39-linux_x86_64.whl")
-- Python3.10, CUDA 11.8: [`https://smppy.s3.amazonaws.com/pytorch/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl "https://smppy.s3.amazonaws.com/pytorch/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl")
-- Python3.10, CUDA 12.1:
-  [`https://smppy.s3.amazonaws.com/pytorch/cu121/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu121/smprof-0.3.334-cp310-cp310-linux_x86_64.whl "https://smppy.s3.amazonaws.com/pytorch/cu121/smprof-0.3.334-cp310-cp310-linux_x86_64.whl")
+<a name="profiler-python-package-for-pytorch"></a>
++ Python3.8, CUDA 11.3: [`https://smppy.s3.amazonaws.com/pytorch/cu113/smprof-0.3.334-cp38-cp38-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu113/smprof-0.3.334-cp38-cp38-linux_x86_64.whl)
++ Python3.9, CUDA 11.7: [`https://smppy.s3.amazonaws.com/pytorch/cu117/smprof-0.3.334-cp39-cp39-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu117/smprof-0.3.334-cp39-cp39-linux_x86_64.whl)
++ Python3.10, CUDA 11.8: [`https://smppy.s3.amazonaws.com/pytorch/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl)
++ Python3.10, CUDA 12.1: [`https://smppy.s3.amazonaws.com/pytorch/cu121/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/pytorch/cu121/smprof-0.3.334-cp310-cp310-linux_x86_64.whl)
 
 ### TensorFlow
+<a name="profiler-python-package-for-tensorflow"></a>
++ Python3.9, CUDA 11.2: [`https://smppy.s3.amazonaws.com/tensorflow/cu112/smprof-0.3.334-cp39-cp39-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/tensorflow/cu112/smprof-0.3.334-cp39-cp39-linux_x86_64.whl)
++ Python3.10, CUDA 11.8: [`https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl)
 
-- Python3.9, CUDA 11.2: [`https://smppy.s3.amazonaws.com/tensorflow/cu112/smprof-0.3.334-cp39-cp39-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/tensorflow/cu112/smprof-0.3.334-cp39-cp39-linux_x86_64.whl "https://smppy.s3.amazonaws.com/tensorflow/cu112/smprof-0.3.334-cp39-cp39-linux_x86_64.whl")
-- Python3.10, CUDA 11.8: [`https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl "https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl")
-
-For more information about how to install SageMaker Profiler using the binary files, see
-[(Optional) Install the SageMaker Profiler Python package](profiler-prepare.md#profiler-install-python-package "profiler-prepare.md#profiler-install-python-package").
+For more information about how to install SageMaker Profiler using the binary files, see [(Optional) Install the SageMaker Profiler Python package](profiler-prepare.md#profiler-install-python-package).
 
 ## Supported AWS Regions
+<a name="profiler-support-regions"></a>
 
 SageMaker Profiler is available in the following AWS Regions.
-
-- US East (N. Virginia) (`us-east-1`)
-- US East (Ohio) (`us-east-2`)
-- US West (Oregon) (`us-west-2`)
-- Europe (Frankfurt) (`eu-central-1`)
-- Europe (Ireland) (`eu-west-1`)
++ US East (N. Virginia) (`us-east-1`)
++ US East (Ohio) (`us-east-2`)
++ US West (Oregon) (`us-west-2`)
++ Europe (Frankfurt) (`eu-central-1`)
++ Europe (Ireland) (`eu-west-1`)
 
 ## Supported instance types
+<a name="profiler-support-instance-types"></a>
 
-SageMaker Profiler supports profiling of training jobs on the following instance
-types.
+SageMaker Profiler supports profiling of training jobs on the following instance types.
 
 **CPU and GPU profiling**
-
-- `ml.g4dn.12xlarge`
-- `ml.g5.24xlarge`
-- `ml.g5.48xlarge`
-- `ml.p3dn.24xlarge`
-- `ml.p4de.24xlarge`
-- `ml.p4d.24xlarge`
-- `ml.p5.48xlarge`
++ `ml.g4dn.12xlarge`
++ `ml.g5.24xlarge`
++ `ml.g5.48xlarge`
++ `ml.p3dn.24xlarge`
++ `ml.p4de.24xlarge`
++ `ml.p4d.24xlarge`
++ `ml.p5.48xlarge`
 
 **GPU profiling only**
-
-- `ml.g5.2xlarge`
-- `ml.g5.4xlarge`
-- `ml.g5.8xlarge`
-- `ml.g5.16.xlarge`
++ `ml.g5.2xlarge`
++ `ml.g5.4xlarge`
++ `ml.g5.8xlarge`
++ `ml.g5.16.xlarge`

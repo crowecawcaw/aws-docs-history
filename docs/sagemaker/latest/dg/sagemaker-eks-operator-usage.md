@@ -1,9 +1,9 @@
-# Using the training operator to run jobs
 
-To use kubectl to run the job, you must create a job.yaml to specify the job specifications and run
-`kubectl apply -f job.yaml` to submit the job. In this YAML file, you can specify custom
-configurations in the `logMonitoringConfiguration` argument to define automated monitoring
-rules that analyze log outputs from the distributed training job to detect problems and recover.
+
+# Using the training operator to run jobs
+<a name="sagemaker-eks-operator-usage"></a>
+
+ To use kubectl to run the job, you must create a job.yaml to specify the job specifications and run `kubectl apply -f job.yaml` to submit the job. In this YAML file, you can specify custom configurations in the `logMonitoringConfiguration` argument to define automated monitoring rules that analyze log outputs from the distributed training job to detect problems and recover. 
 
 ```
 apiVersion: sagemaker.amazonaws.com/v1
@@ -39,15 +39,15 @@ spec:
                   nvidia.com/gpu: 8
                   hugepages-2Mi: 5120Mi
                   memory: 32000Mi
-          ......
+          ......        
   runPolicy:
     jobMaxRetryCount: 50
     restartPolicy:
-      numRestartBeforeFullJobRestart: 3
-      evalPeriodSeconds: 21600
+      numRestartBeforeFullJobRestart: 3 
+      evalPeriodSeconds: 21600 
       maxFullJobRestarts: 1
     cleanPodPolicy: "All"
-    logMonitoringConfiguration:
+    logMonitoringConfiguration: 
       - name: "JobStart"
         logPattern: ".*Experiment configuration.*" # This is the start of the training script
         expectedStartCutOffInSeconds: 120 # Expected match in the first 2 minutes
@@ -64,43 +64,37 @@ spec:
         metricThreshold: 80 # 80 samples/sec
         operator: "lteq"
         metricEvaluationDataPoints: 25 # if throughput lower than threshold for 25 datapoints, kill the job
-
 ```
 
-If you want to use the log monitoring options, make sure that you’re emitting the training log to `sys.stdout`.
-HyperPod elastic agent monitors training logs in sys.stdout, which is saved at `/tmp/hyperpod/`. You can use the following command
-to emit training logs.
+If you want to use the log monitoring options, make sure that you’re emitting the training log to `sys.stdout`. HyperPod elastic agent monitors training logs in sys.stdout, which is saved at `/tmp/hyperpod/`. You can use the following command to emit training logs.
 
 ```
 logging.basicConfig(format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", level=logging.INFO, stream=sys.stdout)
 ```
 
-The following table describes all of the possible log monitoring configurations:
+ The following table describes all of the possible log monitoring configurations: 
 
-| Parameter                                     | Usage                                                                                                                                                                                                                                                                                                        |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| jobMaxRetryCount                              | Maximum number of restarts at the process level.                                                                                                                                                                                                                                                             |
-| restartPolicy: numRestartBeforeFullJobRestart | Maximum number of restarts at the process level before the operator restarts at the job level.                                                                                                                                                                                                               |
-| restartPolicy: evalPeriodSeconds              | The period of evaluating the restart limit in seconds                                                                                                                                                                                                                                                        |
-| restartPolicy: maxFullJobRestarts             | Maximum number of full job restarts before the job fails.                                                                                                                                                                                                                                                    |
-| cleanPodPolicy                                | Specifies the pods that the operator should clean. Accepted values are<br>`All`, `OnlyComplete`, and `None`.                                                                                                                                                                                                 |
-| logMonitoringConfiguration                    | The log monitoring rules for slow and hanging job detection                                                                                                                                                                                                                                                  |
-| expectedRecurringFrequencyInSeconds           | Time interval between two consecutive LogPattern matches after which the rule evaluates to HANGING. If not specified, no time constraint exists between consecutive LogPattern matches.                                                                                                                      |
-| expectedStartCutOffInSeconds                  | Time to first LogPattern match after which the rule evaluates to HANGING. If not specified, no time constraint exists for the first LogPattern match.                                                                                                                                                        |
-| logPattern                                    | Regular expression that identifies log lines that the rule applies to when the rule is active                                                                                                                                                                                                                |
-| metricEvaluationDataPoints                    | Number of consecutive times a rule must evaluate to SLOW before marking a job as SLOW. If not specified, the default is 1.                                                                                                                                                                                   |
-| metricThreshold                               | Threshold for value extracted by LogPattern with a capturing group. If not specified, metric evaluation is not performed.                                                                                                                                                                                    |
-| operator                                      | The inequality to apply to the monitoring configuration. Accepted values are<br>`gt`, `gteq`, `lt`, `lteq`, and `eq`.                                                                                                                                                                                        |
-| stopPattern                                   | Regular expresion to identify the log line at which to deactivate the rule. If not specified, the rule will always be active.                                                                                                                                                                                |
-| faultOnMatch                                  | Indicates whether a match of LogPattern should immediately trigger a job fault. When true, the job will be marked as faulted as soon as the LogPattern is matched,<br>regardless of other rule parameters. When false or not specified, the rule will evaluate to SLOW or HANGING based on other parameters. |
 
-For more training resiliency, specify spare node configuration details.
-If your job fails, the operator works with Kueue to use nodes reserved in advance to continue running the job.
-Spare node configurations require Kueue, so if you try to submit a job with spare nodes but don’t have Kueue installed,
-the job will fail. The following example is a sample `job.yaml` file that contains spare node configurations.
+| Parameter | Usage | 
+| --- | --- | 
+| jobMaxRetryCount | Maximum number of restarts at the process level. | 
+| restartPolicy: numRestartBeforeFullJobRestart | Maximum number of restarts at the process level before the operator restarts at the job level. | 
+| restartPolicy: evalPeriodSeconds | The period of evaluating the restart limit in seconds | 
+| restartPolicy: maxFullJobRestarts | Maximum number of full job restarts before the job fails. | 
+| cleanPodPolicy | Specifies the pods that the operator should clean. Accepted values are All, OnlyComplete, and None. | 
+| logMonitoringConfiguration | The log monitoring rules for slow and hanging job detection | 
+| expectedRecurringFrequencyInSeconds | Time interval between two consecutive LogPattern matches after which the rule evaluates to HANGING. If not specified, no time constraint exists between consecutive LogPattern matches. | 
+| expectedStartCutOffInSeconds | Time to first LogPattern match after which the rule evaluates to HANGING. If not specified, no time constraint exists for the first LogPattern match. | 
+| logPattern | Regular expression that identifies log lines that the rule applies to when the rule is active | 
+| metricEvaluationDataPoints | Number of consecutive times a rule must evaluate to SLOW before marking a job as SLOW. If not specified, the default is 1. | 
+| metricThreshold | Threshold for value extracted by LogPattern with a capturing group. If not specified, metric evaluation is not performed. | 
+| operator | The inequality to apply to the monitoring configuration. Accepted values are gt, gteq, lt, lteq, and eq. | 
+| stopPattern | Regular expresion to identify the log line at which to deactivate the rule. If not specified, the rule will always be active. | 
+| faultOnMatch | Indicates whether a match of LogPattern should immediately trigger a job fault. When true, the job will be marked as faulted as soon as the LogPattern is matched, regardless of other rule parameters. When false or not specified, the rule will evaluate to SLOW or HANGING based on other parameters. | 
+
+ For more training resiliency, specify spare node configuration details. If your job fails, the operator works with Kueue to use nodes reserved in advance to continue running the job. Spare node configurations require Kueue, so if you try to submit a job with spare nodes but don’t have Kueue installed, the job will fail. The following example is a sample `job.yaml` file that contains spare node configurations.
 
 ```
-
 apiVersion: sagemaker.amazonaws.com/v1
 kind: HyperPodPyTorchJob
 metadata:
@@ -111,7 +105,7 @@ spec:
   nprocPerNode: "1"
   runPolicy:
     cleanPodPolicy: "None"
-  replicaSpecs:
+  replicaSpecs: 
     - name: pods
       replicas: 1
       spares: 1 # Specify how many spare nodes to reserve.
@@ -120,7 +114,7 @@ spec:
           containers:
             - name: XXX
               image: XXX
-
+              
               imagePullPolicy: Always
               ports:
                 - containerPort: 8080
@@ -129,17 +123,14 @@ spec:
                   nvidia.com/gpu: "0"
                 limits:
                   nvidia.com/gpu: "0"
-
 ```
 
 ## Monitoring
+<a name="sagemaker-eks-operator-usage-monitoring"></a>
 
-The Amazon SageMaker HyperPod is integrated with [observability with Amazon Managed Grafana and Amazon Managed Service for Prometheus](sagemaker-hyperpod-observability-addon.md "sagemaker-hyperpod-observability-addon.md"), so you can
-set up monitoring to collect and feed metrics into these observability tools.
+The Amazon SageMaker HyperPod is integrated with [ observability with Amazon Managed Grafana and Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-observability-addon.html), so you can set up monitoring to collect and feed metrics into these observability tools.
 
-Alternatively, you can scrape metrics through Amazon Managed Service for Prometheus without managed observability.
-To do so, include the metrics that you want to monitor into your `job.yaml`
-file when you run jobs with `kubectl`.
+Alternatively, you can scrape metrics through Amazon Managed Service for Prometheus without managed observability. To do so, include the metrics that you want to monitor into your `job.yaml` file when you run jobs with `kubectl`.
 
 ```
 apiVersion: monitoring.coreos.com/v1
@@ -157,17 +148,19 @@ spec:
 
 The following are events that the training operator emits that you can feed into Amazon Managed Service for Prometheus to monitor your training jobs.
 
-| Event                                                         | Description                                             |
-| ------------------------------------------------------------- | ------------------------------------------------------- |
-| hyperpod\_training\_operator\_jobs\_created\_total            | Total number of jobs that the training operator has run |
-| hyperpod\_training\_operator\_jobs\_restart\_latency          | Current job restart latency                             |
-| hyperpod\_training\_operator\_jobs\_fault\_detection\_latency | Fault detection latency                                 |
-| hyperpod\_training\_operator\_jobs\_deleted\_total            | Total number of deleted jobs                            |
-| hyperpod\_training\_operator\_jobs\_successful\_total         | Total number of completed jobs                          |
-| hyperpod\_training\_operator\_jobs\_failed\_total             | Total number of failed jobs                             |
-| hyperpod\_training\_operator\_jobs\_restarted\_total          | Total number of auto-restarted jobs                     |
+
+| Event | Description | 
+| --- | --- | 
+| hyperpod\_training\_operator\_jobs\_created\_total | Total number of jobs that the training operator has run | 
+| hyperpod\_training\_operator\_jobs\_restart\_latency | Current job restart latency | 
+| hyperpod\_training\_operator\_jobs\_fault\_detection\_latency | Fault detection latency | 
+| hyperpod\_training\_operator\_jobs\_deleted\_total | Total number of deleted jobs | 
+| hyperpod\_training\_operator\_jobs\_successful\_total | Total number of completed jobs | 
+| hyperpod\_training\_operator\_jobs\_failed\_total | Total number of failed jobs | 
+| hyperpod\_training\_operator\_jobs\_restarted\_total | Total number of auto-restarted jobs | 
 
 ## Sample docker configuration
+<a name="sagemaker-eks-operator-usage-docker"></a>
 
 The following is a sample docker file that you can run with the `hyperpod run` command.
 
@@ -182,19 +175,15 @@ exec hyperpodrun --server-host=${AGENT_HOST} --server-port=${AGENT_PORT} \
 ```
 
 ## Sample log monitoring configurations
+<a name="sagemaker-eks-operator-usage-log-monitoring"></a>
 
 **Job hang detection**
 
 To detect hang jobs, use the following configurations. It uses the following parameters:
++ expectedStartCutOffInSeconds – how long the monitor should wait before expecting the first logs
++ expectedRecurringFrequencyInSeconds – the time interval to wait for the next batch of logs
 
-- expectedStartCutOffInSeconds – how long the monitor should wait before expecting the first logs
-- expectedRecurringFrequencyInSeconds – the time interval to wait for the next batch of logs
-
-With these settings, the log monitor expects to see a log line matching the regex pattern `.*Train Epoch.*`
-within 60 seconds after the training job starts. After the
-first appearance, the monitor expects to see matching log lines every 10 seconds. If the first logs don't appear within
-60 seconds or subsequent logs don't appear every 10 seconds, the HyperPod elastic agent treats the container
-as stuck and coordinates with the training operator to restart the job.
+With these settings, the log monitor expects to see a log line matching the regex pattern `.*Train Epoch.*` within 60 seconds after the training job starts. After the first appearance, the monitor expects to see matching log lines every 10 seconds. If the first logs don't appear within 60 seconds or subsequent logs don't appear every 10 seconds, the HyperPod elastic agent treats the container as stuck and coordinates with the training operator to restart the job.
 
 ```
 runPolicy:
@@ -203,8 +192,8 @@ runPolicy:
     logMonitoringConfiguration:
       - name: "JobStartGracePeriod"
         # Sample log line: [default0]:2025-06-17 05:51:29,300 [INFO] __main__: Train Epoch: 5 [0/60000 (0%)]       loss=0.8470
-        logPattern: ".*Train Epoch.*"
-        expectedStartCutOffInSeconds: 60
+        logPattern: ".*Train Epoch.*"  
+        expectedStartCutOffInSeconds: 60 
       - name: "JobHangingDetection"
         logPattern: ".*Train Epoch.*"
         expectedRecurringFrequencyInSeconds: 10 # if the next batch is not printed within 10 seconds
@@ -212,9 +201,7 @@ runPolicy:
 
 **Training loss spike**
 
-The following monitoring configuration emits training logs with the pattern `xxx training_loss_step xx`.
-It uses the parameter `metricEvaluationDataPoints`, which lets you specify a threshold of data points
-before the operator restarts the job. If the training loss value is more than 2.0, the operator restarts the job.
+The following monitoring configuration emits training logs with the pattern `xxx training_loss_step xx`. It uses the parameter `metricEvaluationDataPoints`, which lets you specify a threshold of data points before the operator restarts the job. If the training loss value is more than 2.0, the operator restarts the job.
 
 ```
 runPolicy:
@@ -230,8 +217,7 @@ runPolicy:
 
 **Low TFLOPs detection**
 
-The following monitoring configuration emits training logs with the pattern `xx TFLOPs xx` every five seconds.
-If TFLOPs is less than 100 for 5 data points, the operator restarts the training job.
+The following monitoring configuration emits training logs with the pattern `xx TFLOPs xx` every five seconds. If TFLOPs is less than 100 for 5 data points, the operator restarts the training job.
 
 ```
 runPolicy:
@@ -240,16 +226,15 @@ runPolicy:
   logMonitoringConfiguration:
     - name: "TFLOPs"
       logPattern: ".* (.+)TFLOPs.*"    # Training model, speed: X TFLOPs...
-      expectedRecurringFrequencyInSeconds: 5
-      metricThreshold: 100       # if Tflops is less than 100 for 5 data points, restart the job
+      expectedRecurringFrequencyInSeconds: 5        
+      metricThreshold: 100       # if Tflops is less than 100 for 5 data points, restart the job       
       operator: "lt"
       metricEvaluationDataPoints: 5
 ```
 
 **Training script error log detection**
 
-The following monitoring configuration detects if the pattern specified in `logPattern` is present in the training logs. As soon as the training operator encounters
-the error pattern, the training operator treats it as a fault and restarts the job.
+The following monitoring configuration detects if the pattern specified in `logPattern` is present in the training logs. As soon as the training operator encounters the error pattern, the training operator treats it as a fault and restarts the job.
 
 ```
 runPolicy:

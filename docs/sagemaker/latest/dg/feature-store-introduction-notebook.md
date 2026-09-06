@@ -1,52 +1,33 @@
+
+
 # Introduction to Feature Store example notebook
+<a name="feature-store-introduction-notebook"></a>
 
-###### Important
+**Important**  
+Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
+[AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md) that give permissions to create SageMaker resources already include permissions to add tags while creating those resources.
 
-Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker
-resources must also grant permissions to add tags to those resources. The permission to
-add tags to resources is required because Studio and Studio Classic automatically tag
-any resources they create. If an IAM policy allows Studio and Studio Classic to
-create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+The example code on this page refers to the [Introduction to Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html) example notebook. We recommend that you run this notebook in Studio Classic, notebook instances, or JupyterLab because the code in this guide is conceptual and not fully functional if copied.
 
-[AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-that give permissions to create SageMaker resources already include permissions to add tags
-while creating those resources.
+Use the following to clone the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) GitHub repository, containing the example notebook:
++ **For Studio Classic**
 
-The example code on this page refers to the [Introduction to Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html") example notebook. We recommend that you run this notebook
-in Studio Classic, notebook instances, or JupyterLab because the code in this guide is conceptual
-and not fully functional if copied.
+  Launch Studio Classic. You can open Studio Classic if Studio or Studio Classic is enabled as your default experience. For instructions on how to open Studio Classic, see [Launch Amazon SageMaker Studio Classic Using the Amazon SageMaker AI Console](studio-launch.md#studio-launch-console).
 
-Use the following to clone the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples") GitHub repository, containing the example
-notebook:
+  Clone the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) GitHub repository to Studio Classic by following the steps in [Clone a Git Repository in Amazon SageMaker Studio Classic](studio-tasks-git.md).
++ **For Amazon SageMaker notebook instances**
 
-- **For Studio Classic**
+  Launch SageMaker notebook instance by following the instructions in [Access Notebook Instances](howitworks-access-ws.md).
 
-Launch Studio Classic. You can open Studio Classic if Studio or Studio Classic is enabled
-as your default experience. For instructions on how to open Studio Classic, see [Launch Amazon SageMaker Studio Classic Using the Amazon SageMaker AI Console](studio-launch.md#studio-launch-console "studio-launch.md#studio-launch-console").
-
-Clone the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples") GitHub repository to Studio Classic by
-following the steps in [Clone a Git Repository in Amazon SageMaker Studio Classic](studio-tasks-git.md "studio-tasks-git.md").
-
-- **For Amazon SageMaker notebook instances**
-
-Launch SageMaker notebook instance by following the instructions in [Access Notebook Instances](howitworks-access-ws.md "howitworks-access-ws.md").
-Now that you have the SageMaker AI example notebooks, navigate to the
-`amazon-sagemaker-examples/sagemaker-featurestore` directory and open the
-[Introduction to Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html") example notebook.
+Now that you have the SageMaker AI example notebooks, navigate to the `amazon-sagemaker-examples/sagemaker-featurestore` directory and open the [Introduction to Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/feature_store_introduction.html) example notebook.
 
 ## Step 1: Set up your SageMaker AI session
+<a name="feature-store-setup"></a>
 
-To start using Feature Store, create a SageMaker AI session. Then, set up the Amazon Simple Storage Service (Amazon S3) bucket
-that you want to use for your features. The Amazon S3 bucket is your offline store. The
-following code uses the SageMaker AI default bucket and adds a custom prefix to it.
+To start using Feature Store, create a SageMaker AI session. Then, set up the Amazon Simple Storage Service (Amazon S3) bucket that you want to use for your features. The Amazon S3 bucket is your offline store. The following code uses the SageMaker AI default bucket and adds a custom prefix to it.
 
-###### Note
-
-The role that you use to run the notebook must have the following managed policies
-attached to it: `AmazonS3FullAccess` and
-`AmazonSageMakerFeatureStoreAccess`. For information about adding
-policies to your IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md "feature-store-adding-policies.md").
+**Note**  
+The role that you use to run the notebook must have the following managed policies attached to it: `AmazonS3FullAccess` and `AmazonSageMakerFeatureStoreAccess`. For information about adding policies to your IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md).
 
 ```
 # SageMaker Python SDK version 3.x is required
@@ -71,8 +52,9 @@ s3_bucket_name = sagemaker_session.default_bucket()
 ```
 
 ## Step 2: Inspect your data
+<a name="feature-store-load-datasets"></a>
 
-In this notebook example, we ingest synthetic data from the [GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-featurestore/data "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-featurestore/data") that hosts the full notebook.
+In this notebook example, we ingest synthetic data from the [GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-featurestore/data) that hosts the full notebook.
 
 ```
 customer_data = pd.read_csv("data/feature_store_introduction_customer.csv")
@@ -82,18 +64,15 @@ print(customer_data.head())
 print(orders_data.head())
 ```
 
-The following diagram illustrates the steps that data goes through before Feature Store ingests it.
-In this notebook, we illustrate the use case where you have data from multiple sources and
-want to store them independently in a Feature Store. Our example considers data from a data warehouse
-(customer data), and data from a real-time streaming service (order data).
+The following diagram illustrates the steps that data goes through before Feature Store ingests it. In this notebook, we illustrate the use case where you have data from multiple sources and want to store them independently in a Feature Store. Our example considers data from a data warehouse (customer data), and data from a real-time streaming service (order data).
 
-![Feature group creation and data ingestion in Feature Store for this example notebook.](images/feature-store/feature-store-intro-diagram.png)
+![Feature group creation and data ingestion in Feature Store for this example notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-intro-diagram.png)
+
 
 ## Step 3: Create feature groups
+<a name="feature-store-set-up-feature-groups-introduction"></a>
 
-We first start by creating feature group names for customer\_data and orders\_data.
-Following this, we create two feature groups, one for `customer_data` and
-another for `orders_data`:
+We first start by creating feature group names for customer\_data and orders\_data. Following this, we create two feature groups, one for `customer_data` and another for `orders_data`:
 
 ```
 import time
@@ -102,8 +81,7 @@ customers_feature_group_name = 'customers-feature-group-' + strftime('%d-%H-%M-%
 orders_feature_group_name = 'orders-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
 ```
 
-In V3, `FeatureGroup.create()` is a classmethod that directly creates
-and returns the feature group, so no separate instantiation step is needed.
+In V3, `FeatureGroup.create()` is a classmethod that directly creates and returns the feature group, so no separate instantiation step is needed.
 
 ```
 from sagemaker.mlops.feature_store import FeatureGroup
@@ -117,8 +95,7 @@ current_time_sec = int(round(time.time()))
 record_identifier_feature_name = "customer_id"
 ```
 
-Append `EventTime` feature to your data frame. This parameter is required,
-and timestamps each data point:
+Append `EventTime` feature to your data frame. This parameter is required, and timestamps each data point:
 
 ```
 customer_data["EventTime"] = pd.Series([current_time_sec]*len(customer_data), dtype="float64")
@@ -134,9 +111,7 @@ customer_feature_defs = load_feature_definitions_from_dataframe(customer_data)
 order_feature_defs = load_feature_definitions_from_dataframe(orders_data)
 ```
 
-The following calls `create` to create two feature groups,
-`customers_feature_group` and `orders_feature_group`,
-respectively:
+The following calls `create` to create two feature groups, `customers_feature_group` and `orders_feature_group`, respectively:
 
 ```
 from sagemaker.mlops.feature_store import OnlineStoreConfig, OfflineStoreConfig, S3StorageConfig
@@ -166,8 +141,7 @@ FeatureGroup.create(
 )
 ```
 
-To confirm that your feature group was created, we display it by using
-`DescribeFeatureGroup` and `ListFeatureGroups` APIs:
+To confirm that your feature group was created, we display it by using `DescribeFeatureGroup` and `ListFeatureGroups` APIs:
 
 ```
 customers_fg = FeatureGroup.get(feature_group_name=customers_feature_group_name)
@@ -182,12 +156,9 @@ sagemaker_session.boto_session.client('sagemaker', region_name=region).list_feat
 ```
 
 ## Step 4: Ingest data into a feature group
+<a name="feature-store-set-up-record-identifier-event-time"></a>
 
-After feature groups are created, we can put data into them. If you're using the SageMaker AI
-AWS SDK for Python (Boto3), use the `ingest` API call. If you're using SDK for Python (Boto3), then use
-the `PutRecord` API. It will take less than 1 minute to ingest data both of
-these options. This example uses the SageMaker AI SDK for Python (Boto3), so it uses the `ingest`
-API call:
+After feature groups are created, we can put data into them. If you're using the SageMaker AI AWS SDK for Python (Boto3), use the `ingest` API call. If you're using SDK for Python (Boto3), then use the `PutRecord` API. It will take less than 1 minute to ingest data both of these options. This example uses the SageMaker AI SDK for Python (Boto3), so it uses the `ingest` API call:
 
 ```
 def check_feature_group_status(feature_group):
@@ -216,8 +187,7 @@ ingest_dataframe(
 )
 ```
 
-Using an arbitrary customer record id, 573291 we use `get_record` to check that
-the data has been ingested into the feature group.
+Using an arbitrary customer record id, 573291 we use `get_record` to check that the data has been ingested into the feature group.
 
 ```
 customer_id = 573291
@@ -228,8 +198,7 @@ sample_record = sagemaker_session.boto_session.client('sagemaker-featurestore-ru
 print(sample_record)
 ```
 
-The following demonstrates how to use the `batch_get_record` to get a batch of
-records.
+The following demonstrates how to use the `batch_get_record` to get a batch of records.
 
 ```
 all_records = sagemaker_session.boto_session.client(
@@ -253,6 +222,7 @@ print(all_records)
 ```
 
 ## Step 5: Clean up
+<a name="feature-store-load-feature-definitions"></a>
 
 Here we remove the Feature Groups that we created.
 
@@ -262,24 +232,20 @@ FeatureGroup(feature_group_name=orders_feature_group_name).delete()
 ```
 
 ## Step 6: Next steps
+<a name="feature-store-setup-create-feature-group"></a>
 
-In this example notebook, you learned how to get started with Feature Store, create feature
-groups, and ingest data into them.
+In this example notebook, you learned how to get started with Feature Store, create feature groups, and ingest data into them.
 
-For an advanced example on how to use Feature Store for a fraud detection use case, see [Fraud Detection with Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html").
+For an advanced example on how to use Feature Store for a fraud detection use case, see [Fraud Detection with Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html).
 
 ## Step 7: Code examples for programmers
+<a name="feature-store-working-with-feature-groups"></a>
 
-In this notebook we used a variety of different API calls. Most of them are accessible
-through the SageMaker Python SDK, however some only exist within Boto3. You can invoke the
-SageMaker Python SDK API calls directly on your Feature Store objects, whereas to invoke API calls
-that exist within Boto3, you must first access a Boto3 client through your Boto3 and
-SageMaker AI sessions: for example, `sagemaker_session.boto_session.client()`.
+In this notebook we used a variety of different API calls. Most of them are accessible through the SageMaker Python SDK, however some only exist within Boto3. You can invoke the SageMaker Python SDK API calls directly on your Feature Store objects, whereas to invoke API calls that exist within Boto3, you must first access a Boto3 client through your Boto3 and SageMaker AI sessions: for example, `sagemaker_session.boto_session.client()`.
 
-The following is a list of API calls for this notebook. These calls exist within the
-SDK for Python and exist in Boto3, for your reference:
+The following is a list of API calls for this notebook. These calls exist within the SDK for Python and exist in Boto3, for your reference:
 
-**SDK for Python (Boto3) API Calls**
+ **SDK for Python (Boto3) API Calls ** 
 
 ```
 describe()
@@ -289,7 +255,7 @@ create()
 load_feature_definitions()
 ```
 
-**Boto3 API Calls**
+ **Boto3 API Calls** 
 
 ```
 list_feature_groups()

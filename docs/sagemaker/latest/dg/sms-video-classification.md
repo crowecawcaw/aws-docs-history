@@ -1,121 +1,98 @@
+
+
 # Classify videos
+<a name="sms-video-classification"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
-Amazon SageMaker Ground Truth is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Ground Truth, but we do not plan to introduce new features.
+Use an Amazon SageMaker Ground Truth video classification labeling task when you need workers to classify videos using predefined labels that you specify. Workers are shown videos and are asked to choose one label for each video. You create a video classification labeling job using the Ground Truth section of the Amazon SageMaker AI console or the [CreateLabelingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html) operation. 
 
-Use an Amazon SageMaker Ground Truth video classification labeling task when you need workers to classify
-videos using predefined labels that you specify. Workers are shown videos and are asked to
-choose one label for each video. You create a video classification labeling job using the
-Ground Truth section of the Amazon SageMaker AI console or the [CreateLabelingJob](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md")
-operation.
+Your video files must be encoded in a format that is supported by the browser used by the work team that labels your data. It is recommended that you verify that all video file formats in your input manifest file display correctly using the worker UI preview. You can communicate supported browsers to your workers using worker instructions. To see supported file formats, see [Supported data formats](sms-supported-data-formats.md).
 
-Your video files must be encoded in a format that is supported by the browser used by the
-work team that labels your data. It is recommended that you verify that all video file
-formats in your input manifest file display correctly using the worker UI preview. You can
-communicate supported browsers to your workers using worker instructions. To see supported
-file formats, see [Supported data formats](sms-supported-data-formats.md "sms-supported-data-formats.md").
+**Important**  
+For this task type, if you create your own manifest file, use `"source-ref"` to identify the location of each video file in Amazon S3 that you want labeled. For more information, see [Input data](sms-data-input.md).
 
-###### Important
 
-For this task type, if you create your own manifest file, use
-`"source-ref"` to identify the location of each video file in Amazon S3 that
-you want labeled. For more information, see [Input data](sms-data-input.md "sms-data-input.md").
 
 ## Create a Video Classification Labeling Job (Console)
+<a name="sms-creating-video-classification-console"></a>
 
-You can follow the instructions in [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") to learn how to create a video
-classification labeling job in the SageMaker AI console. In step 10, choose **Video** from the **Task category**
-dropdown list, and choose **Video Classification** as the
-task type.
+You can follow the instructions in [Create a Labeling Job (Console)](sms-create-labeling-job-console.md) to learn how to create a video classification labeling job in the SageMaker AI console. In step 10, choose **Video** from the **Task category** dropdown list, and choose **Video Classification** as the task type. 
 
-Ground Truth provides a worker UI similar to the following for labeling tasks. When you
-create a labeling job in the console, you specify instructions to help workers complete
-the job and labels from which workers can choose.
+Ground Truth provides a worker UI similar to the following for labeling tasks. When you create a labeling job in the console, you specify instructions to help workers complete the job and labels from which workers can choose. 
 
-![Gif showing how to create a video classification labeling job in the SageMaker AI console.](images/sms/video/vid_classification.gif)
+![Gif showing how to create a video classification labeling job in the SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/vid_classification.gif)
+
 
 ## Create a Video Classification Labeling Job (API)
+<a name="sms-creating-video-classification-api"></a>
 
-This section covers details you need to know when you create a labeling job using the
-SageMaker API operation `CreateLabelingJob`. This API defines this operation for
-all AWS SDKs. To see a list of language-specific SDKs supported for this operation,
-review the **See Also** section of [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md").
+This section covers details you need to know when you create a labeling job using the SageMaker API operation `CreateLabelingJob`. This API defines this operation for all AWS SDKs. To see a list of language-specific SDKs supported for this operation, review the **See Also** section of [`CreateLabelingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html).
 
-Follow the instructions on [Create a Labeling Job (API)](sms-create-labeling-job-api.md "sms-create-labeling-job-api.md") and do the following while you
-configure your request:
+Follow the instructions on [Create a Labeling Job (API)](sms-create-labeling-job-api.md) and do the following while you configure your request: 
++ Use a pre-annotation Lambda function that ends with `PRE-VideoClassification`. To find the pre-annotation Lambda ARN for your Region, see [PreHumanTaskLambdaArn](https://docs.aws.amazon.com/sagemaker/latest/dg/API_HumanTaskConfig.html#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn) . 
++ Use an annotation-consolidation Lambda function that ends with `ACS-VideoClassification`. To find the annotation-consolidation Lambda ARN for your Region, see [AnnotationConsolidationLambdaArn](https://docs.aws.amazon.com/sagemaker/latest/dg/API_AnnotationConsolidationConfig.html#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn). 
 
-- Use a pre-annotation Lambda function that ends with
-  `PRE-VideoClassification`. To find the pre-annotation Lambda ARN
-  for your Region, see [PreHumanTaskLambdaArn](API_HumanTaskConfig.md#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "API_HumanTaskConfig.md#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn") .
-- Use an annotation-consolidation Lambda function that ends with
-  `ACS-VideoClassification`. To find the annotation-consolidation
-  Lambda ARN for your Region, see [AnnotationConsolidationLambdaArn](API_AnnotationConsolidationConfig.md#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn "API_AnnotationConsolidationConfig.md#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn").
-
-The following is an example of an [AWS Python SDK (Boto3) request](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job") to create a labeling job in the
-US East (N. Virginia) Region.
+The following is an example of an [AWS Python SDK (Boto3) request](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job) to create a labeling job in the US East (N. Virginia) Region. 
 
 ```
 response = client.create_labeling_job(
-    LabelingJobName=`'example-video-classification-labeling-job`,
-    LabelAttributeName=`'label'`,
+    LabelingJobName={{'example-video-classification-labeling-job}},
+    LabelAttributeName={{'label'}},
     InputConfig={
         'DataSource': {
             'S3DataSource': {
-                'ManifestS3Uri': `'s3://bucket/path/manifest-with-input-data.json'`
+                'ManifestS3Uri': {{'s3://bucket/path/manifest-with-input-data.json'}}
             }
         },
         'DataAttributes': {
             'ContentClassifiers': [
-                `'FreeOfPersonallyIdentifiableInformation'|'FreeOfAdultContent'`,
+                {{'FreeOfPersonallyIdentifiableInformation'|'FreeOfAdultContent'}},
             ]
         }
     },
     OutputConfig={
-        'S3OutputPath': `'s3://bucket/path/file-to-store-output-data'`,
-        'KmsKeyId': `'string'`
+        'S3OutputPath': {{'s3://bucket/path/file-to-store-output-data'}},
+        'KmsKeyId': {{'string'}}
     },
-    RoleArn=`'arn:aws:iam::*:role/*`,
-    LabelCategoryConfigS3Uri=`'s3://bucket/path/label-categories.json'`,
+    RoleArn={{'arn:aws:iam::*:role/*}},
+    LabelCategoryConfigS3Uri={{'s3://bucket/path/label-categories.json'}},
     StoppingConditions={
-        'MaxHumanLabeledObjectCount': `123`,
-        'MaxPercentageOfInputDatasetLabeled': `123`
+        'MaxHumanLabeledObjectCount': {{123}},
+        'MaxPercentageOfInputDatasetLabeled': {{123}}
     },
     HumanTaskConfig={
-        'WorkteamArn': `'arn:aws:sagemaker:region:*:workteam/private-crowd/*'`,
+        'WorkteamArn': {{'arn:aws:sagemaker:region:*:workteam/private-crowd/*'}},
         'UiConfig': {
-            'UiTemplateS3Uri': `'s3://bucket/path/worker-task-template.html'`
+            'UiTemplateS3Uri': {{'s3://bucket/path/worker-task-template.html'}}
         },
-        'PreHumanTaskLambdaArn': 'arn:aws:lambda:`us-east-1:432418664414`:function:PRE-VideoClassification',
+        'PreHumanTaskLambdaArn': 'arn:aws:lambda:{{us-east-1:432418664414}}:function:PRE-VideoClassification',
         'TaskKeywords': [
-            `'Video Classification'`,
+            {{'Video Classification'}},
         ],
-        'TaskTitle': `'Video classification task'`,
-        'TaskDescription': `'Select a label to classify this video'`,
-        'NumberOfHumanWorkersPerDataObject': `123`,
-        'TaskTimeLimitInSeconds': `123`,
-        'TaskAvailabilityLifetimeInSeconds': `123`,
-        'MaxConcurrentTaskCount': `123`,
+        'TaskTitle': {{'Video classification task'}},
+        'TaskDescription': {{'Select a label to classify this video'}},
+        'NumberOfHumanWorkersPerDataObject': {{123}},
+        'TaskTimeLimitInSeconds': {{123}},
+        'TaskAvailabilityLifetimeInSeconds': {{123}},
+        'MaxConcurrentTaskCount': {{123}},
         'AnnotationConsolidationConfig': {
-            'AnnotationConsolidationLambdaArn': 'arn:aws:lambda:`us-east-1:432418664414`:function:ACS-VideoClassification'
+            'AnnotationConsolidationLambdaArn': 'arn:aws:lambda:{{us-east-1:432418664414}}:function:ACS-VideoClassification'
         },
     Tags=[
         {
-            'Key': `'string'`,
-            'Value': `'string'`        },
+            'Key': {{'string'}},
+            'Value': {{'string'
+}}        },
     ]
 )
 ```
 
 ### Provide a Template for Video Classification
+<a name="sms-custom-template-video-classification"></a>
 
-If you create a labeling job using the API, you must supply a worker task template
-in `UiTemplateS3Uri`. Copy and modify the following template by modifying
-the `short-instructions`, `full-instructions`, and
-`header`. Upload this template to Amazon S3, and provide the Amazon S3 URI to
-this file in `UiTemplateS3Uri`.
+If you create a labeling job using the API, you must supply a worker task template in `UiTemplateS3Uri`. Copy and modify the following template by modifying the `short-instructions`, `full-instructions`, and `header`. Upload this template to Amazon S3, and provide the Amazon S3 URI to this file in `UiTemplateS3Uri`.
 
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
@@ -149,18 +126,15 @@ this file in `UiTemplateS3Uri`.
                     </short-instructions>
                   </crowd-classifier>
               </crowd-form>
-
 ```
 
 ## Video Classification Output Data
+<a name="sms-vido-classification-output-data"></a>
 
-Once you have created a video classification labeling job, your output data is located
-in the Amazon S3 bucket specified in the `S3OutputPath` parameter when using the
-API or in the **Output dataset location** field of the **Job
-overview** section of the console.
+Once you have created a video classification labeling job, your output data is located in the Amazon S3 bucket specified in the `S3OutputPath` parameter when using the API or in the **Output dataset location** field of the **Job overview** section of the console. 
 
-To learn more about the output manifest file generated by Ground Truth and the file structure
-the Ground Truth uses to store your output data, see [Labeling job output data](sms-data-output.md "sms-data-output.md").
+To learn more about the output manifest file generated by Ground Truth and the file structure the Ground Truth uses to store your output data, see [Labeling job output data](sms-data-output.md). 
 
-To see an example of output manifest files for video classification labeling jobs, see
-[Classification job output](sms-data-output.md#sms-output-class "sms-data-output.md#sms-output-class").
+To see an example of output manifest files for video classification labeling jobs, see [Classification job output](sms-data-output.md#sms-output-class).
+
+ 

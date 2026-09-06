@@ -1,82 +1,73 @@
-# Understand the results of a human evaluation job
 
-When you created a model evaluation job that uses human workers you selected one or more _metric types_. When members of the workteam evaluate a response in the worker portal their responses are saved in the `humanAnswers` json object. How those responses are stored change based on the metric type selected when the job was created.
+
+# Understand the results of a human evaluation job
+<a name="clarify-foundation-model-evaluate-results-human"></a>
+
+When you created a model evaluation job that uses human workers you selected one or more *metric types*. When members of the workteam evaluate a response in the worker portal their responses are saved in the `humanAnswers` json object. How those responses are stored change based on the metric type selected when the job was created.
 
 The following sections explain these differences, and provide examples.
 
 ## JSON output reference
+<a name="clarify-foundation-model-evaluate-results-human-ref"></a>
 
-When a model evaluation job is completed the results are saved in Amazon S3 as a JSON file. The
-JSON object contains three high level nodes `humanEvaluationResult`,
-`inputRecord`, and `modelResponses`.The
-`humanEvaluationResult` key is a high level node that contains the
-responses from the workteam assigned to the model evaluation job.
-The`inputRecord` key is a high level node that contains the prompts
-provided to the model(s) when the model evaluation job was created. The
-`modelResponses` key is a high level node that contains the responses
-to the prompts from the model(s).
+When a model evaluation job is completed the results are saved in Amazon S3 as a JSON file. The JSON object contains three high level nodes `humanEvaluationResult`, `inputRecord`, and `modelResponses`.The `humanEvaluationResult` key is a high level node that contains the responses from the workteam assigned to the model evaluation job. The`inputRecord` key is a high level node that contains the prompts provided to the model(s) when the model evaluation job was created. The `modelResponses` key is a high level node that contains the responses to the prompts from the model(s).
 
 The following table summarizes the key value pairs found in the JSON output from the model evaluation job.
 
 The proceeding sections provide more granular details about each key value pair.
 
-| Parameter            | Example                                                                                                                                                                                                                                                                                                                                                                                                                                             | Description                                                                            |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `flowDefinitionArn`  | `arn:aws:sagemaker:us-west-2:`111122223333`:flow-definition/`flow-definition-name``                                                                                                                                                                                                                                                                                                                                                                 | The ARN of the human review workflow (flow definition) that created the human loop.    |
-| `humanAnswers`       | A list of JSON objects specific to the evaluation metrics selected. To learn more see, [Key values pairs found under humanAnswers](#clarify-foundation-model-evaluate-humanAnswers "#clarify-foundation-model-evaluate-humanAnswers").                                                                                                                                                                                                              | A list of JSON objects that contain workers responses.                                 |
-| `humanLoopName`      | `system-generated-hash`                                                                                                                                                                                                                                                                                                                                                                                                                             | A system generated 40-character hex string.                                            |
-| `inputRecord`        | `<br>"inputRecord": {<br>"prompt": {<br>"text": "Who invented the airplane?"<br>},<br>"category": "Airplanes",<br>"referenceResponse": {<br>"text": "Orville and Wilbur Wright"<br>},<br>"responses":<br>[{<br>"modelIdentifier": "meta-textgeneration-llama-codellama-7b",<br>"text": "The Wright brothers, Orville and Wilbur Wright are widely credited with inventing and manufacturing the world's first successful airplane."<br>}]<br>}<br>` | A JSON object that contains an entry prompt from the input dataset.                    |
-| `modelResponses`     | ``<br>"modelResponses": [{<br>"modelIdentifier": "arn:aws:bedrock:`us-west-2`::foundation-model/`model-id`",<br>"text": "the-models-response-to-the-prompt"<br>}]<br>``                                                                                                                                                                                                                                                                             | The individual responses from the models.                                              |
-| `inputContent`       | ``<br>{<br>"additionalDataS3Uri":"s3://`user-specified-S3-URI-path`/datasets/`dataset-name`/records/`record-number`/human-loop-additional-data.json",<br>"evaluationMetrics":[<br>{<br>"description":"`brief-name`",<br>"metricName":"`metric-name`",<br>"metricType":"IndividualLikertScale"<br>}<br>],<br>"instructions":"example instructions"<br>}<br>``                                                                                        | The human loop input content required to start human loop<br>in your Amazon S3 bucket. |
-| `modelResponseIdMap` | `<br>{<br>"0": "sm-margaret-meta-textgeneration-llama-2-7b-1711485008-0612",<br>"1": "jumpstart-dft-hf-llm-mistral-7b-ins-20240327-043352"<br>}<br>`                                                                                                                                                                                                                                                                                                | Describes how each model is represented in the `answerContent`.                        |
+
+
+| Parameter | Example | Description | 
+| --- | --- | --- | 
+| `flowDefinitionArn` |  arn:aws:sagemaker:us-west-2:{{111122223333}}:flow-definition/{{flow-definition-name}}  | The ARN of the human review workflow (flow definition) that created the human loop. | 
+| humanAnswers | A list of JSON objects specific to the evaluation metrics selected. To learn more see, [Key values pairs found under `humanAnswers`](#clarify-foundation-model-evaluate-humanAnswers). | A list of JSON objects that contain workers responses. | 
+| `humanLoopName` | system-generated-hash | A system generated 40-character hex string. | 
+| inputRecord |  <pre>"inputRecord": {<br />    "prompt": {<br />        "text": "Who invented the airplane?"<br />    },<br />    "category": "Airplanes",<br />    "referenceResponse": {<br />        "text": "Orville and Wilbur Wright"<br />    },<br />    "responses":<br /><br />        [{<br />            "modelIdentifier": "meta-textgeneration-llama-codellama-7b",<br />            "text": "The Wright brothers, Orville and Wilbur Wright are widely credited with inventing and manufacturing the world's first successful airplane."<br />        }]<br />}</pre>  | A JSON object that contains an entry prompt from the input dataset.  | 
+| modelResponses |  <pre>"modelResponses": [{<br />    "modelIdentifier": "arn:aws:bedrock:{{us-west-2}}::foundation-model/{{model-id}}",<br />    "text": "the-models-response-to-the-prompt"<br />}]</pre>  | The individual responses from the models. | 
+| inputContent | <pre>{<br />    "additionalDataS3Uri":"s3://{{user-specified-S3-URI-path}}/datasets/{{dataset-name}}/records/{{record-number}}/human-loop-additional-data.json",<br />    "evaluationMetrics":[<br />        {<br />		  "description":"brief-name",<br />		  "metricName":"metric-name",<br />		  "metricType":"IndividualLikertScale"<br />	  }<br />    ],<br />    "instructions":"example instructions"<br />}</pre> | The human loop input content required to start human loop in your Amazon S3 bucket. | 
+| modelResponseIdMap | <pre>{<br />   "0": "sm-margaret-meta-textgeneration-llama-2-7b-1711485008-0612",<br />   "1": "jumpstart-dft-hf-llm-mistral-7b-ins-20240327-043352"<br />}</pre> | Describes how each model is represented in the `answerContent`. | 
 
 ### Key values pairs found under `humanEvaluationResult`
+<a name="clarify-foundation-model-evaluate-humanEvaluationResult"></a>
 
-The following key value pairs around found under the `humanEvaluationResult` in the output of your model evaluation job.
+ The following key value pairs around found under the `humanEvaluationResult` in the output of your model evaluation job.
 
-For the key value pairs associated with `humanAnswers`, see [Key values pairs found under humanAnswers](#clarify-foundation-model-evaluate-humanAnswers "#clarify-foundation-model-evaluate-humanAnswers").
+For the key value pairs associated with `humanAnswers`, see [Key values pairs found under `humanAnswers`](#clarify-foundation-model-evaluate-humanAnswers).
 
 **`flowDefinitionArn`**
-
-- The ARN of the flow definition used to complete the model evaluation job.
-- _Example:_`arn:aws:sagemaker:us-west-2:`111122223333`:flow-definition/`flow-definition-name``
++ The ARN of the flow definition used to complete the model evaluation job.
++ *Example:*`arn:aws:sagemaker:us-west-2:{{111122223333}}:flow-definition/{{flow-definition-name}}`
 
 **`humanLoopName`**
-
-- A system generated 40-character hex string.
++ A system generated 40-character hex string.
 
 **`inputContent`**
-
-- This key value describes the _metric types_, and the instructions your provided for workers in the worker portal.
-
-  - `additionalDataS3Uri`: The location in Amazon S3 where the instructions for workers is saved.
-  - `instructions`: The instructions you provided to workers in the worker portal.
-  - `evaluationMetrics`: The name of the metric and it's description. The key value `metricType` is the tool provided to workers to evaluate the models' responses.
++ This key value describes the *metric types*, and the instructions your provided for workers in the worker portal.
+  + `additionalDataS3Uri`: The location in Amazon S3 where the instructions for workers is saved.
+  + `instructions`: The instructions you provided to workers in the worker portal.
+  + `evaluationMetrics`: The name of the metric and it's description. The key value `metricType` is the tool provided to workers to evaluate the models' responses.
 
 **`modelResponseIdMap`**
-
-- This key value pair identifies the full names of the models selected, and how worker choices are mapped to the models in the `humanAnswers` key value pairs.
++ This key value pair identifies the full names of the models selected, and how worker choices are mapped to the models in the `humanAnswers` key value pairs.
 
 ### Key values pairs found under `inputRecord`
+<a name="clarify-foundation-model-evaluate-inputRecord"></a>
 
 The following entries describe the `inputRecord` key value pairs.
 
 **`prompt`**
-
-- The text of the prompt sent to the model.
++ The text of the prompt sent to the model.
 
 **`category`**
-
-- An optional category that classifies the prompt. Visible to workers in the worker portal during the model evaluation.
-- _Example:_`"American cities"`
++ An optional category that classifies the prompt. Visible to workers in the worker portal during the model evaluation.
++ *Example:*`"American cities"`
 
 **`referenceResponse`**
-
-- An optional field from the input JSON used to specify the ground truth you want workers to reference during the evaluation
++ An optional field from the input JSON used to specify the ground truth you want workers to reference during the evaluation
 
 **`responses`**
-
-- An optional field from the input JSON that contains responses from other models.
++ An optional field from the input JSON that contains responses from other models.
 
 An example JSON input record.
 
@@ -92,108 +83,103 @@ An example JSON input record.
   "responses":
     // The same modelIdentifier must be specified for all responses
     [{
-      "modelIdentifier": `"meta-textgeneration-llama-codellama-7b"` ,
+      "modelIdentifier": {{"meta-textgeneration-llama-codellama-7b"}} ,
       "text": "The Wright brothers, Orville and Wilbur Wright are widely credited with inventing and manufacturing the world's first successful airplane."
     }]
 }
 ```
 
 ### Key values pairs found under `modelResponses`
+<a name="clarify-foundation-model-evaluate-modelResponses"></a>
 
 An array of key value pairs that contains the responses from the models, and which model provided the responses.
 
 **`text`**
-
-- The model's response to the prompt.
++ The model's response to the prompt.
 
 **`modelIdentifier`**
-
-- The name of the model.
++ The name of the model.
 
 ### Key values pairs found under `humanAnswers`
+<a name="clarify-foundation-model-evaluate-humanAnswers"></a>
 
 An array of key value pairs that contains the responses from the models, and how workers evaluated the models.
 
 **`acceptanceTime`**
-
-- When the worker accepted the task in the worker portal.
++ When the worker accepted the task in the worker portal.
 
 **`submissionTime`**
-
-- When the worker submitted their response.
++ When the worker submitted their response.
 
 **`timeSpentInSeconds`**
-
-- How long the worker spent completing the task.
++ How long the worker spent completing the task.
 
 **`workerId`**
-
-- The ID of the worker who completed the task.
++ The ID of the worker who completed the task.
 
 **`workerMetadata`**
-
-- Metadata about which workteam was assigned to this model evaluation job.
++ Metadata about which workteam was assigned to this model evaluation job.
 
 #### Format of the `answerContent` JSON array
+<a name="clarify-foundation-model-evaluate-humanAnswers-answerconent"></a>
 
 The structure of answer depends on the evaluation metrics selected when model evaluation job was created. Each worker response or answer is recorded in a new JSON object.
 
 **`answerContent`**
++ `evaluationResults` contains the worker's responses.
+  + When **Choice buttons** is selected, the results from each worker are as `"evaluationResults": "comparisonChoice"`. 
 
-- `evaluationResults` contains the worker's responses.
+    `metricName`: The name of the metric
 
-  - When **Choice buttons** is selected, the results from each worker are as `"evaluationResults": "comparisonChoice"`.
+    `result`: The JSON object indicates which model the worker selected using either a `0` or `1`. To see which value a model is mapped to see, `modelResponseIdMap`.
+  + When **Likert scale, comparison** is selected, the results from each worker are as `"evaluationResults": "comparisonLikertScale"`. 
 
-  `metricName`: The name of the metric
+    `metricName`: The name of the metric.
 
-  `result`: The JSON object indicates which model the worker selected using either a `0` or `1`. To see which value a model is mapped to see, `modelResponseIdMap`.
-  - When **Likert scale, comparison** is selected, the results from each worker are as `"evaluationResults": "comparisonLikertScale"`.
+    `leftModelResponseId`: Indicates which `modelResponseIdMap` was shown on the left side of the worker portal.
 
-  `metricName`: The name of the metric.
+    `rightModelResponseId`: Indicates which `modelResponseIdMap` was shown on the left side of the worker portal.
 
-  `leftModelResponseId`: Indicates which `modelResponseIdMap` was shown on the left side of the worker portal.
+    `result`: The JSON object indicates which model the worker selected using either a `0` or `1`. To see which value a model is mapped to see, `modelResponseIdMap`
+  + When **Ordinal rank** is selected, the results from each worker are as `"evaluationResults": "comparisonRank"`.
 
-  `rightModelResponseId`: Indicates which `modelResponseIdMap` was shown on the left side of the worker portal.
+    `metricName`: The name of the metric
 
-  `result`: The JSON object indicates which model the worker selected using either a `0` or `1`. To see which value a model is mapped to see, `modelResponseIdMap`
-  - When **Ordinal rank** is selected, the results from each worker are as `"evaluationResults": "comparisonRank"`.
+    `result`: An array of JSON objects. For each model (`modelResponseIdMap`) workers provide a `rank`.
 
-  `metricName`: The name of the metric
+    ```
+    "result": [{
+    	"modelResponseId": "0",
+    	"rank": 1
+    }, {
+    	"modelResponseId": "1",
+    	"rank": 1
+    }]
+    ```
+  + When **Likert scale, evaluation of a single model response** is selected, the results a worker are saved in `"evaluationResults": "individualLikertScale"`. This is a JSON array containing the scores for `metricName` specified when the job was created.
 
-  `result`: An array of JSON objects. For each model (`modelResponseIdMap`) workers provide a `rank`.
+    `metricName`: The name of the metric.
 
-  ```
-  "result": [{
-  	"modelResponseId": "0",
-  	"rank": 1
-  }, {
-  	"modelResponseId": "1",
-  	"rank": 1
-  }]
-  ```
-  - When **Likert scale, evaluation of a single model response** is selected, the results a worker are saved in `"evaluationResults": "individualLikertScale"`. This is a JSON array containing the scores for `metricName` specified when the job was created.
+    `modelResponseId`: The model that is scored. To see which value a model is mapped to see, `modelResponseIdMap`.
 
-  `metricName`: The name of the metric.
+    `result`: A key value pair indicating the likert scale value selected by the worker.
+  + When **Thumbs up/down** is selected, the results from a worker are saved as a JSON array `"evaluationResults": "thumbsUpDown"`.
 
-  `modelResponseId`: The model that is scored. To see which value a model is mapped to see, `modelResponseIdMap`.
+    `metricName`: The name of the metric.
 
-  `result`: A key value pair indicating the likert scale value selected by the worker.
-  - When **Thumbs up/down** is selected, the results from a worker are saved as a JSON array `"evaluationResults": "thumbsUpDown"`.
-
-  `metricName`: The name of the metric.
-
-  `result`: Either `true` or `false` as it relates to the `metricName`. When a worker chooses thumbs up, `"result" : true`.
+    `result`: Either `true` or `false` as it relates to the `metricName`. When a worker chooses thumbs up, `"result" : true`.
 
 ## Example output from a model evaluation job output
+<a name="clarify-foundation-model-evaluate-results-human-example"></a>
 
-The following JSON object is an example model evaluation job output that is saved in Amazon S3. To learn more about each key values pair, see the [JSON output reference](#clarify-foundation-model-evaluate-results-human-ref "#clarify-foundation-model-evaluate-results-human-ref").
+The following JSON object is an example model evaluation job output that is saved in Amazon S3. To learn more about each key values pair, see the [JSON output reference](#clarify-foundation-model-evaluate-results-human-ref).
 
 For clarity this job only contains the responses from a two workers. Some key value pairs may have also been truncated for readability
 
 ```
 {
 	"humanEvaluationResult": {
-		"flowDefinitionArn": "arn:aws:sagemaker:`us-west-2`:`111122223333`:flow-definition/`flow-definition-name`",
+		"flowDefinitionArn": "arn:aws:sagemaker:us-west-2:111122223333:flow-definition/flow-definition-name",
         "humanAnswers": [
             {
                 "acceptanceTime": "2024-06-07T22:31:57.066Z",

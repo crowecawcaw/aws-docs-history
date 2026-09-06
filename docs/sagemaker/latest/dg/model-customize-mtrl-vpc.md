@@ -1,59 +1,46 @@
+
+
 # Configure a VPC for multi-turn RL jobs
+<a name="model-customize-mtrl-vpc"></a>
 
-When you provide a `VpcConfig` in your multi-turn RL job configuration,
-Amazon SageMaker AI places a proxy elastic network interface (ENI) in your VPC. All customer
-data traffic — including access to your S3 buckets, agent invocations, and
-logging — flows through this ENI. This keeps data within your VPC network
-boundary.
-
-###### Required VPC setup
+When you provide a `VpcConfig` in your multi-turn RL job configuration, Amazon SageMaker AI places a proxy elastic network interface (ENI) in your VPC. All customer data traffic — including access to your S3 buckets, agent invocations, and logging — flows through this ENI. This keeps data within your VPC network boundary.
 
 **Subnets**
 
-Provide two or more private subnets in different Availability Zones for
-redundancy. The subnets do not need a NAT gateway or internet access because all
-traffic exits through VPC endpoints.
+Provide two or more private subnets in different Availability Zones for redundancy. The subnets do not need a NAT gateway or internet access because all traffic exits through VPC endpoints.
 
 **Security group**
 
-Create a security group with the following outbound rules. No inbound rules are
-required.
+Create a security group with the following outbound rules. No inbound rules are required.
++ Outbound TCP 443 to `0.0.0.0/0`
++ Outbound UDP 53 to `0.0.0.0/0`
 
-- Outbound TCP 443 to `0.0.0.0/0`
-- Outbound UDP 53 to `0.0.0.0/0`
-
-###### Note
-
-For tighter security, you can restrict egress to the S3 managed prefix
-list and the private IP addresses of your interface endpoint ENIs instead
-of allowing `0.0.0.0/0`.
+**Note**  
+For tighter security, you can restrict egress to the S3 managed prefix list and the private IP addresses of your interface endpoint ENIs instead of allowing `0.0.0.0/0`.
 
 **VPC endpoints**
 
-Create the following VPC endpoints so that traffic from the proxy ENI can reach
-AWS services without internet access.
+Create the following VPC endpoints so that traffic from the proxy ENI can reach AWS services without internet access.
 
-| Endpoint                                            | Traffic routed                                                                           | Service name                               | Type      |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------ | --------- |
-| S3 (required)                                       | Prompt data, job output, MLflow artifacts<br>(`GetObject`, `PutObject`,<br>`ListBucket`) | `com.amazonaws.`region`.s3`                | Gateway   |
-| CloudWatch Logs (required)                          | Training container logs<br>(`PutLogEvents`, `CreateLogGroup`,<br>`CreateLogStream`)      | `com.amazonaws.`region`.logs`              | Interface |
-| Bedrock AgentCore (required if using Bedrock agent) | Agent invocations<br>(`InvokeAgentRuntime`)                                              | `com.amazonaws.`region`.bedrock-agentcore` | Interface |
-| Lambda (required if using Lambda agent)             | Agent invocations via Lambda forwarder<br>(`Invoke`)                                     | `com.amazonaws.`region`.lambda`            | Interface |
-| MLflow (required if using MLflow tracking)          | Training metrics and traces<br>(`LogBatch`, `StartTrace`,<br>`EndTrace`)                 | `aws.sagemaker.`region`.mlflow`            | Interface |
 
-###### Note
+| Endpoint | Traffic routed | Service name | Type | 
+| --- | --- | --- | --- | 
+| S3 (required) | Prompt data, job output, MLflow artifacts (GetObject, PutObject, ListBucket) | com.amazonaws.{{region}}.s3 | Gateway | 
+| CloudWatch Logs (required) | Training container logs (PutLogEvents, CreateLogGroup, CreateLogStream) | com.amazonaws.{{region}}.logs | Interface | 
+| Bedrock AgentCore (required if using Bedrock agent) | Agent invocations (InvokeAgentRuntime) | com.amazonaws.{{region}}.bedrock-agentcore | Interface | 
+| Lambda (required if using Lambda agent) | Agent invocations via Lambda forwarder (Invoke) | com.amazonaws.{{region}}.lambda | Interface | 
+| MLflow (required if using MLflow tracking) | Training metrics and traces (LogBatch, StartTrace, EndTrace) | aws.sagemaker.{{region}}.mlflow | Interface | 
 
+**Note**  
 Enable Private DNS on all interface endpoints.
 
 **Interface endpoint security group**
 
-All interface endpoints must share a security group with inbound TCP 443 from
-your VPC CIDR.
+All interface endpoints must share a security group with inbound TCP 443 from your VPC CIDR.
 
 **IAM permissions**
 
-The execution role must include EC2 permissions for ENI management. Add the
-following policy statement to the role.
+The execution role must include EC2 permissions for ENI management. Add the following policy statement to the role.
 
 ```
 [
@@ -88,8 +75,7 @@ following policy statement to the role.
 
 **API configuration**
 
-Include the `VpcConfig` parameter in your multi-turn RL job
-request.
+Include the `VpcConfig` parameter in your multi-turn RL job request.
 
 ```
 "VpcConfig": {
@@ -98,15 +84,11 @@ request.
 }
 ```
 
-###### Restrict access to your VPC
-
-You can apply additional restrictions to further secure your VPC
-configuration.
+You can apply additional restrictions to further secure your VPC configuration.
 
 **S3 bucket policy**
 
-To restrict S3 access to your VPC only, add a deny policy with the
-`aws:SourceVpc` condition.
+To restrict S3 access to your VPC only, add a deny policy with the `aws:SourceVpc` condition.
 
 ```
 {
@@ -115,27 +97,23 @@ To restrict S3 access to your VPC only, add a deny policy with the
     "Principal": "*",
     "Action": "s3:*",
     "Resource": [
-        "arn:aws:s3:::`my-mtrl-bucket`",
-        "arn:aws:s3:::`my-mtrl-bucket`/*"
+        "arn:aws:s3:::{{my-mtrl-bucket}}",
+        "arn:aws:s3:::{{my-mtrl-bucket}}/*"
     ],
     "Condition": {
         "StringNotEquals": {
-            "aws:SourceVpc": "`vpc-0abc123def`"
+            "aws:SourceVpc": "{{vpc-0abc123def}}"
         }
     }
 }
 ```
 
-###### Note
-
-The `aws:SourceVpc` condition key is only populated when the
-request traverses an S3 Gateway Endpoint.
+**Note**  
+The `aws:SourceVpc` condition key is only populated when the request traverses an S3 Gateway Endpoint.
 
 **VPC endpoint policies**
 
-You can restrict interface endpoints to allow only the actions that multi-turn
-RL jobs need. The following example restricts a CloudWatch Logs endpoint to log
-groups with the `/aws/sagemaker/Job/` prefix.
+You can restrict interface endpoints to allow only the actions that multi-turn RL jobs need. The following example restricts a CloudWatch Logs endpoint to log groups with the `/aws/sagemaker/Job/` prefix.
 
 ```
 {

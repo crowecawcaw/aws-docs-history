@@ -1,67 +1,45 @@
+
+
 # Access the Sentinel-2 raster data collection and create an earth observation job to perform land segmentation
+<a name="geospatial-demo"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
 
-Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any
-previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+This Python-based tutorial uses the SDK for Python (Boto3) and an Amazon SageMaker Studio Classic notebook. To complete this demo successfully, make sure that you have the required AWS Identity and Access Management (IAM) permissions to use SageMaker geospatial and Studio Classic. SageMaker geospatial requires that you have a user, group, or role which can access Studio Classic. You must also have a SageMaker AI execution role that specifies the SageMaker geospatial service principal, `sagemaker-geospatial.amazonaws.com` in its trust policy. 
 
-This Python-based tutorial uses the SDK for Python (Boto3) and an Amazon SageMaker Studio Classic notebook. To
-complete this demo successfully, make sure that you have the required AWS Identity and Access Management (IAM)
-permissions to use SageMaker geospatial and Studio Classic. SageMaker geospatial requires that you have a
-user,
-group, or role which can access
-Studio Classic. You must also have a SageMaker AI execution role that specifies the SageMaker geospatial service
-principal, `sagemaker-geospatial.amazonaws.com` in its trust policy.
-
-To learn more about these requirements,
-see
-[SageMaker geospatial IAM
-roles](sagemaker-geospatial-roles.md "sagemaker-geospatial-roles.md").
+To learn more about these requirements, see [SageMaker geospatial IAM roles](sagemaker-geospatial-roles.md).
 
 This tutorial shows you how to use SageMaker geospatial API to complete the following tasks:
-
-- Find the available raster data collections with
-  `list_raster_data_collections`.
-- Search a specified raster data collection by using
-  `search_raster_data_collection`.
-- Create an earth observation job (EOJ) by using
-  `start_earth_observation_job`.
++ Find the available raster data collections with `list_raster_data_collections`.
++ Search a specified raster data collection by using `search_raster_data_collection`.
++ Create an earth observation job (EOJ) by using `start_earth_observation_job`.
 
 ## Using `list_raster_data_collections` to find available data collections
+<a name="demo-use-list-rdc"></a>
 
-SageMaker geospatial supports multiple raster data collections. To learn more about the available
-data collections, see [Data collections](geospatial-data-collections.md "geospatial-data-collections.md").
+SageMaker geospatial supports multiple raster data collections. To learn more about the available data collections, see [Data collections](geospatial-data-collections.md).
 
-This demo uses satellite data that's collected from [Sentinel-2
-Cloud-Optimized
-GeoTIFF](https://registry.opendata.aws/sentinel-2-l2a-cogs/ "https://registry.opendata.aws/sentinel-2-l2a-cogs/")
-satellites. These satellites provide global coverage of Earth's land surface every
-five days. In addition to collecting surface images of Earth, the Sentinel-2
-satellites also collect data across a variety of spectralbands.
+This demo uses satellite data that's collected from [Sentinel-2 Cloud-Optimized GeoTIFF](https://registry.opendata.aws/sentinel-2-l2a-cogs/) satellites. These satellites provide global coverage of Earth's land surface every five days. In addition to collecting surface images of Earth, the Sentinel-2 satellites also collect data across a variety of spectralbands.
 
-To search an area of interest (AOI), you
-need
-the ARN that's associated with the Sentinel-2 satellite data. To
-find the available data collections and their associated ARNs in your AWS Region,
-use the `list_raster_data_collections` API operation.
+To search an area of interest (AOI), you need the ARN that's associated with the Sentinel-2 satellite data. To find the available data collections and their associated ARNs in your AWS Region, use the `list_raster_data_collections` API operation.
 
-Because the response can be paginated, you must use the `get_paginator`
-operation to return all of the relevant data:
+Because the response can be paginated, you must use the `get_paginator` operation to return all of the relevant data:
 
 ```
 import boto3
 import sagemaker
 import sagemaker_geospatial_map
-import json
+import json 
 
-## SageMaker Geospatial  is currently only avaialable in US-WEST-2
+## SageMaker Geospatial  is currently only avaialable in US-WEST-2  
 session = boto3.Session(region_name='us-west-2')
 execution_role = get_execution_role()
 
-## Creates a SageMaker Geospatial client instance
+## Creates a SageMaker Geospatial client instance 
 geospatial_client = session.client(service_name="sagemaker-geospatial")
 
-# Creates a resusable Paginator for the list_raster_data_collections API operation
+# Creates a resusable Paginator for the list_raster_data_collections API operation 
 paginator = geospatial_client.get_paginator("list_raster_data_collections")
 
 # Create a PageIterator from the paginator class
@@ -75,13 +53,7 @@ for page in page_iterator:
 print(results)
 ```
 
-This is a sample JSON response from the `list_raster_data_collections`
-API operation. It's truncated to include only the data collection
-(Sentinel-2) that's used in
-this
-code example. For more details about
-a specific raster data collection, use
-`get_raster_data_collection`:
+This is a sample JSON response from the `list_raster_data_collections` API operation. It's truncated to include only the data collection (Sentinel-2) that's used in this code example. For more details about a specific raster data collection, use `get_raster_data_collection`:
 
 ```
 {
@@ -112,29 +84,14 @@ a specific raster data collection, use
 }
 ```
 
-After running the previous code sample, you get the ARN of the Sentinel-2 raster
-data collection,
-`arn:aws:sagemaker-geospatial:us-west-2:378778860802:raster-data-collection/public/nmqj48dcu3g7ayw8`.
-In the [next section](#demo-search-raster-data "#demo-search-raster-data"), you can query
-the Sentinel-2 data collection using the `search_raster_data_collection`
-API.
+After running the previous code sample, you get the ARN of the Sentinel-2 raster data collection, `arn:aws:sagemaker-geospatial:us-west-2:378778860802:raster-data-collection/public/nmqj48dcu3g7ayw8`. In the [next section](#demo-search-raster-data), you can query the Sentinel-2 data collection using the `search_raster_data_collection` API.
 
 ## Searching the Sentinel-2 raster data collection using `search_raster_data_collection`
+<a name="demo-search-raster-data"></a>
 
-In the preceding section, you used `list_raster_data_collections` to
-get the ARN for the Sentinel-2 data collection. Now you can use that
-ARN to search the data collection over a given area of interest (AOI), time range,
-properties, and the available UV bands.
+In the preceding section, you used `list_raster_data_collections` to get the ARN for the Sentinel-2 data collection. Now you can use that ARN to search the data collection over a given area of interest (AOI), time range, properties, and the available UV bands.
 
-To call the `search_raster_data_collection` API you must pass in a
-Python
-dictionary
-to the `RasterDataCollectionQuery` parameter. This
-example uses `AreaOfInterest`, `TimeRangeFilter`,
-`PropertyFilters`, and `BandFilter`. For ease, you can
-specify the Python dictionary using the variable
-`search_rdc_query` to hold the search query
-parameters:
+To call the `search_raster_data_collection` API you must pass in a Python dictionary to the `RasterDataCollectionQuery` parameter. This example uses `AreaOfInterest`, `TimeRangeFilter`, `PropertyFilters`, and `BandFilter`. For ease, you can specify the Python dictionary using the variable **search\_rdc\_query** to hold the search query parameters:
 
 ```
 search_rdc_query = {
@@ -143,20 +100,20 @@ search_rdc_query = {
             "PolygonGeometry": {
                 "Coordinates": [
                     [
-                        # coordinates are input as longitute followed by latitude
-                        `[-114.529, 36.142]`,
-                        `[-114.373, 36.142]`,
-                        `[-114.373, 36.411]`,
-                        `[-114.529, 36.411]`,
-                        `[-114.529, 36.142]`,
+                        # coordinates are input as longitute followed by latitude 
+                        [-114.529, 36.142],
+                        [-114.373, 36.142],
+                        [-114.373, 36.411],
+                        [-114.529, 36.411],
+                        [-114.529, 36.142],
                     ]
                 ]
             }
         }
     },
     "TimeRangeFilter": {
-        "StartTime": `"2022-01-01T00:00:00Z"`,
-        "EndTime": `"2022-07-10T23:59:59Z"`
+        "StartTime": "2022-01-01T00:00:00Z",
+        "EndTime": "2022-07-10T23:59:59Z"
     },
     "PropertyFilters": {
         "Properties": [
@@ -172,31 +129,18 @@ search_rdc_query = {
         "LogicalOperator": "AND"
     },
     "BandFilter": [
-        `"visual"`
+        "visual"
     ]
 }
 ```
 
-In this example, you query an `AreaOfInterest` that includes [Lake
-Mead](https://en.wikipedia.org/wiki/Lake_Mead "https://en.wikipedia.org/wiki/Lake_Mead")
-in Utah. Furthermore, Sentinel-2 supports multiple types of image bands. To measure
-the change in the surface of the water, you only need the `visual`
-band.
+In this example, you query an `AreaOfInterest` that includes [Lake Mead](https://en.wikipedia.org/wiki/Lake_Mead) in Utah. Furthermore, Sentinel-2 supports multiple types of image bands. To measure the change in the surface of the water, you only need the `visual` band.
 
-After you create the query parameters, you can use the
-`search_raster_data_collection` API to make the request.
+After you create the query parameters, you can use the `search_raster_data_collection` API to make the request. 
 
-The following code sample implements a `search_raster_data_collection`
-API request. This API does not support pagination using the
-`get_paginator` API. To make sure that the full API response has been
-gathered the code sample uses a `while` loop to check that
-`NextToken` exists. The code sample then uses `.extend()`
-to append the satellite image URLs and other response metadata to the
-`items_list`.
+The following code sample implements a `search_raster_data_collection` API request. This API does not support pagination using the `get_paginator` API. To make sure that the full API response has been gathered the code sample uses a `while` loop to check that `NextToken` exists. The code sample then uses `.extend()` to append the satellite image URLs and other response metadata to the `items_list`. 
 
-To learn more about the `search_raster_data_collection`, see [SearchRasterDataCollection](../APIReference/API_geospatial_SearchRasterDataCollection.md "../APIReference/API_geospatial_SearchRasterDataCollection.md") in
-the
-_Amazon SageMaker AI API Reference_.
+To learn more about the `search_raster_data_collection`, see [SearchRasterDataCollection](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html) in the *Amazon SageMaker AI API Reference*.
 
 ```
 search_rdc_response = sm_geo_client.search_raster_data_collection(
@@ -205,10 +149,10 @@ search_rdc_response = sm_geo_client.search_raster_data_collection(
 )
 
 
-## items_list is the response from the API request.
+## items_list is the response from the API request. 
 items_list = []
 
-## Use the python .get() method to check that the 'NextToken' exists, if null returns None breaking the while loop
+## Use the python .get() method to check that the 'NextToken' exists, if null returns None breaking the while loop 
 while search_rdc_response.get('NextToken'):
     items_list.extend(search_rdc_response['Items'])
     search_rdc_response = sm_geo_client.search_raster_data_collection(
@@ -220,9 +164,7 @@ while search_rdc_response.get('NextToken'):
 print (len(items_list))
 ```
 
-The following is a JSON response from your query. It has been truncated for
-clarity. Only the `"BandFilter": ["visual"]` specified in the
-request is returned in the `Assets` key-value pair:
+The following is a JSON response from your query. It has been truncated for clarity. Only the **"BandFilter": ["visual"]** specified in the request is returned in the `Assets` key-value pair:
 
 ```
 {
@@ -235,11 +177,11 @@ request is returned in the `Assets` key-value pair:
     'Geometry': {
         'Coordinates': [
             [
-                `[-114.529, 36.142]`,
-                `[-114.373, 36.142]`,
-                `[-114.373, 36.411]`,
-                `[-114.529, 36.411]`,
-                `[-114.529, 36.142]`,
+                [-114.529, 36.142],
+                [-114.373, 36.142],
+                [-114.373, 36.411],
+                [-114.529, 36.411],
+                [-114.529, 36.142],
             ]
         ],
         'Type': 'Polygon'
@@ -252,18 +194,12 @@ request is returned in the `Assets` key-value pair:
 }
 ```
 
-Now that you have your query results, in the next section you can visualize the
-results by using `matplotlib`. This is to verify that results are from
-the correct geographical region.
+Now that you have your query results, in the next section you can visualize the results by using `matplotlib`. This is to verify that results are from the correct geographical region. 
 
 ## Visualizing your `search_raster_data_collection` using `matplotlib`
+<a name="demo-geospatial-visualize"></a>
 
-Before you start the earth observation job (EOJ), you can visualize a result from
-our query
-with`matplotlib`. The following code
-sample takes the first item, `items_list[0]["Assets"]["visual"]["Href"]`,
-from the `items_list` variable created in the previous code sample and
-prints an image using `matplotlib`.
+Before you start the earth observation job (EOJ), you can visualize a result from our query with`matplotlib`. The following code sample takes the first item, `items_list[0]["Assets"]["visual"]["Href"]`, from the `items_list` variable created in the previous code sample and prints an image using `matplotlib`.
 
 ```
 # Visualize an example image.
@@ -290,24 +226,14 @@ plt.imshow(tci)
 plt.show()
 ```
 
-After checking that the results are in the correct geographical region, you can
-start the Earth Observation Job (EOJ) in the next step. You use the EOJ to identify
-the water bodies from the satellite images by using a process called land
-segmentation.
+After checking that the results are in the correct geographical region, you can start the Earth Observation Job (EOJ) in the next step. You use the EOJ to identify the water bodies from the satellite images by using a process called land segmentation.
 
 ## Starting an earth observation job (EOJ) that performs land segmentation on a series of Satellite images
+<a name="demo-start-eoj"></a>
 
-SageMaker geospatial provides multiple pre-trained models that you can use to process geospatial
-data from raster data collections. To learn more about the available pre-trained
-models and custom operations, see [Types of Operations](geospatial-eoj-models.md "geospatial-eoj-models.md").
+SageMaker geospatial provides multiple pre-trained models that you can use to process geospatial data from raster data collections. To learn more about the available pre-trained models and custom operations, see [Types of Operations](geospatial-eoj-models.md).
 
-To calculate the change in the water surface area, you need to
-identify which pixels in the images correspond to water. Land cover segmentation is
-a semantic segmentation model supported by the
-`start_earth_observation_job` API. Semantic segmentation models
-associate a label with every pixel in each image. In the results, each pixel is
-assigned a label that's based on the class map for the model. The following is the
-class map for the land segmentation model:
+To calculate the change in the water surface area, you need to identify which pixels in the images correspond to water. Land cover segmentation is a semantic segmentation model supported by the `start_earth_observation_job` API. Semantic segmentation models associate a label with every pixel in each image. In the results, each pixel is assigned a label that's based on the class map for the model. The following is the class map for the land segmentation model:
 
 ```
 {
@@ -326,29 +252,13 @@ class map for the land segmentation model:
 }
 ```
 
-To start an earth observation job, use the
-`start_earth_observation_job` API. When you submit your request, you
-must specify the following:
+To start an earth observation job, use the `start_earth_observation_job` API. When you submit your request, you must specify the following:
++ `InputConfig` (*dict*) – Used to specify the coordinates of the area that you want to search, and other metadata that's associated with your search.
++ `JobConfig` (*dict*) – Used to specify the type of EOJ operation that you performed on the data. This example uses **LandCoverSegmentationConfig**.
++ `ExecutionRoleArn` (*string*) – The ARN of the SageMaker AI execution role with the necessary permissions to run the job.
++ `Name` (*string*) –A name for the earth observation job.
 
-- `InputConfig` (_dict_) – Used to
-  specify the coordinates of the area that you want to search, and other
-  metadata that's associated with your search.
-- `JobConfig` (_dict_) – Used to
-  specify the type of EOJ operation that you performed on the data. This
-  example uses `LandCoverSegmentationConfig`.
-- `ExecutionRoleArn` (_string_) – The
-  ARN of the SageMaker AI execution role with the necessary permissions to run the
-  job.
-- `Name` (_string_) –A name for the
-  earth observation job.
-
-The `InputConfig` is a Python dictionary.
-Use
-the following variable
-`eoj_input_config` to hold the search query
-parameters.
-Use this variable when you make the `start_earth_observation_job` API
-request. w.
+The `InputConfig` is a Python dictionary. Use the following variable **eoj\_input\_config** to hold the search query parameters. Use this variable when you make the `start_earth_observation_job` API request. w.
 
 ```
 # Perform land cover segmentation on images returned from the Sentinel-2 dataset.
@@ -360,19 +270,19 @@ eoj_input_config = {
                 "PolygonGeometry": {
                     "Coordinates":[
                         [
-                            `[-114.529, 36.142]`,
-                            `[-114.373, 36.142]`,
-                            `[-114.373, 36.411]`,
-                            `[-114.529, 36.411]`,
-                            `[-114.529, 36.142]`,
+                            [-114.529, 36.142],
+                            [-114.373, 36.142],
+                            [-114.373, 36.411],
+                            [-114.529, 36.411],
+                            [-114.529, 36.142],
                         ]
                     ]
                 }
             }
         },
         "TimeRangeFilter": {
-            "StartTime": `"2021-01-01T00:00:00Z"`,
-            "EndTime": `"2022-07-10T23:59:59Z"`,
+            "StartTime": "2021-01-01T00:00:00Z",
+            "EndTime": "2022-07-10T23:59:59Z",
         },
         "PropertyFilters": {
             "Properties": [{"Property": {"EoCloudCover": {"LowerBound": 0, "UpperBound": 1}}}],
@@ -382,52 +292,34 @@ eoj_input_config = {
 }
 ```
 
-The
-`JobConfig` is a
-Python
-dictionary
-that is used to specify the EOJ
-operation that you want performed on your data:
+The `JobConfig` is a Python dictionary that is used to specify the EOJ operation that you want performed on your data:
 
 ```
 eoj_config = {"LandCoverSegmentationConfig": {}}
 ```
 
-With the dictionary elements now specified, you can submit your
-`start_earth_observation_job`
-API request using the following code sample:
+With the dictionary elements now specified, you can submit your `start_earth_observation_job` API request using the following code sample:
 
 ```
-# Gets the execution role arn associated with current notebook instance
+# Gets the execution role arn associated with current notebook instance 
 execution_role_arn = get_execution_role()
 
 # Starts an earth observation job
 response = sm_geo_client.start_earth_observation_job(
-    Name=`"lake-mead-landcover"`,
+    Name="lake-mead-landcover",
     InputConfig=eoj_input_config,
     JobConfig=eoj_config,
     ExecutionRoleArn=execution_role_arn,
 )
-
+            
 print(response)
 ```
 
-The start an earth observation job returns an ARN along with other
-metadata.
+The start an earth observation job returns an ARN along with other metadata.
 
-To get a list of all ongoing and current earth observation jobs use the
-`list_earth_observation_jobs` API. To monitor the status of a single
-earth observation job use the `get_earth_observation_job` API. To make
-this request, use
-the
-ARN created after submitting your EOJ request. To learn more, see
-[GetEarthObservationJob](../APIReference/API_geospatial_GetEarthObservationJob.md "../APIReference/API_geospatial_GetEarthObservationJob.md") in the
-_Amazon SageMaker AI API Reference_.
+To get a list of all ongoing and current earth observation jobs use the `list_earth_observation_jobs` API. To monitor the status of a single earth observation job use the `get_earth_observation_job` API. To make this request, use the ARN created after submitting your EOJ request. To learn more, see [GetEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_GetEarthObservationJob.html) in the *Amazon SageMaker AI API Reference*.
 
-To find the ARNs associated with your EOJs use the
-`list_earth_observation_jobs` API operation. To learn more, see
-[ListEarthObservationJobs](../APIReference/API_geospatial_ListEarthObservationJobs.md "../APIReference/API_geospatial_ListEarthObservationJobs.md") in the
-_Amazon SageMaker AI API Reference_.
+To find the ARNs associated with your EOJs use the `list_earth_observation_jobs` API operation. To learn more, see [ListEarthObservationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ListEarthObservationJobs.html) in the *Amazon SageMaker AI API Reference*.
 
 ```
 # List all jobs in the account
@@ -441,7 +333,7 @@ The following is an example JSON response:
     'Arn': 'arn:aws:sagemaker-geospatial:us-west-2:111122223333:earth-observation-job/futg3vuq935t',
     'CreationTime': datetime.datetime(2023, 10, 19, 4, 33, 54, 21481, tzinfo = tzlocal()),
     'DurationInSeconds': 3493,
-    'Name': `'lake-mead-landcover'`,
+    'Name': 'lake-mead-landcover',
     'OperationType': 'LAND_COVER_SEGMENTATION',
     'Status': 'COMPLETED',
     'Tags': {}
@@ -449,62 +341,45 @@ The following is an example JSON response:
     'Arn': 'arn:aws:sagemaker-geospatial:us-west-2:111122223333:earth-observation-job/wu8j9x42zw3d',
     'CreationTime': datetime.datetime(2023, 10, 20, 0, 3, 27, 270920, tzinfo = tzlocal()),
     'DurationInSeconds': 1,
-    'Name': `'mt-shasta-landcover'`,
+    'Name': 'mt-shasta-landcover',
     'OperationType': 'LAND_COVER_SEGMENTATION',
     'Status': 'INITIALIZING',
     'Tags': {}
 }
 ```
 
-After the status of your EOJ job changes to `COMPLETED`, proceed to the
-next section to calculate the change in Lake Mead's surface
-area.
+After the status of your EOJ job changes to `COMPLETED`, proceed to the next section to calculate the change in Lake Mead's surface area.
 
 ## Calculating the change in the Lake Mead surface area
+<a name="demo-geospatial-calc"></a>
 
-To calculate the change in Lake
-Mead's
-surface area, first export the
-results
-of the EOJ to Amazon S3 by using `export_earth_observation_job`:
+To calculate the change in Lake Mead's surface area, first export the results of the EOJ to Amazon S3 by using `export_earth_observation_job`:
 
 ```
 sagemaker_session = Session()
 s3_bucket_name = sagemaker_session.default_bucket()  # Replace with your own bucket if needed
 s3_bucket = session.resource("s3").Bucket(s3_bucket_name)
-prefix = `"export-lake-mead-eoj"`  # Replace with the S3 prefix desired
+prefix = "export-lake-mead-eoj"  # Replace with the S3 prefix desired
 export_bucket_and_key = f"s3://{s3_bucket_name}/{prefix}/"
 
 eoj_output_config = {"S3Data": {"S3Uri": export_bucket_and_key}}
 export_response = sm_geo_client.export_earth_observation_job(
-    Arn=`"arn:aws:sagemaker-geospatial:us-west-2:111122223333:earth-observation-job/7xgwzijebynp`",
+    Arn="arn:aws:sagemaker-geospatial:us-west-2:111122223333:earth-observation-job/7xgwzijebynp",
     ExecutionRoleArn=execution_role_arn,
     OutputConfig=eoj_output_config,
     ExportSourceImages=False,
 )
 ```
 
-To see the status of your export job, use
-`get_earth_observation_job`:
+To see the status of your export job, use `get_earth_observation_job`:
 
 ```
 export_job_details = sm_geo_client.get_earth_observation_job(Arn=export_response["Arn"])
 ```
 
-To calculate the changes in Lake Mead's water level, download the land cover masks
-to the local SageMaker notebook instance and download the source images from
-our
-previous query. In the class map for the land segmentation model, the water’s class
-index is 6.
+To calculate the changes in Lake Mead's water level, download the land cover masks to the local SageMaker notebook instance and download the source images from our previous query. In the class map for the land segmentation model, the water’s class index is 6.
 
-To extract the water mask from a Sentinel-2 image, follow these
-steps.
-First,
-count the number of pixels marked as water (class index 6) in the image. Second,
-multiply the count by the area that each pixel covers. Bands can differ in their
-spatial resolution. For the land cover segmentation model all bands are down sampled
-to a spatial resolution equal to 60
-meters.
+To extract the water mask from a Sentinel-2 image, follow these steps. First, count the number of pixels marked as water (class index 6) in the image. Second, multiply the count by the area that each pixel covers. Bands can differ in their spatial resolution. For the land cover segmentation model all bands are down sampled to a spatial resolution equal to 60 meters.
 
 ```
 import os
@@ -584,9 +459,6 @@ for i, v in enumerate(lake_areas):
 plt.show()
 ```
 
-Using `matplotlib`, you can visualize the results with a graph. The
-graph shows that the surface area of Lake Mead decreased
-from
-January 2021–July 2022.
+Using `matplotlib`, you can visualize the results with a graph. The graph shows that the surface area of Lake Mead decreased from January 2021–July 2022.
 
-![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022.](images/lake-mead-decrease.png)
+![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/lake-mead-decrease.png)

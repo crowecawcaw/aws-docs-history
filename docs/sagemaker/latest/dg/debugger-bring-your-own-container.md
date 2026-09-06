@@ -1,41 +1,29 @@
+
+
 # Use Debugger with custom training containers
+<a name="debugger-bring-your-own-container"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
-Amazon SageMaker Debugger is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
-
-Amazon SageMaker Debugger is available for any deep learning models that you bring to Amazon SageMaker AI. The AWS CLI,
-SageMaker AI `ModelTrainer` API, and the Debugger APIs enable you to use any Docker base
-images to build and customize containers to train your models. To use Debugger with customized
-containers, you need to make a minimal change to your training script to implement the
-Debugger hook callback and retrieve tensors from training jobs. The following sections will
-walk you through how to use Debugger with Custom Training Containers.
+Amazon SageMaker Debugger is available for any deep learning models that you bring to Amazon SageMaker AI. The AWS CLI, SageMaker AI `ModelTrainer` API, and the Debugger APIs enable you to use any Docker base images to build and customize containers to train your models. To use Debugger with customized containers, you need to make a minimal change to your training script to implement the Debugger hook callback and retrieve tensors from training jobs. The following sections will walk you through how to use Debugger with Custom Training Containers.
 
 You need the following resources to build a customized container with Debugger.
++ [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable)
++ [The SMDebug open source client library](https://github.com/awslabs/sagemaker-debugger)
++ A Docker base image of your choice
++ Your training script with a Debugger hook registered – For more information about registering a Debugger hook to your training script, see [Register Debugger hook to your training script](#debugger-script-mode).
 
-- [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")
-- [The SMDebug open source client
-  library](https://github.com/awslabs/sagemaker-debugger "https://github.com/awslabs/sagemaker-debugger")
-- A Docker base image of your choice
-- Your training script with a Debugger hook registered – For more information about
-  registering a Debugger hook to your training script, see [Register Debugger hook to your training script](#debugger-script-mode "#debugger-script-mode").
-  For an end-to-end example of using Debugger with a custom training container, see the
-  following example notebook.
+For an end-to-end example of using Debugger with a custom training container, see the following example notebook.
++ [Build a Custom Training Container and Debug Training Jobs with Debugger](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html)
 
-- [Build a Custom Training Container and Debug Training Jobs with Debugger](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/build_your_own_container_with_debugger/debugger_byoc.html")
-
-###### Tip
-
-This custom container with Debugger guide is an extension of the [Adapting your own training container](adapt-training-container.md "adapt-training-container.md") guide
-which walks you thorough how to build and push your custom training container to
-Amazon ECR.
+**Tip**  
+This custom container with Debugger guide is an extension of the [Adapting your own training container](adapt-training-container.md) guide which walks you thorough how to build and push your custom training container to Amazon ECR.
 
 ## Prepare to build a custom training container
+<a name="debugger-bring-your-own-container-1"></a>
 
-To build a docker container, the basic structure of files should look like the
-following:
+To build a docker container, the basic structure of files should look like the following:
 
 ```
 ├── debugger_custom_container_test_notebook.ipynb      # a notebook to run python snippet codes
@@ -45,18 +33,14 @@ following:
 ```
 
 ## Register Debugger hook to your training script
+<a name="debugger-script-mode"></a>
 
 To debug your model training, you need to add a Debugger hook to your training script.
 
-###### Note
+**Note**  
+This step is required to collect model parameters (output tensors) for debugging your model training. If you only want to monitor and profile, you can skip this hook registration step and exclude the `debugger_hook_config` parameter when constructing an estimater.
 
-This step is required to collect model parameters (output tensors) for debugging your model training.
-If you only want to monitor and profile, you can skip this hook registration step
-and exclude the `debugger_hook_config` parameter when constructing an estimater.
-
-The following example code shows the structure of a training script using the Keras
-ResNet50 model and how to pass the Debugger hook as a Keras callback for debugging. To
-find a complete training script, see [TensorFlow training script with SageMaker Debugger hook](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-debugger/build_your_own_container_with_debugger/docker/tf_keras_resnet_byoc.py "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-debugger/build_your_own_container_with_debugger/docker/tf_keras_resnet_byoc.py").
+The following example code shows the structure of a training script using the Keras ResNet50 model and how to pass the Debugger hook as a Keras callback for debugging. To find a complete training script, see [TensorFlow training script with SageMaker Debugger hook](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-debugger/build_your_own_container_with_debugger/docker/tf_keras_resnet_byoc.py).
 
 ```
 # An example of training script (your-training-script.py)
@@ -73,86 +57,55 @@ def train(batch_size, epoch, model, hook):
               validation_data=(X_valid, Y_valid),
               shuffle=True,
 
-              **# smdebug modification: Pass the Debugger hook in the main() as a Keras callback**
-              callbacks=[`hook`])
+              # smdebug modification: Pass the Debugger hook in the main() as a Keras callback
+              callbacks=[{{hook}}])
 
 def main():
     parser=argparse.ArgumentParser(description="Train resnet50 cifar10")
 
     # hyperparameter settings
     parser.add_argument(...)
-
+    
     args = parser.parse_args()
 
     model=ResNet50(weights=None, input_shape=(32,32,3), classes=10)
 
-    **# Add the following line to register the Debugger hook for Keras.**
-    hook=`smd.KerasHook.create_from_json_file()`
+    # Add the following line to register the Debugger hook for Keras.
+    hook={{smd.KerasHook.create_from_json_file()}}
 
     # Start the training.
     train(args.batch_size, args.epoch, model, hook)
 
 if __name__ == "__main__":
     main()
-
 ```
 
-For more information about registering the Debugger hook for the supported frameworks
-and algorithm, see the following links in the SMDebug client library:
+For more information about registering the Debugger hook for the supported frameworks and algorithm, see the following links in the SMDebug client library:
++ [SMDebug TensorFlow hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/tensorflow.md)
++ [SMDebug PyTorch hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/pytorch.md)
++ [SMDebug MXNet hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/mxnet.md)
++ [SMDebug XGBoost hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/xgboost.md)
 
-- [SMDebug TensorFlow hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/tensorflow.md "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/tensorflow.md")
-- [SMDebug PyTorch hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/pytorch.md "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/pytorch.md")
-- [SMDebug MXNet hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/mxnet.md "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/mxnet.md")
-- [SMDebug XGBoost hook](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/xgboost.md "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/xgboost.md")
+In the following example notebooks' training scripts, you can find more examples about how to add the Debugger hooks to training scripts and collect output tensors in detail:
++ [ Debugger in script mode with the TensorFlow 2.1 framework](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/tf2-keras-custom-container.html)
 
-In the following example notebooks' training scripts, you can find more examples about
-how to add the Debugger hooks to training scripts and collect output tensors in
-detail:
+  To see the difference between using Debugger in a Deep Learning Container and in script mode, open this notebook and put it and [ the previous Debugger in a Deep Learning Container TensorFlow v2.1 notebook example](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_zero_code_change/tf2-keras-default-container.html) side by side. 
 
-- [Debugger in script mode with the TensorFlow 2.1 framework](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/tf2-keras-custom-container.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/tf2-keras-custom-container.html")
+   In script mode, the hook configuration part is removed from the script in which you set the ModelTrainer. Instead, the Debugger hook feature is merged into the training script, [ TensorFlow Keras ResNet training script in script mode](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/src/tf_keras_resnet_byoc.py). The training script imports the `smdebug` library in the required TensorFlow Keras environment to communicate with the TensorFlow ResNet50 algorithm. It also manually implements the `smdebug` hook functionality by adding the `callbacks=[hook]` argument inside the `train` function (in line 49), and by adding the manual hook configuration (in line 89) provided through SageMaker Python SDK.
 
-To see the difference between using Debugger in a Deep Learning Container and in
-script mode, open this notebook and put it and [the previous Debugger in a Deep Learning Container TensorFlow v2.1 notebook
-example](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_zero_code_change/tf2-keras-default-container.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/tensorflow2/tensorflow2_zero_code_change/tf2-keras-default-container.html") side by side.
+  This script mode example runs the training job in the TF 2.1 framework for direct comparison with the zero script change in the TF 2.1 example. The benefit of setting up Debugger in script mode is the flexibility to choose framework versions not covered by AWS Deep Learning Containers. 
++ [ Using Amazon SageMaker Debugger in a PyTorch Container in Script Mode ](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/pytorch_custom_container)
 
-In script mode, the hook configuration part is removed from the script in which
-you set the ModelTrainer. Instead, the Debugger hook feature is merged into the training
-script, [TensorFlow Keras ResNet training script in script mode](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/src/tf_keras_resnet_byoc.py "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-debugger/tensorflow2/tensorflow2_keras_custom_container/src/tf_keras_resnet_byoc.py"). The training
-script imports the `smdebug` library in the required TensorFlow Keras
-environment to communicate with the TensorFlow ResNet50 algorithm. It also manually
-implements the `smdebug` hook functionality by adding the
-`callbacks=[hook]` argument inside the `train` function
-(in line 49), and by adding the manual hook configuration (in line 89) provided
-through SageMaker Python SDK.
+  This notebook enables Debugger in script mode in PyTorch v1.3.1 framework. PyTorch v1.3.1 is supported by SageMaker AI containers, and this example shows details of how to modify a training script. 
 
-This script mode example runs the training job in the TF 2.1 framework for direct
-comparison with the zero script change in the TF 2.1 example. The benefit of setting
-up Debugger in script mode is the flexibility to choose framework versions not covered
-by AWS Deep Learning Containers.
+  The SageMaker AI PyTorch ModelTrainer is already in script mode by default. In the notebook, the line to activate `script_mode` is not included in the ModelTrainer configuration.
 
-- [Using Amazon SageMaker Debugger in a PyTorch Container in Script Mode](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/pytorch_custom_container "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/pytorch_custom_container")
-
-This notebook enables Debugger in script mode in PyTorch v1.3.1 framework. PyTorch
-v1.3.1 is supported by SageMaker AI containers, and this example shows details of how to
-modify a training script.
-
-The SageMaker AI PyTorch ModelTrainer is already in script mode by default. In the notebook,
-the line to activate `script_mode` is not included in the ModelTrainer configuration.
-
-This notebook shows detailed steps to change [the
-original PyTorch training script](https://github.com/pytorch/examples/blob/master/mnist/main.py "https://github.com/pytorch/examples/blob/master/mnist/main.py") to a modified version to enable
-Debugger. Additionally, this example shows how you can use Debugger built-in rules
-to detect training issues such as the vanishing gradients problem, and the
-Debugger trial features to call and analyze the saved tensors.
+  This notebook shows detailed steps to change [the original PyTorch training script](https://github.com/pytorch/examples/blob/master/mnist/main.py) to a modified version to enable Debugger. Additionally, this example shows how you can use Debugger built-in rules to detect training issues such as the vanishing gradients problem, and the Debugger trial features to call and analyze the saved tensors. 
 
 ## Create and configure a Dockerfile
+<a name="debugger-bring-your-own-container-2"></a>
 
-Open your SageMaker AI JupyterLab and create a new folder,
-`debugger_custom_container_test_folder` in this example, to save
-your training script and `Dockerfile`. The following code example is
-a `Dockerfile` that includes essential docker build commends. Paste the
-following code into the `Dockerfile` text file and save it. Upload
-your training script to the same folder.
+Open your SageMaker AI JupyterLab and create a new folder, `debugger_custom_container_test_folder` in this example, to save your training script and `Dockerfile`. The following code example is a `Dockerfile` that includes essential docker build commends. Paste the following code into the `Dockerfile` text file and save it. Upload your training script to the same folder.
 
 ```
 # Specify a docker base image
@@ -166,16 +119,12 @@ RUN pip install smdebug
 CMD ["bin/bash"]
 ```
 
-If you want to use a pre-built AWS Deep Learning Container image, see [Available AWS Deep Learning Containers Images](https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/ "https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/").
+If you want to use a pre-built AWS Deep Learning Container image, see [Available AWS Deep Learning Containers Images](https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/).
 
 ## Build and push the custom training image to Amazon ECR
+<a name="debugger-bring-your-own-container-3"></a>
 
-Create a test notebook,
-`debugger_custom_container_test_notebook.ipynb`, and run the
-following code in the notebook cell. This will access the
-`debugger_byoc_test_docker` directory, build the docker with the
-specified `algorithm_name`, and push the docker container to your
-Amazon ECR.
+Create a test notebook, `debugger_custom_container_test_notebook.ipynb`, and run the following code in the notebook cell. This will access the `debugger_byoc_test_docker` directory, build the docker with the specified `algorithm_name`, and push the docker container to your Amazon ECR.
 
 ```
 import boto3
@@ -198,24 +147,17 @@ byoc_image_uri = '{}.dkr.ecr.{}.{}/{}'.format(account_id, region, uri_suffix, ec
 !docker push $byoc_image_uri
 ```
 
-###### Tip
-
-If you use one of the AWS Deep Learning Container base images, run the following code to log
-in to Amazon ECR and access to the Deep Learning Container image repository.
+**Tip**  
+If you use one of the AWS Deep Learning Container base images, run the following code to log in to Amazon ECR and access to the Deep Learning Container image repository.  
 
 ```
 ! aws ecr get-login-password --region {region} | docker login --username AWS --password-stdin 763104351884.dkr.ecr.us-east-1.amazonaws.com
 ```
 
 ## Run and debug training jobs using the custom training container
+<a name="debugger-bring-your-own-container-4"></a>
 
-After you build and push your docker container to Amazon ECR, configure a SageMaker AI ModelTrainer
-with your training script and the Debugger-specific parameters. After you execute the
-`model_trainer.train()`, Debugger will collect output tensors, monitor them, and
-detect training issues. Using the saved tensors, you can further analyze the training
-job by using the `smdebug` core features and tools. Configuring a workflow of
-Debugger rule monitoring process with Amazon CloudWatch Events and AWS Lambda, you can automate a stopping
-training job process whenever the Debugger rules spots training issues.
+After you build and push your docker container to Amazon ECR, configure a SageMaker AI ModelTrainer with your training script and the Debugger-specific parameters. After you execute the `model_trainer.train()`, Debugger will collect output tensors, monitor them, and detect training issues. Using the saved tensors, you can further analyze the training job by using the `smdebug` core features and tools. Configuring a workflow of Debugger rule monitoring process with Amazon CloudWatch Events and AWS Lambda, you can automate a stopping training job process whenever the Debugger rules spots training issues.
 
 ```
 import sagemaker
@@ -223,11 +165,11 @@ from sagemaker.train import ModelTrainer
 from sagemaker.core.debugger import Rule, DebuggerHookConfig, CollectionConfig, rule_configs
 from sagemaker.core.helper.session_helper import get_execution_role
 
-`profiler_config`=`ProfilerConfig(...)`
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`,
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
+profiler_config={{ProfilerConfig(...)}}
+debugger_hook_config={{DebuggerHookConfig(...)}}
+rules=[
+    {{Rule.sagemaker(rule_configs.built_in_rule())}},
+    {{ProfilerRule.sagemaker(rule_configs.BuiltInRule())}}
 ]
 
 from sagemaker.train.configs import SourceCode, Compute
@@ -238,11 +180,11 @@ model_trainer=ModelTrainer(
     role=get_execution_role(),
     base_job_name='debugger-custom-container-test',
     compute=Compute(instance_type='ml.p3.2xlarge', instance_count=1),
-
+    
     # Debugger-specific parameters
-    profiler_config=`profiler_config`,
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
+    profiler_config=profiler_config,
+    debugger_hook_config=debugger_hook_config,
+    rules=rules
 )
 
 # start training

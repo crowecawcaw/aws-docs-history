@@ -1,10 +1,12 @@
-# NTM Response Formats
 
-All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in
-[Common Data Formats - Inference](cdf-inference.md "cdf-inference.md"). This topic contains a list of the available output
-formats for the SageMaker AI NTM algorithm.
+
+# NTM Response Formats
+<a name="ntm-in-formats"></a>
+
+All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common Data Formats - Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html). This topic contains a list of the available output formats for the SageMaker AI NTM algorithm.
 
 ## JSON Response Format
+<a name="ntm-json"></a>
 
 ```
 {
@@ -16,6 +18,7 @@ formats for the SageMaker AI NTM algorithm.
 ```
 
 ## JSONLINES Response Format
+<a name="ntm-jsonlines"></a>
 
 ```
 {"topic_weights": [0.02, 0.1, 0,...]}
@@ -23,6 +26,7 @@ formats for the SageMaker AI NTM algorithm.
 ```
 
 ## RECORDIO Response Format
+<a name="ntm-recordio"></a>
 
 ```
 [
@@ -43,6 +47,6 @@ formats for the SageMaker AI NTM algorithm.
                 values: [0.25, 0.067, 0, ...]  # float32
             }
         }
-    }
+    }  
 ]
 ```

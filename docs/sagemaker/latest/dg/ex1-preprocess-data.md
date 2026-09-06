@@ -1,13 +1,14 @@
-# Prepare a dataset
 
-In this step, you load the [Adult Census dataset](https://archive.ics.uci.edu/ml/datasets/adult "https://archive.ics.uci.edu/ml/datasets/adult") to your notebook instance using the SHAP (SHapley Additive
-exPlanations) Library, review the dataset, transform it, and upload it to Amazon S3. SHAP is a
-game theoretic approach to explain the output of any machine learning model. For more
-information about SHAP, see [Welcome to the SHAP documentation](https://shap.readthedocs.io/en/latest/ "https://shap.readthedocs.io/en/latest/").
+
+# Prepare a dataset
+<a name="ex1-preprocess-data"></a>
+
+In this step, you load the [Adult Census dataset](https://archive.ics.uci.edu/ml/datasets/adult) to your notebook instance using the SHAP (SHapley Additive exPlanations) Library, review the dataset, transform it, and upload it to Amazon S3. SHAP is a game theoretic approach to explain the output of any machine learning model. For more information about SHAP, see [Welcome to the SHAP documentation](https://shap.readthedocs.io/en/latest/).
 
 To run the following example, paste the sample code into a cell in your notebook instance.
 
 ## Load Adult Census Dataset Using SHAP
+<a name="ex1-preprocess-data-pull-data"></a>
 
 Using the SHAP library, import the Adult Census dataset as shown following:
 
@@ -19,26 +20,20 @@ feature_names = list(X.columns)
 feature_names
 ```
 
-###### Note
-
-If the current Jupyter kernel does not have the SHAP library, install it by running the
-following `conda` command:
+**Note**  
+If the current Jupyter kernel does not have the SHAP library, install it by running the following `conda` command:  
 
 ```
 %conda install -c conda-forge shap
 ```
-
-If you're using JupyterLab, you must manually refresh the kernel after the
-installation and updates have completed. Run the following IPython script to shut
-down the kernel (the kernel will restart automatically):
+If you're using JupyterLab, you must manually refresh the kernel after the installation and updates have completed. Run the following IPython script to shut down the kernel (the kernel will restart automatically):  
 
 ```
 import IPython
 IPython.Application.instance().kernel.do_shutdown(True)
 ```
 
-The `feature_names` list object should return the following list of
-features:
+The `feature_names` list object should return the following list of features: 
 
 ```
 ['Age',
@@ -55,36 +50,29 @@ features:
  'Country']
 ```
 
-###### Tip
-
-If you're starting with unlabeled data, you can use Amazon SageMaker Ground Truth to create a data
-labeling workflow in minutes. To learn more, see [Label Data](data-label.md "data-label.md").
+**Tip**  
+If you're starting with unlabeled data, you can use Amazon SageMaker Ground Truth to create a data labeling workflow in minutes. To learn more, see [Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/data-label.html). 
 
 ## Overview the Dataset
+<a name="ex1-preprocess-data-inspect"></a>
 
-Run the following script to display the statistical overview of the dataset and
-histograms of the numeric features.
+Run the following script to display the statistical overview of the dataset and histograms of the numeric features.
 
 ```
 display(X.describe())
 hist = X.hist(bins=30, sharey=True, figsize=(20, 10))
 ```
 
-![Overview of the Adult Census dataset.](images/get-started-ni/gs-ni-prepare-data-1.png)
+![Overview of the Adult Census dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-1.png)
 
-###### Tip
 
-If you want to use a dataset that needs to be cleaned and transformed, you can
-simplify and streamline data preprocessing and feature engineering using Amazon SageMaker Data Wrangler.
-To learn more, see [Prepare ML Data with
-Amazon SageMaker Data Wrangler](data-wrangler.md "data-wrangler.md").
+**Tip**  
+If you want to use a dataset that needs to be cleaned and transformed, you can simplify and streamline data preprocessing and feature engineering using Amazon SageMaker Data Wrangler. To learn more, see [Prepare ML Data with Amazon SageMaker Data Wrangler](https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html).
 
 ## Split the Dataset into Train, Validation, and Test Datasets
+<a name="ex1-preprocess-data-transform"></a>
 
-Using Sklearn, split the dataset into a training set and a test set. The training set
-is used to train the model, while the test set is used to evaluate the performance of
-the final trained model. The dataset is randomly sorted with the fixed random seed: 80
-percent of the dataset for training set and 20 percent of it for a test set.
+Using Sklearn, split the dataset into a training set and a test set. The training set is used to train the model, while the test set is used to evaluate the performance of the final trained model. The dataset is randomly sorted with the fixed random seed: 80 percent of the dataset for training set and 20 percent of it for a test set.
 
 ```
 from sklearn.model_selection import train_test_split
@@ -92,10 +80,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 X_train_display = X_display.loc[X_train.index]
 ```
 
-Split the training set to separate out a validation set. The validation set is used to
-evaluate the performance of the trained model while tuning the model's hyperparameters.
-75 percent of the training set becomes the final training set, and the rest is the
-validation set.
+Split the training set to separate out a validation set. The validation set is used to evaluate the performance of the trained model while tuning the model's hyperparameters. 75 percent of the training set becomes the final training set, and the rest is the validation set.
 
 ```
 X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.25, random_state=1)
@@ -103,8 +88,7 @@ X_train_display = X_display.loc[X_train.index]
 X_val_display = X_display.loc[X_val.index]
 ```
 
-Using the pandas package, explicitly align each dataset by concatenating the numeric
-features with the true labels.
+Using the pandas package, explicitly align each dataset by concatenating the numeric features with the true labels.
 
 ```
 import pandas as pd
@@ -122,24 +106,27 @@ Check if the dataset is split and structured as expected:
 train
 ```
 
-![The example training dataset.](images/get-started-ni/gs-ni-prepare-data-2-train.png)
+![The example training dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-train.png)
+
 
 ```
 validation
 ```
 
-![The example validation dataset.](images/get-started-ni/gs-ni-prepare-data-2-validation.png)
+![The example validation dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-validation.png)
+
 
 ```
 test
 ```
 
-![The example test dataset.](images/get-started-ni/gs-ni-prepare-data-2-test.png)
+![The example test dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-test.png)
+
 
 ## Convert the Train and Validation Datasets to CSV Files
+<a name="ex1-preprocess-data-transform-2"></a>
 
-Convert the `train` and `validation` dataframe objects to CSV
-files to match the input file format for the XGBoost algorithm.
+Convert the `train` and `validation` dataframe objects to CSV files to match the input file format for the XGBoost algorithm.
 
 ```
 # Use 'csv' format to store the data
@@ -149,14 +136,11 @@ validation.to_csv('validation.csv', index=False, header=False)
 ```
 
 ## Upload the Datasets to Amazon S3
+<a name="ex1-preprocess-data-transform-4"></a>
 
-Using the SageMaker AI and Boto3, upload the training and validation datasets to the default
-Amazon S3 bucket. The datasets in the S3 bucket will be used by a compute-optimized SageMaker
-instance on Amazon EC2 for training.
+Using the SageMaker AI and Boto3, upload the training and validation datasets to the default Amazon S3 bucket. The datasets in the S3 bucket will be used by a compute-optimized SageMaker instance on Amazon EC2 for training. 
 
-The following code sets up the default S3 bucket URI for your current SageMaker AI session,
-creates a new `demo-sagemaker-xgboost-adult-income-prediction` folder, and
-uploads the training and validation datasets to the `data` subfolder.
+The following code sets up the default S3 bucket URI for your current SageMaker AI session, creates a new `demo-sagemaker-xgboost-adult-income-prediction` folder, and uploads the training and validation datasets to the `data` subfolder.
 
 ```
 import sagemaker, boto3, os
@@ -169,8 +153,7 @@ boto3.Session().resource('s3').Bucket(bucket).Object(
     os.path.join(prefix, 'data/validation.csv')).upload_file('validation.csv')
 ```
 
-Run the following AWS CLI to check if the CSV files are
-successfully uploaded to the S3 bucket.
+Run the following AWS CLI to check if the CSV files are successfully uploaded to the S3 bucket.
 
 ```
 ! aws s3 ls {bucket}/{prefix}/data --recursive
@@ -178,4 +161,4 @@ successfully uploaded to the S3 bucket.
 
 This should return the following output:
 
-![Output of the CLI command to check the datasets in the S3 bucket.](images/get-started-ni/gs-ni-prepare-data-3.png)
+![Output of the CLI command to check the datasets in the S3 bucket.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-3.png)

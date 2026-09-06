@@ -1,10 +1,14 @@
-# Allocating GPU partition quota
 
-You can extend compute quota allocation to support GPU partitioning, enabling fine-grained resource sharing at the GPU partition level. When GPU partitioning is enabled on supported GPUs in the cluster, each physical GPU can be partitioned into multiple isolated GPUs with defined compute, memory, and streaming multiprocessor allocations. For more information about GPU partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md "sagemaker-hyperpod-eks-gpu-partitioning.md"). You can allocate specific GPU partitions to teams, allowing multiple teams to share a single GPU while maintaining hardware-level isolation and predictable performance.
+
+# Allocating GPU partition quota
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation-gpu-partitions"></a>
+
+You can extend compute quota allocation to support GPU partitioning, enabling fine-grained resource sharing at the GPU partition level. When GPU partitioning is enabled on supported GPUs in the cluster, each physical GPU can be partitioned into multiple isolated GPUs with defined compute, memory, and streaming multiprocessor allocations. For more information about GPU partitioning, see [Using GPU partitions in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-gpu-partitioning.md). You can allocate specific GPU partitions to teams, allowing multiple teams to share a single GPU while maintaining hardware-level isolation and predictable performance.
 
 For example, an ml.p5.48xlarge instance with 8 H100 GPUs can be partitioned into GPU partitions, and you can allocate individual partitions to different teams based on their task requirements. When you specify GPU partition allocations, HyperPod task governance calculates proportional vCPU and memory quotas based on the GPU partition, similar to GPU-level allocation. This approach maximizes GPU utilization by eliminating idle capacity and enabling cost-effective resource sharing across multiple concurrent tasks on the same physical GPU.
 
 ## Creating Compute Quotas
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation-gpu-partitions-creating"></a>
 
 ```
 aws sagemaker create-compute-quota \
@@ -19,21 +23,22 @@ aws sagemaker create-compute-quota \
         }
       }
     ],
-    "ResourceSharingConfig": {
-      "Strategy": "LendAndBorrow",
-      "BorrowLimit": 100
+    "ResourceSharingConfig": { 
+      "Strategy": "LendAndBorrow", 
+      "BorrowLimit": 100 
     }
   }'
 ```
 
 ## Verifying Quota Resources
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation-gpu-partitions-verifying"></a>
 
 ```
 # Check ClusterQueue
 kubectl get clusterqueues
-kubectl describe clusterqueue `QUEUE_NAME`
+kubectl describe clusterqueue {{QUEUE_NAME}}
 
 # Check ResourceFlavors
 kubectl get resourceflavor
-kubectl describe resourceflavor `FLAVOR_NAME`
+kubectl describe resourceflavor {{FLAVOR_NAME}}
 ```

@@ -1,55 +1,45 @@
+
+
 # Persona reference
+<a name="role-manager-personas"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Role Manager is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md). 
 
-Amazon SageMaker Role Manager is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+Amazon SageMaker Role Manager provides suggested permissions for a number of ML personas. These include user execution roles for common ML practitioner responsibilities as well as service execution roles for common AWS service interactions needed to work with SageMaker AI. 
 
-Amazon SageMaker Role Manager provides suggested permissions for a number of ML personas. These include
-user execution roles for common ML practitioner responsibilities as well as service
-execution roles for common AWS service interactions needed to work with SageMaker AI.
-
-Each persona has suggested permissions in the form of selected ML activities. For
-information on predefined ML activities and their permissions, see [ML activity reference](role-manager-ml-activities.md "role-manager-ml-activities.md").
+Each persona has suggested permissions in the form of selected ML activities. For information on predefined ML activities and their permissions, see [ML activity reference](role-manager-ml-activities.md). 
 
 ## Data scientist persona
+<a name="role-manager-personas-data-scientist"></a>
 
-Use this persona to configure permissions to perform general machine learning
-development and experimentation in a SageMaker AI environment. This persona includes the
-following preselected ML activities:
-
-- Run Studio Classic Applications
-- Manage ML Jobs
-- Manage Models
-- Manage AWS Glue Tables
-- Canvas AI Services
-- Canvas MLOps
-- Canvas Kendra Access
-- Use MLflow
-- Access required to AWS Services for MLflow
-- Run Studio EMR Serverless Applications
+Use this persona to configure permissions to perform general machine learning development and experimentation in a SageMaker AI environment. This persona includes the following preselected ML activities:
++ Run Studio Classic Applications
++ Manage ML Jobs
++ Manage Models
++ Manage AWS Glue Tables
++ Canvas AI Services
++ Canvas MLOps
++ Canvas Kendra Access
++ Use MLflow
++ Access required to AWS Services for MLflow
++ Run Studio EMR Serverless Applications
 
 ## MLOps persona
+<a name="role-manager-personas-mlops"></a>
 
-Choose this persona to configure permissions for operational activities. This
-persona includes the following preselected ML activities:
-
-- Run Studio Classic Applications
-- Manage Models
-- Manage Pipelines
-- Search and visualize experiments
-- Amazon S3 Full Access
+Choose this persona to configure permissions for operational activities. This persona includes the following preselected ML activities:
++ Run Studio Classic Applications
++ Manage Models
++ Manage Pipelines
++ Search and visualize experiments
++ Amazon S3 Full Access
 
 ## SageMaker AI compute persona
+<a name="role-manager-personas-compute"></a>
 
-###### Note
-
-We recommend that you first use the role manager to create a SageMaker AI Compute Role
-so that SageMaker AI compute resources can perform tasks such as training and inference.
-Use the SageMaker AI Compute Role persona to create this role with the role manager.
-After creating a SageMaker AI Compute Role, take note of its ARN for future use.
+**Note**  
+We recommend that you first use the role manager to create a SageMaker AI Compute Role so that SageMaker AI compute resources can perform tasks such as training and inference. Use the SageMaker AI Compute Role persona to create this role with the role manager. After creating a SageMaker AI Compute Role, take note of its ARN for future use.
 
 This persona includes the following preselected ML activity:
-
-- Access Required AWS Services
++ Access Required AWS Services

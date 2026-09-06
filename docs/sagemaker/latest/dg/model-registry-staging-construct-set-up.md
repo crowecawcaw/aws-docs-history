@@ -1,62 +1,46 @@
+
+
 # Set up Staging Construct Examples
+<a name="model-registry-staging-construct-set-up"></a>
 
-To set up stage constructs for your Amazon SageMaker Model Registry, the administrator will need to
-grant the relevant permissions to the intended roles. The following provides
-examples on how to set up stage constructs for various roles.
+To set up stage constructs for your Amazon SageMaker Model Registry, the administrator will need to grant the relevant permissions to the intended roles. The following provides examples on how to set up stage constructs for various roles.
 
-###### Note
+**Note**  
+Users within a Amazon SageMaker AI domain will be able to view all stages defined within the domain, but can only use the ones they have permissions for.
 
-Users within a Amazon SageMaker AI domain will be able to view all stages defined
-within the domain, but can only use the ones they have permissions
-for.
-
-Stages are defined by the `ModelLifeCycle` parameter and have the
-following structure. The administrator sets up the permissions for which
-`stage` and `stageStatus` can be accessed by which
-roles. The users assuming a role can use the relevant `stage` and
-`stageStatus` and include their own
-`stageDescription`.
+Stages are defined by the `ModelLifeCycle` parameter and have the following structure. The administrator sets up the permissions for which `stage` and `stageStatus` can be accessed by which roles. The users assuming a role can use the relevant `stage` and `stageStatus` and include their own `stageDescription`.
 
 ```
 ModelLifeCycle {
     stage: String # Required (e.g., Development/QA/Production)
-    stageStatus: String # Required (e.g., PendingApproval/Approved/Rejected)
+    stageStatus: String # Required (e.g., PendingApproval/Approved/Rejected)  
     stageDescription: String # Optional
 }
 ```
 
-The following table contains Model Registry pre-defined stage construct templates. You
-can define your own stage constructs based on your use cases. The relevant
-permissions will need to be set up before users can use them.
+The following table contains Model Registry pre-defined stage construct templates. You can define your own stage constructs based on your use cases. The relevant permissions will need to be set up before users can use them.
 
-| Stage         | Stage status    |
-| ------------- | --------------- |
-| Proposal      | PendingApproval |
-| Development   | InProgress      |
-| QA            | OnHold          |
-| PreProduction | Approved        |
-| Production    | Rejected        |
-| Archived      | Retired         |
 
-The `ModelLifeCycle` parameter can be invoked by the following
-APIs:
+| Stage | Stage status | 
+| --- | --- | 
+| Proposal | PendingApproval | 
+| Development | InProgress | 
+| QA | OnHold | 
+| PreProduction | Approved | 
+| Production | Rejected | 
+| Archived | Retired | 
 
-- [`CreateModelPackage`](../APIReference/API_CreateModelPackage.md "../APIReference/API_CreateModelPackage.md")
-- [`UpdateModelPackage`](../APIReference/API_UpdateModelPackage.md "../APIReference/API_UpdateModelPackage.md")
-- [`DescribeModelPackage`](../APIReference/API_DescribeModelPackage.md "../APIReference/API_DescribeModelPackage.md")
+The `ModelLifeCycle` parameter can be invoked by the following APIs:
++ [`CreateModelPackage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html)
++ [`UpdateModelPackage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateModelPackage.html)
++ [`DescribeModelPackage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackage.html)
 
-Policy for a data scientist role
-The following is an example IAM policy using model lifecycle
-condition keys. You can modify them based on your own requirements.
-In this example, the role’s permissions are limited to set or define
-the model lifecycle stage to:
+------
+#### [ Policy for a data scientist role ]
 
-- Create or update a model with the stage
-  `"Development"` and status
-  `"Approved"`.
-- Update a model package with the stage quality assurance,
-  `"QA"`, and status
-  `"PendingApproval"`.
+The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to:
++ Create or update a model with the stage `"Development"` and status `"Approved"`.
++ Update a model package with the stage quality assurance, `"QA"`, and status `"PendingApproval"`.
 
 ```
 {
@@ -70,7 +54,7 @@ the model lifecycle stage to:
     "Condition": {
         "StringEquals": {
             "sagemaker:ModelLifeCycle:stage" : "Development"
-            "sagemaker:ModelLifeCycle:stageStatus" : "Approved"
+            "sagemaker:ModelLifeCycle:stageStatus" : "Approved"       
         }
     }
 },
@@ -84,25 +68,19 @@ the model lifecycle stage to:
     "Condition": {
         "StringEquals": {
             "sagemaker:ModelLifeCycle:stage" : "Staging"
-            "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval"
+            "sagemaker:ModelLifeCycle:stageStatus" : "PendingApproval"       
         }
     }
 }
 ```
 
-Policy for a quality assurance specialist
-The following is an example IAM policy using model lifecycle
-condition keys. You can modify them based on your own requirements.
-In this example, the role’s permissions are limited to set or define
-the model lifecycle stage to:
+------
+#### [ Policy for a quality assurance specialist ]
 
-- Update a model package with:
-
-  - The stage `"QA"` and status
-    `"Approved"` or
-    `"Rejected"`.
-  - The stage `"Production"` and status
-    `"PendingApproval"`.
+The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to:
++ Update a model package with:
+  + The stage `"QA"` and status `"Approved"` or `"Rejected"`.
+  + The stage `"Production"` and status `"PendingApproval"`.
 
 ```
 {
@@ -147,19 +125,13 @@ the model lifecycle stage to:
 }
 ```
 
-Policy for lead engineer role
-The following is an example IAM policy using model lifecycle
-condition keys. You can modify them based on your own requirements.
-In this example, the role’s permissions are limited to set or define
-the model lifecycle stage to:
+------
+#### [ Policy for lead engineer role ]
 
-- Update a model package with:
-
-  - The stage `"Production"` and status
-    `"Approved"` or
-    `"Rejected"`.
-  - The stage `"Development"` and status
-    `"PendingApproval"`.
+The following is an example IAM policy using model lifecycle condition keys. You can modify them based on your own requirements. In this example, the role’s permissions are limited to set or define the model lifecycle stage to:
++ Update a model package with:
+  + The stage `"Production"` and status `"Approved"` or `"Rejected"`.
+  + The stage `"Development"` and status `"PendingApproval"`.
 
 ```
 {
@@ -206,6 +178,6 @@ the model lifecycle stage to:
 }
 ```
 
-To get Amazon EventBridge notifications on any model status update, see the example in
-[Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md"). For an
-example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package "automating-sagemaker-with-eventbridge.md#eventbridge-model-package").
+------
+
+To get Amazon EventBridge notifications on any model status update, see the example in [Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md). For an example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package).

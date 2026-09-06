@@ -1,19 +1,14 @@
+
+
 # Ingest Ground Truth labels and merge them with predictions
+<a name="model-monitor-model-quality-merge"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+Model quality monitoring compares the predictions your model makes with ground truth labels to measure the quality of the model. For this to work, you periodically label data captured by your endpoint or batch transform job and upload it to Amazon S3.
 
-Model quality monitoring compares the predictions your model makes with ground
-truth labels to measure the quality of the model. For this to work, you periodically
-label data captured by your endpoint or batch transform job and upload it to
-Amazon S3.
-
-To match Ground Truth labels with captured prediction data, there must be a unique
-identifier for each record in the dataset. The structure of each record for ground
-truth data is as follows:
+To match Ground Truth labels with captured prediction data, there must be a unique identifier for each record in the dataset. The structure of each record for ground truth data is as follows:
 
 ```
 {
@@ -29,36 +24,20 @@ truth data is as follows:
 ```
 
 In the `groundTruthData` structure, `eventId` can be one of the following:
++ `eventId` – This ID is automatically generated when a user invokes the endpoint.
++ `inferenceId` – The caller supplies this ID when they invoke the endpoint.
 
-- `eventId` – This ID is automatically generated when a
-  user invokes the endpoint.
-- `inferenceId` – The caller supplies this ID when they
-  invoke the endpoint.
-  If `inferenceId` is present in captured data records, Model Monitor uses it to
-  merge captured data with Ground Truth records. You are responsible for making sure that the
-  `inferenceId` in the Ground Truth records match the `inferenceId`
-  in the captured records. If `inferenceId` is not present in captured
-  data, model monitor uses `eventId` from the captured data records to
-  match them with a Ground Truth record.
+If `inferenceId` is present in captured data records, Model Monitor uses it to merge captured data with Ground Truth records. You are responsible for making sure that the `inferenceId` in the Ground Truth records match the `inferenceId` in the captured records. If `inferenceId` is not present in captured data, model monitor uses `eventId` from the captured data records to match them with a Ground Truth record.
 
-You must upload Ground Truth data to an Amazon S3 bucket that has the same path format as captured data.
+You must upload Ground Truth data to an Amazon S3 bucket that has the same path format as captured data. 
 
-###### Data format requirements
-
-When you save your data to Amazon S3 it must use the jsonlines format (.jsonl), and be saved using the following naming structure. To learn more about jsonline requirements, see [Use input and output data](sms-data.md "sms-data.md").
+**Data format requirements**  
+When you save your data to Amazon S3 it must use the jsonlines format (.jsonl), and be saved using the following naming structure. To learn more about jsonline requirements, see [Use input and output data](sms-data.md). 
 
 ```
-s3://`amzn-s3-demo-bucket1`/`prefix``/yyyy`/`mm`/`dd`/`hh`
+s3://{{amzn-s3-demo-bucket1}}/{{prefix}}{{/yyyy}}/{{mm}}/{{dd}}/{{hh}}
 ```
 
 The date in this path is the date when the Ground Truth label is collected, and does not have to match the date when the inference was generated.
 
-After you create and upload the Ground Truth labels, include the location of the labels
-as a parameter when you create the monitoring job. If you are using AWS SDK for Python (Boto3),
-do this by specifying the location of Ground Truth labels as the `S3Uri` field
-of the `GroundTruthS3Input` parameter in a call to the
-`create_model_quality_job_definition` method. If you are using the
-SageMaker Python SDK, specify the location of the Ground Truth labels as the
-`ground_truth_input` parameter in the call to the
-`create_monitoring_schedule` of the `ModelQualityMonitor`
-object.
+After you create and upload the Ground Truth labels, include the location of the labels as a parameter when you create the monitoring job. If you are using AWS SDK for Python (Boto3), do this by specifying the location of Ground Truth labels as the `S3Uri` field of the `GroundTruthS3Input` parameter in a call to the `create_model_quality_job_definition` method. If you are using the SageMaker Python SDK, specify the location of the Ground Truth labels as the `ground_truth_input` parameter in the call to the `create_monitoring_schedule` of the `ModelQualityMonitor` object.

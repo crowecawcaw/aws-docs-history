@@ -1,4 +1,7 @@
+
+
 # Release notes
+<a name="sagemaker-eks-checkpointless-release-notes"></a>
 
 See the following release notes to track the latest updates for the SageMaker HyperPod checkpointless training.
 
@@ -7,24 +10,23 @@ See the following release notes to track the latest updates for the SageMaker Hy
 Date: April 10, 2026
 
 **Bug Fixes**
++ Fixed incorrect CUDA device binding in the fault handling thread. The fault handling thread now correctly sets the CUDA device context by using `LOCAL_RANK`. This fix prevents device mismatch errors during in-process fault recovery.
 
-- Fixed incorrect CUDA device binding in the fault handling thread. The fault handling thread now correctly sets the CUDA device context by using `LOCAL_RANK`. This fix prevents device mismatch errors during in-process fault recovery.
-  **The SageMaker HyperPod checkpointless training v1.0.0**
+**The SageMaker HyperPod checkpointless training v1.0.0**
 
 Date: December 03, 2025
 
 **SageMaker HyperPod checkpointless training Features**
++ **Collective Communication Initialization Improvements**: Offers novel initialization methods, Rootless and TCPStoreless for NCCL and Gloo.
++ **Memory-mapped (MMAP)** Dataloader: Caches (persist) prefetched batches so that they are available even when a fault causes a restart of the training job.
++ **Checkpointless**: Enables faster recovery from cluster training faults in large-scale distributed training environments by making framework-level optimizations
++ **Built on Nvidia Nemo and PyTorch Lightning**: Leverages these powerful frameworks for efficient and flexible model training
+  + [Nividia NeMo](https://github.com/NVIDIA-NeMo/NeMo)
+  + [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/)
 
-- **Collective Communication Initialization Improvements**: Offers novel initialization methods, Rootless and TCPStoreless for NCCL and Gloo.
-- **Memory-mapped (MMAP)** Dataloader: Caches (persist) prefetched batches so that they are available even when a fault causes a restart of the training job.
-- **Checkpointless**: Enables faster recovery from cluster training faults in large-scale distributed training environments by making framework-level optimizations
-- **Built on Nvidia Nemo and PyTorch Lightning**: Leverages these powerful frameworks for efficient and flexible model training
+**SageMaker HyperPod Checkpointless training Docker container**
 
-  - [Nividia NeMo](https://github.com/NVIDIA-NeMo/NeMo "https://github.com/NVIDIA-NeMo/NeMo")
-  - [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/ "https://lightning.ai/docs/pytorch/stable/")
-    **SageMaker HyperPod Checkpointless training Docker container**
-
-Checkpointless training on HyperPod is built on top of the [NVIDIA NeMo framework](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html "https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html"). HyperPod checkpointless training aims to recover faster from cluster training faults in large-scale distributed training environments by making framework-level optimizations that will be delivered on a base container containing the base image with NCCL and PyTorch optimizations.
+Checkpointless training on HyperPod is built on top of the [ NVIDIA NeMo framework](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html). HyperPod checkpointless training aims to recover faster from cluster training faults in large-scale distributed training environments by making framework-level optimizations that will be delivered on a base container containing the base image with NCCL and PyTorch optimizations.
 
 **Availability**
 

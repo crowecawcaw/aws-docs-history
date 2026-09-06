@@ -1,169 +1,171 @@
+
+
 # Tutorials - Amazon SageMaker HyperPod Checkpointless Pretraining Llama 3 70b
+<a name="sagemaker-eks-checkpointless-recipes-pretraining-llama3"></a>
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 
 ## Prerequisites
+<a name="sagemaker-eks-checkpointless-recipes-pretraining-llama3-prereqs"></a>
 
 Before you start setting up your environment, make sure you have:
-
-- [Enabled Amazon EKS support in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md "sagemaker-hyperpod-eks-prerequisites.md")
-- [Set up HyperPod training operator (v1.2+)](sagemaker-eks-operator.md "sagemaker-eks-operator.md")
-- A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
-- Data in one of the following formats:
-
-  - JSON
-  - JSONGZ (Compressed JSON)
-  - ARROW
-
-- Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
-- [Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading "https://huggingface.co/docs/hub/models-downloading") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
-- Setup your environment
++ [ Enabled Amazon EKS support in Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-prerequisites.html)
++ [ Set up HyperPod training operator (v1.2\+)](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator.html)
++ A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
++ Data in one of the following formats:
+  + JSON
+  + JSONGZ (Compressed JSON)
+  + ARROW
++ Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [ source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection).
++ [ Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading) and covert to [ Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face).
++ Setup your environment
 
 ## Kubernetes environment setup
+<a name="sagemaker-eks-checkpointless-recipes-pretraining-llama3-kubernetes"></a>
 
 To set up your Kubernetes environment, do the following:
 
 1. Set up the virtual environment. Make sure you're using Python greater than or equal to 3.10 and lower than 3.14.
 
-```
-python3 -m venv ${PWD}/venv
-source venv/bin/activate
-```
+   ```
+   python3 -m venv ${PWD}/venv
+   source venv/bin/activate
+   ```
 
-2. [Set up kubectl and eksctl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md")
-3. [Install Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/")
-4. Connect to your Kubernetes cluster
+1. [ Set up kubectl and eksctl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 
-```
-aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
-```
+1. [ Install Helm](https://helm.sh/docs/intro/install/)
 
-5. Install dependencies using one of the following methods:
+1. Connect to your Kubernetes cluster
+
+   ```
+   aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
+   ```
+
+1. Install dependencies using one of the following methods:
 
    1. Method 1: SageMaker HyperPod recipes method:
 
-   ```
-   # install SageMaker HyperPod Recipes.
-   git clone --recursive git@github.com:aws/sagemaker-hyperpod-recipes.git
-   cd sagemaker-hyperpod-recipes
-   pip3 install -r requirements.txt
-   ```
-   2. Method 2: kubectl with pre-defined job yaml method
+      ```
+      # install SageMaker HyperPod Recipes.
+      git clone --recursive git@github.com:aws/sagemaker-hyperpod-recipes.git
+      cd sagemaker-hyperpod-recipes
+      pip3 install -r requirements.txt
+      ```
 
-   ```
-   # install SageMaker HyperPod checkpointless training.
-   git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
-   cd sagemaker-hyperpod-checkpointless-training
-   ```
+   1. Method 2: kubectl with pre-defined job yaml method
+
+      ```
+      # install SageMaker HyperPod checkpointless training.
+      git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
+      cd sagemaker-hyperpod-checkpointless-training
+      ```
 
 You can now launch the checkpointless training recipe using either the NeMo-style launcher or using kubectl.
 
 ## Method 1: Launch the training job with the recipes launcher
+<a name="sagemaker-eks-checkpointless-recipes-pretraining-llama3-recipes-launcher"></a>
 
-Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves
-updating k8s.yaml, config.yaml and running the launch script.
+Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves updating k8s.yaml, config.yaml and running the launch script.
 
 1. Update `launcher_scripts/llama/run_checkpointless_llama3_70b_pretrain.sh`
 
-A Deep Learning container. To find the most recent release of the checkpointless training container,
-see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
+   A Deep Learning container. To find the most recent release of the checkpointless training container, see [ checkpointless training release notes](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-release-notes.html).
 
-```
-#!/bin/bash
+   ```
+   #!/bin/bash
+   
+   SAGEMAKER_TRAINING_LAUNCHER_DIR=${SAGEMAKER_TRAINING_LAUNCHER_DIR:-"$(pwd)"}
+   TRAIN_DIR="${TRAIN_DIR}"
+   VAL_DIR="${VAL_DIR}"
+   EXP_DIR="${EXP_DIR}"
+   LOG_DIR="${LOG_DIR}"
+   CONTAINER_MOUNT="/data"
+   CONTAINER="${CONTAINER}"
+   
+   HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
+       recipes=training/llama/checkpointless_llama3_70b_pretrain \
+       recipes.dataset.dataset_path="${TRAIN_DIR}" \
+       recipes.exp_manager.exp_dir="${EXP_DIR}" \
+       recipes.log_dir="${LOG_DIR}" \
+       recipes.data.global_batch_size=16 \
+       recipes.data.micro_batch_size=4 \
+       base_results_dir="${SAGEMAKER_TRAINING_LAUNCHER_DIR}/results" \
+       git.use_default=false \
+       cluster=k8s \
+       cluster_type=k8s \
+       container="${CONTAINER}" \
+       +cluster.hostNetwork=true \
+       +cluster.persistent_volume_claims.0.claimName=fsx-claim \
+       +cluster.persistent_volume_claims.0.mountPath="${CONTAINER_MOUNT}" \
+       +recipes.dataset.val_dataset_path="${VAL_DIR}" \
+       ++recipes.callbacks.3.test_fault_config.fault_prob_between_lock=1 \
+   ```
 
-SAGEMAKER_TRAINING_LAUNCHER_DIR=${SAGEMAKER_TRAINING_LAUNCHER_DIR:-"$(pwd)"}
-TRAIN_DIR="${TRAIN_DIR}"
-VAL_DIR="${VAL_DIR}"
-EXP_DIR="${EXP_DIR}"
-LOG_DIR="${LOG_DIR}"
-CONTAINER_MOUNT="/data"
-CONTAINER="${CONTAINER}"
+1. Launch the training job
 
-HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
-    recipes=training/llama/checkpointless_llama3_70b_pretrain \
-    recipes.dataset.dataset_path="${TRAIN_DIR}" \
-    recipes.exp_manager.exp_dir="${EXP_DIR}" \
-    recipes.log_dir="${LOG_DIR}" \
-    recipes.data.global_batch_size=16 \
-    recipes.data.micro_batch_size=4 \
-    base_results_dir="${SAGEMAKER_TRAINING_LAUNCHER_DIR}/results" \
-    git.use_default=false \
-    cluster=k8s \
-    cluster_type=k8s \
-    container="${CONTAINER}" \
-    +cluster.hostNetwork=true \
-    +cluster.persistent_volume_claims.0.claimName=fsx-claim \
-    +cluster.persistent_volume_claims.0.mountPath="${CONTAINER_MOUNT}" \
-    +recipes.dataset.val_dataset_path="${VAL_DIR}" \
-    ++recipes.callbacks.3.test_fault_config.fault_prob_between_lock=1 \
-```
+   ```
+   bash launcher_scripts/llama/run_checkpointless_llama3_70b_pretrain.sh
+   ```
 
-2. Launch the training job
+1. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
-```
-bash launcher_scripts/llama/run_checkpointless_llama3_70b_pretrain.sh
-```
+   ```
+   kubectl get pods
+   
+   NAME                             READY   STATUS             RESTARTS        AGE
+   llama-3-70b-worker-0             0/1    running               0            36s
+   ```
 
-3. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
+1. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
 
-```
-kubectl get pods
+   ```
+   kubectl describe pod {{<name of pod>}}
+   ```
 
-NAME                             READY   STATUS             RESTARTS        AGE
-llama-3-70b-worker-0             0/1    running               0            36s
-```
+1. After the job STATUS changes to Running, you can examine the log by using the following command.
 
-4. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
+   ```
+   kubectl logs <name of pod>
+   ```
 
-```
-kubectl describe pod `<name of pod>`
-```
-
-5. After the job STATUS changes to Running, you can examine the log by using the following command.
-
-```
-kubectl logs <name of pod>
-```
-
-The STATUS will turn to Completed when you run kubectl get pods
+   The STATUS will turn to Completed when you run kubectl get pods
 
 ## Method 2: Launch the training job with kubectl with pre-defined yaml
+<a name="sagemaker-eks-checkpointless-recipes-pretraining-llama3-kubectl"></a>
 
 Another option is to launch the training through kubectl with a pre-defined job yaml.
 
 1. Update the `examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml`
+   + `image`: A Deep Learning container. To find the most recent release of the checkpointless training container, see [ checkpointless training release notes](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-release-notes.html).
+   + `resume.restore_config.path=<path_to_pretrained_weights>`: The path to downloaded pretrained model weights in Nemo format in [ Prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-recipes-finetune.html#sagemaker-eks-checkpointless-recipes-finetune-prereqs) step.
+   + `dataset.dataset_path=<path_to_dataset>`: The path to the dataset that stored in the shared storage
 
-   - `image`: A Deep Learning container. To find the most recent release of the checkpointless training container,
-     see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
-   - `resume.restore_config.path=<path_to_pretrained_weights>`: The path to downloaded pretrained model weights in Nemo format in
-     [Prerequisites](sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs "sagemaker-eks-checkpointless-recipes-finetune.md#sagemaker-eks-checkpointless-recipes-finetune-prereqs") step.
-   - `dataset.dataset_path=<path_to_dataset>`: The path to the dataset that stored in the shared storage
+1. Submit the job using kubectl with `pretrain_llama3_70b_checkpointless_p5.yaml`
 
-2. Submit the job using kubectl with `pretrain_llama3_70b_checkpointless_p5.yaml`
+   ```
+   kubectl apply -f examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml
+   ```
 
-```
-kubectl apply -f examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml
-```
+1. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
-3. After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
+   ```
+   kubectl get pods
+   
+   NAME                                             READY   STATUS             RESTARTS        AGE
+   llama3-pretrain-checkpointless-worker-0             0/1    running               0            36s
+   ```
 
-```
-kubectl get pods
+1. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
 
-NAME                                             READY   STATUS             RESTARTS        AGE
-llama3-pretrain-checkpointless-worker-0             0/1    running               0            36s
-```
+   ```
+   kubectl describe pod <name of pod>
+   ```
 
-4. If the STATUS is at PENDING or ContainerCreating, run the following command to get more details
+1. After the job STATUS changes to Running, you can examine the log by using the following command.
 
-```
-kubectl describe pod <name of pod>
-```
+   ```
+   kubectl logs <name of pod>
+   ```
 
-5. After the job STATUS changes to Running, you can examine the log by using the following command.
-
-```
-kubectl logs <name of pod>
-```
-
-The STATUS will turn to Completed when you run kubectl get pods
+   The STATUS will turn to Completed when you run kubectl get pods

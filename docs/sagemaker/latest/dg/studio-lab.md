@@ -1,56 +1,44 @@
+
+
 # Amazon SageMaker Studio Lab
+<a name="studio-lab"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Studio Lab is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md). 
 
-Amazon SageMaker Studio Lab is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+**Note**  
+As of August 8, 2025, Amazon SageMaker Studio Lab uses JupyterLab 4 instead of JupyterLab 3. If you experience dependency issues, reinstall any extensions that you added to your environments.
 
-###### Note
+ Amazon SageMaker Studio Lab is a free service that gives customers access to AWS compute resources, in an environment based on open-source JupyterLab 4. It is based on the same architecture and user interface as Amazon SageMaker Studio Classic, but with a subset of Studio Classic capabilities.
 
-As of August 8, 2025, Amazon SageMaker Studio Lab uses JupyterLab 4 instead of JupyterLab 3. If you
-experience dependency issues, reinstall any extensions that you added to your
-environments.
+With Studio Lab, you can use AWS compute resources to create and run your Jupyter notebooks without signing up for an AWS account. Because Studio Lab is based on open-source JupyterLab, you can take advantage of open-source Jupyter extensions to run your Jupyter notebooks.
 
-Amazon SageMaker Studio Lab is a free service that gives customers access to AWS compute resources, in
-an environment based on open-source JupyterLab 4. It is based on the same architecture and
-user interface as Amazon SageMaker Studio Classic, but with a subset of Studio Classic capabilities.
+ **Studio Lab compared to Amazon SageMaker Studio Classic**
 
-With Studio Lab, you can use AWS compute resources to create and run your Jupyter notebooks
-without signing up for an AWS account. Because Studio Lab is based on open-source JupyterLab,
-you can take advantage of open-source Jupyter extensions to run your Jupyter
-notebooks.
+While Studio Lab provides free access to AWS compute resources, Amazon SageMaker Studio Classic provides the following advanced machine learning capabilities that Studio Lab does not support.
++ Continuous integration and continuous delivery (Pipelines)
++ Real-time predictions
++ Large-scale distributed training
++ Data preparation (Amazon SageMaker Data Wrangler)
++ Data labeling (Amazon SageMaker Ground Truth)
++ Feature Store
++ Bias analysis (Clarify)
++ Model deployment
++ Model monitoring
 
-**Studio Lab compared to Amazon SageMaker Studio Classic**
+Studio Classic also supports fine-grained access control and security by using AWS Identity and Access Management (IAM), Amazon Virtual Private Cloud (Amazon VPC), and AWS Key Management Service (AWS KMS). Studio Lab does not support these Studio Classic features, nor does it support the use ModelTrainers and built-in SageMaker AI algorithms.
 
-While Studio Lab provides free access to AWS compute resources, Amazon SageMaker Studio Classic provides the
-following advanced machine learning capabilities that Studio Lab does not support.
-
-- Continuous integration and continuous delivery (Pipelines)
-- Real-time predictions
-- Large-scale distributed training
-- Data preparation (Amazon SageMaker Data Wrangler)
-- Data labeling (Amazon SageMaker Ground Truth)
-- Feature Store
-- Bias analysis (Clarify)
-- Model deployment
-- Model monitoring
-  Studio Classic also supports fine-grained access control and security by using AWS Identity and Access Management
-  (IAM), Amazon Virtual Private Cloud (Amazon VPC), and AWS Key Management Service (AWS KMS). Studio Lab does not support these Studio Classic
-  features, nor does it support the use ModelTrainers and built-in SageMaker AI algorithms.
-
-To export your Studio Lab projects for use with Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
+To export your Studio Lab projects for use with Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md).
 
 The following topics give information about Studio Lab and how to use it
 
-###### Topics
-
-- [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md")
-- [Amazon SageMaker Studio Lab components overview](studio-lab-overview.md "studio-lab-overview.md")
-- [Onboard to Amazon SageMaker Studio Lab](studio-lab-onboard.md "studio-lab-onboard.md")
-- [Manage your account](studio-lab-manage-account.md "studio-lab-manage-account.md")
-- [Launch your Amazon SageMaker Studio Lab project runtime](studio-lab-manage-runtime.md "studio-lab-manage-runtime.md")
-- [Use Amazon SageMaker Studio Lab starter assets](studio-lab-integrated-resources.md "studio-lab-integrated-resources.md")
-- [Studio Lab pre-installed environments](studio-lab-environments.md "studio-lab-environments.md")
-- [Use the Amazon SageMaker Studio Lab project runtime](studio-lab-use.md "studio-lab-use.md")
-- [Troubleshooting](studio-lab-troubleshooting.md "studio-lab-troubleshooting.md")
+**Topics**
++ [Studio Lab availability change](studio-lab-availability-change.md)
++ [Amazon SageMaker Studio Lab components overview](studio-lab-overview.md)
++ [Onboard to Amazon SageMaker Studio Lab](studio-lab-onboard.md)
++ [Manage your account](studio-lab-manage-account.md)
++ [Launch your Amazon SageMaker Studio Lab project runtime](studio-lab-manage-runtime.md)
++ [Use Amazon SageMaker Studio Lab starter assets](studio-lab-integrated-resources.md)
++ [Studio Lab pre-installed environments](studio-lab-environments.md)
++ [Use the Amazon SageMaker Studio Lab project runtime](studio-lab-use.md)
++ [Troubleshooting](studio-lab-troubleshooting.md)

@@ -1,31 +1,19 @@
+
+
 # Bias Drift Violations
+<a name="clarify-model-monitor-bias-drift-violations"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
-
-Bias drift jobs evaluate the baseline constraints provided by the [baseline configuration](../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig "../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig") against the analysis results of current
-`MonitoringExecution`. If violations are detected, the job lists them to
-the _constraint\_violations.json_ file in the execution
-output location, and marks the execution status as [Interpret results](model-monitor-interpreting-results.md "model-monitor-interpreting-results.md").
+Bias drift jobs evaluate the baseline constraints provided by the [baseline configuration](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelBiasJobDefinition.html#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig) against the analysis results of current `MonitoringExecution`. If violations are detected, the job lists them to the *constraint\_violations.json* file in the execution output location, and marks the execution status as [Interpret results](model-monitor-interpreting-results.md).
 
 Here is the schema of the bias drift violations file.
-
-- `facet` – The name of the facet, provided by the monitoring
-  job analysis configuration facet `name_or_index`.
-- `facet_value` – The value of the facet, provided by the
-  monitoring job analysis configuration facet
-  `value_or_threshold`.
-- `metric_name` – The short name of the bias metric. For
-  example, "CI" for class imbalance. See [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md") for the short names of each of
-  the pre-training bias metrics and [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md") for the short names of
-  each of the post-training bias metrics.
-- `constraint_check_type` – The type of violation monitored.
-  Currently only `bias_drift_check` is supported.
-- `description` – A descriptive message to explain the
-  violation.
++ `facet` – The name of the facet, provided by the monitoring job analysis configuration facet `name_or_index`. 
++ `facet_value` – The value of the facet, provided by the monitoring job analysis configuration facet `value_or_threshold`.
++ `metric_name` – The short name of the bias metric. For example, "CI" for class imbalance. See [Pre-training Bias Metrics](clarify-measure-data-bias.md) for the short names of each of the pre-training bias metrics and [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md) for the short names of each of the post-training bias metrics.
++ `constraint_check_type` – The type of violation monitored. Currently only `bias_drift_check` is supported.
++ `description` – A descriptive message to explain the violation.
 
 ```
 {
@@ -40,15 +28,7 @@ Here is the schema of the bias drift violations file.
 }
 ```
 
-A bias metric is used to measure the level of equality in a distribution. A value
-close to zero indicates that the distribution is more balanced. If the value of a bias
-metric in the job analysis results file (analysis.json) is worse than its corresponding
-value in the baseline constraints file, a violation is logged. As an example, if the
-baseline constraint for the DPPL bias metric is `0.2`, and the analysis
-result is `0.1`, no violation is logged because `0.1` is closer to
-`0` than `0.2`. However, if the analysis result is
-`-0.3`, a violation is logged because it is farther from `0`
-than the baseline constraint of `0.2`.
+A bias metric is used to measure the level of equality in a distribution. A value close to zero indicates that the distribution is more balanced. If the value of a bias metric in the job analysis results file (analysis.json) is worse than its corresponding value in the baseline constraints file, a violation is logged. As an example, if the baseline constraint for the DPPL bias metric is `0.2`, and the analysis result is `0.1`, no violation is logged because `0.1` is closer to `0` than `0.2`. However, if the analysis result is `-0.3`, a violation is logged because it is farther from `0` than the baseline constraint of `0.2`.
 
 ```
 {

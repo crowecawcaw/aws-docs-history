@@ -1,27 +1,76 @@
-# Supported Regions and Quotas
 
-This page gives information about the AWS Regions supported by Amazon SageMaker AI and the Amazon Elastic Compute Cloud
-(Amazon EC2) instance types, as well as quotas for Amazon SageMaker AI resources.
 
-For information about the instance types that are available in each Region, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
+# Appendix
+<a name="appendix"></a>
 
-For a list of the SageMaker AI service endpoints for each Region, see
-[Amazon SageMaker AI endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md")
-in the _AWS General Reference_.
+Use the following information to get information about monitoring and analyzing training results.
 
-## Quotas
+## Monitor training results
+<a name="monitor-training-results"></a>
 
-For a list of SageMaker AI quotas, see
-[Amazon SageMaker AI endpoints and quotas](../../../general/latest/gr/sagemaker.md#limits_sagemaker "../../../general/latest/gr/sagemaker.md#limits_sagemaker")
-in the _AWS General Reference_.
+Monitoring and analyzing training results is essential for developers to assess convergence and troubleshoot issues. SageMaker HyperPod recipes offer Tensorboard integration to analyze training behavior. To address the challenges of profiling large distributed training jobs, these recipes also incorporate VizTracer. VizTracer is a low-overhead tool for tracing and visualizing Python code execution. For more information about VizTracer, see [VizTracer](https://viztracer.readthedocs.io/en/latest/installation.html).
 
-The [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas "https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas") provides information about your service quotas. You can use the
-Service Quotas console to view your default service quotas or to request quota increases.
-To request a quota increase for adjustable quotas, see
-[Requesting
-a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md").
+The following sections guide you through the process of implementing these features in your SageMaker HyperPod recipes.
 
-You can set up a quota request template for your AWS Organization that automatically
-requests quota increases during account creation. For more information, see
-[Using
-Service Quotas request templates](../../../servicequotas/latest/userguide/organization-templates.md "../../../servicequotas/latest/userguide/organization-templates.md").
+### Tensorboard
+<a name="tensorboard"></a>
+
+Tensorboard is a powerful tool for visualizing and analyzing the training process. To enable Tensorboard, modify your recipe by setting the following parameter:
+
+```
+exp_manager:
+  exp_dir: null
+  name: experiment
+  create_tensorboard_logger: True
+```
+
+After you enable the Tensorboard logger, the training logs are generated and stored within the experiment directory. The experiment directed is defined in exp\_manager.exp\_dir. To access and analyze these logs locally, use the following procedure:
+
+**To access and analyze logs**
+
+1. Download the Tensorboard experiment folder from your training environment to your local machine.
+
+1. Open a terminal or command prompt on your local machine.
+
+1. Navigate to the directory containing the downloaded experiment folder.
+
+1. Launch Tensorboard with the following the command.
+
+   ```
+   tensorboard --port={{<port>}} --bind_all --logdir experiment.
+   ```
+
+1. Open your web browser and visit http://localhost:8008.
+
+You can now see the status and visualizations of your training jobs within the Tensorboard interface. Seeing the status and visualizations helps you monitor and analyze the training process. Monitoring and analyzing the training process helps you gain insights into the behavior and performance of your models. For more information about how you monitor and analyze the training with Tensorboard, see the [NVIDIA NeMo Framework User Guide](https://docs.nvidia.com/nemo-framework/user-guide/latest/llms/index.html).
+
+### VizTracer
+<a name="viztracer"></a>
+
+To enable VizTracer, you can modify your recipe by setting the model.viztracer.enabled parameter to true. For example, you can update your llama recipe to enable VizTracer by adding the following configuration:
+
+```
+model:
+  viztracer:
+    enabled: true
+```
+
+After the training has completed, your VizTracer profile is in the experiment folder exp\_dir/result.json. To analyze your profile, you can download it and open it using the vizviewer tool:
+
+```
+vizviewer --port <port> result.json
+```
+
+This command launches the vizviewer on port 9001. You can view your VizTracer by specifying http://localhost:<port> in your browser. After you open VizTracer, you begin analyzing the training. For more information about using VizTracer, see VizTracer documentation.
+
+## SageMaker JumpStart versus SageMaker HyperPod
+<a name="sagemaker-jumpstart-vs-hyperpod"></a>
+
+While SageMaker JumpStart provides fine-tuning capabilities, the SageMaker HyperPod recipes provide the following:
++ Additional fine-grained control over the training loop
++ Recipe customization for your own models and data
++ Support for model parallelism
+
+Use the SageMaker HyperPod recipes when you need access to the model's hyperparameters, multi-node training, and customization options for the training loop.
+
+For more information about fine-tuning your models in SageMaker JumpStart, see [Fine-tune publicly available foundation models with the `JumpStartEstimator` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md)

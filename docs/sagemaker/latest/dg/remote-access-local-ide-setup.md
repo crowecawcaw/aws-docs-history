@@ -1,87 +1,82 @@
+
+
 # Set up Remote IDE
+<a name="remote-access-local-ide-setup"></a>
 
-After administrators complete the instructions in [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md "remote-access.md"), you can connect your Remote IDE to your
-remote SageMaker spaces.
+After administrators complete the instructions in [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md), you can connect your Remote IDE to your remote SageMaker spaces.
 
-###### Topics
-
-- [Set up your local environment](#remote-access-local-ide-setup-local-environment "#remote-access-local-ide-setup-local-environment")
-- [Connect to your Remote IDE](#remote-access-local-ide-setup-local-vs-code "#remote-access-local-ide-setup-local-vs-code")
-- [Connect to VPC with subnets without internet access](remote-access-local-ide-setup-vpc-no-internet.md "remote-access-local-ide-setup-vpc-no-internet.md")
-- [Filter your Studio spaces](remote-access-local-ide-setup-filter.md "remote-access-local-ide-setup-filter.md")
+**Topics**
++ [Set up your local environment](#remote-access-local-ide-setup-local-environment)
++ [Connect to your Remote IDE](#remote-access-local-ide-setup-local-vs-code)
++ [Connect to VPC with subnets without internet access](remote-access-local-ide-setup-vpc-no-internet.md)
++ [Filter your Studio spaces](remote-access-local-ide-setup-filter.md)
 
 ## Set up your local environment
+<a name="remote-access-local-ide-setup-local-environment"></a>
 
 Install your preferred Remote IDE on your local machine:
++ [Visual Studio Code](https://code.visualstudio.com/)
++ [Kiro](https://kiro.dev/)
++ [Cursor](https://cursor.com/home)
 
-- [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
-- [Kiro](https://kiro.dev/ "https://kiro.dev/")
-- [Cursor](https://cursor.com/home "https://cursor.com/home")
-
-For information on the version requirements, see [IDE version requirements](remote-access.md#remote-access-ide-version-requirements "remote-access.md#remote-access-ide-version-requirements").
+For information on the version requirements, see [IDE version requirements](remote-access.md#remote-access-ide-version-requirements).
 
 ## Connect to your Remote IDE
+<a name="remote-access-local-ide-setup-local-vs-code"></a>
 
-Before you can establish a connection from your Remote IDE to your remote
-SageMaker spaces, your administrator must [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md"). Your administrator sets up a
-specific method for you to establish a connection. Choose the method that was set up
-for you.
+Before you can establish a connection from your Remote IDE to your remote SageMaker spaces, your administrator must [Set up remote access](remote-access-remote-setup.md). Your administrator sets up a specific method for you to establish a connection. Choose the method that was set up for you.
 
-###### Topics
-
-- [Method 1: Deep link from Studio UI](#remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui "#remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui")
-- [Method 2: AWS Toolkit in the Remote IDE](#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code")
-- [Method 3: Connect from the terminal via SSH CLI](#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli "#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli")
+**Topics**
++ [Method 1: Deep link from Studio UI](#remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui)
++ [Method 2: AWS Toolkit in the Remote IDE](#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code)
++ [Method 3: Connect from the terminal via SSH CLI](#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli)
 
 ### Method 1: Deep link from Studio UI
+<a name="remote-access-local-ide-setup-local-vs-code-method-1-deep-link-from-studio-ui"></a>
 
 Use the following procedure to establish a connection using deep link.
 
-1. [Launch Amazon SageMaker Studio](studio-updated-launch.md#studio-updated-launch-console "studio-updated-launch.md#studio-updated-launch-console").
-2. In the Studio UI, navigate to your space.
-3. Choose **Open in VS Code**, **Open in Kiro**,
-   or **Open in Cursor** button for your preferred IDE. Ensure that
-   your preferred IDE is already installed on your local computer.
-4. When prompted, confirm to open your IDE. Your IDE opens with another pop-up to confirm. Once
-   completed, the remote connection is established.
+1. [Launch Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-launch.html#studio-updated-launch-console).
+
+1. In the Studio UI, navigate to your space.
+
+1. Choose **Open in VS Code**, **Open in Kiro**, or **Open in Cursor** button for your preferred IDE. Ensure that your preferred IDE is already installed on your local computer.
+
+1. When prompted, confirm to open your IDE. Your IDE opens with another pop-up to confirm. Once completed, the remote connection is established.
 
 ### Method 2: AWS Toolkit in the Remote IDE
+<a name="remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code"></a>
 
-Use the following procedure to establish a connection using the
-AWS Toolkit for Visual Studio Code. This method is available for VS Code, Kiro, and Cursor.
+Use the following procedure to establish a connection using the AWS Toolkit for Visual Studio Code. This method is available for VS Code, Kiro, and Cursor.
 
 1. Open your Remote IDE (VS Code, Kiro, or Cursor).
-2. Open the AWS Toolkit extension.
-3. [Connect to
-   AWS](../../../toolkit-for-vscode/latest/userguide/connect.md "../../../toolkit-for-vscode/latest/userguide/connect.md").
-4. In the AWS Explorer, expand **SageMaker AI**, then expand **Studio**.
-5. Find your Studio space.
-6. Choose the **Connect** icon next to your space to
-   start it.
 
-###### Note
+1. Open the AWS Toolkit extension.
 
-    * Stop and restart the space in the Toolkit for Visual Studio to enable remote
-     access, if not already connected.
-    * If the space is not using a supported [instance size](remote-access.md#remote-access-instance-requirements "remote-access.md#remote-access-instance-requirements"), you will be asked to change the
-     instance.
+1. [Connect to AWS](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/connect.html).
+
+1. In the AWS Explorer, expand **SageMaker AI**, then expand **Studio**.
+
+1. Find your Studio space.
+
+1. Choose the **Connect** icon next to your space to start it.
+**Note**  
+Stop and restart the space in the Toolkit for Visual Studio to enable remote access, if not already connected.
+If the space is not using a supported [instance size](https://docs.aws.amazon.com/sagemaker/latest/dg/remote-access.html#remote-access-instance-requirements), you will be asked to change the instance.
 
 ### Method 3: Connect from the terminal via SSH CLI
+<a name="remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli"></a>
 
-Choose one of the following platform options to view the procedure to
-establish a connection using the SSH CLI.
+Choose one of the following platform options to view the procedure to establish a connection using the SSH CLI.
 
-###### Note
+**Note**  
+Ensure that you have the latest versions of the [Local machine prerequisites](remote-access.md#remote-access-local-prerequisites) installed before following the instructions below.
+If you [Bring your own image (BYOI)](studio-updated-byoi.md), ensure you have installed the required dependencies listed in [Image requirements](remote-access.md#remote-access-image-requirements) before proceeding
 
-- Ensure that you have the latest versions of the [Local machine prerequisites](remote-access.md#remote-access-local-prerequisites "remote-access.md#remote-access-local-prerequisites") installed
-  before following the instructions below.
-- If you [Bring your own image (BYOI)](studio-updated-byoi.md "studio-updated-byoi.md"), ensure you have installed
-  the required dependencies listed in [Image requirements](remote-access.md#remote-access-image-requirements "remote-access.md#remote-access-image-requirements") before
-  proceeding
+------
+#### [ Linux/macOS ]
 
-Linux/macOS
-Create a shell script (for example,
-`/home/user/sagemaker_connect.sh`):
+Create a shell script (for example, `/home/user/sagemaker_connect.sh`):
 
 ```
 #!/bin/bash
@@ -130,47 +125,43 @@ session-manager-plugin \
 
 1. Make the script executable:
 
-```
-chmod +x /home/user/sagemaker_connect.sh
-```
+   ```
+   chmod +x /home/user/sagemaker_connect.sh
+   ```
 
-2. Configure `$HOME/.ssh/config` to add
-   the following entry:
+1. Configure `$HOME/.ssh/config` to add the following entry:
 
 ```
-Host `space-name`
-  HostName 'arn:`PARTITION`:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name`'
+Host {{space-name}}
+  HostName 'arn:{{PARTITION}}:sagemaker:{{us-east-1}}:{{111122223333}}:space/{{domain-id}}/{{space-name}}'
   ProxyCommand '/home/user/sagemaker_connect.sh' '%h'
   ForwardAgent yes
   AddKeysToAgent yes
   StrictHostKeyChecking accept-new
 ```
 
-For example, the `PARTITION`
-can be `aws`.
+For example, the `{{PARTITION}}` can be `aws`.
 
-If you need to use a [named AWS credential profile](../../../cli/v1/userguide/cli-configure-files.md#cli-configure-files-using-profiles "../../../cli/v1/userguide/cli-configure-files.md#cli-configure-files-using-profiles"), change the proxy
-command as follows:
+If you need to use a [named AWS credential profile](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html#cli-configure-files-using-profiles), change the proxy command as follows:
 
 ```
-  ProxyCommand '/home/user/sagemaker_connect.sh' '%h' `YOUR_CREDENTIAL_PROFILE_NAME`
+  ProxyCommand '/home/user/sagemaker_connect.sh' '%h' {{YOUR_CREDENTIAL_PROFILE_NAME}}
+```
++ Connect via SSH or run SCP command:
+
+```
+ssh {{space-name}}
+scp file_abc {{space-name}}:/tmp/
 ```
 
-- Connect via SSH or run SCP command:
+------
+#### [ Windows ]
 
-```
-ssh `space-name`
-scp file_abc `space-name`:/tmp/
-```
-
-Windows
 **Prerequisites for Windows:**
++ PowerShell 5.1 or later
++ SSH client (OpenSSH recommended)
 
-- PowerShell 5.1 or later
-- SSH client (OpenSSH recommended)
-
-Create a PowerShell script (for example,
-`C:\Users\`user-name`\sagemaker_connect.ps1`):
+Create a PowerShell script (for example, `C:\Users\{{user-name}}\sagemaker_connect.ps1`):
 
 ```
 # sagemaker_connect.ps1
@@ -247,17 +238,16 @@ try {
     exit 1
 }
 ```
-
-- Configure
-  `C:\Users\`user-name`\.ssh\config`
-  to add the following entry:
++ Configure `C:\Users\{{user-name}}\.ssh\config` to add the following entry:
 
 ```
-Host `space-name`
-  HostName "arn:aws:sagemaker:`us-east-1`:`111122223333`:space/`domain-id`/`space-name`"
-  ProxyCommand "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy RemoteSigned -File "C:\\Users\\`user-name`\\sagemaker_connect.ps1" "%h"
+Host {{space-name}}                            
+  HostName "arn:aws:sagemaker:{{us-east-1}}:{{111122223333}}:space/{{domain-id}}/{{space-name}}"
+  ProxyCommand "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy RemoteSigned -File "C:\\Users\\{{user-name}}\\sagemaker_connect.ps1" "%h"
   ForwardAgent yes
   AddKeysToAgent yes
   User sagemaker-user
   StrictHostKeyChecking accept-new
 ```
+
+------

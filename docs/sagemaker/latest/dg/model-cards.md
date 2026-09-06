@@ -1,90 +1,65 @@
+
+
 # Amazon SageMaker Model Cards
+<a name="model-cards"></a>
 
-###### Important
+**Important**  
+Amazon SageMaker Model Card is integrated with SageMaker Model Registry. If you're registering a model within Model Registry, you can use the integration to add auditing information. For more information, see [Update the Details of a Model Version](model-registry-details.md).
 
-Amazon SageMaker Model Card is integrated with SageMaker Model Registry. If you're registering a
-model within Model Registry, you can use the integration to add auditing information. For
-more information, see [Update the Details of a Model Version](model-registry-details.md "model-registry-details.md").
+Use Amazon SageMaker Model Cards to document critical details about your machine learning (ML) models in a single place for streamlined governance and reporting. Model cards can help you to capture key information about your models throughout their lifecycle and implement responsible AI practices.
 
-Use Amazon SageMaker Model Cards to document critical details about your machine learning (ML) models in a
-single place for streamlined governance and reporting. Model cards can help you to capture
-key information about your models throughout their lifecycle and implement responsible AI
-practices.
+Catalog details such as the intended use and risk rating of a model, training details and metrics, evaluation results and observations, and additional call-outs such as considerations, recommendations, and custom information. By creating model cards, you can do the following:
++ Provide guidance on how a model should be used.
++ Support audit activities with detailed descriptions of model training and performance.
++ Communicate how a model is intended to support business goals.
 
-Catalog details such as the intended use and risk rating of a model, training details and
-metrics, evaluation results and observations, and additional call-outs such as
-considerations, recommendations, and custom information. By creating model cards, you can do
-the following:
+Model cards provide prescriptive guidance on what information to document and include fields for custom information. After creating a model card, you can export it to a PDF or download it to share with relevant stakeholders. Any edits other than an approval status update made to a model card result in additional model card versions in order to have an immutable record of model changes. 
 
-- Provide guidance on how a model should be used.
-- Support audit activities with detailed descriptions of model training and
-  performance.
-- Communicate how a model is intended to support business goals.
-  Model cards provide prescriptive guidance on what information to document and include
-  fields for custom information. After creating a model card, you can export it to a PDF or
-  download it to share with relevant stakeholders. Any edits other than an approval status
-  update made to a model card result in additional model card versions in order to have an
-  immutable record of model changes.
-
-###### Topics
-
-- [Prerequisites](#model-cards-prerequisites "#model-cards-prerequisites")
-- [Intended uses of a model](#model-cards-intended-uses "#model-cards-intended-uses")
-- [Risk ratings](#model-cards-risk-rating "#model-cards-risk-rating")
-- [Model card JSON schema](#model-cards-json-schema "#model-cards-json-schema")
-- [Create a model card](model-cards-create.md "model-cards-create.md")
-- [Model cards actions](model-cards-manage.md "model-cards-manage.md")
-- [Set up cross-account support for Amazon SageMaker Model Cards](model-cards-xaccount.md "model-cards-xaccount.md")
-- [Low-level SageMaker APIs for model cards](model-cards-apis.md "model-cards-apis.md")
-- [Model card FAQs](model-cards-faqs.md "model-cards-faqs.md")
+**Topics**
++ [Prerequisites](#model-cards-prerequisites)
++ [Intended uses of a model](#model-cards-intended-uses)
++ [Risk ratings](#model-cards-risk-rating)
++ [Model card JSON schema](#model-cards-json-schema)
++ [Create a model card](model-cards-create.md)
++ [Model cards actions](model-cards-manage.md)
++ [Set up cross-account support for Amazon SageMaker Model Cards](model-cards-xaccount.md)
++ [Low-level SageMaker APIs for model cards](model-cards-apis.md)
++ [Model card FAQs](model-cards-faqs.md)
 
 ## Prerequisites
+<a name="model-cards-prerequisites"></a>
 
-To get started with Amazon SageMaker Model Cards, you must have permission to create, edit, view, and
-export model cards.
+To get started with Amazon SageMaker Model Cards, you must have permission to create, edit, view, and export model cards.
 
 ## Intended uses of a model
+<a name="model-cards-intended-uses"></a>
 
-Specifying the intended uses of a model helps ensure that model developers and users
-have the information they need to train or deploy the model responsibly. The intended
-uses of a model should describe the scenarios in which the model is appropriate to use
-as well as the scenarios in which the model is not recommended to use.
+Specifying the intended uses of a model helps ensure that model developers and users have the information they need to train or deploy the model responsibly. The intended uses of a model should describe the scenarios in which the model is appropriate to use as well as the scenarios in which the model is not recommended to use. 
 
 We recommend including:
++ The general purpose of the model 
++ Use cases for which the model was intended 
++ Use cases for which the model was not intended
++ Assumptions made when developing the model
 
-- The general purpose of the model
-- Use cases for which the model was intended
-- Use cases for which the model was not intended
-- Assumptions made when developing the model
-
-The intended uses of a model go beyond technical details and describe how a model
-should be used in production, the scenarios in which is appropriate to use a model, and
-additional considerations such as the type of data to use with the model or any
-assumptions made during development.
+The intended uses of a model go beyond technical details and describe how a model should be used in production, the scenarios in which is appropriate to use a model, and additional considerations such as the type of data to use with the model or any assumptions made during development. 
 
 ## Risk ratings
+<a name="model-cards-risk-rating"></a>
 
-Developers create ML models for use cases with varying levels of risk. For example, a
-model that approves loan applications might be a higher risk model than one that detects
-the category of an email. Given the varied risk profiles of a model, model cards provide
-a field for you to categorize a model’s risk rating.
+Developers create ML models for use cases with varying levels of risk. For example, a model that approves loan applications might be a higher risk model than one that detects the category of an email. Given the varied risk profiles of a model, model cards provide a field for you to categorize a model’s risk rating. 
 
-This risk rating can be `unknown`, `low`, `medium`,
-or `high`. Use these risk rating fields to label unknown, low, medium, or
-high-risk models and help your organization comply with any existing rules about putting
-certain models into production.
+This risk rating can be `unknown`, `low`, `medium`, or `high`. Use these risk rating fields to label unknown, low, medium, or high-risk models and help your organization comply with any existing rules about putting certain models into production. 
 
 ## Model card JSON schema
+<a name="model-cards-json-schema"></a>
 
-Evaluation details for a model card must be provided in JSON format. If you have
-existing JSON format evaluation reports generated by [SageMaker Clarify](clarify-processing-job-run.md "clarify-processing-job-run.md") or
-[SageMaker AI Model
-Monitor](model-monitor-model-quality.md "model-monitor-model-quality.md"), upload them to Amazon S3 and provide an S3 URI to
-automatically parse evaluation metrics. For more information and sample reports, see the
-[example metrics](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker_model_governance/example_metrics "https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker_model_governance/example_metrics") folder in the _Amazon SageMaker Model Governance - Model
-Cards_ example notebook.
+Evaluation details for a model card must be provided in JSON format. If you have existing JSON format evaluation reports generated by [SageMaker Clarify](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-processing-job-run.html) or [SageMaker AI Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality.html), upload them to Amazon S3 and provide an S3 URI to automatically parse evaluation metrics. For more information and sample reports, see the [example metrics](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker_model_governance/example_metrics) folder in the *Amazon SageMaker Model Governance - Model Cards* example notebook.
 
 When creating a model card using the SageMaker Python SDK, model content must be in the model card JSON schema and provided as a string. Provide model content similar to the following example.
+
+### Model card JSON schema sample file
+<a name="model-cards-json-schema-example"></a>
 
 ```
 {
@@ -708,5 +683,4 @@ When creating a model card using the SageMaker Python SDK, model content must be
     }
   }
 }
-
 ```

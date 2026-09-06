@@ -1,46 +1,34 @@
+
+
 # Create Custom Worker Task Templates
+<a name="a2i-custom-templates"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
 
-Amazon SageMaker A2I is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-A2I, but we do not plan to introduce new features.
+*Crowd HTML Elements* are web components that provide a number of task widgets and design elements that you can tailor to the question you want to ask. You can use these crowd elements to create a custom worker template and integrate it with an Amazon Augmented AI (Amazon A2I) human review workflow to customize the worker console and instructions. 
 
-_Crowd HTML Elements_ are web components that provide a number of task
-widgets and design elements that you can tailor to the question you want to ask. You can use
-these crowd elements to create a custom worker template and integrate it with an Amazon Augmented AI
-(Amazon A2I) human review workflow to customize the worker console and instructions.
-
-For a list of all HTML crowd elements available to Amazon A2I users, see [Crowd HTML Elements Reference](sms-ui-template-reference.md "sms-ui-template-reference.md"). For
-examples of templates, see the [AWS GitHub
-repository](https://github.com/aws-samples/amazon-a2i-sample-task-uis "https://github.com/aws-samples/amazon-a2i-sample-task-uis"), which contains over 60 sample custom task templates.
+For a list of all HTML crowd elements available to Amazon A2I users, see [Crowd HTML Elements Reference](sms-ui-template-reference.md). For examples of templates, see the [AWS GitHub repository](https://github.com/aws-samples/amazon-a2i-sample-task-uis), which contains over 60 sample custom task templates.
 
 ## Develop Templates Locally
+<a name="developing-templates-locally"></a>
 
-When in the console to test how your template processes incoming data, you can test
-the look and feel of your template's HTML and custom elements in your browser by adding
-the following code to the top of your HTML file.
+When in the console to test how your template processes incoming data, you can test the look and feel of your template's HTML and custom elements in your browser by adding the following code to the top of your HTML file.
 
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 ```
 
-This loads the necessary code to render the custom HTML elements. Use this code if you
-want to develop your template's look and feel in your preferred editor instead of in the
-console.
+This loads the necessary code to render the custom HTML elements. Use this code if you want to develop your template's look and feel in your preferred editor instead of in the console.
 
-This code won't parse your variables. You might want to replace them with sample
-content while developing locally.
+This code won't parse your variables. You might want to replace them with sample content while developing locally.
 
 ## Use External Assets
+<a name="a2i-custom-template-using-external-assets"></a>
 
-Amazon Augmented AI custom templates enable you to embed external scripts and style sheets. For
-example, the following header embeds a `text/css` style sheet name
-`stylesheet` located at
-`https://www.example.com/my-enhancement-styles.css` into the custom
-template.
+Amazon Augmented AI custom templates enable you to embed external scripts and style sheets. For example, the following header embeds a `text/css` style sheet name `stylesheet` located at `https://www.example.com/my-enhancement-styles.css` into the custom template.
 
-###### Example
+**Example**  
 
 ```
 <script src="https://www.example.com/my-enhancment-script.js"></script>
@@ -49,66 +37,37 @@ template.
 
 If you encounter errors, ensure that your originating server is sending the correct MIME type and encoding headers with the assets.
 
-For example, the MIME and encoding type for remote scripts is
-`application/javascript;CHARSET=UTF-8`.
+For example, the MIME and encoding type for remote scripts is `application/javascript;CHARSET=UTF-8`.
 
-The MIME and encoding type for remote stylesheets is
-`text/css;CHARSET=UTF-8`.
+The MIME and encoding type for remote stylesheets is `text/css;CHARSET=UTF-8`.
 
 ## Track Your Variables
+<a name="a2i-custom-template-step2-UI-vars"></a>
 
-When building a custom template, you must add variables to it to represent the
-pieces of data that might change from task to task, or worker to worker. If you're
-starting with one of the sample templates, you need to make sure you're aware of the
-variables it already uses.
+When building a custom template, you must add variables to it to represent the pieces of data that might change from task to task, or worker to worker. If you're starting with one of the sample templates, you need to make sure you're aware of the variables it already uses. 
 
-For example, for a custom template that integrates an Augmented AI human review loop with a
-Amazon Textract text review task, `{{ task.input.selectedAiServiceResponse.blocks
- }}` is used for initial-value input data. For Amazon Augmented AI (Amazon A2I)
-integration with Amazon Rekognition , `{{ task.input.selectedAiServiceResponse.moderationLabels
- }}` is used. For a custom task type, you need to determine the input parameter
-for your task type. Use `{{
- task.input.`customInputValuesForStartHumanLoop`}}`
-where you specify
-`customInputValuesForStartHumanLoop`.
+For example, for a custom template that integrates an Augmented AI human review loop with a Amazon Textract text review task, `{{ task.input.selectedAiServiceResponse.blocks }}` is used for initial-value input data. For Amazon Augmented AI (Amazon A2I) integration with Amazon Rekognition , `{{ task.input.selectedAiServiceResponse.moderationLabels }}` is used. For a custom task type, you need to determine the input parameter for your task type. Use `{{ task.input.{{customInputValuesForStartHumanLoop}}}}` where you specify `{{customInputValuesForStartHumanLoop}}`. 
 
 ## Custom Template Example for Amazon Textract
+<a name="a2i-custom-templates-textract-sample"></a>
 
-All custom templates begin and end with the `<crowd-form>
- </crowd-form>` elements. Like standard HTML `<form>`
-elements, all of your form code should go between these elements.
+All custom templates begin and end with the `<crowd-form> </crowd-form>` elements. Like standard HTML `<form>` elements, all of your form code should go between these elements. 
 
-For an Amazon Textract document analysis task, use the
-`<crowd-textract-analyze-document>` element. It uses the following
-attributes:
+For an Amazon Textract document analysis task, use the `<crowd-textract-analyze-document>` element. It uses the following attributes: 
++ `src` – Specifies the URL of the image file to be annotated.
++ `initialValue` – Sets initial values for attributes found in the worker UI.
++ `blockTypes` (required) – Determines the kind of analysis that the workers can do. Only `KEY_VALUE_SET` is currently supported. 
++ `keys` (required) – Specifies new keys and the associated text value that the worker can add.
++ `no-key-edit` (required) – Prevents the workers from editing the keys of annotations passed through `initialValue`.
++ `no-geometry-edit` – Prevents workers from editing the polygons of annotations passed through `initialValue`.
 
-- `src` – Specifies the URL of the image file to be
-  annotated.
-- `initialValue` – Sets initial values for attributes found in
-  the worker UI.
-- `blockTypes` (required) – Determines the kind of analysis that the workers
-  can do. Only `KEY_VALUE_SET` is currently supported.
-- `keys` (required) – Specifies new keys and the associated text value that
-  the worker can add.
-- `no-key-edit` (required) – Prevents the workers from editing
-  the keys of annotations passed through `initialValue`.
-- `no-geometry-edit` – Prevents workers from editing the
-  polygons of annotations passed through `initialValue`.
+For children of the `<crowd-textract-analyze-document>` element, you must have two Regions. You can use arbitrary HTML and CSS elements in these Regions. 
++ `<full-instructions>` – Instructions that are available from the **View full instructions** link in the tool. You can leave this blank, but we recommend that you provide complete instructions to get better results.
++ `<short-instructions>` – A brief description of the task that appears in the tool's sidebar. You can leave this blank, but we recommend that you provide complete instructions to get better results.
 
-For children of the `<crowd-textract-analyze-document>` element,
-you must have two Regions. You can use arbitrary HTML and CSS elements in these Regions.
+ An Amazon Textract template would look similar to the following.
 
-- `<full-instructions>` – Instructions that are available from the
-  **View full instructions** link in the tool. You can leave
-  this blank, but we recommend that you provide complete instructions to get
-  better results.
-- `<short-instructions>` – A brief description of the task that appears
-  in the tool's sidebar. You can leave this blank, but we recommend that you
-  provide complete instructions to get better results.
-
-An Amazon Textract template would look similar to the following.
-
-###### Example
+**Example**  
 
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
@@ -172,44 +131,20 @@ If the content of the value has multiple lines, enter all the text without a lin
 ```
 
 ## Custom Template Example for Amazon Rekognition
+<a name="a2i-custom-templates-rekognition-sample"></a>
 
-All custom templates begin and end with the `<crowd-form>
- </crowd-form>` elements. Like standard HTML `<form>`
-elements, all of your form code should go between these elements. For an Amazon Rekognition custom
-task template, use the `<crowd-rekognition-detect-moderation-labels>`
-element. This element supports the following attributes:
+All custom templates begin and end with the `<crowd-form> </crowd-form>` elements. Like standard HTML `<form>` elements, all of your form code should go between these elements. For an Amazon Rekognition custom task template, use the `<crowd-rekognition-detect-moderation-labels>` element. This element supports the following attributes: 
++ `categories` – An array of strings *or* an array of objects where each object has a `name` field.
+  + If the categories come in as objects, the following applies:
+    + The displayed categories are the value of the `name` field. 
+    + The returned answer contains the *full* objects of any selected categories.
+  + If the categories come in as strings, the following applies:
+    + The returned answer is an array of all the strings that were selected.
++ `exclusion-category` – By setting this attribute, you create a button underneath the categories in the UI. When a user selects the button, all categories are deselected and disabled. If the worker selects the button again, you re-enable users to choose categories. If the worker submits the task by selecting **Submit** after you select the button, that task returns an empty array.
 
-- `categories` – An array of strings _or_ an array of objects where each object has a `name`
-  field.
-
-  - If the categories come in as objects, the following applies:
-
-    - The displayed categories are the value of the
-      `name` field.
-    - The returned answer contains the _full_ objects of any selected categories.
-
-  - If the categories come in as strings, the following applies:
-
-    - The returned answer is an array of all the strings that were
-      selected.
-
-- `exclusion-category` – By setting this attribute, you create
-  a button underneath the categories in the UI. When a user selects the button,
-  all categories are deselected and disabled. If the worker selects the button
-  again, you re-enable users to choose categories. If the worker submits the task
-  by selecting **Submit** after you select the button, that task
-  returns an empty array.
-
-For children of the `<crowd-rekognition-detect-moderation-labels>`
-element, you must have two Regions.
-
-- `<full-instructions>` – Instructions that are
-  available from the **View full instructions** link in the tool.
-  You can leave this blank, but we recommend that you provide complete
-  instructions to get better results.
-- `<short-instructions>` – Brief description of the task
-  that appears in the tool's sidebar. You can leave this blank, but we recommend
-  that you provide complete instructions to get better results.
+For children of the `<crowd-rekognition-detect-moderation-labels>` element, you must have two Regions.
++ `<full-instructions>` – Instructions that are available from the **View full instructions** link in the tool. You can leave this blank, but we recommend that you provide complete instructions to get better results.
++ `<short-instructions>` – Brief description of the task that appears in the tool's sidebar. You can leave this blank, but we recommend that you provide complete instructions to get better results.
 
 A template using these elements would look similar to the following.
 
@@ -300,110 +235,84 @@ Visuals depicting death by hanging</p>
 ```
 
 ## Add automation with Liquid
+<a name="a2i-custom-templates-step2-automate"></a>
 
-The custom template system uses [Liquid](https://shopify.github.io/liquid/ "https://shopify.github.io/liquid/") for automation. _Liquid_ is an
-open-source inline markup language. For more information and documentation, see the
-[Liquid homepage](https://shopify.github.io/liquid/ "https://shopify.github.io/liquid/").
+The custom template system uses [Liquid](https://shopify.github.io/liquid/) for automation. *Liquid* is an open-source inline markup language. For more information and documentation, see the [Liquid homepage](https://shopify.github.io/liquid/).
 
-In Liquid, the text between single curly braces and percent symbols is an instruction
-or _tag_ that performs an operation like control flow
-or iteration. Text between double curly braces is a variable or _object_ that outputs its value. The following list includes two types of
-liquid tags that you may find useful to automate template input data processing. If you
-select one of the following tag-types, you are redirected to the Liquid
-documentation.
+In Liquid, the text between single curly braces and percent symbols is an instruction or *tag* that performs an operation like control flow or iteration. Text between double curly braces is a variable or *object* that outputs its value. The following list includes two types of liquid tags that you may find useful to automate template input data processing. If you select one of the following tag-types, you are redirected to the Liquid documentation.
++ [Control flow](https://shopify.github.io/liquid/tags/control-flow/): Includes programming logic operators like `if/else`, `unless`, and `case/when`.
++ [Iteration](https://shopify.github.io/liquid/tags/iteration/): Enables you to run blocks of code repeatedly using statements like for loops.
 
-- [Control flow](https://shopify.github.io/liquid/tags/control-flow/ "https://shopify.github.io/liquid/tags/control-flow/"): Includes programming logic operators like
-  `if/else`, `unless`, and
-  `case/when`.
-- [Iteration](https://shopify.github.io/liquid/tags/iteration/ "https://shopify.github.io/liquid/tags/iteration/"): Enables you to run blocks of code repeatedly using
-  statements like for loops.
+  For example, the following code example demonstrates how you can use the Liquid `for` tag to create a `for` loop. This example loops through the [`moderationLabels`](https://docs.aws.amazon.com/rekognition/latest/dg/API_ModerationLabel.html) returned from Amazon Rekognition and displays the `moderationLabels` attributes `name` and `parentName` for workers to review:
 
-For example, the following code example demonstrates how you can use the
-Liquid `for` tag to create a `for` loop. This example
-loops through the [`moderationLabels`](../../../rekognition/latest/dg/API_ModerationLabel.md "../../../rekognition/latest/dg/API_ModerationLabel.md") returned from Amazon Rekognition and displays
-the `moderationLabels` attributes `name` and
-`parentName` for workers to review:
-
-```
- {% for label in task.input.selectedAiServiceResponse.moderationLabels %}
-    {
-      name: &quot;{{ label.name }}&quot;,
-      parentName: &quot;{{ label.parentName }}&quot;,
-    },
- {% endfor %}
-```
+  ```
+   {% for label in task.input.selectedAiServiceResponse.moderationLabels %}
+      {
+        name: &quot;{{ label.name }}&quot;,
+        parentName: &quot;{{ label.parentName }}&quot;,
+      },
+   {% endfor %}
+  ```
 
 ### Use variable filters
+<a name="a2i-custom-templates-step2-automate-filters"></a>
 
-In addition to the standard [Liquid filters](https://shopify.github.io/liquid/filters/abs/ "https://shopify.github.io/liquid/filters/abs/") and actions, Amazon Augmented AI (Amazon A2I) offers additional filters. You apply filters by placing a pipe (`|`) character after the variable name, and then specifying a filter name. To chain filters, use the following format.
+In addition to the standard [Liquid filters](https://shopify.github.io/liquid/filters/abs/) and actions, Amazon Augmented AI (Amazon A2I) offers additional filters. You apply filters by placing a pipe (`|`) character after the variable name, and then specifying a filter name. To chain filters, use the following format.
 
-###### Example
+**Example**  
 
 ```
 {{ <content> | <filter> | <filter> }}
 ```
 
 #### Autoescape and Explicit Escape
+<a name="a2i-custom-templates-step2-automate-filters-autoescape"></a>
 
-By default, inputs are HTML-escaped to prevent confusion between your variable
-text and HTML. You can explicitly add the `escape` filter to make it
-more obvious to someone reading the source of your template that escaping is
-being done.
+By default, inputs are HTML-escaped to prevent confusion between your variable text and HTML. You can explicitly add the `escape` filter to make it more obvious to someone reading the source of your template that escaping is being done.
 
 #### escape\_once
+<a name="a2i-custom-templates-step2-automate-escapeonce"></a>
 
-`escape_once` ensures that if you've already escaped your code, it
-doesn't get re-escaped again. For example, it ensures that
-`&amp;` doesn't become `&amp;amp;`.
+`escape_once` ensures that if you've already escaped your code, it doesn't get re-escaped again. For example, it ensures that `&amp;` doesn't become `&amp;amp;`.
 
 #### skip\_autoescape
+<a name="a2i-custom-templates-step2-automate-skipautoescape"></a>
 
-`skip_autoescape` is useful when your content is meant to be used
-as HTML. For example, you might have a few paragraphs of text and some images in
-the full instructions for a bounding box.
+`skip_autoescape` is useful when your content is meant to be used as HTML. For example, you might have a few paragraphs of text and some images in the full instructions for a bounding box.
 
-###### Note
-
-Use `skip_autoescape` sparingly. As a best practice for
-templates, avoid passing in functional code or markup with
-`skip_autoescape` unless you are absolutely sure that you
-have strict control over what's being passed. If you're passing user input,
-you could be opening your workers up to a cross-site scripting
-attack.
+**Note**  
+Use `skip_autoescape` sparingly. As a best practice for templates, avoid passing in functional code or markup with `skip_autoescape` unless you are absolutely sure that you have strict control over what's being passed. If you're passing user input, you could be opening your workers up to a cross-site scripting attack.
 
 #### to\_json
+<a name="a2i-custom-templates-step2-automate-tojson"></a>
 
-`to_json` encodes data that you provide to JavaScript Object
-Notation (JSON). If you provide an object, it serializes it.
+`to_json` encodes data that you provide to JavaScript Object Notation (JSON). If you provide an object, it serializes it.
 
 #### grant\_read\_access
+<a name="a2i-custom-templates-step2-automate-grantreadaccess"></a>
 
-`grant_read_access` takes an Amazon Simple Storage Service (Amazon S3) URI and encodes it
-into an HTTPS URL with a short-lived access token for that resource. This makes
-it possible to display photo, audio, or video objects stored in S3 buckets that
-are not otherwise publicly accessible to workers.
+`grant_read_access` takes an Amazon Simple Storage Service (Amazon S3) URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible to workers.
 
 #### s3\_presign
+<a name="a2i-custom-templates-step2-automate-s3"></a>
 
-The `s3_presign` filter works the same way as the `grant_read_access` filter. `s3_presign` takes an Amazon S3 URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible to workers.
+ The `s3_presign` filter works the same way as the `grant_read_access` filter. `s3_presign` takes an Amazon S3 URI and encodes it into an HTTPS URL with a short-lived access token for that resource. This makes it possible to display photo, audio, or video objects stored in S3 buckets that are not otherwise publicly accessible to workers.
 
-###### Example of the variable filters
-
-Input
+**Example of the variable filters**  
+Input  
 
 ```
 auto-escape: {{ "Have you read 'James & the Giant Peach'?" }}
 explicit escape: {{ "Have you read 'James & the Giant Peach'?" | escape }}
 explicit escape_once: {{ "Have you read 'James &amp; the Giant Peach'?" | escape_once }}
 skip_autoescape: {{ "Have you read 'James & the Giant Peach'?" | skip_autoescape }}
-to_json: {{ jsObject | to_json }}
+to_json: {{ jsObject | to_json }}                
 grant_read_access: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | grant_read_access }}
 s3_presign: {{ "s3://amzn-s3-demo-bucket/myphoto.png" | s3_presign }}
 ```
 
-###### Example
-
-Output
+**Example**  
+Output  
 
 ```
 auto-escape: Have you read &#39;James &amp; the Giant Peach&#39;?
@@ -411,81 +320,58 @@ explicit escape: Have you read &#39;James &amp; the Giant Peach&#39;?
 explicit escape_once: Have you read &#39;James &amp; the Giant Peach&#39;?
 skip_autoescape: Have you read 'James & the Giant Peach'?
 to_json: { "point_number": 8, "coords": [ 59, 76 ] }
-grant_read_access: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?`<access token and other params>`
-s3_presign: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?`<access token and other params>`
+grant_read_access: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?{{<access token and other params>}}
+s3_presign: https://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.png?{{<access token and other params>}}
 ```
 
-###### Example of an automated classification template.
-
-To automate this simple text classification sample, include the Liquid tag
-`{{ task.input.`source` }}`. This example
-uses the [crowd-classifier](sms-ui-template-crowd-classifier.md "sms-ui-template-crowd-classifier.md") element.
+**Example of an automated classification template.**  
+To automate this simple text classification sample, include the Liquid tag `{{ task.input.{{source}} }}`. This example uses the [crowd-classifier](sms-ui-template-crowd-classifier.md) element.  
 
 ```
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
-  <crowd-classifier
+  <crowd-classifier 
     name="tweetFeeling"
     categories="['positive', 'negative', 'neutral', 'cannot determine']"
-    header="Which term best describes this tweet?"
+    header="Which term best describes this tweet?" 
   >
     <classification-target>
-       {{ task.input.`source` }}
+       {{ task.input.{{source}} }}
     </classification-target>
 
     <full-instructions header="Analyzing a sentiment">
-      Try to determine the feeling the author
-      of the tweet is trying to express.
+      Try to determine the feeling the author 
+      of the tweet is trying to express. 
       If none seems to match, choose "other."
     </full-instructions>
 
     <short-instructions>
-      Pick the term that best describes the sentiment
-      of the tweet.
+      Pick the term that best describes the sentiment 
+      of the tweet. 
     </short-instructions>
 
   </crowd-classifier>
 </crowd-form>
-
 ```
 
 ## Preview a Worker Task Template
+<a name="a2i-preview-your-custom-template"></a>
 
-To preview a custom worker task template, use the SageMaker AI `RenderUiTemplate`
-operation. You can use the `RenderUiTemplate` operation with the AWS CLI or
-your preferred AWS SDK. For documentation on the supported language specific SDKs for
-this API operation, see the [`See Also`](../APIReference/API_RenderUiTemplate.md#API_RenderUiTemplate_SeeAlso "../APIReference/API_RenderUiTemplate.md#API_RenderUiTemplate_SeeAlso") section of the [`RenderUiTemplate`](../APIReference/API_RenderUiTemplate.md "../APIReference/API_RenderUiTemplate.md").
+To preview a custom worker task template, use the SageMaker AI `RenderUiTemplate` operation. You can use the `RenderUiTemplate` operation with the AWS CLI or your preferred AWS SDK. For documentation on the supported language specific SDKs for this API operation, see the [`See Also`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RenderUiTemplate.html#API_RenderUiTemplate_SeeAlso) section of the [`RenderUiTemplate`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RenderUiTemplate.html). 
 
 **Prerequisites**
 
-To preview your worker task template, the AWS Identity and Access Management (IAM) role Amazon Resource Name
-(ARN), or `RoleArn`, that you use must have permission to access to the S3
-objects that are used by the template. To learn how to configure your role or user see
-[Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai").
+To preview your worker task template, the AWS Identity and Access Management (IAM) role Amazon Resource Name (ARN), or `RoleArn`, that you use must have permission to access to the S3 objects that are used by the template. To learn how to configure your role or user see [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai).
 
-###### To preview your worker task template using the `RenderUiTemplate` operation:
+**To preview your worker task template using the `RenderUiTemplate` operation:**
 
-1. Provide a **`RoleArn`** of the role with required
-   policies attached to preview your custom template.
-2. In the **`Input`** parameter of
-   **`Task`**, provide a JSON object that
-   contains values for the variables defined in the template. These are the
-   variables that are substituted for the
-   `task.input.`source`` variable. For
-   example, if you define a task.input.text variable in your template, you can
-   supply the variable in the JSON object as `text`: `sample
- text`.
-3. In the **`Content`** parameter of
-   **`UiTemplate`**, insert your
-   template.
+1. Provide a **`RoleArn`** of the role with required policies attached to preview your custom template. 
 
-Once you've configured `RenderUiTemplate`, use your preferred SDK or the
-AWS CLI to submit a request to render your template. If your request was successful, the
-response includes [`RenderedContent`](../APIReference/API_RenderUiTemplate.md#API_RenderUiTemplate_ResponseSyntax "../APIReference/API_RenderUiTemplate.md#API_RenderUiTemplate_ResponseSyntax"), a Liquid template that renders the HTML for
-the worker UI.
+1. In the **`Input`** parameter of **`Task`**, provide a JSON object that contains values for the variables defined in the template. These are the variables that are substituted for the `task.input.{{source}}` variable. For example, if you define a task.input.text variable in your template, you can supply the variable in the JSON object as `text`: `sample text`.
 
-###### Important
+1. In the **`Content`** parameter of **`UiTemplate`**, insert your template.
 
-To preview your template, you need an IAM role with permissions to read Amazon S3
-objects that get rendered on your user interface. For a sample policy that you can
-attach to your IAM role to grant these permissions, see [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai").
+Once you've configured `RenderUiTemplate`, use your preferred SDK or the AWS CLI to submit a request to render your template. If your request was successful, the response includes [`RenderedContent`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_RenderUiTemplate.html#API_RenderUiTemplate_ResponseSyntax), a Liquid template that renders the HTML for the worker UI.
+
+**Important**  
+To preview your template, you need an IAM role with permissions to read Amazon S3 objects that get rendered on your user interface. For a sample policy that you can attach to your IAM role to grant these permissions, see [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai). 

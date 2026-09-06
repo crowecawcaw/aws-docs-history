@@ -1,25 +1,17 @@
+
+
 # Run a Processing Job with scikit-learn
+<a name="use-scikit-learn-processing-container"></a>
 
-You can use Amazon SageMaker Processing to process data and evaluate models with scikit-learn scripts in a
-Docker image provided by Amazon SageMaker AI. The following provides an example on how to run a
-Amazon SageMaker Processing job using scikit-learn.
+You can use Amazon SageMaker Processing to process data and evaluate models with scikit-learn scripts in a Docker image provided by Amazon SageMaker AI. The following provides an example on how to run a Amazon SageMaker Processing job using scikit-learn.
 
-For a sample notebook that shows how to run scikit-learn scripts using a Docker image
-provided and maintained by SageMaker AI to preprocess data and evaluate models, see [scikit-learn Processing](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation"). To use this notebook, you need to install the SageMaker AI
-Python SDK for Processing.
+For a sample notebook that shows how to run scikit-learn scripts using a Docker image provided and maintained by SageMaker AI to preprocess data and evaluate models, see [scikit-learn Processing](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation). To use this notebook, you need to install the SageMaker AI Python SDK for Processing. 
 
-This notebook runs a processing job using the SageMaker Python SDK to run a scikit-learn script that you provide. The script
-preprocesses data, trains a model using a SageMaker training job, and then runs a processing
-job to evaluate the trained model. The processing job estimates how the model is
-expected to perform in production.
+This notebook runs a processing job using the SageMaker Python SDK to run a scikit-learn script that you provide. The script preprocesses data, trains a model using a SageMaker training job, and then runs a processing job to evaluate the trained model. The processing job estimates how the model is expected to perform in production.
 
-To learn more about using the SageMaker Python SDK with Processing containers, see the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"). For a complete list
-of pre-built Docker images available for processing jobs, see
-[Docker
-Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md").
+To learn more about using the SageMaker Python SDK with Processing containers, see the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/). For a complete list of pre-built Docker images available for processing jobs, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths).
 
-The following code example shows how to run a processing job using a scikit-learn
-Docker image provided and maintained by SageMaker AI.
+The following code example shows how to run a processing job using a scikit-learn Docker image provided and maintained by SageMaker AI.
 
 ```
 from sagemaker.core.resources import ProcessingJob
@@ -66,10 +58,6 @@ processing_job = ProcessingJob.create(
         ]
     }
 )
-
 ```
 
-To process data in parallel using Scikit-Learn on Amazon SageMaker Processing, you can shard
-input objects by S3 key by setting `s3_data_distribution_type='ShardedByS3Key'` inside a
-`ProcessingInput` so that each instance receives about the same number of input
-objects.
+To process data in parallel using Scikit-Learn on Amazon SageMaker Processing, you can shard input objects by S3 key by setting `s3_data_distribution_type='ShardedByS3Key'` inside a `ProcessingInput` so that each instance receives about the same number of input objects.

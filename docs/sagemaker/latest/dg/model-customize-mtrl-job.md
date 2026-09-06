@@ -1,23 +1,25 @@
+
+
 # Training job submission
+<a name="model-customize-mtrl-job"></a>
 
 ## Launching Training Jobs
+<a name="model-customize-mtrl-job-launching"></a>
 
-After your agent is deployed and your dataset is in S3, create a training job using one
-of the following methods.
+After your agent is deployed and your dataset is in S3, create a training job using one of the following methods.
 
 ### SageMaker AI Studio
-
-- Navigate to Models in the navigation pane and select JumpStart Base Models.
-- Select a model that supports multi-turn RL (see the supported models table)
-  and choose Customize model, then Customize with UI.
-- Select Multi-Turn Reinforcement Learning as the customization technique.
-- Configure your agent environment — select your Bedrock AgentCore runtime or
-  provide your Lambda forwarder ARN.
-- Provide your training dataset as an S3 URI or registered dataset.
-- Adjust hyperparameters as needed.
-- Review your configuration and choose Submit.
+<a name="model-customize-mtrl-job-studio-ui"></a>
++ Navigate to Models in the navigation pane and select JumpStart Base Models.
++ Select a model that supports multi-turn RL (see the supported models table) and choose Customize model, then Customize with UI.
++ Select Multi-Turn Reinforcement Learning as the customization technique.
++ Configure your agent environment — select your Bedrock AgentCore runtime or provide your Lambda forwarder ARN.
++ Provide your training dataset as an S3 URI or registered dataset.
++ Adjust hyperparameters as needed.
++ Review your configuration and choose Submit.
 
 ### SageMaker AI Python SDK
+<a name="model-customize-mtrl-job-sdk"></a>
 
 **Discover supported models**
 
@@ -87,20 +89,13 @@ print(f"Dataset ARN: {dataset.arn}")
 
 **Create Restricted Model Package Group for Nova (optional)**
 
-If you are choosing Nova model (`nova-textgeneration-lite-v2`), then
-optionally create Restricted Model Package Group prior to submitting a training job
-(next step). If you skip this step, the SDK automatically creates one for you.
+If you are choosing Nova model (`nova-textgeneration-lite-v2`), then optionally create Restricted Model Package Group prior to submitting a training job (next step). If you skip this step, the SDK automatically creates one for you.
 
-Restricted Model Package Group (RMPG) is a Model Package Group with
-ManagedStorageType: Restricted. It's required for closed-source models like Nova
-where the model weights are managed by AWS and not directly accessible to the
-customer.
+Restricted Model Package Group (RMPG) is a Model Package Group with ManagedStorageType: Restricted. It's required for closed-source models like Nova where the model weights are managed by AWS and not directly accessible to the customer.
 
 The RFT job schema requires two separate Restricted MPGs:
-
-- Output MPG — stores the final fine-tuned model package
-- Intermediate Checkpoint MPG — reserved for intermediate training checkpoints
-  (must differ from the Output MPG)
++ Output MPG — stores the final fine-tuned model package
++ Intermediate Checkpoint MPG — reserved for intermediate training checkpoints (must differ from the Output MPG)
 
 ```
 from sagemaker.core.resources import Job, ModelPackageGroup
@@ -130,8 +125,7 @@ create_kwargs = {
 intermediate_mpg = ModelPackageGroup.create(**create_kwargs)
 ```
 
-Once the Model package group is created, pass the groups in the next step when
-submitting a training job.
+Once the Model package group is created, pass the groups in the next step when submitting a training job.
 
 **Submit a training job with Bedrock AgentCore**
 
@@ -185,8 +179,7 @@ print(f"Output Model Package: {job.output_model_package_arn}")
 
 **Submit a training job with Restricted Model package group for Nova**
 
-Refer to the step above (Create Restricted Model Package Group for Nova) on how to
-create a Restricted Model Package group.
+Refer to the step above (Create Restricted Model Package Group for Nova) on how to create a Restricted Model Package group.
 
 ```
 from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
@@ -216,10 +209,9 @@ print(f"Output Model Package: {job.output_model_package_arn}")
 ```
 
 ### AWS CLI
+<a name="model-customize-mtrl-job-cli"></a>
 
-Create a training job using the `CreateJob` API. You specify the agent
-configuration, training data location, base model, and output settings in the
-`JobConfigDocument`.
+Create a training job using the `CreateJob` API. You specify the agent configuration, training data location, base model, and output settings in the `JobConfigDocument`.
 
 To retrieve the full JobConfigDocument schema:
 
@@ -273,6 +265,7 @@ aws sagemaker create-job \
 ```
 
 ### boto3
+<a name="model-customize-mtrl-job-boto3"></a>
 
 **Create job with Bedrock AgentCore**
 
@@ -333,12 +326,12 @@ print(f"Job ARN: {response['JobArn']}")
 ```
 
 ## Monitoring Training
+<a name="model-customize-mtrl-job-monitoring"></a>
 
 ### Monitor your Training Job
+<a name="model-customize-mtrl-job-monitor-status"></a>
 
-Use the `DescribeJob` API to check your job's current status at any time.
-The job status transitions through `InProgress`, and then to
-`Completed`, `Failed` or `Stopped`.
+Use the `DescribeJob` API to check your job's current status at any time. The job status transitions through `InProgress`, and then to `Completed`, `Failed` or `Stopped`.
 
 ```
 aws sagemaker describe-job \
@@ -375,10 +368,9 @@ for j in AgentRFTJob.get_all(status_equals="Completed"):
 ```
 
 ### Monitor Training in MLflow
+<a name="model-customize-mtrl-job-monitor-mlflow"></a>
 
-SageMaker AI automatically integrates with managed MLflow to track your training job's
-progress, metrics, and artifacts. To enable MLflow tracking, include an
-`MlflowConfig` in your job's `OutputDataConfig`:
+SageMaker AI automatically integrates with managed MLflow to track your training job's progress, metrics, and artifacts. To enable MLflow tracking, include an `MlflowConfig` in your job's `OutputDataConfig`:
 
 ```
 "OutputDataConfig": {
@@ -390,194 +382,192 @@ progress, metrics, and artifacts. To enable MLflow tracking, include an
 ```
 
 **Prerequisites**
-
-- Create a managed MLflow App in your account. For setup instructions, see
-  MLflow App Setup.
-- Ensure your SageMaker AI execution role has permissions to write to the MLflow App
-  (`sagemaker-mlflow:*` actions).
-- Include the `MlflowResourceArn` in your job configuration.
++ Create a managed MLflow App in your account. For setup instructions, see MLflow App Setup.
++ Ensure your SageMaker AI execution role has permissions to write to the MLflow App (`sagemaker-mlflow:*` actions).
++ Include the `MlflowResourceArn` in your job configuration.
 
 **What gets logged**
 
-| #   | Category          | What's logged                                                                                                                                                                              | Where in MLflow UI               |
-| --- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| 1   | Training metrics  | Per-step counters, throughput, datum and token accounting, all-clock duration of each phase of a step, trajectory-reward summary rollout batch, and turn-count distribution per trajectory | Metrics tab (time-series charts) |
-| 2   | Trajectory traces | Full multi-turn conversations with tool calls and rewards                                                                                                                                  | Traces tab                       |
+
+| \# | Category | What's logged | Where in MLflow UI | 
+| --- | --- | --- | --- | 
+| 1 | Training metrics | Per-step counters, throughput, datum and token accounting, all-clock duration of each phase of a step, trajectory-reward summary rollout batch, and turn-count distribution per trajectory | Metrics tab (time-series charts) | 
+| 2 | Trajectory traces | Full multi-turn conversations with tool calls and rewards | Traces tab | 
 
 #### Detailed training metrics reference
+<a name="model-customize-mtrl-job-metrics-detail"></a>
 
 The following metrics are logged at each training step.
 
-**Step counters and throughput
-(`training/`)**
+**Step counters and throughput (`training/`)**
 
-| Metric                                  | Description                                                     |
-| --------------------------------------- | --------------------------------------------------------------- |
-| `training/epoch`                        | Current epoch number                                            |
-| `training/global_step`                  | Global training step counter                                    |
-| `training/num_groups`                   | Trajectory groups in this step                                  |
-| `training/num_trajectories`             | Total trajectories processed in this step                       |
-| `training/total_tokens`                 | Tokens summed across all micro-batches in this step             |
-| `training/num_datums`                   | Training datums formed from trajectories                        |
-| `training/datums_per_trajectory`        | Average datums emitted per trajectory                           |
-| `training/action_tokens_mean`           | Mean action (response) tokens per trajectory                    |
-| `training/obs_tokens_mean`              | Mean observation (prompt) tokens per trajectory                 |
-| `training/trainable_token_positions`    | Total trainable target positions in this step                   |
-| `training/nontrainable_token_positions` | Total non-trainable target positions in this step               |
-| `training/trainable_token_ratio`        | Ratio: `trainable / (trainable + nontrainable)` token positions |
 
-**Phase durations
-(`timing_s/`)**
+| Metric | Description | 
+| --- | --- | 
+| training/epoch | Current epoch number | 
+| training/global\_step | Global training step counter | 
+| training/num\_groups | Trajectory groups in this step | 
+| training/num\_trajectories | Total trajectories processed in this step | 
+| training/total\_tokens | Tokens summed across all micro-batches in this step | 
+| training/num\_datums | Training datums formed from trajectories | 
+| training/datums\_per\_trajectory | Average datums emitted per trajectory | 
+| training/action\_tokens\_mean | Mean action (response) tokens per trajectory | 
+| training/obs\_tokens\_mean | Mean observation (prompt) tokens per trajectory | 
+| training/trainable\_token\_positions | Total trainable target positions in this step | 
+| training/nontrainable\_token\_positions | Total non-trainable target positions in this step | 
+| training/trainable\_token\_ratio | Ratio: trainable / (trainable \+ nontrainable) token positions | 
 
-| Metric                     | Description                                         |
-| -------------------------- | --------------------------------------------------- |
-| `timing_s/step`            | Total time for the full step                        |
-| `timing_s/training`        | Time for forward/backward passes and optimizer step |
-| `timing_s/policy_update`   | Time saving updated weights for the sampler         |
-| `timing_s/save_checkpoint` | Time saving a checkpoint (only on checkpoint steps) |
-| `timing_s/eval`            | Time running evaluation (only on eval steps)        |
+**Phase durations (`timing_s/`)**
 
-**Reward distribution
-(`rollout/reward/`)**
 
-| Metric                      | Description                                                                                           |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `rollout/reward/mean`       | Mean trajectory reward across all groups                                                              |
-| `rollout/reward/valid_mean` | Mean reward over only the valid (non-zero-advantage) groups; equals `mean` when no filtering occurred |
-| `rollout/reward/std`        | Standard deviation of trajectory rewards                                                              |
-| `rollout/reward/min`        | Minimum trajectory reward                                                                             |
-| `rollout/reward/max`        | Maximum trajectory reward                                                                             |
-| `rollout/reward/zero_frac`  | Fraction of trajectories with total reward exactly 0.0                                                |
+| Metric | Description | 
+| --- | --- | 
+| timing\_s/step | Total time for the full step | 
+| timing\_s/training | Time for forward/backward passes and optimizer step | 
+| timing\_s/policy\_update | Time saving updated weights for the sampler | 
+| timing\_s/save\_checkpoint | Time saving a checkpoint (only on checkpoint steps) | 
+| timing\_s/eval | Time running evaluation (only on eval steps) | 
 
-**Turn counts
-(`rollout/turns/`)**
+**Reward distribution (`rollout/reward/`)**
 
-| Metric               | Description                             |
-| -------------------- | --------------------------------------- |
-| `rollout/turns/mean` | Mean turns (transitions) per trajectory |
-| `rollout/turns/min`  | Minimum turns across trajectories       |
-| `rollout/turns/max`  | Maximum turns across trajectories       |
 
-**Token lengths
-(`rollout/tokens/`)**
+| Metric | Description | 
+| --- | --- | 
+| rollout/reward/mean | Mean trajectory reward across all groups | 
+| rollout/reward/valid\_mean | Mean reward over only the valid (non-zero-advantage) groups; equals mean when no filtering occurred | 
+| rollout/reward/std | Standard deviation of trajectory rewards | 
+| rollout/reward/min | Minimum trajectory reward | 
+| rollout/reward/max | Maximum trajectory reward | 
+| rollout/reward/zero\_frac | Fraction of trajectories with total reward exactly 0.0 | 
 
-| Metric                         | Description                                                             |
-| ------------------------------ | ----------------------------------------------------------------------- |
-| `rollout/tokens/prompt_mean`   | Mean prompt token count per transition                                  |
-| `rollout/tokens/response_mean` | Mean response token count per transition                                |
-| `rollout/tokens/response_std`  | Standard deviation of response token counts                             |
-| `rollout/tokens/response_min`  | Minimum response tokens                                                 |
-| `rollout/tokens/response_max`  | Maximum response tokens (watch for clustering at `sampling_max_tokens`) |
+**Turn counts (`rollout/turns/`)**
 
-**Log-probability health
-(`rollout/logprob/`)**
 
-| Metric                           | Description                                   |
-| -------------------------------- | --------------------------------------------- |
-| `rollout/logprob/zero_count`     | Total zero-logprob tokens                     |
-| `rollout/logprob/zero_frac`      | Fraction of all logprobs that are exactly 0.0 |
-| `rollout/logprob/zero_per_group` | Average zero logprobs per trajectory group    |
-| `rollout/logprob/nz_mean`        | Mean of non-zero logprobs                     |
-| `rollout/logprob/nz_std`         | Standard deviation of non-zero logprobs       |
-| `rollout/logprob/nz_min`         | Minimum non-zero logprob                      |
-| `rollout/logprob/nz_max`         | Maximum non-zero logprob                      |
+| Metric | Description | 
+| --- | --- | 
+| rollout/turns/mean | Mean turns (transitions) per trajectory | 
+| rollout/turns/min | Minimum turns across trajectories | 
+| rollout/turns/max | Maximum turns across trajectories | 
 
-**Advantage distribution
-(`rollout/advantage/`)**
+**Token lengths (`rollout/tokens/`)**
 
-| Metric                         | Description                                 |
-| ------------------------------ | ------------------------------------------- |
-| `rollout/advantage/mean`       | Mean advantage value across all transitions |
-| `rollout/advantage/std`        | Standard deviation of advantages            |
-| `rollout/advantage/min`        | Minimum advantage                           |
-| `rollout/advantage/max`        | Maximum advantage                           |
-| `rollout/advantage/n_positive` | Transitions with positive advantage         |
-| `rollout/advantage/n_negative` | Transitions with negative advantage         |
 
-**Batch-quality classification
-(`analysis/`)**
+| Metric | Description | 
+| --- | --- | 
+| rollout/tokens/prompt\_mean | Mean prompt token count per transition | 
+| rollout/tokens/response\_mean | Mean response token count per transition | 
+| rollout/tokens/response\_std | Standard deviation of response token counts | 
+| rollout/tokens/response\_min | Minimum response tokens | 
+| rollout/tokens/response\_max | Maximum response tokens (watch for clustering at sampling\_max\_tokens) | 
 
-| Metric                                   | Description                                                                                                         |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `analysis/batch_completion_ratio`        | `total_completed / batch_size` — fraction of expected groups that arrived                                           |
-| `analysis/batch_valid_ratio`             | `valid_count / batch_size` — non-zero-advantage groups relative to full batch                                       |
-| `analysis/zero_adv_groups`               | Groups where all transitions have near-zero advantage                                                               |
-| `analysis/zero_adv_nonzero_reward`       | Zero-advantage groups where at least one transition has reward not equal to 0 (all-correct case for binary rewards) |
-| `analysis/zero_adv_zero_reward`          | Zero-advantage groups where all rewards are 0 (all-wrong case)                                                      |
-| `analysis/reward_variance_across_groups` | Variance of per-group mean rewards (high = diverse batch)                                                           |
-| `analysis/mean_group_reward_spread`      | Average within-group reward spread `max<br>• min`                                                                   |
+**Log-probability health (`rollout/logprob/`)**
 
-**Evaluation reward and pass@k
-(`val/reward/`)**
 
-Emitted at baseline (step 0), at every `val_every`
-interval, and at the final step. Includes the same distribution metrics
-as `rollout/reward` plus group-reward metrics aggregated by
-prompt.
+| Metric | Description | 
+| --- | --- | 
+| rollout/logprob/zero\_count | Total zero-logprob tokens | 
+| rollout/logprob/zero\_frac | Fraction of all logprobs that are exactly 0.0 | 
+| rollout/logprob/zero\_per\_group | Average zero logprobs per trajectory group | 
+| rollout/logprob/nz\_mean | Mean of non-zero logprobs | 
+| rollout/logprob/nz\_std | Standard deviation of non-zero logprobs | 
+| rollout/logprob/nz\_min | Minimum non-zero logprob | 
+| rollout/logprob/nz\_max | Maximum non-zero logprob | 
+
+**Advantage distribution (`rollout/advantage/`)**
+
+
+| Metric | Description | 
+| --- | --- | 
+| rollout/advantage/mean | Mean advantage value across all transitions | 
+| rollout/advantage/std | Standard deviation of advantages | 
+| rollout/advantage/min | Minimum advantage | 
+| rollout/advantage/max | Maximum advantage | 
+| rollout/advantage/n\_positive | Transitions with positive advantage | 
+| rollout/advantage/n\_negative | Transitions with negative advantage | 
+
+**Batch-quality classification (`analysis/`)**
+
+
+| Metric | Description | 
+| --- | --- | 
+| analysis/batch\_completion\_ratio | total\_completed / batch\_size — fraction of expected groups that arrived | 
+| analysis/batch\_valid\_ratio | valid\_count / batch\_size — non-zero-advantage groups relative to full batch | 
+| analysis/zero\_adv\_groups | Groups where all transitions have near-zero advantage | 
+| analysis/zero\_adv\_nonzero\_reward | Zero-advantage groups where at least one transition has reward not equal to 0 (all-correct case for binary rewards) | 
+| analysis/zero\_adv\_zero\_reward | Zero-advantage groups where all rewards are 0 (all-wrong case) | 
+| analysis/reward\_variance\_across\_groups | Variance of per-group mean rewards (high = diverse batch) | 
+| analysis/mean\_group\_reward\_spread | Average within-group reward spread max - min | 
+
+**Evaluation reward and pass@k (`val/reward/`)**
+
+Emitted at baseline (step 0), at every `val_every` interval, and at the final step. Includes the same distribution metrics as `rollout/reward` plus group-reward metrics aggregated by prompt.
 
 **Distribution:**
 
-| Metric                 | Description                          |
-| ---------------------- | ------------------------------------ |
-| `val/reward/mean`      | Mean reward over the eval set        |
-| `val/reward/std`       | Reward std dev                       |
-| `val/reward/min`       | Minimum reward                       |
-| `val/reward/max`       | Maximum reward                       |
-| `val/reward/zero_frac` | Fraction of zero-reward trajectories |
+
+| Metric | Description | 
+| --- | --- | 
+| val/reward/mean | Mean reward over the eval set | 
+| val/reward/std | Reward std dev | 
+| val/reward/min | Minimum reward | 
+| val/reward/max | Maximum reward | 
+| val/reward/zero\_frac | Fraction of zero-reward trajectories | 
 
 **Group-reward (per-prompt aggregation):**
 
-| Metric                           | Description                                 |
-| -------------------------------- | ------------------------------------------- |
-| `val/reward/min_within_groups`   | Average per-prompt minimum reward           |
-| `val/reward/mean_within_groups`  | Average per-prompt mean reward              |
-| `val/reward/max_within_groups`   | Average per-prompt maximum reward           |
-| `val/reward/std_within_groups`   | Average per-prompt reward std (consistency) |
-| `val/reward/rollouts_per_prompt` | Mean rollouts (n) across prompts            |
-| `val/reward/num_prompts`         | Distinct prompts evaluated                  |
+
+| Metric | Description | 
+| --- | --- | 
+| val/reward/min\_within\_groups | Average per-prompt minimum reward | 
+| val/reward/mean\_within\_groups | Average per-prompt mean reward | 
+| val/reward/max\_within\_groups | Average per-prompt maximum reward | 
+| val/reward/std\_within\_groups | Average per-prompt reward std (consistency) | 
+| val/reward/rollouts\_per\_prompt | Mean rollouts (n) across prompts | 
+| val/reward/num\_prompts | Distinct prompts evaluated | 
 
 **Pass@k and success accounting:**
 
-| Metric                          | Description                                      |
-| ------------------------------- | ------------------------------------------------ |
-| `val/reward/succeeded_rollouts` | Total rollouts with reward ≥ `success_threshold` |
-| `val/reward/failed_rollouts`    | Total rollouts with reward < `success_threshold` |
-| `val/reward/success_threshold`  | Threshold used (echoed for clarity)              |
-| `val/reward/pass_at_{k}`        | Probability ≥1 of k samples passes               |
-| `val/reward/pass_power_{k}`     | Probability all k samples pass (reliability)     |
 
-**Evaluation turn counts
-(`val/turns/`)**
+| Metric | Description | 
+| --- | --- | 
+| val/reward/succeeded\_rollouts | Total rollouts with reward ≥ success\_threshold | 
+| val/reward/failed\_rollouts | Total rollouts with reward < success\_threshold | 
+| val/reward/success\_threshold | Threshold used (echoed for clarity) | 
+| val/reward/pass\_at\_{k} | Probability ≥1 of k samples passes | 
+| val/reward/pass\_power\_{k} | Probability all k samples pass (reliability) | 
 
-| Metric           | Description                    |
-| ---------------- | ------------------------------ |
-| `val/turns/mean` | Mean turns per eval trajectory |
-| `val/turns/min`  | Minimum turns                  |
-| `val/turns/max`  | Maximum turns                  |
+**Evaluation turn counts (`val/turns/`)**
 
-**Evaluation token lengths
-(`val/tokens/`)**
 
-| Metric                     | Description                           |
-| -------------------------- | ------------------------------------- |
-| `val/tokens/prompt_mean`   | Mean prompt tokens per transition     |
-| `val/tokens/response_mean` | Mean response tokens per transition   |
-| `val/tokens/response_std`  | Standard deviation of response tokens |
-| `val/tokens/response_min`  | Minimum response tokens               |
-| `val/tokens/response_max`  | Maximum response tokens               |
+| Metric | Description | 
+| --- | --- | 
+| val/turns/mean | Mean turns per eval trajectory | 
+| val/turns/min | Minimum turns | 
+| val/turns/max | Maximum turns | 
 
-**Evaluation log-probability health
-(`val/logprob/`)**
+**Evaluation token lengths (`val/tokens/`)**
 
-| Metric                       | Description                             |
-| ---------------------------- | --------------------------------------- |
-| `val/logprob/zero_count`     | Total zero-logprob tokens               |
-| `val/logprob/zero_frac`      | Fraction of zero logprobs               |
-| `val/logprob/zero_per_group` | Zero logprobs per group                 |
-| `val/logprob/nz_mean`        | Mean of non-zero logprobs               |
-| `val/logprob/nz_std`         | Standard deviation of non-zero logprobs |
-| `val/logprob/nz_min`         | Minimum non-zero logprob                |
-| `val/logprob/nz_max`         | Maximum non-zero logprob                |
+
+| Metric | Description | 
+| --- | --- | 
+| val/tokens/prompt\_mean | Mean prompt tokens per transition | 
+| val/tokens/response\_mean | Mean response tokens per transition | 
+| val/tokens/response\_std | Standard deviation of response tokens | 
+| val/tokens/response\_min | Minimum response tokens | 
+| val/tokens/response\_max | Maximum response tokens | 
+
+**Evaluation log-probability health (`val/logprob/`)**
+
+
+| Metric | Description | 
+| --- | --- | 
+| val/logprob/zero\_count | Total zero-logprob tokens | 
+| val/logprob/zero\_frac | Fraction of zero logprobs | 
+| val/logprob/zero\_per\_group | Zero logprobs per group | 
+| val/logprob/nz\_mean | Mean of non-zero logprobs | 
+| val/logprob/nz\_std | Standard deviation of non-zero logprobs | 
+| val/logprob/nz\_min | Minimum non-zero logprob | 
+| val/logprob/nz\_max | Maximum non-zero logprob | 
 
 **Accessing the MLflow UI**
 
@@ -592,20 +582,16 @@ aws sagemaker create-presigned-mlflow-app-url \
 Copy the `AuthorizedUrl` from the output into your browser.
 
 #### Agent trajectories and traces
+<a name="model-customize-mtrl-job-trajectories"></a>
 
-During training, SageMaker AI records every interaction between your agent and the policy
-model as a trajectory — the complete record of one rollout. Each trajectory captures
-every prompt sent to the model, every response generated, every tool call made, and
-the final reward. Trajectories are published to your MLflow experiment as structured
-traces.
+During training, SageMaker AI records every interaction between your agent and the policy model as a trajectory — the complete record of one rollout. Each trajectory captures every prompt sent to the model, every response generated, every tool call made, and the final reward. Trajectories are published to your MLflow experiment as structured traces.
 
 **Trace contents**
-
-- The input prompt from your training dataset
-- Every model inference turn (prompt, response, and token-level data)
-- Tool calls and their results, if your agent uses tools
-- The final reward score
-- Timing information for each turn
++ The input prompt from your training dataset
++ Every model inference turn (prompt, response, and token-level data)
++ Tool calls and their results, if your agent uses tools
++ The final reward score
++ Timing information for each turn
 
 **Viewing trajectories in the MLflow UI**
 
@@ -619,40 +605,37 @@ aws sagemaker create-presigned-mlflow-app-url \
 
 Copy the `AuthorizedUrl` from the output into your browser.
 
-Open the MLflow UI using the presigned URL above. Navigate to your experiment's
-run and select the Traces tab. Each trace represents one completed rollout and
-shows:
-
-- The system prompt and user prompt
-- Each assistant response (with thinking/reasoning if applicable)
-- Tool use spans showing which tools were called and their outputs
-- The reward score assigned to the trajectory
+Open the MLflow UI using the presigned URL above. Navigate to your experiment's run and select the Traces tab. Each trace represents one completed rollout and shows:
++ The system prompt and user prompt
++ Each assistant response (with thinking/reasoning if applicable)
++ Tool use spans showing which tools were called and their outputs
++ The reward score assigned to the trajectory
 
 **Use trajectories to debug low reward scores**
 
-| Symptom                         | What to look for                                                 |
-| ------------------------------- | ---------------------------------------------------------------- |
-| Low reward across most rollouts | Are model responses coherent? Is the prompt format correct?      |
-| Tool-related failures           | Are tool calls succeeding? Are inputs and outputs well-formed?   |
-| Agent looping                   | Is the agent repeating the same actions without making progress? |
-| Truncated responses             | Are responses being cut off by the maxTokens limit?              |
+
+| Symptom | What to look for | 
+| --- | --- | 
+| Low reward across most rollouts | Are model responses coherent? Is the prompt format correct? | 
+| Tool-related failures | Are tool calls succeeding? Are inputs and outputs well-formed? | 
+| Agent looping | Is the agent repeating the same actions without making progress? | 
+| Truncated responses | Are responses being cut off by the maxTokens limit? | 
 
 ## Get Training Results
+<a name="model-customize-mtrl-job-results"></a>
 
-When a training job completes, your trained model weights are stored as a SageMaker AI Model
-Package. This section explains how to find your results, understand the checkpoint types
-produced during training, and use them for deployment or continued training.
+When a training job completes, your trained model weights are stored as a SageMaker AI Model Package. This section explains how to find your results, understand the checkpoint types produced during training, and use them for deployment or continued training.
 
 ### How results are stored
+<a name="model-customize-mtrl-job-results-storage"></a>
 
-SageMaker AI stores training output as versioned, immutable Model Packages inside Model
-Package Groups. Multi-turn RL uses two separate groups, which you specify when creating
-a job:
+SageMaker AI stores training output as versioned, immutable Model Packages inside Model Package Groups. Multi-turn RL uses two separate groups, which you specify when creating a job:
 
-| Group                                       | Purpose                  | Contents                                                                                        |
-| ------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- |
-| Output Model Package Group                  | Final trained model      | HuggingFace-compatible LoRA adapter weights (adapter\_config.json + adapter\_model.safetensors) |
-| Intermediate Checkpoint Model Package Group | Resumable training state | LoRA adapter weights + optimizer states + training step metadata                                |
+
+| Group | Purpose | Contents | 
+| --- | --- | --- | 
+| Output Model Package Group | Final trained model | HuggingFace-compatible LoRA adapter weights (adapter\_config.json \+ adapter\_model.safetensors) | 
+| Intermediate Checkpoint Model Package Group | Resumable training state | LoRA adapter weights \+ optimizer states \+ training step metadata | 
 
 **Configure both groups in your ModelPackageConfig:**
 
@@ -664,25 +647,24 @@ a job:
 ```
 
 ### Checkpoint types
+<a name="model-customize-mtrl-job-results-checkpoint-types"></a>
 
-Training produces two types of checkpoints, saved at every training
-step:
+Training produces two types of checkpoints, saved at every training step:
 
 **Model checkpoint (weights only)**
-
-- Stored in the Output Model Package Group
-- Contains HuggingFace-compatible LoRA adapter weights in SafeTensors format
-- Use for inference, deployment, or as the starting point for a new training job
-- Created at every step, at job completion, and when a job is stopped
++ Stored in the Output Model Package Group
++ Contains HuggingFace-compatible LoRA adapter weights in SafeTensors format
++ Use for inference, deployment, or as the starting point for a new training job
++ Created at every step, at job completion, and when a job is stopped
 
 **Resumable checkpoint (full state)**
-
-- Stored in the Intermediate Checkpoint Model Package Group
-- Contains LoRA adapter weights, optimizer states, and per-GPU training step metadata
-- Use to resume an interrupted job from the exact step it stopped
-- Internal format — not directly usable for inference
++ Stored in the Intermediate Checkpoint Model Package Group
++ Contains LoRA adapter weights, optimizer states, and per-GPU training step metadata
++ Use to resume an interrupted job from the exact step it stopped
++ Internal format — not directly usable for inference
 
 ### Checkpoint lifecycle
+<a name="model-customize-mtrl-job-results-checkpoint-lifecycle"></a>
 
 ```
 Step 1 → Intermediate Checkpoint (resumable)
@@ -695,10 +677,9 @@ Step N (final) → Model Checkpoint (HuggingFace LoRA) → Output Model Package 
 ```
 
 ### Retrieve your trained model
+<a name="model-customize-mtrl-job-results-retrieve"></a>
 
-When a job completes successfully, the final model is saved as a Model Package in the
-Output Model Package Group. The `OutputModelPackageArn` field on the job
-record contains the ARN.
+When a job completes successfully, the final model is saved as a Model Package in the Output Model Package Group. The `OutputModelPackageArn` field on the job record contains the ARN.
 
 Check job completion and retrieve the output model ARN:
 
@@ -709,30 +690,23 @@ aws sagemaker describe-job \
 --region us-west-2
 ```
 
-Look for `OutputModelPackageArn` in the response. Use it to describe the
-Model Package and get the S3 location of the weights:
+Look for `OutputModelPackageArn` in the response. Use it to describe the Model Package and get the S3 location of the weights:
 
 ```
 aws sagemaker describe-model-package \
 --model-package-name "arn:aws:sagemaker:us-west-2:123456789012:model-package/my-final-models/5"
 ```
 
-If a job fails or is stopped before completion, the last intermediate checkpoint is
-promoted to the Output Model Package Group on a best-effort basis. Check
-`OutputModelPackageArn` the same way.
+If a job fails or is stopped before completion, the last intermediate checkpoint is promoted to the Output Model Package Group on a best-effort basis. Check `OutputModelPackageArn` the same way.
 
-To monitor checkpoint creation during training, watch the
-`ResumableCheckpoint` and `ModelCheckpoint` fields in
-DescribeJob output.
+To monitor checkpoint creation during training, watch the `ResumableCheckpoint` and `ModelCheckpoint` fields in DescribeJob output.
 
 ### Resume an interrupted job
+<a name="model-customize-mtrl-job-results-resume"></a>
 
-If a job fails or is stopped mid-training, you can start a new job that picks up from
-the exact step where it left off. The platform restores the full training state —
-weights, optimizer momentum, and step counter — from the resumable checkpoint.
+If a job fails or is stopped mid-training, you can start a new job that picks up from the exact step where it left off. The platform restores the full training state — weights, optimizer momentum, and step counter — from the resumable checkpoint.
 
-Specify a resumable checkpoint from the Intermediate Checkpoint Model Package Group as
-`InputModelPackageArn`:
+Specify a resumable checkpoint from the Intermediate Checkpoint Model Package Group as `InputModelPackageArn`:
 
 ```
 "ModelPackageConfig": {
@@ -742,27 +716,20 @@ Specify a resumable checkpoint from the Intermediate Checkpoint Model Package Gr
 }
 ```
 
-The `InputModelPackageArn` must point to a resumable checkpoint (one with
-`IsCheckpoint=true` in its Model Package metadata). Training resumes from the
-step after the checkpoint — for example, if the checkpoint was saved at step 4, training
-continues from step 5.
+The `InputModelPackageArn` must point to a resumable checkpoint (one with `IsCheckpoint=true` in its Model Package metadata). Training resumes from the step after the checkpoint — for example, if the checkpoint was saved at step 4, training continues from step 5.
 
 The following must stay the same between the original job and the resumed job:
-
-- Base model
-- LoRA configuration (rank and alpha)
-- Hyperparameters (learning rate, batch size, etc.)
-- Dataset
++ Base model
++ LoRA configuration (rank and alpha)
++ Hyperparameters (learning rate, batch size, etc.)
++ Dataset
 
 ### Continue training on a new job (iterative training)
+<a name="model-customize-mtrl-job-results-iterative"></a>
 
-Iterative training lets you build on a previously trained model with a different
-dataset, different hyperparameters, or a refined reward function. Unlike resuming, this
-starts a fresh training run — the optimizer resets, the step counter resets to 0, and
-only the trained LoRA weights carry over.
+Iterative training lets you build on a previously trained model with a different dataset, different hyperparameters, or a refined reward function. Unlike resuming, this starts a fresh training run — the optimizer resets, the step counter resets to 0, and only the trained LoRA weights carry over.
 
-Specify a model checkpoint from the Output Model Package Group as
-`InputModelPackageArn`:
+Specify a model checkpoint from the Output Model Package Group as `InputModelPackageArn`:
 
 ```
 "ModelPackageConfig": {
@@ -773,30 +740,20 @@ Specify a model checkpoint from the Output Model Package Group as
 ```
 
 **What you can change between iterations:**
-
-- Hyperparameters (learning rate, batch size, max\_steps, group\_size, etc.)
-- Dataset (different prompts or data distribution)
-- Reward function
-- Agent configuration
++ Hyperparameters (learning rate, batch size, max\_steps, group\_size, etc.)
++ Dataset (different prompts or data distribution)
++ Reward function
++ Agent configuration
 
 **What must stay the same:**
-
-- Base model — the LoRA adapter is tied to the base model architecture
++ Base model — the LoRA adapter is tied to the base model architecture
 
 Common patterns for iterative training:
-
-- **Curriculum learning** — train on easier problems
-  first, then continue on harder ones
-- **Reward refinement** — start with a simple reward
-  function, then iterate with a more nuanced one
-- **Hyperparameter adjustment** — increase batch size
-  or tune learning rate after observing initial training dynamics
++ **Curriculum learning** — train on easier problems first, then continue on harder ones
++ **Reward refinement** — start with a simple reward function, then iterate with a more nuanced one
++ **Hyperparameter adjustment** — increase batch size or tune learning rate after observing initial training dynamics
 
 ### Checkpoint best practices
-
-- **Monitor checkpoint creation**. Use DescribeJob to
-  track `ResumableCheckpoint` and `ModelCheckpoint` fields
-  during training so you know what's available if you need to resume.
-- **Plan for failures on long jobs.** If a job has
-  many steps, design your workflow to resume from checkpoints rather than restart
-  from scratch.
+<a name="model-customize-mtrl-job-results-best-practices"></a>
++ **Monitor checkpoint creation**. Use DescribeJob to track `ResumableCheckpoint` and `ModelCheckpoint` fields during training so you know what's available if you need to resume.
++ **Plan for failures on long jobs.** If a job has many steps, design your workflow to resume from checkpoints rather than restart from scratch.

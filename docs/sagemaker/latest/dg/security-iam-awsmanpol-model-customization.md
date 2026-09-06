@@ -1,66 +1,36 @@
+
+
 # AWS managed policies for Amazon SageMaker AI model customization
+<a name="security-iam-awsmanpol-model-customization"></a>
 
-These AWS managed policies add permissions required to use Amazon SageMaker AI model
-customization. The policies are available in your AWS account and are used by execution
-roles created from the SageMaker AI console.
+These AWS managed policies add permissions required to use Amazon SageMaker AI model customization. The policies are available in your AWS account and are used by execution roles created from the SageMaker AI console.
 
-###### Topics
-
-- [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess")
-- [Amazon SageMaker AI updates to model customization managed policies](#security-iam-awsmanpol-model-customization-updates "#security-iam-awsmanpol-model-customization-updates")
+**Topics**
++ [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess)
++ [Amazon SageMaker AI updates to model customization managed policies](#security-iam-awsmanpol-model-customization-updates)
 
 ## AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess
+<a name="security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess"></a>
 
-This policy grants permissions required for model customization workflows in Amazon SageMaker AI,
-including serverless training, custom reward function reinforcement learning, model
-evaluation, and deployment to SageMaker or Bedrock endpoints.
+This policy grants permissions required for model customization workflows in Amazon SageMaker AI, including serverless training, custom reward function reinforcement learning, model evaluation, and deployment to SageMaker or Bedrock endpoints.
 
 **Permissions details**
 
 This AWS managed policy includes the following permissions.
++ `sagemaker` – Allows principals to manage SageMaker Hub content, create and manage training jobs, pipelines, endpoints with inference components, model packages, lineage tracking, MLflow experiment tracking, and perform search and tagging operations across model customization resources.
++ `sagemaker-mlflow` – Allows principals to access the MLflow tracking UI, create experiments and runs, and log metrics, parameters, and models.
++ `s3` – Allows principals to read objects from JumpStart buckets and read/write objects in S3 buckets with names containing "sagemaker" (case-insensitive), restricted to the principal's own account.
++ `lambda` – Allows principals to list, create, delete, invoke, and get Lambda functions with names containing "SageMaker" (case-insensitive) for custom reward functions. Also allows read access to the AWS SDK Lambda layer.
++ `bedrock` – Allows principals to create custom models and evaluation jobs, import models, invoke models (including streaming), and list foundation models and provisioned throughputs.
++ `ecr` – Allows principals to pull container images and get authorization tokens for inference. Uses `Resource: *` to support cross-account pulls from AWS Deep Learning Container accounts.
++ `application-autoscaling` – Allows principals to describe scalable targets for inference endpoint autoscaling.
++ `logs` – Allows principals to read and write CloudWatch Logs for SageMaker log groups (`/aws/sagemaker/*`).
++ `iam` – Allows principals to pass roles to SageMaker, Lambda, and Bedrock services. PassRole is scoped by role naming conventions (`*SageMaker*` for SageMaker, `SageMakerForLambda*` for Lambda, and `SageMakerForBedrock*` for Bedrock) and `iam:PassedToService` conditions. Each service accepts both regular role paths and `service-role/` paths. Also allows `ListRoles` for UI dropdowns.
++ `kms` – Allows principals to describe keys and list aliases for job configuration. Read-only.
++ `ec2` – Allows principals to describe VPCs for job configuration. Read-only.
++ `servicequotas` – Allows principals to list service quotas for Amazon SageMaker AI. This enables the Studio UI to look up instance-type-specific quota codes and provide direct links to the Service Quotas console when a quota limit is reached. Read-only.
 
-- `sagemaker` – Allows principals to manage SageMaker Hub
-  content, create and manage training jobs, pipelines, endpoints with inference
-  components, model packages, lineage tracking, MLflow experiment tracking, and
-  perform search and tagging operations across model customization resources.
-- `sagemaker-mlflow` – Allows principals to access the MLflow
-  tracking UI, create experiments and runs, and log metrics, parameters, and
-  models.
-- `s3` – Allows principals to read objects from JumpStart
-  buckets and read/write objects in S3 buckets with names containing "sagemaker"
-  (case-insensitive), restricted to the principal's own account.
-- `lambda` – Allows principals to list, create, delete,
-  invoke, and get Lambda functions with names containing "SageMaker"
-  (case-insensitive) for custom reward functions. Also allows read access to the
-  AWS SDK Lambda layer.
-- `bedrock` – Allows principals to create custom models and
-  evaluation jobs, import models, invoke models (including streaming), and list
-  foundation models and provisioned throughputs.
-- `ecr` – Allows principals to pull container images and get
-  authorization tokens for inference. Uses `Resource: *` to support
-  cross-account pulls from AWS Deep Learning Container accounts.
-- `application-autoscaling` – Allows principals to describe
-  scalable targets for inference endpoint autoscaling.
-- `logs` – Allows principals to read and write CloudWatch Logs
-  for SageMaker log groups (`/aws/sagemaker/*`).
-- `iam` – Allows principals to pass roles to SageMaker,
-  Lambda, and Bedrock services. PassRole is scoped by role naming conventions
-  (`*SageMaker*` for SageMaker,
-  `SageMakerForLambda*` for Lambda, and
-  `SageMakerForBedrock*` for Bedrock) and
-  `iam:PassedToService` conditions. Each service accepts both
-  regular role paths and `service-role/` paths. Also allows
-  `ListRoles` for UI dropdowns.
-- `kms` – Allows principals to describe keys and list aliases
-  for job configuration. Read-only.
-- `ec2` – Allows principals to describe VPCs for job
-  configuration. Read-only.
-- `servicequotas` – Allows principals to list service quotas
-  for Amazon SageMaker AI. This enables the Studio UI to look up instance-type-specific quota
-  codes and provide direct links to the Service Quotas console when a quota limit
-  is reached. Read-only.
-
-###### Example Permissions policy
+**Example Permissions policy**  
 
 ```
 {
@@ -574,14 +544,13 @@ This AWS managed policy includes the following permissions.
 ```
 
 ## Amazon SageMaker AI updates to model customization managed policies
+<a name="security-iam-awsmanpol-model-customization-updates"></a>
 
-View details about updates to AWS managed policies for Amazon SageMaker AI model customization
-since this service began tracking these changes. For automatic alerts about changes to
-this page, subscribe to the RSS feed on the SageMaker AI [Document
-history page.](doc-history.md "doc-history.md")
+View details about updates to AWS managed policies for Amazon SageMaker AI model customization since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the SageMaker AI [Document history page.](doc-history.md)
 
-| Policy                                                                                                                                                                                                                        | Version | Change                                                                                                                                                                                                                                                                                                                                 | Date          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess") – Updated policy | 3       | Updated the `PassRoleForAWSLambda` and<br>`PassRoleForBedrock` statements to accept both<br>regular IAM role paths and `service-role/` paths.<br>This supports roles that the Amazon SageMaker AI console creates<br>under the `service-role/` path.                                                                                   | July 21, 2026 |
-| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess") – Updated policy | 2       | Added `servicequotas:ListServiceQuotas` to the<br>`SageMakerJobAdvancedSettings` statement. This allows<br>the Amazon SageMaker AI Studio UI to look up instance-type-specific service<br>quota codes and provide direct links to the Service Quotas console<br>when a quota limit is reached during model customization<br>workflows. | June 30, 2026 |
-| AmazonSageMakerModelCustomizationCoreAccess<br>• New policy                                                                                                                                                                   | 1       | Initial policy                                                                                                                                                                                                                                                                                                                         | May 26, 2026  |
+
+| Policy | Version | Change | Date | 
+| --- | --- | --- | --- | 
+| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess) – Updated policy | 3 | Updated the `PassRoleForAWSLambda` and `PassRoleForBedrock` statements to accept both regular IAM role paths and `service-role/` paths. This supports roles that the Amazon SageMaker AI console creates under the `service-role/` path. | July 21, 2026 | 
+| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess) – Updated policy | 2 | Added `servicequotas:ListServiceQuotas` to the `SageMakerJobAdvancedSettings` statement. This allows the Amazon SageMaker AI Studio UI to look up instance-type-specific service quota codes and provide direct links to the Service Quotas console when a quota limit is reached during model customization workflows. | June 30, 2026 | 
+| AmazonSageMakerModelCustomizationCoreAccess - New policy | 1 | Initial policy | May 26, 2026 | 

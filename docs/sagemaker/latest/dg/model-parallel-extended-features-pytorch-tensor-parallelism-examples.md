@@ -1,33 +1,25 @@
+
+
 # Run a SageMaker Distributed Model Parallel Training Job with Tensor Parallelism
+<a name="model-parallel-extended-features-pytorch-tensor-parallelism-examples"></a>
 
 In this section, you learn:
++ How to configure a SageMaker PyTorch ModelTrainer and the SageMaker model parallelism option to use tensor parallelism.
++ How to adapt your training script using the extended `smdistributed.modelparallel` modules for tensor parallelism.
 
-- How to configure a SageMaker PyTorch ModelTrainer and the SageMaker model parallelism
-  option to use tensor parallelism.
-- How to adapt your training script using the
-  extended `smdistributed.modelparallel` modules for tensor
-  parallelism.
-  To learn more about the `smdistributed.modelparallel` modules, see the
-  [SageMaker model parallel APIs](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html") in the _SageMaker Python SDK
-  documentation_.
+To learn more about the `smdistributed.modelparallel` modules, see the [SageMaker model parallel APIs](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html) in the *SageMaker Python SDK documentation*.
 
-###### Topics
-
-- [Tensor parallelism alone](#model-parallel-extended-features-pytorch-tensor-parallelism-alone "#model-parallel-extended-features-pytorch-tensor-parallelism-alone")
-- [Tensor parallelism combined with pipeline parallelism](#model-parallel-extended-features-pytorch-tensor-and-pipeline-parallelism "#model-parallel-extended-features-pytorch-tensor-and-pipeline-parallelism")
+**Topics**
++ [Tensor parallelism alone](#model-parallel-extended-features-pytorch-tensor-parallelism-alone)
++ [Tensor parallelism combined with pipeline parallelism](#model-parallel-extended-features-pytorch-tensor-and-pipeline-parallelism)
 
 ## Tensor parallelism alone
+<a name="model-parallel-extended-features-pytorch-tensor-parallelism-alone"></a>
 
-The following is an example of a distributed training option to activate
-tensor parallelism alone, without pipeline parallelism. Configure the
-`mpi_options` and `smp_options` dictionaries to
-specify distributed training options to the SageMaker `PyTorch` ModelTrainer.
+The following is an example of a distributed training option to activate tensor parallelism alone, without pipeline parallelism. Configure the `mpi_options` and `smp_options` dictionaries to specify distributed training options to the SageMaker `PyTorch` ModelTrainer.
 
-###### Note
-
-Extended memory-saving features are available through Deep Learning
-Containers for PyTorch, which implements the SageMaker model parallelism library
-v1.6.0 or later.
+**Note**  
+Extended memory-saving features are available through Deep Learning Containers for PyTorch, which implements the SageMaker model parallelism library v1.6.0 or later.
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
@@ -46,7 +38,7 @@ smp_options = {
     "parameters": {
         "pipeline_parallel_degree": 1,    # alias for "partitions"
         "placement_strategy": "cluster",
-        **"tensor\_parallel\_degree": 4**,      # tp over 4 devices
+        "tensor_parallel_degree": 4,      # tp over 4 devices
         "ddp": True
     }
 }
@@ -54,19 +46,19 @@ smp_options = {
 # Retrieve the training image for the desired PyTorch version
 training_image = image_uris.retrieve(
     framework="pytorch",
-    region="`us-west-2`",
+    region="{{us-west-2}}",
     version='1.13.1',
     py_version='py36',
-    instance_type='`ml.p3.16xlarge`',
+    instance_type='{{ml.p3.16xlarge}}',
     image_scope="training"
 )
 
 smp_model_trainer = ModelTrainer(
     training_image=training_image,
-    source_code=SourceCode(entry_script='`your_training_script.py`'),
+    source_code=SourceCode(entry_script='{{your_training_script.py}}'),
     role=role,
     compute=Compute(
-        instance_type='`ml.p3.16xlarge`',
+        instance_type='{{ml.p3.16xlarge}}',
         instance_count=1
     ),
     sagemaker_session=sagemaker_session,
@@ -74,25 +66,20 @@ smp_model_trainer = ModelTrainer(
         "smdistributed": {"modelparallel": smp_options},
         "mpi": mpi_options
     },
-    base_job_name="`SMD-MP-demo`",
+    base_job_name="{{SMD-MP-demo}}",
 )
 
 smp_model_trainer.train(input_data_config=[
-    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+    InputData(channel_name="training", data_source='{{s3://my_bucket/my_training_data/}}')
 ])
 ```
 
-###### Tip
-
-To find a complete list of parameters for `distribution`, see
-[Configuration Parameters for Model Parallelism](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html") in the SageMaker
-Python SDK documentation.
+**Tip**  
+To find a complete list of parameters for `distribution`, see [Configuration Parameters for Model Parallelism](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html) in the SageMaker Python SDK documentation.
 
 **Adapt your PyTorch training script**
 
-The following example training script shows how to adapt the SageMaker model
-parallelism library to a training script. In this example, it is assumed that
-the script is named `your_training_script.py`.
+The following example training script shows how to adapt the SageMaker model parallelism library to a training script. In this example, it is assumed that the script is named `your_training_script.py`. 
 
 ```
 import torch
@@ -137,7 +124,7 @@ def train(model, device, train_loader, optimizer):
         optimizer.step()
 
 # smdistributed: Initialize the backend
-**smp.init()**
+smp.init()
 
 # smdistributed: Set the device to the GPU ID used by the current process.
 # Input tensors should be transferred to this device.
@@ -163,32 +150,26 @@ train_loader = torch.utils.data.DataLoader(dataset, batch_size=64)
 # i.e., nn.Linear in this case. Alternatively, we can use
 # smp.set_tensor_parallelism(model.fc1, True)
 # to enable it only for model.fc1
-**with smp.tensor\_parallelism():**
+with smp.tensor_parallelism():
     model = Net()
 
 # smdistributed: Use the DistributedModel wrapper to distribute the
 # modules for which tensor parallelism is enabled
-model = **smp.DistributedModel**(model)
+model = smp.DistributedModel(model)
 
 optimizer = optim.AdaDelta(model.parameters(), lr=4.0)
-optimizer = **smp.DistributedOptimizer**(optimizer)
+optimizer = smp.DistributedOptimizer(optimizer)
 
 train(model, device, train_loader, optimizer)
 ```
 
 ## Tensor parallelism combined with pipeline parallelism
+<a name="model-parallel-extended-features-pytorch-tensor-and-pipeline-parallelism"></a>
 
-The following is an example of a distributed training option that enables
-tensor parallelism combined with pipeline parallelism. Set up the
-`mpi_options` and `smp_options` parameters to specify
-model parallel options with tensor parallelism when you configure a SageMaker
-`PyTorch` ModelTrainer.
+The following is an example of a distributed training option that enables tensor parallelism combined with pipeline parallelism. Set up the `mpi_options` and `smp_options` parameters to specify model parallel options with tensor parallelism when you configure a SageMaker `PyTorch` ModelTrainer.
 
-###### Note
-
-Extended memory-saving features are available through Deep Learning
-Containers for PyTorch, which implements the SageMaker model parallelism library
-v1.6.0 or later.
+**Note**  
+Extended memory-saving features are available through Deep Learning Containers for PyTorch, which implements the SageMaker model parallelism library v1.6.0 or later.
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
@@ -203,9 +184,9 @@ smp_options = {
     "enabled":True,
     "parameters": {
     "microbatches": 4,
-        `"pipeline_parallel_degree": 2`,    # alias for "partitions"
+        "pipeline_parallel_degree": 2,    # alias for "partitions"
         "placement_strategy": "cluster",
-        `"tensor_parallel_degree": 2`,      # tp over 2 devices
+        "tensor_parallel_degree": 2,      # tp over 2 devices
         "ddp": True
     }
 }
@@ -213,19 +194,19 @@ smp_options = {
 # Retrieve the training image for the desired PyTorch version
 training_image = image_uris.retrieve(
     framework="pytorch",
-    region="`us-west-2`",
+    region="{{us-west-2}}",
     version='1.13.1',
     py_version='py36',
-    instance_type='`ml.p3.16xlarge`',
+    instance_type='{{ml.p3.16xlarge}}',
     image_scope="training"
 )
 
 smp_model_trainer = ModelTrainer(
     training_image=training_image,
-    source_code=SourceCode(entry_script='`your_training_script.py`'),
+    source_code=SourceCode(entry_script='{{your_training_script.py}}'),
     role=role,
     compute=Compute(
-        instance_type='`ml.p3.16xlarge`',
+        instance_type='{{ml.p3.16xlarge}}',
         instance_count=1
     ),
     sagemaker_session=sagemaker_session,
@@ -233,19 +214,17 @@ smp_model_trainer = ModelTrainer(
         "smdistributed": {"modelparallel": smp_options},
         "mpi": mpi_options
     },
-    base_job_name="`SMD-MP-demo`",
+    base_job_name="{{SMD-MP-demo}}",
 )
 
 smp_model_trainer.train(input_data_config=[
-    InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
+    InputData(channel_name="training", data_source='{{s3://my_bucket/my_training_data/}}')
 ])
 ```
 
-**Adapt your PyTorch training script**
+<a name="model-parallel-extended-features-pytorch-tensor-and-pipeline-parallelism-script"></a>**Adapt your PyTorch training script**
 
-The following example training script shows how to adapt the SageMaker model
-parallelism library to a training script. Note that the training script now
-includes the `smp.step` decorator:
+The following example training script shows how to adapt the SageMaker model parallelism library to a training script. Note that the training script now includes the `smp.step` decorator: 
 
 ```
 import torch
@@ -279,7 +258,7 @@ class Net(nn.Module):
 
 
 # smdistributed: Define smp.step. Return any tensors needed outside.
-**@smp.step**
+@smp.step
 def train_step(model, data, target):
     output = model(data)
     loss = F.nll_loss(output, target, reduction="mean")
@@ -338,7 +317,7 @@ smp.set_tensor_parallelism(model.fc1, True)
 model = smp.DistributedModel(model)
 
 optimizer = optim.AdaDelta(model.parameters(), lr=4.0)
-optimizer = **smp.DistributedOptimizer**(optimizer)
+optimizer = smp.DistributedOptimizer(optimizer)
 
 train(model, device, train_loader, optimizer)
 ```

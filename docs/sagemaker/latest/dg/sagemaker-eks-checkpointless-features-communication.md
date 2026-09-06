@@ -1,4 +1,7 @@
+
+
 # Collective communication initialization improvements
+<a name="sagemaker-eks-checkpointless-features-communication"></a>
 
 NCCL and Gloo are fundamental communication libraries that enable collective operations (such as all-reduce and broadcast) across distributed training processes. However, traditional NCCL and Gloo initialization can create bottlenecks during fault recovery.
 
@@ -7,6 +10,7 @@ The standard recovery process requires all processes to connect to a centralized
 HyperPod checkpointless training eliminates these coordination bottlenecks, enabling the faster recovery from faults by making initialization "rootless" and "TCPStoreless."
 
 ## Rootless configurations
+<a name="sagemaker-eks-checkpointless-features-communication-rootless-config"></a>
 
 To enable Rootless, one can simply expose the following environment variables.
 
@@ -19,27 +23,30 @@ HPCT\_USE\_ROOTLESS: 0 or 1. Use to turn on and off rootless
 
 sysctl -w net.ipv4.ip\_local\_port\_range="20000 65535": Set the system port range
 
-See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml#L111-L113 "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml#L111-L113") for enabling Rootless.
+See [the example](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml#L111-L113) for enabling Rootless.
 
 ## Rootless
+<a name="sagemaker-eks-checkpointless-features-communication-rootless"></a>
 
 HyperPod checkpointless training offers novel initialization methods, Rootless and TCPStoreless, for NCCL and Gloo process groups.
 
 The implementation of these optimizations involves modifying NCCL, Gloo, and PyTorch:
-
-- Extending third-party library APIs to enable Rootless and Storeless NCCL and Gloo optimizations while maintaining backward compatibility
-- Updating process group backends to conditionally use optimized paths and handle in-process recovery issues
-- Bypassing expensive TCPStore creation at the PyTorch distributed layer while maintaining symmetric address patterns through global group counters
++ Extending third-party library APIs to enable Rootless and Storeless NCCL and Gloo optimizations while maintaining backward compatibility
++ Updating process group backends to conditionally use optimized paths and handle in-process recovery issues
++ Bypassing expensive TCPStore creation at the PyTorch distributed layer while maintaining symmetric address patterns through global group counters
 
 The following graph shows the architecture of the distributed training libraries and the changes made in checkpointless training.
 
-![The following graph shows the architecture of the distributed training libraries and the changes made in checkpointless training.](images/hyperpod/hyperpod-checkpointless-training-libraries.png)
+![The following graph shows the architecture of the distributed training libraries and the changes made in checkpointless training.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-training-libraries.png)
+
 
 ### NCCL and Gloo
+<a name="sagemaker-eks-checkpointless-features-communication-nccl-gloo"></a>
 
 These are independent packages that perform the core functionality of collective communications. They provide key APIs, such as ncclCommInitRank, to initialize communication networks, manage the underlying resources, and perform collective communications. After making custom changes in NCCL and Gloo, the Rootless and Storeless optimizes (e.g., skip connecting to the TCPStore) initialization of the communication network. You can switch between using the the original code paths or optimized code paths flexibly.
 
 ### PyTorch process group backend
+<a name="sagemaker-eks-checkpointless-features-communication-pytorch"></a>
 
 The process group backends, specifically ProcessGroupNCCL and ProcessGroupGloo, implement the ProcessGroup APIs by invoking the APIs of their corresponding underlying libraries. Since we extend the third-party libraries' APIs, we have to invoke them properly and make code path switches based on customers' configurations.
 

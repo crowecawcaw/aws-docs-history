@@ -1,58 +1,39 @@
+
+
 # Task governance setup
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-setup-task-governance"></a>
 
-This section includes information on how to set up the Amazon SageMaker HyperPod task
-governance EKS add-on. This includes granting permissions that allows you to set
-task prioritization, compute allocation for teams, how idle compute is shared, and
-task preemption for teams.
+This section includes information on how to set up the Amazon SageMaker HyperPod task governance EKS add-on. This includes granting permissions that allows you to set task prioritization, compute allocation for teams, how idle compute is shared, and task preemption for teams.
 
-If you are having issues setting up, please see [Troubleshoot](sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md "sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md") for known troubleshooting solutions.
+If you are having issues setting up, please see [Troubleshoot](sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md) for known troubleshooting solutions.
 
-###### Topics
-
-- [Kueue Settings](#hp-eks-task-governance-kueue-settings "#hp-eks-task-governance-kueue-settings")
-- [HyperPod Task governance prerequisites](#hp-eks-task-governance-prerequisites "#hp-eks-task-governance-prerequisites")
-- [HyperPod task governance setup](#hp-eks-task-governance-setup "#hp-eks-task-governance-setup")
+**Topics**
++ [Kueue Settings](#hp-eks-task-governance-kueue-settings)
++ [HyperPod Task governance prerequisites](#hp-eks-task-governance-prerequisites)
++ [HyperPod task governance setup](#hp-eks-task-governance-setup)
 
 ## Kueue Settings
+<a name="hp-eks-task-governance-kueue-settings"></a>
 
-HyperPod task governance EKS add-on installs [Kueue](https://github.com/kubernetes-sigs/kueue/tree/main/apis/kueue "https://github.com/kubernetes-sigs/kueue/tree/main/apis/kueue") for your HyperPod EKS clusters. Kueue is a
-kubernetes-native system that manages quotas and how jobs consume them.
+HyperPod task governance EKS add-on installs [Kueue](https://github.com/kubernetes-sigs/kueue/tree/main/apis/kueue) for your HyperPod EKS clusters. Kueue is a kubernetes-native system that manages quotas and how jobs consume them. 
 
-| EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the<br>add-on |
-| ------------------------------------------- | ----------------------------------------------------------- |
-| v1.5.0-eksbuild.1                           | v0.18.0                                                     |
-| v1.4.0-eksbuild.1                           | v0.14.0                                                     |
-| v1.3.2-eksbuild.1                           | v0.12.0                                                     |
-| v1.3.1-eksbuild.1                           | v0.12.0                                                     |
 
-###### Upgrading from v1.3.x to v1.5
+| EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the add-on | 
+| --- | --- | 
+| v1.5.0-eksbuild.1 | v0.18.0 | 
+| v1.4.0-eksbuild.1 | v0.14.0 | 
+| v1.3.2-eksbuild.1 | v0.12.0 | 
+| v1.3.1-eksbuild.1 | v0.12.0 | 
 
-You cannot upgrade directly from v1.3.x to v1.5 because of CRD
-schema migration requirements. We recommend using the upgrade option in the
-SageMaker AI HyperPod console, which handles the migration
-automatically. If you cannot use the console, see
-[Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15 "sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15") for the
-manual procedure through the Amazon EKS add-on interface.
+**Upgrading from v1.3.x to v1.5**  
+You cannot upgrade directly from v1.3.x to v1.5 because of CRD schema migration requirements. We recommend using the upgrade option in the SageMaker AI HyperPod console, which handles the migration automatically. If you cannot use the console, see [Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15) for the manual procedure through the Amazon EKS add-on interface.
 
-###### Note
+**Note**  
+Kueue v.012.0 and higher don't include kueue-rbac-proxy as part of the installation. Previous versions might have kueue-rbac-proxy installed. For example, if you're using Kueue v0.8.1, you might have kueue-rbac-proxy v0.18.1.
 
-Kueue v.012.0 and higher don't include kueue-rbac-proxy as part of the installation.
-Previous versions might have kueue-rbac-proxy installed. For example, if you're using Kueue v0.8.1,
-you might have kueue-rbac-proxy v0.18.1.
+HyperPod task governance leverages Kueue for Kubernetes-native job queueing, scheduling, and quota management, and is installed with the HyperPod task governance EKS add-on. When installed, HyperPod creates and modifies SageMaker AI-managed Kubernetes resources such as `KueueManagerConfig`, `ClusterQueues`, `LocalQueues`, `WorkloadPriorityClasses`, `ResourceFlavors`, and `ValidatingAdmissionPolicies`. While Kubernetes administrators have the flexibility to modify the state of these resources, it is possible that any changes made to a SageMaker AI-managed resource may be updated and overwritten by the service.
 
-HyperPod task governance leverages Kueue for Kubernetes-native job
-queueing, scheduling, and quota management, and is installed with the
-HyperPod task governance EKS add-on. When installed, HyperPod
-creates and modifies SageMaker AI-managed Kubernetes resources such as
-`KueueManagerConfig`, `ClusterQueues`,
-`LocalQueues`, `WorkloadPriorityClasses`,
-`ResourceFlavors`, and `ValidatingAdmissionPolicies`.
-While Kubernetes administrators have the flexibility to modify the state of
-these resources, it is possible that any changes made to a SageMaker AI-managed resource
-may be updated and overwritten by the service.
-
-The following information outlines the configuration settings utilized by the
-HyperPod task governance add-on for setting up Kueue.
+The following information outlines the configuration settings utilized by the HyperPod task governance add-on for setting up Kueue.
 
 ```
   apiVersion: config.kueue.x-k8s.io/v1beta2
@@ -109,84 +90,74 @@ HyperPod task governance add-on for setting up Kueue.
       excludeResourcePrefixes: []
 ```
 
-For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta2/#Configuration "https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta2/#Configuration") in the Kueue documentation.
+For more information about each configuration entry, see [Configuration](https://kueue.sigs.k8s.io/docs/reference/kueue-config.v1beta2/#Configuration) in the Kueue documentation.
 
 ## HyperPod Task governance prerequisites
-
-- Ensure that you have the minimum permission policy for
-  HyperPod cluster administrators, in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin"). This includes permissions to run the SageMaker HyperPod core APIs, manage
-  SageMaker HyperPod clusters within your AWS account, and performing the
-  tasks in [Managing SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-operate.md "sagemaker-hyperpod-eks-operate.md").
-- You will need to have your Kubernetes version >= 1.30. For
-  instructions, see [Update existing
-  clusters to the new Kubernetes version](../../../eks/latest/userguide/update-cluster.md "../../../eks/latest/userguide/update-cluster.md").
-- If you already have Kueue installed in their clusters, uninstall Kueue
-  before installing the EKS add-on.
-- A HyperPod node must already exist in the EKS cluster before
-  installing the HyperPod task governance add-on.
+<a name="hp-eks-task-governance-prerequisites"></a>
++ Ensure that you have the minimum permission policy for HyperPod cluster administrators, in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin). This includes permissions to run the SageMaker HyperPod core APIs, manage SageMaker HyperPod clusters within your AWS account, and performing the tasks in [Managing SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-operate.md). 
++ You will need to have your Kubernetes version >= 1.30. For instructions, see [Update existing clusters to the new Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html).
++ If you already have Kueue installed in their clusters, uninstall Kueue before installing the EKS add-on.
++ A HyperPod node must already exist in the EKS cluster before installing the HyperPod task governance add-on. 
 
 ## HyperPod task governance setup
+<a name="hp-eks-task-governance-setup"></a>
 
-The following provides information on how to get set up with HyperPod
-task governance.
+The following provides information on how to get set up with HyperPod task governance.
 
-Setup using the SageMaker AI console
-The following provides information on how to get set up with
-HyperPod task governance using the SageMaker HyperPod
-console.
+------
+#### [ Setup using the SageMaker AI console ]
 
-You already have all of the following permissions attached if you
-have already granted permissions to manage Amazon CloudWatch Observability
-EKS and view the HyperPod cluster dashboard through the
-SageMaker AI console in the [HyperPod Amazon CloudWatch Observability EKS add-on setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup "sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup"). If you have not set
-this up, use the sample policy below to grant permissions to manage
-the HyperPod task governance add-on and view the
-HyperPod cluster dashboard through the SageMaker AI console.
+The following provides information on how to get set up with HyperPod task governance using the SageMaker HyperPod console.
 
-JSONJSON
+You already have all of the following permissions attached if you have already granted permissions to manage Amazon CloudWatch Observability EKS and view the HyperPod cluster dashboard through the SageMaker AI console in the [HyperPod Amazon CloudWatch Observability EKS add-on setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard.md#hp-eks-dashboard-setup). If you have not set this up, use the sample policy below to grant permissions to manage the HyperPod task governance add-on and view the HyperPod cluster dashboard through the SageMaker AI console.
+
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "eks:ListAddons",
- "eks:CreateAddon",
- "eks:UpdateAddon",
- "eks:DescribeAddon",
- "eks:DescribeAddonVersions",
- "sagemaker:DescribeCluster",
- "sagemaker:DescribeClusterNode",
- "sagemaker:ListClusterNodes",
- "sagemaker:ListClusters",
- "eks:DescribeCluster",
- "eks:AccessKubernetesApi"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:ListAddons",
+                "eks:CreateAddon",
+                "eks:UpdateAddon",
+                "eks:DescribeAddon",
+                "eks:DescribeAddonVersions",
+                "sagemaker:DescribeCluster",
+                "sagemaker:DescribeClusterNode",
+                "sagemaker:ListClusterNodes",
+                "sagemaker:ListClusters",
+                "eks:DescribeCluster",
+                "eks:AccessKubernetesApi"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-Navigate to the **Dashboard** tab in the
-SageMaker HyperPod console to install the Amazon SageMaker HyperPod task governance
-Add-on.
+------
 
-Setup using the Amazon EKS AWS CLI
-Use the example [`create-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html") EKS AWS CLI command to set
-up the HyperPod task governance Amazon EKS API and console UI
-using the AWS CLI:
+Navigate to the **Dashboard** tab in the SageMaker HyperPod console to install the Amazon SageMaker HyperPod task governance Add-on. 
 
-```
-aws eks create-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance
-```
+------
+#### [ Setup using the Amazon EKS AWS CLI ]
 
-You can view the **Policies** tab in the HyperPod SageMaker AI
-console if the install was successful. You can also use the following example [`describe-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html") EKS AWS CLI command to check the status.
+Use the example [`create-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html) EKS AWS CLI command to set up the HyperPod task governance Amazon EKS API and console UI using the AWS CLI:
 
 ```
-aws eks describe-addon --region `region` --cluster-name `cluster-name` --addon-name amazon-sagemaker-hyperpod-taskgovernance
+aws eks create-addon --region {{region}} --cluster-name {{cluster-name}} --addon-name amazon-sagemaker-hyperpod-taskgovernance
+```
+
+------
+
+You can view the **Policies** tab in the HyperPod SageMaker AI console if the install was successful. You can also use the following example [`describe-addon`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/describe-addon.html) EKS AWS CLI command to check the status. 
+
+```
+aws eks describe-addon --region {{region}} --cluster-name {{cluster-name}} --addon-name amazon-sagemaker-hyperpod-taskgovernance
 ```

@@ -1,11 +1,11 @@
+
+
 # How to Build Your Own Processing Container (Advanced Scenario)
+<a name="build-your-own-processing-container"></a>
 
-You can provide Amazon SageMaker Processing with a Docker image that has your own code and dependencies to
-run your data processing, feature engineering, and model evaluation workloads. The
-following provides information on how to build your own processing container.
+You can provide Amazon SageMaker Processing with a Docker image that has your own code and dependencies to run your data processing, feature engineering, and model evaluation workloads. The following provides information on how to build your own processing container.
 
-The following example of a Dockerfile builds a container with the Python libraries
-scikit-learn and pandas, which you can run as a processing job.
+The following example of a Dockerfile builds a container with the Python libraries scikit-learn and pandas, which you can run as a processing job. 
 
 ```
 FROM python:3.7-slim-buster
@@ -18,28 +18,18 @@ ADD processing_script.py /
 ENTRYPOINT ["python3", "/processing_script.py"]
 ```
 
-For an example of a processing script, see [Get started with SageMaker Processing](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker_processing/basic_sagemaker_data_processing/basic_sagemaker_processing.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker_processing/basic_sagemaker_data_processing/basic_sagemaker_processing.ipynb").
+For an example of a processing script, see [Get started with SageMaker Processing](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker_processing/basic_sagemaker_data_processing/basic_sagemaker_processing.ipynb).
 
-Build and push this Docker image to an Amazon Elastic Container Registry (Amazon ECR) repository and ensure that
-your SageMaker AI IAM role can pull the image from Amazon ECR. Then you can run this image on
-Amazon SageMaker Processing.
+Build and push this Docker image to an Amazon Elastic Container Registry (Amazon ECR) repository and ensure that your SageMaker AI IAM role can pull the image from Amazon ECR. Then you can run this image on Amazon SageMaker Processing.
 
 ## How Amazon SageMaker Processing Configures Your Processing Container
+<a name="byoc-config"></a>
 
-Amazon SageMaker Processing provides configuration information to your processing container through
-environment variables and two JSON
-files—`/opt/ml/config/processingjobconfig.json` and
-`/opt/ml/config/resourceconfig.json`— at predefined locations
-in the container.
+Amazon SageMaker Processing provides configuration information to your processing container through environment variables and two JSON files—`/opt/ml/config/processingjobconfig.json` and `/opt/ml/config/resourceconfig.json`— at predefined locations in the container. 
 
-When a processing job starts, it uses the environment variables that you specified
-with the `Environment` map in the `CreateProcessingJob`
-request. The `/opt/ml/config/processingjobconfig.json` file contains
-information about the hostnames of your processing containers, and is also specified
-in the `CreateProcessingJob` request.
+When a processing job starts, it uses the environment variables that you specified with the `Environment` map in the `CreateProcessingJob` request. The `/opt/ml/config/processingjobconfig.json` file contains information about the hostnames of your processing containers, and is also specified in the `CreateProcessingJob` request. 
 
-The following example shows the format of the
-`/opt/ml/config/processingjobconfig.json` file.
+The following example shows the format of the `/opt/ml/config/processingjobconfig.json` file.
 
 ```
 {
@@ -95,10 +85,7 @@ The following example shows the format of the
 }
 ```
 
-The `/opt/ml/config/resourceconfig.json` file contains information
-about the hostnames of your processing containers. Use the following
-hostnames
-when creating or running distributed processing code.
+The `/opt/ml/config/resourceconfig.json` file contains information about the hostnames of your processing containers. Use the following hostnames when creating or running distributed processing code.
 
 ```
 {
@@ -107,10 +94,6 @@ when creating or running distributed processing code.
 }
 ```
 
-Don't use the information about hostnames contained in
-`/etc/hostname`
-or `/etc/hosts` because it might be inaccurate.
+Don't use the information about hostnames contained in `/etc/hostname` or `/etc/hosts` because it might be inaccurate.
 
-Hostname information might not be immediately available to the processing
-container. We recommend adding a retry policy on hostname resolution operations as
-nodes become available in the cluster.
+Hostname information might not be immediately available to the processing container. We recommend adding a retry policy on hostname resolution operations as nodes become available in the cluster.

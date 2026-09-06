@@ -1,22 +1,23 @@
-# Data Formats for k-NN Training Input
 
-All Amazon SageMaker AI built-in algorithms adhere to the common input training formats described in
-[Common Data Formats - Training](cdf-training.md "cdf-training.md"). This topic contains a list of the
-available input formats for the SageMaker AI k-nearest-neighbor algorithm.
+
+# Data Formats for k-NN Training Input
+<a name="kNN-in-formats"></a>
+
+All Amazon SageMaker AI built-in algorithms adhere to the common input training formats described in [Common Data Formats - Training](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-training.html). This topic contains a list of the available input formats for the SageMaker AI k-nearest-neighbor algorithm.
 
 ## CSV Data Format
+<a name="kNN-training-data-csv"></a>
 
 content-type: text/csv; label\_size=1
 
 ```
 4,1.2,1.3,9.6,20.3
-
 ```
 
-The first `label_size` columns are interpreted as the label vector for
-that row.
+The first `label_size` columns are interpreted as the label vector for that row.
 
 ## RECORDIO Data Format
+<a name="kNN-training-data-recordio"></a>
 
 content-type: application/x-recordio-protobuf
 
@@ -34,8 +35,8 @@ content-type: application/x-recordio-protobuf
             }
         }
     }
-]
+] 
 
-
+                
 }
 ```

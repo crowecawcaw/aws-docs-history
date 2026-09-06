@@ -1,23 +1,16 @@
+
+
 # Create a Bias Drift Baseline
+<a name="clarify-model-monitor-bias-drift-baseline"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+After you have configured your application to capture real-time or batch transform inference data, the first task to monitor for bias drift is to create a baseline. This involves configuring the data inputs, which groups are sensitive, how the predictions are captured, and the model and its post-training bias metrics. Then you need to start the baselining job.
 
-After you have configured your application to capture real-time or batch transform
-inference data, the first task to monitor for bias drift is to create a baseline. This
-involves configuring the data inputs, which groups are sensitive, how the predictions
-are captured, and the model and its post-training bias metrics. Then you need to start
-the baselining job.
-
-Model bias monitor can detect bias drift of ML models on a regular basis. Similar to
-the other monitoring types, the standard procedure of creating a model bias monitor is
-first baselining and then establishing a monitoring schedule.
+Model bias monitor can detect bias drift of ML models on a regular basis. Similar to the other monitoring types, the standard procedure of creating a model bias monitor is first baselining and then establishing a monitoring schedule.
 
 ```
-
 model_bias_monitor = ModelBiasMonitor(
     role=role,
     sagemaker_session=sagemaker_session,
@@ -25,12 +18,9 @@ model_bias_monitor = ModelBiasMonitor(
 )
 ```
 
-`DataConfig` stores information about the dataset to be analyzed (for
-example, the dataset file), its format (that is, CSV or JSON Lines), headers (if any)
-and label.
+`DataConfig` stores information about the dataset to be analyzed (for example, the dataset file), its format (that is, CSV or JSON Lines), headers (if any) and label.
 
 ```
-
 model_bias_baselining_job_result_uri = f"{baseline_results_uri}/model_bias"
 model_bias_data_config = DataConfig(
     s3_data_input_path=validation_dataset,
@@ -41,10 +31,7 @@ model_bias_data_config = DataConfig(
 )
 ```
 
-`BiasConfig` is the configuration of the sensitive groups in the dataset.
-Typically, bias is measured by computing a metric and comparing it across groups. The
-group of interest is called the _facet_. For post-training bias, you
-should also take the positive label into account.
+`BiasConfig` is the configuration of the sensitive groups in the dataset. Typically, bias is measured by computing a metric and comparing it across groups. The group of interest is called the *facet*. For post-training bias, you should also take the positive label into account.
 
 ```
 model_bias_config = BiasConfig(
@@ -54,11 +41,7 @@ model_bias_config = BiasConfig(
 )
 ```
 
-`ModelPredictedLabelConfig` specifies how to extract a predicted label from
-the model output. In this example, the 0.8 cutoff has been chosen in anticipation that
-customers will turn over frequently. For more complicated outputs, there are a few more
-options, like "label" is the index, name, or JMESPath to locate predicted label in
-endpoint response payload.
+`ModelPredictedLabelConfig` specifies how to extract a predicted label from the model output. In this example, the 0.8 cutoff has been chosen in anticipation that customers will turn over frequently. For more complicated outputs, there are a few more options, like "label" is the index, name, or JMESPath to locate predicted label in endpoint response payload.
 
 ```
 model_predicted_label_config = ModelPredictedLabelConfig(
@@ -66,13 +49,7 @@ model_predicted_label_config = ModelPredictedLabelConfig(
 )
 ```
 
-`ModelConfig` is the configuration related to the model to be used for
-inferencing. In order to compute post-training bias metrics, the computation needs to get
-inferences for the model name provided. To accomplish this, the processing job uses the
-model to create an ephemeral endpoint (also known as _shadow
-endpoint_). The processing job deletes the shadow endpoint after the
-computations are completed. This configuration is also used by the explainability
-monitor.
+`ModelConfig` is the configuration related to the model to be used for inferencing. In order to compute post-training bias metrics, the computation needs to get inferences for the model name provided. To accomplish this, the processing job uses the model to create an ephemeral endpoint (also known as *shadow endpoint*). The processing job deletes the shadow endpoint after the computations are completed. This configuration is also used by the explainability monitor.
 
 ```
 model_config = ModelConfig(
@@ -96,5 +73,4 @@ model_bias_monitor.suggest_baseline(
 print(f"ModelBiasMonitor baselining job: {model_bias_monitor.latest_baselining_job_name}")
 ```
 
-The scheduled monitor automatically picks up baselining job name and waits for it
-before monitoring begins.
+The scheduled monitor automatically picks up baselining job name and waits for it before monitoring begins.

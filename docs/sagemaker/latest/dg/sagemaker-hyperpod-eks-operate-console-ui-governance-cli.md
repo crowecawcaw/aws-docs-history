@@ -1,40 +1,35 @@
+
+
 # Example HyperPod task governance AWS CLI commands
+<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-cli"></a>
 
-You can use HyperPod with EKS through Kubectl or through HyperPod
-custom CLI. You can use these commands through Studio or AWS CLI. The following
-provides SageMaker HyperPod task governance examples, on how to view cluster details using the
-HyperPod AWS CLI commands. For more information, including how to install, see
-the [HyperPod CLI
-Github repository](https://github.com/aws/sagemaker-hyperpod-cli "https://github.com/aws/sagemaker-hyperpod-cli").
+You can use HyperPod with EKS through Kubectl or through HyperPod custom CLI. You can use these commands through Studio or AWS CLI. The following provides SageMaker HyperPod task governance examples, on how to view cluster details using the HyperPod AWS CLI commands. For more information, including how to install, see the [HyperPod CLI Github repository](https://github.com/aws/sagemaker-hyperpod-cli).
 
-###### Topics
-
-- [Get cluster accelerator device quota information](#hp-eks-cli-get-clusters "#hp-eks-cli-get-clusters")
-- [Submit a job to SageMaker AI-managed queue and namespace](#hp-eks-cli-start-job "#hp-eks-cli-start-job")
-- [List jobs](#hp-eks-cli-list-jobs "#hp-eks-cli-list-jobs")
-- [Get job detailed information](#hp-eks-cli-get-job "#hp-eks-cli-get-job")
-- [Suspend and unsuspend jobs](#hp-eks-cli-patch-job "#hp-eks-cli-patch-job")
-- [Debugging jobs](#hp-eks-cli-other "#hp-eks-cli-other")
+**Topics**
++ [Get cluster accelerator device quota information](#hp-eks-cli-get-clusters)
++ [Submit a job to SageMaker AI-managed queue and namespace](#hp-eks-cli-start-job)
++ [List jobs](#hp-eks-cli-list-jobs)
++ [Get job detailed information](#hp-eks-cli-get-job)
++ [Suspend and unsuspend jobs](#hp-eks-cli-patch-job)
++ [Debugging jobs](#hp-eks-cli-other)
 
 ## Get cluster accelerator device quota information
+<a name="hp-eks-cli-get-clusters"></a>
 
-The following example command gets the information on the cluster accelerator
-device quota.
+The following example command gets the information on the cluster accelerator device quota.
 
 ```
 hyperpod get-clusters -n hyperpod-ns-test-team
 ```
 
-The namespace in this example, `hyperpod-ns-test-team`, is created in
-Kubernetes based on the team name provided, `test-team`, when the compute
-allocation is created. For more information, see [Edit policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit.md").
+The namespace in this example, `hyperpod-ns-test-team`, is created in Kubernetes based on the team name provided, `test-team`, when the compute allocation is created. For more information, see [Edit policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit.md).
 
 Example response:
 
 ```
 [
     {
-        "Cluster": "hyperpod-eks-test-`cluster-id`",
+        "Cluster": "hyperpod-eks-test-{{cluster-id}}",
         "InstanceType": "ml.g5.xlarge",
         "TotalNodes": 2,
         "AcceleratorDevicesAvailable": 1,
@@ -51,39 +46,27 @@ Example response:
 ```
 
 ## Submit a job to SageMaker AI-managed queue and namespace
+<a name="hp-eks-cli-start-job"></a>
 
-The following example command submits a job to your HyperPod cluster. If
-you have access to only one team, the HyperPod AWS CLI will automatically
-assign the queue for you in this case. Otherwise if multiple queues are discovered,
-we will display all viable options for you to select.
+The following example command submits a job to your HyperPod cluster. If you have access to only one team, the HyperPod AWS CLI will automatically assign the queue for you in this case. Otherwise if multiple queues are discovered, we will display all viable options for you to select.
 
 ```
 hyperpod start-job --job-name hyperpod-cli-test --job-kind kubeflow/PyTorchJob --image docker.io/kubeflowkatib/pytorch-mnist-cpu:v1beta1-bc09cfd --entry-script /opt/pytorch-mnist/mnist.py --pull-policy IfNotPresent --instance-type ml.g5.xlarge --node-count 1 --tasks-per-node 1 --results-dir ./result --priority training-priority
 ```
 
-The priority classes are defined in the **Cluster policy**, which
-defines how tasks are prioritized and idle compute is allocated. When a data
-scientist submits a job, they use one of the priority class names with the format
-``priority-class-name`-priority`. In
-this example, `training-priority` refers to the priority class named
-“training”. For more information on policy concepts, see [Policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md").
+The priority classes are defined in the **Cluster policy**, which defines how tasks are prioritized and idle compute is allocated. When a data scientist submits a job, they use one of the priority class names with the format `{{priority-class-name}}-priority`. In this example, `training-priority` refers to the priority class named “training”. For more information on policy concepts, see [Policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md).
 
-If a priority class is not specified, the job is treated as a low priority job,
-with a task ranking value of 0.
+If a priority class is not specified, the job is treated as a low priority job, with a task ranking value of 0. 
 
-If a priority class is specified, but does not correspond to one of the priority
-classes defined in the **Cluster policy**, the submission fails and
-an error message provides the defined set of priority classes.
+If a priority class is specified, but does not correspond to one of the priority classes defined in the **Cluster policy**, the submission fails and an error message provides the defined set of priority classes.
 
-You can also submit the job using a YAML configuration file using the following
-command:
+You can also submit the job using a YAML configuration file using the following command: 
 
 ```
-hyperpod start-job --config-file ./`yaml-configuration-file-name`.yaml
+hyperpod start-job --config-file ./{{yaml-configuration-file-name}}.yaml
 ```
 
-The following is an example YAML configuration file that is equivalent to
-submitting a job as discussed above.
+The following is an example YAML configuration file that is equivalent to submitting a job as discussed above.
 
 ```
 defaults:
@@ -121,39 +104,29 @@ env_vars:
   NCCL_DEBUG: INFO
 ```
 
-Alternatively, you can submit a job using `kubectl` to ensure the task
-appears in the **Dashboard** tab. The following is an example
-kubectl command.
+Alternatively, you can submit a job using `kubectl` to ensure the task appears in the **Dashboard** tab. The following is an example kubectl command.
 
 ```
-kubectl apply -f ./`yaml-configuration-file-name`.yaml
+kubectl apply -f ./{{yaml-configuration-file-name}}.yaml
 ```
 
-When submitting the job, include your queue name and priority class labels. For
-example, with the queue name
-`hyperpod-ns-`team-name`-localqueue` and
-priority class ``priority-class-name`-priority`,
-you must include the following labels:
+When submitting the job, include your queue name and priority class labels. For example, with the queue name `hyperpod-ns-{{team-name}}-localqueue` and priority class `{{priority-class-name}}-priority`, you must include the following labels:
++ `kueue.x-k8s.io/queue-name: hyperpod-ns-{{team-name}}-localqueue` 
++ `kueue.x-k8s.io/priority-class: {{priority-class-name}}-priority`
 
-- `kueue.x-k8s.io/queue-name:
- hyperpod-ns-`team-name`-localqueue`
-- `kueue.x-k8s.io/priority-class:
- `priority-class-name`-priority`
-
-The following YAML configuration snippet demonstrates how to add labels to your
-original configuration file to ensure your task appears in the
-**Dashboard** tab:
+The following YAML configuration snippet demonstrates how to add labels to your original configuration file to ensure your task appears in the **Dashboard** tab:
 
 ```
 metadata:
-    name: `job-name`
-    namespace: hyperpod-ns-`team-name`
+    name: {{job-name}}
+    namespace: hyperpod-ns-{{team-name}}
     labels:
-        kueue.x-k8s.io/queue-name: hyperpod-ns-`team-name`-localqueue
-        kueue.x-k8s.io/priority-class: `priority-class-name`-priority
+        kueue.x-k8s.io/queue-name: hyperpod-ns-{{team-name}}-localqueue
+        kueue.x-k8s.io/priority-class: {{priority-class-name}}-priority
 ```
 
 ## List jobs
+<a name="hp-eks-cli-list-jobs"></a>
 
 The following command lists the jobs and their details.
 
@@ -178,10 +151,9 @@ Example response:
 ```
 
 ## Get job detailed information
+<a name="hp-eks-cli-get-job"></a>
 
-The following command provides a job’s details. If no namespace is specified,
-HyperPod AWS CLI will fetch a namespace managed by SageMaker AI that you have access
-to.
+The following command provides a job’s details. If no namespace is specified, HyperPod AWS CLI will fetch a namespace managed by SageMaker AI that you have access to.
 
 ```
 hyperpod get-job --job-name hyperpod-cli-test
@@ -235,16 +207,14 @@ Example response:
             },
         "startTime": "2024-11-18T21:21:15Z"
     },
-    "ConsoleURL": "https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/cluster-management/hyperpod-eks-test-`cluster-id`“
+    "ConsoleURL": "https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/cluster-management/hyperpod-eks-test-{{cluster-id}}“
 }
 ```
 
 ## Suspend and unsuspend jobs
+<a name="hp-eks-cli-patch-job"></a>
 
-If you want to remove some submitted job from the scheduler, HyperPod
-AWS CLI provides `suspend` command to temporarily remove the job from
-orchestration. The suspended job will no longer be scheduled unless the job is
-manually unsuspended by the `unsuspend` command
+If you want to remove some submitted job from the scheduler, HyperPod AWS CLI provides `suspend` command to temporarily remove the job from orchestration. The suspended job will no longer be scheduled unless the job is manually unsuspended by the `unsuspend` command
 
 To temporarily suspend a job:
 
@@ -259,7 +229,6 @@ hyperpod patch-job unsuspend --job-name hyperpod-cli-test
 ```
 
 ## Debugging jobs
+<a name="hp-eks-cli-other"></a>
 
-The HyperPod AWS CLI also provides other commands for you to debug job
-submission issues. For example `list-pods` and `get-logs` in
-the HyperPod AWS CLI Github repository.
+The HyperPod AWS CLI also provides other commands for you to debug job submission issues. For example `list-pods` and `get-logs` in the HyperPod AWS CLI Github repository.

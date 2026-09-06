@@ -1,108 +1,72 @@
+
+
 # HyperPod Slurm cluster DPO tutorial (GPU)
+<a name="hyperpod-gpu-slurm-dpo-tutorial"></a>
 
-The following tutorial sets up a Slurm environment and starts a direct preference
-optimization (DPO) job on a Llama 8 billion parameter model.
+The following tutorial sets up a Slurm environment and starts a direct preference optimization (DPO) job on a Llama 8 billion parameter model.
 
-###### Prerequisites
-
-Before you start setting up your environment, make sure you have:
-
-- Set up HyperPod GPU Slurm cluster
-
-  - Your HyperPod Slurm cluster must have Nvidia Enroot and
-    Pyxis enabled (these are enabled by default).
-
-- A shared storage location. It can be an Amazon FSx file system or NFS system
-  that's accessible from the cluster nodes.
-- A tokenized binary preference dataset in one of the following formats:
-
-  - JSON
-  - JSONGZ (Compressed JSON)
-  - ARROW
-
-- (Optional) If you need the pre-trained weights from HuggingFace or if
-  you're training a Llama 3.2 model, you must get the HuggingFace token before
-  you start training. For more information about getting the token, see [User access
-  tokens](https://huggingface.co/docs/hub/en/security-tokens "https://huggingface.co/docs/hub/en/security-tokens").
+**Prerequisites**  
+Before you start setting up your environment, make sure you have:  
+Set up HyperPod GPU Slurm cluster  
+Your HyperPod Slurm cluster must have Nvidia Enroot and Pyxis enabled (these are enabled by default).
+A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
+A tokenized binary preference dataset in one of the following formats:  
+JSON
+JSONGZ (Compressed JSON)
+ARROW
+(Optional) If you need the pre-trained weights from HuggingFace or if you're training a Llama 3.2 model, you must get the HuggingFace token before you start training. For more information about getting the token, see [User access tokens](https://huggingface.co/docs/hub/en/security-tokens).
 
 ## Set up the HyperPod GPU Slurm environment
+<a name="hyperpod-gpu-slurm-dpo-hyperpod-gpu-slurm-environment"></a>
 
 To initiate a training job on a Slurm cluster, do the following:
++ SSH into the head node of your Slurm cluster.
++ After you log in, set up the virtual environment. Make sure you're using Python 3.9 or greater.
 
-- SSH into the head node of your Slurm cluster.
-- After you log in, set up the virtual environment. Make sure you're using
-  Python 3.9 or greater.
+  ```
+  #set up a virtual environment
+  python3 -m venv ${PWD}/venv
+  source venv/bin/activate
+  ```
++ Clone the SageMaker HyperPod recipes and SageMaker HyperPod adapter repositories to a shared storage location. The shared storage location can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
 
-```
-#set up a virtual environment
-python3 -m venv ${PWD}/venv
-source venv/bin/activate
+  ```
+  git clone https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo.git
+  git clone --recursive https://github.com/aws/sagemaker-hyperpod-recipes.git
+  cd sagemaker-hyperpod-recipes
+  pip3 install -r requirements.txt
+  ```
++ Create a squash file using Enroot. To find the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md). For more information about using the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image).
 
-```
+  ```
+  REGION="{{<region>}}"
+  IMAGE="658645717510.dkr.ecr.${REGION}.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121"
+  aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin 658645717510.dkr.ecr.${REGION}.amazonaws.com
+  enroot import -o $PWD/smdistributed-modelparallel.sqsh dockerd://${IMAGE}
+  mv $PWD/smdistributed-modelparallel.sqsh "/fsx/{{<any-path-in-the-shared-filesystem>}}"
+  ```
++ To use the Enroot squash file to start training, use the following example to modify the `recipes_collection/config.yaml` file.
 
-- Clone the SageMaker HyperPod recipes and SageMaker HyperPod adapter repositories to a
-  shared storage location. The shared storage location can be an Amazon FSx file
-  system or NFS system that's accessible from the cluster nodes.
-
-```
-git clone https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo.git
-git clone --recursive https://github.com/aws/sagemaker-hyperpod-recipes.git
-cd sagemaker-hyperpod-recipes
-pip3 install -r requirements.txt
-
-```
-
-- Create a squash file using Enroot. To find the most recent release of the
-  SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md"). For more information
-  about using the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image "https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image").
-
-```
-REGION="`<region>`"
-IMAGE="658645717510.dkr.ecr.${REGION}.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121"
-aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin 658645717510.dkr.ecr.${REGION}.amazonaws.com
-enroot import -o $PWD/smdistributed-modelparallel.sqsh dockerd://${IMAGE}
-mv $PWD/smdistributed-modelparallel.sqsh "/fsx/`<any-path-in-the-shared-filesystem>`"
-
-```
-
-- To use the Enroot squash file to start training, use the following example
-  to modify the `recipes_collection/config.yaml` file.
-
-```
-container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
-
-```
+  ```
+  container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
+  ```
 
 ## Launch the training job
+<a name="hyperpod-gpu-slurm-dpo-launch-training-job"></a>
 
-To launch a DPO job for the Llama 8 billion parameter model with a sequence length
-of 8192 on a single Slurm compute node, set the launch script,
-`launcher_scripts/llama/run_hf_llama3_8b_seq8k_gpu_dpo.sh`, to the
-following:
+To launch a DPO job for the Llama 8 billion parameter model with a sequence length of 8192 on a single Slurm compute node, set the launch script, `launcher_scripts/llama/run_hf_llama3_8b_seq8k_gpu_dpo.sh`, to the following:
++ `IMAGE`: The container from the environment setup section.
++ `HF_MODEL_NAME_OR_PATH`: Define the name or the path of the pre-trained weights in the hf\_model\_name\_or\_path parameter of the recipe.
++ (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-- `IMAGE`: The container from the environment setup
-  section.
-- `HF_MODEL_NAME_OR_PATH`: Define the name or the path of the
-  pre-trained weights in the hf\_model\_name\_or\_path parameter of the
-  recipe.
-- (Optional) You can provide the HuggingFace token if you need pre-trained
-  weights from HuggingFace by setting the following key-value pair:
+  ```
+  recipes.model.hf_access_token=${HF_ACCESS_TOKEN}
+  ```
 
-```
-recipes.model.hf_access_token=${HF_ACCESS_TOKEN}
-```
-
-###### Note
-
-The reference model used for DPO in this setup is automatically derived from
-the base model being trained (no separate reference model is explicitly
-defined). DPO specific hyperparameters are preconfigured with the following
-default values:
-
-- `beta`: 0.1 (controls the strength of KL divergence
-  regularization)
-- `label_smoothing`: 0.0 (no smoothing applied to preference
-  labels)
+**Note**  
+The reference model used for DPO in this setup is automatically derived from the base model being trained (no separate reference model is explicitly defined). DPO specific hyperparameters are preconfigured with the following default values:  
+`beta`: 0.1 (controls the strength of KL divergence regularization)
+`label_smoothing`: 0.0 (no smoothing applied to preference labels)
 
 ```
 recipes.dpo.beta=${BETA}
@@ -140,11 +104,10 @@ recipes.dpo.beta="${BETA}" \
 recipes.dpo.label_smoothing="${LABEL_SMOOTHING}$" \
 ```
 
-After you've configured all the required parameters in the preceding script, you
-can initiate the training job by running it.
+After you've configured all the required parameters in the preceding script, you can initiate the training job by running it.
 
 ```
 bash launcher_scripts/llama/run_hf_llama3_8b_seq8k_gpu_dpo.sh
 ```
 
-For more information about the Slurm cluster configuration, see [Running a training job on HyperPod Slurm](cluster-specific-configurations-run-training-job-hyperpod-slurm.md "cluster-specific-configurations-run-training-job-hyperpod-slurm.md").
+For more information about the Slurm cluster configuration, see [Running a training job on HyperPod Slurm](cluster-specific-configurations-run-training-job-hyperpod-slurm.md).

@@ -1,29 +1,26 @@
+
+
 # Monitor the Progress of a Hyperparameter Tuning Job
+<a name="automatic-model-tuning-monitor"></a>
 
-To monitor the progress of a hyperparameter tuning job and the training jobs that it
-launches, use the Amazon SageMaker AI console.
+To monitor the progress of a hyperparameter tuning job and the training jobs that it launches, use the Amazon SageMaker AI console.
 
-###### Topics
-
-- [View the Status of the Hyperparameter Tuning Job](#automatic-model-tuning-monitor-tuning "#automatic-model-tuning-monitor-tuning")
+**Topics**
++ [View the Status of the Hyperparameter Tuning Job](#automatic-model-tuning-monitor-tuning)
 
 ## View the Status of the Hyperparameter Tuning Job
+<a name="automatic-model-tuning-monitor-tuning"></a>
 
-###### To view the status of the hyperparameter tuning job
+**To view the status of the hyperparameter tuning job**
 
-1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2. Choose **Hyperparameter tuning jobs**.
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-![Hyperparameter tuning job console.](images/console-tuning-jobs.png) 3. In the list of hyperparameter tuning jobs, check the status of the
-hyperparameter tuning job you launched. A tuning job can be:
+1. Choose **Hyperparameter tuning jobs**.  
+![Hyperparameter tuning job console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/console-tuning-jobs.png)
 
-    * `Completed`—The hyperparameter tuning job successfully
-     completed.
-    * `InProgress`—The hyperparameter tuning job is in progress.
-     One or more training jobs are still running.
-    * `Failed`—The hyperparameter tuning job failed.
-    * `Stopped`—The hyperparameter tuning job was manually
-     stopped before it completed. All training jobs that the hyperparameter tuning
-     job launched are stopped.
-    * `Stopping`—The hyperparameter tuning job is in the process
-     of stopping.
+1. In the list of hyperparameter tuning jobs, check the status of the hyperparameter tuning job you launched. A tuning job can be:
+   + `Completed`—The hyperparameter tuning job successfully completed.
+   + `InProgress`—The hyperparameter tuning job is in progress. One or more training jobs are still running.
+   + `Failed`—The hyperparameter tuning job failed.
+   + `Stopped`—The hyperparameter tuning job was manually stopped before it completed. All training jobs that the hyperparameter tuning job launched are stopped.
+   + `Stopping`—The hyperparameter tuning job is in the process of stopping.

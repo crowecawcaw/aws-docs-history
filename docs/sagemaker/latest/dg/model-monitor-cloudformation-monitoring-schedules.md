@@ -1,23 +1,19 @@
+
+
 # Create a Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom Resource
+<a name="model-monitor-cloudformation-monitoring-schedules"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
-
-If you are using a real-time endpoint, you can use a CloudFormation custom resource to
-create a monitoring schedule. The custom resource is in Python. To deploy it, see
-[Python Lambda deployment](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md").
+If you are using a real-time endpoint, you can use a CloudFormation custom resource to create a monitoring schedule. The custom resource is in Python. To deploy it, see [Python Lambda deployment](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html).
 
 ## Custom Resource
+<a name="model-monitor-cloudformation-custom-resource"></a>
 
-Start by adding a custom resource to your CloudFormation template. This points to a
-AWS Lambda function that you create in the next step.
+Start by adding a custom resource to your CloudFormation template. This points to a AWS Lambda function that you create in the next step. 
 
-This resource enables you to customize the parameters for the monitoring
-schedule You can add or remove more parameters by modifying the CloudFormation resource
-and the Lambda function in the following example resource.
+This resource enables you to customize the parameters for the monitoring schedule You can add or remove more parameters by modifying the CloudFormation resource and the Lambda function in the following example resource.
 
 ```
 {
@@ -47,15 +43,11 @@ and the Lambda function in the following example resource.
 ```
 
 ## Lambda Custom Resource Code
+<a name="model-monitor-cloudformation-lambda-custom-resource-code"></a>
 
-This CloudFormation custom resource uses the [Custom
-Resource Helper](https://github.com/aws-cloudformation/custom-resource-helper "https://github.com/aws-cloudformation/custom-resource-helper") AWS library, which you can install with pip using
-`pip install crhelper`.
+This CloudFormation custom resource uses the [Custom Resource Helper](https://github.com/aws-cloudformation/custom-resource-helper) AWS library, which you can install with pip using `pip install crhelper`. 
 
-This Lambda function is invoked by CloudFormation during the creation and deletion of
-the stack. This Lambda function is responsible for creating and deleting the
-monitoring schedule and using the parameters defined in the custom resource
-described in the preceding section.
+This Lambda function is invoked by CloudFormation during the creation and deletion of the stack. This Lambda function is responsible for creating and deleting the monitoring schedule and using the parameters defined in the custom resource described in the preceding section.
 
 ```
 import boto3

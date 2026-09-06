@@ -1,4 +1,7 @@
+
+
 # Disable cached connections
+<a name="sagemaker-sql-extension-features-disable-cached-connection"></a>
 
 To disable connection caching, run the following command:
 

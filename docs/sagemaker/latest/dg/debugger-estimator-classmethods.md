@@ -1,81 +1,61 @@
+
+
 # Useful SageMaker AI estimator class methods for Debugger
+<a name="debugger-estimator-classmethods"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
-Amazon SageMaker Debugger is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+The following estimator class methods are useful for accessing your SageMaker training job information and retrieving output paths of training data collected by Debugger. The following methods are executable after you initiate a training job with the `estimator.fit()` method.
++ To check the base S3 bucket URI of a SageMaker training job:
 
-The following estimator class methods are useful for accessing your SageMaker training job
-information and retrieving output paths of training data collected by Debugger. The
-following methods are executable after you initiate a training job with the
-`estimator.fit()` method.
+  ```
+  estimator.output_path
+  ```
++ To check the base job name of a SageMaker training job:
 
-- To check the base S3 bucket URI of a SageMaker training job:
+  ```
+  estimator.latest_training_job.job_name
+  ```
++ To see a full `CreateTrainingJob` API operation configuration of a SageMaker training job:
 
-```
-estimator.output_path
-```
+  ```
+  estimator.latest_training_job.describe()
+  ```
++ To check a full list of the Debugger rules while a SageMaker training job is running:
 
-- To check the base job name of a SageMaker training job:
+  ```
+  estimator.latest_training_job.rule_job_summary()
+  ```
++ To check the S3 bucket URI where the model parameter data (output tensors) are saved:
 
-```
-estimator.latest_training_job.job_name
-```
+  ```
+  estimator.latest_job_debugger_artifacts_path()
+  ```
++ To check the S3 bucket URI at where the model performance data (system and framework metrics) are saved:
 
-- To see a full `CreateTrainingJob` API operation configuration of a
-  SageMaker training job:
+  ```
+  estimator.latest_job_profiler_artifacts_path()
+  ```
++ To check the Debugger rule configuration for debugging output tensors:
 
-```
-estimator.latest_training_job.describe()
-```
+  ```
+  estimator.debugger_rule_configs
+  ```
++ To check the list of the Debugger rules for debugging while a SageMaker training job is running:
 
-- To check a full list of the Debugger rules while a SageMaker training job is
-  running:
+  ```
+  estimator.debugger_rules
+  ```
++ To check the Debugger rule configuration for monitoring and profiling system and framework metrics:
 
-```
-estimator.latest_training_job.rule_job_summary()
-```
+  ```
+  estimator.profiler_rule_configs
+  ```
++ To check the list of the Debugger rules for monitoring and profiling while a SageMaker training job is running:
 
-- To check the S3 bucket URI where the model parameter data (output tensors) are
-  saved:
+  ```
+  estimator.profiler_rules
+  ```
 
-```
-estimator.latest_job_debugger_artifacts_path()
-```
-
-- To check the S3 bucket URI at where the model performance data (system and
-  framework metrics) are saved:
-
-```
-estimator.latest_job_profiler_artifacts_path()
-```
-
-- To check the Debugger rule configuration for debugging output tensors:
-
-```
-estimator.debugger_rule_configs
-```
-
-- To check the list of the Debugger rules for debugging while a SageMaker training job
-  is running:
-
-```
-estimator.debugger_rules
-```
-
-- To check the Debugger rule configuration for monitoring and profiling system and
-  framework metrics:
-
-```
-estimator.profiler_rule_configs
-```
-
-- To check the list of the Debugger rules for monitoring and profiling while a
-  SageMaker training job is running:
-
-```
-estimator.profiler_rules
-```
-
-For more information about the SageMaker AI estimator class and its methods, see [Estimator API](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+For more information about the SageMaker AI estimator class and its methods, see [Estimator API](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable).

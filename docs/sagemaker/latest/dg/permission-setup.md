@@ -1,42 +1,38 @@
+
+
 # Set up permissions
+<a name="permission-setup"></a>
 
 ## Roles required for Add-on and its dependencies
+<a name="permission-setup-addon"></a>
 
 ### IAM Roles Required for SageMaker Spaces on SageMaker HyperPod
+<a name="role-hyperpod"></a>
 
-When enabling **SageMaker Spaces (a.k.a\****SageMaker IDE / Notebooks)** features on a SageMaker
-HyperPod (EKS) cluster, several IAM roles must be created and assigned. These
-roles support secure access, routing, remote IDE sessions, and EBS storage
-provisioning. The following table summarizes the four roles and when they are
-required.
+When enabling **SageMaker Spaces (a.k.a****SageMaker IDE / Notebooks)** features on a SageMaker HyperPod (EKS) cluster, several IAM roles must be created and assigned. These roles support secure access, routing, remote IDE sessions, and EBS storage provisioning. The following table summarizes the four roles and when they are required.
 
 ### Role Summary Table
+<a name="role-table"></a>
 
-| IAM Role                           | Required?                      | Purpose                                                                                                                                    | Who Uses It?                                    | Customization allowed by SageMaker Console? |
-| ---------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------- |
-| Spaces Add-on Execution Role       | Always required                | Allows the Spaces controller to manage Spaces, generate presigned URLs, manage SSM sessions                                                | Add-on controller pod (privileged)              | ✔ Yes                                       |
-| In-Cluster Router Role             | Required for WebUI access      | Allows router pod to perform KMS operations for JWT signing (WebUI authentication)                                                         | In-cluster router pod (privileged)              | ✔ Yes                                       |
-| SSM Managed Instance Role          | Required for Remote IDE access | Used by SSM agent sidecar for SSH-over-SSM remote IDE sessions                                                                             | SSM Agent in Space IDE Pods (not an add-on pod) | ✔ Yes                                       |
-| IAM Role for EBS CSI Driver Add-on | Always required                | Allows EBS CSI Driver to create/attach/modify volumes for Spaces workloads                                                                 | EBS CSI Driver Add-on                           | Auto created                                |
-| IAM Role for External DNS Add-on   | Required for WebUI access      | It ensures that Space endpoints and in-cluster components can be automatically assigned DNS names in the customer’s Route 53 hosted zones. | External DNS Add-on                             | Auto created                                |
+
+| IAM Role | Required? | Purpose | Who Uses It? | Customization allowed by SageMaker Console? | 
+| --- | --- | --- | --- | --- | 
+| Spaces Add-on Execution Role | Always required | Allows the Spaces controller to manage Spaces, generate presigned URLs, manage SSM sessions | Add-on controller pod (privileged) | ✔ Yes | 
+| In-Cluster Router Role | Required for WebUI access | Allows router pod to perform KMS operations for JWT signing (WebUI authentication) | In-cluster router pod (privileged) | ✔ Yes | 
+| SSM Managed Instance Role | Required for Remote IDE access | Used by SSM agent sidecar for SSH-over-SSM remote IDE sessions | SSM Agent in Space IDE Pods (not an add-on pod) | ✔ Yes | 
+| IAM Role for EBS CSI Driver Add-on | Always required | Allows EBS CSI Driver to create/attach/modify volumes for Spaces workloads | EBS CSI Driver Add-on | Auto created | 
+| IAM Role for External DNS Add-on | Required for WebUI access | It ensures that Space endpoints and in-cluster components can be automatically assigned DNS names in the customer’s Route 53 hosted zones. | External DNS Add-on | Auto created | 
 
 ### 1. Spaces Add-on Execution Role (Required)
+<a name="add-n-execution-role"></a>
 
-The Spaces Add-on Execution Role is always required because it is used by the
-SageMaker Spaces addon-on controller pod, an administrative component installed
-through the EKS add-on. This role allows the controller to manage Spaces, provision
-resources, interact with SSM, and generate presigned URLs for
-both Remote IDE and WebUI access. It also supports KMS access used for request
-signing for authenticating the WebUI https requests. This role can be automatically
-created when SageMaker Spaces add-on is installed through the SageMaker Console. For
-manual creation, AWS provides the `AmazonSageMakerSpacesControllerPolicy`
-managed policy.
+The Spaces Add-on Execution Role is always required because it is used by the SageMaker Spaces addon-on controller pod, an administrative component installed through the EKS add-on. This role allows the controller to manage Spaces, provision resources, interact with SSM, and generate presigned URLs for both Remote IDE and WebUI access. It also supports KMS access used for request signing for authenticating the WebUI https requests. This role can be automatically created when SageMaker Spaces add-on is installed through the SageMaker Console. For manual creation, AWS provides the `AmazonSageMakerSpacesControllerPolicy` managed policy.
 
 **Reference Trust Policy**
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -59,21 +55,15 @@ managed policy.
 ```
 
 ### 2. In-Cluster Router Role (Required for WebUI Authentication)
+<a name="in-cluster-role"></a>
 
-The In-Cluster Router Role is used by the **router
-pod**, a privileged component that authenticates Spaces WebUI sessions.
-The router uses a KMS key to create and sign JWT tokens that authorize user access
-to specific Spaces. This role allows the router pod to generate data keys, and
-decrypt them. Similar to the controller role, it enforces security using tag- and
-cluster-based scope restrictions. This role can be automatically generated when
-Spaces add-on is installed via the AWS SageMaker Console, but customers may manually
-create it.
+The In-Cluster Router Role is used by the** router pod**, a privileged component that authenticates Spaces WebUI sessions. The router uses a KMS key to create and sign JWT tokens that authorize user access to specific Spaces. This role allows the router pod to generate data keys, and decrypt them. Similar to the controller role, it enforces security using tag- and cluster-based scope restrictions. This role can be automatically generated when Spaces add-on is installed via the AWS SageMaker Console, but customers may manually create it.
 
 **Reference Trust Policy**
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -99,7 +89,7 @@ create it.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "KMSDescribeKey",
@@ -129,20 +119,15 @@ create it.
 ```
 
 ### 3. SSM Managed Instance Role (Required for Remote IDE Access)
+<a name="ssm-role"></a>
 
-The SSM Managed Instance Role is passed when registering the SSM managed instance
-for enabling the remote IDE access. This role allows the SSM agent to register the
-pod as an SSM Managed Instance and use the SSM Session Manager channels for Remote
-IDE (SSH-over-SSM) connectivity. It can be created automatically when using the AWS
-SageMaker Console. For manual deployments, customers must create this role and
-provide it to the Spaces add-on. The controller pod itself does not assume this
-role; it only provides it when calling `ssm:CreateActivation`.
+The SSM Managed Instance Role is passed when registering the SSM managed instance for enabling the remote IDE access. This role allows the SSM agent to register the pod as an SSM Managed Instance and use the SSM Session Manager channels for Remote IDE (SSH-over-SSM) connectivity. It can be created automatically when using the AWS SageMaker Console. For manual deployments, customers must create this role and provide it to the Spaces add-on. The controller pod itself does not assume this role; it only provides it when calling `ssm:CreateActivation`.
 
 **Reference Trust Policy**
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -161,14 +146,13 @@ role; it only provides it when calling `ssm:CreateActivation`.
         }
     ]
 }
-
 ```
 
 **Reference Permissions Policy**
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -299,69 +283,36 @@ role; it only provides it when calling `ssm:CreateActivation`.
 ```
 
 ### 4. IAM Role for EBS CSI Driver Add-on
+<a name="role-ebs-csi"></a>
 
-The IAM role for the EBS CSI Driver is required because the EBS CSI Driver
-provisions persistent volumes for Spaces workloads. While the AWS-managed [AmazonEBSCSIDriverPolicy](../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicy.md") provides baseline permissions, SageMaker
-HyperPod clusters require [additional capabilities](sagemaker-hyperpod-eks-ebs.md#sagemaker-hyperpod-eks-ebs-setup "sagemaker-hyperpod-eks-ebs.md#sagemaker-hyperpod-eks-ebs-setup") such as creating fast snapshot restores,
-tagging cluster-owned volumes, and attaching/detaching volumes for HyperPod-managed
-nodes. These permissions also include SageMaker-specific APIs such as
-`sagemaker:AttachClusterNodeVolume`. If EBS CSI Driver is not installed, this role
-will now be automatically created by the SageMaker Console during Spaces add-on
-installation, **requiring no customer action**.
+The IAM role for the EBS CSI Driver is required because the EBS CSI Driver provisions persistent volumes for Spaces workloads. While the AWS-managed [AmazonEBSCSIDriverPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEBSCSIDriverPolicy.html) provides baseline permissions, SageMaker HyperPod clusters require [additional capabilities](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-ebs.html#sagemaker-hyperpod-eks-ebs-setup) such as creating fast snapshot restores, tagging cluster-owned volumes, and attaching/detaching volumes for HyperPod-managed nodes. These permissions also include SageMaker-specific APIs such as `sagemaker:AttachClusterNodeVolume`. If EBS CSI Driver is not installed, this role will now be automatically created by the SageMaker Console during Spaces add-on installation, **requiring no customer action**.
 
 ### 5. IAM Role for External DNS Add-on
+<a name="role-external-nds"></a>
 
-The External DNS add-on manages DNS records for Services and Ingress resources on
-the HyperPod cluster. It ensures that Space endpoints and in-cluster components can
-be automatically assigned DNS names in the customer’s Route 53 hosted zones. Today,
-customers often install External DNS manually via a 1-click option in the EKS
-console. As part of improving the SageMaker Spaces experience, this role will now be
-automatically created by the SageMaker Console during Spaces add-on installation,
-**requiring no customer action**.
+The External DNS add-on manages DNS records for Services and Ingress resources on the HyperPod cluster. It ensures that Space endpoints and in-cluster components can be automatically assigned DNS names in the customer’s Route 53 hosted zones. Today, customers often install External DNS manually via a 1-click option in the EKS console. As part of improving the SageMaker Spaces experience, this role will now be automatically created by the SageMaker Console during Spaces add-on installation, **requiring no customer action**.
 
 ## Prerequisites for Direct SSH
+<a name="permission-direct-ssh"></a>
 
-Direct SSH requires the following infrastructure prerequisites. If
-web browser access is already enabled on your cluster, these
-prerequisites are already in place. For more information about web
-browser access, see [Web browser access](browser-access.md "browser-access.md").
+Direct SSH requires the following infrastructure prerequisites. If web browser access is already enabled on your cluster, these prerequisites are already in place. For more information about web browser access, see [Web browser access](browser-access.md).
++ **ExternalDNS** — deployed through EKS add-ons, with an IAM role that has Route 53 permissions. Configure ExternalDNS with `--policy=sync` (not the default `upsert-only`) so that ExternalDNS removes DNS records when you delete a workspace.
++ **Amazon Route 53 Private Hosted Zone** — a domain or subdomain that you own, registered in Route 53 and associated with the cluster VPC.
++ **VPC connectivity from client machines** — VPN or AWS Direct Connect from client machines to the cluster VPC. Because Direct SSH exposes the port on the pod's private IP address inside the VPC, you can connect only if your client machine has network connectivity to that VPC, through the same VPC, VPC peering, a VPN, or Direct Connect.
++ **AWS Load Balancer Controller** — required if you also use web browser access (ALB ingress). For HyperPod-specific installation notes, see [AWS Load Balancer Controller: HyperPod vpcId requirement](direct-ssh-access.md#direct-ssh-appendix-lbc).
 
-- **ExternalDNS** — deployed
-  through EKS add-ons, with an IAM role that has Route 53
-  permissions. Configure ExternalDNS with
-  `--policy=sync` (not the default
-  `upsert-only`) so that ExternalDNS removes DNS records
-  when you delete a workspace.
-- **Amazon Route 53 Private Hosted Zone**
-  — a domain or subdomain that you own, registered in Route 53
-  and associated with the cluster VPC.
-- **VPC connectivity from client machines**
-  — VPN or AWS Direct Connect from client machines to the
-  cluster VPC. Because Direct SSH exposes the port on the pod's
-  private IP address inside the VPC, you can connect only if your
-  client machine has network connectivity to that VPC, through the
-  same VPC, VPC peering, a VPN, or Direct Connect.
-- **AWS Load Balancer Controller**
-  — required if you also use web browser access (ALB
-  ingress). For HyperPod-specific installation notes, see
-  [AWS Load Balancer Controller: HyperPod vpcId requirement](direct-ssh-access.md#direct-ssh-appendix-lbc "direct-ssh-access.md#direct-ssh-appendix-lbc").
-
-For detailed setup and verification instructions, see
-[(Optional) Setting up prerequisites](direct-ssh-access.md#direct-ssh-appendix "direct-ssh-access.md#direct-ssh-appendix").
+For detailed setup and verification instructions, see [(Optional) Setting up prerequisites](direct-ssh-access.md#direct-ssh-appendix).
 
 ## Permission setup for AWS Toolkit to Access SageMaker Spaces
+<a name="permission-for-toolkitl"></a>
 
-To allow the AWS VS Code Toolkit resource explorer side panel to discover and
-connect to SageMaker Spaces, the following IAM permissions are required. These
-permissions allow the Toolkit to list available SageMaker HyperPod clusters,
-retrieve cluster details, and obtain a connection token for the associated Amazon
-EKS cluster.
+To allow the AWS VS Code Toolkit resource explorer side panel to discover and connect to SageMaker Spaces, the following IAM permissions are required. These permissions allow the Toolkit to list available SageMaker HyperPod clusters, retrieve cluster details, and obtain a connection token for the associated Amazon EKS cluster.
 
 **Required IAM Policy**
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "SageMakerListClusters",
@@ -392,10 +343,5 @@ EKS cluster.
 ```
 
 **Scoping Recommendations**
-
-- Replace cluster-name with the specific SageMaker HyperPod cluster(s) your
-  users need to access.
-
-- The eks:GetToken action currently does not support resource-level
-  restrictions and must use Resource: "\*". This is an AWS service limitation.
-  The client side Authentication is performed through [EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md").
++ Replace cluster-name with the specific SageMaker HyperPod cluster(s) your users need to access.
++ The eks:GetToken action currently does not support resource-level restrictions and must use Resource: "\*". This is an AWS service limitation. The client side Authentication is performed through [EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).

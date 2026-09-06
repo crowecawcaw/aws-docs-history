@@ -1,15 +1,11 @@
+
+
 # Output data for a 3D point cloud semantic segmentation job
+<a name="sms-point-cloud-semantic-segmentation-input-data"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
-Amazon SageMaker Ground Truth is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Ground Truth, but we do not plan to introduce new features.
+When you create a 3D point cloud semantic segmentation labeling job, tasks are sent to workers. When these workers complete their tasks, their annotations are written to the Amazon S3 bucket you specified when you created the labeling job. The output data format determines what you see in your Amazon S3 bucket when your labeling job status ([LabelingJobStatus](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeLabelingJob.html#API_DescribeLabelingJob_ResponseSyntax)) is `Completed`. 
 
-When you create a 3D point cloud semantic segmentation labeling job, tasks are sent to
-workers. When these workers complete their tasks, their annotations are written to the
-Amazon S3 bucket you specified when you created the labeling job. The output data format
-determines what you see in your Amazon S3 bucket when your labeling job status ([LabelingJobStatus](../APIReference/API_DescribeLabelingJob.md#API_DescribeLabelingJob_ResponseSyntax "../APIReference/API_DescribeLabelingJob.md#API_DescribeLabelingJob_ResponseSyntax")) is `Completed`.
-
-If you are a new user of Ground Truth, see [Labeling job output data](sms-data-output.md "sms-data-output.md") to learn more about the Ground Truth output data format. To
-learn about the 3D point cloud object detection output data format, see [3D point cloud semantic segmentation output](sms-data-output.md#sms-output-point-cloud-segmentation "sms-data-output.md#sms-output-point-cloud-segmentation").
+If you are a new user of Ground Truth, see [Labeling job output data](sms-data-output.md) to learn more about the Ground Truth output data format. To learn about the 3D point cloud object detection output data format, see [3D point cloud semantic segmentation output](sms-data-output.md#sms-output-point-cloud-segmentation). 

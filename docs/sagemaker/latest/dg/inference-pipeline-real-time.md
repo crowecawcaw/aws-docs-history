@@ -1,43 +1,27 @@
+
+
 # Run Real-time Predictions with an Inference Pipeline
+<a name="inference-pipeline-real-time"></a>
 
-You can use trained models in an inference pipeline to make real-time predictions
-directly without performing external preprocessing. When you configure the pipeline, you
-can choose to use the built-in feature transformers already available in Amazon SageMaker AI. Or,
-you can implement your own transformation logic using just a few lines of scikit-learn
-or Spark code.
+You can use trained models in an inference pipeline to make real-time predictions directly without performing external preprocessing. When you configure the pipeline, you can choose to use the built-in feature transformers already available in Amazon SageMaker AI. Or, you can implement your own transformation logic using just a few lines of scikit-learn or Spark code. 
 
-[MLeap](https://combust.github.io/mleap-docs/ "https://combust.github.io/mleap-docs/"), a serialization
-format and execution engine for machine learning pipelines, supports Spark,
-scikit-learn, and TensorFlow for training pipelines and exporting them to a serialized
-pipeline called an MLeap Bundle. You can deserialize Bundles back into Spark for
-batch-mode scoring or into the MLeap runtime to power real-time API services.
+[MLeap](https://combust.github.io/mleap-docs/), a serialization format and execution engine for machine learning pipelines, supports Spark, scikit-learn, and TensorFlow for training pipelines and exporting them to a serialized pipeline called an MLeap Bundle. You can deserialize Bundles back into Spark for batch-mode scoring or into the MLeap runtime to power real-time API services.
 
-The containers in a pipeline listen on the port specified in the
-`SAGEMAKER_BIND_TO_PORT` environment variable (instead of 8080). When
-running in an inference pipeline, SageMaker AI automatically provides this environment variable
-to containers. If this environment variable isn't present, containers default to using
-port 8080. To indicate that your container complies with this requirement, use the
-following command to add a label to your Dockerfile:
+The containers in a pipeline listen on the port specified in the `SAGEMAKER_BIND_TO_PORT` environment variable (instead of 8080). When running in an inference pipeline, SageMaker AI automatically provides this environment variable to containers. If this environment variable isn't present, containers default to using port 8080. To indicate that your container complies with this requirement, use the following command to add a label to your Dockerfile:
 
 ```
 LABEL com.amazonaws.sagemaker.capabilities.accept-bind-to-port=true
 ```
 
-If your container needs to listen on a second port, choose a port in the range
-specified by the `SAGEMAKER_SAFE_PORT_RANGE` environment variable. Specify
-the value as an inclusive range in the format `"XXXX-YYYY"`, where
-`XXXX` and `YYYY` are multi-digit integers. SageMaker AI provides this
-value automatically when you run the container in a multicontainer pipeline.
+If your container needs to listen on a second port, choose a port in the range specified by the `SAGEMAKER_SAFE_PORT_RANGE` environment variable. Specify the value as an inclusive range in the format **"XXXX-YYYY"**, where `XXXX` and `YYYY` are multi-digit integers. SageMaker AI provides this value automatically when you run the container in a multicontainer pipeline.
 
-###### Note
-
-To use custom Docker images in a pipeline that includes [SageMaker AI built-in algorithms](sagemaker-algo-docker-registry-paths.md "sagemaker-algo-docker-registry-paths.md"), you need an [Amazon Elastic Container Registry (Amazon ECR) policy](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"). Your Amazon ECR repository must grant SageMaker AI
-permission to pull the image. For more information, see [Troubleshoot Amazon ECR Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions "inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions").
+**Note**  
+To use custom Docker images in a pipeline that includes [SageMaker AI built-in algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html), you need an [Amazon Elastic Container Registry (Amazon ECR) policy](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html). Your Amazon ECR repository must grant SageMaker AI permission to pull the image. For more information, see [Troubleshoot Amazon ECR Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions).
 
 ## Create and Deploy an Inference Pipeline Endpoint
+<a name="inference-pipeline-real-time-sdk"></a>
 
-The following code creates and deploys a real-time inference pipeline model with
-SparkML and XGBoost models in series using the SageMaker AI SDK.
+The following code creates and deploys a real-time inference pipeline model with SparkML and XGBoost models in series using the SageMaker AI SDK.
 
 ```
 from sagemaker.serve import ModelBuilder
@@ -61,9 +45,9 @@ endpoint = model_builder.build().deploy(
 ```
 
 ## Request Real-Time Inference from an Inference Pipeline Endpoint
+<a name="inference-pipeline-endpoint-request"></a>
 
-The following example shows how to make real-time predictions by calling an
-inference endpoint and passing a request payload in JSON format:
+The following example shows how to make real-time predictions by calling an inference endpoint and passing a request payload in JSON format:
 
 ```
 import json
@@ -118,7 +102,6 @@ print(response)
 The response you get is the model's inference result.
 
 ## Realtime inference pipeline example
+<a name="inference-pipeline-example"></a>
 
-You can run this [example notebook using the SKLearn predictor](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-python-sdk/scikit_learn_randomforest/Sklearn_on_SageMaker_end2end.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-python-sdk/scikit_learn_randomforest/Sklearn_on_SageMaker_end2end.ipynb") that shows how to deploy
-an endpoint, run an inference request, then deserialize the response. Find this
-notebook and more examples in the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples "https://github.com/awslabs/amazon-sagemaker-examples").
+You can run this [example notebook using the SKLearn predictor](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-python-sdk/scikit_learn_randomforest/Sklearn_on_SageMaker_end2end.ipynb) that shows how to deploy an endpoint, run an inference request, then deserialize the response. Find this notebook and more examples in the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples).

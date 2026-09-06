@@ -1,50 +1,36 @@
+
+
 # Invoke endpoints with OpenAI-compatible APIs
+<a name="realtime-endpoints-openai-compatible"></a>
 
-Amazon SageMaker AI real-time inference endpoints support an OpenAI-compatible API path. Customers
-using the OpenAI SDK, LangChain, or Strands Agents can invoke models on SageMaker AI by changing
-only their endpoint URL, without requiring custom clients, SigV4 wrappers, or code
-rewrites.
+Amazon SageMaker AI real-time inference endpoints support an OpenAI-compatible API path. Customers using the OpenAI SDK, LangChain, or Strands Agents can invoke models on SageMaker AI by changing only their endpoint URL, without requiring custom clients, SigV4 wrappers, or code rewrites.
 
-With this capability, SageMaker AI endpoints expose an `/openai/v1/chat/completions`
-path that accepts Chat Completions requests and returns responses directly from the
-container, including streaming. OpenAI-compatible endpoints are available on all endpoints and inference
-components using standard SageMaker AI APIs and SDKs.
+With this capability, SageMaker AI endpoints expose an `/openai/v1/chat/completions` path that accepts Chat Completions requests and returns responses directly from the container, including streaming. OpenAI-compatible endpoints are available on all endpoints and inference components using standard SageMaker AI APIs and SDKs.
 
-SageMaker AI routes requests based on the endpoint name in the URL. Any OpenAI-compatible client
-works without additional configuration. You can create short-lived bearer tokens for your
-endpoints and use them with your OpenAI clients.
+SageMaker AI routes requests based on the endpoint name in the URL. Any OpenAI-compatible client works without additional configuration. You can create short-lived bearer tokens for your endpoints and use them with your OpenAI clients.
 
 ## Prerequisites
+<a name="realtime-endpoints-openai-compatible-prerequisites"></a>
 
 Before you begin, make sure you have the following:
-
-- An AWS account with permissions to create SageMaker AI endpoints.
-- The SageMaker AI Python SDK installed (`pip install sagemaker`).
-- The OpenAI Python SDK installed (`pip install openai`).
-- A model stored in Amazon S3 (for example, Qwen3-4B downloaded from Hugging
-  Face).
-- An IAM execution role with the
-  `AmazonSageMakerFullAccess` policy to create the
-  endpoints.
-- An IAM role or user with the
-  `sagemaker:CallWithBearerToken` and
-  `sagemaker:InvokeEndpoint` permissions to invoke the
-  endpoint.
++ An AWS account with permissions to create SageMaker AI endpoints.
++ The SageMaker AI Python SDK installed (`pip install sagemaker`).
++ The OpenAI Python SDK installed (`pip install openai`).
++ A model stored in Amazon S3 (for example, Qwen3-4B downloaded from Hugging Face).
++ An IAM execution role with the `AmazonSageMakerFullAccess` policy to create the endpoints.
++ An IAM role or user with the `sagemaker:CallWithBearerToken` and `sagemaker:InvokeEndpoint` permissions to invoke the endpoint.
 
 ## Authentication with bearer tokens
+<a name="realtime-endpoints-openai-compatible-auth"></a>
 
-SageMaker AI OpenAI-compatible endpoints use bearer token authentication. The SageMaker AI Python SDK
-includes a token generator that creates short-lived tokens (valid up to 12 hours) from
-your existing AWS credentials. No additional secrets or API keys are required.
+SageMaker AI OpenAI-compatible endpoints use bearer token authentication. The SageMaker AI Python SDK includes a token generator that creates short-lived tokens (valid up to 12 hours) from your existing AWS credentials. No additional secrets or API keys are required.
 
-The token contains your role or user credentials and requires the
-`sagemaker:CallWithBearerToken` and
-`sagemaker:InvokeEndpoint` action permissions.
+The token contains your role or user credentials and requires the `sagemaker:CallWithBearerToken` and `sagemaker:InvokeEndpoint` action permissions.
 
 ### Generate a token
+<a name="realtime-endpoints-openai-compatible-auth-generate"></a>
 
-Use the `generate_token` function from the SageMaker AI Python SDK to create a
-bearer token:
+Use the `generate_token` function from the SageMaker AI Python SDK to create a bearer token:
 
 ```
 from sagemaker.core.token_generator import generate_token
@@ -53,25 +39,14 @@ from datetime import timedelta
 token = generate_token(region="us-west-2", expiry=timedelta(minutes=5))
 ```
 
-The `generate_token` function generates a short-lived bearer token for
-authenticating with SageMaker AI APIs. By default, tokens are valid for 12 hours. You can
-override this with the `expiry` parameter using a
-`timedelta` value anywhere between 1 second and 12 hours.
+The `generate_token` function generates a short-lived bearer token for authenticating with SageMaker AI APIs. By default, tokens are valid for 12 hours. You can override this with the `expiry` parameter using a `timedelta` value anywhere between 1 second and 12 hours.
 
-The function accepts a `region`, an optional
-`aws_credentials_provider`, and the `expiry` duration. If
-no region is provided, it falls back to the `AWS_REGION` environment
-variable. If no credentials provider is supplied, it resolves credentials using the
-default AWS credential chain, which searches multiple sources including environment
-variables, `~/.aws/credentials`,
-`~/.aws/config`, container credentials, and instance profiles.
-For the full resolution order, see the [boto3 credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html").
+The function accepts a `region`, an optional `aws_credentials_provider`, and the `expiry` duration. If no region is provided, it falls back to the `AWS_REGION` environment variable. If no credentials provider is supplied, it resolves credentials using the default AWS credential chain, which searches multiple sources including environment variables, `~/.aws/credentials`, `~/.aws/config`, container credentials, and instance profiles. For the full resolution order, see the [boto3 credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html).
 
 ### Auto-refresh tokens for long-running applications
+<a name="realtime-endpoints-openai-compatible-auth-refresh"></a>
 
-For applications that run continuously, you can implement an auto-refreshing
-pattern using `httpx` so that a fresh token is generated on each
-request:
+For applications that run continuously, you can implement an auto-refreshing pattern using `httpx` so that a fresh token is generated on each request:
 
 ```
 import httpx
@@ -89,18 +64,18 @@ http_client = httpx.Client(auth=SageMakerAuth(region="us-west-2"))
 ```
 
 ### IAM permissions
+<a name="realtime-endpoints-openai-compatible-auth-iam"></a>
 
-The IAM role or user invoking the endpoint needs the following
-permissions:
+The IAM role or user invoking the endpoint needs the following permissions:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
             "Action": "sagemaker:InvokeEndpoint",
-            "Resource": "arn:aws:sagemaker:`REGION`:`ACCOUNT_ID`:endpoint/`ENDPOINT_NAME`"
+            "Resource": "arn:aws:sagemaker:{{REGION}}:{{ACCOUNT_ID}}:endpoint/{{ENDPOINT_NAME}}"
         },
         {
             "Effect": "Allow",
@@ -111,70 +86,39 @@ permissions:
 }
 ```
 
-###### Important
+**Important**  
+Always restrict the `Resource` for `sagemaker:InvokeEndpoint` to specific endpoint ARNs rather than using a wildcard. The bearer token generated from this role has the same level of access, so a narrowly scoped policy limits the blast radius if a token is inadvertently exposed.
 
-Always restrict the `Resource` for
-`sagemaker:InvokeEndpoint` to specific endpoint ARNs rather than
-using a wildcard. The bearer token generated from this role has the same level of
-access, so a narrowly scoped policy limits the blast radius if a token is
-inadvertently exposed.
-
-###### Note
-
-`sagemaker:CallWithBearerToken` requires a wildcard
-(`"*"`) for the `Resource` field. It does not support
-resource-level restrictions.
+**Note**  
+`sagemaker:CallWithBearerToken` requires a wildcard (`"*"`) for the `Resource` field. It does not support resource-level restrictions.
 
 ### How the token works
+<a name="realtime-endpoints-openai-compatible-auth-how-it-works"></a>
 
-The bearer token is a base64-encoded SigV4 pre-signed URL. When you call
-`generate_token`, the SageMaker AI SDK constructs a request to the SageMaker AI
-service for the `CallWithBearerToken` action, signs it locally using your
-AWS credentials, and encodes the resulting signed URL as a portable token string.
-No network call is made during token generation — the signing happens entirely on the
-client side.
+The bearer token is a base64-encoded SigV4 pre-signed URL. When you call `generate_token`, the SageMaker AI SDK constructs a request to the SageMaker AI service for the `CallWithBearerToken` action, signs it locally using your AWS credentials, and encodes the resulting signed URL as a portable token string. No network call is made during token generation — the signing happens entirely on the client side.
 
-When you present this token to a SageMaker AI endpoint, the service decodes it, validates
-the SigV4 signature, verifies that the token has not expired, and confirms that the
-originating IAM identity has the required permissions. The token's effective
-lifetime is the lesser of the `expiry` value and the remaining validity
-of the AWS credentials used to sign it.
+When you present this token to a SageMaker AI endpoint, the service decodes it, validates the SigV4 signature, verifies that the token has not expired, and confirms that the originating IAM identity has the required permissions. The token's effective lifetime is the lesser of the `expiry` value and the remaining validity of the AWS credentials used to sign it.
 
 ### Security best practices
+<a name="realtime-endpoints-openai-compatible-auth-security"></a>
 
-The bearer token carries the same authorization as the underlying AWS credentials
-used to generate it. Treat tokens with the same care as credentials. Follow these
-best practices:
-
-- Scope the IAM role used for token generation to the minimum permissions
-  required — specifically `sagemaker:InvokeEndpoint` and
-  `sagemaker:CallWithBearerToken` on only the endpoint ARNs
-  that the caller needs to access.
-- Do not generate tokens from roles with expansive permissions, such as those
-  granted by `AdministratorAccess` or
-  `AmazonSageMakerFullAccess` managed policies.
-- Do not store tokens on disk, in environment variables, in configuration
-  files, in databases, or in distributed caches. Do not log tokens, and only
-  transmit them over encrypted communication protocols such as HTTPS.
-- Token generation is a local operation with no network overhead. Generate a
-  fresh token at the point of use or use the auto-refreshing
-  `httpx.Auth` pattern shown above.
-- Set the token expiry to the shortest duration your workload
-  requires.
+The bearer token carries the same authorization as the underlying AWS credentials used to generate it. Treat tokens with the same care as credentials. Follow these best practices:
++ Scope the IAM role used for token generation to the minimum permissions required — specifically `sagemaker:InvokeEndpoint` and `sagemaker:CallWithBearerToken` on only the endpoint ARNs that the caller needs to access.
++ Do not generate tokens from roles with expansive permissions, such as those granted by `AdministratorAccess` or `AmazonSageMakerFullAccess` managed policies.
++ Do not store tokens on disk, in environment variables, in configuration files, in databases, or in distributed caches. Do not log tokens, and only transmit them over encrypted communication protocols such as HTTPS.
++ Token generation is a local operation with no network overhead. Generate a fresh token at the point of use or use the auto-refreshing `httpx.Auth` pattern shown above.
++ Set the token expiry to the shortest duration your workload requires.
 
 ## Invoke a single-model endpoint
+<a name="realtime-endpoints-openai-compatible-single-model"></a>
 
-A single-model endpoint hosts one model and serves requests directly. The following
-example deploys Qwen3-4B using the SageMaker AI vLLM Deep Learning Container on an
-`ml.g6.2xlarge` instance.
+A single-model endpoint hosts one model and serves requests directly. The following example deploys Qwen3-4B using the SageMaker AI vLLM Deep Learning Container on an `ml.g6.2xlarge` instance.
 
-###### Note
-
-SageMaker AI endpoints incur charges while in service, regardless of traffic. See the
-[SageMaker AI pricing page](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/") for
-details.
+**Note**  
+SageMaker AI endpoints incur charges while in service, regardless of traffic. See the [SageMaker AI pricing page](https://aws.amazon.com/sagemaker/pricing/) for details.
 
 ### Deploy the endpoint
+<a name="realtime-endpoints-openai-compatible-single-model-deploy"></a>
 
 ```
 import boto3
@@ -256,18 +200,15 @@ waiter.wait(
 )
 ```
 
-The endpoint transitions to `InService` status within a few minutes.
-Once ready, it serves both the standard SageMaker AI
-`/invocations` path and the OpenAI-compatible path at
-`/openai/v1/chat/completions`.
+The endpoint transitions to `InService` status within a few minutes. Once ready, it serves both the standard SageMaker AI `/invocations` path and the OpenAI-compatible path at `/openai/v1/chat/completions`.
 
 ### Invoke the endpoint
+<a name="realtime-endpoints-openai-compatible-single-model-invoke"></a>
 
-With the endpoint in service, invoke it using the OpenAI Python SDK. The base URL
-follows this format:
+With the endpoint in service, invoke it using the OpenAI Python SDK. The base URL follows this format:
 
 ```
-https://runtime.sagemaker.`REGION`.amazonaws.com/endpoints/`ENDPOINT_NAME`/openai/v1
+https://runtime.sagemaker.{{REGION}}.amazonaws.com/endpoints/{{ENDPOINT_NAME}}/openai/v1
 ```
 
 ```
@@ -300,17 +241,15 @@ for chunk in stream:
 print()
 ```
 
-The `model` field is passed through to the container. Because SageMaker AI
-routes requests based on the endpoint name in the URL, you can leave this field empty
-or set it to match the model name your container expects.
+The `model` field is passed through to the container. Because SageMaker AI routes requests based on the endpoint name in the URL, you can leave this field empty or set it to match the model name your container expects.
 
 ## Invoke inference components
+<a name="realtime-endpoints-openai-compatible-inference-components"></a>
 
-Inference components allow you to host multiple models on a single endpoint, each with
-dedicated compute resource allocations. With inference components, the model is
-associated with the component rather than the endpoint configuration.
+Inference components allow you to host multiple models on a single endpoint, each with dedicated compute resource allocations. With inference components, the model is associated with the component rather than the endpoint configuration.
 
 ### Deploy an inference component endpoint
+<a name="realtime-endpoints-openai-compatible-ic-deploy"></a>
 
 ```
 IC_MODEL_NAME = f"openai-compat-ic-model-{TIMESTAMP}"
@@ -385,19 +324,18 @@ while True:
     time.sleep(30)
 ```
 
-You can create additional inference components on the same endpoint to host
-multiple models with independent scaling and resource allocation.
+You can create additional inference components on the same endpoint to host multiple models with independent scaling and resource allocation.
 
 ### Invoke an inference component
+<a name="realtime-endpoints-openai-compatible-ic-invoke"></a>
 
 To invoke a specific inference component, include its name in the URL path:
 
 ```
-https://runtime.sagemaker.`REGION`.amazonaws.com/endpoints/`ENDPOINT_NAME`/inference-components/`IC_NAME`/openai/v1
+https://runtime.sagemaker.{{REGION}}.amazonaws.com/endpoints/{{ENDPOINT_NAME}}/inference-components/{{IC_NAME}}/openai/v1
 ```
 
-The following example shows how to invoke an inference component using the OpenAI
-SDK with a shared connection pool:
+The following example shows how to invoke an inference component using the OpenAI SDK with a shared connection pool:
 
 ```
 import httpx
@@ -422,18 +360,16 @@ response = client_a.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-The shared `httpx.Client` allows multiple OpenAI client instances to
-reuse the same TLS sessions and connection pool when targeting different inference
-components on the same endpoint.
+The shared `httpx.Client` allows multiple OpenAI client instances to reuse the same TLS sessions and connection pool when targeting different inference components on the same endpoint.
 
 ## Supported containers
+<a name="realtime-endpoints-openai-compatible-containers"></a>
 
-The following containers support OpenAI-compatible APIs on SageMaker AI. The container must
-implement the `/v1/chat/completions` path and return streaming responses in
-SSE format.
+The following containers support OpenAI-compatible APIs on SageMaker AI. The container must implement the `/v1/chat/completions` path and return streaming responses in SSE format.
 
-| Container                                                      | Support status |
-| -------------------------------------------------------------- | -------------- |
-| SageMaker AI vLLM Deep Learning Container                      | Supported      |
-| SageMaker AI SGLang Deep Learning Container                    | Supported      |
-| Custom containers implementing OpenAI API paths and<br>`/ping` | Supported      |
+
+|  Container  |  Support status  | 
+| --- | --- | 
+| SageMaker AI vLLM Deep Learning Container | Supported | 
+| SageMaker AI SGLang Deep Learning Container | Supported | 
+| Custom containers implementing OpenAI API paths and `/ping` | Supported | 

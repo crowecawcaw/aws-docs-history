@@ -1,16 +1,17 @@
+
+
 # AWS CLI v1 examples
+<a name="clarify-processing-job-data-format-tabular-precheck-cli-v1-examples"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Clarify is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md). 
 
-Amazon SageMaker Clarify is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+The example in the preceding section was for AWS CLI v2. The following request and response examples to and from the endpoint use AWS CLI v1.
 
-The example in the preceding section was for AWS CLI v2. The following request and response examples to and from the endpoint use AWS CLI
-v1.
+## Endpoint request and response in CSV format
+<a name="clarify-processing-job-data-format-tabular-precheck-csv"></a>
 
-In the following code example, the request consists of a single record and
-the response is its probability value.
+In the following code example, the request consists of a single record and the response is its probability value.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -27,9 +28,7 @@ From the previous code example, the response output follows.
 0.6
 ```
 
-In the following code example, the request consists of two records, and
-the response includes their probabilities, which are separated by a
-comma.
+In the following code example, the request consists of two records, and the response includes their probabilities, which are separated by a comma.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -40,16 +39,13 @@ aws sagemaker-runtime invoke-endpoint \
   /dev/stderr 1>/dev/null
 ```
 
-From the previous code example, the `$'content'` expression in
-the `--body` tells the command to interpret `'\n'` in
-the content as a line break. The response output follows.
+From the previous code example, the `$'content'` expression in the `--body` tells the command to interpret `'\n'` in the content as a line break. The response output follows.
 
 ```
 0.6,0.3
 ```
 
-In the following code example, the request consists of two records, the
-response includes their probabilities, separated with a line break.
+In the following code example, the request consists of two records, the response includes their probabilities, separated with a line break.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -65,12 +61,9 @@ From the previous code example, the response output follows.
 ```
 0.6
 0.3
-
 ```
 
-In the following code example, the request consists of a single record,
-and the response is probability values from a multiclass model containing
-three classes.
+In the following code example, the request consists of a single record, and the response is probability values from a multiclass model containing three classes.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -87,9 +80,7 @@ From the previous code example, the response output follows.
 0.1,0.6,0.3
 ```
 
-In the following code example, the request consists of two records, and
-the response includes their probability values from a multiclass model
-containing three classes.
+In the following code example, the request consists of two records, and the response includes their probability values from a multiclass model containing three classes.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -105,11 +96,9 @@ From the previous code example, the response output follows.
 ```
 0.1,0.6,0.3
 0.2,0.5,0.3
-
 ```
 
-In the following code example, the request consists of two records, and
-the response includes predicted label and probability.
+In the following code example, the request consists of two records, and the response includes predicted label and probability.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -125,11 +114,9 @@ From the previous code example, the response output follows.
 ```
 1,0.6
 0,0.3
-
 ```
 
-In the following code example, the request consists of two records and the
-response includes label headers and probabilities.
+In the following code example, the request consists of two records and the response includes label headers and probabilities.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -145,11 +132,12 @@ From the previous code example, the response output follows.
 ```
 "['cat','dog','fish']","[0.1,0.6,0.3]"
 "['cat','dog','fish']","[0.2,0.5,0.3]"
-
 ```
 
-In the following code example, the request consists of a single record and
-the response is its probability value.
+## Endpoint request and response in JSON Lines format
+<a name="clarify-processing-job-data-format-tabular-precheck-jsonlines"></a>
+
+In the following code example, the request consists of a single record and the response is its probability value.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -166,8 +154,7 @@ From the previous code example, the response output follows.
 {"score":0.6}
 ```
 
-In the following code example, the request contains two records, and the
-response includes predicted label and probability.
+In the following code example, the request contains two records, and the response includes predicted label and probability.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -183,11 +170,9 @@ From the previous code example, the response output follows.
 ```
 {"predicted_label":1,"probability":0.6}
 {"predicted_label":0,"probability":0.3}
-
 ```
 
-In the following code example, the request contains two records, and the
-response includes label headers and probabilities.
+In the following code example, the request contains two records, and the response includes label headers and probabilities.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -203,11 +188,12 @@ From the previous code example, the response output follows.
 ```
 {"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}
 {"predicted_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}
-
 ```
 
-In the following code example, the request is in CSV format and the
-response is in JSON Lines format.
+## Endpoint request and response in mixed formats
+<a name="clarify-processing-job-data-format-tabular-precheck-diff"></a>
+
+In the following code example, the request is in CSV format and the response is in JSON Lines format.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -223,11 +209,9 @@ From the previous code example, the response output follows.
 ```
 {"probability":0.6}
 {"probability":0.3}
-
 ```
 
-In the following code example, the request is in JSON Lines format and the
-response is in CSV format.
+In the following code example, the request is in JSON Lines format and the response is in CSV format.
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -243,11 +227,9 @@ From the previous code example, the response output follows.
 ```
 0.6
 0.3
-
 ```
 
-In the following code example, the request is in CSV format and the
-response is in JSON format.
+In the following code example, the request is in CSV format and the response is in JSON format.
 
 ```
 aws sagemaker-runtime invoke-endpoint \

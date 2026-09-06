@@ -1,31 +1,27 @@
+
+
 # Uncompressed model output
+<a name="model-train-storage-uncompressed"></a>
 
-SageMaker AI stores your model in `/opt/ml/model` and your data in
-`/opt/ml/output/data`. After the model and data are written to those locations,
-they're uploaded to your Amazon S3 bucket as compressed files by default.
+SageMaker AI stores your model in `/opt/ml/model` and your data in `/opt/ml/output/data`. After the model and data are written to those locations, they're uploaded to your Amazon S3 bucket as compressed files by default. 
 
-You can save time on large data file compression by uploading model and data outputs to
-your S3 bucket as uncompressed files. To do this, create a training job in uncompressed upload
-mode by using either the AWS Command Line Interface (AWS CLI) or the SageMaker Python SDK.
+You can save time on large data file compression by uploading model and data outputs to your S3 bucket as uncompressed files. To do this, create a training job in uncompressed upload mode by using either the AWS Command Line Interface (AWS CLI) or the SageMaker Python SDK. 
 
-The following code example shows how to create a training job in uncompressed upload mode
-when using the AWS CLI. To enable uncompressed upload mode, set `CompressionType`
-field in the `OutputDataConfig` API to `NONE`.
+The following code example shows how to create a training job in uncompressed upload mode when using the AWS CLI. To enable uncompressed upload mode, set `CompressionType` field in the `OutputDataConfig` API to **NONE**.
 
 ```
 {
-   "TrainingJobName": "`uncompressed_model_upload`",
+   "TrainingJobName": "{{uncompressed_model_upload}}",
    ...
-   "OutputDataConfig": {
-      "S3OutputPath": "s3://amzn-s3-demo-bucket`/uncompressed_upload/output`",
+   "OutputDataConfig": { 
+      "S3OutputPath": "s3://amzn-s3-demo-bucket{{/uncompressed_upload/output}}",
       "CompressionType": "NONE"
    },
    ...
 }
 ```
 
-The following code example shows you how to create a training job in uncompressed upload
-mode using the SageMaker Python SDK.
+The following code example shows you how to create a training job in uncompressed upload mode using the SageMaker Python SDK.
 
 ```
 from sagemaker.train import ModelTrainer
@@ -34,11 +30,11 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 from sagemaker.core.shapes import OutputDataConfig
 
 model_trainer = ModelTrainer(
-    training_image="`your-own-image-uri`",
+    training_image="{{your-own-image-uri}}",
     role=get_execution_role(),
     compute=Compute(
         instance_count=1,
-        instance_type='`ml.c4.xlarge`',
+        instance_type='{{ml.c4.xlarge}}',
     ),
     output_data_config=OutputDataConfig(compression_type="NONE")
 )

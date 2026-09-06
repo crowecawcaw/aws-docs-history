@@ -1,10 +1,12 @@
-# PCA Response Formats
 
-All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in
-[Common Data Formats - Inference](cdf-inference.md "cdf-inference.md"). This topic contains a list of the available output
-formats for the SageMaker AI PCA algorithm.
+
+# PCA Response Formats
+<a name="PCA-in-formats"></a>
+
+All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common Data Formats - Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html). This topic contains a list of the available output formats for the SageMaker AI PCA algorithm.
 
 ## JSON Response Format
+<a name="PCA-json"></a>
 
 Accept—application/json
 
@@ -23,6 +25,7 @@ Accept—application/json
 ```
 
 ## JSONLINES Response Format
+<a name="PCA-jsonlines"></a>
 
 Accept—application/jsonlines
 
@@ -32,6 +35,7 @@ Accept—application/jsonlines
 ```
 
 ## RECORDIO Response Format
+<a name="PCA-recordio"></a>
 
 Accept—application/x-recordio-protobuf
 
@@ -54,6 +58,6 @@ Accept—application/x-recordio-protobuf
                 values: [1.0, 2.0, 3.0, 4.0, 5.0]
             }
         }
-    }
+    }  
 ]
 ```

@@ -1,8 +1,9 @@
-# Get event notifications for ModelLifeCycle
 
-You can get the ModelLifeCycle update notifications and events with EventBridge in
-your account. The following is an example of an EventBridge rule, to be configured in
-your account, in order to get the ModelLifeCycle event notifications.
+
+# Get event notifications for ModelLifeCycle
+<a name="model-registry-staging-construct-event-bridge"></a>
+
+You can get the ModelLifeCycle update notifications and events with EventBridge in your account. The following is an example of an EventBridge rule, to be configured in your account, in order to get the ModelLifeCycle event notifications.
 
 ```
 {
@@ -11,4 +12,4 @@ your account, in order to get the ModelLifeCycle event notifications.
 }
 ```
 
-For an example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package "automating-sagemaker-with-eventbridge.md#eventbridge-model-package").
+For an example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package).

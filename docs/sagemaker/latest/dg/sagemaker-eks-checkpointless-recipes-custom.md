@@ -1,58 +1,62 @@
+
+
 # Tutorials - Amazon SageMaker HyperPod Checkpointless Pretraining or Finetuning Custom Models
+<a name="sagemaker-eks-checkpointless-recipes-custom"></a>
 
 The following sequence of steps is required to run checkpointless training with your custom model on HyperPod.
 
 ## Prerequisites
+<a name="sagemaker-eks-checkpointless-recipes-custom-prereqs"></a>
 
 Before you start setting up your environment, make sure you have:
-
-- [Enabled Amazon EKS support in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md "sagemaker-hyperpod-eks-prerequisites.md")
-- [Set up HyperPod training operator (v1.2+)](sagemaker-eks-operator.md "sagemaker-eks-operator.md")
-- A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
-- Data in one of the following formats:
-
-  - JSON
-  - JSONGZ (Compressed JSON)
-  - ARROW
-
-- [Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading "https://huggingface.co/docs/hub/models-downloading") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
-- Setup your environment
++ [ Enabled Amazon EKS support in Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-prerequisites.html)
++ [ Set up HyperPod training operator (v1.2\+)](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator.html)
++ A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
++ Data in one of the following formats:
+  + JSON
+  + JSONGZ (Compressed JSON)
+  + ARROW
++ [ Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading) and covert to [ Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face).
++ Setup your environment
 
 ## Kubernetes environment setup
+<a name="sagemaker-eks-checkpointless-recipes-custom-kubernetes"></a>
 
 To set up your Kubernetes environment, do the following:
 
 1. Set up the virtual environment. Make sure you're using Python greater than or equal to 3.10 and lower than 3.14.
 
-```
-python3 -m venv ${PWD}/venv
-source venv/bin/activate
-```
+   ```
+   python3 -m venv ${PWD}/venv
+   source venv/bin/activate
+   ```
 
-2. [Set up kubectl and eksctl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md")
-3. Connect to your Kubernetes cluster
+1. [ Set up kubectl and eksctl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 
-```
-aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
-```
+1. Connect to your Kubernetes cluster
 
-4. Install dependencies
+   ```
+   aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
+   ```
 
-```
-# install SageMaker HyperPod checkpointless training.
-git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
-cd sagemaker-hyperpod-checkpointless-training
-```
+1. Install dependencies
+
+   ```
+   # install SageMaker HyperPod checkpointless training.
+   git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
+   cd sagemaker-hyperpod-checkpointless-training
+   ```
 
 ## Checkpointless training modification instructions
+<a name="sagemaker-eks-checkpointless-recipes-custom-modification-instructions"></a>
 
 To incrementally adopt checkpointless training for custom models, follow the integration guide (here we use Llama 3 70b pretraining as an example), which involves:
-
-- Fast communicator creation
-- Memory-mapped dataloader (MMAP)
-- In-process & Checkpointless recovery
++ Fast communicator creation
++ Memory-mapped dataloader (MMAP)
++ In-process & Checkpointless recovery
 
 ### Component 1: Fast communicator creation
+<a name="sagemaker-eks-checkpointless-recipes-custom-component1"></a>
 
 This is to optimize time to establish connections between the workers. There is no code changes needed and only requires setting env variables
 
@@ -67,13 +71,12 @@ This is to optimize time to establish connections between the workers. There is 
               ...
 ```
 
-The full change can be found in the
-[llama3 70 pretrain launch job config](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml").
+The full change can be found in the [ llama3 70 pretrain launch job config](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/launch/pretrain_llama3_70b_checkpointless_p5.yaml).
 
 ### Component 2: Memory-mapped dataloader (MMAP)
+<a name="sagemaker-eks-checkpointless-recipes-custom-component2"></a>
 
-MMAP caches to store pre-fetched data samples & enable immediate training start without needing to wait for data preprocessing.
-It requires minimal code changes to adopt by wrapping existing dataloader.
+MMAP caches to store pre-fetched data samples & enable immediate training start without needing to wait for data preprocessing. It requires minimal code changes to adopt by wrapping existing dataloader.
 
 ```
 data_module = MMAPDataModule(
@@ -83,9 +86,9 @@ data_module = MMAPDataModule(
 ```
 
 ### Components 3 and 4: In-process and checkpointless recovery
+<a name="sagemaker-eks-checkpointless-recipes-custom-components3-4"></a>
 
-This enables failure recovery without restart training processes or loading from checkpoints. Additional code changes needed
-(strategy & training config update, wrap existing main)
+This enables failure recovery without restart training processes or loading from checkpoints. Additional code changes needed (strategy & training config update, wrap existing main)
 
 ```
 @HPWrapper(
@@ -105,10 +108,10 @@ CheckpointlessMegatronStrategy(
 )
 ```
 
-The full change can be found in the [llama3 70 pretrain entry script](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/llama3_70b_pretrain_checkpointless.py "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/llama3_70b_pretrain_checkpointless.py") and the corresponding training config change can be
-found in the [llama3 70b training config](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/config/llama3_70b_peft_checkpointless.yaml "https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/config/llama3_70b_peft_checkpointless.yaml").
+The full change can be found in the [llama3 70 pretrain entry script](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/llama3_70b_pretrain_checkpointless.py) and the corresponding training config change can be found in the [ llama3 70b training config](https://github.com/aws/sagemaker-hyperpod-checkpointless-training/blob/main/examples/llama3/config/llama3_70b_peft_checkpointless.yaml).
 
 ### Launch training
+<a name="sagemaker-eks-checkpointless-recipes-custom-launch"></a>
 
 You can now launch the checkpointless training using kubectl.
 

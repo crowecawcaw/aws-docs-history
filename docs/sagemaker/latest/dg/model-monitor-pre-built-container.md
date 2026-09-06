@@ -1,38 +1,26 @@
+
+
 # Amazon SageMaker Model Monitor prebuilt container
+<a name="model-monitor-pre-built-container"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+SageMaker AI provides a built-in image called `sagemaker-model-monitor-analyzer` that provides you with a range of model monitoring capabilities, including constraint suggestion, statistics generation, constraint validation against a baseline, and emitting Amazon CloudWatch metrics. This image is based on Spark version 3.3.0 and is built with [Deequ](https://github.com/awslabs/deequ) version 2.0.2.
 
-SageMaker AI provides a built-in image called `sagemaker-model-monitor-analyzer` that
-provides you with a range of model monitoring capabilities, including constraint suggestion,
-statistics generation, constraint validation against a baseline, and emitting Amazon CloudWatch
-metrics. This image is based on Spark version 3.3.0 and is built with [Deequ](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ") version 2.0.2.
+**Note**  
+You can not pull the built-in `sagemaker-model-monitor-analyzer` image directly. You can use the `sagemaker-model-monitor-analyzer` image when you submit a baseline processing or monitoring job using one of the AWS SDKs.
 
-###### Note
+ Use the SageMaker Python SDK (see `image_uris.retrieve` in the [SageMaker AI Python SDK reference guide](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html)) to generate the ECR image URI for you, or specify the ECR image URI directly. The prebuilt image for SageMaker Model Monitor can be accessed as follows:
 
-You can not pull the built-in `sagemaker-model-monitor-analyzer` image
-directly. You can use the `sagemaker-model-monitor-analyzer` image when you
-submit a baseline processing or monitoring job using one of the AWS SDKs.
+`{{<ACCOUNT_ID>}}.dkr.ecr.{{<REGION_NAME>}}.amazonaws.com/sagemaker-model-monitor-analyzer`
 
-Use the SageMaker Python SDK (see `image_uris.retrieve` in the [SageMaker AI Python
-SDK reference guide](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html")) to generate the ECR image URI for you, or specify the ECR
-image URI directly. The prebuilt image for SageMaker Model Monitor can be accessed as follows:
+For example: `159807026194.dkr.ecr.us-west-2.amazonaws.com/sagemaker-model-monitor-analyzer`
 
-``<ACCOUNT_ID>`.dkr.ecr.`<REGION_NAME>`.amazonaws.com/sagemaker-model-monitor-analyzer`
+If you are in an AWS region in China, the prebuilt images for SageMaker Model Monitor can be accessed as follows: 
 
-For example:
-`159807026194.dkr.ecr.us-west-2.amazonaws.com/sagemaker-model-monitor-analyzer`
+`{{<ACCOUNT_ID>}}.dkr.ecr.{{<REGION_NAME>}}.amazonaws.com.cn/sagemaker-model-monitor-analyzer`
 
-If you are in an AWS region in China, the prebuilt images for SageMaker Model Monitor can be accessed
-as follows:
+For account IDs and AWS Region names, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths).
 
-``<ACCOUNT_ID>`.dkr.ecr.`<REGION_NAME>`.amazonaws.com.cn/sagemaker-model-monitor-analyzer`
-
-For account IDs and AWS Region names, see
-[Docker
-Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md").
-
-To write your own analysis container, see the container contract described in [Custom monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md").
+To write your own analysis container, see the container contract described in [Custom monitoring schedules](model-monitor-custom-monitoring-schedules.md).

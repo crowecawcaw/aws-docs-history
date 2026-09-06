@@ -1,86 +1,46 @@
+
+
 # Example notebooks and code samples to configure Debugger hook
+<a name="debugger-save-tensors"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
-Amazon SageMaker Debugger is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+The following sections provide notebooks and code examples of how to use Debugger hook to save, access, and visualize output tensors.
 
-The following sections provide notebooks and code examples of how to use Debugger hook to
-save, access, and visualize output tensors.
-
-###### Topics
-
-- [Tensor visualization example notebooks](#debugger-tensor-visualization-notebooks "#debugger-tensor-visualization-notebooks")
-- [Save tensors using Debugger built-in collections](#debugger-save-built-in-collections "#debugger-save-built-in-collections")
-- [Save tensors by modifying Debugger built-in collections](#debugger-save-modified-built-in-collections "#debugger-save-modified-built-in-collections")
-- [Save tensors using Debugger custom collections](#debugger-save-custom-collections "#debugger-save-custom-collections")
+**Topics**
++ [Tensor visualization example notebooks](#debugger-tensor-visualization-notebooks)
++ [Save tensors using Debugger built-in collections](#debugger-save-built-in-collections)
++ [Save tensors by modifying Debugger built-in collections](#debugger-save-modified-built-in-collections)
++ [Save tensors using Debugger custom collections](#debugger-save-custom-collections)
 
 ## Tensor visualization example notebooks
+<a name="debugger-tensor-visualization-notebooks"></a>
 
-The following two notebook examples show advanced use of Amazon SageMaker Debugger for visualizing
-tensors. Debugger provides a transparent view into training deep learning models.
+The following two notebook examples show advanced use of Amazon SageMaker Debugger for visualizing tensors. Debugger provides a transparent view into training deep learning models.
++ [Interactive Tensor Analysis in SageMaker Studio Notebook with MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_analysis)
 
-- [Interactive Tensor Analysis in SageMaker Studio Notebook with
-  MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_analysis "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_analysis")
+  This notebook example shows how to visualize saved tensors using Amazon SageMaker Debugger. By visualizing the tensors, you can see how the tensor values change while training deep learning algorithms. This notebook includes a training job with a poorly configured neural network and uses Amazon SageMaker Debugger to aggregate and analyze tensors, including gradients, activation outputs, and weights. For example, the following plot shows the distribution of gradients of a convolutional layer that is suffering from a vanishing gradient problem.  
+![A graph plotting the distribution of gradients.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-vanishing-gradient.gif)
 
-This notebook example shows how to visualize saved tensors using Amazon SageMaker Debugger. By
-visualizing the tensors, you can see how the tensor values change while training
-deep learning algorithms. This notebook includes a training job with a poorly
-configured neural network and uses Amazon SageMaker Debugger to aggregate and analyze tensors,
-including gradients, activation outputs, and weights. For example, the following
-plot shows the distribution of gradients of a convolutional layer that is
-suffering from a vanishing gradient problem.
+  This notebook also illustrates how a good initial hyperparameter setting improves the training process by generating the same tensor distribution plots. 
++ [ Visualizing and Debugging Tensors from MXNet Model Training](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_plot)
 
-![A graph plotting the distribution of gradients.](images/debugger/debugger-vanishing-gradient.gif)
+   This notebook example shows how to save and visualize tensors from an MXNet Gluon model training job using Amazon SageMaker Debugger. It illustrates that Debugger is set to save all tensors to an Amazon S3 bucket and retrieves ReLu activation outputs for the visualization. The following figure shows a three-dimensional visualization of the ReLu activation outputs. The color scheme is set to blue to indicate values close to 0 and yellow to indicate values close to 1.   
+![A visualization of the ReLU activation outputs.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/tensorplot.gif)
 
-This notebook also illustrates how a good initial hyperparameter setting
-improves the training process by generating the same tensor distribution plots.
+  In this notebook, the `TensorPlot` class imported from `tensor_plot.py` is designed to plot convolutional neural networks (CNNs) that take two-dimensional images for inputs. The `tensor_plot.py` script provided with the notebook retrieves tensors using Debugger and visualizes the CNN. You can run this notebook on SageMaker Studio to reproduce the tensor visualization and implement your own convolutional neural network model. 
++ [Real-time Tensor Analysis in a SageMaker Notebook with MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mxnet_realtime_analysis)
 
-- [Visualizing and Debugging Tensors from MXNet Model Training](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_plot "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_plot")
-
-This notebook example shows how to save and visualize tensors from an MXNet
-Gluon model training job using Amazon SageMaker Debugger. It illustrates that Debugger is set to save
-all tensors to an Amazon S3 bucket and retrieves ReLu activation outputs for the
-visualization. The following figure shows a three-dimensional visualization of
-the ReLu activation outputs. The color scheme is set to blue to indicate values
-close to 0 and yellow to indicate values close to 1.
-
-![A visualization of the ReLU activation outputs.](images/tensorplot.gif)
-
-In this notebook, the `TensorPlot` class imported from
-`tensor_plot.py` is designed to plot convolutional neural
-networks (CNNs) that take two-dimensional images for inputs. The
-`tensor_plot.py` script provided with the notebook
-retrieves tensors using Debugger and visualizes the CNN. You can run this notebook
-on SageMaker Studio to reproduce the tensor visualization and implement your own
-convolutional neural network model.
-
-- [Real-time Tensor Analysis in a SageMaker Notebook with MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mxnet_realtime_analysis "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mxnet_realtime_analysis")
-
-This example guides you through installing required components for emitting
-tensors in an Amazon SageMaker training job and using the Debugger API operations to
-access those tensors while training is running. A gluon CNN model is trained on
-the Fashion MNIST dataset. While the job is running, you will see how Debugger
-retrieves activation outputs of the first convolutional layer from each of 100
-batches and visualizes them. Also, this will show you how to visualize weights
-after the job is done.
+  This example guides you through installing required components for emitting tensors in an Amazon SageMaker training job and using the Debugger API operations to access those tensors while training is running. A gluon CNN model is trained on the Fashion MNIST dataset. While the job is running, you will see how Debugger retrieves activation outputs of the first convolutional layer from each of 100 batches and visualizes them. Also, this will show you how to visualize weights after the job is done.
 
 ## Save tensors using Debugger built-in collections
+<a name="debugger-save-built-in-collections"></a>
 
-You can use built-in collections of tensors using the `CollectionConfig`
-API and save them using the `DebuggerHookConfig` API. The following example
-shows how to use the default settings of Debugger hook configurations to construct a
-SageMaker AI TensorFlow estimator. You can also utilize this for MXNet, PyTorch, and XGBoost
-estimators.
+You can use built-in collections of tensors using the `CollectionConfig` API and save them using the `DebuggerHookConfig` API. The following example shows how to use the default settings of Debugger hook configurations to construct a SageMaker AI TensorFlow estimator. You can also utilize this for MXNet, PyTorch, and XGBoost estimators.
 
-###### Note
-
-In the following example code, the `s3_output_path` parameter for
-`DebuggerHookConfig` is optional. If you do not specify it, Debugger
-saves the tensors at `s3://<output_path>/debug-output/`, where the
-`<output_path>` is the default output path of SageMaker training jobs.
-For example:
+**Note**  
+In the following example code, the `s3_output_path` parameter for `DebuggerHookConfig` is optional. If you do not specify it, Debugger saves the tensors at `s3://<output_path>/debug-output/`, where the `<output_path>` is the default output path of SageMaker training jobs. For example:  
 
 ```
 "s3://sagemaker-us-east-1-111122223333/sagemaker-debugger-training-YYYY-MM-DD-HH-MM-SS-123/debug-output"
@@ -93,8 +53,8 @@ from sagemaker.train import ModelTrainer
 from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
 from sagemaker.core.helper.session_helper import Session, get_execution_role
 
-**# use Debugger CollectionConfig to call built-in collections**
-**collection\_configs**=[
+# use Debugger CollectionConfig to call built-in collections
+collection_configs=[
         CollectionConfig(name="weights"),
         CollectionConfig(name="gradients"),
         CollectionConfig(name="losses"),
@@ -107,11 +67,11 @@ sagemaker_session=Session()
 BUCKET_NAME=sagemaker_session.default_bucket()
 LOCATION_IN_BUCKET='debugger-built-in-collections-hook'
 
-**hook\_config**=DebuggerHookConfig(
+hook_config=DebuggerHookConfig(
     s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
-                    format(BUCKET_NAME=BUCKET_NAME,
+                    format(BUCKET_NAME=BUCKET_NAME, 
                            LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
-    collection_configs=**collection\_configs**
+    collection_configs=collection_configs
 )
 
 from sagemaker.core import image_uris
@@ -120,9 +80,9 @@ from sagemaker.train.configs import SourceCode, Compute
 training_image = image_uris.retrieve(
     framework="tensorflow",
     region=boto3.Session().region_name,
-    version="`2.9.0`",
-    py_version="`py39`",
-    instance_type="`ml.p3.2xlarge`",
+    version="{{2.9.0}}",
+    py_version="{{py39}}",
+    instance_type="{{ml.p3.2xlarge}}",
     image_scope="training"
 )
 
@@ -132,23 +92,21 @@ sagemaker_model_trainer=ModelTrainer(
     source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
     role=get_execution_role(),
     base_job_name='debugger-demo-job',
-    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
-
+    compute=Compute(instance_type="{{ml.p3.2xlarge}}", instance_count=1),
+    
     # debugger-specific hook argument below
-    debugger_hook_config=**hook\_config**
+    debugger_hook_config=hook_config
 )
 
 sagemaker_model_trainer.train()
 ```
 
-To see a list of Debugger built-in collections, see [Debugger Built-in Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#collection "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#collection").
+To see a list of Debugger built-in collections, see [Debugger Built-in Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#collection).
 
 ## Save tensors by modifying Debugger built-in collections
+<a name="debugger-save-modified-built-in-collections"></a>
 
-You can modify the Debugger built-in collections using the `CollectionConfig`
-API operation. The following example shows how to tweak the built-in `losses`
-collection and construct a SageMaker AI TensorFlow estimator. You can also use this for MXNet,
-PyTorch, and XGBoost estimators.
+You can modify the Debugger built-in collections using the `CollectionConfig` API operation. The following example shows how to tweak the built-in `losses` collection and construct a SageMaker AI TensorFlow estimator. You can also use this for MXNet, PyTorch, and XGBoost estimators.
 
 ```
 import boto3
@@ -158,9 +116,9 @@ from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
 from sagemaker.core.helper.session_helper import Session, get_execution_role
 
 # use Debugger CollectionConfig to call and modify built-in collections
-**collection\_configs**=[
+collection_configs=[
     CollectionConfig(
-                name="losses",
+                name="losses", 
                 parameters={"save_interval": "50"})]
 
 # configure Debugger hook
@@ -169,11 +127,11 @@ sagemaker_session=Session()
 BUCKET_NAME=sagemaker_session.default_bucket()
 LOCATION_IN_BUCKET='debugger-modified-collections-hook'
 
-**hook\_config**=DebuggerHookConfig(
+hook_config=DebuggerHookConfig(
     s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
-                    format(BUCKET_NAME=BUCKET_NAME,
+                    format(BUCKET_NAME=BUCKET_NAME, 
                            LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
-    collection_configs=**collection\_configs**
+    collection_configs=collection_configs
 )
 
 from sagemaker.core import image_uris
@@ -182,9 +140,9 @@ from sagemaker.train.configs import SourceCode, Compute
 training_image = image_uris.retrieve(
     framework="tensorflow",
     region=boto3.Session().region_name,
-    version="`2.9.0`",
-    py_version="`py39`",
-    instance_type="`ml.p3.2xlarge`",
+    version="{{2.9.0}}",
+    py_version="{{py39}}",
+    instance_type="{{ml.p3.2xlarge}}",
     image_scope="training"
 )
 
@@ -194,24 +152,21 @@ sagemaker_model_trainer=ModelTrainer(
     source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
     role=get_execution_role(),
     base_job_name='debugger-demo-job',
-    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
-
+    compute=Compute(instance_type="{{ml.p3.2xlarge}}", instance_count=1),
+    
     # debugger-specific hook argument below
-    debugger_hook_config=**hook\_config**
+    debugger_hook_config=hook_config
 )
 
 sagemaker_model_trainer.train()
 ```
 
-For a full list of `CollectionConfig` parameters, see [Debugger CollectionConfig API](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk").
+For a full list of `CollectionConfig` parameters, see [ Debugger CollectionConfig API](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk).
 
 ## Save tensors using Debugger custom collections
+<a name="debugger-save-custom-collections"></a>
 
-You can also save a reduced number of tensors instead of the full set of tensors (for
-example, if you want to reduce the amount of data saved in your Amazon S3 bucket). The
-following example shows how to customize the Debugger hook configuration to specify target
-tensors that you want to save. You can use this for TensorFlow, MXNet, PyTorch, and
-XGBoost estimators.
+You can also save a reduced number of tensors instead of the full set of tensors (for example, if you want to reduce the amount of data saved in your Amazon S3 bucket). The following example shows how to customize the Debugger hook configuration to specify target tensors that you want to save. You can use this for TensorFlow, MXNet, PyTorch, and XGBoost estimators.
 
 ```
 import boto3
@@ -221,7 +176,7 @@ from sagemaker.core.debugger import DebuggerHookConfig, CollectionConfig
 from sagemaker.core.helper.session_helper import Session, get_execution_role
 
 # use Debugger CollectionConfig to create a custom collection
-**collection\_configs**=[
+collection_configs=[
         CollectionConfig(
             name="custom_activations_collection",
             parameters={
@@ -229,18 +184,18 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
                 "reductions": "mean,variance,max,abs_mean,abs_variance,abs_max"
             })
     ]
-
+    
 # configure Debugger hook
 # set a target S3 bucket as you want
 sagemaker_session=Session()
 BUCKET_NAME=sagemaker_session.default_bucket()
 LOCATION_IN_BUCKET='debugger-custom-collections-hook'
 
-**hook\_config**=DebuggerHookConfig(
+hook_config=DebuggerHookConfig(
     s3_output_path='s3://{BUCKET_NAME}/{LOCATION_IN_BUCKET}'.
-                    format(BUCKET_NAME=BUCKET_NAME,
+                    format(BUCKET_NAME=BUCKET_NAME, 
                            LOCATION_IN_BUCKET=LOCATION_IN_BUCKET),
-    collection_configs=**collection\_configs**
+    collection_configs=collection_configs
 )
 
 from sagemaker.core import image_uris
@@ -249,9 +204,9 @@ from sagemaker.train.configs import SourceCode, Compute
 training_image = image_uris.retrieve(
     framework="tensorflow",
     region=boto3.Session().region_name,
-    version="`2.9.0`",
-    py_version="`py39`",
-    instance_type="`ml.p3.2xlarge`",
+    version="{{2.9.0}}",
+    py_version="{{py39}}",
+    instance_type="{{ml.p3.2xlarge}}",
     image_scope="training"
 )
 
@@ -261,13 +216,13 @@ sagemaker_model_trainer=ModelTrainer(
     source_code=SourceCode(entry_script='directory/to/your_training_script.py'),
     role=get_execution_role(),
     base_job_name='debugger-demo-job',
-    compute=Compute(instance_type="`ml.p3.2xlarge`", instance_count=1),
-
+    compute=Compute(instance_type="{{ml.p3.2xlarge}}", instance_count=1),
+    
     # debugger-specific hook argument below
-    debugger_hook_config=**hook\_config**
+    debugger_hook_config=hook_config
 )
 
 sagemaker_model_trainer.train()
 ```
 
-For a full list of `CollectionConfig` parameters, see [Debugger CollectionConfig](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk").
+For a full list of `CollectionConfig` parameters, see [ Debugger CollectionConfig](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk).

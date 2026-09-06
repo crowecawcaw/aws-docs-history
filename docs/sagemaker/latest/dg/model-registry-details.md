@@ -1,91 +1,86 @@
+
+
 # Update the Details of a Model Version
+<a name="model-registry-details"></a>
 
-You can view and update details of a specific model version by using either the
-AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
+You can view and update details of a specific model version by using either the AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
 
-###### Important
-
-Amazon SageMaker AI integrates Model Cards into Model Registry. A model package registered in the
-Model Registry includes a simplified Model Card as a component of the model package. For
-more information, see [Model package model card schema (Studio)](#model-card-schema "#model-card-schema").
+**Important**  
+Amazon SageMaker AI integrates Model Cards into Model Registry. A model package registered in the Model Registry includes a simplified Model Card as a component of the model package. For more information, see [Model package model card schema (Studio)](#model-card-schema).
 
 ## View and Update the Details of a Model Version (Boto3)
+<a name="model-registry-details-api"></a>
 
-To view the details of a model version by using Boto3, complete the following
-steps.
+To view the details of a model version by using Boto3, complete the following steps.
 
-1. Call the `list_model_packages` API operation to view the
-   model versions in a Model Group.
+1. Call the `list_model_packages` API operation to view the model versions in a Model Group.
 
-```
-sm_client.list_model_packages(ModelPackageGroupName="ModelGroup1")
-```
+   ```
+   sm_client.list_model_packages(ModelPackageGroupName="ModelGroup1")
+   ```
 
-The response is a list of model package summaries. You can get the
-Amazon Resource Name (ARN) of the model versions from this list.
+   The response is a list of model package summaries. You can get the Amazon Resource Name (ARN) of the model versions from this list.
 
-```
-{'ModelPackageSummaryList': [{'ModelPackageGroupName': 'AbaloneMPG-16039329888329896',
-   'ModelPackageVersion': 1,
-   'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1',
-   'ModelPackageDescription': 'TestMe',
-   'CreationTime': datetime.datetime(2020, 10, 29, 1, 27, 46, 46000, tzinfo=tzlocal()),
-   'ModelPackageStatus': 'Completed',
-   'ModelApprovalStatus': 'Approved'}],
- 'ResponseMetadata': {'RequestId': '12345678-abcd-1234-abcd-aabbccddeeff',
-  'HTTPStatusCode': 200,
-  'HTTPHeaders': {'x-amzn-requestid': '12345678-abcd-1234-abcd-aabbccddeeff',
-   'content-type': 'application/x-amz-json-1.1',
-   'content-length': '349',
-   'date': 'Mon, 23 Nov 2020 04:56:50 GMT'},
-  'RetryAttempts': 0}}
-```
+   ```
+   {'ModelPackageSummaryList': [{'ModelPackageGroupName': 'AbaloneMPG-16039329888329896',
+      'ModelPackageVersion': 1,
+      'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1',
+      'ModelPackageDescription': 'TestMe',
+      'CreationTime': datetime.datetime(2020, 10, 29, 1, 27, 46, 46000, tzinfo=tzlocal()),
+      'ModelPackageStatus': 'Completed',
+      'ModelApprovalStatus': 'Approved'}],
+    'ResponseMetadata': {'RequestId': '12345678-abcd-1234-abcd-aabbccddeeff',
+     'HTTPStatusCode': 200,
+     'HTTPHeaders': {'x-amzn-requestid': '12345678-abcd-1234-abcd-aabbccddeeff',
+      'content-type': 'application/x-amz-json-1.1',
+      'content-length': '349',
+      'date': 'Mon, 23 Nov 2020 04:56:50 GMT'},
+     'RetryAttempts': 0}}
+   ```
 
-2. Call `describe_model_package` to see the details of the
-   model version. You pass in the ARN of a model version that you got in
-   the output of the call to `list_model_packages`.
+1. Call `describe_model_package` to see the details of the model version. You pass in the ARN of a model version that you got in the output of the call to `list_model_packages`.
 
-```
-sm_client.describe_model_package(ModelPackageName="arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1")
-```
+   ```
+   sm_client.describe_model_package(ModelPackageName="arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1")
+   ```
 
-The output of this call is a JSON object with the model version
-details.
+   The output of this call is a JSON object with the model version details.
 
-```
-{'ModelPackageGroupName': 'ModelGroup1',
- 'ModelPackageVersion': 1,
- 'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup/1',
- 'ModelPackageDescription': 'Test Model',
- 'CreationTime': datetime.datetime(2020, 10, 29, 1, 27, 46, 46000, tzinfo=tzlocal()),
- 'InferenceSpecification': {'Containers': [{'Image': '257758044811.dkr.ecr.us-east-2.amazonaws.com/sagemaker-xgboost:1.0-1-cpu-py3',
-    'ImageDigest': 'sha256:99fa602cff19aee33297a5926f8497ca7bcd2a391b7d600300204eef803bca66',
-    'ModelDataUrl': 's3://sagemaker-us-east-2-123456789012/ModelGroup1/pipelines-0gdonccek7o9-AbaloneTrain-stmiylhtIR/output/model.tar.gz'}],
-  'SupportedTransformInstanceTypes': ['ml.m5.xlarge'],
-  'SupportedRealtimeInferenceInstanceTypes': ['ml.t2.medium', 'ml.m5.xlarge'],
-  'SupportedContentTypes': ['text/csv'],
-  'SupportedResponseMIMETypes': ['text/csv']},
- 'ModelPackageStatus': 'Completed',
- 'ModelPackageStatusDetails': {'ValidationStatuses': [],
-  'ImageScanStatuses': []},
- 'CertifyForMarketplace': False,
- 'ModelApprovalStatus': 'PendingManualApproval',
- 'LastModifiedTime': datetime.datetime(2020, 10, 29, 1, 28, 0, 438000, tzinfo=tzlocal()),
- 'ResponseMetadata': {'RequestId': '12345678-abcd-1234-abcd-aabbccddeeff',
-  'HTTPStatusCode': 200,
-  'HTTPHeaders': {'x-amzn-requestid': '212345678-abcd-1234-abcd-aabbccddeeff',
-   'content-type': 'application/x-amz-json-1.1',
-   'content-length': '1038',
-   'date': 'Mon, 23 Nov 2020 04:59:38 GMT'},
-  'RetryAttempts': 0}}
-```
+   ```
+   {'ModelPackageGroupName': 'ModelGroup1',
+    'ModelPackageVersion': 1,
+    'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup/1',
+    'ModelPackageDescription': 'Test Model',
+    'CreationTime': datetime.datetime(2020, 10, 29, 1, 27, 46, 46000, tzinfo=tzlocal()),
+    'InferenceSpecification': {'Containers': [{'Image': '257758044811.dkr.ecr.us-east-2.amazonaws.com/sagemaker-xgboost:1.0-1-cpu-py3',
+       'ImageDigest': 'sha256:99fa602cff19aee33297a5926f8497ca7bcd2a391b7d600300204eef803bca66',
+       'ModelDataUrl': 's3://sagemaker-us-east-2-123456789012/ModelGroup1/pipelines-0gdonccek7o9-AbaloneTrain-stmiylhtIR/output/model.tar.gz'}],
+     'SupportedTransformInstanceTypes': ['ml.m5.xlarge'],
+     'SupportedRealtimeInferenceInstanceTypes': ['ml.t2.medium', 'ml.m5.xlarge'],
+     'SupportedContentTypes': ['text/csv'],
+     'SupportedResponseMIMETypes': ['text/csv']},
+    'ModelPackageStatus': 'Completed',
+    'ModelPackageStatusDetails': {'ValidationStatuses': [],
+     'ImageScanStatuses': []},
+    'CertifyForMarketplace': False,
+    'ModelApprovalStatus': 'PendingManualApproval',
+    'LastModifiedTime': datetime.datetime(2020, 10, 29, 1, 28, 0, 438000, tzinfo=tzlocal()),
+    'ResponseMetadata': {'RequestId': '12345678-abcd-1234-abcd-aabbccddeeff',
+     'HTTPStatusCode': 200,
+     'HTTPHeaders': {'x-amzn-requestid': '212345678-abcd-1234-abcd-aabbccddeeff',
+      'content-type': 'application/x-amz-json-1.1',
+      'content-length': '1038',
+      'date': 'Mon, 23 Nov 2020 04:59:38 GMT'},
+     'RetryAttempts': 0}}
+   ```
 
 ### Model package model card schema (Studio)
+<a name="model-card-schema"></a>
 
-All details related to the model version are encapsulated in the model
-package’s model card. The model card of a model package is a special usage
-of the Amazon SageMaker Model Card and its schema is simplified. The model package model card
-schema is shown in the following expandable dropdown.
+All details related to the model version are encapsulated in the model package’s model card. The model card of a model package is a special usage of the Amazon SageMaker Model Card and its schema is simplified. The model package model card schema is shown in the following expandable dropdown.
+
+#### Model package model card schema
+<a name="collapsible-section-model-package-model-card-schema"></a>
 
 ```
 {
@@ -692,102 +687,54 @@ schema is shown in the following expandable dropdown.
 ```
 
 ## View and Update the Details of a Model Version (Studio or Studio Classic)
+<a name="model-registry-details-studio"></a>
 
-To view and update the details of a model version, complete the following
-steps based on whether you use Studio or Studio Classic. In Studio Classic, you can
-update the approval status for a model version. For details, see [Update the Approval Status of a Model](model-registry-approve.md "model-registry-approve.md").
-In Studio, on the other hand, SageMaker AI creates a model card for a model
-package, and the model version UI provides options to update details in the
-model card.
+To view and update the details of a model version, complete the following steps based on whether you use Studio or Studio Classic. In Studio Classic, you can update the approval status for a model version. For details, see [Update the Approval Status of a Model](model-registry-approve.md). In Studio, on the other hand, SageMaker AI creates a model card for a model package, and the model version UI provides options to update details in the model card.
 
-Studio
+------
+#### [ Studio ]
 
-1. Open the SageMaker Studio console by following the
-   instructions in [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
-2. In the left navigation pane, choose
-   **Models** from the menu.
-3. Choose the **Registered models** tab, if
-   not selected already.
-4. Immediately below the **Registered
-   models** tab label, choose **Model
-   Groups**, if not selected already.
-5. Select the name of the model group containing the model
-   version to view.
-6. In the list of model versions, select the model version to
-   view.
-7. Choose one of the following tabs.
+1. Open the SageMaker Studio console by following the instructions in [Launch Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-launch.html).
 
-   - **Training**: To view or edit
-     details related to your training job, including
-     performance metrics, artifacts, IAM role and
-     encryption, and containers. For more information,
-     see [Add a training job (Studio)](model-registry-details-studio-training.md "model-registry-details-studio-training.md").
-   - **Evaluate**: To view or edit
-     details related to your training job, such as
-     performance metrics, evaluation datasets, and
-     security. For more information, see [Add an evaluation job (Studio)](model-registry-details-studio-evaluate.md "model-registry-details-studio-evaluate.md").
-   - **Audit**: To view or edit
-     high-level details related to the model’s business
-     purpose, usage, risk, and technical details such as
-     algorithm and performance limitations. For more
-     information, see [Update audit (governance) information (Studio)](model-registry-details-studio-audit.md "model-registry-details-studio-audit.md").
-   - **Deploy**: To view or edit the
-     location of your inference image container and
-     instances which compose the endpoint. For more
-     information, see [Update deployment information (Studio)](model-registry-details-studio-deploy.md "model-registry-details-studio-deploy.md").
+1. In the left navigation pane, choose **Models** from the menu.
 
-Studio Classic
+1. Choose the **Registered models** tab, if not selected already.
 
-1. Sign in to Amazon SageMaker Studio Classic. For more information, see
-   [Launch
-   Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
-2. In the left navigation pane, choose the
-   **Home** icon (
-   ![Home icon.](images/studio/icons/house.png)
-   ).
-3. Choose **Models**, and then
-   **Model registry**.
-4. From the model groups list, select the name of the Model
-   Group you want to view.
-5. A new tab appears with a list of the model versions in the
-   Model Group.
-6. In the list of model versions, select the name of the
-   model version for which you want to view details.
-7. On the model version tab that opens, choose one of the
-   following to see details about the model version:
+1. Immediately below the **Registered models** tab label, choose **Model Groups**, if not selected already.
 
-   - **Activity**: Shows events for
-     the model version, such as approval status
-     updates.
-   - **Model quality**: Reports
-     metrics related to your Model Monitor model quality checks,
-     which compare model predictions to Ground Truth. For more
-     information about Model Monitor model quality checks, see
-     [Model quality](model-monitor-model-quality.md "model-monitor-model-quality.md").
-   - **Explainability**: Reports
-     metrics related to your Model Monitor feature attribution
-     checks, which compare the relative rankings of your
-     features in training data versus live data. For more
-     information about Model Monitor explainability checks, see
-     [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
-   - **Bias**: Reports metrics related
-     to your Model Monitor bias drift checks, which compare the
-     distribution of live data to training data. For more
-     information about Model Monitor bias drift checks, see [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
-   - **Inference recommender**:
-     Provides initial instance recommendations for
-     optimal performance based on your model and sample
-     payloads.
-   - **Load test**: Runs load tests
-     across your choice of instance types when you
-     provide your specific production requirements, such
-     as latency and throughput constraints.
-   - **Inference specification**:
-     Displays instance types for your real-time inference
-     and transform jobs, and information about your Amazon ECR
-     containers.
-   - **Information**: Shows
-     information such as the project with which the model
-     version is associated, the pipeline that generated
-     the model, the Model Group, and the model's location
-     in Amazon S3.
+1. Select the name of the model group containing the model version to view.
+
+1. In the list of model versions, select the model version to view.
+
+1. Choose one of the following tabs.
+   + **Training**: To view or edit details related to your training job, including performance metrics, artifacts, IAM role and encryption, and containers. For more information, see [Add a training job (Studio)](model-registry-details-studio-training.md).
+   + **Evaluate**: To view or edit details related to your training job, such as performance metrics, evaluation datasets, and security. For more information, see [Add an evaluation job (Studio)](model-registry-details-studio-evaluate.md).
+   + **Audit**: To view or edit high-level details related to the model’s business purpose, usage, risk, and technical details such as algorithm and performance limitations. For more information, see [Update audit (governance) information (Studio)](model-registry-details-studio-audit.md).
+   + **Deploy**: To view or edit the location of your inference image container and instances which compose the endpoint. For more information, see [Update deployment information (Studio)](model-registry-details-studio-deploy.md).
+
+------
+#### [ Studio Classic ]
+
+1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
+
+1. In the left navigation pane, choose the **Home** icon ( ![Home icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+
+1. Choose **Models**, and then **Model registry**.
+
+1. From the model groups list, select the name of the Model Group you want to view.
+
+1. A new tab appears with a list of the model versions in the Model Group.
+
+1. In the list of model versions, select the name of the model version for which you want to view details.
+
+1. On the model version tab that opens, choose one of the following to see details about the model version:
+   + **Activity**: Shows events for the model version, such as approval status updates.
+   + **Model quality**: Reports metrics related to your Model Monitor model quality checks, which compare model predictions to Ground Truth. For more information about Model Monitor model quality checks, see [Model quality](model-monitor-model-quality.md). 
+   + **Explainability**: Reports metrics related to your Model Monitor feature attribution checks, which compare the relative rankings of your features in training data versus live data. For more information about Model Monitor explainability checks, see [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md).
+   + **Bias**: Reports metrics related to your Model Monitor bias drift checks, which compare the distribution of live data to training data. For more information about Model Monitor bias drift checks, see [Bias drift for models in production](clarify-model-monitor-bias-drift.md).
+   + **Inference recommender**: Provides initial instance recommendations for optimal performance based on your model and sample payloads.
+   + **Load test**: Runs load tests across your choice of instance types when you provide your specific production requirements, such as latency and throughput constraints.
+   + **Inference specification**: Displays instance types for your real-time inference and transform jobs, and information about your Amazon ECR containers.
+   + **Information**: Shows information such as the project with which the model version is associated, the pipeline that generated the model, the Model Group, and the model's location in Amazon S3.
+
+------

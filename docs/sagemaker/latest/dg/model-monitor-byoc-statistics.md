@@ -1,16 +1,12 @@
+
+
 # Schema for Statistics (statistics.json file)
+<a name="model-monitor-byoc-statistics"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
-
-The schema defined in the `statistics.json` file
-specifies the statistical parameters to be calculated for the baseline
-and data that is captured. It also configures the bucket to be used by
-[KLL](https://datasketches.apache.org/docs/KLL/KLLSketch.html "https://datasketches.apache.org/docs/KLL/KLLSketch.html"), a very compact quantiles sketch with lazy compaction
-scheme.
+The schema defined in the `statistics.json` file specifies the statistical parameters to be calculated for the baseline and data that is captured. It also configures the bucket to be used by [KLL](https://datasketches.apache.org/docs/KLL/KLLSketch.html), a very compact quantiles sketch with lazy compaction scheme.
 
 ```
 {
@@ -94,13 +90,7 @@ scheme.
 }
 ```
 
-###### Notes
-
-- The specified metrics are recognized by SageMaker AI in later
-  visualization changes. The container can emit more metrics
-  if required.
-- [KLL sketch](https://datasketches.apache.org/docs/KLL/KLLSketch.html "https://datasketches.apache.org/docs/KLL/KLLSketch.html") is the recognized sketch. Custom
-  containers can write their own representation, but it won’t
-  be recognized by SageMaker AI in visualizations.
-- By default, the distribution is materialized in 10
-  buckets. You can't change this.
+**Notes**  
+The specified metrics are recognized by SageMaker AI in later visualization changes. The container can emit more metrics if required.
+[KLL sketch](https://datasketches.apache.org/docs/KLL/KLLSketch.html) is the recognized sketch. Custom containers can write their own representation, but it won’t be recognized by SageMaker AI in visualizations.
+By default, the distribution is materialized in 10 buckets. You can't change this.

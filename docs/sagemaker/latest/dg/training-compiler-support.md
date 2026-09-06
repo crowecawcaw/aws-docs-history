@@ -1,74 +1,76 @@
+
+
 # Supported Frameworks, AWS Regions, Instance Types, and Tested Models
+<a name="training-compiler-support"></a>
 
-###### Important
+**Important**  
+Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).
 
-Amazon Web Services (AWS) announces that there will be no new releases or
-versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS
-Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that
-while the existing DLCs remain accessible, they will no longer receive patches or
-updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](../../../deep-learning-containers/latest/devguide/support-policy.md "../../../deep-learning-containers/latest/devguide/support-policy.md").
+Before using SageMaker Training Compiler, check if your framework of choice is supported, the instance types are available in your AWS account, and your AWS account is in one of the supported AWS Regions.
 
-Before using SageMaker Training Compiler, check if your framework of choice is supported, the instance
-types are available in your AWS account, and your AWS account is in one of the
-supported AWS Regions.
-
-###### Note
-
+**Note**  
 SageMaker Training Compiler is available in the SageMaker Python SDK v2.70.0 or later.
 
 ## Supported Frameworks
+<a name="training-compiler-supported-frameworks"></a>
 
-SageMaker Training Compiler supports the following deep learning frameworks and is available through
-AWS Deep Learning Containers.
+SageMaker Training Compiler supports the following deep learning frameworks and is available through AWS Deep Learning Containers.
 
-###### Topics
-
-- [PyTorch](#training-compiler-supported-frameworks-pytorch "#training-compiler-supported-frameworks-pytorch")
-- [TensorFlow](#training-compiler-supported-frameworks-tensorflow "#training-compiler-supported-frameworks-tensorflow")
+**Topics**
++ [PyTorch](#training-compiler-supported-frameworks-pytorch)
++ [TensorFlow](#training-compiler-supported-frameworks-tensorflow)
 
 ### PyTorch
+<a name="training-compiler-supported-frameworks-pytorch"></a>
 
-| Framework                               | Framework version                                                                                                                      | Deep Learning Container URI                                                                                                            | Extendable for Docker customization |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| PyTorch                                 | PyTorch v1.13.1                                                                                                                        | 763104351884.dkr.ecr.`<region>`.amazonaws.com/pytorch-trcomp-training:1.12.0-gpu-py38-cu113-ubuntu20.04-sagemaker                      | No                                  |
-| PyTorch v1.12.0                         | 763104351884.dkr.ecr.`<region>`.amazonaws.com/pytorch-trcomp-training:1.13.1-gpu-py39-cu117-ubuntu20.04-sagemaker                      | No                                                                                                                                     |
-| PyTorch with Hugging Face Transformers  | Transformers v4.21.1<br>PyTorch v1.11.0                                                                                                | 763104351884.dkr.ecr.`<region>`.amazonaws.com/huggingface-pytorch-trcomp-training:1.11.0-transformers4.21.1-gpu-py38-cu113-ubuntu20.04 | No                                  |
-| Transformers v4.17.0<br>PyTorch v1.10.2 | 763104351884.dkr.ecr.`<region>`.amazonaws.com/huggingface-pytorch-trcomp-training:1.10.2-transformers4.17.0-gpu-py38-cu113-ubuntu20.04 | No                                                                                                                                     |
-| Transformers v4.11.0<br>PyTorch v1.9.0  | 763104351884.dkr.ecr.`<region>`.amazonaws.com/huggingface-pytorch-training-comp:1.9.0-transformers4.11.0-gpu-py38-cu111-ubuntu20.04    | No                                                                                                                                     |
+
+
+- **PyTorch**
+  - **Framework version:** PyTorch v1.13.1 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-trcomp-training:1.12.0-gpu-py38-cu113-ubuntu20.04-sagemaker / **Extendable for Docker customization:** No
+  - **Framework version:** PyTorch v1.12.0 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-trcomp-training:1.13.1-gpu-py39-cu117-ubuntu20.04-sagemaker / **Extendable for Docker customization:** No
+
+- **PyTorch with Hugging Face Transformers**
+  - **Framework version:** Transformers v4.21.1<br />PyTorch v1.11.0 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/huggingface-pytorch-trcomp-training:1.11.0-transformers4.21.1-gpu-py38-cu113-ubuntu20.04 / **Extendable for Docker customization:** No
+  - **Framework version:** Transformers v4.17.0<br />PyTorch v1.10.2 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/huggingface-pytorch-trcomp-training:1.10.2-transformers4.17.0-gpu-py38-cu113-ubuntu20.04 / **Extendable for Docker customization:** No
+  - **Framework version:** Transformers v4.11.0<br />PyTorch v1.9.0 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/huggingface-pytorch-training-comp:1.9.0-transformers4.11.0-gpu-py38-cu111-ubuntu20.04 / **Extendable for Docker customization:** No
+
+
 
 ### TensorFlow
+<a name="training-compiler-supported-frameworks-tensorflow"></a>
 
-| Framework                                 | Framework version                                                                                                                      | Deep Learning Container URI                                                                                                              | Extendable for Docker customization |
-| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| TensorFlow                                | TensorFlow v2.11.0                                                                                                                     | 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.11.0-gpu-py39-cu112-ubuntu20.04-sagemaker                            | Yes                                 |
-| TensorFlow v2.10.0                        | 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.10.0-gpu-py39-cu112-ubuntu20.04-sagemaker                          | Yes                                                                                                                                      |
-| TensorFlow v2.9.1                         | 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.9.1-gpu-py39-cu112-ubuntu20.04-sagemaker                           | Yes                                                                                                                                      |
-| TensorFlow with Hugging Face Transformers | Transformers v4.17.0<br>TensorFlow v2.6.3                                                                                              | 763104351884.dkr.ecr.`<region>`.amazonaws.com/huggingface-tensorflow-trcomp-training:2.6.3-transformers4.17.0-gpu-py38-cu112-ubuntu20.04 | No                                  |
-| Transformers v4.11.0<br>TensorFlow v2.5.1 | 763104351884.dkr.ecr.`<region>`.amazonaws.com/huggingface-tensorflow-training-comp:2.5.1-transformers4.11.0-gpu-py37-cu112-ubuntu18.04 | No                                                                                                                                       |
 
-For more information, see [Available Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") in the _AWS Deep Learning
-Containers GitHub repository_.
+
+- **TensorFlow**
+  - **Framework version:** TensorFlow v2.11.0 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.11.0-gpu-py39-cu112-ubuntu20.04-sagemaker / **Extendable for Docker customization:** Yes
+  - **Framework version:** TensorFlow v2.10.0 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.10.0-gpu-py39-cu112-ubuntu20.04-sagemaker / **Extendable for Docker customization:** Yes
+  - **Framework version:** TensorFlow v2.9.1 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/tensorflow-training:2.9.1-gpu-py39-cu112-ubuntu20.04-sagemaker / **Extendable for Docker customization:** Yes
+
+- **TensorFlow with Hugging Face Transformers**
+  - **Framework version:** Transformers v4.17.0<br />TensorFlow v2.6.3 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/huggingface-tensorflow-trcomp-training:2.6.3-transformers4.17.0-gpu-py38-cu112-ubuntu20.04 / **Extendable for Docker customization:** No
+  - **Framework version:** Transformers v4.11.0<br />TensorFlow v2.5.1 / **Deep Learning Container URI:** 763104351884.dkr.ecr.{{<region>}}.amazonaws.com/huggingface-tensorflow-training-comp:2.5.1-transformers4.11.0-gpu-py37-cu112-ubuntu18.04 / **Extendable for Docker customization:** No
+
+
+
+For more information, see [Available Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md) in the *AWS Deep Learning Containers GitHub repository*.
 
 ## AWS Regions
+<a name="training-compiler-availablity-zone"></a>
 
-The [SageMaker Training Compiler Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers") are available in the AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") are in service except the China
-regions.
+The [SageMaker Training Compiler Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers) are available in the AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md) are in service except the China regions.
 
 ## Supported Instance Types
+<a name="training-compiler-supported-instance-types"></a>
 
 SageMaker Training Compiler is tested on and supports the following ML instance types.
++ P4 instances
++ P3 instances
++ G4dn instances
++ G5 instances
 
-- P4 instances
-- P3 instances
-- G4dn instances
-- G5 instances
+For specs of the instance types, see the **Accelerated Computing** section in the [Amazon EC2 Instance Types page](https://aws.amazon.com/ec2/instance-types/). For information about instance pricing, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/).
 
-For specs of the instance types, see the **Accelerated
-Computing** section in the [Amazon EC2 Instance Types page](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/"). For information
-about instance pricing, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
-
-If you encountered an error message similar to the following, follow the
-instructions at [Request a service quota increase for SageMaker AI resources](regions-quotas.md#service-limit-increase-request-procedure "regions-quotas.md#service-limit-increase-request-procedure").
+If you encountered an error message similar to the following, follow the instructions at [Request a service quota increase for SageMaker AI resources](https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html#service-limit-increase-request-procedure).
 
 ```
 ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling
@@ -79,453 +81,539 @@ Please contact AWS support to request an increase for this limit.
 ```
 
 ## Tested Models
+<a name="training-compiler-tested-models"></a>
 
-The following table includes a list of the models that have been tested with
-SageMaker Training Compiler. For reference, the largest batch size that is able to fit into memory is
-also included alongside other training parameters. SageMaker Training Compiler can change the memory
-footprint of the model training process; as a result, a larger batch size can often
-be used during the training process, further decreasing total training time. In some
-cases, SageMaker Training Compiler intelligently promotes caching which leads to a decrease in the
-largest batch size that can fit on the GPU. You must retune your model
-hyperparameters and find an optimal batch size for your case. To save time, use the
-following reference tables to look up a batch size that can be a good starting point
-for your use case.
+The following table includes a list of the models that have been tested with SageMaker Training Compiler. For reference, the largest batch size that is able to fit into memory is also included alongside other training parameters. SageMaker Training Compiler can change the memory footprint of the model training process; as a result, a larger batch size can often be used during the training process, further decreasing total training time. In some cases, SageMaker Training Compiler intelligently promotes caching which leads to a decrease in the largest batch size that can fit on the GPU. You must retune your model hyperparameters and find an optimal batch size for your case. To save time, use the following reference tables to look up a batch size that can be a good starting point for your use case.
 
-###### Note
+**Note**  
+The batch sizes are local batch size that fit into each individual GPU in the respective instance type. You should also adjust the learning rate when changing the batch size.
 
-The batch sizes are local batch size that fit into each individual GPU in the
-respective instance type. You should also adjust the learning rate when changing
-the batch size.
+### PyTorch 1.13.1
+<a name="training-compiler-tested-models-pt1131"></a>
 
 **Natural language processing (NLP) models**
 
-The following models are tested for training jobs for all combinations of
-single-node and multi-node with single or multi GPU cores and Automatic
-Mixed Precision (AMP) as indicated.
+The following models are tested for training jobs for all combinations of single-node and multi-node with single or multi GPU cores and Automatic Mixed Precision (AMP) as indicated.
 
-| Single-node/multi-node<br>single-GPU/multi-GPU |
-| ---------------------------------------------- |
-| Model                                          | Dataset           | Instance type | Precision | Sequence Length | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| albert-base-v2                                 | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 80                               | 192                                        |
-| albert-base-v2                                 | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 128                              | 332                                        |
-| albert-base-v2                                 | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 80                               | 224                                        |
-| bert-base-uncased                              | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 160                              | 288                                        |
-| camembert-base                                 | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 160                              | 280                                        |
-| distilbert-base-uncased                        | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 240                              | 472                                        |
-| distilgpt2                                     | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 77                               | 128                                        |
-| distilgpt2                                     | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 138                              | 390                                        |
-| distilgpt2                                     | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 96                               | 256                                        |
-| distilroberta-base                             | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 96                               | 192                                        |
-| distilroberta-base                             | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 171                              | 380                                        |
-| distilroberta-base                             | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 112                              | 256                                        |
-| gpt2                                           | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 52                               | 152                                        |
-| gpt2                                           | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 84                               | 240                                        |
-| gpt2                                           | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 58                               | 164                                        |
-| microsoft/deberta-base                         | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 48                               | 128                                        |
-| microsoft/deberta-base                         | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 84                               | 207                                        |
-| microsoft/deberta-base                         | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 53                               | 133                                        |
-| roberta-base                                   | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 125                              | 224                                        |
-| xlm-roberta-base                               | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128             | 16                               | 31                                         |
-| xlm-roberta-base                               | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128             | 18                               | 50                                         |
-| xlnet-base-cased                               | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128             | 128                              | 240                                        |
-| bert-base-uncased                              | wikitext-103-v1   | g5.48xlarge   | float16   | 512             | 29                               | 50                                         |
-| distilbert-base-uncased                        | wikitext-103-v1   | g5.48xlarge   | float16   | 512             | 45                               | 64                                         |
-| gpt2                                           | wikitext-103-v1   | g5.48xlarge   | float16   | 512             | 18                               | 45                                         |
-| roberta-base                                   | wikitext-103-v1   | g5.48xlarge   | float16   | 512             | 23                               | 44                                         |
-| gpt2                                           | wikitext-103-v1   | p4d.24xlarge  | float16   | 512             | 36                               | 64                                         |
 
-**Computer Vision (CV) models**
+<table>
+<thead>
+  <tr><th colspan="7">Single-node/multi-node single-GPU/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Sequence Length</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>80</td><td>192</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>128</td><td>332</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>80</td><td>224</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>160</td><td>288</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>160</td><td>280</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>240</td><td>472</td></tr>
+  <tr><td>distilgpt2</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>77</td><td>128</td></tr>
+  <tr><td>distilgpt2</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>138</td><td>390</td></tr>
+  <tr><td>distilgpt2</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>96</td><td>256</td></tr>
+  <tr><td>distilroberta-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>96</td><td>192</td></tr>
+  <tr><td>distilroberta-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>171</td><td>380</td></tr>
+  <tr><td>distilroberta-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>112</td><td>256</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>52</td><td>152</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>84</td><td>240</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>58</td><td>164</td></tr>
+  <tr><td>microsoft/deberta-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>48</td><td>128</td></tr>
+  <tr><td>microsoft/deberta-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>84</td><td>207</td></tr>
+  <tr><td>microsoft/deberta-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>53</td><td>133</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>125</td><td>224</td></tr>
+  <tr><td>xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>16</td><td>31</td></tr>
+  <tr><td>xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>18</td><td>50</td></tr>
+  <tr><td>xlnet-base-cased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>128</td><td>240</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-103-v1</td><td>g5.48xlarge</td><td>float16</td><td>512</td><td>29</td><td>50</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-103-v1</td><td>g5.48xlarge</td><td>float16</td><td>512</td><td>45</td><td>64</td></tr>
+  <tr><td>gpt2</td><td>wikitext-103-v1</td><td>g5.48xlarge</td><td>float16</td><td>512</td><td>18</td><td>45</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-103-v1</td><td>g5.48xlarge</td><td>float16</td><td>512</td><td>23</td><td>44</td></tr>
+  <tr><td>gpt2</td><td>wikitext-103-v1</td><td>p4d.24xlarge</td><td>float16</td><td>512</td><td>36</td><td>64</td></tr>
+</tbody>
+</table>
 
-Tested using [TensorFlow
-Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflow/models") with Automatic Mixed Precision (AMP) as
-indicated.
-
-| Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- |
-| Model                                 | Dataset | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| ResNet152                             | food101 | g4dn.16xlarge | float16   | 128                              | 144                                        |
-| ResNet152                             | food101 | g5.4xlarge    | float16   | 128                              | 192                                        |
-| ResNet152                             | food101 | p3.2xlarge    | float16   | 152                              | 156                                        |
-| ViT                                   | food101 | g4dn.16xlarge | float16   | 512                              | 512                                        |
-| ViT                                   | food101 | g5.4xlarge    | float16   | 992                              | 768                                        |
-| ViT                                   | food101 | p3.2xlarge    | float16   | 848                              | 768                                        |
-
-**Natural language processing (NLP)
-models**
-
-The following models are tested for training jobs for all combinations of
-single-node and multi-node with single or multi GPU cores and Automatic
-Mixed Precision (AMP) as indicated.
-
-| Single-node/multi-node<br>single-GPU/multi-GPU |
-| ---------------------------------------------- |
-| Model                                          | Dataset           | Instance type   | Precision | Sequence Length | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| albert-base-v2                                 | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 128                              | 248                                        |
-| bert-base-uncased                              | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 160                              | 288                                        |
-| camembert-base                                 | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 160                              | 279                                        |
-| camembert-base                                 | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128             | 105                              | 164                                        |
-| distilgpt2                                     | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 136                              | 256                                        |
-| distilgpt2                                     | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128             | 80                               | 118                                        |
-| gpt2                                           | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 84                               | 240                                        |
-| gpt2                                           | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128             | 80                               | 119                                        |
-| microsoft/deberta-base                         | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 93                               | 197                                        |
-| microsoft/deberta-base                         | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128             | 113                              | 130                                        |
-| roberta-base                                   | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 125                              | 224                                        |
-| roberta-base                                   | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128             | 78                               | 112                                        |
-| xlnet-base-cased                               | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128             | 138                              | 240                                        |
-| bert-base-uncased                              | wikitext-103-v1   | ml.p4d.24xlarge | float16   | 512             |                                  | 52                                         |
-| distilbert-base-uncased                        | wikitext-103-v1   | ml.p4d.24xlarge | float16   | 512             |                                  | 160                                        |
-| gpt2                                           | wikitext-103-v1   | ml.p4d.24xlarge | float16   | 512             |                                  | 25                                         |
-| roberta-base                                   | wikitext-103-v1   | ml.p4d.24xlarge | float16   | 512             |                                  | 64                                         |
 
 **Computer Vision (CV) models**
 
-Tested using [TensorFlow
-Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflow/models") with Automatic Mixed Precision (AMP) as
-indicated.
+Tested using [TensorFlow Model Garden](https://github.com/tensorflow/models) with Automatic Mixed Precision (AMP) as indicated.
 
-| Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- |
-| Model                                 | Dataset   | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| MaskRCNN-ResNet50-FPN                 | COCO-2017 | ml.g5.2xlarge | float16   | 6                                | 8                                          |
-| MaskRCNN-ResNet50-FPN                 | COCO-2017 | ml.p3.2xlarge | float16   | 4                                | 6                                          |
-| ResNet50                              | ImageNet  | ml.g5.2xlarge | float16   | 192                              | 256                                        |
-| ResNet50                              | ImageNet  | ml.p3.2xlarge | float16   | 256                              | 256                                        |
-| ResNet101                             | ImageNet  | ml.g5.2xlarge | float16   | 128                              | 256                                        |
-| ResNet101                             | ImageNet  | ml.p3.2xlarge | float16   | 128                              | 128                                        |
-| ResNet152                             | ImageNet  | ml.g5.2xlarge | float16   | 128                              | 224                                        |
-| ResNet152                             | ImageNet  | ml.p3.2xlarge | float16   | 128                              | 128                                        |
-| VisionTransformer                     | ImageNet  | ml.g5.2xlarge | float16   | 112                              | 144                                        |
-| VisionTransformer                     | ImageNet  | ml.p3.2xlarge | float16   | 96                               | 128                                        |
 
-**Natural Language Processing (NLP)
-models**
+<table>
+<thead>
+  <tr><th colspan="6">Single/multi-node single/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>ResNet152</td><td>food101</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>144</td></tr>
+  <tr><td>ResNet152</td><td>food101</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>192</td></tr>
+  <tr><td>ResNet152</td><td>food101</td><td>p3.2xlarge</td><td>float16</td><td>152</td><td>156</td></tr>
+  <tr><td>ViT</td><td>food101</td><td>g4dn.16xlarge</td><td>float16</td><td>512</td><td>512</td></tr>
+  <tr><td>ViT</td><td>food101</td><td>g5.4xlarge</td><td>float16</td><td>992</td><td>768</td></tr>
+  <tr><td>ViT</td><td>food101</td><td>p3.2xlarge</td><td>float16</td><td>848</td><td>768</td></tr>
+</tbody>
+</table>
 
-Tested using [Transformer models](https://github.com/huggingface/transformers "https://github.com/huggingface/transformers") with `Sequence_Len=128` and
-Automatic Mixed Precision (AMP) as indicated.
 
-| Single/multi-node<br>single/multi-GPU |
-| ------------------------------------- |
-| Model                                 | Dataset           | Instance type   | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| albert-base-v2                        | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 160                              | 197                                        |
-| albert-base-v2                        | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 95                               | 127                                        |
-| bert-base-uncased                     | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 160                              | 128                                        |
-| bert-base-uncased                     | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 104                              | 111                                        |
-| bert-large-uncased                    | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 65                               | 48                                         |
-| bert-large-uncased                    | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 40                               | 35                                         |
-| camembert-base                        | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128                              | 162                                        |
-| camembert-base                        | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 105                              | 111                                        |
-| distilbert-base-uncased               | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 256                              | 264                                        |
-| distilbert-base-uncased               | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 128                              | 169                                        |
-| gpt2                                  | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128                              | 120                                        |
-| gpt2                                  | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 80                               | 83                                         |
-| jplu/tf-xlm-roberta-base              | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 32                               | 32                                         |
-| jplu/tf-xlm-roberta-base              | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 32                               | 36                                         |
-| microsoft/mpnet-base                  | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 144                              | 160                                        |
-| microsoft/mpnet-base                  | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 106                              | 110                                        |
-| roberta-base                          | wikitext-2-raw-v1 | ml.g5.2xlarge   | float16   | 128                              | 128                                        |
-| roberta-base                          | wikitext-2-raw-v1 | ml.p3.2xlarge   | float16   | 72                               | 98                                         |
-| albert-base-v2                        | wikitext-2-raw-v1 | ml.g5.48xlarge  | float16   | 128                              | 192                                        |
-| albert-base-v2                        | wikitext-2-raw-v1 | ml.p3.16xlarge  | float16   | 95                               | 96                                         |
-| distilbert-base-uncased               | wikitext-2-raw-v1 | ml.g5.48xlarge  | float16   | 256                              | 256                                        |
-| distilbert-base-uncased               | wikitext-2-raw-v1 | ml.p3.16xlarge  | float16   | 140                              | 184                                        |
-| google/electra-small-discriminator    | wikitext-2-raw-v1 | ml.g5.48xlarge  | float16   | 256                              | 384                                        |
-| google/electra-small-discriminator    | wikitext-2-raw-v1 | ml.p3.16xlarge  | float16   | 256                              | 268                                        |
-| gpt2                                  | wikitext-2-raw-v1 | ml.g5.48xlarge  | float16   | 116                              | 116                                        |
-| gpt2                                  | wikitext-2-raw-v1 | ml.p3.16xlarge  | float16   | 85                               | 83                                         |
-| gpt2                                  | wikitext-2-raw-v1 | ml.p4d.24xlarge | float16   | 94                               | 110                                        |
-| microsoft/mpnet-base                  | wikitext-2-raw-v1 | ml.g5.48xlarge  | float16   | 187                              | 164                                        |
-| microsoft/mpnet-base                  | wikitext-2-raw-v1 | ml.p3.16xlarge  | float16   | 106                              | 111                                        |
+### PyTorch 1.12.0
+<a name="training-compiler-tested-models-pt1120"></a>
+
+**Natural language processing (NLP) models**
+
+The following models are tested for training jobs for all combinations of single-node and multi-node with single or multi GPU cores and Automatic Mixed Precision (AMP) as indicated.
+
+
+<table>
+<thead>
+  <tr><th colspan="7">Single-node/multi-node single-GPU/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Sequence Length</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>128</td><td>248</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>160</td><td>288</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>160</td><td>279</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>105</td><td>164</td></tr>
+  <tr><td>distilgpt2</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>136</td><td>256</td></tr>
+  <tr><td>distilgpt2</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>80</td><td>118</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>84</td><td>240</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>80</td><td>119</td></tr>
+  <tr><td>microsoft/deberta-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>93</td><td>197</td></tr>
+  <tr><td>microsoft/deberta-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>113</td><td>130</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>125</td><td>224</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>78</td><td>112</td></tr>
+  <tr><td>xlnet-base-cased</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>138</td><td>240</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>float16</td><td>512</td><td></td><td>52</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>float16</td><td>512</td><td></td><td>160</td></tr>
+  <tr><td>gpt2</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>float16</td><td>512</td><td></td><td>25</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>float16</td><td>512</td><td></td><td>64</td></tr>
+</tbody>
+</table>
+
+
+### TensorFlow 2.11.0
+<a name="training-compiler-tested-models-tf2110"></a>
 
 **Computer Vision (CV) models**
 
-Tested using [TensorFlow
-Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflow/models") with Automatic Mixed Precision (AMP) as
-indicated.
+Tested using [TensorFlow Model Garden](https://github.com/tensorflow/models) with Automatic Mixed Precision (AMP) as indicated.
 
-| Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- |
-| Model                               | Dataset   | Instance type   | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| DetectionTransformer-ResNet50       | COCO-2017 | ml.g4dn.2xlarge | float32   | 2                                | 4                                          |
-| DetectionTransformer-ResNet50       | COCO-2017 | ml.g5.2xlarge   | float32   | 3                                | 6                                          |
-| DetectionTransformer-ResNet50       | COCO-2017 | ml.p3.2xlarge   | float32   | 2                                | 4                                          |
-| MaskRCNN-ResNet50-FPN               | COCO-2017 | ml.g4dn.2xlarge | float16   | 4                                | 6                                          |
-| MaskRCNN-ResNet50-FPN               | COCO-2017 | ml.g5.2xlarge   | float16   | 6                                | 8                                          |
-| MaskRCNN-ResNet50-FPN               | COCO-2017 | ml.g5.48xlarge  | float16   | 48                               | 64                                         |
-| MaskRCNN-ResNet50-FPN               | COCO-2017 | ml.p3.2xlarge   | float16   | 4                                | 6                                          |
-| ResNet50                            | ImageNet  | ml.g4dn.2xlarge | float16   | 224                              | 256                                        |
-| ResNet50                            | ImageNet  | ml.g5.2xlarge   | float16   | 192                              | 160                                        |
-| ResNet50                            | ImageNet  | ml.g5.48xlarge  | float16   | 2048                             | 2048                                       |
-| ResNet50                            | ImageNet  | ml.p3.2xlarge   | float16   | 224                              | 160                                        |
-| ResNet101                           | ImageNet  | ml.g4dn.2xlarge | float16   | 160                              | 128                                        |
-| ResNet101                           | ImageNet  | ml.g5.2xlarge   | float16   | 192                              | 256                                        |
-| ResNet101                           | ImageNet  | ml.g5.48xlarge  | float16   | 2048                             | 2048                                       |
-| ResNet101                           | ImageNet  | ml.p3.2xlarge   | float16   | 160                              | 224                                        |
-| ResNet152                           | ImageNet  | ml.g4dn.2xlarge | float16   | 128                              | 128                                        |
-| ResNet152                           | ImageNet  | ml.g5.2xlarge   | float16   | 192                              | 224                                        |
-| ResNet152                           | ImageNet  | ml.g5.48xlarge  | float16   | 1536                             | 1792                                       |
-| ResNet152                           | ImageNet  | ml.p3.2xlarge   | float16   | 128                              | 160                                        |
-| VisionTransformer                   | ImageNet  | ml.g4dn.2xlarge | float16   | 80                               | 128                                        |
-| VisionTransformer                   | ImageNet  | ml.g5.2xlarge   | float16   | 112                              | 144                                        |
-| VisionTransformer                   | ImageNet  | ml.g5.48xlarge  | float16   | 896                              | 1152                                       |
-| VisionTransformer                   | ImageNet  | ml.p3.2xlarge   | float16   | 80                               | 128                                        |
 
-**Natural Language Processing (NLP)
-models**
+<table>
+<thead>
+  <tr><th colspan="6">Single/multi-node single/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.g5.2xlarge</td><td>float16</td><td>6</td><td>8</td></tr>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.p3.2xlarge</td><td>float16</td><td>4</td><td>6</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>192</td><td>256</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>256</td><td>256</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>256</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>224</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>112</td><td>144</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>96</td><td>128</td></tr>
+</tbody>
+</table>
 
-Tested using [Transformer models](https://github.com/huggingface/transformers "https://github.com/huggingface/transformers") with `Sequence_Len=128` and
-Automatic Mixed Precision (AMP) as indicated.
 
-| Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- |
-| Model                               | Dataset           | Instance type | Precision | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| albert-base-v2                      | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 128                              | 112                                        |
-| albert-base-v2                      | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128                              | 128                                        |
-| albert-base-v2                      | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 128                              | 135                                        |
-| albert-base-v2                      | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 191                                        |
-| bert-base-uncased                   | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 64                               | 94                                         |
-| bert-base-uncased                   | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 96                               | 101                                        |
-| bert-base-uncased                   | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 96                               | 96                                         |
-| bert-base-uncased                   | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 128                                        |
-| bert-large-uncased                  | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 35                               | 21                                         |
-| bert-large-uncased                  | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 39                               | 26                                         |
-| bert-large-uncased                  | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 60                               | 50                                         |
-| camembert-base                      | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 96                               | 90                                         |
-| camembert-base                      | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 96                               | 98                                         |
-| camembert-base                      | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 96                               | 96                                         |
-| camembert-base                      | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 128                                        |
-| distilbert-base-uncased             | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 256                              | 160                                        |
-| distilbert-base-uncased             | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 128                              | 176                                        |
-| distilbert-base-uncased             | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 128                              | 160                                        |
-| distilbert-base-uncased             | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 256                              | 258                                        |
-| google\_electra-small-discriminator | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 256                              | 216                                        |
-| google\_electra-small-discriminator | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 256                              | 230                                        |
-| google\_electra-small-discriminator | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 256                              | 224                                        |
-| google\_electra-small-discriminator | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 256                              | 320                                        |
-| gpt2                                | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 80                               | 64                                         |
-| gpt2                                | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 80                               | 77                                         |
-| gpt2                                | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 80                               | 72                                         |
-| gpt2                                | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 120                                        |
-| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 28                               | 24                                         |
-| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 32                               | 24                                         |
-| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 32                               | 26                                         |
-| jplu\_tf-xlm-roberta-base           | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 66                               | 52                                         |
-| microsoft\_mpnet-base               | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 96                               | 92                                         |
-| microsoft\_mpnet-base               | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 96                               | 101                                        |
-| microsoft\_mpnet-base               | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 96                               | 101                                        |
-| microsoft\_mpnet-base               | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 152                                        |
-| roberta-base                        | wikitext-2-raw-v1 | g4dn.16xlarge | float16   | 64                               | 72                                         |
-| roberta-base                        | wikitext-2-raw-v1 | p3.2xlarge    | float16   | 64                               | 84                                         |
-| roberta-base                        | wikitext-2-raw-v1 | p3.8xlarge    | float16   | 64                               | 86                                         |
-| roberta-base                        | wikitext-2-raw-v1 | g5.4xlarge    | float16   | 128                              | 128                                        |
+**Natural Language Processing (NLP) models**
 
-Tested using [TensorFlow
-Model Garden](https://github.com/tensorflow/models "https://github.com/tensorflow/models") with Automatic Mixed Precision (AMP).
+Tested using [Transformer models](https://github.com/huggingface/transformers) with `Sequence_Len=128` and Automatic Mixed Precision (AMP) as indicated.
 
-| Single-node<br>single-GPU/multi-GPU |
-| ----------------------------------- |
-| Model                               | Dataset   | Instance type   | Batch size for native frameworks | Batch size for SageMaker Training Compiler |
-| ResNet50                            | ImageNet  | ml.g4dn.2xlarge | 192                              | 256\*                                      |
-| ResNet101                           | ImageNet  | ml.g4dn.2xlarge | 128                              | 160                                        |
-| ml.g5.2xlarge                       | 224       | 256\*           |
-| ml.p3.16xlarge                      | 1536      | 1792            |
-| ResNet152                           | ImageNet  | ml.g5.2xlarge   | 192                              | 224                                        |
-| ml.p3.2xlarge                       | 160       | 160             |
-| ml.p3.16xlarge                      | 1024      | 1280            |
-| VisionTransformer                   | ImageNet  | ml.g4dn.2xlarge | 80                               | 128\*                                      |
-| ml.g5.2xlarge                       | 112       | 128\*           |
-| ml.p3.2xlarge                       | 56        | 128\*           |
-| ml.p3.16xlarge                      | 640       | 1024\*          |
-| DetectionTransformer-ResNet50       | COCO-2017 | ml.g4dn.2xlarge | 2                                | 2                                          |
-| ml.g5.2xlarge                       | 3         | 6               |
-| ml.p3.2xlarge                       | 2         | 4               |
-| ml.p3.16xlarge                      | 8         | 32              |
-| MaskRCNN-ResNet50-FPN               | COCO-2017 | ml.g4dn.2xlarge | 4                                | 4                                          |
-| ml.g5.2xlarge                       | 6         | 8               |
-| ml.p3.2xlarge                       | 4         | 6               |
 
-\* The batch sizes marked with the asterisk symbol (\*) indicate the largest
-batch size tested by the SageMaker Training Compiler developer team. For the marked cells, the
-instance may be able to fit a larger batch size than what is
-indicated.
+<table>
+<thead>
+  <tr><th colspan="6">Single/multi-node single/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>160</td><td>197</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>95</td><td>127</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>160</td><td>128</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>104</td><td>111</td></tr>
+  <tr><td>bert-large-uncased</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>65</td><td>48</td></tr>
+  <tr><td>bert-large-uncased</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>40</td><td>35</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>162</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>105</td><td>111</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>256</td><td>264</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>169</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>120</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>80</td><td>83</td></tr>
+  <tr><td>jplu/tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>32</td><td>32</td></tr>
+  <tr><td>jplu/tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>32</td><td>36</td></tr>
+  <tr><td>microsoft/mpnet-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>144</td><td>160</td></tr>
+  <tr><td>microsoft/mpnet-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>106</td><td>110</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.2xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.2xlarge</td><td>float16</td><td>72</td><td>98</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>ml.g5.48xlarge</td><td>float16</td><td>128</td><td>192</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>ml.p3.16xlarge</td><td>float16</td><td>95</td><td>96</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.g5.48xlarge</td><td>float16</td><td>256</td><td>256</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>ml.p3.16xlarge</td><td>float16</td><td>140</td><td>184</td></tr>
+  <tr><td>google/electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>ml.g5.48xlarge</td><td>float16</td><td>256</td><td>384</td></tr>
+  <tr><td>google/electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>ml.p3.16xlarge</td><td>float16</td><td>256</td><td>268</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.g5.48xlarge</td><td>float16</td><td>116</td><td>116</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.p3.16xlarge</td><td>float16</td><td>85</td><td>83</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>ml.p4d.24xlarge</td><td>float16</td><td>94</td><td>110</td></tr>
+  <tr><td>microsoft/mpnet-base</td><td>wikitext-2-raw-v1</td><td>ml.g5.48xlarge</td><td>float16</td><td>187</td><td>164</td></tr>
+  <tr><td>microsoft/mpnet-base</td><td>wikitext-2-raw-v1</td><td>ml.p3.16xlarge</td><td>float16</td><td>106</td><td>111</td></tr>
+</tbody>
+</table>
 
-Tested with `Sequence_Len=512` and Automatic Mixed Precision
-(AMP).
 
-| Single-node single-GPU    |
-| ------------------------- |
-| Model                     | Dataset         | Instance type   | Instance count | Batch size for native frameworks | Batch size for Training Compiler |
-| albert-base-v2            | wikitext-2      | ml.g4dn.2xlarge | 1              | 14                               | 28                               |
-| ml.g5.2xlarge             | 1               | 18              | 40             |
-| ml.p3.2xlarge             | 1               | 14              | 32             |
-| bert-base-cased           | wikitext-2      | ml.g4dn.2xlarge | 1              | 12                               | 24                               |
-| ml.g5.2xlarge             | 1               | 28              | 44             |
-| ml.p3.2xlarge             | 1               | 16              | 20             |
-| camembert-base            | wikitext-2      | ml.g4dn.2xlarge | 1              | 16                               | 28                               |
-| ml.g5.2xlarge             | 1               | 24              | 40             |
-| ml.p3.2xlarge             | 1               | 16              | 24             |
-| distilbert-base-uncased   | wikitext-2      | ml.g4dn.2xlarge | 1              | 28                               | 52                               |
-| ml.g5.2xlarge             | 1               | 40              | 76             |
-| ml.p3.2xlarge             | 1               | 32              | 48             |
-| wikitext-103-v1           | ml.p4d.24xlarge | 4               | 82             | 160                              |
-| distilgpt2                | wikitext-2      | ml.g4dn.2xlarge | 1              | 6                                | 18                               |
-| ml.g5.2xlarge             | 1               | 12              | 28             |
-| ml.p3.2xlarge             | 1               | 6               | 16             |
-| distilroberta-base        | wikitext-2      | ml.g4dn.2xlarge | 1              | 20                               | 40                               |
-| ml.g5.2xlarge             | 1               | 28              | 56             |
-| ml.p3.2xlarge             | 1               | 24              | 40             |
-| EleutherAI/gpt-neo-125M   | wikitext-2      | ml.g4dn.2xlarge | 1              | 4                                | 8                                |
-| ml.g5.2xlarge             | 1               | 6               | 14             |
-| ml.p3.2xlarge             | 1               | 4               | 10             |
-| gpt2                      | wikitext-2      | ml.g4dn.2xlarge | 1              | 4                                | 8                                |
-| ml.g5.2xlarge             | 1               | 6               | 16             |
-| ml.p3.2xlarge             | 1               | 4               | 10             |
-| wikitext-103-v1           | ml.p4d.24xlarge | 4               | 13             | 25                               |
-| roberta-base              | wikitext-2      | ml.g4dn.2xlarge | 1              | 12                               | 20                               |
-| ml.g5.2xlarge             | 1               | 24              | 36             |
-| ml.p3.2xlarge             | 1               | 12              | 20             |
-| wikitext-103-v1           | ml.p4d.24xlarge | 4               | 36             | 64                               |
-| xlnet-base-cased          | wikitext-2      | ml.g4dn.2xlarge | 1              | 2                                | 6                                |
-| ml.g5.2xlarge             | 1               | 2               | 10             |
-| ml.p3.2xlarge             | 1               | 2               | 8              |
-| bert-base-uncased         | wikitext-103-v1 | ml.p4d.24xlarge | 2              | 32                               | 64                               |
-| 4                         | 32              | 64              |
-| 8                         | 32              | 64              |
-| 16                        | 32              | 64              |
-| roberta-large             | wikitext-103-v1 | ml.p4d.24xlarge | 4              | 16                               | 24                               |
-| microsoft/deberta-v3-base | wikitext-103-v1 | ml.p4d.24xlarge | 16             | 9                                | 23                               |
+### TensorFlow 2.10.0
+<a name="training-compiler-tested-models-tf2100"></a>
 
-Tested with `Sequence_Len=512` and Automatic Mixed Precision
-(AMP).
+**Computer Vision (CV) models**
 
-| Single-node single-GPU  |
-| ----------------------- |
-| Model                   | Instance type | Batch size for native frameworks | Batch size for Training Compiler |
-| albert-base-v2          | ml.p3.2xlarge | 14                               | 28                               |
-| ml.g4dn.2xlarge         | 14            | 24                               |
-| bert-base-cased         | ml.p3.2xlarge | 16                               | 24                               |
-| ml.g4dn.2xlarge         | 12            | 24                               |
-| bert-base-uncased       | ml.p3.2xlarge | 16                               | 24                               |
-| ml.g4dn.2xlarge         | 12            | 28                               |
-| camembert-base          | ml.p3.2xlarge | 12                               | 24                               |
-| ml.g4dn.2xlarge         | 12            | 28                               |
-| distilbert-base-uncased | ml.p3.2xlarge | 28                               | 48                               |
-| ml.g4dn.2xlarge         | 24            | 52                               |
-| distilgpt2              | ml.p3.2xlarge | 6                                | 12                               |
-| ml.g4dn.2xlarge         | 6             | 14                               |
-| distilroberta-base      | ml.p3.2xlarge | 20                               | 40                               |
-| ml.g4dn.2xlarge         | 12            | 40                               |
-| EleutherAI/gpt-neo-125M | ml.p3.2xlarge | 2                                | 10                               |
-| ml.g4dn.2xlarge         | 2             | 8                                |
-| facebook/bart-base      | ml.p3.2xlarge | 2                                | 6                                |
-| ml.g4dn.2xlarge         | 2             | 6                                |
-| gpt2                    | ml.p3.2xlarge | 4                                | 8                                |
-| ml.g4dn.2xlarge         | 2             | 8                                |
-| roberta-base            | ml.p3.2xlarge | 12                               | 20                               |
-| ml.g4dn.2xlarge         | 12            | 20                               |
-| xlnet-base-cased        | ml.p3.2xlarge | 2                                | 8                                |
-| ml.g4dn.2xlarge         | 4             | 6                                |
+Tested using [TensorFlow Model Garden](https://github.com/tensorflow/models) with Automatic Mixed Precision (AMP) as indicated.
 
-Tested with `Sequence_Len=512` and Automatic Mixed Precision
-(AMP).
 
-| Single-node single-GPU                                 |
-| ------------------------------------------------------ |
-| Model                                                  | Instance type | Batch size for native | Batch size for Training Compiler |
-| albert-base-v2                                         | ml.p3.2xlarge | 12                    | 32                               |
-| bert-base-cased                                        | ml.p3.2xlarge | 14                    | 24                               |
-| bert-base-chinese                                      | ml.p3.2xlarge | 16                    | 24                               |
-| bert-base-multilingual-cased                           | ml.p3.2xlarge | 4                     | 16                               |
-| bert-base-multilingual-uncased                         | ml.p3.2xlarge | 8                     | 16                               |
-| bert-base-uncased                                      | ml.p3.2xlarge | 12                    | 24                               |
-| cl-tohoku/bert-base-japanese-whole-word-masking        | ml.p3.2xlarge | 12                    | 24                               |
-| cl-tohoku/bert-base-japanese                           | ml.p3.2xlarge | 12                    | 24                               |
-| distilbert-base-uncased                                | ml.p3.2xlarge | 28                    | 32                               |
-| distilbert-base-uncased-finetuned-sst-2-english        | ml.p3.2xlarge | 28                    | 32                               |
-| distilgpt2                                             | ml.p3.2xlarge | 16                    | 32                               |
-| facebook/bart-base                                     | ml.p3.2xlarge | 4                     | 8                                |
-| gpt2                                                   | ml.p3.2xlarge | 6                     | 20                               |
-| nreimers/MiniLMv2-L6-H384-distilled-from-RoBERTa-Large | ml.p3.2xlarge | 20                    | 32                               |
-| roberta-base                                           | ml.p3.2xlarge | 12                    | 20                               |
+<table>
+<thead>
+  <tr><th colspan="6">Single-node single-GPU/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>DetectionTransformer-ResNet50</td><td>COCO-2017</td><td>ml.g4dn.2xlarge</td><td>float32</td><td>2</td><td>4</td></tr>
+  <tr><td>DetectionTransformer-ResNet50</td><td>COCO-2017</td><td>ml.g5.2xlarge</td><td>float32</td><td>3</td><td>6</td></tr>
+  <tr><td>DetectionTransformer-ResNet50</td><td>COCO-2017</td><td>ml.p3.2xlarge</td><td>float32</td><td>2</td><td>4</td></tr>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.g4dn.2xlarge</td><td>float16</td><td>4</td><td>6</td></tr>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.g5.2xlarge</td><td>float16</td><td>6</td><td>8</td></tr>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.g5.48xlarge</td><td>float16</td><td>48</td><td>64</td></tr>
+  <tr><td>MaskRCNN-ResNet50-FPN</td><td>COCO-2017</td><td>ml.p3.2xlarge</td><td>float16</td><td>4</td><td>6</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.g4dn.2xlarge</td><td>float16</td><td>224</td><td>256</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>192</td><td>160</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.g5.48xlarge</td><td>float16</td><td>2048</td><td>2048</td></tr>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>224</td><td>160</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.g4dn.2xlarge</td><td>float16</td><td>160</td><td>128</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>192</td><td>256</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.g5.48xlarge</td><td>float16</td><td>2048</td><td>2048</td></tr>
+  <tr><td>ResNet101</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>160</td><td>224</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.g4dn.2xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>192</td><td>224</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.g5.48xlarge</td><td>float16</td><td>1536</td><td>1792</td></tr>
+  <tr><td>ResNet152</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>128</td><td>160</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.g4dn.2xlarge</td><td>float16</td><td>80</td><td>128</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.g5.2xlarge</td><td>float16</td><td>112</td><td>144</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.g5.48xlarge</td><td>float16</td><td>896</td><td>1152</td></tr>
+  <tr><td>VisionTransformer</td><td>ImageNet</td><td>ml.p3.2xlarge</td><td>float16</td><td>80</td><td>128</td></tr>
+</tbody>
+</table>
 
-| Single-node multi-GPU          |
-| ------------------------------ |
-| Model                          | Instance type | Batch size for native | Batch size for Training Compiler |
-| bert-base-chinese              | ml.p3.8xlarge | 16                    | 26                               |
-| bert-base-multilingual-cased   | ml.p3.8xlarge | 6                     | 16                               |
-| bert-base-multilingual-uncased | ml.p3.8xlarge | 6                     | 16                               |
-| bert-base-uncased              | ml.p3.8xlarge | 14                    | 24                               |
-| distilbert-base-uncased        | ml.p3.8xlarge | 14                    | 32                               |
-| distilgpt2                     | ml.p3.8xlarge | 6                     | 32                               |
-| facebook/bart-base             | ml.p3.8xlarge | 8                     | 16                               |
-| gpt2                           | ml.p3.8xlarge | 8                     | 20                               |
-| roberta-base                   | ml.p3.8xlarge | 12                    | 20                               |
 
-Tested with `Sequence_Len=128` and Automatic Mixed Precision
-(AMP).
+**Natural Language Processing (NLP) models**
 
-| Model                               | Instance type    | Batch size for native frameworks | Batch size for Training Compiler |
-| ----------------------------------- | ---------------- | -------------------------------- | -------------------------------- |
-| albert-base-v2                      | ml.g4dn.16xlarge | 136                              | 208                              |
-| albert-base-v2                      | ml.g5.4xlarge    | 219                              | 312                              |
-| albert-base-v2                      | ml.p3.2xlarge    | 152                              | 208                              |
-| albert-base-v2                      | ml.p3.8xlarge    | 152                              | 192                              |
-| bert-base-uncased                   | ml.g4dn.16xlarge | 120                              | 101                              |
-| bert-base-uncased                   | ml.g5.4xlarge    | 184                              | 160                              |
-| bert-base-uncased                   | ml.p3.2xlarge    | 128                              | 108                              |
-| bert-large-uncased                  | ml.g4dn.16xlarge | 37                               | 28                               |
-| bert-large-uncased                  | ml.g5.4xlarge    | 64                               | 55                               |
-| bert-large-uncased                  | ml.p3.2xlarge    | 40                               | 32                               |
-| camembert-base                      | ml.g4dn.16xlarge | 96                               | 100                              |
-| camembert-base                      | ml.g5.4xlarge    | 190                              | 160                              |
-| camembert-base                      | ml.p3.2xlarge    | 129                              | 108                              |
-| camembert-base                      | ml.p3.8xlarge    | 128                              | 104                              |
-| distilbert-base-uncased             | ml.g4dn.16xlarge | 210                              | 160                              |
-| distilbert-base-uncased             | ml.g5.4xlarge    | 327                              | 288                              |
-| distilbert-base-uncased             | ml.p3.2xlarge    | 224                              | 196                              |
-| distilbert-base-uncased             | ml.p3.8xlarge    | 192                              | 182                              |
-| google\_electra-small-discriminator | ml.g4dn.16xlarge | 336                              | 288                              |
-| google\_electra-small-discriminator | ml.g5.4xlarge    | 504                              | 384                              |
-| google\_electra-small-discriminator | ml.p3.2xlarge    | 352                              | 323                              |
-| gpt2                                | ml.g4dn.16xlarge | 89                               | 64                               |
-| gpt2                                | ml.g5.4xlarge    | 140                              | 146                              |
-| gpt2                                | ml.p3.2xlarge    | 94                               | 96                               |
-| gpt2                                | ml.p3.8xlarge    | 96                               | 88                               |
-| jplu\_tf-xlm-roberta-base           | ml.g4dn.16xlarge | 52                               | 16                               |
-| jplu\_tf-xlm-roberta-base           | ml.g5.4xlarge    | 64                               | 44                               |
-| microsoft\_mpnet-base               | ml.g4dn.16xlarge | 120                              | 100                              |
-| microsoft\_mpnet-base               | ml.g5.4xlarge    | 192                              | 160                              |
-| microsoft\_mpnet-base               | ml.p3.2xlarge    | 128                              | 104                              |
-| microsoft\_mpnet-base               | ml.p3.8xlarge    | 130                              | 92                               |
-| roberta-base                        | ml.g4dn.16xlarge | 108                              | 64                               |
-| roberta-base                        | ml.g5.4xlarge    | 176                              | 142                              |
-| roberta-base                        | ml.p3.2xlarge    | 118                              | 100                              |
-| roberta-base                        | ml.p3.8xlarge    | 112                              | 88                               |
+Tested using [Transformer models](https://github.com/huggingface/transformers) with `Sequence_Len=128` and Automatic Mixed Precision (AMP) as indicated.
 
-Tested with `Sequence_Len=128` and Automatic Mixed Precision
-(AMP).
 
-| Single-node single-GPU                          |
-| ----------------------------------------------- |
-| Model                                           | Instance type | Batch size for native | Batch size for Training Compiler |
-| albert-base-v2                                  | ml.p3.2xlarge | 128                   | 128                              |
-| bart-base                                       | ml.p3.2xlarge | 12                    | 64                               |
-| bart-large                                      | ml.p3.2xlarge | 4                     | 28                               |
-| bert-base-cased                                 | ml.p3.2xlarge | 16                    | 128                              |
-| bert-base-chinese                               | ml.p3.2xlarge | 16                    | 128                              |
-| bert-base-multilingual-cased                    | ml.p3.2xlarge | 12                    | 64                               |
-| bert-base-multilingual-uncased                  | ml.p3.2xlarge | 16                    | 96                               |
-| bert-base-uncased                               | ml.p3.2xlarge | 16                    | 96                               |
-| bert-large-uncased                              | ml.p3.2xlarge | 4                     | 24                               |
-| cl-tohoku/bert-base-japanese                    | ml.p3.2xlarge | 16                    | 128                              |
-| cl-tohoku/bert-base-japanese-whole-word-masking | ml.p3.2xlarge | 16                    | 128                              |
-| distilbert-base-sst2                            | ml.p3.2xlarge | 32                    | 128                              |
-| distilbert-base-uncased                         | ml.p3.2xlarge | 32                    | 128                              |
-| distilgpt2                                      | ml.p3.2xlarge | 32                    | 128                              |
-| gpt2                                            | ml.p3.2xlarge | 12                    | 64                               |
-| gpt2-large                                      | ml.p3.2xlarge | 2                     | 24                               |
-| jplu/tf-xlm-roberta-base                        | ml.p3.2xlarge | 12                    | 32                               |
-| roberta-base                                    | ml.p3.2xlarge | 4                     | 64                               |
-| roberta-large                                   | ml.p3.2xlarge | 4                     | 64                               |
-| t5-base                                         | ml.p3.2xlarge | 64                    | 64                               |
-| t5-small                                        | ml.p3.2xlarge | 128                   | 128                              |
+<table>
+<thead>
+  <tr><th colspan="6">Single-node single-GPU/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Precision</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>128</td><td>112</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>128</td><td>135</td></tr>
+  <tr><td>albert-base-v2</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>191</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>64</td><td>94</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>96</td><td>101</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>96</td><td>96</td></tr>
+  <tr><td>bert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>bert-large-uncased</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>35</td><td>21</td></tr>
+  <tr><td>bert-large-uncased</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>39</td><td>26</td></tr>
+  <tr><td>bert-large-uncased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>60</td><td>50</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>96</td><td>90</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>96</td><td>98</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>96</td><td>96</td></tr>
+  <tr><td>camembert-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>256</td><td>160</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>128</td><td>176</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>128</td><td>160</td></tr>
+  <tr><td>distilbert-base-uncased</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>256</td><td>258</td></tr>
+  <tr><td>google_electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>256</td><td>216</td></tr>
+  <tr><td>google_electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>256</td><td>230</td></tr>
+  <tr><td>google_electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>256</td><td>224</td></tr>
+  <tr><td>google_electra-small-discriminator</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>256</td><td>320</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>80</td><td>64</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>80</td><td>77</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>80</td><td>72</td></tr>
+  <tr><td>gpt2</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>120</td></tr>
+  <tr><td>jplu_tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>28</td><td>24</td></tr>
+  <tr><td>jplu_tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>32</td><td>24</td></tr>
+  <tr><td>jplu_tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>32</td><td>26</td></tr>
+  <tr><td>jplu_tf-xlm-roberta-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>66</td><td>52</td></tr>
+  <tr><td>microsoft_mpnet-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>96</td><td>92</td></tr>
+  <tr><td>microsoft_mpnet-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>96</td><td>101</td></tr>
+  <tr><td>microsoft_mpnet-base</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>96</td><td>101</td></tr>
+  <tr><td>microsoft_mpnet-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>152</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>g4dn.16xlarge</td><td>float16</td><td>64</td><td>72</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>p3.2xlarge</td><td>float16</td><td>64</td><td>84</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>p3.8xlarge</td><td>float16</td><td>64</td><td>86</td></tr>
+  <tr><td>roberta-base</td><td>wikitext-2-raw-v1</td><td>g5.4xlarge</td><td>float16</td><td>128</td><td>128</td></tr>
+</tbody>
+</table>
+
+
+### TensorFlow 2.9.1
+<a name="training-compiler-tested-models-tf291"></a>
+
+Tested using [TensorFlow Model Garden](https://github.com/tensorflow/models) with Automatic Mixed Precision (AMP).
+
+
+<table>
+<thead>
+  <tr><th colspan="5">Single-node single-GPU/multi-GPU</th></tr>
+  <tr><th>Model</th><th>Dataset</th><th>Instance type</th><th>Batch size for native frameworks </th><th>Batch size for SageMaker Training Compiler </th></tr>
+</thead>
+<tbody>
+  <tr><td>ResNet50</td><td>ImageNet</td><td>ml.g4dn.2xlarge</td><td>192</td><td>256*</td></tr>
+  <tr><td rowspan="3">ResNet101</td><td rowspan="3">ImageNet</td><td>ml.g4dn.2xlarge</td><td>128</td><td>160</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>224</td><td>256*</td></tr>
+  <tr><td>ml.p3.16xlarge</td><td>1536</td><td>1792</td></tr>
+  <tr><td rowspan="3">ResNet152</td><td rowspan="3">ImageNet</td><td>ml.g5.2xlarge</td><td>192</td><td>224</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>160</td><td>160</td></tr>
+  <tr><td>ml.p3.16xlarge</td><td>1024</td><td>1280</td></tr>
+  <tr><td rowspan="4">VisionTransformer</td><td rowspan="4">ImageNet</td><td>ml.g4dn.2xlarge</td><td>80</td><td>128*</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>112</td><td>128*</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>56</td><td>128*</td></tr>
+  <tr><td>ml.p3.16xlarge</td><td>640</td><td>1024*</td></tr>
+  <tr><td rowspan="4">DetectionTransformer-ResNet50</td><td rowspan="4">COCO-2017</td><td>ml.g4dn.2xlarge</td><td>2</td><td>2</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>3</td><td>6</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>2</td><td>4</td></tr>
+  <tr><td>ml.p3.16xlarge</td><td>8</td><td>32</td></tr>
+  <tr><td rowspan="3">MaskRCNN-ResNet50-FPN</td><td rowspan="3">COCO-2017</td><td>ml.g4dn.2xlarge</td><td>4</td><td>4</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>6</td><td>8</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>4</td><td>6</td></tr>
+</tbody>
+</table>
+
+
+\* The batch sizes marked with the asterisk symbol (\*) indicate the largest batch size tested by the SageMaker Training Compiler developer team. For the marked cells, the instance may be able to fit a larger batch size than what is indicated.
+
+### Transformers 4.21.1 with PyTorch 1.11.0
+<a name="training-compiler-tested-models-hf421-pt111"></a>
+
+Tested with `Sequence_Len=512` and Automatic Mixed Precision (AMP).
+
+
+<table>
+<thead>
+  <tr><th colspan="6">Single-node single-GPU</th></tr>
+  <tr><th>Model </th><th>Dataset</th><th>Instance type</th><th>Instance count</th><th>Batch size for native frameworks</th><th>Batch size for Training Compiler</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="3">albert-base-v2</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>14</td><td>28</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>18</td><td>40</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>14</td><td>32</td></tr>
+  <tr><td rowspan="3">bert-base-cased</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>12</td><td>24</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>28</td><td>44</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>16</td><td>20</td></tr>
+  <tr><td rowspan="3">camembert-base</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>16</td><td>28</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>24</td><td>40</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>16</td><td>24</td></tr>
+  <tr><td rowspan="4">distilbert-base-uncased</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>28</td><td>52</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>40</td><td>76</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>32</td><td>48</td></tr>
+  <tr><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>4</td><td>82</td><td>160</td></tr>
+  <tr><td rowspan="3">distilgpt2</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>6</td><td>18</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>12</td><td>28</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>6</td><td>16</td></tr>
+  <tr><td rowspan="3">distilroberta-base</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>20</td><td>40</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>28</td><td>56</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>24</td><td>40</td></tr>
+  <tr><td rowspan="3">EleutherAI/gpt-neo-125M</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>4</td><td>8</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>6</td><td>14</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>4</td><td>10</td></tr>
+  <tr><td rowspan="4">gpt2</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>4</td><td>8</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>6</td><td>16</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>4</td><td>10</td></tr>
+  <tr><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>4</td><td>13</td><td>25</td></tr>
+  <tr><td rowspan="4">roberta-base</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>12</td><td>20</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>24</td><td>36</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>12</td><td>20</td></tr>
+  <tr><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>4</td><td>36</td><td>64</td></tr>
+  <tr><td rowspan="3">xlnet-base-cased</td><td rowspan="3">wikitext-2</td><td>ml.g4dn.2xlarge</td><td>1</td><td>2</td><td>6</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>1</td><td>2</td><td>10</td></tr>
+  <tr><td>ml.p3.2xlarge</td><td>1</td><td>2</td><td>8</td></tr>
+  <tr><td rowspan="4">bert-base-uncased</td><td rowspan="4">wikitext-103-v1</td><td rowspan="4">ml.p4d.24xlarge</td><td>2</td><td>32</td><td>64</td></tr>
+  <tr><td>4</td><td>32</td><td>64</td></tr>
+  <tr><td>8</td><td>32</td><td>64</td></tr>
+  <tr><td>16</td><td>32</td><td>64</td></tr>
+  <tr><td>roberta-large</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>4</td><td>16</td><td>24</td></tr>
+  <tr><td>microsoft/deberta-v3-base</td><td>wikitext-103-v1</td><td>ml.p4d.24xlarge</td><td>16</td><td>9</td><td>23</td></tr>
+</tbody>
+</table>
+
+
+### Transformers 4.17.0 with PyTorch 1.10.2
+<a name="training-compiler-tested-models-hf417-pt110"></a>
+
+Tested with `Sequence_Len=512` and Automatic Mixed Precision (AMP).
+
+
+<table>
+<thead>
+  <tr><th colspan="4">Single-node single-GPU</th></tr>
+  <tr><th>Model </th><th>Instance type</th><th>Batch size for native frameworks</th><th>Batch size for Training Compiler</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2">albert-base-v2</td><td>ml.p3.2xlarge</td><td>14</td><td>28</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>14</td><td>24</td></tr>
+  <tr><td rowspan="2">bert-base-cased</td><td>ml.p3.2xlarge</td><td>16</td><td>24</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>12</td><td>24</td></tr>
+  <tr><td rowspan="2">bert-base-uncased</td><td>ml.p3.2xlarge</td><td>16</td><td>24</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>12</td><td>28</td></tr>
+  <tr><td rowspan="2">camembert-base</td><td>ml.p3.2xlarge</td><td>12</td><td>24</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>12</td><td>28</td></tr>
+  <tr><td rowspan="2">distilbert-base-uncased</td><td>ml.p3.2xlarge</td><td>28</td><td>48</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>24</td><td>52</td></tr>
+  <tr><td rowspan="2">distilgpt2</td><td>ml.p3.2xlarge</td><td>6</td><td>12</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>6</td><td>14</td></tr>
+  <tr><td rowspan="2">distilroberta-base</td><td>ml.p3.2xlarge</td><td>20</td><td>40</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>12</td><td>40</td></tr>
+  <tr><td rowspan="2">EleutherAI/gpt-neo-125M</td><td>ml.p3.2xlarge</td><td>2</td><td>10</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>2</td><td>8</td></tr>
+  <tr><td rowspan="2">facebook/bart-base</td><td>ml.p3.2xlarge</td><td>2</td><td>6</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>2</td><td>6</td></tr>
+  <tr><td rowspan="2">gpt2</td><td>ml.p3.2xlarge</td><td>4</td><td>8</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>2</td><td>8</td></tr>
+  <tr><td rowspan="2">roberta-base</td><td>ml.p3.2xlarge</td><td>12</td><td>20</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>12</td><td>20</td></tr>
+  <tr><td rowspan="2">xlnet-base-cased</td><td>ml.p3.2xlarge</td><td>2</td><td>8</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>4</td><td>6</td></tr>
+</tbody>
+</table>
+
+
+### Transformers 4.11.0 with PyTorch 1.9.0
+<a name="training-compiler-tested-models-hf411-pt190"></a>
+
+Tested with `Sequence_Len=512` and Automatic Mixed Precision (AMP).
+
+
+<table>
+<thead>
+  <tr><th colspan="4">Single-node single-GPU</th></tr>
+  <tr><th>Model </th><th>Instance type</th><th>Batch size for native</th><th>Batch size for Training Compiler</th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2 </td><td>ml.p3.2xlarge</td><td>12</td><td>32</td></tr>
+  <tr><td>bert-base-cased </td><td>ml.p3.2xlarge</td><td>14</td><td>24</td></tr>
+  <tr><td>bert-base-chinese</td><td>ml.p3.2xlarge</td><td>16</td><td>24</td></tr>
+  <tr><td>bert-base-multilingual-cased </td><td>ml.p3.2xlarge</td><td>4</td><td>16</td></tr>
+  <tr><td>bert-base-multilingual-uncased </td><td>ml.p3.2xlarge</td><td>8</td><td>16</td></tr>
+  <tr><td>bert-base-uncased </td><td>ml.p3.2xlarge</td><td>12</td><td>24</td></tr>
+  <tr><td>cl-tohoku/bert-base-japanese-whole-word-masking</td><td>ml.p3.2xlarge</td><td>12</td><td>24</td></tr>
+  <tr><td>cl-tohoku/bert-base-japanese </td><td>ml.p3.2xlarge</td><td>12</td><td>24</td></tr>
+  <tr><td>distilbert-base-uncased </td><td>ml.p3.2xlarge</td><td>28</td><td>32</td></tr>
+  <tr><td>distilbert-base-uncased-finetuned-sst-2-english</td><td>ml.p3.2xlarge</td><td>28</td><td>32</td></tr>
+  <tr><td>distilgpt2 </td><td>ml.p3.2xlarge</td><td>16</td><td>32</td></tr>
+  <tr><td>facebook/bart-base </td><td>ml.p3.2xlarge</td><td>4</td><td>8</td></tr>
+  <tr><td>gpt2</td><td>ml.p3.2xlarge</td><td>6</td><td>20</td></tr>
+  <tr><td>nreimers/MiniLMv2-L6-H384-distilled-from-RoBERTa-Large </td><td>ml.p3.2xlarge</td><td>20</td><td>32</td></tr>
+  <tr><td>roberta-base </td><td>ml.p3.2xlarge</td><td>12</td><td>20</td></tr>
+</tbody>
+</table>
+
+
+
+<table>
+<thead>
+  <tr><th colspan="4">Single-node multi-GPU</th></tr>
+  <tr><th>Model </th><th>Instance type</th><th>Batch size for native</th><th>Batch size for Training Compiler</th></tr>
+</thead>
+<tbody>
+  <tr><td>bert-base-chinese </td><td>ml.p3.8xlarge</td><td>16</td><td>26</td></tr>
+  <tr><td>bert-base-multilingual-cased </td><td>ml.p3.8xlarge</td><td>6</td><td>16</td></tr>
+  <tr><td>bert-base-multilingual-uncased</td><td>ml.p3.8xlarge</td><td>6</td><td>16</td></tr>
+  <tr><td>bert-base-uncased </td><td>ml.p3.8xlarge</td><td>14</td><td>24</td></tr>
+  <tr><td>distilbert-base-uncased </td><td>ml.p3.8xlarge</td><td>14</td><td>32</td></tr>
+  <tr><td>distilgpt2</td><td>ml.p3.8xlarge</td><td>6</td><td>32</td></tr>
+  <tr><td>facebook/bart-base</td><td>ml.p3.8xlarge</td><td>8</td><td>16</td></tr>
+  <tr><td>gpt2 </td><td>ml.p3.8xlarge</td><td>8</td><td>20</td></tr>
+  <tr><td>roberta-base </td><td>ml.p3.8xlarge</td><td>12</td><td>20</td></tr>
+</tbody>
+</table>
+
+
+### Transformers 4.17.0 with TensorFlow 2.6.3
+<a name="training-compiler-tested-models-hf417-tf263"></a>
+
+Tested with `Sequence_Len=128` and Automatic Mixed Precision (AMP).
+
+
+| Model  | Instance type | Batch size for native frameworks | Batch size for Training Compiler | 
+| --- | --- | --- | --- | 
+| albert-base-v2 | ml.g4dn.16xlarge | 136 | 208 | 
+| albert-base-v2 | ml.g5.4xlarge | 219 | 312 | 
+| albert-base-v2 | ml.p3.2xlarge | 152 | 208 | 
+| albert-base-v2 | ml.p3.8xlarge | 152 | 192 | 
+| bert-base-uncased | ml.g4dn.16xlarge | 120 | 101 | 
+| bert-base-uncased | ml.g5.4xlarge | 184 | 160 | 
+| bert-base-uncased | ml.p3.2xlarge | 128 | 108 | 
+| bert-large-uncased | ml.g4dn.16xlarge | 37 | 28 | 
+| bert-large-uncased | ml.g5.4xlarge | 64 | 55 | 
+| bert-large-uncased | ml.p3.2xlarge | 40 | 32 | 
+| camembert-base | ml.g4dn.16xlarge | 96 | 100 | 
+| camembert-base | ml.g5.4xlarge | 190 | 160 | 
+| camembert-base | ml.p3.2xlarge | 129 | 108 | 
+| camembert-base | ml.p3.8xlarge | 128 | 104 | 
+| distilbert-base-uncased | ml.g4dn.16xlarge | 210 | 160 | 
+| distilbert-base-uncased | ml.g5.4xlarge | 327 | 288 | 
+| distilbert-base-uncased | ml.p3.2xlarge | 224 | 196 | 
+| distilbert-base-uncased | ml.p3.8xlarge | 192 | 182 | 
+| google\_electra-small-discriminator | ml.g4dn.16xlarge | 336 | 288 | 
+| google\_electra-small-discriminator | ml.g5.4xlarge | 504 | 384 | 
+| google\_electra-small-discriminator | ml.p3.2xlarge | 352 | 323 | 
+| gpt2 | ml.g4dn.16xlarge | 89 | 64 | 
+| gpt2 | ml.g5.4xlarge | 140 | 146 | 
+| gpt2 | ml.p3.2xlarge | 94 | 96 | 
+| gpt2 | ml.p3.8xlarge | 96 | 88 | 
+| jplu\_tf-xlm-roberta-base | ml.g4dn.16xlarge | 52 | 16 | 
+| jplu\_tf-xlm-roberta-base | ml.g5.4xlarge | 64 | 44 | 
+| microsoft\_mpnet-base | ml.g4dn.16xlarge | 120 | 100 | 
+| microsoft\_mpnet-base | ml.g5.4xlarge | 192 | 160 | 
+| microsoft\_mpnet-base | ml.p3.2xlarge | 128 | 104 | 
+| microsoft\_mpnet-base | ml.p3.8xlarge | 130 | 92 | 
+| roberta-base | ml.g4dn.16xlarge | 108 | 64 | 
+| roberta-base | ml.g5.4xlarge | 176 | 142 | 
+| roberta-base | ml.p3.2xlarge | 118 | 100 | 
+| roberta-base | ml.p3.8xlarge | 112 | 88 | 
+
+### Transformers 4.11.0 with TensorFlow 2.5.1
+<a name="training-compiler-tested-models-hf411-tf251"></a>
+
+Tested with `Sequence_Len=128` and Automatic Mixed Precision (AMP).
+
+
+<table>
+<thead>
+  <tr><th colspan="4">Single-node single-GPU</th></tr>
+  <tr><th>Model </th><th>Instance type</th><th>Batch size for native</th><th>Batch size for Training Compiler</th></tr>
+</thead>
+<tbody>
+  <tr><td>albert-base-v2 </td><td>ml.p3.2xlarge</td><td>128</td><td>128</td></tr>
+  <tr><td>bart-base </td><td>ml.p3.2xlarge</td><td>12</td><td>64</td></tr>
+  <tr><td>bart-large </td><td>ml.p3.2xlarge</td><td>4</td><td>28</td></tr>
+  <tr><td>bert-base-cased </td><td>ml.p3.2xlarge</td><td>16</td><td>128</td></tr>
+  <tr><td>bert-base-chinese</td><td>ml.p3.2xlarge</td><td>16</td><td>128</td></tr>
+  <tr><td>bert-base-multilingual-cased </td><td>ml.p3.2xlarge</td><td>12</td><td>64</td></tr>
+  <tr><td>bert-base-multilingual-uncased </td><td>ml.p3.2xlarge</td><td>16</td><td>96</td></tr>
+  <tr><td>bert-base-uncased</td><td>ml.p3.2xlarge</td><td>16</td><td>96</td></tr>
+  <tr><td>bert-large-uncased </td><td>ml.p3.2xlarge</td><td>4</td><td>24</td></tr>
+  <tr><td>cl-tohoku/bert-base-japanese </td><td>ml.p3.2xlarge</td><td>16</td><td>128</td></tr>
+  <tr><td>cl-tohoku/bert-base-japanese-whole-word-masking </td><td>ml.p3.2xlarge</td><td>16</td><td>128</td></tr>
+  <tr><td>distilbert-base-sst2 </td><td>ml.p3.2xlarge</td><td>32</td><td>128</td></tr>
+  <tr><td>distilbert-base-uncased </td><td>ml.p3.2xlarge</td><td>32</td><td>128</td></tr>
+  <tr><td>distilgpt2</td><td>ml.p3.2xlarge</td><td>32</td><td>128</td></tr>
+  <tr><td>gpt2 </td><td>ml.p3.2xlarge</td><td>12</td><td>64</td></tr>
+  <tr><td>gpt2-large </td><td>ml.p3.2xlarge</td><td>2</td><td>24</td></tr>
+  <tr><td>jplu/tf-xlm-roberta-base </td><td>ml.p3.2xlarge</td><td>12</td><td>32</td></tr>
+  <tr><td>roberta-base </td><td>ml.p3.2xlarge</td><td>4</td><td>64</td></tr>
+  <tr><td>roberta-large </td><td>ml.p3.2xlarge</td><td>4</td><td>64</td></tr>
+  <tr><td>t5-base </td><td>ml.p3.2xlarge</td><td>64</td><td>64</td></tr>
+  <tr><td>t5-small </td><td>ml.p3.2xlarge</td><td>128</td><td>128</td></tr>
+</tbody>
+</table>

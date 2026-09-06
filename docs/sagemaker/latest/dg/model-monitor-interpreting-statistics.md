@@ -1,14 +1,12 @@
+
+
 # Schema for Statistics (statistics.json file)
+<a name="model-monitor-interpreting-statistics"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
-
-Amazon SageMaker Model Monitor prebuilt container computes per column/feature statistics. The statistics
-are calculated for the baseline dataset and also for the current dataset that is
-being analyzed.
+Amazon SageMaker Model Monitor prebuilt container computes per column/feature statistics. The statistics are calculated for the baseline dataset and also for the current dataset that is being analyzed.
 
 ```
 {
@@ -93,8 +91,5 @@ being analyzed.
 ```
 
 Note the following:
-
-- The prebuilt containers compute [KLL
-  sketch](https://datasketches.apache.org/docs/KLL/KLLSketch.html "https://datasketches.apache.org/docs/KLL/KLLSketch.html"), which is a compact quantiles sketch.
-- By default, we materialize the distribution in 10 buckets. This is not
-  currently configurable.
++ The prebuilt containers compute [KLL sketch](https://datasketches.apache.org/docs/KLL/KLLSketch.html), which is a compact quantiles sketch.
++ By default, we materialize the distribution in 10 buckets. This is not currently configurable.

@@ -1,22 +1,14 @@
+
+
 # Pre-check endpoint request and response for time series data
+<a name="clarify-processing-job-data-format-time-series-precheck"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Clarify is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md). 
 
-Amazon SageMaker Clarify is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+You are advised to deploy your model to a SageMaker AI real-time inference endpoint and send requests to the endpoint. Manually examine the requests and responses to make sure that both are compliant with the requirements in the [Endpoint requests for time series data](clarify-processing-job-data-format-time-series-request-jsonlines.md) and [Endpoint response for time series data](clarify-processing-job-data-format-time-series-response-json.md) sections. If your model container supports batch requests, you can start with a single record request and then try two or more records.
 
-You are advised to deploy your model to a SageMaker AI real-time inference endpoint
-and send requests to the endpoint. Manually examine the requests and responses
-to make sure that both are compliant with the requirements in the [Endpoint requests for time series data](clarify-processing-job-data-format-time-series-request-jsonlines.md "clarify-processing-job-data-format-time-series-request-jsonlines.md") and
-[Endpoint response for time series data](clarify-processing-job-data-format-time-series-response-json.md "clarify-processing-job-data-format-time-series-response-json.md") sections.
-If your model container supports batch requests, you can start with a single record
-request and then try two or more records.
-
-The following commands demonstrate how to request a response using the AWS CLI.
-The AWS CLI is pre-installed in Studio and SageMaker Notebook instances.
-To install the AWS CLI, follow the [installation
-guide](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
+The following commands demonstrate how to request a response using the AWS CLI. The AWS CLI is pre-installed in Studio and SageMaker Notebook instances. To install the AWS CLI, follow the [installation guide](https://aws.amazon.com/cli/).
 
 ```
 aws sagemaker-runtime invoke-endpoint \
@@ -29,21 +21,18 @@ aws sagemaker-runtime invoke-endpoint \
 ```
 
 The parameters are defined as follows:
++ $ENDPOINT NAME — The name of the endpoint.
++ $CONTENT\_TYPE — The MIME type of the request (model container input).
++ $ACCEPT\_TYPE — The MIME type of the response (model container output).
++ $REQUEST\_DATA — The requested payload string.
++ $CLI\_BINARY\_FORMAT — The format of the command line interface (CLI) parameter. For AWS CLI v1, this parameter should remain blank. For v2, this parameter should be set to `--cli-binary-format raw-in-base64-out`.
 
-- $ENDPOINT NAME — The name of the endpoint.
-- $CONTENT\_TYPE — The MIME type of the request (model container input).
-- $ACCEPT\_TYPE — The MIME type of the response (model container output).
-- $REQUEST\_DATA — The requested payload string.
-- $CLI\_BINARY\_FORMAT — The format of the command line interface (CLI)
-  parameter. For AWS CLI v1, this parameter should remain blank. For v2, this
-  parameter should be set to `--cli-binary-format raw-in-base64-out`.
+**Note**  
+AWS CLI v2 passes binary parameters as base64-encoded strings by default. The following request and response examples to and from the endpoint use AWS CLI v1. 
 
-###### Note
+------
+#### [ Example 1 ]
 
-AWS CLI v2 passes binary parameters as base64-encoded strings by default.
-The following request and response examples to and from the endpoint use AWS CLI v1.
-
-Example 1
 In the following code example, the request consists of a single record.
 
 ```
@@ -62,7 +51,9 @@ The following snippet shows the corresponding response output.
 {'predictions': {'mean': [1, 2, 3, 4, 5]}
 ```
 
-Example 2
+------
+#### [ Example 2 ]
+
 In the following code example, the request contains two records.
 
 ```
@@ -85,3 +76,5 @@ The response output is the following:
 ```
 {'predictions': [{'mean': [1, 2, 3, 4, 5]}, {'mean': [1, 2, 3, 4, 5]}]}
 ```
+
+------

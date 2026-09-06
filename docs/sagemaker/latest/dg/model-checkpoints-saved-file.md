@@ -1,27 +1,29 @@
+
+
 # Browse checkpoint files
+<a name="model-checkpoints-saved-file"></a>
 
 Locate checkpoint files using the SageMaker Python SDK and the Amazon S3 console.
 
 **To find the checkpoint files programmatically**
 
-To retrieve the S3 bucket URI where the checkpoints are saved, check the following
-attribute:
+To retrieve the S3 bucket URI where the checkpoints are saved, check the following attribute:
 
 ```
 model_trainer.checkpoint_config.s3_uri
 ```
 
-This returns the S3 output path for checkpoints configured while requesting the
-`CreateTrainingJob` request. To find the saved checkpoint files using the
-S3 console, use the following procedure.
+This returns the S3 output path for checkpoints configured while requesting the `CreateTrainingJob` request. To find the saved checkpoint files using the S3 console, use the following procedure.
 
-###### To find the checkpoint files from the S3 console
+**To find the checkpoint files from the S3 console**
 
-1. Sign in to the AWS Management Console and open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2. In the left navigation pane, choose **Training jobs**.
-3. Choose the link to the training job with checkpointing enabled to open
-   **Job settings**.
-4. On the **Job settings** page of the training job, locate the
-   **Checkpoint configuration** section.
+1. Sign in to the AWS Management Console and open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-![Checkpoint configuration section in the Job settings page of a training job.](images/checkpoints_trainingjob.png) 5. Use the link to the S3 bucket to access the checkpoint files.
+1. In the left navigation pane, choose **Training jobs**.
+
+1. Choose the link to the training job with checkpointing enabled to open **Job settings**.
+
+1. On the **Job settings** page of the training job, locate the **Checkpoint configuration** section.  
+![Checkpoint configuration section in the Job settings page of a training job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/checkpoints_trainingjob.png)
+
+1. Use the link to the S3 bucket to access the checkpoint files.

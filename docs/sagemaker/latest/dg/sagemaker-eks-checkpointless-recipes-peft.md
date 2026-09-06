@@ -1,106 +1,109 @@
+
+
 # Tutorials - Amazon SageMaker HyperPod Checkpointless PEFT-LoRA GPT OSS 120b
+<a name="sagemaker-eks-checkpointless-recipes-peft"></a>
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 
 ## Prerequisites
+<a name="sagemaker-eks-checkpointless-recipes-peft-prereqs"></a>
 
 Before you start setting up your environment, make sure you have:
-
-- [Enabled Amazon EKS support in Amazon SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md "sagemaker-hyperpod-eks-prerequisites.md")
-- [Set up HyperPod training operator (v1.2+)](sagemaker-eks-operator.md "sagemaker-eks-operator.md")
-- A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
-- Data in one of the following formats:
-
-  - JSON
-  - JSONGZ (Compressed JSON)
-  - ARROW
-
-- Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
-- [Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading "https://huggingface.co/docs/hub/models-downloading") and covert to [Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face").
-- Setup your environment
++ [ Enabled Amazon EKS support in Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-prerequisites.html)
++ [ Set up HyperPod training operator (v1.2\+)](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator.html)
++ A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
++ Data in one of the following formats:
+  + JSON
+  + JSONGZ (Compressed JSON)
+  + ARROW
++ Pick a supported checkpointless training recipe for Llama 70B or GPT-OSS 120B from the [source](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection).
++ [ Download the hugging face model weights](https://huggingface.co/docs/hub/models-downloading) and covert to [ Nemo supported format](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemo-2.0/features/hf-integration.html#importing-from-hugging-face).
++ Setup your environment
 
 ## Kubernetes environment setup
+<a name="sagemaker-eks-checkpointless-recipes-peft-kubernetes"></a>
 
 To set up your Kubernetes environment, do the following:
 
 1. Set up the virtual environment. Make sure you're using Python greater than or equal to 3.10 and < 3.14.
 
-```
-python3 -m venv ${PWD}/venv
-source venv/bin/activate
-```
+   ```
+   python3 -m venv ${PWD}/venv
+   source venv/bin/activate
+   ```
 
-2. [Set up kubectl and eksctl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md")
-3. [Install Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/")
-4. Connect to your Kubernetes cluster
+1. [ Set up kubectl and eksctl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 
-```
-aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
-```
+1. [ Install Helm](https://helm.sh/docs/intro/install/)
 
-5. Install dependencies using one of the following methods:
-
-   - SageMaker HyperPod recipes method:
+1. Connect to your Kubernetes cluster
 
    ```
-   # install SageMaker HyperPod Recipes.
-   git clone --recursive git@github.com:aws/sagemaker-hyperpod-recipes.git
-   cd sagemaker-hyperpod-recipes
-   pip3 install -r requirements.txt
+   aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
    ```
-   - kubectl with pre-defined job yaml method
 
-   ```
-   # install SageMaker HyperPod checkpointless training.
-   git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
-   cd sagemaker-hyperpod-checkpointless-training
-   ```
+1. Install dependencies using one of the following methods:
+   + SageMaker HyperPod recipes method:
+
+     ```
+     # install SageMaker HyperPod Recipes.
+     git clone --recursive git@github.com:aws/sagemaker-hyperpod-recipes.git
+     cd sagemaker-hyperpod-recipes
+     pip3 install -r requirements.txt
+     ```
+   + kubectl with pre-defined job yaml method
+
+     ```
+     # install SageMaker HyperPod checkpointless training.
+     git clone git@github.com:aws/sagemaker-hyperpod-checkpointless-training.git
+     cd sagemaker-hyperpod-checkpointless-training
+     ```
 
 You can now launch the checkpointless training recipe using either the NeMo-style launcher or using kubectl.
 
 ## Launch the training job with the recipes launcher
+<a name="sagemaker-eks-checkpointless-recipes-peft-recipes-launcher"></a>
 
 Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves updating k8s.yaml, config.yaml and running the launch script.
 
 1. Update `launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_lora.sh`
 
-your\_contrainer: A Deep Learning container. To find the most recent release of the
-checkpointless training container, see [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
+   your\_contrainer: A Deep Learning container. To find the most recent release of the checkpointless training container, see [ checkpointless training release notes](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-release-notes.html).
 
-```
-#!/bin/bash
-SAGEMAKER_TRAINING_LAUNCHER_DIR=${SAGEMAKER_TRAINING_LAUNCHER_DIR:-"$(pwd)"}
-TRAIN_DIR="${TRAIN_DIR}"
-VAL_DIR="${VAL_DIR}"
-EXP_DIR="${EXP_DIR}"
-LOG_DIR="${LOG_DIR}"
-CONTAINER_MOUNT="/data"
-CONTAINER="${CONTAINER}"
-MODEL_NAME_OR_PATH="${MODEL_NAME_OR_PATH}"
+   ```
+   #!/bin/bash
+   SAGEMAKER_TRAINING_LAUNCHER_DIR=${SAGEMAKER_TRAINING_LAUNCHER_DIR:-"$(pwd)"}
+   TRAIN_DIR="${TRAIN_DIR}"
+   VAL_DIR="${VAL_DIR}"
+   EXP_DIR="${EXP_DIR}"
+   LOG_DIR="${LOG_DIR}"
+   CONTAINER_MOUNT="/data"
+   CONTAINER="${CONTAINER}"
+   MODEL_NAME_OR_PATH="${MODEL_NAME_OR_PATH}"
+   
+   HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
+       recipes=fine-tuning/gpt_oss/checkpointless_gpt_oss_120b_lora \
+       recipes.dataset.dataset_path="${TRAIN_DIR}" \
+       recipes.exp_manager.exp_dir="${EXP_DIR}" \
+       recipes.log_dir="${LOG_DIR}" \
+       recipes.resume.restore_config.path="${MODEL_NAME_OR_PATH}" \
+       base_results_dir="${SAGEMAKER_TRAINING_LAUNCHER_DIR}/results" \
+       git.use_default=false \
+       cluster=k8s \
+       cluster_type=k8s \
+       container="${CONTAINER}" \
+       +cluster.hostNetwork=true \
+       +cluster.persistent_volume_claims.0.claimName=fsx-claim \
+       +cluster.persistent_volume_claims.0.mountPath="${CONTAINER_MOUNT}" \
+       +recipes.dataset.val_dataset_path="${VAL_DIR}" \
+       ++recipes.callbacks.3.test_fault_config.fault_prob_between_lock=1 \
+   ```
 
-HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
-    recipes=fine-tuning/gpt_oss/checkpointless_gpt_oss_120b_lora \
-    recipes.dataset.dataset_path="${TRAIN_DIR}" \
-    recipes.exp_manager.exp_dir="${EXP_DIR}" \
-    recipes.log_dir="${LOG_DIR}" \
-    recipes.resume.restore_config.path="${MODEL_NAME_OR_PATH}" \
-    base_results_dir="${SAGEMAKER_TRAINING_LAUNCHER_DIR}/results" \
-    git.use_default=false \
-    cluster=k8s \
-    cluster_type=k8s \
-    container="${CONTAINER}" \
-    +cluster.hostNetwork=true \
-    +cluster.persistent_volume_claims.0.claimName=fsx-claim \
-    +cluster.persistent_volume_claims.0.mountPath="${CONTAINER_MOUNT}" \
-    +recipes.dataset.val_dataset_path="${VAL_DIR}" \
-    ++recipes.callbacks.3.test_fault_config.fault_prob_between_lock=1 \
-```
+1. Launch the training job
 
-2. Launch the training job
-
-```
-bash launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_lora.sh
-```
+   ```
+   bash launcher_scripts/gpt_oss/run_checkpointless_gpt_oss_120b_lora.sh
+   ```
 
 After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
@@ -126,23 +129,20 @@ kubectl logs <name of pod>
 The STATUS will turn to Completed when you run kubectl get pods
 
 ## Launch the training job with kubectl with pre-defined yaml
+<a name="sagemaker-eks-checkpointless-recipes-peft-kubectl"></a>
 
 Another option is to launch the training through kubectl with a pre-defined job yaml.
 
 1. update the examples/gpt\_oss/launch/peft\_gpt\_oss\_120b\_checkpointless\_p5.yaml
+   + image: A Deep Learning container. To find the most recent release of the checkpointless training container, see [ checkpointless training release notes](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-release-notes.html).
+   + resume.restore\_config.path=<path\_to\_pretrained\_weights>: The path to downloaded pretrained model weights in Nemo format in [ Prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-checkpointless-recipes-peft.html#sagemaker-eks-checkpointless-recipes-peft-prereqs) step.
+   + dataset.dataset\_path=<path\_to\_dataset>: The path to the dataset that stored in the shared storage
 
-   - image: A Deep Learning container. To find the most recent release of the checkpointless training container, see
-     [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
-   - resume.restore\_config.path=<path\_to\_pretrained\_weights>: The path to downloaded pretrained model
-     weights in Nemo format in
-     [Prerequisites](sagemaker-eks-checkpointless-recipes-peft.md#sagemaker-eks-checkpointless-recipes-peft-prereqs "sagemaker-eks-checkpointless-recipes-peft.md#sagemaker-eks-checkpointless-recipes-peft-prereqs") step.
-   - dataset.dataset\_path=<path\_to\_dataset>: The path to the dataset that stored in the shared storage
+1. Submit the job using kubectl with peft\_gpt\_oss\_120b\_checkpointless\_p5.yaml
 
-2. Submit the job using kubectl with peft\_gpt\_oss\_120b\_checkpointless\_p5.yaml
-
-```
-kubectl apply -f examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml
-```
+   ```
+   kubectl apply -f examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml
+   ```
 
 After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 

@@ -1,102 +1,101 @@
+
+
 # Update resources in a private hub
+<a name="jumpstart-curated-hubs-update"></a>
 
-You can update resources in your private hub to make changes to their metadata.
-The resources that you can update include model references to Amazon SageMaker JumpStart
-models, custom models, notebooks, datasets, and JsonDoc.
+You can update resources in your private hub to make changes to their metadata. The resources that you can update include model references to Amazon SageMaker JumpStart models, custom models, notebooks, datasets, and JsonDoc.
 
-When updating model, notebook, datasets, or JsonDoc resources, you can update the
-content description, display name, keywords, and support status. When updating model
-references to JumpStart models, you can only update the field specifying the
-minimum model version that you'd like to use.
+When updating model, notebook, datasets, or JsonDoc resources, you can update the content description, display name, keywords, and support status. When updating model references to JumpStart models, you can only update the field specifying the minimum model version that you'd like to use.
++ “Update model or notebook resources” to include DataSet/JsonDoc. In CLI command, DataSets/JsonDocs should added to the hub-content-type argument.
 
-- “Update model or notebook resources” to include DataSet/JsonDoc. In CLI
-  command, DataSets/JsonDocs should added to the hub-content-type
-  argument.
-  Follow the section specific to the resource that you want to update.
+Follow the section specific to the resource that you want to update.
 
 ## Update model or notebook resources
+<a name="jumpstart-curated-hubs-update-model-notebook"></a>
 
-To update a model or a notebook resource, use the [UpdateHubContent](../APIReference/API_UpdateHubContent.md "../APIReference/API_UpdateHubContent.md") API.
+To update a model or a notebook resource, use the [UpdateHubContent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContent.html) API.
 
 The valid metadata fields that you can update with this API are the following:
++ `HubContentDescription` – The description of the resource.
++ `HubContentDisplayName` – The display name of the resource.
++ `HubContentMarkdown` – The description of the resource, in Markdown formatting.
++ `HubContentSearchKeywords` – The searchable keywords of the resource.
++ `SupportStatus` – The current status of the resource.
 
-- `HubContentDescription` – The description of the resource.
-- `HubContentDisplayName` – The display name of the resource.
-- `HubContentMarkdown` – The description of the resource,
-  in Markdown formatting.
-- `HubContentSearchKeywords` – The searchable
-  keywords of the resource.
-- `SupportStatus` – The current status of the resource.
+In your request, include a change for one or more of the preceding fields. If you attempt to update any other fields, such as the hub content type, you receive an error.
 
-In your request, include a change for one or more of the preceding fields. If you attempt to
-update any other fields, such as the hub content type, you receive an error.
+------
+#### [ AWS SDK for Python (Boto3) ]
 
-AWS SDK for Python (Boto3)
-The following example shows how you can use the AWS SDK for Python (Boto3) to submit an
-[UpdateHubContent](../APIReference/API_UpdateHubContent.md "../APIReference/API_UpdateHubContent.md") request.
+The following example shows how you can use the AWS SDK for Python (Boto3) to submit an [ UpdateHubContent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContent.html) request.
 
-###### Note
-
-The `HubContentVersion` you specify in the request means
-that the specific version's metadata is updated. To find all of the available versions
-of your hub content, you can use the [ListHubContentVersions](../APIReference/API_ListHubContentVersions.md "../APIReference/API_ListHubContentVersions.md") API.
+**Note**  
+The `HubContentVersion` you specify in the request means that the specific version's metadata is updated. To find all of the available versions of your hub content, you can use the [ ListHubContentVersions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContentVersions.html) API.
 
 ```
 import boto3
 sagemaker_client = boto3.Session(region_name=<AWS-region>).client("sagemaker")
 
 sagemaker_client.update_hub_contents(
-    HubName=`<hub-name>`,
-    HubContentName=`<resource-content-name>`,
-    HubContentType=`<"Model"|"Notebook">`,
+    HubName={{<hub-name>}},
+    HubContentName={{<resource-content-name>}},
+    HubContentType={{<"Model"|"Notebook">}},
     HubContentVersion='1.0.0', # specify the correct version that you want to update
-    HubContentDescription=`<updated-description-string>`
+    HubContentDescription={{<updated-description-string>}}
 )
 ```
 
-AWS CLI
-The following example shows how you can use the AWS CLI to submit an
-[update-hub-content](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content.html") request.
+------
+#### [ AWS CLI ]
+
+The following example shows how you can use the AWS CLI to submit an [ update-hub-content](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content.html) request.
 
 ```
 aws sagemaker update-hub-content \
---hub-name `<hub-name>` \
---hub-content-name `<resource-content-name>` \
---hub-content-type `<"Model"|"Notebook">` \
+--hub-name {{<hub-name>}} \
+--hub-content-name {{<resource-content-name>}} \
+--hub-content-type {{<"Model"|"Notebook">}} \
 --hub-content-version "1.0.0" \
---hub-content-description `<updated-description-string>`
+--hub-content-description {{<updated-description-string>}}
 ```
 
-## Update model references
+------
 
-To update a model reference to a JumpStart model, use the [UpdateHubContentReference](../APIReference/API_UpdateHubContentReference.md "../APIReference/API_UpdateHubContentReference.md") API.
+## Update model references
+<a name="jumpstart-curated-hubs-update-model-reference"></a>
+
+To update a model reference to a JumpStart model, use the [ UpdateHubContentReference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContentReference.html) API.
 
 You can only update the `MinVersion` field for model references.
 
-AWS SDK for Python (Boto3)
-The following example shows how you can use the AWS SDK for Python (Boto3) to submit
-an [UpdateHubContentReference](../APIReference/API_UpdateHubContentReference.md "../APIReference/API_UpdateHubContentReference.md") request.
+------
+#### [ AWS SDK for Python (Boto3) ]
+
+The following example shows how you can use the AWS SDK for Python (Boto3) to submit an [ UpdateHubContentReference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContentReference.html) request.
 
 ```
 import boto3
 sagemaker_client = boto3.Session(region_name=<AWS-region>).client("sagemaker")
 
 update_response = sagemaker_client.update_hub_content_reference(
-    HubName=`<hub-name>`,
-    HubContentName=`<model-reference-content-name>`,
+    HubName={{<hub-name>}},
+    HubContentName={{<model-reference-content-name>}},
     HubContentType='ModelReference',
     MinVersion='1.0.0'
 )
 ```
 
-AWS CLI
-The following example shows how you can use the AWS CLI to submit an
-[update-hub-content-reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content-reference.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content-reference.html") request.
+------
+#### [ AWS CLI ]
+
+The following example shows how you can use the AWS CLI to submit an [ update-hub-content-reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-hub-content-reference.html) request.
 
 ```
 aws sagemaker update-hub-content-reference \
- --hub-name `<hub-name>` \
- --hub-content-name `<model-reference-content-name>` \
+ --hub-name {{<hub-name>}} \
+ --hub-content-name {{<model-reference-content-name>}} \
  --hub-content-type "ModelReference" \
  --min-version "1.0.0"
 ```
+
+------

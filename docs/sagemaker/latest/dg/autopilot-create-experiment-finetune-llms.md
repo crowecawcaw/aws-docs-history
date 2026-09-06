@@ -1,159 +1,92 @@
+
+
 # Create an AutoML job to fine-tune text generation models using the API
+<a name="autopilot-create-experiment-finetune-llms"></a>
 
-Large language models (LLMs) excel in multiple generative tasks, including text generation,
-summarization, completion, question answering, and more. Their performance can be attributed to
-their significant size and extensive training on diverse datasets and various tasks. However,
-specific domains, such as healthcare and financial services, may require customized fine-tuning
-to adapt to unique data and use cases. By tailoring their training to their particular domain,
-LLMs can improve their performance and provide more accurate outputs for targeted
-applications.
+Large language models (LLMs) excel in multiple generative tasks, including text generation, summarization, completion, question answering, and more. Their performance can be attributed to their significant size and extensive training on diverse datasets and various tasks. However, specific domains, such as healthcare and financial services, may require customized fine-tuning to adapt to unique data and use cases. By tailoring their training to their particular domain, LLMs can improve their performance and provide more accurate outputs for targeted applications.
 
-Autopilot offers the capability to fine-tune a selection of pre-trained generative text models.
-In particular, Autopilot supports the **instruction-based fine
-tuning** of a selection of general-purpose large language models (LLMs) powered by
-JumpStart.
+Autopilot offers the capability to fine-tune a selection of pre-trained generative text models. In particular, Autopilot supports the **instruction-based fine tuning** of a selection of general-purpose large language models (LLMs) powered by JumpStart.
 
-###### Note
+**Note**  
+The text generation models that support fine-tuning in Autopilot are currently accessible exclusively in Regions supported by SageMaker Canvas. See the documentation of SageMaker Canvas for the [full list of its supported Regions](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html).
 
-The text generation models that support fine-tuning in Autopilot are currently accessible
-exclusively in Regions supported by SageMaker Canvas. See the documentation of SageMaker Canvas for the [full list of its supported
-Regions](canvas.md "canvas.md").
+Fine-tuning a pre-trained model requires a specific dataset of clear instructions that guide the model on how to generate output or behave for that task. The model learns from the dataset, adjusting its parameters to conform to the provided instructions. Instruction-based fine-tuning involves using labeled examples formatted as prompt-response pairs and phrased as instructions. For more information about fine-tuning, see [Fine-tune a foundation model](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html).
 
-Fine-tuning a pre-trained model requires a specific dataset of clear instructions that guide
-the model on how to generate output or behave for that task. The model learns from the dataset,
-adjusting its parameters to conform to the provided instructions. Instruction-based fine-tuning
-involves using labeled examples formatted as prompt-response pairs and phrased as instructions.
-For more information about fine-tuning, see [Fine-tune a foundation
-model](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md").
+The following guidelines outline the process of creating an Amazon SageMaker Autopilot job as a pilot experiment to fine-tune text generation LLMs using the SageMaker [API Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-reference.html).
 
-The following guidelines outline the process of creating an Amazon SageMaker Autopilot job as a pilot experiment
-to fine-tune text generation LLMs using the SageMaker [API Reference](autopilot-reference.md "autopilot-reference.md").
+**Note**  
+Tasks such as text and image classification, time-series forecasting, and fine-tuning of large language models are exclusively available through the version 2 of the [AutoML REST API](autopilot-reference.md). If your language of choice is Python, you can refer to [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_auto_ml_job_v2.html) or the [AutoMLV2 object](https://sagemaker.readthedocs.io/en/stable/api/training/automlv2.html#sagemaker.automl.automlv2.AutoMLV2) of the Amazon SageMaker Python SDK directly.  
+Users who prefer the convenience of a user interface can use [Amazon SageMaker Canvas](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-getting-started.html) to access pre-trained models and generative AI foundation models, or create custom models tailored for specific text, image classification, forecasting needs, or generative AI.
 
-###### Note
+To create an Autopilot experiment programmatically for fine-tuning an LLM, you can call the [`CreateAutoMLJobV2`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) API in any language supported by Amazon SageMaker Autopilot or the AWS CLI.
 
-Tasks such as text and image classification,
-time-series forecasting, and fine-tuning of large language models are exclusively available
-through the version 2 of the [AutoML REST API](autopilot-reference.md "autopilot-reference.md").
-If your language of choice is Python, you can refer to [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_auto_ml_job_v2.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_auto_ml_job_v2.html") or the [AutoMLV2 object](https://sagemaker.readthedocs.io/en/stable/api/training/automlv2.html#sagemaker.automl.automlv2.AutoMLV2 "https://sagemaker.readthedocs.io/en/stable/api/training/automlv2.html#sagemaker.automl.automlv2.AutoMLV2") of the Amazon SageMaker Python SDK directly.
+For information about how this API action translates into a function in the language of your choice, see the [ See Also](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#API_CreateAutoMLJobV2_SeeAlso) section of `CreateAutoMLJobV2` and choose an SDK. As an example, for Python users, see the full request syntax of `[create\_auto\_ml\_job\_v2](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job_v2)` in AWS SDK for Python (Boto3).
 
-Users who prefer the convenience of a user interface can use [Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md") to access
-pre-trained models and generative AI foundation models, or create custom models tailored for specific text, image classification,
-forecasting needs, or generative AI.
+**Note**  
+Autopilot fine-tunes large language models without requiring multiple candidates to be trained and evaluated. Instead, using your dataset, Autopilot directly fine-tunes your target model to enhance a default objective metric, the cross-entropy loss. Fine-tuning language models in Autopilot does not require setting the `AutoMLJobObjective` field.
 
-To create an Autopilot experiment programmatically for fine-tuning an LLM, you can call the
-[`CreateAutoMLJobV2`](../APIReference/API_CreateAutoMLJobV2.md "../APIReference/API_CreateAutoMLJobV2.md") API in any language supported by Amazon SageMaker Autopilot or the
-AWS CLI.
-
-For information about how this API action translates into a function in the language of your
-choice, see the [See Also](../APIReference/API_CreateAutoMLJobV2.md#API_CreateAutoMLJobV2_SeeAlso "../APIReference/API_CreateAutoMLJobV2.md#API_CreateAutoMLJobV2_SeeAlso") section of `CreateAutoMLJobV2` and choose an SDK. As an example,
-for Python users, see the full request syntax of `create_auto_ml_job_v2` in AWS SDK for Python (Boto3).
-
-###### Note
-
-Autopilot fine-tunes large language models without requiring multiple candidates to be
-trained and evaluated. Instead, using your dataset, Autopilot directly fine-tunes your target
-model to enhance a default objective metric, the cross-entropy loss. Fine-tuning language
-models in Autopilot does not require setting the `AutoMLJobObjective` field.
-
-Once your LLM is fine-tuned, you can evaluate its performance by accessing various ROUGE
-scores through the `BestCandidate` when making a `DescribeAutoMLJobV2` API call. The model also provides information about its
-training and validation loss as well as perplexity. For a comprehensive list of metrics for
-evaluating the quality of the text generated by the fine-tuned models, see [Metrics for fine-tuning large language models in Autopilot](autopilot-llms-finetuning-metrics.md "autopilot-llms-finetuning-metrics.md").
+Once your LLM is fine-tuned, you can evaluate its performance by accessing various ROUGE scores through the `[BestCandidate](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CandidateProperties.html#sagemaker-Type-CandidateProperties-CandidateMetrics)` when making a `[DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html)` API call. The model also provides information about its training and validation loss as well as perplexity. For a comprehensive list of metrics for evaluating the quality of the text generated by the fine-tuned models, see [Metrics for fine-tuning large language models in Autopilot](autopilot-llms-finetuning-metrics.md).
 
 ## Prerequisites
+<a name="autopilot-llms-finetuning-api-prerequisites"></a>
 
-Before using Autopilot to create a fine-tuning experiment in SageMaker AI, make sure to take the
-following steps:
+Before using Autopilot to create a fine-tuning experiment in SageMaker AI, make sure to take the following steps:
++ (Optional) Choose the pre-trained model you want to fine-tune.
 
-- (Optional) Choose the pre-trained model you want to fine-tune.
+  For the list of pre-trained models available for fine-tuning in Amazon SageMaker Autopilot, see [Supported large language models for fine-tuning](autopilot-llms-finetuning-models.md). The selection of a model is not mandatory; if no model is specified, Autopilot automatically defaults to the model *Falcon7BInstruct*.
++ Create a dataset of instructions. See [Dataset file types and input data format](autopilot-llms-finetuning-data-format.md) to learn about the format requirements for your instruction-based dataset.
++ Place your dataset in an Amazon S3 bucket.
++ Grant full access to the Amazon S3 bucket containing your input data for the SageMaker AI execution role used to run your experiment.
+  + For information on retrieving your SageMaker AI execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role).
+  + For information on granting your SageMaker AI execution role permissions to access one or more specific buckets in Amazon S3, see * Add Additional Amazon S3 Permissions to a SageMaker AI Execution Role* in [Create execution role](sagemaker-roles.md#sagemaker-roles-create-execution-role).
++ Additionally, you should provide your execution role with the necessary permissions to access the default storage Amazon S3 bucket used by JumpStart. This access is required for storing and retrieving pre-trained model artifacts in JumpStart. To grant access to this Amazon S3 bucket, you must create a new inline custom policy on your execution role.
 
-For the list of pre-trained models available for fine-tuning in Amazon SageMaker Autopilot, see [Supported large language models for fine-tuning](autopilot-llms-finetuning-models.md "autopilot-llms-finetuning-models.md"). The selection of a model is not
-mandatory; if no model is specified, Autopilot automatically defaults to the model _Falcon7BInstruct_.
+  Here's an example policy that you can use in your JSON editor when configuring AutoML fine-tuning jobs in `us-west-2`:
 
-- Create a dataset of instructions. See [Dataset file types and input data format](autopilot-llms-finetuning-data-format.md "autopilot-llms-finetuning-data-format.md") to learn about the format
-  requirements for your instruction-based dataset.
-- Place your dataset in an Amazon S3 bucket.
-- Grant full access to the Amazon S3 bucket containing your input data for the SageMaker AI execution
-  role used to run your experiment.
+  *JumpStart's bucket names follow a predetermined pattern that depends on the AWS Regions. You must adjust the name of the bucket accordingly.* 
 
-  - For information on retrieving your SageMaker AI execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
-  - For information on granting your SageMaker AI execution role permissions to access one or
-    more specific buckets in Amazon S3, see _Add Additional Amazon S3
-    Permissions to a SageMaker AI Execution Role_ in [Create execution role](sagemaker-roles.md#sagemaker-roles-create-execution-role "sagemaker-roles.md#sagemaker-roles-create-execution-role").
+  ```
+  {
+      "Sid": "Statement1",
+      "Effect": "Allow",
+      "Action": [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:ListBucket"
+      ],
+      "Resource": [
+          "arn:aws:s3:::jumpstart-cache-prod-{{us-west-2}}",
+          "arn:aws:s3:::jumpstart-cache-prod-{{us-west-2/*}}"
+      ]
+  }
+  ```
 
-- Additionally, you should provide your execution role with the necessary permissions to
-  access the default storage Amazon S3 bucket used by JumpStart. This access is required for
-  storing and retrieving pre-trained model artifacts in JumpStart. To grant access to
-  this Amazon S3 bucket, you must create a new inline custom policy on your execution
-  role.
-
-Here's an example policy that you can use in your JSON editor when configuring AutoML
-fine-tuning jobs in `us-west-2`:
-
-_JumpStart's bucket names follow a predetermined pattern
-that depends on the AWS Regions. You must adjust the name of the bucket
-accordingly._
-
-```
-{
-    "Sid": "Statement1",
-    "Effect": "Allow",
-    "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:ListBucket"
-    ],
-    "Resource": [
-        "arn:aws:s3:::jumpstart-cache-prod-`us-west-2`",
-        "arn:aws:s3:::jumpstart-cache-prod-`us-west-2/*`"
-    ]
-}
-```
-
-Once this is done, you can use the ARN of this execution role in Autopilot API
-requests.
+Once this is done, you can use the ARN of this execution role in Autopilot API requests.
 
 ## Required parameters
+<a name="autopilot-llms-finetuning-api-required-params"></a>
 
-When calling `CreateAutoMLJobV2` to create an Autopilot experiment for LLM fine-tuning, you
-must provide the following values:
+When calling `[CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)` to create an Autopilot experiment for LLM fine-tuning, you must provide the following values:
++ An `[AutoMLJobName](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#API_CreateAutoMLJobV2_RequestSyntax)` to specify the name of your job. The name should be of type `string`, and should have a minimum length of 1 character and a maximum length of 32.
++ At least one `[AutoMLJobChannel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobChannel.html)` of the `training` type within the `[AutoMLJobInputDataConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobInputDataConfig)`. This channel specifies the name of the Amazon S3 bucket where your fine-tuning dataset is located. You have the option to define a `validation` channel. If no validation channel is provided, and a `ValidationFraction` is configured in the [`AutoMLDataSplitConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLDataSplitConfig.html), this fraction is utilized to randomly divide the training dataset into training and validation sets. Additionally, you can specify the type of content (CSV or Parquet files) for the dataset.
++ An `[AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLProblemTypeConfig)` of type `[TextGenerationJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextGenerationJobConfig.html)` to configure the settings of your training job.
 
-- An `AutoMLJobName` to specify the name of your job. The name should be of
-  type `string`, and should have a minimum length of 1 character and a maximum
-  length of 32.
-- At least one `AutoMLJobChannel` of the `training` type within the
-  `AutoMLJobInputDataConfig`. This channel specifies the name of the Amazon S3
-  bucket where your fine-tuning dataset is located. You have the option to define a
-  `validation` channel. If no validation channel is provided, and a
-  `ValidationFraction` is configured in the [`AutoMLDataSplitConfig`](../APIReference/API_AutoMLDataSplitConfig.md "../APIReference/API_AutoMLDataSplitConfig.md"), this fraction is utilized to randomly
-  divide the training dataset into training and validation sets. Additionally, you can
-  specify the type of content (CSV or Parquet files) for the dataset.
-- An `AutoMLProblemTypeConfig` of type `TextGenerationJobConfig` to configure the settings of your training
-  job.
+  In particular, you can specify the name of the base model to fine-tune in the `BaseModelName` field. For the list of pre-trained models available for fine-tuning in Amazon SageMaker Autopilot, see [Supported large language models for fine-tuning](autopilot-llms-finetuning-models.md).
++ An `[OutputDataConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLOutputDataConfig.html)` to specify the Amazon S3 output path to store the artifacts of your AutoML job.
++ A `[RoleArn](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-RoleArn)` to specify the ARN of the role used to access your data.
 
-In particular, you can specify the name of the base model to fine-tune in the
-`BaseModelName` field. For the list of pre-trained models available for
-fine-tuning in Amazon SageMaker Autopilot, see [Supported large language models for fine-tuning](autopilot-llms-finetuning-models.md "autopilot-llms-finetuning-models.md").
-
-- An `OutputDataConfig` to specify the Amazon S3 output path to store the
-  artifacts of your AutoML job.
-- A `RoleArn` to specify the ARN of the role used to access your
-  data.
-
-The following is an example of the full request format used when making an API call to
-`CreateAutoMLJobV2` for fine-tuning a (`Falcon7BInstruct`)
-model.
+The following is an example of the full request format used when making an API call to `CreateAutoMLJobV2` for fine-tuning a (`Falcon7BInstruct`) model.
 
 ```
 {
    "AutoMLJobName": "<job_name>",
-   "AutoMLJobInputDataConfig": [
-      {
+   "AutoMLJobInputDataConfig": [ 
+      { 
          "ChannelType": "training",
          "CompressionType": "None",
-         "ContentType": "text/csv",
-         "DataSource": {
-            "S3DataSource": {
+         "ContentType": "text/csv", 
+         "DataSource": { 
+            "S3DataSource": { 
                "S3DataType": "S3Prefix",
                "S3Uri": "s3://<bucket_name>/<input_data>.csv"
             }
@@ -176,72 +109,49 @@ model.
 All other parameters are optional.
 
 ## Optional parameters
+<a name="autopilot-llms-finetuning-api-optional-params"></a>
 
-The following sections provide details of some optional parameters that you can pass to
-your fine-tuning AutoML job.
+The following sections provide details of some optional parameters that you can pass to your fine-tuning AutoML job.
 
-You can provide your own validation dataset and custom data split ratio, or let Autopilot
-split the dataset automatically.
+### How to specify the training and validation datasets of an AutoML job
+<a name="autopilot-llms-finetuning-data-training-or-validation"></a>
 
-Each [`AutoMLJobChannel`](../APIReference/API_AutoMLJobChannel.md "../APIReference/API_AutoMLJobChannel.md") object (see the required parameter [AutoMLJobInputDataConfig](../APIReference/API_CreateAutoMLJobV2.md#sagemaker-CreateAutoMLJobV2-request-AutoMLJobInputDataConfig "../APIReference/API_CreateAutoMLJobV2.md#sagemaker-CreateAutoMLJobV2-request-AutoMLJobInputDataConfig")) has a `ChannelType`, which can be set to
-either `training` or `validation` values that specify how the data
-is to be used when building a machine learning model.
+You can provide your own validation dataset and custom data split ratio, or let Autopilot split the dataset automatically.
 
-At least one data source must be provided and a maximum of two data sources is
-allowed: one for training data and one for validation data. How you split the data into
-training and validation datasets depends on whether you have one or two data sources.
+Each [`AutoMLJobChannel`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobChannel.html) object (see the required parameter [AutoMLJobInputDataConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobInputDataConfig)) has a `ChannelType`, which can be set to either `training` or `validation` values that specify how the data is to be used when building a machine learning model.
 
-- If you only have **one data source**, the
-  `ChannelType` is set to `training` by default and must have
-  this value.
+At least one data source must be provided and a maximum of two data sources is allowed: one for training data and one for validation data. How you split the data into training and validation datasets depends on whether you have one or two data sources. 
++ If you only have **one data source**, the `ChannelType` is set to `training` by default and must have this value.
+  + If the `ValidationFraction` value in [`AutoMLDataSplitConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLDataSplitConfig.html) is not set, 0.2 (20%) of the data from this source is used for validation by default. 
+  + If the `ValidationFraction` is set to a value between 0 and 1, the dataset is split based on the value specified, where the value specifies the fraction of the dataset used for validation.
++ If you have **two data sources**, the `ChannelType` of one of the `AutoMLJobChannel` objects must be set to `training`, the default value. The `ChannelType` of the other data source must be set to `validation`. The two data sources must have the same format, either CSV or Parquet, and the same schema. You must not set the value for the `ValidationFraction` in this case because all of the data from each source is used for either training or validation. Setting this value causes an error.
 
-  - If the `ValidationFraction` value in [`AutoMLDataSplitConfig`](../APIReference/API_AutoMLDataSplitConfig.md "../APIReference/API_AutoMLDataSplitConfig.md") is not set, 0.2 (20%) of the data
-    from this source is used for validation by default.
-  - If the `ValidationFraction` is set to a value between 0 and 1, the
-    dataset is split based on the value specified, where the value specifies the
-    fraction of the dataset used for validation.
+### How to enable automatic deployment
+<a name="autopilot-llms-finetuning-auto-model-deployment"></a>
 
-- If you have **two data sources**, the
-  `ChannelType` of one of the `AutoMLJobChannel` objects must be
-  set to `training`, the default value. The `ChannelType` of the
-  other data source must be set to `validation`. The two data sources must
-  have the same format, either CSV or Parquet, and the same schema. You must not set the
-  value for the `ValidationFraction` in this case because all of the data
-  from each source is used for either training or validation. Setting this value causes
-  an error.
-  With
-  Autopilot,
-  you can automatically deploy your fine-tuned model to an endpoint. To
-  enable automatic deployment for your fine-tuned model, include a `ModelDeployConfig` in the AutoML job request. This allows the
-  deployment of your fine-tuned model to a SageMaker AI endpoint. Below are the available
-  configurations for customization.
+With Autopilot, you can automatically deploy your fine-tuned model to an endpoint. To enable automatic deployment for your fine-tuned model, include a `[ModelDeployConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-ModelDeployConfig)` in the AutoML job request. This allows the deployment of your fine-tuned model to a SageMaker AI endpoint. Below are the available configurations for customization.
++ To let Autopilot generate the endpoint name, set `[AutoGenerateEndpointName](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelDeployConfig.html#API_ModelDeployConfig_Contents)` to `True`.
++ To provide your own name for the endpoint, set `[AutoGenerateEndpointName](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelDeployConfig.html#API_ModelDeployConfig_Contents) to False and provide a name of your choice in [EndpointName](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelDeployConfig.html#API_ModelDeployConfig_Contents)`.
 
-- To let Autopilot generate the endpoint name, set `AutoGenerateEndpointName` to `True`.
-- To provide your own name for the endpoint, set `AutoGenerateEndpointName to `False` and provide a name of your
- choice in EndpointName`.
-  For models requiring the acceptance of an end-user license agreement before
-  fine-tuning, you can accept the EULA by setting the `AcceptEula` attribute of
-  the `ModelAccessConfig` to `True` in `TextGenerationJobConfig` when configuring your `AutoMLProblemTypeConfig`.
+### How to set the EULA acceptance when fine-tuning a model using the AutoML API
+<a name="autopilot-llms-finetuning-set-eula"></a>
 
-You can optimize the learning process of your text generation model by setting
-hyperparameter values in the `TextGenerationHyperParameters` attribute of
-`TextGenerationJobConfig` when configuring your `AutoMLProblemTypeConfig`.
+For models requiring the acceptance of an end-user license agreement before fine-tuning, you can accept the EULA by setting the `AcceptEula` attribute of the `[ModelAccessConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelAccessConfig.html)` to `True` in `[TextGenerationJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextGenerationJobConfig.html)` when configuring your `[AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLProblemTypeConfig)`.
+
+### How to set hyperparameters to optimize the learning process of a model
+<a name="autopilot-llms-finetuning-set-hyperparameters"></a>
+
+You can optimize the learning process of your text generation model by setting hyperparameter values in the `TextGenerationHyperParameters` attribute of `[TextGenerationJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextGenerationJobConfig.html)` when configuring your `[AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLProblemTypeConfig)`.
 
 Autopilot allows for the setting of four common hyperparameters across all models.
++ `epochCount`: Its value should be a string containing an integer value within the range of `1` to `10`.
++ `batchSize`: Its value should be a string containing an integer value within the range of `1` to `64`.
++ `learningRate`: Its value should be a string containing a floating-point value within the range of `0` to `1`.
++ `learningRateWarmupSteps`: Its value should be a string containing an integer value within the range of `0` to `250`.
 
-- `epochCount`: Its value should be a string containing an integer value
-  within the range of `1` to `10`.
-- `batchSize`: Its value should be a string containing an integer value
-  within the range of `1` to `64`.
-- `learningRate`: Its value should be a string containing a
-  floating-point value within the range of `0` to `1`.
-- `learningRateWarmupSteps`: Its value should be a string containing an
-  integer value within the range of `0` to `250`.
-  For more details on each hyperparameter, see [Hyperparameters for optimizing the learning process of your text generation models](autopilot-llms-finetuning-hyperparameters.md "autopilot-llms-finetuning-hyperparameters.md").
+For more details on each hyperparameter, see [Hyperparameters for optimizing the learning process of your text generation models](autopilot-llms-finetuning-hyperparameters.md).
 
-The following JSON example shows a `TextGenerationHyperParameters` field
-passed to the TextGenerationJobConfig where all four hyperparameters are
-configured.
+The following JSON example shows a `TextGenerationHyperParameters` field passed to the TextGenerationJobConfig where all four hyperparameters are configured.
 
 ```
 "AutoMLProblemTypeConfig": {

@@ -1,77 +1,54 @@
+
+
 # Time series data
+<a name="clarify-processing-job-data-format-time-series"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Clarify is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md). 
 
-Amazon SageMaker Clarify is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
-
-Time series data refers to data that can be loaded into a three-dimensional data frame.
-In the frame, in every timestamp, each row represents a target record, and each target
-record has one or more related columns. The values within each data frame cell can be of
-numerical, categorical, or text data types.
+Time series data refers to data that can be loaded into a three-dimensional data frame. In the frame, in every timestamp, each row represents a target record, and each target record has one or more related columns. The values within each data frame cell can be of numerical, categorical, or text data types.
 
 ## Time series dataset prerequisites
+<a name="clarify-processing-job-data-format-time-series-prereq"></a>
 
-Prior to analysis, complete the necessary preprocessing steps to prepare your
-data, such as data cleaning or feature engineering. You can provide one or multiple
-datasets. If you provide multiple datasets, use one of the following methods to
-supply them to the SageMaker Clarify processing job:
-
-- Use either a [ProcessingInput](../APIReference/API_ProcessingInput.md "../APIReference/API_ProcessingInput.md") named `dataset` or the analysis
-  configuration `dataset_uri` to specify the main dataset. For more
-  information about `dataset_uri`, see the parameters list in [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
-- Use the `baseline` parameter provided in the analysis
-  configuration file. The baseline dataset is required for
-  `static_covariates`, if present. For more information about the
-  analysis configuration file, including examples, see
-  [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
+Prior to analysis, complete the necessary preprocessing steps to prepare your data, such as data cleaning or feature engineering. You can provide one or multiple datasets. If you provide multiple datasets, use one of the following methods to supply them to the SageMaker Clarify processing job:
++ Use either a [ProcessingInput](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProcessingInput.html) named `dataset` or the analysis configuration `dataset_uri` to specify the main dataset. For more information about `dataset_uri`, see the parameters list in [Analysis Configuration Files](clarify-processing-job-configure-analysis.md).
++ Use the `baseline` parameter provided in the analysis configuration file. The baseline dataset is required for `static_covariates`, if present. For more information about the analysis configuration file, including examples, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md).
 
 The following table lists supported data formats, their file extensions, and MIME types.
 
-| Data format         | File extension | MIME type          |
-| ------------------- | -------------- | ------------------ |
-| `item_records`      | json           | `application/json` |
-| `timestamp_records` | json           | `application/json` |
-| `columns`           | json           | `application/json` |
 
-JSON is a flexible format that can represent any level of complexity
-in your structured data. As shown in the table, SageMaker Clarify supports formats
-`item_records`, `timestamp_records`, and
-`columns`.
+| Data format | File extension | MIME type | 
+| --- | --- | --- | 
+| `item_records` | json | `application/json` | 
+| `timestamp_records` | json | `application/json` | 
+| `columns` | json | `application/json` | 
+
+JSON is a flexible format that can represent any level of complexity in your structured data. As shown in the table, SageMaker Clarify supports formats `item_records`, `timestamp_records`, and `columns`.
 
 ## Time series dataset config examples
+<a name="clarify-processing-job-data-format-time-series-ex"></a>
 
-This section shows you how to set an analysis configuration using
-`time_series_data_config` for time series data in JSON format. Suppose
-you have a dataset with two items, each with a timestamp (t),
-target time series (x), two related
-time series (r) and two static covariates (u) as follows:
+This section shows you how to set an analysis configuration using `time_series_data_config` for time series data in JSON format. Suppose you have a dataset with two items, each with a timestamp (t), target time series (x), two related time series (r) and two static covariates (u) as follows:
 
-t1 = [0,1,2], t2 = [2,3]
+ t1 = [0,1,2], t2 = [2,3]
 
 x1 = [5,6,4], x2 = [0,4]
 
-r1 = [0,1,0],
-r21 = [1,1]
+r1 = [0,1,0], r21 = [1,1]
 
-r12 = [0,0,0],
-r22 = [1,0]
+r12 = [0,0,0], r22 = [1,0]
 
-u11 = -1,
-u21 = 0
+u11 = -1, u21 = 0
 
-u12 = 1,
-u22 = 2
+u12 = 1, u22 = 2
 
-You can encode the dataset using `time_series_data_config` in
-three different ways, depending on `dataset_format`. The following
-sections describe each method.
+You can encode the dataset using `time_series_data_config` in three different ways, depending on `dataset_format`. The following sections describe each method.
 
 ### Time series data config when `dataset_format` is `columns`
+<a name="clarify-processing-job-data-format-time-series-columns"></a>
 
-The following example uses the `columns` value for `dataset_format`.
-The following JSON file represents the preceding dataset.
+The following example uses the `columns` value for `dataset_format`. The following JSON file represents the preceding dataset.
 
 ```
 {
@@ -85,9 +62,7 @@ The following JSON file represents the preceding dataset.
 }
 ```
 
-Note that the item ids are repeated in the `ids` field.
-The correct implementation of `time_series_data_config`
-is shown as follows:
+Note that the item ids are repeated in the `ids` field. The correct implementation of `time_series_data_config` is shown as follows:
 
 ```
 "time_series_data_config": {
@@ -101,9 +76,9 @@ is shown as follows:
 ```
 
 ### Time series data config when `dataset_format` is `item_records`
+<a name="clarify-processing-job-data-format-time-series-itemrec"></a>
 
-The following example uses the `item_records` value for `dataset_format`.
-The following JSON file represents the dataset.
+The following example uses the `item_records` value for `dataset_format`. The following JSON file represents the dataset.
 
 ```
 [
@@ -129,9 +104,7 @@ The following JSON file represents the dataset.
 ]
 ```
 
-Each item is represented as a separate entry in the JSON. The
-following snippet shows the corresponding `time_series_data_config` (which
-uses JMESPath).
+Each item is represented as a separate entry in the JSON. The following snippet shows the corresponding `time_series_data_config` (which uses JMESPath). 
 
 ```
 "time_series_data_config": {
@@ -145,9 +118,9 @@ uses JMESPath).
 ```
 
 ### Time series data config when `dataset_format` is `timestamp_record`
+<a name="clarify-processing-job-data-format-time-series-tsrec"></a>
 
-The following example uses the `timestamp_record` value for `dataset_format`.
-The following JSON file represents the preceding dataset.
+The following example uses the `timestamp_record` value for `dataset_format`. The following JSON file represents the preceding dataset.
 
 ```
 [
@@ -159,9 +132,7 @@ The following JSON file represents the preceding dataset.
 ]
 ```
 
-Each entry of the JSON represents a single timestamp and corresponds
-to a single item. The implementation `time_series_data_config` is
-shown as follows:
+Each entry of the JSON represents a single timestamp and corresponds to a single item. The implementation `time_series_data_config` is shown as follows: 
 
 ```
 {

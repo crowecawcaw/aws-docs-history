@@ -1,359 +1,158 @@
+
+
 # Accuracy
+<a name="clarify-accuracy-evaluation"></a>
 
-This evaluation measures how accurately a model performs in a task by comparing the model output
-to the ground truth answer included in the dataset.
+ This evaluation measures how accurately a model performs in a task by comparing the model output to the ground truth answer included in the dataset. 
 
-Amazon SageMaker AI supports running an accuracy evaluation from Amazon SageMaker Studio or using
-the `fmeval` library.
-
-- **Running evaluations in Studio:** Evaluation jobs
-  created in Studio use pre-selected defaults to quickly evaluate model performance.
-- **Running evaluations using the `fmeval` library:**
-  Evaluation jobs created using the `fmeval` library offer expanded options to
-  configure the model performance evaluation.
+ Amazon SageMaker AI supports running an accuracy evaluation from Amazon SageMaker Studio or using the `fmeval` library. 
++  **Running evaluations in Studio:** Evaluation jobs created in Studio use pre-selected defaults to quickly evaluate model performance. 
++  **Running evaluations using the `fmeval` library:** Evaluation jobs created using the `fmeval` library offer expanded options to configure the model performance evaluation. 
 
 ## Supported task type
+<a name="clarify-accuracy-evaluation-task"></a>
 
-The accuracy evaluation is supported for the following task types with their associated
-built-in datasets. The built-in datasets include a ground truth component used to gauge
-accuracy. Users can also bring their own datasets. For information about including the ground
-truth component in your dataset,
-see [Automatic model evaluation](clarify-foundation-model-evaluate-auto.md "clarify-foundation-model-evaluate-auto.md").
+The accuracy evaluation is supported for the following task types with their associated built-in datasets. The built-in datasets include a ground truth component used to gauge accuracy. Users can also bring their own datasets. For information about including the ground truth component in your dataset, see [Automatic model evaluation](clarify-foundation-model-evaluate-auto.md).
 
-By default, SageMaker AI samples 100 random prompts from the dataset for accuracy
-evaluation. When using the `fmeval` library, this can be adjusted by passing the
-`num_records` parameter to the `evaluate` method. For information
-about customizing the factual knowledge evaluation using the `fmeval` library, see [Customize your workflow using the fmeval library](clarify-foundation-model-evaluate-auto-lib-custom.md "clarify-foundation-model-evaluate-auto-lib-custom.md").
+By default, SageMaker AI samples 100 random prompts from the dataset for accuracy evaluation. When using the `fmeval` library, this can be adjusted by passing the `num_records` parameter to the `evaluate` method. For information about customizing the factual knowledge evaluation using the `fmeval` library, see [Customize your workflow using the `fmeval` library](clarify-foundation-model-evaluate-auto-lib-custom.md).
 
-| Task type          | Built-in datasets                                                                                                                                                                                                                                                                                                                                                                      | Notes                                                                                                                                   |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Text summarization | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3"), [Government Report Dataset](https://gov-report-data.github.io/ "https://gov-report-data.github.io/")                                                                                                                                                                      | The built-in datasets are English language only, but some metrics are lan guage-agnostic.<br>You can bring in datasets in any language. |
-| Question answering | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions"), [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions"), [TriviaQA](http://nlp.cs.washington.edu/triviaqa/ "http://nlp.cs.washington.edu/triviaqa/") | The built-in datasets are English language only, but some metrics are lan guage-agnostic.<br>You can bring in datasets in any language. |
-| Classification     | [Women's E-Commerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews")                                                                                                                                                                                     |                                                                                                                                         |
+
+|  Task type  |  Built-in datasets  |  Notes  | 
+| --- | --- | --- | 
+|  Text summarization  |  [Gigaword](https://huggingface.co/datasets/gigaword?row=3), [Government Report Dataset](https://gov-report-data.github.io/) |  The built-in datasets are English language only, but some metrics are lan guage-agnostic. You can bring in datasets in any language.  | 
+|  Question answering  |  [BoolQ](https://github.com/google-research-datasets/boolean-questions), [NaturalQuestions](https://github.com/google-research-datasets/natural-questions), [TriviaQA](http://nlp.cs.washington.edu/triviaqa/) |  The built-in datasets are English language only, but some metrics are lan guage-agnostic. You can bring in datasets in any language.  | 
+|  Classification  | [Women's E-Commerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews) |   | 
 
 ## Computed values
+<a name="clarify-accuracy-evaluation-values"></a>
 
-The scores measured to evaluate accuracy change depending on the task type. For information about
-the prompt structure required for the evaluation,
-see [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md "clarify-foundation-model-evaluate-auto-ui.md").
+ The scores measured to evaluate accuracy change depending on the task type. For information about the prompt structure required for the evaluation, see [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md). 
 
 ### Summarization
+<a name="clarify-accuracy-evaluation-summarization"></a>
 
-For summarization tasks, accuracy evaluation measures how accurately a model can summarize
-text. By default, this evaluation benchmarks the model on two built-in datasets that contain
-pairs of input text and ground truth answers. The summaries generated by the model are then
-compared to the ground truth answers using three built-in metrics that measure how similar
-the summaries are in different ways. All of these scores are averaged over the entire
-dataset.
+For summarization tasks, accuracy evaluation measures how accurately a model can summarize text. By default, this evaluation benchmarks the model on two built-in datasets that contain pairs of input text and ground truth answers. The summaries generated by the model are then compared to the ground truth answers using three built-in metrics that measure how similar the summaries are in different ways. All of these scores are averaged over the entire dataset. 
++  **ROUGE score:** ROUGE scores are a class of metrics that compute overlapping word units (N-grams) between the summary generated by the model and the ground truth summary to measure summarization quality. When evaluating a ROUGE score, higher scores indicate that the model was able to create a better summary. 
+  +  The values range from `0` (no match) to `1` (perfect match). 
+  +  The metrics are case insensitive. 
+  +  **Limitation**: May be unreliable on abstractive summarization tasks because the score relies on exact word overlap. 
+  +  Example ROUGE bigram calculation
+    + **Ground truth summary**: "The dog played fetch with the ball in the park."
+    + **Generated summary**: "The dog played with the ball."
+    + **ROUGE-2**: Count the number of bigrams (two adjacent words in a sentence) in common between the reference and candidate. There are 4 common bigrams ("the dog", "dog played", "with the", "the ball").
+    + **Divide by the total number of bigrams in the ground truth summary**: 9 
+    + `ROUGE-2 = 4/9 = 0.444`
+  +  **ROUGE score defaults in Studio automatic model evaluation jobs** 
 
-- **ROUGE score:** ROUGE scores are a class of metrics that
-  compute overlapping word units (N-grams) between the summary generated by the model and the
-  ground truth summary to measure summarization quality. When evaluating a ROUGE score, higher
-  scores indicate that the model was able to create a better summary.
+    When you create an automatic model evaluation job using Studio, SageMaker AI uses `N=2` for the N-grams used in the ROUGE score calculation. As a result, the model evaluation job uses bigrams for matching. Studio jobs also use Porter [stemmer](https://en.wikipedia.org/wiki/Stemming) to strip word suffixes from all prompts. For example, the string `raining` is truncated to `rain`. 
+  +  **ROUGE scores options available in the `fmeval`library** 
 
-  - The values range from `0` (no match) to `1` (perfect match).
-  - The metrics are case insensitive.
-  - **Limitation**: May be unreliable on abstractive
-    summarization tasks because the score relies on exact word overlap.
-  - Example ROUGE bigram calculation
+    Using the `fmeval` library, you can configure how the ROUGE score is calculated using the `[SummarizationAccuracyConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/summarization_accuracy.py#L40)` parameter. The following options are supported:  
+    +  `rouge_type`: the length of N-grams to be matched. The three supported values are: 
+      +   `ROUGE_1` matches single words (unigrams) 
+      +   `ROUGE_2` matches word pairs (bigrams). This is the default value.
+      +   `ROUGE_L` matches the longest common subsequence.  To compute the longest common subsequence, word order is considered, but consecutiveness is not 
+        +  For example: 
+          + **model summary** = ‘It is autumn’ 
+          + **reference** = ’It is once again autumn’ 
+          +  `Longest common subsequence(prediction, reference)=3`.  
+    +  `use_stemmer_for_rouge`: If `True` (default), uses Porter [stemmer](https://en.wikipedia.org/wiki/Stemming) to strip word suffixes.  
+      +  For example: “raining” is truncated to “rain”. 
++  **Metric for Evaluation of Translation with Explicit ORdering (METEOR) score: **METEOR is similar to ROUGE-1, but also includes stemming and synonym matching. It provides a more holistic view of summarization quality compared to ROUGE, which is limited to simple n-gram matching. Higher METEOR scores typically indicate higher accuracy. 
+  +  **Limitation**: May be unreliable on abstractive summarization tasks because the score relies on exact word and synonym word overlap. 
++  **BERTScore:** BERTScore uses an additional ML model from the BERT family to compute sentence embeddings and compare their cosine similarity. This score aims to account for more linguistic flexibility than ROUGE and METEOR because semantically similar sentences may be embedded closer to each other. 
+  +  **Limitations**: 
+    +  Inherits the limitations of the model used for comparing passages. 
+    +  May be unreliable for short text comparisons when a single, important word is changed. 
+  +  **BERTScore defaults in Studio automatic model evaluation jobs** 
 
-    - **Ground truth summary**: "The dog played fetch with the ball in the park."
-    - **Generated summary**: "The dog played with the ball."
-    - **ROUGE-2**: Count the number of bigrams (two
-      adjacent words in a sentence) in common between the reference and candidate.
-      There are 4 common bigrams ("the dog", "dog played", "with the", "the
-      ball").
-    - **Divide by the total number of bigrams in the ground truth summary**: 9
-    - `ROUGE-2 = 4/9 = 0.444`
+     When you create an automatic model evaluation job using Studio, SageMaker AI uses the `[deberta-xlarge-mnli](https://github.com/microsoft/DeBERTa)` model to calculate the BERTScore. 
+  +  **BERTScore options available in the `fmeval` library** 
 
-  - **ROUGE score defaults in Studio automatic model
-    evaluation jobs**
-
-  When you create an automatic model evaluation job using Studio, SageMaker AI uses
-  `N=2` for the N-grams used in the ROUGE score calculation. As a result,
-  the model evaluation job uses bigrams for matching. Studio jobs also use Porter
-  [stemmer](https://en.wikipedia.org/wiki/Stemming "https://en.wikipedia.org/wiki/Stemming") to strip word
-  suffixes from all prompts. For example, the string `raining` is truncated
-  to `rain`.
-  - **ROUGE scores options available in the
-    `fmeval`library**
-
-  Using the `fmeval` library, you can configure how the ROUGE score is
-  calculated using the `SummarizationAccuracyConfig` parameter. The following options are
-  supported: 
-
-        - `rouge_type`: the length of N-grams to be matched. The three supported values
-         are:
-
-
-
-
-
-        	* `ROUGE_1` matches single words (unigrams)
-        	* `ROUGE_2` matches word pairs (bigrams). This is the default
-        	 value.
-        	* `ROUGE_L` matches the longest common subsequence.  To compute the
-        	 longest common subsequence, word order is considered, but consecutiveness is not
-
-
-
-
-
-        		+ For example:
-
-
-
-
-
-        			- **model summary** = ‘It is autumn’
-        			- **reference** = ’It is once again autumn’
-        			- `Longest common subsequence(prediction, reference)=3`.
-        - `use_stemmer_for_rouge`: If `True` (default), uses
-         Porter [stemmer](https://en.wikipedia.org/wiki/Stemming "https://en.wikipedia.org/wiki/Stemming") to strip word
-         suffixes. 
-
-
-
-
-
-        	* For example: “raining” is truncated to “rain”.
-
-- **Metric for Evaluation of Translation with Explicit ORdering (METEOR)
-  score:**METEOR is similar to ROUGE-1, but also includes stemming and synonym
-  matching. It provides a more holistic view of summarization quality compared to ROUGE, which
-  is limited to simple n-gram matching. Higher METEOR scores typically indicate higher accuracy.
-
-  - **Limitation**: May be unreliable on abstractive
-    summarization tasks because the score relies on exact word and synonym word overlap.
-
-- **BERTScore:** BERTScore uses an additional ML model from the
-  BERT family to compute sentence embeddings and compare their cosine similarity. This score
-  aims to account for more linguistic flexibility than ROUGE and METEOR because semantically
-  similar sentences may be embedded closer to each other.
-
-  - **Limitations**:
-
-    - Inherits the limitations of the model used for comparing passages.
-    - May be unreliable for short text comparisons when a single, important word is changed.
-
-  - **BERTScore defaults in Studio automatic model evaluation
-    jobs**
-
-  When you create an automatic model evaluation job using Studio, SageMaker AI uses the
-  `deberta-xlarge-mnli` model to calculate the BERTScore.
-  - **BERTScore options available in the `fmeval`
-    library**
-
-  Using the `fmeval` library, you can configure how the BERTScore is
-  calculated using the `SummarizationAccuracyConfig` parameter. The following options are
-  supported:
-
-        - `model_type_for_bertscore`: Name of the model to be used for scoring.
-         BERTScore currently only supports the following models:
-
-
-
-
-
-        	* `"microsoft/deberta-xlarge-mnli"` (default)
-        	* `"roberta-large-mnli"`
+     Using the `fmeval` library, you can configure how the BERTScore is calculated using the `[SummarizationAccuracyConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/summarization_accuracy.py#L40)` parameter. The following options are supported:
+    +  `model_type_for_bertscore`: Name of the model to be used for scoring. BERTScore currently only supports the following models: 
+      +  `"[microsoft/deberta-xlarge-mnli](https://github.com/microsoft/DeBERTa)"` (default) 
+      +  `"[roberta-large-mnli](https://github.com/facebookresearch/fairseq/tree/main/examples/roberta)"`
 
 ### Question answering
+<a name="clarify-accuracy-evaluation-qa"></a>
 
-For question answering tasks, accuracy evaluation measures a model’s question answering (QA)
-performance by comparing its generated answers to the given ground truth answers in
-different ways. All of these scores are averaged over the entire dataset.
+ For question answering tasks, accuracy evaluation measures a model’s question answering (QA) performance by comparing its generated answers to the given ground truth answers in different ways. All of these scores are averaged over the entire dataset. 
 
-###### Note
-
-These metrics are calculated by comparing generated and ground truth answers for exact match. As a
-result, they may be less reliable for questions where the answer can be rephrased without
-modifying its meaning.
-
-- **Precision Over Words score:** Numerical score that
-  ranges from `0` (worst) and `1` (best). To calculate this
-  score, the model output and ground truth are normalized before comparison. Before
-  computing precision, this evaluation removes any newline characters to account for
-  verbose answers with several distinct paragraphs. **Precision** can be evaluated on any language if you upload your own dataset.
-
-  - `precision = true positives / (true positives + false positives)`
-
-    - `true positives`: The number of words in the model output that are
-      also contained in the ground truth.
-    - `false positives`: The number of words in the model output that are
-      not contained in the ground truth.
-
-- **Recall Over Words score:** Numerical score that ranges
-  from `0` (worst) and `1` (best). To calculate this score, the
-  model output and ground truth are normalized before comparison.  Before computing
-  recall, this evaluation removes any newline characters to account for verbose answers
-  with several distinct paragraphs. Because recall only checks if the answer contains the
-  ground truth and does not penalize verbosity, we suggest using recall for verbose
-  models. **Recall** can be evaluated on any language if
-  you upload your own dataset.
-
-  - `recall = true positives / (true positives + false negatives)`
-
-    - `true positives`: The number of words in the model output that are
-      also contained in the ground truth.
-    - `false negatives`: The number of words that are missing from the
-      model output, but are included in the ground truth.
-
-- **F1 Over Words score:**Numerical score that ranges from
-  `0` (worst) and `1` (best). The F1 is the harmonic mean of
-  precision and recall. To calculate this score, the model output and ground truth are
-  normalized before comparison. Before computing F1, this evaluation removes any newline
-  characters to account for verbose answers with several distinct paragraphs. _F1
-  over words_ can be evaluated on any language if you upload your own dataset.
-
-  - `F1 = 2*((precision * recall)/(precision + recall))`
-
-    - `precision`: Precision is calculated the same way as the precision
-      score.
-    - `recall`: Recall is calculated the same way as the recall score.
-
-- **Exact Match (EM) score:**Binary score that indicates whether
-  the model output is an exact match for the ground truth answer. **Exact
-  match** can be evaluated on any language if you upload your own dataset.
-
-  - `0`: Not an exact match.
-  - `1`: Exact match.
-  - Example:
-
-    - **Question**:
-      `“``where is the world's largest ice sheet located today?”`
-    - **Ground truth**: “Antarctica”
-    - **Generated answer**: “in Antarctica”
-
-      - **Score**: 0
-
-    - **Generated answer**: “Antarctica”
-
-      - **Score**: 1
-
-- **Quasi Exact Match score:** Binary score that is calculated
-  similarly to the EM score, but the model output and ground truth are normalized before
-  comparison. For both, the output is normalized by converting it to lowercase, then removing
-  articles, punctuation marks, and excess white space.
-
-  - `0`: Not a quasi exact match.
-  - `1`: Quasi exact match.
-  - Example:
-
-    - **Question**: `“``where is the
-   world's largest ice sheet located today?”`
-    - **Ground truth**: “Antarctica”
-    - **Generated answer**: “in South America”
-
-      - **Score**: 0
-
-    - **Generated answer**: “in Antarctica”
-
-      - **Score**: 1
+**Note**  
+These metrics are calculated by comparing generated and ground truth answers for exact match. As a result, they may be less reliable for questions where the answer can be rephrased without modifying its meaning. 
++  **Precision Over Words score:** Numerical score that ranges from `0` (worst) and `1` (best). To calculate this score, the model output and ground truth are normalized before comparison. Before computing precision, this evaluation removes any newline characters to account for verbose answers with several distinct paragraphs. **Precision** can be evaluated on any language if you upload your own dataset. 
+  +  `precision = true positives / (true positives + false positives)` 
+    +  `true positives`: The number of words in the model output that are also contained in the ground truth. 
+    +  `false positives`: The number of words in the model output that are not contained in the ground truth. 
++  **Recall Over Words score:** Numerical score that ranges from `0` (worst) and `1` (best). To calculate this score, the model output and ground truth are normalized before comparison.  Before computing recall, this evaluation removes any newline characters to account for verbose answers with several distinct paragraphs. Because recall only checks if the answer contains the ground truth and does not penalize verbosity, we suggest using recall for verbose models. **Recall** can be evaluated on any language if you upload your own dataset. 
+  +  `recall = true positives / (true positives + false negatives)` 
+    +  `true positives`: The number of words in the model output that are also contained in the ground truth. 
+    +  `false negatives`: The number of words that are missing from the model output, but are included in the ground truth. 
++  **F1 Over Words score: **Numerical score that ranges from `0` (worst) and `1` (best). The F1 is the harmonic mean of precision and recall. To calculate this score, the model output and ground truth are normalized before comparison. Before computing F1, this evaluation removes any newline characters to account for verbose answers with several distinct paragraphs. *F1 over words* can be evaluated on any language if you upload your own dataset. 
+  +  `F1 = 2*((precision * recall)/(precision + recall))` 
+    +  `precision`: Precision is calculated the same way as the precision score. 
+    +  `recall`: Recall is calculated the same way as the recall score. 
++  **Exact Match (EM) score: **Binary score that indicates whether the model output is an exact match for the ground truth answer. **Exact match** can be evaluated on any language if you upload your own dataset. 
+  + `0`: Not an exact match. 
+  + `1`: Exact match. 
+  + Example: 
+    +  **Question**: `“``where is the world's largest ice sheet located today?”` 
+    +  **Ground truth**: “Antarctica” 
+    +  **Generated answer**: “in Antarctica” 
+      +  **Score**: 0 
+    +  **Generated answer**: “Antarctica” 
+      +  **Score**: 1 
++  **Quasi Exact Match score:** Binary score that is calculated similarly to the EM score, but the model output and ground truth are normalized before comparison. For both, the output is normalized by converting it to lowercase, then removing articles, punctuation marks, and excess white space. 
+  +  `0`: Not a quasi exact match. 
+  +  `1`: Quasi exact match. 
+  +  Example: 
+    +  **Question**: `“``where is the world's largest ice sheet located today?”` 
+    +  **Ground truth**: “Antarctica” 
+    +  **Generated answer**: “in South America” 
+      +  **Score**: 0 
+    +  **Generated answer**: “in Antarctica” 
+      +  **Score**: 1 
 
 ### Classification
+<a name="clarify-accuracy-evaluation-classification"></a>
 
-For classification tasks, accuracy evaluation compares the predicted class of input to its given
-label. All of these scores are individually averaged over the entire dataset.
+ For classification tasks, accuracy evaluation compares the predicted class of input to its given label. All of these scores are individually averaged over the entire dataset. 
++ **Accuracy score:** Binary score that indicates whether the label predicted by the model is an exact match for the given label of the input. 
+  +  `0`: Not an exact match. 
+  +  `1`: Exact match. 
++  **Precision score:** Numerical score that ranges from `0` (worst) and `1` (best). 
+  +  `precision = true positives / (true positives + false positives)` 
+    +  `true positives`: The number inputs where the model predicted the given label for their respective input. 
+    +  `false positives`: The number of inputs where the model predicted a label that didn’t match the given label for their respective input. 
+  + **Precision score defaults in Studio automatic model evaluation jobs** 
 
-- **Accuracy score:** Binary score that indicates whether
-  the label predicted by the model is an exact match for the given label of the input.
+     When you create an automatic model evaluation job using Studio, SageMaker AI calculates precision globally across all classes by counting the total number true positives, false negatives, and false positives. 
+  +  **Precision score options available in the `fmeval` library** 
 
-  - `0`: Not an exact match.
-  - `1`: Exact match.
+     Using the `fmeval` library, you can configure how the precision score is calculated using the  `[ClassificationAccuracyConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/classification_accuracy.py#L137)` parameter. The following options are supported:  
+    +  `multiclass_average_strategy` determines how the scores are aggregated across classes in the multiclass classification setting. The possible values are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or `None` (default=`'micro'`).  In the default case ‘`micro'`, precision is calculated globally across all classes by counting the total number true positives, false negatives, and false positives. For all other options, see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html). 
+**Note**  
+For binary classification, we recommend using the `'binary'` averaging strategy, which corresponds to the classic definition of precision. 
++  **Recall score: **Numerical score that ranges from `0` (worst) and `1` (best). 
+  +  `recall = true positives / (true positives + false negatives)` 
+    +  `true positives`: The number of inputs where the model predicted the given label for their respective input. 
+    +  `false negatives`: The number of inputs where the model failed to predict the given label for their respective input. 
+  +  **Recall score defaults in Studio automatic model evaluation jobs** 
 
-- **Precision score:** Numerical score that ranges from
-  `0` (worst) and `1` (best).
+     When you create an automatic model evaluation job using Studio, SageMaker AI calculates recall globally across all classes by counting the total number true positives, false negatives, and false positives. 
+  +  **Recall score options available in the `fmeval` library** 
 
-  - `precision = true positives / (true positives + false positives)`
-
-    - `true positives`: The number inputs where the model predicted the
-      given label for their respective input.
-    - `false positives`: The number of inputs where the model predicted a
-      label that didn’t match the given label for their respective input.
-
-  - **Precision score defaults in Studio automatic model
-    evaluation jobs**
-
-  When you create an automatic model evaluation job using Studio, SageMaker AI calculates
-  precision globally across all classes by counting the total number true positives,
-  false negatives, and false positives.
-  - **Precision score options available in the `fmeval`
-    library**
-
-  Using the `fmeval` library, you can configure how the precision score is
-  calculated using the  `ClassificationAccuracyConfig` parameter. The following options
-  are supported: 
-
-        - `multiclass_average_strategy` determines how the scores are aggregated across
-         classes in the multiclass classification setting. The possible values
-         are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
-         `None` (default=`'micro'`).  In the default case
-         ‘`micro'`, precision is calculated globally across all classes by counting
-         the total number true positives, false negatives, and false positives. For all other options,
-         see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
-
-
-
-        ###### Note
-
-        For binary classification, we recommend using the `'binary'` averaging strategy,
-         which corresponds to the classic definition of precision.
-
-- **Recall score:**Numerical score that ranges from
-  `0` (worst) and `1` (best).
-
-  - `recall = true positives / (true positives + false negatives)`
-
-    - `true positives`: The number of inputs where the model predicted the
-      given label for their respective input.
-    - `false negatives`: The number of inputs where the model failed to predict
-      the given label for their respective input.
-
-  - **Recall score defaults in Studio automatic model
-    evaluation jobs**
-
-  When you create an automatic model evaluation job using Studio, SageMaker AI calculates
-  recall globally across all classes by counting the total number true positives,
-  false negatives, and false positives.
-  - **Recall score options available in the `fmeval`
-    library**
-
-  Using the `fmeval` library, you can configure how the recall score is
-  calculated using the `ClassificationAccuracyConfig` parameter. The following options
-  are supported: 
-
-        - `multiclass_average_strategy` determines how the scores are
-         aggregated across classes in the multiclass classification setting. The possible
-         values are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or
-         `None` (default=`'micro'`).  In the default case
-         ‘`micro'`, recall is calculated globally across all classes by
-         counting the total number true positives, false negatives, and false positives.
-         For all other options, see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html").
-
-
-        ###### Note
-
-        For binary classification, we recommend using the `'binary'`
-         averaging strategy, which corresponds to the classic definition of recall.
-
-- **Balanced classification accuracy:**Numerical score
-  that ranges from `0` (worst) and `1` (best).
-
-  - **For binary classification**: This score is calculated the
-    same as accuracy.
-  - **For multiclass classification**: This score averages the
-    individual recall scores for all classes.
-
-    - For the following example outputs:
-
-    | Review text                      | Ground truth label | Class name | Predicted label |
-    | -------------------------------- | ------------------ | ---------- | --------------- |
-    | Delicious cake! Would buy again. | 3                  | brownie    | 3               |
-    | Tasty cake! R ecommended.        | 2                  | pound cake | 2               |
-    | Terrible! Gross cake.            | 1                  | pound cake | 2               |
-
-          * **Class 1 recall**: 0
-          * **Class 2 recall**: 1
-          * **Class 3 recall**: 1
-          * **Balanced classification accuracy**: (0+1+1)/3=0.66
+     Using the `fmeval` library, you can configure how the recall score is calculated using the `[ClassificationAccuracyConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/classification_accuracy.py#L137)` parameter. The following options are supported:  
+    +  `multiclass_average_strategy` determines how the scores are aggregated across classes in the multiclass classification setting. The possible values are `{'micro', 'macro', 'samples', 'weighted', 'binary'}` or `None` (default=`'micro'`).  In the default case ‘`micro'`, recall is calculated globally across all classes by counting the total number true positives, false negatives, and false positives. For all other options, see [sklearn.metrics.precision\_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html). 
+**Note**  
+For binary classification, we recommend using the `'binary'` averaging strategy, which corresponds to the classic definition of recall. 
++  **Balanced classification accuracy: **Numerical score that ranges from `0` (worst) and `1` (best). 
+  +  **For binary classification**: This score is calculated the same as accuracy. 
+  +  **For multiclass classification**: This score averages the individual recall scores for all classes. 
+    +  For the following example outputs:     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/clarify-accuracy-evaluation.html)
+      +  **Class 1 recall**: 0 
+      +  **Class 2 recall**: 1 
+      +  **Class 3 recall**: 1 
+      +  **Balanced classification accuracy**: (0\+1\+1)/3=0.66 

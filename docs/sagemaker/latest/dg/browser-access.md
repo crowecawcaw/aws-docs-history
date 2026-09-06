@@ -1,31 +1,25 @@
-# Web browser access
 
-Web UI access allows you to connect directly to development spaces running on your
-SageMaker HyperPod cluster through a secure web browser interface. This provides
-immediate access to Jupyter Lab and other web-based development environments without
-requiring local software installation.
+
+# Web browser access
+<a name="browser-access"></a>
+
+Web UI access allows you to connect directly to development spaces running on your SageMaker HyperPod cluster through a secure web browser interface. This provides immediate access to Jupyter Lab and other web-based development environments without requiring local software installation.
 
 ## Prerequisites
+<a name="browser-access-prereq"></a>
 
 Before setting up web UI access, ensure you have completed the following:
-
-- _SageMaker Spaces add-on installation_:
-  Follow the [SageMaker Spaces add-on installation](operator-install.md "operator-install.md") and
-  enable web UI access during installation
-- _User access to EKS cluster_: Users need
-  EKS Access Entry configured with appropriate permissions. See [Add users and
-  set up service accounts for EKS Access Entry setup details](add-user.md "add-user.md")
-- _Development spaces_: Create and start
-  development spaces on your HyperPod cluster
-- _kubectl access_: Ensure kubectl is
-  configured to access your EKS cluster
++ *SageMaker Spaces add-on installation*: Follow the [SageMaker Spaces add-on installation ](https://docs.aws.amazon.com/sagemaker/latest/dg/operator-install.html) and enable web UI access during installation
++ *User access to EKS cluster*: Users need EKS Access Entry configured with appropriate permissions. See [Add users and set up service accounts for EKS Access Entry setup details](https://docs.aws.amazon.com/sagemaker/latest/dg/add-user.html)
++ *Development spaces*: Create and start development spaces on your HyperPod cluster
++ *kubectl access*: Ensure kubectl is configured to access your EKS cluster
 
 ## Generate Web UI Access URL
+<a name="browser-access-url"></a>
 
 **Using HyperPod CLI**
 
-If you have the HyperPod CLI installed, you can use this simplified
-command:
+If you have the HyperPod CLI installed, you can use this simplified command:
 
 ```
 hyp create hyp-space-access --name <space-name> --connection-type web-ui
@@ -50,28 +44,29 @@ EOF
 The URL is present in the `status.workspaceConnectionUrl` of the output of this command.
 
 ## Accessing Your Development Space
+<a name="browser-access-develop"></a>
 
-1. _Generate the web UI URL_ using one of
-   the methods above
-2. _Copy the URL_ from the response
-3. _Open the URL_ in your web browser
-4. _Access your development environment_
-   through the web interface
+1. *Generate the web UI URL* using one of the methods above
+
+1. *Copy the URL* from the response
+
+1. *Open the URL* in your web browser
+
+1. *Access your development environment* through the web interface
 
 ## Supported Development Environments
+<a name="browser-access-develop-env"></a>
 
 The web UI provides access to:
-
-- _Jupyter Lab_
-- _Code Editor_
++ *Jupyter Lab*
++ *Code Editor*
 
 ## Troubleshooting
+<a name="browser-access-troubleshooting"></a>
 
 **Cannot generate access URLs**
 
 Check the following:
-
-- SageMaker Spaces add-on is running: kubectl get pods -n
-  sagemaker-spaces-system
-- Development space is running and healthy
-- User has appropriate EKS Access Entry permissions
++ SageMaker Spaces add-on is running: kubectl get pods -n sagemaker-spaces-system
++ Development space is running and healthy
++ User has appropriate EKS Access Entry permissions

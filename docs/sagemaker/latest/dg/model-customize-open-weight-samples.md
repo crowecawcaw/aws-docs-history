@@ -1,13 +1,16 @@
+
+
 # Sample datasets and evaluators
+<a name="model-customize-open-weight-samples"></a>
 
 ## Supervised Fine tuning (SFT)
+<a name="model-customize-open-weight-samples-sft"></a>
++ Name: TAT-QA
++ License: CC-BY-4.0
++ Link: [https://huggingface.co/datasets/next-tat/TAT-QA](https://huggingface.co/datasets/next-tat/TAT-QA)
++ Preprocessing - Formatting
 
-- Name: TAT-QA
-- License: CC-BY-4.0
-- Link: [https://huggingface.co/datasets/next-tat/TAT-QA](https://huggingface.co/datasets/next-tat/TAT-QA "https://huggingface.co/datasets/next-tat/TAT-QA")
-- Preprocessing - Formatting
-
-**One Sample**
+**One Sample **
 
 ```
 {
@@ -18,11 +21,11 @@
 ```
 
 ## Direct Preference Optimization (DPO)
-
-- Name: Ultrafeedback
-- License: MIT
-- Link: [https://huggingface.co/datasets/openbmb/UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback "https://huggingface.co/datasets/openbmb/UltraFeedback")
-- Preprocessing steps: Formatting and subsampling.
+<a name="model-customize-open-weight-samples-dpo"></a>
++ Name: Ultrafeedback
++ License: MIT
++ Link: [https://huggingface.co/datasets/openbmb/UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback)
++ Preprocessing steps: Formatting and subsampling.
 
 **One Sample**
 
@@ -40,10 +43,11 @@
 ```
 
 ## Reinforcement Learning from AI Feedback (RLAIF) - Pair-Wise Judging
+<a name="model-customize-open-weight-samples-rlaif"></a>
 
 **Input Dataset**
 
-Source dataset: [https://github.com/WeOpenML/PandaLM](https://github.com/WeOpenML/PandaLM "https://github.com/WeOpenML/PandaLM")
+Source dataset: [https://github.com/WeOpenML/PandaLM](https://github.com/WeOpenML/PandaLM)
 
 **One Sample**
 
@@ -76,14 +80,14 @@ Source dataset: [https://github.com/WeOpenML/PandaLM](https://github.com/WeOpenM
         "sample_size": 1980
     }
 }
-
 ```
 
 ## RLAIF - Chain of Thought
+<a name="model-customize-open-weight-samples-rlaif2"></a>
 
-**Input Dataset**
+**Input Dataset **
 
-Source Data: [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data "https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data")
+Source Data: [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data)
 
 **One Sample**
 
@@ -113,14 +117,14 @@ Source Data: [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/
         "model_output": "<thinking>\nTo find the number of sales in the stationery section, I need to first calculate the number of sales in the fabric and jewelry sections. The store makes a third of its sales in the fabric section, which is 1/3 of 36 sales. I can calculate this as 36 * 1/3 = 12 sales in the fabric section. The store makes a quarter of its sales in the jewelry section, which is 1/4 of 36 sales. I can calculate this as 36 * 1/4 = 9 sales in the jewelry section. Since the rest of the sales are in the stationery section, I can subtract the sales from the other two sections from the total number of sales to find the number of sales in the stationery section.\n</thinking>\n\n<reasoning>\n1. Calculate the number of sales in the fabric section: 36 * 1/3 = 12\n2. Calculate the number of sales in the jewelry section: 36 * 1/4 = 9\n3. Calculate the number of sales in the stationery section: 36 - 12 - 9 = 15\n</reasoning>\n\n‹reflection>\nUpon reviewing my reasoning, I noticed that my calculations seem correct, but I should ensure that I understand the question correctly. The question asks for the number of sales in the stationery section, and I believe I have correctly calculated that. However, I should double-check my math to make sure it's accurate.\n</reflection>\n\n<adjustment>\nUpon re-examining my math, I am confident that my calculations are correct. The fabric section makes up 1/3 of the sales, the jewelry section makes up 1/4, and the rest is the stationery section. My math checks out, and I am confident in my answer.\n</adjustment>\n\n<output>\n15\n</output>"
     }
 }
-
 ```
 
 ## RLAIF - Faithfulness
+<a name="model-customize-open-weight-samples-rlaif3"></a>
 
 **Input Dataset**
 
-Source: [https://huggingface.co/datasets/rajpurkar/squad\_v2/blob/main/squad\_v2/train-00000-of-00001.parquet](https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet "https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet")
+Source: [https://huggingface.co/datasets/rajpurkar/squad\_v2/blob/main/squad\_v2/train-00000-of-00001.parquet](https://huggingface.co/datasets/rajpurkar/squad_v2/blob/main/squad_v2/train-00000-of-00001.parquet)
 
 **One Sample**
 
@@ -148,14 +152,14 @@ Source: [https://huggingface.co/datasets/rajpurkar/squad\_v2/blob/main/squad\_v2
         "index": 0
     }
 }
-
 ```
 
 ## RLAIF - Summarization
+<a name="model-customize-open-weight-samples-rlaif4"></a>
 
 **Input Dataset**
 
-Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data "https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data")
+Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data)
 
 **One Sample**
 
@@ -184,21 +188,19 @@ Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-rea
         "source_id": "42c027e4ff9730fbb3de84c1af0d2c50"
     }
 }
-
 ```
 
 ## RLAIF - Custom Prompt
+<a name="model-customize-open-weight-samples-rlaif5"></a>
 
-In this example, we use [RLAIF - Chain of Thought](#model-customize-open-weight-samples-rlaif2 "#model-customize-open-weight-samples-rlaif2") to discuss how a
-custom jinja prompt can replace one of the preset prompts.
+In this example, we use [RLAIF - Chain of Thought](#model-customize-open-weight-samples-rlaif2) to discuss how a custom jinja prompt can replace one of the preset prompts.
 
-**Below is an example of a custom prompt for
-CoT:**
+**Below is an example of a custom prompt for CoT:**
 
 ```
-You are an expert logical reasoning evaluator specializing in Chain-of-Thought (CoT) analysis.
+You are an expert logical reasoning evaluator specializing in Chain-of-Thought (CoT) analysis. 
 
-Given: A problem prompt and a model's reasoning-based response.
+Given: A problem prompt and a model's reasoning-based response. 
 
 Goal: Assess the quality and structure of logical reasoning, especially for specialized domains (law, medicine, finance, etc.).
 
@@ -265,14 +267,14 @@ Model's Response: {{ model_output }}
 
 ### Ground truth (if applicable):
 {{ ground_truth }}
-
 ```
 
 ## Reinforcement Learning from Verifiable Rewards (RLVR) - Exact Match
+<a name="model-customize-open-weight-samples-RLVR"></a>
 
 **Input Dataset**
 
-Source: [https://huggingface.co/datasets/openai/gsm8k](https://huggingface.co/datasets/openai/gsm8k "https://huggingface.co/datasets/openai/gsm8k")
+Source: [https://huggingface.co/datasets/openai/gsm8k](https://huggingface.co/datasets/openai/gsm8k)
 
 **Sample**
 
@@ -297,18 +299,18 @@ Source: [https://huggingface.co/datasets/openai/gsm8k](https://huggingface.co/da
     "split": "train"
   }
 }
-
 ```
 
 ## RLVR - Code Execution
+<a name="model-customize-open-weight-samples-RLVR2"></a>
 
 **Input Dataset**
 
-Source: [https://huggingface.co/datasets/open-r1/codeforces](https://huggingface.co/datasets/open-r1/codeforces "https://huggingface.co/datasets/open-r1/codeforces")
+Source: [https://huggingface.co/datasets/open-r1/codeforces](https://huggingface.co/datasets/open-r1/codeforces)
 
 **Sample**
 
-````
+```
 {
   "data_source": "codeforces",
   "prompt": [
@@ -331,18 +333,18 @@ Source: [https://huggingface.co/datasets/open-r1/codeforces](https://huggingface
     "split": "train"
   }
 }
-
-````
+```
 
 **Reward Function**
 
-Reward Function: [https://github.com/volcengine/verl/tree/main/verl/utils/reward\_score/prime\_code](https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code "https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code")
+Reward Function: [https://github.com/volcengine/verl/tree/main/verl/utils/reward\_score/prime\_code](https://github.com/volcengine/verl/tree/main/verl/utils/reward_score/prime_code)
 
 ## RLVR - Math Answer
+<a name="model-customize-open-weight-samples-RLVR3"></a>
 
 **Input Dataset**
 
-Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data "https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data")
+Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data)
 
 **Sample**
 
@@ -361,22 +363,22 @@ Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-rea
         "role": "assistant"
     }
 ]
-
 ```
 
 **Reward Calculation**
 
-Reward Function: [https://github.com/volcengine/verl/blob/main/verl/utils/reward\_score/gsm8k.py](https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py "https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py")
+Reward Function: [https://github.com/volcengine/verl/blob/main/verl/utils/reward\_score/gsm8k.py](https://github.com/volcengine/verl/blob/main/verl/utils/reward_score/gsm8k.py)
 
 ## RLVR - Custom Lambda
+<a name="model-customize-open-weight-samples-RLVR4"></a>
 
 **Input Dataset**
 
-Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data "https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data")
+Source: Cleaned gsm8k dataset [https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data](https://huggingface.co/datasets/thesven/gsm8k-reasoning/tree/main/data)
 
 **Sample**
 
-The following sample input is shown in OpenAI chat format. The reward function below is format-agnostic and also handles the verl, Hugging Face, and SageMaker AI Evaluation payloads. See [Sample Lambda Input Payload](model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-input "model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-input") for the shape of each format.
+The following sample input is shown in OpenAI chat format. The reward function below is format-agnostic and also handles the verl, Hugging Face, and SageMaker AI Evaluation payloads. See [Sample Lambda Input Payload](model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-input) for the shape of each format.
 
 ```
 [
@@ -393,7 +395,6 @@ The following sample input is shown in OpenAI chat format. The reward function b
     "role": "assistant"
   }
 ]
-
 ```
 
 **Sample Reward Calculation**
@@ -405,40 +406,40 @@ The following sample input is shown in OpenAI chat format. The reward function b
 import json
 import uuid
 from typing import Any, Dict, List
-
+ 
 def custom_reward(assistant_answer: str, ground_truth: str) -> float:
     """
     Add custom reward computation here
-
+ 
     Example:-
     Reward = fraction of ground-truth words that are correct
     in the correct position.
-
+ 
     Example:
       gt:   "the cat sat"
       ans:  "the dog sat"
-
+ 
       word-by-word:
         "the" == "the"  -> correct
         "dog" != "cat"  -> wrong
         "sat" == "sat"  -> correct
-
+ 
       correct = 2 out of 3 -> reward = 2/3 ≈ 0.67
     """
     ans_words = assistant_answer.strip().lower().split()
     gt_words = ground_truth.strip().lower().split()
-
+ 
     if not gt_words:
         return 0.0
-
+ 
     correct = 0
     for aw, gw in zip(ans_words, gt_words):
         if aw == gw:
             correct += 1
-
+ 
     return correct / len(gt_words)
-
-
+ 
+ 
 # Lambda utility functions
 def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
     return {
@@ -451,7 +452,7 @@ def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
         },
         "body": json.dumps(body),
     }
-
+ 
 def _assistant_text(sample: Dict[str, Any]) -> str:
     """Extract the model's generated answer, matching the dataset format SageMaker sent.
 
@@ -480,14 +481,14 @@ def _assistant_text(sample: Dict[str, Any]) -> str:
             return (m.get("content") or "").strip()
 
     return ""
-
+ 
 def _sample_id(sample: Dict[str, Any]) -> str:
     """Generate or extract sample ID."""
     if isinstance(sample.get("id"), str) and sample["id"]:
         return sample["id"]
-
+ 
     return str(uuid.uuid4())
-
+ 
 def _ground_truth(sample: Dict[str, Any]) -> str:
     """Extract normalized ground truth.
 
@@ -509,42 +510,42 @@ def _ground_truth(sample: Dict[str, Any]) -> str:
     md = sample.get("metadata") or {}
     gt = md.get("reference_answer") or md.get("ground_truth")
     return str(gt).strip() if gt is not None else ""
-
-
+ 
+ 
 def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
     sid = _sample_id(sample)
     solution_text = _assistant_text(sample)
-
+ 
     # Extract ground truth
     gt = _ground_truth(sample)
-
+ 
     metrics_list: List[Dict[str, Any]] = []
-
+ 
     # Custom rlvr scoring
     if solution_text and gt:
-
+        
         # Compute score
         reward_score = custom_reward(
             assistant_answer=solution_text,
             ground_truth=gt
         )
-
+        
         # Add detailed metrics
         metrics_list.append({
-            "name": "custom_reward_score",
-            "value": float(reward_score),
+            "name": "custom_reward_score", 
+            "value": float(reward_score), 
             "type": "Reward"
         })
-
+       
         # The aggregate reward score is the custom reward score
         aggregate_score = float(reward_score)
-
+        
     else:
         # No solution text or ground truth - default to 0
         aggregate_score = 0.0
         metrics_list.append({
-            "name": "default_zero",
-            "value": 0.0,
+            "name": "default_zero", 
+            "value": 0.0, 
             "type": "Reward"
         })
     print("detected score", {
@@ -557,20 +558,20 @@ def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
         "aggregate_reward_score": float(aggregate_score),
         "metrics_list": metrics_list,
     }
-
+ 
 def lambda_handler(event, context):
     """AWS Lambda handler for custom reward lambda grading."""
     # CORS preflight
     if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS":
         return _ok({"ok": True})
-
+ 
     # Body may be a JSON string (API GW/Function URL) or already a dict (Invoke)
     raw = event.get("body") or "{}"
     try:
         body = json.loads(raw) if isinstance(raw, str) else raw
     except Exception as e:
         return _ok({"error": f"invalid JSON body: {e}"}, 400)
-
+ 
     # The container sends a top-level list containing one sample object per invocation.
     # Also accept {"batch": [...]} and a single sample object for flexibility.
     if isinstance(body, list):
@@ -583,15 +584,13 @@ def lambda_handler(event, context):
         return _ok({
             "error": "Send a top-level list of samples, {'batch':[...]}, or a single sample object."
         }, 400)
-
+ 
     try:
         results = [_score_and_metrics(s) for s in samples]
     except Exception as e:
         return _ok({"error": f"Custom scoring failed: {e}"}, 500)
-
+ 
     return _ok(results)
-
-
 ```
 
 **Sample reward function code**
@@ -603,40 +602,40 @@ def lambda_handler(event, context):
 import json
 import uuid
 from typing import Any, Dict, List
-
+ 
 def custom_reward(assistant_answer: str, ground_truth: str) -> float:
     """
     Add custom reward computation here
-
+ 
     Example:-
     Reward = fraction of ground-truth words that are correct
     in the correct position.
-
+ 
     Example:
       gt:   "the cat sat"
       ans:  "the dog sat"
-
+ 
       word-by-word:
         "the" == "the"  -> correct
         "dog" != "cat"  -> wrong
         "sat" == "sat"  -> correct
-
+ 
       correct = 2 out of 3 -> reward = 2/3 ≈ 0.67
     """
     ans_words = assistant_answer.strip().lower().split()
     gt_words = ground_truth.strip().lower().split()
-
+ 
     if not gt_words:
         return 0.0
-
+ 
     correct = 0
     for aw, gw in zip(ans_words, gt_words):
         if aw == gw:
             correct += 1
-
+ 
     return correct / len(gt_words)
-
-
+ 
+ 
 # Lambda utility functions
 def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
     return {
@@ -649,7 +648,7 @@ def _ok(body: Any, code: int = 200) -> Dict[str, Any]:
         },
         "body": json.dumps(body),
     }
-
+ 
 def _assistant_text(sample: Dict[str, Any]) -> str:
     """Extract the model's generated answer, matching the dataset format SageMaker sent.
 
@@ -678,14 +677,14 @@ def _assistant_text(sample: Dict[str, Any]) -> str:
             return (m.get("content") or "").strip()
 
     return ""
-
+ 
 def _sample_id(sample: Dict[str, Any]) -> str:
     """Generate or extract sample ID."""
     if isinstance(sample.get("id"), str) and sample["id"]:
         return sample["id"]
-
+ 
     return str(uuid.uuid4())
-
+ 
 def _ground_truth(sample: Dict[str, Any]) -> str:
     """Extract normalized ground truth.
 
@@ -707,42 +706,42 @@ def _ground_truth(sample: Dict[str, Any]) -> str:
     md = sample.get("metadata") or {}
     gt = md.get("reference_answer") or md.get("ground_truth")
     return str(gt).strip() if gt is not None else ""
-
-
+ 
+ 
 def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
     sid = _sample_id(sample)
     solution_text = _assistant_text(sample)
-
+ 
     # Extract ground truth
     gt = _ground_truth(sample)
-
+ 
     metrics_list: List[Dict[str, Any]] = []
-
+ 
     # Custom rlvr scoring
     if solution_text and gt:
-
+        
         # Compute score
         reward_score = custom_reward(
             assistant_answer=solution_text,
             ground_truth=gt
         )
-
+        
         # Add detailed metrics
         metrics_list.append({
-            "name": "custom_reward_score",
-            "value": float(reward_score),
+            "name": "custom_reward_score", 
+            "value": float(reward_score), 
             "type": "Reward"
         })
-
+       
         # The aggregate reward score is the custom reward score
         aggregate_score = float(reward_score)
-
+        
     else:
         # No solution text or ground truth - default to 0
         aggregate_score = 0.0
         metrics_list.append({
-            "name": "default_zero",
-            "value": 0.0,
+            "name": "default_zero", 
+            "value": 0.0, 
             "type": "Reward"
         })
     print("detected score", {
@@ -755,20 +754,20 @@ def _score_and_metrics(sample: Dict[str, Any]) -> Dict[str, Any]:
         "aggregate_reward_score": float(aggregate_score),
         "metrics_list": metrics_list,
     }
-
+ 
 def lambda_handler(event, context):
     """AWS Lambda handler for custom reward lambda grading."""
     # CORS preflight
     if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS":
         return _ok({"ok": True})
-
+ 
     # Body may be a JSON string (API GW/Function URL) or already a dict (Invoke)
     raw = event.get("body") or "{}"
     try:
         body = json.loads(raw) if isinstance(raw, str) else raw
     except Exception as e:
         return _ok({"error": f"invalid JSON body: {e}"}, 400)
-
+ 
     # The container sends a top-level list containing one sample object per invocation.
     # Also accept {"batch": [...]} and a single sample object for flexibility.
     if isinstance(body, list):
@@ -781,14 +780,13 @@ def lambda_handler(event, context):
         return _ok({
             "error": "Send a top-level list of samples, {'batch':[...]}, or a single sample object."
         }, 400)
-
+ 
     try:
         results = [_score_and_metrics(s) for s in samples]
     except Exception as e:
         return _ok({"error": f"Custom scoring failed: {e}"}, 500)
-
+ 
     return _ok(results)
-
 ```
 
 **Sample reward prompt**

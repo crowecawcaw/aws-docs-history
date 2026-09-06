@@ -1,60 +1,31 @@
+
+
 # AWS managed policies for SageMaker AI jobs
+<a name="security-iam-awsmanpol-jobs"></a>
 
-This AWS managed policy grants permissions needed for SageMaker AI job execution roles to
-access data in Amazon S3, invoke agents through Amazon API Gateway AgentCore, track experiments with
-MLflow, publish model packages, write logs to CloudWatch, invoke Lambda functions, and manage
-Amazon VPC network interfaces.
+This AWS managed policy grants permissions needed for SageMaker AI job execution roles to access data in Amazon S3, invoke agents through Amazon API Gateway AgentCore, track experiments with MLflow, publish model packages, write logs to CloudWatch, invoke Lambda functions, and manage Amazon VPC network interfaces.
 
-###### Topics
-
-- [AWS managed policy: AmazonSageMakerJobFullAccess](#security-iam-awsmanpol-AmazonSageMakerJobFullAccess "#security-iam-awsmanpol-AmazonSageMakerJobFullAccess")
-- [Amazon SageMaker AI updates to SageMaker AI jobs managed policies](#security-iam-awsmanpol-jobs-updates "#security-iam-awsmanpol-jobs-updates")
+**Topics**
++ [AWS managed policy: AmazonSageMakerJobFullAccess](#security-iam-awsmanpol-AmazonSageMakerJobFullAccess)
++ [Amazon SageMaker AI updates to SageMaker AI jobs managed policies](#security-iam-awsmanpol-jobs-updates)
 
 ## AWS managed policy: AmazonSageMakerJobFullAccess
+<a name="security-iam-awsmanpol-AmazonSageMakerJobFullAccess"></a>
 
-This policy provides permissions for SageMaker AI job execution roles to access the
-resources needed to run training, processing, and transform jobs. You can attach
-this policy to IAM roles that you use as SageMaker AI job execution roles.
+This policy provides permissions for SageMaker AI job execution roles to access the resources needed to run training, processing, and transform jobs. You can attach this policy to IAM roles that you use as SageMaker AI job execution roles.
 
 **Permissions details**
 
 This policy includes the following permissions.
-
-- `s3` – Allows SageMaker AI jobs to read input data from, write
-  output data to, and list the contents of Amazon S3 buckets. Restricted to
-  resources in the same account.
-- `kms` – Allows SageMaker AI jobs to decrypt and generate data
-  keys for server-side encryption of Amazon S3 objects using customer-managed AWS KMS
-  keys. The `Decrypt` and `GenerateDataKey` actions are
-  restricted through `kms:ViaService` to Amazon S3 only.
-  `DescribeKey` is allowed without the
-  `kms:ViaService` restriction. Restricted to resources in the
-  same account.
-- `sagemaker` (Hub) – Allows describing hub content such
-  as pre-built models and algorithms. Restricted to resources in the same
-  account.
-- `sagemaker` (Model Packages) – Allows creating,
-  accessing, and describing model packages and model package groups for model
-  registry workflows. Restricted to resources in the same account.
-- `sagemaker` and `sagemaker-mlflow` – Allows
-  jobs to use MLflow for experiment tracking, including creating experiments
-  and runs, logging metrics, retrieving results, and managing traces.
-  Restricted to resources in the same account.
-- `bedrock-agentcore` – Allows jobs to invoke AI agents
-  through Amazon API Gateway AgentCore runtimes, stop runtime sessions, and get
-  runtime details. Restricted to resources in the same account.
-- `ec2` – Allows managing Amazon VPC network interfaces for
-  jobs running in Amazon VPC mode, including creating, deleting, and describing
-  network interfaces and related Amazon VPC resources. The
-  `ec2:CreateTags` action is restricted to the
-  `CreateNetworkInterface` action. Restricted to resources in the
-  same account.
-- `logs` – Allows creating log groups, log streams, and
-  writing log events to Amazon CloudWatch Logs. Restricted to log groups with the
-  `/aws/sagemaker/*` prefix. Restricted to resources in the same
-  account.
-- `lambda` – Allows invoking Lambda functions in the same
-  account.
++ `s3` – Allows SageMaker AI jobs to read input data from, write output data to, and list the contents of Amazon S3 buckets. Restricted to resources in the same account.
++ `kms` – Allows SageMaker AI jobs to decrypt and generate data keys for server-side encryption of Amazon S3 objects using customer-managed AWS KMS keys. The `Decrypt` and `GenerateDataKey` actions are restricted through `kms:ViaService` to Amazon S3 only. `DescribeKey` is allowed without the `kms:ViaService` restriction. Restricted to resources in the same account.
++ `sagemaker` (Hub) – Allows describing hub content such as pre-built models and algorithms. Restricted to resources in the same account.
++ `sagemaker` (Model Packages) – Allows creating, accessing, and describing model packages and model package groups for model registry workflows. Restricted to resources in the same account.
++ `sagemaker` and `sagemaker-mlflow` – Allows jobs to use MLflow for experiment tracking, including creating experiments and runs, logging metrics, retrieving results, and managing traces. Restricted to resources in the same account.
++ `bedrock-agentcore` – Allows jobs to invoke AI agents through Amazon API Gateway AgentCore runtimes, stop runtime sessions, and get runtime details. Restricted to resources in the same account.
++ `ec2` – Allows managing Amazon VPC network interfaces for jobs running in Amazon VPC mode, including creating, deleting, and describing network interfaces and related Amazon VPC resources. The `ec2:CreateTags` action is restricted to the `CreateNetworkInterface` action. Restricted to resources in the same account.
++ `logs` – Allows creating log groups, log streams, and writing log events to Amazon CloudWatch Logs. Restricted to log groups with the `/aws/sagemaker/*` prefix. Restricted to resources in the same account.
++ `lambda` – Allows invoking Lambda functions in the same account.
 
 ```
 {
@@ -260,15 +231,14 @@ This policy includes the following permissions.
 }
 ```
 
-[Show moreShow less](# "#")
-For more information, see [AmazonSageMakerJobFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerJobFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerJobFullAccess.md") in the AWS Managed Policy Reference
-Guide.
+For more information, see [AmazonSageMakerJobFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSageMakerJobFullAccess.html) in the AWS Managed Policy Reference Guide.
 
 ## Amazon SageMaker AI updates to SageMaker AI jobs managed policies
+<a name="security-iam-awsmanpol-jobs-updates"></a>
 
-View details about updates to AWS managed policies for SageMaker AI jobs since this
-service began tracking these changes.
+View details about updates to AWS managed policies for SageMaker AI jobs since this service began tracking these changes.
 
-| Policy                                                                                                                                                   | Version | Change         | Date         |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------ |
-| [AmazonSageMakerJobFullAccess](#security-iam-awsmanpol-AmazonSageMakerJobFullAccess "#security-iam-awsmanpol-AmazonSageMakerJobFullAccess") – New policy | 1       | Initial policy | June 4, 2026 |
+
+| Policy | Version | Change | Date | 
+| --- | --- | --- | --- | 
+| [AmazonSageMakerJobFullAccess](#security-iam-awsmanpol-AmazonSageMakerJobFullAccess) – New policy | 1 | Initial policy | June 4, 2026 | 

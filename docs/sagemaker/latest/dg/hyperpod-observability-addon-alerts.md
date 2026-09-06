@@ -1,12 +1,9 @@
-# Preconfigured alerts
 
-The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on enables default
-alerts for your cluster and workloads to notify you when the system detects
-common early indicators of cluster under-performance. These alerts are defined
-within the Amazon Managed Grafana built-in alerting system. For information about how to
-modify these pre-configured alerts or create new ones, see [Alerts
-in Grafana version 10](../../../grafana/latest/userguide/v10-alerts.md "../../../grafana/latest/userguide/v10-alerts.md") in the _Amazon Managed Grafana User
-Guide_. The following YAML shows the default alerts.
+
+# Preconfigured alerts
+<a name="hyperpod-observability-addon-alerts"></a>
+
+The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on enables default alerts for your cluster and workloads to notify you when the system detects common early indicators of cluster under-performance. These alerts are defined within the Amazon Managed Grafana built-in alerting system. For information about how to modify these pre-configured alerts or create new ones, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html) in the *Amazon Managed Grafana User Guide*. The following YAML shows the default alerts.
 
 ```
 groups:
@@ -22,8 +19,8 @@ groups:
       summary: "GPU Temperature Above 80C"
       description: "GPU {{ $labels.gpu }} temperature is {{ $value }}°C."
 
-  # GPU_TEMP_ABOVE_85C
-  - alert: GPUCriticalTemperature
+  # GPU_TEMP_ABOVE_85C  
+  - alert: GPUCriticalTemperature  
     expr: DCGM_FI_DEV_GPU_TEMP > 85
     for: 1m
     labels:
@@ -48,7 +45,7 @@ groups:
     expr: DCGM_FI_DEV_POWER_VIOLATION > 100
     for: 5m
     labels:
-      severity: warning
+      severity: warning  
     annotations:
       summary: "GPU Power Violation"
       description: "GPU {{ $labels.gpu }} has been operating at power limit for extended period."
@@ -60,10 +57,10 @@ groups:
     labels:
       severity: warning
     annotations:
-      summary: "NVLink Errors Detected"
+      summary: "NVLink Errors Detected" 
       description: "GPU {{ $labels.gpu }} has detected NVLink errors."
 
-  # GPU_THERMAL_VIOLATION
+  # GPU_THERMAL_VIOLATION  
   # Immediate alert on thermal violations to prevent hardware damage
   - alert: GPUThermalViolation
     expr: increase(DCGM_FI_DEV_THERMAL_VIOLATION[5m]) > 0

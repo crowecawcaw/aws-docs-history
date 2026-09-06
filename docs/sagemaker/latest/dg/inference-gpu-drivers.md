@@ -1,105 +1,104 @@
-# Best practices to minimize interruptions during GPU driver upgrades
 
-SageMaker AI Model Deployment upgrades GPU drivers on the ML instances for Real-time, Batch,
-and Asynchronous Inference options over time to provide customers access to
-improvements from the driver providers. Below you can see the GPU version supported
-for each Inference option. Different driver versions can change how your model
-interacts with the GPUs. Below are some strategies to help you understand how
-your application works with different driver versions.
+
+# Best practices to minimize interruptions during GPU driver upgrades
+<a name="inference-gpu-drivers"></a>
+
+SageMaker AI Model Deployment upgrades GPU drivers on the ML instances for Real-time, Batch, and Asynchronous Inference options over time to provide customers access to improvements from the driver providers. Below you can see the GPU version supported for each Inference option. Different driver versions can change how your model interacts with the GPUs. Below are some strategies to help you understand how your application works with different driver versions. 
 
 ## Current versions and supported instance families
+<a name="inference-gpu-drivers-versions"></a>
 
-The following table lists the GPU drivers and instance families that Amazon SageMaker AI Inference supports.
-For Real-time, Batch, and Asynchronous Inference services, an AMI override is an explicit AMI version specified
-in the inference endpoint or batch transform job configuration.
+The following table lists the GPU drivers and instance families that Amazon SageMaker AI Inference supports. For Real-time, Batch, and Asynchronous Inference services, an AMI override is an explicit AMI version specified in the inference endpoint or batch transform job configuration.
 
-For inference endpoints, set the `InferenceAmiVersion` parameter on the applicable
-`ProductionVariant` when calling [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md")
-API. For batch transform jobs, set the `TransformAmiVersion` parameter when calling
-[CreateTransformJob](../APIReference/API_CreateTransformJob.md "../APIReference/API_CreateTransformJob.md")
-API. The compatible instance types column identifies additional instance families that support
-this AMI version. SageMaker AI does not automatically apply the AMI override.
+For inference endpoints, set the `InferenceAmiVersion` parameter on the applicable `ProductionVariant` when calling [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API. For batch transform jobs, set the `TransformAmiVersion` parameter when calling [CreateTransformJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html) API. The compatible instance types column identifies additional instance families that support this AMI version. SageMaker AI does not automatically apply the AMI override.
 
-| Service                | GPU       | Driver version                                                         | CUDA version                  | AMI version                                                                                       | Instance types (default)                    | Compatible instance types with AMI version overrides |
-| ---------------------- | --------- | ---------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------------------- |
-| Real-time              | NVIDIA    | 470                                                                    | CUDA 11.4                     |                                                                                                   | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |                                                      |
-| 535                    | CUDA 12.2 | al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 | ml.p5.\*, ml.g6.\*, ml.g6e.\* | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*                                                       |
-| 550                    | CUDA 12.4 | al2-ami-sagemaker-inference-gpu-3-1                                    | ml.p5e.\*, ml.p5en.\*         | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*                        |
-| 580                    | CUDA 13.0 | al2023-ami-sagemaker-inference-gpu-4-1                                 | ml.p6.\*, ml.g7.\*, ml.g7e.\* | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\* |
-| Asynchronous Inference | NVIDIA    | 470                                                                    | CUDA 11.4                     |                                                                                                   | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |                                                      |
-| 535                    | CUDA 12.2 | al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 | ml.p5.\*, ml.g6.\*, ml.g6e.\* | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*                                                       |
-| 550                    | CUDA 12.4 | al2-ami-sagemaker-inference-gpu-3-1                                    | ml.p5e.\*, ml.p5en.\*         | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*                        |
-| 580                    | CUDA 13.0 | al2023-ami-sagemaker-inference-gpu-4-1                                 | ml.p6.\*, ml.g7.\*, ml.g7e.\* | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\* |
-| Batch                  | NVIDIA    | 470                                                                    | CUDA 11.4                     | al2-ami-sagemaker-batch-gpu-470                                                                   | ml.g4dn.\*, ml.g5.\*                        |                                                      |
-| 535                    | CUDA 12.2 | al2-ami-sagemaker-batch-gpu-535                                        | ml.g6.\*                      | ml.g4dn.\*, ml.g5.\*                                                                              |
+
+
+- **Real-time**
+  - **GPU:** NVIDIA
+  - **Driver version:** 470 / **CUDA version:** CUDA 11.4 / **AMI version:**  / **Instance types (default):** ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* / **Compatible instance types with AMI version overrides:** 
+  - **Driver version:** 535 / **CUDA version:** CUDA 12.2 / **AMI version:** al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 / **Instance types (default):** ml.p5.\*, ml.g6.\*, ml.g6e.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*
+  - **Driver version:** 550 / **CUDA version:** CUDA 12.4 / **AMI version:** al2-ami-sagemaker-inference-gpu-3-1 / **Instance types (default):** ml.p5e.\*, ml.p5en.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*
+  - **Driver version:** 580 / **CUDA version:** CUDA 13.0 / **AMI version:** al2023-ami-sagemaker-inference-gpu-4-1 / **Instance types (default):** ml.p6.\*, ml.g7.\*, ml.g7e.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*
+
+- **Asynchronous Inference**
+  - **GPU:** NVIDIA
+  - **Driver version:** 470 / **CUDA version:** CUDA 11.4 / **AMI version:**  / **Instance types (default):** ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* / **Compatible instance types with AMI version overrides:** 
+  - **Driver version:** 535 / **CUDA version:** CUDA 12.2 / **AMI version:** al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 / **Instance types (default):** ml.p5.\*, ml.g6.\*, ml.g6e.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*
+  - **Driver version:** 550 / **CUDA version:** CUDA 12.4 / **AMI version:** al2-ami-sagemaker-inference-gpu-3-1 / **Instance types (default):** ml.p5e.\*, ml.p5en.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*
+  - **Driver version:** 580 / **CUDA version:** CUDA 13.0 / **AMI version:** al2023-ami-sagemaker-inference-gpu-4-1 / **Instance types (default):** ml.p6.\*, ml.g7.\*, ml.g7e.\* / **Compatible instance types with AMI version overrides:** ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*
+
+- **Batch**
+  - **GPU:** NVIDIA
+  - **Driver version:** 470 / **CUDA version:** CUDA 11.4 / **AMI version:** al2-ami-sagemaker-batch-gpu-470 / **Instance types (default):** ml.g4dn.\*, ml.g5.\* / **Compatible instance types with AMI version overrides:** 
+  - **Driver version:** 535 / **CUDA version:** CUDA 12.2 / **AMI version:** al2-ami-sagemaker-batch-gpu-535 / **Instance types (default):** ml.g6.\* / **Compatible instance types with AMI version overrides:** ml.g4dn.\*, ml.g5.\*
+
+
 
 ## Troubleshoot your model container with GPU capabilities
+<a name="inference-gpu-drivers-troubleshoot"></a>
 
 If you encounter an issue when running your GPU workload, see the following guidance:
 
-Run the `nvidia-smi` (NVIDIA System Management
-Interface) command from within the Docker container. If the NVIDIA System Management
-Interface detects a GPU detection error or NVIDIA initialization error, it will
-return the following error message:
+### GPU card detection failure or NVIDIA initialization error
+<a name="collapsible-section-0"></a>
+
+Run the `nvidia-smi` (NVIDIA System Management Interface) command from within the Docker container. If the NVIDIA System Management Interface detects a GPU detection error or NVIDIA initialization error, it will return the following error message:
 
 ```
 Failed to initialize NVML: Driver/library version mismatch
 ```
 
 Based on your use case, follow these best practices to resolve the failure or error:
++ Follow the best practice recommendation described in the [If you bring your own (BYO) model containers](#collapsible-byoc) dropdown.
++ Follow the best practice recommendation described in the [If you use a CUDA compatibility layer](#collapsible-cuda-compat) dropdown.
 
-- Follow the best practice recommendation described in the [If you bring your own (BYO) model containers](#collapsible-byoc "#collapsible-byoc") dropdown.
-- Follow the best practice recommendation described in the [If you use a CUDA compatibility layer](#collapsible-cuda-compat "#collapsible-cuda-compat") dropdown.
-  Refer to the [NVIDIA System Management Interface page](https://developer.nvidia.com/nvidia-system-management-interface "https://developer.nvidia.com/nvidia-system-management-interface")
-  on the NVIDIA website for more information.
+Refer to the [NVIDIA System Management Interface page](https://developer.nvidia.com/nvidia-system-management-interface) on the NVIDIA website for more information.
 
-If your GPU instance uses NVIDIA driver versions that are not compatible with the CUDA version in
-the Docker container, then deploying an endpoint will fail with the following error message:
+### `CannotStartContainerError`
+<a name="collapsible-section-cannot-start-container"></a>
+
+ If your GPU instance uses NVIDIA driver versions that are not compatible with the CUDA version in the Docker container, then deploying an endpoint will fail with the following error message: 
 
 ```
  Failure reason CannotStartContainerError. Please ensure the model container for variant <variant_name> starts correctly when invoked with 'docker run <image> serve'
 ```
 
 Based on your use case, follow these best practices to resolve the failure or error:
-
-- Follow the best practice recommendation described in the [The driver my container depends on is greater than the version on the ML GPU instances](#collapsible-driver-dependency-higher "#collapsible-driver-dependency-higher") dropdown.
-- Follow the best practice recommendation described in the [If you use a CUDA compatibility layer](#collapsible-cuda-compat "#collapsible-cuda-compat") dropdown.
++ Follow the best practice recommendation described in the [The driver my container depends on is greater than the version on the ML GPU instances](#collapsible-driver-dependency-higher) dropdown.
++ Follow the best practice recommendation described in the [If you use a CUDA compatibility layer](#collapsible-cuda-compat) dropdown.
 
 ## Best practices for working with mismatched driver versions
+<a name="inference-gpu-drivers-cuda-toolkit-updates"></a>
 
 The following provides information on how to update your GPU driver:
 
+### The driver my container depends on is lower than the version on the ML GPU instance
+<a name="collapsible-driver-dependency-lower"></a>
+
 No action is required. NVIDIA provides backwards compatibility.
 
-If it is a minor version difference, no action is required. NVIDIA provides minor
-version forward compatibility.
+### The driver my container depends on is greater than the version on the ML GPU instances
+<a name="collapsible-driver-dependency-higher"></a>
 
-If it is a major version difference, the CUDA Compatibility Package will need to be
-installed. Please refer to
-[CUDA Compatibility Package](https://docs.nvidia.com/deploy/cuda-compatibility/index.html "https://docs.nvidia.com/deploy/cuda-compatibility/index.html")
-in the NVIDIA documentation.
+If it is a minor version difference, no action is required. NVIDIA provides minor version forward compatibility.
 
-###### Important
+If it is a major version difference, the CUDA Compatibility Package will need to be installed. Please refer to [CUDA Compatibility Package](https://docs.nvidia.com/deploy/cuda-compatibility/index.html) in the NVIDIA documentation.
 
-The CUDA Compatibility Package is not backwards compatible so it needs to
-be disabled if the driver version on the instance is greater than the CUDA Compatibility
-Package version.
+**Important**  
+The CUDA Compatibility Package is not backwards compatible so it needs to be disabled if the driver version on the instance is greater than the CUDA Compatibility Package version.
 
-Ensure no NVIDIA driver packages are bundled in the image which could cause conflict
-with on host NVIDIA driver version.
+### If you bring your own (BYO) model containers
+<a name="collapsible-byoc"></a>
 
-To verify if the platform Nvidia driver version supports the CUDA Compatibility Package version installed
-in the model container, see the [CUDA documentation](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#use-the-right-compat-package "https://docs.nvidia.com/deploy/cuda-compatibility/index.html#use-the-right-compat-package").
-If the platform Nvidia driver version does not support the CUDA Compatibility Package version, you can
-disable or remove the CUDA Compatibility Package from the model container image. If the
-CUDA compatibility libs version is supported by the latest Nvidia driver version, we suggest that you enable
-the CUDA Compatibility Package based on the detected Nvidia driver version for future compatibility by adding
-the code snippet below into the container start up shell script (at the `ENTRYPOINT` script).
+Ensure no NVIDIA driver packages are bundled in the image which could cause conflict with on host NVIDIA driver version.
 
-The script demonstrates how to dynamically switch the use of the CUDA Compatibility Package based on the detected
-Nvidia driver version on the deployed host for your model container. When SageMaker releases a newer Nvidia driver
-version, the installed CUDA Compatibility Package can be turned off automatically if the CUDA application is supported
-natively on the new driver.
+### If you use a CUDA compatibility layer
+<a name="collapsible-cuda-compat"></a>
+
+To verify if the platform Nvidia driver version supports the CUDA Compatibility Package version installed in the model container, see the [CUDA documentation](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#use-the-right-compat-package). If the platform Nvidia driver version does not support the CUDA Compatibility Package version, you can disable or remove the CUDA Compatibility Package from the model container image. If the CUDA compatibility libs version is supported by the latest Nvidia driver version, we suggest that you enable the CUDA Compatibility Package based on the detected Nvidia driver version for future compatibility by adding the code snippet below into the container start up shell script (at the `ENTRYPOINT` script).
+
+The script demonstrates how to dynamically switch the use of the CUDA Compatibility Package based on the detected Nvidia driver version on the deployed host for your model container. When SageMaker releases a newer Nvidia driver version, the installed CUDA Compatibility Package can be turned off automatically if the CUDA application is supported natively on the new driver.
 
 ```
 #!/bin/bash

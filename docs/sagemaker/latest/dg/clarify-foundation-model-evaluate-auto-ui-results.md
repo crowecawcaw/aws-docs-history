@@ -1,8 +1,12 @@
+
+
 # Understand the results of an automatic evaluation job
+<a name="clarify-foundation-model-evaluate-auto-ui-results"></a>
 
 When you automatic model evaluation job completes the results are saved in Amazon S3. The sections below describe the files generated and how to interpret them.
 
 ## Interpreting the `output.json` file's structure
+<a name="clarify-foundation-model-evaluate-auto-ui-results-json"></a>
 
 The `output.json` file contains aggregate scores for your selected datasets and metrics.
 
@@ -40,30 +44,19 @@ The following is an example output
 ```
 
 ## Interpreting the instance-wise results file's structure
+<a name="clarify-foundation-model-evaluate-auto-ui-results-jsonl"></a>
 
-One`evaluation_name`\_`dataset_name`.jsonl file containing instance-wise results for each jsonlines request. If you had `300` requests in your jsonlines input data, this jsonlines output file contains `300` responses. The output file contains the request made to your model followed by the score for that evaluation. An example instance-wide output follows.
+One{{evaluation\_name}}\_{{dataset\_name}}.jsonl file containing instance-wise results for each jsonlines request. If you had `300` requests in your jsonlines input data, this jsonlines output file contains `300` responses. The output file contains the request made to your model followed by the score for that evaluation. An example instance-wide output follows.
 
 ## Interpreting the report
+<a name="clarify-foundation-model-evaluate-auto-ui-results-report"></a>
 
 An **Evaluation Report** contains the results of your foundation model evaluation job. The content of the evaluation report depends on the kind of task you used to evaluate your model. Each report contains the following sections:
 
-1. The **overall scores** for
-   each successful evaluation under the evaluation task. As an
-   example of one evaluation with one dataset, if you evaluated
-   your model for a classification task for Accuracy and
-   Semantic Robustness, then a table summarizing the evaluation
-   results for Accuracy and Accuracy Semantic Robustness
-   appears at the top of your report. Other evaluations with
-   other datasets may be structured differently.
-2. The configuration for your evaluation job including the
-   model name, type, which evaluation methods were used and
-   what datasets your model was evaluated against.
-3. A **Detailed Evaluation Results** section
-   that summarizes the evaluation algorithm, provides
-   information about and links to any built-in datasets, how
-   scores are calculated, and tables showing some sample data
-   with their associated scores.
-4. A **Failed Evaluations** section that
-   contains a list of evaluations that did not complete. If no
-   evaluations failed, this section of the report is
-   omitted.
+1. The **overall scores** for each successful evaluation under the evaluation task. As an example of one evaluation with one dataset, if you evaluated your model for a classification task for Accuracy and Semantic Robustness, then a table summarizing the evaluation results for Accuracy and Accuracy Semantic Robustness appears at the top of your report. Other evaluations with other datasets may be structured differently.
+
+1. The configuration for your evaluation job including the model name, type, which evaluation methods were used and what datasets your model was evaluated against.
+
+1. A **Detailed Evaluation Results** section that summarizes the evaluation algorithm, provides information about and links to any built-in datasets, how scores are calculated, and tables showing some sample data with their associated scores.
+
+1. A **Failed Evaluations** section that contains a list of evaluations that did not complete. If no evaluations failed, this section of the report is omitted.

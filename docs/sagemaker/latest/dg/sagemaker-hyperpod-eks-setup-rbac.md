@@ -1,26 +1,23 @@
-# Setting up Kubernetes role-based access control
 
-Cluster admin users also need to set up [Kubernetes
-role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/ "https://kubernetes.io/docs/reference/access-authn-authz/rbac/") for data scientist users to use the [SageMaker HyperPod CLI](https://github.com/aws/sagemaker-hyperpod-cli "https://github.com/aws/sagemaker-hyperpod-cli") to run
-workloads on HyperPod clusters orchestrated with Amazon EKS.
+
+# Setting up Kubernetes role-based access control
+<a name="sagemaker-hyperpod-eks-setup-rbac"></a>
+
+Cluster admin users also need to set up [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) for data scientist users to use the [SageMaker HyperPod CLI](https://github.com/aws/sagemaker-hyperpod-cli) to run workloads on HyperPod clusters orchestrated with Amazon EKS.
 
 ## Option 1: Set up RBAC using Helm chart
+<a name="sagemaker-hyperpod-eks-setup-rbac-helm"></a>
 
-The SageMaker HyperPod service team provides a Helm sub-chart for setting up RBAC. To
-learn more, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
+The SageMaker HyperPod service team provides a Helm sub-chart for setting up RBAC. To learn more, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md).
 
 ## Option 2: Set up RBAC manually
+<a name="sagemaker-hyperpod-eks-setup-rbac-manual"></a>
 
-Create `ClusterRole` and `ClusterRoleBinding` with the
-minimum privilege, and create `Role` and `RoleBinding` with
-mutation permissions.
+Create `ClusterRole` and `ClusterRoleBinding` with the minimum privilege, and create `Role` and `RoleBinding` with mutation permissions.
 
-**To create `ClusterRole` &
-`ClusterRoleBinding` for data scientist IAM
-role**
+**To create `ClusterRole` & `ClusterRoleBinding` for data scientist IAM role**
 
-Create a cluster-level configuration file `cluster_level_config.yaml`
-as follows.
+Create a cluster-level configuration file `cluster_level_config.yaml` as follows.
 
 ```
 kind: ClusterRole
@@ -55,15 +52,11 @@ Apply the configuration to the EKS cluster.
 kubectl apply -f cluster_level_config.yaml
 ```
 
-**To create Role and RoleBinding in
-namespace**
+**To create Role and RoleBinding in namespace**
 
-This is the namespace training operator that run training jobs and Resiliency will
-monitor by default. Job auto-resume can only support in `kubeflow`
-namespace or namespace prefixed `aws-hyperpod`.
+This is the namespace training operator that run training jobs and Resiliency will monitor by default. Job auto-resume can only support in `kubeflow` namespace or namespace prefixed `aws-hyperpod`. 
 
-Create a role configuration file `namespace_level_role.yaml` as
-follows. This example creates a role in the `kubeflow` namespace
+Create a role configuration file `namespace_level_role.yaml` as follows. This example creates a role in the `kubeflow` namespace
 
 ```
 kind: Role
@@ -121,15 +114,15 @@ kubectl apply -f namespace_level_role.yaml
 ```
 
 ## Create an access entry for Kubernetes groups
+<a name="sagemaker-hyperpod-eks-setup-rbac-access-entry"></a>
 
-After you have set up RBAC using one of the two options above, use the following
-sample command replacing the necessary information.
+After you have set up RBAC using one of the two options above, use the following sample command replacing the necessary information.
 
 ```
 aws eks create-access-entry \
-    --cluster-name `<eks-cluster-name>` \
-    --principal-arn arn:aws:iam::`<AWS_ACCOUNT_ID_SCIENTIST_USER>`:role/ScientistUserRole \
+    --cluster-name {{<eks-cluster-name>}} \
+    --principal-arn arn:aws:iam::{{<AWS_ACCOUNT_ID_SCIENTIST_USER>}}:role/ScientistUserRole \
     --kubernetes-groups '["hyperpod-scientist-user-namespace-level","hyperpod-scientist-user-cluster-level"]'
 ```
 
-For the `principal-arn` parameter, you need to use the [IAM users for scientists](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user").
+For the `principal-arn` parameter, you need to use the [IAM users for scientists](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user).

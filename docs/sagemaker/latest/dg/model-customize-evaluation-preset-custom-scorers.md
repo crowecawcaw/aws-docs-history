@@ -1,12 +1,16 @@
-# Evaluate with Preset and Custom Scorers
 
-When using the Custom Scorer evaluation type, SageMaker Evaluation supports two built-in scorers (also referred to as "reward functions") Prime Math and Prime Code taken from the [volcengine/verl](https://github.com/volcengine/verl "https://github.com/volcengine/verl") RL training library, or your own custom scorer implemented as a Lambda Function.
+
+# Evaluate with Preset and Custom Scorers
+<a name="model-customize-evaluation-preset-custom-scorers"></a>
+
+When using the Custom Scorer evaluation type, SageMaker Evaluation supports two built-in scorers (also referred to as "reward functions") Prime Math and Prime Code taken from the [volcengine/verl](https://github.com/volcengine/verl) RL training library, or your own custom scorer implemented as a Lambda Function.
 
 ## Built-in Scorers
+<a name="model-customize-evaluation-builtin-scorers"></a>
 
 **Prime Math**
 
-The prime math scorer expects a custom JSONL dataset of entries containing a math question as the prompt/query and the correct answer as ground truth. The dataset can be any of the supported formats mentioned in [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md "model-customize-evaluation-dataset-formats.md").
+The prime math scorer expects a custom JSONL dataset of entries containing a math question as the prompt/query and the correct answer as ground truth. The dataset can be any of the supported formats mentioned in [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md).
 
 Example dataset entry (expanded for clarity):
 
@@ -24,7 +28,7 @@ The prime code scorer expects a custom JSONL dataset of entries containing a cod
 
 Example dataset entry (expanded for clarity):
 
-````
+```
 {
     "system":"\\nWhen tackling complex reasoning tasks, you have access to the following actions. Use them as needed to progress through your thought process.\\n\\n[ASSESS]\\n\\n[ADVANCE]\\n\\n[VERIFY]\\n\\n[SIMPLIFY]\\n\\n[SYNTHESIZE]\\n\\n[PIVOT]\\n\\n[OUTPUT]\\n\\nYou should strictly follow the format below:\\n\\n[ACTION NAME]\\n\\n# Your action step 1\\n\\n# Your action step 2\\n\\n# Your action step 3\\n\\n...\\n\\nNext action: [NEXT ACTION NAME]\\n\\n",
     "query":"A number N is called a factorial number if it is the factorial of a positive integer. For example, the first few factorial numbers are 1, 2, 6, 24, 120,\\nGiven a number N, the task is to return the list/vector of the factorial numbers smaller than or equal to N.\\nExample 1:\\nInput: N = 3\\nOutput: 1 2\\nExplanation: The first factorial number is \\n1 which is less than equal to N. The second \\nnumber is 2 which is less than equal to N,\\nbut the third factorial number is 6 which \\nis greater than N. So we print only 1 and 2.\\nExample 2:\\nInput: N = 6\\nOutput: 1 2 6\\nExplanation: The first three factorial \\nnumbers are less than equal to N but \\nthe fourth factorial number 24 is \\ngreater than N. So we print only first \\nthree factorial numbers.\\nYour Task:  \\nYou don't need to read input or print anything. Your task is to complete the function factorialNumbers() which takes an integer N as an input parameter and return the list/vector of the factorial numbers smaller than or equal to N.\\nExpected Time Complexity: O(K), Where K is the number of factorial numbers.\\nExpected Auxiliary Space: O(1)\\nConstraints:\\n1<=N<=10^{18}\\n\\nWrite Python code to solve the problem. Present the code in \\n```python\\nYour code\\n```\\nat the end.",
@@ -36,19 +40,22 @@ Example dataset entry (expanded for clarity):
         "outputs": ["[1, 2]"]
     }
 }
-````
+```
 
 ## Custom Scorers (Bring Your Own Metrics)
+<a name="model-customize-evaluation-custom-scorers-byom"></a>
 
 Fully customize your model evaluation workflow with custom post-processing logic which allows you to compute custom metrics tailored to your needs. You must implement your custom scorer as an AWS Lambda function that accepts model responses and returns reward scores.
 
 ### Sample Lambda Input Payload
+<a name="model-customize-evaluation-custom-scorers-lambda-input"></a>
 
 The payload your custom scorer AWS Lambda function receives mirrors the format of your evaluation dataset. SageMaker AI detects your dataset format and sends each sample to your Lambda in the corresponding shape, with the model's generated answer appended. Your Lambda must read the response from the fields that match the dataset format you are using.
 
 The container invokes your Lambda once per sample, passing a list that contains a single sample object. Your Lambda must iterate the list, but currently it contains exactly one item per invocation. The following sections show the payload your Lambda receives for each supported dataset format.
 
 #### OpenAI Chat format
+<a name="model-customize-evaluation-custom-scorers-lambda-input-openai"></a>
 
 ```
 [
@@ -66,13 +73,13 @@ The container invokes your Lambda once per sample, passing a list that contains 
 ```
 
 Notes on the OpenAI payload:
-
-- The model's answer is the last `assistant` message. The container appends the model response as a new assistant turn.
-- If your dataset already ends with an assistant message (the ground-truth turn), the payload contains two trailing assistant messages—the original ground-truth turn followed by the model's response.
-- The ground truth is also provided at top-level `reference_answer.text` (the runtime-normalized copy).
-- `id` is a container-generated identifier (present for this format).
++ The model's answer is the last `assistant` message. The container appends the model response as a new assistant turn.
++ If your dataset already ends with an assistant message (the ground-truth turn), the payload contains two trailing assistant messages—the original ground-truth turn followed by the model's response.
++ The ground truth is also provided at top-level `reference_answer.text` (the runtime-normalized copy).
++ `id` is a container-generated identifier (present for this format).
 
 #### verl format
+<a name="model-customize-evaluation-custom-scorers-lambda-input-verl"></a>
 
 ```
 [
@@ -93,13 +100,13 @@ Notes on the OpenAI payload:
 ```
 
 Notes on the verl payload:
-
-- The model's answer is in `response` (and also appended as the final `assistant` turn in `prompt`).
-- Ground truth is always emitted at `extra_info.reference_answer.text`. It is `{"text": ""}` when the dataset provides no ground truth. Read ground truth from this field.
-- `data_source` defaults to `"customized"` when the dataset entry doesn't set it.
-- `reward_model` and other verl-specific fields (`id`, `ability`, `attributes`, `difficulty`) are passed through only if present in the dataset entry. They are not added by default.
++ The model's answer is in `response` (and also appended as the final `assistant` turn in `prompt`).
++ Ground truth is always emitted at `extra_info.reference_answer.text`. It is `{"text": ""}` when the dataset provides no ground truth. Read ground truth from this field.
++ `data_source` defaults to `"customized"` when the dataset entry doesn't set it.
++ `reward_model` and other verl-specific fields (`id`, `ability`, `attributes`, `difficulty`) are passed through only if present in the dataset entry. They are not added by default.
 
 #### Hugging Face Prompt-Completion format
+<a name="model-customize-evaluation-custom-scorers-lambda-input-hf-prompt"></a>
 
 ```
 [
@@ -113,11 +120,11 @@ Notes on the verl payload:
 ```
 
 Notes on the Hugging Face Prompt-Completion payload:
-
-- The model's answer is in `completion` (the container overwrites the dataset's original completion with the model response).
-- Ground truth is at `reference_answer.text` (the dataset's original completion).
++ The model's answer is in `completion` (the container overwrites the dataset's original completion with the model response).
++ Ground truth is at `reference_answer.text` (the dataset's original completion).
 
 #### Hugging Face Preference format
+<a name="model-customize-evaluation-custom-scorers-lambda-input-hf-preference"></a>
 
 ```
 [
@@ -133,12 +140,12 @@ Notes on the Hugging Face Prompt-Completion payload:
 ```
 
 Notes on the Hugging Face Preference payload:
-
-- The model's answer is in `completion`.
-- The original `chosen` and `rejected` preference pair is passed through.
-- Ground truth is at `reference_answer.text` (resolved from `chosen`).
++ The model's answer is in `completion`.
++ The original `chosen` and `rejected` preference pair is passed through.
++ Ground truth is at `reference_answer.text` (resolved from `chosen`).
 
 #### SageMaker AI Evaluation format
+<a name="model-customize-evaluation-custom-scorers-lambda-input-sm-eval"></a>
 
 ```
 [
@@ -154,19 +161,19 @@ Notes on the Hugging Face Preference payload:
 ```
 
 Notes on the SageMaker AI Evaluation payload:
++ The model's answer is in `model_response`. All original dataset fields are passed through unchanged (`query`, `response`, `system`, `category`, and `metadata`).
++ The ground truth appears in two top-level fields with the same value: the original `response`, and `reference_answer.text`. Read either.
 
-- The model's answer is in `model_response`. All original dataset fields are passed through unchanged (`query`, `response`, `system`, `category`, and `metadata`).
-- The ground truth appears in two top-level fields with the same value: the original `response`, and `reference_answer.text`. Read either.
-
-###### Note
-
-These are the payloads your Lambda receives. SageMaker AI takes each entry from your evaluation dataset, appends the model's generated response, and sends it to your scorer. See [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md "model-customize-evaluation-dataset-formats.md") for how to author each dataset format. Write your Lambda to parse the fields of the format your dataset uses.
+**Note**  
+These are the payloads your Lambda receives. SageMaker AI takes each entry from your evaluation dataset, appends the model's generated response, and sends it to your scorer. See [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md) for how to author each dataset format. Write your Lambda to parse the fields of the format your dataset uses.
 
 ### Sample Lambda Output Payload
+<a name="model-customize-evaluation-custom-scorers-lambda-output"></a>
 
 Your AWS Lambda function must return one result object per input sample. The SageMaker AI eval container accepts either of two response envelopes:
 
 #### Option A – Raw list (recommended)
+<a name="model-customize-evaluation-custom-scorers-lambda-output-raw"></a>
 
 ```
 [
@@ -182,6 +189,7 @@ Your AWS Lambda function must return one result object per input sample. The Sag
 ```
 
 #### Option B – API Gateway-style wrapper
+<a name="model-customize-evaluation-custom-scorers-lambda-output-wrapped"></a>
 
 In this format, `body` is the JSON-encoded string of the result list. This is the format emitted by the Studio "Create Reward Function" template.
 
@@ -193,14 +201,14 @@ In this format, `body` is the JSON-encoded string of the result list. This is th
 ```
 
 The following notes apply to both response envelopes:
-
-- In Option B, `body` must be a JSON string (not a nested JSON object), and `statusCode` must be `200`. A non-200 status causes the eval container to treat that sample as a failure: it is counted in `byoc_failure_count` and its custom metrics are dropped, but the overall evaluation job still completes.
-- `metrics_list` is optional; when present, each entry must include `name`, `value`, and `type` (`"Reward"` or `"Metric"`).
-- Each result's `id` must match the input sample's `id`.
++ In Option B, `body` must be a JSON string (not a nested JSON object), and `statusCode` must be `200`. A non-200 status causes the eval container to treat that sample as a failure: it is counted in `byoc_failure_count` and its custom metrics are dropped, but the overall evaluation job still completes.
++ `metrics_list` is optional; when present, each entry must include `name`, `value`, and `type` (`"Reward"` or `"Metric"`).
++ Each result's `id` must match the input sample's `id`.
 
 ### Custom Lambda Definition
+<a name="model-customize-evaluation-custom-scorers-lambda-definition"></a>
 
-Find an example of a fully-implemented custom scorer with sample input and expected output at: [https://docs.aws.amazon.com/sagemaker/latest/dg/nova-implementing-reward-functions.html#nova-reward-llm-judge-example](nova-implementing-reward-functions.md#nova-reward-llm-judge-example "nova-implementing-reward-functions.md#nova-reward-llm-judge-example")
+Find an example of a fully-implemented custom scorer with sample input and expected output at: [https://docs.aws.amazon.com/sagemaker/latest/dg/nova-implementing-reward-functions.html\#nova-reward-llm-judge-example](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-implementing-reward-functions.html#nova-reward-llm-judge-example)
 
 Use the following skeleton as a starting point for your own function.
 
@@ -214,7 +222,7 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
         Samples: List of dictionaries; each sample's shape mirrors your evaluation dataset format
             (OpenAI, verl, Hugging Face Prompt-Completion, Hugging Face Preference, or SageMaker Evaluation).
             See the Sample Lambda Input Payload section above for the per-format shape.
-
+            
         # Example shown is the OpenAI format; other dataset formats use different fields.
         Example input:
         {
@@ -234,7 +242,7 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
                 "text": "No, as an AI developed by Company, I do not have a dedicated security team."
             }
         }
-
+        
     Returns:
         List of dictionaries with reward scores:
         {
@@ -252,39 +260,45 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
 ```
 
 ### Input and output fields
+<a name="model-customize-evaluation-custom-scorers-fields"></a>
 
 **Input fields**
 
-| Field                                    | Description                                                               | Additional notes                                                                                                                                                       |
-| ---------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                                       | Unique identifier for the sample                                          | Echoed back in output. String. Present for the OpenAI, Hugging Face, and SageMaker AI Evaluation formats; for verl it appears only if set in the dataset entry.        |
-| reference\_answer.text                   | Normalized ground truth for the sample                                    | Present in every format (top-level for most; under `extra_info` for verl). Value is `""` when the dataset provides no ground truth. Read ground truth from this field. |
-| messages                                 | Ordered chat history (OpenAI-format datasets only)                        | Array of message objects. The model's response is the last `assistant` message.                                                                                        |
-| messages[].role                          | Speaker of the message                                                    | Common values: "user", "assistant", "system"                                                                                                                           |
-| messages[].content                       | Text content of the message                                               | Plain string                                                                                                                                                           |
-| prompt                                   | Input prompt (Hugging Face formats: string; verl: chat array)             | For verl, the model response is also appended as the final `assistant` turn.                                                                                           |
-| completion                               | Model's response (Hugging Face Prompt-Completion and Preference formats)  | The container overwrites the dataset's original completion with the model response.                                                                                    |
-| chosen or rejected                       | Preferred and rejected responses (Hugging Face Preference format)         | Passed through from the dataset. Ground truth resolves from `chosen`.                                                                                                  |
-| response                                 | Model's response (verl) / ground-truth response (SageMaker AI Evaluation) | In SageMaker AI Evaluation this holds the original ground truth (same value as `reference_answer.text`).                                                               |
-| model\_response                          | Model's generated response (SageMaker AI Evaluation format)               | String                                                                                                                                                                 |
-| data\_source, reward\_model, extra\_info | verl-specific fields                                                      | `data_source` defaults to "customized." `reward_model` and other verl fields are passed through only if present in the dataset entry.                                  |
-| metadata                                 | Free-form information to aid grading                                      | Object; optional fields passed through from your dataset                                                                                                               |
+
+| Field | Description | Additional notes | 
+| --- | --- | --- | 
+| id | Unique identifier for the sample | Echoed back in output. String. Present for the OpenAI, Hugging Face, and SageMaker AI Evaluation formats; for verl it appears only if set in the dataset entry. | 
+| reference\_answer.text | Normalized ground truth for the sample | Present in every format (top-level for most; under extra\_info for verl). Value is "" when the dataset provides no ground truth. Read ground truth from this field. | 
+| messages | Ordered chat history (OpenAI-format datasets only) | Array of message objects. The model's response is the last assistant message. | 
+| messages[].role | Speaker of the message | Common values: "user", "assistant", "system" | 
+| messages[].content | Text content of the message | Plain string | 
+| prompt | Input prompt (Hugging Face formats: string; verl: chat array) | For verl, the model response is also appended as the final assistant turn. | 
+| completion | Model's response (Hugging Face Prompt-Completion and Preference formats) | The container overwrites the dataset's original completion with the model response. | 
+| chosen or rejected | Preferred and rejected responses (Hugging Face Preference format) | Passed through from the dataset. Ground truth resolves from chosen. | 
+| response | Model's response (verl) / ground-truth response (SageMaker AI Evaluation) | In SageMaker AI Evaluation this holds the original ground truth (same value as reference\_answer.text). | 
+| model\_response | Model's generated response (SageMaker AI Evaluation format) | String | 
+| data\_source, reward\_model, extra\_info | verl-specific fields | data\_source defaults to "customized." reward\_model and other verl fields are passed through only if present in the dataset entry. | 
+| metadata | Free-form information to aid grading | Object; optional fields passed through from your dataset | 
 
 **Output fields**
 
-Output Fields| Field | Description | Additional notes |
-| --- | --- | --- |
-| id | Same identifier as input sample | Must match input |
-| aggregate\_reward\_score | Overall score for the sample | Float (e.g., 0.0–1.0 or task-defined range) |
-| metrics\_list | Component scores that make up the aggregate | Array of metric objects |
+
+**Output Fields**  
+
+| Field | Description | Additional notes | 
+| --- | --- | --- | 
+| id | Same identifier as input sample | Must match input | 
+| aggregate\_reward\_score | Overall score for the sample | Float (e.g., 0.0–1.0 or task-defined range) | 
+| metrics\_list | Component scores that make up the aggregate | Array of metric objects | 
 
 ### Required Permissions
+<a name="model-customize-evaluation-custom-scorers-permissions"></a>
 
 Ensure that the SageMaker execution role you use to run evaluation has AWS Lambda permissions.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -301,7 +315,7 @@ Ensure your AWS Lambda Function's execution role has basic Lambda execution perm
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",

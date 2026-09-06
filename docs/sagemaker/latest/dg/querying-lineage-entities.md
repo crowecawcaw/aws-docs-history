@@ -1,75 +1,64 @@
+
+
 # Querying Lineage Entities
+<a name="querying-lineage-entities"></a>
 
-Amazon SageMaker AI automatically generates graphs of lineage entities as you use them. You can query
-this data to answer a variety of questions. The following provides instructions on how to
-query this data in SDK for Python.
+Amazon SageMaker AI automatically generates graphs of lineage entities as you use them. You can query this data to answer a variety of questions. The following provides instructions on how to query this data in SDK for Python. 
 
-For information on how to view a registered model lineage in Amazon SageMaker Studio, see [View model lineage details in Studio](model-registry-lineage-view-studio.md "model-registry-lineage-view-studio.md").
+For information on how to view a registered model lineage in Amazon SageMaker Studio, see [View model lineage details in Studio](model-registry-lineage-view-studio.md).
 
 You can query your lineage entities to:
++ Retrieve all data sets that went into the creation of a model.
++ Retrieve all jobs that went into the creation of an endpoint.
++ Retrieve all models that use a data set.
++ Retrieve all endpoints that use a model.
++ Retrieve which endpoints are derived from a certain data set.
++ Retrieve the pipeline execution that created a training job.
++ Retrieve the relationships between entities for investigation, governance, and reproducibility.
++ Retrieve all downstream trials that use the artifact.
++ Retrieve all upstream trials that use the artifact.
++ Retrieve a list of artifacts that use the provided S3 uri.
++ Retrieve upstream artifacts that use the dataset artifact.
++ Retrieve downstream artifacts that use the dataset artifact.
++ Retrieve datasets that use the image artifact.
++ Retrieve actions that use the context.
++ Retrieve processing jobs that use the endpoint.
++ Retrieve transform jobs that use the endpoint.
++ Retrieve trial components that use the endpoint.
++ Retrieve the ARN for the pipeline execution associated with the model package group.
++ Retrieve all artifacts that use the action.
++ Retrieve all upstream datasets that use the model package approval action.
++ Retrieve model package from model package approval action.
++ Retrieve downstream endpoint contexts that use the endpoint.
++ Retrieve the ARN for the pipeline execution associated with the trial component.
++ Retrieve datasets that use the trial component.
++ Retrieve models that use the trial component.
++ Explore your lineage for visualization.
 
-- Retrieve all data sets that went into the creation of a model.
-- Retrieve all jobs that went into the creation of an endpoint.
-- Retrieve all models that use a data set.
-- Retrieve all endpoints that use a model.
-- Retrieve which endpoints are derived from a certain data set.
-- Retrieve the pipeline execution that created a training job.
-- Retrieve the relationships between entities for investigation, governance, and
-  reproducibility.
-- Retrieve all downstream trials that use the artifact.
-- Retrieve all upstream trials that use the artifact.
-- Retrieve a list of artifacts that use the provided S3 uri.
-- Retrieve upstream artifacts that use the dataset artifact.
-- Retrieve downstream artifacts that use the dataset artifact.
-- Retrieve datasets that use the image artifact.
-- Retrieve actions that use the context.
-- Retrieve processing jobs that use the endpoint.
-- Retrieve transform jobs that use the endpoint.
-- Retrieve trial components that use the endpoint.
-- Retrieve the ARN for the pipeline execution associated with the model package
-  group.
-- Retrieve all artifacts that use the action.
-- Retrieve all upstream datasets that use the model package approval action.
-- Retrieve model package from model package approval action.
-- Retrieve downstream endpoint contexts that use the endpoint.
-- Retrieve the ARN for the pipeline execution associated with the trial
-  component.
-- Retrieve datasets that use the trial component.
-- Retrieve models that use the trial component.
-- Explore your lineage for visualization.
+**Limitations**
++ Lineage querying is not available in the following Regions:
+  + Africa (Cape Town) – af-south
+  + Asia Pacific (Jakarta) – ap-southeast-3
+  + Asia Pacific (Osaka) – ap-northeast-3
+  + Europe (Milan) – eu-south-1
+  + Europe (Spain) – eu-south-2
+  + Israel (Tel Aviv) – il-central-1
++ The maximum depth of relationships to discover is currently limited to 10.
++ Filtering is limited to the following properties: last modified date, created date, type, and lineage entity type. 
 
-###### Limitations
-
-- Lineage querying is not available in the following Regions:
-
-  - Africa (Cape Town) – af-south
-  - Asia Pacific (Jakarta) – ap-southeast-3
-  - Asia Pacific (Osaka) – ap-northeast-3
-  - Europe (Milan) – eu-south-1
-  - Europe (Spain) – eu-south-2
-  - Israel (Tel Aviv) – il-central-1
-
-- The maximum depth of relationships to discover is currently limited to 10.
-- Filtering is limited to the following properties: last modified date, created date,
-  type, and lineage entity type.
-
-###### Topics
-
-- [Getting Started with Querying Lineage Entities](#querying-lineage-entities-getting-started "#querying-lineage-entities-getting-started")
+**Topics**
++ [Getting Started with Querying Lineage Entities](#querying-lineage-entities-getting-started)
 
 ## Getting Started with Querying Lineage Entities
+<a name="querying-lineage-entities-getting-started"></a>
 
 The easiest way to get started is either via the:
++ [ Amazon SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397) which has defined many common use cases.
++ For a notebook that demonstrates how to use SageMaker AI Lineage APIs to query relationships across the lineage graph, see [sagemaker-lineage-multihop-queries.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-multihop-queries.ipynb).
 
-- [Amazon SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397 "https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397") which has defined many common use cases.
-- For a notebook that demonstrates how to use SageMaker AI Lineage APIs to query relationships
-  across the lineage graph, see [sagemaker-lineage-multihop-queries.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-multihop-queries.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-multihop-queries.ipynb").
+The following examples show how to use the `LineageQuery` and `LineageFilter` APIs to construct queries to answer questions about the Lineage Graph and extract entity relationships for a few use cases.
 
-The following examples show how to use the `LineageQuery` and
-`LineageFilter` APIs to construct queries to answer questions about the Lineage
-Graph and extract entity relationships for a few use cases.
-
-###### Example Using the `LineageQuery` API to find entity associations
+**Example Using the `LineageQuery` API to find entity associations**  
 
 ```
 from sagemaker.lineage.context import Context, EndpointContext
@@ -89,10 +78,9 @@ from sagemaker.lineage.query import (
 contexts = Context.list(source_uri=endpoint_arn)
 context_name = list(contexts)[0].context_name
 endpoint_context = EndpointContext.load(context_name=context_name)
-
 ```
 
-###### Example Find all the datasets associated with an endpoint
+**Example Find all the datasets associated with an endpoint**  
 
 ```
 # Define the LineageFilter to look for entities of type `ARTIFACT` and the source of type `DATASET`.
@@ -119,7 +107,7 @@ for vertex in query_result.vertices:
 pp.pprint(dataset_artifacts)
 ```
 
-###### Example Find the models associated with an endpoint
+**Example Find the models associated with an endpoint**  
 
 ```
 # Define the LineageFilter to look for entities of type `ARTIFACT` and the source of type `MODEL`.
@@ -148,7 +136,7 @@ for vertex in query_result.vertices:
 pp.pprint(model_artifacts)
 ```
 
-###### Example Find the trial components associated with the endpoint
+**Example Find the trial components associated with the endpoint**  
 
 ```
 # Define the LineageFilter to look for entities of type `TRIAL_COMPONENT` and the source of type `TRAINING_JOB`.
@@ -176,15 +164,9 @@ for vertex in query_result.vertices:
 pp.pprint(trial_components)
 ```
 
-###### Example Changing the focal point of lineage
-
-The `LineageQuery` can be modified to have different
-`start_arns` which changes the focal point of lineage. In addition, the
-`LineageFilter` can take multiple sources and entities to expand the scope of
-the query.
-
-In the following we use the model as the lineage focal point and find the endpoints
-and datasets associated with it.
+**Example Changing the focal point of lineage**  
+The `LineageQuery` can be modified to have different `start_arns` which changes the focal point of lineage. In addition, the `LineageFilter` can take multiple sources and entities to expand the scope of the query.  
+In the following we use the model as the lineage focal point and find the endpoints and datasets associated with it.  
 
 ```
 # Get the ModelArtifact
@@ -222,16 +204,8 @@ for vertex in query_result.vertices:
 pp.pprint(associations)
 ```
 
-###### Example Using `LineageQueryDirectionEnum.BOTH` to find ascendent and descendent relationships
-
-When the direction is set to `BOTH`, the query traverses the graph to find
-ascendant and descendant relationships. This traversal takes place not only from the
-starting node, but from each node that is visited. For example; if a training job is run
-twice and both models generated by the training job are deployed to endpoints, the result
-of the query with direction set to `BOTH` shows both endpoints. This is because
-the same image is used for training and deploying the model. Since the image is common to
-the model, the `start_arn` and both the endpoints, appear in the query
-result.
+**Example Using `LineageQueryDirectionEnum.BOTH` to find ascendent and descendent relationships**  
+When the direction is set to `BOTH`, the query traverses the graph to find ascendant and descendant relationships. This traversal takes place not only from the starting node, but from each node that is visited. For example; if a training job is run twice and both models generated by the training job are deployed to endpoints, the result of the query with direction set to `BOTH` shows both endpoints. This is because the same image is used for training and deploying the model. Since the image is common to the model, the `start_arn` and both the endpoints, appear in the query result.  
 
 ```
 query_filter = LineageFilter(
@@ -254,18 +228,9 @@ for vertex in query_result.vertices:
 pp.pprint(associations)
 ```
 
-###### Example Directions in `LineageQuery` - `ASCENDANTS` vs. `DESCENDANTS`
-
-To understand the direction in the Lineage Graph, take the following entity
-relationship graph - Dataset -> Training Job -> Model -> Endpoint
-
-The endpoint is a descendant of the model, and the model is a descendant of the
-dataset. Similarly, the model is an ascendant of the endpoint. The `direction`
-parameter can be used to specify whether the query should return entities that are
-descendants or ascendants of the entity in `start_arns`. If the
-`start_arns` contains a model and the direction is `DESCENDANTS`,
-the query returns the endpoint. If the direction is `ASCENDANTS`, the query
-returns the dataset.
+**Example Directions in `LineageQuery` - `ASCENDANTS` vs. `DESCENDANTS`**  
+To understand the direction in the Lineage Graph, take the following entity relationship graph - Dataset -> Training Job -> Model -> Endpoint  
+The endpoint is a descendant of the model, and the model is a descendant of the dataset. Similarly, the model is an ascendant of the endpoint. The `direction` parameter can be used to specify whether the query should return entities that are descendants or ascendants of the entity in `start_arns`. If the `start_arns` contains a model and the direction is `DESCENDANTS`, the query returns the endpoint. If the direction is `ASCENDANTS`, the query returns the dataset.  
 
 ```
 # In this example, we'll look at the impact of specifying the direction as ASCENDANT or DESCENDANT in a `LineageQuery`.
@@ -319,12 +284,8 @@ print("Descendant artifacts : ")
 pp.pprint(descendant_artifacts)
 ```
 
-###### Example SDK helper functions to make lineage queries easier
-
-The classes `EndpointContext`, `ModelArtifact`, and
-`DatasetArtifact` have helper functions that are wrappers over the
-`LineageQuery` API to make certain lineage queries easier to leverage. The
-following example shows how to use these helper function.
+**Example SDK helper functions to make lineage queries easier**  
+The classes `EndpointContext`, `ModelArtifact`, and `DatasetArtifact` have helper functions that are wrappers over the `LineageQuery` API to make certain lineage queries easier to leverage. The following example shows how to use these helper function.  
 
 ```
 # Find all the datasets associated with this endpoint
@@ -376,12 +337,8 @@ print("Endpoints associated with the training dataset {}".format(training_data))
 pp.pprint(endpoints)
 ```
 
-###### Example Getting a Lineage graph visualization
-
-A helper class `Visualizer` is provided in the sameple notebook [visualizer.py](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/visualizer.py "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/visualizer.py") to help plot the lineage graph. When the query response is
-rendered, a graph with the lineage relationships from the `StartArns` is
-displayed. From the `StartArns` the visualization shows the relationships with
-the other lineage entities returned in the `query_lineage` API action.
+**Example Getting a Lineage graph visualization**  
+A helper class `Visualizer` is provided in the sameple notebook [visualizer.py ](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/visualizer.py) to help plot the lineage graph. When the query response is rendered, a graph with the lineage relationships from the `StartArns` is displayed. From the `StartArns` the visualization shows the relationships with the other lineage entities returned in the `query_lineage` API action.  
 
 ```
 # Graph APIs
@@ -395,7 +352,7 @@ query_response = sm_client.query_lineage(
 
 viz = Visualizer()
 viz.render(query_response, "Endpoint")
-
+        
         query_response = sm_client.query_lineage(
     StartArns=[model_artifact.artifact_arn], Direction="Ascendants", IncludeEdges=True
 )

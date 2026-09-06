@@ -1,10 +1,9 @@
-# Use the SageMakerEstimator in a Spark Pipeline
 
-You can use `org.apache.spark.ml.Estimator` estimators and
-`org.apache.spark.ml.Model` models, and
-`SageMakerEstimator` estimators and `SageMakerModel`
-models in `org.apache.spark.ml.Pipeline` pipelines, as shown in the
-following example:
+
+# Use the SageMakerEstimator in a Spark Pipeline
+<a name="apache-spark-example1-extend-pipeline"></a>
+
+You can use `org.apache.spark.ml.Estimator` estimators and `org.apache.spark.ml.Model` models, and `SageMakerEstimator` estimators and `SageMakerModel` models in `org.apache.spark.ml.Pipeline` pipelines, as shown in the following example:
 
 ```
 import org.apache.spark.ml.Pipeline
@@ -26,7 +25,7 @@ val testData = spark.read.format("libsvm")
   .load(s"s3://sagemaker-sample-data-$region/spark/mnist/test/")
 
 // substitute your SageMaker IAM role here
-val roleArn = "arn:aws:iam::`account-id`:role/`rolename`"
+val roleArn = "arn:aws:iam::{{account-id}}:role/{{rolename}}"
 
 val pcaEstimator = new PCA()
   .setInputCol("features")
@@ -53,16 +52,11 @@ val transformedData = pipelineModel.transform(testData)
 transformedData.show()
 ```
 
-The parameter `trainingSparkDataFormatOptions` configures Spark to
-serialize to protobuf the "projectedFeatures" column for model training.
-Additionally, Spark serializes to protobuf the "label" column by default.
+The parameter `trainingSparkDataFormatOptions` configures Spark to serialize to protobuf the "projectedFeatures" column for model training. Additionally, Spark serializes to protobuf the "label" column by default.
 
-Because we want to make inferences using the "projectedFeatures" column, we pass
-the column name into the `ProtobufRequestRowSerializer`.
+Because we want to make inferences using the "projectedFeatures" column, we pass the column name into the `ProtobufRequestRowSerializer`.
 
-The following example shows a
-transformed
-`DataFrame`:
+The following example shows a transformed `DataFrame`:
 
 ```
 +-----+--------------------+--------------------+-------------------+---------------+
@@ -89,5 +83,4 @@ transformed
 |  6.0|(784,[100,101,102...|[546.674328209335...|    1277.0908203125|            2.0|
 |  9.0|(784,[209,210,211...|[-29.259112927426...| 1245.8182373046875|            6.0|
 +-----+--------------------+--------------------+-------------------+---------------+
-
 ```

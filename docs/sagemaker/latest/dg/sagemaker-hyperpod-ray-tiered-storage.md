@@ -1,16 +1,14 @@
-# Tiered checkpointing
 
-HyperPod managed tiered checkpointing writes checkpoints to your cluster's CPU
-memory first and replicates them across nodes. It periodically persists them to durable
-storage such as Amazon S3. Because the fast tier is memory rather than object storage, you can
-checkpoint more often and lose less progress when a node fails. For how it works and how to
-configure it, see [HyperPod managed tiered checkpointing](managed-tier-checkpointing.md "managed-tier-checkpointing.md").
+
+# Tiered checkpointing
+<a name="sagemaker-hyperpod-ray-tiered-storage"></a>
+
+HyperPod managed tiered checkpointing writes checkpoints to your cluster's CPU memory first and replicates them across nodes. It periodically persists them to durable storage such as Amazon S3. Because the fast tier is memory rather than object storage, you can checkpoint more often and lose less progress when a node fails. For how it works and how to configure it, see [HyperPod managed tiered checkpointing](managed-tier-checkpointing.md).
 
 ## Setup
+<a name="sagemaker-hyperpod-ray-tiered-storage-setup"></a>
 
-Set up managed tiered checkpointing on the cluster first. It is a cluster-level
-capability, and the setup is the same whatever framework you train with. For the steps,
-see [Set up managed tiered checkpointing](managed-tier-checkpointing-setup.md "managed-tier-checkpointing-setup.md").
+Set up managed tiered checkpointing on the cluster first. It is a cluster-level capability, and the setup is the same whatever framework you train with. For the steps, see [Set up managed tiered checkpointing](managed-tier-checkpointing-setup.md).
 
 Then install the checkpointing package on the hosts that run your Ray workload.
 
@@ -19,21 +17,11 @@ pip install amzn-sagemaker-checkpointing
 ```
 
 ## Use it with Ray Train
+<a name="sagemaker-hyperpod-ray-tiered-storage-use"></a>
 
-Save checkpoints through `SageMakerTieredStorageWriter` instead of letting
-Ray upload them. Build a `SageMakerCheckpointConfig` inside your training
-function and pass the writer to `async_save`. Report the checkpoint
-asynchronously so training continues while the checkpoint uploads to Amazon S3.
+Save checkpoints through `SageMakerTieredStorageWriter` instead of letting Ray upload them. Build a `SageMakerCheckpointConfig` inside your training function and pass the writer to `async_save`. Report the checkpoint asynchronously so training continues while the checkpoint uploads to Amazon S3.
 
-This example uses [asynchronous
-checkpoint uploading](https://docs.ray.io/en/latest/train/user-guides/checkpoints.html#asynchronous-checkpoint-uploading "https://docs.ray.io/en/latest/train/user-guides/checkpoints.html#asynchronous-checkpoint-uploading") in the Ray documentation, which lets Ray Train kick off a background thread to
-wait for the upload to complete while training continues on the next step. The
-`save_checkpoint` function stages the checkpoint to tiered storage and
-reports it to Ray Train with `CheckpointUploadMode.ASYNC`.
-`ray.train.report` records the checkpoint with Ray Train so it can track
-the best checkpoints, enforce `num_to_keep`, and restore from the latest
-checkpoint on failure. For more information about Ray Train checkpointing, see [Saving and
-loading checkpoints](https://docs.ray.io/en/latest/train/user-guides/checkpoints.html "https://docs.ray.io/en/latest/train/user-guides/checkpoints.html") in the Ray documentation.
+This example uses [asynchronous checkpoint uploading](https://docs.ray.io/en/latest/train/user-guides/checkpoints.html#asynchronous-checkpoint-uploading) in the Ray documentation, which lets Ray Train kick off a background thread to wait for the upload to complete while training continues on the next step. The `save_checkpoint` function stages the checkpoint to tiered storage and reports it to Ray Train with `CheckpointUploadMode.ASYNC`. `ray.train.report` records the checkpoint with Ray Train so it can track the best checkpoints, enforce `num_to_keep`, and restore from the latest checkpoint on failure. For more information about Ray Train checkpointing, see [Saving and loading checkpoints](https://docs.ray.io/en/latest/train/user-guides/checkpoints.html) in the Ray documentation.
 
 ```
 import os
@@ -156,21 +144,6 @@ trainer = TorchTrainer(
 ```
 
 Key points:
-
-- **Async save with serialized writes.** Only one
-  `async_save` can be in flight at a time. The background threads
-  perform collective operations that require all ranks to participate. Calling
-  `async_save` again before the previous one completes causes a
-  deadlock. The `_prev_checkpoint_future` pattern ensures each save
-  finishes before the next one starts, while still overlapping the upload with the
-  next training step.
-- **delete\_local\_checkpoint\_after\_upload=False.**
-  Set this to prevent Ray from deleting the checkpoint reported through
-  `ray.train.report`. Because the reported checkpoint points to an
-  S3 path managed by the tiered storage writer, deleting it would remove the
-  checkpoint from S3.
-- **Resume from checkpoint.**
-  `load_checkpoint` reads from tiered storage (cluster memory first,
-  then Amazon S3). When a node is replaced and the job restarts via
-  `FailureConfig`, recovery reads from the fast memory tier when
-  available, avoiding a full Amazon S3 download.
++ **Async save with serialized writes.** Only one `async_save` can be in flight at a time. The background threads perform collective operations that require all ranks to participate. Calling `async_save` again before the previous one completes causes a deadlock. The `_prev_checkpoint_future` pattern ensures each save finishes before the next one starts, while still overlapping the upload with the next training step.
++ **delete\_local\_checkpoint\_after\_upload=False.** Set this to prevent Ray from deleting the checkpoint reported through `ray.train.report`. Because the reported checkpoint points to an S3 path managed by the tiered storage writer, deleting it would remove the checkpoint from S3.
++ **Resume from checkpoint.** `load_checkpoint` reads from tiered storage (cluster memory first, then Amazon S3). When a node is replaced and the job restarts via `FailureConfig`, recovery reads from the fast memory tier when available, avoiding a full Amazon S3 download.

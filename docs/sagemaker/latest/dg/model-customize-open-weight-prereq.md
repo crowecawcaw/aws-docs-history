@@ -1,29 +1,33 @@
+
+
 # Prerequisites
+<a name="model-customize-open-weight-prereq"></a>
 
 Before you begin, complete the following prerequisites:
-
-- Onboard to a SageMaker AI domain with Studio access. If you don't have permissions to set Studio as the default experience for your domain, contact your administrator. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
-- Update the AWS CLI by following the steps in [Installing the current AWS CLI Version](../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled "../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled").
-- From your local machine, run `aws configure` and provide your AWS credentials. For information about AWS credentials, see [Understanding and getting your AWS credentials](../../../IAM/latest/UserGuide/security-creds.md "../../../IAM/latest/UserGuide/security-creds.md").
++ Onboard to a SageMaker AI domain with Studio access. If you don't have permissions to set Studio as the default experience for your domain, contact your administrator. For more information, see [Amazon SageMaker AI domain overview](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).
++ Update the AWS CLI by following the steps in [Installing the current AWS CLI Version](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv1.html#install-tool-bundled).
++ From your local machine, run `aws configure` and provide your AWS credentials. For information about AWS credentials, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html).
 
 ## Required IAM permissions
+<a name="model-customize-open-weight-iam"></a>
 
 SageMaker AI model customization requires adding appropriate permissions to your SageMaker AI execution role.
 
 ### Setting up permissions through the console
+<a name="model-customize-open-weight-iam-console"></a>
 
 If you create your SageMaker AI domain through the console, permissions for model customization are handled automatically depending on your setup method:
-
-- **Quick setup** — Model customization permissions are included by default. No additional configuration is needed.
-- **Custom setup** — Select the **Model customization** ML activity when configuring your execution role. For more information about ML activities and the permissions they grant, see [Configure ML activities for IAM roles](role-manager-ml-activities.md "role-manager-ml-activities.md").
++ **Quick setup** — Model customization permissions are included by default. No additional configuration is needed.
++ **Custom setup** — Select the **Model customization** ML activity when configuring your execution role. For more information about ML activities and the permissions they grant, see [Configure ML activities for IAM roles](https://docs.aws.amazon.com/sagemaker/latest/dg/role-manager-ml-activities.html).
 
 ### Setting up permissions manually
+<a name="model-customize-open-weight-iam-manual"></a>
 
 If you set up your domain through the AWS CLI, SDK, or CloudFormation, or if you need to add model customization permissions to an existing execution role, use one of the following options.
 
 **Option 1 (Recommended): Attach the AWS managed policy**
 
-Attach the `AmazonSageMakerModelCustomizationCoreAccess` managed policy to your SageMaker AI execution role. This policy covers all permissions needed for basic model customization, including serverless training, custom reward function RL, model evaluation, and deployment to SageMaker AI or Bedrock endpoints. For information about attaching policies, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS Identity and Access Management User Guide_.
+Attach the `AmazonSageMakerModelCustomizationCoreAccess` managed policy to your SageMaker AI execution role. This policy covers all permissions needed for basic model customization, including serverless training, custom reward function RL, model evaluation, and deployment to SageMaker AI or Bedrock endpoints. For information about attaching policies, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *AWS Identity and Access Management User Guide*.
 
 **Option 2: Create an inline policy**
 
@@ -31,7 +35,7 @@ If you prefer to manage permissions manually, create an inline policy with the f
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "SageMakerPublicHubPermissions",
@@ -537,13 +541,14 @@ If you prefer to manage permissions manually, create an inline policy with the f
 ```
 
 ## Roles for Lambda and Bedrock
+<a name="model-customize-open-weight-roles"></a>
 
 In addition to the permissions on your SageMaker AI execution role, model customization requires roles for two other services:
-
-- **Lambda** — executes custom reward functions during RL-based training
-- **Bedrock** — reads model artifacts from S3 when importing a custom model for deployment
++ **Lambda** — executes custom reward functions during RL-based training
++ **Bedrock** — reads model artifacts from S3 when importing a custom model for deployment
 
 ### If you previously configured your execution role (legacy approach)
+<a name="model-customize-open-weight-roles-legacy"></a>
 
 If you previously followed this documentation and updated your SageMaker AI execution role's trust policy to include `lambda.amazonaws.com` and `bedrock.amazonaws.com` as trusted service principals, your existing configuration continues to work. No changes are required.
 
@@ -551,7 +556,7 @@ To use this approach, your execution role's trust policy must include the follow
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -578,17 +583,18 @@ To use this approach, your execution role's trust policy must include the follow
 }
 ```
 
-###### Note
-
+**Note**  
 This approach is less secure because Lambda and Bedrock can assume your execution role and inherit all of its permissions — not just the ones each service needs.
 
 ### Create separate roles (recommended)
+<a name="model-customize-open-weight-roles-separate"></a>
 
 For improved security, create two separate scoped-down IAM roles — one for Lambda and one for Bedrock — rather than adding these service principals to your SageMaker AI execution role. Each role trusts only its respective service and contains only the minimum permissions that service requires.
 
 If you set up your domain through the SageMaker AI console quick setup, these roles are created automatically. If you set up your domain through another method, create them manually using the following steps.
 
 ### Lambda role
+<a name="model-customize-open-weight-roles-lambda"></a>
 
 This role allows Lambda to execute custom reward functions during RL-based model customization.
 
@@ -596,36 +602,36 @@ This role allows Lambda to execute custom reward functions during RL-based model
 
 1. Create an IAM role with the following trust policy. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID.
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole",
-      "Condition": {
-        "StringEquals": {
-          "aws:SourceAccount": "<ACCOUNT_ID>"
-        },
-        "ArnLike": {
-          "aws:SourceArn": "arn:aws:lambda:*:<ACCOUNT_ID>:function:*"
-        }
-      }
-    }
-  ]
-}
-```
+   ```
+   {
+     "Version": "2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "lambda.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+           "StringEquals": {
+             "aws:SourceAccount": "<ACCOUNT_ID>"
+           },
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:lambda:*:<ACCOUNT_ID>:function:*"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
-2. Attach the `AWSLambdaBasicExecutionRole` AWS managed policy to the role. This grants the permissions needed to write logs to CloudWatch.
+1. Attach the `AWSLambdaBasicExecutionRole` AWS managed policy to the role. This grants the permissions needed to write logs to CloudWatch.
 
-###### Note
-
+**Note**  
 This role does not require SageMaker AI or Bedrock permissions. The `aws:SourceAccount` and `aws:SourceArn` conditions restrict role assumption to Lambda functions in your account only, protecting against confused deputy attacks.
 
 ### Bedrock role
+<a name="model-customize-open-weight-roles-bedrock"></a>
 
 This role allows Bedrock to read model artifacts from your SageMaker AI-managed S3 bucket when importing a custom model.
 
@@ -633,70 +639,69 @@ This role allows Bedrock to read model artifacts from your SageMaker AI-managed 
 
 1. Create an IAM role with the following trust policy. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID.
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "bedrock.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole",
-      "Condition": {
-        "StringEquals": {
-          "aws:SourceAccount": "<ACCOUNT_ID>"
-        },
-        "ArnLike": {
-          "aws:SourceArn": "arn:aws:bedrock:*:<ACCOUNT_ID>:*"
-        }
-      }
-    }
-  ]
-}
-```
+   ```
+   {
+     "Version": "2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "bedrock.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+           "StringEquals": {
+             "aws:SourceAccount": "<ACCOUNT_ID>"
+           },
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:bedrock:*:<ACCOUNT_ID>:*"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
-2. Attach the following inline policy to the role:
+1. Attach the following inline policy to the role:
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "SageMakerBucketReadAccess",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}",
-                "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}/*"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceAccount": "${aws:PrincipalAccount}"
-                }
-            }
-        },
-        {
-            "Sid": "AllowSSLRequestsOnly",
-            "Action": "s3:*",
-            "Effect": "Deny",
-            "Resource": [
-                "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}",
-                "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}/*"
-            ],
-            "Condition": {
-                "Bool": {
-                    "aws:SecureTransport": "false"
-                }
-            }
-        }
-    ]
-}
-```
+   ```
+   {
+       "Version": "2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "SageMakerBucketReadAccess",
+               "Effect": "Allow",
+               "Action": [
+                   "s3:GetObject",
+                   "s3:ListBucket"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}",
+                   "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}/*"
+               ],
+               "Condition": {
+                   "StringEquals": {
+                       "aws:ResourceAccount": "${aws:PrincipalAccount}"
+                   }
+               }
+           },
+           {
+               "Sid": "AllowSSLRequestsOnly",
+               "Action": "s3:*",
+               "Effect": "Deny",
+               "Resource": [
+                   "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}",
+                   "arn:aws:s3:::sagemaker-*-${aws:PrincipalAccount}/*"
+               ],
+               "Condition": {
+                   "Bool": {
+                       "aws:SecureTransport": "false"
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-###### Note
-
+**Note**  
 This role does not require SageMaker AI, Lambda, or Bedrock API permissions. It only provides Bedrock with read access to model artifacts in your SageMaker AI-managed S3 bucket.

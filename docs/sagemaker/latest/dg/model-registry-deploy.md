@@ -1,29 +1,23 @@
+
+
 # Deploy a Model from the Registry with Python
+<a name="model-registry-deploy"></a>
 
-After you register a model version and approve it for deployment, deploy it to a
-SageMaker AI endpoint for real-time inference. You can deploy your model by using the SageMaker AI
-SDK or the AWS SDK for Python (Boto3).
+After you register a model version and approve it for deployment, deploy it to a SageMaker AI endpoint for real-time inference. You can deploy your model by using the SageMaker AI SDK or the AWS SDK for Python (Boto3).
 
-When you create a machine learning operations (MLOps) project and choose an MLOps
-project template that includes model deployment, approved model versions in the
-Model Registry are automatically deployed to production. For information about using SageMaker AI
-MLOps projects, see [MLOps Automation With SageMaker Projects](sagemaker-projects.md "sagemaker-projects.md").
+When you create a machine learning operations (MLOps) project and choose an MLOps project template that includes model deployment, approved model versions in the Model Registry are automatically deployed to production. For information about using SageMaker AI MLOps projects, see [MLOps Automation With SageMaker Projects](sagemaker-projects.md).
 
-You can also enable an AWS account to deploy model versions that were created in
-a different account by adding a cross-account resource policy. For example, one team
-in your organization might be responsible for training models, and a different team
-is responsible for deploying and updating models.
+You can also enable an AWS account to deploy model versions that were created in a different account by adding a cross-account resource policy. For example, one team in your organization might be responsible for training models, and a different team is responsible for deploying and updating models.
 
-###### Topics
-
-- [Deploy a Model from the Registry (SageMaker SDK)](#model-registry-deploy-smsdk "#model-registry-deploy-smsdk")
-- [Deploy a Model from the Registry (Boto3)](#model-registry-deploy-api "#model-registry-deploy-api")
-- [Deploy a Model Version from a Different Account](#model-registry-deploy-xaccount "#model-registry-deploy-xaccount")
+**Topics**
++ [Deploy a Model from the Registry (SageMaker SDK)](#model-registry-deploy-smsdk)
++ [Deploy a Model from the Registry (Boto3)](#model-registry-deploy-api)
++ [Deploy a Model Version from a Different Account](#model-registry-deploy-xaccount)
 
 ## Deploy a Model from the Registry (SageMaker SDK)
+<a name="model-registry-deploy-smsdk"></a>
 
-To deploy a model version using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") use the following
-code snippet:
+To deploy a model version using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable) use the following code snippet:
 
 ```
 from sagemaker.serve import ModelBuilder
@@ -35,112 +29,82 @@ model_builder = ModelBuilder(
     model=model_package_arn,
     role_arn=role,
     sagemaker_session=sagemaker_session,
-    instance_type='`ml.m5.xlarge`'
+    instance_type='{{ml.m5.xlarge}}'
 )
 model_builder.build()
 endpoint = model_builder.deploy(
     initial_instance_count=1,
-    instance_type='`ml.m5.xlarge`'
+    instance_type='{{ml.m5.xlarge}}'
 )
 ```
 
 ## Deploy a Model from the Registry (Boto3)
+<a name="model-registry-deploy-api"></a>
 
-To deploy a model version using the AWS SDK for Python (Boto3), complete the following
-steps:
+To deploy a model version using the AWS SDK for Python (Boto3), complete the following steps:
 
-1. The following code snippet assumes you already created the SageMaker AI Boto3
-   client `sm_client` and a model version whose ARN is stored in
-   the variable `model_version_arn`.
+1. The following code snippet assumes you already created the SageMaker AI Boto3 client `sm_client` and a model version whose ARN is stored in the variable `model_version_arn`.
 
-Create a model object from the model version by calling the [create\_model](../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model "../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model") API operation. Pass the Amazon Resource Name
-(ARN) of the model version as part of the `Containers` for
-the model object:
+   Create a model object from the model version by calling the [create\_model](https://docs.aws.amazon.com/boto3/latest/reference/services/sagemaker.html#SageMaker.Client.create_model) API operation. Pass the Amazon Resource Name (ARN) of the model version as part of the `Containers` for the model object:
 
-```
-model_name = 'DEMO-modelregistry-model-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
-print("Model name : {}".format(model_name))
-container_list = [{'ModelPackageName': model_version_arn}]
+   ```
+   model_name = 'DEMO-modelregistry-model-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
+   print("Model name : {}".format(model_name))
+   container_list = [{'ModelPackageName': model_version_arn}]
+   
+   create_model_response = sm_client.create_model(
+       ModelName = model_name,
+       ExecutionRoleArn = role,
+       Containers = container_list
+   )
+   print("Model arn : {}".format(create_model_response["ModelArn"]))
+   ```
 
-create_model_response = sm_client.create_model(
-    ModelName = model_name,
-    ExecutionRoleArn = role,
-    Containers = container_list
-)
-print("Model arn : {}".format(create_model_response["ModelArn"]))
-```
+1. Create an endpoint configuration by calling `create_endpoint_config`. The endpoint configuration specifies the number and type of Amazon EC2 instances to use for the endpoint.
 
-2. Create an endpoint configuration by calling
-   `create_endpoint_config`. The endpoint configuration
-   specifies the number and type of Amazon EC2 instances to use for the
-   endpoint.
+   ```
+   endpoint_config_name = 'DEMO-modelregistry-EndpointConfig-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
+   print(endpoint_config_name)
+   create_endpoint_config_response = sm_client.create_endpoint_config(
+       EndpointConfigName = endpoint_config_name,
+       ProductionVariants=[{
+           'InstanceType':'ml.m4.xlarge',
+           'InitialVariantWeight':1,
+           'InitialInstanceCount':1,
+           'ModelName':model_name,
+           'VariantName':'AllTraffic'}])
+   ```
 
-```
-endpoint_config_name = 'DEMO-modelregistry-EndpointConfig-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
-print(endpoint_config_name)
-create_endpoint_config_response = sm_client.create_endpoint_config(
-    EndpointConfigName = endpoint_config_name,
-    ProductionVariants=[{
-        'InstanceType':'ml.m4.xlarge',
-        'InitialVariantWeight':1,
-        'InitialInstanceCount':1,
-        'ModelName':model_name,
-        'VariantName':'AllTraffic'}])
-```
+1. Create the endpoint by calling `create_endpoint`.
 
-3. Create the endpoint by calling `create_endpoint`.
-
-```
-endpoint_name = 'DEMO-modelregistry-endpoint-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
-print("EndpointName={}".format(endpoint_name))
-
-create_endpoint_response = sm_client.create_endpoint(
-    EndpointName=endpoint_name,
-    EndpointConfigName=endpoint_config_name)
-print(create_endpoint_response['EndpointArn'])
-```
+   ```
+   endpoint_name = 'DEMO-modelregistry-endpoint-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
+   print("EndpointName={}".format(endpoint_name))
+   
+   create_endpoint_response = sm_client.create_endpoint(
+       EndpointName=endpoint_name,
+       EndpointConfigName=endpoint_config_name)
+   print(create_endpoint_response['EndpointArn'])
+   ```
 
 ## Deploy a Model Version from a Different Account
+<a name="model-registry-deploy-xaccount"></a>
 
-You can permit an AWS account to deploy model versions that were created in
-a different account by adding a cross-account resource policy. For example, one
-team in your organization might be responsible for training models, and a
-different team is responsible for deploying and updating models. When you create
-these resource policies, you apply the policy to the specific resource to which
-you want to grant access. For more information about cross-account resource
-policies in AWS, see [Cross-account policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md") in the _AWS Identity and Access Management
-User Guide_.
+You can permit an AWS account to deploy model versions that were created in a different account by adding a cross-account resource policy. For example, one team in your organization might be responsible for training models, and a different team is responsible for deploying and updating models. When you create these resource policies, you apply the policy to the specific resource to which you want to grant access. For more information about cross-account resource policies in AWS, see [Cross-account policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.html) in the *AWS Identity and Access Management User Guide*.
 
-###### Note
+**Note**  
+You must use a KMS key to encrypt the [output data config](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputDataConfig.html) action during training for cross-account model deployment.
 
-You must use a KMS key to encrypt the [output
-data config](../APIReference/API_OutputDataConfig.md "../APIReference/API_OutputDataConfig.md") action during training for cross-account model
-deployment.
+To enable cross-account model deployment in SageMaker AI, you have to provide a cross-account resource policy for the Model Group that contains the model versions you want to deploy, the Amazon ECR repository where the inference image for the Model Group resides, and the Amazon S3 bucket where the model versions are stored.
 
-To enable cross-account model deployment in SageMaker AI, you have to provide a
-cross-account resource policy for the Model Group that contains the model
-versions you want to deploy, the Amazon ECR repository where the inference image for
-the Model Group resides, and the Amazon S3 bucket where the model versions are
-stored.
+To be able to deploy a model that was created in a different account, you must have a role that has access to SageMaker AI actions, such as a role with the `AmazonSageMakerFullAccess` managed policy. For information about SageMaker AI managed policies, see [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md).
 
-To be able to deploy a model that was created in a different account, you must
-have a role that has access to SageMaker AI actions, such as a role with the
-`AmazonSageMakerFullAccess` managed policy. For information about
-SageMaker AI managed policies, see [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
-
-The following example creates cross-account policies for all three of these
-resources, and applies the policies to the resources. The example also assumes
-that you previously defined the following variables:
-
-- `bucket` – The Amazon S3 bucket where the model versions
-  are stored.
-- `kms_key_id` – The KMS key used to encrypt the
-  training output.
-- `sm_client` – A SageMaker AI Boto3 client.
-- `model_package_group_name` – The Model Group to
-  which you want to grant cross-account access.
-- `model_package_group_arn` – The Model Group ARN to
-  which you want to grant cross-account access.
+The following example creates cross-account policies for all three of these resources, and applies the policies to the resources. The example also assumes that you previously defined the following variables:
++ `bucket` – The Amazon S3 bucket where the model versions are stored.
++ `kms_key_id` – The KMS key used to encrypt the training output.
++ `sm_client` – A SageMaker AI Boto3 client.
++ `model_package_group_name` – The Model Group to which you want to grant cross-account access.
++ `model_package_group_arn` – The Model Group ARN to which you want to grant cross-account access.
 
 ```
 import json
@@ -150,7 +114,7 @@ cross_account_id = "123456789012"
 
 # Create the policy for access to the ECR repository
 ecr_repository_policy = {
-    'Version': '2012-10-17',
+    'Version': '2012-10-17		 	 	 ',
     'Statement': [{
         'Sid': 'AddPerm',
         'Effect': 'Allow',
@@ -174,7 +138,7 @@ response = ecr.set_repository_policy(
 
 # Create a policy for accessing the S3 bucket
 bucket_policy = {
-    'Version': '2012-10-17',
+    'Version': '2012-10-17		 	 	 ',
     'Statement': [{
         'Sid': 'AddPerm',
         'Effect': 'Allow',
@@ -210,7 +174,7 @@ response = client.create_grant(
 
 # 3. Create a policy for access to the Model Group.
 model_package_group_policy = {
-    'Version': '2012-10-17',
+    'Version': '2012-10-17		 	 	 ',
     'Statement': [{
         'Sid': 'AddPermModelPackageGroup',
         'Effect': 'Allow',

@@ -1,42 +1,28 @@
+
+
 # Schedule Bias Drift Monitoring Jobs
+<a name="clarify-model-monitor-bias-drift-schedule"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+After you create your baseline, you can call the `create_monitoring_schedule()` method of your `ModelBiasModelMonitor` class instance to schedule an hourly bias drift monitor. The following sections show you how to create bias drift monitor for a model deployed to a real-time endpoint as well as for a batch transform job.
 
-After you create your baseline, you can call the
-`create_monitoring_schedule()` method of your
-`ModelBiasModelMonitor` class instance to schedule an hourly bias drift
-monitor. The following sections show you how to create bias drift monitor for a model
-deployed to a real-time endpoint as well as for a batch transform job.
+**Important**  
+You can specify either a batch transform input or an endpoint input, but not both, when you create your monitoring schedule.
 
-###### Important
+Unlike data quality monitoring, you need to supply Ground Truth labels if you want to monitor model quality. However, Ground Truth labels could be delayed. To address this, specify offsets when you create your monitoring schedule. For details about how to create time offsets, see [Model monitor offsets](model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets). 
 
-You can specify either a batch transform input or an endpoint input,
-but not both, when you create your monitoring schedule.
-
-Unlike data quality monitoring, you need to supply Ground Truth labels if you want to monitor
-model quality. However, Ground Truth labels could be delayed. To address this, specify offsets
-when you create your monitoring schedule. For details about how to create time offsets,
-see [Model monitor offsets](model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets "model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets").
-
-If you have submitted a baselining job, the monitor automatically picks up analysis
-configuration from the baselining job. If you skip the baselining step or the capture
-dataset has a different nature from the training dataset, you must provide the analysis
-configuration.
+If you have submitted a baselining job, the monitor automatically picks up analysis configuration from the baselining job. If you skip the baselining step or the capture dataset has a different nature from the training dataset, you must provide the analysis configuration.
 
 ## Bias drift monitoring for models deployed to real-time endpoint
+<a name="model-monitor-bias-quality-rt"></a>
 
-To schedule a bias drift monitor for a real-time endpoint, pass your
-`EndpointInput` instance to the `endpoint_input` argument
-of your `ModelBiasModelMonitor` instance, as shown in the following code
-sample:
+To schedule a bias drift monitor for a real-time endpoint, pass your `EndpointInput` instance to the `endpoint_input` argument of your `ModelBiasModelMonitor` instance, as shown in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
-
+            
 model_bias_monitor = ModelBiasModelMonitor(
     role=get_execution_role(),
     ...
@@ -70,16 +56,13 @@ model_bias_monitor.create_monitoring_schedule(
 ```
 
 ## Bias drift monitoring for batch transform jobs
+<a name="model-monitor-bias-quality-bt"></a>
 
-To schedule a bias drift monitor for a batch transform job, pass your
-`BatchTransformInput` instance to the
-`batch_transform_input` argument of your
-`ModelBiasModelMonitor` instance, as shown in the following code
-sample:
+To schedule a bias drift monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `ModelBiasModelMonitor` instance, as shown in the following code sample:
 
 ```
 from sagemaker.model_monitor import CronExpressionGenerator
-
+                
 model_bias_monitor = ModelBiasModelMonitor(
     role=get_execution_role(),
     ...
@@ -92,7 +75,7 @@ if not model_bias_monitor.latest_baselining_job:
         headers=all_headers,
         label=label_header,
     )
-
+    
 schedule = model_bias_monitor.create_monitoring_schedule(
    monitor_schedule_name=schedule_name,
    post_analytics_processor_script=s3_code_postprocessor_uri,

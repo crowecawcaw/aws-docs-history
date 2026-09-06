@@ -1,26 +1,13 @@
+
+
 # Monitoring a Model in Production
+<a name="how-it-works-model-monitor"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+After you deploy a model into your production environment, use Amazon SageMaker Model Monitor to continuously monitor the quality of your machine learning models in real time. Amazon SageMaker Model Monitor enables you to set up an automated alert triggering system when there are deviations in the model quality, such as data drift and anomalies. Amazon CloudWatch Logs collects log files of monitoring the model status and notifies when the quality of your model hits certain thresholds that you preset. CloudWatch stores the log files to an Amazon S3 bucket you specify. Early and pro-active detection of model deviations through AWS model monitor products enables you to take prompt actions to maintain and improve the quality of your deployed model. 
 
-After you deploy a model into your production environment, use Amazon SageMaker Model Monitor
-to continuously monitor the quality of your machine learning models in real time.
-Amazon SageMaker Model Monitor enables you to set up an automated alert triggering system
-when there are deviations in the model quality, such as data
-drift and anomalies.
-Amazon CloudWatch Logs collects log files of monitoring the model status
-and notifies when the quality of your model hits certain thresholds
-that you preset.
-CloudWatch stores the log files to an Amazon S3 bucket you specify.
-Early and pro-active detection of model deviations through AWS model monitor products
-enables you to take prompt actions
-to maintain and improve the quality of your deployed model.
+For more information about SageMaker Model Monitoring products, see [Data and model quality monitoring with Amazon SageMaker Model Monitor](model-monitor.md).
 
-For more information about SageMaker Model Monitoring products,
-see [Data and model quality monitoring with Amazon SageMaker Model Monitor](model-monitor.md "model-monitor.md").
-
-To start your machine learning journey with SageMaker AI, sign up for an AWS account at
-[Set Up SageMaker AI](gs-set-up.md "gs-set-up.md").
+To start your machine learning journey with SageMaker AI, sign up for an AWS account at [ Set Up SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html). 

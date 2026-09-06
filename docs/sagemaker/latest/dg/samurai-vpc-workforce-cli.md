@@ -1,48 +1,46 @@
+
+
 # Using the SageMaker AI AWS API to manage a VPC config
+<a name="samurai-vpc-workforce-cli"></a>
 
-###### Note
-
-Amazon SageMaker Ground Truth is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Ground Truth, but we do not plan to introduce new features.
+**Note**  
+Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
 Use the following sections to learn more about managing a VPCs configuration, while maintaining the right level of access to the work team.
 
 ## Create a workforce with a VPC configuration
+<a name="samurai-create-vpc-cli"></a>
 
 If the account already has a workforce, then you must delete it first. You can also update the workforce with VPC configuration.
 
 ```
-
-aws sagemaker create-workforce --cognito-config '{"ClientId": "`app-client-id`","UserPool": "`Pool_ID`",}' --workforce-vpc-config \
-" {\"VpcId\": \"`vpc-id`\", \"SecurityGroupIds\": [\"sg-0123456789abcdef0\"], \"Subnets\": [\"subnet-0123456789abcdef0\"]}" --workforce-name `workforce-name`
+aws sagemaker create-workforce --cognito-config '{"ClientId": "{{app-client-id}}","UserPool": "{{Pool_ID}}",}' --workforce-vpc-config \       
+" {\"VpcId\": \"{{vpc-id}}\", \"SecurityGroupIds\": [\"sg-0123456789abcdef0\"], \"Subnets\": [\"subnet-0123456789abcdef0\"]}" --workforce-name {{workforce-name}}
 {
-    "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/`workforce-name`"
+    "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/{{workforce-name}}"
 }
-
 ```
 
 Describe the workforce and make sure the status is `Initializing`.
 
 ```
-
-aws sagemaker describe-workforce --workforce-name `workforce-name`
+aws sagemaker describe-workforce --workforce-name {{workforce-name}}
 {
     "Workforce": {
-        "WorkforceName": "`workforce-name`",
-        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/`workforce-name`",
+        "WorkforceName": "{{workforce-name}}",
+        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/{{workforce-name}}",
         "LastUpdatedDate": 1622151252.451,
         "SourceIpConfig": {
             "Cidrs": []
         },
-        "SubDomain": "`subdomain`.us-west-2.sagamaker.aws.com",
+        "SubDomain": "{{subdomain}}.us-west-2.sagamaker.aws.com",
         "CognitoConfig": {
-            "UserPool": "`Pool_ID`",
-            "ClientId": "`app-client-id`"
+            "UserPool": "{{Pool_ID}}",
+            "ClientId": "{{app-client-id}}"
         },
         "CreateDate": 1622151252.451,
         "WorkforceVpcConfig": {
-            "VpcId": "`vpc-id`",
+            "VpcId": "{{vpc-id}}",
             "SecurityGroupIds": [
                 "sg-0123456789abcdef0"
             ],
@@ -53,43 +51,40 @@ aws sagemaker describe-workforce --workforce-name `workforce-name`
         "Status": "Initializing"
     }
 }
-
 ```
 
 Navigate to the Amazon VPC console. Select **Endpoints** from the left panel. There should be two VPC endpoints created in your account.
 
 ## Adding a VPC configuration your workforce
+<a name="samurai-add-vpc-cli"></a>
 
 Update a non-VPC private workforce with a VPC configuration using the following command.
 
 ```
-
-aws sagemaker update-workforce --workforce-name `workforce-name`\
---workforce-vpc-config "{\"VpcId\": \"`vpc-id`\", \"SecurityGroupIds\": [\"sg-0123456789abcdef0\"], \"Subnets\": [\"subnet-0123456789abcdef0\"]}"
-
+aws sagemaker update-workforce --workforce-name {{workforce-name}}\
+--workforce-vpc-config "{\"VpcId\": \"{{vpc-id}}\", \"SecurityGroupIds\": [\"sg-0123456789abcdef0\"], \"Subnets\": [\"subnet-0123456789abcdef0\"]}"
 ```
 
 Describe the workforce and make sure the status is `Updating`.
 
 ```
-
-aws sagemaker describe-workforce --workforce-name `workforce-name`
+aws sagemaker describe-workforce --workforce-name {{workforce-name}}
 {
     "Workforce": {
-        "WorkforceName": "`workforce-name`",
-        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/`workforce-name`",
+        "WorkforceName": "{{workforce-name}}",
+        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/{{workforce-name}}",
         "LastUpdatedDate": 1622151252.451,
         "SourceIpConfig": {
             "Cidrs": []
         },
-        "SubDomain": "`subdomain`.us-west-2.sagamaker.aws.com",
+        "SubDomain": "{{subdomain}}.us-west-2.sagamaker.aws.com",
         "CognitoConfig": {
-            "UserPool": "`Pool_ID`",
-            "ClientId": "`app-client-id`"
+            "UserPool": "{{Pool_ID}}",
+            "ClientId": "{{app-client-id}}"
         },
         "CreateDate": 1622151252.451,
         "WorkforceVpcConfig": {
-            "VpcId": "`vpc-id`",
+            "VpcId": "{{vpc-id}}",
             "SecurityGroupIds": [
                 "sg-0123456789abcdef0"
             ],
@@ -100,72 +95,61 @@ aws sagemaker describe-workforce --workforce-name `workforce-name`
         "Status": "Updating"
     }
 }
-
 ```
 
 Navigate to your Amazon VPC console. Select **Endpoints** from the left panel. There should be two VPC endpoints created in your account.
 
 ## Removing a VPC configuration from your workforce
+<a name="samurai-remove-vpc-cli"></a>
 
 Update a VPC private workforce with an empty VPC configuration to remove VPC resources.
 
 ```
-
-aws sagemaker update-workforce --workforce-name `workforce-name`\
+aws sagemaker update-workforce --workforce-name {{workforce-name}}\ 
 --workforce-vpc-config "{}"
-
 ```
 
 Describe the workforce and make sure the status is `Updating`.
 
 ```
-
-aws sagemaker describe-workforce --workforce-name `workforce-name`
+aws sagemaker describe-workforce --workforce-name {{workforce-name}}
 {
     "Workforce": {
-        "WorkforceName": "`workforce-name`",
-        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/`workforce-name`",
+        "WorkforceName": "{{workforce-name}}",
+        "WorkforceArn": "arn:aws:sagemaker:us-west-2:xxxxxxxxx:workforce/{{workforce-name}}",
         "LastUpdatedDate": 1622151252.451,
         "SourceIpConfig": {
             "Cidrs": []
         },
-        "SubDomain": "`subdomain`.us-west-2.sagamaker.aws.com",
+        "SubDomain": "{{subdomain}}.us-west-2.sagamaker.aws.com",
         "CognitoConfig": {
-            "UserPool": "`Pool_ID`",
-            "ClientId": "`app-client-id`"
+            "UserPool": "{{Pool_ID}}",
+            "ClientId": "{{app-client-id}}"
         },
         "CreateDate": 1622151252.451,
         "Status": "Updating"
     }
 }
-
 ```
 
 Naviagate to your Amazon VPC console. Select **Endpoints** from the left panel. The two VPC endpoints should be deleted.
 
 ## Restrict public access to the worker portal while maintaining access through a VPC
+<a name="public-access-vpc"></a>
 
-The workers in a VPC or non-VPC worker portal are be able to see the labeling job tasks
-assigned to them. The assignment comes from assigning workers in a work team through OIDC
-groups. It is the customer’s responsibility to restrict the access to their public worker
-portal by setting the `sourceIpConfig` in their workforce.
+ The workers in a VPC or non-VPC worker portal are be able to see the labeling job tasks assigned to them. The assignment comes from assigning workers in a work team through OIDC groups. It is the customer’s responsibility to restrict the access to their public worker portal by setting the `sourceIpConfig` in their workforce. 
 
-###### Note
-
+**Note**  
 You can restrict access to the worker portal only through the SageMaker API. This cannot be done through the console.
 
 Use the following command to restrict public access to the worker portal.
 
 ```
-
 aws sagemaker update-workforce --region us-west-2 \
 --workforce-name workforce-demo --source-ip-config '{"Cidrs":["10.0.0.0/16"]}'
-
 ```
 
-After the `sourceIpConfig` is set on the workforce, the workers can access
-the worker portal in VPC but not through public internet.
+After the `sourceIpConfig` is set on the workforce, the workers can access the worker portal in VPC but not through public internet.
 
-###### Note
-
+**Note**  
 You can not set the `sourceIP` restriction for worker portal in VPC.

@@ -1,15 +1,14 @@
-# Deploying a model with Ray Serve
 
-You deploy a model with a `RayService` resource. The `serveConfigV2`
-field holds your Serve applications and their deployments, and KubeRay creates the Ray
-cluster that runs them. HyperPod does not modify KubeRay, so a
-`RayService` you already run continues to work.
+
+# Deploying a model with Ray Serve
+<a name="sagemaker-hyperpod-ray-deploy-model"></a>
+
+You deploy a model with a `RayService` resource. The `serveConfigV2` field holds your Serve applications and their deployments, and KubeRay creates the Ray cluster that runs them. HyperPod does not modify KubeRay, so a `RayService` you already run continues to work.
 
 ## A RayService manifest
+<a name="sagemaker-hyperpod-ray-deploy-model-manifest"></a>
 
-The following manifest runs one Serve application with a single GPU-backed deployment.
-Replace `import_path` with the module and application object in your working
-directory.
+The following manifest runs one Serve application with a single GPU-backed deployment. Replace `import_path` with the module and application object in your working directory.
 
 ```
 apiVersion: ray.io/v1
@@ -65,15 +64,13 @@ kubectl get rayservice my-service -n my-namespace
 ```
 
 ## Reaching the endpoint
+<a name="sagemaker-hyperpod-ray-deploy-model-endpoint"></a>
 
-Ray Serve listens on port `8000` on the head pod. From inside the cluster,
-send requests to the service that KubeRay creates for the `RayService`. For
-quick testing, you can use `kubectl port-forward`:
+Ray Serve listens on port `8000` on the head pod. From inside the cluster, send requests to the service that KubeRay creates for the `RayService`. For quick testing, you can use `kubectl port-forward`:
 
 ```
-kubectl port-forward svc/`ray-service-head-svc` 8000:8000
+kubectl port-forward svc/{{ray-service-head-svc}} 8000:8000
 curl http://localhost:8000/
 ```
 
-For the Serve deployment API and request handling, see [Ray Serve
-API](https://docs.ray.io/en/latest/serve/api/index.html "https://docs.ray.io/en/latest/serve/api/index.html") in the Ray documentation.
+For the Serve deployment API and request handling, see [Ray Serve API](https://docs.ray.io/en/latest/serve/api/index.html) in the Ray documentation.

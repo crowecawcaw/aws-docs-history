@@ -1,100 +1,57 @@
+
+
 # Serverless model customization
+<a name="customize-model"></a>
 
-Amazon SageMaker AI model customization is a capability that transforms the traditionally complex and
-time-consuming process of customizing AI models from a months-long endeavor into a
-streamlined workflow that can be completed in days. This feature addresses the critical
-challenge faced by AI developers who need to customize foundation models with proprietary
-data to create highly differentiated customer experiences. Detailed customization
-documentation, including step-by-step guides and advanced configuration options, is provided
-in this SageMaker AI guide. For a brief overview of Nova model customization, see [Customize and fine-tune with SageMaker](../../../nova/latest/userguide/customize-fine-tune-sagemaker.md "../../../nova/latest/userguide/customize-fine-tune-sagemaker.md") in the Amazon Nova User Guide.
+Amazon SageMaker AI model customization is a capability that transforms the traditionally complex and time-consuming process of customizing AI models from a months-long endeavor into a streamlined workflow that can be completed in days. This feature addresses the critical challenge faced by AI developers who need to customize foundation models with proprietary data to create highly differentiated customer experiences. Detailed customization documentation, including step-by-step guides and advanced configuration options, is provided in this SageMaker AI guide. For a brief overview of Nova model customization, see [Customize and fine-tune with SageMaker](https://docs.aws.amazon.com/nova/latest/userguide/customize-fine-tune-sagemaker.html) in the Amazon Nova User Guide.
 
-The capability includes a new guided user interface that understands natural language
-requirements, with a comprehensive suite of advanced model customization techniques, all
-powered by serverless infrastructure that eliminates the operational overhead of
-managing compute resources. Whether you're building legal research applications,
-enhancing customer service chatbots, or developing domain-specific AI agents, this
-feature accelerates your path from proof-of-concept to production deployment.
+The capability includes a new guided user interface that understands natural language requirements, with a comprehensive suite of advanced model customization techniques, all powered by serverless infrastructure that eliminates the operational overhead of managing compute resources. Whether you're building legal research applications, enhancing customer service chatbots, or developing domain-specific AI agents, this feature accelerates your path from proof-of-concept to production deployment.
 
-Features in Model Customization powered by Amazon Bedrock Evaluations may securely transmit data
-across AWS Regions within your geography for processing. For more information, access
-[Amazon Bedrock Evaluations documentation](../../../bedrock/latest/userguide/evaluation-judge.md "../../../bedrock/latest/userguide/evaluation-judge.md").
+Features in Model Customization powered by Amazon Bedrock Evaluations may securely transmit data across AWS Regions within your geography for processing. For more information, access [Amazon Bedrock Evaluations documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html).
 
 ## Key concepts
+<a name="model-customize-concepts"></a>
 
 **Serverless training**
 
-A fully managed compute infrastructure that abstracts away all infrastructure
-complexity, allowing you to focus purely on model development. This includes
-automatic provisioning of GPU instances (P5, P4de, P4d, G5) based on model size and
-training requirements, pre-optimized training recipes that incorporate best
-practices for each customization technique, real-time monitoring with live metrics
-and logs accessible through the UI, and automatic cleanup of resources after
-training completion to optimize costs.
+A fully managed compute infrastructure that abstracts away all infrastructure complexity, allowing you to focus purely on model development. This includes automatic provisioning of GPU instances (P5, P4de, P4d, G5) based on model size and training requirements, pre-optimized training recipes that incorporate best practices for each customization technique, real-time monitoring with live metrics and logs accessible through the UI, and automatic cleanup of resources after training completion to optimize costs.
 
 **Model customization techniques**
 
-Comprehensive set of advanced methods including supervised fine-tuning (SFT),
-direct preference optimization (DPO), reinforcement learning with verifiable rewards
-(RLVR), reinforcement learning with AI feedback (RLAIF), and multi-turn
-reinforcement learning (multi-turn RL).
+Comprehensive set of advanced methods including supervised fine-tuning (SFT), direct preference optimization (DPO), reinforcement learning with verifiable rewards (RLVR), reinforcement learning with AI feedback (RLAIF), and multi-turn reinforcement learning (multi-turn RL).
 
 **Custom model**
 
-A specialized version of a base foundation model that has been adapted to a
-specific use case by training it on your own data, resulting in an AI model that
-retains the general capabilities of the original foundation model while adding
-domain-specific knowledge, terminology, style, or behavior tailored to your
-requirements.
+A specialized version of a base foundation model that has been adapted to a specific use case by training it on your own data, resulting in an AI model that retains the general capabilities of the original foundation model while adding domain-specific knowledge, terminology, style, or behavior tailored to your requirements.
 
 **AI model customization assets**
 
-Resources and artifacts used to train, refine, and evaluate custom models during
-the model customization process. These assets include **datasets**, which are collections of training examples
-(prompt-response pairs, domain-specific text, or labeled data) used to fine-tune a
-foundation model to learn specific behaviors, knowledge, or styles, and **evaluators**, which are mechanisms for assessing and
-improving model performance through either _**reward functions**_ (code-based logic that
-scores model outputs based on specific criteria, used in RLVR training and custom
-scorer evaluation) or _**reward
-prompts**_ (natural language instructions that guide an
-LLM to judge the quality of model responses, used in RLAIF training and
-LLM-as-a-judge evaluation).
+Resources and artifacts used to train, refine, and evaluate custom models during the model customization process. These assets include **datasets**, which are collections of training examples (prompt-response pairs, domain-specific text, or labeled data) used to fine-tune a foundation model to learn specific behaviors, knowledge, or styles, and **evaluators**, which are mechanisms for assessing and improving model performance through either ***reward functions*** (code-based logic that scores model outputs based on specific criteria, used in RLVR training and custom scorer evaluation) or ***reward prompts*** (natural language instructions that guide an LLM to judge the quality of model responses, used in RLAIF training and LLM-as-a-judge evaluation).
 
 **Model package group**
 
-A collection container that tracks all logged models from training jobs, providing a
-centralized location for model versions and their lineage.
+A collection container that tracks all logged models from training jobs, providing a centralized location for model versions and their lineage.
 
 **Logged model**
 
-The output created by SageMaker AI when running serverless training jobs. This
-can be a fine-tuned model (successful job), a checkpoint (failed job with checkpoint),
-or associated metadata (failed job without checkpoint).
+The output created by SageMaker AI when running serverless training jobs. This can be a fine-tuned model (successful job), a checkpoint (failed job with checkpoint), or associated metadata (failed job without checkpoint).
 
 **Registered model**
 
-A logged model that has been marked for formal tracking and governance purposes,
-enabling full lineage and lifecycle management.
+A logged model that has been marked for formal tracking and governance purposes, enabling full lineage and lifecycle management.
 
 **Lineage**
 
-The automatically captured relationships between training jobs, input datasets, output
-models, evaluation jobs, and deployments across SageMaker AI and Amazon Bedrock.
+The automatically captured relationships between training jobs, input datasets, output models, evaluation jobs, and deployments across SageMaker AI and Amazon Bedrock.
 
 **Cross-account sharing**
 
-The ability to share models, datasets, and evaluators across AWS accounts using AWS
-Resource Access Manager (RAM) while maintaining complete lineage visibility.
+The ability to share models, datasets, and evaluators across AWS accounts using AWS Resource Access Manager (RAM) while maintaining complete lineage visibility.
 
 **User Interfaces**
 
-Amazon SageMaker AI provides multiple interfaces for model customization, allowing you to
-choose the approach that best fits your workflow and expertise level. You can
-customize models programmatically using APIs available through the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/model_customization/index.html "https://sagemaker.readthedocs.io/en/stable/model_customization/index.html"), leverage intuitive UI interfaces in
-Studio for visual model customization workflows, or use agent-guided workflows
-directly in your IDE and coding assistant of choice for an interactive,
-conversational approach to model development, leveraging Amazon SageMaker AI Skills.
+Amazon SageMaker AI provides multiple interfaces for model customization, allowing you to choose the approach that best fits your workflow and expertise level. You can customize models programmatically using APIs available through the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/model_customization/index.html), leverage intuitive UI interfaces in Studio for visual model customization workflows, or use agent-guided workflows directly in your IDE and coding assistant of choice for an interactive, conversational approach to model development, leveraging Amazon SageMaker AI Skills.
 
 **Pricing**
 
-For pricing details, see the [pricing page](https://aws.amazon.com/sagemaker/ai/pricing/ "https://aws.amazon.com/sagemaker/ai/pricing/") (Model
-Customization tab).
+For pricing details, see the [pricing page](https://aws.amazon.com/sagemaker/ai/pricing/) (Model Customization tab).

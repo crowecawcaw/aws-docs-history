@@ -1,49 +1,57 @@
-# Connect to your observability tool
 
-To query detailed observability metrics from your existing observability tool instead of
-using the SageMaker AI Insights dashboard in Amazon CloudWatch, SageMaker AI publishes metrics to Amazon CloudWatch through a
-regional PromQL endpoint that is compatible with Prometheus-based tools, including Amazon Managed
-Grafana, self-hosted Grafana, and other PromQL-compatible platforms. You authenticate using
-AWS Signature Version 4 (SigV4). This section describes how to configure a Prometheus data
-source, import the pre-configured dashboard template, and write PromQL queries for your
-inference metrics.
+
+# Connect to your observability tool
+<a name="monitoring-detailed-observability-promql"></a>
+
+To query detailed observability metrics from your existing observability tool instead of using the SageMaker AI Insights dashboard in Amazon CloudWatch, SageMaker AI publishes metrics to Amazon CloudWatch through a regional PromQL endpoint that is compatible with Prometheus-based tools, including Amazon Managed Grafana, self-hosted Grafana, and other PromQL-compatible platforms. You authenticate using AWS Signature Version 4 (SigV4). This section describes how to configure a Prometheus data source, import the pre-configured dashboard template, and write PromQL queries for your inference metrics.
 
 ## PromQL endpoint and authentication
+<a name="detailed-observability-promql-endpoint"></a>
 
-PromQL connection settings| Setting | Value |
-| --- | --- |
-| Endpoint URL | `https://monitoring.`region`.amazonaws.com` |
-| Auth | Signature Version 4 (SigV4) |
-| Service | `monitoring` |
-| Required permissions | `cloudwatch:QueryMetrics`,<br>`cloudwatch:GetMetricData`,<br>`cloudwatch:ListMetrics` |
+
+**PromQL connection settings**  
+
+| Setting | Value | 
+| --- | --- | 
+| Endpoint URL | https://monitoring.{{region}}.amazonaws.com | 
+| Auth | Signature Version 4 (SigV4) | 
+| Service | monitoring | 
+| Required permissions | cloudwatch:QueryMetrics, cloudwatch:GetMetricData, cloudwatch:ListMetrics | 
 
 ## Setting up a Prometheus data source in Grafana
+<a name="detailed-observability-promql-grafana"></a>
 
 ### Option 1: Amazon Managed Prometheus (recommended for AMG)
+<a name="detailed-observability-promql-grafana-amg"></a>
 
-1. Open AMG workspace → **Data Sources** →
-   **Add** → **Amazon Managed Service for
-   Prometheus**
-2. Name: `SageMaker Inference (PromQL) `region``
-3. URL: `https://monitoring.`region`.amazonaws.com`
-4. Default Region: `region`
-5. Service: `monitoring`
-6. Click **Save and test**
+1. Open AMG workspace → **Data Sources** → **Add** → **Amazon Managed Service for Prometheus**
 
-![Amazon Managed Grafana data source configuration for SageMaker Inference PromQL.](images/SageMaker Observability/AMG_data_source_configuration.png)
+1. Name: `SageMaker Inference (PromQL) {{region}}`
+
+1. URL: `https://monitoring.{{region}}.amazonaws.com`
+
+1. Default Region: `{{region}}`
+
+1. Service: `monitoring`
+
+1. Click **Save and test**
+
+![Amazon Managed Grafana data source configuration for SageMaker Inference PromQL.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/AMG_data_source_configuration.png)
+
 
 ### Option 2: Standard Prometheus data source
+<a name="detailed-observability-promql-grafana-standard"></a>
 
 ```
 {
     "name": "SageMaker Inference (PromQL)",
     "type": "prometheus",
-    "url": "https://monitoring.`region`.amazonaws.com",
+    "url": "https://monitoring.{{region}}.amazonaws.com",
     "access": "proxy",
     "jsonData": {
         "sigV4Auth": true,
         "sigV4AuthType": "default",
-        "sigV4Region": "`region`",
+        "sigV4Region": "{{region}}",
         "sigV4Service": "monitoring",
         "httpMethod": "POST"
     }
@@ -51,6 +59,7 @@ PromQL connection settings| Setting | Value |
 ```
 
 ## IAM policy
+<a name="detailed-observability-promql-iam"></a>
 
 ```
 {
@@ -69,34 +78,41 @@ PromQL connection settings| Setting | Value |
 ```
 
 ## Importing the dashboard template
+<a name="detailed-observability-promql-template"></a>
 
-1. SageMaker AI Console → Endpoints → "Connect to your observability tool" →
-   **Dashboard template** tab
-2. Click **Download Grafana Template** (JSON)
-3. In Grafana: **Dashboards** → **Import**
-   → **Upload JSON**
-4. Select your data source → **Import**
+1. SageMaker AI Console → Endpoints → "Connect to your observability tool" → **Dashboard template** tab
 
-The template has 3 sections (Performance, Capacity, Reliability) matching the SageMaker AI
-Insights dashboard.
+1. Click **Download Grafana Template** (JSON)
 
-![Dashboard template import workflow showing Grafana data source selection and import steps.](images/SageMaker Observability/Dashboard_template.png)
+1. In Grafana: **Dashboards** → **Import** → **Upload JSON**
+
+1. Select your data source → **Import**
+
+The template has 3 sections (Performance, Capacity, Reliability) matching the SageMaker AI Insights dashboard.
+
+![Dashboard template import workflow showing Grafana data source selection and import steps.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Dashboard_template.png)
+
 
 ## OTel labels available in PromQL
+<a name="detailed-observability-promql-labels"></a>
 
 In PromQL, labels with dots must be enclosed in single quotes:
 
-OTel labels| Label | Description |
-| --- | --- |
-| `'aws.sagemaker.endpoint.name'` | Endpoint name |
-| `'aws.sagemaker.inference_component.name'` | IC name |
-| `'aws.sagemaker.inference_framework'` | Framework (vllm, sglang) |
-| `'aws.sagemaker.variant.name'` | Variant name |
-| `@resource.host.id` | Instance ID |
-| `@resource.cloud.availability_zone` | Availability zone |
-| `@resource.host.type` | Instance type |
+
+**OTel labels**  
+
+| Label | Description | 
+| --- | --- | 
+| 'aws.sagemaker.endpoint.name' | Endpoint name | 
+| 'aws.sagemaker.inference\_component.name' | IC name | 
+| 'aws.sagemaker.inference\_framework' | Framework (vllm, sglang) | 
+| 'aws.sagemaker.variant.name' | Variant name | 
+| @resource.host.id | Instance ID | 
+| @resource.cloud.availability\_zone | Availability zone | 
+| @resource.host.type | Instance type | 
 
 ## Example PromQL queries
+<a name="detailed-observability-promql-examples"></a>
 
 ```
 # GPU utilization per IC

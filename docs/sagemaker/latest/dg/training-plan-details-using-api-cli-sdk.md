@@ -1,49 +1,41 @@
+
+
 # View training plan details
+<a name="training-plan-details-using-api-cli-sdk"></a>
 
-To monitor the status or retrieve details of a training plan, you can use the [`DescribeTrainingPlan`](../APIReference/API_DescribeTrainingPlan.md "../APIReference/API_DescribeTrainingPlan.md") API. The API response includes a
-`Status` field, which reflects the current state of the training plan:
+To monitor the status or retrieve details of a training plan, you can use the [`DescribeTrainingPlan`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlan.html) API. The API response includes a `Status` field, which reflects the current state of the training plan:
++ If the plan purchase fails, the status is set to `Failed`.
++ Upon successful payment, the status transitions from `Pending` to `Scheduled`, based on the plan's start date. 
++ When the plan reaches its start date, the status changes to `Active`.
++ For plans with multiple discontinuous reserved capacities, the status reverts to `Scheduled` between active periods, until the start date of the next reserved capacity. 
++ After the plan's end date, the status becomes `Expired`.
 
-- If the plan purchase fails, the status is set to `Failed`.
-- Upon successful payment, the status transitions from `Pending` to
-  `Scheduled`, based on the plan's start date.
-- When the plan reaches its start date, the status changes to
-  `Active`.
-- For plans with multiple discontinuous reserved capacities, the status reverts to
-  `Scheduled` between active periods, until the start date of the next
-  reserved capacity.
-- After the plan's end date, the status becomes `Expired`.
-  Once the status is `Scheduled`, you can utilize the capacity reserved in the
-  plan for your SageMaker training jobs or HyperPod cluster workloads.
+Once the status is `Scheduled`, you can utilize the capacity reserved in the plan for your SageMaker training jobs or HyperPod cluster workloads.
 
-###### Note
+**Note**  
+Training jobs associated with the plan remain in `Pending` status until the plan becomes `Active`. 
+For HyperPod clusters using a training plan for compute capacity, the instance group status appears as `InService` once created. 
+For Studio apps, the app launches on reserved GPU capacity when the training plan is `Active`.
 
-- Training jobs associated with the plan remain in `Pending` status until
-  the plan becomes `Active`.
-- For HyperPod clusters using a training plan for compute capacity, the
-  instance group status appears as `InService` once created.
-- For Studio apps, the app launches on reserved GPU capacity when the training plan
-  is `Active`.
-  The following example uses an AWS CLI command to retrieve the details of a training plan
-  by its name.
+The following example uses an AWS CLI command to retrieve the details of a training plan by its name.
 
 ```
 aws sagemaker describe-training-plan \
---training-plan-name "`name`"
+--training-plan-name "{{name}}"
 ```
 
-This JSON document is a sample response from the SageMaker training plans API. This response
-provides details about a training plan that has been successfully created.
+This JSON document is a sample response from the SageMaker training plans API. This response provides details about a training plan that has been successfully created.
 
 ```
-      {
+      { 
          "AvailableInstanceCount": 2,
          "CurrencyCode": "USD",
          "DurationHours": 48,
          "DurationMinutes": 0,
          "EndTime": "2024-09-28T04:30:00-07:00",
          "InUseInstanceCount": 2,
-         "ReservedCapacitySummaries": [
-            {
+         "[ReservedCapacitySummaries](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ReservedCapacitySummary.html)": [ 
+            { 
                "AvailabilityZone": "string",
                "DurationHours": 48,
                "DurationMinutes": 0,
@@ -69,10 +61,8 @@ provides details about a training plan that has been successfully created.
       }
 ```
 
-The following sections define the mandatory input request parameter for the
-`DescribeTrainingPlan` API operation.
+The following sections define the mandatory input request parameter for the `DescribeTrainingPlan` API operation.
 
 ## Required parameters
-
-- `TrainingPlanName`: The name of the training plan you want to
-  describe.
+<a name="training-plan-details-required-params"></a>
++ `TrainingPlanName`: The name of the training plan you want to describe.

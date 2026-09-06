@@ -1,24 +1,31 @@
+
+
 # View your custom image details
+<a name="studio-updated-byoi-view-images"></a>
 
-The following page provides instructions on how to view your custom image details in the
-SageMaker AI image store.
+The following page provides instructions on how to view your custom image details in the SageMaker AI image store.
 
-The following provides instructions on how to view your custom images using the
-SageMaker AI console. In this section, you can view and edit your image details.
+## View custom image details (console)
+<a name="studio-updated-byoi-view-images-console"></a>
 
-###### View your custom images (console)
+The following provides instructions on how to view your custom images using the SageMaker AI console. In this section, you can view and edit your image details.
 
-1. Open the [SageMaker AI
-   console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
-2. Expand the **Admin configurations** section.
-3. Under **Admin configurations**, choose
-   **Images**.
-4. From the list of **Custom images**, select the hyperlink
-   of your image name.
-   The following section shows an example on how to view your custom images using the
-   AWS CLI.
+**View your custom images (console)**
+
+1. Open the [SageMaker AI console](https://console.aws.amazon.com/sagemaker).
+
+1. Expand the **Admin configurations** section.
+
+1. Under **Admin configurations**, choose **Images**.
+
+1. From the list of **Custom images**, select the hyperlink of your image name.
+
+## View custom image details (AWS CLI)
+<a name="studio-updated-byoi-view-images-cli"></a>
+
+The following section shows an example on how to view your custom images using the AWS CLI.
 
 ```
 aws sagemaker list-images \
-       --region `aws-region`
+       --region {{aws-region}}
 ```

@@ -1,33 +1,26 @@
+
+
 # Opt out of the collection of Amazon SageMaker Debugger usage statistics
+<a name="debugger-telemetry"></a>
 
-###### Note
+**Note**  
+End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
 
-End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources.
-For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+For all SageMaker training jobs, Amazon SageMaker Debugger runs the [ProfilerReport](debugger-built-in-profiler-rules.md#profiler-report) rule and autogenerates a [SageMaker Debugger interactive report](debugger-profiling-report.md). The `ProfilerReport` rule provides a Jupyter notebook file (`profiler-report.ipynb`) that generates a corresponding HTML file (`profiler-report.html`). 
 
-For all SageMaker training jobs, Amazon SageMaker Debugger runs the [ProfilerReport](debugger-built-in-profiler-rules.md#profiler-report "debugger-built-in-profiler-rules.md#profiler-report") rule and autogenerates a [SageMaker Debugger interactive report](debugger-profiling-report.md "debugger-profiling-report.md"). The
-`ProfilerReport` rule provides a Jupyter notebook file
-(`profiler-report.ipynb`) that generates a corresponding HTML file
-(`profiler-report.html`).
+Debugger collects profiling report usage statistics by including code in the Jupyter notebook that collects the unique `ProfilerReport` rule's processing job ARN if the user opens the final `profiler-report.html` file.
 
-Debugger collects profiling report usage statistics by including code in the Jupyter
-notebook that collects the unique `ProfilerReport` rule's processing job ARN if
-the user opens the final `profiler-report.html` file.
+Debugger only collects information about whether a user opens the final HTML report. It **DOES NOT** collect any information from training jobs, training data, training scripts, processing jobs, logs, or the content of the profiling report itself.
 
-Debugger only collects information about whether a user opens the final HTML report. It
-**DOES NOT** collect any information from training jobs,
-training data, training scripts, processing jobs, logs, or the content of the profiling
-report itself.
-
-You can opt out of the collection of usage statistics using one of the following
-options.
+You can opt out of the collection of usage statistics using one of the following options.
 
 ## (Recommended) Option 1: Opt out before running a training job
+<a name="debugger-telemetry-profiler-report-opt-out-1"></a>
 
-To opt out, you need to add the following Debugger `ProfilerReport` rule
-configuration to your training job request.
+To opt out, you need to add the following Debugger `ProfilerReport` rule configuration to your training job request.
 
-SageMaker Python SDK
+------
+#### [ SageMaker Python SDK ]
 
 ```
 from sagemaker.train import ModelTrainer
@@ -37,62 +30,61 @@ model_trainer=ModelTrainer(
 
     rules=ProfilerRule.sagemaker(
         base_config=rule_configs.ProfilerReport()
-        rule_parameters={`"opt_out_telemetry": "True"`}
+        rule_parameters={"opt_out_telemetry": "True"}
     )
 )
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-"ProfilerRuleConfigurations": [
-    {
-        "RuleConfigurationName": "`ProfilerReport-1234567890`",
+"ProfilerRuleConfigurations": [ 
+    { 
+        "RuleConfigurationName": "{{ProfilerReport-1234567890}}",
         "RuleEvaluatorImage": "895741380848.dkr.ecr.us-west-2.amazonaws.com/sagemaker-debugger-rules:latest",
         "RuleParameters": {
-            "rule_to_invoke": "ProfilerReport",
-            `"opt_out_telemetry": "True"`
+            "rule_to_invoke": "ProfilerReport", 
+            "opt_out_telemetry": "True"
         }
     }
 ]
 ```
 
-AWS SDK for Python (Boto3)
+------
+#### [ AWS SDK for Python (Boto3) ]
 
 ```
-ProfilerRuleConfigurations=[
+ProfilerRuleConfigurations=[ 
     {
-        'RuleConfigurationName': '`ProfilerReport-1234567890`',
+        'RuleConfigurationName': '{{ProfilerReport-1234567890}}',
         'RuleEvaluatorImage': '895741380848.dkr.ecr.us-west-2.amazonaws.com/sagemaker-debugger-rules:latest',
         'RuleParameters': {
             'rule_to_invoke': 'ProfilerReport',
-            `'opt_out_telemetry': 'True'`
+            'opt_out_telemetry': 'True'
         }
     }
 ]
 ```
 
+------
+
 ## Option 2: Opt out after a training job has completed
+<a name="debugger-telemetry-profiler-report-opt-out-2"></a>
 
-To opt out after training has completed, you need to modify the
-`profiler-report.ipynb` file.
+To opt out after training has completed, you need to modify the `profiler-report.ipynb` file. 
 
-###### Note
+**Note**  
+HTML reports autogenerated without **Option 1** already added to your training job request still report the usage statistics even after you opt out using **Option 2**.
 
-HTML reports autogenerated without **Option 1** already added to
-your training job request still report the usage statistics even after you opt out
-using **Option 2**.
+1. Follow the instructions on downloading the Debugger profiling report files in the [Download the SageMaker Debugger profiling report](debugger-profiling-report-download.md) page.
 
-1. Follow the instructions on downloading the Debugger profiling report files in
-   the [Download the SageMaker Debugger profiling report](debugger-profiling-report-download.md "debugger-profiling-report-download.md") page.
-2. In the `/ProfilerReport-1234567890/profiler-output` directory, open
-   `profiler-report.ipynb`.
-3. Add `opt_out=True` to the
-   `setup_profiler_report()` function in the fifth code cell as
-   shown in the following example code:
+1. In the `/ProfilerReport-1234567890/profiler-output` directory, open `profiler-report.ipynb`. 
 
-```
-setup_profiler_report(processing_job_arn, `opt_out=True`)
-```
+1. Add **opt\_out=True** to the `setup_profiler_report()` function in the fifth code cell as shown in the following example code:
 
-4. Run the code cell to finish opting out.
+   ```
+   setup_profiler_report(processing_job_arn, opt_out=True)
+   ```
+
+1. Run the code cell to finish opting out.

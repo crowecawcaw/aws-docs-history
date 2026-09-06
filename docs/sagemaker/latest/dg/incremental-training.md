@@ -1,195 +1,121 @@
-# Use Incremental Training in Amazon SageMaker AI
 
-Over time, you might find that a model generates inference that are not as good as they
-were in the past. With incremental training, you can use the artifacts from an existing
-model and use an expanded dataset to train a new model. Incremental training saves both time
-and resources.
+
+# Use Incremental Training in Amazon SageMaker AI
+<a name="incremental-training"></a>
+
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model. Incremental training saves both time and resources.
 
 Use incremental training to:
++ Train a new model using an expanded dataset that contains an underlying pattern that was not accounted for in the previous training and which resulted in poor model performance.
++ Use the model artifacts or a portion of the model artifacts from a popular publicly available model in a training job. You don't need to train a new model from scratch.
++ Resume a training job that was stopped.
++ Train several variants of a model, either with different hyperparameter settings or using different datasets.
 
-- Train a new model using an expanded dataset that contains an underlying pattern
-  that was not accounted for in the previous training and which resulted in poor model
-  performance.
-- Use the model artifacts or a portion of the model artifacts from a popular
-  publicly available model in a training job. You don't need to train a new model from
-  scratch.
-- Resume a training job that was stopped.
-- Train several variants of a model, either with different hyperparameter settings
-  or using different datasets.
-  For more information about training jobs, see [Train a Model with Amazon SageMaker](how-it-works-training.md "how-it-works-training.md").
+For more information about training jobs, see [Train a Model with Amazon SageMaker](how-it-works-training.md).
 
-You can train incrementally using the SageMaker AI console or the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
+You can train incrementally using the SageMaker AI console or the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable).
 
-###### Important
+**Important**  
+Only three built-in algorithms currently support incremental training: [Object Detection - MXNet](object-detection.md), [Image Classification - MXNet](image-classification.md), and [Semantic Segmentation Algorithm](semantic-segmentation.md).
 
-Only three built-in algorithms currently support incremental training: [Object Detection - MXNet](object-detection.md "object-detection.md"), [Image Classification - MXNet](image-classification.md "image-classification.md"), and [Semantic Segmentation Algorithm](semantic-segmentation.md "semantic-segmentation.md").
-
-###### Topics
-
-- [Perform Incremental Training (Console)](#incremental-training-console "#incremental-training-console")
-- [Perform Incremental Training (API)](#incremental-training-api "#incremental-training-api")
+**Topics**
++ [Perform Incremental Training (Console)](#incremental-training-console)
++ [Perform Incremental Training (API)](#incremental-training-api)
 
 ## Perform Incremental Training (Console)
+<a name="incremental-training-console"></a>
 
 To complete this procedure, you need:
++ The Amazon Simple Storage Service (Amazon S3) bucket URI where you've stored the training data.
++ The S3 bucket URI where you want to store the output of the job. 
++ The Amazon Elastic Container Registry path where the training code is stored. For more information, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths).
++ The URL of the S3 bucket where you've stored the model artifacts that you want to use in incremental training. To find the URL for the model artifacts, see the details page of the training job used to create the model. To find the details page, in the SageMaker AI console, choose **Inference**, choose **Models**, and then choose the model.
 
-- The Amazon Simple Storage Service (Amazon S3) bucket URI where you've stored the training
-  data.
-- The S3 bucket URI where you want to store the output of the job.
-- The Amazon Elastic Container Registry path where the training code is stored. For more information, see
-  [Docker
-  Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md").
-- The URL of the S3 bucket where you've stored the model artifacts that you want
-  to use in incremental training. To find the URL for the model artifacts, see the
-  details page of the training job used to create the model. To find the details
-  page, in the SageMaker AI console, choose **Inference**, choose
-  **Models**, and then choose the model.
+To restart a stopped training job, use the URL to the model artifacts that are stored in the details page as you would with a model or a completed training job.
 
-To restart a stopped training job, use the URL to the model artifacts that are stored
-in the details page as you would with a model or a completed training job.
+**To perform incremental training (console)**
 
-###### To perform incremental training (console)
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
-2. In the navigation pane, choose **Training**, then choose
-   **Training jobs**.
-3. Choose **Create training job**.
-4. Provide a name for the training job. The name must be unique within an AWS
-   Region in an AWS account. The training job name must have 1 to 63 characters.
-   Valid characters: a-z, A-Z, 0-9, and . : + = @ \_ % - (hyphen).
-5. Choose the algorithm that you want to use. For information about algorithms,
-   see [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md").
-6. (Optional) For **Resource configuration**, either leave the
-   default values or increase the resource consumption to reduce computation
-   time.
+1. In the navigation pane, choose **Training**, then choose **Training jobs**. 
 
-   1. (Optional) For **Instance type**, choose the ML
-      compute instance type that you want to use. In most cases,
-      **ml.m4.xlarge** is sufficient.
-   2. For **Instance count**, use the default, 1.
-   3. (Optional) For **Additional volume per instance
-      (GB)**, choose the size of the ML storage volume that you
-      want to provision. In most cases, you can use the default, 1. If you are
-      using a large dataset, use a larger size.
+1. Choose **Create training job**.
 
-7. Provide information about the input data for the training
-   dataset.
+1. Provide a name for the training job. The name must be unique within an AWS Region in an AWS account. The training job name must have 1 to 63 characters. Valid characters: a-z, A-Z, 0-9, and . : \+ = @ \_ % - (hyphen).
 
-   1. For **Channel name**, either leave the default
-      (`train`) or enter a more meaningful name for
-      the training dataset, such as
-      `expanded-training-dataset`.
-   2. For
-      **InputMode**, choose
-      **File**. For incremental training,
-      you need to use file input mode.
-   3. For **S3 data distribution type**, choose
-      **FullyReplicated**. This causes each ML compute
-      instance to use a full replicate of
-      the
-      expanded dataset when training incrementally.
-   4. If the expanded dataset is uncompressed, set the **Compression
-      type** to **None**. If the expanded
-      dataset is compressed using Gzip, set it to
-      **Gzip**.
-   5. (Optional) If you are using File input mode, leave **Content
-      type** empty. For Pipe input mode, specify the appropriate
-      MIME type. _Content type_ is the
-      multipurpose internet mail extension (MIME) type of the data.
-   6. For **Record wrapper**, if the dataset is saved in
-      RecordIO format, choose **RecordIO**.
-      If
-      your dataset is not saved as a RecordIO formatted file, choose
-      **None**.
-   7. For **S3 data type**, if the dataset is stored as a
-      single file, choose **S3Prefix**. If the dataset is
-      stored as several files in a folder, choose
-      **Manifest**.
-   8. For **S3 location**, provide the URL to the path
-      where you stored the expanded dataset.
-   9. Choose **Done**.
+1. Choose the algorithm that you want to use. For information about algorithms, see [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md). 
 
-8. To use model artifacts in a training job, you need to add a new channel and
-   provide the needed information about the model
-   artifacts.
+1. (Optional) For **Resource configuration**, either leave the default values or increase the resource consumption to reduce computation time.
 
-   1. For **Input data configuration**, choose
-      **Add channel**.
-   2. For **Channel name**, enter
-      `model` to identify this channel as the source
-      of the model artifacts.
-   3. For **InputMode**, choose **File**.
-      Model artifacts are stored as files.
-   4. For **S3 data distribution type**, choose
-      **FullyReplicated**. This indicates that each ML
-      compute instance should use all of the model artifacts for training.
-   5. For **Compression type**, choose
-      **None** because we are using a model for the
-      channel.
-   6. Leave **Content type** empty. Content type is the
-      multipurpose internet mail extension (MIME) type of the data. For model
-      artifacts, we leave it empty.
-   7. Set **Record wrapper** to **None**
-      because model artifacts are not stored in RecordIO format.
-   8. For **S3 data type**, if you are using a built-in
-      algorithm or an algorithm that stores the model as a single file, choose
-      **S3Prefix**. If you are using an algorithm that
-      stores the model as several files, choose
-      **Manifest**.
-   9. For **S3 location**, provide the URL to the path
-      where you stored the model artifacts. Typically, the model is stored
-      with the name `model.tar.gz`. To find the URL for the
-      model artifacts, in the navigation pane, choose
-      **Inference**, then choose
-      **Models**. From the list of models, choose a model
-      to display its details page. The URL for the model artifacts is listed
-      under **Primary container** .
-   10. Choose **Done**.
+   1. (Optional) For **Instance type**, choose the ML compute instance type that you want to use. In most cases, **ml.m4.xlarge** is sufficient. 
 
-9. For **Output data configuration**, provide the following
-   information:
+   1. For **Instance count**, use the default, 1.
 
-   1. For **S3 location**, type the path to the S3 bucket
-      where you want to store the output data.
-   2. (Optional) For **Encryption key**, you can add your
-      AWS Key Management Service (AWS KMS) encryption key to encrypt the output data at rest.
-      Provide the key ID or its Amazon Resource Number (ARN). For more
-      information, see [KMS-Managed Encryption Keys](../../../AmazonS3/latest/dev/UsingKMSEncryption.md "../../../AmazonS3/latest/dev/UsingKMSEncryption.md").
+   1. (Optional) For **Additional volume per instance (GB)**, choose the size of the ML storage volume that you want to provision. In most cases, you can use the default, 1. If you are using a large dataset, use a larger size.
 
-10. (Optional) For **Tags**, add one or more tags to the training
-    job. A _tag_ is metadata that you can define and assign to
-    AWS resources. In this case, you can use tags to help you manage your training
-    jobs. A tag consists of a key and a value, which you define. For example, you
-    might want to create a tag with `Project` as a key and a
-    value referring to a project that is related to the training job, such as
-    `Home value forecasts`.
-11. Choose **Create training job**. SageMaker AI creates and runs
-    training
-    job.
+1. Provide information about the input data for the training dataset.
 
-After the training job has completed, the newly trained model artifacts are stored
-under the **S3 output path** that you provided in the **Output
-data configuration** field. To deploy the model to get predictions, see
-[Deploy the model to Amazon EC2](ex1-model-deployment.md "ex1-model-deployment.md").
+   1. For **Channel name**, either leave the default (**train**) or enter a more meaningful name for the training dataset, such as **expanded-training-dataset**.
+
+   1. For **InputMode**, choose **File**. For incremental training, you need to use file input mode.
+
+   1. For **S3 data distribution type**, choose **FullyReplicated**. This causes each ML compute instance to use a full replicate of the expanded dataset when training incrementally.
+
+   1. If the expanded dataset is uncompressed, set the **Compression type** to **None**. If the expanded dataset is compressed using Gzip, set it to **Gzip**.
+
+   1. (Optional) If you are using File input mode, leave **Content type** empty. For Pipe input mode, specify the appropriate MIME type. *Content type* is the multipurpose internet mail extension (MIME) type of the data.
+
+   1. For **Record wrapper**, if the dataset is saved in RecordIO format, choose **RecordIO**. If your dataset is not saved as a RecordIO formatted file, choose **None**.
+
+   1. For **S3 data type**, if the dataset is stored as a single file, choose **S3Prefix**. If the dataset is stored as several files in a folder, choose **Manifest**.
+
+   1. For **S3 location**, provide the URL to the path where you stored the expanded dataset.
+
+   1. Choose **Done**.
+
+1. To use model artifacts in a training job, you need to add a new channel and provide the needed information about the model artifacts.
+
+   1. For **Input data configuration**, choose **Add channel**.
+
+   1. For **Channel name**, enter **model** to identify this channel as the source of the model artifacts.
+
+   1. For **InputMode**, choose **File**. Model artifacts are stored as files.
+
+   1. For **S3 data distribution type**, choose **FullyReplicated**. This indicates that each ML compute instance should use all of the model artifacts for training. 
+
+   1. For **Compression type**, choose **None** because we are using a model for the channel.
+
+   1. Leave **Content type** empty. Content type is the multipurpose internet mail extension (MIME) type of the data. For model artifacts, we leave it empty.
+
+   1. Set **Record wrapper** to **None** because model artifacts are not stored in RecordIO format.
+
+   1. For **S3 data type**, if you are using a built-in algorithm or an algorithm that stores the model as a single file, choose **S3Prefix**. If you are using an algorithm that stores the model as several files, choose **Manifest**.
+
+   1. For **S3 location**, provide the URL to the path where you stored the model artifacts. Typically, the model is stored with the name `model.tar.gz`. To find the URL for the model artifacts, in the navigation pane, choose **Inference**, then choose **Models**. From the list of models, choose a model to display its details page. The URL for the model artifacts is listed under **Primary container** .
+
+   1. Choose **Done**.
+
+1. For **Output data configuration**, provide the following information:
+
+   1. For **S3 location**, type the path to the S3 bucket where you want to store the output data.
+
+   1. (Optional) For **Encryption key**, you can add your AWS Key Management Service (AWS KMS) encryption key to encrypt the output data at rest. Provide the key ID or its Amazon Resource Number (ARN). For more information, see [KMS-Managed Encryption Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html).
+
+1. (Optional) For **Tags**, add one or more tags to the training job. A *tag* is metadata that you can define and assign to AWS resources. In this case, you can use tags to help you manage your training jobs. A tag consists of a key and a value, which you define. For example, you might want to create a tag with **Project** as a key and a value referring to a project that is related to the training job, such as **Home value forecasts**.
+
+1. Choose **Create training job**. SageMaker AI creates and runs training job.
+
+After the training job has completed, the newly trained model artifacts are stored under the **S3 output path** that you provided in the **Output data configuration** field. To deploy the model to get predictions, see [Deploy the model to Amazon EC2](ex1-model-deployment.md).
 
 ## Perform Incremental Training (API)
+<a name="incremental-training-api"></a>
 
-This example shows how to use SageMaker AI APIs to train a model using the SageMaker AI image
-classification algorithm and the [Caltech 256 Image
-Dataset](https://data.caltech.edu/records/nyy15-4j048 "https://data.caltech.edu/records/nyy15-4j048"), then train a new model using the first one. It uses Amazon S3 for input and
-output sources.
-Please see the [incremental training sample notebook](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/imageclassification_caltech/Image-classification-incremental-training-highlevel.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/imageclassification_caltech/Image-classification-incremental-training-highlevel.html") for more details on using incremental
-training.
+This example shows how to use SageMaker AI APIs to train a model using the SageMaker AI image classification algorithm and the [Caltech 256 Image Dataset](https://data.caltech.edu/records/nyy15-4j048), then train a new model using the first one. It uses Amazon S3 for input and output sources. Please see the [incremental training sample notebook](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/imageclassification_caltech/Image-classification-incremental-training-highlevel.html) for more details on using incremental training.
 
-###### Note
+**Note**  
+In this example we used the original datasets in the incremental training, however you can use different datasets, such as ones that contain newly added samples. Upload the new datasets to S3 and make adjustments to the `data_channels` variable used to train the new model.
 
-In this example we used the original datasets in the incremental training, however
-you can use different datasets, such as ones that contain newly added samples.
-Upload the new datasets to S3 and make adjustments to the `data_channels`
-variable used to train the new model.
-
-Get an AWS Identity and Access Management (IAM) role that grants required permissions and initialize
-environment variables:
+Get an AWS Identity and Access Management (IAM) role that grants required permissions and initialize environment variables:
 
 ```
 import sagemaker
@@ -217,8 +143,7 @@ training_image = get_image_uri(sess.boto_region_name, 'image-classification', re
 print (training_image)
 ```
 
-Download the training and validation datasets, then upload them to Amazon Simple Storage Service
-(Amazon S3):
+Download the training and validation datasets, then upload them to Amazon Simple Storage Service (Amazon S3):
 
 ```
 import os
@@ -272,8 +197,7 @@ hyperparams = { "num_layers": "18",
                 "model_prefix": "" }
 ```
 
-Create an estimator object and train the first model using the training and validation
-datasets:
+Create an estimator object and train the first model using the training and validation datasets:
 
 ```
 from sagemaker.train.configs import InputData, StoppingCondition
@@ -321,10 +245,7 @@ data_channels = {'train': train_data, 'validation': validation_data}
 ic.train(input_data_config=[train_data, validation_data])
 ```
 
-To use the model to incrementally train another model, create a new estimator object
-and use the model artifacts (`ic.model_data`, in this example)
-for
-the `model_uri` input argument:
+To use the model to incrementally train another model, create a new estimator object and use the model artifacts (`ic.model_data`, in this example) for the `model_uri` input argument:
 
 ```
 # Given the base ModelTrainer, create a new one for incremental training
@@ -346,6 +267,4 @@ incr_ic = ModelTrainer(training_image=training_image,
 incr_ic.train(input_data_config=[train_data, validation_data])
 ```
 
-After the training job has completed, the newly trained model artifacts are stored
-under the `S3 output path` that you provided in `Output_path`. To
-deploy the model to get predictions, see [Deploy the model to Amazon EC2](ex1-model-deployment.md "ex1-model-deployment.md").
+After the training job has completed, the newly trained model artifacts are stored under the `S3 output path` that you provided in `Output_path`. To deploy the model to get predictions, see [Deploy the model to Amazon EC2](ex1-model-deployment.md).

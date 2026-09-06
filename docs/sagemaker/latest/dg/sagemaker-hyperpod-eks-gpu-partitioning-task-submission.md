@@ -1,13 +1,16 @@
+
+
 # Task Submission with MIG
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission"></a>
 
-###### Topics
-
-- [Using Kubernetes YAML](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl "#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl")
-- [Using HyperPod CLI](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-cli "#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-cli")
-- [Model Deployment with MIG](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-deployment "#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-deployment")
-- [Using HyperPod CLI](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli "#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli")
+**Topics**
++ [Using Kubernetes YAML](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl)
++ [Using HyperPod CLI](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-cli)
++ [Model Deployment with MIG](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-deployment)
++ [Using HyperPod CLI](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli)
 
 ## Using Kubernetes YAML
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl"></a>
 
 ```
 apiVersion: batch/v1
@@ -32,6 +35,7 @@ spec:
 ```
 
 ## Using HyperPod CLI
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-cli"></a>
 
 Use the HyperPod CLI to deploy JumpStart models with MIG support. The following example demonstrates the new CLI parameters for GPU partitioning:
 
@@ -42,16 +46,18 @@ hyp create hyp-jumpstart-endpoint \
   --instance-type ml.p5.48xlarge \
   --accelerator-partition-type mig-2g.10gb \
   --accelerator-partition-validation True \
-  --endpoint-name `my-endpoint` \
-  --tls-certificate-output-s3-uri s3://`certificate-bucket`/ \
+  --endpoint-name {{my-endpoint}} \
+  --tls-certificate-output-s3-uri s3://{{certificate-bucket}}/ \
   --namespace default
 ```
 
 ## Model Deployment with MIG
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-deployment"></a>
 
 HyperPod Inference allows deploying the models on MIG profiles via Studio Classic, `kubectl` and HyperPod CLI. To deploy JumpStart Models on `kubectl`, CRDs have fields called `spec.server.acceleratorPartitionType` to deploy the model to the desired MIG profile. We run validations to ensure models can be deployed on the MIG profile selected in the CRD. In case you want to disable the MIG validation checks, use `spec.server.validations.acceleratorPartitionValidation` to `False`.
 
 ### JumpStart Models
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-jumpstart"></a>
 
 ```
 apiVersion: inference.sagemaker.aws.amazon.com/v1
@@ -71,6 +77,7 @@ spec:
 ```
 
 ### Deploy model from Amazon S3 using InferenceEndpointConfig
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-s3"></a>
 
 InferenceEndpointConfig allows you to deploy custom model from Amazon S3. To deploy a model on MIG, in `spec.worker.resources` mention MIG profile in `requests` and `limits`. Refer to a simple deployment below:
 
@@ -88,9 +95,9 @@ spec:
   modelSourceConfig:
     modelSourceType: s3
     s3Storage:
-      bucketName: `my-model-bucket`
-      region: `us-east-2`
-    modelLocation: `model-path`
+      bucketName: {{my-model-bucket}}
+      region: {{us-east-2}}
+    modelLocation: {{model-path}}
   worker:
     resources:
       requests:
@@ -102,6 +109,7 @@ spec:
 ```
 
 ### Deploy model from FSx for Lustre using InferenceEndpointConfig
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-fsx"></a>
 
 InferenceEndpointConfig allows you to deploy custom model from FSx for Lustre. To deploy a model on MIG, in `spec.worker.resources` mention MIG profile in `requests` and `limits`. Refer to a simple deployment below:
 
@@ -119,8 +127,8 @@ spec:
   modelSourceConfig:
     modelSourceType: fsx
     fsxStorage:
-      fileSystemId: `fs-xxxxx`
-    modelLocation: `location-on-fsx`
+      fileSystemId: {{fs-xxxxx}}
+    modelLocation: {{location-on-fsx}}
   worker:
     resources:
       requests:
@@ -132,65 +140,72 @@ spec:
 ```
 
 ### Using Studio Classic UI
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-studio"></a>
 
 #### Deploying JumpStart Models with MIG
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-studio-deploy"></a>
 
 1. Open **Studio Classic** and navigate to **JumpStart**
-2. Browse or search for your desired model (e.g., "DeepSeek", "Llama", etc.)
-3. Click on the model card and select **Deploy**
-4. In the deployment configuration:
 
-   - Choose **HyperPod** as the deployment target
-   - Select your MIG-enabled cluster from the dropdown
-   - Under **Instance configuration**:
+1. Browse or search for your desired model (e.g., "DeepSeek", "Llama", etc.)
 
-     - Select instance type (e.g., `ml.p4d.24xlarge`)
-     - Choose **GPU Partition Type** from available options
-     - Configure **Instance count** and **Auto-scaling** settings
+1. Click on the model card and select **Deploy**
 
-5. Review and click **Deploy**
-6. Monitor deployment progress in the **Endpoints** section
+1. In the deployment configuration:
+   + Choose **HyperPod** as the deployment target
+   + Select your MIG-enabled cluster from the dropdown
+   + Under **Instance configuration**:
+     + Select instance type (e.g., `ml.p4d.24xlarge`)
+     + Choose **GPU Partition Type** from available options
+     + Configure **Instance count** and **Auto-scaling** settings
+
+1. Review and click **Deploy**
+
+1. Monitor deployment progress in the **Endpoints** section
 
 #### Model Configuration Options
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-studio-config"></a>
 
 **Endpoint Settings:**
-
-- **Endpoint name** - Unique identifier for your deployment
-- **Variant name** - Configuration variant (default: AllTraffic)
-- **Instance type** - Must support GPU partition (p series)
-- **MIG profile** - GPU partition
-- **Initial instance count** - Number of instances to deploy
-- **Auto-scaling** - Enable for dynamic scaling based on traffic
++ **Endpoint name** - Unique identifier for your deployment
++ **Variant name** - Configuration variant (default: AllTraffic)
++ **Instance type** - Must support GPU partition (p series)
++ **MIG profile** - GPU partition
++ **Initial instance count** - Number of instances to deploy
++ **Auto-scaling** - Enable for dynamic scaling based on traffic
 
 **Advanced Configuration:**
-
-- **Model data location** - Amazon S3 path for custom models
-- **Container image** - Custom inference container (optional)
-- **Environment variables** - Model-specific configurations
-- **Amazon VPC configuration** - Network isolation settings
++ **Model data location** - Amazon S3 path for custom models
++ **Container image** - Custom inference container (optional)
++ **Environment variables** - Model-specific configurations
++ **Amazon VPC configuration** - Network isolation settings
 
 #### Monitoring Deployed Models
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-studio-monitor"></a>
 
 1. Navigate to **Studio Classic** > **Deployments** > **Endpoints**
-2. Select your MIG-enabled endpoint
-3. View metrics including:
 
-   - **MIG utilization** - Per GPU partition usage
-   - **Memory consumption** - Per GPU partition
-   - **Inference latency** - Request processing time
-   - **Throughput** - Requests per second
+1. Select your MIG-enabled endpoint
 
-4. Set up **Amazon CloudWatch alarms** for automated monitoring
-5. Configure **auto-scaling policies** based on MIG utilization
+1. View metrics including:
+   + **MIG utilization** - Per GPU partition usage
+   + **Memory consumption** - Per GPU partition
+   + **Inference latency** - Request processing time
+   + **Throughput** - Requests per second
+
+1. Set up **Amazon CloudWatch alarms** for automated monitoring
+
+1. Configure **auto-scaling policies** based on MIG utilization
 
 ## Using HyperPod CLI
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli"></a>
 
 ### JumpStart Deployment
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli-jumpstart"></a>
 
 The HyperPod CLI JumpStart command includes two new fields for MIG support:
-
-- `--accelerator-partition-type` - Specifies the MIG configuration (e.g., mig-4g.20gb)
-- `--accelerator-partition-validation` - Validates compatibility between models and MIG profile (default: true)
++ `--accelerator-partition-type` - Specifies the MIG configuration (e.g., mig-4g.20gb)
++ `--accelerator-partition-validation` - Validates compatibility between models and MIG profile (default: true)
 
 ```
 hyp create hyp-jumpstart-endpoint \
@@ -200,10 +215,11 @@ hyp create hyp-jumpstart-endpoint \
   --endpoint-name js-test \
   --accelerator-partition-type "mig-4g.20gb" \
   --accelerator-partition-validation true \
-  --tls-certificate-output-s3-uri `s3://my-bucket/certs/`
+  --tls-certificate-output-s3-uri {{s3://my-bucket/certs/}}
 ```
 
 ### Custom Endpoint Deployment
+<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-hyperpod-cli-custom"></a>
 
 For deploying via custom endpoint, use the existing fields `--resources-requests` and `--resources-limits` to enable MIG profile functionality:
 
@@ -217,12 +233,12 @@ hyp create hyp-custom-endpoint \
   --model-source-type s3 \
   --model-location deep-seek-15b \
   --prefetch-enabled true \
-  --tls-certificate-output-s3-uri s3://`sagemaker-bucket` \
+  --tls-certificate-output-s3-uri s3://{{sagemaker-bucket}} \
   --image-uri lmcache/vllm-openai:v0.3.7 \
   --container-port 8080 \
   --model-volume-mount-path /opt/ml/model \
   --model-volume-mount-name model-weights \
-  --s3-bucket-name `model-storage-123456789` \
+  --s3-bucket-name {{model-storage-123456789}} \
   --s3-region us-east-2 \
   --invocation-endpoint invocations \
   --resources-requests '{"cpu":"5600m","memory":"10Gi","nvidia.com/mig-3g.20gb":"1"}' \

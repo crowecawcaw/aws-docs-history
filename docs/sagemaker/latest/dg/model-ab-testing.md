@@ -1,66 +1,51 @@
+
+
 # Testing models with production variants
+<a name="model-ab-testing"></a>
 
-In production ML workflows, data scientists and engineers frequently try to improve performance using various
-methods, such as [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md"), training on
-additional or more-recent data, improving feature selection, using better updated instances and serving
-containers. You can use production variants to compare your models, instances and containers, and choose the
-best performing candidate to respond to inference requests.
+ In production ML workflows, data scientists and engineers frequently try to improve performance using various methods, such as [Automatic model tuning with SageMaker AI](automatic-model-tuning.md), training on additional or more-recent data, improving feature selection, using better updated instances and serving containers. You can use production variants to compare your models, instances and containers, and choose the best performing candidate to respond to inference requests. 
 
-With SageMaker AI multi-variant endpoints you can distribute endpoint invocation requests across multiple production
-variants by providing the traffic distribution for each variant, or you can invoke a specific variant directly
-for each request. In this topic, we look at both methods for testing ML models.
+ With SageMaker AI multi-variant endpoints you can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant, or you can invoke a specific variant directly for each request. In this topic, we look at both methods for testing ML models. 
 
-###### Topics
-
-- [Test models by specifying traffic distribution](#model-testing-traffic-distribution "#model-testing-traffic-distribution")
-- [Test models by invoking specific variants](#model-testing-target-variant "#model-testing-target-variant")
-- [Model A/B test example](#model-ab-test-example "#model-ab-test-example")
+**Topics**
++ [Test models by specifying traffic distribution](#model-testing-traffic-distribution)
++ [Test models by invoking specific variants](#model-testing-target-variant)
++ [Model A/B test example](#model-ab-test-example)
 
 ## Test models by specifying traffic distribution
+<a name="model-testing-traffic-distribution"></a>
 
-To test multiple models by distributing traffic between them, specify the percentage of the traffic that
-gets routed to each model by specifying the weight for each production variant in the endpoint
-configuration. For information, see [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md"). The
-following diagram shows how this works in more detail.
+ To test multiple models by distributing traffic between them, specify the percentage of the traffic that gets routed to each model by specifying the weight for each production variant in the endpoint configuration. For information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html). The following diagram shows how this works in more detail. 
 
-![Example showing how distributing traffic between models using InvokeEndpoint works in SageMaker AI.](images/model-traffic-distribution.png)
+![Example showing how distributing traffic between models using InvokeEndpoint works in SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-traffic-distribution.png)
+
 
 ## Test models by invoking specific variants
+<a name="model-testing-target-variant"></a>
 
-To test multiple models by invoking specific models for each request, specify the specific version of the
-model you want to invoke by providing a value for the `TargetVariant` parameter when you call
-[InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md"). SageMaker AI ensures that the request is processed by the production variant you
-specify. If you have already provided traffic distribution and specify a value for the
-`TargetVariant` parameter, the targeted routing overrides the random traffic distribution. The
-following diagram shows how this works in more detail.
+ To test multiple models by invoking specific models for each request, specify the specific version of the model you want to invoke by providing a value for the `TargetVariant` parameter when you call [InvokeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html). SageMaker AI ensures that the request is processed by the production variant you specify. If you have already provided traffic distribution and specify a value for the `TargetVariant` parameter, the targeted routing overrides the random traffic distribution. The following diagram shows how this works in more detail. 
 
-![Example showing how invoking specific models for each request using InvokeEndpoint works in SageMaker AI.](images/model-target-variant.png)
+![Example showing how invoking specific models for each request using InvokeEndpoint works in SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-target-variant.png)
+
 
 ## Model A/B test example
+<a name="model-ab-test-example"></a>
 
-Performing A/B testing between a new model and an old model with production traffic can be an effective
-final step in the validation process for a new model. In A/B testing, you test different variants of your
-models and compare how each variant performs. If the newer version of the model delivers better performance
-than the previously existing version, replace the old version of the model with the new version in
-production.
+ Performing A/B testing between a new model and an old model with production traffic can be an effective final step in the validation process for a new model. In A/B testing, you test different variants of your models and compare how each variant performs. If the newer version of the model delivers better performance than the previously existing version, replace the old version of the model with the new version in production. 
 
-The following example shows how to perform A/B model testing. For a sample notebook that implements this
-example, see ["A/B Testing ML models in production](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker_endpoints/a_b_testing/a_b_testing.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker_endpoints/a_b_testing/a_b_testing.html").
+ The following example shows how to perform A/B model testing. For a sample notebook that implements this example, see ["A/B Testing ML models in production](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker_endpoints/a_b_testing/a_b_testing.html). 
 
 ### Step 1: Create and deploy models
+<a name="model-ab-test-step1"></a>
 
-First, we define where our models are located in Amazon S3. These locations are used when we deploy our
-models in subsequent steps:
+ First, we define where our models are located in Amazon S3. These locations are used when we deploy our models in subsequent steps: 
 
 ```
 model_url = f"s3://{path_to_model_1}"
 model_url2 = f"s3://{path_to_model_2}"
-
 ```
 
-Next, we create the model objects with the image and model data. These model objects are used to deploy
-production variants on an endpoint. The models are developed by training ML models on different data
-sets, different algorithms or ML frameworks, and different hyperparameters:
+ Next, we create the model objects with the image and model data. These model objects are used to deploy production variants on an endpoint. The models are developed by training ML models on different data sets, different algorithms or ML frameworks, and different hyperparameters: 
 
 ```
 from sagemaker.core import image_uris
@@ -87,16 +72,11 @@ sm_session.create_model(
         'ModelDataUrl': model_url2
     }
 )
-
 ```
 
-We now create two production variants, each with its own different model and resource requirements (instance type
-and counts). This enables you to also test models on different instance types.
+ We now create two production variants, each with its own different model and resource requirements (instance type and counts). This enables you to also test models on different instance types. 
 
-We set an initial\_weight of 1 for both variants. This means that 50% of requests go to
-`Variant1`, and the remaining 50% of requests to `Variant2`. The sum of weights
-across both variants is 2 and each variant has weight assignment of 1. This means that each variant
-receives 1/2, or 50%, of the total traffic.
+ We set an initial\_weight of 1 for both variants. This means that 50% of requests go to `Variant1`, and the remaining 50% of requests to `Variant2`. The sum of weights across both variants is 2 and each variant has weight assignment of 1. This means that each variant receives 1/2, or 50%, of the total traffic. 
 
 ```
 from sagemaker.session import production_variant
@@ -116,10 +96,9 @@ variant2 = production_variant(
                variant_name='Variant2',
                initial_weight=1,
            )
-
 ```
 
-Finally we’re ready to deploy these production variants on a SageMaker AI endpoint.
+ Finally we’re ready to deploy these production variants on a SageMaker AI endpoint. 
 
 ```
 endpoint_name = f"DEMO-xgb-churn-pred-{datetime.now():%Y-%m-%d-%H-%M-%S}"
@@ -129,17 +108,14 @@ sm_session.endpoint_from_production_variants(
     name=endpoint_name,
     production_variants=[variant1, variant2]
 )
-
 ```
 
 ### Step 2: Invoke the deployed models
+<a name="model-ab-test-step2"></a>
 
-Now we send requests to this endpoint to get inferences in real time. We use both traffic distribution
-and direct targeting.
+ Now we send requests to this endpoint to get inferences in real time. We use both traffic distribution and direct targeting. 
 
-First, we use traffic distribution that we configured in the previous step. Each inference response
-contains the name of the production variant that processes the request, so we can see that traffic to
-the two production variants is roughly equal.
+ First, we use traffic distribution that we configured in the previous step. Each inference response contains the name of the production variant that processes the request, so we can see that traffic to the two production variants is roughly equal. 
 
 ```
 # get a subset of test data for a quick test
@@ -158,17 +134,14 @@ with open('test_data/test_sample_tail_input_cols.csv', 'r') as f:
         time.sleep(0.5)
 
 print("Done!")
-
 ```
 
-SageMaker AI emits metrics such as `Latency` and `Invocations` for each variant in
-Amazon CloudWatch. For a complete list of metrics that SageMaker AI emits, see [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). Let’s query CloudWatch to get the number of invocations per variant,
-to show how invocations are split across variants by default:
+ SageMaker AI emits metrics such as `Latency` and `Invocations` for each variant in Amazon CloudWatch. For a complete list of metrics that SageMaker AI emits, see [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md). Let’s query CloudWatch to get the number of invocations per variant, to show how invocations are split across variants by default: 
 
-![Example CloudWatch number of invocations per variant.](images/model-variant-invocations.png)
+![Example CloudWatch number of invocations per variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-variant-invocations.png)
 
-Now let's invoke a specific version of the model by specifying `Variant1` as the
-`TargetVariant` in the call to `invoke_endpoint`.
+
+ Now let's invoke a specific version of the model by specifying `Variant1` as the `TargetVariant` in the call to `invoke_endpoint`. 
 
 ```
 print(f"Sending test traffic to the endpoint {endpoint_name}. \nPlease wait...")
@@ -181,47 +154,39 @@ with open('test_data/test_sample_tail_input_cols.csv', 'r') as f:
             ContentType="text/csv",
             Body=payload,
             TargetVariant="Variant1"
-        )
+        ) 
         time.sleep(0.5)
-
 ```
 
-To confirm that all new invocations were processed by `Variant1`, we can query CloudWatch to get
-the number of invocations per variant. We see that for the most recent invocations (latest timestamp),
-all requests were processed by `Variant1`, as we had specified. There were no invocations
-made for `Variant2`.
+ To confirm that all new invocations were processed by `Variant1`, we can query CloudWatch to get the number of invocations per variant. We see that for the most recent invocations (latest timestamp), all requests were processed by `Variant1`, as we had specified. There were no invocations made for `Variant2`. 
 
-![Example CloudWatch number of invocations for each variant.](images/model-invocations-target1.png)
+![Example CloudWatch number of invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-target1.png)
+
 
 ### Step 3: Evaluate model performance
+<a name="model-ab-test-step3"></a>
 
-To see which model version performs better, let's evaluate the accuracy, precision, recall, F1 score,
-and Receiver operating charactersistic/Area under the curve for each variant. First, let's look at these
-metrics for `Variant1`:
+ To see which model version performs better, let's evaluate the accuracy, precision, recall, F1 score, and Receiver operating charactersistic/Area under the curve for each variant. First, let's look at these metrics for `Variant1`: 
 
-![Example receiver operating characteristic curve for Variant1.](images/model-curve.png)
+![Example receiver operating characteristic curve for Variant1.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-curve.png)
+
 
 Now let's look at the metrics for `Variant2`:
 
-![Example receiver operating characteristic curve for Variant2.](images/model2-curve.png)
+![Example receiver operating characteristic curve for Variant2.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model2-curve.png)
 
-For most of our defined metrics, `Variant2` is performing better, so this is the one that we
-want to use in production.
+
+ For most of our defined metrics, `Variant2` is performing better, so this is the one that we want to use in production. 
 
 ### Step 4: Increase traffic to the best model
+<a name="model-ab-test-step4"></a>
 
-Now that we have determined that `Variant2` performs better than `Variant1`, we
-shift more traffic to it. We can continue to use `TargetVariant` to invoke a specific model
-variant, but a simpler approach is to update the weights assigned to each variant by calling [UpdateEndpointWeightsAndCapacities](../APIReference/API_UpdateEndpointWeightsAndCapacities.md "../APIReference/API_UpdateEndpointWeightsAndCapacities.md"). This changes the traffic distribution to your production
-variants without requiring updates to your endpoint. Recall from the setup section that we set variant
-weights to split traffic 50/50. The CloudWatch metrics for the total invocations for each variant below show
-us the invocation patterns for each variant:
+ Now that we have determined that `Variant2` performs better than `Variant1`, we shift more traffic to it. We can continue to use `TargetVariant` to invoke a specific model variant, but a simpler approach is to update the weights assigned to each variant by calling [UpdateEndpointWeightsAndCapacities](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html). This changes the traffic distribution to your production variants without requiring updates to your endpoint. Recall from the setup section that we set variant weights to split traffic 50/50. The CloudWatch metrics for the total invocations for each variant below show us the invocation patterns for each variant: 
 
-![Example CloudWatch metrics for the total invocations for each variant.](images/model-invocations-even-dist.png)
+![Example CloudWatch metrics for the total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-even-dist.png)
 
-Now we shift 75% of the traffic to `Variant2` by assigning new weights to each variant using
-`UpdateEndpointWeightsAndCapacities`. SageMaker AI now sends 75% of the inference requests to
-`Variant2` and remaining 25% of requests to `Variant1`.
+
+ Now we shift 75% of the traffic to `Variant2` by assigning new weights to each variant using `UpdateEndpointWeightsAndCapacities`. SageMaker AI now sends 75% of the inference requests to `Variant2` and remaining 25% of requests to `Variant1`. 
 
 ```
 sm.update_endpoint_weights_and_capacities(
@@ -237,19 +202,14 @@ sm.update_endpoint_weights_and_capacities(
         }
     ]
 )
-
 ```
 
-The CloudWatch metrics for total invocations for each variant shows us higher invocations for
-`Variant2` than for `Variant1`:
+ The CloudWatch metrics for total invocations for each variant shows us higher invocations for `Variant2` than for `Variant1`: 
 
-![Example CloudWatch metrics for total invocations for each variant.](images/model-invocations-75-25.png)
+![Example CloudWatch metrics for total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-75-25.png)
 
-We can continue to monitor our metrics, and when we're satisfied with a variant's performance, we can
-route 100% of the traffic to that variant. We use [`UpdateEndpointWeightsAndCapacities`](../APIReference/API_UpdateEndpointWeightsAndCapacities.md "../APIReference/API_UpdateEndpointWeightsAndCapacities.md")
-to update the traffic assignments for the variants. The weight for `Variant1` is set to 0 and
-the weight for `Variant2` is set to 1. SageMaker AI now sends 100% of all inference requests to
-`Variant2`.
+
+ We can continue to monitor our metrics, and when we're satisfied with a variant's performance, we can route 100% of the traffic to that variant. We use [`UpdateEndpointWeightsAndCapacities`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html) to update the traffic assignments for the variants. The weight for `Variant1` is set to 0 and the weight for `Variant2` is set to 1. SageMaker AI now sends 100% of all inference requests to `Variant2`. 
 
 ```
 sm.update_endpoint_weights_and_capacities(
@@ -265,15 +225,11 @@ sm.update_endpoint_weights_and_capacities(
         }
     ]
 )
-
 ```
 
-The CloudWatch metrics for the total invocations for each variant show that all inference requests are being
-processed by `Variant2` and there are no inference requests processed by
-`Variant1`.
+ The CloudWatch metrics for the total invocations for each variant show that all inference requests are being processed by `Variant2` and there are no inference requests processed by `Variant1`. 
 
-![Example CloudWatch metrics for the total invocations for each variant.](images/model-invocations-best-model.png)
+![Example CloudWatch metrics for the total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-best-model.png)
 
-You can now safely update your endpoint and delete `Variant1` from your endpoint. You can
-also continue testing new models in production by adding new variants to your endpoint and following
-steps 2 - 4.
+
+ You can now safely update your endpoint and delete `Variant1` from your endpoint. You can also continue testing new models in production by adding new variants to your endpoint and following steps 2 - 4. 

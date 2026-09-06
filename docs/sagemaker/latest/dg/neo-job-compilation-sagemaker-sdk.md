@@ -1,17 +1,14 @@
+
+
 # Compile a Model (Amazon SageMaker AI SDK)
+<a name="neo-job-compilation-sagemaker-sdk"></a>
 
-You can use the [`compile_model`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") API in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
-compile a trained model and optimize it for specific target hardware. The API should be
-invoked on the estimator object used during model training.
+ You can use the [`compile_model`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) API in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/) to compile a trained model and optimize it for specific target hardware. The API should be invoked on the estimator object used during model training. 
 
-###### Note
+**Note**  
+You must set `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable to `500` when compiling the model with MXNet or PyTorch. The environment variable is not needed for TensorFlow. 
 
-You must set `MMS_DEFAULT_RESPONSE_TIMEOUT`
-environment variable to `500` when compiling the model with MXNet
-or PyTorch. The environment variable is not needed for TensorFlow.
-
-The following is an example of how you can
-compile a model using the `trained_model_estimator` object:
+ The following is an example of how you can compile a model using the `trained_model_estimator` object: 
 
 ```
 # Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
@@ -40,5 +37,4 @@ optimized_model = model_builder.optimize(
 )
 ```
 
-The code compiles the model, saves the optimized model at `output_path`,
-and creates a SageMaker AI model that can be deployed to an endpoint.
+The code compiles the model, saves the optimized model at `output_path`, and creates a SageMaker AI model that can be deployed to an endpoint. 

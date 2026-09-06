@@ -1,15 +1,16 @@
+
+
 # PCA Hyperparameters
+<a name="PCA-reference"></a>
 
-In the `CreateTrainingJob` request, you specify the training algorithm. You
-can also specify algorithm-specific HyperParameters as string-to-string maps. The
-following table lists the hyperparameters for the PCA training algorithm provided by
-Amazon SageMaker AI. For more information about how PCA works, see [How PCA Works](how-pca-works.md "how-pca-works.md").
+In the `CreateTrainingJob` request, you specify the training algorithm. You can also specify algorithm-specific HyperParameters as string-to-string maps. The following table lists the hyperparameters for the PCA training algorithm provided by Amazon SageMaker AI. For more information about how PCA works, see [How PCA Works](how-pca-works.md). 
 
-| Parameter Name     | Description                                                                                                                                                                                                                                                                                                         |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `feature_dim`      | Input dimension.<br>**Required**<br>Valid values: positive integer                                                                                                                                                                                                                                                  |
-| `mini_batch_size`  | Number of rows in a mini-batch.<br>**Required**<br>Valid values: positive integer                                                                                                                                                                                                                                   |
-| `num_components`   | The number of principal components to compute.<br>**Required**<br>Valid values: positive integer                                                                                                                                                                                                                    |
-| `algorithm_mode`   | Mode for computing the principal components.<br>**Optional**<br>Valid values: *regular<br>• or<br>_randomized_<br>Default value: _regular_                                                                                                                                                                          |
-| `extra_components` | As the value increases, the solution becomes more accurate but the<br>runtime and memory consumption increase linearly. The default, -1,<br>means the maximum of 10 and `num_components`. Valid for<br>*randomized<br>• mode only.<br>**Optional**<br>Valid values: Non-negative integer or -1<br>Default value: -1 |
-| `subtract_mean`    | Indicates whether the data should be unbiased both during training<br>and at inference.<br>**Optional**<br>Valid values: One of *true<br>• or<br>_false_<br>Default value: _true_                                                                                                                                   |
+
+| Parameter Name | Description | 
+| --- | --- | 
+| feature\_dim | Input dimension.<br />**Required**<br />Valid values: positive integer | 
+| mini\_batch\_size | Number of rows in a mini-batch.<br />**Required**<br />Valid values: positive integer | 
+| num\_components | The number of principal components to compute.<br />**Required**<br />Valid values: positive integer | 
+| algorithm\_mode | Mode for computing the principal components. <br />**Optional**<br />Valid values: *regular* or *randomized*<br />Default value: *regular* | 
+| extra\_components | As the value increases, the solution becomes more accurate but the runtime and memory consumption increase linearly. The default, -1, means the maximum of 10 and `num_components`. Valid for *randomized* mode only.<br />**Optional**<br />Valid values: Non-negative integer or -1<br />Default value: -1 | 
+| subtract\_mean | Indicates whether the data should be unbiased both during training and at inference. <br />**Optional**<br />Valid values: One of *true* or *false*<br />Default value: *true* | 

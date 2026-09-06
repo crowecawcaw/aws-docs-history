@@ -1,87 +1,61 @@
+
+
 # Common Data Formats for Training
+<a name="cdf-training"></a>
 
-To prepare for training, you can preprocess your data using a variety of AWS
-services, including AWS Glue, Amazon EMR, Amazon Redshift, Amazon Relational Database Service, and Amazon Athena. After
-preprocessing, publish the data to an Amazon S3 bucket. For training, the data must
-go through a series of conversions and transformations, including:
+To prepare for training, you can preprocess your data using a variety of AWS services, including AWS Glue, Amazon EMR, Amazon Redshift, Amazon Relational Database Service, and Amazon Athena. After preprocessing, publish the data to an Amazon S3 bucket. For training, the data must go through a series of conversions and transformations, including: 
++ Training data serialization (handled by you) 
++ Training data deserialization (handled by the algorithm) 
++ Training model serialization (handled by the algorithm) 
++ Trained model deserialization (optional, handled by you) 
 
-- Training data serialization (handled by you)
-- Training data deserialization (handled by the algorithm)
-- Training model serialization (handled by the algorithm)
-- Trained model deserialization (optional, handled by you)
-  When using Amazon SageMaker AI in the training portion of the algorithm, make sure to
-  upload all data at once. If more data is added to that location, a new training
-  call would need to be made to construct a brand new model.
+When using Amazon SageMaker AI in the training portion of the algorithm, make sure to upload all data at once. If more data is added to that location, a new training call would need to be made to construct a brand new model.
 
-###### Topics
-
-- [Content Types Supported by Built-In Algorithms](#cdf-common-content-types "#cdf-common-content-types")
-- [Using Pipe Mode](#cdf-pipe-mode "#cdf-pipe-mode")
-- [Using CSV Format](#cdf-csv-format "#cdf-csv-format")
-- [Using RecordIO Format](#cdf-recordio-format "#cdf-recordio-format")
-- [Trained Model Deserialization](#td-deserialization "#td-deserialization")
+**Topics**
++ [Content Types Supported by Built-In Algorithms](#cdf-common-content-types)
++ [Using Pipe Mode](#cdf-pipe-mode)
++ [Using CSV Format](#cdf-csv-format)
++ [Using RecordIO Format](#cdf-recordio-format)
++ [Trained Model Deserialization](#td-deserialization)
 
 ## Content Types Supported by Built-In Algorithms
+<a name="cdf-common-content-types"></a>
 
-The following table lists some of the commonly supported [`ContentType`](../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType "../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType") values and the algorithms that use
-them:
+The following table lists some of the commonly supported [`ContentType`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html#SageMaker-Type-Channel-ContentType) values and the algorithms that use them:
 
 ContentTypes for Built-in Algorithms
 
-| ContentType                     | Algorithm                                                                                                                     |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| application/x-image             | Object Detection Algorithm, Semantic Segmentation                                                                             |
-| application/x-recordio          | Object Detection Algorithm                                                                                                    |
-| application/x-recordio-protobuf | Factorization Machines, K-Means, k-NN, Latent<br>Dirichlet Allocation, Linear Learner, NTM, PCA, RCF,<br>Sequence-to-Sequence |
-| application/jsonlines           | BlazingText, DeepAR                                                                                                           |
-| image/jpeg                      | Object Detection Algorithm, Semantic<br>Segmentation                                                                          |
-| image/png                       | Object Detection Algorithm, Semantic<br>Segmentation                                                                          |
-| text/csv                        | IP Insights, K-Means, k-NN, Latent Dirichlet<br>Allocation, Linear Learner, NTM, PCA, RCF,<br>XGBoost                         |
-| text/libsvm                     | XGBoost                                                                                                                       |
 
-For a summary of the parameters used by each algorithm, see the
-documentation for the individual algorithms or this [table](sagemaker-algo-docker-registry-paths.md "sagemaker-algo-docker-registry-paths.md").
+| ContentType | Algorithm | 
+| --- | --- | 
+| application/x-image | Object Detection Algorithm, Semantic Segmentation | 
+| application/x-recordio | Object Detection Algorithm | 
+| application/x-recordio-protobuf | Factorization Machines, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, Sequence-to-Sequence | 
+| application/jsonlines | BlazingText, DeepAR | 
+| image/jpeg | Object Detection Algorithm, Semantic Segmentation | 
+| image/png | Object Detection Algorithm, Semantic Segmentation | 
+| text/csv | IP Insights, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, XGBoost | 
+| text/libsvm | XGBoost | 
+
+For a summary of the parameters used by each algorithm, see the documentation for the individual algorithms or this [table](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
 
 ## Using Pipe Mode
+<a name="cdf-pipe-mode"></a>
 
-In _Pipe mode_, your training job streams data directly
-from Amazon Simple Storage Service (Amazon S3). Streaming can provide faster start times for training
-jobs and better throughput. This is in contrast to _File
-mode_, in which your data from Amazon S3 is stored on the training
-instance volumes. File mode uses disk space to store both your final model
-artifacts and your full training dataset. By streaming in your data directly
-from Amazon S3 in Pipe mode, you reduce the size of Amazon Elastic Block Store volumes of your
-training instances. Pipe mode needs only enough disk space to store your
-final model artifacts. See the [`AlgorithmSpecification`](../APIReference/API_AlgorithmSpecification.md "../APIReference/API_AlgorithmSpecification.md") for additional details on
-the training input mode.
+In *Pipe mode*, your training job streams data directly from Amazon Simple Storage Service (Amazon S3). Streaming can provide faster start times for training jobs and better throughput. This is in contrast to *File mode*, in which your data from Amazon S3 is stored on the training instance volumes. File mode uses disk space to store both your final model artifacts and your full training dataset. By streaming in your data directly from Amazon S3 in Pipe mode, you reduce the size of Amazon Elastic Block Store volumes of your training instances. Pipe mode needs only enough disk space to store your final model artifacts. See the [`AlgorithmSpecification`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html) for additional details on the training input mode.
 
 ## Using CSV Format
+<a name="cdf-csv-format"></a>
 
-Many Amazon SageMaker AI algorithms support training with data in CSV format. To use
-data in CSV format for training, in the input data channel specification,
-specify `text/csv` as the [`ContentType`](../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType "../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType"). Amazon SageMaker AI requires
-that a CSV file does not have a header record and that the target variable
-is in the first column. To run unsupervised learning algorithms that don't
-have a target, specify the number of label columns in the content type. For
-example, in this case
-`'content_type=text/csv;label_size=0'`. For more information, see [Now use Pipe mode with CSV datasets for faster training on Amazon SageMaker AI
-built-in algorithms](https://aws.amazon.com/blogs/machine-learning/now-use-pipe-mode-with-csv-datasets-for-faster-training-on-amazon-sagemaker-built-in-algorithms/ "https://aws.amazon.com/blogs/machine-learning/now-use-pipe-mode-with-csv-datasets-for-faster-training-on-amazon-sagemaker-built-in-algorithms/").
+Many Amazon SageMaker AI algorithms support training with data in CSV format. To use data in CSV format for training, in the input data channel specification, specify **text/csv** as the [`ContentType`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html#SageMaker-Type-Channel-ContentType). Amazon SageMaker AI requires that a CSV file does not have a header record and that the target variable is in the first column. To run unsupervised learning algorithms that don't have a target, specify the number of label columns in the content type. For example, in this case **'content\_type=text/csv;label\_size=0'**. For more information, see [Now use Pipe mode with CSV datasets for faster training on Amazon SageMaker AI built-in algorithms](https://aws.amazon.com/blogs/machine-learning/now-use-pipe-mode-with-csv-datasets-for-faster-training-on-amazon-sagemaker-built-in-algorithms/).
 
 ## Using RecordIO Format
+<a name="cdf-recordio-format"></a>
 
-In the protobuf recordIO format, SageMaker AI converts each observation in the
-dataset into a binary representation as a set of 4-byte floats, then loads
-it in the protobuf values field. If you are using Python for your data
-preparation, we strongly recommend that you use these existing
-transformations. However, if you are using another language, the protobuf
-definition file below provides the schema that you use to convert your data
-into SageMaker AI protobuf format.
+In the protobuf recordIO format, SageMaker AI converts each observation in the dataset into a binary representation as a set of 4-byte floats, then loads it in the protobuf values field. If you are using Python for your data preparation, we strongly recommend that you use these existing transformations. However, if you are using another language, the protobuf definition file below provides the schema that you use to convert your data into SageMaker AI protobuf format.
 
-###### Note
-
-For an example that shows how to convert the commonly used numPy array
-into the protobuf recordIO format, see _[An Introduction to Factorization Machines with
-MNIST](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/factorization_machines_mnist/factorization_machines_mnist.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/factorization_machines_mnist/factorization_machines_mnist.html")_ .
+**Note**  
+For an example that shows how to convert the commonly used numPy array into the protobuf recordIO format, see *[An Introduction to Factorization Machines with MNIST](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/factorization_machines_mnist/factorization_machines_mnist.html)* .
 
 ```
 syntax = "proto2";
@@ -207,35 +181,17 @@ syntax = "proto2";
      // when batch inference is used (e.g. types of scores to return).
      optional string configuration = 5;
  }
-
 ```
 
-After creating the protocol buffer, store it in an Amazon S3 location that
-Amazon SageMaker AI can access and that can be passed as part of
-`InputDataConfig` in `create_training_job`.
+After creating the protocol buffer, store it in an Amazon S3 location that Amazon SageMaker AI can access and that can be passed as part of `InputDataConfig` in `create_training_job`. 
 
-###### Note
-
-For all Amazon SageMaker AI algorithms, the `ChannelName` in
-`InputDataConfig` must be set to `train`. Some
-algorithms also support a validation or test `input
- channels`. These are typically used to evaluate the model's
-performance by using a hold-out dataset. Hold-out datasets are not used
-in the initial training but can be used to further tune the
-model.
+**Note**  
+For all Amazon SageMaker AI algorithms, the `ChannelName` in `InputDataConfig` must be set to `train`. Some algorithms also support a validation or test `input channels`. These are typically used to evaluate the model's performance by using a hold-out dataset. Hold-out datasets are not used in the initial training but can be used to further tune the model.
 
 ## Trained Model Deserialization
+<a name="td-deserialization"></a>
 
-Amazon SageMaker AI models are stored as model.tar.gz in the S3 bucket specified in
-`OutputDataConfig`
-`S3OutputPath` parameter of the `create_training_job`
-call. The S3 bucket must be in the same AWS Region as the notebook
-instance. You can specify most of these model artifacts when creating a
-hosting model. You can also open and review them in your notebook instance.
-When `model.tar.gz` is untarred, it contains
-`model_algo-1`, which is a serialized Apache MXNet object.
-For example, you use the following to load the k-means model into memory and
-view it:
+Amazon SageMaker AI models are stored as model.tar.gz in the S3 bucket specified in `OutputDataConfig` `S3OutputPath` parameter of the `create_training_job` call. The S3 bucket must be in the same AWS Region as the notebook instance. You can specify most of these model artifacts when creating a hosting model. You can also open and review them in your notebook instance. When `model.tar.gz` is untarred, it contains `model_algo-1`, which is a serialized Apache MXNet object. For example, you use the following to load the k-means model into memory and view it: 
 
 ```
 import mxnet as mx

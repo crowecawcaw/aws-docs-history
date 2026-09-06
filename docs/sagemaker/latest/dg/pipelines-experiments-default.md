@@ -1,13 +1,13 @@
+
+
 # Default Behavior
+<a name="pipelines-experiments-default"></a>
 
 **Create a pipeline**
 
-The default behavior when creating a SageMaker AI Pipeline is to automatically integrate it with SageMaker Experiments. If you don't specify any custom configuration,
-SageMaker AI creates an experiment with the same name as the pipeline, a run group for each execution of the pipeline using the pipeline execution ID as the name, and individual runs within each run group for every SageMaker AI job launched as part of the pipeline steps.
-You can seamlessly track and compare metrics across different pipeline executions, similar to how you would analyze a model training experiment. The following section demonstrates this default behavior when defining a pipeline without explicitly configuring the experiment integration.
+The default behavior when creating a SageMaker AI Pipeline is to automatically integrate it with SageMaker Experiments. If you don't specify any custom configuration, SageMaker AI creates an experiment with the same name as the pipeline, a run group for each execution of the pipeline using the pipeline execution ID as the name, and individual runs within each run group for every SageMaker AI job launched as part of the pipeline steps. You can seamlessly track and compare metrics across different pipeline executions, similar to how you would analyze a model training experiment. The following section demonstrates this default behavior when defining a pipeline without explicitly configuring the experiment integration.
 
-The `pipeline_experiment_config` is omitted. `ExperimentName`
-defaults to the pipeline `name`. `TrialName` defaults to the execution ID.
+The `pipeline_experiment_config` is omitted. `ExperimentName` defaults to the pipeline `name`. `TrialName` defaults to the execution ID.
 
 ```
 pipeline_name = f"MyPipeline"

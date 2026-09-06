@@ -1,59 +1,49 @@
+
+
 # Events that Amazon SageMaker AI sends to Amazon EventBridge
+<a name="automating-sagemaker-with-eventbridge"></a>
 
-Amazon EventBridge monitors status change events in Amazon SageMaker AI. EventBridge enables you to automate SageMaker AI and
-respond automatically to events such as a training job status change or endpoint status
-change. Events from SageMaker AI are delivered to EventBridge in near real time. You can write simple rules
-to indicate which events are of interest to you, and what automated actions to take when an
-event matches a rule. To create a rule, see [Creating rules that react to events
-in EventBridge](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md"). If you use AWS CLI, see [put-rule](../../../cli/latest/reference/events/put-rule.md "../../../cli/latest/reference/events/put-rule.md") from the _AWS CLI Command Reference_.
+Amazon EventBridge monitors status change events in Amazon SageMaker AI. EventBridge enables you to automate SageMaker AI and respond automatically to events such as a training job status change or endpoint status change. Events from SageMaker AI are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. To create a rule, see [Creating rules that react to events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html). If you use AWS CLI, see [put-rule](https://docs.aws.amazon.com/cli/latest/reference/events/put-rule.html) from the *AWS CLI Command Reference*.
 
-The following sections describe the events that SageMaker AI sends to EventBridge, along with examples.
-You can use the examples to help you write automation rules.
+The following sections describe the events that SageMaker AI sends to EventBridge, along with examples. You can use the examples to help you write automation rules.
 
-###### Note
+**Note**  
+SageMaker AI may send multiple events to EventBridge for each state change. This behavior is expected and does not necessarily indicate an error.
 
-SageMaker AI may send multiple events to EventBridge for each state change. This behavior is expected
-and does not necessarily indicate an error.
+Some examples of the actions that can be automatically triggered include the following:
++ Invoking an AWS Lambda function
++ Invoking Amazon EC2 Run Command
++ Relaying the event to Amazon Kinesis Data Streams
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic or an AWS SMS queue
 
-Some examples of the actions that can be automatically triggered include the
-following:
-
-- Invoking an AWS Lambda function
-- Invoking Amazon EC2 Run Command
-- Relaying the event to Amazon Kinesis Data Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an AWS SMS queue
-
-###### SageMaker AI events monitored by EventBridge
-
-- [SageMaker endpoint deployment state change](#eventbridge-deployment-state "#eventbridge-deployment-state")
-- [SageMaker endpoint state change](#eventbridge-endpoint "#eventbridge-endpoint")
-- [SageMaker feature group state change](#eventbridge-feature-group "#eventbridge-feature-group")
-- [SageMaker hyperparameter tuning job state change](#eventbridge-hpo "#eventbridge-hpo")
-- [SageMaker HyperPod cluster event](#eventbridge-hyperpod-cluster-event "#eventbridge-hyperpod-cluster-event")
-- [SageMaker HyperPod cluster node health](#eventbridge-hyperpod-node-health "#eventbridge-hyperpod-node-health")
-- [SageMaker HyperPod cluster state change](#eventbridge-hyperpod-cluster-state "#eventbridge-hyperpod-cluster-state")
-- [SageMaker image state change](#eventbridge-image-state "#eventbridge-image-state")
-- [SageMaker image version state change](#eventbridge-image-version-state "#eventbridge-image-version-state")
-- [SageMaker job state change](#eventbridge-job-state "#eventbridge-job-state")
-- [SageMaker model card state change](#eventbridge-model-card-state "#eventbridge-model-card-state")
-- [SageMaker model package state change](#eventbridge-model-package "#eventbridge-model-package")
-- [SageMaker model state change](#eventbridge-model "#eventbridge-model")
-- [SageMaker pipeline execution state change](#eventbridge-pipeline "#eventbridge-pipeline")
-- [SageMaker pipeline step state change](#eventbridge-pipeline-step "#eventbridge-pipeline-step")
-- [SageMaker processing job state change](#processing-job-state "#processing-job-state")
-- [SageMaker training job state change](#eventbridge-training "#eventbridge-training")
-- [SageMaker transform job state change](#eventbridge-transform "#eventbridge-transform")
+**Topics**
++ [SageMaker endpoint deployment state change](#eventbridge-deployment-state)
++ [SageMaker endpoint state change](#eventbridge-endpoint)
++ [SageMaker feature group state change](#eventbridge-feature-group)
++ [SageMaker hyperparameter tuning job state change](#eventbridge-hpo)
++ [SageMaker HyperPod cluster event](#eventbridge-hyperpod-cluster-event)
++ [SageMaker HyperPod cluster node health](#eventbridge-hyperpod-node-health)
++ [SageMaker HyperPod cluster state change](#eventbridge-hyperpod-cluster-state)
++ [SageMaker image state change](#eventbridge-image-state)
++ [SageMaker image version state change](#eventbridge-image-version-state)
++ [SageMaker job state change](#eventbridge-job-state)
++ [SageMaker model card state change](#eventbridge-model-card-state)
++ [SageMaker model package state change](#eventbridge-model-package)
++ [SageMaker model state change](#eventbridge-model)
++ [SageMaker pipeline execution state change](#eventbridge-pipeline)
++ [SageMaker pipeline step state change](#eventbridge-pipeline-step)
++ [SageMaker processing job state change](#processing-job-state)
++ [SageMaker training job state change](#eventbridge-training)
++ [SageMaker transform job state change](#eventbridge-transform)
 
 ## SageMaker endpoint deployment state change
+<a name="eventbridge-deployment-state"></a>
 
-###### Important
+**Important**  
+The following examples may not work for all endpoints. For a list of features that may exclude your endpoint, see the [Exclusions](deployment-guardrails-exclusions.md) page.
 
-The following examples may not work for all endpoints. For a list of features that may
-exclude your endpoint, see the [Exclusions](deployment-guardrails-exclusions.md "deployment-guardrails-exclusions.md") page.
-
-Indicates a state change for an endpoint deployment. The following example shows an
-endpoint updating with a blue/green canary deployment.
+Indicates a state change for an endpoint deployment. The following example shows an endpoint updating with a blue/green canary deployment.
 
 ```
 {
@@ -108,8 +98,7 @@ endpoint updating with a blue/green canary deployment.
 }
 ```
 
-The following example indicates a state change for an endpoint deployment, which is
-being updated with new capacity on an existing endpoint configuration.
+The following example indicates a state change for an endpoint deployment, which is being updated with new capacity on an existing endpoint configuration.
 
 ```
 {
@@ -150,40 +139,29 @@ being updated with new capacity on an existing endpoint configuration.
     }
 ```
 
-The following secondary deployment statuses are also available for endpoints found in
-the `VariantStatus` object.
+The following secondary deployment statuses are also available for endpoints found in the `VariantStatus` object.
++ `Creating`: creating instances for the production variant.
 
-- `Creating`: creating instances for the production variant.
+  Example message: `"Launching X instance(s)."`
++ `Deleting`: terminating instances for the production variant.
 
-Example message: `"Launching X instance(s)."`
+  Example message: `"Terminating X instance(s)."`
++ `Updating`: updating capacity for the production variant.
 
-- `Deleting`: terminating instances for the production variant.
+  Example messages: `"Launching X instance(s)."`, `"Scaling out desired instance count to X."`
++ `ActivatingTraffic`: turning on traffic for the production variant.
 
-Example message: `"Terminating X instance(s)."`
+  Example message: `"Activating traffic on canary capacity of X instance(s)."`
++ `Baking`: waiting period to monitor the CloudWatch alarms in the auto-rollback configuration.
 
-- `Updating`: updating capacity for the production variant.
-
-Example messages: `"Launching X instance(s)."`, `"Scaling out
- desired instance count to X."`
-
-- `ActivatingTraffic`: turning on traffic for the production
-  variant.
-
-Example message: `"Activating traffic on canary capacity of X
- instance(s)."`
-
-- `Baking`: waiting period to monitor the CloudWatch alarms in the auto-rollback
-  configuration.
-
-Example message: `"Baking for X seconds (TerminationWaitInSeconds) with traffic
- enabled on full capacity of Y instance(s)."`
+  Example message: `"Baking for X seconds (TerminationWaitInSeconds) with traffic enabled on full capacity of Y instance(s)."`
 
 ## SageMaker endpoint state change
+<a name="eventbridge-endpoint"></a>
 
 Indicates a change in the status of a SageMaker AI hosted real-time inference endpoint.
 
-The following shows an event with an endpoint in the `IN_SERVICE`
-state.
+The following shows an event with an endpoint in the `IN_SERVICE` state.
 
 ```
 {
@@ -218,9 +196,9 @@ state.
 ```
 
 ## SageMaker feature group state change
+<a name="eventbridge-feature-group"></a>
 
-Indicates a change either in the `FeatureGroupStatus` or the
-`OfflineStoreStatus` of a SageMaker feature group.
+Indicates a change either in the `FeatureGroupStatus` or the `OfflineStoreStatus` of a SageMaker feature group.
 
 ```
 {
@@ -272,6 +250,7 @@ Indicates a change either in the `FeatureGroupStatus` or the
 ```
 
 ## SageMaker hyperparameter tuning job state change
+<a name="eventbridge-hpo"></a>
 
 Indicates a change in the status of a SageMaker hyperparameter tuning job.
 
@@ -361,9 +340,9 @@ Indicates a change in the status of a SageMaker hyperparameter tuning job.
 ```
 
 ## SageMaker HyperPod cluster event
+<a name="eventbridge-hyperpod-cluster-event"></a>
 
-Indicates a new event in the state of a SageMaker HyperPod cluster. For more information, see
-the [DescribeClusterEvent](../APIReference/API_DescribeClusterEvent.md "../APIReference/API_DescribeClusterEvent.md") operation.
+Indicates a new event in the state of a SageMaker HyperPod cluster. For more information, see the [DescribeClusterEvent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterEvent.html) operation.
 
 ```
 {
@@ -400,9 +379,9 @@ the [DescribeClusterEvent](../APIReference/API_DescribeClusterEvent.md "../APIRe
 ```
 
 ## SageMaker HyperPod cluster node health
+<a name="eventbridge-hyperpod-node-health"></a>
 
-Indicates when HyperPod detects unhealthy nodes or when unhealthy nodes
-transition to a healthy state.
+Indicates when HyperPod detects unhealthy nodes or when unhealthy nodes transition to a healthy state.
 
 ```
 {
@@ -432,9 +411,9 @@ transition to a healthy state.
 ```
 
 ## SageMaker HyperPod cluster state change
+<a name="eventbridge-hyperpod-cluster-state"></a>
 
-Indicates a change in the state of a SageMaker HyperPod cluster. For more information, see the
-[DescribeCluster](../APIReference/API_DescribeCluster.md#API_DescribeCluster_ResponseSyntax "../APIReference/API_DescribeCluster.md#API_DescribeCluster_ResponseSyntax") API reference.
+Indicates a change in the state of a SageMaker HyperPod cluster. For more information, see the [DescribeCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCluster.html#API_DescribeCluster_ResponseSyntax) API reference.
 
 ```
 {
@@ -504,6 +483,7 @@ Indicates a change in the state of a SageMaker HyperPod cluster. For more inform
 ```
 
 ## SageMaker image state change
+<a name="eventbridge-image-state"></a>
 
 Indicates a change in the status of a SageMaker image.
 
@@ -528,6 +508,7 @@ Indicates a change in the status of a SageMaker image.
 ```
 
 ## SageMaker image version state change
+<a name="eventbridge-image-version-state"></a>
 
 Indicates a change in the status of a SageMaker image version.
 
@@ -552,15 +533,11 @@ Indicates a change in the status of a SageMaker image version.
 ```
 
 ## SageMaker job state change
+<a name="eventbridge-job-state"></a>
 
-Indicates a change in the status of a SageMaker job. SageMaker AI emits this event for reinforcement
-fine-tuning (RFT) jobs. These jobs have a `JobCategory` of `AgentRFT`
-for training jobs or `AgentRFTEvaluation` for evaluation jobs. The resource ARN
-has the form
-`arn:aws:sagemaker:`region`:`account-id`:job/`category`/`job-name``.
+Indicates a change in the status of a SageMaker job. SageMaker AI emits this event for reinforcement fine-tuning (RFT) jobs. These jobs have a `JobCategory` of `AgentRFT` for training jobs or `AgentRFTEvaluation` for evaluation jobs. The resource ARN has the form `arn:aws:sagemaker:{{region}}:{{account-id}}:job/{{category}}/{{job-name}}`.
 
-If the value of `JobStatus` is `Failed`, the event contains the
-`FailureReason` field, which provides a description of why the job failed.
+If the value of `JobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the job failed.
 
 ```
 {
@@ -596,9 +573,9 @@ If the value of `JobStatus` is `Failed`, the event contains the
 ```
 
 ## SageMaker model card state change
+<a name="eventbridge-model-card-state"></a>
 
-Indicates a change in the status of an Amazon SageMaker model card. For more information about
-model cards, see [Amazon SageMaker Model Cards](model-cards.md "model-cards.md").
+Indicates a change in the status of an Amazon SageMaker model card. For more information about model cards, see [Amazon SageMaker Model Cards](model-cards.md).
 
 ```
 {
@@ -636,6 +613,7 @@ model cards, see [Amazon SageMaker Model Cards](model-cards.md "model-cards.md")
 ```
 
 ## SageMaker model package state change
+<a name="eventbridge-model-package"></a>
 
 Indicates a change in the status of a SageMaker model package.
 
@@ -698,9 +676,9 @@ Indicates a change in the status of a SageMaker model package.
       "StageDescription": "StageDescription"
     },
     "UpdatedModelPackageFields": [
-      "ModelLifeCycle"
-      # Other possible values are
-      # "ModelApprovalStatus","ApprovalDescription","sourceUri","CustomerMetadataProperties", "InferenceSpecification"
+      "ModelLifeCycle" 
+      # Other possible values are 
+      # "ModelApprovalStatus","ApprovalDescription","sourceUri","CustomerMetadataProperties", "InferenceSpecification"    
     ]
     "LastModifiedTime": "2021-02-24T17:00:14Z"
   }
@@ -708,9 +686,9 @@ Indicates a change in the status of a SageMaker model package.
 ```
 
 ## SageMaker model state change
+<a name="eventbridge-model"></a>
 
-Indicates a change in the state of a SageMaker AI model. The state changes when a SageMaker AI model is
-either created or deleted.
+ Indicates a change in the state of a SageMaker AI model. The state changes when a SageMaker AI model is either created or deleted. 
 
 ```
 {
@@ -720,23 +698,19 @@ either created or deleted.
 }
 ```
 
-If a model is specified under `Resources`, an event will be generated and
-sent to EventBridge when the state of this model changes. If you do not specify a value for
-`Resources`, an event will generate when the status of any of the SageMaker AI models
-associated with your account changes.
+If a model is specified under `Resources`, an event will be generated and sent to EventBridge when the state of this model changes. If you do not specify a value for `Resources`, an event will generate when the status of any of the SageMaker AI models associated with your account changes.
 
 ## SageMaker pipeline execution state change
+<a name="eventbridge-pipeline"></a>
 
 Indicates a change in the status of a SageMaker pipeline execution.
 
-`currentPipelineExecutionStatus` and
-`previousPipelineExecutionStatus`can be one of the following values:
-
-- Executing
-- Succeeded
-- Failed
-- Stopping
-- Stopped
+`currentPipelineExecutionStatus` and `previousPipelineExecutionStatus`can be one of the following values:
++ Executing
++ Succeeded
++ Failed
++ Stopping
++ Stopped
 
 ```
 {
@@ -762,23 +736,19 @@ Indicates a change in the status of a SageMaker pipeline execution.
 ```
 
 ## SageMaker pipeline step state change
+<a name="eventbridge-pipeline-step"></a>
 
 Indicates a change in the status of a SageMaker pipeline step.
 
-If there is a cache hit, the event contains the `cacheHitResult` field.
-`currentStepStatus` and `previousStepStatus`can be one of the
-following values:
+If there is a cache hit, the event contains the `cacheHitResult` field. `currentStepStatus` and `previousStepStatus`can be one of the following values:
++ Starting
++ Executing
++ Succeeded
++ Failed
++ Stopping
++ Stopped
 
-- Starting
-- Executing
-- Succeeded
-- Failed
-- Stopping
-- Stopped
-
-If the value of `currentStepStatus` is `Failed`, the event
-contains the `failureReason` field, which provides a description of why the step
-failed.
+If the value of `currentStepStatus` is `Failed`, the event contains the `failureReason` field, which provides a description of why the step failed.
 
 ```
 {
@@ -809,11 +779,11 @@ failed.
 ```
 
 ## SageMaker processing job state change
+<a name="processing-job-state"></a>
 
 Indicates a change in the status of a SageMaker processing job.
 
-The following example event is for a failed processing job, where the
-`ProcessingJobStatus` value is `Failed`.
+The following example event is for a failed processing job, where the `ProcessingJobStatus` value is `Failed`.
 
 ```
 {
@@ -884,12 +854,11 @@ The following example event is for a failed processing job, where the
 ```
 
 ## SageMaker training job state change
+<a name="eventbridge-training"></a>
 
 Indicates a change in the status of a SageMaker training job.
 
-If the value of `TrainingJobStatus` is `Failed`, the event
-contains the `FailureReason` field, which provides a description of why the
-training job failed.
+If the value of `TrainingJobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the training job failed.
 
 ```
 {
@@ -962,12 +931,11 @@ training job failed.
 ```
 
 ## SageMaker transform job state change
+<a name="eventbridge-transform"></a>
 
 Indicates a change in the status of a SageMaker batch transform job.
 
-If the value of `TransformJobStatus` is `Failed`, the event
-contains the `FailureReason` field, which provides a description of why the
-training job failed.
+If the value of `TransformJobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the training job failed.
 
 ```
 {
@@ -1020,20 +988,18 @@ training job failed.
 }
 ```
 
-For more information about the status values and their meanings for SageMaker AI jobs, endpoints,
-and pipelines, see the following links:
+For more information about the status values and their meanings for SageMaker AI jobs, endpoints, and pipelines, see the following links:
++ [`AlgorithmStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAlgorithm.html#sagemaker-DescribeAlgorithm-response-AlgorithmStatus)
++ [`EndpointStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html#sagemaker-DescribeEndpoint-response-EndpointStatus)
++ [`FeatureGroupStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html#sagemaker-DescribeFeatureGroup-response-FeatureGroupStatus)
++ [`HyperParameterTuningJobStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHyperParameterTuningJob.html#sagemaker-DescribeHyperParameterTuningJob-response-HyperParameterTuningJobStatus)
++ [`LabelingJobStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeLabelingJob.html#sagemaker-DescribeLabelingJob-response-LabelingJobStatus)
++ [`ModelPackageStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackage.html#sagemaker-DescribeModelPackage-response-ModelPackageStatus)
++ [`NotebookInstanceStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeNotebookInstance.html#sagemaker-DescribeNotebookInstance-response-NotebookInstanceStatus)
++ [`PipelineExecutionStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePipelineExecution.html#sagemaker-DescribePipelineExecution-response-PipelineExecutionStatus)
++ [`StepStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PipelineExecutionStep.html#sagemaker-Type-PipelineExecutionStep-StepStatus)
++ [`ProcessingJobStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html#sagemaker-DescribeProcessingJob-response-ProcessingJobStatus)
++ [`TrainingJobStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html#sagemaker-DescribeTrainingJob-response-TrainingJobStatus)
++ [`TransformJobStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTransformJob.html#sagemaker-DescribeTransformJob-response-TransformJobStatus)
 
-- [`AlgorithmStatus`](../APIReference/API_DescribeAlgorithm.md#sagemaker-DescribeAlgorithm-response-AlgorithmStatus "../APIReference/API_DescribeAlgorithm.md#sagemaker-DescribeAlgorithm-response-AlgorithmStatus")
-- [`EndpointStatus`](../APIReference/API_DescribeEndpoint.md#sagemaker-DescribeEndpoint-response-EndpointStatus "../APIReference/API_DescribeEndpoint.md#sagemaker-DescribeEndpoint-response-EndpointStatus")
-- [`FeatureGroupStatus`](../APIReference/API_DescribeFeatureGroup.md#sagemaker-DescribeFeatureGroup-response-FeatureGroupStatus "../APIReference/API_DescribeFeatureGroup.md#sagemaker-DescribeFeatureGroup-response-FeatureGroupStatus")
-- [`HyperParameterTuningJobStatus`](../APIReference/API_DescribeHyperParameterTuningJob.md#sagemaker-DescribeHyperParameterTuningJob-response-HyperParameterTuningJobStatus "../APIReference/API_DescribeHyperParameterTuningJob.md#sagemaker-DescribeHyperParameterTuningJob-response-HyperParameterTuningJobStatus")
-- [`LabelingJobStatus`](../APIReference/API_DescribeLabelingJob.md#sagemaker-DescribeLabelingJob-response-LabelingJobStatus "../APIReference/API_DescribeLabelingJob.md#sagemaker-DescribeLabelingJob-response-LabelingJobStatus")
-- [`ModelPackageStatus`](../APIReference/API_DescribeModelPackage.md#sagemaker-DescribeModelPackage-response-ModelPackageStatus "../APIReference/API_DescribeModelPackage.md#sagemaker-DescribeModelPackage-response-ModelPackageStatus")
-- [`NotebookInstanceStatus`](../APIReference/API_DescribeNotebookInstance.md#sagemaker-DescribeNotebookInstance-response-NotebookInstanceStatus "../APIReference/API_DescribeNotebookInstance.md#sagemaker-DescribeNotebookInstance-response-NotebookInstanceStatus")
-- [`PipelineExecutionStatus`](../APIReference/API_DescribePipelineExecution.md#sagemaker-DescribePipelineExecution-response-PipelineExecutionStatus "../APIReference/API_DescribePipelineExecution.md#sagemaker-DescribePipelineExecution-response-PipelineExecutionStatus")
-- [`StepStatus`](../APIReference/API_PipelineExecutionStep.md#sagemaker-Type-PipelineExecutionStep-StepStatus "../APIReference/API_PipelineExecutionStep.md#sagemaker-Type-PipelineExecutionStep-StepStatus")
-- [`ProcessingJobStatus`](../APIReference/API_DescribeProcessingJob.md#sagemaker-DescribeProcessingJob-response-ProcessingJobStatus "../APIReference/API_DescribeProcessingJob.md#sagemaker-DescribeProcessingJob-response-ProcessingJobStatus")
-- [`TrainingJobStatus`](../APIReference/API_DescribeTrainingJob.md#sagemaker-DescribeTrainingJob-response-TrainingJobStatus "../APIReference/API_DescribeTrainingJob.md#sagemaker-DescribeTrainingJob-response-TrainingJobStatus")
-- [`TransformJobStatus`](../APIReference/API_DescribeTransformJob.md#sagemaker-DescribeTransformJob-response-TransformJobStatus "../APIReference/API_DescribeTransformJob.md#sagemaker-DescribeTransformJob-response-TransformJobStatus")
-  For more information, see the [Amazon EventBridge User
-  Guide](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md").
+For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html).

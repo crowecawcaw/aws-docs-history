@@ -1,13 +1,17 @@
+
+
 # Deploy a custom model
+<a name="deploy-trained-model"></a>
 
 After training completes, deploy your model for inference. You can deploy a custom model using either the CLI or the SDK.
 
 ## Locate your model artifacts
-
-- **Check your S3 bucket**: Verify that model artifacts are saved at `s3://my-bucket/model-artifacts/`
-- **Note the exact path**: You'll need the full path (for example, `s3://my-bucket/model-artifacts/test-pytorch-job/model.tar.gz`)
+<a name="locate-model-artifacts"></a>
++ **Check your S3 bucket**: Verify that model artifacts are saved at `s3://my-bucket/model-artifacts/`
++ **Note the exact path**: You'll need the full path (for example, `s3://my-bucket/model-artifacts/test-pytorch-job/model.tar.gz`)
 
 ## Deploy using the CLI
+<a name="deploy-using-cli"></a>
 
 Run the following command to deploy your custom model:
 
@@ -19,22 +23,22 @@ hyp create hyp-custom-endpoint \
     --model-location test-pytorch-job \
     --s3-bucket-name my-bucket \
     --s3-region us-east-2 \
-    --prefetch-enabled true \
+    --prefetch-enabled true \ 
     --image-uri 763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:latest \
     --model-volume-mount-name model-weights \
     --container-port 8080 \
     --resources-requests '{"cpu": "30000m", "nvidia.com/gpu": 1, "memory": "100Gi"}' \
     --resources-limits '{"nvidia.com/gpu": 1}' \
-    --tls-output-s3-uri s3://`<bucket_name>` \
+    --tls-output-s3-uri s3://{{<bucket_name>}} \
     --instance-type ml.g5.8xlarge \
     --endpoint-name endpoint-custom-pytorch \
     --model-name pytorch-custom-model
 ```
 
-This command deploys the trained model as an endpoint named `endpoint-custom-pytorch`.
-The `--model-location` references the artifact path from the training job.
+This command deploys the trained model as an endpoint named `endpoint-custom-pytorch`. The `--model-location` references the artifact path from the training job.
 
 ## Deploy using the Python SDK
+<a name="deploy-using-sdk"></a>
 
 Create a Python script with the following content:
 
@@ -72,7 +76,7 @@ env = EnvironmentVariables(
 
 endpoint_name = SageMakerEndpoint(name="endpoint-custom-pytorch")
 
-tls_config = TlsConfig(tls_certificate_output_s3_uri="s3://`<bucket_name>`")
+tls_config = TlsConfig(tls_certificate_output_s3_uri="s3://{{<bucket_name>}}")
 
 custom_endpoint = HPCustomEndpoint(
     model=model,
@@ -87,8 +91,10 @@ custom_endpoint.create()
 ```
 
 ## Invoke the endpoint
+<a name="invoke-endpoint"></a>
 
 ### Using the CLI
+<a name="invoke-using-cli"></a>
 
 Test the endpoint with a sample input:
 
@@ -101,6 +107,7 @@ hyp invoke hyp-custom-endpoint \
 This returns the model’s response, such as “The capital of the USA is Washington, D.C.”
 
 ### Using the SDK
+<a name="invoke-using-sdk"></a>
 
 Add the following code to your Python script:
 
@@ -111,8 +118,10 @@ print(response)
 ```
 
 ## Manage the endpoint
+<a name="manage-endpoint"></a>
 
 ### Using the CLI
+<a name="manage-using-cli"></a>
 
 List and inspect the endpoint:
 
@@ -122,6 +131,7 @@ hyp get hyp-custom-endpoint --name endpoint-custom-pytorch
 ```
 
 ### Using the SDK
+<a name="manage-using-sdk"></a>
 
 Add the following code to your Python script:
 
@@ -131,21 +141,25 @@ print(logs)
 ```
 
 ## Clean up resources
+<a name="cleanup-resources"></a>
 
 When you're done, delete the endpoint to avoid unnecessary costs.
 
 ### Using the CLI
+<a name="cleanup-using-cli"></a>
 
 ```
 hyp delete hyp-custom-endpoint --name endpoint-custom-pytorch
 ```
 
 ### Using the SDK
+<a name="cleanup-using-sdk"></a>
 
 ```
 custom_endpoint.delete()
 ```
 
 ## Next steps
+<a name="next-steps"></a>
 
 You've successfully deployed and tested a custom model using SageMaker HyperPod. You can now use this endpoint for inference in your applications.

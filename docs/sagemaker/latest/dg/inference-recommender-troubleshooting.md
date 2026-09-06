@@ -1,120 +1,81 @@
-# Troubleshoot Inference Recommender errors
 
-This section contains information about how to understand and prevent common
-errors, the error messages they generate, and guidance on how to resolve these
-errors.
+
+# Troubleshoot Inference Recommender errors
+<a name="inference-recommender-troubleshooting"></a>
+
+This section contains information about how to understand and prevent common errors, the error messages they generate, and guidance on how to resolve these errors.
 
 ## How to troubleshoot
+<a name="inference-recommender-troubleshooting-how-to"></a>
 
-You can attempt to resolve your error by going through the following
-steps:
-
-- Check if you've covered all the prerequisites to use Inference Recommender. See the
-  [Inference Recommender Prerequisites](inference-recommender-prerequisites.md "inference-recommender-prerequisites.md").
-- Check that you are able to deploy your model from Model Registry to an
-  endpoint and that it can process your payloads without errors. See
-  [Deploy a Model
-  from the Registry](model-registry-deploy.md "model-registry-deploy.md").
-- When you kick off an Inference Recommender job, you should see endpoints being
-  created in the console and you can review the CloudWatch logs.
+You can attempt to resolve your error by going through the following steps:
++ Check if you've covered all the prerequisites to use Inference Recommender. See the [Inference Recommender Prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-recommender-prerequisites.html).
++ Check that you are able to deploy your model from Model Registry to an endpoint and that it can process your payloads without errors. See [Deploy a Model from the Registry](https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-deploy.html).
++ When you kick off an Inference Recommender job, you should see endpoints being created in the console and you can review the CloudWatch logs.
 
 ## Common errors
+<a name="inference-recommender-troubleshooting-common"></a>
 
-Review the following table for common Inference Recommender errors and their
-solutions.
+Review the following table for common Inference Recommender errors and their solutions.
 
-| Error                                                                                                      | Solution                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Specify `Domain` in the Model Package version<br>1. `Domain` is a mandatory parameter for the<br>job.      | Make sure you provide the ML domain or<br>`OTHER` if unknown.                                                                                                                                                                                                                                                                                                                                           |
-| Provided role ARN cannot be assumed and an<br>`AWSSecurityTokenServiceException` error<br>occurred.        | Make sure the execution role provided has the necessary<br>permissions specified in the prerequisites.                                                                                                                                                                                                                                                                                                  |
-| Specify `Framework` in the Model Package<br>version 1.`Framework` is a mandatory parameter<br>for the job. | Make sure you provide the ML Framework or<br>`OTHER` if unknown.                                                                                                                                                                                                                                                                                                                                        |
-| Users at the end of prev phase is 0 while initial users of<br>current phase is 1.                          | Users here refers to virtual users or threads used to send<br>requests. Each phase starts with A users and ends with B<br>users such that B > A. Between sequential phases, x\_1 and<br>x\_2, we require that abs(x\_2.A<br>• x\_1.B) <= 3 and >=<br>0.                                                                                                                                                 |
-| Total Traffic duration (across) should not be more than<br>Job duration.                                   | The total duration of all your Phases cannot exceed the<br>Job duration.                                                                                                                                                                                                                                                                                                                                |
-| Burstable instance type ml.t2.medium is not<br>allowed.                                                    | Inference Recommender doesn't support load testing on t2 instance family<br>because burstable instances do not provide consistent<br>performance.                                                                                                                                                                                                                                                       |
-| ResourceLimitExceeded when calling CreateEndpoint<br>operation                                             | You have exceeded a SageMaker AI resource limit. For example,<br>Inference Recommender might be unable to provision endpoints for<br>benchmarking if the account has reached the endpoint quota.<br>For more information about SageMaker AI limits and quotas, see<br>[Amazon SageMaker AI<br>endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md"). |
-| ModelError when calling InvokeEndpoint operation                                                           | A model error can happen for the following reasons:<br>• The invocation timed out while waiting for a<br>response from the model container.<br>• The model couldn't process the input<br>payload.                                                                                                                                                                                                       |
-| PayloadError when calling InvokeEndpoint operation                                                         | A payload error can happen for following reasons:<br>• The payload source isn't in the Amazon S3<br>bucket.<br>• The payload is in a non-file object format.<br>• The payload is in an invalid file type. For<br>example, a model expects an image type payload but<br>is passed a text file.<br>• The payload is empty.                                                                                |
+
+| Error | Solution | 
+| --- | --- | 
+| Specify `Domain` in the Model Package version 1. `Domain` is a mandatory parameter for the job. | Make sure you provide the ML domain or `OTHER` if unknown. | 
+| Provided role ARN cannot be assumed and an `AWSSecurityTokenServiceException` error occurred. | Make sure the execution role provided has the necessary permissions specified in the prerequisites. | 
+| Specify `Framework` in the Model Package version 1.`Framework` is a mandatory parameter for the job. | Make sure you provide the ML Framework or `OTHER` if unknown. | 
+| Users at the end of prev phase is 0 while initial users of current phase is 1. | Users here refers to virtual users or threads used to send requests. Each phase starts with A users and ends with B users such that B > A. Between sequential phases, x\_1 and x\_2, we require that abs(x\_2.A - x\_1.B) <= 3 and >= 0. | 
+| Total Traffic duration (across) should not be more than Job duration. | The total duration of all your Phases cannot exceed the Job duration. | 
+| Burstable instance type ml.t2.medium is not allowed. | Inference Recommender doesn't support load testing on t2 instance family because burstable instances do not provide consistent performance. | 
+| ResourceLimitExceeded when calling CreateEndpoint operation | You have exceeded a SageMaker AI resource limit. For example, Inference Recommender might be unable to provision endpoints for benchmarking if the account has reached the endpoint quota. For more information about SageMaker AI limits and quotas, see [Amazon SageMaker AI endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html). | 
+| ModelError when calling InvokeEndpoint operation | A model error can happen for the following reasons:+  The invocation timed out while waiting for a response from the model container. <br />+  The model couldn't process the input payload.  | 
+| PayloadError when calling InvokeEndpoint operation | A payload error can happen for following reasons:+  The payload source isn't in the Amazon S3 bucket. <br />+  The payload is in a non-file object format. <br />+  The payload is in an invalid file type. For example, a model expects an image type payload but is passed a text file. <br />+  The payload is empty.  | 
 
 ## Check CloudWatch
+<a name="inference-recommender-troubleshooting-check-cw"></a>
 
-When you kick off an Inference Recommender job, you should see endpoints being created in the
-console. Select one of the endpoints and view the CloudWatch logs to monitor for any
-4xx/5xx errors. If you have a successful Inference Recommender job, you will be able to see the
-endpoint names as part of the results. Even if your Inference Recommender job is unsuccessful,
-you can still check the CloudWatch logs for the deleted endpoints by following the
-steps below:
+When you kick off an Inference Recommender job, you should see endpoints being created in the console. Select one of the endpoints and view the CloudWatch logs to monitor for any 4xx/5xx errors. If you have a successful Inference Recommender job, you will be able to see the endpoint names as part of the results. Even if your Inference Recommender job is unsuccessful, you can still check the CloudWatch logs for the deleted endpoints by following the steps below:
 
-1. Open the Amazon CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Select the Region in which you created the Inference Recommender job from the
-   **Region** dropdown list in the top right.
-3. In the navigation pane of CloudWatch, choose **Logs**, and
-   then select **Log groups**.
-4. Search for the log group called
-   `/aws/sagemaker/Endpoints/sm-epc-*`. Select the log group
-   based on your most recent Inference Recommender job.
+1. Open the Amazon CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-You can also troubleshoot your job by checking the Inference Recommender CloudWatch logs. The
-Inference Recommender logs, which are published in the
-`/aws/sagemaker/InferenceRecommendationsJobs` CloudWatch log group,
-give a high level view on the progress of the job in the
-``<jobName>`/execution` log
- stream. You can find detailed information on each of the endpoint configurations
- being tested in the
- ``<jobName>`/Endpoint/`<endpointName>``
-log stream.
+1. Select the Region in which you created the Inference Recommender job from the **Region** dropdown list in the top right.
+
+1. In the navigation pane of CloudWatch, choose **Logs**, and then select **Log groups**.
+
+1. Search for the log group called `/aws/sagemaker/Endpoints/sm-epc-*`. Select the log group based on your most recent Inference Recommender job.
+
+You can also troubleshoot your job by checking the Inference Recommender CloudWatch logs. The Inference Recommender logs, which are published in the `/aws/sagemaker/InferenceRecommendationsJobs` CloudWatch log group, give a high level view on the progress of the job in the `{{<jobName>}}/execution` log stream. You can find detailed information on each of the endpoint configurations being tested in the `{{<jobName>}}/Endpoint/{{<endpointName>}}` log stream.
 
 **Overview of the Inference Recommender log streams**
++ `{{<jobName>}}/execution` contains overall job information such as endpoint configurations scheduled for benchmarking, compilation job skip reason, and validation failure reason.
++ `{{<jobName>}}/Endpoint/{{<endpointName>}}` contains information such as resource creation progress, test configuration, load test stop reason, and resource cleanup status.
++ `{{<jobName>}}/CompilationJob/{{<compilationJobName>}}` contains information on compilation jobs created by Inference Recommender, such as the compilation job configuration and compilation job status.
 
-- ``<jobName>`/execution`
-  contains overall job information such as endpoint configurations
-  scheduled for benchmarking, compilation job skip reason, and validation
-  failure reason.
-- ``<jobName>`/Endpoint/`<endpointName>``
-  contains information such as resource creation progress, test
-  configuration, load test stop reason, and resource cleanup
-  status.
-- ``<jobName>`/CompilationJob/`<compilationJobName>``
-  contains information on compilation jobs created by Inference Recommender, such as the
-  compilation job configuration and compilation job status.
+**Create an alarm for Inference Recommender error messages**
 
-**Create an alarm for Inference Recommender error
-messages**
-
-Inference Recommender outputs log statements for errors that might be helpful while
-troubleshooting. With a CloudWatch log group and a metric filter, you can look for
-terms and patterns in this log data as the data is sent to CloudWatch. Then, you can
-create a CloudWatch alarm based on the log group-metric filter. For more information,
-see [Create a CloudWatch alarm based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Create_alarm_log_group_metric_filter.md "../../../AmazonCloudWatch/latest/monitoring/Create_alarm_log_group_metric_filter.md").
+Inference Recommender outputs log statements for errors that might be helpful while troubleshooting. With a CloudWatch log group and a metric filter, you can look for terms and patterns in this log data as the data is sent to CloudWatch. Then, you can create a CloudWatch alarm based on the log group-metric filter. For more information, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_alarm_log_group_metric_filter.html).
 
 ## Check benchmarks
+<a name="inference-recommender-troubleshooting-check-benchmarks"></a>
 
-When you kick off an Inference Recommender job, Inference Recommender creates several benchmarks to evaluate
-the performance of your model on different instance types. You can use the
-[ListInferenceRecommendationsJobSteps](../APIReference/API_ListInferenceRecommendationsJobSteps.md "../APIReference/API_ListInferenceRecommendationsJobSteps.md") API to view the details for
-all the benchmarks. If you have a failed benchmark, you can see the failure
-reasons as part of the results.
+When you kick off an Inference Recommender job, Inference Recommender creates several benchmarks to evaluate the performance of your model on different instance types. You can use the [ListInferenceRecommendationsJobSteps](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html) API to view the details for all the benchmarks. If you have a failed benchmark, you can see the failure reasons as part of the results.
 
-To use the [ListInferenceRecommendationsJobSteps](../APIReference/API_ListInferenceRecommendationsJobSteps.md "../APIReference/API_ListInferenceRecommendationsJobSteps.md") API, provide the following
-values:
-
-- For `JobName`, provide the name of the Inference Recommender job.
-- For `StepType`, use `BENCHMARK` to return
-  details about the job's benchmarks.
-- For `Status`, use `FAILED` to return details
-  about only the failed benchmarks. For a list of the other status types,
-  see the `Status` field in the [ListInferenceRecommendationsJobSteps](../APIReference/API_ListInferenceRecommendationsJobSteps.md "../APIReference/API_ListInferenceRecommendationsJobSteps.md") API.
+To use the [ListInferenceRecommendationsJobSteps](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html) API, provide the following values:
++ For `JobName`, provide the name of the Inference Recommender job.
++ For `StepType`, use `BENCHMARK` to return details about the job's benchmarks.
++ For `Status`, use `FAILED` to return details about only the failed benchmarks. For a list of the other status types, see the `Status` field in the [ListInferenceRecommendationsJobSteps](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html) API.
 
 ```
 # Create a low-level SageMaker service client.
 import boto3
-aws_region = `'<region>'`
-sagemaker_client = boto3.client('sagemaker', region_name=aws_region)
+aws_region = {{'<region>'}}
+sagemaker_client = boto3.client('sagemaker', region_name=aws_region) 
 
 # Provide the job name for the SageMaker Inference Recommender job
-job_name = `'<job-name>'`
+job_name = {{'<job-name>'}}
 
 # Filter for benchmarks
-step_type = 'BENCHMARK'
+step_type = 'BENCHMARK' 
 
 # Filter for benchmarks that have a FAILED status
 status = 'FAILED'
@@ -126,8 +87,7 @@ response = sagemaker_client.list_inference_recommendations_job_steps(
 )
 ```
 
-You can print the response object to view the results. The preceding code
-example stored the response in a variable called `response`:
+You can print the response object to view the results. The preceding code example stored the response in a variable called `response`:
 
 ```
 print(response)

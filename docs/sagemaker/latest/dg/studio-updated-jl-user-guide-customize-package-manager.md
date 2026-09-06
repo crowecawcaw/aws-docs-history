@@ -1,19 +1,18 @@
-# Customize your environment using a package manager
 
-Use pip or conda to customize your environment. We recommend using package managers
-instead of lifecycle configuration scripts.
+
+# Customize your environment using a package manager
+<a name="studio-updated-jl-user-guide-customize-package-manager"></a>
+
+Use pip or conda to customize your environment. We recommend using package managers instead of lifecycle configuration scripts. 
 
 ## Create and activate your custom environment
+<a name="studio-updated-jl-create-basic-conda"></a>
 
-This section provides examples of different ways that you can configure an
-environment in JupyterLab.
+This section provides examples of different ways that you can configure an environment in JupyterLab.
 
-A basic conda environment has the minimum number of packages that are required for
-your workflows in SageMaker AI. Use the following template to a create a basic conda
-environment:
+A basic conda environment has the minimum number of packages that are required for your workflows in SageMaker AI. Use the following template to a create a basic conda environment:
 
 ```
-
 # initialize conda for shell interaction
 conda init
 
@@ -29,40 +28,37 @@ conda activate test-env
 # install packages in your new conda environment
 conda install pip boto3 pandas ipykernel
 
-# list all packages install in your new environment
+# list all packages install in your new environment 
 conda list
 
 # parse env name information from your new environment
 export CURRENT_ENV_NAME=$(conda info | grep "active environment" | cut -d : -f 2 | tr -d ' ')
 
-# register your new environment as Jupyter Kernel for execution
+# register your new environment as Jupyter Kernel for execution 
 python3 -m ipykernel install --user --name $CURRENT_ENV_NAME --display-name "user-env:($CURRENT_ENV_NAME)"
 
 # to exit your new environment
 conda deactivate
-
 ```
 
-The following image shows the location of the environment that you've
-created.
+The following image shows the location of the environment that you've created.
 
-![The test-env environment is displayed in the top right corner of the screen.](images/juptyer-notebook-environment-location.png)
+![The test-env environment is displayed in the top right corner of the screen.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/juptyer-notebook-environment-location.png)
 
-To change your environment, choose it and select an option from the dropdown
-menu.
 
-![The checkmark and its corresponding text shows an example environment that you previously created.](images/jupyter-notebook-select-env.png)
+To change your environment, choose it and select an option from the dropdown menu.
+
+![The checkmark and its corresponding text shows an example environment that you previously created.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jupyter-notebook-select-env.png)
+
 
 Choose **Select** to select a kernel for the environment.
 
 ## Create a conda environment with a specific Python version
+<a name="studio-updated-jl-create-conda-version"></a>
 
-Cleaning up conda environments that you’re not using can help free up disk space
-and improve performance. Use the following template to clean up a conda
-environment:
+Cleaning up conda environments that you’re not using can help free up disk space and improve performance. Use the following template to clean up a conda environment:
 
 ```
-
 # create a conda environment with a specific python version
 conda create --name py38-test-env python=3.8.10
 
@@ -75,21 +71,19 @@ conda install ipykernel
 # parse env name information from your new environment
 export CURRENT_ENV_NAME=$(conda info | grep "active environment" | cut -d : -f 2 | tr -d ' ')
 
-# register your new environment as Jupyter Kernel for execution
+# register your new environment as Jupyter Kernel for execution 
 python3 -m ipykernel install --user --name $CURRENT_ENV_NAME --display-name "user-env:($CURRENT_ENV_NAME)"
 
 # deactivate your py38 test environment
 conda deactivate
-
 ```
 
 ## Create a conda environment with a specific set of packages
+<a name="studio-updated-jl-create-conda-specific-packages"></a>
 
-Use the following template to create a conda environment with a specific version
-of Python and set of packages:
+Use the following template to create a conda environment with a specific version of Python and set of packages:
 
 ```
-
 # prefill your conda environment with a set of packages,
 conda create --name py38-test-env python=3.8.10 pandas matplotlib=3.7 scipy ipykernel
 
@@ -102,25 +96,22 @@ conda list | grep -E 'pandas|matplotlib|scipy'
 # parse env name information from your new environment
 export CURRENT_ENV_NAME=$(conda info | grep "active environment" | cut -d : -f 2 | tr -d ' ')
 
-# register your new environment as Jupyter Kernel for execution
+# register your new environment as Jupyter Kernel for execution 
 python3 -m ipykernel install --user --name $CURRENT_ENV_NAME --display-name "user-env:($CURRENT_ENV_NAME)"
 
 # deactivate your conda environment
 conda deactivate
-
 ```
 
 ## Clone conda from an existing environment
+<a name="studio-updated-jl-create-conda-clone"></a>
 
-Clone your conda environment to preserve its working state. You experiment in the
-cloned environment without having to worry about introducing breaking changes in
-your test environment.
+Clone your conda environment to preserve its working state. You experiment in the cloned environment without having to worry about introducing breaking changes in your test environment.
 
 Use the following command to clone an environment.
 
 ```
-
-# create a fresh env from a base environment
+# create a fresh env from a base environment 
 conda create --name py310-base-ext --clone base # replace 'base' with another env
 
 # activate your conda environment and ensure these packages exist
@@ -132,21 +123,19 @@ conda install ipykernel
 # parse env name information from your new environment
 export CURRENT_ENV_NAME=$(conda info | grep "active environment" | cut -d : -f 2 | tr -d ' ')
 
-# register your new environment as Jupyter Kernel for execution
+# register your new environment as Jupyter Kernel for execution 
 python3 -m ipykernel install --user --name $CURRENT_ENV_NAME --display-name "user-env:($CURRENT_ENV_NAME)"
 
 # deactivate your conda environment
 conda deactivate
-
 ```
 
 ## Clone conda from a reference YAML file
+<a name="studio-updated-jl-create-conda-yaml"></a>
 
-Create a conda environment from a reference YAML file. The following is an example
-of a YAML file that you can use.
+Create a conda environment from a reference YAML file. The following is an example of a YAML file that you can use.
 
 ```
-
 # anatomy of a reference environment.yml
 name: py311-new-env
 channels:
@@ -161,20 +150,16 @@ dependencies:
   - ipykernel
   - pip:
       - git+https://github.com/huggingface/transformers
-
 ```
 
-Under `pip`, we recommend specifying only the dependencies that aren't
-available with conda.
+Under `pip`, we recommend specifying only the dependencies that aren't available with conda.
 
 Use the following commands to create a conda environment from a YAML file.
 
 ```
-
-# create your conda environment
+# create your conda environment 
 conda env create -f environment.yml
 
 # activate your env
 conda activate py311-new-env
-
 ```

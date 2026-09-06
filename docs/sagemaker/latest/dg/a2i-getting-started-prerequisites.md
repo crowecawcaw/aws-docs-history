@@ -1,38 +1,16 @@
+
+
 # Prerequisites to Using Augmented AI
+<a name="a2i-getting-started-prerequisites"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
 
-Amazon SageMaker A2I is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-A2I, but we do not plan to introduce new features.
-
-Amazon A2I uses resources in IAM, SageMaker AI, and Amazon S3 to create and run your human review
-workflows. You can create some of these resources in the Amazon A2I console when you
-create a human review workflow. To learn how, see [Tutorial: Get Started in the Amazon A2I Console](a2i-get-started-console.md "a2i-get-started-console.md").
+Amazon A2I uses resources in IAM, SageMaker AI, and Amazon S3 to create and run your human review workflows. You can create some of these resources in the Amazon A2I console when you create a human review workflow. To learn how, see [Tutorial: Get Started in the Amazon A2I Console](a2i-get-started-console.md).
 
 To use Amazon A2I, you need the following resources:
-
-- One or more Amazon S3 buckets in the same AWS Region as the workflow for your
-  input and output data. To create a bucket, follow the instructions in [Create a Bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in the _Amazon Simple Storage Service
-  Console User Guide_.
-- An IAM role with required permissions to create a human review workflow and
-  an IAM user or role with permission to access Augmented AI. For more information, see
-  [Permissions and Security in Amazon Augmented AI](a2i-permissions-security.md "a2i-permissions-security.md").
-- A public, private, or vendor workforce for your human review workflows. If you
-  plan to use a private workforce, you need to set one up ahead of time in the
-  same AWS Region as your Amazon A2I workflow. To learn more about these
-  workforce types, see [Workforces](sms-workforce-management.md "sms-workforce-management.md").
-
-###### Important
-
-To learn about the compliance programs that cover Amazon Augmented AI at this time,
-see [AWS Services in Scope by Compliance
-Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). If you use Amazon Augmented AI in conjunction with
-other AWS services (such as Amazon Rekognition and Amazon Textract), note that Amazon Augmented AI may
-not be in scope for the same compliance programs as those other services.
-You are responsible for how you use Amazon Augmented AI, including understanding how
-the service processes or stores customer data and any impact on the
-compliance of your data environment. You should discuss your workload
-objectives and goals with your AWS account team; they can help you
-evaluate whether the service is a good fit for your proposed use case and
-architecture.
++ One or more Amazon S3 buckets in the same AWS Region as the workflow for your input and output data. To create a bucket, follow the instructions in [ Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*. 
++ An IAM role with required permissions to create a human review workflow and an IAM user or role with permission to access Augmented AI. For more information, see [Permissions and Security in Amazon Augmented AI](a2i-permissions-security.md).
++ A public, private, or vendor workforce for your human review workflows. If you plan to use a private workforce, you need to set one up ahead of time in the same AWS Region as your Amazon A2I workflow. To learn more about these workforce types, see [Workforces](sms-workforce-management.md).
+**Important**  
+To learn about the compliance programs that cover Amazon Augmented AI at this time, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/). If you use Amazon Augmented AI in conjunction with other AWS services (such as Amazon Rekognition and Amazon Textract), note that Amazon Augmented AI may not be in scope for the same compliance programs as those other services. You are responsible for how you use Amazon Augmented AI, including understanding how the service processes or stores customer data and any impact on the compliance of your data environment. You should discuss your workload objectives and goals with your AWS account team; they can help you evaluate whether the service is a good fit for your proposed use case and architecture.

@@ -1,12 +1,15 @@
+
+
 # Evaluation Metrics Formats
+<a name="model-customize-evaluation-metrics-formats"></a>
 
 Evaluating the quality of your model across these metric formats:
-
-- Model Evaluation Summary
-- MLFlow
-- TensorBoard
++ Model Evaluation Summary
++ MLFlow
++ TensorBoard
 
 ## Model Evaluation Summary
+<a name="model-customize-evaluation-metrics-summary"></a>
 
 When you submit your evaluation job you specify an AWS S3 output location. SageMaker automatically uploads the evaluation summary .json file to the location. The benchmark summary S3 path is the following:
 
@@ -16,11 +19,14 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 
 **Pass the AWS S3 location**
 
-SageMaker Studio
+------
+#### [ SageMaker Studio ]
 
-![Pass into output artifact location (AWS S3 URI).](images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
 
-SageMaker Python SDK
+
+------
+#### [ SageMaker Python SDK ]
 
 ```
 evaluator = BenchMarkEvaluator(
@@ -32,6 +38,8 @@ evaluator = BenchMarkEvaluator(
 
 execution = evaluator.evaluate()
 ```
+
+------
 
 Read it directly as a `.json` from the AWS S3 location or visualized automatically in the UI:
 
@@ -78,9 +86,11 @@ Read it directly as a `.json` from the AWS S3 location or visualized automatical
 }
 ```
 
-![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](images/gen-qa-metrics-visualization-sagemaker-studio.png)
+![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/gen-qa-metrics-visualization-sagemaker-studio.png)
+
 
 ## MLFlow logging
+<a name="model-customize-evaluation-metrics-mlflow"></a>
 
 **Provide your SageMaker MLFlow resource ARN**
 
@@ -104,13 +114,17 @@ execution = evaluator.evaluate()
 
 Model level and system level metric visualization:
 
-![Sample model level error and accuracy for MMLU benchmarking task.](images/model-metrics-mlflow.png)
+![Sample model level error and accuracy for MMLU benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-metrics-mlflow.png)
 
-![Sample built-in metrics for LLMAJ benchmarking task.](images/llmaj-metrics-mlflow.png)
 
-![Sample system level metrics for MMLU benchmarking task.](images/system-metrics-mlflow.png)
+![Sample built-in metrics for LLMAJ benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/llmaj-metrics-mlflow.png)
+
+
+![Sample system level metrics for MMLU benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/system-metrics-mlflow.png)
+
 
 ## TensorBoard
+<a name="model-customize-evaluation-metrics-tensorboard"></a>
 
 Submit your evaluation job with an AWS S3 output location. SageMaker automatically uploads a TensorBoard file to the location.
 
@@ -122,11 +136,14 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 
 **Pass the AWS S3 location as follows**
 
-SageMaker Studio
+------
+#### [ SageMaker Studio ]
 
-![Pass into output artifact location (AWS S3 URI).](images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
 
-SageMaker Python SDK
+
+------
+#### [ SageMaker Python SDK ]
 
 ```
 evaluator = BenchMarkEvaluator(
@@ -139,6 +156,8 @@ evaluator = BenchMarkEvaluator(
 execution = evaluator.evaluate()
 ```
 
+------
+
 **Sample model level metrics**
 
-![SageMaker TensorBoard displaying results of a benchmarking job.](images/metrics-in-tensorboard.png)
+![SageMaker TensorBoard displaying results of a benchmarking job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/metrics-in-tensorboard.png)

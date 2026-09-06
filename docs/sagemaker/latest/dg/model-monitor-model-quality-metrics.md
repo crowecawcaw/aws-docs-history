@@ -1,25 +1,20 @@
+
+
 # Model quality metrics and Amazon CloudWatch monitoring
+<a name="model-monitor-model-quality-metrics"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+Model quality monitoring jobs compute different metrics to evaluate the quality and performance of your machine learning models. The specific metrics calculated depend on the type of ML problem: regression, binary classification, or multiclass classification. Monitoring these metrics is crucial for detecting model drift over time. The following sections cover the key model quality metrics for each problem type, as well as how to set up automated monitoring and alerting using CloudWatch to continuously track your model's performance.
 
-Model quality monitoring jobs compute different metrics to evaluate the quality and performance of your machine learning models. The specific metrics calculated depend on the type of ML
-problem: regression, binary classification, or multiclass classification. Monitoring these metrics is crucial for detecting model drift over time. The following sections cover the key model quality metrics for each problem type, as well as how to set up automated monitoring and alerting using CloudWatch to continuously track your model's performance.
-
-###### Note
-
-Standard deviation for metrics are provided only when at least 200 samples are
-available. Model Monitor computes standard deviation by randomly sampling 80% of the data
-five times, computing the metric, and taking the standard deviation for those
-results.
+**Note**  
+Standard deviation for metrics are provided only when at least 200 samples are available. Model Monitor computes standard deviation by randomly sampling 80% of the data five times, computing the metric, and taking the standard deviation for those results.
 
 ## Regression metrics
+<a name="model-monitor-model-quality-metrics-regression"></a>
 
-The following shows an example of the metrics that model quality monitor
-computes for a regression problem.
+The following shows an example of the metrics that model quality monitor computes for a regression problem.
 
 ```
 "regression_metrics" : {
@@ -43,9 +38,9 @@ computes for a regression problem.
 ```
 
 ## Binary classification metrics
+<a name="model-monitor-model-quality-metrics-binary"></a>
 
-The following shows an example of the metrics that model quality monitor
-computes for a binary classification problem.
+The following shows an example of the metrics that model quality monitor computes for a binary classification problem.
 
 ```
 "binary_classification_metrics" : {
@@ -139,9 +134,9 @@ computes for a binary classification problem.
 ```
 
 ## Multiclass metrics
+<a name="model-monitor-model-quality-metrics-multi"></a>
 
-The following shows an example of the metrics that model quality monitor
-computes for a multiclass classification problem.
+The following shows an example of the metrics that model quality monitor computes for a multiclass classification problem.
 
 ```
 "multiclass_classification_metrics" : {
@@ -207,22 +202,14 @@ computes for a multiclass classification problem.
 ```
 
 ## Monitoring model quality metrics with CloudWatch
+<a name="model-monitor-model-quality-cw"></a>
 
-If you set the value of the `enable_cloudwatch_metrics` to
-`True` when you create the monitoring schedule, model quality
-monitoring jobs send all metrics to CloudWatch.
+If you set the value of the `enable_cloudwatch_metrics` to `True` when you create the monitoring schedule, model quality monitoring jobs send all metrics to CloudWatch.
 
 Model quality metrics appear in the following namespace:
-
-- For real-time endpoints:
-  `aws/sagemaker/Endpoints/model-metrics`
-- For batch transform jobs:
-  `aws/sagemaker/ModelMonitoring/model-metrics`
++ For real-time endpoints: `aws/sagemaker/Endpoints/model-metrics`
++ For batch transform jobs: `aws/sagemaker/ModelMonitoring/model-metrics`
 
 For a list of the metrics that are emitted, see the previous sections on this page.
 
-You can use CloudWatch metrics to create an alarm when a specific metric doesn't meet
-the threshold you specify. For instructions about how to create CloudWatch alarms, see
-[Create a CloudWatch alarm
-based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") in the _CloudWatch User
-Guide_.
+You can use CloudWatch metrics to create an alarm when a specific metric doesn't meet the threshold you specify. For instructions about how to create CloudWatch alarms, see [Create a CloudWatch alarm based on a static threshold](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ConsoleAlarms.html) in the *CloudWatch User Guide*.

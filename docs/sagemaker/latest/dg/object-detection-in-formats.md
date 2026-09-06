@@ -1,19 +1,19 @@
-# Object Detection Request and Response Formats
 
-The following page describes the inference request and response formats for the Amazon SageMaker AI
-Object Detection - MXNet model.
+
+# Object Detection Request and Response Formats
+<a name="object-detection-in-formats"></a>
+
+The following page describes the inference request and response formats for the Amazon SageMaker AI Object Detection - MXNet model.
 
 ## Request Format
+<a name="object-detection-json"></a>
 
-Query a trained model by using the model's endpoint. The endpoint takes .jpg and
-.png image formats with `image/jpeg` and `image/png`
-content-types.
+Query a trained model by using the model's endpoint. The endpoint takes .jpg and .png image formats with `image/jpeg` and `image/png` content-types.
 
 ## Response Formats
+<a name="object-detection-recordio"></a>
 
-The response is the class index with a confidence score and bounding box
-coordinates for all objects within the image encoded in JSON format. The following
-is an example of response .json file:
+The response is the class index with a confidence score and bounding box coordinates for all objects within the image encoded in JSON format. The following is an example of response .json file:
 
 ```
 {"prediction":[
@@ -25,37 +25,20 @@ is an example of response .json file:
 ]}
 ```
 
-Each row in this .json file contains an array that represents a detected object.
-Each of these object arrays consists of a list of six numbers. The first number is
-the predicted class label. The second number is the associated confidence score for
-the detection. The last four numbers represent the bounding box coordinates [xmin,
-ymin, xmax, ymax]. These output bounding box corner indices are normalized by the
-overall image size. Note that this encoding is different than that use by the input
-.json format. For example, in the first entry of the detection result,
-0.3088374733924866 is the left coordinate (x-coordinate of upper-left corner) of the
-bounding box as a ratio of the overall image width, 0.07030484080314636 is the top
-coordinate (y-coordinate of upper-left corner) of the bounding box as a ratio of the
-overall image height, 0.7110607028007507 is the right coordinate (x-coordinate of
-lower-right corner) of the bounding box as a ratio of the overall image width, and
-0.9345266819000244 is the bottom coordinate (y-coordinate of lower-right corner) of
-the bounding box as a ratio of the overall image height.
+Each row in this .json file contains an array that represents a detected object. Each of these object arrays consists of a list of six numbers. The first number is the predicted class label. The second number is the associated confidence score for the detection. The last four numbers represent the bounding box coordinates [xmin, ymin, xmax, ymax]. These output bounding box corner indices are normalized by the overall image size. Note that this encoding is different than that use by the input .json format. For example, in the first entry of the detection result, 0.3088374733924866 is the left coordinate (x-coordinate of upper-left corner) of the bounding box as a ratio of the overall image width, 0.07030484080314636 is the top coordinate (y-coordinate of upper-left corner) of the bounding box as a ratio of the overall image height, 0.7110607028007507 is the right coordinate (x-coordinate of lower-right corner) of the bounding box as a ratio of the overall image width, and 0.9345266819000244 is the bottom coordinate (y-coordinate of lower-right corner) of the bounding box as a ratio of the overall image height. 
 
-To avoid unreliable detection results, you might want to filter out the detection
-results with low confidence scores. In the [object detection sample notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_birds/object_detection_birds.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_birds/object_detection_birds.ipynb"), we provide examples of scripts that use a threshold to remove low
-confidence detections and to plot bounding boxes on the
-original images.
+To avoid unreliable detection results, you might want to filter out the detection results with low confidence scores. In the [object detection sample notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_birds/object_detection_birds.ipynb), we provide examples of scripts that use a threshold to remove low confidence detections and to plot bounding boxes on the original images.
 
-For batch transform, the response is in JSON format, where the format is identical
-to the JSON format described above. The detection results of each image is
-represented as a JSON file. For example:
+For batch transform, the response is in JSON format, where the format is identical to the JSON format described above. The detection results of each image is represented as a JSON file. For example:
 
 ```
 {"prediction": [[label_id, confidence_score, xmin, ymin, xmax, ymax], [label_id, confidence_score, xmin, ymin, xmax, ymax]]}
 ```
 
-For more details on training and inference, see the [Object Detection Sample Notebooks](object-detection.md#object-detection-sample-notebooks "object-detection.md#object-detection-sample-notebooks").
+For more details on training and inference, see the [Object Detection Sample Notebooks](object-detection.md#object-detection-sample-notebooks).
 
 ## OUTPUT: JSON Response Format
+<a name="object-detection-output-json"></a>
 
 accept: application/json;annotation=1
 

@@ -1,25 +1,16 @@
+
+
 # Download, Prepare, and Upload Training Data
+<a name="automatic-model-tuning-ex-data"></a>
 
-For
-this example, you use a training dataset of information about bank customers that includes
-the customer's job, marital status, and how they were contacted during the bank's direct
-marketing campaign. To use a dataset for a hyperparameter tuning job, you
-download it,
-transform
-the data, and then upload it to an Amazon S3 bucket.
+For this example, you use a training dataset of information about bank customers that includes the customer's job, marital status, and how they were contacted during the bank's direct marketing campaign. To use a dataset for a hyperparameter tuning job, you download it, transform the data, and then upload it to an Amazon S3 bucket.
 
-For more information about the dataset and the data transformation that the example
-performs, see the _hpo\_xgboost\_direct\_marketing\_sagemaker\_APIs_ notebook
-in the **Hyperparameter Tuning** section of the **SageMaker AI
-Examples** tab in your notebook instance.
+For more information about the dataset and the data transformation that the example performs, see the *hpo\_xgboost\_direct\_marketing\_sagemaker\_APIs* notebook in the **Hyperparameter Tuning** section of the **SageMaker AI Examples** tab in your notebook instance.
 
 ## Download and Explore the Training Dataset
+<a name="automatic-model-tuning-ex-data-download"></a>
 
-To
-download and
-explore
-the dataset, run the following code in your
-notebook:
+To download and explore the dataset, run the following code in your notebook:
 
 ```
 !wget -N https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip
@@ -31,14 +22,11 @@ data
 ```
 
 ## Prepare and Upload Data
+<a name="automatic-model-tuning-ex-data-transform"></a>
 
-Before creating the hyperparameter tuning
-job,
-prepare the data and upload it to an S3 bucket where the hyperparameter
-tuning job can access it.
+Before creating the hyperparameter tuning job, prepare the data and upload it to an S3 bucket where the hyperparameter tuning job can access it.
 
-Run
-the following code in your notebook:
+Run the following code in your notebook:
 
 ```
 data['no_previous_contact'] = np.where(data['pdays'] == 999, 1, 0)                                 # Indicator variable to capture when pdays takes a value of 999
@@ -58,5 +46,6 @@ boto3.Session().resource('s3').Bucket(bucket).Object(os.path.join(prefix, 'valid
 ```
 
 ## Next Step
+<a name="automatic-model-tuning-ex-next-tuning-job"></a>
 
-[Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md")
+[Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md)

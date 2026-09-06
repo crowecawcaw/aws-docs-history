@@ -1,89 +1,61 @@
+
+
 # Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability
+<a name="clarify-processing-job-run"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Clarify is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md). 
 
-Amazon SageMaker Clarify is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+To analyze your data and models for bias and explainability using SageMaker Clarify, you must configure a SageMaker Clarify processing job. This guide shows how to configure the job inputs, outputs, resources, and analysis configuration using the SageMaker Python SDK API `SageMakerClarifyProcessor`. 
 
-To analyze your data and models for bias and explainability using SageMaker Clarify, you must
-configure a SageMaker Clarify processing job. This guide shows how to configure the job inputs, outputs,
-resources, and analysis configuration using the SageMaker Python SDK API
-`SageMakerClarifyProcessor`.
+The API acts as a high-level wrapper of the SageMaker AI `CreateProcessingJob` API. It hides many of the details that are involved in setting up a SageMaker Clarify processing job. The details to set up a job include retrieving the SageMaker Clarify container image URI and generating the analysis configuration file. The following steps show you how to configure, initialize and launch a SageMaker Clarify processing job. 
 
-The API acts as a high-level wrapper of the SageMaker AI `CreateProcessingJob` API. It
-hides many of the details that are involved in setting up a SageMaker Clarify processing job. The
-details to set up a job include retrieving the SageMaker Clarify container image URI and generating the
-analysis configuration file. The following steps show you how to configure, initialize and
-launch a SageMaker Clarify processing job.
+**Configure a SageMaker Clarify processing job using the API**
 
-###### Configure a SageMaker Clarify processing job using the API
+1. Define the configuration objects for each portion of the job configuration. These portions can include the following:
+   + The input dataset and output location: [DataConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html).
+   + The model or endpoint to be analyzed: [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html).
+   + Bias analysis parameters: [BiasConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html).
+   + SHapley Additive exPlanations (SHAP) analysis parameters: [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html).
+   + Asymmetric Shapley value analysis parameters (for time series only): [AsymmetricShapleyValueConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html).
 
-1. Define the configuration objects for each portion of the job configuration. These
-   portions can include the following:
+   The configuration objects for a SageMaker Clarify processing job vary for different types of data formats and use cases. Configuration examples for tabular data in [CSV](#clarify-processing-job-run-tabular-csv) and [JSON Lines](#clarify-processing-job-run-tabular-jsonlines) format, natural language processing ([NLP](#clarify-processing-job-run-tabular-nlp)), [computer vision](#clarify-processing-job-run-cv) (CV), and time series (TS) problems are provided in the following sections. 
 
-   - The input dataset and output location: [DataConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
-   - The model or endpoint to be analyzed: [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
-   - Bias analysis parameters: [BiasConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
-   - SHapley Additive exPlanations (SHAP) analysis parameters:
-     [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
-   - Asymmetric Shapley value analysis parameters (for time series only):
-     [AsymmetricShapleyValueConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html").
-     The configuration objects for a SageMaker Clarify processing job vary for different types of
-     data formats and use cases. Configuration examples for tabular data in [CSV](#clarify-processing-job-run-tabular-csv "#clarify-processing-job-run-tabular-csv") and [JSON Lines](#clarify-processing-job-run-tabular-jsonlines "#clarify-processing-job-run-tabular-jsonlines") format, natural
-     language processing ([NLP](#clarify-processing-job-run-tabular-nlp "#clarify-processing-job-run-tabular-nlp")),
-     [computer vision](#clarify-processing-job-run-cv "#clarify-processing-job-run-cv") (CV), and time series (TS)
-     problems are provided in the
-     following sections.
+1. Create a `SageMakerClarifyProcessor` object and initialize it with parameters that specify the job resources. These resources include parameters such as the number of compute instances to use.
 
-2. Create a `SageMakerClarifyProcessor` object and initialize it with
-   parameters that specify the job resources. These resources include parameters such
-   as the number of compute instances to use.
+   The following code example shows how to create a `SageMakerClarifyProcessor` object and instruct it to use one `ml.c4.xlarge` compute instance to do the analysis.
 
-The following code example shows how to create a
-`SageMakerClarifyProcessor` object and instruct it to use one
-`ml.c4.xlarge` compute instance to do the analysis.
+   ```
+   from sagemaker import clarify
+   
+   clarify_processor = clarify.SageMakerClarifyProcessor(
+       role=role,
+       instance_count=1,
+       instance_type='ml.c4.xlarge',
+       sagemaker_session=session,
+   )
+   ```
 
-```
-from sagemaker import clarify
+1. Call the specific run method of the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) object with the configuration objects for your use case to launch the job. These run methods include the following:
+   + `run_pre_training_bias`
+   + `run_post_training_bias`
+   + `run_bias`
+   + `run_explainability`
+   + `run_bias_and_explainability`
 
-clarify_processor = clarify.SageMakerClarifyProcessor(
-    role=role,
-    instance_count=1,
-    instance_type='ml.c4.xlarge',
-    sagemaker_session=session,
-)
-```
+   This `SageMakerClarifyProcessor` handles several tasks behind the scenes. These tasks include retrieving the SageMaker Clarify container image universal resource identifier (URI), composing an analysis configuration file based on the provided configuration objects, uploading the file to an Amazon S3 bucket, and [configuring the SageMaker Clarify processing job](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-processing-job-configure-parameters.html).
 
-3. Call the specific run method of the [SageMakerClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") object with the configuration objects for
-   your use case to launch the job. These run methods include the following:
-
-   - `run_pre_training_bias`
-   - `run_post_training_bias`
-   - `run_bias`
-   - `run_explainability`
-   - `run_bias_and_explainability`
-     This `SageMakerClarifyProcessor` handles several tasks behind the
-     scenes. These tasks include retrieving the SageMaker Clarify container image universal resource
-     identifier (URI), composing an analysis configuration file based on the provided
-     configuration objects, uploading the file to an Amazon S3 bucket, and [configuring the SageMaker Clarify processing job](clarify-processing-job-configure-parameters.md "clarify-processing-job-configure-parameters.md").
-
-The following expandable sections show how to compute **pre-training** and **post-training bias
-metrics**, **SHAP values**,
-and **partial dependence plots** (PDPs).
-The sections show feature importance for these data types:
-
-    * Tabular datasets in CSV format or JSON Lines format
-    * Natural language processing (NLP) datasets
-    * Computer vision datasets
+   The following expandable sections show how to compute **pre-training** and **post-training bias metrics**, **SHAP values**, and **partial dependence plots** (PDPs). The sections show feature importance for these data types:
+   + Tabular datasets in CSV format or JSON Lines format
+   + Natural language processing (NLP) datasets
+   + Computer vision datasets
 
 A guide to run parallel SageMaker Clarify processing jobs with distributed training using **Spark** follows the expandable sections.
 
-The following examples show how to configure bias analysis and explainability
-analysis for a tabular dataset in CSV format. In these examples, the incoming
-dataset has four feature columns and one binary label column, `Target`.
-The contents of the dataset are as follows. A label value of `1`
-indicates a positive outcome.
+## Analyze tabular data in CSV format
+<a name="clarify-processing-job-run-tabular-csv"></a>
+
+The following examples show how to configure bias analysis and explainability analysis for a tabular dataset in CSV format. In these examples, the incoming dataset has four feature columns and one binary label column, `Target`. The contents of the dataset are as follows. A label value of `1` indicates a positive outcome. 
 
 ```
 Target,Age,Gender,Income,Occupation
@@ -94,44 +66,32 @@ Target,Age,Gender,Income,Occupation
 ...
 ```
 
-This `DataConfig` object specifies the input dataset and where to store
-the output. The `s3_data_input_path` parameter can either be a URI of a
-dataset file or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify
-processing job recursively collects all Amazon S3 files located under the prefix. The
-value for `s3_output_path` should be an S3 URI prefix to hold the
-analysis results. SageMaker AI uses the `s3_output_path` while compiling, and
-cannot take a value of a SageMaker AI Pipeline parameter, property, expression, or
-`ExecutionVariable`, which are used during runtime. The following
-code example shows how to specify a data configuration for the previous sample input
-dataset.
+This `DataConfig` object specifies the input dataset and where to store the output. The `s3_data_input_path` parameter can either be a URI of a dataset file or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job recursively collects all Amazon S3 files located under the prefix. The value for `s3_output_path` should be an S3 URI prefix to hold the analysis results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take a value of a SageMaker AI Pipeline parameter, property, expression, or `ExecutionVariable`, which are used during runtime. The following code example shows how to specify a data configuration for the previous sample input dataset.
 
 ```
 data_config = clarify.DataConfig(
     s3_data_input_path=dataset_s3_uri,
     dataset_type='text/csv',
-    headers=[`'Target', 'Age', 'Gender', 'Income', 'Occupation'`],
+    headers=[{{'Target', 'Age', 'Gender', 'Income', 'Occupation'}}],
     label='Target',
     s3_output_path=clarify_job_output_s3_uri,
 )
 ```
 
 ### How to compute all pre-training bias metrics for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-pretraining"></a>
 
-The following code sample shows how to configure a `BiasConfig`
-object to measure bias of the previous sample input towards samples with a
-`Gender` value of `0`.
+The following code sample shows how to configure a `BiasConfig` object to measure bias of the previous sample input towards samples with a `Gender` value of `0`.
 
 ```
 bias_config = clarify.BiasConfig(
     label_values_or_threshold=[1],
-    facet_name='`Gender`',
+    facet_name='{{Gender}}',
     facet_values_or_threshold=[0],
 )
 ```
 
-The following code example shows how to use a run statement to launch a SageMaker Clarify
-processing job that computes all [pre-training bias
-metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md") for an input dataset.
+The following code example shows how to use a run statement to launch a SageMaker Clarify processing job that computes all [pre-training bias metrics](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-measure-data-bias.html) for an input dataset. 
 
 ```
 clarify_processor.run_pre_training_bias(
@@ -141,20 +101,12 @@ clarify_processor.run_pre_training_bias(
 )
 ```
 
-Alternatively, you can choose which metrics to compute by assigning a list of
-pre-training bias metrics to the methods parameter. For example, replacing
-`methods="all"` with `methods=["CI", "DPL"]` instructs
-the SageMaker Clarify Processor to compute only [Class
-Imbalance](clarify-bias-metric-class-imbalance.md "clarify-bias-metric-class-imbalance.md") and [Difference in Proportions of Labels](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md").
+Alternatively, you can choose which metrics to compute by assigning a list of pre-training bias metrics to the methods parameter. For example, replacing `methods="all"` with `methods=["CI", "DPL"]` instructs the SageMaker Clarify Processor to compute only [Class Imbalance](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-bias-metric-class-imbalance.html) and [Difference in Proportions of Labels](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-data-bias-metric-true-label-imbalance.html).
 
 ### How to compute all post-training bias metrics for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-posttraining"></a>
 
-You can compute pre-training bias metrics prior to training. However, to
-compute [post-training bias metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"), you must have a trained model. The
-following example output is from a binary classification model that outputs data
-in CSV format. In this example output, each row contains two columns. The first
-column contains the predicted label, and the second column contains the
-probability value for that label.
+You can compute pre-training bias metrics prior to training. However, to compute [post-training bias metrics](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-measure-post-training-bias.html), you must have a trained model. The following example output is from a binary classification model that outputs data in CSV format. In this example output, each row contains two columns. The first column contains the predicted label, and the second column contains the probability value for that label.
 
 ```
 0,0.028986845165491
@@ -162,12 +114,7 @@ probability value for that label.
 ...
 ```
 
-In the following example configuration, the `ModelConfig` object
-instructs the job to deploy the SageMaker AI model to an ephemeral endpoint. The
-endpoint uses one `ml.m4.xlarge` inference instance. Because the
-parameter `content_type` and `accept_type` are not set,
-they automatically use the value of the parameter `dataset_type`,
-which is `text/csv`.
+In the following example configuration, the `ModelConfig` object instructs the job to deploy the SageMaker AI model to an ephemeral endpoint. The endpoint uses one `ml.m4.xlarge` inference instance. Because the parameter `content_type` and `accept_type` are not set, they automatically use the value of the parameter `dataset_type`, which is `text/csv`.
 
 ```
 model_config = clarify.ModelConfig(
@@ -177,11 +124,7 @@ model_config = clarify.ModelConfig(
 )
 ```
 
-The following configuration example uses a
-`ModelPredictedLabelConfig` object with a label index of
-`0`. This instructs the SageMaker Clarify processing job to locate the
-predicted label in the first column of the model output. The Processing job uses
-zero-based indexing in this example.
+The following configuration example uses a `ModelPredictedLabelConfig` object with a label index of `0`. This instructs the SageMaker Clarify processing job to locate the predicted label in the first column of the model output. The Processing job uses zero-based indexing in this example.
 
 ```
 predicted_label_config = clarify.ModelPredictedLabelConfig(
@@ -189,9 +132,7 @@ predicted_label_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-Combined with the previous configuration example, the following code example
-launches a SageMaker Clarify processing job to compute all the post-training bias
-metrics.
+Combined with the previous configuration example, the following code example launches a SageMaker Clarify processing job to compute all the post-training bias metrics.
 
 ```
 clarify_processor.run_post_training_bias(
@@ -203,15 +144,12 @@ clarify_processor.run_post_training_bias(
 )
 ```
 
-Similarly, you can choose which metrics to compute by assigning a list of
-post-training bias metrics to the `methods` parameter. For example,
-replace `methods=“all”` with `methods=["DPPL", "DI"]` to
-compute only [Difference in Positive Proportions in Predicted Labels](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md") and [Disparate Impact](clarify-post-training-bias-metric-di.md "clarify-post-training-bias-metric-di.md").
+Similarly, you can choose which metrics to compute by assigning a list of post-training bias metrics to the `methods` parameter. For example, replace `methods=“all”` with `methods=["DPPL", "DI"]` to compute only [Difference in Positive Proportions in Predicted Labels](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-post-training-bias-metric-dppl.html) and [Disparate Impact](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-post-training-bias-metric-di.html).
 
 ### How to compute all bias metrics for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-all"></a>
 
-The following configuration example shows how to run all pre-training and
-post-training bias metrics in one SageMaker Clarify processing job.
+The following configuration example shows how to run all pre-training and post-training bias metrics in one SageMaker Clarify processing job.
 
 ```
 clarify_processor.run_bias(
@@ -224,17 +162,12 @@ clarify_processor.run_bias(
 )
 ```
 
-For an example notebook with instructions on how to run a SageMaker Clarify processing job in
-SageMaker Studio Classic to detect bias, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb").
+For an example notebook with instructions on how to run a SageMaker Clarify processing job in SageMaker Studio Classic to detect bias, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb).
 
 ### How to compute SHAP values for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-shap"></a>
 
-SageMaker Clarify provides feature attributions using the [KernelSHAP algorithm](https://arxiv.org/abs/1705.07874 "https://arxiv.org/abs/1705.07874").
-SHAP analysis requires the probability value or score instead
-of predicted label, so this `ModelPredictedLabelConfig` object has
-probability index `1`. This instructs the SageMaker Clarify processing job to
-extract the probability score from the second column of the model output (using
-zero-based indexing).
+SageMaker Clarify provides feature attributions using the [KernelSHAP algorithm](https://arxiv.org/abs/1705.07874). SHAP analysis requires the probability value or score instead of predicted label, so this `ModelPredictedLabelConfig` object has probability index `1`. This instructs the SageMaker Clarify processing job to extract the probability score from the second column of the model output (using zero-based indexing).
 
 ```
 probability_config = clarify.ModelPredictedLabelConfig(
@@ -242,13 +175,7 @@ probability_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-The `SHAPConfig` object provides SHAP analysis
-parameters. In this example, the SHAP
-`baseline` parameter is omitted and the value of the
-`num_clusters` parameter is `1`. This instructs the
-SageMaker Clarify Processor to compute one SHAP baseline sample based on
-clustering the input dataset. If you want to choose the baseline dataset, see
-[SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md").
+The `SHAPConfig` object provides SHAP analysis parameters. In this example, the SHAP `baseline` parameter is omitted and the value of the `num_clusters` parameter is `1`. This instructs the SageMaker Clarify Processor to compute one SHAP baseline sample based on clustering the input dataset. If you want to choose the baseline dataset, see [SHAP Baselines for Explainability](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-feature-attribute-shap-baselines.html).
 
 ```
 shap_config = clarify.SHAPConfig(
@@ -256,8 +183,7 @@ shap_config = clarify.SHAPConfig(
 )
 ```
 
-The following code example launches a SageMaker Clarify processing job to compute
-SHAP values.
+The following code example launches a SageMaker Clarify processing job to compute SHAP values.
 
 ```
 clarify_processor.run_explainability(
@@ -268,23 +194,14 @@ clarify_processor.run_explainability(
 )
 ```
 
-For an example notebook with instructions on how to run a SageMaker Clarify processing job
-in SageMaker Studio Classic to compute SHAP values, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb").
+For an example notebook with instructions on how to run a SageMaker Clarify processing job in SageMaker Studio Classic to compute SHAP values, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb).
 
 ### How to compute partial dependence plots (PDPs) for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-pdp"></a>
 
-PDPs show the dependence of the predicted target response on
-one or more input features of interest while holding all other features
-constant. An upward sloping line, or curve in the PDP, indicates that the
-relationship between the target and input feature(s) is positive, and the
-steepness indicates the strength of the relationship. A downward sloping line or
-curve indicates that if an input feature decreases, the target variable
-increases. Intuitively, you can interpret the partial dependence as the response
-of the target variable to each input feature of interest.
+PDPs show the dependence of the predicted target response on one or more input features of interest while holding all other features constant. An upward sloping line, or curve in the PDP, indicates that the relationship between the target and input feature(s) is positive, and the steepness indicates the strength of the relationship. A downward sloping line or curve indicates that if an input feature decreases, the target variable increases. Intuitively, you can interpret the partial dependence as the response of the target variable to each input feature of interest.
 
-The following configuration example is for using a `PDPConfig`
-object to instruct the SageMaker Clarify processing job to compute the importance of the
-`Income` feature.
+The following configuration example is for using a `PDPConfig` object to instruct the SageMaker Clarify processing job to compute the importance of the `Income` feature.
 
 ```
 pdp_config = clarify.PDPConfig(
@@ -293,15 +210,9 @@ pdp_config = clarify.PDPConfig(
 )
 ```
 
-In the previous example, the `grid_resolution` parameter divides
-the range of the `Income` feature values into `10`
-buckets. The SageMaker Clarify processing job will generate PDPs for
-`Income` split into `10` segments on the x-axis. The
-y-axis will show the marginal impact of `Income` on the target
-variable.
+In the previous example, the `grid_resolution` parameter divides the range of the `Income` feature values into `10` buckets. The SageMaker Clarify processing job will generate PDPs for `Income` split into `10` segments on the x-axis. The y-axis will show the marginal impact of `Income` on the target variable.
 
-The following code example launches a SageMaker Clarify processing job to compute
-PDPs.
+The following code example launches a SageMaker Clarify processing job to compute PDPs.
 
 ```
 clarify_processor.run_explainability(
@@ -312,17 +223,12 @@ clarify_processor.run_explainability(
 )
 ```
 
-For an example notebook with instructions on how to run a SageMaker Clarify processing job
-in SageMaker Studio Classic to compute PDPs, see [Explainability with SageMaker Clarify - Partial Dependence Plots (PDP)](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/explainability_with_pdp.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/explainability_with_pdp.ipynb").
+For an example notebook with instructions on how to run a SageMaker Clarify processing job in SageMaker Studio Classic to compute PDPs, see [Explainability with SageMaker Clarify - Partial Dependence Plots (PDP)](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/explainability_with_pdp.ipynb).
 
 ### How to compute both SHAP values and PDPs for a CSV dataset
+<a name="clarify-processing-job-run-tabular-csv-shap-pdp"></a>
 
-You can compute both SHAP values and PDPs in a
-single SageMaker Clarify processing job. In the following configuration example, the
-`top_k_features` parameter of a new `PDPConfig` object
-is set to `2`. This instructs the SageMaker Clarify processing job to compute
-PDPs for the `2` features that have the largest
-global SHAP values.
+You can compute both SHAP values and PDPs in a single SageMaker Clarify processing job. In the following configuration example, the `top_k_features` parameter of a new `PDPConfig` object is set to `2`. This instructs the SageMaker Clarify processing job to compute PDPs for the `2` features that have the largest global SHAP values. 
 
 ```
 shap_pdp_config = clarify.PDPConfig(
@@ -331,8 +237,7 @@ shap_pdp_config = clarify.PDPConfig(
 )
 ```
 
-The following code example launches a SageMaker Clarify processing job to compute both
-SHAP values and PDPs.
+The following code example launches a SageMaker Clarify processing job to compute both SHAP values and PDPs.
 
 ```
 clarify_processor.run_explainability(
@@ -343,12 +248,10 @@ clarify_processor.run_explainability(
 )
 ```
 
-The following examples show how to configure bias analysis and explainability
-analysis for a tabular dataset in >SageMaker AI JSON Lines dense format. See [JSONLINES request format](cdf-inference.md#cm-jsonlines "cdf-inference.md#cm-jsonlines") for more information. In
-these examples, the incoming dataset has the same data as the previous section, but
-they're in the JSON Lines format. Each line is a valid JSON object. The key
-`Features` points to an array of feature values, and the key
-`Label` points to the ground truth label.
+## Analyze tabular data in JSON Lines format
+<a name="clarify-processing-job-run-tabular-jsonlines"></a>
+
+The following examples show how to configure bias analysis and explainability analysis for a tabular dataset in >SageMaker AI JSON Lines dense format. See [JSONLINES request format](cdf-inference.md#cm-jsonlines) for more information. In these examples, the incoming dataset has the same data as the previous section, but they're in the JSON Lines format. Each line is a valid JSON object. The key `Features` points to an array of feature values, and the key `Label` points to the ground truth label.
 
 ```
 {"Features":[25,0,2850,2],"Label":0}
@@ -358,8 +261,7 @@ they're in the JSON Lines format. Each line is a valid JSON object. The key
 ...
 ```
 
-In the following configuration example, the `DataConfig` object
-specifies the input dataset and where to store the output.
+In the following configuration example, the `DataConfig` object specifies the input dataset and where to store the output. 
 
 ```
 data_config = clarify.DataConfig(
@@ -372,23 +274,9 @@ data_config = clarify.DataConfig(
 )
 ```
 
-In the previous configuration example, the features parameter is set to the [JMESPath](https://jmespath.org/ "https://jmespath.org/") expression `Features` so
-that the SageMaker Clarify processing job can extract the array of features from each record.
-The `label` parameter is set to JMESPath expression `Label` so
-that the SageMaker Clarify processing job can extract the ground truth label from each record.
-The `s3_data_input_path` parameter can either be a URI of a dataset file
-or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job
-recursively collects all S3 files located under the prefix. The value for
-`s3_output_path` should be an S3 URI prefix to hold the analysis
-results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take
-a value of a SageMaker AI Pipeline parameter, property, expression, or
-`ExecutionVariable`, which are used during runtime.
+In the previous configuration example, the features parameter is set to the [JMESPath](https://jmespath.org/) expression `Features` so that the SageMaker Clarify processing job can extract the array of features from each record. The `label` parameter is set to JMESPath expression `Label` so that the SageMaker Clarify processing job can extract the ground truth label from each record. The `s3_data_input_path` parameter can either be a URI of a dataset file or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job recursively collects all S3 files located under the prefix. The value for `s3_output_path` should be an S3 URI prefix to hold the analysis results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take a value of a SageMaker AI Pipeline parameter, property, expression, or `ExecutionVariable`, which are used during runtime.
 
-You must have a trained model to compute post-training bias metrics or feature
-importance. The following example is from a binary classification model that outputs
-JSON Lines data in the example's format. Each row of the model output is a valid
-JSON object. The key `predicted_label` points to the predicted label, and
-the key `probability` points to the probability value.
+You must have a trained model to compute post-training bias metrics or feature importance. The following example is from a binary classification model that outputs JSON Lines data in the example's format. Each row of the model output is a valid JSON object. The key `predicted_label` points to the predicted label, and the key `probability` points to the probability value.
 
 ```
 {"predicted_label":0,"probability":0.028986845165491}
@@ -396,9 +284,7 @@ the key `probability` points to the probability value.
 ...
 ```
 
-In the following configuration example, a `ModelConfig` object
-instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral
-endpoint. The endpoint uses one `ml.m4.xlarge` inference instance.
+In the following configuration example, a `ModelConfig` object instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral endpoint. The endpoint uses one `ml.m4.xlarge` inference instance.
 
 ```
 model_config = clarify.ModelConfig(
@@ -409,17 +295,9 @@ model_config = clarify.ModelConfig(
 )
 ```
 
-In previous configuration example, the parameter `content_type` and
-`accept_type` are not set. Therefore, they automatically use the
-value of the `dataset_type` parameter of the `DataConfig`
-object, which is `application/jsonlines`. The SageMaker Clarify processing job uses
-the `content_template` parameter to compose the model input by replacing
-the `$features` placeholder by an array of features.
+In previous configuration example, the parameter `content_type` and `accept_type` are not set. Therefore, they automatically use the value of the `dataset_type` parameter of the `DataConfig` object, which is `application/jsonlines`. The SageMaker Clarify processing job uses the `content_template` parameter to compose the model input by replacing the `$features` placeholder by an array of features.
 
-The following example configuration shows how to set the label parameter of the
-`ModelPredictedLabelConfig` object to the JMESPath expression
-`predicted_label`. This will extract the predicted label from the
-model output.
+The following example configuration shows how to set the label parameter of the `ModelPredictedLabelConfig` object to the JMESPath expression `predicted_label`. This will extract the predicted label from the model output.
 
 ```
 predicted_label_config = clarify.ModelPredictedLabelConfig(
@@ -427,10 +305,7 @@ predicted_label_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-The following example configuration shows how to set the `probability`
-parameter of the `ModelPredictedLabelConfig` object to the JMESPath
-expression `probability`. This will extract the score from the model
-output.
+The following example configuration shows how to set the `probability` parameter of the `ModelPredictedLabelConfig` object to the JMESPath expression `probability`. This will extract the score from the model output.
 
 ```
 probability_config = clarify.ModelPredictedLabelConfig(
@@ -438,29 +313,16 @@ probability_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-To compute bias metrics and feature importance for datasets in JSON Lines format,
-use the same run statements and configuration objects as the previous section for
-CSV datasets. You can run a SageMaker Clarify processing job in SageMaker Studio Classic to detect bias
-and compute feature importance. For instructions and an example notebook, see [Fairness and Explainability with SageMaker Clarify (JSON Lines Format)](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_jsonlines_format.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_jsonlines_format.ipynb").
+ To compute bias metrics and feature importance for datasets in JSON Lines format, use the same run statements and configuration objects as the previous section for CSV datasets. You can run a SageMaker Clarify processing job in SageMaker Studio Classic to detect bias and compute feature importance. For instructions and an example notebook, see [Fairness and Explainability with SageMaker Clarify (JSON Lines Format)](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability_jsonlines_format.ipynb).
 
-SageMaker Clarify supports explanations for natural language processing (NLP) models. These
-explanations help you understand which sections of text are the most important for
-your model predictions. You can explain either the model prediction for a single
-instance of the input dataset, or model predictions from the baseline dataset.To
-understand and visualize a model’s behavior, you can specify multiple levels of
-granularity. To do this, define the length of the text segment, such as its tokens,
-sentences, paragraphs.
+## Analyze tabular data for NLP explainability
+<a name="clarify-processing-job-run-tabular-nlp"></a>
 
-SageMaker Clarify NLP explainability is compatible with both classification and regression
-models. You can also use SageMaker Clarify to explain your model's behavior on multi-modal
-datasets that contain text, categorical, or numerical features. NLP explainability
-for multi-modal datasets can help you understand how important each feature is to
-the model's output. SageMaker Clarify supports 62 languages and can handle text which includes
-multiple languages.
+SageMaker Clarify supports explanations for natural language processing (NLP) models. These explanations help you understand which sections of text are the most important for your model predictions. You can explain either the model prediction for a single instance of the input dataset, or model predictions from the baseline dataset.To understand and visualize a model’s behavior, you can specify multiple levels of granularity. To do this, define the length of the text segment, such as its tokens, sentences, paragraphs.
 
-The following example shows an analysis configuration file for computing feature
-importance for NLP. In this example, the incoming dataset is a tabular dataset in
-CSV format, with one binary label column and two feature columns.
+SageMaker Clarify NLP explainability is compatible with both classification and regression models. You can also use SageMaker Clarify to explain your model's behavior on multi-modal datasets that contain text, categorical, or numerical features. NLP explainability for multi-modal datasets can help you understand how important each feature is to the model's output. SageMaker Clarify supports 62 languages and can handle text which includes multiple languages.
+
+The following example shows an analysis configuration file for computing feature importance for NLP. In this example, the incoming dataset is a tabular dataset in CSV format, with one binary label column and two feature columns.
 
 ```
 0,2,"Flavor needs work"
@@ -470,8 +332,7 @@ CSV format, with one binary label column and two feature columns.
 ...
 ```
 
-The following configuration example shows how to specify an input dataset in CSV
-format and output data path using the `DataConfig` object.
+The following configuration example shows how to specify an input dataset in CSV format and output data path using the `DataConfig` object.
 
 ```
 nlp_data_config = clarify.DataConfig(
@@ -483,18 +344,9 @@ nlp_data_config = clarify.DataConfig(
 )
 ```
 
-In the previous configuration example, the `s3_data_input_path`
-parameter can either be a URI of a dataset file or an Amazon S3 URI prefix. If you
-provide a S3 URI prefix, the SageMaker Clarify processing job recursively collects all S3
-files located under the prefix. The value for `s3_output_path` should be
-an S3 URI prefix to hold the analysis results. SageMaker AI uses the
-`s3_output_path` while compiling, and cannot take a value of a SageMaker AI
-Pipeline parameter, property, expression, or `ExecutionVariable`, which
-are used during runtime.
+In the previous configuration example, the `s3_data_input_path` parameter can either be a URI of a dataset file or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job recursively collects all S3 files located under the prefix. The value for `s3_output_path` should be an S3 URI prefix to hold the analysis results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take a value of a SageMaker AI Pipeline parameter, property, expression, or `ExecutionVariable`, which are used during runtime.
 
-The following example output was created from a binary classification model
-trained on the previous input dataset. The classification model accepts CSV data,
-and it outputs a single score in between `0` and `1`.
+The following example output was created from a binary classification model trained on the previous input dataset. The classification model accepts CSV data, and it outputs a single score in between `0` and `1`.
 
 ```
 0.491656005382537
@@ -502,10 +354,7 @@ and it outputs a single score in between `0` and `1`.
 ...
 ```
 
-The following example shows how to configure the `ModelConfig` object
-to deploy a SageMaker AI model. In this example, an ephemeral endpoint deploys the model.
-This endpoint uses one `ml.g4dn.xlarge` inference instance equipped with
-a GPU, for accelerated inferencing.
+The following example shows how to configure the `ModelConfig` object to deploy a SageMaker AI model. In this example, an ephemeral endpoint deploys the model. This endpoint uses one `ml.g4dn.xlarge` inference instance equipped with a GPU, for accelerated inferencing.
 
 ```
 nlp_model_config = clarify.ModelConfig(
@@ -515,9 +364,7 @@ nlp_model_config = clarify.ModelConfig(
 )
 ```
 
-The following example shows how to configure the
-`ModelPredictedLabelConfig` object to locate the probability (score)
-in the first column with an index of `0`.
+The following example shows how to configure the `ModelPredictedLabelConfig` object to locate the probability (score) in the first column with an index of `0`.
 
 ```
 probability_config = clarify.ModelPredictedLabelConfig(
@@ -525,9 +372,7 @@ probability_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-The following example SHAP configuration shows how to run a
-token-wise explainability analysis using a model and an input dataset in the English
-language.
+The following example SHAP configuration shows how to run a token-wise explainability analysis using a model and an input dataset in the English language.
 
 ```
 text_config = clarify.TextConfig(
@@ -541,26 +386,15 @@ nlp_shap_config = clarify.SHAPConfig(
 )
 ```
 
-In the previous example, the `TextConfig` object activates the NLP
-explainability analysis. The `granularity` parameter indicates that the
-analysis should parse tokens. In English, each token is a word. For other languages,
-see the [spaCy
-documentation for tokenization](https://spacy.io/usage/linguistic-features#tokenization "https://spacy.io/usage/linguistic-features#tokenization"), which SageMaker Clarify uses for NLP processing. The
-previous example also shows how to use an average `Rating` of
-`4` to set an in-place SHAP baseline instance. A
-special mask token `[MASK]` is used to replace a token (word) in
-`Comments`.
+In the previous example, the `TextConfig` object activates the NLP explainability analysis. The `granularity` parameter indicates that the analysis should parse tokens. In English, each token is a word. For other languages, see the [spaCy documentation for tokenization](https://spacy.io/usage/linguistic-features#tokenization), which SageMaker Clarify uses for NLP processing. The previous example also shows how to use an average `Rating` of `4` to set an in-place SHAP baseline instance. A special mask token `[MASK]` is used to replace a token (word) in `Comments`.
 
-In the previous example, if the instance is `2,"Flavor needs work"`,
-set the baseline to an average `Rating` of `4` with the
-following baseline.
+In the previous example, if the instance is `2,"Flavor needs work"`, set the baseline to an average `Rating` of `4` with the following baseline.
 
 ```
 4, '[MASK]'
 ```
 
-In the previous example, the SageMaker Clarify explainer iterates through each token and
-replaces it with the mask, as follows.
+In the previous example, the SageMaker Clarify explainer iterates through each token and replaces it with the mask, as follows.
 
 ```
 2,"[MASK] needs work"
@@ -570,13 +404,9 @@ replaces it with the mask, as follows.
 4,"Flavor needs [MASK]"
 ```
 
-Then, the SageMaker Clarify explainer will send each line to your model for predictions. This
-is so that the explainer learns the predictions with and without the masked words.
-The SageMaker Clarify explainer then uses this information to compute the contribution of each
-token.
+Then, the SageMaker Clarify explainer will send each line to your model for predictions. This is so that the explainer learns the predictions with and without the masked words. The SageMaker Clarify explainer then uses this information to compute the contribution of each token.
 
-The following code example launches a SageMaker Clarify processing job to compute
-SHAP values.
+The following code example launches a SageMaker Clarify processing job to compute SHAP values.
 
 ```
 clarify_processor.run_explainability(
@@ -587,14 +417,14 @@ clarify_processor.run_explainability(
 )
 ```
 
-For an example notebook with instructions on how to run a SageMaker Clarify processing job in
-SageMaker Studio Classic for NLP explainability analysis, see [Explaining Text Sentiment Analysis Using SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/text_explainability/text_explainability.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/text_explainability/text_explainability.ipynb").
+For an example notebook with instructions on how to run a SageMaker Clarify processing job in SageMaker Studio Classic for NLP explainability analysis, see [Explaining Text Sentiment Analysis Using SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/text_explainability/text_explainability.ipynb).
 
-SageMaker Clarify generates heat maps that provide insights into how your computer vision
-models classify and detect objects in your images.
+## Analyze image data for computer vision explainability
+<a name="clarify-processing-job-run-cv"></a>
 
-In the following configuration example, the input dataset consists of JPEG
-images.
+SageMaker Clarify generates heat maps that provide insights into how your computer vision models classify and detect objects in your images.
+
+In the following configuration example, the input dataset consists of JPEG images.
 
 ```
 cv_data_config = clarify.DataConfig(
@@ -604,27 +434,14 @@ cv_data_config = clarify.DataConfig(
 )
 ```
 
-In the previous configuration example, the `DataConfig` object
-contains an `s3_data_input_path` set to an Amazon S3 URI prefix. The SageMaker Clarify
-processing job recursively collects all image files located under the prefix. The
-`s3_data_input_path` parameter can either be a URI of a dataset file
-or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job
-recursively collects all S3 files located under the prefix. The value for
-`s3_output_path` should be an S3 URI prefix to hold the analysis
-results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take
-a value of a SageMaker AI Pipeline parameter, property, expression, or
-`ExecutionVariable`, which are used during runtime.
+ In the previous configuration example, the `DataConfig` object contains an `s3_data_input_path` set to an Amazon S3 URI prefix. The SageMaker Clarify processing job recursively collects all image files located under the prefix. The `s3_data_input_path` parameter can either be a URI of a dataset file or an Amazon S3 URI prefix. If you provide a S3 URI prefix, the SageMaker Clarify processing job recursively collects all S3 files located under the prefix. The value for `s3_output_path` should be an S3 URI prefix to hold the analysis results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take a value of a SageMaker AI Pipeline parameter, property, expression, or `ExecutionVariable`, which are used during runtime.
 
 ### How to explain an image classification model
+<a name="clarify-processing-job-run-tabular-cv-image-classification"></a>
 
-The SageMaker Clarify processing job explains images using the KernelSHAP algorithm, which
-treats the image as a collection of super pixels. Given a dataset consisting of
-images, the processing job outputs a dataset of images where each image shows
-the heat map of the relevant super pixels.
+The SageMaker Clarify processing job explains images using the KernelSHAP algorithm, which treats the image as a collection of super pixels. Given a dataset consisting of images, the processing job outputs a dataset of images where each image shows the heat map of the relevant super pixels.
 
-The following configuration example shows how to configure an explainability
-analysis using a SageMaker image classification model. See [Image Classification - MXNet](image-classification.md "image-classification.md") for more
-information.
+The following configuration example shows how to configure an explainability analysis using a SageMaker image classification model. See [Image Classification - MXNet](image-classification.md) for more information.
 
 ```
 ic_model_config = clarify.ModelConfig(
@@ -636,17 +453,9 @@ ic_model_config = clarify.ModelConfig(
 )
 ```
 
-In the previous configuration example, a model named
-`your_cv_ic_model`, has been trained to classify the animals on
-input JPEG images. The `ModelConfig` object in the previous example
-instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral
-endpoint. For accelerated inferencing, the endpoint uses one
-`ml.p2.xlarge` inference instance equipped with a GPU.
+In the previous configuration example, a model named `your_cv_ic_model`, has been trained to classify the animals on input JPEG images. The `ModelConfig` object in the previous example instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral endpoint. For accelerated inferencing, the endpoint uses one `ml.p2.xlarge` inference instance equipped with a GPU.
 
-After a JPEG image is sent to an endpoint, the endpoint classifies it and
-returns a list of scores. Each score is for a category. The
-`ModelPredictedLabelConfig` object provides the name of each
-category, as follows.
+After a JPEG image is sent to an endpoint, the endpoint classifies it and returns a list of scores. Each score is for a category. The `ModelPredictedLabelConfig` object provides the name of each category, as follows.
 
 ```
 ic_prediction_config = clarify.ModelPredictedLabelConfig(
@@ -654,13 +463,9 @@ ic_prediction_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-An example output for the previous input of ['bird','cat','dog'] could be
-0.3,0.6,0.1, where 0.3 represents the confidence score for classifying an image
-as a bird.
+An example output for the previous input of ['bird','cat','dog'] could be 0.3,0.6,0.1, where 0.3 represents the confidence score for classifying an image as a bird.
 
-The following example SHAP configuration shows how to generate
-explanations for an image classification problem. It uses an
-`ImageConfig` object to activate the analysis.
+The following example SHAP configuration shows how to generate explanations for an image classification problem. It uses an `ImageConfig` object to activate the analysis.
 
 ```
 ic_image_config = clarify.ImageConfig(
@@ -675,24 +480,11 @@ ic_shap_config = clarify.SHAPConfig(
 )
 ```
 
-SageMaker Clarify extracts features using the [Simple Linear Iterative Clustering (SLIC)](https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic "https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic") method from scikit-learn
-library for image segmentation. The previous configuration example, the
-`model_type` parameter, indicates the type of image
-classification problem. The parameter `num_segments` estimates how
-many approximate number of segments will be labeled in the input image. The
-number of segments is then passed to the slic `n_segments` parameter.
+SageMaker Clarify extracts features using the [Simple Linear Iterative Clustering (SLIC)](https://scikit-image.org/docs/dev/api/skimage.segmentation.html#skimage.segmentation.slic) method from scikit-learn library for image segmentation. The previous configuration example, the `model_type` parameter, indicates the type of image classification problem. The parameter `num_segments` estimates how many approximate number of segments will be labeled in the input image. The number of segments is then passed to the slic `n_segments` parameter. 
 
-Each segment of the image is considered a super-pixel, and local
-SHAP values are computed for each segment. The parameter
-`segment_compactness` determines the shape and size of the image
-segments that are generated by the scikit-image slic method. The sizes and
-shapes of the image segments are then passed to the slic
-`compactness` parameter.
+Each segment of the image is considered a super-pixel, and local SHAP values are computed for each segment. The parameter `segment_compactness` determines the shape and size of the image segments that are generated by the scikit-image slic method. The sizes and shapes of the image segments are then passed to the slic `compactness` parameter.
 
-The following code example launches a SageMaker Clarify processing job to generate heat
-maps for your images. Positive heat map values show that the feature increased
-the confidence score of detecting the object. Negative values indicate that the
-feature decreased the confidence score.
+The following code example launches a SageMaker Clarify processing job to generate heat maps for your images. Positive heat map values show that the feature increased the confidence score of detecting the object. Negative values indicate that the feature decreased the confidence score.
 
 ```
 clarify_processor.run_explainability(
@@ -703,41 +495,28 @@ clarify_processor.run_explainability(
 )
 ```
 
-For a sample notebook that uses SageMaker Clarify to classify images and explain its
-classification, see [Explaining Image Classification with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb").
+For a sample notebook that uses SageMaker Clarify to classify images and explain its classification, see [Explaining Image Classification with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb).
 
 ### How to explain an object detection model
+<a name="clarify-processing-job-run-tabular-cv-object-detection"></a>
 
-A SageMaker Clarify processing job can detect and classify objects in an image and then
-provide an explanation for the detected object. The process for explanation is
-as follows.
+A SageMaker Clarify processing job can detect and classify objects in an image and then provide an explanation for the detected object. The process for explanation is as follows.
 
-1. Image objects are first categorized into one of the classes in a
-   specified collection. For example, if an object detection model can
-   recognize cat, dog and fish, then these three classes are in a
-   collection. This collection is specified by the
-   `label_headers` parameter as follows.
+1. Image objects are first categorized into one of the classes in a specified collection. For example, if an object detection model can recognize cat, dog and fish, then these three classes are in a collection. This collection is specified by the `label_headers` parameter as follows.
 
-```
-clarify.ModelPredictedLabelConfig(
+   ```
+   clarify.ModelPredictedLabelConfig(
+   
+   label_headers=object_categories,
+   
+   )
+   ```
 
-label_headers=object_categories,
+1. The SageMaker Clarify processing job produces a confidence score for each object. A high confidence score indicates that it belongs to one of the classes in a specified collection. The SageMaker Clarify processing job also produces the coordinates of a bounding box that delimits the object. For more information about confidence scores and bounding boxes, see [Response Formats](object-detection-in-formats.md#object-detection-recordio).
 
-)
-```
+1. SageMaker Clarify then provides an explanation for the detection of an object in the image scene. It uses the methods described in the **How to explain an image classification model** section.
 
-2. The SageMaker Clarify processing job produces a confidence score for each object.
-   A high confidence score indicates that it belongs to one of the classes
-   in a specified collection. The SageMaker Clarify processing job also produces the
-   coordinates of a bounding box that delimits the object. For more
-   information about confidence scores and bounding boxes, see [Response Formats](object-detection-in-formats.md#object-detection-recordio "object-detection-in-formats.md#object-detection-recordio").
-3. SageMaker Clarify then provides an explanation for the detection of an object in
-   the image scene. It uses the methods described in the **How to explain an image classification model**
-   section.
-
-In the following configuration example, a SageMaker AI object detection model
-`your_cv_od_model` is trained on JPEG images to identify the
-animals on them.
+In the following configuration example, a SageMaker AI object detection model `your_cv_od_model` is trained on JPEG images to identify the animals on them. 
 
 ```
 od_model_config = clarify.ModelConfig(
@@ -749,14 +528,9 @@ od_model_config = clarify.ModelConfig(
 )
 ```
 
-The `ModelConfig` object in the previous configuration example
-instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral
-endpoint. For accelerated imaging, this endpoint uses one
-`ml.p2.xlarge` inference instance equipped with a GPU.
+The `ModelConfig` object in the previous configuration example instructs the SageMaker Clarify processing job to deploy the SageMaker AI model to an ephemeral endpoint. For accelerated imaging, this endpoint uses one `ml.p2.xlarge` inference instance equipped with a GPU.
 
-In the following example configuration, the
-`ModelPredictedLabelConfig` object provides the name of each
-category for classification.
+In the following example configuration, the `ModelPredictedLabelConfig` object provides the name of each category for classification.
 
 ```
 ic_prediction_config = clarify.ModelPredictedLabelConfig(
@@ -764,8 +538,7 @@ ic_prediction_config = clarify.ModelPredictedLabelConfig(
 )
 ```
 
-The following example SHAP configuration shows how to generate
-explanations for an object detection.
+The following example SHAP configuration shows how to generate explanations for an object detection.
 
 ```
 od_image_config = clarify.ImageConfig(
@@ -782,15 +555,9 @@ od_shap_config = clarify.SHAPConfig(
 )
 ```
 
-In the previous example configuration, the `ImageConfig` object
-activates the analysis. The `model_type` parameter indicates that the
-type of problem is object detection. For a detailed description of the other
-parameters, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
+In the previous example configuration, the `ImageConfig` object activates the analysis. The `model_type` parameter indicates that the type of problem is object detection. For a detailed description of the other parameters, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md).
 
-The following code example launches a SageMaker Clarify processing job to generate heat
-maps for your images. Positive heat map values show that the feature increased
-the confidence score of detecting the object. Negative values indicate that the
-feature decreased the confidence score.
+The following code example launches a SageMaker Clarify processing job to generate heat maps for your images. Positive heat map values show that the feature increased the confidence score of detecting the object. Negative values indicate that the feature decreased the confidence score.
 
 ```
 clarify_processor.run_explainability(
@@ -801,12 +568,12 @@ clarify_processor.run_explainability(
 )
 ```
 
-For a sample notebook that uses SageMaker Clarify to detect objects in an image and
-explain its predictions, see [Explaining object detection models with Amazon SageMaker AI Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb").
+For a sample notebook that uses SageMaker Clarify to detect objects in an image and explain its predictions, see [Explaining object detection models with Amazon SageMaker AI Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb).
 
-The following examples show how to configure data in SageMaker AI JSON dense format
-to explain a time series forecasting model. For more information about JSON formatting,
-see [JSON request format](cdf-inference.md#cm-json "cdf-inference.md#cm-json").
+## Analyze explanations for time series forecasting models
+<a name="clarify-processing-job-run-ts"></a>
+
+The following examples show how to configure data in SageMaker AI JSON dense format to explain a time series forecasting model. For more information about JSON formatting, see [JSON request format](cdf-inference.md#cm-json).
 
 ```
 [
@@ -844,10 +611,9 @@ see [JSON request format](cdf-inference.md#cm-json "cdf-inference.md#cm-json").
 ```
 
 ### Data config
+<a name="clarify-processing-job-run-ts-dataconfig"></a>
 
-Use `TimeSeriesDataConfig` communicate to your explainability job
-how to parse data correctly from the passed input dataset, as shown in the
-following example configuration:
+Use `TimeSeriesDataConfig` communicate to your explainability job how to parse data correctly from the passed input dataset, as shown in the following example configuration:
 
 ```
 time_series_data_config = clarify.TimeSeriesDataConfig(
@@ -861,14 +627,9 @@ time_series_data_config = clarify.TimeSeriesDataConfig(
 ```
 
 ### Asymmetric Shapley value config
+<a name="clarify-processing-job-run-ts-asymm"></a>
 
-Use `AsymmetricShapleyValueConfig` to define arguments for time series
-forecasting model explanation analysis such as baseline, direction, granularity,
-and number of samples. Baseline values are set for all three types
-of data: related time series, static covariates, and target time series. The
-`AsymmetricShapleyValueConfig` config informs
-the SageMaker Clarify processor how to compute feature attributions for one item at a time.
-The following configuration shows an example definition of `AsymmetricShapleyValueConfig`.
+Use `AsymmetricShapleyValueConfig` to define arguments for time series forecasting model explanation analysis such as baseline, direction, granularity, and number of samples. Baseline values are set for all three types of data: related time series, static covariates, and target time series. The `AsymmetricShapleyValueConfig` config informs the SageMaker Clarify processor how to compute feature attributions for one item at a time. The following configuration shows an example definition of `AsymmetricShapleyValueConfig`. 
 
 ```
 asymmetric_shapley_value_config = AsymmetricShapleyValueConfig(
@@ -876,34 +637,25 @@ asymmetric_shapley_value_config = AsymmetricShapleyValueConfig(
     granularity="fine-grained",
     num_samples=10,
     baseline={
-        "related_time_series": "zero",
+        "related_time_series": "zero", 
         "static_covariates": {
             "item1": [0, 0], "item2": [0, 0]
-        },
+        }, 
         "target_time_series": "zero"
     },
 )
 ```
 
-The values you provide to `AsymmetricShapleyValueConfig` are passed to the analysis config as an
-entry in `methods` with key `asymmetric_shapley_value`.
+The values you provide to `AsymmetricShapleyValueConfig` are passed to the analysis config as an entry in `methods` with key `asymmetric_shapley_value`.
 
 ### Model config
+<a name="clarify-processing-job-run-ts-model"></a>
 
-You can control the structure of the payload sent from the SageMaker Clarify processor.
-In the following code sample, a `ModelConfig` configuration object
-directs a time series forecasting explainability job to aggregate records using
-JMESPath syntax into `'{"instances": $records}'` , where the structure
-of each record is defined with the following record\_template `'{"start": 
- $start_time, "target": $target_time_series, "dynamic_feat": $related_time_series, 
- "cat": $static_covariates}'`. Note that `$start_time`,
-`$target_time_series`, `$related_time_series`, and
-`$static_covariates` are internal tokens used to map dataset values
-to endpoint request values.
+You can control the structure of the payload sent from the SageMaker Clarify processor. In the following code sample, a `ModelConfig` configuration object directs a time series forecasting explainability job to aggregate records using JMESPath syntax into `'{"instances": $records}'` , where the structure of each record is defined with the following record\_template `'{"start": $start_time, "target": $target_time_series, "dynamic_feat": $related_time_series, "cat": $static_covariates}'`. Note that `$start_time`, `$target_time_series`, `$related_time_series`, and `$static_covariates` are internal tokens used to map dataset values to endpoint request values. 
 
 ```
 model_config = clarify.ModelConfig(
-    model_name=`your_model`,
+    model_name={{your_model}},
     instance_type='ml.m4.xlarge',
     instance_count=1,
     record_template='{"start": $start_time, "target": $target_time_series, "dynamic_feat": $related_time_series, "cat": $static_covariates}',
@@ -914,40 +666,30 @@ model_config = clarify.ModelConfig(
 )
 ```
 
-Similarly, the attribute `forecast` in `TimeSeriesModelConfig`,
-passed to the analysis config with key `time_series_predictor_config`, is used
-to extract the model forecast from the endpoint response. For instance, an example
-endpoint batch response could be the following:
+Similarly, the attribute `forecast` in `TimeSeriesModelConfig`, passed to the analysis config with key `time_series_predictor_config`, is used to extract the model forecast from the endpoint response. For instance, an example endpoint batch response could be the following:
 
 ```
 {
     "predictions": [
-        {"mean": [13.4, 3.6, 1.0]},
-        {"mean": [23.0, 4.7, 3.0]},
+        {"mean": [13.4, 3.6, 1.0]}, 
+        {"mean": [23.0, 4.7, 3.0]}, 
         {"mean": [3.4, 5.6, 2.0]}
     ]
 }
 ```
 
-If the JMESPath expression provided for `forecast` is {'predictions[\*].mean[:2]'}}, the
-forecast value is parsed as follows:
+If the JMESPath expression provided for `forecast` is {'predictions[\*].mean[:2]'}}, the forecast value is parsed as follows: 
 
 ```
 [[13.4, 3.6], [23.0, 4.7], [3.4, 5.6]]
 ```
 
 ## How to run parallel SageMaker Clarify processing jobs
+<a name="clarify-processing-job-run-spark"></a>
 
-When working with large datasets, you can use [Apache Spark](https://spark.apache.org/ "https://spark.apache.org/") to increase the speed of your SageMaker Clarify processing jobs. Spark is
-a unified analytics engine for large-scale data processing. When you request more than
-one instance per SageMaker Clarify processor, SageMaker Clarify uses the distributed computing capabilities from
-Spark.
+When working with large datasets, you can use [Apache Spark](https://spark.apache.org/) to increase the speed of your SageMaker Clarify processing jobs. Spark is a unified analytics engine for large-scale data processing. When you request more than one instance per SageMaker Clarify processor, SageMaker Clarify uses the distributed computing capabilities from Spark.
 
-The following configuration example shows how to use
-`SageMakerClarifyProcessor` to create a SageMaker Clarify processor with
-`5` compute instances. To run any jobs associated with the
-`SageMakerClarifyProcessor`, SageMaker Clarify using Spark distributed
-processing.
+The following configuration example shows how to use `SageMakerClarifyProcessor` to create a SageMaker Clarify processor with `5` compute instances. To run any jobs associated with the `SageMakerClarifyProcessor`, SageMaker Clarify using Spark distributed processing.
 
 ```
 from sagemaker import clarify
@@ -959,12 +701,6 @@ spark_clarify_processor = clarify.SageMakerClarifyProcessor(
 )
 ```
 
-If you set the `save_local_shap_values` parameter of [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") to `True`, the SageMaker Clarify processing job saves the local
-SHAP value as multiple part files in the job output location.
+If you set the `save_local_shap_values` parameter of [SHAPConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) to `True`, the SageMaker Clarify processing job saves the local SHAP value as multiple part files in the job output location. 
 
-To associate the local SHAP values to the input dataset instances, use
-the `joinsource` parameter of `DataConfig`. If you add more
-compute instances, we recommend that you also increase the `instance_count`
-of [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html") for the ephemeral endpoint. This prevents Spark workers'
-concurrent inference requests from overwhelming the endpoint. Specifically, we recommend
-that you use a one-to-one ratio of endpoint-to-processing instances.
+To associate the local SHAP values to the input dataset instances, use the `joinsource` parameter of `DataConfig`. If you add more compute instances, we recommend that you also increase the `instance_count` of [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) for the ephemeral endpoint. This prevents Spark workers' concurrent inference requests from overwhelming the endpoint. Specifically, we recommend that you use a one-to-one ratio of endpoint-to-processing instances.

@@ -1,13 +1,12 @@
+
+
 # Inspect Reports for Data Bias Drift
+<a name="clarify-model-monitor-bias-drift-report"></a>
 
-###### Note
+**Note**  
+Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
 
-Amazon SageMaker Model Monitor is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
-
-If you are not able to inspect the results of the monitoring in the generated reports
-in SageMaker Studio, you can print them out as follows:
+If you are not able to inspect the results of the monitoring in the generated reports in SageMaker Studio, you can print them out as follows:
 
 ```
 schedule_desc = model_bias_monitor.describe_schedule()
@@ -24,7 +23,7 @@ else:
     print("====STOP==== \n No completed executions to inspect further. Please wait till an execution completes or investigate previously reported failures.")
 ```
 
-If there are violations compared to the baseline, they are listed here:
+ If there are violations compared to the baseline, they are listed here:
 
 ```
 if last_model_bias_monitor_execution:
@@ -33,6 +32,4 @@ if last_model_bias_monitor_execution:
         print(model_bias_violations.body_dict)
 ```
 
-If your model is deployed to a real-time endpoint, you can see visualizations in SageMaker AI
-Studio of the analysis results and CloudWatch metrics by choosing the
-**Endpoints** tab, and then double-clicking the endpoint.
+If your model is deployed to a real-time endpoint, you can see visualizations in SageMaker AI Studio of the analysis results and CloudWatch metrics by choosing the **Endpoints** tab, and then double-clicking the endpoint.
