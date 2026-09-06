@@ -689,7 +689,9 @@ main "$@"
   - [StopTask](../../../goto/aws-cli/ecs-2014-11-13/StopTask.md "../../../goto/aws-cli/ecs-2014-11-13/StopTask.md")
   - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
   - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait](../../../goto/aws-cli/iam-2010-05-08/Wait.md "../../../goto/aws-cli/iam-2010-05-08/Wait.md")
+  - [Wait (Amazon EC2)](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
+  - [Wait (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
+  - [Wait (IAM)](../../../goto/aws-cli/iam-2010-05-08/Wait.md "../../../goto/aws-cli/iam-2010-05-08/Wait.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

@@ -216,7 +216,7 @@ cannot be changed during the role session. Administrators can then use AWS Cloud
 monitor and audit the source identity information to determine who performed actions with
 shared roles.
 
-The value in the `AttributeValue` element must be between 2 and 64 characters
+The value in the `AttributeValue` element must be between 2 and 256 characters
 long, can contain only alphanumeric characters, underscores, and the following characters:
 **. , + = @ -** (hyphen). It cannot contain spaces. The value
 is typically an attribute that is associated with the user such as a user id

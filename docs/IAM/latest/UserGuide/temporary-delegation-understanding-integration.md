@@ -92,6 +92,6 @@ After you obtain temporary credentials, orchestrate the necessary workflows to c
 
 - Calling AWS service APIs directly to create and configure resources
 - Deploying infrastructure using AWS CloudFormation templates
-- Creating IAM roles for ongoing access (requires using permission boundaries)
+- Creating IAM roles for ongoing access (requires using permission boundaries). As a defense-in-depth measure, we recommend that you use dynamic role names, for example, a name with a randomly generated suffix. This approach makes the role name in each customer account unique and unpredictable.
 
 Your orchestration logic should be idempotent and handle failures gracefully, as customers might need to retry or modify their delegation approvals.

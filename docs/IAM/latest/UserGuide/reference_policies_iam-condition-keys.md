@@ -635,7 +635,7 @@ This condition key is supported by the following API operations:
 - `GetDelegationRequest`
 - `AcceptDelegationRequest`
 - `RejectDelegationRequest`
-- `SendDelegatedToken`
+- `SendDelegationToken`
 - `ListDelegationRequests`
 - `UpdateDelegationRequest`
 
@@ -652,7 +652,7 @@ own.
                 "iam:GetDelegationRequest",
                 "iam:AcceptDelegationRequest",
                 "iam:RejectDelegationRequest",
-                "iam:SendDelegatedToken",
+                "iam:SendDelegationToken",
                 "iam:UpdateDelegationRequest",
                 "iam:ListDelegationRequests"
             ],
@@ -1192,6 +1192,10 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 
 This key verifies the ID of the enterprise that contains the repository from where the workflow is running. Use this to make sure access is limited to repositories within your GitHub Enterprise organization.
 
+###### Use immutable identifiers, not names
+
+On GitHub, repository, organization, and user names can change. A name that is freed by renaming or deletion can be claimed by a different account. Policies that rely solely on mutable name-based claims (such as `repository` or `actor`) could grant access to unintended identities. To help protect against this, use the immutable identifiers that GitHub provides, such as `repository_id`, `repository_owner_id`, or `actor_id`, in your role trust policies or resource control policies.
+
 The following example trust policy uses custom claims in GitHub OIDC token to limit access to a role.
 
 ```
@@ -1205,11 +1209,11 @@ The following example trust policy uses custom claims in GitHub OIDC token to li
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
-            "StringLike": {
+            "StringEquals": {
                 "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-                "token.actions.githubusercontent.com:job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
-                "token.actions.githubusercontent.com:repository": "octo-org/octo-repo",
-                "token.actions.githubusercontent.com:actor": "octocat",
+                "token.actions.githubusercontent.com:repository_owner_id": "123456",
+                "token.actions.githubusercontent.com:repository_id": "1296269",
+                "token.actions.githubusercontent.com:actor_id": "1",
                 "token.actions.githubusercontent.com:ref": "refs/heads/main",
                 "token.actions.githubusercontent.com:enterprise_id": "345"
                }
@@ -1609,6 +1613,10 @@ This key identifies the git branch that triggered the build. Use this
 to limit access based on specific branches, such as allowing only
 `main` or `production` branches.
 
+###### Use immutable identifiers, not slugs
+
+On Buildkite, a deleted organization or pipeline slug can be immediately re-registered by a different organization or pipeline. Buildkite issues OIDC tokens for these slugs from the same issuer (`agent.buildkite.com`). As a result, policies that rely solely on slug-based claims (such as `organization_slug` or `pipeline_slug`) could grant access to unintended identities. To help protect against this, use stable, immutable identifiers, such as `organization_id` or `pipeline_id`, in your role trust policies or resource control policies.
+
 The following example trust policy uses custom claims in the Buildkite OIDC token to limit access to a role.
 
 ```
@@ -1624,8 +1632,8 @@ The following example trust policy uses custom claims in the Buildkite OIDC toke
         "Condition": {
             "StringEquals": {
                 "agent.buildkite.com:aud": "sts.amazonaws.com",
-                "agent.buildkite.com:organization_slug": "acme-inc",
-                "agent.buildkite.com:pipeline_slug": "super-duper-app",
+                "agent.buildkite.com:organization_id": "0191e7a0-1234-7abc-def0-123456789abc",
+                "agent.buildkite.com:pipeline_id": "0191e7a1-5678-7abc-def0-123456789abc",
                 "agent.buildkite.com:build_branch": "main"
             }
         }

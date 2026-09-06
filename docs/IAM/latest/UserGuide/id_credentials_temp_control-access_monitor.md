@@ -99,7 +99,7 @@ Keep the following in mind when working with source identity.
   you choose to require a source identity, you must choose an attribute that you
   want your users or IdP to provide. For security purposes, you must ensure that
   you can control how those values are provided.
-- The value of source identity must be between 2 and 64 characters long, can
+- The value of source identity must be between 2 and 256 characters long, can
   contain only alphanumeric characters, underscores, and the following characters:
   **. , + = @ -** (hyphen). You cannot use a
   value that begins with the text `aws:`. This prefix is

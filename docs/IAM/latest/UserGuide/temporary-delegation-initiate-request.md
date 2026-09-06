@@ -24,7 +24,7 @@ If you are not already signed in to the AWS Management Console, a new window ope
 
 ###### Note
 
-Granting product provider access requires two actions: accepting the delegation request (`AcceptDelegationRequest`) and releasing the exchange token (`SendDelegatedToken`).
+Granting product provider access requires two actions: accepting the delegation request (`AcceptDelegationRequest`) and releasing the exchange token (`SendDelegationToken`).
 The AWS Management Console performs both steps automatically when you approve a request. If you use the AWS CLI or API, you must execute both steps separately.
 
 ## Permission simulation capability -beta
