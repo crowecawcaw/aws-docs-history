@@ -1,108 +1,75 @@
+
+
 # AWS CloudTrail logging for AWS Transfer Family
+<a name="cloudtrail-logging"></a>
 
-AWS Transfer Family integrates with both AWS CloudTrail and Amazon CloudWatch. CloudTrail and CloudWatch serve different but
-complementary purposes.
+AWS Transfer Family integrates with both AWS CloudTrail and Amazon CloudWatch. CloudTrail and CloudWatch serve different but complementary purposes.
++ This topic covers integration with CloudTrail , an AWS service that creates a record of actions taken within your AWS account. It continuously monitors and records API operations for activities like console sign-ins, AWS Command Line Interface commands, and SDK/API operations. This allows you to keep a log of who took what action, when, and from where. CloudTrail helps with auditing, access management, and regulatory compliance by providing a history of all activity in your AWS environment. For details, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
++ [Amazon CloudWatch logging for AWS Transfer Family servers](structured-logging.md) covers integration with CloudWatch, a monitoring service for AWS resources and applications. It collects metrics and logs to provide visibility into resource utilization, application performance, and overall system health. CloudWatch helps with operational tasks like troubleshooting issues, setting alarms and autoscaling. For details, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 
-- This topic covers integration with CloudTrail , an AWS service that creates a record of
-  actions taken within your AWS account. It continuously monitors and records API operations for
-  activities like console sign-ins, AWS Command Line Interface commands, and SDK/API operations. This allows you to
-  keep a log of who took what action, when, and from where. CloudTrail helps with auditing, access
-  management, and regulatory compliance by providing a history of all activity in your AWS
-  environment. For details, see the [AWS CloudTrail User
-  Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
-- [Amazon CloudWatch logging for AWS Transfer Family servers](structured-logging.md "structured-logging.md") covers integration with CloudWatch, a monitoring service for AWS resources and applications. It collects metrics
-  and logs to provide visibility into resource utilization, application performance, and
-  overall system health. CloudWatch helps with operational tasks like troubleshooting issues,
-  setting alarms and autoscaling. For details, see the [Amazon CloudWatch User
-  Guide](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md").
-  A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-  that you specify. CloudTrail log files contain one or more log entries. An event represents a
-  single request from any source and includes information about the requested action, the date
-  and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered
-  stack trace of the public API operations, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API operations, so they don't appear in any specific order.
 
-For an ongoing record of events in your AWS account, including events for AWS Transfer Family,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all AWS
-Regions. The trail logs events from all Regions in the AWS partition and delivers the log
-files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS
-services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following:
+ For an ongoing record of events in your AWS account, including events for AWS Transfer Family, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for
-  creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon
-  SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving
-  CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
-  All AWS Transfer Family actions are logged by CloudTrail and are documented in the [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md")
-  [API reference](../APIReference/api_welcome.md "../APIReference/api_welcome.md"). For example, calls to the
-  `CreateServer`, `ListUsers` and `StopServer` actions
-  generate entries in the CloudTrail log files.
+All AWS Transfer Family actions are logged by CloudTrail and are documented in the [Actions](https://docs.aws.amazon.com/transfer/latest/APIReference/API_Operations.html) [API reference](https://docs.aws.amazon.com/transfer/latest/APIReference/api_welcome.html). For example, calls to the `CreateServer`, `ListUsers` and `StopServer` actions generate entries in the CloudTrail log files.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root or AWS Identity and Access Management user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-  For more information, see the [CloudTrail userIdentity
-  element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for AWS Transfer Family. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event
-history**.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Transfer Family. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**.
 
-Using the information collected by CloudTrail, you can determine the request that was made to
-AWS Transfer Family, the IP address from which the request was made, who made the request, when it was
-made, and additional details.
+Using the information collected by CloudTrail, you can determine the request that was made to AWS Transfer Family, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
-###### Topics
-
-- [Enable AWS CloudTrail logging](#monitoring-enable-cloudtrail "#monitoring-enable-cloudtrail")
-- [Example log entry for creating a server](#create-server-ct-example "#create-server-ct-example")
-- [Data access log examples](#data-access-log-examples "#data-access-log-examples")
+**Topics**
++ [Enable AWS CloudTrail logging](#monitoring-enable-cloudtrail)
++ [Example log entry for creating a server](#create-server-ct-example)
++ [Data access log examples](#data-access-log-examples)
 
 ## Enable AWS CloudTrail logging
+<a name="monitoring-enable-cloudtrail"></a>
 
-You can monitor AWS Transfer Family API operations using AWS CloudTrail. By monitoring API operations, you can
-get useful security and operational information. If you have [Amazon S3 object level
-logging enabled](../../../AmazonS3/latest/user-guide/enable-cloudtrail-events.md "../../../AmazonS3/latest/user-guide/enable-cloudtrail-events.md"), `RoleSessionName` is contained in the Requester
-field as `[AWS:Role Unique Identifier]/username.sessionid@server-id`. For
-more information about AWS Identity and Access Management (IAM) role unique identifiers, see [Unique
-identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-unique-ids "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-unique-ids") in the _AWS Identity and Access Management User Guide_.
+You can monitor AWS Transfer Family API operations using AWS CloudTrail. By monitoring API operations, you can get useful security and operational information. If you have [Amazon S3 object level logging enabled](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-cloudtrail-events.html), `RoleSessionName` is contained in the Requester field as `[AWS:Role Unique Identifier]/username.sessionid@server-id`. For more information about AWS Identity and Access Management (IAM) role unique identifiers, see [Unique identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-unique-ids) in the *AWS Identity and Access Management User Guide*.
 
-###### Important
-
-The maximum length of the `RoleSessionName` is 64 characters. If the
-`RoleSessionName` is longer, the `server-id`
-gets truncated.
+**Important**  
+The maximum length of the `RoleSessionName` is 64 characters. If the `RoleSessionName` is longer, the `server-id` gets truncated.
 
 ### Enabling Amazon S3 data events
+<a name="enable-s3-data-events"></a>
 
 To track file operations performed through AWS Transfer Family on your Amazon S3 buckets, you need to enable data events for those buckets. Data events provide object-level API activity and are particularly useful for tracking file uploads, downloads, and other operations performed by AWS Transfer Family users.
 
 To enable Amazon S3 data events for your AWS Transfer Family server:
 
-1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2. In the navigation pane, choose **Trails**, and then select an existing trail or create a new one.
-3. Under **Data events**, choose **Edit**.
-4. For **Data event type**, select **S3**.
-5. Choose the Amazon S3 buckets to log data events for. You can log data events for all buckets or specify individual buckets.
-6. Choose whether to log **Read** events, **Write** events, or both.
-7. Choose **Save changes**.
+1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/).
+
+1. In the navigation pane, choose **Trails**, and then select an existing trail or create a new one.
+
+1. Under **Data events**, choose **Edit**.
+
+1. For **Data event type**, select **S3**.
+
+1. Choose the Amazon S3 buckets to log data events for. You can log data events for all buckets or specify individual buckets.
+
+1. Choose whether to log **Read** events, **Write** events, or both.
+
+1. Choose **Save changes**.
 
 After enabling data events, you can access these logs in the Amazon S3 bucket configured for your CloudTrail trail. The logs include details such as the user who performed the action, the action timestamp, the specific object affected, and the `onBehalfOf` field that helps trace the `userId` for actions performed through AWS Transfer Family.
 
 ## Example log entry for creating a server
+<a name="create-server-ct-example"></a>
 
-The following example shows a CloudTrail log entry (in JSON format) that demonstrates the
-`CreateServer` action.
+The following example shows a CloudTrail log entry (in JSON format) that demonstrates the `CreateServer` action.
 
 ```
 {
@@ -169,10 +136,12 @@ The following example shows a CloudTrail log entry (in JSON format) that demonst
 ```
 
 ## Data access log examples
+<a name="data-access-log-examples"></a>
 
 When you enable Amazon S3 data events for your CloudTrail trail, you can track file operations performed through AWS Transfer Family. These logs help you monitor who accessed what data, when, and how.
 
 ### Example log entry for successful data access
+<a name="successful-data-access-example"></a>
 
 The following example shows a CloudTrail log entry for a successful file download operation through AWS Transfer Family.
 
@@ -245,28 +214,30 @@ The following example shows a CloudTrail log entry for a successful file downloa
 ```
 
 In this example, note the following important fields:
-
-- `eventName`: Indicates the S3 API operation that was performed (GetObject for a file download).
-- `requestParameters.bucketName` and `requestParameters.key`: Show which S3 object was accessed.
-- `additionalEventData.bytesTransferredOut`: Shows the size of the downloaded file in bytes.
-- `requestParameters.x-amz-onBehalfOf`: Contains the AWS Transfer Family username and session ID, allowing you to trace which AWS Transfer Family user performed the action.
++ `eventName`: Indicates the S3 API operation that was performed (GetObject for a file download).
++ `requestParameters.bucketName` and `requestParameters.key`: Show which S3 object was accessed.
++ `additionalEventData.bytesTransferredOut`: Shows the size of the downloaded file in bytes.
++ `requestParameters.x-amz-onBehalfOf`: Contains the AWS Transfer Family username and session ID, allowing you to trace which AWS Transfer Family user performed the action.
 
 The `x-amz-onBehalfOf` field is particularly important as it links the S3 API call back to the specific AWS Transfer Family user who initiated the action. This field follows the format `username.sessionid@server-id`, where:
-
-- `username` is the AWS Transfer Family username.
-- `sessionid` is a unique identifier for the user's session.
-- `server-id` is the ID of the AWS Transfer Family server.
++ `username` is the AWS Transfer Family username.
++ `sessionid` is a unique identifier for the user's session.
++ `server-id` is the ID of the AWS Transfer Family server.
 
 ### Common data access operations
+<a name="data-access-operations"></a>
 
 When monitoring data access through AWS Transfer Family, you'll typically see the following S3 API operations in your CloudTrail logs:
 
-Common S3 operations in AWS Transfer Family logs| S3 API Operation | AWS Transfer Family Action | Description |
-| --- | --- | --- |
-| GetObject | File download | User downloaded a file from the server |
-| PutObject | File upload | User uploaded a file to the server |
-| DeleteObject | File deletion | User deleted a file from the server |
-| ListObjects or ListObjectsV2 | Directory listing | User listed files in a directory |
-| CopyObject | File copy | User copied a file within the server |
+
+**Common S3 operations in AWS Transfer Family logs**  
+
+| S3 API Operation | AWS Transfer Family Action | Description | 
+| --- | --- | --- | 
+| GetObject | File download | User downloaded a file from the server | 
+| PutObject | File upload | User uploaded a file to the server | 
+| DeleteObject | File deletion | User deleted a file from the server | 
+| ListObjects or ListObjectsV2 | Directory listing | User listed files in a directory | 
+| CopyObject | File copy | User copied a file within the server | 
 
 By monitoring these operations in your CloudTrail logs, you can track all file activities performed through your AWS Transfer Family server, helping you meet compliance requirements and detect unauthorized access.

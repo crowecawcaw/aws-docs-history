@@ -1,84 +1,70 @@
+
+
 # Transfer Family events detail reference
+<a name="events-detail-reference"></a>
 
-All events from AWS services have a common set of fields containing
-metadata about the event. These metadata can include the AWS service that
-is the source of the event, the time the event was generated, the account and Region in
-which the event took place, and others. For definitions of these general fields, see
-[Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+All events from AWS services have a common set of fields containing metadata about the event. These metadata can include the AWS service that is the source of the event, the time the event was generated, the account and Region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
-In addition, each event has a `detail` field that contains data specific to
-that particular event. The following reference defines the detail fields for the various
-Transfer Family events.
+In addition, each event has a `detail` field that contains data specific to that particular event. The following reference defines the detail fields for the various Transfer Family events.
 
-When you use EventBridge to select and manage Transfer Family events, consider the
-following:
+When you use EventBridge to select and manage Transfer Family events, consider the following:
++ The `source` field for all events from Transfer Family is set to `aws.transfer`.
++ The `detail-type` field specifies the event type. 
 
-- The `source` field for all events from Transfer Family is set to
-  `aws.transfer`.
-- The `detail-type` field specifies the event type.
+  For example, `FTP Server File Download Completed`.
++ The `detail` field contains the data that is specific to that particular event. 
 
-For example, `FTP Server File Download Completed`.
+For information on constructing event patterns that enable rules to match Transfer Family events, see [Event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*.
 
-- The `detail` field contains the data that is specific to that
-  particular event.
-  For information on constructing event patterns that enable rules to match Transfer Family
-  events, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in
-  the _Amazon EventBridge User Guide_.
+For more information on events and how EventBridge processes them, see [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.
 
-For more information on events and how EventBridge processes them, see [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the _Amazon EventBridge User
-Guide_.
-
-###### Topics
-
-- [SFTP, FTPS, and FTP server events](#event-detail-server-events "#event-detail-server-events")
-- [SFTP connector events](#event-detail-sftp-connector-events "#event-detail-sftp-connector-events")
-- [AS2 events](#event-detail-as2-server-events "#event-detail-as2-server-events")
+**Topics**
++ [SFTP, FTPS, and FTP server events](#event-detail-server-events)
++ [SFTP connector events](#event-detail-sftp-connector-events)
++ [AS2 events](#event-detail-as2-server-events)
 
 ## SFTP, FTPS, and FTP server events
+<a name="event-detail-server-events"></a>
 
 The following are the detail fields for SFTP, FTPS, and FTP server events:
++ FTP Server Directory Create Completed
++ FTP Server Directory Create Failed
++ FTP Server Directory Delete Completed
++ FTP Server Directory Delete Failed
++ FTP Server File Delete Completed
++ FTP Server File Delete Failed
++ FTP Server File Download Completed
++ FTP Server File Download Failed
++ FTP Server File Rename Completed
++ FTP Server File Rename Failed
++ FTP Server File Upload Completed
++ FTP Server File Upload Failed
++ FTPS Server Directory Create Completed
++ FTPS Server Directory Create Failed
++ FTPS Server Directory Delete Completed
++ FTPS Server Directory Delete Failed
++ FTPS Server File Delete Completed
++ FTPS Server File Delete Failed
++ FTPS Server File Download Completed
++ FTPS Server File Download Failed
++ FTPS Server File Rename Completed
++ FTPS Server File Rename Failed
++ FTPS Server File Upload Completed
++ FTPS Server File Upload Failed
++ SFTP Server Directory Create Completed
++ SFTP Server Directory Create Failed
++ SFTP Server Directory Delete Completed
++ SFTP Server Directory Delete Failed
++ SFTP Server File Delete Completed
++ SFTP Server File Delete Failed
++ SFTP Server File Download Completed
++ SFTP Server File Download Failed
++ SFTP Server File Rename Completed
++ SFTP Server File Rename Failed
++ SFTP Server File Upload Completed
++ SFTP Server File Upload Failed
 
-- FTP Server Directory Create Completed
-- FTP Server Directory Create Failed
-- FTP Server Directory Delete Completed
-- FTP Server Directory Delete Failed
-- FTP Server File Delete Completed
-- FTP Server File Delete Failed
-- FTP Server File Download Completed
-- FTP Server File Download Failed
-- FTP Server File Rename Completed
-- FTP Server File Rename Failed
-- FTP Server File Upload Completed
-- FTP Server File Upload Failed
-- FTPS Server Directory Create Completed
-- FTPS Server Directory Create Failed
-- FTPS Server Directory Delete Completed
-- FTPS Server Directory Delete Failed
-- FTPS Server File Delete Completed
-- FTPS Server File Delete Failed
-- FTPS Server File Download Completed
-- FTPS Server File Download Failed
-- FTPS Server File Rename Completed
-- FTPS Server File Rename Failed
-- FTPS Server File Upload Completed
-- FTPS Server File Upload Failed
-- SFTP Server Directory Create Completed
-- SFTP Server Directory Create Failed
-- SFTP Server Directory Delete Completed
-- SFTP Server Directory Delete Failed
-- SFTP Server File Delete Completed
-- SFTP Server File Delete Failed
-- SFTP Server File Download Completed
-- SFTP Server File Download Failed
-- SFTP Server File Rename Completed
-- SFTP Server File Rename Failed
-- SFTP Server File Upload Completed
-- SFTP Server File Upload Failed
-
-The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -107,105 +93,51 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="event-detail-server-events-detail-type"></a>
+Identifies the type of event.  
+For this event, the value is one of the SFTP, FTPS, or FTP server event names listed previously.
 
-Identifies the type of event.
+`source`  <a name="event-detail-server-events-source"></a>
+Identifies the service that generated the event. For Transfer Family events, this value is `aws.transfer`.
 
-For this event, the value is one of the SFTP, FTPS, or FTP server
-event names listed previously.
+`detail`  <a name="sftp-server-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, the data includes the following:    
+`failure-code`  <a name="sftp-server-failure-code"></a>
+Category for why the transfer failed. Values: `PARTIAL_UPLOAD | PARTIAL_DOWNLOAD | UNKNOWN_ERROR`  
+`status-code`  <a name="sftp-server-status-code"></a>
+Whether the transfer is successful. Values: `COMPLETED | FAILED`.  
+`protocol`  <a name="sftp-server-protocol"></a>
+The protocol used for the transfer. Values: `SFTP | FTPS | FTP`  
+`bytes`  <a name="sftp-server-bytes"></a>
+The number of bytes transferred.  
+`client-ip`  <a name="sftp-server-client-ip"></a>
+The IP address for the client involved in the transfer  
+`failure-message`  <a name="sftp-server-failure-message"></a>
+For failed transfers, the details for why the transfer failed.  
+`end-timestamp`  <a name="sftp-server-end-timestamp"></a>
+For successful transfers, the timestamp for when the file finishes being processed.  
+`etag`  <a name="sftp-server-etag"></a>
+The entity tag (only used for Amazon S3 files).  
+`file-path`  <a name="sftp-server-file-path"></a>
+The path to the file being transferred, deleted, or otherwise operated on.  
+`original-file-path`  <a name="sftp-server-original-file-path"></a>
+For file rename events, the original path of the file before renaming.  
+`renamed-file-path`  <a name="sftp-server-renamed-file-path"></a>
+For file rename events, the new path of the file after renaming.  
+`directory-path`  <a name="sftp-server-directory-path"></a>
+For directory create and delete events, the path of the directory.  
+`server-id`  <a name="sftp-server-server-id"></a>
+The unique ID for the Transfer Family server.  
+`username`  <a name="sftp-server-username"></a>
+The user that is performing the transfer.  
+`session-id`  <a name="sftp-server-session-id"></a>
+The unique identifier for the transfer session.  
+`start-timestamp`  <a name="sftp-server-start-timestamp"></a>
+For successful transfers, the timestamp for when file processing begins.
 
-`source`
-
-Identifies the service that generated the event. For Transfer Family events, this
-value is `aws.transfer`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, the data includes the following:
-
-`failure-code`
-
-Category for why the transfer failed. Values:
-`PARTIAL_UPLOAD | PARTIAL_DOWNLOAD |
- UNKNOWN_ERROR`
-
-`status-code`
-
-Whether the transfer is successful. Values:
-`COMPLETED | FAILED`.
-
-`protocol`
-
-The protocol used for the transfer. Values: `SFTP |
- FTPS | FTP`
-
-`bytes`
-
-The number of bytes transferred.
-
-`client-ip`
-
-The IP address for the client involved in the
-transfer
-
-`failure-message`
-
-For failed transfers, the details for why the transfer
-failed.
-
-`end-timestamp`
-
-For successful transfers, the timestamp for when the file
-finishes being processed.
-
-`etag`
-
-The entity tag (only used for Amazon S3 files).
-
-`file-path`
-
-The path to the file being transferred, deleted, or
-otherwise operated on.
-
-`original-file-path`
-
-For file rename events, the original path of the file
-before renaming.
-
-`renamed-file-path`
-
-For file rename events, the new path of the file after
-renaming.
-
-`directory-path`
-
-For directory create and delete events, the path of the
-directory.
-
-`server-id`
-
-The unique ID for the Transfer Family server.
-
-`username`
-
-The user that is performing the transfer.
-
-`session-id`
-
-The unique identifier for the transfer session.
-
-`start-timestamp`
-
-For successful transfers, the timestamp for when file
-processing begins.
-
-###### Example SFTP Server File Download Failed example event
-
-The following example shows an event where a download failed on an SFTP server
-(Amazon EFS is the storage being used).
+**Example SFTP Server File Download Failed example event**  <a name="event-detail-server-events.example"></a>
+The following example shows an event where a download failed on an SFTP server (Amazon EFS is the storage being used).  
 
 ```
 {
@@ -236,10 +168,8 @@ The following example shows an event where a download failed on an SFTP server
 }
 ```
 
-###### Example FTP Server File Upload Completed example event
-
-The following example shows an event where an upload completed successfully on
-an FTP server (Amazon S3 is the storage being used).
+**Example FTP Server File Upload Completed example event**  <a name="event-detail-server-events.example"></a>
+The following example shows an event where an upload completed successfully on an FTP server (Amazon S3 is the storage being used).  
 
 ```
 {
@@ -269,10 +199,8 @@ an FTP server (Amazon S3 is the storage being used).
 }
 ```
 
-###### Example SFTP Server File Delete Completed example event
-
-The following example shows an event where a file was successfully deleted on
-an SFTP server.
+**Example SFTP Server File Delete Completed example event**  <a name="event-detail-server-events.example"></a>
+The following example shows an event where a file was successfully deleted on an SFTP server.  
 
 ```
 {
@@ -300,10 +228,8 @@ an SFTP server.
 }
 ```
 
-###### Example SFTP Server File Rename Completed example event
-
-The following example shows an event where a file was successfully renamed on
-an SFTP server.
+**Example SFTP Server File Rename Completed example event**  <a name="event-detail-server-events.example"></a>
+The following example shows an event where a file was successfully renamed on an SFTP server.  
 
 ```
 {
@@ -332,10 +258,8 @@ an SFTP server.
 }
 ```
 
-###### Example SFTP Server Directory Create Completed example event
-
-The following example shows an event where a directory was successfully
-created on an SFTP server.
+**Example SFTP Server Directory Create Completed example event**  <a name="event-detail-server-events.example"></a>
+The following example shows an event where a directory was successfully created on an SFTP server.  
 
 ```
 {
@@ -364,29 +288,24 @@ created on an SFTP server.
 ```
 
 ## SFTP connector events
+<a name="event-detail-sftp-connector-events"></a>
 
-###### Note
-
-These events are delivered to EventBridge at a durable level, as
-described in [Delivery level for
-AWS service events](../../../eventbridge/latest/ref/event-delivery-level.md "../../../eventbridge/latest/ref/event-delivery-level.md") in the _Amazon EventBridge Events Reference_.
+**Note**  
+These events are delivered to EventBridge at a durable level, as described in [Delivery level for AWS service events](https://docs.aws.amazon.com/eventbridge/latest/ref/event-delivery-level.html) in the *Amazon EventBridge Events Reference*.
 
 The following are the detail fields for SFTP connector events:
++ SFTP Connector File Send Completed
++ SFTP Connector File Send Failed
++ SFTP Connector File Retrieve Completed
++ SFTP Connector File Retrieve Failed
++ SFTP Connector Directory Listing Completed
++ SFTP Connector Directory Listing Failed
++ SFTP Connector Remote Move Completed
++ SFTP Connector Remote Move Failed
++ SFTP Connector Remote Delete Completed
++ SFTP Connector Remote Delete Failed
 
-- SFTP Connector File Send Completed
-- SFTP Connector File Send Failed
-- SFTP Connector File Retrieve Completed
-- SFTP Connector File Retrieve Failed
-- SFTP Connector Directory Listing Completed
-- SFTP Connector Directory Listing Failed
-- SFTP Connector Remote Move Completed
-- SFTP Connector Remote Move Failed
-- SFTP Connector Remote Delete Completed
-- SFTP Connector Remote Delete Failed
-
-The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -431,190 +350,79 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="event-detail-sftp-connector-events-detail-type"></a>
+Identifies the type of event.  
+For this event, the value is one of the SFTP connector event names listed previously.
 
-Identifies the type of event.
+`source`  <a name="event-detail-sftp-connector-events-source"></a>
+Identifies the service that generated the event. For Transfer Family events, this value is `aws.transfer`.
 
-For this event, the value is one of the SFTP connector event names
-listed previously.
-
-`source`
-
-Identifies the service that generated the event. For Transfer Family events,
-this value is `aws.transfer`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-that generates the event determines the content of this field.
-
-For this event, the data includes the following:
-
-`max-items`
-
-The maximum number of directory/file names to
-return.
-
-`operation`
-
-Whether the `StartFileTransfer` request is
-sending or retrieving a file. Values:
-`SEND|RETRIEVE`.
-
-`connector-id`
-
-The unique identifier for the SFTP connector being
-used.
-
-`output-directory-path`
-
-The path (bucket and prefix) in Amazon S3 to store the results
-of the file/directory listing.
-
-`listing-id`
-
-A unique identifier for the
-`StartDirectoryListing` API operation. This
-identifier can be used to check CloudWatch logs to see the status
-of listing request.
-
-`transfer-id`
-
-The unique identifier for the transfer event (a
-`StartFileTransfer` request).
-
-`file-transfer-id`
-
-The unique identifier for the file being
-transferred.
-
-`url`
-
-The URL of the partner's AS2 or SFTP endpoint.
-
-`file-path`
-
-The location and file that is being sent or
-retrieved.
-
-`status-code`
-
-Whether the transfer is successful. Values: `FAILED |
- COMPLETED`.
-
-`failure-code`
-
-For failed transfers, the reason code for why the transfer
-failed. Values:
-`ASSUME_ROLE_ERROR | UNSUPPORTED_OPERATION_ERROR |
- CONNECTION_ERROR | READ_FILE_ERROR | WRITE_FILE_ERROR |
- TIMEOUT_ERROR | LIST_DIRECTORY_ERROR | SEND_FILE_NOT_FOUND |
- RETRIEVE_FILE_NOT_FOUND | DIRECTORY_NOT_FOUND | FILE_NOT_FOUND |
- PATH_NOT_FOUND | RENAME_ERROR | DELETE_ERROR | INTERNAL_ERROR |
- UNKNOWN_ERROR`.
-
-`failure-message`
-
-For failed transfers, the details for why the transfer
-failed.
-
-`start-timestamp`
-
-For successful transfers, the timestamp for when file
-processing begins.
-
-`end-timestamp`
-
-For successful transfers, the timestamp for when file
-processing completes.
-
-`local-directory-path`
-
-For `RETRIEVE` requests, the location in which
-to place the retrieved file.
-
-`remote-directory-path`
-
-For `SEND` requests, the file directory in
-which to place the file on the partner's SFTP server. This
-is the value for the `RemoteDirectoryPath` that
-the user passed to the `StartFileTransfer`
-request. You can specify a default directory on the
-partner's SFTP server. If so, this field is empty.
-
-`item-count`
-
-The number of items (directories and files) returned for
-the listing request.
-
-`truncated`
-
-Whether the list output contains all of the items
-contained in the remote directory or not.
-
-`bytes`
-
-The number of bytes being transferred. The value is 0 for
-failed transfers.
-
-`egress-type`
-
-Type of egress configuration for the connector. Values:
-`SERVICE_MANAGED` or
-`VPC_LATTICE`.
-
-`vpc-lattice-resource-configuration-arn`
-
-ARN of the VPC\_LATTICE Resource Configuration that defines
-the target SFTP server location. This field is null for
-service-managed connectors.
-
-`vpc-lattice-port-number`
-
-Port number for connecting to the SFTP server through
-VPC\_LATTICE.
-
-`local-file-location`
-
-This parameter contains the details of the location of the
-AWS storage file.
-
-`domain`
-
-The storage being used. Currently, the only
-value is `S3`.
-
-`bucket`
-
-The container for the object in Amazon S3.
-
-`key`
-
+`detail`  <a name="sftp-connector-detail"></a>
+A JSON object that contains information about the event. The service that generates the event determines the content of this field.  
+For this event, the data includes the following:    
+`max-items`  <a name="sftp-connector-max-items"></a>
+The maximum number of directory/file names to return.  
+`operation`  <a name="sftp-connector-operation"></a>
+Whether the `StartFileTransfer` request is sending or retrieving a file. Values: `SEND|RETRIEVE`.  
+`connector-id`  <a name="sftp-connector-connector-id"></a>
+The unique identifier for the SFTP connector being used.  
+`output-directory-path`  <a name="sftp-connector-output-directory-path"></a>
+The path (bucket and prefix) in Amazon S3 to store the results of the file/directory listing.  
+`listing-id`  <a name="sftp-connector-listing-id"></a>
+A unique identifier for the `StartDirectoryListing` API operation. This identifier can be used to check CloudWatch logs to see the status of listing request.  
+`transfer-id`  <a name="sftp-connector-transfer-id"></a>
+The unique identifier for the transfer event (a `StartFileTransfer` request).  
+`file-transfer-id`  <a name="sftp-connector-file-transfer-id"></a>
+The unique identifier for the file being transferred.  
+`url`  <a name="sftp-connector-url"></a>
+The URL of the partner's AS2 or SFTP endpoint.  
+`file-path`  <a name="sftp-connector-file-path"></a>
+The location and file that is being sent or retrieved.  
+`status-code`  <a name="sftp-connector-status-code"></a>
+Whether the transfer is successful. Values: `FAILED | COMPLETED`.   
+`failure-code`  <a name="sftp-connector-failure-code"></a>
+For failed transfers, the reason code for why the transfer failed. Values: `ASSUME_ROLE_ERROR | UNSUPPORTED_OPERATION_ERROR | CONNECTION_ERROR | READ_FILE_ERROR | WRITE_FILE_ERROR | TIMEOUT_ERROR | LIST_DIRECTORY_ERROR | SEND_FILE_NOT_FOUND | RETRIEVE_FILE_NOT_FOUND | DIRECTORY_NOT_FOUND | FILE_NOT_FOUND | PATH_NOT_FOUND | RENAME_ERROR | DELETE_ERROR | INTERNAL_ERROR | UNKNOWN_ERROR`.   
+`failure-message`  <a name="sftp-connector-failure-message"></a>
+For failed transfers, the details for why the transfer failed.  
+`start-timestamp`  <a name="sftp-connector-start-timestamp"></a>
+For successful transfers, the timestamp for when file processing begins.  
+`end-timestamp`  <a name="sftp-connector-end-timestamp"></a>
+For successful transfers, the timestamp for when file processing completes.  
+`local-directory-path`  <a name="sftp-connector-local-directory-path"></a>
+For `RETRIEVE` requests, the location in which to place the retrieved file.  
+`remote-directory-path`  <a name="sftp-connector-remote-directory-path"></a>
+For `SEND` requests, the file directory in which to place the file on the partner's SFTP server. This is the value for the `RemoteDirectoryPath` that the user passed to the `StartFileTransfer` request. You can specify a default directory on the partner's SFTP server. If so, this field is empty.  
+`item-count`  <a name="sftp-connector-item-count"></a>
+The number of items (directories and files) returned for the listing request.  
+`truncated`  <a name="sftp-connector-truncated"></a>
+Whether the list output contains all of the items contained in the remote directory or not.  
+`bytes`  <a name="sftp-connector-bytes"></a>
+The number of bytes being transferred. The value is 0 for failed transfers.  
+`egress-type`  <a name="sftp-connector-egress-type"></a>
+Type of egress configuration for the connector. Values: `SERVICE_MANAGED` or `VPC_LATTICE`.  
+`vpc-lattice-resource-configuration-arn`  <a name="sftp-connector-vpc-lattice-resource-configuration-arn"></a>
+ARN of the VPC\_LATTICE Resource Configuration that defines the target SFTP server location. This field is null for service-managed connectors.  
+`vpc-lattice-port-number`  <a name="sftp-connector-vpc-lattice-port-number"></a>
+Port number for connecting to the SFTP server through VPC\_LATTICE.  
+`local-file-location`  <a name="sftp-connector-local-file-location"></a>
+This parameter contains the details of the location of the AWS storage file.     
+`domain`  <a name="sftp-connector-domain"></a>
+The storage being used. Currently, the only value is `S3`.  
+`bucket`  <a name="sftp-connector-bucket"></a>
+The container for the object in Amazon S3.  
+`key`  <a name="sftp-connector-key"></a>
+The name assigned to the object in Amazon S3.  
+`output-file-location`  <a name="sftp-connector-output-file-location"></a>
+This parameter contains the details of the location for where to store the results of the directory listing in AWS storage.    
+`domain`  <a name="sftp-connector-output-domain"></a>
+The storage being used. Currently, the only value is `S3`.  
+`bucket`  <a name="sftp-connector-output-bucket"></a>
+The container for the object in Amazon S3.  
+`key`  <a name="sftp-connector-output-key"></a>
 The name assigned to the object in Amazon S3.
 
-`output-file-location`
-
-This parameter contains the details of the location for
-where to store the results of the directory listing in AWS
-storage.
-
-`domain`
-
-The storage being used. Currently, the only
-value is `S3`.
-
-`bucket`
-
-The container for the object in Amazon S3.
-
-`key`
-
-The name assigned to the object in Amazon S3.
-
-###### Example SFTP Connector File Send Failed example event
-
-The following example shows an event where an SFTP connector failed while
-trying to send a file to a remote SFTP server.
+**Example SFTP Connector File Send Failed example event**  <a name="event-detail-sftp-connector-events.example"></a>
+The following example shows an event where an SFTP connector failed while trying to send a file to a remote SFTP server.  
 
 ```
 {
@@ -651,10 +459,8 @@ trying to send a file to a remote SFTP server.
 }
 ```
 
-###### Example SFTP Connector File Retrieve Completed example event
-
-The following example shows an event where an SFTP connector successfully
-retrieved a file sent from a remote SFTP server.
+**Example SFTP Connector File Retrieve Completed example event**  <a name="event-detail-sftp-connector-events.example"></a>
+The following example shows an event where an SFTP connector successfully retrieved a file sent from a remote SFTP server.  
 
 ```
 {
@@ -689,10 +495,8 @@ retrieved a file sent from a remote SFTP server.
 }
 ```
 
-###### Example SFTP Connector Directory Listing Completed example event
-
-The following example shows an event where a start directory listing call
-retrieved a listing file from a remote SFTP server.
+**Example SFTP Connector Directory Listing Completed example event**  <a name="event-detail-sftp-connector-events.example"></a>
+The following example shows an event where a start directory listing call retrieved a listing file from a remote SFTP server.  
 
 ```
 {
@@ -711,7 +515,7 @@ retrieved a listing file from a remote SFTP server.
         "connector-id": "c-fc68000012345aa18",
         "output-directory-path": "/amzn-s3-demo-bucket/example/file-listing-output",
         "listing-id": "123456-23aa-7980-abc1-1a2b3c4d5e",
-        "url": "sftp://s-21a23456789012a.server.transfer.us-east-1.amazonaws.com",
+        "url": "sftp://s-21a23456789012a.server.transfer.us-east-1.amazonaws.com",        
         "status-code": "COMPLETED",
         "remote-directory-path": "/home",
         "item-count": 10000,
@@ -728,27 +532,22 @@ retrieved a listing file from a remote SFTP server.
 ```
 
 ## AS2 events
+<a name="event-detail-as2-server-events"></a>
 
-###### Note
-
-These events are delivered to EventBridge at a durable level, as
-described in [Delivery level for
-AWS service events](../../../eventbridge/latest/ref/event-delivery-level.md "../../../eventbridge/latest/ref/event-delivery-level.md") in the _Amazon EventBridge Events Reference_.
+**Note**  
+These events are delivered to EventBridge at a durable level, as described in [Delivery level for AWS service events](https://docs.aws.amazon.com/eventbridge/latest/ref/event-delivery-level.html) in the *Amazon EventBridge Events Reference*.
 
 The following are the detail fields for AS2 events:
++ AS2 Payload Receive Completed
++ AS2 Payload Receive Failed
++ AS2 Payload Send Completed
++ AS2 Payload Send Failed
++ AS2 MDN Receive Completed
++ AS2 MDN Receive Failed
++ AS2 MDN Send Completed
++ AS2 MDN Send Failed
 
-- AS2 Payload Receive Completed
-- AS2 Payload Receive Failed
-- AS2 Payload Send Completed
-- AS2 Payload Send Failed
-- AS2 MDN Receive Completed
-- AS2 MDN Receive Failed
-- AS2 MDN Send Completed
-- AS2 MDN Send Failed
-
-The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -756,12 +555,12 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
   "detail-type": "string",
   "source": "aws.transfer",
   . . .,
-  "detail": {
+  "detail": {    
     "s3-attributes" : {
       "file-bucket" : "string",
       "file-key" : "string",
       "json-bucket" : "string",
-      "json-key" : "string",
+      "json-key" : "string", 
       "mdn-bucket" : "string",
       "mdn-key" : "string"
       }
@@ -788,151 +587,69 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
+`detail-type`  <a name="event-detail-as2-server-events-detail-type"></a>
+Identifies the type of event.  
+For this event, the value is one of the AS2 events listed previously.
 
-Identifies the type of event.
+`source`  <a name="event-detail-as2-server-events-source"></a>
+Identifies the service that generated the event. For Transfer Family events, this value is `aws.transfer`.
 
-For this event, the value is one of the AS2 events listed
-previously.
-
-`source`
-
-Identifies the service that generated the event. For Transfer Family events,
-this value is `aws.transfer`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-`s3-attributes`
-
-Identifies the Amazon S3 bucket and key for the file being
-transferred. For MDN events, it also identifies the bucket
-and key for the MDN file.
-
-`file-bucket`
-
-The container for the object in Amazon S3.
-
-`file-key`
-
-The name assigned to the object in Amazon S3.
-
-`json-bucket`
-
-For COMPLETED or FAILED transfers, the
-container for the JSON file.
-
-`json-key`
-
-For COMPLETED or FAILED transfers, the name
-assigned to the JSON file in Amazon S3.
-
-`mdn-bucket`
-
-For MDN events, the container for the MDN
-file.
-
-`mdn-key`
-
-For MDN events, the name assigned to the MDN
-file in Amazon S3.
-
-`mdn-subject`
-
-For MDN events, a text description for the message
-disposition.
-
-`mdn-message-id`
-
-For MDN events, a unique ID for the MDN message.
-
-`disposition`
-
-For MDN events, the category for the disposition.
-
-`bytes`
-
-The number of bytes in the message.
-
-`as2-from`
-
-The AS2 trading partner that is sending the
-message.
-
-`as2-message-id`
-
-A unique identifier for the AS2 message being
-transferred.
-
-`as2-to`
-
-The AS2 trading partner that is receiving the
-message.
-
-`connector-id`
-
-For AS2 messages being sent from a Transfer Family server to a
-trading partner, the unique identifier for the AS2 connector
-being used.
-
-`client-ip`
-
-For server events (transfers from a trading partner to a
-Transfer Family server), the IP address for the client involved in the
-transfer.
-
-`agreement-id`
-
-For server events, the unique identifier for the AS2
-agreement.
-
-`server-id`
-
-For server events, a unique ID only for the Transfer Family
-server.
-
-`requester-file-name`
-
-For payload events, the original name for the file
-received during the transfer.
-
-`message-subject`
-
-A text description for the subject of the message.
-
-`start-timestamp`
-
-For successful transfers, the timestamp for when file
-processing begins.
-
-`end-timestamp`
-
-For successful transfers, the timestamp for when file
-processing completes.
-
-`status-code`
-
-The code that corresponds to the state of the AS2 message
-transfer process. Valid values: `COMPLETED | FAILED |
- PROCESSING`.
-
-`failure-code`
-
-For failed transfers, the category for why the transfer
-failed.
-
-`failure-message`
-
-For failed transfers, the details for why the transfer
-failed.
-
-`transfer-id`
-
+`detail`  <a name="as2-server-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.    
+`s3-attributes`  <a name="as2-server-s3-attributes"></a>
+Identifies the Amazon S3 bucket and key for the file being transferred. For MDN events, it also identifies the bucket and key for the MDN file.    
+`file-bucket`  <a name="as2-server-s3-file-bucket"></a>
+The container for the object in Amazon S3.  
+`file-key`  <a name="as2-server-s3-file-key"></a>
+The name assigned to the object in Amazon S3.  
+`json-bucket`  <a name="as2-server-s3-json-bucket"></a>
+For COMPLETED or FAILED transfers, the container for the JSON file.  
+`json-key`  <a name="as2-server-s3-json-key"></a>
+For COMPLETED or FAILED transfers, the name assigned to the JSON file in Amazon S3.  
+`mdn-bucket`  <a name="as2-server-s3-mdn-bucket"></a>
+For MDN events, the container for the MDN file.  
+`mdn-key`  <a name="as2-server-s3-mdn-key"></a>
+For MDN events, the name assigned to the MDN file in Amazon S3.   
+`mdn-subject`  <a name="as2-server-mdn-subject"></a>
+For MDN events, a text description for the message disposition.  
+`mdn-message-id`  <a name="as2-server-mdn-message-id"></a>
+For MDN events, a unique ID for the MDN message.  
+`disposition`  <a name="as2-server-disposition"></a>
+For MDN events, the category for the disposition.  
+`bytes`  <a name="as2-server-bytes"></a>
+The number of bytes in the message.  
+`as2-from`  <a name="as2-server-as2-from"></a>
+The AS2 trading partner that is sending the message.  
+`as2-message-id`  <a name="as2-server-as2-message-id"></a>
+A unique identifier for the AS2 message being transferred.  
+`as2-to`  <a name="as2-server-as2-to"></a>
+The AS2 trading partner that is receiving the message.  
+`connector-id`  <a name="as2-server-connector-id"></a>
+For AS2 messages being sent from a Transfer Family server to a trading partner, the unique identifier for the AS2 connector being used.  
+`client-ip`  <a name="as2-server-client-ip"></a>
+For server events (transfers from a trading partner to a Transfer Family server), the IP address for the client involved in the transfer.   
+`agreement-id`  <a name="as2-server-agreement-id"></a>
+For server events, the unique identifier for the AS2 agreement.  
+`server-id`  <a name="as2-server-server-id"></a>
+For server events, a unique ID only for the Transfer Family server.  
+`requester-file-name`  <a name="as2-server-requester-file-name"></a>
+For payload events, the original name for the file received during the transfer.  
+`message-subject`  <a name="as2-server-message-subject"></a>
+A text description for the subject of the message.  
+`start-timestamp`  <a name="as2-server-start-timestamp"></a>
+For successful transfers, the timestamp for when file processing begins.  
+`end-timestamp`  <a name="as2-server-end-timestamp"></a>
+For successful transfers, the timestamp for when file processing completes.  
+`status-code`  <a name="as2-server-status-code"></a>
+The code that corresponds to the state of the AS2 message transfer process. Valid values: `COMPLETED | FAILED | PROCESSING`.  
+`failure-code`  <a name="as2-server-failure-code"></a>
+For failed transfers, the category for why the transfer failed.  
+`failure-message`  <a name="as2-server-failure-message"></a>
+For failed transfers, the details for why the transfer failed.  
+`transfer-id`  <a name="as2-server-transfer-id"></a>
 The unique identifier for the transfer event.
 
-###### Example AS2 Payload Receive Completed example event
+**Example AS2 Payload Receive Completed example event**  <a name="event-detail-as2-server-events.example"></a>
 
 ```
 {
@@ -965,7 +682,7 @@ The unique identifier for the transfer event.
 }
 ```
 
-###### Example AS2 MDN Receive Failed example event
+**Example AS2 MDN Receive Failed example event**  <a name="event-detail-as2-server-events.example"></a>
 
 ```
 {
@@ -977,7 +694,7 @@ The unique identifier for the transfer event.
   "time": "2024-02-06T22:05:09Z",
   "region": "us-east-1",
   "resources": ["arn:aws:transfer:us-east-1:076722215406:server/s-1111aaaa2222bbbb3"],
-  "detail": {
+  "detail": {      
       "mdn-subject": "Your Requested MDN Response re: Test run from Id 123456789abcde to partner ijklmnop987654",
       "s3-attributes": {
           "json-bucket": "amzn-s3-demo-bucket1",

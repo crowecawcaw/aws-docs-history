@@ -1,106 +1,73 @@
+
+
 # Working with custom hostnames
+<a name="requirements-dns"></a>
 
-Your _server host name_ is the hostname that your users enter in their
-clients when they connect to your server. You can use a custom domain that you have
-registered for your server hostname when you work with AWS Transfer Family. For example, you might use
-a custom hostname like `mysftpserver.mysubdomain.domain.com`.
+Your *server host name* is the hostname that your users enter in their clients when they connect to your server. You can use a custom domain that you have registered for your server hostname when you work with AWS Transfer Family. For example, you might use a custom hostname like `mysftpserver.mysubdomain.domain.com`.
 
-To redirect traffic from your registered custom domain to your server endpoint, you can
-use Amazon Route 53 or any Domain Name System (DNS) provider. Route 53 is the DNS service that
-AWS Transfer Family natively supports.
+To redirect traffic from your registered custom domain to your server endpoint, you can use Amazon Route 53 or any Domain Name System (DNS) provider. Route 53 is the DNS service that AWS Transfer Family natively supports.
 
-###### Topics
+**Topics**
++ [Use Amazon Route 53 as your DNS provider](#requirements-use-r53)
++ [Use other DNS providers](#requirements-use-alt-dns)
++ [Custom hostnames for non-console created servers](#tag-custom-hostname-cdk)
 
-- [Use Amazon Route 53 as your DNS provider](#requirements-use-r53 "#requirements-use-r53")
-- [Use other DNS providers](#requirements-use-alt-dns "#requirements-use-alt-dns")
-- [Custom hostnames for non-console created servers](#tag-custom-hostname-cdk "#tag-custom-hostname-cdk")
-  On the console, you can choose one of these options for setting up a custom
-  hostname:
+On the console, you can choose one of these options for setting up a custom hostname:
++ **Amazon Route 53 DNS alias** – if the hostname that you want to use is registered with Route 53. You can then enter the hostname.
++ **Other DNS** – if the hostname that you want to use is registered with another DNS provider. You can then enter the hostname.
++ **None** – to use the server's endpoint and not use a custom hostname.
 
-- **Amazon Route 53 DNS alias** – if the hostname that you want to
-  use is registered with Route 53. You can then enter the hostname.
-- **Other DNS** – if the hostname that you want to use is
-  registered with another DNS provider. You can then enter the hostname.
-- **None** – to use the server's endpoint and not use a
-  custom hostname.
-  You set this option when you create a new server or edit the configuration of an existing
-  server. For more information about creating a new server, see [Step 2: Create an SFTP-enabled server](getting-started.md#getting-started-server "getting-started.md#getting-started-server"). For more
-  information about editing the configuration of an existing server, see [Edit server details](edit-server-config.md "edit-server-config.md").
+You set this option when you create a new server or edit the configuration of an existing server. For more information about creating a new server, see [Step 2: Create an SFTP-enabled server](getting-started.md#getting-started-server). For more information about editing the configuration of an existing server, see [Edit server details](edit-server-config.md).
 
-For more details about using your own domain for the server hostname and how AWS Transfer Family uses
-Route 53, see the following sections.
+For more details about using your own domain for the server hostname and how AWS Transfer Family uses Route 53, see the following sections.
 
 ## Use Amazon Route 53 as your DNS provider
+<a name="requirements-use-r53"></a>
 
-When you create a server, you can use Amazon Route 53 as your DNS provider. Before you use a
-domain with Route 53, you register the domain. For more information, see [How Domain
-registration works](../../../Route53/latest/DeveloperGuide/welcome-domain-registration.md "../../../Route53/latest/DeveloperGuide/welcome-domain-registration.md") in the _Amazon Route 53 Developer Guide_.
+When you create a server, you can use Amazon Route 53 as your DNS provider. Before you use a domain with Route 53, you register the domain. For more information, see [How Domain registration works](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-domain-registration.html) in the *Amazon Route 53 Developer Guide*.
 
-When you use Route 53 to provide DNS routing to your server, AWS Transfer Family uses the custom
-hostname that you entered to extract its hosted zone. When AWS Transfer Family extracts a hosted
-zone, three things can happen:
+When you use Route 53 to provide DNS routing to your server, AWS Transfer Family uses the custom hostname that you entered to extract its hosted zone. When AWS Transfer Family extracts a hosted zone, three things can happen:
 
-1. If you're new to Route 53 and don't have a hosted zone, AWS Transfer Family adds a new
-   hosted zone and a `CNAME` record. The value of this
-   `CNAME` record is the endpoint hostname for your server. A
-   _CNAME_ is an alternate domain name.
-2. If you have a hosted zone in Route 53 without any `CNAME` records,
-   AWS Transfer Family adds a `CNAME` record to the hosted zone.
-3. If the service detects that a `CNAME` record already exists in the
-   hosted zone, you see an error indicating that a `CNAME` record
-   already exists. In this case, change the value of the `CNAME` record
-   to the hostname of your server.
+1. If you're new to Route 53 and don't have a hosted zone, AWS Transfer Family adds a new hosted zone and a `CNAME` record. The value of this `CNAME` record is the endpoint hostname for your server. A *CNAME* is an alternate domain name.
 
-For more information about hosted zones in Route 53, see [Hosted zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md") in
-the _Amazon Route 53 Developer Guide_.
+1. If you have a hosted zone in Route 53 without any `CNAME` records, AWS Transfer Family adds a `CNAME` record to the hosted zone.
+
+1. If the service detects that a `CNAME` record already exists in the hosted zone, you see an error indicating that a `CNAME` record already exists. In this case, change the value of the `CNAME` record to the hostname of your server. 
+
+For more information about hosted zones in Route 53, see [Hosted zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) in the *Amazon Route 53 Developer Guide*.
 
 ## Use other DNS providers
+<a name="requirements-use-alt-dns"></a>
 
-When you create a server, you can also use DNS providers other than Amazon Route 53. If you
-use an alternate DNS provider, make sure that traffic from your domain is directed to
-your server endpoint.
+When you create a server, you can also use DNS providers other than Amazon Route 53. If you use an alternate DNS provider, make sure that traffic from your domain is directed to your server endpoint.
 
 To do so, set your domain to the endpoint hostname for the server.
++ For IPv4 endpoints, the hostname looks like this in the console:
 
-- For IPv4 endpoints, the hostname looks like this in the console:
+   `{{serverid}}.server.transfer.{{region}}.amazonaws.com` 
++ For dual-stack endpoints, the hostname looks like this in the console:
 
-``serverid`.server.transfer.`region`.amazonaws.com`
+   `{{serverid}}.transfer-server.{{region}}.on.aws` 
 
-- For dual-stack endpoints, the hostname looks like this in the console:
-
-``serverid`.transfer-server.`region`.on.aws`
-
-###### Note
-
-If your server has a VPC endpoint, then the format for the hostname is different
-from those described above. To find your VPC endpoint, select the VPC on the
-server's details page, then select the **VPC endpoint ID** on the
-VPC dashboard. The endpoint is the first DNS name of those listed.
+**Note**  
+If your server has a VPC endpoint, then the format for the hostname is different from those described above. To find your VPC endpoint, select the VPC on the server's details page, then select the **VPC endpoint ID** on the VPC dashboard. The endpoint is the first DNS name of those listed.
 
 ## Custom hostnames for non-console created servers
+<a name="tag-custom-hostname-cdk"></a>
 
-When you create a server using AWS Cloud Development Kit (AWS CDK), CloudFormation, or through the CLI, you must add a
-tag if you want that server to have a custom hostname. When you create a Transfer Family server by
-using the console, the tagging is done automatically.
+When you create a server using AWS Cloud Development Kit (AWS CDK), CloudFormation, or through the CLI, you must add a tag if you want that server to have a custom hostname. When you create a Transfer Family server by using the console, the tagging is done automatically.
 
-###### Note
-
-You also need to create a DNS record to redirect traffic from your domain to your
-server endpoint. For details, see [Working with
-records](../../../Route53/latest/DeveloperGuide/rrsets-working-with.md "../../../Route53/latest/DeveloperGuide/rrsets-working-with.md") in the _Amazon Route 53 Developer Guide_.
+**Note**  
+You also need to create a DNS record to redirect traffic from your domain to your server endpoint. For details, see [Working with records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html) in the *Amazon Route 53 Developer Guide*.
 
 Use the following keys for your custom hostname:
-
-- Add `transfer:customHostname` to display the custom hostname in the
-  console.
-- If you are using Route 53 as your DNS provider, add
-  `transfer:route53HostedZoneId`. This tag links the custom
-  hostname to your Route 53 Hosted Zone ID.
++ Add `transfer:customHostname` to display the custom hostname in the console.
++ If you are using Route 53 as your DNS provider, add `transfer:route53HostedZoneId`. This tag links the custom hostname to your Route 53 Hosted Zone ID.
 
 To add the custom hostname, issue the following CLI command.
 
 ```
-aws transfer tag-resource --arn arn:aws:transfer:`region`:`AWS account`:server/`server-ID` --tags Key=transfer:customHostname,Value="`custom-host-name`"
+aws transfer tag-resource --arn arn:aws:transfer:{{region}}:{{AWS account}}:server/{{server-ID}} --tags Key=transfer:customHostname,Value="{{custom-host-name}}"
 ```
 
 For example:
@@ -109,11 +76,10 @@ For example:
 aws transfer tag-resource --arn arn:aws:transfer:us-east-1:111122223333:server/s-1234567890abcdef0 --tags Key=transfer:customHostname,Value="abc.example.com"
 ```
 
-If you are using Route 53, issue the following command to link your custom hostname to
-your Route 53 Hosted Zone ID.
+If you are using Route 53, issue the following command to link your custom hostname to your Route 53 Hosted Zone ID.
 
 ```
-aws transfer tag-resource --arn `server-ARN`:server/`server-ID` --tags Key=transfer:route53HostedZoneId,Value=`HOSTED-ZONE-ID`
+aws transfer tag-resource --arn {{server-ARN}}:server/{{server-ID}} --tags Key=transfer:route53HostedZoneId,Value={{HOSTED-ZONE-ID}}
 ```
 
 For example:
@@ -122,8 +88,7 @@ For example:
 aws transfer tag-resource --arn arn:aws:transfer:us-east-1:111122223333:server/s-1234567890abcdef0 --tags Key=transfer:route53HostedZoneId,Value=ABCDE1111222233334444
 ```
 
-Assuming the sample values from the previous command, run the following command to
-view your tags:
+Assuming the sample values from the previous command, run the following command to view your tags:
 
 ```
 aws transfer list-tags-for-resource --arn arn:aws:transfer:us-east-1:111122223333:server/s-1234567890abcdef0
@@ -142,9 +107,6 @@ aws transfer list-tags-for-resource --arn arn:aws:transfer:us-east-1:11112222333
  ]
 ```
 
-###### Note
-
-Your public, hosted zones and their IDs are available on Amazon Route 53.
-
-Sign in to the AWS Management Console and open the Route 53 console at
-[https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+**Note**  
+ Your public, hosted zones and their IDs are available on Amazon Route 53.   
+Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).

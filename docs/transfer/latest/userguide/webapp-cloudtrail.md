@@ -1,133 +1,116 @@
+
+
 # CloudTrail logging for Transfer Family web apps
+<a name="webapp-cloudtrail"></a>
 
-CloudTrail is an AWS service that creates a record of actions taken within your AWS account.
-It continuously monitors and records API operations for activities like console sign-ins,
-AWS Command Line Interface commands, and SDK/API operations. This allows you to keep a log of who took what
-action, when, and from where. CloudTrail helps with auditing, access management, and regulatory
-compliance by providing a history of all activity in your AWS environment.
+CloudTrail is an AWS service that creates a record of actions taken within your AWS account. It continuously monitors and records API operations for activities like console sign-ins, AWS Command Line Interface commands, and SDK/API operations. This allows you to keep a log of who took what action, when, and from where. CloudTrail helps with auditing, access management, and regulatory compliance by providing a history of all activity in your AWS environment.
 
-For Transfer Family web apps, you can track both authentication events and data access operations
-performed by your users. To enable comprehensive logging, you need to:
+For Transfer Family web apps, you can track both authentication events and data access operations performed by your users. To enable comprehensive logging, you need to:
 
-1. Configure CloudTrail to log management events for tracking authentication
-   activities.
-2. Enable Amazon S3 data events to track file operations performed through your web
-   app.
+1. Configure CloudTrail to log management events for tracking authentication activities.
 
-See also
+1. Enable Amazon S3 data events to track file operations performed through your web app.
 
-- [CloudTrail use cases
-  for IAM Identity Center](../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md "../../../singlesignon/latest/userguide/sso-cloudtrail-use-cases.md")
-- [Understanding IAM Identity Center sign-in events](../../../singlesignon/latest/userguide/understanding-sign-in-events.md "../../../singlesignon/latest/userguide/understanding-sign-in-events.md")
-- [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md")
-- [Enabling
-  CloudTrail event logging for S3 buckets and objects](../../../AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.md "../../../AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.md")
-- [Amazon S3 CloudTrail
-  events](../../../AmazonS3/latest/userguide/cloudtrail-logging-s3-info.md "../../../AmazonS3/latest/userguide/cloudtrail-logging-s3-info.md")
+**See also**
++ [CloudTrail use cases for IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/sso-cloudtrail-use-cases.html)
++ [Understanding IAM Identity Center sign-in events](https://docs.aws.amazon.com/singlesignon/latest/userguide/understanding-sign-in-events.html)
++ [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)
++ [Enabling CloudTrail event logging for S3 buckets and objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html)
++ [Amazon S3 CloudTrail events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html)
 
 ## Enabling Amazon S3 data events
+<a name="webapp-enable-s3-data-events"></a>
 
-To track file operations performed through Transfer Family web apps on your Amazon S3 buckets, you
-need to enable data events for those buckets. Data events provide object-level API
-activity and are particularly useful for tracking file uploads, downloads, and other
-operations performed by web app users.
+To track file operations performed through Transfer Family web apps on your Amazon S3 buckets, you need to enable data events for those buckets. Data events provide object-level API activity and are particularly useful for tracking file uploads, downloads, and other operations performed by web app users.
 
 To enable Amazon S3 data events for your Transfer Family web app:
 
-1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2. In the navigation pane, choose **Trails**, and then select an
-   existing trail or create a new one.
-3. Under **Advanced event selectors**, choose
-   **Edit**.
-4. Choose **Add advanced event selector**.
-5. For the first field selector:
+1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/).
 
-   - Set **Field** to `eventCategory`
-   - Set **Operator** to
-     **Equals**
-   - Set **Value** to `Data`
+1. In the navigation pane, choose **Trails**, and then select an existing trail or create a new one.
 
-6. Choose **Add field** and for the second field
-   selector:
+1. Under **Advanced event selectors**, choose **Edit**.
 
-   - Set **Field** to `resources.type`
-   - Set **Operator** to
-     **Equals**
-   - Set **Value** to `AWS::S3::Object`
+1. Choose **Add advanced event selector**.
 
-7. (Optional) To log events for specific buckets only, choose **Add
-   field** and add:
+1. For the first field selector:
+   + Set **Field** to `eventCategory`
+   + Set **Operator** to **Equals**
+   + Set **Value** to `Data`
 
-   - Set **Field** to `resources.ARN`
-   - Set **Operator** to **Starts
-     with**
-   - Set **Value** to
-     `arn:aws:s3:::your-bucket-name/`
+1. Choose **Add field** and for the second field selector:
+   + Set **Field** to `resources.type`
+   + Set **Operator** to **Equals**
+   + Set **Value** to `AWS::S3::Object`
 
-8. Choose **Save changes**.
+1. (Optional) To log events for specific buckets only, choose **Add field** and add:
+   + Set **Field** to `resources.ARN`
+   + Set **Operator** to **Starts with**
+   + Set **Value** to `arn:aws:s3:::your-bucket-name/`
+
+1. Choose **Save changes**.
 
 Alternatively, you can use the legacy data events configuration:
 
-1. Under **Data events**, choose
-   **Edit**.
-2. For **Data event type**, select **S3 bucket and
-   object events**.
-3. Choose the Amazon S3 buckets to log data events for. You can select **All
-   current and future S3 buckets** or specify individual
-   buckets.
-4. Choose whether to log **Read** events,
-   **Write** events, or both.
-5. Choose **Save changes**.
+1. Under **Data events**, choose **Edit**.
 
-After enabling data events, you can access these logs in the Amazon S3 bucket configured
-for CloudTrail. The logs include details such as the user who performed the action, the action
-timestamp, the specific object affected, and the `onBehalfOf` field that
-helps trace the `userId` for actions performed through Transfer Family web apps.
+1. For **Data event type**, select **S3 bucket and object events**.
+
+1. Choose the Amazon S3 buckets to log data events for. You can select **All current and future S3 buckets** or specify individual buckets.
+
+1. Choose whether to log **Read** events, **Write** events, or both.
+
+1. Choose **Save changes**.
+
+After enabling data events, you can access these logs in the Amazon S3 bucket configured for CloudTrail. The logs include details such as the user who performed the action, the action timestamp, the specific object affected, and the `onBehalfOf` field that helps trace the `userId` for actions performed through Transfer Family web apps.
 
 ### Finding and viewing your logs
+<a name="webapp-find-view-logs"></a>
 
 There are several ways to find and view CloudTrail logs for your Transfer Family web app:
 
 #### Using the CloudTrail console
+<a name="webapp-find-logs-console"></a>
 
 The fastest way to view recent events:
 
-1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2. Choose **Event history**.
-3. Filter events by:
+1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/).
 
-   - **Event source**:
-     `signin.amazonaws.com` for web app events
-   - **Event source**:
-     `s3.amazonaws.com` for file operations
+1. Choose **Event history**.
 
-4. Click any event to view detailed information.
+1. Filter events by:
+   + **Event source**: `signin.amazonaws.com` for web app events
+   + **Event source**: `s3.amazonaws.com` for file operations
+
+1. Click any event to view detailed information.
 
 #### Accessing logs in Amazon S3
+<a name="webapp-find-logs-s3"></a>
 
 To access the complete log files stored in Amazon S3:
 
 1. Identify your CloudTrail trail's Amazon S3 bucket:
 
-```
-aws cloudtrail describe-trails --query 'trailList[*].[Name,S3BucketName]' --output table
-```
+   ```
+   aws cloudtrail describe-trails --query 'trailList[*].[Name,S3BucketName]' --output table
+   ```
 
-2. Navigate to the log files in Amazon S3:
+1. Navigate to the log files in Amazon S3:
 
-```
-aws s3 ls s3://your-cloudtrail-bucket/AWSLogs/account-id/CloudTrail/region/YYYY/MM/DD/
-```
+   ```
+   aws s3 ls s3://your-cloudtrail-bucket/AWSLogs/account-id/CloudTrail/region/YYYY/MM/DD/
+   ```
 
-3. Download and search log files for your web app ID:
+1. Download and search log files for your web app ID:
 
-```
-aws s3 cp s3://your-cloudtrail-bucket/AWSLogs/account-id/CloudTrail/region/YYYY/MM/DD/ . --recursive
-gunzip *.json.gz
-grep -l "webapp-1a2b3c4d5e6f7g8h9" *.json
-```
+   ```
+   aws s3 cp s3://your-cloudtrail-bucket/AWSLogs/account-id/CloudTrail/region/YYYY/MM/DD/ . --recursive
+   gunzip *.json.gz
+   grep -l "webapp-1a2b3c4d5e6f7g8h9" *.json
+   ```
 
 #### Using AWS CLI to search events
+<a name="webapp-find-logs-cli"></a>
 
 Search for specific web app events using the AWS CLI:
 
@@ -148,22 +131,20 @@ aws logs filter-log-events \
 ```
 
 ## Authentication log examples
+<a name="webapp-authentication-log-examples"></a>
 
-CloudTrail logs authentication events for Transfer Family web apps, which can help you track successful
-and failed sign-in attempts. These logs are particularly useful for security monitoring
-and compliance purposes.
+CloudTrail logs authentication events for Transfer Family web apps, which can help you track successful and failed sign-in attempts. These logs are particularly useful for security monitoring and compliance purposes.
 
-###### Topics
-
-- [Example log entry for credential verification](#webapp-credential-verification-example "#webapp-credential-verification-example")
-- [Example log entry for sign-in authentication](#webapp-signin-authentication-example "#webapp-signin-authentication-example")
-- [Example log entry for ListCallerAccessGrants](#webapp-list-caller-access-grants-example "#webapp-list-caller-access-grants-example")
-- [Example log entry for GetDataAccess event](#webapp-get-data-access-example "#webapp-get-data-access-example")
+**Topics**
++ [Example log entry for credential verification](#webapp-credential-verification-example)
++ [Example log entry for sign-in authentication](#webapp-signin-authentication-example)
++ [Example log entry for ListCallerAccessGrants](#webapp-list-caller-access-grants-example)
++ [Example log entry for GetDataAccess event](#webapp-get-data-access-example)
 
 ### Example log entry for credential verification
+<a name="webapp-credential-verification-example"></a>
 
-The following example shows a CloudTrail log entry for a credential verification event
-that occurs during the authentication process.
+The following example shows a CloudTrail log entry for a credential verification event that occurs during the authentication process.
 
 ```
 {
@@ -206,14 +187,12 @@ that occurs during the authentication process.
 }
 ```
 
-This event provides additional detail about the credential verification step in
-the authentication process, showing the specific credential ID and authentication
-workflow ID used.
+This event provides additional detail about the credential verification step in the authentication process, showing the specific credential ID and authentication workflow ID used.
 
 ### Example log entry for sign-in authentication
+<a name="webapp-signin-authentication-example"></a>
 
-The following example shows a CloudTrail log entry for a successful user authentication
-event during web app sign-in using IAM Identity Center.
+The following example shows a CloudTrail log entry for a successful user authentication event during web app sign-in using IAM Identity Center.
 
 ```
 {
@@ -258,22 +237,16 @@ event during web app sign-in using IAM Identity Center.
 ```
 
 In this example, note the following important fields:
-
-- `eventSource`: Shows "signin.amazonaws.com", indicating this is
-  an IAM Identity Center authentication event.
-- `userIdentity.onBehalfOf`: Contains the user ID and identity
-  store ARN for the web app user.
-- `additionalEventData.LoginTo`: Shows the IAM Identity Center application URL
-  being accessed.
-- `additionalEventData.CredentialType`: Indicates the
-  authentication method used (PASSWORD).
-- `serviceEventDetails`: Shows the authentication result
-  (Success).
++ `eventSource`: Shows "signin.amazonaws.com", indicating this is an IAM Identity Center authentication event.
++ `userIdentity.onBehalfOf`: Contains the user ID and identity store ARN for the web app user.
++ `additionalEventData.LoginTo`: Shows the IAM Identity Center application URL being accessed.
++ `additionalEventData.CredentialType`: Indicates the authentication method used (PASSWORD).
++ `serviceEventDetails`: Shows the authentication result (Success).
 
 ### Example log entry for ListCallerAccessGrants
+<a name="webapp-list-caller-access-grants-example"></a>
 
-The following example shows a CloudTrail log entry for a ListCallerAccessGrants event,
-which occurs when Transfer Family web app queries available access grants for a user.
+The following example shows a CloudTrail log entry for a ListCallerAccessGrants event, which occurs when Transfer Family web app queries available access grants for a user.
 
 ```
 {
@@ -341,24 +314,17 @@ which occurs when Transfer Family web app queries available access grants for a 
 ```
 
 In this example, note the following important fields:
++ `eventName`: Shows this is a ListCallerAccessGrants event, which queries available S3 access grants.
++ `requestParameters.allowedByApplication`: Indicates the query is filtered to grants allowed by the application.
++ `requestParameters.maxResults`: Shows the maximum number of grants to return in the response.
++ `userIdentity.onBehalfOf`: Links the request to the specific web app user.
 
-- `eventName`: Shows this is a ListCallerAccessGrants event,
-  which queries available S3 access grants.
-- `requestParameters.allowedByApplication`: Indicates the query
-  is filtered to grants allowed by the application.
-- `requestParameters.maxResults`: Shows the maximum number of
-  grants to return in the response.
-- `userIdentity.onBehalfOf`: Links the request to the specific
-  web app user.
-
-This event helps track when Transfer Family web app queries what S3 resources a user has
-access to, providing visibility into access grant discovery operations.
+This event helps track when Transfer Family web app queries what S3 resources a user has access to, providing visibility into access grant discovery operations.
 
 ### Example log entry for GetDataAccess event
+<a name="webapp-get-data-access-example"></a>
 
-The following example shows a CloudTrail log entry for a GetDataAccess event, which
-occurs when Transfer Family web app requests access permissions for S3 resources on behalf of a
-user.
+The following example shows a CloudTrail log entry for a GetDataAccess event, which occurs when Transfer Family web app requests access permissions for S3 resources on behalf of a user.
 
 ```
 {
@@ -427,56 +393,45 @@ user.
 ```
 
 In this example, note the following important fields:
++ `eventName`: Shows this is a GetDataAccess event, which occurs when Transfer Family requests access permissions for S3 resources.
++ `userIdentity.onBehalfOf`: Contains the identity store ARN and user ID, linking the access request to the specific web app user.
++ `requestParameters.target`: Shows the S3 path pattern for which access was requested.
++ `requestParameters.permission`: Indicates the type of access requested (READWRITE, READ, or WRITE).
++ `requestParameters.durationSeconds`: Shows how long the access grant is valid (typically 900 seconds/15 minutes).
++ `sourceIPAddress` and `userAgent`: Both show "transfer.amazonaws.com", indicating this is an internal service request.
 
-- `eventName`: Shows this is a GetDataAccess event, which occurs
-  when Transfer Family requests access permissions for S3 resources.
-- `userIdentity.onBehalfOf`: Contains the identity store ARN and
-  user ID, linking the access request to the specific web app user.
-- `requestParameters.target`: Shows the S3 path pattern for which
-  access was requested.
-- `requestParameters.permission`: Indicates the type of access
-  requested (READWRITE, READ, or WRITE).
-- `requestParameters.durationSeconds`: Shows how long the access
-  grant is valid (typically 900 seconds/15 minutes).
-- `sourceIPAddress` and `userAgent`: Both show
-  "transfer.amazonaws.com", indicating this is an internal service
-  request.
-
-GetDataAccess events are particularly useful for tracking when Transfer Family web app users
-are granted access to specific S3 resources, helping you monitor access patterns and
-ensure proper authorization.
+GetDataAccess events are particularly useful for tracking when Transfer Family web app users are granted access to specific S3 resources, helping you monitor access patterns and ensure proper authorization.
 
 ## Viewing CloudTrail log entries
+<a name="webapp-view-log-entries"></a>
 
-There are several ways to view and analyze CloudTrail log entries for your Transfer Family web
-app:
+There are several ways to view and analyze CloudTrail log entries for your Transfer Family web app:
 
 ### Using the CloudTrail console
+<a name="webapp-view-logs-console"></a>
 
-The CloudTrail console provides a user-friendly interface for viewing and filtering log
-entries:
+The CloudTrail console provides a user-friendly interface for viewing and filtering log entries:
 
-1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
-2. In the navigation pane, choose **Event history**.
-3. Use the filter options to narrow down the events:
+1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/).
 
-   - Set **Event source** to
-     `transfer.amazonaws.com` to view only Transfer Family
-     events.
-   - Filter by **Event name** to see specific
-     operations like `UserAuthentication`.
-   - Use **Time range** to focus on events within a
-     specific period.
+1. In the navigation pane, choose **Event history**.
 
-4. Click on any event to view its detailed information.
+1. Use the filter options to narrow down the events:
+   + Set **Event source** to `transfer.amazonaws.com` to view only Transfer Family events.
+   + Filter by **Event name** to see specific operations like `UserAuthentication`.
+   + Use **Time range** to focus on events within a specific period.
+
+1. Click on any event to view its detailed information.
 
 ### Accessing logs in Amazon S3
+<a name="webapp-view-logs-s3"></a>
 
-If you've configured a CloudTrail trail to deliver logs to an Amazon S3 bucket, you can
-access the raw log files directly:
+If you've configured a CloudTrail trail to deliver logs to an Amazon S3 bucket, you can access the raw log files directly:
 
-1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. Navigate to the bucket and prefix where your CloudTrail logs are stored.
-3. The logs are organized by year, month, day, and region. Navigate to the
-   appropriate directory.
-4. Download and open the log files, which are in JSON format.
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
+
+1. Navigate to the bucket and prefix where your CloudTrail logs are stored.
+
+1. The logs are organized by year, month, day, and region. Navigate to the appropriate directory.
+
+1. Download and open the log files, which are in JSON format.

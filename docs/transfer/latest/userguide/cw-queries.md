@@ -1,26 +1,21 @@
+
+
 # Using queries to filter log entries
+<a name="cw-queries"></a>
 
-You can use CloudWatch queries to filter and identify log entries for Transfer Family. This section
-contains some examples.
+You can use CloudWatch queries to filter and identify log entries for Transfer Family. This section contains some examples.
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. You can create queries or rules.
+1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-   - To create a **Logs Insights** query, choose
-     **Logs Insights** from the left navigation panel,
-     and then enter the details for your query.
-   - To create a **Contributor Insights** rule, choose
-     Insights > Contributor Insights from the left navigation panel and then
-     enter the details for your rule.
+1. You can create queries or rules.
+   + To create a **Logs Insights** query, choose **Logs Insights** from the left navigation panel, and then enter the details for your query.
+   + To create a **Contributor Insights** rule, choose Insights > Contributor Insights from the left navigation panel and then enter the details for your rule.
 
-3. Run the query or rule that you created.
+1. Run the query or rule that you created.
 
-View the top authentication failure
-contributors
+**View the top authentication failure contributors**
 
-In your structured logs, an authentication failure log entry looks similar to the
-following:
+In your structured logs, an authentication failure log entry looks similar to the following:
 
 ```
 {
@@ -33,8 +28,7 @@ following:
 }
 ```
 
-Run the following query to view the top contributors to authentication
-failures.
+Run the following query to view the top contributors to authentication failures.
 
 ```
 filter @logStream = 'ERRORS'
@@ -44,9 +38,7 @@ filter @logStream = 'ERRORS'
 | limit 10
 ```
 
-Rather than using **CloudWatch Logs Insights**, you can create a
-**CloudWatch Contributors Insights** rule to view authentication
-failures. Create a rule similar to the following.
+Rather than using **CloudWatch Logs Insights**, you can create a **CloudWatch Contributors Insights** rule to view authentication failures. Create a rule similar to the following.
 
 ```
 {
@@ -75,7 +67,7 @@ failures. Create a rule similar to the following.
 }
 ```
 
-View log entries where a file was opened
+**View log entries where a file was opened**
 
 In your structured logs, a file read log entry looks similar to the following:
 
@@ -94,5 +86,4 @@ Run the following query to view log entries that indicate a file was opened.
 ```
 filter `activity-type` = 'OPEN'
 | display @timestamp, @logStream, `session-id`, mode, path
-
 ```
