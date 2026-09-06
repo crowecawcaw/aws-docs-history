@@ -1,102 +1,83 @@
+
+
 # Manage bonds
+<a name="config-live-cg-ethernet"></a>
 
-If you set up more Ethernet devices on the AWS Elemental Live node, you can
-optionally bond two devices.
+If you set up more Ethernet devices on the AWS Elemental Live node, you can optionally bond two devices.
 
-You can bond Ethernet devices to suit your networking requirements.
-For help creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking
-Guide_.
+You can bond Ethernet devices to suit your networking requirements. For help creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface) in the Red Hat *Networking Guide*.
 
-###### Important
+**Important**  
+We recommend that when setting up a bond, you set up both eth0 and eth1 with static IP addresses and with eth0, eth1 and bond0 all on the same subnet.
 
-We recommend that when setting up a bond, you set up both eth0 and eth1 with static IP
-addresses and with eth0, eth1 and bond0 all on the same subnet.
-
-###### Topics
-
-- [Creating a bond](#config-live-bond-create "#config-live-bond-create")
-- [Modifying a bond](#config-live-bond-modify "#config-live-bond-modify")
+**Topics**
++ [Creating a bond](#config-live-bond-create)
++ [Modifying a bond](#config-live-bond-modify)
 
 ## Creating a bond
+<a name="config-live-bond-create"></a>
 
-###### Note
+**Note**  
+If you are using AWS Elemental Conductor Live, you might have already created bonds on that node. Note that the procedure for creating bonds is identical for both products.
 
-If you are using AWS Elemental Conductor Live, you might have already created bonds on that node. Note
-that the procedure for creating bonds is identical for both products.
+**Prerequisites**  
+Before you begin this process, set up the individual Ethernet devices that you want to bond together.
 
-###### Prerequisites
-
-Before you begin this process, set up the individual Ethernet devices that you want to
-bond together.
-
-###### Topics
-
-- [Step A: Create bond configuration file](#config-live-bond-create-a "#config-live-bond-create-a")
-- [Step B: Edit Ethernet interface configuration files](#config-live-bond-create-b "#config-live-bond-create-b")
-- [Step C: Restart the AWS Elemental service configuration files](#config-live-bond-create-c "#config-live-bond-create-c")
-- [Step D: Verify the bond](#config-live-bond-create-d "#config-live-bond-create-d")
+**Topics**
++ [Step A: Create bond configuration file](#config-live-bond-create-a)
++ [Step B: Edit Ethernet interface configuration files](#config-live-bond-create-b)
++ [Step C: Restart the AWS Elemental service configuration files](#config-live-bond-create-c)
++ [Step D: Verify the bond](#config-live-bond-create-d)
 
 ### Step A: Create bond configuration file
+<a name="config-live-bond-create-a"></a>
 
 Create a configuration file for the bond interface and name it after the bond.
 
-###### To create the bond configuration file
+**To create the bond configuration file**
 
 1. Create the file with the following command.
 
-```
-sudo vim /etc/sysconfig/network-scripts/`ifcfg-bond0`
-```
+   ```
+   sudo vim /etc/sysconfig/network-scripts/{{ifcfg-bond0}}
+   ```
 
-2. Insert the following settings in the file:
+1. Insert the following settings in the file:
+   + ***DEVICE*** – Type **bond0**.
+   + ***TYPE*** – Type **Bond**.
+   + ***NAME*** – Provide a name for the bond that is unique among your bonded interfaces, such as **bond0**.
+   + ***BONDING\_MASTER*** – Type **yes**.
+   + ***BOOTPROTO*** – If you are using a static IP address for the bond, type **none**. If you are using DHCP, type **dhcp**.
+   + ***ONBOOT*** – Type **yes**.
+   + ***NM\_CONTROLLED*** – Type **no**.
+   + ***IPADDR*** – When you are using a static IP address, complete with your networking information.
+   + ***NETMASK*** – When you are using a static IP address, complete with your networking information.
+   + ***GATEWAY*** – When you are using a static IP address, complete with your networking information.
+   + ***BONDING\_OPTS*** – Type the bonding mode you are using and other applicable options.
 
-   - _`DEVICE`_ – Type
-     `bond0`.
-   - _`TYPE`_ – Type
-     `Bond`.
-   - _`NAME`_ – Provide a name for the bond
-     that is unique among your bonded interfaces, such as
-     `bond0`.
-   - _`BONDING_MASTER`_ – Type
-     `yes`.
-   - _`BOOTPROTO`_ – If you are using a
-     static IP address for the bond, type `none`. If you are using
-     DHCP, type `dhcp`.
-   - _`ONBOOT`_ – Type
-     `yes`.
-   - _`NM_CONTROLLED`_ – Type
-     `no`.
-   - _`IPADDR`_ – When you are using a static
-     IP address, complete with your networking information.
-   - _`NETMASK`_ – When you are using a
-     static IP address, complete with your networking information.
-   - _`GATEWAY`_ – When you are using a
-     static IP address, complete with your networking information.
-   - _`BONDING_OPTS`_ – Type the bonding mode
-     you are using and other applicable options.
-
-###### Bonding modes
-
+**Bonding modes**  
 The following table describes the bonding modes that are available.
 
-| Bonding mode option | Mode name                             | Description                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| mode=0              | Round robin                           | Transmissions are received and sent sequentially on each bonded interface,<br>beginning with the first one available.                                                                                                                                                                      |
-| mode=1              | Active backup                         | Transmissions are received and sent out via the first available bonded<br>interface. The other interface is only used if the active interface fails.                                                                                                                                       |
-| mode=2              | Balanced XOR                          | Using the exclusive-or (XOR) method, the interface matches up the incoming<br>request's MAC address with the MAC address for one of the bonded interface NICs.<br>When this link is established, transmissions are sent out sequentially, beginning<br>with the first available interface. |
-| mode=3              | Broadcast                             | All transmissions are sent on all interfaces in the bond.                                                                                                                                                                                                                                  |
-| mode=4              | IEEE 802.3ad dynamic link aggregation | This option creates aggregation groups that share the same speed and duplex<br>settings. This transmits and receives on all interfaces in the active aggregator.<br>Requires a switch that is 802.3ad compliant.                                                                           |
-| mode=5              | Adaptive transmit load balancing      | Outgoing traffic is distributed according to current load on each interface in<br>the bond. Incoming traffic is received by the currently active interface. If the<br>receiving interface fails, another interface takes over the MAC address of the<br>failed interface.                  |
-| mode=6              | Adaptive load balancing               | This option includes transmit and receive load balancing for IPV4 traffic.<br>Receive load balancing is achieved through ARP negotiation.                                                                                                                                                  |
 
-###### Example
+
+| Bonding mode option | Mode name | Description | 
+| --- | --- | --- | 
+| mode=0 | Round robin | Transmissions are received and sent sequentially on each bonded interface, beginning with the first one available. | 
+| mode=1 | Active backup | Transmissions are received and sent out via the first available bonded interface. The other interface is only used if the active interface fails. | 
+| mode=2 | Balanced XOR | Using the exclusive-or (XOR) method, the interface matches up the incoming request's MAC address with the MAC address for one of the bonded interface NICs. When this link is established, transmissions are sent out sequentially, beginning with the first available interface. | 
+| mode=3 | Broadcast | All transmissions are sent on all interfaces in the bond. | 
+| mode=4 | IEEE 802.3ad dynamic link aggregation | This option creates aggregation groups that share the same speed and duplex settings. This transmits and receives on all interfaces in the active aggregator. Requires a switch that is 802.3ad compliant. | 
+| mode=5 | Adaptive transmit load balancing | Outgoing traffic is distributed according to current load on each interface in the bond. Incoming traffic is received by the currently active interface. If the receiving interface fails, another interface takes over the MAC address of the failed interface. | 
+| mode=6 | Adaptive load balancing | This option includes transmit and receive load balancing for IPV4 traffic. Receive load balancing is achieved through ARP negotiation. | 
+
+**Example**  
 
 ```
 DEVICE=bond0
 TYPE=Bond
 NAME=bond0
 BONDING_MASTER=yes
-BOOTPROTO=none
+BOOTPROTO=none                              
 ONBOOT=yes
 NM_CONTROLLED=no
 IPADDR=192.168.1.70
@@ -106,18 +87,19 @@ BONDING_OPTS="mode=5 miimon=100"
 ```
 
 ### Step B: Edit Ethernet interface configuration files
+<a name="config-live-bond-create-b"></a>
 
-Access the configuration files for each of the interfaces that are participating in the
-bond. Add the following lines.
+Access the configuration files for each of the interfaces that are participating in the bond. Add the following lines.
 
 ```
 MASTER=bond0
 SLAVE=yes
 ```
 
-For help with creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking Guide_.
+For help with creating and updating bonding files through the CLI, see [ Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface) in the Red Hat *Networking Guide*.
 
 ### Step C: Restart the AWS Elemental service configuration files
+<a name="config-live-bond-create-c"></a>
 
 Restart the AWS Elemental service using the following command.
 
@@ -126,6 +108,7 @@ sudo systemctl restart network
 ```
 
 ### Step D: Verify the bond
+<a name="config-live-bond-create-d"></a>
 
 Verify that your bond is running using the following command.
 
@@ -133,7 +116,7 @@ Verify that your bond is running using the following command.
 cat /proc/net/bonding/bond0
 ```
 
-###### Example Functioning bond interface
+**Example Functioning bond interface**  
 
 ```
 [elemental@host~]$ cat /proc/net/bonding/bond0
@@ -166,16 +149,11 @@ Slave queue ID: 0
 ```
 
 ## Modifying a bond
+<a name="config-live-bond-modify"></a>
 
-To modify a bond, follow the procedure for creating the bond, earlier in this
-section.
+To modify a bond, follow the procedure for creating the bond, earlier in this section.
 
-**Don't** use the web interface to change the bond or any
-part of the Ethernet devices.
+**Don't **use the web interface to change the bond or any part of the Ethernet devices.
 
-###### Warning
-
-The **Devices** page on the AWS Elemental Live web
-interface includes the pencil icon that lets you edit the Ethernet
-device. However, you must not use the web interface to modify devices
-because you will break the configuration.
+**Warning**  
+The **Devices** page on the AWS Elemental Live web interface includes the pencil icon that lets you edit the Ethernet device. However, you must not use the web interface to modify devices because you will break the configuration.
