@@ -1,30 +1,33 @@
+
+
 # AWSProtonCodeBuildProvisioningServiceRolePolicy
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy"></a>
 
 **Description**: Allows AWS Proton to manage Proton resource provisioning using CodeBuild and other AWS services on your behalf.
 
-`AWSProtonCodeBuildProvisioningServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSProtonCodeBuildProvisioningServiceRolePolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy-how-to-use"></a>
 
-This policy is attached to a service-linked role that allows the service to perform actions on
-your behalf. You cannot attach this policy to your users, groups, or roles.
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
 
 ## Policy details
-
-- **Type**: Service-linked role policy
-- **Creation time**: November 09, 2022, 21:32 UTC
-- **Edited time:** May 17, 2023, 16:11 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSProtonCodeBuildProvisioningServiceRolePolicy`
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy-details"></a>
++ **Type**: Service-linked role policy 
++ **Creation time**: November 09, 2022, 21:32 UTC 
++ **Edited time:** May 17, 2023, 16:11 UTC
++ **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSProtonCodeBuildProvisioningServiceRolePolicy`
 
 ## Policy version
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy-version"></a>
 
 **Policy version:** v2 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy-json"></a>
 
 ```
 {
@@ -82,6 +85,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWSProtonCodeBuildProvisioningServiceRolePolicy-learn-more"></a>
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

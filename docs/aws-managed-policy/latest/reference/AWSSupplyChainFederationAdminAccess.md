@@ -1,29 +1,33 @@
+
+
 # AWSSupplyChainFederationAdminAccess
+<a name="AWSSupplyChainFederationAdminAccess"></a>
 
 **Description**: AWSSupplyChainFederationAdminAccess provides AWS Supply Chain federated users access to the AWS Supply Chain application, including the required permissions to perform actions within the AWS Supply Chain application. The policy provides administrative permissions over IAM Identity Center users and groups and is attached to a role created by AWS Supply Chain on your behalf. You shouldn't attach AWSSupplyChainFederationAdminAccess policy to any other IAM entities.
 
-`AWSSupplyChainFederationAdminAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSSupplyChainFederationAdminAccess` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWSSupplyChainFederationAdminAccess-how-to-use"></a>
 
 You can attach `AWSSupplyChainFederationAdminAccess` to your users, groups, and roles.
 
 ## Policy details
-
-- **Type**: Service role policy
-- **Creation time**: March 01, 2023, 18:54 UTC
-- **Edited time:** August 14, 2026, 21:07 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/service-role/AWSSupplyChainFederationAdminAccess`
+<a name="AWSSupplyChainFederationAdminAccess-details"></a>
++ **Type**: Service role policy 
++ **Creation time**: March 01, 2023, 18:54 UTC 
++ **Edited time:** August 14, 2026, 21:07 UTC
++ **ARN**: `arn:aws:iam::aws:policy/service-role/AWSSupplyChainFederationAdminAccess`
 
 ## Policy version
+<a name="AWSSupplyChainFederationAdminAccess-version"></a>
 
 **Policy version:** v10 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWSSupplyChainFederationAdminAccess-json"></a>
 
 ```
 {
@@ -317,8 +321,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
-- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWSSupplyChainFederationAdminAccess-learn-more"></a>
++ [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
++ [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

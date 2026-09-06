@@ -1,30 +1,33 @@
+
+
 # CloudWatchNetworkFlowMonitorServiceRolePolicy
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy"></a>
 
 **Description**: You can't attach CloudWatchNetworkFlowMonitorServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role named AWSServiceRoleForNetworkFlowMonitor, which publishes network telemetry aggregation results, collected by Network Flow Monitor agents, to CloudWatch. It also allows the service to use AWS Organizations to get information for multi-account scenarios.
 
-`CloudWatchNetworkFlowMonitorServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`CloudWatchNetworkFlowMonitorServiceRolePolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy-how-to-use"></a>
 
-This policy is attached to a service-linked role that allows the service to perform actions on
-your behalf. You cannot attach this policy to your users, groups, or roles.
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
 
 ## Policy details
-
-- **Type**: Service-linked role policy
-- **Creation time**: December 01, 2024, 22:36 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/CloudWatchNetworkFlowMonitorServiceRolePolicy`
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy-details"></a>
++ **Type**: Service-linked role policy 
++ **Creation time**: December 01, 2024, 22:36 UTC 
++ **Edited time:** February 12, 2026, 18:01 UTC
++ **ARN**: `arn:aws:iam::aws:policy/aws-service-role/CloudWatchNetworkFlowMonitorServiceRolePolicy`
 
 ## Policy version
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy-version"></a>
 
 **Policy version:** v6 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy-json"></a>
 
 ```
 {
@@ -66,6 +69,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="CloudWatchNetworkFlowMonitorServiceRolePolicy-learn-more"></a>
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

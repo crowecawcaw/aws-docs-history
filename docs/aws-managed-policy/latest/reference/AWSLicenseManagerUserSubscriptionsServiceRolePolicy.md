@@ -1,30 +1,33 @@
+
+
 # AWSLicenseManagerUserSubscriptionsServiceRolePolicy
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy"></a>
 
 **Description**: Allows AWS License Manager User Subscriptions Service to manage resources on your behalf.
 
-`AWSLicenseManagerUserSubscriptionsServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSLicenseManagerUserSubscriptionsServiceRolePolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy-how-to-use"></a>
 
-This policy is attached to a service-linked role that allows the service to perform actions on
-your behalf. You cannot attach this policy to your users, groups, or roles.
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
 
 ## Policy details
-
-- **Type**: Service-linked role policy
-- **Creation time**: July 30, 2022, 01:17 UTC
-- **Edited time:** July 10, 2026, 20:42 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy`
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy-details"></a>
++ **Type**: Service-linked role policy 
++ **Creation time**: July 30, 2022, 01:17 UTC 
++ **Edited time:** July 10, 2026, 20:42 UTC
++ **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy`
 
 ## Policy version
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy-version"></a>
 
 **Policy version:** v6 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy-json"></a>
 
 ```
 {
@@ -165,6 +168,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWSLicenseManagerUserSubscriptionsServiceRolePolicy-learn-more"></a>
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

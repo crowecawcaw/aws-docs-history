@@ -1,30 +1,33 @@
+
+
 # AWSNetworkFirewallServiceRolePolicy
+<a name="AWSNetworkFirewallServiceRolePolicy"></a>
 
 **Description**: Allow AWSNetworkFirewall to create and manage necessary resources for your Firewalls.
 
-`AWSNetworkFirewallServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSNetworkFirewallServiceRolePolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWSNetworkFirewallServiceRolePolicy-how-to-use"></a>
 
-This policy is attached to a service-linked role that allows the service to perform actions on
-your behalf. You cannot attach this policy to your users, groups, or roles.
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
 
 ## Policy details
-
-- **Type**: Service-linked role policy
-- **Creation time**: November 17, 2020, 17:17 UTC
-- **Edited time:** June 01, 2026, 21:57 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy`
+<a name="AWSNetworkFirewallServiceRolePolicy-details"></a>
++ **Type**: Service-linked role policy 
++ **Creation time**: November 17, 2020, 17:17 UTC 
++ **Edited time:** June 01, 2026, 21:57 UTC
++ **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy`
 
 ## Policy version
+<a name="AWSNetworkFirewallServiceRolePolicy-version"></a>
 
 **Policy version:** v4 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWSNetworkFirewallServiceRolePolicy-json"></a>
 
 ```
 {
@@ -106,6 +109,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWSNetworkFirewallServiceRolePolicy-learn-more"></a>
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

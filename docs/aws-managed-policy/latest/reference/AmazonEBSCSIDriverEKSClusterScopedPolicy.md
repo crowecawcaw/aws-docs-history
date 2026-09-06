@@ -1,29 +1,33 @@
+
+
 # AmazonEBSCSIDriverEKSClusterScopedPolicy
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy"></a>
 
 **Description**: IAM Policy that allows the CSI driver service account to make calls to related services such as EC2 on your behalf. This policy restricts the Amazon EBS CSI driver to only managing EBS volumes and snapshots that belong to a specific EKS cluster. It requires the resource tag ebs.csi.aws.com/cluster-name to match the eks-cluster-name tag on the IAM principal, preventing cross-cluster access when multiple clusters share the same AWS account. Attach and detach operations on instances are restricted to instances tagged with either the eks:cluster-name tag (set automatically by EKS on managed node groups) or the ebs.csi.aws.com/cluster-name tag (for manually tagged instances).
 
-`AmazonEBSCSIDriverEKSClusterScopedPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonEBSCSIDriverEKSClusterScopedPolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy-how-to-use"></a>
 
 You can attach `AmazonEBSCSIDriverEKSClusterScopedPolicy` to your users, groups, and roles.
 
 ## Policy details
-
-- **Type**: AWS managed policy
-- **Creation time**: April 16, 2026, 17:27 UTC
-- **Edited time:** May 28, 2026, 17:27 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/AmazonEBSCSIDriverEKSClusterScopedPolicy`
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy-details"></a>
++ **Type**: AWS managed policy 
++ **Creation time**: April 16, 2026, 17:27 UTC 
++ **Edited time:** May 28, 2026, 17:27 UTC
++ **ARN**: `arn:aws:iam::aws:policy/AmazonEBSCSIDriverEKSClusterScopedPolicy`
 
 ## Policy version
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy-version"></a>
 
 **Policy version:** v2 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy-json"></a>
 
 ```
 {
@@ -231,8 +235,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
-- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AmazonEBSCSIDriverEKSClusterScopedPolicy-learn-more"></a>
++ [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
++ [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

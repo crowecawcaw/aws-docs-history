@@ -1,29 +1,33 @@
+
+
 # AWS\_ConfigRole
+<a name="AWS_ConfigRole"></a>
 
 **Description**: Default policy for AWS Config service role. Provides permissions required for AWS Config to track changes to your AWS resources.
 
-`AWS_ConfigRole` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWS_ConfigRole` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWS_ConfigRole-how-to-use"></a>
 
 You can attach `AWS_ConfigRole` to your users, groups, and roles.
 
 ## Policy details
-
-- **Type**: Service role policy
-- **Creation time**: September 15, 2020, 20:30 UTC
-- **Edited time:** August 27, 2026, 22:07 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/service-role/AWS_ConfigRole`
+<a name="AWS_ConfigRole-details"></a>
++ **Type**: Service role policy 
++ **Creation time**: September 15, 2020, 20:30 UTC 
++ **Edited time:** August 27, 2026, 22:07 UTC
++ **ARN**: `arn:aws:iam::aws:policy/service-role/AWS_ConfigRole`
 
 ## Policy version
+<a name="AWS_ConfigRole-version"></a>
 
 **Policy version:** v72 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWS_ConfigRole-json"></a>
 
 ```
 {
@@ -2409,8 +2413,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
-- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWS_ConfigRole-learn-more"></a>
++ [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
++ [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

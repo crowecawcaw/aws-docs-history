@@ -1,29 +1,33 @@
+
+
 # NetworkAdministrator
+<a name="NetworkAdministrator"></a>
 
 **Description**: Grants full access permissions to AWS services and actions required to set up and configure AWS network resources.
 
-`NetworkAdministrator` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`NetworkAdministrator` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="NetworkAdministrator-how-to-use"></a>
 
 You can attach `NetworkAdministrator` to your users, groups, and roles.
 
 ## Policy details
-
-- **Type**: Job function policy
-- **Creation time**: November 10, 2016, 17:31 UTC
-- **Edited time:** July 09, 2026, 14:42 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/job-function/NetworkAdministrator`
+<a name="NetworkAdministrator-details"></a>
++ **Type**: Job function policy 
++ **Creation time**: November 10, 2016, 17:31 UTC 
++ **Edited time:** July 09, 2026, 14:42 UTC
++ **ARN**: `arn:aws:iam::aws:policy/job-function/NetworkAdministrator`
 
 ## Policy version
+<a name="NetworkAdministrator-version"></a>
 
 **Policy version:** v16 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="NetworkAdministrator-json"></a>
 
 ```
 {
@@ -343,8 +347,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
-- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="NetworkAdministrator-learn-more"></a>
++ [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
++ [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

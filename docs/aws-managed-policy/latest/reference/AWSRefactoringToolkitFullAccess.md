@@ -1,29 +1,33 @@
+
+
 # AWSRefactoringToolkitFullAccess
+<a name="AWSRefactoringToolkitFullAccess"></a>
 
 **Description**: This policy grants permission to use AWS services with the AWS Toolkit for .NET Refactoring extension for Microsoft Visual Studio. It is intended to be attached to a local AWS profile. The policy allows uploading application artifacts and downloading the resulting artifacts from Amazon S3. It allows building applications into a container image using AWS CodeBuild and storing and retrieving the images from Amazon Elastic Container Registry (Amazon ECR). And it allows deployment of the application to container services on AWS such as Amazon Elastic Container Service (Amazon ECS), optional creation of VPC resources, optional connection to existing infrastructure such as AWS Directory Service, and other related services.
 
-`AWSRefactoringToolkitFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSRefactoringToolkitFullAccess` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="AWSRefactoringToolkitFullAccess-how-to-use"></a>
 
 You can attach `AWSRefactoringToolkitFullAccess` to your users, groups, and roles.
 
 ## Policy details
-
-- **Type**: AWS managed policy
-- **Creation time**: October 25, 2022, 16:41 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/AWSRefactoringToolkitFullAccess`
+<a name="AWSRefactoringToolkitFullAccess-details"></a>
++ **Type**: AWS managed policy 
++ **Creation time**: October 25, 2022, 16:41 UTC 
++ **Edited time:** February 12, 2026, 17:57 UTC
++ **ARN**: `arn:aws:iam::aws:policy/AWSRefactoringToolkitFullAccess`
 
 ## Policy version
+<a name="AWSRefactoringToolkitFullAccess-version"></a>
 
 **Policy version:** v8 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="AWSRefactoringToolkitFullAccess-json"></a>
 
 ```
 {
@@ -616,8 +620,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
-- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="AWSRefactoringToolkitFullAccess-learn-more"></a>
++ [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
++ [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)

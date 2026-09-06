@@ -1,30 +1,33 @@
+
+
 # CloudWatchInternetMonitorServiceRolePolicy
+<a name="CloudWatchInternetMonitorServiceRolePolicy"></a>
 
 **Description**: Allows Internet Monitor to access EC2, Workspaces, and CloudFront resources, and other required services on your behalf.
 
-`CloudWatchInternetMonitorServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`CloudWatchInternetMonitorServiceRolePolicy` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
+<a name="CloudWatchInternetMonitorServiceRolePolicy-how-to-use"></a>
 
-This policy is attached to a service-linked role that allows the service to perform actions on
-your behalf. You cannot attach this policy to your users, groups, or roles.
+This policy is attached to a service-linked role that allows the service to perform actions on your behalf. You cannot attach this policy to your users, groups, or roles.
 
 ## Policy details
-
-- **Type**: Service-linked role policy
-- **Creation time**: November 27, 2022, 17:46 UTC
-- **Edited time:** July 20, 2023, 04:46 UTC
-- **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy`
+<a name="CloudWatchInternetMonitorServiceRolePolicy-details"></a>
++ **Type**: Service-linked role policy 
++ **Creation time**: November 27, 2022, 17:46 UTC 
++ **Edited time:** July 20, 2023, 04:46 UTC
++ **ARN**: `arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy`
 
 ## Policy version
+<a name="CloudWatchInternetMonitorServiceRolePolicy-version"></a>
 
 **Policy version:** v2 (default)
 
-The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
-request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
+<a name="CloudWatchInternetMonitorServiceRolePolicy-json"></a>
 
 ```
 {
@@ -70,6 +73,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 
 ## Learn more
-
-- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
-- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
+<a name="CloudWatchInternetMonitorServiceRolePolicy-learn-more"></a>
++ [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
++ [Get started with AWS managed policies and move toward least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies)
