@@ -1,9 +1,12 @@
+
+
 # Sample install
+<a name="sample-lv-ig"></a>
 
 Following is a screen printout of a typical install for AWS Elemental Live. It shows the prompts and possible responses.
 
 ```
-[elemental@hostname ~] **sudo sh ./elemental\_production\_live\_2.25.4.12345.run -z -t**
+[elemental@hostname ~] sudo sh ./elemental_production_live_2.25.4.12345.run -z -t
 Verifying archive integrity... All good.
 Uncompressing Elemental Installer  100%
 /tmp/selfgz142612827/elemental_system_update/rpms /tmp/selfgz142612827
@@ -112,37 +115,35 @@ IMPORTANT INFORMATION
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Continue? [Y] `y`
+Continue? [Y] y
 .
 .
 .
-Do you agree to these terms? [N] `y`
+Do you agree to these terms? [N] y
 ```
 
 You are prompted to configure the network and update the password.
 
 ```
 Enter this server's Hostname: [elemental@hostname ~]live-01
-Detected 2 ethernet devices
-Configuring eth0
+Detected 2 ethernet devices 
+Configuring eth0 
 
-Does eth0 use DHCP to get its IP address? [Y]
-Would you like to configure eth1? [N]
-The firewall for this system is currently enabled. Would you like to disable it? [N]
+Does eth0 use DHCP to get its IP address? [Y] 
+Would you like to configure eth1? [N] 
+The firewall for this system is currently enabled. Would you like to disable it? [N] 
 For security purposes, we require that you change the default password.
-
 ```
 
-Services are stopped (note that actually no services are running) and interfaces are shut
-down.
+Services are stopped (note that actually no services are running) and interfaces are shut down.
 
 ```
 Stopping services...
@@ -218,14 +219,14 @@ Starting services...
 Starting system logger: [60G[[0;32m  OK  [0;39m]
 Starting httpd: httpd.worker: Could not reliably determine the server's fully qualified domain name, using ::1 for ServerName
 [60G[[0;32m  OK  [0;39m]
-Starting ntpd:
+Starting ntpd: 
 Starting snmpd: [60G[[0;32m  OK  [0;39m]
 ```
 
 You are prompted to start elemental\_se.
 
 ```
-Would you like to start the Elemental service now? [Y]
+Would you like to start the Elemental service now? [Y] 
 Starting elemental_se:     [  OK  ]
 Starting elemental-motd:   [60G[[0;32m  OK  [0;39m]
 Starting elemental-issue:  [  OK  ]

@@ -1,28 +1,23 @@
+
+
 # Step B: Install (kickstart) the operating system software
+<a name="install-lv-ig-install-ks"></a>
 
-Install the operating system on the node. This action is known as
-_kickstarting_ the
-system.
+Install the operating system on the node. This action is known as *kickstarting* the system.
 
-###### To kickstart the system
+**To kickstart the system**
 
 1. Insert the USB thumb drive into the hardware unit.
-2. Restart the system using the following command.
 
-```
-[elemental@hostname ~]$ sudo reboot
-```
+1. Restart the system using the following command.
 
-3. Use the arrow keys to select each option and complete the
-   field, using the instructions in the following table as a
-   guide.
+   ```
+   [elemental@hostname ~]$ sudo reboot
+   ```
 
-| Menu Option                                      | Instructions                                                                                                                                                                                    |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Set Hostname`                                   | Change the hostname to a useful name<br>such as `live-01`<br>or<br>`live-chicago-01`.<br>Do not use<br>`localhost` as the<br>hostname.<br>Do not use periods or underscores in<br>the hostname. |
-| `Disk layout:<br>Auto-detect`                    | Keep this set at Auto-detect.                                                                                                                                                                   |
-| `Set Key`                                        | Arrow down to skip this option.                                                                                                                                                                 |
-| `Install and configure base<br>operating system` | Press Enter to begin the OS<br>installation.                                                                                                                                                    |
+1. Use the arrow keys to select each option and complete the field, using the instructions in the following table as a guide.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/installguide/install-lv-ig-install-ks.html)
 
-The operating system is installed. 4. At the `Press return to quit` prompt, press
-**Enter** to reboot the system.
+   The operating system is installed.
+
+1. At the `Press return to quit` prompt, press **Enter** to reboot the system.
