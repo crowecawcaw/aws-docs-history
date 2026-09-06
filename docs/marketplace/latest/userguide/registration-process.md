@@ -1,33 +1,24 @@
-# Registering as a seller on AWS Marketplace
 
-Registering as a seller is the first step to selling your products on AWS Marketplace. This section guides you through the registration process, including providing required information and completing verification steps.
 
-###### Sellers in India
+# Registration process
+<a name="registration-process"></a>
 
-Sellers in India have specific registration requirements and processes that differ from other regions. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+Registering as a seller in AWS Marketplace involves completing several steps in sequence. This section provides an overview of the registration process, followed by detailed instructions for each step.
 
-To register as a seller in AWS Marketplace, you can use an existing AWS account or create a new account. All AWS Marketplace interactions are tied to the account that you choose. AWS Marketplace strongly recommends using AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials.
+The registration process consists of the following steps:
 
-AWS Marketplace supports several types of sellers, each with their own unique offerings and requirements:
+1. [Register and create your seller profile](create-public-profile.md) – Select an AWS account to use as your primary AWS Marketplace account and provide information that will be displayed to potential buyers.
 
-**Independent software vendors (ISVs)**
+1. [Provide tax information](provide-tax-information.md) – Submit your tax information and VAT information (where applicable) to ensure accurate tax reporting and withholding.
 
-Software companies that develop, market, and sell software products that run on or integrate with AWS services. ISVs can offer various product types including AMIs, container products, SaaS products, and machine learning models.
+1. [Provide bank account information](provide-bank-information.md) – For paid products, provide bank account details that can accept USD disbursements.
 
-**Channel partners**
+1. [Set disbursement preferences](set-disbursement-preferences.md) – Choose how and when you want to receive payments for your product sales.
 
-Organizations that resell or distribute software products from ISVs. Channel partners can create private offers for products they're authorized to resell, allowing them to set their own pricing and terms.
+1. [Complete the KYC process](complete-kyc-process.md) – Required for sellers who want to get paid for Republic of Korea transactions, transact using U.K.-based bank accounts, or sell to EMEA customers.
 
-**Managed service providers (MSPs)**
+1. [Complete bank account verification](complete-bank-verification.md) – Verify your bank account to receive disbursements.
 
-Companies that provide managed services for AWS environments, including monitoring, security, and optimization services. MSPs can offer their services as products in AWS Marketplace.
+After completing these steps, you'll be ready to create and publish products on AWS Marketplace. For free products, you only need to complete the public profile step. For paid products, all steps are required.
 
-**Individuals**
-
-Individual developers or consultants who have created software products or professional services that work with AWS services.
-
-###### Topics
-
-- [Seller eligibility requirements](seller-eligibility.md "seller-eligibility.md")
-- [Account considerations](account-considerations.md "account-considerations.md")
-- [Registration process](registration-process.md "registration-process.md")
+The following sections provide detailed instructions for each step of the registration process.

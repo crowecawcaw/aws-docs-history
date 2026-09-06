@@ -1,141 +1,105 @@
+
+
 # Contract pricing for container products with AWS License Manager
+<a name="container-license-manager-integration"></a>
 
-For container-based products with contract pricing, you can use AWS License Manager to associate
-licenses with your product. AWS License Manager is a license management tool that
-enables your application to track and update licenses (also known as entitlements) that have
-been purchased by a customer. This section provides information about how to integrate your
-product with AWS License Manager. After the integration is complete, you can publish
-your product listing on AWS Marketplace.
+For container-based products with contract pricing, you can use AWS License Manager to associate licenses with your product. AWS License Manager is a license management tool that enables your application to track and update licenses (also known as entitlements) that have been purchased by a customer. This section provides information about how to integrate your product with AWS License Manager. After the integration is complete, you can publish your product listing on AWS Marketplace.
 
-If you're integrating License Manager with an AWS Marketplace for Containers Anywhere product for Amazon EKS Anywhere, Amazon ECS Anywhere, Amazon Elastic Compute Cloud
-(Amazon EC2), or on-premises infrastructure, follow the instructions in [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md").
+If you're integrating License Manager with an AWS Marketplace for Containers Anywhere product for Amazon EKS Anywhere, Amazon ECS Anywhere, Amazon Elastic Compute Cloud (Amazon EC2), or on-premises infrastructure, follow the instructions in [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md).
 
-For more information about AWS License Manager, see the [AWS License Manager User Guide](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md") and the [AWS License Manager](../../../cli/latest/reference/license-manager/index.md "../../../cli/latest/reference/license-manager/index.md") section of the _AWS CLI Command
-Reference_.
+For more information about AWS License Manager, see the [AWS License Manager User Guide](https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html) and the [AWS License Manager](https://docs.aws.amazon.com/cli/latest/reference/license-manager/index.html) section of the *AWS CLI Command Reference*.
 
-For more information about integrating AWS License Manager with container products with contract
-pricing, see the [Integrate with
-upfront payment](https://catalog.workshops.aws/mpseller/en-US/container/integrate-contract "https://catalog.workshops.aws/mpseller/en-US/container/integrate-contract") lab of the _AWS Marketplace seller
-workshop_.
+For more information about integrating AWS License Manager with container products with contract pricing, see the [Integrate with upfront payment](https://catalog.workshops.aws/mpseller/en-US/container/integrate-contract) lab of the *AWS Marketplace seller workshop*.
 
-###### Topics
-
-- [Contract pricing for container products](#container-contracts "#container-contracts")
-- [License models](#container-LM-license-models "#container-LM-license-models")
-- [AWS License Manager integration prerequisites](#container-LM-prereqs "#container-LM-prereqs")
-- [Integrating a container product with License Manager](#container-integrate-with-LM "#container-integrate-with-LM")
-- [License Manager API operations](#container-LM-API-calls "#container-LM-API-calls")
-- [License renewals and upgrades](#container-LM-lic-renew-upgrade "#container-LM-lic-renew-upgrade")
-- [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md")
+**Topics**
++ [Contract pricing for container products](#container-contracts)
++ [License models](#container-LM-license-models)
++ [AWS License Manager integration prerequisites](#container-LM-prereqs)
++ [Integrating a container product with License Manager](#container-integrate-with-LM)
++ [License Manager API operations](#container-LM-API-calls)
++ [License renewals and upgrades](#container-LM-lic-renew-upgrade)
++ [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md)
 
 ## Contract pricing for container products
+<a name="container-contracts"></a>
 
-For container-based products with contract pricing, AWS Marketplace bills your customers upfront or by
-the payment schedule that you define, based on the contract between you and your customer. After
-that point, they're entitled to use those resources.
+For container-based products with contract pricing, AWS Marketplace bills your customers upfront or by the payment schedule that you define, based on the contract between you and your customer. After that point, they're entitled to use those resources. 
 
-To set your pricing, choose one or more contract durations that you offer customers. You can
-enter different prices for each contract duration. Your options are 1-month, 12-months,
-24-month, and 36-month durations. For private offers, you can specify a custom duration in
-months (up to 144 months).
+To set your pricing, choose one or more contract durations that you offer customers. You can enter different prices for each contract duration. Your options are 1-month, 12-months, 24-month, and 36-month durations. For private offers, you can specify a custom duration in months (up to 144 months). 
 
-Choose the category that best describes your product’s pricing. The pricing category appears
-to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s,
-MB/s), **Data** (GB, MB, TB), **Hosts**,
-**Requests**, **Tiers**, or **Users**. If
-none of the predefined categories fit your needs, you can choose the more generic
-**Units** category.
+Choose the category that best describes your product’s pricing. The pricing category appears to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s, MB/s), **Data** (GB, MB, TB), **Hosts**, **Requests**, **Tiers**, or **Users**. If none of the predefined categories fit your needs, you can choose the more generic **Units** category. 
 
 The offer allows for up to 24 dimensions to be added to it.
 
-Example: Data storage application| | 1-month price | 12-month price | 24-month price | P36-month price |
-| --- | --- | --- | --- | --- |
-| Unencrypted data (GB) | $1.50/GB | $16.00/GB | $30.00/GB | $60.00/GB |
-| Encrypted data (GB) | $1.55/GB | $16.60/GB | $31.20/GB | $61.20/GB |
 
-Example: Log monitoring product| | 1-month price | 12-month price | 24-month price | 36-month price |
-| --- | --- | --- | --- | --- |
-| Basic (10 hosts monitored, 5 containers monitored) | $100 | $1000 | $2000 | $4000 |
-| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000 | $4000 | $8000 |
-| Pro (40 hosts monitored, 20 containers monitored) | $400 | $4000 | $8000 | $16,000 |
-| Additional hosts monitored per hour | $10 | $100 | $200 | $400 |
-| Additional containers monitored per hour | $10 | $100 | $200 | $400 |
+**Example: Data storage application**  
 
-###### Note
+|   | 1-month price | 12-month price  | 24-month price  | P36-month price  | 
+| --- | --- | --- | --- | --- | 
+|  Unencrypted data (GB)  |  $1.50/GB  |  $16.00/GB  |  $30.00/GB  |  $60.00/GB  | 
+|  Encrypted data (GB)  |  $1.55/GB  |  $16.60/GB  |  $31.20/GB  |  $61.20/GB  | 
 
-The prices can be for the following durations: 1 month, 12 months, 24 months, or 36
-months. You can choose to offer one or more of these options for your product. The durations
-must be the same across each dimension.
 
-###### Example
+**Example: Log monitoring product**  
 
-For example, in a case where you have `ReadOnlyUsers` and
-`AdminUsers` dimensions, if you offer a yearly price for ReadOnlyUsers, you
-must offer a yearly price for `AdminUsers`, too.
+|   | 1-month price | 12-month price  | 24-month price | 36-month price | 
+| --- | --- | --- | --- | --- | 
+|  Basic (10 hosts monitored, 5 containers monitored)  |  $100  |  $1000  | $2000  | $4000 | 
+|  Standard (20 hosts monitored, 10 containers monitored)  |  $200  |  $2000  | $4000  | $8000 | 
+|  Pro (40 hosts monitored, 20 containers monitored)  |  $400  |  $4000  | $8000  | $16,000 | 
+|  Additional hosts monitored per hour  | $10  | $100  |  $200 | $400 | 
+|  Additional containers monitored per hour  | $10  | $100  |  $200 | $400 | 
+
+**Note**  
+The prices can be for the following durations: 1 month, 12 months, 24 months, or 36 months. You can choose to offer one or more of these options for your product. The durations must be the same across each dimension.   
+
+**Example**  
+For example, in a case where you have `ReadOnlyUsers` and `AdminUsers` dimensions, if you offer a yearly price for ReadOnlyUsers, you must offer a yearly price for `AdminUsers`, too.
+
 
 ### Automatic renewals
+<a name="ami-contracts-automatic-renewals"></a>
 
-When customers purchase your product through AWS Marketplace using container contracts, they
-can agree to automatically renew the contract terms. Customers continue to pay for the
-entitlements every month or for 1, 2, or 3 years.
+ When customers purchase your product through AWS Marketplace using container contracts, they can agree to automatically renew the contract terms. Customers continue to pay for the entitlements every month or for 1, 2, or 3 years. 
 
-Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](../buyerguide/buyer-container-contracts.md#modify-existing-contract "../buyerguide/buyer-container-contracts.md#modify-existing-contract") in the _AWS Marketplace Buyer
-Guide_.
+Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-container-contracts.html#modify-existing-contract) in the *AWS Marketplace Buyer Guide*.
 
 ## License models
+<a name="container-LM-license-models"></a>
 
 AWS Marketplace integration with AWS License Manager supports two license models:
-
-- [Configurable license model](#container-LM-config-lic-model "#container-LM-config-lic-model")
-- [Tiered license model](#container-LM-tiered-lic-model "#container-LM-tiered-lic-model")
++ [Configurable license model](#container-LM-config-lic-model)
++ [Tiered license model](#container-LM-tiered-lic-model)
 
 ### Configurable license model
+<a name="container-LM-config-lic-model"></a>
 
-The configurable license model (also known as the quantifiable license model) entitles a
-buyer to a specific quantity of resources after a buyer has procured a license.
+The configurable license model (also known as the quantifiable license model) entitles a buyer to a specific quantity of resources after a buyer has procured a license. 
 
-You set a pricing dimension and a per unit price. Then, the buyer can choose the
-quantity of the resources that they want to purchase.
+You set a pricing dimension and a per unit price. Then, the buyer can choose the quantity of the resources that they want to purchase.
 
-###### Example of pricing dimension and per unit price
-
-You can set a pricing dimension (such as data backup) and per unit price (such as
-$30/unit).
-
-The buyer can choose to purchase 5, 10, or 20 units.
-
-Your product tracks and meters usage to measure the quantity of resources
-consumed.
+**Example of pricing dimension and per unit price**  
+You can set a pricing dimension (such as data backup) and per unit price (such as $30/unit).  
+The buyer can choose to purchase 5, 10, or 20 units.   
+Your product tracks and meters usage to measure the quantity of resources consumed.
 
 With the configuration model, the entitlements are counted in one of two ways:
-
-- [Drawdown licenses](#container-floating-lic "#container-floating-lic")
-- [Floating licenses](#container-floating-lic "#container-floating-lic")
++ [Drawdown licenses](#container-floating-lic)
++ [Floating licenses](#container-floating-lic) 
 
 #### Drawdown license
+<a name="container-drawndown-lic"></a>
 
-The license is drawn from the pool of allowed amount of licenses upon use. That
-entitlement is checked out permanently and can't be returned to the license pool.
+ The license is drawn from the pool of allowed amount of licenses upon use. That entitlement is checked out permanently and can't be returned to the license pool.
 
-###### Example of processing a limited amount of data
+**Example of processing a limited amount of data**  
+A user is entitled to process 500 GB of data. As they continue to process data, the quantity is drawn from the pool of 500 GB until all 500 GB licenses are consumed.
 
-A user is entitled to process 500 GB of data. As they continue to process data, the
-quantity is drawn from the pool of 500 GB until all 500 GB licenses are consumed.
+For drawdown licenses, you can use the `CheckoutLicense` API operation to check out license units (entitlements) that are consumed. 
 
-For drawdown licenses, you can use the `CheckoutLicense` API operation to
-check out license units (entitlements) that are consumed.
-
-###### Example of backup to Amazon S3 for a number of units/year
-
-You have a storage product that allows backup to Amazon Simple Storage Service for up to 1,024
-units for data for one year. Your application can be launched by using multiple Amazon EC2
-instances. Your application has a mechanism to track and aggregate data. Your software
-calls the `CheckoutLicense` API operation with the Product ID upon every
-backup or at fixed intervals to update the consumed quantities.
-
-In this example, your software calls the `CheckoutLicense` API operation
-to check out 10 units of data. When the total capacity reaches the backup limit that the
-customer has purchased, the API call fails.
+**Example of backup to Amazon S3 for a number of units/year**  
+You have a storage product that allows backup to Amazon Simple Storage Service for up to 1,024 units for data for one year. Your application can be launched by using multiple Amazon EC2 instances. Your application has a mechanism to track and aggregate data. Your software calls the `CheckoutLicense` API operation with the Product ID upon every backup or at fixed intervals to update the consumed quantities.   
+In this example, your software calls the `CheckoutLicense` API operation to check out 10 units of data. When the total capacity reaches the backup limit that the customer has purchased, the API call fails.
 
 **Request**
 
@@ -164,60 +128,34 @@ linux-machine ~]$ aws license-manager checkout-license\
 ```
 
 #### Floating licenses
+<a name="container-floating-lic"></a>
 
-The license is returned to the pool of the allowed amount of licenses after
-use.
+ The license is returned to the pool of the allowed amount of licenses after use.
 
-For floating licenses, the application checks out entitlements from the entitlements
-pool using the `CheckoutLicense` API operation when the resource is being used.
-The response of the `CheckoutLicense` API operation includes a license
-consumption token which is a unique identifier for the checkout. The license consumption
-token can be used to perform additional actions on the entitlements checked out, such as
-checking them back into the license or extending the checkout.
+For floating licenses, the application checks out entitlements from the entitlements pool using the `CheckoutLicense` API operation when the resource is being used. The response of the `CheckoutLicense` API operation includes a license consumption token which is a unique identifier for the checkout. The license consumption token can be used to perform additional actions on the entitlements checked out, such as checking them back into the license or extending the checkout.
 
-To check the entitlement back into the pool, use the `CheckInLicense` API
-operation when the resource is no longer in use.
+To check the entitlement back into the pool, use the `CheckInLicense` API operation when the resource is no longer in use.
 
 ```
 aws license-manager check-in-license --license-consumption-token "f1603b3c1f574b7284db84..."
 ```
 
-In case of failure to check in the entitlement (in case the application crashed), the
-entitlement checks back into the pool automatically after 60 minutes. If the resource is
-in use longer than 60 minutes, it is a best practice to keep the entitlement checked out
-of the pool by using the `ExtendLicenseConsumption` API operation as long as
-the resource is being used.
+In case of failure to check in the entitlement (in case the application crashed), the entitlement checks back into the pool automatically after 60 minutes. If the resource is in use longer than 60 minutes, it is a best practice to keep the entitlement checked out of the pool by using the `ExtendLicenseConsumption` API operation as long as the resource is being used.
 
 ```
 aws license-manager extend-license-consumption --license-consumption-token "f1603b3c1f574b7284..."
 ```
 
-###### Example of number of users from a fixed upper limit
+**Example of number of users from a fixed upper limit**  
+A user is entitled to 500 simultaneous users on the application. As users log in and log out, the users are drawn and returned to the pool of 500 users. However, the application can't draw more than 500 users from the pool because 500 simultaneous users is the fixed upper limit.
 
-A user is entitled to 500 simultaneous users on the application. As users log in and
-log out, the users are drawn and returned to the pool of 500 users. However, the
-application can't draw more than 500 users from the pool because 500 simultaneous users
-is the fixed upper limit.
+For floating entitlements, you can use the `CheckInLicense` API operation to return the license units to the entitlement pool. 
 
-For floating entitlements, you can use the `CheckInLicense` API operation
-to return the license units to the entitlement pool.
+**Example of number of concurrent users for one year**  
+Your product is priced based on number of concurrent users. The customer purchases a license for 10 users for one year. The customer launches the software by providing AWS Identity and Access Management (IAM) permissions. When a user logs in, your application calls the `CheckoutLicense` API operation to reduce the quantity by 1. When the user logs out, the application returns that license to the pool by calling the `CheckInLicense` API operation. If you don't call `CheckInLicense`, the license unit will be automatically checked in after 1 hour.
 
-###### Example of number of concurrent users for one year
-
-Your product is priced based on number of concurrent users. The customer purchases a
-license for 10 users for one year. The customer launches the software by providing
-AWS Identity and Access Management (IAM) permissions. When a user logs in, your application calls the
-`CheckoutLicense` API operation to reduce the quantity by 1. When the user
-logs out, the application returns that license to the pool by calling the
-`CheckInLicense` API operation. If you don't call
-`CheckInLicense`, the license unit will be automatically checked in after 1
-hour.
-
-###### Note
-
-In the following Request, the `key-fingerprint` isn't a placeholder value
-but the actual value of the fingerprint with which all licenses will be
-published.
+**Note**  
+In the following Request, the `key-fingerprint` isn't a placeholder value but the actual value of the fingerprint with which all licenses will be published.
 
 **Request**
 
@@ -237,7 +175,7 @@ aws license-manager checkout-license\
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
     {
-      "Name": "ReadOnlyUsers",
+      "Name": "ReadOnlyUsers", 
       "Count": 10,
       "Units": "Count",
       "Value": "Enabled"
@@ -251,33 +189,24 @@ aws license-manager checkout-license\
 ```
 
 ### Tiered license model
+<a name="container-LM-tiered-lic-model"></a>
 
-The tiered license model entitles a buyer to a specific level, or tier, of application
-features after a buyer has procured a license.
+The tiered license model entitles a buyer to a specific level, or tier, of application features after a buyer has procured a license. 
 
-You create tiers for your product, such as Basic, Intermediate, and Premium. The buyer
-then selects one of the predefined tiers.
+You create tiers for your product, such as Basic, Intermediate, and Premium. The buyer then selects one of the predefined tiers.
 
 The application doesn't need to track or meter usage of the application.
 
-With the tiered license model, the entitlements aren't counted but instead signify a
-tier of service that was procured by the customer.
+With the tiered license model, the entitlements aren't counted but instead signify a tier of service that was procured by the customer. 
 
-If you want to offer bundled features together, tiers are preferable.
+If you want to offer bundled features together, tiers are preferable. 
 
-###### Example of Basic, Intermediate, and Premium tiers
-
-A customer can sign a contract for one of three possible tiers of the software: Basic,
-Intermediate, or Premium. Each of these tiers has its own pricing. Your software can
-identify the tier that the customer has signed up for by invoking the
-`CheckoutLicense` API operation and specifying all possible tiers in the
-request.
-
-The response of the request contains the entitlement corresponding to the tier that
-the customer has procured. Based on this information, the software can provision the
-appropriate customer experience.
+**Example of Basic, Intermediate, and Premium tiers**  
+A customer can sign a contract for one of three possible tiers of the software: Basic, Intermediate, or Premium. Each of these tiers has its own pricing. Your software can identify the tier that the customer has signed up for by invoking the `CheckoutLicense` API operation and specifying all possible tiers in the request.   
+The response of the request contains the entitlement corresponding to the tier that the customer has procured. Based on this information, the software can provision the appropriate customer experience.
 
 #### Request
+<a name="container-LM-tiered-request"></a>
 
 ```
 linux-machine  ~]$ aws  license-manager   checkout-license\
@@ -288,13 +217,14 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 ```
 
 #### Response
+<a name="container-LM-tiered-response"></a>
 
 ```
 {
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
     {
-      "Name": "IntermediateTier",
+      "Name": "IntermediateTier", 
       "Units": "None"
     }
 },
@@ -306,103 +236,87 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 ```
 
 ## AWS License Manager integration prerequisites
+<a name="container-LM-prereqs"></a>
 
 Before publishing the product, you must do the following:
 
-1. Create a new container product in the AWS Marketplace Management Portal, and make a note of its product
-   code.
+1. Create a new container product in the AWS Marketplace Management Portal, and make a note of its product code.
 
-For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product "container-product-getting-started.md#create-container-product"). 2. Use an IAM role for the task or pod running your application with the IAM
-permissions necessary to call the `CheckoutLicense`,
-`ExtendLicenseConsumption`, and `CheckInLicense` API
-operations.
+   For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product).
 
-The required IAM permissions are detailed in the following IAM policy.
+1. Use an IAM role for the task or pod running your application with the IAM permissions necessary to call the `CheckoutLicense`, `ExtendLicenseConsumption`, and `CheckInLicense` API operations.
 
-JSON
+   The required IAM permissions are detailed in the following IAM policy.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"VisualEditorO",
- "Effect":"Allow",
- "Action":[
- "license-manager:CheckoutLicense",
- "license-manager:GetLicense",
- "license-manager:CheckInLicense",
- "license-manager:ExtendLicenseConsumption",
- "license-manager:ListReceivedLicenses"
- ],
- "Resource":"*"
- }
- ]
-}`
+------
+#### [ JSON ]
 
-```
+****  
 
-3. Make a test call to the `RegisterUsage` API operation with a record for all
-   of the pricing dimensions you deﬁne.
+   ```
+   {
+      "Version":"2012-10-17",		 	 	 
+      "Statement":[
+         {
+            "Sid":"VisualEditorO",
+            "Effect":"Allow",
+            "Action":[
+               "license-manager:CheckoutLicense",
+               "license-manager:GetLicense",
+               "license-manager:CheckInLicense",
+               "license-manager:ExtendLicenseConsumption",
+               "license-manager:ListReceivedLicenses"
+            ],
+            "Resource":"*"
+         }
+      ]
+   }
+   ```
+
+------
+
+1. Make a test call to the `RegisterUsage` API operation with a record for all of the pricing dimensions you deﬁne.
 
 ## Integrating a container product with License Manager
+<a name="container-integrate-with-LM"></a>
 
-###### To integrate your container-based product with License Manager
+**To integrate your container-based product with License Manager**
 
-1. Set IAM permissions to call License Manager. For more information, see [AWS License Manager integration prerequisites](#container-LM-prereqs "#container-LM-prereqs").
-2. Download the AWS SDK.
+1. Set IAM permissions to call License Manager. For more information, see [AWS License Manager integration prerequisites](#container-LM-prereqs).
 
-###### Note
+1. Download the AWS SDK.
+**Note**  
+Don't configure AWS credentials within your software. AWS credentials for the buyer are automatically obtained at runtime when your container is running within an Amazon EC2 instance, Amazon ECS task, or Amazon EKS pod.
 
-Don't configure AWS credentials within your software. AWS credentials for the
-buyer are automatically obtained at runtime when your container is running within an
-Amazon EC2 instance, Amazon ECS task, or Amazon EKS pod. 3. Add license checks to your product.
+1. Add license checks to your product.
 
-Your product can call the `CheckoutLicense` API operation wherever the
-license check should be performed. To check the license, your product must know:
+   Your product can call the `CheckoutLicense` API operation wherever the license check should be performed. To check the license, your product must know:
 
-    1. The trusted issuer of the license (AWS Marketplace)
-    2. The application's Product SKU (Product ID)
-    3. The entitlement to check for this application
+   1. The trusted issuer of the license (AWS Marketplace)
 
-The API calls vary based on what kind of pricing licenses you set up. 4. Publish your product listing on AWS Marketplace.
+   1. The application's Product SKU (Product ID)
+
+   1. The entitlement to check for this application
+
+   The API calls vary based on what kind of pricing licenses you set up.
+
+1. Publish your product listing on AWS Marketplace.
 
 ## License Manager API operations
+<a name="container-LM-API-calls"></a>
 
-To manage the licenses stored in the customer's License Manager account, your software can use the
-following API operations:
-
-- `GetLicense` – An API that the software can query. It retrieves the
-  status of a purchased license (i.e. expired or expiring soon) and sends a status
-  notification to the customer.
-- `CheckoutLicense` – Discovers licenses that the user has purchased.
-  You can also use the `CheckoutLicense` API operation to update the license
-  quantity when the user has consumed some quantity of licenses. With
-  `CheckoutLicense`, you can keep checking out the quantities of licenses used
-  by the customer. When the customer exhausts all the licenses, this call returns an error.
-  For information about the suggested cadence to run `CheckoutLicense`, see [License renewals and upgrades](#container-LM-lic-renew-upgrade "#container-LM-lic-renew-upgrade").
-- `ExtendLicenseConsumption` – In case of floating dimensions, when
-  the software checks out a license, the license will return to the pool automatically after
-  60 minutes. If you want to extend the time the license remains checked out, use the
-  `ExtendLicenseConsumption` API operation to extend the license for another 60
-  minutes.
-- `CheckInLicense` – In case of floating dimensions, when you want to
-  return the license to the entitlement pool, use the `CheckInLicense` API
-  operation.
-- `ListReceivedLicenses` API – Lists licenses purchased by the
-  buyer.
+To manage the licenses stored in the customer's License Manager account, your software can use the following API operations:
++ `GetLicense` – An API that the software can query. It retrieves the status of a purchased license (i.e. expired or expiring soon) and sends a status notification to the customer.
++ `CheckoutLicense` – Discovers licenses that the user has purchased. You can also use the `CheckoutLicense` API operation to update the license quantity when the user has consumed some quantity of licenses. With `CheckoutLicense`, you can keep checking out the quantities of licenses used by the customer. When the customer exhausts all the licenses, this call returns an error. For information about the suggested cadence to run `CheckoutLicense`, see [License renewals and upgrades](#container-LM-lic-renew-upgrade).
++ `ExtendLicenseConsumption` – In case of floating dimensions, when the software checks out a license, the license will return to the pool automatically after 60 minutes. If you want to extend the time the license remains checked out, use the `ExtendLicenseConsumption` API operation to extend the license for another 60 minutes.
++ `CheckInLicense` – In case of floating dimensions, when you want to return the license to the entitlement pool, use the `CheckInLicense` API operation.
++ `ListReceivedLicenses` API – Lists licenses purchased by the buyer.
 
 ## License renewals and upgrades
+<a name="container-LM-lic-renew-upgrade"></a>
 
-Customers can renew or upgrade their licenses on the AWS Marketplace Management Portal. After they make an
-additional purchase, AWS Marketplace generates a new version of the license that reflects the new
-entitlements. Your software reads the new entitlements by using the same API operations. You
-don't have to do anything different in terms of License Manager integration to handle renewals and
-upgrades.
+Customers can renew or upgrade their licenses on the AWS Marketplace Management Portal. After they make an additional purchase, AWS Marketplace generates a new version of the license that reflects the new entitlements. Your software reads the new entitlements by using the same API operations. You don't have to do anything different in terms of License Manager integration to handle renewals and upgrades.
 
-Due to license renewals, upgrades, cancellations, and so on, we recommend that your
-product calls the `CheckoutLicense` API operation at a regular cadence while the
-product is in use. By using the `CheckoutLicense` API operation at a regular
-cadence, the product can detect changes in entitlements such as upgrades and expiry.
+Due to license renewals, upgrades, cancellations, and so on, we recommend that your product calls the `CheckoutLicense` API operation at a regular cadence while the product is in use. By using the `CheckoutLicense` API operation at a regular cadence, the product can detect changes in entitlements such as upgrades and expiry.
 
-We recommend that you perform the `CheckoutLicense` API call every 15 minutes.
+We recommend that you perform the `CheckoutLicense` API call every 15 minutes. 

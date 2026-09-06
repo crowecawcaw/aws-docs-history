@@ -1,163 +1,128 @@
+
+
 # Integrating your container product with the AWS Marketplace Metering Service using the AWS SDK for Java
+<a name="java-integration-example-registerusage"></a>
 
-You can use the AWS SDK for Java to integrate with the AWS Marketplace Metering Service. Continuous metering for
-software use is automatically handled by the AWS Marketplace Metering Control Plane.
-Your software isn't required to perform any metering specific actions except calling
-`RegisterUsage` once for metering of software use to commence. This topic
-provides an example implementation using the AWS SDK for Java to integrate with the [AWS Marketplace Metering Service](../../../marketplacemetering/latest/APIReference/Welcome.md "../../../marketplacemetering/latest/APIReference/Welcome.md")'s `RegisterUsage` action.
+You can use the AWS SDK for Java to integrate with the AWS Marketplace Metering Service. Continuous metering for software use is automatically handled by the AWS Marketplace Metering Control Plane. Your software isn't required to perform any metering specific actions except calling `RegisterUsage` once for metering of software use to commence. This topic provides an example implementation using the AWS SDK for Java to integrate with the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html)'s `RegisterUsage` action. 
 
-`RegisterUsage` must be called immediately at the time of launching a
-container. If you don't register the container in the first 6 hours of the container launch,
-AWS Marketplace Metering Service doesn't provide any metering guarantees for previous months. However, the
-metering will continue for the current month forward until the container ends.
+`RegisterUsage` must be called immediately at the time of launching a container. If you don't register the container in the first 6 hours of the container launch, AWS Marketplace Metering Service doesn't provide any metering guarantees for previous months. However, the metering will continue for the current month forward until the container ends.
 
-For the full source code, see [RegisterUsage Java example](#registerusage-java-example "#registerusage-java-example"). Many of these steps apply regardless of
-the AWS SDK language.
+For the full source code, see [RegisterUsage Java example](#registerusage-java-example). Many of these steps apply regardless of the AWS SDK language. 
 
-###### Example steps for AWS Marketplace Metering Service integration
 
-1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
-2. From **Assets** choose **Containers** to start
-   creating a new container product. Creating the product generates the product code
-   for the product to integrate with your container image. For information about setting
-   IAM permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md").
-3. Download the public [AWS Java
-   SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/").
 
-###### Important
+**Example steps for AWS Marketplace Metering Service integration**
 
-To call the metering APIs from Amazon EKS, you must [use a
-supported AWS SDK](../../../eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.md "../../../eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.md") and run on an Amazon EKS cluster running Kubernetes
-1.13 or later. 4. (Optional) If you're integrating with the `RegisterUsage` action and
-you want to perform digital signature verification, you need to configure the [BouncyCastle](https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on "https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on") signature verification library in your application
-classpath.
+1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
 
-If you want to use JSON Web Token (JWT), you must also include [JWT Java](https://jwt.io/ "https://jwt.io/") libraries in your application classpath.
-Using JWT provides a simpler approach to signature verification but is not required,
-and you can use standalone BouncyCastle instead. Whether you use JWT or
-BouncyCastle, you need to use a build system such as Maven to include transitive
-dependencies of BouncyCastle or JWT in your application classpath.
+1. From **Assets** choose **Containers** to start creating a new container product. Creating the product generates the product code for the product to integrate with your container image. For information about setting IAM permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md).
 
-```
-// Required for signature verification using code sample
-<dependency>
-    <groupId>org.bouncycastle</groupId>
-    <artifactId>bcpkix-jdk15on</artifactId>
-    <version>1.60</version>
-</dependency>
+1.  Download the public [AWS Java SDK](https://aws.amazon.com/sdk-for-java/). 
+**Important**  
+ To call the metering APIs from Amazon EKS, you must [use a supported AWS SDK](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.html) and run on an Amazon EKS cluster running Kubernetes 1.13 or later. 
 
-// This one is only required for JWT
-<dependency>
-    <groupId>com.nimbusds</groupId>
-    <artifactId>nimbus-jose-jwt</artifactId>
-    <version>6.0</version>
-</dependency>
-```
+1.  (Optional) If you're integrating with the `RegisterUsage` action and you want to perform digital signature verification, you need to configure the [BouncyCastle](https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on) signature verification library in your application classpath.
 
-5. Call `RegisterUsage` from each paid container image in your product
-   offering. `ProductCode` and `PublicKeyVersion` are required
-   parameters, and all other inputs are optional. The following is an example payload
-   for `RegisterUsage`.
+   If you want to use JSON Web Token (JWT), you must also include [JWT Java](https://jwt.io/) libraries in your application classpath. Using JWT provides a simpler approach to signature verification but is not required, and you can use standalone BouncyCastle instead. Whether you use JWT or BouncyCastle, you need to use a build system such as Maven to include transitive dependencies of BouncyCastle or JWT in your application classpath.
 
-```
-{
-    "ProductCode" : "string", // (required)
-    "PublicKeyVersion": 1,    // (required)
-    "Nonce": "string",        // (optional) to scope down the registration
-                              //            to a specific running software
-                              //            instance and guard against
-                              //            replay attacks
-}
-```
+   ```
+   // Required for signature verification using code sample
+   <dependency>
+       <groupId>org.bouncycastle</groupId>
+       <artifactId>bcpkix-jdk15on</artifactId>
+       <version>1.60</version>
+   </dependency>
+   
+   // This one is only required for JWT
+   <dependency>
+       <groupId>com.nimbusds</groupId>
+       <artifactId>nimbus-jose-jwt</artifactId>
+       <version>6.0</version>
+   </dependency>
+   ```
 
-###### Note
+1.  Call `RegisterUsage` from each paid container image in your product offering. `ProductCode` and `PublicKeyVersion` are required parameters, and all other inputs are optional. The following is an example payload for `RegisterUsage`. 
 
-It is possible to see transient issues in connecting to the AWS Marketplace Metering Service. AWS Marketplace
-strongly recommends implementing retries for up to 30 minutes, with exponential
-back off, to avoid short-term outages or network issues. 6. `RegisterUsage` generates an RSA-PSS digital signature using SHA-256 that
-you can use to verify request authenticity. The signature includes the following
-fields: `ProductCode`, `PublicKeyVersion`, and
-`Nonce`. To verify the digital signature, you must retain these
-fields from the request. The following code is an example response to a
-`RegisterUsage` call.
+   ```
+   {
+       "ProductCode" : "string", // (required)
+       "PublicKeyVersion": 1,    // (required)
+       "Nonce": "string",        // (optional) to scope down the registration
+                                 //            to a specific running software
+                                 //            instance and guard against
+                                 //            replay attacks
+   }
+   ```
+**Note**  
+It is possible to see transient issues in connecting to the AWS Marketplace Metering Service. AWS Marketplace strongly recommends implementing retries for up to 30 minutes, with exponential back off, to avoid short-term outages or network issues.
 
-```
-{
-"Signature": "<<JWT Token>>"
-}
+1.  `RegisterUsage` generates an RSA-PSS digital signature using SHA-256 that you can use to verify request authenticity. The signature includes the following fields: `ProductCode`, `PublicKeyVersion`, and `Nonce`. To verify the digital signature, you must retain these fields from the request. The following code is an example response to a `RegisterUsage` call. 
 
-// Where the JWT Token is composed of 3 dot-separated,
-// base-64 URL Encoded sections.
-// e.g. eyJhbGcVCJ9.eyJzdWIMzkwMjJ9.rrO9Qw0SXRWTe
+   ```
+   {
+   "Signature": "<<JWT Token>>"
+   }
+   
+   // Where the JWT Token is composed of 3 dot-separated, 
+   // base-64 URL Encoded sections.
+   // e.g. eyJhbGcVCJ9.eyJzdWIMzkwMjJ9.rrO9Qw0SXRWTe
+   
+   // Section 1: Header/Algorithm
+   {
+   "alg": "PS256",
+   "typ": "JWT"
+   }
+   
+   // Section 2: Payload
+   {
+   "ProductCode" : "string",
+   "PublicKeyVersion": 1,
+   "Nonce": "string",
+   "iat": date // JWT issued at claim 
+   }
+   
+   // Section 3: RSA-PSS SHA256 signature
+   "rrO9Q4FEi3gweH3X4lrt2okf5zwIatUUwERlw016wTy_21Nv8S..."
+   ```
 
-// Section 1: Header/Algorithm
-{
-"alg": "PS256",
-"typ": "JWT"
-}
+1. Rebuild a new version of your container image that includes the `RegisterUsage` call, tag the container, and push it to any container registry that is compatible with Amazon ECS or Amazon EKS, such as Amazon ECR or Amazon ECR Public. If you are using Amazon ECR, ensure that the account launching the Amazon ECS task or Amazon EKS pod has permissions on the Amazon ECR repository. Otherwise, the launch fails.
 
-// Section 2: Payload
-{
-"ProductCode" : "string",
-"PublicKeyVersion": 1,
-"Nonce": "string",
-"iat": date // JWT issued at claim
-}
+1.  Create an [IAM](https://aws.amazon.com/iam/) role that grants permission for your container to call `RegisterUsage`, as defined in the following code. You must supply this IAM role in the [Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_role_arn) parameter of the Amazon ECS task or Amazon EKS pod definition.
 
-// Section 3: RSA-PSS SHA256 signature
-"rrO9Q4FEi3gweH3X4lrt2okf5zwIatUUwERlw016wTy_21Nv8S..."
-```
+------
+#### [ JSON ]
 
-7. Rebuild a new version of your container image that includes the
-   `RegisterUsage` call, tag the container, and push it to any container
-   registry that is compatible with Amazon ECS or Amazon EKS, such as Amazon ECR or Amazon ECR Public. If
-   you are using Amazon ECR, ensure that the account launching the Amazon ECS task or Amazon EKS pod
-   has permissions on the Amazon ECR repository. Otherwise, the launch fails.
-8. Create an [IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/") role that grants
-   permission for your container to call `RegisterUsage`, as defined in the
-   following code. You must supply this IAM role in the [Task Role](../../../AmazonECS/latest/developerguide/task_definition_parameters.md#task_role_arn "../../../AmazonECS/latest/developerguide/task_definition_parameters.md#task_role_arn") parameter of the Amazon ECS task or Amazon EKS pod definition.
+****  
 
-JSON
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Action": [
+                   "aws-marketplace:RegisterUsage"
+                   ],
+                   "Effect": "Allow",
+                   "Resource": "*"
+           }
+       ]
+   }
+   ```
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "aws-marketplace:RegisterUsage"
- ],
- "Effect": "Allow",
- "Resource": "*"
- }
- ]
-}`
+------
 
-```
+1. Create an Amazon ECS task or Amazon EKS pod definition that references the container that has integrated with AWS Marketplace and references the IAM role that you created in step 7. You should enable AWS CloudTrail logging in the task definition if you want to see logging. 
 
-9. Create an Amazon ECS task or Amazon EKS pod definition that references the container that
-   has integrated with AWS Marketplace and references the IAM role that you created in step 7.
-   You should enable AWS CloudTrail logging in the task definition if you want to see
-   logging.
-10. Create an Amazon ECS or Amazon EKS cluster to execute your task or pod. For more information
-    about creating an Amazon ECS cluster, see [Creating a Cluster](../../../AmazonECS/latest/userguide/create_cluster.md "../../../AmazonECS/latest/userguide/create_cluster.md") in the _Amazon Elastic Container Service
-    Developer Guide_. For more information about creating an Amazon EKS cluster
-    (using Kubernetes version 1.1.3.x or later), see [Creating an Amazon EKS
-    Cluster](../../../eks/latest/userguide/create_cluster.md "../../../eks/latest/userguide/create_cluster.md").
-11. Configure the Amazon ECS or Amazon EKS cluster and launch the Amazon ECS task definition or Amazon EKS
-    pod that you created, in the us-east-1 AWS Region. It's only during
-    this testing process, before the product is live, that you have to use this
-    region.
-12. When you get a valid response back from `RegisterUsage`, you can begin
-    creating your container product. For questions, contact the [AWS Marketplace Seller
-    Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
+1. Create an Amazon ECS or Amazon EKS cluster to execute your task or pod. For more information about creating an Amazon ECS cluster, see [Creating a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/userguide/create_cluster.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about creating an Amazon EKS cluster (using Kubernetes version 1.1.3.x or later), see [Creating an Amazon EKS Cluster](https://docs.aws.amazon.com/eks/latest/userguide/create_cluster.html).
+
+1. Configure the Amazon ECS or Amazon EKS cluster and launch the Amazon ECS task definition or Amazon EKS pod that you created, in the us-east-1 AWS Region. It's only during this testing process, before the product is live, that you have to use this region.
+
+1. When you get a valid response back from `RegisterUsage`, you can begin creating your container product. For questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
 
 ## RegisterUsage Java example
+<a name="registerusage-java-example"></a>
 
-The following example uses the AWS SDK for Java and AWS Marketplace Metering Service to call the
-`RegisterUsage` operation. Signature verification is optional, but if you
-want to perform signature verification, you must include the required digital signature
-verification libraries. This example is for illustrative purposes only.
+The following example uses the AWS SDK for Java and AWS Marketplace Metering Service to call the `RegisterUsage` operation. Signature verification is optional, but if you want to perform signature verification, you must include the required digital signature verification libraries. This example is for illustrative purposes only. 
 
 ```
 import com.amazonaws.auth.PEM;

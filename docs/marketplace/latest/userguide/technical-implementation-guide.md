@@ -1,75 +1,78 @@
+
+
 # Using the AWS Marketplace Commerce Analytics Service with the AWS CLI and AWS SDK for Java
+<a name="technical-implementation-guide"></a>
 
-With the AWS Marketplace Commerce Analytics Service, you can programmatically access product and customer data
-through AWS Marketplace. The AWS Marketplace Commerce Analytics Service is provided through the [AWS SDK](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/"). You use the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") and the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/") to interact with the Commerce Analytics Service.
-These sections show you how to implement the Commerce Analytics Service by using the AWS CLI and SDK for Java.
+With the AWS Marketplace Commerce Analytics Service, you can programmatically access product and customer data through AWS Marketplace. The AWS Marketplace Commerce Analytics Service is provided through the [AWS SDK](https://aws.amazon.com/tools/). You use the [AWS CLI](https://aws.amazon.com/cli/) and the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/) to interact with the Commerce Analytics Service. These sections show you how to implement the Commerce Analytics Service by using the AWS CLI and SDK for Java.
 
-###### Topics
-
-- [IAM policies for Commerce Analytics Service](#aws-marketplace-commerce-analytics-iam-permissions "#aws-marketplace-commerce-analytics-iam-permissions")
-- [Making Requests with the AWS CLI](#making-requests-with-aws-cli "#making-requests-with-aws-cli")
-- [Making requests with the AWS SDK for Java](#making-requests-with-aws-java-sdk "#making-requests-with-aws-java-sdk")
+**Topics**
++ [IAM policies for Commerce Analytics Service](#aws-marketplace-commerce-analytics-iam-permissions)
++ [Making Requests with the AWS CLI](#making-requests-with-aws-cli)
++ [Making requests with the AWS SDK for Java](#making-requests-with-aws-java-sdk)
 
 ## IAM policies for Commerce Analytics Service
+<a name="aws-marketplace-commerce-analytics-iam-permissions"></a>
 
 To allow your users to use the Commerce Analytics Service, the following permissions are required.
 
 Use the following IAM permissions policy to enroll in the AWS Marketplace Commerce Analytics Service.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "iam:ListRoles",
- "iam:CreateRole",
- "iam:CreatePolicy",
- "iam:AttachRolePolicy",
- "aws-marketplace-management:viewReports"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRoles",
+                "iam:CreateRole",
+                "iam:CreatePolicy",
+                "iam:AttachRolePolicy",
+                "aws-marketplace-management:viewReports"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-Use the following IAM permissions policy to allow an user to make requests to the
-AWS Marketplace Commerce Analytics Service.
+------
 
-JSON
+Use the following IAM permissions policy to allow an user to make requests to the AWS Marketplace Commerce Analytics Service.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "marketplacecommerceanalytics:GenerateDataSet",
- "Resource": "*"
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "marketplacecommerceanalytics:GenerateDataSet",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-For more information, see [Creating Policies in the IAM console](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor") in the
-_IAM User Guide_.
+------
+
+For more information, see [Creating Policies in the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*.
 
 ## Making Requests with the AWS CLI
+<a name="making-requests-with-aws-cli"></a>
 
-To get started, download the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"). The
-following AWS CLI example makes a request for the **Hourly/Monthly
-Subscriptions** dataset for October 1, 2017. This dataset is published to the
-**demo-bucket** Amazon S3 bucket using the prefix **demo-prefix**, and the notification message is delivered to the
-**demo-topic** Amazon SNS topic.
+To get started, download the [AWS CLI](https://aws.amazon.com/cli/). The following AWS CLI example makes a request for the **Hourly/Monthly Subscriptions** dataset for October 1, 2017. This dataset is published to the **demo-bucket** Amazon S3 bucket using the prefix **demo-prefix**, and the notification message is delivered to the **demo-topic** Amazon SNS topic. 
 
 ```
-
 aws marketplacecommerceanalytics generate-data-set \
 --data-set-type "customer_subscriber_hourly_monthly_subscriptions" \
 --data-set-publication-date "2017-10-01T00:00:00Z" \
@@ -77,31 +80,22 @@ aws marketplacecommerceanalytics generate-data-set \
 --destination-s3-bucket-name "demo-bucket" \
 --destination-s3-prefix "demo-prefix" \
 --sns-topic-arn "arn:aws:sns:us-west-2:123412341234:demo-topic"
-
 ```
 
-This request returns an identifier that is unique for each request. You can use this
-identifier to correlate requests with notifications published to your Amazon SNS topic. The
-following example is an example of this identifier.
+ This request returns an identifier that is unique for each request. You can use this identifier to correlate requests with notifications published to your Amazon SNS topic. The following example is an example of this identifier.
 
 ```
-
 {
    "dataSetRequestId": "646dd4ed-6806-11e5-a6d8-fd5dbcaa74ab"
 }
-
 ```
 
 ## Making requests with the AWS SDK for Java
+<a name="making-requests-with-aws-java-sdk"></a>
 
-To start, download the [AWS Java
-SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"). The following AWS SDK for Java example makes a request for the **Hourly/Monthly Subscriptions** dataset for October 1, 2015. This
-dataset is published to the **demo-bucket** Amazon S3 bucket using
-the prefix **demo-prefix**, and the notification message is
-delivered to the **demo-topic** Amazon SNS topic.
+To start, download the [AWS Java SDK](https://aws.amazon.com/sdk-for-java/). The following AWS SDK for Java example makes a request for the **Hourly/Monthly Subscriptions** dataset for October 1, 2015. This dataset is published to the **demo-bucket** Amazon S3 bucket using the prefix **demo-prefix**, and the notification message is delivered to the **demo-topic** Amazon SNS topic. 
 
 ```
-
 /*
 * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
@@ -131,7 +125,7 @@ import com.amazonaws.services.marketplacecommerceanalytics.AWSMarketplaceCommerc
 import com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetRequest;
 import com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult;
 /**
-* This sample demonstrates how to make basic requests to the AWS Marketplace Commerce
+* This sample demonstrates how to make basic requests to the AWS Marketplace Commerce 
 * Analytics service using the AWS SDK for Java.
 * <p>
 * <b>Prerequisites:</b> Follow the on-boarding guide: {URL OR SOMETHING}
@@ -165,7 +159,7 @@ AWSMarketplaceCommerceAnalyticsClient client = new AWSMarketplaceCommerceAnalyti
 Region usEast1 = Region.getRegion(Regions.US_EAST_1);
 client.setRegion(usEast1);
 System.out.println("===============================================================");
-System.out.println("Getting Started with AWS Marketplace Commerce Analytics Service");
+System.out.println("Getting Started with AWS Marketplace Commerce Analytics Service"); 
 System.out.println("===============================================================\n");
 // Create a data set request with the desired parameters
 GenerateDataSetRequest request = new GenerateDataSetRequest();
@@ -182,11 +176,11 @@ try {
 // Make the request to the service
 GenerateDataSetResult result = client.generateDataSet(request);
 // The Data Set Request ID is a unique identifier that you can use to correlate the
-// request with responses on your Amazon SNS topic
+// request with responses on your Amazon SNS topic 
 System.out.println("Request successful, unique ID: " + result.getDataSetRequestId());
 } catch (AmazonServiceException ase) {
 System.out.println("Caught an AmazonServiceException, which means your request made it "
-+ "to the AWS Marketplace Commerce Analytics service, but was rejected with an "
++ "to the AWS Marketplace Commerce Analytics service, but was rejected with an " 
 + "error response for some reason.");
 System.out.println("Error Message: " + ase.getMessage());
 System.out.println("HTTP Status Code: " + ase.getStatusCode());
@@ -208,18 +202,15 @@ utcDateFormat.setTimeZone(utcTimeZone);
 return utcDateFormat.parse(dateIso8601);
 }
 }
-
 ```
 
 You should expect results similar to this example.
 
 ```
-
 ===============================================================
-Getting Started with AWS Marketplace Commerce Analytics Service
+Getting Started with AWS Marketplace Commerce Analytics Service 
 ===============================================================
 Creating a request for data set customer_subscriber_hourly_monthly_subscriptions for publication
 date Sun Jun 08 17:00:00 PDT 2014.
 Request successful, unique ID: c59aff81-6875-11e5-a6d8-fd5dbcaa74ab
-
 ```

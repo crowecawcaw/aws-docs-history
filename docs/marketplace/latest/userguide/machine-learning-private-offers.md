@@ -1,65 +1,59 @@
+
+
 # Creating private offers for machine learning products
+<a name="machine-learning-private-offers"></a>
 
-You can negotiate and offer a private offer directly to customers for your machine learning products. For more information on private offers, see
-[Preparing a private offer for your AWS Marketplace product](private-offers-overview.md "private-offers-overview.md").
+ You can negotiate and offer a private offer directly to customers for your machine learning products. For more information on private offers, see [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md). 
 
-###### Prerequisites:
+**Prerequisites:**
++  You must have a paid listing in AWS Marketplace. 
++  You must have access to AWS Partner Central. 
 
-- You must have a paid listing in AWS Marketplace.
-- You must have access to AWS Partner Central.
+**To create a private offer for a machine learning product:**
 
-###### To create a private offer for a machine learning product:
+1.  Sign in to AWS Partner Central. 
 
-1. Sign in to AWS Partner Central.
-2. Choose **Private offers**, and then choose **Create private
-   offer**
-3. On the **Create private offer** page, select the product that
-   you want to create a private offer for. You can only create offers for available
-   products.
-4. On the **Offer details** page:
+1. Choose **Private offers**, and then choose **Create private offer**
 
-   1. Enter the offer name and description.
-   2. Select the renewal option.
-   3. Set the offer expiration date. Offers expire at 23:59:59 UTC on the set
-      date.
+1.  On the **Create private offer** page, select the product that you want to create a private offer for. You can only create offers for available products. 
 
-5. Choose **Next** twice.
-6. On the **Configure offer pricing and duration** page, specify:
+1.  On the **Offer details** page: 
 
-   - Pricing option
+   1.  Enter the offer name and description. 
 
-   (For more information, see [Private offers for ML products](private-offers-supported-product-types.md#ml-private-offers "private-offers-supported-product-types.md#ml-private-offers"))
-   - Usage or contract duration
-   - Offer currency
-   - Pricing dimensions.
+   1.  Select the renewal option. 
 
-   (For usage pricing, the usage based rates only apply during the offer term. For contracts, the usage based rates only apply when the contract term expires and are perpetual.)
+   1.  Set the offer expiration date. Offers expire at 23:59:59 UTC on the set date. 
 
-###### Note
+1. Choose **Next** twice.
 
-For more information on installment plans, see [Private offer installment plans](installment-plans.md "installment-plans.md"). 7. Choose **Next**. 8. On the **Add buyers** page, enter the AWS account IDs for your
-buyers. Then choose **Next**.
+1.  On the **Configure offer pricing and duration** page, specify: 
+   +  Pricing option
 
-###### Important
+     (For more information, see [Private offers for ML products](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-supported-product-types.html#ml-private-offers))
+   + Usage or contract duration
+   + Offer currency
+   + Pricing dimensions.
 
-For linked accounts to benefit from a private offer:
+     (For usage pricing, the usage based rates only apply during the offer term. For contracts, the usage based rates only apply when the contract term expires and are perpetual.)
+**Note**  
+For more information on installment plans, see [Private offer installment plans](installment-plans.md). 
 
-    * Include the payer AWS account ID.
-    * The payer account must accept the hourly terms of the private offer first.
-    * After the payer account accepts, linked accounts can then accept the private offer.
+1. Choose **Next**.
 
-9. On the **Configure legal terms and offer documents** page, add
-any custom terms, then choose **Next**.
+1. On the **Add buyers** page, enter the AWS account IDs for your buyers. Then choose **Next**. 
+**Important**  
+For linked accounts to benefit from a private offer:  
+Include the payer AWS account ID.
+The payer account must accept the hourly terms of the private offer first.
+After the payer account accepts, linked accounts can then accept the private offer.
 
-###### Note
+1. On the **Configure legal terms and offer documents** page, add any custom terms, then choose **Next**.
+**Note**  
+ You can add up to five files (legal terms, statement of work, bill of materials, pricing sheet, or addendums). The system combines these into one document. 
 
-You can add up to five files (legal terms, statement of work, bill of materials, pricing sheet, or addendums).
-The system combines these into one document. 10. On the **Review and create** page, verify the offer details and
-choose **Create offer**. 11. After the offer appears on the **Manage private offers** page,
-open the **Actions** menu, choose **Copy offer
-URL**, and email it to the buyer.
+1. On the **Review and create** page, verify the offer details and choose **Create offer**.
 
-###### Note
-
-Offers may take time to publish. You can edit offers on the **Manage private offers** page
-until a buyer accepts.
+1. After the offer appears on the **Manage private offers** page, open the **Actions** menu, choose **Copy offer URL**, and email it to the buyer.
+**Note**  
+ Offers may take time to publish. You can edit offers on the **Manage private offers** page until a buyer accepts. 

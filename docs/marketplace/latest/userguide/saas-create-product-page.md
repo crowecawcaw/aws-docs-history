@@ -1,68 +1,30 @@
+
+
 # Creating an initial SaaS product page on AWS Marketplace
+<a name="saas-create-product-page"></a>
 
-You can use your software as a service (SaaS) application metadata to create an initial
-SaaS product page in the AWS Marketplace catalog, using the AWS Marketplace Management Portal. You can then also add product
-information, product deployment details, and public offer details. Optionally, you
-can add accounts to the allowlist to test the
-product. For more information see the following procedure.
+You can use your software as a service (SaaS) application metadata to create an initial SaaS product page in the AWS Marketplace catalog, using the AWS Marketplace Management Portal. You can then also add product information, product deployment details, and public offer details. Optionally, you can add accounts to the allowlist to test the product. For more information see the following procedure.
 
-###### Use AI-assisted product listing
+**Use AI-assisted product listing**  
+You can use AI-assisted product listing in AWS Partner Assistant to generate product information for this step from a website URL or uploaded documents. The tool scores listing quality against AWS Marketplace standards and provides field-level recommendations to improve discoverability and buyer engagement before you submit. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
 
-You can use AI-assisted product listing in AWS Partner Assistant to generate
-product information for this step from a website URL or uploaded documents. The tool
-scores listing quality against AWS Marketplace standards and provides field-level recommendations
-to improve discoverability and buyer engagement before you submit. For more information,
-see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
+**To create an initial SaaS product page**
 
-###### To create an initial SaaS product page
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage).
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage "https://aws.amazon.com/marketplace/management/homepage").
-2. Choose **Create SaaS product**, and then choose **SaaS
-   product**.
-3. Generate a SaaS product ID and code. You can also add optional tags to support
-   tag-based authorization.
+1. Choose **Create SaaS product**, and then choose **SaaS product**.
 
-###### Note
+1. Generate a SaaS product ID and code. You can also add optional tags to support tag-based authorization.
+**Note**  
+For information about tag-based authorization, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources) in the *AWS Identity and Access Management User Guide*.
 
-For information about tag-based authorization, see [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources "../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources") in the
-_AWS Identity and Access Management User Guide_. 4. Use the self-service experience to create the AWS Marketplace listing. Add product
-information, product deployment details, and public offer details. Optionally, you
-can also add accounts to the allowlist to test the product.
+1. Use the self-service experience to create the AWS Marketplace listing. Add product information, product deployment details, and public offer details. Optionally, you can also add accounts to the allowlist to test the product.
+**Note**  
+If you need to end your session before finishing the steps, choose the **Save and exit** option to save your current selections to the staging area. This option creates a request to validate the information that you provided. While your request is being validated, you can't edit the product. If your request is successful, you can continue creating your product by choosing **Resume product creation**.  
+If your request isn't successful, it's because of a validation error, which is visible on the product request log. Select the request to view the error, and choose **Copy to new** under **Actions** to correct the error and resubmit the request. To update previous steps, open the product detail page and submit a change request.
+**Note**  
+For products using non-free pricing models (contract, usage, or contract with consumption), your price will default to $0.001 per dimension during testing. This price allows you to test your product in the **Limited** state without incurring a large bill. For products using the Free pricing model, dimensions will default to $0.00. For non-free pricing models, you'll provide your actual price when making your product public. Note that if all dimensions are set to $0.00, the product will automatically convert to the Free pricing model.
 
-###### Note
-
-If you need to end your session before finishing the steps, choose the
-**Save and exit** option to save your current selections to
-the staging area. This option creates a request to validate the information that
-you provided. While your request is being validated, you can't edit the product.
-If your request is successful, you can continue creating your product by
-choosing **Resume product creation**.
-
-If your request isn't successful, it's because of a validation error, which is
-visible on the product request log. Select the request to view the error, and
-choose **Copy to new** under **Actions** to
-correct the error and resubmit the request. To update previous steps, open the
-product detail page and submit a change request.
-
-###### Note
-
-For products using non-free pricing models (contract, usage, or contract with consumption),
-your price will default to $0.001 per dimension during testing. This price
- allows you to test your product in the **Limited** state
- without incurring a large bill. For products using the Free pricing model, 
- dimensions will default to $0.00. For non-free pricing models, you'll provide
-your actual price when making your product public. Note that if all dimensions
-are set to $0.00, the product will automatically convert to the Free pricing model. 5. Choose **Submit**. Then, AWS Marketplace validates the information. If the
-validation succeeds, AWS Marketplace releases the product in a **Limited**
-status. After the validation succeeds, you can preview, integrate, and test your
-product.
-
-###### Note
-
-While the validation is in progress, you can't edit the product. When your
-product is initially published, it's only accessible for the AWS account used
-to create the product and the AWS Marketplace Seller Operations team's test account. If
-you view the product from the **SaaS products** page, you can
-choose **View on AWS Marketplace** to view the product details as they
-will appear in AWS Marketplace for buyers. This detail listing isn't visible to other
-AWS Marketplace users.
+1. Choose **Submit**. Then, AWS Marketplace validates the information. If the validation succeeds, AWS Marketplace releases the product in a **Limited** status. After the validation succeeds, you can preview, integrate, and test your product.
+**Note**  
+While the validation is in progress, you can't edit the product. When your product is initially published, it's only accessible for the AWS account used to create the product and the AWS Marketplace Seller Operations team's test account. If you view the product from the **SaaS products** page, you can choose **View on AWS Marketplace** to view the product details as they will appear in AWS Marketplace for buyers. This detail listing isn't visible to other AWS Marketplace users. 

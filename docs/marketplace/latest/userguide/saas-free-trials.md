@@ -1,70 +1,65 @@
+
+
 # Creating a SaaS free trial offer in AWS Marketplace
+<a name="saas-free-trials"></a>
 
-As an AWS Marketplace seller, you can create software as a service (SaaS) free trial offers in the AWS Marketplace Management Portal (AMMP).
-Customers can evaluate software products before making large purchase decisions by using the
-SaaS free trial option. After a customer subscribes to your product, your product performs
-entitlement checks the same way it does for paid customers.
+As an AWS Marketplace seller, you can create software as a service (SaaS) free trial offers in the AWS Marketplace Management Portal (AMMP). Customers can evaluate software products before making large purchase decisions by using the SaaS free trial option. After a customer subscribes to your product, your product performs entitlement checks the same way it does for paid customers.
 
-Each AWS account can only use a free trial for a SaaS product once. The free usage amount
-granted during a free trial is not shared across linked accounts in an AWS organization.
-Different linked accounts within a single main payer account can create their own individual
-free trials.
+Each AWS account can only use a free trial for a SaaS product once. The free usage amount granted during a free trial is not shared across linked accounts in an AWS organization. Different linked accounts within a single main payer account can create their own individual free trials.
 
-###### Note
-
-- If you use the Seller Data Delivery Service (SDDS), you receive an [Agreement
-  details trial report](supplementary-reports.md "supplementary-reports.md") in your Amazon Simple Storage Service bucket. The report includes agreement
-  details such as the subscriber name and ID, offer ID, and agreement start and end dates.
-- Sellers also receive [Amazon Simple Notification Service (Amazon SNS)
-  notifications](saas-notification.md "saas-notification.md") when new subscriptions are created. Amazon SNS notifications include an
-  `isFreeTrialTermPresent` flag to identify free trial agreements.
-- Also, customers who subscribe to your free trial are redirected to your
-  registration URL with an additional token, `x-amzn-marketplace-offer-type=free-trial`.
-  You can use the token to create a unique registration experience for the customers who use your free trials.
+**Note**  
+If you use the Seller Data Delivery Service (SDDS), you receive an [Agreement details trial report](https://docs.aws.amazon.com/marketplace/latest/userguide/supplementary-reports.html) in your Amazon Simple Storage Service bucket. The report includes agreement details such as the subscriber name and ID, offer ID, and agreement start and end dates.
+Sellers also receive [Amazon Simple Notification Service (Amazon SNS) notifications](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html) when new subscriptions are created. Amazon SNS notifications include an `isFreeTrialTermPresent` flag to identify free trial agreements.
+Also, customers who subscribe to your free trial are redirected to your registration URL with an additional token, `x-amzn-marketplace-offer-type=free-trial`. You can use the token to create a unique registration experience for the customers who use your free trials.
 
 ## Creating a SaaS free trial offer
+<a name="creating-saas-free-trial"></a>
 
 Sellers can create SaaS free trial offers in the AWS Marketplace Management Portal (AMMP).
 
-###### To create a SaaS free trial offer
+**To create a SaaS free trial offer**
 
-1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
-2. Choose **Public free trials**.
-3. Choose **Create free trial offer**. Sellers can create one SaaS free
-   trial offer per each public SaaS product.
-4. For **Offer fundamentals**, select your **Product**
-   and then choose **Next**.
-5. In **Free trial settings**:
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home). 
 
-   1. Enter the number of days for your **Free trial length
-      (days)**.
+1. Choose **Public free trials**.
 
-   The duration of free trials range from 7–90 days. 2. View the **Product dimensions** from your existing public
-   offer.
+1. Choose **Create free trial offer**. Sellers can create one SaaS free trial offer per each public SaaS product.
 
-   You can't change the product dimensions for SaaS subscription free trials.
+1. For **Offer fundamentals**, select your **Product** and then choose **Next**.
 
-   You can set the quantity limits per each dimension for SaaS contract free trials,
-   and **Remove** or **Add dimensions**.
+1. In **Free trial settings**:
 
-6. View the **Service agreement**.
+   1. Enter the number of days for your **Free trial length (days)**.
 
-For the EULA version, you can select either **Standard contract for
-AWS Marketplace** or **Custom EULA**, and then choose **Review
-offer**. 7. Verify and review all information for the offer, and then choose **Create
-offer**.
+      The duration of free trials range from 7–90 days. 
+
+   1. View the **Product dimensions** from your existing public offer.
+
+      You can't change the product dimensions for SaaS subscription free trials.
+
+      You can set the quantity limits per each dimension for SaaS contract free trials, and **Remove** or **Add dimensions**.
+
+1. View the **Service agreement**.
+
+   For the EULA version, you can select either **Standard contract for AWS Marketplace** or **Custom EULA**, and then choose **Review offer**.
+
+1. Verify and review all information for the offer, and then choose **Create offer**.
 
 ## Cancelling a SaaS free trial offer
+<a name="cancelling-saas-free-trial"></a>
 
 Sellers can cancel free trial offers at any time from the AWS Marketplace Management Portal.
 
 To cancel a SaaS free trial offer
 
-1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
-2. Choose **Public free trials**.
-3. Select the offer.
-4. Choose **View offer**.
-5. Choose **Cancel offer**.
+1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
 
-After an offer is canceled, active agreements for this offer are active until expiration.
-New agreements for a canceled offer can't be created.
+1. Choose **Public free trials**.
+
+1. Select the offer.
+
+1. Choose **View offer**.
+
+1. Choose **Cancel offer**.
+
+After an offer is canceled, active agreements for this offer are active until expiration. New agreements for a canceled offer can't be created.
