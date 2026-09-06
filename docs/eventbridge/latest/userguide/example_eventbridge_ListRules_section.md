@@ -1,23 +1,19 @@
+
+
 # Use `ListRules` with an AWS SDK or CLI
+<a name="example_eventbridge_ListRules_section"></a>
 
 The following code examples show how to use `ListRules`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-List all of the rules for an event bus.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+List all of the rules for an event bus.  
 
 ```
     /// <summary>
@@ -44,51 +40,33 @@ List all of the rules for an event bus.
 
         return results;
     }
+```
++  For API details, see [ListRules](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To display a list of all CloudWatch Events rules**  
+This example displays all CloudWatch Events rules in the region:  
 
 ```
-
-- For API details, see
-  [ListRules](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To display a list of all CloudWatch Events rules**
-
-This example displays all CloudWatch Events rules in the region:
+aws events list-rules
+```
+**To display a list of CloudWatch Events rules beginning with a certain string.**  
+This example displays all CloudWatch Events rules in the region that have a name starting with "Daily":  
 
 ```
-`aws events list-rules`
-
+aws events list-rules --name-prefix {{"Daily"}}
 ```
++  For API details, see [ListRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rules.html) in *AWS CLI Command Reference*. 
 
-**To display a list of CloudWatch Events rules beginning with a certain string.**
+------
+#### [ Java ]
 
-This example displays all CloudWatch Events rules in the region that have a name starting with "Daily":
-
-```
-`aws events list-rules --name-prefix `"Daily"``
-
-```
-
-- For API details, see
-  [ListRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rules.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rules.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
-
-Enable a rule by using its rule name.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
+Enable a rule by using its rule name.  
 
 ```
     public static void listRules(EventBridgeClient eventBrClient) {
@@ -111,23 +89,14 @@ Enable a rule by using its rule name.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [ListRules](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListRules](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 suspend fun listRules() {
@@ -145,14 +114,9 @@ suspend fun listRules() {
         }
     }
 }
-
-
 ```
++  For API details, see [ListRules](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListRules](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

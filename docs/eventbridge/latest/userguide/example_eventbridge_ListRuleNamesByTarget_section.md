@@ -1,23 +1,19 @@
+
+
 # Use `ListRuleNamesByTarget` with an AWS SDK or CLI
+<a name="example_eventbridge_ListRuleNamesByTarget_section"></a>
 
 The following code examples show how to use `ListRuleNamesByTarget`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md) 
 
-- [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-List all of the rule names using the target.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+List all of the rule names using the target.  
 
 ```
     /// <summary>
@@ -43,42 +39,27 @@ List all of the rule names using the target.
 
         return results;
     }
+```
++  For API details, see [ListRuleNamesByTarget](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To display all the rules that have a specified target**  
+This example displays all rules that have the Lambda function named "MyFunctionName" as the target:  
 
 ```
-
-- For API details, see
-  [ListRuleNamesByTarget](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To display all the rules that have a specified target**
-
-This example displays all rules that have the Lambda function named "MyFunctionName" as the target:
-
+aws events list-rule-names-by-target --target-arn {{"arn:aws:lambda:us-east-1:123456789012:function:MyFunctionName"}}
 ```
-`aws events list-rule-names-by-target --target-arn `"arn:aws:lambda:us-east-1:123456789012:function:MyFunctionName"``
++  For API details, see [ListRuleNamesByTarget](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rule-names-by-target.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-- For API details, see
-  [ListRuleNamesByTarget](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rule-names-by-target.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rule-names-by-target.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
-
-List all of the rule names by using the target.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
+List all of the rule names by using the target.  
 
 ```
     public static void listTargetRules(EventBridgeClient eventBrClient, String topicArn) {
@@ -92,23 +73,14 @@ List all of the rule names by using the target.
             System.out.println("The rule name is " + rule);
         }
     }
-
-
 ```
++  For API details, see [ListRuleNamesByTarget](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListRuleNamesByTarget](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 suspend fun listTargetRules(topicArnVal: String?) {
@@ -124,14 +96,9 @@ suspend fun listTargetRules(topicArnVal: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [ListRuleNamesByTarget](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListRuleNamesByTarget](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,20 +1,16 @@
+
+
 # Sending events with `PutEvents` in Amazon EventBridge
+<a name="eb-putevents"></a>
 
-The `PutEvents` action sends multiple [events](eb-events.md "eb-events.md") to EventBridge in a single request. For
-more information, see [PutEvents](../APIReference/API_PutEvents.md "../APIReference/API_PutEvents.md") in the _Amazon EventBridge API Reference_ and [put-events](../../../cli/latest/reference/events/put-events.md "../../../cli/latest/reference/events/put-events.md") in the
-_AWS CLI Command Reference_.
+The `PutEvents` action sends multiple [events](eb-events.md) to EventBridge in a single request. For more information, see [PutEvents](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) in the *Amazon EventBridge API Reference* and [put-events](https://docs.aws.amazon.com/cli/latest/reference/events/put-events.html) in the *AWS CLI Command Reference*.
 
-Each `PutEvents` request can support a limited number of entries. For more
-information, see [Amazon EventBridge quotas](eb-quota.md "eb-quota.md"). The
-`PutEvents` operation attempts to process all entries in the natural order of
-the request. After you call `PutEvents`, EventBridge assigns each event a unique
-ID.
+Each `PutEvents` request can support a limited number of entries. For more information, see [Amazon EventBridge quotas](eb-quota.md). The `PutEvents` operation attempts to process all entries in the natural order of the request. After you call `PutEvents`, EventBridge assigns each event a unique ID.
 
-The following example Java code sends two identical events to
-EventBridge.
+The following example Java code sends two identical events to EventBridge.
 
-AWS SDK for Java Version
-2.x
+------
+#### [ AWS SDK for Java Version 2.x ]
 
 ```
 EventBridgeClient eventBridgeClient =
@@ -45,16 +41,15 @@ for (PutEventsResultEntry resultEntry: result.entries()) {
         System.out.println("PutEvents failed with Error Code: " + resultEntry.errorCode());
     }
 }
-
 ```
 
-AWS SDK for Java Version
-1.0
+------
+#### [ AWS SDK for Java Version 1.0 ]
 
 ```
 EventBridgeClient eventBridgeClient =
     EventBridgeClient.builder().build();
-
+    
 PutEventsRequestEntry requestEntry = new PutEventsRequestEntry()
         .withTime(new Date())
         .withSource("com.mycompany.myapp")
@@ -76,28 +71,20 @@ for (PutEventsResultEntry resultEntry : result.getEntries()) {
 }
 ```
 
-After you run this code, the `PutEvents` result includes an array of response
-entries. Each entry in the response array corresponds to an entry in the request array in
-order from the beginning to the end of the request and response. The response
-`Entries` array always includes the same number of entries as the request
-array.
+------
+
+After you run this code, the `PutEvents` result includes an array of response entries. Each entry in the response array corresponds to an entry in the request array in order from the beginning to the end of the request and response. The response `Entries` array always includes the same number of entries as the request array.
 
 ## Handling failures with `PutEvents`
+<a name="eb-failure-handling"></a>
 
-By default, if an individual entry within a request fails, EventBridge continues processing
-the rest of the entries in the request. A response `Entries` array can
-include both successful and unsuccessful entries. You must detect unsuccessful entries
-and include them in a subsequent call.
+By default, if an individual entry within a request fails, EventBridge continues processing the rest of the entries in the request. A response `Entries` array can include both successful and unsuccessful entries. You must detect unsuccessful entries and include them in a subsequent call.
 
-Successful result entries include an `Id` value, and unsuccessful result
-entries include `ErrorCode` and `ErrorMessage` values.
-`ErrorCode` describes the type of error. `ErrorMessage`
-provides more information about the error. The following example has three result
-entries for a `PutEvents` request. The second entry is unsuccessful.
+Successful result entries include an `Id` value, and unsuccessful result entries include `ErrorCode` and `ErrorMessage` values. `ErrorCode` describes the type of error. `ErrorMessage` provides more information about the error. The following example has three result entries for a `PutEvents` request. The second entry is unsuccessful.
 
 ```
 {
-    "FailedEntryCount": 1,
+    "FailedEntryCount": 1, 
     "Entries": [
         {
             "EventId": "11710aed-b79e-4468-a20b-bb3c0c3b4860"
@@ -112,19 +99,10 @@ entries for a `PutEvents` request. The second entry is unsuccessful.
 }
 ```
 
-###### Note
+**Note**  
+If you use `PutEvents` to publish an event to an event bus that does not exist, EventBridge event matching will not find a corresponding rule and will drop the event. Although EventBridge will send a `200` response, it will not fail the request or include the event in the `FailedEntryCount` value of the request response.
 
-If you use `PutEvents` to publish an event to an event bus that does not exist,
-EventBridge event matching will not find a corresponding rule and will drop the event.
-Although EventBridge will send a `200` response, it will not fail the request or include the event
-in the `FailedEntryCount` value of the request response.
-
-You can include entries that are unsuccessful in subsequent `PutEvents`
-requests. First, to find out if there are failed entries in the request, check the
-`FailedRecordCount` parameter in `PutEventsResult`. If it
-isn't zero, then you can add each `Entry` that has an `ErrorCode`
-that is not null to a subsequent request. The following example shows a failure
-handler.
+You can include entries that are unsuccessful in subsequent `PutEvents` requests. First, to find out if there are failed entries in the request, check the `FailedRecordCount` parameter in `PutEventsResult`. If it isn't zero, then you can add each `Entry` that has an `ErrorCode` that is not null to a subsequent request. The following example shows a failure handler.
 
 ```
 PutEventsRequestEntry requestEntry = new PutEventsRequestEntry()
@@ -160,9 +138,9 @@ while (putEventsResult.getFailedEntryCount() > 0) {
 ```
 
 ## Sending events using the AWS CLI
+<a name="eb-send-events-aws-cli"></a>
 
-You can use the AWS CLI to send custom events to EventBridge so they can be processed. The following example puts one custom
-event into EventBridge:
+You can use the AWS CLI to send custom events to EventBridge so they can be processed. The following example puts one custom event into EventBridge:
 
 ```
 aws events put-events \
@@ -186,41 +164,29 @@ You can also create a JSON file that contains custom events.
 ]
 ```
 
-Then, to use the AWS CLI to read the entries from this file and send events, at a
-command prompt, type:
+Then, to use the AWS CLI to read the entries from this file and send events, at a command prompt, type:
 
 ```
-aws events put-events --entries file://`entries.json`
+aws events put-events --entries file://{{entries.json}}
 ```
 
 ## Calculating PutEvents event entry size
+<a name="eb-putevent-size"></a>
 
-When you send custom events to EventBridge using the `PutEvents` action, you can batch
-up to 10 event entries into one request for efficiency. The total request size—that
-is, the sum of all event entries in the request—must be less than 1 MB (1,048,576 bytes). This limit
-applies to the request as a whole, not to individual entries. A single event can use
-up to the full 1 MB if it is the only entry in the request. You can calculate the
-entry size before you send the events.
+When you send custom events to EventBridge using the `PutEvents` action, you can batch up to 10 event entries into one request for efficiency. The total request size—that is, the sum of all event entries in the request—must be less than 1 MB (1,048,576 bytes). This limit applies to the request as a whole, not to individual entries. A single event can use up to the full 1 MB if it is the only entry in the request. You can calculate the entry size before you send the events.
 
-###### Note
 
-The size limit is imposed on the _entry_. Even if the entry is less
-than the size limit, the _event_ in EventBridge is always larger than the
-entry size due to the necessary characters and keys of the JSON representation of the
-event. For more information, see [Events in Amazon EventBridge](eb-events.md "eb-events.md").
+
+**Note**  
+The size limit is imposed on the *entry*. Even if the entry is less than the size limit, the *event* in EventBridge is always larger than the entry size due to the necessary characters and keys of the JSON representation of the event. For more information, see [Events in Amazon EventBridge](eb-events.md).
 
 EventBridge calculates the `PutEventsRequestEntry` size as follows:
++ If specified, the `Time` parameter is 14 bytes.
++ The `Source` and `DetailType` parameters are the number of bytes for their UTF-8 encoded forms.
++ If specified, the `Detail` parameter is the number of bytes for its UTF-8 encoded form.
++ If specified, each entry of the `Resources` parameter is the number of bytes for its UTF-8 encoded forms.
 
-- If specified, the `Time` parameter is 14 bytes.
-- The `Source` and `DetailType` parameters are the number of
-  bytes for their UTF-8 encoded forms.
-- If specified, the `Detail` parameter is the number of bytes for its
-  UTF-8 encoded form.
-- If specified, each entry of the `Resources` parameter is the number of
-  bytes for its UTF-8 encoded forms.
-
-The following example Java code calculates the size of a given
-`PutEventsRequestEntry` object. In order to verify the 1MB limit is not violated, you need to perform the calculation for all events in a request.
+The following example Java code calculates the size of a given `PutEventsRequestEntry` object. In order to verify the 1MB limit is not violated, you need to perform the calculation for all events in a request.
 
 ```
 int getSize(PutEventsRequestEntry entry) {
@@ -244,6 +210,5 @@ int getSize(PutEventsRequestEntry entry) {
 }
 ```
 
-###### Note
-
+**Note**  
 If the entry size is larger than 1 MB (1,048,576 bytes), we recommend uploading the event to an Amazon S3 bucket and including the `Object URL` in the `PutEvents` entry.

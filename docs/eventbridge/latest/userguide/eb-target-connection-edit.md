@@ -1,72 +1,62 @@
+
+
 # Updating connections in EventBridge
+<a name="eb-target-connection-edit"></a>
 
 You can update existing connections.
 
 ## Updating authentication of connections
+<a name="eb-target-connection-edit-auth"></a>
 
-When you update certain authentication parameters, EventBridge re-authorizes and verifies
-network connectivity of the connection accordingly.
+When you update certain authentication parameters, EventBridge re-authorizes and verifies network connectivity of the connection accordingly.
 
 Updating the connection with authorization parameters of a different authorization type, without updating the authorization type itself, has no effect.
 
 **When EventBridge re-authenticates connections to public APIs**
 
 For connections to public APIs, EventBridge re-authorizes the connection if you:
-
-- Update the connection to invoke a private API instead.
-- Update the connection authorization method _and_ authorization
-  parameters.
++ Update the connection to invoke a private API instead.
++ Update the connection authorization method *and* authorization parameters.
 
 **When EventBridge re-authenticates connections to private APIs**
 
 For connections to private APIs, if you do any of the following:
-
-- Update the connection to invoke a different private API, or a public API.
-- Update the connection authorization method.
-- Update the connection authorization parameters for the specified authorization method.
++ Update the connection to invoke a different private API, or a public API.
++ Update the connection authorization method.
++ Update the connection authorization parameters for the specified authorization method.
 
 EventBridge does the following:
++ Re-authorizes the connection.
++ Verifies the network connectivity of the connection.
 
-- Re-authorizes the connection.
-- Verifies the network connectivity of the connection.
+  If you have updated the connection to use a different private API, or a public API, EventBridge also removes or updates existing network connectivity artifacts as appropriate.
 
-If you have updated the connection to use a different private API, or a
-public API, EventBridge also removes or updates
-existing network connectivity artifacts as appropriate.
+**To update a connection using the EventBridge console**
 
-###### To update a connection using the EventBridge console
+1. Log in to AWS using an account that has permissions to manage EventBridge and open the [EventBridge console](https://console.aws.amazon.com/events).
 
-1. Log in to AWS using an account that has permissions to manage EventBridge and open the
-   [EventBridge console](https://console.aws.amazon.com/events "https://console.aws.amazon.com/events").
-2. In the left navigation pane, under **Integration**, choose **Connections**.
-3. In the **Connections** table, choose the connection to
-   edit.
-4. On the **Connection details** page, choose
-   **Edit**.
-5. Update the values for the connection, and then choose
-   **Update**.
+1. In the left navigation pane, under **Integration**, choose **Connections**.
 
-For information on updating the KMS key for EventBridge to use when encrypting a
-connection, see [Updating
-AWS KMS keys](encryption-connections-configure.md#encryption-connections-update "encryption-connections-configure.md#encryption-connections-update").
+1. In the **Connections** table, choose the connection to edit.
 
-###### To update a connection using the AWS CLI
+1. On the **Connection details** page, choose **Edit**.
 
-- Use the `update-connection` command.
+1. Update the values for the connection, and then choose **Update**.
 
-To update a connection's invocation or authorization endpoint from a private API to a public API,
-you must specify an empty string (`""`) for the `ResourceConfigurationArn` parameter.
-Specifying `null` for this parameter has no effect.
+   For information on updating the KMS key for EventBridge to use when encrypting a connection, see [Updating AWS KMS keys](encryption-connections-configure.md#encryption-connections-update).
 
-The following example updates the connection to use a public API, by setting
-the `ResourceConfigurationArn` that represents a private API resource
-configuration to an empty string.
+**To update a connection using the AWS CLI**
++ Use the `[update-connection](https://docs.aws.amazon.com/cli/latest/reference/events/update-connection.html)` command. 
 
-```
-aws events update-connection \
---name myConnection \
---authorization-type BASIC \
---auth-parameters '{"BasicAuthParameters": {"Username": "username", "Password": "***"}}' \
---region us-east-1 \
---invocation-connectivity-parameters ResourceParameters={ResourceConfigurationArn=\"\"}
-```
+  To update a connection's invocation or authorization endpoint from a private API to a public API, you must specify an empty string (`""`) for the `ResourceConfigurationArn` parameter. Specifying `null` for this parameter has no effect.
+
+  The following example updates the connection to use a public API, by setting the `ResourceConfigurationArn` that represents a private API resource configuration to an empty string.
+
+  ```
+  aws events update-connection \                              
+  --name myConnection \
+  --authorization-type BASIC \
+  --auth-parameters '{"BasicAuthParameters": {"Username": "username", "Password": "***"}}' \
+  --region us-east-1 \
+  --invocation-connectivity-parameters ResourceParameters={ResourceConfigurationArn=\"\"}
+  ```

@@ -1,12 +1,14 @@
-# Matching events on event field values
 
-You can use all of the JSON data types and values to match events. The following
-examples show events and the event patterns that match them.
+
+# Matching events on event field values
+<a name="eb-filtering-data-types"></a>
+
+You can use all of the JSON data types and values to match events. The following examples show events and the event patterns that match them.
 
 ## Field matching
+<a name="eb-filtering-example"></a>
 
-You can match on the value of a field. Consider the following Amazon EC2 Auto Scaling
-event.
+You can match on the value of a field. Consider the following Amazon EC2 Auto Scaling event.
 
 ```
 {
@@ -25,8 +27,7 @@ event.
 }
 ```
 
-For the preceding event, you can use the `"responseElements"` field to
-match.
+For the preceding event, you can use the `"responseElements"` field to match.
 
 ```
 {
@@ -39,6 +40,7 @@ match.
 ```
 
 ## Value matching
+<a name="eb-filtering-value-example"></a>
 
 Consider the following Amazon Macie event, which is truncated.
 
@@ -62,7 +64,7 @@ Consider the following Amazon Macie event, which is truncated.
     "region": "us-east-1",
     "type": "Policy:IAMUser/S3BucketEncryptionDisabled",
     "title": "Encryption is disabled for the S3 bucket",
-    "description": "Encryption is disabled for the Amazon S3 bucket. The data in the bucket isn’t encrypted
+    "description": "Encryption is disabled for the Amazon S3 bucket. The data in the bucket isn’t encrypted 
         using server-side encryption.",
     "severity": {
         "score": 1,
@@ -76,8 +78,7 @@ Consider the following Amazon Macie event, which is truncated.
 .
 ```
 
-The following event pattern matches any event that has a severity score of 1 and a
-count of 2.
+The following event pattern matches any event that has a severity score of 1 and a count of 2.
 
 ```
 {

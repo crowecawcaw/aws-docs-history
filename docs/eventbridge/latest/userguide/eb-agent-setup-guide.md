@@ -1,36 +1,29 @@
+
+
 # Agent setup guide
+<a name="eb-agent-setup-guide"></a>
 
-AI coding agents can accelerate serverless development by providing intelligent assistance
-for application scaffolding, deployment configuration, debugging, and
-infrastructure-as-code generation. By configuring your agent with the right combination of
-plugins, skills, and MCP Servers, you equip it with expertise required to build and manage
-serverless applications.
+AI coding agents can accelerate serverless development by providing intelligent assistance for application scaffolding, deployment configuration, debugging, and infrastructure-as-code generation. By configuring your agent with the right combination of plugins, skills, and MCP Servers, you equip it with expertise required to build and manage serverless applications.
 
-###### Work with your coding agent
-
-For a quick-start reference, you can drop this link directly into your agent's
-context: `https://docs.aws.amazon.com/eventbridge/latest/userguide/samples/aws-eventbridge-agent-setup.md`
+**Work with your coding agent**  
+For a quick-start reference, you can drop this link directly into your agent's context: `https://docs.aws.amazon.com/eventbridge/latest/userguide/samples/aws-eventbridge-agent-setup.md`
 
 Choose the installation method that matches your development environment.
 
 ## Prerequisites
+<a name="eb-agent-setup-prerequisites"></a>
 
-Ensure the following prerequisites are in place for installing aws-core plugin and
-Serverless MCP Server:
-
-- [uv](https://docs.astral.sh/uv/ "https://docs.astral.sh/uv/") installed on your system.
-- (Optional) An AWS account with IAM credentials set up on your local machine.
-  Credentials are required for tools that execute AWS API calls and run scripts, but
-  not for searching documentation or discovering skills. If you do not have credentials
-  configured, see [Setting up the AWS MCP Server](../../../agent-toolkit/latest/userguide/getting-started-aws-mcp-server.md "../../../agent-toolkit/latest/userguide/getting-started-aws-mcp-server.md") for detailed instructions.
+Ensure the following prerequisites are in place for installing aws-core plugin and Serverless MCP Server:
++ [uv](https://docs.astral.sh/uv/) installed on your system.
++ (Optional) An AWS account with IAM credentials set up on your local machine. Credentials are required for tools that execute AWS API calls and run scripts, but not for searching documentation or discovering skills. If you do not have credentials configured, see [Setting up the AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/getting-started-aws-mcp-server.html) for detailed instructions.
 
 ## Claude Code
+<a name="eb-agent-setup-claude-code"></a>
 
-Install the aws-core plugin, part of the [Agent Toolkit for AWS](../../../agent-toolkit/latest/userguide/what-is-agent-toolkit.md "../../../agent-toolkit/latest/userguide/what-is-agent-toolkit.md"),
-that bundles the AWS MCP Server configuration and a curated set of agent skills
-(including the AWS serverless skill).
+Install the aws-core plugin, part of the [Agent Toolkit for AWS](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/what-is-agent-toolkit.html), that bundles the AWS MCP Server configuration and a curated set of agent skills (including the AWS serverless skill).
 
 ### Install aws-core plugin from Agent Toolkit for AWS
+<a name="eb-agent-setup-claude-code-plugin"></a>
 
 Run the following command to install the plugin:
 
@@ -39,12 +32,12 @@ Run the following command to install the plugin:
 /plugin install aws-core@agent-toolkit-for-aws
 ```
 
-This installs agent skills including the AWS serverless skill, agent hooks, and
-the AWS MCP Server configuration in one step.
+This installs agent skills including the AWS serverless skill, agent hooks, and the AWS MCP Server configuration in one step.
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-claude-code-mcp"></a>
 
-Replace `AWS_PROFILE` with your local AWS profile name.
+Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 claude mcp add awslabs-aws-serverless-mcp \
@@ -56,16 +49,19 @@ claude mcp add awslabs-aws-serverless-mcp \
 ```
 
 ## Codex
+<a name="eb-agent-setup-codex"></a>
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-codex-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-codex-mcp"></a>
 
-Replace `AWS_PROFILE` with your local AWS profile name.
+Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 codex mcp add awslabs-aws-serverless-mcp \
@@ -76,18 +72,19 @@ codex mcp add awslabs-aws-serverless-mcp \
 ```
 
 ## Cursor
+<a name="eb-agent-setup-cursor"></a>
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-cursor-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-cursor-mcp"></a>
 
-Add the following to `.cursor/mcp.json` under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the following to `.cursor/mcp.json` under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 "awslabs.aws-serverless-mcp": {
@@ -102,18 +99,19 @@ local AWS profile name.
 ```
 
 ## Kiro
+<a name="eb-agent-setup-kiro"></a>
 
 ### Install AWS serverless skill in Kiro CLI
+<a name="eb-agent-setup-kiro-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-kiro-mcp"></a>
 
-Add the following to `~/.kiro/settings/mcp.json` under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the following to `~/.kiro/settings/mcp.json` under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 "awslabs.aws-serverless-mcp": {
@@ -129,26 +127,25 @@ local AWS profile name.
 ```
 
 ### Install Kiro powers (from Kiro IDE)
+<a name="eb-agent-setup-kiro-powers"></a>
 
-Install the following Kiro powers that provide specialized contexts and tools to
-the Kiro agents on-demand:
-
-- **Serverless Application Model (SAM)** — install via
-  [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-sam "https://kiro.dev/launch/powers/add/?name=aws-sam").
+Install the following Kiro powers that provide specialized contexts and tools to the Kiro agents on-demand:
++ **Serverless Application Model (SAM)** — install via [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-sam).
 
 ## GitHub Copilot
+<a name="eb-agent-setup-github-copilot"></a>
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-github-copilot-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-github-copilot-mcp"></a>
 
-Add the following to `.vscode/mcp.json` under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the following to `.vscode/mcp.json` under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 "awslabs.aws-serverless-mcp": {
@@ -163,18 +160,19 @@ local AWS profile name.
 ```
 
 ## Windsurf
+<a name="eb-agent-setup-windsurf"></a>
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-windsurf-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-windsurf-mcp"></a>
 
-Add the following to `/.codeium/windsurf/mcp_config.json` under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the following to `/.codeium/windsurf/mcp_config.json` under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 "awslabs.aws-serverless-mcp": {
@@ -189,18 +187,19 @@ local AWS profile name.
 ```
 
 ## OpenCode
+<a name="eb-agent-setup-opencode"></a>
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-opencode-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-opencode-mcp"></a>
 
-Add the following to `/.config/opencode/opencode.jsonc` under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the following to `/.config/opencode/opencode.jsonc` under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 "awslabs.aws-serverless-mcp": {
@@ -215,20 +214,21 @@ local AWS profile name.
 ```
 
 ## For all other agents compatible with agent skills and MCP Server configuration
+<a name="eb-agent-setup-other-agents"></a>
 
-For any other agent that supports the open-source [agent skills](https://agentskills.io/specification "https://agentskills.io/specification") format and MCP Server configuration, follow these steps:
+For any other agent that supports the open-source [agent skills](https://agentskills.io/specification) format and MCP Server configuration, follow these steps:
 
 ### Install AWS serverless skill
+<a name="eb-agent-setup-other-agents-skill"></a>
 
 ```
 npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverless --yes --global
 ```
 
 ### Install Serverless MCP Server
+<a name="eb-agent-setup-other-agents-mcp"></a>
 
-Add the Serverless MCP Server to your agent's MCP client configuration file under
-`"mcpServers"`. Replace `AWS_PROFILE` with your
-local AWS profile name.
+Add the Serverless MCP Server to your agent's MCP client configuration file under `"mcpServers"`. Replace {{AWS\_PROFILE}} with your local AWS profile name.
 
 ```
 {

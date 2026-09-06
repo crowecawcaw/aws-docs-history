@@ -1,205 +1,166 @@
+
+
 # Configuring logs for Amazon EventBridge event buses
+<a name="eb-event-bus-logs"></a>
 
-You can configure EventBridge to send logs detailing how an event bus is processing events, to help
-with troubleshooting and debugging.
+You can configure EventBridge to send logs detailing how an event bus is processing events, to help with troubleshooting and debugging.
 
-You can select the following AWS services as _log destinations_ to
-which EventBridge delivers logs for the specified event bus:
+You can select the following AWS services as *log destinations* to which EventBridge delivers logs for the specified event bus:
++ Amazon CloudWatch Logs
 
-- Amazon CloudWatch Logs
+  EventBridge delivers logs to the specified CloudWatch Logs log group. 
 
-EventBridge delivers logs to the specified CloudWatch Logs log group.
+  Use CloudWatch Logs to centralize the logs from all of your systems, applications, and AWS services that you use, in a single, highly scalable service. For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.
++ Amazon Data Firehose 
 
-Use CloudWatch Logs to centralize the logs from all of your systems, applications, and AWS
-services that you use, in a single, highly scalable service. For more information, see
-[Working with
-log groups and log streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch Logs User
-Guide_.
+  EventBridge delivers logs to a Firehose delivery stream. 
 
-- Amazon Data Firehose
+  Amazon Data Firehose is a fully-managed service for delivering real-time streaming data to destinations such as certain AWS services, as well as any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers. For more information, see [Creating an Amazon Data Firehose delivery stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Data Firehose User Guide*.
++ Amazon S3 
 
-EventBridge delivers logs to a Firehose delivery stream.
+  EventBridge delivers logs as Amazon S3 objects to the specified bucket.
 
-Amazon Data Firehose is a fully-managed service for delivering real-time streaming data to
-destinations such as certain AWS services, as well as any custom HTTP endpoint or HTTP
-endpoints owned by supported third-party service providers. For more information, see [Creating an Amazon Data Firehose
-delivery stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the _Amazon Data Firehose User Guide_.
-
-- Amazon S3
-
-EventBridge delivers logs as Amazon S3 objects to the specified bucket.
-
-Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. For more information, see [Uploading, downloading, and working with objects in Amazon S3](../../../AmazonS3/latest/userguide/uploading-downloading-objects.md "../../../AmazonS3/latest/userguide/uploading-downloading-objects.md")
-in the _Amazon Simple Storage Service User Guide_.
+  Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. For more information, see [Uploading, downloading, and working with objects in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-downloading-objects.html) in the *Amazon Simple Storage Service User Guide*.
 
 ## How logging works for event buses
+<a name="eb-event-logs-overview"></a>
 
-EventBridge generates logs for:
+EventBridge generates logs for: 
++ Any AWS service events that matches a rule on the event bus
++ Any events delivered by the following methods, whether or not the event is ingested successfully or matches any rule:
+  + Events from [partner event sources](eb-saas.md)
+  + Events [replayed from an archive](eb-archive.md)
+  + Events sent to the bus via [`PutEvents`](eb-putevents.md)
 
-- Any AWS service events that matches a rule on the event bus
-- Any events delivered by the following methods, whether or not the event is ingested
-  successfully or matches any rule:
-
-  - Events from [partner event sources](eb-saas.md "eb-saas.md")
-  - Events [replayed from an archive](eb-archive.md "eb-archive.md")
-  - Events sent to the bus via [PutEvents](eb-putevents.md "eb-putevents.md")
-
-EventBridge does not log events that only match [managed
-rules](eb-rules.md#eb-rules-managed "eb-rules.md#eb-rules-managed").
+EventBridge does not log events that only match [managed rules](eb-rules.md#eb-rules-managed).
 
 The log data sent to each selected log destination is the same.
 
-You can customize the logs EventBridge sends to the selected destinations in the following
-way:
+You can customize the logs EventBridge sends to the selected destinations in the following way:
++ You can specify the *log level*, which determines the steps for which EventBridge sends logs to the selected destinations. For more information, see [Specifying event bus log level](#eb-event-bus-logs-level).
++ You can specify whether EventBridge includes more granular information when relevant, including:
+  + Event details
+  + Target input information
+  + Target request information
 
-- You can specify the _log level_, which determines the steps for which EventBridge
-  sends logs to the selected destinations. For more information, see [Specifying event bus log level](#eb-event-bus-logs-level "#eb-event-bus-logs-level").
-- You can specify whether EventBridge includes more granular information when relevant, including:
-
-  - Event details
-  - Target input information
-  - Target request information
-    For more information, see [Including detail data in event bus logs](#eb-event-logs-data "#eb-event-logs-data").
+  For more information, see [Including detail data in event bus logs](#eb-event-logs-data).
 
 ### Log delivery considerations
+<a name="eb-event-logs-delivery"></a>
 
-Keep the following considerations in mind as you configure logging for event
-buses:
-
-- Event bus log records are delivered on a best effort basis. Most requests for an event bus
-  that is properly configured for logging result in a delivered log record. The
-  completeness and timeliness of event bus logging is not guaranteed.
-- In some circumstances, delivering event bus log records itself generates events that are then
-  sent to EventBridge, which can lead to disruption in log record delivery. For this reason, EventBridge does
-  not log the following events:
-
-  - AWS KMS `Decrypt` and
-    `GenerateDataKey` events generated when log records encrypted using a customer managed key are delivered to a log destination.
-  - `PutRecordBatch` events in Firehose generated by the delivery of event bus logs.
-
-- For S3 log destinations, specifying a destination bucket with [event
-  notification for EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") enabled is not recommended, as this can result in disruption in the delivery of your logs.
+Keep the following considerations in mind as you configure logging for event buses:
++ Event bus log records are delivered on a best effort basis. Most requests for an event bus that is properly configured for logging result in a delivered log record. The completeness and timeliness of event bus logging is not guaranteed. 
++ In some circumstances, delivering event bus log records itself generates events that are then sent to EventBridge, which can lead to disruption in log record delivery. For this reason, EventBridge does not log the following events:
+  + AWS KMS `[Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)` and `[GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html)` events generated when log records encrypted using a customer managed key are delivered to a log destination.
+  + `[PutRecordBatch](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html)` events in Firehose generated by the delivery of event bus logs.
++ For S3 log destinations, specifying a destination bucket with [event notification for EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications-eventbridge.html) enabled is not recommended, as this can result in disruption in the delivery of your logs.
 
 ### Logging encryption
+<a name="eb-event-logs-encryption"></a>
 
-When sending logs, EventBridge encrypts the `detail` and `error`
-sections of each log record with the KMS key specified for the event bus. Once delivered,
-the record is decrypted and then re-encrypted with the KMS key specified for the log
-destination.
+When sending logs, EventBridge encrypts the `detail` and `error` sections of each log record with the KMS key specified for the event bus. Once delivered, the record is decrypted and then re-encrypted with the KMS key specified for the log destination.
 
-For more information, see [Encrypting event bus logs](encryption-bus-logs.md "encryption-bus-logs.md").
+For more information, see [Encrypting event bus logs](encryption-bus-logs.md).
 
 ### Specifying event bus logging permissions
+<a name="eb-event-logs-permission"></a>
 
-To enable logging from an event bus, attach the following identity-based policy
-to your AWS Identity and Access Management (IAM) identity (user or role). This policy
-grants the `events:AllowVendedLogDeliveryForResource` action for the event
-bus.
+To enable logging from an event bus, attach the following identity-based policy to your AWS Identity and Access Management (IAM) identity (user or role). This policy grants the `events:AllowVendedLogDeliveryForResource` action for the event bus.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ServiceLevelAccessForLogDelivery",
- "Effect": "Allow",
- "Action": [
- "events:AllowVendedLogDeliveryForResource"
- ],
- "Resource": "arn:aws:events:`us-east-1`:`123456789012`:event-bus/`my-event-bus`*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ServiceLevelAccessForLogDelivery",
+            "Effect": "Allow",
+            "Action": [
+                "events:AllowVendedLogDeliveryForResource"
+            ],
+            "Resource": "arn:aws:events:{{us-east-1}}:{{123456789012}}:event-bus/{{my-event-bus}}*"
+        }
+    ]
+}
+```
 
-For more information, see
-[Service-specific permissions](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-vended-logs-permissions")
-in the _CloudWatch Logs User Guide_.
+------
+
+For more information, see [Service-specific permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions) in the *CloudWatch Logs User Guide*.
 
 ## Specifying event bus log level
+<a name="eb-event-bus-logs-level"></a>
 
-You can specify the types of event processing steps which EventBridge logs to the selected log
-destinations.
+You can specify the types of event processing steps which EventBridge logs to the selected log destinations. 
 
-Choose from the following levels of detail to include in logs. The log level applies to
-all log destinations specified for the event bus. Each log level includes the steps of the
-previous log levels.
-
-- OFF – EventBridge does not send any logs. This is the
-  default.
-- ERROR – EventBridge sends any logs related to errors
-  generated during event processing and target delivery.
-- INFO – EventBridge sends any logs related to errors, as
-  well as major steps performed during event processing.
-- TRACE – EventBridge sends any logs generated during all
-  steps in the event processing.
+Choose from the following levels of detail to include in logs. The log level applies to all log destinations specified for the event bus. Each log level includes the steps of the previous log levels.
++ **OFF** – EventBridge does not send any logs. This is the default.
++ **ERROR** – EventBridge sends any logs related to errors generated during event processing and target delivery.
++ **INFO** – EventBridge sends any logs related to errors, as well as major steps performed during event processing.
++ **TRACE** – EventBridge sends any logs generated during all steps in the event processing.
 
 The following table lists the event processing steps included in each log level.
 
-| Step                                  | TRACE | INFO | ERROR | OFF |
-| ------------------------------------- | ----- | ---- | ----- | --- |
-| Event Ingested                        | x     | x    |       |     |
-| Event Ingestion Failed                | x     | x    | x     |     |
-| Event Received                        | x     |      |       |     |
-| Invocation Attempt Started            | x     |      |       |     |
-| Invocation Attempt Permanent Failure  | x     | x    | x     |     |
-| Invocation Attempt Retry-able Failure | x     | x    | x     |     |
-| Invocation Attempt Succeeded          | x     |      |       |     |
-| Invocation Attempt Throttled          | x     | x    | x     |     |
-| Invocation DLQ                        | x     | x    | x     |     |
-| Invocation Failed                     | x     | x    | x     |     |
-| Invocation Started                    | x     | x    |       |     |
-| Invocation Succeeded                  | x     | x    |       |     |
-| Invocation Throttle Started           | x     | x    | x     |     |
-| No Rules Matched                      | x     | x    |       |     |
-| Rule Matched                          | x     | x    |       |     |
-| Rule Matching Started                 | x     |      |       |     |
+
+| Step | TRACE | INFO | ERROR | OFF | 
+| --- | --- | --- | --- | --- | 
+| Event Ingested | x | x |  |  | 
+| Event Ingestion Failed | x | x | x |  | 
+| Event Received | x |  |  |  | 
+| Invocation Attempt Started | x |  |  |  | 
+| Invocation Attempt Permanent Failure | x | x | x |  | 
+| Invocation Attempt Retry-able Failure | x | x | x |  | 
+| Invocation Attempt Succeeded | x |  |  |  | 
+| Invocation Attempt Throttled | x | x | x |  | 
+| Invocation DLQ | x | x | x |  | 
+| Invocation Failed | x | x | x |  | 
+| Invocation Started | x | x |  |  | 
+| Invocation Succeeded | x | x |  |  | 
+| Invocation Throttle Started | x | x | x |  | 
+| No Rules Matched | x | x |  |  | 
+| Rule Matched  | x | x |  |  | 
+| Rule Matching Started  | x |  |  |  | 
 
 ## Including detail data in event bus logs
+<a name="eb-event-logs-data"></a>
 
-You can specify for EventBridge to include more granular information in the logs it generates.
-This data can be useful for troubleshooting and debugging. If you select this option, EventBridge includes this data in the relevant records for all the specified log destinations.
+You can specify for EventBridge to include more granular information in the logs it generates. This data can be useful for troubleshooting and debugging. If you select this option, EventBridge includes this data in the relevant records for all the specified log destinations.
 
-Detail information includes the following fields:
-
-- `event_detail`: The details of the event itself.
-- `target_input`: The request EventBridge sends to the target.
-- `target_properties`:
+Detail information includes the following fields: 
++ `event_detail`: The details of the event itself.
++ `target_input`: The request EventBridge sends to the target.
++ `target_properties`: 
 
 ## Truncating data in event bus logs
+<a name="eb-event-logs-data-truncation"></a>
 
-Due to log destination constraints, EventBridge limits log records to 1 MB. If a log record
-exceeds this limit, EventBridge truncates the record by removing the following fields in the
-following order:
-
-- `target_input`
-- `target_properties`
-- `target_response_body`
+Due to log destination constraints, EventBridge limits log records to 1 MB. If a log record exceeds this limit, EventBridge truncates the record by removing the following fields in the following order:
++ `target_input`
++ `target_properties`
++ `target_response_body`
 
 EventBridge removes the `event_detail` field from the following log record types if necessary:
-
-- `EVENT_RECEIVED`
-- `EVENT_INGESTED`
-- `EVENT_INGESTED_FAILED`
-- `RULE_MATCH_STARTED`
++ `EVENT_RECEIVED`
++ `EVENT_INGESTED`
++ `EVENT_INGESTED_FAILED`
++ `RULE_MATCH_STARTED`
 
 If truncation is necessary, EventBridge removes the entire field.
 
-If EventBridge does truncate fields in the event, the `dropped_fields` field
-includes a list of the excised data fields.
+If EventBridge does truncate fields in the event, the `dropped_fields` field includes a list of the excised data fields.
 
 ## Error reporting in event bus logs
+<a name="eb-event-logs-errors"></a>
 
-EventBridge also includes error data, where available, in steps that represent failure states.
-These steps include:
-
-- `EVENT_INGEST_FAILURE`
-- `INVOCATION_THROTTLE_START`
-- `INVOCATION_ATTEMPT_THROTTLE`
-- `INVOCATION_ATTEMPT_RETRYABLE_FAILURE`
-- `INVOCATION_ATTEMPT_PERMANENT_FAILURE`
-- `INVOCATION_FAILURE`
-- `INVOCATION_DLQ`
+EventBridge also includes error data, where available, in steps that represent failure states. These steps include:
++ `EVENT_INGEST_FAILURE`
++ `INVOCATION_THROTTLE_START`
++ `INVOCATION_ATTEMPT_THROTTLE`
++ `INVOCATION_ATTEMPT_RETRYABLE_FAILURE`
++ `INVOCATION_ATTEMPT_PERMANENT_FAILURE`
++ `INVOCATION_FAILURE`
++ `INVOCATION_DLQ`

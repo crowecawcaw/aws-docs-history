@@ -1,133 +1,114 @@
-# Using identity-based policies (IAM policies) for Amazon EventBridge
 
-Identity-based policies are permissions policies that you can attach to IAM identities.
+
+# Using identity-based policies (IAM policies) for Amazon EventBridge
+<a name="eb-use-identity-based"></a>
+
+Identity-based policies are permissions policies that you can attach to IAM identities. 
 
 ## AWS managed policies for EventBridge
+<a name="eb-managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are
-created and administered by AWS. _Managed_, or predefined, policies grant
-the necessary permissions for common use cases, so you don't need to investigate what
-permissions are needed. For more information, see [AWS
-managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. *Managed*, or predefined, policies grant the necessary permissions for common use cases, so you don't need to investigate what permissions are needed. For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
-The following AWS managed policies that you can attach to users in your account are
-specific to EventBridge:
-
-- [AmazonEventBridgeFullAccess](#eb-full-access-policy "#eb-full-access-policy") – Grants full access to
-  EventBridge, including EventBridge Pipes, EventBridge Schemas and EventBridge Scheduler.
-- [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") – Grants read-only
-  access to EventBridge, including EventBridge Pipes, EventBridge Schemas and EventBridge Scheduler.
+The following AWS managed policies that you can attach to users in your account are specific to EventBridge:
++ [**AmazonEventBridgeFullAccess**](#eb-full-access-policy) – Grants full access to EventBridge, including EventBridge Pipes, EventBridge Schemas and EventBridge Scheduler.
++ [**AmazonEventBridgeReadOnlyAccess**](#eb-read-only-access-policy) – Grants read-only access to EventBridge, including EventBridge Pipes, EventBridge Schemas and EventBridge Scheduler.
 
 ## AWS managed policy: AmazonEventBridgeFullAccess
+<a name="eb-full-access-policy"></a>
 
 The AmazonEventBridgeFullAccess policy grants permissions to use all EventBridge actions, as well as the following permissions:
++ `iam:CreateServiceLinkedRole` – EventBridge requires this permission to create the service role in your account for API destinations. This permission grants only the IAM service permissions to create a role in your account specifically for API destinations.
++ `iam:PassRole` – EventBridge requires this permission to pass an invocation role to EventBridge to invoke the target of a rule.
++ **Secrets Manager permissions** – EventBridge requires these permissions to manage secrets in your account when you provide credentials through the connection resource to authorize API Destinations.
 
-- `iam:CreateServiceLinkedRole` – EventBridge requires this
-  permission to create the service role in your account for API destinations. This
-  permission grants only the IAM service permissions to create a role in your account
-  specifically for API destinations.
-- `iam:PassRole` – EventBridge requires this permission to pass an
-  invocation role to EventBridge to invoke the target of a rule.
-- **Secrets Manager permissions** – EventBridge
-  requires these permissions to manage secrets in your account when you provide
-  credentials through the connection resource to authorize API Destinations.
-
-To view the permissions for this policy, see
-[AmazonEventBridgeFullAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeFullAccess.md")
-in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [ AmazonEventBridgeFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeFullAccess.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AmazonEventBridgeReadOnlyAccess
+<a name="eb-read-only-access-policy"></a>
 
 The AmazonEventBridgeReadOnlyAccess policy grants permissions to use all read EventBridge actions.
 
-To view the permissions for this policy, see
-[AmazonEventBridgeReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeReadOnlyAccess.md")
-in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [ AmazonEventBridgeReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeReadOnlyAccess.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AmazonEventBridgeApiDestinationsServiceRolePolicy
+<a name="api-destination-slr-policy"></a>
 
 You can't attach AmazonEventBridgeApiDestinationsServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role that allows EventBridge permissions to access AWS Secrets Manager resources on your behalf.
 
-To view the permissions for this policy, see
-[AmazonEventBridgeApiDestinationsServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonEventBridgeApiDestinationsServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeApiDestinationsServiceRolePolicy.md")
-in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [ AmazonEventBridgeApiDestinationsServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeApiDestinationsServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policies: EventBridge Schemas
+<a name="eb-schemas-access-policies"></a>
 
-[A
-schema](eb-schema.md "eb-schema.md") defines the structure of events that are sent to EventBridge. EventBridge provides schemas
-for all events that are generated by AWS services. The following AWS managed policies
-specific to EventBridge Schemas are available:
+[A schema](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schema.html) defines the structure of events that are sent to EventBridge. EventBridge provides schemas for all events that are generated by AWS services. The following AWS managed policies specific to EventBridge Schemas are available:
++ [AmazonEventBridgeSchemasFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeSchemasFullAccess.html)
 
-- [AmazonEventBridgeSchemasFullAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasFullAccess.md")
+  You can attach the AmazonEventBridgeSchemasFullAccess policy to your IAM identities.
 
-You can attach the AmazonEventBridgeSchemasFullAccess policy to your IAM identities.
+  Provides full access to EventBridge schemas.
++ [AmazonEventBridgeSchemasReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeSchemasReadOnlyAccess.html)
 
-Provides full access to EventBridge schemas.
+  You can attach the AmazonEventBridgeSchemasReadOnlyAccess policy to your IAM identities.
 
-- [AmazonEventBridgeSchemasReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasReadOnlyAccess.md")
+  Provides read only access to EventBridge Schemas.
++ [AmazonEventBridgeSchemasServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeSchemasServiceRolePolicy.html)
 
-You can attach the AmazonEventBridgeSchemasReadOnlyAccess policy to your IAM identities.
-
-Provides read only access to EventBridge Schemas.
-
-- [AmazonEventBridgeSchemasServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchemasServiceRolePolicy.md")
-
-You can't attach AmazonEventBridgeSchemasServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role that allows EventBridge permissions to managed rules created by EventBridge schemas.
+  You can't attach AmazonEventBridgeSchemasServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role that allows EventBridge permissions to managed rules created by EventBridge schemas.
 
 ## AWS managed policies: EventBridge Scheduler
+<a name="eb-scheduler-access-policies"></a>
 
-Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. For AWS managed policies that are specific to EventBridge Scheduler, see [AWS managed policies for EventBridge Scheduler](../../../scheduler/latest/UserGuide/security_iam_id-based-policies.md#security_iam_id-based-policies-managed-policies "../../../scheduler/latest/UserGuide/security_iam_id-based-policies.md#security_iam_id-based-policies-managed-policies") in the _EventBridge Scheduler User Guide_.
+Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. For AWS managed policies that are specific to EventBridge Scheduler, see [AWS managed policies for EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/security_iam_id-based-policies.html#security_iam_id-based-policies-managed-policies) in the *EventBridge Scheduler User Guide*.
 
 ## AWS managed policies: EventBridge Pipes
+<a name="eb-pipes-access-policies"></a>
 
-EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company’s applications. The following AWS managed policies
-specific to EventBridge Pipes are available:
+EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company’s applications. The following AWS managed policies specific to EventBridge Pipes are available:
++ [AmazonEventBridgePipesFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.html)
 
-- [AmazonEventBridgePipesFullAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md")
+  You can attach the AmazonEventBridgePipesFullAccess policy to your IAM identities.
 
-You can attach the AmazonEventBridgePipesFullAccess policy to your IAM identities.
-
-Provides full access to EventBridge Pipes.
-
-###### Note
-
+  Provides full access to EventBridge Pipes.
+**Note**  
 This policy provides `iam:PassRole` – EventBridge Pipes requires this permission to pass an invocation role to EventBridge to create, and start pipes.
++ [AmazonEventBridgePipesReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.html)
 
-- [AmazonEventBridgePipesReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md")
+  You can attach the AmazonEventBridgePipesReadOnlyAccess policy to your IAM identities.
 
-You can attach the AmazonEventBridgePipesReadOnlyAccess policy to your IAM identities.
+  Provides read-only access to EventBridge Pipes.
++ [AmazonEventBridgePipesOperatorAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.html)
 
-Provides read-only access to EventBridge Pipes.
+  You can attach the AmazonEventBridgePipesOperatorAccess policy to your IAM identities.
 
-- [AmazonEventBridgePipesOperatorAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md")
-
-You can attach the AmazonEventBridgePipesOperatorAccess policy to your IAM identities.
-
-Provides read-only and operator (that is, the ability to stop and start running Pipes) access to EventBridge Pipes.
+  Provides read-only and operator (that is, the ability to stop and start running Pipes) access to EventBridge Pipes.
 
 ## Amazon EventBridge updates to AWS managed policies
+<a name="eb-use-identity-based-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for EventBridge since this service
-began tracking these changes. For automatic alerts about changes to this page, subscribe to
-the RSS feed on the EventBridge Document history page.
 
-| Change                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Date              |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy "#api-destination-slr-policy") –<br>Updated policy | EventBridge updated policy to restrict the scope of permissions for Secrets Manager operations to the same account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | May 29, 2025      |
-| [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy "#api-destination-slr-policy") –<br>Updated policy | EventBridge updated policy to grant AWS KMS encrypt and decrypt permissions via Secrets Manager. This<br>enables EventBridge to update connection secret resources with new OAuth token value<br>when access token refresh is required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | March 28, 2025    |
-| [AmazonEventBridgeFullAccess](#eb-full-access-policy "#eb-full-access-policy") –<br>Updated policy                                 | AWS GovCloud (US) Regions only<br>The following permission is not included, as it is not<br>used:<br>• `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | May 9, 2024       |
-| [AmazonEventBridgeSchemasFullAccess](#eb-schemas-access-policies "#eb-schemas-access-policies") –<br>Updated policy                | AWS GovCloud (US) Regions only<br>The following permission is not included, as it is not<br>used:<br>• `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | May 9, 2024       |
-| [AmazonEventBridgePipesFullAccess](#eb-pipes-access-policies "#eb-pipes-access-policies") –<br>New policy added                    | EventBridge added managed policy for full permissions for using EventBridge Pipes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | December 1, 2022  |
-| [AmazonEventBridgePipesReadOnlyAccess](#eb-pipes-access-policies "#eb-pipes-access-policies") –<br>New policy added                | EventBridge added managed policy for permissions to view EventBridge Pipes information resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | December 1, 2022  |
-| [AmazonEventBridgePipesOperatorAccess](#eb-pipes-access-policies "#eb-pipes-access-policies") –<br>New policy added                | EventBridge added managed policy for permissions to view EventBridge Pipes information, as<br>well as start and stop running pipes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | December 1, 2022  |
-| [AmazonEventBridgeFullAccess](#eb-full-access-policy "#eb-full-access-policy") –<br>Update to an existing policy                   | EventBridge updated the policy to include permissions necessary for using EventBridge Pipes features.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | December 1, 2022  |
-| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") –<br>Update to an existing policy     | EventBridge added permissions necessary for view EventBridge Pipes information resources.<br>The following actions were added:<br>• `pipes:DescribePipe`<br>• `pipes:ListPipes`<br>• `pipes:ListTagsForResource`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | December 1, 2022  |
-| [CloudWatchEventsReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") –<br>Update to an existing policy      | Updated to match AmazonEventBridgeReadOnlyAccess.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | December 1, 2022  |
-| [CloudWatchEventsFullAccess](#eb-full-access-policy "#eb-full-access-policy") –<br>Update to an existing policy                    | Updated to match AmazonEventBridgeFullAccess.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | December 1, 2022  |
-| [AmazonEventBridgeFullAccess](#eb-full-access-policy "#eb-full-access-policy") –<br>Update to an existing policy                   | EventBridge updated the policy to include permissions necessary for using schemas and scheduler features.<br>The following permissions were added:<br>• EventBridge Schema Registry actions<br>• EventBridge Scheduler actions<br>• `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry<br>• `iam:PassRole` permission for EventBridge Scheduler                                                                                                                                                                                                                                                                                                                                                                                                     | November 10, 2022 |
-| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") –<br>Update to an existing policy     | EventBridge added permissions necessary for view schema and scheduler information resources.<br>The following actions were added:<br>• `schemas:DescribeCodeBinding`<br>• `schemas:DescribeDiscoverer`<br>• `schemas:DescribeRegistry`<br>• `schemas:DescribeSchema`<br>• `schemas:ExportSchema`<br>• `schemas:GetCodeBindingSource`<br>• `schemas:GetDiscoveredSchema`<br>• `schemas:GetResourcePolicy`<br>• `schemas:ListDiscoverers`<br>• `schemas:ListRegistries`<br>• `schemas:ListSchemas`<br>• `schemas:ListSchemaVersions`<br>• `schemas:ListTagsForResource`<br>• `schemas:SearchSchemas`<br>• `scheduler:GetSchedule`<br>• `scheduler:GetScheduleGroup`<br>• `scheduler:ListSchedules`<br>• `scheduler:ListScheduleGroups`<br>• `scheduler:ListTagsForResource` | November 10, 2022 |
-| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") –<br>Update to an existing policy     | EventBridge added permissions necessary for view endpoint information.<br>The following actions were added:<br>• `events:ListEndpoints`<br>• `events:DescribeEndpoint`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | April 7, 2022     |
-| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy "#eb-read-only-access-policy") –<br>Update to an existing policy     | EventBridge added permissions necessary for view connection and API destination information.<br>The following actions were added:<br>• `events:DescribeConnection`<br>• `events:ListConnections`<br>• `events:DescribeApiDestination`<br>• `events:ListApiDestinations`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | March 4, 2021     |
-| [AmazonEventBridgeFullAccess](#eb-full-access-policy "#eb-full-access-policy") –<br>Update to an existing policy                   | EventBridge updated the policy to include `iam:CreateServiceLinkedRole` and AWS Secrets Manager permissions necessary for using API<br>destinations.<br>The following actions were added:<br>• `secretsmanager:CreateSecret`<br>• `secretsmanager:UpdateSecret`<br>• `secretsmanager:DeleteSecret`<br>• `secretsmanager:GetSecretValue`<br>• `secretsmanager:PutSecretValue`                                                                                                                                                                                                                                                                                                                                                                                              | March 4, 2021     |
-| EventBridge started tracking changes                                                                                               | EventBridge started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | March 4, 2021     |
+
+View details about updates to AWS managed policies for EventBridge since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the EventBridge Document history page.
+
+
+
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+| [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy) – Updated policy | EventBridge updated policy to restrict the scope of permissions for Secrets Manager operations to the same account. | May 29, 2025 | 
+| [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy) – Updated policy | EventBridge updated policy to grant AWS KMS encrypt and decrypt permissions via Secrets Manager. This enables EventBridge to update connection secret resources with new OAuth token value when access token refresh is required. | March 28, 2025 | 
+| [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Updated policy | AWS GovCloud (US) Regions only<br />The following permission is not included, as it is not used:+ `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry | May 9, 2024 | 
+| [AmazonEventBridgeSchemasFullAccess](#eb-schemas-access-policies) – Updated policy | AWS GovCloud (US) Regions only<br />The following permission is not included, as it is not used:+ `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry | May 9, 2024 | 
+| [AmazonEventBridgePipesFullAccess](#eb-pipes-access-policies) – New policy added | EventBridge added managed policy for full permissions for using EventBridge Pipes. | December 1, 2022 | 
+| [AmazonEventBridgePipesReadOnlyAccess](#eb-pipes-access-policies) – New policy added | EventBridge added managed policy for permissions to view EventBridge Pipes information resources. | December 1, 2022 | 
+| [AmazonEventBridgePipesOperatorAccess](#eb-pipes-access-policies) – New policy added | EventBridge added managed policy for permissions to view EventBridge Pipes information, as well as start and stop running pipes. | December 1, 2022 | 
+| [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Update to an existing policy | EventBridge updated the policy to include permissions necessary for using EventBridge Pipes features. | December 1, 2022 | 
+| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions necessary for view EventBridge Pipes information resources.<br />The following actions were added:+ `pipes:DescribePipe`<br />+ `pipes:ListPipes`<br />+ `pipes:ListTagsForResource` | December 1, 2022 | 
+| [CloudWatchEventsReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | Updated to match AmazonEventBridgeReadOnlyAccess. | December 1, 2022 | 
+| [CloudWatchEventsFullAccess](#eb-full-access-policy) – Update to an existing policy | Updated to match AmazonEventBridgeFullAccess. | December 1, 2022 | 
+| [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Update to an existing policy | EventBridge updated the policy to include permissions necessary for using schemas and scheduler features.<br />The following permissions were added:+ EventBridge Schema Registry actions<br />+ EventBridge Scheduler actions<br />+ `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry<br />+ `iam:PassRole` permission for EventBridge Scheduler | November 10, 2022 | 
+| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions necessary for view schema and scheduler information resources.<br />The following actions were added:+ `schemas:DescribeCodeBinding`<br />+ `schemas:DescribeDiscoverer`<br />+ `schemas:DescribeRegistry`<br />+ `schemas:DescribeSchema`<br />+ `schemas:ExportSchema`<br />+ `schemas:GetCodeBindingSource`<br />+ `schemas:GetDiscoveredSchema`<br />+ `schemas:GetResourcePolicy`<br />+ `schemas:ListDiscoverers`<br />+ `schemas:ListRegistries`<br />+ `schemas:ListSchemas`<br />+ `schemas:ListSchemaVersions`<br />+ `schemas:ListTagsForResource`<br />+ `schemas:SearchSchemas`<br />+ `scheduler:GetSchedule`<br />+ `scheduler:GetScheduleGroup`<br />+ `scheduler:ListSchedules`<br />+ `scheduler:ListScheduleGroups`<br />+ `scheduler:ListTagsForResource` | November 10, 2022 | 
+| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions necessary for view endpoint information.<br />The following actions were added:+ `events:ListEndpoints`<br />+ `events:DescribeEndpoint` | April 7, 2022 | 
+| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions necessary for view connection and API destination information.<br />The following actions were added:+ `events:DescribeConnection`<br />+ `events:ListConnections`<br />+ `events:DescribeApiDestination`<br />+ `events:ListApiDestinations` | March 4, 2021 | 
+| [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Update to an existing policy | EventBridge updated the policy to include `iam:CreateServiceLinkedRole` and AWS Secrets Manager permissions necessary for using API destinations.<br />The following actions were added:+ `secretsmanager:CreateSecret`<br />+ `secretsmanager:UpdateSecret`<br />+ `secretsmanager:DeleteSecret`<br />+ `secretsmanager:GetSecretValue`<br />+ `secretsmanager:PutSecretValue` | March 4, 2021 | 
+| EventBridge started tracking changes | EventBridge started tracking changes for its AWS managed policies. | March 4, 2021 | 

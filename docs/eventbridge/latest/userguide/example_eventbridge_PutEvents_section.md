@@ -1,24 +1,20 @@
+
+
 # Use `PutEvents` with an AWS SDK or CLI
+<a name="example_eventbridge_PutEvents_section"></a>
 
 The following code examples show how to use `PutEvents`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md) 
++  [Create and trigger a rule](example_eventbridge_Scenario_createAndTriggerARule_section.md) 
 
-- [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
-- [Create and trigger a rule](example_eventbridge_Scenario_createAndTriggerARule_section.md "example_eventbridge_Scenario_createAndTriggerARule_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-Send an event that matches a custom pattern for a rule.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+Send an event that matches a custom pattern for a rule.  
 
 ```
     /// <summary>
@@ -50,25 +46,15 @@ Send an event that matches a custom pattern for a rule.
 
         return response.FailedEntryCount == 0;
     }
-
-
 ```
++  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutEvents](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -77,11 +63,8 @@ Include the required files.
 #include <aws/events/model/PutEventsResult.h>
 #include <aws/core/utils/Outcome.h>
 #include <iostream>
-
-
 ```
-
-Send the event.
+Send the event.  
 
 ```
         Aws::CloudWatchEvents::EventBridgeClient cwe;
@@ -105,28 +88,20 @@ Send the event.
         {
             std::cout << "Successfully posted CloudWatch event" << std::endl;
         }
+```
++  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/SdkForCpp/eventbridge-2015-10-07/PutEvents) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To send a custom event to CloudWatch Events**  
+This example sends a custom event to CloudWatch Events. The event is contained within the putevents.json file:  
 
 ```
-
-- For API details, see
-  [PutEvents](../../../goto/SdkForCpp/eventbridge-2015-10-07/PutEvents.md "../../../goto/SdkForCpp/eventbridge-2015-10-07/PutEvents.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To send a custom event to CloudWatch Events**
-
-This example sends a custom event to CloudWatch Events. The event is contained within the putevents.json file:
-
+aws events put-events --entries {{file://putevents.json}}
 ```
-`aws events put-events --entries `file://putevents.json``
-
-```
-
-Here are the contents of the putevents.json file:
+Here are the contents of the putevents.json file:  
 
 ```
 [
@@ -150,20 +125,13 @@ Here are the contents of the putevents.json file:
    }
 ]
 ```
++  For API details, see [PutEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-events.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-events.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-events.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 
 ```
     public static void triggerCustomRule(EventBridgeClient eventBrClient, String email) {
@@ -185,25 +153,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         eventBrClient.putEvents(eventsRequest);
     }
-
-
 ```
++  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutEvents](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import {
@@ -249,21 +207,11 @@ export const putEvents = async (
 
   return response;
 };
-
-
 ```
++  For API details, see [PutEvents](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutEventsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutEvents](../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutEventsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutEventsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -292,23 +240,14 @@ ebevents.putEvents(params, function (err, data) {
     console.log("Success", data.Entries);
   }
 });
-
-
 ```
++  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutEvents) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutEvents](../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutEvents.md "../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutEvents.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 suspend fun triggerCustomRule(email: String) {
@@ -335,14 +274,9 @@ suspend fun triggerCustomRule(email: String) {
         eventBrClient.putEvents(eventsRequest)
     }
 }
-
-
 ```
++  For API details, see [PutEvents](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutEvents](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

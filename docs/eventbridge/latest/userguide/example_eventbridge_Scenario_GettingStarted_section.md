@@ -1,23 +1,20 @@
+
+
 # Learn the basics of EventBridge with an AWS SDK
+<a name="example_eventbridge_Scenario_GettingStarted_section"></a>
 
 The following code examples show how to:
++ Create a rule and add a target to it.
++ Enable and disable rules.
++ List and update rules and targets.
++ Send events, then clean up resources.
 
-- Create a rule and add a target to it.
-- Enable and disable rules.
-- List and update rules and targets.
-- Send events, then clean up resources.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 public class EventBridgeScenario
@@ -614,14 +611,10 @@ public class EventBridgeScenario
         return response;
     }
 }
-
+```
+Create a class that wraps EventBridge operations.  
 
 ```
-
-Create a class that wraps EventBridge operations.
-
-```
-
 /// <summary>
 /// Wrapper for Amazon EventBridge operations.
 /// </summary>
@@ -1031,32 +1024,24 @@ public class EventBridgeWrapper
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [DeleteRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/DeleteRule)
+  + [DescribeRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/DescribeRule)
+  + [DisableRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/DisableRule)
+  + [EnableRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/EnableRule)
+  + [ListRuleNamesByTarget](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget)
+  + [ListRules](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules)
+  + [ListTargetsByRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/ListTargetsByRule)
+  + [PutEvents](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents)
+  + [PutRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule)
+  + [PutTargets](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [DeleteRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DeleteRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DeleteRule.md")
-  - [DescribeRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DescribeRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DescribeRule.md")
-  - [DisableRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DisableRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DisableRule.md")
-  - [EnableRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/EnableRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/EnableRule.md")
-  - [ListRuleNamesByTarget](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRuleNamesByTarget.md")
-  - [ListRules](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListRules.md")
-  - [ListTargetsByRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListTargetsByRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/ListTargetsByRule.md")
-  - [PutEvents](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutEvents.md")
-  - [PutRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule.md")
-  - [PutTargets](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
 
 ```
 /**
@@ -1778,32 +1763,24 @@ public class EventbridgeMVP {
         return "";
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/DeleteRule)
+  + [DescribeRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/DescribeRule)
+  + [DisableRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/DisableRule)
+  + [EnableRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/EnableRule)
+  + [ListRuleNamesByTarget](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget)
+  + [ListRules](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules)
+  + [ListTargetsByRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/ListTargetsByRule)
+  + [PutEvents](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents)
+  + [PutRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule)
+  + [PutTargets](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-  - [DeleteRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DeleteRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DeleteRule.md")
-  - [DescribeRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DescribeRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DescribeRule.md")
-  - [DisableRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DisableRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DisableRule.md")
-  - [EnableRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/EnableRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/EnableRule.md")
-  - [ListRuleNamesByTarget](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRuleNamesByTarget.md")
-  - [ListRules](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListRules.md")
-  - [ListTargetsByRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListTargetsByRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/ListTargetsByRule.md")
-  - [PutEvents](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents.md")
-  - [PutRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md")
-  - [PutTargets](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 /*
@@ -2372,7 +2349,7 @@ suspend fun subEmail(
 suspend fun createSnsTopic(topicName: String): String? {
     val topicPolicy = """
     {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Sid": "EventBridgePublishTopic",
@@ -2532,23 +2509,19 @@ suspend fun createIAMRole(
         return response.role?.arn
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [DeleteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DisableRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [EnableRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListRuleNamesByTarget](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListRules](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListTargetsByRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutEvents](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
 
-  - [DeleteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DisableRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [EnableRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListRuleNamesByTarget](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListRules](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListTargetsByRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutEvents](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

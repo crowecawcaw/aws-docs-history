@@ -1,47 +1,40 @@
+
+
 # Managing event bus permissions in Amazon EventBridge
+<a name="eb-event-bus-permissions-manage"></a>
 
-Use the following procedure to modify the permissions for an existing event bus. For
-information about how to use CloudFormation to create an event bus policy, see [AWS::Events::EventBusPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md").
+Use the following procedure to modify the permissions for an existing event bus. For information about how to use CloudFormation to create an event bus policy, see [AWS::Events::EventBusPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html).
 
-###### To manage permissions for an existing event bus
+**To manage permissions for an existing event bus**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the left navigation pane, choose **Event buses**.
-3. In **Name**, choose the name of the event bus to manage permissions
-   for.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-If a resource policy is attached to the event bus, the policy displays. 4. Choose **Manage permissions**, and then do one of the
-following:
+1. In the left navigation pane, choose **Event buses**.
 
-    * Enter the policy that includes the permissions to grant for the event bus. You can
-     paste in a policy from another source, or enter the JSON for the policy.
-    * To use a template for the policy, choose **Load template**.
-     Modify the policy as appropriate for your environment, and add additional actions that
-     you authorize the principal in the policy to use.
+1. In **Name**, choose the name of the event bus to manage permissions for.
 
-5. Choose **Update**.
-The template provides example policy statements that you can customize for your account
-and environment. The template isn't a valid policy. You can modify the template for your use
-case, or you can copy one of the example policies and customize it.
+   If a resource policy is attached to the event bus, the policy displays.
 
-The template loads policies that include an example of how to grant permissions to an
-account to use the `PutEvents` action, how to grant permissions to an organization,
-and how to grant permissions to the account to manage rules in the account. You can customize
-the template for your specific account, and then delete the other sections from the template.
-More example policies are included later in this section.
+1. Choose **Manage permissions**, and then do one of the following:
+   + Enter the policy that includes the permissions to grant for the event bus. You can paste in a policy from another source, or enter the JSON for the policy.
+   + To use a template for the policy, choose **Load template**. Modify the policy as appropriate for your environment, and add additional actions that you authorize the principal in the policy to use.
 
-If you try to update the permissions for the bus but the policy contains an error, an
-error message indicates the specific issue in the policy.
+1. Choose **Update**.
+
+The template provides example policy statements that you can customize for your account and environment. The template isn't a valid policy. You can modify the template for your use case, or you can copy one of the example policies and customize it.
+
+The template loads policies that include an example of how to grant permissions to an account to use the `PutEvents` action, how to grant permissions to an organization, and how to grant permissions to the account to manage rules in the account. You can customize the template for your specific account, and then delete the other sections from the template. More example policies are included later in this section.
+
+If you try to update the permissions for the bus but the policy contains an error, an error message indicates the specific issue in the policy.
 
 ```
-
   ### Choose which sections to include in the policy to match your use case. ###
   ### Be sure to remove all lines that start with ###, including the ### at the end of the line. ###
 
   ### The policy must include the following: ###
 
   {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
 
       ### To grant permissions for an account to use the PutEvents action, include the following, otherwise delete this section: ###

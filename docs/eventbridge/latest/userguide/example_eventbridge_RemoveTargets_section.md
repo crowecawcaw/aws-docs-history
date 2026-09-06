@@ -1,18 +1,16 @@
+
+
 # Use `RemoveTargets` with an AWS SDK or CLI
+<a name="example_eventbridge_RemoveTargets_section"></a>
 
 The following code examples show how to use `RemoveTargets`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-Remove all of the targets for a rule using the rule name.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+Remove all of the targets for a rule using the rule name.  
 
 ```
     /// <summary>
@@ -54,42 +52,27 @@ Remove all of the targets for a rule using the rule name.
 
         return removeResponse.HttpStatusCode == HttpStatusCode.OK;
     }
+```
++  For API details, see [RemoveTargets](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/RemoveTargets) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To remove a target for an event**  
+This example removes the Amazon Kinesis stream named MyStream1 from being a target of the rule DailyLambdaFunction. When DailyLambdaFunction was created, this stream was set as a target with an ID of Target1:  
 
 ```
-
-- For API details, see
-  [RemoveTargets](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/RemoveTargets.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/RemoveTargets.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To remove a target for an event**
-
-This example removes the Amazon Kinesis stream named MyStream1 from being a target of the rule DailyLambdaFunction. When DailyLambdaFunction was created, this stream was set as a target with an ID of Target1:
-
+aws events remove-targets --rule {{"DailyLambdaFunction"}} --ids {{"Target1"}}
 ```
-`aws events remove-targets --rule `"DailyLambdaFunction"` --ids `"Target1"``
++  For API details, see [RemoveTargets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/remove-targets.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-- For API details, see
-  [RemoveTargets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/remove-targets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/remove-targets.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
-
-Remove all of the targets for a rule by using the rule name.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
+Remove all of the targets for a rule by using the rule name.  
 
 ```
     public static void deleteTargetsFromRule(EventBridgeClient eventBrClient, String eventRuleName) {
@@ -112,23 +95,14 @@ Remove all of the targets for a rule by using the rule name.
             System.out.println("Successfully removed the target");
         }
     }
-
-
 ```
++  For API details, see [RemoveTargets](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/RemoveTargets) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [RemoveTargets](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/RemoveTargets.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/RemoveTargets.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 suspend fun deleteTargetsFromRule(eventRuleName: String?) {
@@ -156,14 +130,9 @@ suspend fun deleteTargetsFromRule(eventRuleName: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [RemoveTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [RemoveTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

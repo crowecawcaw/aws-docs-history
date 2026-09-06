@@ -1,25 +1,21 @@
+
+
 # Use `PutRule` with an AWS SDK or CLI
+<a name="example_eventbridge_PutRule_section"></a>
 
 The following code examples show how to use `PutRule`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md) 
++  [Create and trigger a rule](example_eventbridge_Scenario_createAndTriggerARule_section.md) 
++  [Send event notifications to EventBridge](example_s3_Scenario_PutBucketNotificationConfiguration_section.md) 
 
-- [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
-- [Create and trigger a rule](example_eventbridge_Scenario_createAndTriggerARule_section.md "example_eventbridge_Scenario_createAndTriggerARule_section.md")
-- [Send event notifications to EventBridge](example_s3_Scenario_PutBucketNotificationConfiguration_section.md "example_s3_Scenario_PutBucketNotificationConfiguration_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
 ```
     /// <summary>
@@ -52,11 +48,8 @@ Create a rule that triggers when an object is added to an Amazon Simple Storage 
 
         return response.RuleArn;
     }
-
-
 ```
-
-Create a rule that uses a custom pattern.
+Create a rule that uses a custom pattern.  
 
 ```
     /// <summary>
@@ -81,25 +74,15 @@ Create a rule that uses a custom pattern.
 
         return response.RuleArn;
     }
-
-
 ```
++  For API details, see [PutRule](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutRule.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -108,11 +91,8 @@ Include the required files.
 #include <aws/events/model/PutRuleResult.h>
 #include <aws/core/utils/Outcome.h>
 #include <iostream>
-
-
 ```
-
-Create the rule.
+Create the rule.  
 
 ```
         Aws::CloudWatchEvents::EventBridgeClient cwe;
@@ -135,56 +115,37 @@ Create the rule.
                 rule_name << " with resulting Arn " <<
                 outcome.GetResult().GetRuleArn() << std::endl;
         }
+```
++  For API details, see [PutRule](https://docs.aws.amazon.com/goto/SdkForCpp/eventbridge-2015-10-07/PutRule) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create CloudWatch Events rules**  
+This example creates a rule that triggers every day at 9:00am (UTC). If you use put-targets to add a Lambda function as a target of this rule, you could run the Lambda function every day at the specified time:  
 
 ```
-
-- For API details, see
-  [PutRule](../../../goto/SdkForCpp/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForCpp/eventbridge-2015-10-07/PutRule.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create CloudWatch Events rules**
-
-This example creates a rule that triggers every day at 9:00am (UTC). If you use put-targets to add a Lambda function as a target of this rule, you could run the Lambda function every day at the specified time:
+aws events put-rule --name {{"DailyLambdaFunction"}} --schedule-expression {{"cron(0 9 * * ? *)"}}
+```
+This example creates a rule that triggers when any EC2 instance in the region changes state:  
 
 ```
-`aws events put-rule --name `"DailyLambdaFunction"` --schedule-expression `"cron(0 9 * * ? *)"``
+aws events put-rule --name {{"EC2InstanceStateChanges"}} --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"  --role-arn {{"arn:aws:iam::123456789012:role/MyRoleForThisRule"}}
+```
+This example creates a rule that triggers when any EC2 instance in the region is stopped or terminated:  
 
 ```
-
-This example creates a rule that triggers when any EC2 instance in the region changes state:
-
+aws events put-rule --name {{"EC2InstanceStateChangeStopOrTerminate"}} --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"],\"detail\":{\"state\":[\"stopped\",\"terminated\"]}}" --role-arn {{"arn:aws:iam::123456789012:role/MyRoleForThisRule"}}
 ```
-`aws events put-rule --name `"EC2InstanceStateChanges"` --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}" --role-arn `"arn:aws:iam::123456789012:role/MyRoleForThisRule"``
++  For API details, see [PutRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-rule.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This example creates a rule that triggers when any EC2 instance in the region is stopped or terminated:
-
-```
-`aws events put-rule --name `"EC2InstanceStateChangeStopOrTerminate"` --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"],\"detail\":{\"state\":[\"stopped\",\"terminated\"]}}" --role-arn `"arn:aws:iam::123456789012:role/MyRoleForThisRule"``
-
-```
-
-- For API details, see
-  [PutRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-rule.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-rule.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
-
-Create a scheduled rule.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
+Create a scheduled rule.  
 
 ```
     public static void createEBRule(EventBridgeClient eventBrClient, String ruleName, String cronExpression) {
@@ -205,11 +166,8 @@ Create a scheduled rule.
             System.exit(1);
         }
     }
-
-
 ```
-
-Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.
+Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
 ```
     // Create a new event rule that triggers when an Amazon S3 object is created in
@@ -242,25 +200,15 @@ Create a rule that triggers when an object is added to an Amazon Simple Storage 
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [PutRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import { EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge";
@@ -296,21 +244,11 @@ export const putRule = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [PutRule](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutRuleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutRule](../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutRuleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutRuleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -335,25 +273,15 @@ ebevents.putRule(params, function (err, data) {
     console.log("Success", data.RuleArn);
   }
 });
-
-
 ```
++  For API details, see [PutRule](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutRule) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutRule](../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutRule.md "../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutRule.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
-
-Create a scheduled rule.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
+Create a scheduled rule.  
 
 ```
 suspend fun createScRule(
@@ -374,11 +302,8 @@ suspend fun createScRule(
         println("The ARN of the new rule is ${ruleResponse.ruleArn}")
     }
 }
-
-
 ```
-
-Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.
+Create a rule that triggers when an object is added to an Amazon Simple Storage Service bucket.  
 
 ```
 // Create a new event rule that triggers when an Amazon S3 object is created in a bucket.
@@ -412,14 +337,9 @@ suspend fun addEventRule(
         println("The ARN of the new rule is ${ruleResponse.ruleArn}")
     }
 }
-
-
 ```
++  For API details, see [PutRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

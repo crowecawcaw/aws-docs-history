@@ -1,18 +1,16 @@
+
+
 # Create and trigger a rule in Amazon EventBridge using an AWS SDK
+<a name="example_eventbridge_Scenario_createAndTriggerARule_section"></a>
 
 The following code example shows how to create and trigger a rule in Amazon EventBridge.
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/eventbridge#code-examples").
-
-Call the functions in the correct order.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/eventbridge#code-examples). 
+Call the functions in the correct order.  
 
 ```
 require 'aws-sdk-sns'
@@ -22,11 +20,8 @@ require 'aws-sdk-ec2'
 require 'aws-sdk-cloudwatch'
 require 'aws-sdk-cloudwatchlogs'
 require 'securerandom'
-
-
 ```
-
-Checks whether the specified Amazon Simple Notification Service (Amazon SNS) topic exists among those provided to this function.
+Checks whether the specified Amazon Simple Notification Service (Amazon SNS) topic exists among those provided to this function.  
 
 ```
 # Checks whether the specified Amazon SNS
@@ -51,11 +46,8 @@ def topic_found?(topics, topic_arn)
   end
   false
 end
-
-
 ```
-
-Checks whether the specified topic exists among those available to the caller in Amazon SNS.
+Checks whether the specified topic exists among those available to the caller in Amazon SNS.  
 
 ```
 # Checks whether the specified topic exists among those available to the
@@ -93,11 +85,8 @@ rescue StandardError => e
   puts "Topic not found: #{e.message}"
   false
 end
-
-
 ```
-
-Create a topic in Amazon SNS and then subscribe an email address to receive notifications to that topic.
+Create a topic in Amazon SNS and then subscribe an email address to receive notifications to that topic.  
 
 ```
 # Creates a topic in Amazon SNS
@@ -132,11 +121,8 @@ rescue StandardError => e
   puts "Error creating or subscribing to topic: #{e.message}"
   'Error'
 end
-
-
 ```
-
-Check whether the specified AWS Identity and Access Management (IAM) role exists among those provided to this function.
+Check whether the specified AWS Identity and Access Management (IAM) role exists among those provided to this function.  
 
 ```
 # Checks whether the specified AWS Identity and Access Management (IAM)
@@ -161,11 +147,8 @@ def role_found?(roles, role_arn)
   end
   false
 end
-
-
 ```
-
-Check whether the specified role exists among those available to the caller in IAM.
+Check whether the specified role exists among those available to the caller in IAM.  
 
 ```
 # Checks whether the specified role exists among those available to the
@@ -203,11 +186,8 @@ rescue StandardError => e
   puts "Role not found: #{e.message}"
   false
 end
-
-
 ```
-
-Create a role in IAM.
+Create a role in IAM.  
 
 ```
 # Creates a role in AWS Identity and Access Management (IAM).
@@ -273,11 +253,8 @@ rescue StandardError => e
     'to the role yourself, or delete the role yourself and try again.'
   'Error'
 end
-
-
 ```
-
-Checks whether the specified EventBridge rule exists among those provided to this function.
+Checks whether the specified EventBridge rule exists among those provided to this function.  
 
 ```
 # Checks whether the specified Amazon EventBridge rule exists among
@@ -299,11 +276,8 @@ def rule_found?(rules, rule_name)
   end
   false
 end
-
-
 ```
-
-Checks whether the specified rule exists among those available to the caller in EventBridge.
+Checks whether the specified rule exists among those available to the caller in EventBridge.  
 
 ```
 # Checks whether the specified rule exists among those available to the
@@ -342,11 +316,8 @@ rescue StandardError => e
   puts "Rule not found: #{e.message}"
   false
 end
-
-
 ```
-
-Create a rule in EventBridge.
+Create a rule in EventBridge.  
 
 ```
 # Creates a rule in Amazon EventBridge.
@@ -437,11 +408,8 @@ rescue StandardError => e
     'to the rule yourself, or delete the rule yourself and try again.'
   false
 end
-
-
 ```
-
-Check to see whether the specified log group exists among those available to the caller in Amazon CloudWatch Logs.
+Check to see whether the specified log group exists among those available to the caller in Amazon CloudWatch Logs.  
 
 ```
 # Checks to see whether the specified log group exists among those available
@@ -475,11 +443,8 @@ rescue StandardError => e
   puts "Log group not found: #{e.message}"
   false
 end
-
-
 ```
-
-Create a log group in CloudWatch Logs.
+Create a log group in CloudWatch Logs.  
 
 ```
 # Creates a log group in Amazon CloudWatch Logs.
@@ -502,11 +467,8 @@ rescue StandardError => e
   puts "Error creating log group: #{e.message}"
   false
 end
-
-
 ```
-
-Write an event to a log stream in CloudWatch Logs.
+Write an event to a log stream in CloudWatch Logs.  
 
 ```
 # Writes an event to a log stream in Amazon CloudWatch Logs.
@@ -563,11 +525,8 @@ def log_event(
 rescue StandardError => e
   puts "Message not logged: #{e.message}"
 end
-
-
 ```
-
-Restart an Amazon Elastic Compute Cloud (Amazon EC2) instance and adds information about the related activity to a log stream in CloudWatch Logs.
+Restart an Amazon Elastic Compute Cloud (Amazon EC2) instance and adds information about the related activity to a log stream in CloudWatch Logs.  
 
 ```
 # Restarts an Amazon EC2 instance
@@ -646,11 +605,8 @@ rescue StandardError => e
   )
   false
 end
-
-
 ```
-
-Display information about activity for a rule in EventBridge.
+Display information about activity for a rule in EventBridge.  
 
 ```
 # Displays information about activity for a rule in Amazon EventBridge.
@@ -711,11 +667,8 @@ def display_rule_activity(
 rescue StandardError => e
   puts "Error getting information about event rule activity: #{e.message}"
 end
-
-
 ```
-
-Display log information for all of the log streams in a CloudWatch Logs log group.
+Display log information for all of the log streams in a CloudWatch Logs log group.  
 
 ```
 # Displays log information for all of the log streams in a log group in
@@ -764,11 +717,8 @@ rescue StandardError => e
   puts 'Error getting information about the log streams or their messages: ' \
     "#{e.message}"
 end
-
-
 ```
-
-Display a reminder to the caller to manually clean up any associated AWS resources that they no longer need.
+Display a reminder to the caller to manually clean up any associated AWS resources that they no longer need.  
 
 ```
 # Displays a reminder to the caller to manually clean up any associated
@@ -801,15 +751,11 @@ def manual_cleanup_notice(
   puts "- The Amazon CloudWatch Logs log group named '#{log_group_name}'."
   puts "- The Amazon EC2 instance with the ID '#{instance_id}'."
 end
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [PutEvents](https://docs.aws.amazon.com/goto/SdkForRubyV3/eventbridge-2015-10-07/PutEvents)
+  + [PutRule](https://docs.aws.amazon.com/goto/SdkForRubyV3/eventbridge-2015-10-07/PutRule)
 
-- For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+------
 
-  - [PutEvents](../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutEvents.md "../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutEvents.md")
-  - [PutRule](../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutRule.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

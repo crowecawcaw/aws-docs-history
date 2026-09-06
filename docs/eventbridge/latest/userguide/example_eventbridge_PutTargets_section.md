@@ -1,24 +1,20 @@
+
+
 # Use `PutTargets` with an AWS SDK or CLI
+<a name="example_eventbridge_PutTargets_section"></a>
 
 The following code examples show how to use `PutTargets`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md) 
++  [Send event notifications to EventBridge](example_s3_Scenario_PutBucketNotificationConfiguration_section.md) 
 
-- [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
-- [Send event notifications to EventBridge](example_s3_Scenario_PutBucketNotificationConfiguration_section.md "example_s3_Scenario_PutBucketNotificationConfiguration_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-Add an Amazon SNS topic as a target for a rule.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples). 
+Add an Amazon SNS topic as a target for a rule.  
 
 ```
     /// <summary>
@@ -62,11 +58,8 @@ Add an Amazon SNS topic as a target for a rule.
 
         return targetID;
     }
-
-
 ```
-
-Add an input transformer to a target for a rule.
+Add an input transformer to a target for a rule.  
 
 ```
     /// <summary>
@@ -114,25 +107,15 @@ Add an input transformer to a target for a rule.
         }
         return targetID;
     }
-
-
 ```
++  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutTargets](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/PutTargets.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/eventbridge#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -141,11 +124,8 @@ Include the required files.
 #include <aws/events/model/PutTargetsResult.h>
 #include <aws/core/utils/Outcome.h>
 #include <iostream>
-
-
 ```
-
-Add the target.
+Add the target.  
 
 ```
         Aws::CloudWatchEvents::EventBridgeClient cwe;
@@ -171,56 +151,37 @@ Add the target.
                 "Successfully created CloudWatch events target for rule "
                 << rule_name << std::endl;
         }
+```
++  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/SdkForCpp/eventbridge-2015-10-07/PutTargets) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To add targets for CloudWatch Events rules**  
+This example adds a Lambda function as the target of a rule:  
 
 ```
-
-- For API details, see
-  [PutTargets](../../../goto/SdkForCpp/eventbridge-2015-10-07/PutTargets.md "../../../goto/SdkForCpp/eventbridge-2015-10-07/PutTargets.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To add targets for CloudWatch Events rules**
-
-This example adds a Lambda function as the target of a rule:
+aws events put-targets --rule {{DailyLambdaFunction}} --targets "Id"="1","Arn"="arn:aws:lambda:us-east-1:123456789012:function:MyFunctionName"
+```
+This example sets an Amazon Kinesis stream as the target, so that events caught by this rule are relayed to the stream:  
 
 ```
-`aws events put-targets --rule `DailyLambdaFunction` --targets "Id"="1","Arn"="arn:aws:lambda:us-east-1:123456789012:function:MyFunctionName"`
+aws events put-targets --rule {{EC2InstanceStateChanges}} --targets "Id"="1","Arn"="arn:aws:kinesis:us-east-1:123456789012:stream/MyStream","RoleArn"="arn:aws:iam::123456789012:role/MyRoleForThisRule"
+```
+This example sets two Amazon Kinesis streams as targets for one rule:  
 
 ```
-
-This example sets an Amazon Kinesis stream as the target, so that events caught by this rule are relayed to the stream:
-
+aws events put-targets --rule {{DailyLambdaFunction}} --targets "Id"="Target1","Arn"="arn:aws:kinesis:us-east-1:379642911888:stream/MyStream1","RoleArn"="arn:aws:iam::379642911888:role/ MyRoleToAccessLambda"  "Id"="Target2"," Arn"="arn:aws:kinesis:us-east-1:379642911888:stream/MyStream2","RoleArn"="arn:aws:iam::379642911888:role/MyRoleToAccessLambda"
 ```
-`aws events put-targets --rule `EC2InstanceStateChanges` --targets "Id"="1","Arn"="arn:aws:kinesis:us-east-1:123456789012:stream/MyStream","RoleArn"="arn:aws:iam::123456789012:role/MyRoleForThisRule"`
++  For API details, see [PutTargets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-targets.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This example sets two Amazon Kinesis streams as targets for one rule:
-
-```
-`aws events put-targets --rule `DailyLambdaFunction` --targets "Id"="Target1","Arn"="arn:aws:kinesis:us-east-1:379642911888:stream/MyStream1","RoleArn"="arn:aws:iam::379642911888:role/ MyRoleToAccessLambda" "Id"="Target2"," Arn"="arn:aws:kinesis:us-east-1:379642911888:stream/MyStream2","RoleArn"="arn:aws:iam::379642911888:role/MyRoleToAccessLambda"`
-
-```
-
-- For API details, see
-  [PutTargets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-targets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-targets.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples").
-
-Add an Amazon SNS topic as a target for a rule.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/eventbridge#code-examples). 
+Add an Amazon SNS topic as a target for a rule.  
 
 ```
     // Add a rule which triggers an SNS target when a file is uploaded to an S3
@@ -245,11 +206,8 @@ Add an Amazon SNS topic as a target for a rule.
         System.out.println("Added event rule " + eventRuleName + " with Amazon SNS target " + topicName + " for bucket "
                 + bucketName + ".");
     }
-
-
 ```
-
-Add an input transformer to a target for a rule.
+Add an input transformer to a target for a rule.  
 
 ```
     public static void updateCustomRuleTargetWithTransform(EventBridgeClient eventBrClient, String topicArn,
@@ -278,25 +236,15 @@ Add an input transformer to a target for a rule.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutTargets](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/eventbridge#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import {
@@ -340,21 +288,11 @@ export const putTarget = async (
 
   return response;
 };
-
-
 ```
++  For API details, see [PutTargets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutTargetsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutTargets](../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutTargetsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/eventbridge/command/PutTargetsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/eventbridge#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -382,23 +320,14 @@ ebevents.putTargets(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutTargets) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutTargets](../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutTargets.md "../../../goto/AWSJavaScriptSDK/eventbridge-2015-10-07/PutTargets.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/eventbridge#code-examples). 
 
 ```
 // Add a rule that triggers an SNS target when a file is uploaded to an S3 bucket.
@@ -431,11 +360,8 @@ suspend fun addSnsEventRule(
         println("Added event rule $eventRuleName with Amazon SNS target $topicName for bucket $bucketName.")
     }
 }
-
-
 ```
-
-Add an input transformer to a target for a rule.
+Add an input transformer to a target for a rule.  
 
 ```
 suspend fun updateCustomRuleTargetWithTransform(
@@ -467,14 +393,9 @@ suspend fun updateCustomRuleTargetWithTransform(
         eventBrClient.putTargets(targetsRequest)
     }
 }
-
-
 ```
++  For API details, see [PutTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutTargets](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using EventBridge with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using EventBridge with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
