@@ -1,13 +1,16 @@
+
+
 # Viewing the cluster state
+<a name="cluster-state-nw-rhel"></a>
 
 You can view the state of the cluster in two ways - based on your operating system or with a web based console provided by Red Hat.
 
-###### Topics
-
-- [Operating system based](#os-based-nw-rhel "#os-based-nw-rhel")
-- [Red Hat Cockpit](#rhel-cockpit "#rhel-cockpit")
+**Topics**
++ [Operating system based](#os-based-nw-rhel)
++ [Red Hat Cockpit](#rhel-cockpit)
 
 ## Operating system based
+<a name="os-based-nw-rhel"></a>
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
@@ -45,17 +48,19 @@ Full List of Resources:
 
 The following table provides a list of useful commands.
 
-| Command                | Description                                                  |
-| ---------------------- | ------------------------------------------------------------ |
-| `pcs status`           | Display cluster status on the console                        |
-| `pcs status --full`    | Display detailed cluster status including inactive resources |
-| `pcs status nodes`     | Display node status and attributes                           |
-| `pcs status resources` | Display resource status and fail counts                      |
-| `pcs cluster status`   | Display cluster daemon status                                |
-| `pcs help`             | View more options                                            |
-| `pcs status --help`    | View more options                                            |
+
+| Command | Description | 
+| --- | --- | 
+|  `pcs status`  | Display cluster status on the console | 
+|  `pcs status --full`  | Display detailed cluster status including inactive resources | 
+|  `pcs status nodes`  | Display node status and attributes | 
+|  `pcs status resources`  | Display resource status and fail counts | 
+|  `pcs cluster status`  | Display cluster daemon status | 
+|  `pcs help`  | View more options | 
+|  `pcs status --help`  | View more options | 
 
 ## Red Hat Cockpit
+<a name="rhel-cockpit"></a>
 
 Cockpit is a web-based graphical user interface for managing and monitoring Red Hat Enterprise Linux systems, including pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Cockpit.
 
@@ -72,4 +77,4 @@ https://your-server:9090/
 e.g https://rhxhost01:9090
 ```
 
-For more information, see [Configuring and Managing High Availability Clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters") in the Red Hat Documentation.
+For more information, see [Configuring and Managing High Availability Clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters) in the Red Hat Documentation.

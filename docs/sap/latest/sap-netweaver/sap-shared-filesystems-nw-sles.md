@@ -1,54 +1,55 @@
+
+
 # SAP Shared File Systems
+<a name="sap-shared-filesystems-nw-sles"></a>
 
-###### Topics
-
-- [Select Shared Storage](#select-storage-type-nw-sles "#select-storage-type-nw-sles")
-- [Create file systems](#create-filesystems-nw-sles "#create-filesystems-nw-sles")
-- [Create mount point directories](#create-mount-dirs-nw-sles "#create-mount-dirs-nw-sles")
-- [Update /etc/fstab](#update-fstab-nw-sles "#update-fstab-nw-sles")
-- [Temporarily mount ASCS and ERS directories for installation (classic only)](#temp-mount-dirs-nw-sles "#temp-mount-dirs-nw-sles")
+**Topics**
++ [Select Shared Storage](#select-storage-type-nw-sles)
++ [Create file systems](#create-filesystems-nw-sles)
++ [Create mount point directories](#create-mount-dirs-nw-sles)
++ [Update /etc/fstab](#update-fstab-nw-sles)
++ [Temporarily mount ASCS and ERS directories for installation (classic only)](#temp-mount-dirs-nw-sles)
 
 ## Select Shared Storage
+<a name="select-storage-type-nw-sles"></a>
 
-SAP NetWeaver high availability deployments require shared file systems. On Linux, you can use either [Amazon Elastic File System](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") or [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/ "https://aws.amazon.com/fsx/netapp-ontap/"). Choose between these options based on your requirements for resilience, performance, and cost. For detailed setup information, see [Getting started with Amazon Elastic File System](../../../efs/latest/ug/getting-started.md "../../../efs/latest/ug/getting-started.md") or [Getting started with Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/getting-started.md "../../../fsx/latest/ONTAPGuide/getting-started.md").
+SAP NetWeaver high availability deployments require shared file systems. On Linux, you can use either [Amazon Elastic File System](https://aws.amazon.com/efs/) or [Amazon FSx for NetApp ONTAP](https://aws.amazon.com/fsx/netapp-ontap/). Choose between these options based on your requirements for resilience, performance, and cost. For detailed setup information, see [Getting started with Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/getting-started.html) or [Getting started with Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started.html).
 
 We recommend sharing a single Amazon EFS or FSx for ONTAP file system across multiple SIDs within an account.
 
 The file system’s DNS name is the simplest mounting option. When connecting from an Amazon EC2 instance, the DNS automatically resolves to the mount target’s IP address in that instance’s Availability Zone. You can also create an alias (CNAME) to help identify the shared file system’s purpose. Throughout this document, we use `<nfs.fqdn>`.
 
 Examples:
++  `file-system-id.efs.aws-region.amazonaws.com` 
++  `svm-id.fs-id.fsx.aws-region.amazonaws.com` 
++  `qas_sapmnt_share.example.com` 
 
-- `file-system-id.efs.aws-region.amazonaws.com`
-- `svm-id.fs-id.fsx.aws-region.amazonaws.com`
-- `qas_sapmnt_share.example.com`
-
-###### Note
-
-Review the `enableDnsHostnames` and `enableDnsSupport` DNS attributes for your VPC. For more information, see [View and update DNS attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating").
+**Note**  
+Review the `enableDnsHostnames` and `enableDnsSupport` DNS attributes for your VPC. For more information, see [View and update DNS attributes for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-updating).
 
 ## Create file systems
+<a name="create-filesystems-nw-sles"></a>
 
 The following shared file systems are covered in this document:
 
-| NFS Location Structure     | NFS Location Example | File System Location Structure     | File System Location Example |
-| -------------------------- | -------------------- | ---------------------------------- | ---------------------------- |
-| <SID>\_sapmnt              | `SLX_sapmnt`         | /sapmnt/<SID>                      | `/sapmnt/SLX`                |
-| <SID>\_ASCS<ascs\_sys\_nr> | `SLX_ASCS00`         | /usr/sap/<SID>/ASCS<ascs\_sys\_nr> | `/usr/sap/SLX/ASCS00`        |
-| <SID>\_ERS<ers\_sys\_nr>   | `SLX_ERS10`          | /usr/sap/<SID>/ERS<ers\_sys\_nr>   | `/usr/sap/SLX/ERS10`         |
+
+| NFS Location Structure | NFS Location Example | File System Location Structure | File System Location Example | 
+| --- | --- | --- | --- | 
+| <SID>\_sapmnt |  `SLX_sapmnt`  | /sapmnt/<SID> |  `/sapmnt/SLX`  | 
+| <SID>\_ASCS<ascs\_sys\_nr> |  `SLX_ASCS00`  | /usr/sap/<SID>/ASCS<ascs\_sys\_nr> |  `/usr/sap/SLX/ASCS00`  | 
+| <SID>\_ERS<ers\_sys\_nr> |  `SLX_ERS10`  | /usr/sap/<SID>/ERS<ers\_sys\_nr> |  `/usr/sap/SLX/ERS10`  | 
 
 The following options can differ depending on how you architect and operate your systems:
++ ASCS and ERS mount points - In simple-mount architecture, you can share the entire `/usr/sap/<SID>` directory. This document uses separate mount points to simplify migration and follow SAP’s recommendation for local application server executables when co-hosting ASCS/ERS.
++ Transport directory - `/usr/sap/trans` is optional for ASCS installations. Add this shared directory if your change management processes require it.
++ Home directory - This document uses local home directories to ensure `<sid>adm` access during NFS issues. Consider a shared home directory if you need consistent user environments across nodes.
++ NFS location naming - The "NFS Location" names are arbitrary and can be chosen based on your naming conventions (e.g., `myEFSMount1`, `prod_sapmnt`, etc.). The "File system location" follows the standard SAP directory structure and should use the parameter references shown.
 
-- ASCS and ERS mount points - In simple-mount architecture, you can share the entire `/usr/sap/<SID>` directory. This document uses separate mount points to simplify migration and follow SAP’s recommendation for local application server executables when co-hosting ASCS/ERS.
-- Transport directory - `/usr/sap/trans` is optional for ASCS installations. Add this shared directory if your change management processes require it.
-- Home directory - This document uses local home directories to ensure `<sid>adm` access during NFS issues. Consider a shared home directory if you need consistent user environments across nodes.
-- NFS location naming - The "NFS Location" names are arbitrary and can be chosen based on your naming conventions (e.g., `myEFSMount1`, `prod_sapmnt`, etc.). The "File system location" follows the standard SAP directory structure and should use the parameter references shown.
-
-For more information, see [SAP System Directories on UNIX](https://help.sap.com/docs/SAP_NETWEAVER_750/ff18034f08af4d7bb33894c2047c3b71/2744f17a26a74a8abfd202c4f5dc9a0f.html "https://help.sap.com/docs/SAP_NETWEAVER_750/ff18034f08af4d7bb33894c2047c3b71/2744f17a26a74a8abfd202c4f5dc9a0f.html").
+For more information, see [SAP System Directories on UNIX](https://help.sap.com/docs/SAP_NETWEAVER_750/ff18034f08af4d7bb33894c2047c3b71/2744f17a26a74a8abfd202c4f5dc9a0f.html).
 
 Using the NFS ID created in the previous step, temporarily mount the root directory of the NFS. `/mnt` is available by default; it can also be substituted with another temporary location.
 
-###### Note
-
+**Note**  
 The following commands use the NFS location names from the table above. Replace `<SID>_sapmnt`, `<SID>_ASCS<ascs_sys_nr>`, and `<SID>_ERS<ers_sys_nr>` with your chosen NFS location names and parameter values.
 
 ```
@@ -57,27 +58,25 @@ The following commands use the NFS location names from the table above. Replace 
 # mkdir -p /mnt/<SID>_ASCS<ascs_sys_nr>
 # mkdir -p /mnt/<SID>_ERS<ers_sys_nr>
 ```
++  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-- _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-# mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/ /mnt
-# mkdir -p /mnt/SLX_sapmnt
-# mkdir -p /mnt/SLX_ASCS00
-# mkdir -p /mnt/SLX_ERS10
-```
+  ```
+  # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/ /mnt
+  # mkdir -p /mnt/SLX_sapmnt
+  # mkdir -p /mnt/SLX_ASCS00
+  # mkdir -p /mnt/SLX_ERS10
+  ```
 
 During SAP installation, the `<sid>adm` user and proper directory ownership will be created. Until then, we need to ensure the installation process has sufficient access. Set temporary permissions on the directories:
 
 ```
 # chmod 777 /mnt/<SID>_sapmnt /mnt/<SID>_ASCS<ascs_sys_nr> /mnt/<SID>_ERS<ers_sys_nr>
 ```
++  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-- _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-# chmod 777 /mnt/SLX_sapmnt /mnt/SLX_ASCS00 /mnt/SLX_ERS10
-```
+  ```
+  # chmod 777 /mnt/SLX_sapmnt /mnt/SLX_ASCS00 /mnt/SLX_ERS10
+  ```
 
 The SAP installation process will automatically set the correct ownership and permissions for operational use.
 
@@ -88,6 +87,7 @@ Unmount the temporary mount:
 ```
 
 ## Create mount point directories
+<a name="create-mount-dirs-nw-sles"></a>
 
 This is applicable to both cluster nodes. Create the directories for the required mount points (permanent or cluster controlled):
 
@@ -96,16 +96,16 @@ This is applicable to both cluster nodes. Create the directories for the require
 # mkdir /usr/sap/<SID>/ASCS<ascs_sys_nr>
 # mkdir /usr/sap/<SID>/ERS<ers_sys_nr>
 ```
++  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-- _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-# mkdir /sapmnt
-# mkdir /usr/sap/SLX/ASCS00
-# mkdir /usr/sap/SLX/ERS10
-```
+  ```
+  # mkdir /sapmnt
+  # mkdir /usr/sap/SLX/ASCS00
+  # mkdir /usr/sap/SLX/ERS10
+  ```
 
 ## Update /etc/fstab
+<a name="update-fstab-nw-sles"></a>
 
 This is applicable to both cluster nodes. `/etc/fstab` is a configuration table containing the details required for mounting and unmounting file systems to a host.
 
@@ -117,26 +117,24 @@ For both **simple-mount** and **classic** architectures, prepare and append an e
 <nfs.fqdn>/<SID>_sapmnt    /sapmnt    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 ```
 
-**Simple-mount only** – prepare and append entries for the ASCS and ERS file systems to `/etc/fstab`:
+ **Simple-mount only** – prepare and append entries for the ASCS and ERS file systems to `/etc/fstab`:
 
 ```
 <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>   /usr/sap/<SID>/ASCS<ascs_sys_nr>  nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>     /usr/sap/<SID>/ERS<ers_sys_nr>    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 ```
++  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-- _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_sapmnt    /sapmnt               nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
-fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ASCS00    /usr/sap/SLX/ASCS00   nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
-fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ERS10     /usr/sap/SLX/ERS10    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
-```
+  ```
+  fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_sapmnt    /sapmnt               nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+  fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ASCS00    /usr/sap/SLX/ASCS00   nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+  fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ERS10     /usr/sap/SLX/ERS10    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+  ```
 
 Verify that your mount options are:
-
-- Compatible with your operating system version
-- Supported by your chosen NFS file system type (EFS or FSx for ONTAP)
-- Aligned with current SAP recommendations
++ Compatible with your operating system version
++ Supported by your chosen NFS file system type (EFS or FSx for ONTAP)
++ Aligned with current SAP recommendations
 
 Consult SAP and AWS documentation for the latest mount option recommendations.
 
@@ -153,6 +151,7 @@ Use the following command to check that the required file systems are available:
 ```
 
 ## Temporarily mount ASCS and ERS directories for installation (classic only)
+<a name="temp-mount-dirs-nw-sles"></a>
 
 This is only applicable to the classic architecture. Simple-mount architecture has these directories permanently available in `/etc/fstab`.
 
@@ -169,10 +168,9 @@ Use the following command on the instance where you plan to install ERS:
 ```
 # mount <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>  /usr/sap/<SID>/ERS<ers_sys_nr>
 ```
++  *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
-- _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
-
-```
-# mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ASCS00  /usr/sap/SLX/ASCS00
-# mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ERS10   /usr/sap/SLX/ERS10
-```
+  ```
+  # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ASCS00  /usr/sap/SLX/ASCS00
+  # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ERS10   /usr/sap/SLX/ERS10
+  ```

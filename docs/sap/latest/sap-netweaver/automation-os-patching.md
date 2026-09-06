@@ -1,4 +1,7 @@
+
+
 # Automated operating system patching
+<a name="automation-os-patching"></a>
 
 Patch management is an ongoing activity that is a key part of the SAP software lifecycle. It is a critical step in improving security, minimizing risk, remaining compliant, and reducing unplanned downtime. You can use AWS Systems Manager to automate system patching activities. Systems Manager can reduce the manual effort that is required to manage the SAP landscape, which saves time and IT resources.
 

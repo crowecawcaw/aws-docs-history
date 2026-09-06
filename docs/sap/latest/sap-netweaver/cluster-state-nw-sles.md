@@ -1,13 +1,16 @@
+
+
 # Viewing the cluster state
+<a name="cluster-state-nw-sles"></a>
 
 You can view the state of the cluster in two ways - based on your operating system or with a web based console provided by SUSE.
 
-###### Topics
-
-- [Operating system based](#os-based-nw-sles "#os-based-nw-sles")
-- [SUSE Hawk2](#suse-hawk "#suse-hawk")
+**Topics**
++ [Operating system based](#os-based-nw-sles)
++ [SUSE Hawk2](#suse-hawk)
 
 ## Operating system based
+<a name="os-based-nw-sles"></a>
 
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
@@ -44,15 +47,17 @@ Full List of Resources:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
-| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
-| `crm help`           | View more options                                                                                                            |
-| `crm_mon --help-all` | View more options                                                                                                            |
+
+| Command | Description | 
+| --- | --- | 
+|  `crm_mon`  | Display cluster status on the console with updates as they occur | 
+|  `crm_mon -1`  | Display cluster status on the console just once, and exit | 
+|  `crm_mon -Arnf`  | -A Display node attributes<br />-n Group resources by node<br />-r Display inactive resources<br />-f Display resource fail counts | 
+|  `crm help`  | View more options | 
+|  `crm_mon --help-all`  | View more options | 
 
 ## SUSE Hawk2
+<a name="suse-hawk"></a>
 
 Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2.
 
@@ -69,4 +74,4 @@ https://your-server:7630/
 e.g https://slxhost01:7630
 ```
 
-For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation.
+For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html) in the SUSE Documentation.

@@ -1,56 +1,59 @@
+
+
 # Operating System Requirements
+<a name="sap-nw-pacemaker-sles-os-settings"></a>
 
 This section outlines the required operating system configurations for SUSE Linux Enterprise Server for SAP (SLES for SAP) cluster nodes. Note that this is not a comprehensive list of configuration requirements for running SAP on AWS, but rather focuses specifically on cluster management prerequisites.
 
 Consider using configuration management tools or automated deployment scripts to ensure accurate and repeatable setup across your cluster infrastructure.
 
-###### Topics
+**Topics**
++ [Root Access](#_root_access)
++ [Install Missing Operating System Packages](#packages-nw-sles)
++ [Update and Check Operating System Versions](#_update_and_check_operating_system_versions)
++ [System Logging](#_system_logging)
++ [Time Synchronization Services](#_time_synchronization_services)
++ [Install AWS CLI and Configure Profiles](#install_shared_aws_cli_and_configure_profiles)
++ [Pacemaker Proxy Settings (Optional)](#_pacemaker_proxy_settings_optional)
 
-- [Root Access](#_root_access "#_root_access")
-- [Install Missing Operating System Packages](#packages-nw-sles "#packages-nw-sles")
-- [Update and Check Operating System Versions](#_update_and_check_operating_system_versions "#_update_and_check_operating_system_versions")
-- [System Logging](#_system_logging "#_system_logging")
-- [Time Synchronization Services](#_time_synchronization_services "#_time_synchronization_services")
-- [Install AWS CLI and Configure Profiles](#install_shared_aws_cli_and_configure_profiles "#install_shared_aws_cli_and_configure_profiles")
-- [Pacemaker Proxy Settings (Optional)](#_pacemaker_proxy_settings_optional "#_pacemaker_proxy_settings_optional")
-
-###### Important
-
+**Important**  
 The following configurations must be performed on all cluster nodes. Ensure consistency across nodes to prevent cluster issues.
 
 ## Root Access
+<a name="_root_access"></a>
 
 Verify root access on both cluster nodes. The majority of the setup commands in this document are performed with the root user. Assume that commands should be run as root unless there is an explicit call out to choose otherwise.
 
 ## Install Missing Operating System Packages
+<a name="packages-nw-sles"></a>
 
 This is applicable to all cluster nodes. You must install any missing operating system packages.
 
 The following packages and their dependencies are required for the pacemaker setup. Depending on your baseline image, for example, SLES for SAP, these packages may already be installed.
 
-| Package                               | Description                                                 | Category        | Required                                    | Configuration Pattern |
-| ------------------------------------- | ----------------------------------------------------------- | --------------- | ------------------------------------------- | --------------------- |
-| chrony                                | Time Synchronization                                        | System Support  | Mandatory                                   | All                   |
-| rsyslog                               | System Logging                                              | System Support  | Mandatory                                   | All                   |
-| pacemaker                             | Cluster Resource Manager                                    | Core Cluster    | Mandatory                                   | All                   |
-| corosync                              | Cluster Communication Engine                                | Core Cluster    | Mandatory                                   | All                   |
-| resource-agents                       | Resource Agents including SAPInstance                       | Core Cluster    | Mandatory                                   | All                   |
-| fence-agents                          | Fencing Capabilities                                        | Core Cluster    | Mandatory                                   | All                   |
-| python311-pycurl                      | Python 3.11 HTTP library (fence\_aws dependency)            | Core Cluster    | Mandatory (SLES 15 SP5/SP6 with fence\_aws) | All                   |
-| python311-pexpect                     | Python 3.11 process control library (fence\_aws dependency) | Core Cluster    | Mandatory (SLES 15 SP5/SP6 with fence\_aws) | All                   |
-| sap-suse-cluster-connector            | SAP HA-Script Connector (≥3.1.1 for SimpleMount)            | SAP Integration | Mandatory                                   | All                   |
-| sapstartsrv-resource-agents           | SAP Start Service Resource Agents                           | SAP Integration | Mandatory\*                                 | SimpleMount           |
-| supportutils                          | System Information Gathering                                | Support Tools   | Recommended                                 | All                   |
-| sysstat                               | Performance Monitoring Tools                                | Support Tools   | Recommended                                 | All                   |
-| zypper-lifecycle-plugin               | Software Lifecycle Management                               | Support Tools   | Recommended                                 | All                   |
-| supportutils-plugin-ha-sap            | HA/SAP Support Data Collection                              | Support Tools   | Recommended                                 | All                   |
-| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection                               | Support Tools   | Recommended                                 | All                   |
-| dstat                                 | System Resource Statistics                                  | Monitoring      | Recommended                                 | All                   |
-| iotop                                 | I/O Monitoring                                              | Monitoring      | Recommended                                 | All                   |
 
-###### Note
+| Package | Description | Category | Required | Configuration Pattern | 
+| --- | --- | --- | --- | --- | 
+| chrony | Time Synchronization | System Support | Mandatory | All | 
+| rsyslog | System Logging | System Support | Mandatory | All | 
+| pacemaker | Cluster Resource Manager | Core Cluster | Mandatory | All | 
+| corosync | Cluster Communication Engine | Core Cluster | Mandatory | All | 
+| resource-agents | Resource Agents including SAPInstance | Core Cluster | Mandatory | All | 
+| fence-agents | Fencing Capabilities | Core Cluster | Mandatory | All | 
+| python311-pycurl | Python 3.11 HTTP library (fence\_aws dependency) | Core Cluster | Mandatory (SLES 15 SP5/SP6 with fence\_aws) | All | 
+| python311-pexpect | Python 3.11 process control library (fence\_aws dependency) | Core Cluster | Mandatory (SLES 15 SP5/SP6 with fence\_aws) | All | 
+| sap-suse-cluster-connector | SAP HA-Script Connector (≥3.1.1 for SimpleMount) | SAP Integration | Mandatory | All | 
+| sapstartsrv-resource-agents | SAP Start Service Resource Agents | SAP Integration | Mandatory\* | SimpleMount | 
+| supportutils | System Information Gathering | Support Tools | Recommended | All | 
+| sysstat | Performance Monitoring Tools | Support Tools | Recommended | All | 
+| zypper-lifecycle-plugin | Software Lifecycle Management | Support Tools | Recommended | All | 
+| supportutils-plugin-ha-sap | HA/SAP Support Data Collection | Support Tools | Recommended | All | 
+| supportutils-plugin-suse-public-cloud | Cloud Support Data Collection | Support Tools | Recommended | All | 
+| dstat | System Resource Statistics | Monitoring | Recommended | All | 
+| iotop | I/O Monitoring | Monitoring | Recommended | All | 
 
-Refer to [Vendor Support of Deployment Types](sap-nw-pacemaker-sles-references.md#deployments-sles "sap-nw-pacemaker-sles-references.md#deployments-sles") for more information on Configuration Patterns. `Mandatory*` indicates that this package is mandatory based on the Configuration Pattern.
+**Note**  
+Refer to [Vendor Support of Deployment Types](sap-nw-pacemaker-sles-references.md#deployments-sles) for more information on Configuration Patterns. `Mandatory*` indicates that this package is mandatory based on the Configuration Pattern.
 
 ```
 #!/bin/bash
@@ -121,6 +124,7 @@ $ sudo zypper install <package_name(s)>
 ```
 
 ## Update and Check Operating System Versions
+<a name="_update_and_check_operating_system_versions"></a>
 
 You must update and confirm versions across nodes. Apply all the latest patches to your operating system versions. This ensures that bugs are addressed and new features are available.
 
@@ -134,17 +138,17 @@ $ sudo reboot
 Compare the operating system package versions on the two cluster nodes and ensure that the versions match on both nodes.
 
 ## System Logging
+<a name="_system_logging"></a>
 
 Both systemd-journald and rsyslog are suggested for comprehensive logging. Systemd-journald (enabled by default) provides structured, indexed logging with immediate access to events, while rsyslog is maintained for backward compatibility and traditional file-based logging. This dual approach ensures both modern logging capabilities and compatibility with existing log management tools and practices.
 
-**1. Enable and start rsyslog:**
+ **1. Enable and start rsyslog:** 
 
 ```
 # systemctl enable --now rsyslog
 ```
 
-###### 2. (Optional) Configure persistent logging for systemd-journald:
-
+**2. (Optional) Configure persistent logging for systemd-journald:**  
 If you are not using a logging agent (like the AWS CloudWatch Unified Agent or Vector) to ship logs to a centralized location, you may want to configure persistent logging to retain logs after system reboots.
 
 ```
@@ -168,7 +172,7 @@ To apply the changes, restart journald:
 
 After enabling persistent storage, only new logs will be stored persistently. Existing logs from the current boot session will remain in volatile storage until the next reboot.
 
-**3. Verify services are running:**
+ **3. Verify services are running:** 
 
 ```
 # systemctl status systemd-journald
@@ -176,6 +180,7 @@ After enabling persistent storage, only new logs will be stored persistently. Ex
 ```
 
 ## Time Synchronization Services
+<a name="_time_synchronization_services"></a>
 
 Time synchronization is important for cluster operation. Ensure that chrony rpm is installed, and configure appropriate time servers in the configuration file.
 
@@ -203,9 +208,10 @@ Verify time synchronization is working:
 
 Ensure the output shows `Reference ID : A9FEA97B (169.254.169.123)` confirming synchronization with Amazon Time Sync Service.
 
-For more information, see [Set the time for your Linux instance](../../../AWSEC2/latest/UserGuide/set-time.md "../../../AWSEC2/latest/UserGuide/set-time.md").
+For more information, see [Set the time for your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
 ## Install AWS CLI and Configure Profiles
+<a name="install_shared_aws_cli_and_configure_profiles"></a>
 
 The AWS cluster resource agents require AWS Command Line Interface (AWS CLI). Check if AWS CLI is already installed, and install it if necessary.
 
@@ -239,12 +245,11 @@ Verify the installation:
 
 The installation creates a symbolic link at `/usr/local/bin/aws` which is typically in the system PATH by default.
 
-For more information, see [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+For more information, see [Installing or updating to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 After installing AWS CLI, you need to create an AWS CLI profile for the root account.
 
-You can either edit the config file at `/root/.aws` manually or by using the `aws configure`
-AWS CLI command.
+You can either edit the config file at `/root/.aws` manually or by using the `aws configure` AWS CLI command.
 
 You should skip providing the information for the access and secret access keys. The permissions are provided through IAM roles attached to Amazon EC2 instances.
 
@@ -279,8 +284,9 @@ And review that an assumed role is associated by querying the caller identity:
 ```
 
 ## Pacemaker Proxy Settings (Optional)
+<a name="_pacemaker_proxy_settings_optional"></a>
 
-If your Amazon EC2 instance has been configured to access the internet and/or AWS Cloud through proxy servers, then you need to replicate the settings in the pacemaker configuration. For more information, see [Using an HTTP Proxy](../../../cli/latest/userguide/cli-configure-proxy.md "../../../cli/latest/userguide/cli-configure-proxy.md").
+If your Amazon EC2 instance has been configured to access the internet and/or AWS Cloud through proxy servers, then you need to replicate the settings in the pacemaker configuration. For more information, see [Using an HTTP Proxy](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-proxy.html).
 
 Add the following lines to `/etc/sysconfig/pacemaker`:
 
@@ -289,7 +295,6 @@ http_proxy=http://<proxyhost>:<proxyport>
 https_proxy=http://<proxyhost>:<proxyport>
 no_proxy=127.0.0.1,localhost,169.254.169.254,fd00:ec2::254
 ```
-
-- Modify proxyhost and proxyport to match your settings.
-- Ensure that you exempt the address used to access the instance metadata.
-- Configure no\_proxy to include the IP address of the instance metadata service – 169.254.169.254 (IPV4) and fd00:ec2::254 (IPV6). This address does not vary.
++ Modify proxyhost and proxyport to match your settings.
++ Ensure that you exempt the address used to access the instance metadata.
++ Configure no\_proxy to include the IP address of the instance metadata service – 169.254.169.254 (IPV4) and fd00:ec2::254 (IPV6). This address does not vary.

@@ -1,31 +1,35 @@
+
+
 # Configuring automated SAP installation
+<a name="auto-installation-configuring"></a>
 
 The sections below contain detailed instructions on how to configure automated SAP NetWeaver on AWS installation.
 
 ## Customize the Systems Manager document
+<a name="auto-customize-document"></a>
 
-This section shows you how to customize the AWS Systems Manager document (SSM document) for the automated SAP installation. For more information about SSM documents, see [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md") in the _AWS Systems Manager User Guide_.
+This section shows you how to customize the AWS Systems Manager document (SSM document) for the automated SAP installation. For more information about SSM documents, see [AWS Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html) in the * AWS Systems Manager User Guide*.
 
-This section details the content that goes into the SSM document. For information about how to create the document, see [Create an SSM document (console)](../../../systems-manager/latest/userguide/create-ssm-console.md "../../../systems-manager/latest/userguide/create-ssm-console.md") in the _AWS Systems Manager User Guide_.
+This section details the content that goes into the SSM document. For information about how to create the document, see [Create an SSM document (console)](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-console.html) in the * AWS Systems Manager User Guide*.
 
 As you create your SSM document, we recommend you do the following:
++ Use schema version 2.2. For more information, see [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) in the * AWS Systems Manager User Guide*.
++ Use Parameter Store to easily reference parameters that you use often. For more information, see [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) in the * AWS Systems Manager User Guide*.
 
-- Use schema version 2.2. For more information, see [SSM document schema features and examples](../../../systems-manager/latest/userguide/document-schemas-features.md "../../../systems-manager/latest/userguide/document-schemas-features.md") in the _AWS Systems Manager User Guide_.
-- Use Parameter Store to easily reference parameters that you use often. For more information, see [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") in the _AWS Systems Manager User Guide_.
-
-###### Tip
-
-You can find sample SSM documents and parameter files in the [aws-samples/terraform-aws-sap-netweaver-on-hana](https://github.com/aws-samples/terraform-aws-sap-netweaver-on-hana/tree/master/modules/sap-deploymentscripts/scripts/module-automations "https://github.com/aws-samples/terraform-aws-sap-netweaver-on-hana/tree/master/modules/sap-deploymentscripts/scripts/module-automations") GitHub repository.
+**Tip**  
+You can find sample SSM documents and parameter files in the [aws-samples/terraform-aws-sap-netweaver-on-hana](https://github.com/aws-samples/terraform-aws-sap-netweaver-on-hana/tree/master/modules/sap-deploymentscripts/scripts/module-automations) GitHub repository.
 
 ### Bootstrap Amazon EC2 instances
+<a name="automation-installation-bootstrap"></a>
 
-Bootstrapping in Amazon EC2 consists of adding commands or scripts to the user data section of the instance. These commands and scripts can be executed when the instance starts. This simplifies configuration tasks. For more information, see [Run commands on your Linux instance at launch](../../../AWSEC2/latest/UserGuide/user-data.md "../../../AWSEC2/latest/UserGuide/user-data.md") in the _Amazon Elastic Compute Cloud User Guide for Linux Instances_.
+Bootstrapping in Amazon EC2 consists of adding commands or scripts to the user data section of the instance. These commands and scripts can be executed when the instance starts. This simplifies configuration tasks. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.
 
 For SAP installation, bootstrapping includes several tasks, such as setting the hostname, installing operating system packages, setting operating system parameters, installing AWS Data Provider for SAP, installing agents for monitoring, logging, and alerting, and mounting disks for the SAP HANA database instance and SAP application servers.
 
 The image below shows the steps required for the bootstrap instance SSM document.
 
-![Detailed flow chart of the bootstrap instances SSM document.](images/automation-bootstrap.png)
+![Detailed flow chart of the bootstrap instances SSM document.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-bootstrap.png)
+
 
 The SSM document accepts required and optional parameters. The code below is an example parameter section for bootstrapping an SAP HANA database instance or any SAP NetWeaver application server instance:
 
@@ -68,14 +72,13 @@ parameters:
 The next section of the SSM document is the `mainSteps` section.
 
 A composite SSM document is a custom document that performs a series of actions by running one or more secondary SSM documents. Composite documents promote infrastructure as code by allowing you to create a standard set of SSM documents for common tasks, such as bootstrapping software or domain-joining instances. For example, you can create a composite document with secondary SSM documents for each bootstrap item, as listed below:
++ Setting the hostname
++ Installing operating system packages for SAP HANA
++ Setting the operating system parameters for SAP HANA
++ Mounting disks for SAP HANA
++ Installing the AWS Data Provider agent for SAP
 
-- Setting the hostname
-- Installing operating system packages for SAP HANA
-- Setting the operating system parameters for SAP HANA
-- Mounting disks for SAP HANA
-- Installing the AWS Data Provider agent for SAP
-
-Composite and secondary documents can be stored in Systems Manager, private and public GitHub repositories, or Amazon S3. They can be created in JSON or YAML. For more information, see [Creating composite documents](../../../systems-manager/latest/userguide/composite-docs.md "../../../systems-manager/latest/userguide/composite-docs.md") in the _AWS Systems Manager User Guide_.
+Composite and secondary documents can be stored in Systems Manager, private and public GitHub repositories, or Amazon S3. They can be created in JSON or YAML. For more information, see [Creating composite documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/composite-docs.html) in the * AWS Systems Manager User Guide*.
 
 The code below shows the `mainSteps` section of the SSM document with the composite and secondary documents:
 
@@ -142,6 +145,7 @@ mainSteps:
 ```
 
 ### Install the SAP HANA database
+<a name="automation-installation-hana"></a>
 
 After you bootstrap the Amazon EC2 instances, you must install the SAP HANA database. For this installation, you can store the SAP HANA master password in the SSM document Parameter Store or use it as an input to the SSM document and reference it in the `passfile.xml` file.
 
@@ -172,6 +176,7 @@ mainSteps:
 ```
 
 ### Install SAP
+<a name="automation-installation-sap"></a>
 
 Installing SAP includes ABAP SAP Central Services (ASCS), the database instance, and the primary and additional application server installation.
 
@@ -265,15 +270,16 @@ You can add additional sections in the SSM document to validate the SAP installa
 ```
 
 ## Tag the Systems Manager document
+<a name="auto-tag-documents"></a>
 
-A tag is a label that you assign to an AWS resource. Each tag consists of a key and a value, both of which you define. For an overview of tagging Systems Manager resources, see [Tagging Systems Manager resources](../../../systems-manager/latest/userguide/tagging-resources.md "../../../systems-manager/latest/userguide/tagging-resources.md") in the _AWS Systems Manager User Guide_.
+A tag is a label that you assign to an AWS resource. Each tag consists of a key and a value, both of which you define. For an overview of tagging Systems Manager resources, see [Tagging Systems Manager resources](https://docs.aws.amazon.com/systems-manager/latest/userguide/tagging-resources.html) in the * AWS Systems Manager User Guide*.
 
-For detailed instructions on how to tag SSM documents, see [Tagging Systems Manager documents](../../../systems-manager/latest/userguide/tagging-documents.md "../../../systems-manager/latest/userguide/tagging-documents.md") in the _AWS Systems Manager User Guide_.
+For detailed instructions on how to tag SSM documents, see [Tagging Systems Manager documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/tagging-documents.html) in the * AWS Systems Manager User Guide*.
 
-**Example - tags and access management**
+ **Example - tags and access management** 
 
-You can use tagging for a variety of purposes. For example, if you’re using AWS Identity and Access Management (IAM), you can control which users in your account can create, edit, or delete tags, and you can implement attribute-based access control (ABAC). For more information, see [Grant permission to tag resources during creation](../../../AWSEC2/latest/UserGuide/supported-iam-actions-tagging.md "../../../AWSEC2/latest/UserGuide/supported-iam-actions-tagging.md") and [Control access to Amazon EC2 resources using resource tags](../../../AWSEC2/latest/UserGuide/control-access-with-tags.md "../../../AWSEC2/latest/UserGuide/control-access-with-tags.md") in the _Amazon Elastic Compute Cloud User Guide for Linux Instances_.
+You can use tagging for a variety of purposes. For example, if you’re using AWS Identity and Access Management (IAM), you can control which users in your account can create, edit, or delete tags, and you can implement attribute-based access control (ABAC). For more information, see [Grant permission to tag resources during creation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/supported-iam-actions-tagging.html) and [Control access to Amazon EC2 resources using resource tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/control-access-with-tags.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.
 
-**Example - tags and billing**
+ **Example - tags and billing** 
 
-You can use tags to organize your AWS bill in a way that reflects your cost structure. To do this, sign up to get your AWS account bill with tag key values included. For more information about setting up a cost allocation report with tags, see [Monthly cost allocation report](../../../awsaccountbilling/latest/aboutv2/configurecostallocreport.md "../../../awsaccountbilling/latest/aboutv2/configurecostallocreport.md") in the _AWS Billing User Guide_. To see the cost of your combined resources, you can organize your billing information based on resources that have the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see [Using cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_.
+You can use tags to organize your AWS bill in a way that reflects your cost structure. To do this, sign up to get your AWS account bill with tag key values included. For more information about setting up a cost allocation report with tags, see [Monthly cost allocation report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/configurecostallocreport.html) in the * AWS Billing User Guide*. To see the cost of your combined resources, you can organize your billing information based on resources that have the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see [Using cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the * AWS Billing User Guide*.

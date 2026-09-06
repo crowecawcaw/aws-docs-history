@@ -1,37 +1,47 @@
+
+
 # EC2 Instance Configuration
+<a name="sap-nw-pacemaker-sles-ec2-configuration"></a>
 
 Amazon EC2 instance settings can be applied using Infrastructure as Code or manually using AWS Command Line Interface or AWS Console. We recommend Infrastructure as Code automation to reduce manual steps, and ensure consistency.
 
-###### Topics
+**Topics**
++ [Assign or Review Pacemaker IAM Role](#assign-review-pacemaker-iam-role-nw-sles)
++ [Assign or Review Security Groups](#assign-review-security-groups-nw-sles)
++ [Assign Secondary IP Addresses](#assign-secondary-ip-addresses-nw-sles)
++ [Disable Source/Destination Check](#source-dest-nw-sles)
++ [Review Stop Protection](#stop-protection-nw-sles)
++ [Review Automatic Recovery](#auto-recovery-nw-sles)
++ [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](#create-cluster-tags-nw-sles)
 
-- [Assign or Review Pacemaker IAM Role](#assign-review-pacemaker-iam-role-nw-sles "#assign-review-pacemaker-iam-role-nw-sles")
-- [Assign or Review Security Groups](#assign-review-security-groups-nw-sles "#assign-review-security-groups-nw-sles")
-- [Assign Secondary IP Addresses](#assign-secondary-ip-addresses-nw-sles "#assign-secondary-ip-addresses-nw-sles")
-- [Disable Source/Destination Check](#source-dest-nw-sles "#source-dest-nw-sles")
-- [Review Stop Protection](#stop-protection-nw-sles "#stop-protection-nw-sles")
-- [Review Automatic Recovery](#auto-recovery-nw-sles "#auto-recovery-nw-sles")
-- [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](#create-cluster-tags-nw-sles "#create-cluster-tags-nw-sles")
-
-###### Important
-
+**Important**  
 The following configurations must be performed on all cluster nodes. Ensure consistency across nodes to prevent cluster issues.
 
 ## Assign or Review Pacemaker IAM Role
+<a name="assign-review-pacemaker-iam-role-nw-sles"></a>
 
 The two cluster resource IAM policies must be assigned to an IAM role associated with your Amazon EC2 instance. If an IAM role is not associated to your instance, create a new IAM role for cluster operations.
 
 The following AWS Console or AWS CLI commands can be used to modify the IAM role assignment.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. In the navigation pane, choose **Actions** → **Security** → **Modify IAM role**.
-4. Choose the IAM role that contains the policies created in [Create IAM Roles and Policies for Pacemaker](sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles "sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles").
-5. Choose **Update IAM role**.
-6. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. In the navigation pane, choose **Actions** → **Security** → **Modify IAM role**.
+
+1. Choose the IAM role that contains the policies created in [Create IAM Roles and Policies for Pacemaker](sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles).
+
+1. Choose **Update IAM role**.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To assign an IAM role using the AWS CLI:
 
 ```
@@ -40,17 +50,17 @@ $ aws ec2 associate-iam-instance-profile --instance-id <instance_id> --iam-insta
 
 Repeat for all nodes in the cluster.
 
+------
+
 You can verify the IAM role assignment on your instances using the AWS CLI:
 
 ```
 $ aws ec2 describe-instances --instance-ids <instance_id> --query 'Reservations[0].Instances[0].IamInstanceProfile' --output table
 ```
 
-You can check the specific permissions of the roles created for pacemaker in [Create IAM Roles and Policies for Pacemaker](sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles "sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles") by running the following on both your instances.
+You can check the specific permissions of the roles created for pacemaker in [Create IAM Roles and Policies for Pacemaker](sap-nw-pacemaker-sles-infra-setup.md#iam-roles-sles) by running the following on both your instances.
 
-When --dry-run is used, the AWS CLI or SDK sends the request to the EC2 service with this flag.
-EC2 then performs all necessary permission checks and validates the request parameters.
-If the user has the required permissions and the request is well-formed, the service returns a DryRunOperation error response, indicating that the operation would have succeeded.
+When --dry-run is used, the AWS CLI or SDK sends the request to the EC2 service with this flag. EC2 then performs all necessary permission checks and validates the request parameters. If the user has the required permissions and the request is well-formed, the service returns a DryRunOperation error response, indicating that the operation would have succeeded.
 
 Check that the tags are correctly set and can be queried from both instances if using the ec2/stonith fencing agent:
 
@@ -73,23 +83,32 @@ $ aws ec2 replace-route --route-table-id <routetable_id> --destination-cidr-bloc
 ```
 
 ## Assign or Review Security Groups
+<a name="assign-review-security-groups-nw-sles"></a>
 
-The security group rules created in the AWS
-[Modify Security Groups for Cluster Communication](sap-nw-pacemaker-sles-infra-setup.md#sg-sles "sap-nw-pacemaker-sles-infra-setup.md#sg-sles") section must be assigned to your Amazon EC2 instances. If a security group is not associated with your instance, or if the required rules are not present in the assigned security group, add the security group or update the rules.
+The security group rules created in the AWS [Modify Security Groups for Cluster Communication](sap-nw-pacemaker-sles-infra-setup.md#sg-sles) section must be assigned to your Amazon EC2 instances. If a security group is not associated with your instance, or if the required rules are not present in the assigned security group, add the security group or update the rules.
 
 The following AWS Console or AWS CLI commands can be used to modify security group assignments.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. In the **Security** tab, review the security groups, ports, and source of traffic.
-4. If required, choose **Actions** → **Security** → **Change security groups**.
-5. Under **Associated security groups**, search for and select the required groups.
-6. Choose **Save**.
-7. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. In the **Security** tab, review the security groups, ports, and source of traffic.
+
+1. If required, choose **Actions** → **Security** → **Change security groups**.
+
+1. Under **Associated security groups**, search for and select the required groups.
+
+1. Choose **Save**.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To modify security groups using the AWS CLI:
 
 ```
@@ -98,6 +117,8 @@ $ aws ec2 modify-instance-attribute --instance-id <instance_id> --groups <securi
 
 Repeat for all nodes in the cluster.
 
+------
+
 You can verify the security group rules on your instances using the AWS CLI:
 
 ```
@@ -105,25 +126,36 @@ $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute gr
 ```
 
 ## Assign Secondary IP Addresses
+<a name="assign-secondary-ip-addresses-nw-sles"></a>
 
 Secondary IP addresses are used to create a redundant communication channel (secondary ring) in corosync for clusters. The cluster nodes can use the secondary ring to communicate in case of underlying network disruptions.
 
-These IPs are only used in cluster configurations. The secondary IPs provide the same fault tolerance as a secondary Elastic Network Interface (ENI). For more information, see [Secondary IP addresses for your EC2 Instance](../../../AWSEC2/latest/UserGuide/instance-secondary-ip-addresses.md "../../../AWSEC2/latest/UserGuide/instance-secondary-ip-addresses.md").
+These IPs are only used in cluster configurations. The secondary IPs provide the same fault tolerance as a secondary Elastic Network Interface (ENI). For more information, see [Secondary IP addresses for your EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-secondary-ip-addresses.html).
 
 The following AWS Console or AWS CLI commands can be used to assign secondary IP addresses.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. In the **Networking** tab, choose the network interface ID.
-4. Choose **Actions** → **Manage IP addresses**.
-5. Choose **Assign new IP address**.
-6. Select **Auto-assign** or specify an IP from the subnet range.
-7. Choose **Yes, Update**.
-8. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. In the **Networking** tab, choose the network interface ID.
+
+1. Choose **Actions** → **Manage IP addresses**.
+
+1. Choose **Assign new IP address**.
+
+1. Select **Auto-assign** or specify an IP from the subnet range.
+
+1. Choose **Yes, Update**.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To assign secondary IP addresses using the AWS CLI:
 
 ```
@@ -135,6 +167,8 @@ $ aws ec2 assign-private-ip-addresses --network-interface-id $ENI_ID --secondary
 
 Repeat for all nodes in the cluster.
 
+------
+
 You can verify the secondary IP configuration on your instances using the AWS CLI:
 
 ```
@@ -144,26 +178,33 @@ $ aws ec2 describe-instances --instance-id <instance_id> \
 ```
 
 Verify that:
-
-- Each instance returns two IP addresses from the same subnet
-- The primary network interface (eth0) has both IPs assigned
-- The secondary IPs will be used later for ring0\_addr and ring1\_addr in corosync.conf
++ Each instance returns two IP addresses from the same subnet
++ The primary network interface (eth0) has both IPs assigned
++ The secondary IPs will be used later for ring0\_addr and ring1\_addr in corosync.conf
 
 ## Disable Source/Destination Check
+<a name="source-dest-nw-sles"></a>
 
 Amazon EC2 instances perform source/destination checks by default, requiring that an instance is either the source or the destination of any traffic it sends or receives. In the pacemaker cluster, source/destination check must be disabled on both instances receiving traffic from the Overlay IP.
 
 The following AWS Console or AWS CLI commands can be used to modify the attribute.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. In the navigation pane, choose **Actions** → **Networking** → **Change source/destination check**.
-4. For Source/Destination Checking, choose **Stop** to allow traffic when the source or destination is not the instance itself.
-5. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. In the navigation pane, choose **Actions** → **Networking** → **Change source/destination check**.
+
+1. For Source/Destination Checking, choose **Stop** to allow traffic when the source or destination is not the instance itself.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
@@ -171,6 +212,8 @@ $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-source-dest
 ```
 
 Repeat for all nodes in the cluster.
+
+------
 
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means source/destination checking is disabled
 
@@ -190,20 +233,28 @@ The output
 ```
 
 ## Review Stop Protection
+<a name="stop-protection-nw-sles"></a>
 
 To ensure that STONITH actions can be executed, you must ensure that stop protection is disabled for Amazon EC2 instances that are part of a pacemaker cluster. If the default settings have been modified, use the following commands for both instances to disable stop protection via AWS CLI.
 
 The following AWS Console or CLI commands can be used to modify the attribute.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. Choose **Actions** → **Instance settings** → **Change stop protection**.
-4. Ensure **Stop protection** is not enabled.
-5. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. Choose **Actions** → **Instance settings** → **Change stop protection**.
+
+1. Ensure **Stop protection** is not enabled.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
@@ -211,6 +262,8 @@ $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-disable-api
 ```
 
 Repeat this command for all nodes in the cluster.
+
+------
 
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means it is possible to stop the instance using an AWS CLI.
 
@@ -230,20 +283,28 @@ The output
 ```
 
 ## Review Automatic Recovery
+<a name="auto-recovery-nw-sles"></a>
 
 After a failure, cluster-controlled operations must be resumed in a coordinated way. This helps ensure that the cause of failure is known and addressed, and the status of the cluster is as expected. For example, verifying that there are no pending fencing actions.
 
 The following AWS Console or CLI commands can be used to modify the attribute.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. Choose **Actions** → **Instance settings** → **Change auto-recovery behavior**.
-4. Select **Off** to disable auto-recovery for system status check failures.
-5. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. Choose **Actions** → **Instance settings** → **Change auto-recovery behavior**.
+
+1. Select **Off** to disable auto-recovery for system status check failures.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To modify auto-recovery settings (requires appropriate configuration permissions):
 
 ```
@@ -251,6 +312,8 @@ $ aws ec2 modify-instance-maintenance-options --instance-id <instance_id> --auto
 ```
 
 Repeat this command for all nodes in the cluster.
+
+------
 
 To confirm the value of an attribute for a particular instance, use the following command. The value `disabled` means autorecovery will not be attempted.
 
@@ -269,31 +332,43 @@ The output:
 ```
 
 ## Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent
+<a name="create-cluster-tags-nw-sles"></a>
 
-Amazon EC2 STONITH agent uses AWS resource tags to identify Amazon EC2 instances. Create tag for the primary and secondary Amazon EC2 instances via AWS Console or AWS CLI. For more information, see [Using Tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md").
+Amazon EC2 STONITH agent uses AWS resource tags to identify Amazon EC2 instances. Create tag for the primary and secondary Amazon EC2 instances via AWS Console or AWS CLI. For more information, see [Using Tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
 
 Use the same tag key and the local hostname returned using the command hostname across instances. For example, a configuration with the values defined in Global AWS parameters would require the tags shown in the following table.
 
-| Amazon EC2             | Key example     | Value example |
-| ---------------------- | --------------- | ------------- |
-| `<instance_id>`        | `<cluster_tag>` | `<hostname>`  |
-| `i-xxxxinstidforhost1` | `pacemaker`     | `slxhost01`   |
-| `i-xxxxinstidforhost2` | `pacemaker`     | `slxhost02`   |
+
+| Amazon EC2 | Key example | Value example | 
+| --- | --- | --- | 
+|  `<instance_id>`  |  `<cluster_tag>`  |  `<hostname>`  | 
+|  `i-xxxxinstidforhost1`  |  `pacemaker`  |  `slxhost01`  | 
+|  `i-xxxxinstidforhost2`  |  `pacemaker`  |  `slxhost02`  | 
 
 The following AWS Console or AWS CLI commands can be used to create resource tags.
 
-AWS Console
+------
+#### [  AWS Console ]
 
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2.
-2. Select one of your cluster nodes.
-3. In the **Tags** tab, choose **Manage tags**.
-4. Choose **Add tag**.
-5. For **Key**, enter the cluster tag (for example, `pacemaker`).
-6. For **Value**, enter the hostname of the instance.
-7. Choose **Save**.
-8. Repeat these steps for all nodes in the cluster.
 
-AWS CLI
+1. Select one of your cluster nodes.
+
+1. In the **Tags** tab, choose **Manage tags**.
+
+1. Choose **Add tag**.
+
+1. For **Key**, enter the cluster tag (for example, `pacemaker`).
+
+1. For **Value**, enter the hostname of the instance.
+
+1. Choose **Save**.
+
+1. Repeat these steps for all nodes in the cluster.
+
+------
+#### [  AWS CLI ]
+
 To create tags using the AWS CLI:
 
 ```
@@ -301,6 +376,8 @@ $ aws ec2 create-tags --resources <instance_id> --tags Key=<cluster_tag>,Value=<
 ```
 
 Repeat for all nodes in the cluster with their respective hostnames.
+
+------
 
 You can run the following command locally to validate the tag values and IAM permissions to describe the tags. Run this command on all instances in the cluster, for all instances in the cluster.
 

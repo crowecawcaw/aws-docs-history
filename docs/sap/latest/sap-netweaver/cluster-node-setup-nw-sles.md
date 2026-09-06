@@ -1,18 +1,21 @@
+
+
 # Cluster Node Setup
+<a name="cluster-node-setup-nw-sles"></a>
 
 Establish cluster communication between nodes using Corosync and configure required authentication.
 
-###### Topics
-
-- [Change the hacluster Password](#change-hacluster-password-nw-sles "#change-hacluster-password-nw-sles")
-- [Setup Passwordless Authentication](#setup-passwordless-auth-nw-sles "#setup-passwordless-auth-nw-sles")
-- [Configure the Cluster Nodes](#configure-cluster-nodes-nw-sles "#configure-cluster-nodes-nw-sles")
-- [Modify Generated Corosync Configuration](#modify-corosync-config-nw-sles "#modify-corosync-config-nw-sles")
-- [Verify Corosync Configuration](#verify-corosync-config-nw-sles "#verify-corosync-config-nw-sles")
-- [Configure Cluster Services](#configure-cluster-services-nw-sles "#configure-cluster-services-nw-sles")
-- [Verify Cluster Status](#verify-cluster-status-nw-sles "#verify-cluster-status-nw-sles")
+**Topics**
++ [Change the hacluster Password](#change-hacluster-password-nw-sles)
++ [Setup Passwordless Authentication](#setup-passwordless-auth-nw-sles)
++ [Configure the Cluster Nodes](#configure-cluster-nodes-nw-sles)
++ [Modify Generated Corosync Configuration](#modify-corosync-config-nw-sles)
++ [Verify Corosync Configuration](#verify-corosync-config-nw-sles)
++ [Configure Cluster Services](#configure-cluster-services-nw-sles)
++ [Verify Cluster Status](#verify-cluster-status-nw-sles)
 
 ## Change the hacluster Password
+<a name="change-hacluster-password-nw-sles"></a>
 
 On all cluster nodes, change the password of the operating system user hacluster:
 
@@ -21,19 +24,20 @@ On all cluster nodes, change the password of the operating system user hacluster
 ```
 
 ## Setup Passwordless Authentication
+<a name="setup-passwordless-auth-nw-sles"></a>
 
 SUSE cluster tools provide comprehensive reporting and troubleshooting capabilities for cluster activity. Many of these tools require passwordless SSH access between nodes to collect cluster-wide information effectively. SUSE recommends configuring passwordless SSH for the root user to enable seamless cluster diagnostics and reporting.
 
 EC2 instances typically have no root password set. Use the shared `/sapmnt` filesystem to exchange SSH keys:
 
-**On the primary node (<hostname1>):**
+ **On the primary node (<hostname1>):** 
 
 ```
 # ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
 # cp /root/.ssh/id_rsa.pub /sapmnt/node1_key.pub
 ```
 
-**On the secondary node (<hostname2>):**
+ **On the secondary node (<hostname2>):** 
 
 ```
 # ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
@@ -42,32 +46,32 @@ EC2 instances typically have no root password set. Use the shared `/sapmnt` file
 # chmod 600 /root/.ssh/authorized_keys
 ```
 
-**Back on the primary node (<hostname1>):**
+ **Back on the primary node (<hostname1>):** 
 
 ```
 # cat /sapmnt/node2_key.pub >> /root/.ssh/authorized_keys
 # chmod 600 /root/.ssh/authorized_keys
 ```
 
-**Test connectivity from both nodes:**
+ **Test connectivity from both nodes:** 
 
 ```
 # ssh root@<opposite_hostname> 'hostname'
 ```
 
-**Clean up temporary files (from either node):**
+ **Clean up temporary files (from either node):** 
 
 ```
 # rm /sapmnt/node1_key.pub /sapmnt/node2_key.pub
 ```
 
-An alternative is to review the SUSE Dcoumentation for [Running cluster reports without root access](https://documentation.suse.com/sle-ha/15-SP7/html/SLE-HA-all/app-crmreport-nonroot.html "https://documentation.suse.com/sle-ha/15-SP7/html/SLE-HA-all/app-crmreport-nonroot.html")
+An alternative is to review the SUSE Dcoumentation for [Running cluster reports without root access](https://documentation.suse.com/sle-ha/15-SP7/html/SLE-HA-all/app-crmreport-nonroot.html) 
 
-###### Warning
-
+**Warning**  
 Review the security implications for your organization, including root access controls and network segmentation, before implementing this configuration.
 
 ## Configure the Cluster Nodes
+<a name="configure-cluster-nodes-nw-sles"></a>
 
 Initialize the cluster framework on the first node to recognise both cluster nodes.
 
@@ -77,7 +81,7 @@ On the primary node as root, run:
 # crm cluster init -u -n <cluster_name> -N <hostname_1> <hostname_2>
 ```
 
-_Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
+ *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md) *:
 
 ```
 # crm cluster init -u -y -n slx-sap-cluster -N slxhost01 -N slxhost02
@@ -122,19 +126,19 @@ INFO: Done (log saved to /var/log/crmsh/crmsh.log on slxhost02)
 ```
 
 This command:
-
-- Initializes a two-node cluster named `myCluster`
-- Configures unicast communication (-u)
-- Sets up the basic corosync configuration
-- Automatically joins the second node to the cluster
-- We do not configure SBD as an AWS Fencing Agent will be used for STONITH in AWS environments.
-- QDevice configuration is possible but not covered in this document. Refer to [SUSE Linux Enterprise High Availability Documentation - QDevice and QNetD](https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html "https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html").
++ Initializes a two-node cluster named `myCluster` 
++ Configures unicast communication (-u)
++ Sets up the basic corosync configuration
++ Automatically joins the second node to the cluster
++ We do not configure SBD as an AWS Fencing Agent will be used for STONITH in AWS environments.
++ QDevice configuration is possible but not covered in this document. Refer to [SUSE Linux Enterprise High Availability Documentation - QDevice and QNetD](https://documentation.suse.com/en-us/sle-ha/15-SP7/html/SLE-HA-all/cha-ha-qdevice.html).
 
 ## Modify Generated Corosync Configuration
+<a name="modify-corosync-config-nw-sles"></a>
 
 After initializing the cluster, the generated corosync configuration requires some modification to be optimised for cloud envrironments.
 
-**1. Edit the corosync configuration:**
+ **1. Edit the corosync configuration:** 
 
 ```
 # vi /etc/corosync/corosync.conf
@@ -209,7 +213,7 @@ totem {
 }
 ```
 
-**2. Modify the configuration to add the second ring and optimize settings:**
+ **2. Modify the configuration to add the second ring and optimize settings:** 
 
 ```
 totem {
@@ -231,20 +235,21 @@ nodelist {
 }
 ```
 
-_Example IP configuration:_
+ *Example IP configuration:* 
 
-| Network Interface | Node 1    | Node 2    |
-| ----------------- | --------- | --------- |
-| ring0\_addr       | 10.2.10.1 | 10.2.20.1 |
-| ring1\_addr       | 10.2.10.2 | 10.2.20.2 |
 
-**3. Synchronize the modified configuration to all nodes:**
+| Network Interface | Node 1 | Node 2 | 
+| --- | --- | --- | 
+| ring0\_addr | 10.2.10.1 | 10.2.20.1 | 
+| ring1\_addr | 10.2.10.2 | 10.2.20.2 | 
+
+ **3. Synchronize the modified configuration to all nodes:** 
 
 ```
 # csync2 -xvF /etc/corosync/corosync.conf
 ```
 
-**4. Restart the cluster**
+ **4. Restart the cluster** 
 
 ```
 # crm cluster restart
@@ -252,6 +257,7 @@ _Example IP configuration:_
 ```
 
 ## Verify Corosync Configuration
+<a name="verify-corosync-config-nw-sles"></a>
 
 Verify network rings are active:
 
@@ -259,7 +265,7 @@ Verify network rings are active:
 # corosync-cfgtool -s
 ```
 
-_Example output_:
+ *Example output*:
 
 ```
 Printing ring status.
@@ -275,6 +281,7 @@ RING ID 1
 Both network rings should report "active with no faults". If either ring is missing, review the corosync configuration and check that `/etc/corosync/corosync.conf` changes have been synced to the secondary node. You may need to do this manually. Restart the cluster if needed.
 
 ## Configure Cluster Services
+<a name="configure-cluster-services-nw-sles"></a>
 
 Enable pacemaker to start automatically after reboot:
 
@@ -285,20 +292,21 @@ Enable pacemaker to start automatically after reboot:
 Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
 
 ## Verify Cluster Status
+<a name="verify-cluster-status-nw-sles"></a>
 
-**1. Check pacemaker service status:**
+ **1. Check pacemaker service status:** 
 
 ```
 # systemctl status pacemaker
 ```
 
-**2. Verify cluster status:**
+ **2. Verify cluster status:** 
 
 ```
 # crm_mon -1
 ```
 
-_Example output_:
+ *Example output*:
 
 ```
 Cluster Summary:

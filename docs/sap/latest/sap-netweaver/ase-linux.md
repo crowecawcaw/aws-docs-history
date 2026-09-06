@@ -1,45 +1,52 @@
+
+
 # SAP ASE for SAP NetWeaver on AWS Deployment and Operations Guide for Linux
+<a name="ase-linux"></a>
 
 This guide provides information about configuring SAP ASE database for SAP NetWeaver on AWS.
 
 ## Prerequisites
+<a name="ase-prerequisites"></a>
 
 The following information is required to deploy SAP Adaptive Server Enterprise (ASE) for SAP NetWeaver applications on AWS. This pertains to your existing resources, using AWS CLI to create Amazon EC2 and Amazon EBS resources.
 
-Information| **Information** | **Description** |
-| AWS Region | Region where you want to deploy your AWS resources. |
-| Availability Zone (AZ) | Availability Zone within your target Region where you want to deploy your resources. |
-| Amazon VPC id | Amazon VPC where you want to deploy your Amazon EC2 instances for SAP installation. |
-| VPS subnet id | Subnet where you want to deploy your Amazon EC2 instances. |
-| Linux AMI id | Amazon Machine Image (AMI) that will be used to launch your Amazon EC2 instances. You can find the latest Linux AMIs on [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace"). |
-| Key pair | Make sure that you have generated the key pair in your target Region and that you have access to the private key. |
-| Security group id | Name of the security group that you want to assign to your Amazon EC2 instances. |
-| Access key ID | Access key for your AWS account that will be used with AWS CLI tools. |
-| Secret access key | Secret key for your AWS account that will be used with AWS CLI tools. |
 
-- Create security groups and open ports to enable communication. For existing security groups, ensure that the required ports are open. For a list of ports, refer to [TCP/IP ports of all SAP products](https://help.sap.com/viewer/ports "https://help.sap.com/viewer/ports").
-- Ensure that you have installed and configured AWS CLI with required credentials, if you plan to use it to launch instances. For more information, see [Installing the AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md").
-- If you plan to use the AWS Management Console, ensure that you have the essential credentials and permissions to launch and configure AWS services. For more information, see [Access management for AWS resources](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md").
-- Ensure that you have the software files required for installation readily available. You can stage these in [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") or [Amazon Elastic File System](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") (Amazon EFS). Amazon EFS can be easily shared on all of your installation hosts. For more information, see [Create your Amazon EFS file system](../../../efs/latest/ug/gs-step-two-create-efs-resources.md "../../../efs/latest/ug/gs-step-two-create-efs-resources.md").
-- You can request a service limit increase by creating a support ticket. For more information, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
+**Information**  
+
+|  |  | 
+| --- |--- |
+|  **Information**  |  **Description**  | 
+|  AWS Region | Region where you want to deploy your AWS resources. | 
+| Availability Zone (AZ) | Availability Zone within your target Region where you want to deploy your resources. | 
+| Amazon VPC id | Amazon VPC where you want to deploy your Amazon EC2 instances for SAP installation. | 
+| VPS subnet id | Subnet where you want to deploy your Amazon EC2 instances. | 
+| Linux AMI id | Amazon Machine Image (AMI) that will be used to launch your Amazon EC2 instances. You can find the latest Linux AMIs on [AWS Marketplace](https://aws.amazon.com/marketplace). | 
+| Key pair | Make sure that you have generated the key pair in your target Region and that you have access to the private key. | 
+| Security group id | Name of the security group that you want to assign to your Amazon EC2 instances. | 
+| Access key ID | Access key for your AWS account that will be used with AWS CLI tools. | 
+| Secret access key | Secret key for your AWS account that will be used with AWS CLI tools. | 
++ Create security groups and open ports to enable communication. For existing security groups, ensure that the required ports are open. For a list of ports, refer to [TCP/IP ports of all SAP products](https://help.sap.com/viewer/ports).
++ Ensure that you have installed and configured AWS CLI with required credentials, if you plan to use it to launch instances. For more information, see [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
++ If you plan to use the AWS Management Console, ensure that you have the essential credentials and permissions to launch and configure AWS services. For more information, see [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html).
++ Ensure that you have the software files required for installation readily available. You can stage these in [Amazon S3](https://aws.amazon.com/s3/) or [Amazon Elastic File System](https://aws.amazon.com/efs/) (Amazon EFS). Amazon EFS can be easily shared on all of your installation hosts. For more information, see [Create your Amazon EFS file system](https://docs.aws.amazon.com/efs/latest/ug/gs-step-two-create-efs-resources.html).
++ You can request a service limit increase by creating a support ticket. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 
 ## References
+<a name="ase-references"></a>
 
-You can refer to the following resources before deploying SAP ASE on AWS. If you are new to AWS, see [Get started with AWS](https://aws.amazon.com/getting-started/ "https://aws.amazon.com/getting-started/").
+You can refer to the following resources before deploying SAP ASE on AWS. If you are new to AWS, see [Get started with AWS](https://aws.amazon.com/getting-started/).
++  [What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
++  [Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) 
++  [What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) 
++  [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) 
++  [What is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) 
++  [SAP on AWS Overview and Planning](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-overview.html) 
++  [SAP Lens - AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/sap-lens.html) 
++  [Storage options for Oracle Database](https://docs.aws.amazon.com/whitepapers/latest/determining-iops-needs-oracle-db-on-aws/storage-options-for-oracle-database.html) 
 
-- [What is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
-- [Amazon Elastic Block Store (Amazon EBS)](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md")
-- [What is Amazon S3?](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md")
-- [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md")
-- [What is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md")
-- [SAP on AWS Overview and Planning](../general/sap-on-aws-overview.md "../general/sap-on-aws-overview.md")
-- [SAP Lens - AWS Well-Architected Framework](../../../wellarchitected/latest/sap-lens/sap-lens.md "../../../wellarchitected/latest/sap-lens/sap-lens.md")
-- [Storage options for Oracle Database](../../../whitepapers/latest/determining-iops-needs-oracle-db-on-aws/storage-options-for-oracle-database.md "../../../whitepapers/latest/determining-iops-needs-oracle-db-on-aws/storage-options-for-oracle-database.md")
-
-_The storage options for Oracle are also valid for ASE._
-
-- [Performance and Tuning Series: Basics](https://help.sap.com/docs/SAP_ASE/91d32d977a174c68829880bc020fc352/a661e18fbc2b10148eebfecec028c474.html "https://help.sap.com/docs/SAP_ASE/91d32d977a174c68829880bc020fc352/a661e18fbc2b10148eebfecec028c474.html")
-- [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/e345db692e3c43928199d701df58c0d8/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION "https://help.sap.com/docs/SLTOOLSET/e345db692e3c43928199d701df58c0d8/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION")
-- [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java of SAP NetWeaver 7.5 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/01f04921ac57452983980fe83a3ce10d/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION "https://help.sap.com/docs/SLTOOLSET/01f04921ac57452983980fe83a3ce10d/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION")
-- [SAP Note 2922454 - SAP Adaptive Server Enterprise (SAP ASE) on Cloud Platforms (requires SAP portal access)](https://me.sap.com/notes/2922454 "https://me.sap.com/notes/2922454")
-- [SAP Note 1941500 - Certification information for Linux and other Operating Systems - SAP ASE (requires SAP portal access)](https://me.sap.com/notes/1941500 "https://me.sap.com/notes/1941500")
+   *The storage options for Oracle are also valid for ASE.* 
++  [Performance and Tuning Series: Basics](https://help.sap.com/docs/SAP_ASE/91d32d977a174c68829880bc020fc352/a661e18fbc2b10148eebfecec028c474.html) 
++  [Installation of SAP Systems Based on the Application Server ABAP of SAP NetWeaver 7.3 EHP1 to 7.52 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/e345db692e3c43928199d701df58c0d8/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION) 
++  [Installation of SAP Systems Based on the Application Server Java of SAP NetWeaver 7.5 and SAP Solution Manager 7.2 SR2 Java of SAP NetWeaver 7.5 on UNIX: SAP Adaptive Server Enterprise](https://help.sap.com/docs/SLTOOLSET/01f04921ac57452983980fe83a3ce10d/0889d5d70cf24c3a82d7cda898ec3545.html?version=CURRENT_VERSION) 
++  [SAP Note 2922454 - SAP Adaptive Server Enterprise (SAP ASE) on Cloud Platforms (requires SAP portal access)](https://me.sap.com/notes/2922454) 
++  [SAP Note 1941500 - Certification information for Linux and other Operating Systems - SAP ASE (requires SAP portal access)](https://me.sap.com/notes/1941500) 

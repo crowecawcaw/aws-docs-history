@@ -1,23 +1,24 @@
+
+
 # SAP NetWeaver Guides
+<a name="welcome"></a>
 
 This section covers the following guides.
++  [SAP NetWeaver Environment Setup for Linux on AWS](https://docs.aws.amazon.com/sap/latest/sap-netweaver/std-sap-netweaver-environment-setup.html) 
++  [SAP NetWeaver on AWS Deployment and Operations Guide for Windows](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sap-netweaver-windows-guide.html) 
++  [Microsoft SQL Server for SAP NetWeaver on AWS Deployment and Operations Guide](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sql-server-sap-guide.html) 
++  [SAP NetWeaver on AWS: high availability configuration for NetWeaver ASCS](https://docs.aws.amazon.com/sap/latest/sap-netweaver/netweaver-ha-ascs.html) 
++  [Migrate SAP NetWeaver applications with AWS Migration Hub Orchestrator](https://docs.aws.amazon.com/sap/latest/sap-netweaver/migrate-sap-netweaver.html) 
++  [Oracle for SAP NetWeaver on AWS Deployment and Operations Guide for Linux](https://docs.aws.amazon.com/sap/latest/sap-netweaver/orc-sap-nw-lx.html) 
++  [SAP ASE for SAP NetWeaver on AWS Deployment and Operations Guide for Linux](https://docs.aws.amazon.com/sap/latest/sap-netweaver/ase-linux.html) 
++  [SAP NetWeaver on AWS Automation](https://docs.aws.amazon.com/sap/latest/sap-netweaver/sap-nw-automation.html) 
 
-- [SAP NetWeaver Environment Setup for Linux on AWS](std-sap-netweaver-environment-setup.md "std-sap-netweaver-environment-setup.md")
-- [SAP NetWeaver on AWS Deployment and Operations Guide for Windows](sap-netweaver-windows-guide.md "sap-netweaver-windows-guide.md")
-- [Microsoft SQL Server for SAP NetWeaver on AWS Deployment and Operations Guide](sql-server-sap-guide.md "sql-server-sap-guide.md")
-- [SAP NetWeaver on AWS: high availability configuration for NetWeaver ASCS](netweaver-ha-ascs.md "netweaver-ha-ascs.md")
-- [Migrate SAP NetWeaver applications with AWS Migration Hub Orchestrator](migrate-sap-netweaver.md "migrate-sap-netweaver.md")
-- [Oracle for SAP NetWeaver on AWS Deployment and Operations Guide for Linux](orc-sap-nw-lx.md "orc-sap-nw-lx.md")
-- [SAP ASE for SAP NetWeaver on AWS Deployment and Operations Guide for Linux](ase-linux.md "ase-linux.md")
-- [SAP NetWeaver on AWS Automation](sap-nw-automation.md "sap-nw-automation.md")
-
-**Additional SAP on AWS documentation**
-
-- [General SAP guides](../general/welcome.md "../general/welcome.md")
-- [SAP HANA on AWS](../sap-hana/welcome.md "../sap-hana/welcome.md")
-- [Databases for SAP applications on AWS](../sap-AnyDB/welcome.md "../sap-AnyDB/welcome.md")
-- [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md")
-- [AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md "../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md")
-- [AWS SDK for SAP ABAP](../../../sdk-for-sapabap/latest/developer-guide/home.md "../../../sdk-for-sapabap/latest/developer-guide/home.md")
-- [SAP BusinessObjects on AWS](../sap-businessobjects/welcome.md "../sap-businessobjects/welcome.md")
-- [AWS Migration Hub Orchestrator](../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md "../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md")
+ **Additional SAP on AWS documentation** 
++  [General SAP guides](https://docs.aws.amazon.com/sap/latest/general/welcome.html) 
++  [SAP HANA on AWS](https://docs.aws.amazon.com/sap/latest/sap-hana/welcome.html) 
++  [Databases for SAP applications on AWS](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/welcome.html) 
++  [AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) 
++  [AWS Systems Manager for SAP](https://docs.aws.amazon.com/ssm-sap/latest/userguide/what-is-ssm-for-sap.html) 
++  [AWS SDK for SAP ABAP](https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/home.html) 
++  [SAP BusinessObjects on AWS](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/welcome.html) 
++  [AWS Migration Hub Orchestrator](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.html) 

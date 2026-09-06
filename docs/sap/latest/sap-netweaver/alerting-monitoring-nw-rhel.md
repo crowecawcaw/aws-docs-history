@@ -1,21 +1,25 @@
+
+
 # Alerting and monitoring
+<a name="alerting-monitoring-nw-rhel"></a>
 
 This section covers the following topics.
 
-###### Topics
-
-- [Using Amazon CloudWatch Application Insights](#application-insights-nw-rhel "#application-insights-nw-rhel")
-- [Using the cluster alert agents](#cluster-alert-nw-rhel "#cluster-alert-nw-rhel")
+**Topics**
++ [Using Amazon CloudWatch Application Insights](#application-insights-nw-rhel)
++ [Using the cluster alert agents](#cluster-alert-nw-rhel)
 
 ## Using Amazon CloudWatch Application Insights
+<a name="application-insights-nw-rhel"></a>
 
 For monitoring and visibility of cluster state and actions, Application Insights includes metrics for monitoring enqueue replication state, cluster metrics, and SAP and high availability checks. Additional metrics, such as EFS and CPU monitoring can also help with root cause analysis.
 
-For more information, see [Get started with Amazon CloudWatch Application Insights](../../../AmazonCloudWatch/latest/monitoring/appinsights-getting-started.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-getting-started.md") and [SAP NetWeaver High Availability on Amazon EC2](../../../AmazonCloudWatch/latest/monitoring/component-configuration-examples-netweaver-ha.md "../../../AmazonCloudWatch/latest/monitoring/component-configuration-examples-netweaver-ha.md").
+For more information, see [Get started with Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-getting-started.html) and [SAP NetWeaver High Availability on Amazon EC2](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-configuration-examples-netweaver-ha.html).
 
 ## Using the cluster alert agents
+<a name="cluster-alert-nw-rhel"></a>
 
-Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a _push_ notification. It passes information about the event via environment variables.
+Within the cluster configuration, you can call an external program (an alert agent) to handle alerts. This is a *push* notification. It passes information about the event via environment variables.
 
 The agents can then be configured to send emails, log to a file, update a monitoring system, etc. For example, the following script can be used to access Amazon SNS.
 

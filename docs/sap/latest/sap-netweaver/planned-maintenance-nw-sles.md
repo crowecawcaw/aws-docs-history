@@ -1,23 +1,24 @@
+
+
 # Performing planned maintenance
+<a name="planned-maintenance-nw-sles"></a>
 
 The cluster connector is designed to integrate the cluster with SAP start framework (`sapstartsrv`), including the rolling kernel switch (RKS) awareness. Stopping and starting the SAP system using `sapcontrol` should not result in any cluster remediation activities as these actions are not interpreted as failures. Validate this scenario when testing your cluster.
 
 There are different options to perform planned maintenance on nodes, resources, and the cluster.
 
-###### Topics
-
-- [Maintenance mode](#maintenance-mode-nw-sles "#maintenance-mode-nw-sles")
-- [Placing a node in standby mode](#node-standby-nw-sles "#node-standby-nw-sles")
-- [Moving a resource](#moving-resource-nw-sles "#moving-resource-nw-sles")
+**Topics**
++ [Maintenance mode](#maintenance-mode-nw-sles)
++ [Placing a node in standby mode](#node-standby-nw-sles)
++ [Moving a resource](#moving-resource-nw-sles)
 
 ## Maintenance mode
+<a name="maintenance-mode-nw-sles"></a>
 
 Use maintenance mode if you want to make any changes to the configuration or take control of the resources and nodes in the cluster. In most cases, this is the safest option for administrative tasks.
 
-###### Example
-
-On
-Use one of the following commands to turn on maintenance mode.
+**Example**  
+Use one of the following commands to turn on maintenance mode.  
 
 ```
 # crm maintenance on
@@ -26,9 +27,7 @@ Use one of the following commands to turn on maintenance mode.
 ```
 # crm configure property maintenance-mode="true"
 ```
-
-Off
-Use one of the following commands to turn off maintenance mode.
+Use one of the following commands to turn off maintenance mode.  
 
 ```
 # crm maintenance off
@@ -39,6 +38,7 @@ Use one of the following commands to turn off maintenance mode.
 ```
 
 ## Placing a node in standby mode
+<a name="node-standby-nw-sles"></a>
 
 To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
@@ -53,6 +53,7 @@ The cluster will cleanly relocate resources, and you can perform activities, inc
 ```
 
 ## Moving a resource
+<a name="moving-resource-nw-sles"></a>
 
 Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
 

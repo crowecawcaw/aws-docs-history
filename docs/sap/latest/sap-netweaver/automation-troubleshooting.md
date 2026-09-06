@@ -1,8 +1,12 @@
-# Automation troubleshooting
 
-If you encounter errors related to SAP automation, refer to the [Troubleshooting Systems Manager Automation](../../../systems-manager/latest/userguide/automation-troubleshooting.md "../../../systems-manager/latest/userguide/automation-troubleshooting.md") documentation in the _AWS Systems Manager User Guide_. There, you will find an action-specific failures reference as well as information about common errors such as access denied errors and errors related to timed out or failed statuses after the execution started.
+
+# Automation troubleshooting
+<a name="automation-troubleshooting"></a>
+
+If you encounter errors related to SAP automation, refer to the [Troubleshooting Systems Manager Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-troubleshooting.html) documentation in the * AWS Systems Manager User Guide*. There, you will find an action-specific failures reference as well as information about common errors such as access denied errors and errors related to timed out or failed statuses after the execution started.
 
 ## Logging installation steps
+<a name="logging-installation"></a>
 
 You can log individual automated installation steps with the code below. In this example, logs are added to `$SSM_LOG_FILE` for each `run` command.
 
