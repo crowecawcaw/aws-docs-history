@@ -1,53 +1,40 @@
+
+
 # Amazon Braket supported regions and devices
+<a name="braket-devices"></a>
 
-###### Tip
+**Tip**  
+**Learn the foundations of quantum computing with AWS\!** Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs) and earn your own Digital badge after completing a series of learning courses and a digital assessment.
 
-**Learn the foundations of quantum computing with AWS!**
-Enroll in the [Amazon Braket Digital Learning Plan](https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs "https://skillbuilder.aws/learning-plan/EH35DWGU3R/amazon-braket--knowledge-badge-readiness-path-includes-labs")
-and earn your own Digital badge after completing a series of learning courses and a digital assessment.
+In Amazon Braket, a device represents a quantum processing unit (QPU) or simulator that you can call to run quantum tasks. Amazon Braket provides access to QPU devices from AQT, IonQ, IQM, QuEra, and Rigetti. Additionally, AWS offers access to on-demand, local, and embedded simulators. For more information on embedded simulators, see [About embedded simulators](embedded-simulator.md).
 
-In Amazon Braket, a device represents a quantum processing unit (QPU) or simulator that you can call to run quantum
-tasks. Amazon Braket provides access to QPU devices from AQT, IonQ, IQM,
-QuEra, and Rigetti. Additionally, AWS offers access to on-demand, local, and embedded simulators.
-For more information on embedded simulators, see [About embedded simulators](embedded-simulator.md "embedded-simulator.md").
+For information on supported quantum hardware providers, see [Submitting quantum tasks to QPUs](braket-submit-tasks.md). For information on available simulators, see [Submitting quantum tasks to simulators](braket-submit-tasks-simulators.md). The following table displays the list of available devices and simulators. 
 
-For information on supported quantum hardware providers, see [Submitting quantum tasks to QPUs](braket-submit-tasks.md "braket-submit-tasks.md").
-For information on available simulators, see [Submitting quantum tasks to simulators](braket-submit-tasks-simulators.md "braket-submit-tasks-simulators.md").
-The following table displays the list of available devices and simulators.
 
-| Provider                                                                                                         | Device Name                                                                                                                                | Paradigm                      | Type                | Device ARN                                                   | Region                                     |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------- | ------------------------------------------------------------ | ------------------------------------------ |
-| [AQT](braket-submit-tasks.md#braket-qpu-partner-aqt "braket-submit-tasks.md#braket-qpu-partner-aqt")             | IBEX-Q1                                                                                                                                    | gate-based                    | QPU                 | arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1            | eu-north-1                                 |
-| [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq "braket-submit-tasks.md#braket-qpu-partner-ionq")          | Forte-1                                                                                                                                    | gate-based                    | QPU                 | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1            | us-east-1                                  |
-| [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq "braket-submit-tasks.md#braket-qpu-partner-ionq")          | Forte-Enterprise-1                                                                                                                         | gate-based                    | QPU                 | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1 | us-east-1                                  |
-| [IQM](braket-submit-tasks.md#braket-qpu-partner-iqm "braket-submit-tasks.md#braket-qpu-partner-iqm")             | Garnet                                                                                                                                     | gate-based                    | QPU                 | arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet             | eu-north-1                                 |
-| [IQM](braket-submit-tasks.md#braket-qpu-partner-iqm "braket-submit-tasks.md#braket-qpu-partner-iqm")             | Emerald                                                                                                                                    | gate-based                    | QPU                 | arn:aws:braket:eu-north-1::device/qpu/iqm/Emerald            | eu-north-1                                 |
-| [QuEra](braket-submit-tasks.md#braket-qpu-partner-quera "braket-submit-tasks.md#braket-qpu-partner-quera")       | Aquila                                                                                                                                     | Analog Hamiltonian Simulation | QPU                 | arn:aws:braket:us-east-1::device/qpu/quera/Aquila            | us-east-1                                  |
-| [Rigetti](braket-submit-tasks.md#braket-qpu-partner-rigetti "braket-submit-tasks.md#braket-qpu-partner-rigetti") | Ankaa-3                                                                                                                                    | gate-based                    | QPU                 | arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3         | us-west-1                                  |
-| [Rigetti](braket-submit-tasks.md#braket-qpu-partner-rigetti "braket-submit-tasks.md#braket-qpu-partner-rigetti") | Cepheus-1-108Q                                                                                                                             | gate-based                    | QPU                 | arn:aws:braket:us-west-1::device/qpu/rigetti/Cepheus-1-108Q  | us-west-1                                  |
-| AWS                                                                                                              | [braket\_sv](braket-submit-tasks-simulators.md#braket-simulator-sv "braket-submit-tasks-simulators.md#braket-simulator-sv")                | gate-based                    | Local simulator     | N/A (local simulator in Braket SDK)                          | N/A                                        |
-| AWS                                                                                                              | [braket\_dm](braket-submit-tasks-simulators.md#braket-simulator-dm "braket-submit-tasks-simulators.md#braket-simulator-dm")                | gate-based                    | Local simulator     | N/A (local simulator in Braket SDK)                          | N/A                                        |
-| AWS                                                                                                              | [braket\_ahs](braket-submit-tasks-simulators.md#braket-simulator-ahs-local "braket-submit-tasks-simulators.md#braket-simulator-ahs-local") | Analog Hamiltonian Simulation | Local simulator     | N/A (local simulator in Braket SDK)                          | N/A                                        |
-| AWS                                                                                                              | [SV1](braket-submit-tasks-simulators.md#braket-simulator-sv1 "braket-submit-tasks-simulators.md#braket-simulator-sv1")                     | gate-based                    | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/sv1         | us-east-1, us-west-1, us-west-2, eu-west-2 |
-| AWS                                                                                                              | [DM1](braket-submit-tasks-simulators.md#braket-simulator-dm1 "braket-submit-tasks-simulators.md#braket-simulator-dm1")                     | gate-based                    | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/dm1         | us-east-1, us-west-1, us-west-2, eu-west-2 |
+| Provider | Device Name | Paradigm | Type | Device ARN | Region | 
+| --- | --- | --- | --- | --- | --- | 
+|  [AQT](braket-submit-tasks.md#braket-qpu-partner-aqt)  |  IBEX-Q1  | gate-based | QPU | arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1 | eu-north-1 | 
+|  [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq)  |  Forte-1  | gate-based | QPU | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1 | us-east-1 | 
+|  [IonQ](braket-submit-tasks.md#braket-qpu-partner-ionq)  |  Forte-Enterprise-1  | gate-based | QPU | arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1 | us-east-1 | 
+|  [IQM](braket-submit-tasks.md#braket-qpu-partner-iqm)  |  Garnet  | gate-based | QPU | arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet | eu-north-1 | 
+|  [IQM](braket-submit-tasks.md#braket-qpu-partner-iqm)  |  Emerald  | gate-based | QPU | arn:aws:braket:eu-north-1::device/qpu/iqm/Emerald | eu-north-1 | 
+|  [QuEra](braket-submit-tasks.md#braket-qpu-partner-quera)  |  Aquila  | Analog Hamiltonian Simulation | QPU | arn:aws:braket:us-east-1::device/qpu/quera/Aquila | us-east-1 | 
+|  [Rigetti](braket-submit-tasks.md#braket-qpu-partner-rigetti)  |  Ankaa-3  | gate-based | QPU | arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3 | us-west-1 | 
+|  [Rigetti](braket-submit-tasks.md#braket-qpu-partner-rigetti)  |  Cepheus-1-108Q  | gate-based | QPU | arn:aws:braket:us-west-1::device/qpu/rigetti/Cepheus-1-108Q | us-west-1 | 
+|  AWS  |  [braket\_sv](braket-submit-tasks-simulators.md#braket-simulator-sv)  | gate-based | Local simulator | N/A (local simulator in Braket SDK) | N/A | 
+|  AWS  |  [braket\_dm](braket-submit-tasks-simulators.md#braket-simulator-dm)  | gate-based | Local simulator | N/A (local simulator in Braket SDK) | N/A | 
+|  AWS  |  [braket\_ahs](braket-submit-tasks-simulators.md#braket-simulator-ahs-local)  | Analog Hamiltonian Simulation | Local simulator | N/A (local simulator in Braket SDK) | N/A | 
+|  AWS  |  [SV1](braket-submit-tasks-simulators.md#braket-simulator-sv1)  | gate-based | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/sv1 | us-east-1, us-west-1, us-west-2, eu-west-2 | 
+|  AWS  |  [DM1](braket-submit-tasks-simulators.md#braket-simulator-dm1)  | gate-based | On-demand simulator | arn:aws:braket:::device/quantum-simulator/amazon/dm1 | us-east-1, us-west-1, us-west-2, eu-west-2 | 
 
-###### Note
+**Note**  
+Device ARNs are case sensitive. For example, when using the AQT IBEX-Q1 device, verify that the device ARN contains 'Ibex-Q1'.
 
-Device ARNs are case sensitive. For example, when using the AQT IBEX-Q1 device, verify
-that the device ARN contains 'Ibex-Q1'.
+To view additional details about the QPUs you can use with Amazon Braket, see [Amazon Braket Quantum Computers](https://aws.amazon.com/braket/quantum-computers/).
 
-To view additional details about the QPUs you can use with Amazon Braket,
-see [Amazon Braket Quantum Computers](https://aws.amazon.com/braket/quantum-computers/ "https://aws.amazon.com/braket/quantum-computers/").
+ **Device properties** 
 
-**Device properties**
-
-For all devices, you can find
-further device properties, such as device topology, calibration data, and native gate sets, on
-the **Devices** tab of the Amazon Braket console or by
-the `GetDevice` API. When constructing a circuit with the simulators, Amazon Braket
-requires that you use contiguous qubits or indices. When working with the SDK,
-the following code example shows how to get access to the device properties for each available
-device and simulator.
+For all devices, you can find further device properties, such as device topology, calibration data, and native gate sets, on the **Devices** tab of the Amazon Braket console or by the `GetDevice` API. When constructing a circuit with the simulators, Amazon Braket requires that you use contiguous qubits or indices. When working with the SDK, the following code example shows how to get access to the device properties for each available device and simulator. 
 
 ```
 from braket.aws import AwsDevice
@@ -75,25 +62,22 @@ device.properties
 ```
 
 ## Regions and endpoints for Amazon Braket
+<a name="braket-regions"></a>
 
-For a full list of regions and endpoints, see the
-[AWS
-General Reference.](../../../general/latest/gr/braket.md "../../../general/latest/gr/braket.md")
+For a full list of regions and endpoints, see the [AWS General Reference.](https://docs.aws.amazon.com/general/latest/gr/braket.html)
 
-Quantum tasks that run on a QPU device can be viewed in the Amazon Braket console in the Region of that device.
-When using the Amazon Braket SDK, you can submit quantum tasks to any QPU device, regardless of the Region
-in which you are working. The SDK automatically creates a session to the Region for the QPU specified.
+Quantum tasks that run on a QPU device can be viewed in the Amazon Braket console in the Region of that device. When using the Amazon Braket SDK, you can submit quantum tasks to any QPU device, regardless of the Region in which you are working. The SDK automatically creates a session to the Region for the QPU specified.
 
 Amazon Braket is available in the following AWS Regions:
 
-| Region name             | Region     | Braket endpoints                                                                      |
-| ----------------------- | ---------- | ------------------------------------------------------------------------------------- |
-| US East (N. Virginia)   | us-east-1  | braket.us-east-1.amazonaws.com (IPv4 only)<br>braket.us-east-1.api.aws (Dual stack)   |
-| US West (N. California) | us-west-1  | braket.us-west-1.amazonaws.com (IPv4 only)<br>braket.us-west-1.api.aws (Dual stack)   |
-| US West 2 (Oregon)      | us-west-2  | braket.us-west-2.amazonaws.com (IPv4 only)<br>braket.us-west-2.api.aws (Dual stack)   |
-| EU North 1 (Stockholm)  | eu-north-1 | braket.eu-north-1.amazonaws.com (IPv4 only)<br>braket.eu-north-1.api.aws (Dual stack) |
-| EU West 2 (London)      | eu-west-2  | braket.eu-west-2.amazonaws.com (IPv4 only)<br>braket.eu-west-2.api.aws (Dual stack)   |
 
-###### Note
+| Region name | Region | Braket endpoints | 
+| --- | --- | --- | 
+| US East (N. Virginia) | us-east-1 | braket.us-east-1.amazonaws.com (IPv4 only)<br />braket.us-east-1.api.aws (Dual stack) | 
+| US West (N. California) | us-west-1 | braket.us-west-1.amazonaws.com (IPv4 only)<br />braket.us-west-1.api.aws (Dual stack) | 
+| US West 2 (Oregon) | us-west-2 | braket.us-west-2.amazonaws.com (IPv4 only)<br />braket.us-west-2.api.aws (Dual stack) | 
+| EU North 1 (Stockholm) | eu-north-1 | braket.eu-north-1.amazonaws.com (IPv4 only)<br />braket.eu-north-1.api.aws (Dual stack) | 
+| EU West 2 (London) | eu-west-2 | braket.eu-west-2.amazonaws.com (IPv4 only)<br />braket.eu-west-2.api.aws (Dual stack) | 
 
+**Note**  
 The Amazon Braket SDK does not support IPv6-only networks.

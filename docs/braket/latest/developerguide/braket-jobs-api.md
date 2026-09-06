@@ -1,39 +1,23 @@
+
+
 # Using the API with Hybrid Jobs
+<a name="braket-jobs-api"></a>
 
-You can access and interact with Amazon Braket Hybrid Jobs directly using the
-API. However, defaults and convenience methods are not available when
-using the API directly.
+You can access and interact with Amazon Braket Hybrid Jobs directly using the API. However, defaults and convenience methods are not available when using the API directly.
 
-###### Note
+**Note**  
+We strongly recommend that you interact with Amazon Braket Hybrid Jobs using the [Amazon Braket Python SDK](https://github.com/aws/amazon-braket-sdk-python). It offers convenient defaults and protections that help your hybrid jobs run successfully.
 
-We strongly recommend that you interact with Amazon Braket Hybrid Jobs using the
-[Amazon Braket Python
-SDK](https://github.com/aws/amazon-braket-sdk-python "https://github.com/aws/amazon-braket-sdk-python"). It offers convenient defaults and protections that help your hybrid jobs run
-successfully.
+This topic covers the basics of using the API. If you choose to use the API, keep in mind that this approach can be more complex and be prepared for several iterations to get your hybrid job to run.
 
-This topic covers the basics of using the API. If you choose to use the
-API, keep in mind that this approach can be more complex and be prepared for several
-iterations to get your hybrid job to run.
+To use the API, your account should have a role with the `AmazonBraketFullAccess` managed policy.
 
-To use the API, your account should have a role with the
-`AmazonBraketFullAccess` managed policy.
+**Note**  
+For more information on how to obtain a role with the `AmazonBraketFullAccess` managed policy, see the [Enable Amazon Braket ](braket-enable-overview.md) page.
 
-###### Note
+Additionally, you need an **execution role**. This role will be passed to the service. You can create the role using the ** Amazon Braket console**. Use the **Execution roles** tab on the **Permissions and settings** page to create a default role for hybrid jobs.
 
-For more information on how to obtain a role with the
-`AmazonBraketFullAccess` managed policy, see the [Enable Amazon Braket](braket-enable-overview.md "braket-enable-overview.md") page.
-
-Additionally, you need an **execution role**. This role
-will be passed to the service. You can create the role using the **Amazon Braket console**. Use the **Execution
-roles** tab on the **Permissions and settings**
-page to create a default role for hybrid jobs.
-
-The `CreateJob`
-API requires that you specify all the required parameters for the hybrid job. To
-use Python, compress your algorithm script files to a tar bundle, such as an input.tar.gz
-file, and run the following script. Update the parts of the code within angled brackets
-(`<>`) to match your account information and entry point that specify
-the path, file, and method where your hybrid job starts.
+The `CreateJob` API requires that you specify all the required parameters for the hybrid job. To use Python, compress your algorithm script files to a tar bundle, such as an input.tar.gz file, and run the following script. Update the parts of the code within angled brackets (`<>`) to match your account information and entry point that specify the path, file, and method where your hybrid job starts.
 
 ```
 from braket.aws import AwsDevice, AwsSession
@@ -108,25 +92,19 @@ job = client.create_job(
 )
 ```
 
-Once you create your hybrid job, you can access the hybrid job details through the `GetJob`
-API or the console. To get the hybrid job details from the Python session in which
-you ran the `createJob` code as in the previous example, use the following
-Python command.
+Once you create your hybrid job, you can access the hybrid job details through the `GetJob` API or the console. To get the hybrid job details from the Python session in which you ran the `createJob` code as in the previous example, use the following Python command.
 
 ```
 getJob = client.get_job(jobArn=job["jobArn"])
 ```
 
-To cancel a hybrid job, call the `CancelJob`
-API with the Amazon Resource Name of the job
-('JobArn').
+To cancel a hybrid job, call the `CancelJob` API with the Amazon Resource Name of the job ('JobArn').
 
 ```
 cancelJob = client.cancel_job(jobArn=job["jobArn"])
 ```
 
-You can specify checkpoints as part of the `createJob`
-API using the `checkpointConfig` parameter.
+You can specify checkpoints as part of the `createJob` API using the `checkpointConfig` parameter.
 
 ```
     checkpointConfig = {
@@ -135,8 +113,5 @@ API using the `checkpointConfig` parameter.
     },
 ```
 
-###### Note
-
-The localPath of `checkpointConfig` cannot start with any of the following
-reserved paths: `/opt/ml`, `/opt/braket`, `/tmp`, or
-`/usr/local/nvidia`.
+**Note**  
+The localPath of `checkpointConfig` cannot start with any of the following reserved paths: `/opt/ml`, `/opt/braket`, `/tmp`, or `/usr/local/nvidia`.

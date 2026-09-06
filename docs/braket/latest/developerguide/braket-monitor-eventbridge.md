@@ -1,87 +1,82 @@
+
+
 # Monitoring your Braket resources with EventBridge
+<a name="braket-monitor-eventbridge"></a>
 
-Amazon EventBridge monitors status change events in Amazon Braket resources, including quantum tasks and spending limits. Events from Amazon Braket are delivered to EventBridge,
-almost in real time. You can write rules that indicate which events interest you, including automated actions to take
-when an event matches a rule. Automatic actions that can be triggered include these:
+ Amazon EventBridge monitors status change events in Amazon Braket resources, including quantum tasks and spending limits. Events from Amazon Braket are delivered to EventBridge, almost in real time. You can write rules that indicate which events interest you, including automated actions to take when an event matches a rule. Automatic actions that can be triggered include these:
++ Invoking an AWS Lambda function
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic
 
-- Invoking an AWS Lambda function
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic
-  EventBridge monitors these Amazon Braket status change events:
+EventBridge monitors these Amazon Braket status change events:
++ The state of a quantum task changes
++ The amount spent on a spending limit changes
 
-- The state of a quantum task changes
-- The amount spent on a spending limit changes
-  Amazon Braket guarantees delivery of these events. They are delivered at least once, but possibly out of order.
+Amazon Braket guarantees delivery of these events. They are delivered at least once, but possibly out of order.
 
-For more information, see the [Events in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
+For more information, see the [Events in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html).
 
-###### In this section:
-
-- [Monitor quantum task status with EventBridge](#braket-eventbridge-tasks "#braket-eventbridge-tasks")
-- [Example Amazon Braket EventBridge event](#braket-eventbridge-examples "#braket-eventbridge-examples")
-- [Monitor spending limit changes with EventBridge](#braket-eventbridge-spending-limits "#braket-eventbridge-spending-limits")
+**Topics**
++ [Monitor quantum task status with EventBridge](#braket-eventbridge-tasks)
++ [Example Amazon Braket EventBridge event](#braket-eventbridge-examples)
++ [Monitor spending limit changes with EventBridge](#braket-eventbridge-spending-limits)
 
 ## Monitor quantum task status with EventBridge
+<a name="braket-eventbridge-tasks"></a>
 
-With EventBridge, you can create rules that define actions to take when Amazon Braket sends notification of a status
-change regarding a Braket quantum task. For example, you can create a rule that sends you an email message each time
-the status of a quantum task changes.
+With EventBridge, you can create rules that define actions to take when Amazon Braket sends notification of a status change regarding a Braket quantum task. For example, you can create a rule that sends you an email message each time the status of a quantum task changes.
 
-1. Log in to AWS using an account that has permissions to use EventBridge and Amazon
-   Braket.
-2. Open the [Amazon EventBridge console](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-3. Using the following values, create an EventBridge rule:
+1. Log in to AWS using an account that has permissions to use EventBridge and Amazon Braket.
 
-   - For **Rule type**, choose **Rule with an event pattern**.
-   - For **Event source**, choose **Other**.
-   - In the **Event pattern** section, choose **Custom patterns (JSON editor)**, and then paste the following event pattern into the text area:
+1. Open the [Amazon EventBridge console](https://console.aws.amazon.com/events/).
 
-   ```
-   {
-     "source": [
-       "aws.braket"
-     ],
-     "detail-type": [
-       "Braket Task State Change"
-     ]
-   }
-   ```
+1. Using the following values, create an EventBridge rule:
+   + For **Rule type**, choose **Rule with an event pattern**.
+   + For **Event source**, choose **Other**.
+   + In the **Event pattern** section, choose **Custom patterns (JSON editor)**, and then paste the following event pattern into the text area:
 
-   To capture all events from Amazon
-   Braket, exclude the `detail-type` section as shown in the following code:
+     ```
+     {
+       "source": [
+         "aws.braket"
+       ],
+       "detail-type": [
+         "Braket Task State Change"
+       ]
+     }
+     ```
 
-   ```
-   {
-     "source": [
-       "aws.braket"
-     ]
-   }
-   ```
-   - For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when a quantum task state change event is received from Amazon
-     Braket.
+     To capture all events from Amazon Braket, exclude the `detail-type` section as shown in the following code:
 
-   For example, use an Amazon Simple Notification Service (SNS) topic to send an email or text message when an event occurs. To do that, first create an Amazon SNS topic using the Amazon SNS console. To learn more, see [Using Amazon SNS for user notifications](../../../sns/latest/dg/sns-user-notifications.md "../../../sns/latest/dg/sns-user-notifications.md").
+     ```
+     {
+       "source": [
+         "aws.braket"
+       ]
+     }
+     ```
+   + For **Target types**, choose ** AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when a quantum task state change event is received from Amazon Braket.
 
-For details about creating rules, see [Creating Amazon EventBridge rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md").
+     For example, use an Amazon Simple Notification Service (SNS) topic to send an email or text message when an event occurs. To do that, first create an Amazon SNS topic using the Amazon SNS console. To learn more, see [Using Amazon SNS for user notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-user-notifications.html).
+
+For details about creating rules, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html).
 
 ## Example Amazon Braket EventBridge event
+<a name="braket-eventbridge-examples"></a>
 
-For information on the fields for an Amazon Braket Quantum Task Status Change event,
-see [Events in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
+For information on the fields for an Amazon Braket Quantum Task Status Change event, see [Events in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html).
 
 The following attributes appear in the JSON "detail" field.
++  ** `quantumTaskArn` ** (str): The quantum task for which this event was generated.
++  ** `status` ** (Optional[str]): The status to which the quantum task transitioned.
++  ** `deviceArn` ** (str): The device specified by the user for which this quantum task was created.
++  ** shots ** (int): The number of shots requested by the user.
++  ** `outputS3Bucket` ** (str): The output bucket specified by the user.
++  ** `outputS3Directory` ** (str): The output key prefix specified by the user.
++  ** `createdAt` ** (str): The quantum task creation time as an ISO-8601 string.
++  ** `endedAt` ** (Optional[str]): The time at which the quantum task reached a terminal state. This field is present only when the quantum task has transitioned to a terminal state.
 
-- **`quantumTaskArn`** (str): The quantum task for which this event was generated.
-- **`status`** (Optional[str]): The status to which the quantum task transitioned.
-- **`deviceArn`** (str): The device specified by the user for which this quantum task was created.
-- **shots** (int): The number of shots requested by the user.
-- **`outputS3Bucket`** (str): The output bucket specified by the user.
-- **`outputS3Directory`** (str): The output key prefix specified by the user.
-- **`createdAt`** (str): The quantum task creation time as an ISO-8601 string.
-- **`endedAt`** (Optional[str]): The time at which the quantum task reached a terminal state. This field is present only when the quantum task has transitioned to a terminal state.
-
-The following JSON code shows an example of an Amazon
-Braket Quantum Task Status Change event.
+The following JSON code shows an example of an Amazon Braket Quantum Task Status Change event.
 
 ```
 {
@@ -110,6 +105,7 @@ Braket Quantum Task Status Change event.
 ```
 
 ## Monitor spending limit changes with EventBridge
+<a name="braket-eventbridge-spending-limits"></a>
 
 To monitor changes to the amount spent on spending limits, use the following event pattern:
 
@@ -125,14 +121,13 @@ To monitor changes to the amount spent on spending limits, use the following eve
 ```
 
 The following attributes appear in the JSON "detail" field for Braket Spending Limit Spend Change events:
-
-- **`quantumTaskArn`** (str): The ARN of the quantum task that caused the change in amount spent.
-- **`deviceArn`** (str): The ARN of the device associated with the quantum task.
-- **`spendingLimit`** (str): The configured spending limit amount, in US dollars (USD).
-- **`spendingLimitArn`** (str): The ARN of the spending limit for which this event was generated.
-- **`totalSpend`** (str): The total amount spent against the spending limit.
-- **`queuedSpend`** (str): The estimated cost of pending quantum tasks against the spending limit.
-- **`timePeriod`** (object): The time period of the spending limit, containing `startAt` and `endAt` timestamps in milliseconds.
++  ** `quantumTaskArn` ** (str): The ARN of the quantum task that caused the change in amount spent.
++  ** `deviceArn` ** (str): The ARN of the device associated with the quantum task.
++  ** `spendingLimit` ** (str): The configured spending limit amount, in US dollars (USD).
++  ** `spendingLimitArn` ** (str): The ARN of the spending limit for which this event was generated.
++  ** `totalSpend` ** (str): The total amount spent against the spending limit.
++  ** `queuedSpend` ** (str): The estimated cost of pending quantum tasks against the spending limit.
++  ** `timePeriod` ** (object): The time period of the spending limit, containing `startAt` and `endAt` timestamps in milliseconds.
 
 The following JSON code shows an example of an Amazon Braket Spending Limit Spend Change event:
 

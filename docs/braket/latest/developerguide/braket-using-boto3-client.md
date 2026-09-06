@@ -1,9 +1,9 @@
-# Turn on the Amazon Braket Boto3 client
 
-To use Boto3 with Amazon Braket, you must import Boto3 and then
-define a client that you use to connect to the Amazon Braket
-API. In the following example, the Boto3 client is named
-`braket`.
+
+# Turn on the Amazon Braket Boto3 client
+<a name="braket-using-boto3-client"></a>
+
+To use Boto3 with Amazon Braket, you must import Boto3 and then define a client that you use to connect to the Amazon Braket API. In the following example, the Boto3 client is named `braket`.
 
 ```
 import boto3
@@ -12,30 +12,22 @@ import botocore
 braket = boto3.client("braket")
 ```
 
-###### Note
+**Note**  
+[Braket supports IPv6](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ipv6-support.html). If you are using an IPv6-only network or wish to ensure your workload uses IPv6 traffic, use the dual-stack endpoints as outlined in the [Dual-stack and FIPS endpoints](https://docs.aws.amazon.com/sdkref/latest/guide/feature-endpoints.html) guide.
 
-[Braket supports IPv6](../../../vpc/latest/userguide/aws-ipv6-support.md "../../../vpc/latest/userguide/aws-ipv6-support.md").
-If you are using an IPv6-only network or wish to ensure your workload uses IPv6 traffic, use the dual-stack endpoints as
-outlined in the [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md") guide.
+Now that you have a `braket` client established, you can make requests and process responses from the Amazon Braket service. You can get more detail on request and response data in the [API Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html).
 
-Now that you have a `braket` client established, you can make requests and
-process responses from the Amazon Braket service. You can get more
-detail on request and response data in the [API Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html").
-
-###### The following examples show how to work with devices and quantum
-
-tasks.
-
-- [Search for devices](#braket-using-boto3-example-search-devices "#braket-using-boto3-example-search-devices")
-- [Retrieve a device](#braket-using-boto3-example-retrieve-devices "#braket-using-boto3-example-retrieve-devices")
-- [Create a quantum task](#braket-using-boto3-example-create-task "#braket-using-boto3-example-create-task")
-- [Retrieve a quantum task](#braket-using-boto3-example-retrieve-task "#braket-using-boto3-example-retrieve-task")
-- [Search for quantum tasks](#braket-using-boto3-example-search-tasks "#braket-using-boto3-example-search-tasks")
-- [Cancel quantum task](#braket-using-boto3-example-cancel-task "#braket-using-boto3-example-cancel-task")
+**Topics**
++ [Search for devices](#braket-using-boto3-example-search-devices)
++ [Retrieve a device](#braket-using-boto3-example-retrieve-devices)
++ [Create a quantum task](#braket-using-boto3-example-create-task)
++ [Retrieve a quantum task](#braket-using-boto3-example-retrieve-task)
++ [Search for quantum tasks](#braket-using-boto3-example-search-tasks)
++ [Cancel quantum task](#braket-using-boto3-example-cancel-task)
 
 ## Search for devices
-
-- `search_devices(**kwargs)`
+<a name="braket-using-boto3-example-search-devices"></a>
++  `search_devices(**kwargs)` 
 
 Search for devices using the specified filters.
 
@@ -55,8 +47,8 @@ for i in range(len(response['devices'])):
 ```
 
 ## Retrieve a device
-
-- `get_device(deviceArn)`
+<a name="braket-using-boto3-example-retrieve-devices"></a>
++  `get_device(deviceArn)` 
 
 Retrieve the devices available in Amazon Braket.
 
@@ -68,8 +60,8 @@ print(f"Device {response['deviceName']} is {response['deviceStatus']}")
 ```
 
 ## Create a quantum task
-
-- `create_quantum_task(**kwargs)`
+<a name="braket-using-boto3-example-create-task"></a>
++  `create_quantum_task(**kwargs)` 
 
 Create a quantum task.
 
@@ -97,8 +89,8 @@ print(f"Quantum task {response['quantumTaskArn']} created")
 ```
 
 ## Retrieve a quantum task
-
-- `get_quantum_task(quantumTaskArn)`
+<a name="braket-using-boto3-example-retrieve-task"></a>
++  `get_quantum_task(quantumTaskArn)` 
 
 Retrieve the specified quantum task.
 
@@ -110,8 +102,8 @@ print(response['status'])
 ```
 
 ## Search for quantum tasks
-
-- `search_quantum_tasks(**kwargs)`
+<a name="braket-using-boto3-example-search-tasks"></a>
++  `search_quantum_tasks(**kwargs)` 
 
 Search for quantum tasks that match the specified filter values.
 
@@ -132,8 +124,8 @@ for n in range(len(response['quantumTasks'])):
 ```
 
 ## Cancel quantum task
-
-- `cancel_quantum_task(quantumTaskArn)`
+<a name="braket-using-boto3-example-cancel-task"></a>
++  `cancel_quantum_task(quantumTaskArn)` 
 
 Cancel the specified quantum task.
 

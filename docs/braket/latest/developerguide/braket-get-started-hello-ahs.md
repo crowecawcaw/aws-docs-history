@@ -1,42 +1,36 @@
+
+
 # Hello AHS: Run your first Analog Hamiltonian Simulation
+<a name="braket-get-started-hello-ahs"></a>
 
 This section provides information on running your first Analog Hamiltonian Simulation.
 
-###### In this section:
-
-- [Interacting spin chain](#braket-get-started-interacting-spin-chain "#braket-get-started-interacting-spin-chain")
-- [Arrangement](#braket-get-started-arrangement "#braket-get-started-arrangement")
-- [Interaction](#braket-get-started-interaction "#braket-get-started-interaction")
-- [Driving field](#braket-get-started-driving-field "#braket-get-started-driving-field")
-- [AHS program](#braket-get-started-ahs-program "#braket-get-started-ahs-program")
-- [Running on local simulator](#braket-get-started-running-local-simulator "#braket-get-started-running-local-simulator")
-- [Analyzing simulator results](#braket-get-started-analyzing-simulator-results "#braket-get-started-analyzing-simulator-results")
-- [Running on QuEra's Aquila QPU](#braket-get-started-running-aquila-qpu "#braket-get-started-running-aquila-qpu")
-- [Analyzing QPU results](#braket-get-started-analyzing-qpu-results "#braket-get-started-analyzing-qpu-results")
-- [Next steps](#braket-get-started-ahs-next "#braket-get-started-ahs-next")
+**Topics**
++ [Interacting spin chain](#braket-get-started-interacting-spin-chain)
++ [Arrangement](#braket-get-started-arrangement)
++ [Interaction](#braket-get-started-interaction)
++ [Driving field](#braket-get-started-driving-field)
++ [AHS program](#braket-get-started-ahs-program)
++ [Running on local simulator](#braket-get-started-running-local-simulator)
++ [Analyzing simulator results](#braket-get-started-analyzing-simulator-results)
++ [Running on QuEra's Aquila QPU](#braket-get-started-running-aquila-qpu)
++ [Analyzing QPU results](#braket-get-started-analyzing-qpu-results)
++ [Next steps](#braket-get-started-ahs-next)
 
 ## Interacting spin chain
+<a name="braket-get-started-interacting-spin-chain"></a>
 
-For a canonical example of a system of many interacting particles, let us consider a
-ring of eight spins (each of which can be in “up” ∣↑⟩ and “down” ∣↓⟩ states). Albeit
-small, this model system already exhibits a handful of interesting phenomena of
-naturally occurring magnetic materials. In this example, we will show how to prepare a
-so-called anti-ferromagnetic order, where consecutive spins point in opposite
-directions.
+For a canonical example of a system of many interacting particles, let us consider a ring of eight spins (each of which can be in “up” ∣↑⟩ and “down” ∣↓⟩ states). Albeit small, this model system already exhibits a handful of interesting phenomena of naturally occurring magnetic materials. In this example, we will show how to prepare a so-called anti-ferromagnetic order, where consecutive spins point in opposite directions.
 
-![Diagram connecting 8 circle nodes that contain inversing up and down arrows.](images/AntiFerromagnetic.png)
+![Diagram connecting 8 circle nodes that contain inversing up and down arrows.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AntiFerromagnetic.png)
+
 
 ## Arrangement
+<a name="braket-get-started-arrangement"></a>
 
-We will use one neutral atom to stand for each spin, and the “up” and “down” spin
-states will be encoded in excited Rydberg state and ground state of the atoms,
-respectively. First, we create the 2-d arrangement. We can program the above ring of
-spins with the following code.
+We will use one neutral atom to stand for each spin, and the “up” and “down” spin states will be encoded in excited Rydberg state and ground state of the atoms, respectively. First, we create the 2-d arrangement. We can program the above ring of spins with the following code.
 
-**Prerequisites**: You need to pip install the [Braket SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk "https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk"). (If you are using a Braket hosted notebook instance, this
-SDK comes pre-installed with the notebooks.) To reproduce the plots, you also need to
-separately install matplotlib with the shell command `pip install
- matplotlib`.
+ **Prerequisites**: You need to pip install the [Braket SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk). (If you are using a Braket hosted notebook instance, this SDK comes pre-installed with the notebooks.) To reproduce the plots, you also need to separately install matplotlib with the shell command `pip install matplotlib`.
 
 ```
 from braket.ahs.atom_arrangement import AtomArrangement
@@ -69,53 +63,30 @@ for idx, (x, y) in enumerate(zip(xs, ys)):
 plt.show()  # This will show the plot below in an ipython or jupyter session
 ```
 
-![Scatter plot showing points distributed across positive and negative values on both axes.](images/PlotNeutralAtoms.png)
+![Scatter plot showing points distributed across positive and negative values on both axes.](http://docs.aws.amazon.com/braket/latest/developerguide/images/PlotNeutralAtoms.png)
+
 
 ## Interaction
+<a name="braket-get-started-interaction"></a>
 
-To prepare the anti-ferromagnetic phase, we need to induce interactions between
-neighboring spins. We use the [van der Waals
-interaction](https://en.wikipedia.org/wiki/Van_der_Waals_force "https://en.wikipedia.org/wiki/Van_der_Waals_force") for this, which is natively implemented by neutral atom devices
-(such as the Aquila device from QuEra). Using the
-spin-representation, the Hamiltonian term for this interaction can be expressed as a sum
-over all spin pairs (j,k).
+To prepare the anti-ferromagnetic phase, we need to induce interactions between neighboring spins. We use the [van der Waals interaction](https://en.wikipedia.org/wiki/Van_der_Waals_force) for this, which is natively implemented by neutral atom devices (such as the Aquila device from QuEra). Using the spin-representation, the Hamiltonian term for this interaction can be expressed as a sum over all spin pairs (j,k).
 
-![Hamiltonian interaction equation showing this this interaction as expressed as a sum over all spin pairs (j,k).](images/HInteraction.png)
+![Hamiltonian interaction equation showing this this interaction as expressed as a sum over all spin pairs (j,k).](http://docs.aws.amazon.com/braket/latest/developerguide/images/HInteraction.png)
 
-Here, nj​=∣↑j​⟩⟨↑j​∣ is an operator
-that takes the value of 1 only if spin j is in the “up” state, and 0 otherwise. The
-strength is
-Vj,k​=C6​/(dj,k​)6,
-where C6​ is the fixed coefficient, and
-dj,k​ is the Euclidean distance between spins j and k. The
-immediate effect of this interaction term is that any state where both spin j and spin k
-are “up” have elevated energy (by the amount Vj,k​). By carefully
-designing the rest of the AHS program, this interaction will prevent neighboring spins
-from both being in the “up” state, an effect commonly known as "Rydberg
-blockade."
+
+Here, nj​=∣↑j​⟩⟨↑j​∣ is an operator that takes the value of 1 only if spin j is in the “up” state, and 0 otherwise. The strength is Vj,k​=C6​/(dj,k​)6, where C6​ is the fixed coefficient, and dj,k​ is the Euclidean distance between spins j and k. The immediate effect of this interaction term is that any state where both spin j and spin k are “up” have elevated energy (by the amount Vj,k​). By carefully designing the rest of the AHS program, this interaction will prevent neighboring spins from both being in the “up” state, an effect commonly known as "Rydberg blockade."
 
 ## Driving field
+<a name="braket-get-started-driving-field"></a>
 
-At the beginning of the AHS program, all spins (by default) start in their “down”
-state, they are in a so-called ferromagnetic phase. Keeping an eye on our goal to
-prepare the anti-ferromagnetic phase, we specify a time-dependent coherent driving field
-that smoothly transitions the spins from this state to a many-body state where the “up”
-states are preferred. The corresponding Hamiltonian can be written as
+At the beginning of the AHS program, all spins (by default) start in their “down” state, they are in a so-called ferromagnetic phase. Keeping an eye on our goal to prepare the anti-ferromagnetic phase, we specify a time-dependent coherent driving field that smoothly transitions the spins from this state to a many-body state where the “up” states are preferred. The corresponding Hamiltonian can be written as
 
-![Mathematical equation depicting the calculation of a Hamiltonian drive function.](images/HDrive.png)
+![Mathematical equation depicting the calculation of a Hamiltonian drive function.](http://docs.aws.amazon.com/braket/latest/developerguide/images/HDrive.png)
 
-where Ω(t),ϕ(t),Δ(t) are the time-dependent, global amplitude (aka [Rabi frequency](https://en.wikipedia.org/wiki/Rabi_frequency "https://en.wikipedia.org/wiki/Rabi_frequency")), phase,
-and detuning of the driving field affecting all spins uniformly. Here
-S−,k​=∣↓k​⟩⟨↑k​∣and
-S+,k​​=(S−,k​)†=∣↑k​⟩⟨↓k​∣
-are the lowering and raising operators of spin k, respectively, and
-nk​=∣↑k​⟩⟨↑k​∣
-is the same operator as before. The Ω part of the driving field coherently couples the
-“down” and the “up” states of all spins simultaneously, while the Δ part controls the
-energy reward for “up” states.
 
-To program a smooth transition from the ferromagnetic phase to the anti-ferromagnetic
-phase, we specify the driving field with the following code.
+where Ω(t),ϕ(t),Δ(t) are the time-dependent, global amplitude (aka [Rabi frequency](https://en.wikipedia.org/wiki/Rabi_frequency)), phase, and detuning of the driving field affecting all spins uniformly. Here S−,k​=∣↓k​⟩⟨↑k​∣and S\+,k​​=(S−,k​)†=∣↑k​⟩⟨↓k​∣ are the lowering and raising operators of spin k, respectively, and nk​=∣↑k​⟩⟨↑k​∣ is the same operator as before. The Ω part of the driving field coherently couples the “down” and the “up” states of all spins simultaneously, while the Δ part controls the energy reward for “up” states.
+
+To program a smooth transition from the ferromagnetic phase to the anti-ferromagnetic phase, we specify the driving field with the following code.
 
 ```
 from braket.timings.time_series import TimeSeries
@@ -149,8 +120,7 @@ drive = DrivingField(
 )
 ```
 
-We can visualize the time series of the driving field with the following
-script.
+We can visualize the time series of the driving field with the following script.
 
 ```
 fig, axes = plt.subplots(3, 1, figsize=(12, 7), sharex=True)
@@ -178,12 +148,13 @@ ax.set_xlabel('time [s]')
 plt.show()  # This will show the plot below in an ipython or jupyter session
 ```
 
-![Three graphs showing phi, delta, and omega over time. The top subplot shows the growth to just above 6 rads/s where it stays for 4 seconds until it drops back to 0. The middle subplot depicts the associated linear growth of the derivative, and the bottom subplot illustrates a flat line near zero.](images/DrivingTimeSeries.png)
+![Three graphs showing phi, delta, and omega over time. The top subplot shows the growth to just above 6 rads/s where it stays for 4 seconds until it drops back to 0. The middle subplot depicts the associated linear growth of the derivative, and the bottom subplot illustrates a flat line near zero.](http://docs.aws.amazon.com/braket/latest/developerguide/images/DrivingTimeSeries.png)
+
 
 ## AHS program
+<a name="braket-get-started-ahs-program"></a>
 
-The register, the driving field, (and the implicit van der Waals interactions) make
-up the Analog Hamiltonian Simulation program `ahs_program`.
+The register, the driving field, (and the implicit van der Waals interactions) make up the Analog Hamiltonian Simulation program `ahs_program`.
 
 ```
 from braket.ahs.analog_hamiltonian_simulation import AnalogHamiltonianSimulation
@@ -195,16 +166,11 @@ ahs_program = AnalogHamiltonianSimulation(
 ```
 
 ## Running on local simulator
+<a name="braket-get-started-running-local-simulator"></a>
 
-Since this example is small (less than 15 spins), before running it on an
-AHS-compatible QPU, we can run it on the local AHS simulator which comes with the
-Braket SDK. Since the local simulator is available for free with the Braket SDK,
-this is best practice to ensure that our code can correctly execute.
+Since this example is small (less than 15 spins), before running it on an AHS-compatible QPU, we can run it on the local AHS simulator which comes with the Braket SDK. Since the local simulator is available for free with the Braket SDK, this is best practice to ensure that our code can correctly execute.
 
-Here, we can set the number of shots to a high value (say, 1 million) because the
-local simulator tracks the time evolution of the quantum state and draws samples from
-the final state; hence, increasing the number of shots, while increasing the total
-runtime only marginally.
+Here, we can set the number of shots to a high value (say, 1 million) because the local simulator tracks the time evolution of the quantum state and draws samples from the final state; hence, increasing the number of shots, while increasing the total runtime only marginally.
 
 ```
 from braket.devices import LocalSimulator
@@ -218,10 +184,9 @@ result_simulator = device.run(
 ```
 
 ## Analyzing simulator results
+<a name="braket-get-started-analyzing-simulator-results"></a>
 
-We can aggregate the shot results with the following function that infers the state
-of each spin (which may be “d” for “down”, “u” for “up”, or “e” for empty site), and
-counts how many times each configuration occurred across the shots.
+We can aggregate the shot results with the following function that infers the state of each spin (which may be “d” for “down”, “u” for “up”, or “e” for empty site), and counts how many times each configuration occurred across the shots.
 
 ```
 from collections import Counter
@@ -263,9 +228,7 @@ print(counts_simulator)
 {'dddddddd': 5, 'dddddddu': 12, 'ddddddud': 15, ...}
 ```
 
-Here `counts` is a dictionary that counts the number of times each state
-configuration is observed across the shots. We can also visualize them with the
-following code.
+Here `counts` is a dictionary that counts the number of times each state configuration is observed across the shots. We can also visualize them with the following code.
 
 ```
 from collections import Counter
@@ -313,38 +276,31 @@ def plot_counts(counts):
 plot_counts(counts_simulator)
 ```
 
-![Bar chart showing a large number of shots with no neighboring "up" states configurations.](images/AHSCounts1.png)
+![Bar chart showing a large number of shots with no neighboring "up" states configurations.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts1.png)
 
-![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](images/AHSCounts2.png)
 
-From the plots, we can read the following observations the verify that we
-successfully prepared the anti-ferromagnetic phase.
+![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts2.png)
 
-1. Generally, non-blockaded states (where no two neighboring spins are in the “up”
-   state) are more common than states where at least one pair of neighboring spins
-   are both in “up” states.
-2. Generally, states with more "up" excitations are favored, unless the
-   configuration is blockaded.
-3. The most common states are indeed the perfect anti-ferromagnetic states
-   `"dudududu"` and `"udududud"`.
-4. The second most common states are the ones where there is only 3 “up”
-   excitations with consecutive separations of 1, 2, 2. This shows that the van der
-   Waals interaction has an affect (albeit much smaller) on next-nearest neighbors
-   too.
+
+From the plots, we can read the following observations the verify that we successfully prepared the anti-ferromagnetic phase.
+
+1. Generally, non-blockaded states (where no two neighboring spins are in the “up” state) are more common than states where at least one pair of neighboring spins are both in “up” states.
+
+1. Generally, states with more "up" excitations are favored, unless the configuration is blockaded.
+
+1. The most common states are indeed the perfect anti-ferromagnetic states `"dudududu"` and `"udududud"`.
+
+1. The second most common states are the ones where there is only 3 “up” excitations with consecutive separations of 1, 2, 2. This shows that the van der Waals interaction has an affect (albeit much smaller) on next-nearest neighbors too.
 
 ## Running on QuEra's Aquila QPU
+<a name="braket-get-started-running-aquila-qpu"></a>
 
-**Prerequisites**: Apart from pip installing the Braket
-[SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk "https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk"), if you are new to Amazon Braket, make sure that you have
-completed the necessary [Get Started steps](braket-get-started.md "braket-get-started.md").
+ **Prerequisites**: Apart from pip installing the Braket [SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk), if you are new to Amazon Braket, make sure that you have completed the necessary [Get Started steps](https://docs.aws.amazon.com/braket/latest/developerguide/braket-get-started.html).
 
-###### Note
+**Note**  
+If you are using a Braket hosted notebook instance, the Braket SDK comes pre-installed with the instance.
 
-If you are using a Braket hosted notebook instance, the Braket SDK comes
-pre-installed with the instance.
-
-With all dependencies installed, we can connect to the Aquila
-QPU.
+With all dependencies installed, we can connect to the Aquila QPU.
 
 ```
 from braket.aws import AwsDevice
@@ -352,26 +308,16 @@ from braket.aws import AwsDevice
 aquila_qpu = AwsDevice("arn:aws:braket:us-east-1::device/qpu/quera/Aquila")
 ```
 
-To make our AHS program suitable for the QuEra machine, we need to
-round all values to comply with the levels of precision allowed by the
-Aquila QPU. (These requirements are governed by the device parameters
-with “Resolution” in their name. We can see them by executing
-`aquila_qpu.properties.dict()` in a notebook. For more details of
-capabilities and requirements of Aquila, see the [Introduction to Aquila](https://github.com/aws/amazon-braket-examples/blob/main/examples/analog_hamiltonian_simulation/01_Introduction_to_Aquila.ipynb "https://github.com/aws/amazon-braket-examples/blob/main/examples/analog_hamiltonian_simulation/01_Introduction_to_Aquila.ipynb") notebook.) We can do this by calling the
-`discretize` method.
+To make our AHS program suitable for the QuEra machine, we need to round all values to comply with the levels of precision allowed by the Aquila QPU. (These requirements are governed by the device parameters with “Resolution” in their name. We can see them by executing `aquila_qpu.properties.dict()` in a notebook. For more details of capabilities and requirements of Aquila, see the [Introduction to Aquila](https://github.com/aws/amazon-braket-examples/blob/main/examples/analog_hamiltonian_simulation/01_Introduction_to_Aquila.ipynb) notebook.) We can do this by calling the `discretize` method.
 
 ```
 discretized_ahs_program = ahs_program.discretize(aquila_qpu)
 ```
 
-Now we can run the program (running only 100 shots for now) on the
-Aquila QPU.
+Now we can run the program (running only 100 shots for now) on the Aquila QPU.
 
-###### Note
-
-Running this program on the Aquila processor will incur a cost. The
-Amazon Braket SDK includes a [Cost Tracker](https://aws.amazon.com/blogs/quantum-computing/managing-the-cost-of-your-experiments-in-amazon-braket/ "https://aws.amazon.com/blogs/quantum-computing/managing-the-cost-of-your-experiments-in-amazon-braket/") that enables customers to set cost limits as well as track
-their costs in near real-time.
+**Note**  
+Running this program on the Aquila processor will incur a cost. The Amazon Braket SDK includes a [Cost Tracker](https://aws.amazon.com/blogs/quantum-computing/managing-the-cost-of-your-experiments-in-amazon-braket/) that enables customers to set cost limits as well as track their costs in near real-time.
 
 ```
 task = aquila_qpu.run(discretized_ahs_program, shots=100)
@@ -390,9 +336,7 @@ ARN: arn:aws:braket:us-east-1:123456789012:quantum-task/12345678-90ab-cdef-1234-
 status: CREATED
 ```
 
-Due to the large variance of how long a quantum task may take to run (depending on
-availability windows and QPU utilization), it is a good idea to note down the quantum task ARN,
-so we can check its status at a later time with the following code snippet.
+Due to the large variance of how long a quantum task may take to run (depending on availability windows and QPU utilization), it is a good idea to note down the quantum task ARN, so we can check its status at a later time with the following code snippet.
 
 ```
 # Optionally, in a new python session
@@ -415,17 +359,16 @@ ARN: arn:aws:braket:us-east-1:123456789012:quantum-task/12345678-90ab-cdef-1234-
 status: COMPLETED
 ```
 
-Once the status is COMPLETED (which can also be checked from the quantum tasks page of the
-Amazon Braket [console](https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/tasks "https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/tasks")), we can query the results with:
+Once the status is COMPLETED (which can also be checked from the quantum tasks page of the Amazon Braket [console](https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/tasks)), we can query the results with:
 
 ```
 result_aquila = task.result()
 ```
 
 ## Analyzing QPU results
+<a name="braket-get-started-analyzing-qpu-results"></a>
 
-Using the same `get_counts` functions as before, we can compute the
-counts:
+Using the same `get_counts` functions as before, we can compute the counts:
 
 ```
 counts_aquila = get_counts(result_aquila)
@@ -443,19 +386,17 @@ and plot them with `plot_counts`:
 plot_counts(counts_aquila)
 ```
 
-![Bar chart showing a large number of shots with no neighboring "up" states configurations.](images/QPUPlotCounts1.png)
+![Bar chart showing a large number of shots with no neighboring "up" states configurations.](http://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts1.png)
 
-![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](images/QPUPlotCounts2.png)
 
-Note that a small fraction of shots have empty sites (marked with “e”). This is due
-to a 1—2% per atom preparation imperfections of the Aquila QPU. Apart
-from this, the results match with the simulation within the expected statistical
-fluctuation due to small number of shots.
+![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](http://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts2.png)
+
+
+Note that a small fraction of shots have empty sites (marked with “e”). This is due to a 1—2% per atom preparation imperfections of the Aquila QPU. Apart from this, the results match with the simulation within the expected statistical fluctuation due to small number of shots.
 
 ## Next steps
+<a name="braket-get-started-ahs-next"></a>
 
-Congratulations, you have now run your first AHS workload on Amazon Braket using the
-local AHS simulator and the Aquila QPU.
+Congratulations, you have now run your first AHS workload on Amazon Braket using the local AHS simulator and the Aquila QPU.
 
-To learn more about Rydberg physics, Analog Hamiltonian Simulation and the
-Aquila device, refer to our [example notebooks](https://github.com/aws/amazon-braket-examples/tree/main/examples/analog_hamiltonian_simulation "https://github.com/aws/amazon-braket-examples/tree/main/examples/analog_hamiltonian_simulation").
+To learn more about Rydberg physics, Analog Hamiltonian Simulation and the Aquila device, refer to our [example notebooks](https://github.com/aws/amazon-braket-examples/tree/main/examples/analog_hamiltonian_simulation).

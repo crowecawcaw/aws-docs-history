@@ -1,18 +1,14 @@
+
+
 # Testing a quantum task with the local simulator
+<a name="braket-send-to-local-simulator"></a>
 
-You can send quantum tasks directly to a local simulator for rapid prototyping and testing.
-This simulator runs in your local environment, so you do not need to specify an Amazon S3
-location. The results are computed directly in your session. To run a quantum task on the local
-simulator, you must only specify the shots parameter.
+You can send quantum tasks directly to a local simulator for rapid prototyping and testing. This simulator runs in your local environment, so you do not need to specify an Amazon S3 location. The results are computed directly in your session. To run a quantum task on the local simulator, you must only specify the shots parameter.
 
-###### Note
+**Note**  
+The execution speed and maximum number of qubits the local simulator can process depends on the Amazon Braket notebook instance type, or on your local hardware specifications.
 
-The execution speed and maximum number of qubits the local
-simulator can process depends on the Amazon Braket notebook instance
-type, or on your local hardware specifications.
-
-The following commands are all identical and instantiate the state vector (noise
-free) local simulator.
+The following commands are all identical and instantiate the state vector (noise free) local simulator.
 
 ```
 # Import the LocalSimulator module
@@ -31,8 +27,7 @@ Then run a quantum task with the following.
 my_task = device.run(circ, shots=1000)
 ```
 
-To instantiate the local density matrix (noise) simulator customers change the
-backend as follows.
+To instantiate the local density matrix (noise) simulator customers change the backend as follows.
 
 ```
 # Import the LocalSimulator module
@@ -42,22 +37,20 @@ device = LocalSimulator(backend="braket_dm")
 ```
 
 ## Measuring specific qubits on the local simulator
+<a name="braket-measure-qubit-local-simulator"></a>
 
-The local state vector simulator and local density matrix simulator support running circuits
-where a subset of the circuit's qubits can be measured, which is often called
-_partial measurement_.
+The local state vector simulator and local density matrix simulator support running circuits where a subset of the circuit's qubits can be measured, which is often called *partial measurement*.
 
-For example, in the following code you can create a two-qubit circuit and only measure the first qubit by
-adding a `measure` instruction with the target qubits to the end of the circuit.
+For example, in the following code you can create a two-qubit circuit and only measure the first qubit by adding a `measure` instruction with the target qubits to the end of the circuit.
 
 ```
 # Import the LocalSimulator module
-from braket.devices import LocalSimulator
+from braket.devices import LocalSimulator 
 
 # Use the local simulator device
 device = LocalSimulator()
 
-# Define a bell circuit and only measure
+# Define a bell circuit and only measure 
 circuit = Circuit().h(0).cnot(0, 1).measure(0)
 
 # Run the circuit

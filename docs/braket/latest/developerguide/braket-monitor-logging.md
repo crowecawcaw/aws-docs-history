@@ -1,19 +1,15 @@
+
+
 # Advanced logging with Amazon Braket
+<a name="braket-monitor-logging"></a>
 
-You can record the whole task-processing process using a logger. These advanced
-logging techniques allow you to see the background polling and create a record for later
-debugging.
+You can record the whole task-processing process using a logger. These advanced logging techniques allow you to see the background polling and create a record for later debugging.
 
-To use the logger, we recommend changing the `poll_timeout_seconds` and
-`poll_interval_seconds` parameters, so that a quantum task can be long-running and
-the quantum task status is logged continuously, with results saved to a file. You can transfer
-this code to a Python script instead of a Jupyter notebook, so that the script can run
-as a process in the background.
+To use the logger, we recommend changing the `poll_timeout_seconds` and `poll_interval_seconds` parameters, so that a quantum task can be long-running and the quantum task status is logged continuously, with results saved to a file. You can transfer this code to a Python script instead of a Jupyter notebook, so that the script can run as a process in the background.
 
-**Configure the logger**
+ **Configure the logger** 
 
-First, configure the logger so that all logs are written into a text file
-automatically, as shown in the following example lines.
+First, configure the logger so that all logs are written into a text file automatically, as shown in the following example lines.
 
 ```
 # import the module
@@ -38,10 +34,9 @@ logger.setLevel(logging.DEBUG)
 Task info will be logged in: device_logs-20200803203309.txt
 ```
 
-**Create and run the circuit**
+ **Create and run the circuit** 
 
-Now you can create a circuit, submit it to a device to run, and see what happens as
-shown in this example.
+Now you can create a circuit, submit it to a device to run, and see what happens as shown in this example.
 
 ```
 # define circuit
@@ -57,7 +52,7 @@ logger.info(
 )
 ```
 
-**Check the log file**
+ **Check the log file** 
 
 You can check what is written into the file by entering the following command.
 
@@ -77,11 +72,9 @@ Task arn:aws:braket:us-west-2:123412341234:quantum-task/5088ec6c-89cf-4338-9750-
 Counter({'00001': 493, '00011': 493, '01001': 5, '10111': 4, '01011': 3, '10101': 2})
 ```
 
-**Get the ARN from the log file**
+ **Get the ARN from the log file** 
 
-From the log file output that's returned, as shown in the previous example, you can
-obtain the ARN information. With the ARN ID, you can retrieve the result of the
-completed quantum task.
+From the log file output that's returned, as shown in the previous example, you can obtain the ARN information. With the ARN ID, you can retrieve the result of the completed quantum task.
 
 ```
 # parse log file for arn

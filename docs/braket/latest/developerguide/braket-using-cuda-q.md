@@ -1,47 +1,33 @@
+
+
 # Using CUDA-Q with Amazon Braket
+<a name="braket-using-cuda-q"></a>
 
-NVIDIA's CUDA-Q is a software library designed for programming hybrid quantum algorithms that combine
-CPUs, GPUs, and Quantum processing units (QPUs). It provides a unified programming model, allowing developers to express
-both classical and quantum instructions within a single program, streamlining workflows. CUDA-Q accelerates quantum
-program simulation and runtime with its built-in CPU and GPU simulators. CUDA-Q is available with native Braket
-notebook instances (NBIs) and Amazon Braket Hybrid Jobs.
+NVIDIA's CUDA-Q is a software library designed for programming hybrid quantum algorithms that combine CPUs, GPUs, and Quantum processing units (QPUs). It provides a unified programming model, allowing developers to express both classical and quantum instructions within a single program, streamlining workflows. CUDA-Q accelerates quantum program simulation and runtime with its built-in CPU and GPU simulators. CUDA-Q is available with native Braket notebook instances (NBIs) and Amazon Braket Hybrid Jobs.
 
-###### In this section:
-
-- [CUDA-Q in NBIs](#braket-cuda-q-nbis "#braket-cuda-q-nbis")
-- [CUDA-Q in Hybrid Jobs](#braket-cuda-q-hybrid-jobs "#braket-cuda-q-hybrid-jobs")
+**Topics**
++ [CUDA-Q in NBIs](#braket-cuda-q-nbis)
++ [CUDA-Q in Hybrid Jobs](#braket-cuda-q-hybrid-jobs)
 
 ## CUDA-Q in NBIs
+<a name="braket-cuda-q-nbis"></a>
 
-CUDA-Q is installed by default in the Braket NBI environment. You can open a CUDA-Q example notebook
-by going to the Jupyter launcher page and selecting the CUDA-Q and Braket tile. This opens the example notebook
-`0_Getting_started_with_CUDA-Q.ipynb` in the main window. For more CUDA-Q examples, see the left panel in the
-`nvidia_cuda_q/` directory.
+CUDA-Q is installed by default in the Braket NBI environment. You can open a CUDA-Q example notebook by going to the Jupyter launcher page and selecting the CUDA-Q and Braket tile. This opens the example notebook `0_Getting_started_with_CUDA-Q.ipynb` in the main window. For more CUDA-Q examples, see the left panel in the `nvidia_cuda_q/` directory.
 
-You can also verify the version of CUDA-Q or any other third-party package installed in your NBI. For example,
-you can run the following command in a notebook code cell to verify the versions of CUDA-Q, Qiskit, PennyLane,
-and Braket packages that are installed in the environment.
+You can also verify the version of CUDA-Q or any other third-party package installed in your NBI. For example, you can run the following command in a notebook code cell to verify the versions of CUDA-Q, Qiskit, PennyLane, and Braket packages that are installed in the environment.
 
 ```
 %pip freeze | grep -i -e cudaq -e qiskit -e pennylane -e braket
 ```
 
 ## CUDA-Q in Hybrid Jobs
+<a name="braket-cuda-q-hybrid-jobs"></a>
 
-Using CUDA-Q on [Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md") offers a flexible, on-demand computing environment. Computational
-instances run only for the duration of your workload, ensuring you pay only for what you use. Amazon Braket Hybrid Jobs also
-provides a scalable experience. Users can start with smaller instances for prototyping and testing, then scale up to larger
-instances capable of handling greater workloads for full experiments.
+Using CUDA-Q on [Amazon Braket Hybrid Jobs](https://docs.aws.amazon.com/braket/latest/developerguide/braket-jobs.html) offers a flexible, on-demand computing environment. Computational instances run only for the duration of your workload, ensuring you pay only for what you use. Amazon Braket Hybrid Jobs also provides a scalable experience. Users can start with smaller instances for prototyping and testing, then scale up to larger instances capable of handling greater workloads for full experiments.
 
-Amazon Braket Hybrid Jobs support GPUs that are essential for maximizing CUDA-Q's potential. GPUs significantly
-speed up quantum program simulations compared to CPU-based simulators, especially when working with high qubit count circuits.
-Parallelization becomes straightforward when using CUDA-Q on Amazon Braket Hybrid Jobs. Hybrid Jobs simplifies
-the distribution of circuit sampling and observable evaluations across multiple computational nodes. This seamless parallelization
-of CUDA-Q workloads allows users to focus more on developing their workloads rather than setting up infrastructure
-for large-scale experiments.
+Amazon Braket Hybrid Jobs support GPUs that are essential for maximizing CUDA-Q's potential. GPUs significantly speed up quantum program simulations compared to CPU-based simulators, especially when working with high qubit count circuits. Parallelization becomes straightforward when using CUDA-Q on Amazon Braket Hybrid Jobs. Hybrid Jobs simplifies the distribution of circuit sampling and observable evaluations across multiple computational nodes. This seamless parallelization of CUDA-Q workloads allows users to focus more on developing their workloads rather than setting up infrastructure for large-scale experiments.
 
-To get started, see the [CUDA-Q starter example](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_Getting_started_with_CUDA-Q.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_Getting_started_with_CUDA-Q.ipynb")
-on the Amazon Braket examples Github to use a CUDA-Q hybrid jobs container provided by Braket.
+To get started, see the [CUDA-Q starter example](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_Getting_started_with_CUDA-Q.ipynb) on the Amazon Braket examples Github to use a CUDA-Q hybrid jobs container provided by Braket.
 
 The following code snippet is a `hello-world` example for running a CUDA-Q program with Amazon Braket Hybrid Jobs.
 
@@ -65,19 +51,13 @@ def hello_quantum():
     # sample the Bell circuit
     result = cudaq.sample(kernel, shots_count=1000)
     measurement_probabilities = dict(result.items())
-
+    
     return measurement_probabilities
 ```
 
-The above example simulates a Bell circuit on a CPU simulator. This example runs locally on your laptop or Braket Jupyter notebook.
-Because of the `local=True` setting, when you run this script, a container will start in your local environment to run the CUDA-Q program
-for testing and debugging. After you finish testing, you can remove the `local=True` flag and run your job on AWS. To learn more, see
-[Working with Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md").
+The above example simulates a Bell circuit on a CPU simulator. This example runs locally on your laptop or Braket Jupyter notebook. Because of the `local=True` setting, when you run this script, a container will start in your local environment to run the CUDA-Q program for testing and debugging. After you finish testing, you can remove the `local=True` flag and run your job on AWS. To learn more, see [Working with Amazon Braket Hybrid Jobs](braket-jobs.md).
 
-If your workloads have a high qubit count, a large number of circuits or a large number of iterations, you can use more
-powerful CPU computing resources by specifying the `instance_config` setting. The following code snippet shows how to configure
-the `instance_config` setting in the `hybrid_job` decorator. For more information about supported instance types, see
-[Configure your hybrid job instance](braket-jobs-configure-job-instance-for-script.md "braket-jobs-configure-job-instance-for-script.md"). For a list of instance types, see [Amazon EC2 Instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+If your workloads have a high qubit count, a large number of circuits or a large number of iterations, you can use more powerful CPU computing resources by specifying the `instance_config` setting. The following code snippet shows how to configure the `instance_config` setting in the `hybrid_job` decorator. For more information about supported instance types, see [Configure your hybrid job instance](braket-jobs-configure-job-instance-for-script.md). For a list of instance types, see [Amazon EC2 Instance types](https://aws.amazon.com/ec2/instance-types/).
 
 ```
 @hybrid_job(
@@ -89,9 +69,7 @@ def my_job_script():
     ...
 ```
 
-For more demanding workloads, you can run your workloads on a CUDA-Q GPU simulator. To enable a GPU simulator, use the backend
-name `nvidia`. The `nvidia` backend operates as a CUDA-Q GPU simulator. Next, select an Amazon EC2 instance type that supports
-an NVIDIA GPU. The following code snippet shows the GPU-configured `hybrid_job` decorator.
+For more demanding workloads, you can run your workloads on a CUDA-Q GPU simulator. To enable a GPU simulator, use the backend name `nvidia`. The `nvidia` backend operates as a CUDA-Q GPU simulator. Next, select an Amazon EC2 instance type that supports an NVIDIA GPU. The following code snippet shows the GPU-configured `hybrid_job` decorator.
 
 ```
 @hybrid_job(
@@ -103,11 +81,9 @@ def my_job_script():
     ...
 ```
 
-Amazon Braket Hybrid Jobs and NBIs support parallel GPU simulations with CUDA-Q. You can parallelize the evaluation of multiple observables
-or multiple circuits to boost the performance of your workload. To parallelize multiple observables, make the following changes to your algorithm script.
+Amazon Braket Hybrid Jobs and NBIs support parallel GPU simulations with CUDA-Q. You can parallelize the evaluation of multiple observables or multiple circuits to boost the performance of your workload. To parallelize multiple observables, make the following changes to your algorithm script.
 
-Set the `mgpu` option of the `nvidia` backend. This is required to parallelize the observables.
-The parallelization uses MPI for communication between GPUs, so MPI needs to be initialized before the execution and finalized after it.
+Set the `mgpu` option of the `nvidia` backend. This is required to parallelize the observables. The parallelization uses MPI for communication between GPUs, so MPI needs to be initialized before the execution and finalized after it.
 
 Next, specify the execution mode by setting `execution=cudaq.parallel.mpi`. The following code snippet shows these changes.
 
@@ -132,21 +108,16 @@ def parallel_observables_gpu_job(sagemaker_mpi_enabled=True):
     ...
 ```
 
-The [parallel simulations notebook](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/5_Multiple_GPU_simulations.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/5_Multiple_GPU_simulations.ipynb")
-in the Amazon Braket examples Github provide end-to-end examples that demonstrate how to run quantum program simulations on GPU backends and perform parallel simulations
-of observables and circuit batches.
+The [parallel simulations notebook](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/5_Multiple_GPU_simulations.ipynb) in the Amazon Braket examples Github provide end-to-end examples that demonstrate how to run quantum program simulations on GPU backends and perform parallel simulations of observables and circuit batches.
 
 ### Running your workloads on quantum computers
+<a name="braket-using-cuda-q-quantum"></a>
 
-After completing simulator testing, you can transition to running experiments on QPUs. Just switch
-the target to an Amazon Braket QPU, such as the IQM, IonQ, or Rigetti devices. The following
-code snippet illustrates how to set the target to the IQM Garnet device. For a list of available QPUs, see the
-[Amazon Braket console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home").
+After completing simulator testing, you can transition to running experiments on QPUs. Just switch the target to an Amazon Braket QPU, such as the IQM, IonQ, or Rigetti devices. The following code snippet illustrates how to set the target to the IQM Garnet device. For a list of available QPUs, see the [Amazon Braket console](https://console.aws.amazon.com/braket/home).
 
 ```
 device_arn = "arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet"
 cudaq.set_target("braket", machine=device_arn)
 ```
 
-For more information about Hybrid Jobs, see [Working with Amazon Braket Hybrid Jobs](braket-jobs.md "braket-jobs.md")
-in the developer guide. To learn more about CUDA-Q, see the [NVIDIA CUDA-Q documentation](https://nvidia.github.io/cuda-quantum/latest/index.html "https://nvidia.github.io/cuda-quantum/latest/index.html").
+For more information about Hybrid Jobs, see [Working with Amazon Braket Hybrid Jobs](braket-jobs.md) in the developer guide. To learn more about CUDA-Q, see the [NVIDIA CUDA-Q documentation](https://nvidia.github.io/cuda-quantum/latest/index.html).

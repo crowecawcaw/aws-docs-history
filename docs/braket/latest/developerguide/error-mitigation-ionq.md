@@ -1,31 +1,26 @@
+
+
 # Error mitigation techniques on IonQ devices
+<a name="error-mitigation-ionq"></a>
 
-Error mitigation involves running multiple physical circuits and combining their
-measurements to give an improved result.
+Error mitigation involves running multiple physical circuits and combining their measurements to give an improved result.
 
-###### Note
-
-For all IonQ's devices: When submitting tasks on-demand, the maximum number of gates per circuit is 2,000, and the minimum number of shots per [error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") task is 2,500.
-For a direct reservation, the maximum number of gates per circuit is 5,000, and the minimum number of shots per error mitigation task is 500.
+**Note**  
+For all IonQ's devices: When submitting tasks on-demand, the maximum number of gates per circuit is 2,000, and the minimum number of shots per [error mitigation](https://docs.aws.amazon.com/braket/latest/developerguide/braket-error-mitigation.html) task is 2,500. For a direct reservation, the maximum number of gates per circuit is 5,000, and the minimum number of shots per error mitigation task is 500.
 
 ## Debiasing
+<a name="error-mitigation-ionq-debiasing"></a>
 
-IonQ devices features an error mitigation method called _debiasing_.
+IonQ devices features an error mitigation method called *debiasing*. 
 
-Debiasing maps a circuit into multiple variants that act on different qubit permutations
-or with different gate decompositions. This reduces the effect of systematic errors such as
-gate over-rotations or a single faulty qubit by using different implementations of a
-circuit that could otherwise bias measurement results. This comes at the expense of extra
-overhead to calibrate multiple qubits and gates.
+Debiasing maps a circuit into multiple variants that act on different qubit permutations or with different gate decompositions. This reduces the effect of systematic errors such as gate over-rotations or a single faulty qubit by using different implementations of a circuit that could otherwise bias measurement results. This comes at the expense of extra overhead to calibrate multiple qubits and gates.
 
-For more information on debiasing, see [Enhancing quantum computer performance through symmetrization](https://arxiv.org/abs/2301.07233 "https://arxiv.org/abs/2301.07233").
+For more information on debiasing, see [Enhancing quantum computer performance through symmetrization](https://arxiv.org/abs/2301.07233).
 
-###### Note
-
+**Note**  
 Using debiasing requires a minimum of 2500 shots.
 
-You can run a quantum task with debiasing on an IonQ device using the
-following code:
+You can run a quantum task with debiasing on an IonQ device using the following code:
 
 ```
 from braket.aws import AwsDevice
@@ -40,33 +35,21 @@ task = device.run(circuit, shots=2500, device_parameters={"errorMitigation": Deb
 
 result = task.result()
 print(result.measurement_counts)
-`>>> {"00": 1245, "01": 5, "10": 10 "11": 1240} # result from debiasing`
+>>> {"00": 1245, "01": 5, "10": 10 "11": 1240} # result from debiasing
 ```
 
-When the quantum task is complete, you can see the measurement probabilities and any result types
-from the quantum task. The measurement probabilities and counts from all variants are aggregated
-into a single distribution. Any result types specified in the circuit, such as expectation
-values, are computed using the aggregate measurement counts.
+When the quantum task is complete, you can see the measurement probabilities and any result types from the quantum task. The measurement probabilities and counts from all variants are aggregated into a single distribution. Any result types specified in the circuit, such as expectation values, are computed using the aggregate measurement counts.
 
 ## Sharpening
+<a name="error-mitigation-ionq-sharpening"></a>
 
-You can also access measurement probabilities computed with a different
-post-processing strategy called _sharpening_. Sharpening compares the
-results of each variant and discards inconsistent shots, favoring the most likely
-measurement outcome across variants. For more information, see [Enhancing quantum computer performance through
-symmetrization](https://arxiv.org/abs/2301.07233 "https://arxiv.org/abs/2301.07233").
+You can also access measurement probabilities computed with a different post-processing strategy called *sharpening*. Sharpening compares the results of each variant and discards inconsistent shots, favoring the most likely measurement outcome across variants. For more information, see [Enhancing quantum computer performance through symmetrization](https://arxiv.org/abs/2301.07233). 
 
-Importantly, sharpening assumes the form of the output distribution to be sparse with
-few high-probability states and many zero-probability states. It may distort the
-probability distribution if this assumption is not valid.
+Importantly, sharpening assumes the form of the output distribution to be sparse with few high-probability states and many zero-probability states. It may distort the probability distribution if this assumption is not valid. 
 
-You can access the probabilities from a sharpened distribution in the
-`additional_metadata` field on the `GateModelTaskResult` in the
-Braket Python SDK. Note that sharpening does not return the measurement counts, but
-instead returns a re-normalized probability distribution. The following code snippet
-shows how to access the distribution after sharpening.
+You can access the probabilities from a sharpened distribution in the `additional_metadata` field on the `GateModelTaskResult` in the Braket Python SDK. Note that sharpening does not return the measurement counts, but instead returns a re-normalized probability distribution. The following code snippet shows how to access the distribution after sharpening.
 
 ```
 print(result.additional_metadata.ionqMetadata.sharpenedProbabilities)
-`>>> {"00": 0.51, "11": 0.549} # sharpened probabilities`
+>>> {"00": 0.51, "11": 0.549} # sharpened probabilities
 ```

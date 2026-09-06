@@ -1,65 +1,34 @@
+
+
 # List of result types
+<a name="braket-result-types"></a>
 
-Amazon Braket can return different types of results when a circuit is
-measured using `ResultType`. A circuit can return the following types of
-results.
+Amazon Braket can return different types of results when a circuit is measured using `ResultType`. A circuit can return the following types of results.
++  `AdjointGradient` returns the gradient (vector derivative) of the expectation value of a provided observable. This observable is acting on a provided target with respect to specified parameters using the adjoint differentiation method. You can only use this method when shots=0.
++  `Amplitude` returns the amplitude of specified quantum states in the output wave function. It is available on the SV1 and local simulators only.
++  `Expectation` returns the expectation value of a given observable, which can be specified with the `Observable` class introduced later in this chapter. The target qubits used to measure the observable must be specified, and the number of specified targets must equal the number of qubits on which the observable acts. If no targets are specified, the observable must operate only on 1 qubit and it is applied to all qubits in parallel.
++  `Probability` returns the probabilities of measuring computational basis states. If no targets are specified, `Probability` returns the probability of measuring all basis states. If targets are specified, only the marginal probabilities of the basis vectors on the specified qubits are returned. Managed simulators and QPUs are limited to 15 qubits maximum, and local simulators are limited to the system's memory size.
++  `Reduced density matrix` returns a density matrix for a subsystem of specified target qubits from a system of qubits. To limit the size of this result type, Braket limits the number of target qubits to a maximum of 8.
++  `StateVector` returns the full state vector. It is available on the local simulator.
++  `Sample` returns the measurement counts of a specified target qubit set and observable. If no targets are specified, the observable must operate only on 1 qubit and it is applied to all qubits in parallel. If targets are specified, the number of specified targets must equal the number of qubits on which the observable acts.
++  `Variance` returns the variance (`mean([x-mean(x)]2)`) of the specified target qubit set and observable as the requested result type. If no targets are specified, the observable must operate only on 1 qubit and it is applied to all qubits in parallel. Otherwise, the number of targets specified must equal the number of qubits to which the observable can be applied.
 
-- `AdjointGradient` returns the gradient (vector derivative) of the
-  expectation value of a provided observable. This observable is acting on a
-  provided target with respect to specified parameters using the adjoint
-  differentiation method. You can only use this method when shots=0.
-- `Amplitude` returns the amplitude of specified quantum states in the
-  output wave function. It is available on the SV1 and local
-  simulators only.
-- `Expectation` returns the expectation value of a given observable,
-  which can be specified with the `Observable` class introduced later in
-  this chapter. The target qubits used to measure the observable must
-  be specified, and the number of specified targets must equal the number of
-  qubits on which the observable acts. If no targets are
-  specified, the observable must operate only on 1 qubit and it is
-  applied to all qubits in parallel.
-- `Probability` returns the probabilities of measuring computational
-  basis states. If no targets are specified, `Probability` returns the
-  probability of measuring all basis states. If targets are specified, only the
-  marginal probabilities of the basis vectors on the specified qubits
-  are returned. Managed simulators and QPUs are limited to 15 qubits maximum, and
-  local simulators are limited to the system's memory size.
-- `Reduced density matrix` returns a density matrix for a subsystem of
-  specified target qubits from a system of qubits. To
-  limit the size of this result type, Braket limits the number of target
-  qubits to a maximum of 8.
-- `StateVector` returns the full state vector. It is available on the
-  local simulator.
-- `Sample` returns the measurement counts of a specified target
-  qubit set and observable. If no targets are specified, the
-  observable must operate only on 1 qubit and it is applied to all
-  qubits in parallel. If targets are specified, the number of
-  specified targets must equal the number of qubits on which the
-  observable acts.
-- `Variance` returns the variance
-  (`mean([x-mean(x)]2)`) of the
-  specified target qubit set and observable as the requested result
-  type. If no targets are specified, the observable must operate only on 1
-  qubit and it is applied to all qubits in
-  parallel. Otherwise, the number of targets specified must equal the number of
-  qubits to which the observable can be applied.
+ **The supported result types for different providers:** 
 
-**The supported result types for different providers:**
 
-|                        |           |     |     |     |      |     |         |
-| ---------------------- | --------- | --- | --- | --- | ---- | --- | ------- |
-|                        | Local sim | SV1 | DM1 | AQT | IonQ | IQM | Rigetti |
-| Adjoint gradient       | N         | Y   | N   | N   | N    | N   | N       |
-| Amplitude              | Y         | Y   | N   | N   | N    | N   | N       |
-| Expectation            | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
-| Probability            | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
-| Reduced density matrix | Y         | N   | Y   | N   | N    | N   | N       |
-| State vector           | Y         | N   | N   | N   | N    | N   | N       |
-| Sample                 | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
-| Variance               | Y         | Y   | Y   | Y   | Y    | Y   | Y       |
+|  |  |  |  |  |  |  |  | 
+| --- |--- |--- |--- |--- |--- |--- |--- |
+|  | Local sim |  SV1  |  DM1  |  AQT  |  IonQ  |  IQM  |  Rigetti  | 
+| Adjoint gradient | N | Y | N | N | N | N | N | 
+| Amplitude | Y | Y | N | N | N | N | N | 
+| Expectation | Y | Y | Y | Y | Y | Y | Y | 
+| Probability | Y | Y | Y | Y | Y | Y | Y | 
+| Reduced density matrix | Y | N | Y | N | N | N | N | 
+| State vector | Y | N | N | N | N | N | N | 
+| Sample | Y | Y | Y | Y | Y | Y | Y | 
+| Variance | Y | Y | Y | Y | Y | Y | Y | 
 
-You can check the supported result types by examining the device properties, as shown
-in the following example.
+You can check the supported result types by examining the device properties, as shown in the following example.
 
 ```
 from braket.aws import AwsDevice
@@ -78,8 +47,7 @@ name='Variance' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
 name='Probability' observables=None minShots=10 maxShots=50000
 ```
 
-To call a `ResultType`, append it to a circuit, as shown in the following
-example.
+To call a `ResultType`, append it to a circuit, as shown in the following example.
 
 ```
 from braket.circuits import Circuit, Observable
@@ -96,29 +64,17 @@ circ.variance(observable=Observable.Z(), target=0)
 print(circ.result_types[0])
 ```
 
-###### Note
-
-Different quantum devices provide results in various formats. For example, Rigetti
-devices return measurements, while IonQ devices provide probabilities. The Amazon Braket
-SDK offers a measurements property for all results. However, for devices that return probabilities,
-these measurements are post-computed and based on the probabilities, as per-shot measurements are not
-available. To determine if a result has been post-computed, check the
-`measurements_copied_from_device` on the result object. This operation is detailed in the
-[gate\_model\_quantum\_task\_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72 "https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72")
-file in the Amazon Braket SDK GitHub repository.
+**Note**  
+Different quantum devices provide results in various formats. For example, Rigetti devices return measurements, while IonQ devices provide probabilities. The Amazon Braket SDK offers a measurements property for all results. However, for devices that return probabilities, these measurements are post-computed and based on the probabilities, as per-shot measurements are not available. To determine if a result has been post-computed, check the `measurements_copied_from_device` on the result object. This operation is detailed in the [gate\_model\_quantum\_task\_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72) file in the Amazon Braket SDK GitHub repository.
 
 ## Observables
+<a name="braket-result-types-observables"></a>
 
-Amazon Braket's `Observable` class allows you to measure a specific observable.
+Amazon Braket's `Observable` class allows you to measure a specific observable. 
 
-You can apply only one unique non-identity observable to each qubit. An error
-occurs If you specify two or more different non-identity observables to the same qubit.
-For this purpose, each factor of a tensor product counts as an individual observable. This means you
-can have multiple tensor products on the same qubit, as long as the factors acting on
-that qubit remain the same.
+You can apply only one unique non-identity observable to each qubit. An error occurs If you specify two or more different non-identity observables to the same qubit. For this purpose, each factor of a tensor product counts as an individual observable. This means you can have multiple tensor products on the same qubit, as long as the factors acting on that qubit remain the same.
 
-An observable can be scaled and add other observables (scaled or not). This creates a
-`Sum` which can be used in the `AdjointGradient` result type.
+An observable can be scaled and add other observables (scaled or not). This creates a `Sum` which can be used in the `AdjointGradient` result type.
 
 The `Observable` class includes the following observables.
 
@@ -168,14 +124,13 @@ Sum of other (scaled) observables: Sum(TensorProduct(X('qubit_count': 1), X('qub
 ```
 
 ## Parameters
+<a name="braket-result-types-parameters"></a>
 
-Circuits can incorporate free parameters. These free parameters only need to
-be constructed once to run multiple times, and can be used to compute gradients.
+Circuits can incorporate free parameters. These free parameters only need to be constructed once to run multiple times, and can be used to compute gradients. 
 
-Each free parameter uses a string-encoded name that is used to:
-
-- Set parameter values
-- Identify which parameters to use
+Each free parameter uses a string-encoded name that is used to: 
++ Set parameter values
++ Identify which parameters to use
 
 ```
 from braket.circuits import Circuit, FreeParameter, observables
@@ -187,10 +142,9 @@ circ = Circuit().h(0).rx(0, phi).ry(0, phi).cnot(0, 1).xx(0, 1, theta)
 ```
 
 ## Adjoint gradient
+<a name="braket-result-types-adjoint-gradient"></a>
 
-The SV1 device calculates the adjoint gradient of an observable expectation value,
-including multi-term Hamiltonian. To differentiate parameters, specify their name (in string format)
-or by direct reference.
+The SV1 device calculates the adjoint gradient of an observable expectation value, including multi-term Hamiltonian. To differentiate parameters, specify their name (in string format) or by direct reference.
 
 ```
 from braket.aws import AwsDevice
@@ -201,9 +155,7 @@ device = AwsDevice(Devices.Amazon.SV1)
 circ.adjoint_gradient(observable=3 * Observable.Z(0) @ Observable.Z(1) - 0.5 * observables.X(0), parameters = ["phi", theta])
 ```
 
-Passing fixed parameter values as arguments to a parameterized circuit will remove the free parameters.
-Running this circuit with `AdjointGradient` produces an error, because the free parameters no
-longer exist. The follow code example demonstrates the correct and incorrect usage:
+Passing fixed parameter values as arguments to a parameterized circuit will remove the free parameters. Running this circuit with `AdjointGradient` produces an error, because the free parameters no longer exist. The follow code example demonstrates the correct and incorrect usage:
 
 ```
 # Will error, as no free parameters will be present
