@@ -1,6 +1,9 @@
+
+
 AWS FinOps Agent is in preview release and is subject to change.
 
 # Amazon Bedrock usage and cross-region inference
+<a name="cross-region-inference"></a>
 
 During preview, AWS FinOps Agent runs in the US East (N. Virginia) Region (`us-east-1`). Your data, including context files, conversations, memory, and artifacts, remains stored in `us-east-1`.
 
