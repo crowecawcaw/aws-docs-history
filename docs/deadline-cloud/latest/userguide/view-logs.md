@@ -1,83 +1,73 @@
+
+
 # View session and worker logs in Deadline Cloud
+<a name="view-logs"></a>
 
-Logs provide you with detailed information about the status and processing of tasks.
-In the AWS Deadline Cloud monitor, you can see the following two types of logs:
+Logs provide you with detailed information about the status and processing of tasks. In the AWS Deadline Cloud monitor, you can see the following two types of logs:
++ Session logs detail the timeline of actions, including:
+  + Setup actions, such as attachment syncing and loading the software environment
+  + Running a task or set of tasks
+  + Closure actions, such as shutting down the environment on a worker
 
-- _Session logs_ detail the timeline of actions,
-  including:
+  A session includes processing of at least one task, and can include multiple tasks. Session logs also show information about Amazon Elastic Compute Cloud (Amazon EC2) instance type, vCPU, and memory. Session logs also include a link to the log for the worker used in the session.
++ Worker logs provide details for the timeline of actions that a worker processes during its lifecycle. Worker logs can contain information about multiple sessions.
 
-  - Setup actions, such as attachment syncing and loading the software
-    environment
-  - Running a task or set of tasks
-  - Closure actions, such as shutting down the environment on a
-    worker
-    A session includes processing of at least one task, and can include multiple
-    tasks. Session logs also show information about Amazon Elastic Compute Cloud (Amazon EC2) instance type,
-    vCPU, and memory. Session logs also include a link to the log for the worker
-    used in the session.
+You can download session and worker logs so that you can examine them offline.
 
-- _Worker logs_ provide details for the timeline of actions
-  that a worker processes during its lifecycle. Worker logs can contain
-  information about multiple sessions.
-  You can download session and worker logs so that you can examine them offline.
+You can read a task's logs in two places. **View logs** opens the logs on their own page. The **Logs** panel shows the logs for the task that you select on the **Job monitor** page, so you can move between tasks without leaving the job, step, and task lists. The panel isn't shown until you add it. For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md).
 
-You can read a task's logs in two places. **View logs** opens the logs
-on their own page. The **Logs** panel shows the logs for the task that
-you select on the **Job monitor** page, so you can move between tasks
-without leaving the job, step, and task lists. The panel isn't shown until you add it.
-For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md "customize-job-monitor-panels.md").
+**To view task logs in the job monitor**
 
-###### To view task logs in the job monitor
+1. Add the **Logs** panel to the **Job monitor** page. For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md).
 
-1. Add the **Logs** panel to the **Job
-   monitor** page. For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md "customize-job-monitor-panels.md").
-2. Select a job, select a step, and then select a task. The
-   **Logs** panel shows the logs for the selected task.
+1. Select a job, select a step, and then select a task. The **Logs** panel shows the logs for the selected task.  
+![The job monitor with the Logs panel beside the Jobs, Steps, and Tasks panels. The panel shows the log events for the selected task, with controls for the log source, session actions, and downloading logs.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-logs-panel.png)
 
-![The job monitor with the Logs panel beside the Jobs, Steps, and Tasks panels. The panel shows the log events for the selected task, with controls for the log source, session actions, and downloading logs.](images/monitor/job-monitor-logs-panel.png) 3. (Optional) Choose **Task logs** or **Worker
-logs**. 4. (Optional) Choose **All session actions**, and then choose a
-single action to move the log to that part of the session. 5. (Optional) To find text in the log, use **Filter log
-events**. To save the log, choose **Download
-logs**. 6. (Optional) To open the logs on their own page, choose **Open in full
-view**.
+1. (Optional) Choose **Task logs** or **Worker logs**.
 
-###### Note
+1. (Optional) Choose **All session actions**, and then choose a single action to move the log to that part of the session.
 
-When the **Logs** panel is on the page, the task
-**Actions** menu doesn't show the **View
-logs** and **View worker logs** items that open logs in
-the monitor, because the panel already shows the logs for the selected task. The
-items that open logs in a new tab are still available.
+1. (Optional) To find text in the log, use **Filter log events**. To save the log, choose **Download logs**.
 
-###### To view session logs
+1. (Optional) To open the logs on their own page, choose **Open in full view**.
 
-1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md") to
-   view a list of jobs.
-2. Select a job from the **Jobs** list.
-3. Select a step from the **Steps** list.
-4. Select a task from the **Tasks** list.
-5. From the **Actions** menu, choose **View
-   logs**.
-   The **Timelines** section shows a summary of the actions for the
-   task. To see more tasks run in the session and to see the shutdown actions for the
-   session, choose **View logs for all tasks**.
+**Note**  
+When the **Logs** panel is on the page, the task **Actions** menu doesn't show the **View logs** and **View worker logs** items that open logs in the monitor, because the panel already shows the logs for the selected task. The items that open logs in a new tab are still available.
 
-###### To view worker logs from a task
+**To view session logs**
 
-1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md") to
-   view a list of jobs.
-2. Select a job from the **Jobs** list.
-3. Select a step from the **Steps** list.
-4. Select a task from the **Tasks** list.
-5. From the **Actions** menu, choose **View
-   logs**.
-6. Choose **Session info**.
-7. Choose **View worker log**.
+1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md) to view a list of jobs.
 
-###### To view worker logs from fleet details
+1. Select a job from the **Jobs** list.
 
-1. Follow the steps in [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md") to view a fleet.
-2. Select a **Worker ID** from the **Workers**
-   list.
-3. From the **Actions** menu, choose **View worker
-   logs**.
+1. Select a step from the **Steps** list.
+
+1. Select a task from the **Tasks** list.
+
+1. From the **Actions** menu, choose **View logs**.
+
+The **Timelines** section shows a summary of the actions for the task. To see more tasks run in the session and to see the shutdown actions for the session, choose **View logs for all tasks**.
+
+**To view worker logs from a task**
+
+1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md) to view a list of jobs.
+
+1. Select a job from the **Jobs** list.
+
+1. Select a step from the **Steps** list.
+
+1. Select a task from the **Tasks** list.
+
+1. From the **Actions** menu, choose **View logs**.
+
+1. Choose **Session info**.
+
+1. Choose **View worker log**.
+
+**To view worker logs from fleet details**
+
+1. Follow the steps in [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md) to view a fleet.
+
+1. Select a **Worker ID** from the **Workers** list.
+
+1. From the **Actions** menu, choose **View worker logs**.

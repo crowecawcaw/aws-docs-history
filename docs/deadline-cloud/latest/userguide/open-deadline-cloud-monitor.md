@@ -1,89 +1,76 @@
+
+
 # Open the Deadline Cloud monitor
+<a name="open-deadline-cloud-monitor"></a>
 
-You can open the Deadline Cloud monitor by any of the following ways:
+You can open the Deadline Cloud monitor by any of the following ways: 
++ **Console** – Sign in to the AWS Management Console and open the Deadline Cloud console.
++ **Web** – Go to the monitor URL that you created when you set up Deadline Cloud.
++ **Monitor** – Use the desktop Deadline Cloud monitor.
 
-- **Console** – Sign in to the AWS Management Console and
-  open the Deadline Cloud console.
-- **Web** – Go to the monitor URL that you
-  created when you set up Deadline Cloud.
-- **Monitor** – Use the desktop
-  Deadline Cloud monitor.
-  When you use the console, you must be able to sign in to AWS using an AWS Identity and Access Management
-  identity, and then sign in to the monitor with AWS IAM Identity Center credentials. If you only have
-  IAM Identity Center credentials, you must sign in using the monitor URL or the desktop
-  application.
+When you use the console, you must be able to sign in to AWS using an AWS Identity and Access Management identity, and then sign in to the monitor with AWS IAM Identity Center credentials. If you only have IAM Identity Center credentials, you must sign in using the monitor URL or the desktop application.
 
-###### To open the Deadline Cloud monitor (web)
+**To open the Deadline Cloud monitor (web)**
 
-1. Using a browser, open the monitor URL that you created when you set up
-   Deadline Cloud.
-2. Sign in with your user credentials.
+1. Using a browser, open the monitor URL that you created when you set up Deadline Cloud.
 
-###### To open the Deadline Cloud monitor (console)
+1. Sign in with your user credentials.
 
-1. Open the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
-2. In the navigation pane, select **Farms**.
-3. Select a farm, then choose **Manage jobs** to open the
-   **Deadline Cloud monitor** page.
-4. Sign in with your user credentials.
+**To open the Deadline Cloud monitor (console)**
 
-###### To open the Deadline Cloud monitor (desktop)
+1. Open the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home).
 
-1. Open the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
+1. In the navigation pane, select **Farms**.
 
--or-
+1. Select a farm, then choose **Manage jobs** to open the **Deadline Cloud monitor** page.
 
-Open the Deadline Cloud monitor - web from the monitor URL. 2. * On the Deadline Cloud console, do the following:
+1. Sign in with your user credentials.
 
-    	1. In the monitor, choose **Go to Deadline Cloud
-    	 dashboard**, and then choose
-    	 **Downloads** from the left menu.
-    	2. From **Deadline Cloud monitor**, choose the monitor version
-    	 for your desktop.
-    	3. Choose **Download**.
-    * On the Deadline Cloud monitor - web, do the following:
+**To open the Deadline Cloud monitor (desktop)**
 
+1. Open the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home).
 
+   -or-
 
+   Open the Deadline Cloud monitor - web from the monitor URL.
 
-    	+ From the left menu, choose **Workstation
-    	 setup**. If the **Workstation
-    	 setup** item isn't visible, use the arrow to open
-    	 the left menu.
-    	+ Choose **Download**.
-    	+ From **Select an OS**, choose your operating
-    	 system.
+1. 
+   + On the Deadline Cloud console, do the following:
 
-3. Download the Deadline Cloud monitor - desktop. 4. After you download and install the monitor, open it on your computer.
+     1. In the monitor, choose **Go to Deadline Cloud dashboard**, and then choose **Downloads** from the left menu.
 
-    * The first time you open the Deadline Cloud monitor, you must provide the
-     monitor URL and create a profile name. Next you sign in to the monitor
-     with your Deadline Cloud credentials.
-    * After you create a profile, you open the monitor by selecting a
-     profile. You might need to enter your Deadline Cloud credentials.
+     1. From **Deadline Cloud monitor**, choose the monitor version for your desktop.
+
+     1. Choose **Download**.
+   + On the Deadline Cloud monitor - web, do the following:
+     + From the left menu, choose **Workstation setup**. If the **Workstation setup** item isn't visible, use the arrow to open the left menu.
+     + Choose **Download**.
+     + From **Select an OS**, choose your operating system.
+
+1. Download the Deadline Cloud monitor - desktop.
+
+1. After you download and install the monitor, open it on your computer.
+   + The first time you open the Deadline Cloud monitor, you must provide the monitor URL and create a profile name. Next you sign in to the monitor with your Deadline Cloud credentials.
+   + After you create a profile, you open the monitor by selecting a profile. You might need to enter your Deadline Cloud credentials.
 
 ## Change your language settings
+<a name="w2aac13c25c15"></a>
 
-After you create and open your Deadline Cloud monitor, you can change your language settings.
-By default, the monitor language is set to your system's language settings.
+After you create and open your Deadline Cloud monitor, you can change your language settings. By default, the monitor language is set to your system's language settings.
 
-###### To change your language settings from Deadline Cloud monitor (desktop)
+**To change your language settings from Deadline Cloud monitor (desktop)**
 
-1. From your user profile, select **Settings**, then choose
-   **Language**.
-2. From the dropdown menu, select one of the available languages.
-3. Confirm that your chosen language is the listed option, then choose
-   **Confirm and apply** to apply the change.
+1. From your user profile, select **Settings**, then choose **Language**.
 
-After the monitor refreshes, it displays in the chosen language.
+1. From the dropdown menu, select one of the available languages. 
 
-After you change the language setting, it is the default upon opening and
-remains the default until you change it again or uninstall the desktop application.
+1. Confirm that your chosen language is the listed option, then choose **Confirm and apply** to apply the change.
 
-**To change the Deadline Cloud monitor language on the web, change the preferred language in your
-browser settings.**
+   After the monitor refreshes, it displays in the chosen language.
 
-###### Note
+   After you change the language setting, it is the default upon opening and remains the default until you change it again or uninstall the desktop application.
 
-If your browser or operating system is set to a language that is not supported
-by Deadline Cloud, English becomes the default language for Deadline Cloud monitor.
+**To change the Deadline Cloud monitor language on the web, change the preferred language in your browser settings.**
+
+**Note**  
+If your browser or operating system is set to a language that is not supported by Deadline Cloud, English becomes the default language for Deadline Cloud monitor.
