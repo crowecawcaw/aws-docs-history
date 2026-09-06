@@ -39,16 +39,24 @@ the Client Downloads site.
 
 To launch the Linux client from the command line, use:
 
-`workspacesclient`
+`/usr/bin/workspacesclient`
+
+To enable advanced logging, use:
+
+`/usr/bin/workspacesclient --l3`
 
 ###### Note
 
-When running a new client application, you will be prompted for your registration code, which is can be found in your welcome email.
+When running a new client application, you will be prompted for your registration code, which can be found in your welcome email.
 For existing customers, you can find the registration code under `/home/UserName/.local/share/Amazon Web Services/Amazon WorkSpaces/RegisterationList.json`.
 
 To launch the Linux client from the command line, use:
 
 `/opt/workspacesclient/workspacesclient`
+
+To enable advanced logging, use:
+
+`/opt/workspacesclient/workspacesclient -l3`
 
 ## Connecting to your WorkSpace
 
