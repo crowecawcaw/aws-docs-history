@@ -187,9 +187,9 @@ AWS CLI, or the CloudFront API.
 
 ###### Note
 
-Lambda@Edge origin request triggers are incompatible with origins that use a
-SigV4a OAC, whether the origin is accessed directly or through an origin
-group.
+Lambda@Edge origin triggers (both origin request and origin response) are
+incompatible with origins that use a SigV4a OAC, whether the origin is accessed
+directly or through an origin group.
 
 Console
 
