@@ -1,36 +1,42 @@
-# Review and customize transformation plan
 
-In the _Prepare for transformation_ phase, after selecting repositories and resolving missing dependencies, AWS Transform will generate a modernization plan for review.
+
+# Review and customize transformation plan
+<a name="dotnet-web-review-and-customize-plan"></a>
+
+In the *Prepare for transformation* phase, after selecting repositories and resolving missing dependencies, AWS Transform will generate a modernization plan for review.
 
 The web application uses a single global plan to modernize your selected repositories, which you can customize. The modernization plan provides details about the transformation. It includes these sections:
 
 1. **Repository topology:** waves of repos in dependency order with project and dependency information.
-2. **Feature & Package Migration Map:** package actions with before and after package names and versions.
-3. **Transformation Strategy:** project type strategies, transformation execution order, risks and mitigations.
-   Discuss the plan with the agent for clarifications or to explore options.
+
+1. **Feature & Package Migration Map:** package actions with before and after package names and versions.
+
+1. **Transformation Strategy:** project type strategies, transformation execution order, risks and mitigations.
+
+Discuss the plan with the agent for clarifications or to explore options.
 
 ## Customize the plan
+<a name="customize-the-plan"></a>
 
 There are several ways to customize the transformation plan:
-
-- **Chat**: Discuss the plan with the agent in chat and give it revised instructions (_Prepare for transformation_ phase).
-- **Edit plan**: Edit the transformation plan markdown in the web application (_Prepare for transformation_ phase).
-- **Upload customized plan**: Download the transformation plan markdown, review it, and upload a revised plan (_Prepare for transformation_ phase).
-- **Steering document**: Upload one or more [steering documents](#steering-documents "#steering-documents") to tell the agent about your organization's requirements and preferences (_Assessment_ or _Prepare for transformation_ phase).
++ **Chat**: Discuss the plan with the agent in chat and give it revised instructions (*Prepare for transformation* phase).
++ **Edit plan**: Edit the transformation plan markdown in the web application (*Prepare for transformation* phase).
++ **Upload customized plan**: Download the transformation plan markdown, review it, and upload a revised plan (*Prepare for transformation* phase).
++ **Steering document**: Upload one or more [steering documents](#steering-documents) to tell the agent about your organization's requirements and preferences (*Assessment* or *Prepare for transformation* phase).
 
 After you are satisfied with the modernization plan and have resolved any missing dependencies, confirm the repositories to transform and transformation will begin.
 
 ## Steering Documents
+<a name="steering-documents"></a>
 
 You can give the agent one or more steering documents to tailor the transformation plan. Steering documents can describe your organization's requirements and preferences such as those listed below. You can also upload application information such as a README file or specification to tell the agent more about the solution. To upload a steering document, drag and drop a file into the chat area and explain the document to give the agent context.
-
-- Technology stack decisions
-- Preferred .NET version(s)
-- Preferred packages
-- Front-end UI framework
-- Back-end web service framework
-- Organization conventions
-- Examples of preferred coding patterns
++ Technology stack decisions
++ Preferred .NET version(s)
++ Preferred packages
++ Front-end UI framework
++ Back-end web service framework
++ Organization conventions
++ Examples of preferred coding patterns
 
 A sample steering document follows.
 

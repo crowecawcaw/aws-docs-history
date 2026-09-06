@@ -1,10 +1,15 @@
+
+
 # SQL Server setup
+<a name="sql-server-setup"></a>
 
 Perform these steps in your SQL Server environment to enable AWS Transform modernization.
 
 ## Database setup and configuration
+<a name="database-setup-configuration"></a>
 
 ### Step 1: Create database user with required permissions
+<a name="create-database-user"></a>
 
 Create a dedicated database user for AWS Transform with the necessary permissions. If you already have a DMS Schema Conversion user, you can reuse it.
 
@@ -30,54 +35,56 @@ GRANT VIEW SERVER STATE TO [atx_user];
 GRANT VIEW ANY DEFINITION TO [atx_user];
 ```
 
-###### Note
-
+**Note**  
 Repeat the database-specific commands (USE, CREATE USER, GRANT) for each database you want to modernize.
 
 The db\_datareader role is only necessary for data migration, not for schema conversion alone.
-
-- The db\_datareader role grants read access to all tables in the database
-- This role is required ONLY when performing data migration.
-- For schema conversion only (without data migration), the db\_datareader role is NOT required
-- The other permissions (VIEW DEFINITION, VIEW DATABASE STATE, etc.) are sufficient for schema conversion
++ The db\_datareader role grants read access to all tables in the database
++ This role is required ONLY when performing data migration.
++ For schema conversion only (without data migration), the db\_datareader role is NOT required
++ The other permissions (VIEW DEFINITION, VIEW DATABASE STATE, etc.) are sufficient for schema conversion
 
 ### Step 2: Store credentials in AWS Secrets Manager
+<a name="store-credentials-secrets-manager"></a>
 
 Store your database credentials securely in AWS Secrets Manager. Skip this step if you already have a secret created for DMS.
 
 1. Navigate to AWS Secrets Manager in the console
-2. Choose **Store a new secret**
-3. Configure the secret:
 
-   - **Secret type:** Credentials for other database
-   - **Database**: Microsoft SQL Server
-   - **Username**: atx\_user (or your chosen username)
-   - **Password**: The password you created
-   - **Server name**: Your SQL Server endpoint
-   - **Database name**: Your database name
-   - **Port**: 1433 (or your custom port)
+1. Choose** Store a new secret**
 
-4. Choose **Next**
-5. Enter secret name: atx-db-modernization-sqlserver
-6. Add required tags (these tags are mandatory):
+1. Configure the secret:
+   + **Secret type:** Credentials for other database
+   + **Database**: Microsoft SQL Server
+   + **Username**: atx\_user (or your chosen username)
+   + **Password**: The password you created
+   + **Server name**: Your SQL Server endpoint
+   + **Database name**: Your database name
+   + **Port**: 1433 (or your custom port)
 
-   - Key: Project, Value: atx-db-modernization
-   - Key: Owner, Value: database-connector
+1. Choose **Next**
 
-7. Choose **Next** through remaining screens
-8. Choose **Store**
-9. Note the Secret ARN for use in the next step
+1. Enter secret name: atx-db-modernization-sqlserver
 
-###### Important
+1. Add required tags (these tags are mandatory):
+   + Key: Project, Value: atx-db-modernization
+   + Key: Owner, Value: database-connector
 
+1. Choose **Next** through remaining screens
+
+1. Choose **Store**
+
+1. Note the Secret ARN for use in the next step
+
+**Important**  
 Database passwords must use printable ASCII characters only, excluding '/', '@', '"', and spaces. Secrets scheduled for deletion can cause transformation failures.
 
 ### Step 3: Create required DMS roles
+<a name="create-required-dms-roles"></a>
 
 AWS Transform requires specific IAM roles for DMS operations. Deploy these roles using the CloudFormation template below.
 
-###### Note
-
+**Note**  
 If your AWS account already has existing DMS-related roles, modify this template to reuse those resources rather than creating duplicates.
 
 Create a file named dms-roles.yaml with the following content:
@@ -222,80 +229,85 @@ aws cloudformation create-stack \
 Or deploy using the AWS Console:
 
 1. Navigate to CloudFormation in the AWS Console
-2. Choose **Create stack**
-3. Select **Upload a template file**
-4. Upload the dms-roles.yaml file
-5. Enter stack name: dms-roles
-6. Acknowledge IAM capabilities
-7. Choose **Create stack**
+
+1. Choose **Create stack**
+
+1. Select **Upload a template file**
+
+1. Upload the dms-roles.yaml file
+
+1. Enter stack name: dms-roles
+
+1. Acknowledge IAM capabilities
+
+1. Choose **Create stack**
 
 ### Step 4: Configure network security
+<a name="configure-network-security"></a>
 
 Ensure proper network connectivity between AWS Transform, your SQL Server database, and other AWS services.
 
 #### Security group configuration (recommended approach)
+<a name="security-group-configuration"></a>
 
 **Recommended Approach:** Use security group-based access control rather than IP-based rules. This provides better security, easier management, and works seamlessly with AWS Transform's architecture.
 
 **Why Security Group-Based Access Control?**
-
-- DMS Schema Conversion creates Elastic Network Interfaces (ENIs) within your VPC
-- Your databases do not need to be publicly accessible
-- AWS Transform does not expose private IP addresses, making IP-based rules complex
-- Security group references provide dynamic, automatic updates as resources scale
++ DMS Schema Conversion creates Elastic Network Interfaces (ENIs) within your VPC
++ Your databases do not need to be publicly accessible
++ AWS Transform does not expose private IP addresses, making IP-based rules complex
++ Security group references provide dynamic, automatic updates as resources scale
 
 ##### Configure your SQL Server security group
+<a name="configure-sql-server-security-group"></a>
 
 When you configure the DMS Schema Conversion Instance Profile in AWS Transform, you specify a Security Group for the DMS SC instance. Your database security group should allow inbound traffic from this DMS SC security group.
 
 Step-by-step configuration:
 
 1. Identify the DMS Schema Conversion Security Group:
+   + This is specified when creating the Instance Profile in AWS Transform
+   + Note the Security Group ID (e.g., sg-0123456789abcdef0)
 
-   - This is specified when creating the Instance Profile in AWS Transform
-   - Note the Security Group ID (e.g., sg-0123456789abcdef0)
+1. Update your SQL Server Security Group inbound rules:
+   + **Type**: Custom TCP
+   + **Port**: 1433 (or your custom SQL Server port)
+   + **Source**: The DMS Schema Conversion Security Group ID
+   + **Description**: "Allow DMS Schema Conversion access"
 
-2. Update your SQL Server Security Group inbound rules:
+1. For Aurora PostgreSQL target (after creation):
+   + **Type**: PostgreSQL
+   + **Port**: 5432 (or your custom PostgreSQL port)
+   + **Source**: The DMS Schema Conversion Security Group ID
+   + **Description**: "Allow DMS Schema Conversion access"
 
-   - **Type**: Custom TCP
-   - **Port**: 1433 (or your custom SQL Server port)
-   - **Source**: The DMS Schema Conversion Security Group ID
-   - **Description**: "Allow DMS Schema Conversion access"
-
-3. For Aurora PostgreSQL target (after creation):
-
-   - **Type**: PostgreSQL
-   - **Port**: 5432 (or your custom PostgreSQL port)
-   - **Source**: The DMS Schema Conversion Security Group ID
-   - **Description**: "Allow DMS Schema Conversion access"
-
-###### Important
-
+**Important**  
 **Important for Least Privileged Security Models:** If your organization uses a "least privileged" security model that blocks all traffic by default, you must explicitly allow inbound traffic from the DMS Schema Conversion Security Group to your database port. Do not open port 1433 to all sources or IP ranges.
 
 #### Required AWS service connectivity
+<a name="required-aws-service-connectivity"></a>
 
 Ensure your VPC can communicate with:
-
-- AWS Transform service endpoints
-- AWS DMS endpoints
-- Aurora PostgreSQL endpoints
-- S3 endpoints for artifact storage
-- AWS Secrets Manager endpoints
-- AWS CodeConnections endpoints
++ AWS Transform service endpoints
++ AWS DMS endpoints
++ Aurora PostgreSQL endpoints
++ S3 endpoints for artifact storage
++ AWS Secrets Manager endpoints
++ AWS CodeConnections endpoints
 
 **VPC Endpoints:** For private networks, configure VPC endpoints for required AWS services to avoid internet gateway dependencies.
 
 ## Requirements for externally hosted databases
+<a name="external-database-requirements"></a>
 
 If your SQL Server database is hosted outside of AWS, ensure the following prerequisites are met and then complete the setup steps before you begin the modernization.
 
 **Prerequisites**
-
-- An AWS account with a VPC
-- Network connectivity between the VPC and the external database. For information about configuring network connectivity, see [Configuring network connectivity](../../../dms/latest/userguide/instance-profiles-network.md "../../../dms/latest/userguide/instance-profiles-network.md") in the AWS DMS User Guide.
++ An AWS account with a VPC
++ Network connectivity between the VPC and the external database. For information about configuring network connectivity, see [Configuring network connectivity](https://docs.aws.amazon.com/dms/latest/userguide/instance-profiles-network.html) in the AWS DMS User Guide.
 
 **Setup steps**
 
-1. Create a secret in AWS Secrets Manager with the connection details for the external database. For more information, see [Step 2: Store credentials in AWS Secrets Manager](#store-credentials-secrets-manager "#store-credentials-secrets-manager").
-2. When prompted, provide the VPC ID and security group ID for connecting to the external database. AWS Transform prompts you for this information because the database hostname in the secret cannot be resolved within the AWS account.
+1. Create a secret in AWS Secrets Manager with the connection details for the external database. For more information, see [Step 2: Store credentials in AWS Secrets Manager](#store-credentials-secrets-manager).
+
+1. When prompted, provide the VPC ID and security group ID for connecting to the external database. AWS Transform prompts you for this information because the database hostname in the secret cannot be resolved within the AWS account.

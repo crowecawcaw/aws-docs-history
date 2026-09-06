@@ -1,48 +1,53 @@
+
+
 # How to work with the .NET agent
+<a name="dotnet-work-with-agent"></a>
 
 ## Experiences
+<a name="experiences"></a>
 
 AWS Transform is available in several experiences:
-
-- **Web console**: For large-scale transformation of repositories.
-- **Visual Studio IDE**: Developer-led transformation of a solution or project working alongside agent interactively and iteratively. Requires a Windows development machine.
++ **Web console**: For large-scale transformation of repositories.
++ **Visual Studio IDE**: Developer-led transformation of a solution or project working alongside agent interactively and iteratively. Requires a Windows development machine.
 
 You can also invoke AWS Transform from AI code companions:
++ **Kiro**: transform from Kiro using the [AWS Transform for Kiro power](https://kiro.dev/).
++ **Other AI code companions**: transform from your preferred AI coding assistants using [AWS Transform MCP agents](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server).
 
-- **Kiro**: transform from Kiro using the [AWS Transform for Kiro power](https://kiro.dev/ "https://kiro.dev/").
-- **Other AI code companions**: transform from your preferred AI coding assistants using [AWS Transform MCP agents](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server "https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server").
+A common pattern is to first modernize with AWS Transform for .NET, then [hand off to an AI code companion](dotnet-next-steps.md) for last mile work.
 
-A common pattern is to first modernize with AWS Transform for .NET, then [hand off to an AI code companion](dotnet-next-steps.md "dotnet-next-steps.md") for last mile work.
 
-| Area                         | Web application                                                                                                                                                                          | Visual Studio IDE                                                                                                                                                                    |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Target role                  | IT professional                                                                                                                                                                          | Developer                                                                                                                                                                            |
-| Operating system             | Any                                                                                                                                                                                      | Windows                                                                                                                                                                              |
-| Source control access        | • Repository (AWS CodeConnections or Personal Access Token)<br>• Code zip file (Amazon S3 or Direct Upload)                                                                              | Local file system                                                                                                                                                                    |
-| Job scope                    | Up to 5,000 repositories per job                                                                                                                                                         | One solution at a time                                                                                                                                                               |
-| Transformed code location    | Written to a new writeable repository branch                                                                                                                                             | Replaces original code on your file system                                                                                                                                           |
-| Unit of work                 | Repository                                                                                                                                                                               | Project                                                                                                                                                                              |
-| Assessment                   | • Analyze repositories<br>• Assessment reports (multiple formats)<br>• Global modernization plan                                                                                         | • Analyze projects<br>• Assessment report<br>• Modernization plan                                                                                                                    |
-| Customize modernization plan | Customize global plan or upload steering documents                                                                                                                                       | Customize plan or upload steering documents                                                                                                                                          |
-| Transformation modes         | Autonomous or Interactive                                                                                                                                                                | Autonomous or Interactive                                                                                                                                                            |
-| Checkpoint reviews           | Review each repository after transformation                                                                                                                                              | Review each project after transformation                                                                                                                                             |
-| Iterative modernization      | • Ask for changes at checkpoint<br>• Ask for changes after transformation completes<br>• Retry repo with revised instructions<br>• Assess and transform additional repos in the same job | • Ask for changes at checkpoint<br>• Ask for changes after transformation completes<br>• Retry project with revised instructions<br>• Review code diffs<br>• Edit code at checkpoint |
-| Downloadable artifacts       | • Transformed code<br>• Assessment report<br>• Modernization plan<br>• Transformation report<br>• Next Steps markdown                                                                    | • Transformed code<br>• Assessment report<br>• Modernization plan<br>• Transformation report<br>• Next Steps markdown                                                                |
-| Unit test validation         | Ports and runs existing unit tests                                                                                                                                                       | Ports and runs existing unit tests                                                                                                                                                   |
+| Area | Web application | Visual Studio IDE | 
+| --- | --- | --- | 
+| Target role | IT professional | Developer | 
+| Operating system | Any | Windows | 
+| Source control access | + Repository (AWS CodeConnections or Personal Access Token)<br />+ Code zip file (Amazon S3 or Direct Upload) | Local file system | 
+| Job scope | Up to 5,000 repositories per job | One solution at a time | 
+| Transformed code location | Written to a new writeable repository branch | Replaces original code on your file system | 
+| Unit of work | Repository | Project | 
+| Assessment | + Analyze repositories<br />+ Assessment reports (multiple formats)<br />+ Global modernization plan | + Analyze projects<br />+ Assessment report<br />+ Modernization plan | 
+| Customize modernization plan | Customize global plan or upload steering documents | Customize plan or upload steering documents | 
+| Transformation modes | Autonomous or Interactive | Autonomous or Interactive | 
+| Checkpoint reviews | Review each repository after transformation | Review each project after transformation | 
+| Iterative modernization | + Ask for changes at checkpoint<br />+ Ask for changes after transformation completes<br />+ Retry repo with revised instructions<br />+ Assess and transform additional repos in the same job | + Ask for changes at checkpoint<br />+ Ask for changes after transformation completes<br />+ Retry project with revised instructions<br />+ Review code diffs<br />+ Edit code at checkpoint | 
+| Downloadable artifacts | + Transformed code<br />+ Assessment report<br />+ Modernization plan<br />+ Transformation report<br />+ Next Steps markdown | + Transformed code<br />+ Assessment report<br />+ Modernization plan<br />+ Transformation report<br />+ Next Steps markdown | 
+| Unit test validation | Ports and runs existing unit tests | Ports and runs existing unit tests | 
 
 ## Recommended experiences
+<a name="objectives-and-recommended-experiences"></a>
 
 Use the experience that best fits your scenario.
 
-| Scenario                                                                  | Recommended experience                                                                                                                                                                                          |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Work at repository level when transforming                                | Web application                                                                                                                                                                                                 |
-| Perform large-scale transformations                                       | Web application                                                                                                                                                                                                 |
-| Transform from a Mac                                                      | Web application                                                                                                                                                                                                 |
-| Transform unattended                                                      | Web or IDE, autonomous mode                                                                                                                                                                                     |
-| Work at project level when transforming                                   | Visual Studio IDE                                                                                                                                                                                               |
-| Local build to confirm transformed code builds on local environment       | Visual Studio IDE                                                                                                                                                                                               |
-| Agent leads the modernization, I review                                   | Web or IDE, autonomous mode                                                                                                                                                                                     |
-| I lead the modernization, agent assists                                   | Web or IDE, interactive mode, customize plan                                                                                                                                                                    |
-| Complex modernization                                                     | IDE, interactive mode                                                                                                                                                                                           |
-| Portfolio owner starts transformation, hands off to developers for review | Web application; use [beaming](dotnet-web-final-summary.md#beam-transformed-repository "dotnet-web-final-summary.md#beam-transformed-repository") to hand off repositories to developers, who review in the IDE |
+
+| Scenario | Recommended experience | 
+| --- | --- | 
+| Work at repository level when transforming | Web application | 
+| Perform large-scale transformations | Web application | 
+| Transform from a Mac | Web application | 
+| Transform unattended | Web or IDE, autonomous mode | 
+| Work at project level when transforming | Visual Studio IDE | 
+| Local build to confirm transformed code builds on local environment | Visual Studio IDE | 
+| Agent leads the modernization, I review | Web or IDE, autonomous mode | 
+| I lead the modernization, agent assists | Web or IDE, interactive mode, customize plan | 
+| Complex modernization | IDE, interactive mode | 
+| Portfolio owner starts transformation, hands off to developers for review | Web application; use [beaming](dotnet-web-final-summary.md#beam-transformed-repository) to hand off repositories to developers, who review in the IDE | 

@@ -1,74 +1,76 @@
+
+
 # Troubleshooting
+<a name="discovery-tool-troubleshooting"></a>
 
 ## Verifying discovery tool connectivity to vCenter
+<a name="discovery-tool-vcenter-connectivity"></a>
 
 When you experience VMware module configuration errors follow these steps to verify connectivity:
 
-###### Access the discovery tool VM
+**Access the discovery tool VM**
++ Log-in to the discovery tool VM, open Remote Console in vCenter
+  + Username: discovery
+  + Password: password
 
-- Log-in to the discovery tool VM, open Remote Console in vCenter
-
-  - Username: discovery
-  - Password: password
-
-###### Test vCenter Connectivity
+**Test vCenter Connectivity**
 
 1. Test vCenter API Access:
 
-```
-curl -v --insecure -u <username>:<password> https://<vcenter-ip-or-hostname>:443/mob
-```
+   ```
+   curl -v --insecure -u <username>:<password> https://<vcenter-ip-or-hostname>:443/mob
+   ```
 
-2. Expected Success Output:
+1. Expected Success Output:
 
-```
-[ec2-user@discoverytool ~]$ curl -v --insecure -u <user>:<password> https://vcsa/mob > tmp.txt
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 192.168.2.125:443...
-* Connected to vcsa (192.168.2.125) port 443 (#0)
-...
-</xml>
-* Connection #0 to host vcsa left intact
-```
+   ```
+   [ec2-user@discoverytool ~]$ curl -v --insecure -u <user>:<password> https://vcsa/mob > tmp.txt
+     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+     0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 192.168.2.125:443...
+   * Connected to vcsa (192.168.2.125) port 443 (#0)
+   ...
+   </xml>
+   * Connection #0 to host vcsa left intact
+   ```
 
-###### Test SSL Certificate
+**Test SSL Certificate**
 
 1. Run this command:
 
-```
-openssl s_client -showcerts -servername <hostname> -connect <hostname>:443
-```
+   ```
+   openssl s_client -showcerts -servername <hostname> -connect <hostname>:443
+   ```
 
-2. Expected Success Output:
+1. Expected Success Output:
+   + Should show vSphere certificate details
+   + Verifies SSL/TLS connectivity on port 443
 
-   - Should show vSphere certificate details
-   - Verifies SSL/TLS connectivity on port 443
-
-```
-[ec2-user@discoverytool ~]$ openssl s_client -showcerts -servername vcsa -connect vcsa:443
-CONNECTED(00000003)
-depth=0 CN = vcsa.onpremsim.env, C = US
-verify error:num=20:unable to get local issuer certificate
-verify return:1
-depth=0 CN = vcsa.onpremsim.env, C = US
-verify error:num=21:unable to verify the first certificate
-verify return:1
----
-Certificate chain
- 0 s:/CN=vcsa.onpremsim.env/C=US
-   i:/CN=CA/DC=vsphere/DC=local/C=US/ST=California/O=vcsa.onpremsim.env/OU=VMware Engineering
------BEGIN CERTIFICATE-----
-...
------END CERTIFICATE-----
----
-Server certificate
-subject=/CN=vcsa.onpremsim.env/C=US
-issuer=/CN=CA/DC=vsphere/DC=local/C=US/ST=California/O=vcsa.onpremsim.env/OU=VMware Engineering
----
-```
+   ```
+   [ec2-user@discoverytool ~]$ openssl s_client -showcerts -servername vcsa -connect vcsa:443
+   CONNECTED(00000003)
+   depth=0 CN = vcsa.onpremsim.env, C = US
+   verify error:num=20:unable to get local issuer certificate
+   verify return:1
+   depth=0 CN = vcsa.onpremsim.env, C = US
+   verify error:num=21:unable to verify the first certificate
+   verify return:1
+   ---
+   Certificate chain
+    0 s:/CN=vcsa.onpremsim.env/C=US
+      i:/CN=CA/DC=vsphere/DC=local/C=US/ST=California/O=vcsa.onpremsim.env/OU=VMware Engineering
+   -----BEGIN CERTIFICATE-----
+   ...
+   -----END CERTIFICATE-----
+   ---
+   Server certificate
+   subject=/CN=vcsa.onpremsim.env/C=US
+   issuer=/CN=CA/DC=vsphere/DC=local/C=US/ST=California/O=vcsa.onpremsim.env/OU=VMware Engineering
+   ---
+   ```
 
 ## WinRM Troubleshooting
+<a name="discovery-tool-winrm-troubleshooting"></a>
 
 If you're experiencing connectivity issues with WinRM, follow these steps to test the connection. These steps also apply to Hyper-V connectivity issues, because the discovery tool uses WinRM to communicate with Hyper-V hosts.
 
@@ -78,7 +80,7 @@ Test basic WinRM connectivity using ports 5985 (HTTP) and 5986 (HTTPS). We need 
 # Check WinRM listener configuration
 winrm enumerate winrm/config/listener
 
-# Note: Replace <HOST> with the target computer's hostname or IP address. Adjust the username and password as needed.
+# Note: Replace <HOST> with the target computer's hostname or IP address. Adjust the username and password as needed. 
 # Test WinRM connection on port 5985 (HTTP)
 $cred = Get-Credential
 Test-WSMan -Computer <HOST> -Authentication Negotiate -Credential $cred -Port 5985
@@ -96,49 +98,56 @@ Enter-PSSession -ComputerName <HOST> -Credential $cred -Port 5985 -SessionOption
 ```
 
 ## Kerberos troubleshooting
+<a name="discovery-tool-kerberos-troubleshooting"></a>
 
 If you experience Kerberos authentication failures when collecting data from Windows servers, use the following sections to diagnose and resolve common issues.
 
 ### Verify network requirements
+<a name="kerberos-verify-network"></a>
 
 Before you troubleshoot Kerberos authentication, verify that the discovery tool can reach the required network endpoints.
 
-###### To verify network requirements for Kerberos
+**To verify network requirements for Kerberos**
 
 1. Verify DNS resolution to the domain controller. Run the following command from the discovery tool VM:
 
-```
-nslookup dc01.example.com
-```
+   ```
+   nslookup dc01.example.com
+   ```
 
-Alternatively, you can use `dig`:
+   Alternatively, you can use `dig`:
 
-```
-dig dc01.example.com
-```
+   ```
+   dig dc01.example.com
+   ```
 
-If DNS resolution fails, verify that the discovery tool VM is configured to use a DNS server that can resolve your Active Directory domain. Check `/etc/resolv.conf` and confirm that the nameserver entries point to your domain DNS servers. 2. Verify connectivity to the Key Distribution Center (KDC) on port 88. Run the following command:
+   If DNS resolution fails, verify that the discovery tool VM is configured to use a DNS server that can resolve your Active Directory domain. Check `/etc/resolv.conf` and confirm that the nameserver entries point to your domain DNS servers.
 
-```
-nc -zv dc01.example.com 88
-```
+1. Verify connectivity to the Key Distribution Center (KDC) on port 88. Run the following command:
 
-Expected output:
+   ```
+   nc -zv dc01.example.com 88
+   ```
 
-```
-Connection to dc01.example.com 88 port [tcp/kerberos] succeeded!
-```
+   Expected output:
 
-If the connection fails, verify that no firewall rules block traffic from the discovery tool VM to the domain controller on port 88. 3. Verify connectivity to the target Windows servers on WinRM ports. Run the following commands:
+   ```
+   Connection to dc01.example.com 88 port [tcp/kerberos] succeeded!
+   ```
 
-```
-nc -zv <windows-server> 5985
-nc -zv <windows-server> 5986
-```
+   If the connection fails, verify that no firewall rules block traffic from the discovery tool VM to the domain controller on port 88.
 
-If the connection fails, verify that WinRM is enabled on the target server and that firewall rules allow inbound traffic on ports 5985 and 5986.
+1. Verify connectivity to the target Windows servers on WinRM ports. Run the following commands:
+
+   ```
+   nc -zv <windows-server> 5985
+   nc -zv <windows-server> 5986
+   ```
+
+   If the connection fails, verify that WinRM is enabled on the target server and that firewall rules allow inbound traffic on ports 5985 and 5986.
 
 ### Common Kerberos issues
+<a name="kerberos-common-issues"></a>
 
 The following are common Kerberos issues and their solutions.
 
@@ -147,9 +156,8 @@ The following are common Kerberos issues and their solutions.
 Symptom: You receive this error during authentication.
 
 This error has two common causes:
-
-- **Realm name not in uppercase** – Kerberos realms must be uppercase in your `krb5.conf` file. For example, use `EXAMPLE.COM` instead of `example.com`.
-- **Reverse DNS not working for a server that has no FQDN** – Kerberos builds its service principal name from the FQDN, so the discovery tool must map the IP address to the FQDN first. This cause applies only when the discovery tool has no FQDN for the server, such as a server that you imported from a CSV file with only an IP address. Run `getent hosts <target-ip>` on the discovery tool VM. If the command does not return the FQDN, add a PTR record, add an `/etc/hosts` entry, or use the FQDN. For more information, see [Using Kerberos with IP addresses](discovery-tool-configure.md#kerberos-ip-addresses "discovery-tool-configure.md#kerberos-ip-addresses").
++ **Realm name not in uppercase** – Kerberos realms must be uppercase in your `krb5.conf` file. For example, use `EXAMPLE.COM` instead of `example.com`.
++ **Reverse DNS not working for a server that has no FQDN** – Kerberos builds its service principal name from the FQDN, so the discovery tool must map the IP address to the FQDN first. This cause applies only when the discovery tool has no FQDN for the server, such as a server that you imported from a CSV file with only an IP address. Run `getent hosts <target-ip>` on the discovery tool VM. If the command does not return the FQDN, add a PTR record, add an `/etc/hosts` entry, or use the FQDN. For more information, see [Using Kerberos with IP addresses](discovery-tool-configure.md#kerberos-ip-addresses).
 
 The discovery tool tries a server's FQDN before its IP addresses. If the discovery tool has an FQDN for the server, it also tries the IP addresses as a fallback, so you might see this error for an IP address even though the FQDN attempt is the one that matters. In that case, look at the error for the FQDN attempt to find the cause.
 
@@ -161,22 +169,27 @@ The discovery tool uses a backoff mechanism to prevent account lockouts from rep
 
 The following table lists common `kinit` errors and their solutions.
 
-| Error                                  | Cause                                                                                           | Solution                                                                                                                                             |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cannot find KDC for realm              | The KDC hostname or IP address is not reachable, or the realm is not configured in `krb5.conf`. | Verify that the `krb5.conf` file contains the correct KDC hostname and realm. Confirm DNS resolution and network connectivity to the KDC on port 88. |
-| Preauthentication failed               | The password for the service account is incorrect.                                              | Verify the password and try again. If the account is locked out, unlock it in Active Directory before you retry.                                     |
-| Client not found in Kerberos database  | The principal name does not match any account in Active Directory.                              | Verify that the principal name matches the account name exactly, including case. Use the format `username@REALM` with the realm in uppercase.        |
-| Cannot resolve network address for KDC | DNS cannot resolve the KDC hostname.                                                            | Verify DNS configuration in `/etc/resolv.conf`. Confirm that the DNS server can resolve the KDC hostname. Test with `nslookup` or `dig`.             |
+
+| Error | Cause | Solution | 
+| --- | --- | --- | 
+| Cannot find KDC for realm | The KDC hostname or IP address is not reachable, or the realm is not configured in krb5.conf. | Verify that the krb5.conf file contains the correct KDC hostname and realm. Confirm DNS resolution and network connectivity to the KDC on port 88. | 
+| Preauthentication failed | The password for the service account is incorrect. | Verify the password and try again. If the account is locked out, unlock it in Active Directory before you retry. | 
+| Client not found in Kerberos database | The principal name does not match any account in Active Directory. | Verify that the principal name matches the account name exactly, including case. Use the format username@REALM with the realm in uppercase. | 
+| Cannot resolve network address for KDC | DNS cannot resolve the KDC hostname. | Verify DNS configuration in /etc/resolv.conf. Confirm that the DNS server can resolve the KDC hostname. Test with nslookup or dig. | 
 
 **Collection fails despite successful kinit**
 
 If `kinit` succeeds but data collection still fails, check the following:
 
 1. Verify that the principal name used for collection matches the case used during `kinit` exactly.
-2. Verify that the service account has the required permissions on the target servers.
-3. Verify that WinRM is enabled on the target servers.
-4. Verify that the hostname used for collection matches the hostname registered in Active Directory.
-5. If the discovery tool has no FQDN for the server, such as a server that you imported by IP address only, check that the VM maps that IP address to the server's FQDN. Run `getent hosts <target-ip>` on the discovery tool VM. Kerberos builds its service principal name from the FQDN, not the IP address. Without a reverse mapping, the handshake fails even when `kinit` succeeds.
+
+1. Verify that the service account has the required permissions on the target servers.
+
+1. Verify that WinRM is enabled on the target servers.
+
+1. Verify that the hostname used for collection matches the hostname registered in Active Directory.
+
+1. If the discovery tool has no FQDN for the server, such as a server that you imported by IP address only, check that the VM maps that IP address to the server's FQDN. Run `getent hosts <target-ip>` on the discovery tool VM. Kerberos builds its service principal name from the FQDN, not the IP address. Without a reverse mapping, the handshake fails even when `kinit` succeeds.
 
 **Kerberos works for some servers but not others**
 
@@ -200,26 +213,25 @@ net localgroup Administrators
 
 WMI requires local administrator privileges to access operating system information. SQL Server collection also requires that the service account has local administrator access on the target server.
 
-###### FQDN unavailable for servers discovered through Hyper-V
-
-For servers discovered through Hyper-V, the discovery tool resolves the server FQDN from guest metadata provided by Integration Services, which is required for Kerberos SPN matching. If Integration Services is not running in the guest, the FQDN is unavailable and Kerberos authentication fails. Confirm that Integration Services is running in the guest (see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent "discovery-tool-setup.md#discovery-tool-guest-agent")).
+For servers discovered through Hyper-V, the discovery tool resolves the server FQDN from guest metadata provided by Integration Services, which is required for Kerberos SPN matching. If Integration Services is not running in the guest, the FQDN is unavailable and Kerberos authentication fails. Confirm that Integration Services is running in the guest (see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent)).
 
 ### Kerberos configuration checklist
+<a name="kerberos-checklist"></a>
 
 Use the following checklist to verify your Kerberos configuration before you start data collection.
-
-- The `krb5.conf` file exists on the discovery tool VM.
-- The realm name is in uppercase in `krb5.conf`.
-- Running `kinit` with the service account succeeds without errors.
-- Running `klist` shows a valid, non-expired ticket.
-- The principal name matches the Active Directory account name exactly.
-- DNS resolution works for the KDC hostname.
-- Network connectivity to the KDC on port 88 is confirmed.
-- Network connectivity to target Windows servers on ports 5985 and 5986 is confirmed.
-- (Multi-domain) Each Active Directory domain has its own credential configured in the discovery tool, and `krb5.conf` contains `[realms]` and `[domain_realm]` entries for all domains.
-- (Servers with no FQDN) Running `getent hosts <target-ip>` returns the server's Active Directory FQDN, or the server is configured by FQDN instead.
++ The `krb5.conf` file exists on the discovery tool VM.
++ The realm name is in uppercase in `krb5.conf`.
++ Running `kinit` with the service account succeeds without errors.
++ Running `klist` shows a valid, non-expired ticket.
++ The principal name matches the Active Directory account name exactly.
++ DNS resolution works for the KDC hostname.
++ Network connectivity to the KDC on port 88 is confirmed.
++ Network connectivity to target Windows servers on ports 5985 and 5986 is confirmed.
++ (Multi-domain) Each Active Directory domain has its own credential configured in the discovery tool, and `krb5.conf` contains `[realms]` and `[domain_realm]` entries for all domains.
++ (Servers with no FQDN) Running `getent hosts <target-ip>` returns the server's Active Directory FQDN, or the server is configured by FQDN instead.
 
 ## Oracle Database troubleshooting
+<a name="discovery-tool-oracle-troubleshooting"></a>
 
 To diagnose Oracle Database collection issues, such as missing data or errors, check the following.
 
@@ -228,30 +240,27 @@ To diagnose Oracle Database collection issues, such as missing data or errors, c
 Symptom: Oracle collection status shows a connection error for a server.
 
 To troubleshoot this issue, check the following:
-
-- Verify that the Oracle listener is running on the target host: `lsnrctl status`
-- Verify network connectivity from the discovery tool to the Oracle host on port 1521 (or your custom port): `nc -zv <oracle-host> 1521`
-- Verify that firewall rules allow inbound connections on the Oracle listener port.
-- Verify the service name by running `lsnrctl services` on the Oracle host. If the service name is incorrect, the Oracle listener rejects the connection.
++ Verify that the Oracle listener is running on the target host: `lsnrctl status`
++ Verify network connectivity from the discovery tool to the Oracle host on port 1521 (or your custom port): `nc -zv <oracle-host> 1521`
++ Verify that firewall rules allow inbound connections on the Oracle listener port.
++ Verify the service name by running `lsnrctl services` on the Oracle host. If the service name is incorrect, the Oracle listener rejects the connection.
 
 **Authentication failures (ORA-01017)**
 
 Symptom: Collection fails with an invalid username or password error.
 
 To troubleshoot this issue, check the following:
-
-- Verify that the Oracle service account exists and is not locked: `SELECT account_status FROM dba_users WHERE username = 'DISCOVERY_USER';`
-- Verify the password is correct by connecting manually: `sqlplus discovery_user/<password>@<host>:1521/<service_name>`
-- If the account is locked, unlock it: `ALTER USER discovery_user ACCOUNT UNLOCK;`
++ Verify that the Oracle service account exists and is not locked: `SELECT account_status FROM dba_users WHERE username = 'DISCOVERY_USER';`
++ Verify the password is correct by connecting manually: `sqlplus discovery_user/<password>@<host>:1521/<service_name>`
++ If the account is locked, unlock it: `ALTER USER discovery_user ACCOUNT UNLOCK;`
 
 **Insufficient privileges (ORA-01031)**
 
 Symptom: Connection succeeds but collection returns incomplete data.
 
 To troubleshoot this issue, check the following:
-
-- Verify that SELECT\_CATALOG\_ROLE is granted: `SELECT * FROM dba_role_privs WHERE grantee = 'DISCOVERY_USER';`
-- Grant the required role if missing: `GRANT SELECT_CATALOG_ROLE TO discovery_user;`
++ Verify that SELECT\_CATALOG\_ROLE is granted: `SELECT * FROM dba_role_privs WHERE grantee = 'DISCOVERY_USER';`
++ Grant the required role if missing: `GRANT SELECT_CATALOG_ROLE TO discovery_user;`
 
 **Manual credential shows error but auto-connect works**
 
@@ -260,43 +269,43 @@ When you pin a credential manually to a server, the discovery tool does not fall
 **OS-level fallback not detecting Oracle**
 
 If no database credentials are configured and the OS-level fallback does not detect Oracle:
-
-- Verify that SSH or WinRM OS credentials are configured and working for the server (check OS metrics collection status).
-- For Linux hosts, verify that `/etc/oratab` exists or that Oracle process monitor (`pmon`) processes are running.
-- For Windows hosts, verify that Oracle registry entries exist under `HKLM\SOFTWARE\Oracle` or that `oracle.exe` processes are running.
++ Verify that SSH or WinRM OS credentials are configured and working for the server (check OS metrics collection status).
++ For Linux hosts, verify that `/etc/oratab` exists or that Oracle process monitor (`pmon`) processes are running.
++ For Windows hosts, verify that Oracle registry entries exist under `HKLM\SOFTWARE\Oracle` or that `oracle.exe` processes are running.
 
 ## SNMP Troubleshooting
+<a name="discovery-tool-snmp-troubleshooting"></a>
 
-###### Access the discovery tool VM
+**Access the discovery tool VM**
++ Log-in to the discovery tool VM, open Remote Console in vCenter
+  + Username: discovery
+  + Password: password
 
-- Log-in to the discovery tool VM, open Remote Console in vCenter
+**Install SNMP Tools (if needed)**
++ `sudo yum install net-snmp-utils -y`
 
-  - Username: discovery
-  - Password: password
-
-###### Install SNMP Tools (if needed)
-
-- `sudo yum install net-snmp-utils -y`
-
-###### Test SNMP Connection to Linux Servers
+**Test SNMP Connection to Linux Servers**
 
 1. `snmptable -v 2c -c <COMMUNITY_STRING> <REMOTE_SERVER_IP> .1.3.6.1.2.1.6.13.1`
-2. Example:
 
-```
-#SNMPv2c:
-snmptable -v 2c -c public 192.168.1.100 .1.3.6.1.2.1.6.13.1
+1. Example:
 
-#SNMPv3 (with authentication):
-snmptable -v 3 -u <username> -a MD5 -A <auth_password> 192.168.1.100 .1.3.6.1.2.1.6.13.1
-
-#SNMPv3 (with privacy):
-snmptable -v 3 -u <username> -a MD5 -A <auth_password> -x DES -X <priv_password> 192.168.1.100 .1.3.6.1.2.1.6.13.1
-```
+   ```
+   #SNMPv2c:
+   snmptable -v 2c -c public 192.168.1.100 .1.3.6.1.2.1.6.13.1
+   
+   #SNMPv3 (with authentication):
+   snmptable -v 3 -u <username> -a MD5 -A <auth_password> 192.168.1.100 .1.3.6.1.2.1.6.13.1
+   
+   #SNMPv3 (with privacy):
+   snmptable -v 3 -u <username> -a MD5 -A <auth_password> -x DES -X <priv_password> 192.168.1.100 .1.3.6.1.2.1.6.13.1
+   ```
 
 ## Network collection errors
+<a name="discovery-tool-network-collection-errors"></a>
 
 ### a terminal is required to read the password
+<a name="discovery-tool-terminal-required"></a>
 
 **Error:**
 
@@ -308,19 +317,20 @@ The ss command is prompting for user password. The configured ssh user must be i
 
 1. Create a new sudoers file:
 
-```
-sudo vi -f /etc/sudoers.d/<username>
-```
+   ```
+   sudo vi -f /etc/sudoers.d/<username>
+   ```
 
-2. Add the line:
+1. Add the line:
 
-```
-<username> ALL=(ALL) NOPASSWD: /usr/sbin/ss, /usr/bin/netstat
-```
+   ```
+   <username> ALL=(ALL) NOPASSWD: /usr/sbin/ss, /usr/bin/netstat
+   ```
 
-3. After this change, running `sudo ss -tnap` and `sudo netstat -tnap` should execute without prompting for a password
+1. After this change, running `sudo ss -tnap` and `sudo netstat -tnap` should execute without prompting for a password
 
 ### Network collection ran without sudo
+<a name="discovery-tool-non-sudo-warning"></a>
 
 If you see the following warning on the **Discovered inventory** page:
 
@@ -331,72 +341,72 @@ Network collection ran without sudo. Process-level connection data may be missin
 This warning indicates that the SSH user account does not have sudo access on the target server. Without sudo, the discovery tool can still collect network connection data, but it cannot determine which process owns each connection. To collect complete process-level connection data, ensure the SSH user has sudo access on the target server.
 
 ## OS metrics collection errors
+<a name="discovery-tool-os-metrics-collection-errors"></a>
 
 ### Missing server UUID for Linux servers
+<a name="discovery-tool-missing-uuid"></a>
 
 If the discovery tool is unable to collect the server UUID (showing as empty or missing) for Linux servers, verify that the SSH credentials configured for those servers have sudo privileges. The tool uses `dmidecode` to read the server UUID. If `dmidecode` is not installed, the tool falls back to reading `/sys/class/dmi/id/product_uuid`, which also requires sudo access. Without sudo, neither method can retrieve the UUID.
 
 **Resolution:** Ensure the SSH user account provided to the discovery tool has sudo access on the target Linux servers.
 
 ### Server appears in inventory but is never collected
+<a name="discovery-tool-inventory-not-collected"></a>
 
-###### Symptom
+A server appears in **Discovered inventory** with no IP address, and its collection status never leaves pending. This typically means the guest agent is not supplying a guest address, so the discovery tool has nothing to connect to for OS-level collection.
++ On Hyper-V, run `Get-VMIntegrationService -VMName {{vm-name}}` on the Hyper-V host and confirm that the Key-Value Pair Exchange service is running.
++ On VMware, check the VMware Tools status for the virtual machine in the vSphere Client.
++ Install and start the guest agent (VMware Tools or Hyper-V Integration Services) in the guest, and then wait for the next discovery cycle.
++ Alternatively, import the server from a CSV file with its IP address, which supplies the address directly. For more information, see [Import servers](discovery-tool-configure.md#discovery-tool-bare-metal-import).
 
-A server appears in **Discovered inventory** with no IP address, and its
-collection status never leaves pending. This typically means the guest agent is not supplying
-a guest address, so the discovery tool has nothing to connect to for OS-level
-collection.
-
-###### Checks
-
-- On Hyper-V, run `Get-VMIntegrationService -VMName `vm-name`` on the Hyper-V host and confirm that the Key-Value Pair Exchange service is running.
-- On VMware, check the VMware Tools status for the virtual machine in the vSphere Client.
-
-###### Resolution
-
-- Install and start the guest agent (VMware Tools or Hyper-V Integration Services) in the guest, and then wait for the next discovery cycle.
-- Alternatively, import the server from a CSV file with its IP address, which supplies the address directly. For more information, see [Import servers](discovery-tool-configure.md#discovery-tool-bare-metal-import "discovery-tool-configure.md#discovery-tool-bare-metal-import").
-
-For background on the guest-agent dependency, see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent "discovery-tool-setup.md#discovery-tool-guest-agent").
+For background on the guest-agent dependency, see [Guest agent requirements for OS-level collection](discovery-tool-setup.md#discovery-tool-guest-agent).
 
 ## Access issues in Discovered inventory
+<a name="discovery-tool-access-issues"></a>
 
 If you see a message in **Server collection status** such as Missing credentials, or Access denied:
 
 1. Select the server on the table of discovered servers.
-2. Choose **Manage access credential** You can choose to:
 
-   1. Select alternative credentials from the **Select credentials** dropdown.
-   2. Select **Use new credentials** and provide new credentials.
+1. Choose **Manage access credential** You can choose to:
 
-3. **Save**.
+   1. Select alternative credentials from the **Select credentials** dropdown. 
+
+   1. Select **Use new credentials** and provide new credentials.
+
+1. **Save**.
 
 The discovery tool retries the connection after you save your changes.
 
 ## SSH key authentication troubleshooting
+<a name="discovery-tool-ssh-key-troubleshooting"></a>
 
 **Testing SSH key connectivity from the discovery tool**
 
 If SSH key authentication fails, verify connectivity from the discovery tool to the target server:
 
 1. Log in to the discovery tool (via vSphere console or SSH to the Linux host).
-2. Test SSH connectivity using your private key:
 
-```
-ssh -i /path/to/private_key -o StrictHostKeyChecking=no <username>@<target_ip>
-```
+1. Test SSH connectivity using your private key:
 
-3. If the connection succeeds, the issue is with how the key was uploaded to the discovery tool. Re-upload the key and verify the username matches.
-4. If the connection fails, check the error message in the following table.
+   ```
+   ssh -i /path/to/private_key -o StrictHostKeyChecking=no <username>@<target_ip>
+   ```
 
-| Error message                             | Cause                                                                                                  | Resolution                                                                                                                                                                 |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Permission denied (publickey)`           | The public key is not in the target server's `authorized_keys` file, or the username is wrong.         | Add the public key to `~/.ssh/authorized_keys` on the target server for the correct user. Verify file permissions: `chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys`. |
-| `Connection timed out after 20s`          | Port 22 is not reachable from the discovery tool.                                                      | Verify that port 22 is open between the discovery tool and the target server. Check firewalls and security groups.                                                         |
-| `Connection refused`                      | SSH service is not running on the target server.                                                       | Start the SSH service: `sudo systemctl start sshd`.                                                                                                                        |
-| `Invalid SSH key for credential '`name`'` | The key format is not supported, the key data is corrupted, or the passphrase is missing or incorrect. | Verify the key format is RSA, ECDSA, or Ed25519 in PEM, OpenSSH, or PKCS#8 format. If the key is encrypted, make sure the passphrase is correct.                           |
+1. If the connection succeeds, the issue is with how the key was uploaded to the discovery tool. Re-upload the key and verify the username matches.
+
+1. If the connection fails, check the error message in the following table.
+
+
+| Error message | Cause | Resolution | 
+| --- | --- | --- | 
+| Permission denied (publickey) | The public key is not in the target server's authorized\_keys file, or the username is wrong. | Add the public key to \~/.ssh/authorized\_keys on the target server for the correct user. Verify file permissions: chmod 700 \~/.ssh && chmod 600 \~/.ssh/authorized\_keys. | 
+| Connection timed out after 20s | Port 22 is not reachable from the discovery tool. | Verify that port 22 is open between the discovery tool and the target server. Check firewalls and security groups. | 
+| Connection refused | SSH service is not running on the target server. | Start the SSH service: sudo systemctl start sshd. | 
+| Invalid SSH key for credential '{{name}}' | The key format is not supported, the key data is corrupted, or the passphrase is missing or incorrect. | Verify the key format is RSA, ECDSA, or Ed25519 in PEM, OpenSSH, or PKCS\#8 format. If the key is encrypted, make sure the passphrase is correct. | 
 
 ## Linux installer troubleshooting
+<a name="discovery-tool-linux-installer-troubleshooting"></a>
 
 **Port 5000 is already in use**
 
@@ -415,16 +425,18 @@ sudo ./AWS-Transform-discovery-tool.sh start
 ```
 
 ## Common error messages
+<a name="discovery-tool-ui-messages"></a>
 
 This table describes common error messages and their explanations:
 
-| Message                                        | Location                 | Explanation                                                                                                                                                                |
-| ---------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A password has already been created            | Create password page     | Race condition when two users create passwords at the same time; refresh                                                                                                   |
-| Export failed                                  | Inventory page           | Retry or send logs                                                                                                                                                         |
-| An on-demand collection is already in progress | Inventory page           | Race condition when two users start manual collections at the same time; try again after the current manual collection is finished                                         |
-| `Command timed out after 60s`                  | Server collection status | A command on the target server did not complete within 60 seconds. This can occur on heavily loaded servers. Retry the collection or investigate the target server's load. |
-| One or more credentials contain unknown UUIDs  | OS access page           | Race condition when two users edit OS credentials at the same time; try again                                                                                              |
-| Invalid password                               | Sign-in page             | Incorrect password for logging in; contact admin or reach out                                                                                                              |
-| Your session has expired. Please log in again. | Sign-in page             | Session has timed out, need to login again                                                                                                                                 |
-| An internal error occurred                     | Various pages            | Retry or send logs                                                                                                                                                         |
+
+| Message | Location | Explanation | 
+| --- | --- | --- | 
+| A password has already been created | Create password page | Race condition when two users create passwords at the same time; refresh | 
+| Export failed | Inventory page | Retry or send logs | 
+| An on-demand collection is already in progress | Inventory page | Race condition when two users start manual collections at the same time; try again after the current manual collection is finished | 
+| Command timed out after 60s | Server collection status | A command on the target server did not complete within 60 seconds. This can occur on heavily loaded servers. Retry the collection or investigate the target server's load. | 
+| One or more credentials contain unknown UUIDs | OS access page | Race condition when two users edit OS credentials at the same time; try again | 
+| Invalid password | Sign-in page | Incorrect password for logging in; contact admin or reach out | 
+| Your session has expired. Please log in again. | Sign-in page | Session has timed out, need to login again | 
+| An internal error occurred | Various pages | Retry or send logs | 

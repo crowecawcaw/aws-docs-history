@@ -1,23 +1,27 @@
+
+
 # Best practices and troubleshooting
+<a name="sql-server-best-practices"></a>
 
 Best practices, and common issues and their resolutions during the modernization process.
 
 ## ECS application logs
+<a name="sql-server-ecs-application-logs"></a>
 
 ### CloudWatch logs
-
-- All ECS container logs are automatically sent to CloudWatch Logs
-- Access logs in the CloudWatch console under Log Groups
-- Log group naming format: /aws/ecs/{application-name}
-- Each container instance creates a new log stream within the group
+<a name="sql-server-cloudwatch-logs"></a>
++ All ECS container logs are automatically sent to CloudWatch Logs
++ Access logs in the CloudWatch console under Log Groups
++ Log group naming format: /aws/ecs/{application-name}
++ Each container instance creates a new log stream within the group
 
 ### Viewing logs
+<a name="sql-server-viewing-logs"></a>
 
 **Through AWS Console:**
-
-- Navigate to CloudWatch > Log Groups
-- Select your application's log group
-- Choose the relevant log stream to view container logs
++ Navigate to CloudWatch > Log Groups
++ Select your application's log group
++ Choose the relevant log stream to view container logs
 
 **Using AWS CLI:**
 
@@ -26,35 +30,36 @@ aws logs get-log-events --log-group-name /aws/ecs/your-app-name --log-stream-nam
 ```
 
 ### Common log locations
-
-- Application logs: CloudWatch Logs
-- ECS Service Events: ECS Console > Cluster > Service > Events tab
-- Container health/status: ECS Console > Cluster > Service > Tasks tab
+<a name="sql-server-common-log-locations"></a>
++ Application logs: CloudWatch Logs
++ ECS Service Events: ECS Console > Cluster > Service > Events tab
++ Container health/status: ECS Console > Cluster > Service > Tasks tab
 
 ## Database connection management
+<a name="sql-server-database-connection-management"></a>
 
 Applications use environment variables for database connection settings
 
 If you experience connectivity issues:
-
-- Verify the current connection settings in your environment variables
-- Update environment variables to modify database connection strings as needed
-- Connection string changes can be made through environment variable updates without application redeployment
++ Verify the current connection settings in your environment variables
++ Update environment variables to modify database connection strings as needed
++ Connection string changes can be made through environment variable updates without application redeployment
 
 ## Database connection issues
+<a name="database-connection-issues"></a>
 
 **Problem:** Cannot connect AWS Transform to SQL Server
 
 Solutions:
-
-- Verify network connectivity between AWS Transform and SQL Server
-- Check security group rules for proper port access (1433)
-- Confirm database credentials in Secrets Manager
-- Test database permissions with the created user
-- Ensure SQL Server is configured for mixed mode authentication
-- Verify secret has required tags (Project: atx-db-modernization, Owner: database-connector)
++ Verify network connectivity between AWS Transform and SQL Server
++ Check security group rules for proper port access (1433)
++ Confirm database credentials in Secrets Manager
++ Test database permissions with the created user
++ Ensure SQL Server is configured for mixed mode authentication
++ Verify secret has required tags (Project: atx-db-modernization, Owner: database-connector)
 
 ## Firewall and security group issues
+<a name="firewall-security-group-issues"></a>
 
 **Problem:** Connection timeout or "cannot reach database" errors
 
@@ -63,99 +68,95 @@ Solutions:
 Solutions:
 
 1. Verify Security Group Configuration:
+   + Confirm your SQL Server security group has an inbound rule allowing port 1433 from the DMS Schema Conversion security group
+   + Check that the source is the security group ID (e.g., sg-0123456789abcdef0), not an IP address
+   + Verify the DMS Schema Conversion security group is correctly specified in the Instance Profile
+   + Ensure there are no conflicting deny rules
 
-   - Confirm your SQL Server security group has an inbound rule allowing port 1433 from the DMS Schema Conversion security group
-   - Check that the source is the security group ID (e.g., sg-0123456789abcdef0), not an IP address
-   - Verify the DMS Schema Conversion security group is correctly specified in the Instance Profile
-   - Ensure there are no conflicting deny rules
+1. Check Network ACLs:
+   + Verify subnet-level Network ACLs allow inbound traffic on port 1433
+   + Ensure Network ACLs allow outbound ephemeral ports for return traffic
+   + Check both the database subnet and DMS subnet Network ACLs
 
-2. Check Network ACLs:
+1. Verify VPC Configuration:
+   + Confirm the DMS Schema Conversion instance and SQL Server are in the same VPC or have proper VPC peering
+   + Check route tables allow traffic between subnets
+   + Verify no firewall appliances are blocking traffic
 
-   - Verify subnet-level Network ACLs allow inbound traffic on port 1433
-   - Ensure Network ACLs allow outbound ephemeral ports for return traffic
-   - Check both the database subnet and DMS subnet Network ACLs
-
-3. Verify VPC Configuration:
-
-   - Confirm the DMS Schema Conversion instance and SQL Server are in the same VPC or have proper VPC peering
-   - Check route tables allow traffic between subnets
-   - Verify no firewall appliances are blocking traffic
-
-4. Test Connectivity:
-
-   - Launch a test EC2 instance in the same subnet as DMS Schema Conversion
-   - Attach the same security group as DMS Schema Conversion
-   - Test connection to SQL Server using telnet or SQL Server Management Studio
-   - If test succeeds, the issue is with AWS Transform configuration; if it fails, the issue is network/firewall
+1. Test Connectivity:
+   + Launch a test EC2 instance in the same subnet as DMS Schema Conversion
+   + Attach the same security group as DMS Schema Conversion
+   + Test connection to SQL Server using telnet or SQL Server Management Studio
+   + If test succeeds, the issue is with AWS Transform configuration; if it fails, the issue is network/firewall
 
 **Common Mistake:** Opening port 1433 to 0.0.0.0/0 (all sources) is a security risk. Always use security group-based access control to limit access to only the DMS Schema Conversion security group.
 
 ## Schema conversion issues
+<a name="schema-conversion-issues"></a>
 
 **Problem:** Schema conversion shows many action items
 
 Solutions:
-
-- Review action items in conversion report
-- Prioritize based on impact
-- Use Amazon Q Developer for complex SQL conversions
-- Consult AWS Support for guidance
-- Consider phased approach for complex databases
++ Review action items in conversion report
++ Prioritize based on impact
++ Use Amazon Q Developer for complex SQL conversions
++ Consult AWS Support for guidance
++ Consider phased approach for complex databases
 
 ## Application transformation issues
+<a name="application-transformation-issues"></a>
 
 **Problem:** Application transformation fails to build
 
 Solutions:
-
-- Review build errors in transformation report
-- Configure private NuGet feeds if needed
-- Update package references if required
-- Check for Windows-specific dependencies
-- Review transformation logs for detailed errors
++ Review build errors in transformation report
++ Configure private NuGet feeds if needed
++ Update package references if required
++ Check for Windows-specific dependencies
++ Review transformation logs for detailed errors
 
 ## Data migration issues
+<a name="data-migration-issues"></a>
 
 **Problem:** Data migration validation fails
 
 Solutions:
-
-- Review validation report for specific failures
-- Check data type mappings
-- Verify identity column configuration (GENERATED BY DEFAULT vs GENERATED ALWAYS)
-- Review computed column expressions
-- Contact AWS Support for complex data issues
++ Review validation report for specific failures
++ Check data type mappings
++ Verify identity column configuration (GENERATED BY DEFAULT vs GENERATED ALWAYS)
++ Review computed column expressions
++ Contact AWS Support for complex data issues
 
 ## Resource cleanup issues
+<a name="resource-cleanup-issues"></a>
 
 **Problem:** Transformation job fails with resource errors
 
 Solutions:
-
-- Check for existing DMS resources (migration projects, data providers, instance profiles)
-- Clean up failed or incomplete resources from previous attempts
-- Verify secrets are not scheduled for deletion
-- Check service quotas for DMS and Aurora PostgreSQL
-- Contact AWS Support if cleanup doesn't resolve the issue
++ Check for existing DMS resources (migration projects, data providers, instance profiles)
++ Clean up failed or incomplete resources from previous attempts
++ Verify secrets are not scheduled for deletion
++ Check service quotas for DMS and Aurora PostgreSQL
++ Contact AWS Support if cleanup doesn't resolve the issue
 
 ## Deployment issues
+<a name="deployment-issues"></a>
 
 **Problem:** Transformed application cannot connect to Aurora PostgreSQL
 
 Solutions:
-
-- Verify connection string format for PostgreSQL
-- Check security group rules
-- Verify database credentials in Secrets Manager
-- Ensure SSL/TLS is properly configured
-- Test connection using psql or pgAdmin
++ Verify connection string format for PostgreSQL
++ Check security group rules
++ Verify database credentials in Secrets Manager
++ Ensure SSL/TLS is properly configured
++ Test connection using psql or pgAdmin
 
 ## Getting additional help
+<a name="getting-additional-help"></a>
 
 When contacting AWS Support, please provide:
-
-- Transformation job ID
-- AWS account ID
-- Region
-- Error messages and screenshots
-- Transformation logs (available in AWS Transform console)
++ Transformation job ID
++ AWS account ID
++ Region
++ Error messages and screenshots
++ Transformation logs (available in AWS Transform console)

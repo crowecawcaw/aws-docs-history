@@ -1,10 +1,15 @@
+
+
 # Workflows
+<a name="custom-workflows"></a>
 
 ## Executing Transformations
+<a name="custom-executing-transformations"></a>
 
 This section describes the different ways to execute transformations and options for controlling execution behavior.
 
 ### Execution Modes
+<a name="custom-execution-modes"></a>
 
 AWS Transform custom supports three execution modes to accommodate different workflows.
 
@@ -23,16 +28,19 @@ This is ideal for testing and refining transformations before running them auton
 You can run transformations in non-interactive mode or headless mode. Non-interactive mode suppresses prompts during a named transformation. Headless mode lets you run the agent with a plain-text prompt, bypassing the interactive interface entirely.
 
 #### Non-interactive mode
+<a name="non-interactive-mode"></a>
 
 Use `atx custom def exec -n <transformation-name> -p <path> -x -t` for full automation. Add `-x` to run in non-interactive mode, and `-t` to trust all tools automatically without prompting.
 
 This mode is designed for CI/CD pipeline integration and bulk execution where no human intervention is available or desired.
 
 #### Headless mode
+<a name="headless-mode"></a>
 
 To complete tasks without interacting with the agent, run `atx -x "<prompt>" -t` and provide your instruction in plain text.
 
 ##### Headless transformation execution
+<a name="headless-transformation-execution"></a>
 
 Use this mode to apply an existing transformation definition to your codebase. The transformation runs each step automatically without requiring your approval.
 
@@ -41,10 +49,11 @@ atx -x "apply transformation definition <transformation_definition_name> to <cod
 ```
 
 ##### Headless transformation development
+<a name="headless-transformation-development"></a>
 
 Create or modify transformation definitions.
 
-To convert a legacy transformation definition to the new skill format (SKILL.md + references/), run the following command:
+To convert a legacy transformation definition to the new skill format (SKILL.md \+ references/), run the following command:
 
 ```
 atx -x "convert <legacy_transformation_definition_name> transformation definition to skill and save as draft" -t
@@ -57,23 +66,23 @@ atx -x "create a transformation definition to <description> with references docs
 ```
 
 ### Common Command Flags
+<a name="custom-common-command-flags"></a>
 
 When executing transformations with `atx custom def exec`, the following flags are commonly used:
++ `-n` or `--transformation-name` - Specifies the name of the transformation to execute
++ `-p` or `--code-repository-path` - Specifies the path to your codebase (use "." for current directory)
++ `-c` or `--build-command` - Specifies the build or validation command to run
++ `-x` or `--non-interactive` - Enables non-interactive mode (no user prompts)
++ `-t` or `--trust-all-tools` - Automatically trusts all tools without prompting
++ `-d` or `--do-not-learn` - Prevents lesson extraction from this execution
++ `--tv` or `--transformation-version` - Specifies a specific version of the transformation
++ `-g` or `--configuration` - Provides a configuration file or inline configuration
 
-- `-n` or `--transformation-name` - Specifies the name of the transformation to execute
-- `-p` or `--code-repository-path` - Specifies the path to your codebase (use "." for current directory)
-- `-c` or `--build-command` - Specifies the build or validation command to run
-- `-x` or `--non-interactive` - Enables non-interactive mode (no user prompts)
-- `-t` or `--trust-all-tools` - Automatically trusts all tools without prompting
-- `-d` or `--do-not-learn` - Prevents lesson extraction from this execution
-- `--tv` or `--transformation-version` - Specifies a specific version of the transformation
-- `-g` or `--configuration` - Provides a configuration file or inline configuration
-
-###### Important
-
+**Important**  
 The `-t` or `--trust-all-tools` flag automatically approves all tool executions without prompting and bypasses most security guardrails, (commands matching your `alwaysPromptCommands` list still require explicit permission unless overridden by `trustedShellCommands`). Passing in `--non-interactive` and `--trust-all-tools` is required for a fully autonomous experience but not required to execute the transformation. Use with caution in production environments.
 
 ### Using Configuration Files
+<a name="custom-using-configuration-files"></a>
 
 AWS Transform custom supports optional configuration files in YAML or JSON format. Configuration files allow you to specify execution parameters and provide additional context to the agent.
 
@@ -106,21 +115,22 @@ validationCommands: |
 The `additionalPlanContext` parameter provides extra context for the agent's execution plan. This is especially useful with AWS-managed transformations to customize their behavior for your specific needs.
 
 ### Build and Validation Commands
+<a name="custom-build-validation-commands"></a>
 
 The build or validation command is an optional parameter that specifies how to validate your code during the transformation process. AWS Transform custom will attempt to infer the best build command based on the transformation if not specified, though it is recommended to be specific for quality.
 
 **Examples of build and validation commands:**
-
-- Java: `mvn clean install` or `gradle build`
-- Python: `pytest` or `python -m py_compile`
-- Node.js: `npm run build` or `npm test`
-- Linters: `eslint .` or `pylint .`
++ Java: `mvn clean install` or `gradle build`
++ Python: `pytest` or `python -m py_compile`
++ Node.js: `npm run build` or `npm test`
++ Linters: `eslint .` or `pylint .`
 
 Even for languages or transformations that don't require building, providing a command that validates the results and returns issues if validation fails is very important to improve transformation quality.
 
 If no build or validation is needed, omit from your input.
 
 ### Controlling Learning Behavior
+<a name="custom-controlling-learning-behavior"></a>
 
 By default, AWS Transform custom extracts lessons from every transformation execution. You can prevent learning for specific executions.
 
@@ -133,6 +143,7 @@ atx custom def exec -n my-transformation -p ./my-project -d
 The `-d` or `--do-not-learn` flag opts out of allowing lesson extraction from the current execution.
 
 ### Resuming Conversations
+<a name="custom-resuming-conversations"></a>
 
 AWS Transform custom allows you to resume previous conversations within 30 days of creation.
 
@@ -148,19 +159,19 @@ atx --resume
 atx --conversation-id <conversation-id>
 ```
 
-###### Important
-
+**Important**  
 Conversations can only be resumed within 30 days of creation. After 30 days, the conversation can no longer be resumed.
 
 ### Tracking Agent Minutes
+<a name="custom-tracking-agent-minutes"></a>
 
-AWS Transform custom tracks the [agent minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") consumed during a transformation session. Agent minutes accumulate throughout the conversation lifecycle and are displayed when the conversation ends:
+AWS Transform custom tracks the [agent minutes](https://aws.amazon.com/transform/pricing/) consumed during a transformation session. Agent minutes accumulate throughout the conversation lifecycle and are displayed when the conversation ends:
 
 ```
 Agent minutes used: 12.50
 ```
 
-Agent minutes persist across interruptions. If you interrupt a session with Ctrl+C and resume it later, the previously accumulated minutes carry over and continue accumulating in the resumed session.
+Agent minutes persist across interruptions. If you interrupt a session with Ctrl\+C and resume it later, the previously accumulated minutes carry over and continue accumulating in the resumed session.
 
 **To check Agent Minutes during an interactive session:**
 
@@ -172,7 +183,7 @@ Type `/usage` at the input prompt to display the current accumulated Agent Minut
 atx custom def exec -n my-transformation -p ./my-project --limit 30
 ```
 
-The `--limit` option sets a maximum [Agent Minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") budget for the session. Agent Minutes reflect active agent work time, not wall clock time. When the limit is reached, the CLI displays a message and exits with instructions to resume:
+The `--limit` option sets a maximum [Agent Minutes](https://aws.amazon.com/transform/pricing/) budget for the session. Agent Minutes reflect active agent work time, not wall clock time. When the limit is reached, the CLI displays a message and exits with instructions to resume:
 
 ```
 ⚠️ Budget limit reached: 30.00 / 30.00 Agent Minutes. Exiting.
@@ -185,19 +196,21 @@ atx --conversation-id <conversation_id> -t --limit <increased_limit>
 ```
 
 ## Continual Learning
+<a name="custom-continual-learning"></a>
 
 This section describes how to review and manage the lessons created by continual learning.
 
 ### Understanding Lessons
+<a name="custom-understanding-knowledge-items"></a>
 
 The continual learning system automatically extracts lessons from previous runs of a transformation. The system creates them asynchronously based on:
-
-- Developer feedback provided in interactive mode
-- Code issues encountered during transformations
++ Developer feedback provided in interactive mode
++ Code issues encountered during transformations
 
 Lessons accumulate over time as you run the transformation across different codebases. The system applies them automatically to improve future runs. Each lesson belongs to a category containing all lessons of a similar domain so that you can review related lessons together. For lessons you would not like used, you can archive or delete the lesson entirely.
 
 ### Viewing and Managing Lessons
+<a name="custom-listing-knowledge-items"></a>
 
 Use the `learnings` command to open an interactive session for browsing and managing the lessons of a transformation definition.
 
@@ -210,42 +223,49 @@ atx custom def learnings -n my-transformation
 The viewer opens on a list of lesson categories, each showing how many active lessons it contains. Select a category to see its lessons, then select a lesson to view its full detail, including the lesson body, its impact, and how many previous runs consulted it.
 
 ### Archiving and Restoring Lessons
+<a name="custom-viewing-knowledge-item-details"></a>
 
 The system applies lessons automatically. If you do not want the system to apply a lesson, you can archive it. The system retains archived lessons but does not apply them to future runs. All archived lessons are grouped together so you can review them and restore any to active use.
 
 ### Deleting Lessons
+<a name="custom-deleting-knowledge-items"></a>
 
 Permanently remove a lesson that is not useful. Deletion cannot be undone, and the system might relearn a deleted lesson from future runs.
 
 A lesson must be archived before it can be deleted.
 
 ## Advanced Configuration
+<a name="custom-advanced-configuration"></a>
 
 This section describes advanced features and configuration options for AWS Transform custom.
 
 ### Environment Variables
+<a name="custom-environment-variables-config"></a>
 
 You can customize CLI behavior using environment variables.
 
-###### Note
-
-The following examples show Linux and macOS syntax (`export`). On Windows, set environment variables in PowerShell using `$env:`NAME`="`value`"`. See the **Windows (PowerShell)** tabs for the equivalent commands.
+**Note**  
+The following examples show Linux and macOS syntax (`export`). On Windows, set environment variables in PowerShell using `$env:{{NAME}}="{{value}}"`. See the **Windows (PowerShell)** tabs for the equivalent commands.
 
 **ATX\_SHELL\_TIMEOUT**
 
 Override the default timeout for shell commands (900 seconds/15 minutes).
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 export ATX_SHELL_TIMEOUT=1800  # 30 minutes
 ```
 
-Windows (PowerShell)
+------
+#### [ Windows (PowerShell) ]
 
 ```
 $env:ATX_SHELL_TIMEOUT=1800  # 30 minutes
 ```
+
+------
 
 This is useful for large codebases or long-running build processes.
 
@@ -253,92 +273,93 @@ This is useful for large codebases or long-running build processes.
 
 Disable automatic version checks and update notifications during command execution.
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 export ATX_DISABLE_UPDATE_CHECK=true
 ```
 
-Windows (PowerShell)
+------
+#### [ Windows (PowerShell) ]
 
 ```
 $env:ATX_DISABLE_UPDATE_CHECK="true"
 ```
 
+------
+
 **ATX\_GIT\_COMMITTER\_NAME and ATX\_GIT\_COMMITTER\_EMAIL**
 
 Configure the author identity used for the checkpoint commits that AWS Transform custom creates in your repository as it applies changes during a transformation. When these variables are not set, checkpoint commits are attributed to a default identity (`ATX Bot <checkpoint@atx.bot>`). Set both variables to attribute checkpoints to a specific author.
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 export ATX_GIT_COMMITTER_NAME="Jane Developer"
 export ATX_GIT_COMMITTER_EMAIL="jane@example.com"
 ```
 
-Windows (PowerShell)
+------
+#### [ Windows (PowerShell) ]
 
 ```
 $env:ATX_GIT_COMMITTER_NAME="Jane Developer"
 $env:ATX_GIT_COMMITTER_EMAIL="jane@example.com"
 ```
 
+------
+
 ### Trust Settings
+<a name="custom-trust-settings"></a>
 
 Trust settings allow you to pre-approve specific tools and commands to execute without prompts. You can also require explicit permission for specific shell commands regardless of trust level. These settings are configured in the `~/.aws/atx/trust-settings.yaml` file.
 
 The file contains three lists:
-
-- `trustedTools` - Tools that can execute without prompting
-- `trustedShellCommands` - Shell commands that can execute without prompting
-- `alwaysPromptCommands` - Shell command patterns that require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`).
++ `trustedTools` - Tools that can execute without prompting
++ `trustedShellCommands` - Shell commands that can execute without prompting
++ `alwaysPromptCommands` - Shell command patterns that require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`).
 
 **Default trusted tools:**
-
-- `file_read`
-- `get_transformation_from_registry`
-- `list_available_transformations_from_registry`
++ `file_read`
++ `get_transformation_from_registry`
++ `list_available_transformations_from_registry`
 
 **Editing trust settings:**
 
 You can manually edit the trust-settings.yaml file to add or remove trusted tools and commands. Both `trustedShellCommands` and `alwaysPromptCommands` support glob wildcard patterns using `*`.
 
-###### Note
-
+**Note**  
 If a command matches both lists, `trustedShellCommands` takes priority.
 
 The following describes each command list and provides examples:
++ `trustedShellCommands` - Commands matching these patterns execute without prompting, bypassing all other guardrails. Patterns are matched against the full command string.
 
-- `trustedShellCommands` - Commands matching these patterns execute without prompting, bypassing all other guardrails. Patterns are matched against the full command string.
+  Examples:
+  + `cd *` - Matches compound commands starting with cd
+  + `*&&*` - Trusts all commands with && operators
++ `alwaysPromptCommands` - Commands matching these patterns require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`). Patterns are matched against each sub-command in compound expressions (`&&`, `||`, command substitutions).
 
-Examples:
-
-    + `cd *` - Matches compound commands starting with cd
-    + `*&&*` - Trusts all commands with && operators
-
-- `alwaysPromptCommands` - Commands matching these patterns require explicit permission unless overridden by `trustedShellCommands`, regardless of the `-t` flag or session trust. These patterns are not enforced in non-interactive mode (`-x`). Patterns are matched against each sub-command in compound expressions (`&&`, `||`, command substitutions).
-
-Examples:
-
-    + `rm -rf *` - Always prompts for recursive force-delete commands
-    + `sudo *` - Always prompts for commands run with sudo
-    + `find * -exec *` - Always prompts for find commands with -exec
+  Examples:
+  + `rm -rf *` - Always prompts for recursive force-delete commands
+  + `sudo *` - Always prompts for commands run with sudo
+  + `find * -exec *` - Always prompts for find commands with -exec
 
 **Session-level trust:**
 
 During interactive prompts, you can choose:
-
-- `(y)es` - Execute once
-- `(n)o` - Deny
-- `(t)rust` - Trust for the current session only
++ `(y)es` - Execute once
++ `(n)o` - Deny
++ `(t)rust` - Trust for the current session only
 
 Session-level trust settings are temporary and reset when the CLI restarts, providing temporary approval without permanently modifying trust-settings.yaml.
 
-###### Note
-
+**Note**  
 Session trust is not available for commands matching your `alwaysPromptCommands` list.
 
 ### Model Context Protocol (MCP) Servers
+<a name="custom-mcp-servers"></a>
 
 The AWS Transform CLI supports Model Context Protocol (MCP) servers, which extend its functionality with additional tools.
 
@@ -383,15 +404,13 @@ The `headers` property is optional and supports environment variable expansion u
 **Configuration properties:**
 
 Local command-based servers support the following properties:
-
-- `command` (required) - The command to run the server
-- `args` (optional) - Array of command-line arguments
-- `env` (optional) - Environment variables to pass to the server process
++ `command` (required) - The command to run the server
++ `args` (optional) - Array of command-line arguments
++ `env` (optional) - Environment variables to pass to the server process
 
 Remote HTTP servers support the following properties:
-
-- `url` (required) - The HTTP or HTTPS URL of the remote MCP server
-- `headers` (optional) - HTTP headers to include in requests, with support for `${VAR_NAME}` environment variable expansion
++ `url` (required) - The HTTP or HTTPS URL of the remote MCP server
++ `headers` (optional) - HTTP headers to include in requests, with support for `${VAR_NAME}` environment variable expansion
 
 **Managing MCP servers:**
 
@@ -401,7 +420,7 @@ View list of configured MCP servers:
 atx mcp tools
 ```
 
-List available tools offered by a specific MCP server:
+ List available tools offered by a specific MCP server: 
 
 ```
 atx mcp tools --server <server-name>
@@ -410,13 +429,13 @@ atx mcp tools --server <server-name>
 **Usage tracking:**
 
 The CLI automatically tracks MCP tool usage during transformation executions. Usage statistics are persisted as `mcp_usage.json` in the conversation directory alongside `metadata.json`. The file records per-tool metrics for each execution, including:
-
-- Number of invocations per tool
-- Number of errors per tool
-- Total execution time per tool
-- Last error details (if any)
++ Number of invocations per tool
++ Number of errors per tool
++ Total execution time per tool
++ Last error details (if any)
 
 ### Client-Side Skills
+<a name="custom-client-side-skills"></a>
 
 Client-side skills are additional capabilities that extend the agent during transformation executions. They allow you to provide custom tools, scripts, and instructions that the agent can use alongside its built-in capabilities.
 
@@ -425,9 +444,12 @@ Client-side skills are additional capabilities that extend the agent during tran
 Skills are discovered from four directories in precedence order. If a skill with the same name exists in multiple directories, the first directory in the list takes priority:
 
 1. `<project>/.aws/atx/skills/` - Project-level, AWS Transform CLI-specific
-2. `<project>/.agents/skills/` - Project-level, cross-client (available to any compatible agent tooling)
-3. `~/.aws/atx/skills/` - User-level, AWS Transform CLI-specific
-4. `~/.agents/skills/` - User-level, cross-client (available to any compatible agent tooling)
+
+1. `<project>/.agents/skills/` - Project-level, cross-client (available to any compatible agent tooling)
+
+1. `~/.aws/atx/skills/` - User-level, AWS Transform CLI-specific
+
+1. `~/.agents/skills/` - User-level, cross-client (available to any compatible agent tooling)
 
 The `.aws/atx/skills/` directories are specific to the AWS Transform CLI. The `.agents/skills/` directories are cross-client, meaning skills placed there are available to any compatible agent tooling beyond the AWS Transform CLI.
 
@@ -473,71 +495,72 @@ disable-model-invocation: true
 
 When this property is set, the CLI skips the skill during discovery. The agent cannot see or use the skill unless a transformation definition explicitly instructs it to read the skill file. Use this to temporarily disable a skill, mark it as work-in-progress, or keep reference material intended for human readers only.
 
-###### Note
-
+**Note**  
 A disabled skill's files remain on disk. If a transformation definition instructs the agent to read a specific file path, the agent can still access the content. The `disable-model-invocation` property prevents automatic discovery and context injection, not file-system access.
 
 **Skill availability by execution mode:**
-
-- **Exec mode** (`atx custom def exec` with `--code-repository-path`) - Discovers skills from both user-level and project-level directories.
-- **Interactive mode** (`atx`) - Only user-level skills are discovered initially. When you provide a code repository path during the session, project-level skills are also loaded.
++ **Exec mode** (`atx custom def exec` with `--code-repository-path`) - Discovers skills from both user-level and project-level directories.
++ **Interactive mode** (`atx`) - Only user-level skills are discovered initially. When you provide a code repository path during the session, project-level skills are also loaded.
 
 **Verifying skill discovery:**
 
 Check the CLI's debug log after a run to verify which skills were discovered:
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 grep -i "skill" ~/.aws/atx/logs/debug.log | tail -20
 ```
 
-Windows (PowerShell)
+------
+#### [ Windows (PowerShell) ]
 
 ```
 Select-String -Pattern "skill" "$env:USERPROFILE\.aws\atx\logs\debug.log" | Select-Object -Last 20
 ```
 
+------
+
 Skills that fail validation are skipped with a warning in the debug logs.
 
-###### Note
-
+**Note**  
 Client-side skills require CLI version 2.0 or later.
 
 #### Choosing Between Project-Level and User-Level Skills
+<a name="custom-client-side-skills-choosing-level"></a>
 
 Where you place a skill determines who benefits from it and when it activates.
 
 **Project-level skills** (`<project>/.aws/atx/skills/`):
 
 Commit these to version control so every team member running transformations against the repository automatically discovers them. Use project-level skills for:
-
-- Repository-specific compliance checks (Dockerfile rules, Terraform policies, migration safety validators)
-- Organization coding standards that apply to this codebase (observability patterns, error handling, naming conventions)
-- Build or test scripts unique to the project (custom linters, architecture fitness functions)
-- API migration guides for internal libraries used in this repository
++ Repository-specific compliance checks (Dockerfile rules, Terraform policies, migration safety validators)
++ Organization coding standards that apply to this codebase (observability patterns, error handling, naming conventions)
++ Build or test scripts unique to the project (custom linters, architecture fitness functions)
++ API migration guides for internal libraries used in this repository
 
 **User-level skills** (`~/.aws/atx/skills/`):
 
 These remain on your machine and activate during all transformations regardless of which repository you target. Use user-level skills for:
-
-- Personal workflow tools (changelog generators, commit message formatters)
-- Cross-project preferences (preferred test patterns, documentation style reminders)
-- License compliance checks that your organization requires across all repositories
-- Coverage thresholds or quality gates you enforce on every codebase you work with
++ Personal workflow tools (changelog generators, commit message formatters)
++ Cross-project preferences (preferred test patterns, documentation style reminders)
++ License compliance checks that your organization requires across all repositories
++ Coverage thresholds or quality gates you enforce on every codebase you work with
 
 **Tips for effective skills:**
-
-- Write clear `description` fields in your `SKILL.md` frontmatter. The agent uses this field to decide when a skill is relevant.
-- Exit validation scripts with code 0 on success and non-zero on failure. The agent interprets exit codes to determine compliance.
-- Print clear, actionable error messages in scripts. The agent reads output to understand what to fix.
-- Place skills in the cross-client directory (`.agents/skills/`) at either level to share them with other AI development tools beyond the AWS Transform CLI.
++ Write clear `description` fields in your `SKILL.md` frontmatter. The agent uses this field to decide when a skill is relevant.
++ Exit validation scripts with code 0 on success and non-zero on failure. The agent interprets exit codes to determine compliance.
++ Print clear, actionable error messages in scripts. The agent reads output to understand what to fix.
++ Place skills in the cross-client directory (`.agents/skills/`) at either level to share them with other AI development tools beyond the AWS Transform CLI.
 
 #### Client-Side Skill Examples
+<a name="custom-client-side-skills-examples"></a>
 
 These examples show two common patterns: a script-based validation skill and a reference-only skill.
 
 ##### Example: Dockerfile Compliance Checker (Script-Based)
+<a name="custom-skill-example-dockerfile"></a>
 
 This skill validates Dockerfiles against security and operational best practices. It uses a validation script that the agent runs before and after making changes.
 
@@ -581,6 +604,7 @@ for compliant patterns.
 The validation script checks for unpinned base image tags, running as root, hardcoded secrets in `ENV` directives, and missing `HEALTHCHECK` definitions. The agent runs the script, fixes violations using patterns from the reference file, and re-runs the script to confirm compliance.
 
 ##### Example: API Deprecation Helper (Reference-Only)
+<a name="custom-skill-example-api-deprecation"></a>
 
 This skill guides the agent through replacing deprecated API calls during upgrade transformations. It uses only reference files with no scripts.
 
@@ -624,11 +648,11 @@ deprecated API calls with their modern equivalents.
 The reference files contain before-and-after code examples. For instance, `aws-sdk-v2-to-v3.md` maps patterns like `s3.putObject(params).promise()` to the modular v3 equivalent using `S3Client` and `PutObjectCommand`.
 
 ### Tags and Organization
+<a name="custom-tags-organization"></a>
 
 You can organize transformations with tags for access control and categorization.
 
-###### Note
-
+**Note**  
 Some of these commands require specifying the Amazon Resource Name (ARN) for a Transformation Definition. The ARN structure is: `arn:aws:transform-custom:<region>:<account-id>:package/<td-name>`
 
 **To list tags for a transformation:**
@@ -652,66 +676,77 @@ atx custom def untag --arn <transformation-arn> --tag-keys "env,team"
 Tags can be used for grouped access control in IAM policies. You can create policies that grant permissions to all transformations with specific tags (e.g., all transformations tagged with `team:frontend` or `environment:production`).
 
 ### Logs
+<a name="custom-logs-config"></a>
 
 AWS Transform CLI maintains three types of logs for troubleshooting and debugging.
 
 **Conversation logs:**
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 ~/.aws/atx/custom/<conversation_id>/logs/<timestamp>-conversation.log
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 %USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\<timestamp>-conversation.log
 ```
 
+------
+
 These logs contain the full conversation history for a specific session.
 
 **Subagent logs:**
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 ~/.aws/atx/custom/<conversation_id>/logs/subagents/<name>.log
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 %USERPROFILE%\.aws\atx\custom\<conversation_id>\logs\subagents\<name>.log
 ```
 
+------
+
 These logs contain output from subagents that the main agent spawns during transformations. You do not need to manage subagents directly.
 
 **Developer debug logs:**
 
-Linux and macOS
+------
+#### [ Linux and macOS ]
 
 ```
 ~/.aws/atx/logs/debug*.log
 ~/.aws/atx/logs/error.log
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 %USERPROFILE%\.aws\atx\logs\debug*.log
 %USERPROFILE%\.aws\atx\logs\error.log
 ```
 
+------
+
 These logs provide advanced troubleshooting information for the CLI itself.
 
-###### Note
-
-There may be multiple debug log
-files in the logs directory (i.e. debug1.log, debug2.log).
-Review and provide all relevant logs for example, ~/.aws/atx/custom/<conversation-id>/\* and ~/.aws/atx/logs/\*, when opening support tickets for faster resolution.
+**Note**  
+There may be multiple debug log files in the logs directory (i.e. debug1.log, debug2.log). Review and provide all relevant logs for example, \~/.aws/atx/custom/<conversation-id>/\* and \~/.aws/atx/logs/\*, when opening support tickets for faster resolution.
 
 ### CLI Updates
+<a name="custom-cli-updates"></a>
 
 Keep your CLI up to date to access new features and improvements.
 
@@ -734,10 +769,12 @@ atx update --target-version <version>
 ```
 
 ## Create Custom Transformations
+<a name="custom-create-custom-transformations"></a>
 
 This section describes how to create, modify, and manage custom transformation definitions.
 
 ### Creating a New Transformation
+<a name="custom-creating-new-transformation"></a>
 
 Use the interactive CLI to create a new transformation definition.
 
@@ -745,42 +782,45 @@ Use the interactive CLI to create a new transformation definition.
 
 1. Start the AWS Transform CLI:
 
-```
-atx
-```
+   ```
+   atx
+   ```
 
-2. Tell the agent you want to create a new transformation.
-3. Provide a clear, detailed description of the transformation objective. Include:
+1. Tell the agent you want to create a new transformation.
 
-   - The source and target state (e.g., "upgrade from version X to version Y")
-   - Specific changes required (e.g., "update import statements, replace deprecated methods")
-   - Any special considerations or constraints
+1. Provide a clear, detailed description of the transformation objective. Include:
+   + The source and target state (e.g., "upgrade from version X to version Y")
+   + Specific changes required (e.g., "update import statements, replace deprecated methods")
+   + Any special considerations or constraints
 
-4. When the agent requests clarification or additional information, provide specific examples and reference materials.
-5. Review the initial transformation definition created by the agent.
-6. Test the transformation on a sample codebase.
-7. Iterate by providing feedback, code fixes, or additional examples.
-8. Save the transformation locally or publish it to the registry.
+1. When the agent requests clarification or additional information, provide specific examples and reference materials.
+
+1. Review the initial transformation definition created by the agent.
+
+1. Test the transformation on a sample codebase.
+
+1. Iterate by providing feedback, code fixes, or additional examples.
+
+1. Save the transformation locally or publish it to the registry.
 
 **Best practices for creating transformations:**
-
-- Start with simple, well-defined transformations before attempting complex ones
-- Provide comprehensive reference materials including migration guides and code samples
-- Test on multiple sample codebases before publishing
-- Use deterministic build or validation commands to enable continual learning
-- Consider breaking complex transformations into multiple smaller steps
-- Mark crucial information with "CRITICAL:" or "IMPORTANT:" in your transformation definitions to ensure the agent prioritizes these requirements
-- When you need exact requirements followed (like using a specific command or string value), explicitly specify the complete string in your transformation definitions. You can wrap these in bash quotes to clearly indicate they're terminal commands or literal strings, which reduces variability and ensures consistent execution
++ Start with simple, well-defined transformations before attempting complex ones
++ Provide comprehensive reference materials including migration guides and code samples
++ Test on multiple sample codebases before publishing
++ Use deterministic build or validation commands to enable continual learning
++ Consider breaking complex transformations into multiple smaller steps
++ Mark crucial information with "CRITICAL:" or "IMPORTANT:" in your transformation definitions to ensure the agent prioritizes these requirements
++ When you need exact requirements followed (like using a specific command or string value), explicitly specify the complete string in your transformation definitions. You can wrap these in bash quotes to clearly indicate they're terminal commands or literal strings, which reduces variability and ensures consistent execution
 
 ### Providing Reference Materials
+<a name="custom-providing-reference-materials"></a>
 
 You can provide reference files to AWS Transform custom by specifying file paths during the conversation. These files are stored in the `references/` folder of the transformation definition.
 
 Recommended types of reference files:
-
-- Before/after example code
-- Documentation for APIs, libraries, or features involved
-- Human-readable migration guides
++ Before/after example code
++ Documentation for APIs, libraries, or features involved
++ Human-readable migration guides
 
 **To provide a reference file:**
 
@@ -794,16 +834,11 @@ You can also provide a directory containing multiple reference files:
 Take a look at the docs we have here: /path/to/docs/
 ```
 
-###### Note
-
-Only text-based files (.md, .html, .txt, code files) are supported. Binary files, images, and
-rich text files (e.g., .pdf, .png, .docx) are not currently supported. It is
-often possible to extract the text content and use that as reference. If you
-have many small text files, consider concatenating them into few
-descriptively-named files. There is a limit of 10MB total for all
-files.
+**Note**  
+Only text-based files (.md, .html, .txt, code files) are supported. Binary files, images, and rich text files (e.g., .pdf, .png, .docx) are not currently supported. It is often possible to extract the text content and use that as reference. If you have many small text files, consider concatenating them into few descriptively-named files. There is a limit of 10MB total for all files.
 
 ### Modifying an Existing Transformation
+<a name="custom-modifying-existing-transformation"></a>
 
 You can modify custom transformations both before and after saving them as drafts or publishing them. You cannot modify AWS-managed transformations. If you need to customize them, you can provide additional context using the config file.
 
@@ -811,22 +846,26 @@ You can modify custom transformations both before and after saving them as draft
 
 1. Start the AWS Transform CLI:
 
-```
-atx
-```
+   ```
+   atx
+   ```
 
-2. Tell the agent you want to modify an existing transformation.
-3. Choose whether to:
+1. Tell the agent you want to modify an existing transformation.
 
-   - Provide a file path to a locally stored transformation (i.e. not a saved draft or published)
-   - Request the list of transformations from the registry
+1. Choose whether to:
+   + Provide a file path to a locally stored transformation (i.e. not a saved draft or published)
+   + Request the list of transformations from the registry
 
-4. If choosing from the registry, select the transformation you want to modify.
-5. Work with the agent to describe the changes you want to make.
-6. Test the updated transformation on a sample codebase.
-7. Publish your updates to the registry if desired.
+1. If choosing from the registry, select the transformation you want to modify.
+
+1. Work with the agent to describe the changes you want to make.
+
+1. Test the updated transformation on a sample codebase.
+
+1. Publish your updates to the registry if desired.
 
 ### Publishing and Managing Transformations
+<a name="custom-publishing-managing-transformations"></a>
 
 You can publish and manage your transformations using the interactive experience or with the following commands.
 
@@ -862,11 +901,11 @@ This downloads the transformation definition to your current working directory. 
 atx custom def delete -n my-transformation
 ```
 
-###### Important
-
+**Important**  
 This permanently deletes the specified transformation definition from your account.
 
 ### Managing Transformation Versions
+<a name="custom-managing-transformation-versions"></a>
 
 AWS Transform custom maintains versions of your transformation definitions. You can specify a version when executing or downloading a transformation.
 

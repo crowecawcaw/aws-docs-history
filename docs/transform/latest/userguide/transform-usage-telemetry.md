@@ -1,4 +1,7 @@
+
+
 # Usage Telemetry
+<a name="transform-usage-telemetry"></a>
 
 The AWS Transform IDE plugin, AWS Transform Agent Skill, and AWS Transform Kiro Power collect usage telemetry by default during transformation execution. The telemetry consists of different data points, such as, the IDE name (for example, VS Code or Kiro), the AI agent name (for example, Claude Code or OpenAI Codex), and the execution mode (local or remote). This data is used by AWS Transform to prioritize compatibility testing, as well as latency and reliability.
 

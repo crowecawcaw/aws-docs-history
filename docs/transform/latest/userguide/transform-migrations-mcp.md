@@ -1,42 +1,24 @@
+
+
 # Run migrations with the AWS Transform MCP server
+<a name="transform-migrations-mcp"></a>
 
-The AWS Transform Model Context Protocol (MCP) server lets you plan and run migrations
-from any MCP-compatible client, such as Kiro, Claude Code, Cursor, or Cline, without
-leaving your development environment. MCP is a standardized interface that gives the AI
-assistant in your client real-time, contextual access to your AWS Transform workspaces and
-jobs. With it, you can create workspaces, launch migration jobs, respond to
-human-in-the-loop tasks, and download artifacts through natural language.
+The AWS Transform Model Context Protocol (MCP) server lets you plan and run migrations from any MCP-compatible client, such as Kiro, Claude Code, Cursor, or Cline, without leaving your development environment. MCP is a standardized interface that gives the AI assistant in your client real-time, contextual access to your AWS Transform workspaces and jobs. With it, you can create workspaces, launch migration jobs, respond to human-in-the-loop tasks, and download artifacts through natural language.
 
-The MCP server exposes the full migration lifecycle: discovery of your source
-environment, migration planning, connecting target AWS accounts, network migration,
-landing zone setup, and server rehost. It runs as a local process launched by your MCP
-client and communicates with AWS Transform over outbound HTTPS. The MCP client is the
-process that runs the server, such as Kiro or Claude Code. The AI assistant is the model
-experience in that client that you send prompts to. For a general introduction to
-AWS Transform developer tools, including the Kiro Power, agent plugins, and IDE plugin, see
-[Developer tools](developer-tools.md "developer-tools.md").
+The MCP server exposes the full migration lifecycle: discovery of your source environment, migration planning, connecting target AWS accounts, network migration, landing zone setup, and server rehost. It runs as a local process launched by your MCP client and communicates with AWS Transform over outbound HTTPS. The MCP client is the process that runs the server, such as Kiro or Claude Code. The AI assistant is the model experience in that client that you send prompts to. For a general introduction to AWS Transform developer tools, including the Kiro Power, agent plugins, and IDE plugin, see [Developer tools](developer-tools.md).
 
-###### Installing the MCP server
-
-The Kiro Power and agent plugins install the MCP server automatically. Install the
-MCP server manually only if you want to use it without a Kiro Power or agent
-plugin.
+**Installing the MCP server**  
+The Kiro Power and agent plugins install the MCP server automatically. Install the MCP server manually only if you want to use it without a Kiro Power or agent plugin.
 
 ## Setting up the AWS Transform MCP server
+<a name="transform-migrations-mcp-setup"></a>
 
 Before you begin, make sure you have the following:
++ Python 3.10 or later.
++ An AWS Transform account with tenant access. For information about setting up AWS Transform, see [Getting started with AWS Transform](getting-started.md).
++ An MCP-compatible client, such as Kiro, Claude Code, Claude Desktop, Cursor, or Cline.
 
-- Python 3.10 or later.
-- An AWS Transform account with tenant access. For information about setting up
-  AWS Transform, see [Getting started with AWS Transform](getting-started.md "getting-started.md").
-- An MCP-compatible client, such as Kiro, Claude Code, Claude Desktop,
-  Cursor, or Cline.
-
-###### Install the MCP server
-
-You can install the AWS Transform MCP server from PyPI as
-`awslabs.aws-transform-mcp-server`. The following examples run the server
-with `uvx`.
+You can install the AWS Transform MCP server from PyPI as `awslabs.aws-transform-mcp-server`. The following examples run the server with `uvx`.
 
 **Claude Code**
 
@@ -44,11 +26,9 @@ with `uvx`.
 claude mcp add awslabs.aws-transform-mcp-server -- uvx awslabs.aws-transform-mcp-server@latest
 ```
 
-**Kiro, Cursor, VS Code, Cline, and Claude Desktop
-(macOS/Linux)**
+**Kiro, Cursor, VS Code, Cline, and Claude Desktop (macOS/Linux)**
 
-Add the following to your client's MCP configuration file. For Kiro, use
-`~/.kiro/settings/mcp.json`.
+Add the following to your client's MCP configuration file. For Kiro, use `~/.kiro/settings/mcp.json`.
 
 ```
 {
@@ -87,148 +67,73 @@ Add the following to your client's MCP configuration file. For Kiro, use
 }
 ```
 
-For configuration details for your specific MCP client, see the [aws-transform-mcp-server](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server "https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server") README on GitHub.
+For configuration details for your specific MCP client, see the [aws-transform-mcp-server](https://github.com/awslabs/mcp/tree/main/src/aws-transform-mcp-server) README on GitHub.
 
-###### Configure environment variables
+You can set the following environment variables in the `env` block of your MCP client configuration.
 
-You can set the following environment variables in the `env` block of
-your MCP client configuration.
 
-| Variable                      | Description                                                                                                                                                                                                                                         |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWS_REGION`                  | The AWS Region used for control plane API calls. Defaults to the<br>profile Region, and then to US East (N. Virginia).                                                                                                                              |
-| `AWS_PROFILE`                 | The credential profile used for control plane tools. Falls back<br>through the standard credential chain if not set.                                                                                                                                |
-| `FASTMCP_LOG_LEVEL`           | The log level (`DEBUG`, `INFO`,<br>`WARNING`, or `ERROR`). Defaults to<br>`INFO`.                                                                                                                                                                   |
-| `AWS_TRANSFORM_MCP_WRITE_DIR` | The base directory that artifact downloads are confined to. A<br>download path must resolve within this directory. If your client<br>launches the server outside a shell, set this variable so that<br>artifact downloads have a valid destination. |
+| Variable | Description | 
+| --- | --- | 
+| AWS\_REGION | The AWS Region used for control plane API calls. Defaults to the profile Region, and then to US East (N. Virginia). | 
+| AWS\_PROFILE | The credential profile used for control plane tools. Falls back through the standard credential chain if not set. | 
+| FASTMCP\_LOG\_LEVEL | The log level (DEBUG, INFO, WARNING, or ERROR). Defaults to INFO. | 
+| AWS\_TRANSFORM\_MCP\_WRITE\_DIR | The base directory that artifact downloads are confined to. A download path must resolve within this directory. If your client launches the server outside a shell, set this variable so that artifact downloads have a valid destination. | 
 
-###### Authenticate
+Most MCP tools use web API authentication (browser login). The `accept_connector` tool also requires AWS credentials, which the server detects automatically. AWS Transform supports the following authentication methods.
 
-Most MCP tools use web API authentication (browser login). The
-`accept_connector` tool also requires AWS credentials, which the server
-detects automatically. AWS Transform supports the following authentication
-methods.
+IAM Identity Center (SSO)  
+Ask the AI assistant to "Configure AWS Transform with SSO." The assistant prompts for your IAM Identity Center start URL and opens your browser to log in. The server then saves your credentials locally and loads them automatically when you restart it. Re-run this configuration when tools return authentication errors.
 
-IAM Identity Center (SSO)
+IAM role  
+Your environment provides AWS credentials automatically. Set `AWS_PROFILE` in your MCP client configuration to select a specific profile.
 
-Ask the AI assistant to "Configure AWS Transform with SSO." The assistant
-prompts for your IAM Identity Center start URL and opens your browser to
-log in. The server then saves your credentials locally and loads them
-automatically when you restart it. Re-run this configuration when tools
-return authentication errors.
+For more information about setting up authentication for AWS Transform, see the prerequisites earlier in this topic.
 
-IAM role
-
-Your environment provides AWS credentials automatically. Set
-`AWS_PROFILE` in your MCP client configuration to select a
-specific profile.
-
-For more information about setting up authentication for AWS Transform, see the
-prerequisites earlier in this topic.
-
-###### Verify the connection
-
-After you install and configure the server, restart your MCP client. Then ask the
-AI assistant to "Check my AWS Transform connection status." A successful response
-confirms that the server is installed, configured, and authenticated.
+After you install and configure the server, restart your MCP client. Then ask the AI assistant to "Check my AWS Transform connection status." A successful response confirms that the server is installed, configured, and authenticated.
 
 ## Using AWS Transform for migrations via MCP
+<a name="transform-migrations-mcp-using"></a>
 
-With the MCP server connected, you drive your migration by talking to the AI
-assistant in natural language. The assistant calls AWS Transform MCP tools on your
-behalf to manage workspaces, launch migration jobs, respond to human-in-the-loop
-tasks, and retrieve artifacts. A typical migration follows these stages.
+With the MCP server connected, you drive your migration by talking to the AI assistant in natural language. The assistant calls AWS Transform MCP tools on your behalf to manage workspaces, launch migration jobs, respond to human-in-the-loop tasks, and retrieve artifacts. A typical migration follows these stages.
 
-###### To run a migration through the MCP server
+**To run a migration through the MCP server**
 
-1. **Create or select a workspace.** A workspace
-   is a logical container for one or more migration jobs. The workspace
-   determines the AWS Region where your jobs, discovery data, and AWS Transform
-   recommendations reside. Ask the assistant to create a workspace or list your
-   existing workspaces.
-2. **Create and start a migration job.** Ask the
-   assistant to create a migration job. The assistant discovers the available
-   agents and starts the job. For information about the migration job types and
-   the steps that each includes, see [Job types](vmware-jobs.md#vmware-job-types "vmware-jobs.md#vmware-job-types").
-3. **Run discovery.** Upload your on-premises
-   server inventory so AWS Transform can parse, de-duplicate, and validate it. For
-   the supported discovery data sources and formats, see [Discover source data](transform-vmware-discover-source-data.md "transform-vmware-discover-source-data.md").
-4. **Build the migration plan.** Work with the
-   assistant to scope and analyze your inventory, group servers into
-   applications, generate move groups, and build migration waves. You can ask
-   questions about your environment and iterate on the plan at any time. For
-   more information, see [Build migration plan](transform-vmware-review-groupings-and-waves.md "transform-vmware-review-groupings-and-waves.md").
-5. **Connect your target account.** Create a
-   connector and have an administrator of the target AWS account approve it so
-   AWS Transform can deploy infrastructure, migrate networks, and rehost servers.
-   For more information, see [Connect target AWS accounts and regions](transform-vmware-connect-target-account.md "transform-vmware-connect-target-account.md").
-6. **Migrate the network, build the landing zone, and
-   rehost servers.** Ask the assistant to run the remaining
-   execution steps in your job plan.
-7. **Respond to human-in-the-loop tasks.**
-   AWS Transform pauses at review and approval points. The assistant surfaces the
-   task and its artifact for you to review. After you decide, the assistant
-   submits your response (approve, reject, or send for approval). Always review
-   the task details and the agent artifact before you approve.
-8. **Track status and download artifacts.** Ask
-   the assistant for job status at any time, and have it download artifacts such
-   as reports, diagrams, and workspace summaries to your local
-   environment.
+1. **Create or select a workspace.** A workspace is a logical container for one or more migration jobs. The workspace determines the AWS Region where your jobs, discovery data, and AWS Transform recommendations reside. Ask the assistant to create a workspace or list your existing workspaces.
 
-Because you interact with AWS Transform conversationally, you can move between these
-stages iteratively, ask clarifying questions, and refine your plan without switching
-tools.
+1. **Create and start a migration job.** Ask the assistant to create a migration job. The assistant discovers the available agents and starts the job. For information about the migration job types and the steps that each includes, see [Job types](vmware-jobs.md#vmware-job-types).
+
+1. **Run discovery.** Upload your on-premises server inventory so AWS Transform can parse, de-duplicate, and validate it. For the supported discovery data sources and formats, see [Discover source data](transform-vmware-discover-source-data.md).
+
+1. **Build the migration plan.** Work with the assistant to scope and analyze your inventory, group servers into applications, generate move groups, and build migration waves. You can ask questions about your environment and iterate on the plan at any time. For more information, see [Build migration plan](transform-vmware-review-groupings-and-waves.md).
+
+1. **Connect your target account.** Create a connector and have an administrator of the target AWS account approve it so AWS Transform can deploy infrastructure, migrate networks, and rehost servers. For more information, see [Connect target AWS accounts and regions](transform-vmware-connect-target-account.md).
+
+1. **Migrate the network, build the landing zone, and rehost servers.** Ask the assistant to run the remaining execution steps in your job plan.
+
+1. **Respond to human-in-the-loop tasks.** AWS Transform pauses at review and approval points. The assistant surfaces the task and its artifact for you to review. After you decide, the assistant submits your response (approve, reject, or send for approval). Always review the task details and the agent artifact before you approve.
+
+1. **Track status and download artifacts.** Ask the assistant for job status at any time, and have it download artifacts such as reports, diagrams, and workspace summaries to your local environment.
+
+Because you interact with AWS Transform conversationally, you can move between these stages iteratively, ask clarifying questions, and refine your plan without switching tools.
 
 ## Best practices
+<a name="transform-migrations-mcp-best-practices"></a>
 
-Follow these best practices when you run migrations through the AWS Transform MCP
-server.
-
-- **Review before you approve.** Always inspect
-  the task details and the agent artifact before you approve a human-in-the-loop
-  task. Do not let the assistant auto-submit approvals for migration steps that
-  create or modify AWS resources.
-- **Use least-privilege credentials.**
-  Configure the `AWS_PROFILE` environment variable to point at a
-  profile scoped to only the permissions your migration requires. For
-  multi-account migrations, prefer a Delegated Administrator account over the
-  organization management account. For more information, see [Using a delegated administrator account](transform-vmware-connect-target-account.md#transform-vmware-cta-delegated-admin "transform-vmware-connect-target-account.md#transform-vmware-cta-delegated-admin").
-- **Confine artifact downloads.** Set the
-  `AWS_TRANSFORM_MCP_WRITE_DIR` environment variable to a dedicated
-  directory so that downloaded artifacts land in a known, contained location.
-  This is especially important when a desktop or IDE client launches the server
-  outside a shell.
-- **Keep your session authenticated.** SSO
-  tokens expire. Re-run SSO configuration when tools begin returning
-  authentication errors, and verify your connection with a status check before
-  starting long-running steps.
-- **Set the correct Region.** Set
-  `AWS_REGION` to the AWS Region where your workspace and
-  discovery data reside. If your migration target Region differs from your
-  discovery Region, some data is transferred across AWS Regions. For more
-  information, see [Supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
-- **Upload complete, current discovery data.**
-  The quality of your migration plan depends on the quality of your inventory.
-  Upload the most detailed data available and verify it reflects your current
-  environment before you build waves.
-- **Consider expert mode for large
-  migrations.** When you want to minimize back-and-forth, provide
-  your inputs up front and let the agent apply them automatically. For more
-  information, see [Use expert mode](transform-app-vmware-expert-mode.md "transform-app-vmware-expert-mode.md").
+Follow these best practices when you run migrations through the AWS Transform MCP server.
++ **Review before you approve.** Always inspect the task details and the agent artifact before you approve a human-in-the-loop task. Do not let the assistant auto-submit approvals for migration steps that create or modify AWS resources.
++ **Use least-privilege credentials.** Configure the `AWS_PROFILE` environment variable to point at a profile scoped to only the permissions your migration requires. For multi-account migrations, prefer a Delegated Administrator account over the organization management account. For more information, see [Using a delegated administrator account](transform-vmware-connect-target-account.md#transform-vmware-cta-delegated-admin).
++ **Confine artifact downloads.** Set the `AWS_TRANSFORM_MCP_WRITE_DIR` environment variable to a dedicated directory so that downloaded artifacts land in a known, contained location. This is especially important when a desktop or IDE client launches the server outside a shell.
++ **Keep your session authenticated.** SSO tokens expire. Re-run SSO configuration when tools begin returning authentication errors, and verify your connection with a status check before starting long-running steps.
++ **Set the correct Region.** Set `AWS_REGION` to the AWS Region where your workspace and discovery data reside. If your migration target Region differs from your discovery Region, some data is transferred across AWS Regions. For more information, see [Supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions).
++ **Upload complete, current discovery data.** The quality of your migration plan depends on the quality of your inventory. Upload the most detailed data available and verify it reflects your current environment before you build waves.
++ **Consider expert mode for large migrations.** When you want to minimize back-and-forth, provide your inputs up front and let the agent apply them automatically. For more information, see [Use expert mode](transform-app-vmware-expert-mode.md).
 
 ## Example prompts
+<a name="transform-migrations-mcp-example-prompts"></a>
 
-Running AWS Transform through the MCP server does more than move the web experience
-into your IDE. The AI assistant chains multiple tool calls, reads and writes files
-in your local workspace, and applies conditional logic. As a result, you can express
-multi-step, iterative, and batch workflows that go beyond a single web-application
-interaction. The following examples show sophisticated prompts. Adapt them to your
-environment.
+Running AWS Transform through the MCP server does more than move the web experience into your IDE. The AI assistant chains multiple tool calls, reads and writes files in your local workspace, and applies conditional logic. As a result, you can express multi-step, iterative, and batch workflows that go beyond a single web-application interaction. The following examples show sophisticated prompts. Adapt them to your environment.
 
-###### Verification and monitoring loops
-
-Have the assistant poll a running step, react to what it finds, and pause for you
-only when a decision is required. An autonomous loop like this is driven by the
-assistant, not the web application.
+Have the assistant poll a running step, react to what it finds, and pause for you only when a decision is required. An autonomous loop like this is driven by the assistant, not the web application.
 
 ```
 Start network migration for wave 1, then poll the job status every two
@@ -251,11 +156,7 @@ it validates cleanly, proceed to application grouping using the rules in
 ./planning/grouping-rules.md.
 ```
 
-###### Reports that combine assessment and planning data
-
-Ask the assistant to cross-reference artifacts from different stages and synthesize
-a consolidated report. The assistant can then save it to your local workspace for
-review or version control.
+Ask the assistant to cross-reference artifacts from different stages and synthesize a consolidated report. The assistant can then save it to your local workspace for review or version control.
 
 ```
 Pull my migration strategy (7Rs) recommendations and my current wave plan.
@@ -278,10 +179,7 @@ servers were newly discovered, which changed operating system or strategy, and
 which moved between waves. Write the diff to ./reports/plan-change-log.md.
 ```
 
-###### Per-application diagrams and batch generation
-
-Iterate over the applications or waves in your plan and generate an artifact for
-each, saving them locally in one pass.
+Iterate over the applications or waves in your plan and generate an artifact for each, saving them locally in one pass.
 
 ```
 For each application in my plan, generate an application dependency diagram
@@ -297,10 +195,7 @@ servers plus their cross-wave dependencies, and save each one to
 boundary, since those need sequencing attention.
 ```
 
-###### Local-environment integration
-
-Combine AWS Transform with files and tools in your local development environment,
-something the web application cannot do.
+Combine AWS Transform with files and tools in your local development environment, something the web application cannot do.
 
 ```
 Read the decommissioning list in ./exclusions.csv, remove every matching
@@ -322,10 +217,7 @@ and write a short changelog entry describing what changed since the last
 snapshot.
 ```
 
-###### Conditional and gated automation
-
-Express approval gates and branching so the assistant advances the migration only
-when your conditions are met.
+Express approval gates and branching so the assistant advances the migration only when your conditions are met.
 
 ```
 Walk my end-to-end job through discovery and planning in expert mode using the
