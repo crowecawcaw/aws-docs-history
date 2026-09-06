@@ -1,7 +1,9 @@
-# Test GPU functionality
 
-The following example job definition tests if the GPU workload AMI described in [Use a GPU workload AMI](batch-gpu-ami.md "batch-gpu-ami.md") is configured properly. This example job definition runs the
-TensorFlow deep MNIST classifier [example](https://github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/examples/tutorials/mnist/mnist_deep.py "https://github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/examples/tutorials/mnist/mnist_deep.py") from GitHub.
+
+# Test GPU functionality
+<a name="example-test-gpu"></a>
+
+The following example job definition tests if the GPU workload AMI described in [Use a GPU workload AMI](batch-gpu-ami.md) is configured properly. This example job definition runs the TensorFlow deep MNIST classifier [example](https://github.com/tensorflow/tensorflow/blob/r1.8/tensorflow/examples/tutorials/mnist/mnist_deep.py) from GitHub.
 
 ```
 {
@@ -28,9 +30,8 @@ TensorFlow deep MNIST classifier [example](https://github.com/tensorflow/tensorf
 }
 ```
 
-You can create a file with the preceding JSON text called `tensorflow_mnist_deep.json` and
-then register an AWS Batch job definition with the following command:
+You can create a file with the preceding JSON text called `tensorflow_mnist_deep.json` and then register an AWS Batch job definition with the following command:
 
 ```
-`aws batch register-job-definition --cli-input-json file://tensorflow_mnist_deep.json`
+aws batch register-job-definition --cli-input-json file://tensorflow_mnist_deep.json
 ```

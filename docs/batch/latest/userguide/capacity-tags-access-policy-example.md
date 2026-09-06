@@ -1,10 +1,9 @@
-# Example: Allow capacity tags for specific keys and values
 
-The following identity-based policy, which you attach to an IAM user or role, allows a
-principal to create and update compute environments and to set capacity tags, but only when the
-`CostCenter` tag value is `engineering` or `ops` and no tag keys
-other than `CostCenter` and `Team` are used. Requests that include any
-other tag key or a different `CostCenter` value are denied.
+
+# Example: Allow capacity tags for specific keys and values
+<a name="capacity-tags-access-policy-example"></a>
+
+The following identity-based policy, which you attach to an IAM user or role, allows a principal to create and update compute environments and to set capacity tags, but only when the `CostCenter` tag value is `engineering` or `ops` and no tag keys other than `CostCenter` and `Team` are used. Requests that include any other tag key or a different `CostCenter` value are denied.
 
 ```
 {
@@ -37,9 +36,7 @@ other tag key or a different `CostCenter` value are denied.
 }
 ```
 
-To deny capacity tagging entirely while still permitting compute environment creation and
-updates, attach a policy with an explicit `Deny` on
-`batch:SetCapacityTags`:
+To deny capacity tagging entirely while still permitting compute environment creation and updates, attach a policy with an explicit `Deny` on `batch:SetCapacityTags`:
 
 ```
 {

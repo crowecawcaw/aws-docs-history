@@ -1,37 +1,37 @@
-# Create an Amazon EKS GPU job definition
 
-Only `nvidia.com/gpu` is supported at this time and resource value that you set must be a whole
-number. You can’t use fractions of GPU. For more information, see [Schedule GPUs](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/ "https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/") in the _Kubernetes
-documentation_.
+
+# Create an Amazon EKS GPU job definition
+<a name="create-eks-gpu-job-definition"></a>
+
+Only `nvidia.com/gpu` is supported at this time and resource value that you set must be a whole number. You can’t use fractions of GPU. For more information, see [Schedule GPUs](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) in the *Kubernetes documentation*.
 
 To register a GPU job definition for Amazon EKS, run the following commands.
 
 ```
-`$` `cat <<EOF > ./batch-eks-gpu-jd.json
+$ cat <<EOF > ./batch-eks-gpu-jd.json
 {
- "jobDefinitionName": "MyGPUJobOnEks_Smi",
- "type": "container",
- "eksProperties": {
- "podProperties": {
- "hostNetwork": true,
- "containers": [
- {
- "image": "nvcr.io/nvidia/cuda:10.2-runtime-centos7",
- "command": ["nvidia-smi"],
- "resources": {
- "limits": {
- "cpu": "1",
- "memory": "1024Mi",
- "nvidia.com/gpu": "1"
- }
- }
- }
- ]
- }
- }
+    "jobDefinitionName": "MyGPUJobOnEks_Smi",
+    "type": "container",
+    "eksProperties": {
+        "podProperties": {
+            "hostNetwork": true,
+            "containers": [
+                {
+                    "image": "nvcr.io/nvidia/cuda:10.2-runtime-centos7",
+                    "command": ["nvidia-smi"],
+                    "resources": {
+                        "limits": {
+                            "cpu": "1",
+                            "memory": "1024Mi",
+                            "nvidia.com/gpu": "1"
+                        }
+                    }
+                }
+            ]
+        }
+    }
 }
-EOF`
+EOF
 
-`$` `aws batch register-job-definition --cli-input-json file://./batch-eks-gpu-jd.json`
-
+$ aws batch register-job-definition --cli-input-json file://./batch-eks-gpu-jd.json
 ```

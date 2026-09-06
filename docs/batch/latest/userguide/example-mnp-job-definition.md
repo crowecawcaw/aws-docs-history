@@ -1,12 +1,14 @@
-# Multi-node parallel job
 
-The following example job definition illustrates a multi-node parallel job. For more information, see [Building a tightly coupled molecular dynamics workflow with multi-node parallel jobs in AWS Batch](https://aws.amazon.com/blogs/compute/building-a-tightly-coupled-molecular-dynamics-workflow-with-multi-node-parallel-jobs-in-aws-batch/ "https://aws.amazon.com/blogs/compute/building-a-tightly-coupled-molecular-dynamics-workflow-with-multi-node-parallel-jobs-in-aws-batch/") in the
-_AWS Compute_ blog.
+
+# Multi-node parallel job
+<a name="example-mnp-job-definition"></a>
+
+The following example job definition illustrates a multi-node parallel job. For more information, see [Building a tightly coupled molecular dynamics workflow with multi-node parallel jobs in AWS Batch](https://aws.amazon.com/blogs/compute/building-a-tightly-coupled-molecular-dynamics-workflow-with-multi-node-parallel-jobs-in-aws-batch/) in the *AWS Compute* blog.
 
 ```
 {
   "jobDefinitionName": "gromacs-jobdef",
-  "jobDefinitionArn": "arn:aws:batch:us-east-2:`123456789012`:job-definition/gromacs-jobdef:1",
+  "jobDefinitionArn": "arn:aws:batch:us-east-2:{{123456789012}}:job-definition/gromacs-jobdef:1",
   "revision": 6,
   "status": "ACTIVE",
   "type": "multinode",
@@ -18,7 +20,7 @@ _AWS Compute_ blog.
       {
         "targetNodes": "0:1",
         "container": {
-          "image": "`123456789012`.dkr.ecr.us-east-2.amazonaws.com/gromacs_mpi:latest",
+          "image": "{{123456789012}}.dkr.ecr.us-east-2.amazonaws.com/gromacs_mpi:latest",
           "resourceRequirements": [
               {
                   "type": "MEMORY",
@@ -30,7 +32,7 @@ _AWS Compute_ blog.
               }
           ],
           "command": [],
-          "jobRoleArn": "arn:aws:iam::`123456789012`:role/ecsTaskExecutionRole",
+          "jobRoleArn": "arn:aws:iam::{{123456789012}}:role/ecsTaskExecutionRole",
           "ulimits": [],
           "instanceType": "p3.2xlarge"
         }

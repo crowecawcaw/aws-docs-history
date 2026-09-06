@@ -1,25 +1,24 @@
+
+
 # Tutorial: View CloudWatch Logs
+<a name="viewing_cwlogs"></a>
 
 You can view and search CloudWatch Logs logs in the AWS Management Console.
 
-###### Note
-
+**Note**  
 It might take a few minutes for data to display in CloudWatch Logs.
 
-###### To view your CloudWatch Logs data
+**To view your CloudWatch Logs data**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, choose **Logs**, then choose
-   **Log groups**.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-![CloudWatch console log groups](images/cwl-log-groups.png) 3. Choose a log group to view.
+1. In the left navigation pane, choose **Logs**, then choose **Log groups**.  
+![CloudWatch console log groups](http://docs.aws.amazon.com/batch/latest/userguide/images/cwl-log-groups.png)
 
-![CloudWatch console log streams](images/cw_log_stream.png) 4. Choose a log stream to view. By default, the streams are identified by the first 200
-characters of the job name and the Amazon ECS task ID.
+1. Choose a log group to view.  
+![CloudWatch console log streams](http://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_stream.png)
 
-###### Tip
-
-To download log stream data, choose **Actions**.
-
-![CloudWatch console log events](images/cw_log_events.png)
+1. Choose a log stream to view. By default, the streams are identified by the first 200 characters of the job name and the Amazon ECS task ID.
+**Tip**  
+To download log stream data, choose **Actions**.  
+![CloudWatch console log events](http://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_events.png)

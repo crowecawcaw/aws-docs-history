@@ -1,17 +1,18 @@
+
+
 # Create an Amazon EKS MNP job definition
+<a name="mnp-eks-create-eks-mnp-job-definition"></a>
 
-To define and run MNP jobs on Amazon EKS, there are new parameters within the [`RegisterJobDefinition`](../APIReference/API_RegisterJobDefinition.md "../APIReference/API_RegisterJobDefinition.md") and [`SubmitJob`](../APIReference/API_SubmitJob.md "../APIReference/API_SubmitJob.md") API
-operations.
+To define and run MNP jobs on Amazon EKS, there are new parameters within the [`RegisterJobDefinition`](https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) and [`SubmitJob`](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html) API operations. 
++ Use [`eksProperties`](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksProperties.html) under the [`nodeProperties`](https://docs.aws.amazon.com/batch/latest/APIReference/API_NodeProperties.html) section to define your MNP job definition.
++ Use [`eksPropertiesOverride`](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksPropertiesOverride.html) under the [`nodePropertyOverrides`](https://docs.aws.amazon.com/batch/latest/APIReference/API_NodePropertyOverride.html) section to override the parameters defined in the job definition when submitting an MNP job.
 
-- Use [`eksProperties`](../APIReference/API_EksProperties.md "../APIReference/API_EksProperties.md") under the [`nodeProperties`](../APIReference/API_NodeProperties.md "../APIReference/API_NodeProperties.md") section to define your MNP job definition.
-- Use [`eksPropertiesOverride`](../APIReference/API_EksPropertiesOverride.md "../APIReference/API_EksPropertiesOverride.md") under the [`nodePropertyOverrides`](../APIReference/API_NodePropertyOverride.md "../APIReference/API_NodePropertyOverride.md") section to override the parameters defined
-  in the job definition when submitting an MNP job.
-  These actions can be defined through API operations and the AWS Management Console.
+These actions can be defined through API operations and the AWS Management Console.
 
 ## Reference: Register the Amazon EKS MNP job definition request payload
+<a name="mnp-eks-register-eks-mnp-job-definition"></a>
 
-The following example illustrates how you can register an Amazon EKS MNP job definition
-with two nodes.
+The following example illustrates how you can register an Amazon EKS MNP job definition with two nodes.
 
 ```
 {
@@ -77,8 +78,7 @@ with two nodes.
 }
 ```
 
-To register the job definition using the AWS CLI, copy the definition to a local file
-named _MyEksMnpJobDefinition.json_ and run the following command.
+To register the job definition using the AWS CLI, copy the definition to a local file named *MyEksMnpJobDefinition.json* and run the following command.
 
 ```
 aws batch register-job-definition --cli-input-json file://MyEksMnpJobDefinition.json

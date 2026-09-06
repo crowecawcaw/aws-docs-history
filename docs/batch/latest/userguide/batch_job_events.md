@@ -1,19 +1,15 @@
+
+
 # Job state change events
+<a name="batch_job_events"></a>
 
-Anytime that an existing (previously submitted) job changes states, an event is created.
-For more information about AWS Batch job states, see [Job states](job_states.md "job_states.md").
+Anytime that an existing (previously submitted) job changes states, an event is created. For more information about AWS Batch job states, see [Job states](job_states.md).
 
-###### Note
-
+**Note**  
 Events aren't created for the initial job submission.
 
-###### Example Job State Change Event
-
-Job state change events are delivered in the following format. The `detail`
-section resembles the [JobDetail](../APIReference/API_JobDetail.md "../APIReference/API_JobDetail.md") object that's returned
-from a [DescribeJobs](../APIReference/API_DescribeJobs.md "../APIReference/API_DescribeJobs.md") API operation in the _AWS Batch API Reference_. For more
-information about EventBridge parameters, see [Events and Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the
-_Amazon EventBridge User Guide_.
+**Example Job State Change Event**  
+Job state change events are delivered in the following format. The `detail` section resembles the [JobDetail](https://docs.aws.amazon.com/batch/latest/APIReference/API_JobDetail.html) object that's returned from a [DescribeJobs](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html) API operation in the *AWS Batch API Reference*. For more information about EventBridge parameters, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 
 ```
 {
@@ -21,17 +17,17 @@ _Amazon EventBridge User Guide_.
     "id": "c8f9c4b5-76e5-d76a-f980-7011e206042b",
     "detail-type": "Batch Job State Change",
     "source": "aws.batch",
-    "account": "`123456789012`",
+    "account": "{{123456789012}}",
     "time": "2022-01-11T23:36:40Z",
-    "region": "`us-east-1`",
+    "region": "{{us-east-1}}",
     "resources": [
-        "arn:aws:batch:`us-east-1`:`123456789012`:job/4c7599ae-0a82-49aa-ba5a-4727fcce14a8"
+        "arn:aws:batch:{{us-east-1}}:{{123456789012}}:job/4c7599ae-0a82-49aa-ba5a-4727fcce14a8"
     ],
     "detail": {
-        "jobArn": "arn:aws:batch:`us-east-1`:`123456789012`:job/4c7599ae-0a82-49aa-ba5a-4727fcce14a8",
+        "jobArn": "arn:aws:batch:{{us-east-1}}:{{123456789012}}:job/4c7599ae-0a82-49aa-ba5a-4727fcce14a8",
         "jobName": "event-test",
         "jobId": "4c7599ae-0a82-49aa-ba5a-4727fcce14a8",
-        "jobQueue": "arn:aws:batch:`us-east-1`:`123456789012`:job-queue/PexjEHappyPathCanary2JobQueue",
+        "jobQueue": "arn:aws:batch:{{us-east-1}}:{{123456789012}}:job-queue/PexjEHappyPathCanary2JobQueue",
         "status": "RUNNABLE",
         "attempts": [],
         "createdAt": 1641944200058,
@@ -40,7 +36,7 @@ _Amazon EventBridge User Guide_.
             "evaluateOnExit": []
         },
         "dependsOn": [],
-        "jobDefinition": "arn:aws:batch:`us-east-1`:`123456789012`:job-definition/first-run-job-definition:1",
+        "jobDefinition": "arn:aws:batch:{{us-east-1}}:{{123456789012}}:job-definition/first-run-job-definition:1",
         "parameters": {},
         "container": {
             "image": "137112412989.dkr.ecr.us-east-1.amazonaws.com/amazonlinux:latest",

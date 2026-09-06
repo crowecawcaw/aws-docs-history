@@ -1,18 +1,12 @@
+
+
 # Job queue blocked events
+<a name="batch-job-queue-blocked-events"></a>
 
-Anytime that AWS Batch detects a job in the `RUNNABLE` state and thus
-blocking a queue, an event is created in Amazon CloudWatch Events. For more information about
-supported blocked queue causes, see [Jobs stuck in a RUNNABLE status](job_stuck_in_runnable.md "job_stuck_in_runnable.md"). The same reason is also available in
-the `statusReason` field in the [`DescribeJobs`](../APIReference/API_DescribeJobs.md "../APIReference/API_DescribeJobs.md") API action.
+Anytime that AWS Batch detects a job in the `RUNNABLE` state and thus blocking a queue, an event is created in Amazon CloudWatch Events. For more information about supported blocked queue causes, see [Jobs stuck in a `RUNNABLE` status](job_stuck_in_runnable.md). The same reason is also available in the `statusReason` field in the [`DescribeJobs`](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html) API action.
 
-###### Example Job queue blocked event
-
-Job queue blocked events are delivered in the following format. The
-`detail` section resembles the [JobDetail](../APIReference/API_JobDetail.md "../APIReference/API_JobDetail.md") object
-that's returned from a [DescribeJobs](../APIReference/API_DescribeJobs.md "../APIReference/API_DescribeJobs.md")
-API operation in the _AWS Batch API Reference_. For more
-information about EventBridge parameters, see [Events and Event
-Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the _Amazon EventBridge User Guide_.
+**Example Job queue blocked event**  
+Job queue blocked events are delivered in the following format. The `detail` section resembles the [JobDetail](https://docs.aws.amazon.com/batch/latest/APIReference/API_JobDetail.html) object that's returned from a [DescribeJobs](https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html) API operation in the *AWS Batch API Reference*. For more information about EventBridge parameters, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.  
 
 ```
 {
@@ -33,7 +27,7 @@ Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbrid
         "jobId": "4c7599ae-0a82-49aa-ba5a-4727fcce14a8",
         "jobQueue": "arn:aws:batch:us-east-1:123456789012:job-queue/PexjEHappyPathCanary2JobQueue",
         "status": "RUNNABLE",
-        "statusReason": "`blocked-reason`",
+        "statusReason": "{{blocked-reason}}",
         "attempts": [],
         "createdAt": 1641944200058,
         "retryStrategy": {

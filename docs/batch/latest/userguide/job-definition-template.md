@@ -1,15 +1,15 @@
+
+
 # Job definition template that uses ContainerProperties
+<a name="job-definition-template"></a>
 
-The following is an empty job definition template that includes a single container. You can use this template to create your job definition, which
-can then be saved to a file and used with the AWS CLI `--cli-input-json` option. For more information about
-these parameters, see [JobDefinition](../APIReference/API_JobDefinition.md "../APIReference/API_JobDefinition.md").
+The following is an empty job definition template that includes a single container. You can use this template to create your job definition, which can then be saved to a file and used with the AWS CLI `--cli-input-json` option. For more information about these parameters, see [JobDefinition](https://docs.aws.amazon.com/batch/latest/APIReference/API_JobDefinition.html).
 
-###### Note
-
-You can generate a single-container job definition template with the following AWS CLI command:
+**Note**  
+You can generate a single-container job definition template with the following AWS CLI command:  
 
 ```
-`$` `aws batch register-job-definition --generate-cli-skeleton`
+$ aws batch register-job-definition --generate-cli-skeleton
 ```
 
 ```
@@ -327,5 +327,4 @@ You can generate a single-container job definition template with the following A
         }
     }
 }
-
 ```

@@ -1,14 +1,13 @@
+
+
 # Parameter substitution
+<a name="example-use-parameters"></a>
 
-The following example job definition illustrates how to allow for parameter substitution and to set default
-values.
+The following example job definition illustrates how to allow for parameter substitution and to set default values.
 
-The `Ref::` declarations in the `command` section are used to set placeholders for
-parameter substitution. When you submit a job with this job definition, you specify the parameter overrides to fill
-in those values, such as the `inputfile` and `outputfile`. The `parameters` section
-that follows sets a default for `codec`, but you can override that parameter as needed.
+The `Ref::` declarations in the `command` section are used to set placeholders for parameter substitution. When you submit a job with this job definition, you specify the parameter overrides to fill in those values, such as the `inputfile` and `outputfile`. The `parameters` section that follows sets a default for `codec`, but you can override that parameter as needed.
 
-For more information, see [Parameters](job_definition_parameters.md#parameters "job_definition_parameters.md#parameters").
+For more information, see [Parameters](job_definition_parameters.md#parameters).
 
 ```
 {
@@ -36,7 +35,7 @@ For more information, see [Parameters](job_definition_parameters.md#parameters "
             "-o",
             "Ref::outputfile"
         ],
-        "jobRoleArn": "arn:aws:iam::`123456789012`:role/ECSTask-S3FullAccess",
+        "jobRoleArn": "arn:aws:iam::{{123456789012}}:role/ECSTask-S3FullAccess",
         "user": "nobody"
     }
 }

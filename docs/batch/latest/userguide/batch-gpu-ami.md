@@ -1,45 +1,28 @@
+
+
 # Use a GPU workload AMI
+<a name="batch-gpu-ami"></a>
 
-To run GPU workloads on your AWS Batch compute resources, you must use an AMI with GPU
-support. For more information, see [Working with GPUs
-on Amazon ECS](../../../AmazonECS/latest/developerguide/ecs-gpu.md "../../../AmazonECS/latest/developerguide/ecs-gpu.md") and [Amazon ECS-optimized
-AMIs](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md") in _Amazon Elastic Container Service Developer Guide_.
+To run GPU workloads on your AWS Batch compute resources, you must use an AMI with GPU support. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) and [Amazon ECS-optimized AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in *Amazon Elastic Container Service Developer Guide*.
 
-In managed compute environments, if the compute environment specifies any
-`p3`, `p4`, `p5`, `p6`, `g3`, `g3s`,
-`g4`, `g5`, or `g6` instance types or instance families, then AWS Batch uses an Amazon ECS GPU
-optimized AMI.
+In managed compute environments, if the compute environment specifies any `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, or `g6` instance types or instance families, then AWS Batch uses an Amazon ECS GPU optimized AMI.
 
-In unmanaged compute environments, an Amazon ECS GPU-optimized AMI is recommended. You can use
-the AWS Command Line Interface or AWS Systems Manager Parameter Store [GetParameter](../../../systems-manager/latest/APIReference/API_GetParameter.md "../../../systems-manager/latest/APIReference/API_GetParameter.md"), [GetParameters](../../../systems-manager/latest/APIReference/API_GetParameters.md "../../../systems-manager/latest/APIReference/API_GetParameters.md"), and [GetParametersByPath](../../../systems-manager/latest/APIReference/API_GetParametersByPath.md "../../../systems-manager/latest/APIReference/API_GetParametersByPath.md") operations to retrieve the metadata for the recommended
-Amazon ECS GPU-optimized AMIs.
+In unmanaged compute environments, an Amazon ECS GPU-optimized AMI is recommended. You can use the AWS Command Line Interface or AWS Systems Manager Parameter Store [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html), and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) operations to retrieve the metadata for the recommended Amazon ECS GPU-optimized AMIs.
 
-###### Note
+**Note**  
+The `p5` instance family is only supported on versions equal or later than `20230912` of the Amazon ECS GPU-optimized AMI and they are incompatible with `p2` and `g2` instance types. If you need to use `p5` instances, ensure that your compute environment doesn't contain `p2` or `g2` instances and uses the latest default Batch AMI. Creating a new compute environment will use the latest AMI but If you are updating your compute environment to include `p5`, you can ensure you are using the latest AMI by setting [`updateToLatestImageVersion`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResourceUpdate.html#Batch-Type-ComputeResourceUpdate-updateToLatestImageVersion) to `true` in `ComputeResource` properties. For more information on AMI compatibility with GPU instances, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) in *Amazon Elastic Container Service Developer Guide*.
 
-The `p5` instance family is only supported on versions equal or later than
-`20230912` of the Amazon ECS GPU-optimized AMI and they are incompatible
-with `p2` and `g2` instance types. If you need to use
-`p5` instances, ensure that your compute environment doesn't contain
-`p2` or `g2` instances and uses the latest default Batch AMI.
-Creating a new compute environment will use the latest AMI but If you are updating your
-compute environment to include `p5`, you can ensure you are using the latest
-AMI by setting [`updateToLatestImageVersion`](../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-updateToLatestImageVersion "../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-updateToLatestImageVersion") to `true` in
-`ComputeResource` properties. For more information on AMI compatibility
-with GPU instances, see [Working with GPUs on Amazon
-ECS](../../../AmazonECS/latest/developerguide/ecs-gpu.md "../../../AmazonECS/latest/developerguide/ecs-gpu.md") in _Amazon Elastic Container Service Developer Guide_.
+The following examples show how to use the [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) command.
 
-The following examples show how to use the [GetParameter](../../../systems-manager/latest/APIReference/API_GetParameter.md "../../../systems-manager/latest/APIReference/API_GetParameter.md") command.
-
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-`$` `aws ssm get-parameter --name /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended \
- --region `us-east-2` --output json`
-
+$ aws ssm get-parameter --name /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended \
+                        --region {{us-east-2}} --output json
 ```
 
-The output includes the AMI information in the `Value`
-parameter.
+The output includes the AMI information in the `Value` parameter.
 
 ```
 {
@@ -54,7 +37,8 @@ parameter.
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from __future__ import print_function
@@ -62,13 +46,12 @@ from __future__ import print_function
 import json
 import boto3
 
-ssm = boto3.client('ssm', '`us-east-2`')
+ssm = boto3.client('ssm', '{{us-east-2}}')
 
 response = ssm.get_parameter(Name='/aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended')
 jsonVal = json.loads(response['Parameter']['Value'])
 print("image_id   = " + jsonVal['image_id'])
 print("image_name = " + jsonVal['image_name'])
-
 ```
 
 The output only includes the AMI ID and AMI name:
@@ -78,15 +61,17 @@ image_id   = ami-083c800fe4211192f
 image_name = amzn2-ami-ecs-gpu-hvm-2.0.20190402-x86_64-ebs
 ```
 
-The following examples demonstrate the use of [GetParameters](../../../systems-manager/latest/APIReference/API_GetParameters.md "../../../systems-manager/latest/APIReference/API_GetParameters.md").
+------
 
-AWS CLI
+The following examples demonstrate the use of [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html).
+
+------
+#### [ AWS CLI ]
 
 ```
-`$` `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_name \
- /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_id \
- --region `us-east-2` --output json`
-
+$ aws ssm get-parameters --names  /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_name \
+                                  /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_id \
+                         --region {{us-east-2}} --output json
 ```
 
 The output includes the full metadata for each of the parameters:
@@ -115,44 +100,43 @@ The output includes the full metadata for each of the parameters:
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from __future__ import print_function
 
 import boto3
 
-ssm = boto3.client('ssm', '`us-east-2`')
+ssm = boto3.client('ssm', '{{us-east-2}}')
 
 response = ssm.get_parameters(
             Names=['/aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_name',
                    '/aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_id'])
 for parameter in response['Parameters']:
     print(parameter['Name'] + " = " + parameter['Value'])
-
 ```
 
-The output includes the AMI ID and AMI name, using the full path for the
-names.
+The output includes the AMI ID and AMI name, using the full path for the names.
 
 ```
 /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_id = ami-083c800fe4211192f
 /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/image_name = amzn2-ami-ecs-gpu-hvm-2.0.20190402-x86_64-ebs
 ```
 
-The following examples show how to use the [GetParametersByPath](../../../systems-manager/latest/APIReference/API_GetParametersByPath.md "../../../systems-manager/latest/APIReference/API_GetParametersByPath.md")
-command.
+------
 
-AWS CLI
+The following examples show how to use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) command.
 
-```
-`$` `aws ssm get-parameters-by-path --path /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended \
- --region `us-east-2` --output json`
+------
+#### [ AWS CLI ]
 
 ```
+$ aws ssm get-parameters-by-path --path /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended \
+                                 --region {{us-east-2}} --output json
+```
 
-The output includes the full metadata for all of the parameters under the
-specified path.
+The output includes the full metadata for all of the parameters under the specified path.
 
 ```
 {
@@ -209,23 +193,22 @@ specified path.
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from __future__ import print_function
 
 import boto3
 
-ssm = boto3.client('ssm', '`us-east-2`')
+ssm = boto3.client('ssm', '{{us-east-2}}')
 
 response = ssm.get_parameters_by_path(Path='/aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended')
 for parameter in response['Parameters']:
     print(parameter['Name'] + " = " + parameter['Value'])
-
 ```
 
-The output includes the values of all the parameter names at the specified
-path, using the full path for the names.
+The output includes the values of all the parameter names at the specified path, using the full path for the names.
 
 ```
 /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/ecs_agent_version = 1.27.0
@@ -236,5 +219,6 @@ path, using the full path for the names.
 /aws/service/ecs/optimized-ami/amazon-linux-2/gpu/recommended/schema_version = 1
 ```
 
-For more information, see [Retrieving Amazon ECS-Optimized AMI Metadata](../../../AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.md "../../../AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.md") in the
-_Amazon Elastic Container Service Developer Guide_.
+------
+
+For more information, see [Retrieving Amazon ECS-Optimized AMI Metadata](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
