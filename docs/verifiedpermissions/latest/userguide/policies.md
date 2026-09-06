@@ -52,4 +52,5 @@ Role::"a1b2c3d4-e5f6-a1b2-c3d4-EXAMPLE11111", // administrators
 - [Editing Amazon Verified Permissions static policies](policies-edit.md "policies-edit.md")
 - [Adding context](context.md "context.md")
 - [Using the Amazon Verified Permissions test bench](test-bench.md "test-bench.md")
+- [Policy size per resource](policy-size-per-resource.md "policy-size-per-resource.md")
 - [Amazon Verified Permissions example policies](policies-examples.md "policies-examples.md")

@@ -64,7 +64,9 @@ For authorization API calls, the response elements, such as the decision, are in
 ###### Topics
 
 - [IsAuthorized](#understanding-verified-permissions-entries-isauthorized "#understanding-verified-permissions-entries-isauthorized")
+- [IsAuthorizedWithToken](#understanding-verified-permissions-entries-isauthorizedwithtoken "#understanding-verified-permissions-entries-isauthorizedwithtoken")
 - [BatchIsAuthorized](#understanding-verified-permissions-entries-batchisauthorized "#understanding-verified-permissions-entries-batchisauthorized")
+- [BatchIsAuthorizedWithToken](#understanding-verified-permissions-entries-batchisauthorizedwithtoken "#understanding-verified-permissions-entries-batchisauthorizedwithtoken")
 - [CreatePolicyStore](#understanding-verified-permissions-entries-createpolicystore "#understanding-verified-permissions-entries-createpolicystore")
 - [ListPolicyStores](#understanding-verified-permissions-entries-listpolicystores "#understanding-verified-permissions-entries-listpolicystores")
 - [DeletePolicyStore](#understanding-verified-permissions-entries-deletepolicystore "#understanding-verified-permissions-entries-deletepolicystore")
@@ -84,6 +86,9 @@ For authorization API calls, the response elements, such as the decision, are in
 Some fields have been redacted from the examples for data privacy.
 
 ### IsAuthorized
+
+The following example shows a CloudTrail log entry for an `IsAuthorized` API
+call:
 
 ```
 {
@@ -137,7 +142,67 @@ Some fields have been redacted from the examples for data privacy.
 }
 ```
 
+### IsAuthorizedWithToken
+
+The following example shows a CloudTrail log entry for an
+`IsAuthorizedWithToken` API call:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+		"type": "AssumedRole",
+		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
+		"accountId": "123456789012",
+		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
+    },
+    "eventTime": "2023-11-20T22:55:03Z",
+    "eventSource": "verifiedpermissions.amazonaws.com",
+    "eventName": "IsAuthorizedWithToken",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "`203.0.113.0`",
+    "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.is-authorized-with-token",
+    "requestParameters": {
+        "policyStoreId": "PSEXAMPLEabcdefg111111",
+        "resource": {
+            "entityType": "PhotoFlash::Photo",
+            "entityId": "VacationPhoto94.jpg"
+        },
+        "action": {
+            "actionType": "PhotoFlash::Action",
+            "actionId": "ViewPhoto"
+        }
+    },
+    "responseElements": null,
+    "additionalEventData": {
+        "decision": "ALLOW",
+        "principal": {
+            "entityType": "PhotoFlash::User",
+            "entityId": "us-east-1_EXAMPLE|`EXAMPLE_SUBJECT_ID`"
+        }
+    },
+    "requestID": "346c4b6a-d12f-46b6-bc06-6c857bd3b28e",
+    "eventID": "8a4fed32-9605-45dd-a09a-5ebbf0715bbc",
+    "readOnly": true,
+    "resources": [
+        {
+		  "accountId": "123456789012",
+		  "type": "AWS::VerifiedPermissions::PolicyStore",
+		  "ARN": "arn:aws:verifiedpermissions::123456789012:policy-store/PSEXAMPLEabcdefg111111"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Data"
+}
+```
+
 ### BatchIsAuthorized
+
+The following example shows a CloudTrail log entry for a `BatchIsAuthorized`
+API call:
 
 ```
 {
@@ -244,7 +309,108 @@ Some fields have been redacted from the examples for data privacy.
 }
 ```
 
+### BatchIsAuthorizedWithToken
+
+The following example shows a CloudTrail log entry for a
+`BatchIsAuthorizedWithToken` API call:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+		"type": "AssumedRole",
+		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
+		"accountId": "123456789012",
+		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
+    },
+    "eventTime": "2023-11-20T23:02:33Z",
+    "eventSource": "verifiedpermissions.amazonaws.com",
+    "eventName": "BatchIsAuthorizedWithToken",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "`203.0.113.0`",
+    "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.batch-is-authorized-with-token",
+    "requestParameters": {
+        "policyStoreId": "PSEXAMPLEabcdefg111111",
+        "requests": [
+            {
+                "action": {
+                    "actionType": "PhotoFlash::Action",
+                    "actionId": "ViewPhoto"
+                },
+                "resource": {
+                    "entityType": "PhotoFlash::Photo",
+                    "entityId": "VacationPhoto94.jpg"
+                }
+            },
+            {
+                "action": {
+                    "actionType": "PhotoFlash::Action",
+                    "actionId": "DeletePhoto"
+                },
+                "resource": {
+                    "entityType": "PhotoFlash::Photo",
+                    "entityId": "VacationPhoto94.jpg"
+                }
+            }
+        ]
+    },
+    "responseElements": null,
+    "additionalEventData": {
+        "principal": {
+            "entityType": "PhotoFlash::User",
+            "entityId": "us-east-1_EXAMPLE|`EXAMPLE_SUBJECT_ID`"
+        },
+        "results": [
+            {
+                "request": {
+                    "action": {
+                        "actionType": "PhotoFlash::Action",
+                        "actionId": "ViewPhoto"
+                    },
+                    "resource": {
+                        "entityType": "PhotoFlash::Photo",
+                        "entityId": "VacationPhoto94.jpg"
+                    }
+                },
+                "decision": "ALLOW"
+            },
+            {
+                "request": {
+                    "action": {
+                        "actionType": "PhotoFlash::Action",
+                        "actionId": "DeletePhoto"
+                    },
+                    "resource": {
+                        "entityType": "PhotoFlash::Photo",
+                        "entityId": "VacationPhoto94.jpg"
+                    }
+                },
+                "decision": "DENY"
+            }
+        ]
+    },
+    "requestID": "c67aa1d9-9fd7-45ad-9a23-e8f9f6dd66c8",
+    "eventID": "5ed90624-a4f7-4ef6-a07a-0e6486d30fbe",
+    "readOnly": true,
+    "resources": [
+        {
+		  "accountId": "123456789012",
+		  "type": "AWS::VerifiedPermissions::PolicyStore",
+		  "ARN": "arn:aws:verifiedpermissions::123456789012:policy-store/PSEXAMPLEabcdefg111111"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Data"
+}
+```
+
 ### CreatePolicyStore
+
+The following example shows a CloudTrail log entry for a `CreatePolicyStore`
+API call:
 
 ```
 {
@@ -286,6 +452,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### ListPolicyStores
 
+The following example shows a CloudTrail log entry for a `ListPolicyStores`
+API call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -317,6 +486,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### DeletePolicyStore
+
+The following example shows a CloudTrail log entry for a `DeletePolicyStore`
+API call:
 
 ```
 {
@@ -356,6 +528,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### PutSchema
+
+The following example shows a CloudTrail log entry for a `PutSchema` API
+call:
 
 ```
 {
@@ -401,6 +576,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### GetSchema
 
+The following example shows a CloudTrail log entry for a `GetSchema` API
+call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -439,6 +617,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### CreatePolicyTemplate
+
+The following example shows a CloudTrail log entry for a `CreatePolicyTemplate`
+API call:
 
 ```
 {
@@ -484,6 +665,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### DeletePolicyTemplate
 
+The following example shows a CloudTrail log entry for a `DeletePolicyTemplate`
+API call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -523,6 +707,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### CreatePolicy
+
+The following example shows a CloudTrail log entry for a `CreatePolicy` API
+call:
 
 ```
 {
@@ -578,6 +765,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### GetPolicy
 
+The following example shows a CloudTrail log entry for a `GetPolicy` API
+call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -617,6 +807,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### CreateIdentitySource
+
+The following example shows a CloudTrail log entry for a `CreateIdentitySource`
+API call:
 
 ```
 {
@@ -669,6 +862,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### GetIdentitySource
 
+The following example shows a CloudTrail log entry for a `GetIdentitySource`
+API call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -709,6 +905,9 @@ Some fields have been redacted from the examples for data privacy.
 
 ### ListIdentitySources
 
+The following example shows a CloudTrail log entry for a `ListIdentitySources`
+API call:
+
 ```
 {
   "eventVersion": "1.08",
@@ -747,6 +946,9 @@ Some fields have been redacted from the examples for data privacy.
 ```
 
 ### DeleteIdentitySource
+
+The following example shows a CloudTrail log entry for a `DeleteIdentitySource`
+API call:
 
 ```
 {

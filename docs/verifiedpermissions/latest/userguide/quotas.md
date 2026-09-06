@@ -38,113 +38,23 @@ Your AWS account has the following quotas related to Verified Permissions.
 ¹ The quota for an authorization request is the same for both [IsAuthorized](../apireference/API_IsAuthorized.md "../apireference/API_IsAuthorized.md")
 and [IsAuthorizedWithToken](../apireference/API_IsAuthorizedWithToken.md "../apireference/API_IsAuthorizedWithToken.md").
 
-² The default limit for the total size of all the policies scoped for a single
-resource is 200,000 bytes. Similarly, the total size of all the policies, where the
-scope leaves the resource undefined, thereby applying to all resources, is limited by
-default to 200,000 bytes. Note that for template-linked policies the size of the policy template is counted only once,
-plus the size of each set of parameters used to instantiate each template-linked policy. This limit can be
-raised, provided that your policy design meets certain constraints. If you need to
-explore this option,
-[contact
-Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
-
-### Template-linked policy size example
-
-You can determine how template-linked policies contribute to the _Policy
-size per resource_ quota by taking the sum of the length of the
-principal and resource. If the principal or resource isn't specified, the length of
-that piece is 0. If a resource isn't specified, its size counts towards the
-`"unspecified"` resource quota. The size of the
-template body itself has no impact on the policy size.
-
-Let's look at the following template:
-
-```
-@id("template1")
-permit (
-  principal in ?principal,
-  action in [Action::"view", Action::"comment"],
-  resource in ?resource
-)
-unless {
-  resource.tag =="private"
-};
-```
-
-Let's create the following policies from that template:
-
-```
-TemplateLinkedPolicy {
-  policyId: "policy1",
-  templateId: "template1",
-  principal: User::"alice",
-  resource: Photo::"car.jpg"
-}
-
-TemplateLinkedPolicy {
-  policyId: "policy2",
-  templateId: "template1",
-  principal: User::"bob",
-  resource: Photo::"boat.jpg"
-}
-
-TemplateLinkedPolicy {
-  policyId: "policy3",
-  templateId: "template1",
-  principal: User::"jane",
-  resource: Photo::"car.jpg"
-
-TemplateLinkedPolicy {
-  policyId: "policy4",
-  templateId: "template1",
-  principal: User::"jane",
-  resource
-}
-```
-
-Now, let's calculate the size of those policies by counting the characters in the
-`principal` and `resource` for each one. Each character
-counts as 1 byte.
-
-The size of `policy1` would be the length of the principal
-`User::"alice"` (13) plus the length of the resource
-`Photo::"car.jpg"` (16). Adding them up we have 13 + 16 = 29
-bytes.
-
-The size of `policy2` would be the length of the principal
-`User::"bob"` (11) plus the length of the resource
-`Photo::"boat.jpg"` (17). Adding them up we have 11 + 17 = 28
-bytes.
-
-The size of `policy3` would be the length of the principal
-`User::"jane"` (12) plus the length of the resource
-`Photo::"car.jpg"` (16). Adding them up we have 12 + 16 = 28
-bytes.
-
-The size of `policy4` would be the length of the principal
-`User::"jane"` (12) plus the length of the resource (0). Adding them
-up we have 12 + 0 = 12 bytes.
-
-Since `policy2` is the only policy that references the resource
-`Photo::"boat.jpg"`, the total resource size is 28 bytes.
-
-Since `policy1` and `policy3` both reference the resource
-`Photo::"car.jpg"`, the total resource size is 29 + 28 = 57
-bytes.
-
-Since `policy4` is the only policy that references the `"unspecified"` resource, the total
-resource size is 12 bytes.
+² The default limit for the total size of all the policies that reference a
+single resource is 200,000 bytes. Policies that don't specify a resource share a
+separate total of 200,000 bytes for the `"unspecified"` resource. For details
+about how Verified Permissions calculates this quota, examples, and strategies for staying within it, see
+[Policy size per resource](policy-size-per-resource.md "policy-size-per-resource.md").
 
 ## Quotas for hierarchies
 
 ###### Note
 
-The following quotas are aggregated, meaning they are added together. The maximum
-number of transitive parents for the group is what's listed. For example, if the
-limit of _Transitive parents per principal_ is 100 that means
-there could be 100 parents of _principals_ and 0 parents for both
-_actions_ and _resources_, or any
-combination of parents that add up to 100 **total** parents.
+Each transitive parent quota applies to each entity individually and counts
+both direct and indirect (transitive) parents toward the total. For example, if
+the limit of _Transitive parents per principal_ is 100, a
+principal can have 100 direct parent groups with no nested groups. Alternatively,
+a principal can have 10 direct parent groups that each belong to 9 additional
+parent groups. Any combination that totals 100 parents for that principal is
+valid.
 
 | Name                             | Default | Adjustable | Description                                                  |
 | -------------------------------- | ------- | ---------- | ------------------------------------------------------------ |
