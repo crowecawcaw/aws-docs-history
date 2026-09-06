@@ -4,7 +4,7 @@
 
 ### Region availability
 
-The Amazon DocumentDB serverless instance type is available in the following Regions:
+For more information about AWS Regions where the Amazon DocumentDB serverless instance type is available, see the Serverless column in [Supported instance classes by Region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
 
 The following AWS CLI command can be used to verify the exact DocumentDB serverless instance options offered in a particular Region:
 

@@ -179,34 +179,34 @@ Supported instance classes by Region| | Instance Classes |
 | US East (N. Virginia) | Supported | Supported | Supported | Supported | Supported | Supported | Supported | Supported |
 | US West (Oregon) | Supported | Supported | Supported | Supported | Supported | Supported | Supported | Supported |
 | Africa (Cape Town) | | | Supported | Supported | | Supported | Supported | Supported |
-| South America (São Paulo) | | Supported | Supported | Supported | | Supported | Supported | Supported |
+| South America (São Paulo) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Asia Pacific (Hong Kong) | Supported | | Supported | Supported | | Supported | Supported | Supported |
 | Asia Pacific (Hyderabad) | | | Supported | Supported | | Supported | Supported | Supported |
-| Asia Pacific (Malaysia) | | | Supported | | | Supported | Supported | |
+| Asia Pacific (Malaysia) | | | Supported | | | Supported | Supported | Supported |
 | Asia Pacific (Mumbai) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Asia Pacific (Osaka) | Supported | Supported | Supported | Supported | | Supported | Supported | |
+| Asia Pacific (Osaka) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Asia Pacific (Seoul) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Asia Pacific (Sydney) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Asia Pacific (Jakarta) | Supported | Supported | Supported | Supported | | Supported | Supported | |
-| Asia Pacific (Melbourne) | | | Supported | Supported | | Supported | Supported | |
+| Asia Pacific (Jakarta) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
+| Asia Pacific (Melbourne) | | | Supported | Supported | | Supported | Supported | Supported |
 | Asia Pacific (Singapore) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Asia Pacific (Thailand) | | | Supported | | | Supported | Supported | |
+| Asia Pacific (Thailand) | | | Supported | | | Supported | Supported | Supported |
 | Asia Pacific (Tokyo) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Canada (Central) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Canada West (Calgary) | | | Supported | Supported | | Supported | Supported | |
+| Canada West (Calgary) | | | Supported | Supported | | Supported | Supported | Supported |
 | Europe (Frankfurt) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Europe (Zurich) | | Supported | Supported | Supported | | Supported | Supported | |
+| Europe (Zurich) | | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Europe (Ireland) | Supported | Supported | Supported | Supported | Supported | Supported | Supported | Supported |
-| Europe (London) | | Supported | Supported | Supported | | Supported | Supported | Supported |
+| Europe (London) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Europe (Milan) | | | Supported | Supported | | Supported | Supported | Supported |
 | Europe (Paris) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | Europe (Spain) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
-| Europe (Stockholm) | Supported | Supported | Supported | Supported | | Supported | Supported | |
-| Mexico (Central) | | | Supported | | | Supported | Supported | |
+| Europe (Stockholm) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
+| Mexico (Central) | | | Supported | | | Supported | Supported | Supported |
 | Middle East (UAE) | | | Supported | Supported | | Supported | Supported | Supported |
 | China (Beijing) | Supported | Supported | Supported | Supported | | Supported | Supported | Supported |
 | China (Ningxia) | Supported | | Supported | Supported | | Supported | Supported | Supported |
-| Israel (Tel Aviv) | | | Supported | Supported | | Supported | Supported | |
+| Israel (Tel Aviv) | | | Supported | Supported | | Supported | Supported | Supported |
 | AWS GovCloud (US-West) | Supported | Supported | Supported | Supported | | | Supported | Supported |
 | AWS GovCloud (US-East) | | Supported | Supported | Supported | | Supported | Supported | Supported |
 

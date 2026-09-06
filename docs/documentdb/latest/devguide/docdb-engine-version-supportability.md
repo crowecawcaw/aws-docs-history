@@ -31,7 +31,7 @@ Features and configurations by engine version| Feature | v3.6 | v4.0 | v5.0 | v8
 | Change streams | Yes | Yes | Yes | Yes | No |
 | Vector search | No | No | Yes | Yes | No |
 | Performance Insights | Yes | Yes | Yes | Yes | No |
-| In-place major version upgrade (MVU) | Yes (to 5.0) | Yes (to 5.0) | Yes (to 8.0) | No (target only) | No |
+| In-place major version upgrade (MVU) | Yes (to 5.0 or 8.0) | Yes (to 5.0 or 8.0) | Yes (to 8.0) | No (target only) | No |
 | Client-side field level encryption (FLE) | No | No | Yes | Yes | No |
 | I/O-Optimized storage | No | No | Yes | Yes | No |
 | TLS certificate rotation (no reboot) | Yes (patch 1.0.208662+) | Yes (patch 2.0.10179+) | Yes (patch 3.0.4780+) | Yes | Yes |
