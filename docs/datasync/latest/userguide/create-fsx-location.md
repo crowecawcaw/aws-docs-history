@@ -1,195 +1,127 @@
-# Configuring transfers with FSx for Windows File Server
 
-To transfer data to or from your Amazon FSx for Windows File Server file system, you must create an
-AWS DataSync transfer _location_. DataSync can use this
-location as a source or destination for transferring data.
+
+# Configuring transfers with FSx for Windows File Server
+<a name="create-fsx-location"></a>
+
+To transfer data to or from your Amazon FSx for Windows File Server file system, you must create an AWS DataSync transfer *location*. DataSync can use this location as a source or destination for transferring data.
 
 ## Providing DataSync access to FSx for Windows File Server file systems
+<a name="create-fsx-location-access"></a>
 
-DataSync connects to your FSx for Windows File Server file system with the Server Message Block
-(SMB) protocol and mounts it from your virtual private cloud (VPC) using [network interfaces](required-network-interfaces.md "required-network-interfaces.md").
+DataSync connects to your FSx for Windows File Server file system with the Server Message Block (SMB) protocol and mounts it from your virtual private cloud (VPC) using [network interfaces](required-network-interfaces.md).
 
-###### Note
+**Note**  
+VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy aren't supported.
 
-VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy
-aren't supported.
-
-###### Topics
-
-- [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions")
-- [Required authentication protocols](#configuring-fsx-windows-authentication-protocols "#configuring-fsx-windows-authentication-protocols")
-- [DFS Namespaces](#configuring-fsx-windows-location-dfs "#configuring-fsx-windows-location-dfs")
+**Topics**
++ [Required permissions](#create-fsx-windows-location-permissions)
++ [Required authentication protocols](#configuring-fsx-windows-authentication-protocols)
++ [DFS Namespaces](#configuring-fsx-windows-location-dfs)
 
 ### Required permissions
+<a name="create-fsx-windows-location-permissions"></a>
 
-You must provide DataSync a user with the necessary rights to mount and access
-your FSx for Windows File Server files, folders, and file metadata.
+You must provide DataSync a user with the necessary rights to mount and access your FSx for Windows File Server files, folders, and file metadata.
 
-We recommend that this user belong to a Microsoft Active Directory group for
-administering your file system. The specifics of this group depends on your
-Active Directory setup:
+We recommend that this user belong to a Microsoft Active Directory group for administering your file system. The specifics of this group depends on your Active Directory setup:
++ If you're using AWS Directory Service for Microsoft Active Directory with FSx for Windows File Server, the user must be a member of the **AWS Delegated FSx Administrators** group.
++ If you're using self-managed Active Directory with FSx for Windows File Server, the user must be a member of one of two groups:
+  + The **Domain Admins** group, which is the default delegated administrators group.
+  + A custom delegated administrators group with user rights that allow DataSync to copy object ownership permissions and Windows access control lists (ACLs).
+**Important**  
+You can't change the delegated administrators group after the file system has been deployed. You must either redeploy the file system or restore it from a backup to use the custom delegated administrator group with the following user rights that DataSync needs to copy metadata.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html)
++ If you want to copy Windows ACLs and are transferring between an SMB file server and FSx for Windows File Server file system or between FSx for Windows File Server file systems, the users that you provide DataSync must belong to the same Active Directory domain or have an Active Directory trust relationship between their domains.
 
-- If you're using AWS Directory Service for Microsoft Active Directory with FSx for Windows File Server, the user must be
-  a member of the **AWS Delegated FSx Administrators**
-  group.
-- If you're using self-managed Active Directory with FSx for Windows File Server, the
-  user must be a member of one of two groups:
-
-  - The **Domain Admins** group, which is the
-    default delegated administrators group.
-  - A custom delegated administrators group with user rights that
-    allow DataSync to copy object ownership permissions and Windows
-    access control lists (ACLs).
-
-  ###### Important
-
-  You can't change the delegated administrators group after
-  the file system has been deployed. You must either redeploy
-  the file system or restore it from a backup to use the
-  custom delegated administrator group with the following user
-  rights that DataSync needs to copy metadata.
-
-  | User right                                                      | Description                                                                                                                                                                                                                                                                                             |
-  | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | **Restore files and<br>directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and *_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
-  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                             |
-
-- If you want to copy Windows ACLs and are transferring between an SMB
-  file server and FSx for Windows File Server file system or between FSx for Windows File Server file
-  systems, the users that you provide DataSync must belong to the same Active
-  Directory domain or have an Active Directory trust relationship between
-  their domains.
-
-###### Warning
-
-Your FSx for Windows File Server file system's SYSTEM user must have **Full
-control** permissions on all folders in your file system. Do
-not change the NTFS ACL permissions for this user on your folders. If you
-do, DataSync can change your file system's permissions in a way that makes your
-file share inaccessible and prevents file system backups from being usable.
-For more information on file- and folder-level access, see
-the*[Amazon FSx for Windows File Server User Guide](../../../fsx/latest/WindowsGuide/limit-access-file-folder.md "../../../fsx/latest/WindowsGuide/limit-access-file-folder.md")*.
+**Warning**  
+Your FSx for Windows File Server file system's SYSTEM user must have **Full control** permissions on all folders in your file system. Do not change the NTFS ACL permissions for this user on your folders. If you do, DataSync can change your file system's permissions in a way that makes your file share inaccessible and prevents file system backups from being usable. For more information on file- and folder-level access, see the*[ Amazon FSx for Windows File Server User Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-file-folder.html)*.
 
 ### Required authentication protocols
+<a name="configuring-fsx-windows-authentication-protocols"></a>
 
-Your FSx for Windows File Server must use NTLM authentication for DataSync to access it. DataSync
-can't access a file server that uses Kerberos authentication.
+Your FSx for Windows File Server must use NTLM authentication for DataSync to access it. DataSync can't access a file server that uses Kerberos authentication. 
 
 ### DFS Namespaces
+<a name="configuring-fsx-windows-location-dfs"></a>
 
 DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
 
-For more information, see [Grouping multiple file
-systems with DFS Namespaces](../../../fsx/latest/WindowsGuide/group-file-systems.md "../../../fsx/latest/WindowsGuide/group-file-systems.md") in the
-_Amazon FSx for Windows File Server User Guide_.
+For more information, see [Grouping multiple file systems with DFS Namespaces](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/group-file-systems.html) in the *Amazon FSx for Windows File Server User Guide*.
 
 ## Creating your FSx for Windows File Server transfer location
+<a name="create-fsx-location-how-to"></a>
 
-Before you begin, make sure that you have an existing FSx for Windows File Server in your
-AWS Region. For more information, see [Getting started with Amazon FSx](../../../fsx/latest/WindowsGuide/getting-started.md "../../../fsx/latest/WindowsGuide/getting-started.md") in
-the _Amazon FSx for Windows File Server User Guide_.
+Before you begin, make sure that you have an existing FSx for Windows File Server in your AWS Region. For more information, see [Getting started with Amazon FSx ](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) in the *Amazon FSx for Windows File Server User Guide*.
 
-1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
-2. In the left navigation pane, expand **Data transfer**,
-   then choose **Locations** and **Create
-   location**.
-3. For **Location type**, choose
-   **Amazon FSx**.
-4. For **FSx file system**, choose the FSx for Windows File Server
-   file system that you want to use as a location.
-5. For **Share name**, enter a mount path for your
-   FSx for Windows File Server using forward slashes.
+### Using the DataSync console
+<a name="create-fsx-location-access-how-to-console"></a>
 
-This specifies the path where DataSync reads or writes data
-(depending on if this is a source or destination location).
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/).
 
-You can also include subdirectories (for example,
-`/path/to/directory`). 6. For **Security groups**, choose up to five Amazon EC2
-security groups that provide access to your file system's preferred
-subnet.
+1. In the left navigation pane, expand **Data transfer**, then choose **Locations** and **Create location**.
 
-The security groups that you choose must be able to communicate
-with your file system's security groups. For information about
-configuring security groups for file system access, see the [_Amazon FSx for Windows File Server User
-Guide_](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md").
+1. For **Location type**, choose **Amazon FSx**.
 
-###### Note
+1. For **FSx file system**, choose the FSx for Windows File Server file system that you want to use as a location.
 
-If you choose a security group that doesn't allow connections
-from within itself, do one of the following:
+1. For **Share name**, enter a mount path for your FSx for Windows File Server using forward slashes.
 
-    * Configure the security group to allow it to
-     communicate within itself.
-    * Choose a different security group that can communicate
-     with the mount target's security group.
+   This specifies the path where DataSync reads or writes data (depending on if this is a source or destination location).
 
-7. For **User**, enter the name of a user that can
-access your FSx for Windows File Server.
+   You can also include subdirectories (for example, `/path/to/directory`).
 
-For more information, see [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user
-name. 9. (Optional) For **Domain**, enter the name of the
-Windows domain that your FSx for Windows File Server file system belongs to.
+1. For **Security groups**, choose up to five Amazon EC2 security groups that provide access to your file system's preferred subnet.
 
-If you have multiple Active Directory domains in your environment,
-configuring this setting makes sure that DataSync connects to the right
-file system. 10. (Optional) Enter values for the **Key** and
-**Value** fields to tag the
-FSx for Windows File Server.
+   The security groups that you choose must be able to communicate with your file system's security groups. For information about configuring security groups for file system access, see the [*Amazon FSx for Windows File Server User Guide*](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html).
+**Note**  
+If you choose a security group that doesn't allow connections from within itself, do one of the following:  
+Configure the security group to allow it to communicate within itself.
+Choose a different security group that can communicate with the mount target's security group.
 
-Tags help you manage, filter, and search for your AWS resources.
-We recommend creating at least a name tag for your location. 11. Choose **Create location**.
+1. For **User**, enter the name of a user that can access your FSx for Windows File Server.
 
-###### To create an FSx for Windows File Server location by using the AWS CLI
+   For more information, see [Required permissions](#create-fsx-windows-location-permissions).
 
-- Use the following command to create an Amazon FSx location.
+1. For **Password**, enter password of the user name.
 
-```
-aws datasync create-location-fsx-windows \
-    --fsx-filesystem-arn arn:aws:fsx:`region`:`account-id`:file-system/`filesystem-id` \
-    --security-group-arns arn:aws:ec2:`region`:`account-id`:security-group/`group-id` \
-    --user `smb-user` --password `password`
-```
+1. (Optional) For **Domain**, enter the name of the Windows domain that your FSx for Windows File Server file system belongs to.
 
-In the `create-location-fsx-windows` command, do the
-following:
+   If you have multiple Active Directory domains in your environment, configuring this setting makes sure that DataSync connects to the right file system.
 
-    + `fsx-filesystem-arn` – Specify the
-     Amazon Resource Name (ARN) of the file system that you want
-     to transfer to or from.
-    + `security-group-arns` – Specify the ARNs
-     of up to five Amazon EC2 security groups that provide access to
-     your file system's preferred subnet.
+1. (Optional) Enter values for the **Key** and **Value** fields to tag the FSx for Windows File Server.
 
+   Tags help you manage, filter, and search for your AWS resources. We recommend creating at least a name tag for your location. 
 
-    The security groups that you specify must be able to
-     communicate with your file system's security groups. For
-     information about configuring security groups for file
-     system access, see the [*Amazon FSx for Windows File Server User
-     Guide*](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md").
+1. Choose **Create location**.
 
+### Using the AWS CLI
+<a name="create-location-fsx-cli"></a>
 
-    ###### Note
+**To create an FSx for Windows File Server location by using the AWS CLI**
++ Use the following command to create an Amazon FSx location.
 
-    If you choose a security group that doesn't allow
-     connections from within itself, do one of the
-     following:
+  ```
+  aws datasync create-location-fsx-windows \
+      --fsx-filesystem-arn arn:aws:fsx:{{region}}:{{account-id}}:file-system/{{filesystem-id}} \
+      --security-group-arns arn:aws:ec2:{{region}}:{{account-id}}:security-group/{{group-id}} \
+      --user {{smb-user}} --password {{password}}
+  ```
 
+  In the `create-location-fsx-windows` command, do the following:
+  + `fsx-filesystem-arn` – Specify the Amazon Resource Name (ARN) of the file system that you want to transfer to or from.
+  + `security-group-arns` – Specify the ARNs of up to five Amazon EC2 security groups that provide access to your file system's preferred subnet.
 
+    The security groups that you specify must be able to communicate with your file system's security groups. For information about configuring security groups for file system access, see the [*Amazon FSx for Windows File Server User Guide*](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html).
+**Note**  
+If you choose a security group that doesn't allow connections from within itself, do one of the following:  
+Configure the security group to allow it to communicate within itself.
+Choose a different security group that can communicate with the mount target's security group.
+  + The AWS Region – The Region that you specify is the one where your target Amazon FSx file system is located.
 
-    	- Configure the security group to allow it to
-    	 communicate within itself.
-    	- Choose a different security group that can
-    	 communicate with the mount target's security
-    	 group.
-    + The AWS Region – The Region that you specify is
-     the one where your target Amazon FSx file system is
-     located.
-
-The preceding command returns a location ARN similar to the one shown
-following.
+The preceding command returns a location ARN similar to the one shown following.
 
 ```
-{
-    "LocationArn": "arn:aws:datasync:us-west-2:111222333444:location/loc-07db7abfc326c50fb"
+{ 
+    "LocationArn": "arn:aws:datasync:us-west-2:111222333444:location/loc-07db7abfc326c50fb" 
 }
 ```

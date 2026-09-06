@@ -1,148 +1,122 @@
+
+
 # Choosing a task mode for your data transfer
+<a name="choosing-task-mode"></a>
 
 Your AWS DataSync task can run in one of the following modes:
-
-- **Enhanced mode** – Transfer virtually
-  unlimited numbers of files or objects with higher performance than Basic mode.
-  Enhanced mode tasks optimize the data transfer process by listing, preparing,
-  transferring, and verifying data in parallel. Enhanced mode is currently
-  available for the following transfers:
-
-  - Between Amazon S3, Amazon EFS, and Amazon FSx for Lustre locations (no agent
-    required)
-  - Between NFS or SMB file servers, or HDFS clusters, and supported AWS
-    storage services using an Enhanced mode agent
-  - Between Azure Blob or object storage (including storage
-    in other clouds) and supported AWS storage services (no agent is
-    required when transferring to or from Amazon S3)
-
-- **Basic mode** – Transfer files or
-  objects between AWS storage and all other supported DataSync locations.
-  Basic mode tasks are subject to [quotas](datasync-limits.md "datasync-limits.md")
-  on the number of files, objects, and directories in a dataset. Basic mode
-  sequentially prepares, transfers, and verifies data, making it slower than
-  Enhanced mode for most workloads.
++ **Enhanced mode** – Transfer virtually unlimited numbers of files or objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for the following transfers:
+  + Between Amazon S3, Amazon EFS, and Amazon FSx for Lustre locations (no agent required)
+  + Between NFS or SMB file servers, or HDFS clusters, and supported AWS storage services using an Enhanced mode agent
+  + Between Azure Blob or object storage (including storage in other clouds) and supported AWS storage services (no agent is required when transferring to or from Amazon S3)
++ **Basic mode** – Transfer files or objects between AWS storage and all other supported DataSync locations. Basic mode tasks are subject to [quotas](datasync-limits.md) on the number of files, objects, and directories in a dataset. Basic mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced mode for most workloads.
 
 ## Understanding task mode differences
+<a name="task-mode-differences"></a>
 
-The following information can help you determine which task mode to
-use.
+The following information can help you determine which task mode to use.
 
-| Capability                                                                                                                                             | Enhanced mode behavior                                                                                                                                                                                                                                                                                                                                                | Basic mode behavior                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Performance](how-datasync-transfer-works.md#transferring-files "how-datasync-transfer-works.md#transferring-files")                                   | DataSync lists, prepares, transfers, and verifies your data in parallel.<br>Provides higher performance than Basic mode for most workloads<br>(such as<br>transferring<br>large objects)                                                                                                                                                                              | DataSync prepares, transfers, and verifies your data sequentially.<br>Performance is slower than Enhanced mode for most workloads                                                                                                                     |
-| Number of items in a dataset that DataSync can work with per task<br>execution                                                                         | Virtually unlimited numbers of objects                                                                                                                                                                                                                                                                                                                                | [Quotas](datasync-limits.md#task-hard-limits "datasync-limits.md#task-hard-limits") apply                                                                                                                                                             |
-| Data transfer [counters](transfer-performance-counters.md "transfer-performance-counters.md") and [metrics](monitor-datasync.md "monitor-datasync.md") | More counters and metrics than Basic mode, such as the number<br>of objects that<br>DataSync<br>finds at your source location, how many objects are prepared<br>during each task execution, and folder counters similar to file and object counters                                                                                                                   | Less counters and metrics than Enhanced mode                                                                                                                                                                                                          |
-| [Logging](configure-logging.md "configure-logging.md")                                                                                                 | Structured logs (JSON format)                                                                                                                                                                                                                                                                                                                                         | Unstructured logs                                                                                                                                                                                                                                     |
-| [Supported<br>locations](working-with-locations.md "working-with-locations.md")                                                                        | Currently for transfers between Amazon S3, Amazon EFS, Amazon FSx for Lustre,<br>NFS, SMB, HDFS, Azure Blob, and object storage<br>(including other clouds) locations. Some of these transfers require an<br>Enhanced mode agent. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md"). | For transfers between all locations that DataSync supports                                                                                                                                                                                            |
-| [Data<br>verification options](configure-data-verification-options.md "configure-data-verification-options.md")                                        | DataSync verifies only transferred data                                                                                                                                                                                                                                                                                                                               | DataSync verifies all data by default                                                                                                                                                                                                                 |
-| Cost                                                                                                                                                   | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing "https://aws.amazon.com/datasync/pricing") page                                                                                                                                                                                                                              | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing "https://aws.amazon.com/datasync/pricing") page                                                                                                              |
-| Failure handling for unsupported object tags                                                                                                           | For cloud storage transfers to or from locations that don't support<br>object tagging, task execution will fail immediately if the<br>`ObjectTags` option is unspeficied or set to<br>`PRESERVE`.                                                                                                                                                                     | For cloud storage transfers to or from locations that don't support<br>object tagging, task execution will run normally, but will report<br>per-object failures for tagged objects if the `ObjectTags`<br>option is unspecified or set to `PRESERVE`. |
+
+| Capability | Enhanced mode behavior | Basic mode behavior | 
+| --- | --- | --- | 
+| [Performance](how-datasync-transfer-works.md#transferring-files) | DataSync lists, prepares, transfers, and verifies your data in parallel. Provides higher performance than Basic mode for most workloads (such as transferring large objects) | DataSync prepares, transfers, and verifies your data sequentially. Performance is slower than Enhanced mode for most workloads | 
+| Number of items in a dataset that DataSync can work with per task execution | Virtually unlimited numbers of objects | [Quotas](datasync-limits.md#task-hard-limits) apply | 
+| Data transfer [counters](transfer-performance-counters.md) and [metrics](monitor-datasync.md) | More counters and metrics than Basic mode, such as the number of objects that DataSync finds at your source location, how many objects are prepared during each task execution, and folder counters similar to file and object counters | Less counters and metrics than Enhanced mode | 
+| [Logging](configure-logging.md) | Structured logs (JSON format) | Unstructured logs | 
+| [Supported locations](working-with-locations.md) | Currently for transfers between Amazon S3, Amazon EFS, Amazon FSx for Lustre, NFS, SMB, HDFS, Azure Blob, and object storage (including other clouds) locations. Some of these transfers require an Enhanced mode agent. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md). | For transfers between all locations that DataSync supports | 
+| [Data verification options](configure-data-verification-options.md) | DataSync verifies only transferred data | DataSync verifies all data by default | 
+| Cost | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing) page | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing) page | 
+| Failure handling for unsupported object tags | For cloud storage transfers to or from locations that don't support object tagging, task execution will fail immediately if the ObjectTags option is unspeficied or set to PRESERVE. | For cloud storage transfers to or from locations that don't support object tagging, task execution will run normally, but will report per-object failures for tagged objects if the ObjectTags option is unspecified or set to PRESERVE. | 
 
 ## Choosing a task mode
+<a name="choosing-task-mode-how-to"></a>
 
-You can choose Enhanced mode only for transfers between locations that Enhanced mode supports.
-For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md"). Otherwise, you must use Basic mode.
-For example, a transfer to or from an Amazon FSx for Windows File Server location requires
-Basic mode.
+You can choose Enhanced mode only for transfers between locations that Enhanced mode supports. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md). Otherwise, you must use Basic mode. For example, a transfer to or from an Amazon FSx for Windows File Server location requires Basic mode.
 
-Your task options and performance might vary depending on the task mode you choose.
-After you create your task, you can't change the task mode.
+Your task options and performance might vary depending on the task mode you choose. After you create your task, you can't change the task mode.
 
-**Required permissions**
+**Required permissions**  
+To create an Enhanced mode task, the IAM role that you're using DataSync with must have the `iam:CreateServiceLinkedRole` permission.  
+For your DataSync user permissions, consider using [AWSDataSyncFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncfullaccess). This is an AWS managed policy that provides a user full access to DataSync and minimal access to its dependencies.
 
-To create an Enhanced mode task, the IAM role that you're using
-DataSync with must have the `iam:CreateServiceLinkedRole`
-permission.
+### Using the DataSync console
+<a name="choosing-task-mode-console"></a>
 
-For your DataSync user permissions, consider using [AWSDataSyncFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncfullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncfullaccess"). This is an AWS managed policy that
-provides a user full access to DataSync and minimal access to its
-dependencies.
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/).
 
-1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
-2. In the left navigation pane, expand **Data transfer**, then choose **Tasks**, and
-   then choose **Create task**.
-3. Configure your task's source and destination locations.
+1. In the left navigation pane, expand **Data transfer**, then choose **Tasks**, and then choose **Create task**.
 
-For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For
-**Task
-mode**, choose one of the following
-options:
+1. Configure your task's source and destination locations.
 
-    * **Enhanced**
-    * **Basic**
+   For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md)
 
-For more information, see [Understanding task mode differences](#task-mode-differences "#task-mode-differences"). 5. While still on the **Configure settings** page,
-choose other task options or use the default settings.
+1. For **Task mode**, choose one of the following options:
+   + **Enhanced**
+   + **Basic**
 
-You might be interested in some of the following options:
+   For more information, see [Understanding task mode differences](#task-mode-differences).
 
-    * Specify what data to transfer by using a [manifest](transferring-with-manifest.md "transferring-with-manifest.md") or
-     [filters](filtering.md "filtering.md").
-    * Configure how to [handle
-     file metadata](configure-metadata.md "configure-metadata.md") and [verify data
-     integrity](configure-data-verification-options.md "configure-data-verification-options.md").
-    * Monitor your transfer with [task
-     reports](task-reports.md "task-reports.md") or [Amazon CloudWatch Logs](monitor-datasync.md "monitor-datasync.md").
+1. While still on the **Configure settings** page, choose other task options or use the default settings.
 
-When you're done, choose **Next**. 6. Review your task configuration, then choose **Create
-task**.
+   You might be interested in some of the following options:
+   + Specify what data to transfer by using a [manifest](transferring-with-manifest.md) or [filters](filtering.md).
+   + Configure how to [handle file metadata](configure-metadata.md) and [verify data integrity](configure-data-verification-options.md).
+   + Monitor your transfer with [task reports](task-reports.md) or [Amazon CloudWatch Logs](monitor-datasync.md).
 
-1. In your AWS CLI settings, make sure that you're using one of the
-   AWS Regions where you plan to transfer data.
-2. Copy the following `create-task` command:
+   When you're done, choose **Next**.
 
-```
-aws datasync create-task \
-  --source-location-arn "arn:aws:datasync:`us-east-1`:`account-id`:location/`location-id`" \
-  --destination-location-arn "arn:aws:datasync:`us-east-1`:`account-id`:location/`location-id`" \
-  --task-mode "`ENHANCED-or-BASIC`"
-```
+1. Review your task configuration, then choose **Create task**.
 
-3. For `--source-location-arn`, specify the Amazon Resource
-   Name (ARN) of your source location.
-4. For `--destination-location-arn`, specify the ARN of your
-   destination location.
+### Using the AWS CLI
+<a name="choosing-task-mode-cli"></a>
 
-If you're transferring across AWS Regions or accounts, make sure
-that the ARN includes the other Region or account ID. 5. For `--task-mode`, specify `ENHANCED` or
-`BASIC`.
+1. In your AWS CLI settings, make sure that you're using one of the AWS Regions where you plan to transfer data.
 
-For more information, see [Understanding task mode differences](#task-mode-differences "#task-mode-differences"). 6. Specify other task options as needed. You might be interested in some
-of the following options:
+1. Copy the following `create-task` command:
 
-    * Specify what data to transfer by using a [manifest](transferring-with-manifest.md "transferring-with-manifest.md") or
-     [filters](filtering.md "filtering.md").
-    * Configure how to [handle
-     file metadata](configure-metadata.md "configure-metadata.md") and [verify data
-     integrity](configure-data-verification-options.md "configure-data-verification-options.md").
-    * Monitor your transfer with [task
-     reports](task-reports.md "task-reports.md") or [Amazon CloudWatch Logs](monitor-datasync.md "monitor-datasync.md").
+   ```
+   aws datasync create-task \
+     --source-location-arn "arn:aws:datasync:{{us-east-1}}:{{account-id}}:location/{{location-id}}" \
+     --destination-location-arn "arn:aws:datasync:{{us-east-1}}:{{account-id}}:location/{{location-id}}" \
+     --task-mode "{{ENHANCED-or-BASIC}}"
+   ```
 
-For more options, see [create-task](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/create-task.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/create-task.html"). Here's an example `create-task`
-command that specifies Enhanced mode and several other
-options:
+1. For `--source-location-arn`, specify the Amazon Resource Name (ARN) of your source location.
 
-```
-aws datasync create-task \
-  --source-location-arn "arn:aws:datasync:`us-east-1`:`account-id`:location/`location-id`" \
-  --destination-location-arn "arn:aws:datasync:`us-east-1`:`account-id`:location/`location-id`" \
-  --name "`task-name`" \
-  --task-mode "ENHANCED" \
-  --options TransferMode=CHANGED,VerifyMode=ONLY_FILES_TRANSFERRED,ObjectTags=PRESERVE,LogLevel=TRANSFER
-```
+1. For `--destination-location-arn`, specify the ARN of your destination location.
 
-7. Run the `create-task` command.
+   If you're transferring across AWS Regions or accounts, make sure that the ARN includes the other Region or account ID.
 
-If the command is successful, you get a response that shows you the
-ARN of the task that you created. For example:
+1. For `--task-mode`, specify `ENHANCED` or `BASIC`.
 
-```
-{
-    "TaskArn": "arn:aws:datasync:us-east-1:111222333444:task/task-08de6e6697796f026"
-}
-```
+   For more information, see [Understanding task mode differences](#task-mode-differences).
 
-You can specify the DataSync task mode by configuring the `TaskMode`
-parameter in the [CreateTask](API_CreateTask.md "API_CreateTask.md")
-operation.
+1. Specify other task options as needed. You might be interested in some of the following options:
+   + Specify what data to transfer by using a [manifest](transferring-with-manifest.md) or [filters](filtering.md).
+   + Configure how to [handle file metadata](configure-metadata.md) and [verify data integrity](configure-data-verification-options.md).
+   + Monitor your transfer with [task reports](task-reports.md) or [Amazon CloudWatch Logs](monitor-datasync.md).
+
+   For more options, see [create-task](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/create-task.html). Here's an example `create-task` command that specifies Enhanced mode and several other options:
+
+   ```
+   aws datasync create-task \
+     --source-location-arn "arn:aws:datasync:{{us-east-1}}:{{account-id}}:location/{{location-id}}" \
+     --destination-location-arn "arn:aws:datasync:{{us-east-1}}:{{account-id}}:location/{{location-id}}" \
+     --name "{{task-name}}" \
+     --task-mode "ENHANCED" \
+     --options TransferMode=CHANGED,VerifyMode=ONLY_FILES_TRANSFERRED,ObjectTags=PRESERVE,LogLevel=TRANSFER
+   ```
+
+1. Run the `create-task` command.
+
+   If the command is successful, you get a response that shows you the ARN of the task that you created. For example:
+
+   ```
+   { 
+       "TaskArn": "arn:aws:datasync:us-east-1:111222333444:task/task-08de6e6697796f026" 
+   }
+   ```
+
+### Using the DataSync API
+<a name="choosing-task-mode-api"></a>
+
+You can specify the DataSync task mode by configuring the `TaskMode` parameter in the [CreateTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html) operation.
