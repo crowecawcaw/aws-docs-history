@@ -1,3 +1,6 @@
-# Amazon GameLift Servers developer resources
 
-To view all Amazon GameLift Servers documentation and developer resources, see the [Amazon GameLift Servers Documentation](../../../gamelift/index.md "../../../gamelift/index.md") home page.
+
+# Amazon GameLift Servers developer resources
+<a name="gsg-guides"></a>
+
+To view all Amazon GameLift Servers documentation and developer resources, see the [Amazon GameLift Servers Documentation](https://docs.aws.amazon.com/gamelift/index.html) home page.
