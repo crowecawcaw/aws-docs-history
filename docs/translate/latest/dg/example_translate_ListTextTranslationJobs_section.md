@@ -1,16 +1,15 @@
+
+
 # Use `ListTextTranslationJobs` with an AWS SDK
+<a name="example_translate_ListTextTranslationJobs_section"></a>
 
 The following code examples show how to use `ListTextTranslationJobs`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples). 
 
 ```
     using System;
@@ -79,24 +78,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         }
     }
-
-
-
 ```
++  For API details, see [ListTextTranslationJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/translate-2017-07-01/ListTextTranslationJobs) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListTextTranslationJobs](../../../goto/DotNetSDKV3/translate-2017-07-01/ListTextTranslationJobs.md "../../../goto/DotNetSDKV3/translate-2017-07-01/ListTextTranslationJobs.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
 ```
     "Gets a list of the batch translation jobs that you have submitted."
@@ -119,14 +108,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_xl8toomanyrequestsex.
         MESSAGE 'You have made too many requests within a short period of time.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListTextTranslationJobs](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListTextTranslationJobs](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

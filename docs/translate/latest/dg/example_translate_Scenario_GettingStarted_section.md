@@ -1,23 +1,20 @@
+
+
 # Get started with Amazon Translate jobs using an AWS SDK
+<a name="example_translate_Scenario_GettingStarted_section"></a>
 
 The following code example shows how to:
++ Start an asynchronous batch translation job.
++ Wait for the asynchronous job to complete.
++ Describe the asynchronous job.
 
-- Start an asynchronous batch translation job.
-- Wait for the asynchronous job to complete.
-- Describe the asynchronous job.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
 ```
-
     DATA lo_inputdataconfig  TYPE REF TO /aws1/cl_xl8inputdataconfig.
     DATA lo_outputdataconfig TYPE REF TO /aws1/cl_xl8outputdataconfig.
     DATA lt_targetlanguagecodes TYPE /aws1/cl_xl8tgtlanguagecodes00=>tt_targetlanguagecodestrlist.
@@ -81,16 +78,11 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_xl8toomanyrequestsex.
         MESSAGE 'You have made too many requests within a short period of time.' TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [DescribeTextTranslationJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [StartTextTranslationJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
 
-  - [DescribeTextTranslationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [StartTextTranslationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
