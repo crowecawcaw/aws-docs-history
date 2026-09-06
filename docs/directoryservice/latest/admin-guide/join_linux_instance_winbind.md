@@ -1,553 +1,470 @@
+
+
 # Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory using Winbind
+<a name="join_linux_instance_winbind"></a>
 
-You can use the Winbind service to manually join your Amazon EC2 Linux instances to an
-AWS Managed Microsoft AD Active Directory domain. This enables your existing on-premises Active
-Directory users to use their Active Directory credentials when accessing the Linux instances
-joined to your AWS Managed Microsoft AD Active Directory. The following Linux instance distributions and
-versions are supported:
+You can use the Winbind service to manually join your Amazon EC2 Linux instances to an AWS Managed Microsoft AD Active Directory domain. This enables your existing on-premises Active Directory users to use their Active Directory credentials when accessing the Linux instances joined to your AWS Managed Microsoft AD Active Directory. The following Linux instance distributions and versions are supported:
++ Amazon Linux AMI 2018.03.0
++ Amazon Linux 2 (64-bit x86)
++ Amazon Linux 2023 AMI
++ Red Hat Enterprise Linux 8 (HVM) (64-bit x86)
++ Ubuntu Server 18.04 LTS & Ubuntu Server 16.04 LTS
++ CentOS 7 x86-64
++ SUSE Linux Enterprise Server 15 SP1
 
-- Amazon Linux AMI 2018.03.0
-- Amazon Linux 2 (64-bit x86)
-- Amazon Linux 2023 AMI
-- Red Hat Enterprise Linux 8 (HVM) (64-bit x86)
-- Ubuntu Server 18.04 LTS & Ubuntu Server 16.04 LTS
-- CentOS 7 x86-64
-- SUSE Linux Enterprise Server 15 SP1
-
-###### Note
-
+**Note**  
 Other Linux distributions and versions may work but have not been tested.
 
 ## Join a Linux instance to your AWS Managed Microsoft AD Active Directory
+<a name="join_linux_winbind_prereq"></a>
 
-###### Important
+**Important**  
+Some of the following procedures, if not performed correctly, can render your instance unreachable or unusable. Therefore, we strongly suggest you make a backup or take a snapshot of your instance before performing these procedures.
 
-Some of the following procedures, if not performed correctly, can render your instance
-unreachable or unusable. Therefore, we strongly suggest you make a backup or take a
-snapshot of your instance before performing these procedures.
+**To join a Linux instance to your directory**  
+Follow the steps for your specific Linux instance using one of the following tabs:
 
-###### To join a Linux instance to your directory
-
-Follow the steps for your specific Linux instance using one of the following
-tabs:
-
-Amazon Linux/CENTOS/REDHAT
+------
+#### [ Amazon Linux/CENTOS/REDHAT ]<a name="amazonlinux"></a>
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the
-   Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP
-   Options set attached to the VPC or by setting it manually on the instance. If
-   you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in
-   the AWS Knowledge Center for guidance on setting the persistent DNS server for
-   your particular Linux distribution and version.
-3. Make sure your Linux instance is up to date.
 
-```
-sudo yum -y update
-```
+1. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options set attached to the VPC or by setting it manually on the instance. If you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/) in the AWS Knowledge Center for guidance on setting the persistent DNS server for your particular Linux distribution and version.
 
-4. Install the required Samba / Winbind packages on your Linux instance.
+1. Make sure your Linux instance is up to date.
 
-```
-sudo yum -y install authconfig samba samba-client samba-winbind samba-winbind-clients
-```
+   ```
+   sudo yum -y update
+   ```
 
-5. Make a backup of the main `smb.conf` file so you can
-   revert back to it in case of any failure:
+1. Install the required Samba / Winbind packages on your Linux instance.
 
-```
-sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
-```
+   ```
+   sudo yum -y install authconfig samba samba-client samba-winbind samba-winbind-clients
+   ```
 
-6. Open the original configuration file
-   [`/etc/samba/smb.conf`] in a text editor.
+1. Make a backup of the main `smb.conf` file so you can revert back to it in case of any failure: 
 
-```
-sudo vim /etc/samba/smb.conf
-```
+   ```
+   sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
+   ```
 
-Fill in your Active Directory domain environment information as shown in the
-below example:
+1. Open the original configuration file [`/etc/samba/smb.conf`] in a text editor.
 
-```
-[global]
- workgroup = `example`
- security = ads
- realm = `example.com`
- idmap config * : rangesize = 1000000
- idmap config * : range = 1000000-19999999
- idmap config * : backend = autorid
- winbind enum users = no
- winbind enum groups = no
- template homedir = /home/%U@%D
- template shell = /bin/bash
- winbind use default domain = false
-```
+   ```
+   sudo vim /etc/samba/smb.conf
+   ```
 
-7. Open the hosts file [`/etc/hosts`] in a text
-   editor.
+   Fill in your Active Directory domain environment information as shown in the below example:
 
-```
-sudo vim /etc/hosts
-```
+   ```
+   [global]
+    workgroup = {{example}}
+    security = ads
+    realm = {{example.com}}
+    idmap config * : rangesize = 1000000
+    idmap config * : range = 1000000-19999999
+    idmap config * : backend = autorid
+    winbind enum users = no
+    winbind enum groups = no
+    template homedir = /home/%U@%D
+    template shell = /bin/bash
+    winbind use default domain = false
+   ```
 
-Add your Linux instance private IP address as follows:
+1. Open the hosts file [`/etc/hosts`] in a text editor.
 
-```
-`10.x.x.x`  `Linux_hostname`.`example.com` `Linux_hostname`
-```
+   ```
+   sudo vim /etc/hosts
+   ```
 
-###### Note
+   Add your Linux instance private IP address as follows:
 
-If you did not specify your IP Address in the
-`/etc/hosts` file, you might receive the following DNS
-error while joining the instance to the domain.:
+   ```
+   {{10.x.x.x}}  {{Linux_hostname}}.{{example.com}} {{Linux_hostname}}
+   ```
+**Note**  
+If you did not specify your IP Address in the `/etc/hosts` file, you might receive the following DNS error while joining the instance to the domain.:  
+`No DNS domain configured for linux-instance. Unable to perform DNS Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`  
+This error means that the join was successful but the [net ads] command was unable to register the DNS record in DNS.
 
-`No DNS domain configured for linux-instance. Unable to perform DNS
- Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`
+1. Join the Linux instance to Active Directory using the net utility. 
 
-This error means that the join was successful but the [net ads] command
-was unable to register the DNS record in DNS. 8. Join the Linux instance to Active Directory using the net utility.
-
-```
-sudo net ads join -U `join_account@example.com`
-```
-
-`join_account@example.com`
-
-An account in the `example.com` domain that
-has domain join privileges. Enter the password for the account when
-prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
-
-`example.com`
-
+   ```
+   sudo net ads join -U {{join_account@example.com}}
+   ```  
+{{join\_account@example.com}}  
+An account in the {{example.com}} domain that has domain join privileges. Enter the password for the account when prompted. For more information about delegating these privileges, see [Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md).  
+{{example.com}}  
 The fully qualified DNS name of your directory.
 
-```
-Enter join_account@`example.com`'s password:
-Using short domain name -- `example`
-Joined '`IP-10-x-x-x`' to dns domain '`example.com`'
-```
+   ```
+   Enter join_account@{{example.com}}'s password:
+   Using short domain name -- {{example}}
+   Joined '{{IP-10-x-x-x}}' to dns domain '{{example.com}}'
+   ```
 
-9. Modify PAM Configuration file, Use the command below to add the necessary
-   entries for winbind authentication:
+1. Modify PAM Configuration file, Use the command below to add the necessary entries for winbind authentication:
 
-```
-sudo authconfig --enablewinbind --enablewinbindauth  --enablemkhomedir   --update
-```
+   ```
+   sudo authconfig --enablewinbind --enablewinbindauth  --enablemkhomedir   --update
+   ```
 
-10. Set the SSH service to allow password authentication by editing the
-    `/etc/ssh/sshd_config` file..
+1. Set the SSH service to allow password authentication by editing the `/etc/ssh/sshd_config` file..
 
-    1.  Open the `/etc/ssh/sshd_config` file in a text
-        editor.
+   1. Open the `/etc/ssh/sshd_config` file in a text editor.
 
-    ```
-    sudo vi /etc/ssh/sshd_config
-    ```
-    2.  Set the `PasswordAuthentication` setting to
-        `yes`.
+      ```
+      sudo vi /etc/ssh/sshd_config
+      ```
 
-    ```
-    PasswordAuthentication yes
-    ```
-    3.  Restart the SSH service.
+   1. Set the `PasswordAuthentication` setting to `yes`.
 
-    ```
-    sudo systemctl restart sshd.service
-    ```
+      ```
+      PasswordAuthentication yes
+      ```
 
-    Alternatively:
+   1. Restart the SSH service.
 
-    ```
-    sudo service sshd restart
-    ```
+      ```
+      sudo systemctl restart sshd.service
+      ```
 
-11. After the instance has restarted, connect to it with any SSH client and add
-    the root privileges for a domain user or group to the sudoers list by performing
-    the following steps:
+      Alternatively:
 
-    1.  Open the `sudoers` file with the following
-        command:
+      ```
+      sudo service sshd restart
+      ```
 
-    ```
-    sudo visudo
-    ```
-    2.  Add the required groups or users from your Trusting or Trusted domain as
-        follows, and then save it.
+1. After the instance has restarted, connect to it with any SSH client and add the root privileges for a domain user or group to the sudoers list by performing the following steps:
 
-    ```
-    ## Adding Domain Users/Groups.
-    %`domainname`\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
-    %`domainname`\\`groupname` ALL=(ALL:ALL) ALL
-    `domainname`\\`username` ALL=(ALL:ALL) ALL
-    %`Trusted_DomainName`\\`groupname` ALL=(ALL:ALL) ALL
-    `Trusted_DomainName`\\`username` ALL=(ALL:ALL) ALL
-    ```
+   1. Open the `sudoers` file with the following command:
 
-    (The above example uses "\<space>" to create the Linux space
-    character.)
+      ```
+      sudo visudo
+      ```
 
-SUSE
+   1. Add the required groups or users from your Trusting or Trusted domain as follows, and then save it.
+
+      ```
+      ## Adding Domain Users/Groups.
+      %{{domainname}}\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
+      %{{domainname}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{domainname}}\\{{username}} ALL=(ALL:ALL) ALL
+      %{{Trusted_DomainName}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{Trusted_DomainName}}\\{{username}} ALL=(ALL:ALL) ALL
+      ```
+
+      (The above example uses "\\<space>" to create the Linux space character.)
+
+------
+#### [ SUSE ]<a name="suse"></a>
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the
-   Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP
-   Options set attached to the VPC or by setting it manually on the instance. If
-   you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/") in
-   the AWS Knowledge Center for guidance on setting the persistent DNS server for
-   your particular Linux distribution and version.
-3. Make sure your SUSE Linux 15 instance is up to date.
+
+1. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options set attached to the VPC or by setting it manually on the instance. If you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/) in the AWS Knowledge Center for guidance on setting the persistent DNS server for your particular Linux distribution and version.
+
+1. Make sure your SUSE Linux 15 instance is up to date.
 
    1. Connect the package repository.
 
-   ```
-   sudo SUSEConnect -p PackageHub/15.1/x86_64
-   ```
-   2. Update SUSE.
+      ```
+      sudo SUSEConnect -p PackageHub/15.1/x86_64
+      ```
+
+   1. Update SUSE.
+
+      ```
+      sudo zypper update -y
+      ```
+
+1. Install the required Samba / Winbind packages on your Linux instance.
 
    ```
-   sudo zypper update -y
+   sudo zypper in -y samba samba-winbind
    ```
 
-4. Install the required Samba / Winbind packages on your Linux instance.
+1. Make a backup of the main `smb.conf` file so you can revert back to it in case of any failure: 
 
-```
-sudo zypper in -y samba samba-winbind
-```
+   ```
+   sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
+   ```
 
-5. Make a backup of the main `smb.conf` file so you can
-   revert back to it in case of any failure:
+1. Open the original configuration file [`/etc/samba/smb.conf`] in a text editor.
 
-```
-sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
-```
+   ```
+   sudo vim /etc/samba/smb.conf
+   ```
 
-6. Open the original configuration file
-   [`/etc/samba/smb.conf`] in a text editor.
+   Fill in your Active directory domain environment information as shown in the below example:
 
-```
-sudo vim /etc/samba/smb.conf
-```
+   ```
+   [global]
+    workgroup = {{example}}
+    security = ads
+    realm = {{example.com}}
+    idmap config * : rangesize = 1000000
+    idmap config * : range = 1000000-19999999
+    idmap config * : backend = autorid
+    winbind enum users = no
+    winbind enum groups = no
+    template homedir = /home/%U@%D
+    template shell = /bin/bash
+    winbind use default domain = false
+   ```
 
-Fill in your Active directory domain environment information as shown in the
-below example:
+1. Open the hosts file [`/etc/hosts`] in a text editor.
 
-```
-[global]
- workgroup = `example`
- security = ads
- realm = `example.com`
- idmap config * : rangesize = 1000000
- idmap config * : range = 1000000-19999999
- idmap config * : backend = autorid
- winbind enum users = no
- winbind enum groups = no
- template homedir = /home/%U@%D
- template shell = /bin/bash
- winbind use default domain = false
-```
+   ```
+   sudo vim /etc/hosts
+   ```
 
-7. Open the hosts file [`/etc/hosts`] in a text
-   editor.
+   Add your Linux instance private IP address as follows:
 
-```
-sudo vim /etc/hosts
-```
+   ```
+   {{10.x.x.x}}  {{Linux_hostname}}.{{example.com}} {{Linux_hostname}}
+   ```
+**Note**  
+If you did not specify your IP Address in the `/etc/hosts` file, you might receive the following DNS error while joining the instance to the domain.:  
+`No DNS domain configured for linux-instance. Unable to perform DNS Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`  
+This error means that the join was successful but the [net ads] command was unable to register the DNS record in DNS.
 
-Add your Linux instance private IP address as follows:
+1. Join the Linux instance to the directory with the following command. 
 
-```
-`10.x.x.x`  `Linux_hostname`.`example.com` `Linux_hostname`
-```
-
-###### Note
-
-If you did not specify your IP Address in the
-`/etc/hosts` file, you might receive the following DNS
-error while joining the instance to the domain.:
-
-`No DNS domain configured for linux-instance. Unable to perform DNS
- Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`
-
-This error means that the join was successful but the [net ads] command
-was unable to register the DNS record in DNS. 8. Join the Linux instance to the directory with the following command.
-
-```
-sudo net ads join -U `join_account@example.com`
-```
-
-`join_account`
-
-The sAMAccountName in the `example.com`
-domain that has domain join privileges. Enter the password for the account
-when prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
-
-`example.com`
-
+   ```
+   sudo net ads join -U {{join_account@example.com}}
+   ```  
+{{join\_account}}  
+The sAMAccountName in the {{example.com}} domain that has domain join privileges. Enter the password for the account when prompted. For more information about delegating these privileges, see [Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md).  
+{{example.com}}  
 The fully-qualified DNS name of your directory.
 
-```
-Enter `join_account@example.com`'s password:
-Using short domain name -- `example`
-Joined '`IP-10-x-x-x`' to dns domain '`example.com`'
-```
+   ```
+   Enter {{join_account@example.com}}'s password:
+   Using short domain name -- {{example}}
+   Joined '{{IP-10-x-x-x}}' to dns domain '{{example.com}}'
+   ```
 
-9. Modify PAM Configuration file, Use the command below to add the necessary
-   entries for Winbind authentication:
+1. Modify PAM Configuration file, Use the command below to add the necessary entries for Winbind authentication:
 
-```
-sudo pam-config --add --winbind --mkhomedir
-```
+   ```
+   sudo pam-config --add --winbind --mkhomedir
+   ```
 
-10. Open the Name Service Switch configuration file
-    [`/etc/nsswitch.conf`] in a text editor.
+1. Open the Name Service Switch configuration file [`/etc/nsswitch.conf`] in a text editor.
 
-```
-vim /etc/nsswitch.conf
-```
+   ```
+   vim /etc/nsswitch.conf
+   ```
 
-Add the Winbind directive as shown below.
+   Add the Winbind directive as shown below.
 
-```
-passwd: files winbind
-shadow: files winbind
-group:  files winbind
-```
+   ```
+   passwd: files winbind
+   shadow: files winbind
+   group:  files winbind
+   ```
 
-11. Set the SSH service to allow password authentication by editing the
-    `/etc/ssh/sshd_config` file..
+1. Set the SSH service to allow password authentication by editing the `/etc/ssh/sshd_config` file..
 
-    1.  Open the `/etc/ssh/sshd_config` file in a text
-        editor.
+   1. Open the `/etc/ssh/sshd_config` file in a text editor.
 
-    ```
-    sudo vim /etc/ssh/sshd_config
-    ```
-    2.  Set the `PasswordAuthentication` setting to
-        `yes`.
+      ```
+      sudo vim /etc/ssh/sshd_config
+      ```
 
-    ```
-    PasswordAuthentication yes
-    ```
-    3.  Restart the SSH service.
+   1. Set the `PasswordAuthentication` setting to `yes`.
 
-    ```
-    sudo systemctl restart sshd.service
-    ```
+      ```
+      PasswordAuthentication yes
+      ```
 
-    Alternatively:
+   1. Restart the SSH service.
 
-    ```
-    sudo service sshd restart
-    ```
+      ```
+      sudo systemctl restart sshd.service
+      ```
 
-12. After the instance has restarted, connect to it with any SSH client and add
-    root privileges for a domain user or group, to the sudoers list by performing
-    the following steps:
+      Alternatively:
 
-    1.  Open the `sudoers` file with the following
-        command:
+      ```
+      sudo service sshd restart
+      ```
 
-    ```
-    sudo visudo
-    ```
-    2.  Add the required groups or users from your Trusting or Trusted domain as
-        follows, and then save it.
+1. After the instance has restarted, connect to it with any SSH client and add root privileges for a domain user or group, to the sudoers list by performing the following steps:
 
-    ```
-    ## Adding Domain Users/Groups.
-    %`domainname`\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
-    %`domainname`\\`groupname` ALL=(ALL:ALL) ALL
-    `domainname`\\`username` ALL=(ALL:ALL) ALL
-    %`Trusted_DomainName`\\`groupname` ALL=(ALL:ALL) ALL
-    `Trusted_DomainName`\\`username` ALL=(ALL:ALL) ALL
-    ```
+   1. Open the `sudoers` file with the following command:
 
-    (The above example uses "\<space>" to create the Linux space
-    character.)
+      ```
+      sudo visudo
+      ```
 
-Ubuntu
+   1. Add the required groups or users from your Trusting or Trusted domain as follows, and then save it.
+
+      ```
+      ## Adding Domain Users/Groups.
+      %{{domainname}}\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
+      %{{domainname}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{domainname}}\\{{username}} ALL=(ALL:ALL) ALL
+      %{{Trusted_DomainName}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{Trusted_DomainName}}\\{{username}} ALL=(ALL:ALL) ALL
+      ```
+
+      (The above example uses "\\<space>" to create the Linux space character.)
+
+------
+#### [ Ubuntu ]<a name="ubuntu"></a>
 
 1. Connect to the instance using any SSH client.
-2. Configure the Linux instance to use the DNS server IP addresses of the
-   Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP
-   Options set attached to the VPC or by setting it manually on the instance. If
-   you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/")
-   in the AWS Knowledge Center for guidance on setting the persistent DNS server
-   for your particular Linux distribution and version.
-3. Make sure your Linux instance is up to date.
 
-```
-sudo apt-get -y upgrade
-```
+1. Configure the Linux instance to use the DNS server IP addresses of the Directory Service-provided DNS servers. You can do this either by setting it up in the DHCP Options set attached to the VPC or by setting it manually on the instance. If you want to set it manually, see [How do I assign a static DNS server to a private Amazon EC2 instance](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/) in the AWS Knowledge Center for guidance on setting the persistent DNS server for your particular Linux distribution and version.
 
-4. Install the required Samba / Winbind packages on your Linux instance.
+1. Make sure your Linux instance is up to date.
 
-```
-sudo apt -y install samba winbind libnss-winbind libpam-winbind
-```
+   ```
+   sudo apt-get -y upgrade
+   ```
 
-5. Make a backup of the main `smb.conf` file so you can
-   revert back to it in case of any failure.
+1. Install the required Samba / Winbind packages on your Linux instance.
 
-```
-sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
-```
+   ```
+   sudo apt -y install samba winbind libnss-winbind libpam-winbind
+   ```
 
-6. Open the original configuration file
-   [`/etc/samba/smb.conf`] in a text editor.
+1. Make a backup of the main `smb.conf` file so you can revert back to it in case of any failure. 
 
-```
-sudo vim /etc/samba/smb.conf
-```
+   ```
+   sudo cp /etc/samba/smb.conf /etc/samba/smb.bk
+   ```
 
-Fill in your Active directory domain environment information as shown in the
-below example:
+1. Open the original configuration file [`/etc/samba/smb.conf`] in a text editor.
 
-```
-[global]
- workgroup = `example`
- security = ads
- realm = `example.com`
- idmap config * : rangesize = 1000000
- idmap config * : range = 1000000-19999999
- idmap config * : backend = autorid
- winbind enum users = no
- winbind enum groups = no
- template homedir = /home/%U@%D
- template shell = /bin/bash
- winbind use default domain = false
-```
+   ```
+   sudo vim /etc/samba/smb.conf
+   ```
 
-7. Open the hosts file [`/etc/hosts`] in a text
-   editor.
+   Fill in your Active directory domain environment information as shown in the below example:
 
-```
-sudo vim /etc/hosts
-```
+   ```
+   [global]
+    workgroup = {{example}}
+    security = ads
+    realm = {{example.com}}
+    idmap config * : rangesize = 1000000
+    idmap config * : range = 1000000-19999999
+    idmap config * : backend = autorid
+    winbind enum users = no
+    winbind enum groups = no
+    template homedir = /home/%U@%D
+    template shell = /bin/bash
+    winbind use default domain = false
+   ```
 
-Add your Linux instance private IP address as follows:
+1. Open the hosts file [`/etc/hosts`] in a text editor.
 
-```
-`10.x.x.x`  `Linux_hostname`.`example.com` `Linux_hostname`
-```
+   ```
+   sudo vim /etc/hosts
+   ```
 
-###### Note
+   Add your Linux instance private IP address as follows:
 
-If you did not specify your IP Address in the
-`/etc/hosts` file, you might receive the following DNS
-error while joining the instance to the domain.:
+   ```
+   {{10.x.x.x}}  {{Linux_hostname}}.{{example.com}} {{Linux_hostname}}
+   ```
+**Note**  
+If you did not specify your IP Address in the `/etc/hosts` file, you might receive the following DNS error while joining the instance to the domain.:  
+`No DNS domain configured for linux-instance. Unable to perform DNS Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`  
+This error means that the join was successful but the [net ads] command was unable to register the DNS record in DNS.
 
-`No DNS domain configured for linux-instance. Unable to perform DNS
- Update. DNS update failed: NT_STATUS_INVALID_PARAMETER`
+1. Join the Linux instance to Active Directory using the net utility. 
 
-This error means that the join was successful but the [net ads] command
-was unable to register the DNS record in DNS. 8. Join the Linux instance to Active Directory using the net utility.
-
-```
-sudo net ads join -U `join_account@example.com`
-```
-
-`join_account@example.com`
-
-An account in the `example.com` domain that
-has domain join privileges. Enter the password for the account when
-prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
-
-`example.com`
-
+   ```
+   sudo net ads join -U {{join_account@example.com}}
+   ```  
+{{join\_account@example.com}}  
+An account in the {{example.com}} domain that has domain join privileges. Enter the password for the account when prompted. For more information about delegating these privileges, see [Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md).  
+{{example.com}}  
 The fully qualified DNS name of your directory.
 
-```
-Enter join_account@`example.com`'s password:
-Using short domain name -- `example`
-Joined '`IP-10-x-x-x`' to dns domain '`example.com`'
-```
+   ```
+   Enter join_account@{{example.com}}'s password:
+   Using short domain name -- {{example}}
+   Joined '{{IP-10-x-x-x}}' to dns domain '{{example.com}}'
+   ```
 
-9. Modify PAM Configuration file, Use the command below to add the necessary
-   entries for Winbind authentication:
+1. Modify PAM Configuration file, Use the command below to add the necessary entries for Winbind authentication:
 
-```
-sudo pam-auth-update --add --winbind --enable mkhomedir
-```
+   ```
+   sudo pam-auth-update --add --winbind --enable mkhomedir
+   ```
 
-10. Open the Name Service Switch configuration file
-    [`/etc/nsswitch.conf`] in a text editor.
+1. Open the Name Service Switch configuration file [`/etc/nsswitch.conf`] in a text editor.
 
-```
-vim /etc/nsswitch.conf
-```
+   ```
+   vim /etc/nsswitch.conf
+   ```
 
-Add the Winbind directive as shown below.
+   Add the Winbind directive as shown below.
 
-```
-passwd: compat winbind
-group:  compat winbind
-shadow: compat winbind
-```
+   ```
+   passwd: compat winbind
+   group:  compat winbind
+   shadow: compat winbind
+   ```
 
-11. Set the SSH service to allow password authentication by editing the
-    `/etc/ssh/sshd_config` file..
+1. Set the SSH service to allow password authentication by editing the `/etc/ssh/sshd_config` file..
 
-    1.  Open the `/etc/ssh/sshd_config` file in a text
-        editor.
+   1. Open the `/etc/ssh/sshd_config` file in a text editor.
 
-    ```
-    sudo vim /etc/ssh/sshd_config
-    ```
-    2.  Set the `PasswordAuthentication` setting to
-        `yes`.
+      ```
+      sudo vim /etc/ssh/sshd_config
+      ```
 
-    ```
-    PasswordAuthentication yes
-    ```
-    3.  Restart the SSH service.
+   1. Set the `PasswordAuthentication` setting to `yes`.
 
-    ```
-    sudo systemctl restart sshd.service
-    ```
+      ```
+      PasswordAuthentication yes
+      ```
 
-    Alternatively:
+   1. Restart the SSH service.
 
-    ```
-    sudo service sshd restart
-    ```
+      ```
+      sudo systemctl restart sshd.service
+      ```
 
-12. After the instance has restarted, connect to it with any SSH client and add
-    root privileges for a domain user or group, to the sudoers list by performing
-    the following steps:
+      Alternatively:
 
-    1.  Open the `sudoers` file with the following
-        command:
+      ```
+      sudo service sshd restart
+      ```
 
-    ```
-    sudo visudo
-    ```
-    2.  Add the required groups or users from your Trusting or Trusted domain as
-        follows, and then save it.
+1. After the instance has restarted, connect to it with any SSH client and add root privileges for a domain user or group, to the sudoers list by performing the following steps:
 
-    ```
-    ## Adding Domain Users/Groups.
-    %`domainname`\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
-    %`domainname`\\`groupname` ALL=(ALL:ALL) ALL
-    `domainname`\\`username` ALL=(ALL:ALL) ALL
-    %`Trusted_DomainName`\\`groupname` ALL=(ALL:ALL) ALL
-    `Trusted_DomainName`\\`username` ALL=(ALL:ALL) ALL
-    ```
+   1. Open the `sudoers` file with the following command:
 
-    (The above example uses "\<space>" to create the Linux space
-    character.)
+      ```
+      sudo visudo
+      ```
+
+   1. Add the required groups or users from your Trusting or Trusted domain as follows, and then save it.
+
+      ```
+      ## Adding Domain Users/Groups.
+      %{{domainname}}\\AWS\ Delegated\ Administrators ALL=(ALL:ALL) ALL
+      %{{domainname}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{domainname}}\\{{username}} ALL=(ALL:ALL) ALL
+      %{{Trusted_DomainName}}\\{{groupname}} ALL=(ALL:ALL) ALL
+      {{Trusted_DomainName}}\\{{username}} ALL=(ALL:ALL) ALL
+      ```
+
+      (The above example uses "\\<space>" to create the Linux space character.)
+
+------
 
 ## Connect to the Linux instance
+<a name="linux_winbind_connect"></a>
 
-When a user connects to the instance using an SSH client, they are prompted for their
-username. The user can enter the username in either the
-`username@example.com` or `EXAMPLE\username`
-format. The response will appear similar to the following, depending on which Linux distribution you are using:
+When a user connects to the instance using an SSH client, they are prompted for their username. The user can enter the username in either the `username@example.com` or `EXAMPLE\username` format. The response will appear similar to the following, depending on which Linux distribution you are using:
 
 **Amazon Linux, Red Hat Enterprise Linux, and CentOS Linux**
 
@@ -590,5 +507,4 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1057-aws x86_64)
   Usage of /:   18.6% of 7.69GB   Users logged in:     2
   Memory usage: 16%               IP address for eth0: 10.24.34.1
   Swap usage:   0%
-
 ```

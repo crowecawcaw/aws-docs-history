@@ -1,65 +1,38 @@
+
+
 # Logging AWS Directory Service Data API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-AWS Directory Service Data integrates with AWS CloudTrail, a service that provides a record of actions taken by
-a user, role, or an AWS service in Directory Service Data. CloudTrail captures all API calls for Directory Service Data as
-events. The calls captured include calls from the Directory Service Data console and code calls to Directory Service Data
-API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to
-an Amazon S3 bucket, including events for Directory Service Data. Using the information collected by CloudTrail, you
-can determine the request that was made to Directory Service Data, the IP address from which the request was
-made, who made the request, when it was made, and additional details.
+AWS Directory Service Data integrates with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Directory Service Data. CloudTrail captures all API calls for Directory Service Data as events. The calls captured include calls from the Directory Service Data console and code calls to Directory Service Data API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Directory Service Data. Using the information collected by CloudTrail, you can determine the request that was made to Directory Service Data, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Directory Service Data information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported
-event activity (management events) occurs in Directory Service Data, that activity is recorded in a CloudTrail
-event along with other AWS service events in **Event history**. You
-can view, search, and download the last 90 days of management events in your
-AWS account. For more information, see [Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md"). There is no
-charge for viewing the **Event history**.
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity (management events) occurs in Directory Service Data, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download the last 90 days of management events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). There is no charge for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account, including events for Directory Service Data,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an
-Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Directory Service Data, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for
-  CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-  and [Receiving CloudTrail log files from multiple
-  accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Directory Service Data actions are logged by CloudTrail and are documented in the [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/welcome.html). For example, calls to the `AddGroupMember`, `DescribeUser` and `SearchGroups` actions generate entries in the CloudTrail log files.
 
-All Directory Service Data actions are logged by CloudTrail and are documented in the [Directory Service Data API Reference](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/welcome.md"). For example, calls to the
-`AddGroupMember`, `DescribeUser` and `SearchGroups`
-actions generate entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user
-  credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding Directory Service Data log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the [CreateUser](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_CreateUser.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_CreateUser.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [CreateUser](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_CreateUser.html) action.
 
 ```
 {
@@ -152,7 +125,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Create
 },
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the [ListUsers](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListUsers](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListUsers.html) action.
 
 Actions that do not create or modify an object return a null response.
 
@@ -212,10 +185,9 @@ Actions that do not create or modify an object return a null response.
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the [ListGroups](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListGroups](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/API_ListGroups.html) action.
 
-###### Note
-
+**Note**  
 The `NextToken` element is redacted from all log entries.
 
 ```
@@ -276,14 +248,12 @@ The `NextToken` element is redacted from all log entries.
 ```
 
 ## Log entries for exception errors
+<a name="logging-using-cloudtrail-errors"></a>
 
-The following example shows a CloudTrail log entry for an Access Denied error. For help with
-this error, see [Troubleshooting access
-denied error messages](../../../IAM/latest/UserGuide/troubleshoot_access-denied.md "../../../IAM/latest/UserGuide/troubleshoot_access-denied.md") in the _IAM User Guide_.
+The following example shows a CloudTrail log entry for an Access Denied error. For help with this error, see [Troubleshooting access denied error messages](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_access-denied.html) in the *IAM User Guide*.
 
-###### Note
-
-The Access Denied log doesn't show request parameters.
+**Note**  
+ The Access Denied log doesn't show request parameters. 
 
 ```
 {

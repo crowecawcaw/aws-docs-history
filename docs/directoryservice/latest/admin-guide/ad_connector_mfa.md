@@ -1,77 +1,46 @@
+
+
 # Enabling multi-factor authentication for AD Connector
+<a name="ad_connector_mfa"></a>
 
-You can enable multi-factor authentication for AD Connector when you have Active Directory
-running on-premises or in Amazon EC2 instances. For more information about using multi-factor
-authentication with Directory Service, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector").
+You can enable multi-factor authentication for AD Connector when you have Active Directory running on-premises or in Amazon EC2 instances. For more information about using multi-factor authentication with Directory Service, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector).
 
-###### Note
+**Note**  
+Multi-factor authentication is not available for Simple AD. However, MFA can be enabled for your AWS Managed Microsoft AD directory. For more information, see [Enabling multi-factor authentication for AWS Managed Microsoft AD](ms_ad_mfa.md).
 
-Multi-factor authentication is not available for Simple AD. However, MFA can be enabled for
-your AWS Managed Microsoft AD directory. For more information, see [Enabling multi-factor authentication for AWS Managed Microsoft AD](ms_ad_mfa.md "ms_ad_mfa.md").
+**To enable multi-factor authentication for AD Connector**
 
-###### To enable multi-factor authentication for AD Connector
+1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/) navigation pane, select **Directories**.
 
-1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
-   **Directories**.
-2. Choose the directory ID link for your AD Connector directory.
-3. On the **Directory details** page, select the **Networking & security** tab.
-4. In the **Multi-factor authentication** section, choose **Actions**, and then choose **Enable**.
-5. On the **Enable multi-factor authentication (MFA)** page, provide the following values:
+1. Choose the directory ID link for your AD Connector directory.
 
-_**Display label**_
+1. On the **Directory details** page, select the **Networking & security** tab.
 
-Provide a label name.
+1. In the **Multi-factor authentication** section, choose **Actions**, and then choose **Enable**.
 
-_**RADIUS server DNS name or IP addresses**_
+1. On the **Enable multi-factor authentication (MFA)** page, provide the following values:   
+**Display label**  
+Provide a label name.  
+**RADIUS server DNS name or IP addresses**  
+The IP addresses of your RADIUS server endpoints, or the IP address of your RADIUS server load balancer. You can enter multiple IP addresses by separating them with a comma (e.g., `192.0.0.0,192.0.0.12` or `2001:db8::1,2001:db8::2`).  
+Directories created after October 7, 2025, require that RADIUS servers used for multi-factor authentication be routable through your VPC's network configuration. If your RADIUS server is not accessible via your VPC's routing tables, security groups, and network ACLs, multi-factor authentication will fail during multi-factor authentication checks. To resolve this issue, ensure that:  
+   + **Network Routing:** Your VPC route tables allow traffic to reach your RADIUS server from the subnets where your AD Connector directory instances are deployed.
+   + **Network ACLs:** Your subnet network ACLs allow bidirectional traffic to/from your RADIUS server.
+RADIUS MFA is applicable only to authenticate access to the AWS Management Console, or to Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick, or Amazon Chime. It does not provide MFA to Windows workloads running on EC2 instances, or for signing into an EC2 instance. Directory Service does not support RADIUS Challenge/Response authentication.  
+Users must have their MFA code at the time they enter their username and password. Alternatively, you must use a solution that performs MFA out-of-band such as SMS text verification for the user. In out-of-band MFA solutions, you must make sure you set the RADIUS time-out value appropriately for your solution. When using an out-of-band MFA solution, the sign-in page will prompt the user for an MFA code. In this case, the best practice is for users to enter their password in both the password field and the MFA field.  
+**Port**  
+The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over the default RADIUS server port (UDP:1812) from the Directory Service servers.  
+**Shared secret code**  
+The shared secret code that was specified when your RADIUS endpoints were created.  
+**Confirm shared secret code**  
+Confirm the shared secret code for your RADIUS endpoints.  
+**Protocol**  
+Select the protocol that was specified when your RADIUS endpoints were created.  
+**Server timeout (in seconds)**  
+The amount of time, in seconds, to wait for the RADIUS server to respond. This must be a value between 1 and 50.  
+**Max RADIUS request retries**  
+The number of times that communication with the RADIUS server is attempted. This must be a value between 0 and 10.
 
-The IP addresses of your RADIUS server endpoints, or the IP address of
-your RADIUS server load balancer. You can enter multiple IP addresses by
-separating them with a comma (e.g.,
-`192.0.0.0,192.0.0.12` or
-`2001:db8::1,2001:db8::2`).
+   Multi-factor authentication is available when the **RADIUS Status** changes to **Enabled**. 
 
-###### Important
-
-Directories created after October 7, 2025, require that RADIUS servers used for multi-factor authentication be routable through your VPC's network configuration. If your RADIUS server is not accessible via your VPC's routing tables, security groups, and network ACLs, multi-factor authentication will fail during multi-factor authentication checks. To resolve this issue, ensure that:
-
-    * **Network Routing:** Your VPC route tables allow traffic to reach your RADIUS server from the subnets where your AD Connector directory instances are deployed.
-    * **Network ACLs:** Your subnet network ACLs allow bidirectional traffic to/from your RADIUS server.
-
-###### Note
-
-RADIUS MFA is applicable only to authenticate access to the AWS Management Console, or to Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick, or Amazon Chime. It does not provide MFA to Windows workloads running on EC2 instances, or for signing into an EC2 instance. Directory Service does not support RADIUS Challenge/Response authentication.
-
-Users must have their MFA code at the time they enter their username and password. Alternatively, you must use a solution that performs MFA out-of-band such as SMS text verification for the user. In out-of-band MFA solutions, you must make sure you set the RADIUS time-out value appropriately for your solution. When using an out-of-band MFA solution, the sign-in page will prompt the user for an MFA code. In this case, the best practice is for users to enter their password in both the password field and the MFA field.
-
-_**Port**_
-
-The port that your RADIUS server is using for communications. Your
-on-premises network must allow inbound traffic over the default RADIUS
-server port (UDP:1812) from the Directory Service servers.
-
-_**Shared secret code**_
-
-The shared secret code that was specified when your RADIUS endpoints
-were created.
-
-_**Confirm shared secret code**_
-
-Confirm the shared secret code for your RADIUS endpoints.
-
-_**Protocol**_
-
-Select the protocol that was specified when your RADIUS endpoints were
-created.
-
-_**Server timeout (in seconds)**_
-
-The amount of time, in seconds, to wait for the RADIUS server to
-respond. This must be a value between 1 and 50.
-
-_**Max RADIUS request retries**_
-
-The number of times that communication with the RADIUS server is
-attempted. This must be a value between 0 and 10.
-
-Multi-factor authentication is available when the **RADIUS
-Status** changes to **Enabled**. 6. Choose **Enable**.
+1. Choose **Enable**. 

@@ -1,120 +1,95 @@
+
+
 # Best practices for Simple AD
+<a name="simple_ad_best_practices"></a>
 
-###### Important Notice
+**Important Notice**  
+Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md).
 
-Simple AD is no longer open to new customers. For capabilities similar
-to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
-
-Here are some suggestions and guidelines you should consider to avoid problems and get the
-most out of Simple AD.
+Here are some suggestions and guidelines you should consider to avoid problems and get the most out of Simple AD.
 
 ## Setting up: Prerequisites
+<a name="simple_ad_best_practices_prereq"></a>
 
 Consider these guidelines before creating your directory.
 
 ### Verify you have the right directory type
+<a name="choose_right_type"></a>
 
-Directory Service provides multiple ways to use Microsoft Active Directory with other AWS
-services. You can choose the directory service with the features you need at a cost
-that fits your budget:
+Directory Service provides multiple ways to use Microsoft Active Directory with other AWS services. You can choose the directory service with the features you need at a cost that fits your budget:
++ **AWS Directory Service for Microsoft Active Directory** is a feature-rich managed Microsoft Active Directory hosted on the AWS cloud. AWS Managed Microsoft AD is your best choice if you have more than 5,000 users and need a trust relationship set up between an AWS hosted directory and your on-premises directories.
++ **AD Connector** simply connects your existing on-premises Active Directory to AWS. AD Connector is your best choice when you want to use your existing on-premises directory with AWS services. 
++ **Simple AD** is a low-scale, low-cost directory with basic Active Directory compatibility. It supports 5,000 or fewer users, Samba 4–compatible applications, and LDAP compatibility for LDAP-aware applications.
 
-- **AWS Directory Service for Microsoft Active Directory** is a feature-rich managed
-  Microsoft Active Directory hosted on the AWS cloud. AWS Managed Microsoft AD is your best choice
-  if you have more than 5,000 users and need a trust relationship set up between an AWS
-  hosted directory and your on-premises directories.
-- **AD Connector** simply connects your
-  existing on-premises Active Directory to AWS. AD Connector is your best
-  choice when you want to use your existing on-premises directory with AWS
-  services.
-- **Simple AD** is a low-scale, low-cost directory
-  with basic Active Directory compatibility. It supports 5,000 or fewer users, Samba
-  4–compatible applications, and LDAP compatibility for LDAP-aware applications.
-
-For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
+For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option).
 
 ### Ensure your VPCs and instances are configured correctly
+<a name="vpc_config"></a>
 
-In order to connect to, manage, and use your directories, you must properly
-configure the VPCs that the directories are associated with. See either [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
-VPC security and networking requirements.
+In order to connect to, manage, and use your directories, you must properly configure the VPCs that the directories are associated with. See either [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple) for information about the VPC security and networking requirements. 
 
-If you are adding an instance to your domain, ensure that you have connectivity
-and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
+If you are adding an instance to your domain, ensure that you have connectivity and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md). 
 
 ### Be aware of your limits
+<a name="aware_of_limits"></a>
 
-Learn about the various limits for your specific directory type. The available storage and the aggregate size of your objects are the only limitations on the number of objects you may store in your directory. See either [AWS Managed Microsoft AD quotas](ms_ad_limits.md "ms_ad_limits.md"), [AD Connector quotas](ad_connector_limits.md "ad_connector_limits.md"), or [Simple AD quotas](simple_ad_limits.md "simple_ad_limits.md") for details about your chosen directory.
+Learn about the various limits for your specific directory type. The available storage and the aggregate size of your objects are the only limitations on the number of objects you may store in your directory. See either [AWS Managed Microsoft AD quotas](ms_ad_limits.md), [AD Connector quotas](ad_connector_limits.md), or [Simple AD quotas](simple_ad_limits.md) for details about your chosen directory.
 
 ### Understand your directory's AWS security group configuration and use
+<a name="simple_ad_understandsecgroup"></a>
 
-AWS creates a [security group](../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule") and attaches it to your directory's domain controller [elastic network
-interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md"). AWS configures the security group to block unnecessary traffic to the
-directory and allows necessary traffic.
+AWS creates a [security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#adding-security-group-rule) and attaches it to your directory's domain controller [elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html). AWS configures the security group to block unnecessary traffic to the directory and allows necessary traffic.
 
 #### Modifying the directory security group
+<a name="simple_ad_modifyingsecgroup"></a>
 
-You can modify security groups for your directories, but only do so if you fully understand security group filtering. For more information, see [Amazon EC2 security groups for Linux instances](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md") in the _Amazon EC2 User Guide_. Improper changes may disrupt communications with intended computers and instances. AWS recommends against opening additional ports to your directory as this reduces security. Review the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") before making changes.
+You can modify security groups for your directories, but only do so if you fully understand security group filtering. For more information, see [Amazon EC2 security groups for Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) in the *Amazon EC2 User Guide*. Improper changes may disrupt communications with intended computers and instances. AWS recommends against opening additional ports to your directory as this reduces security. Review the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) before making changes.
 
-###### Warning
-
-It is technically possible for you to associate the directory's security group with
-other EC2 instances that you create. However, AWS recommends against this practice. AWS
-may have reasons to modify the security group without notice to address functional or
-security needs of the managed directory. Such changes affect any instances with which
-you associate the directory security group and may disrupt operation of the associated
-instances. Furthermore, associating the directory security group with your EC2 instances
-may create a potential security risk for your EC2 instances.
+**Warning**  
+It is technically possible for you to associate the directory's security group with other EC2 instances that you create. However, AWS recommends against this practice. AWS may have reasons to modify the security group without notice to address functional or security needs of the managed directory. Such changes affect any instances with which you associate the directory security group and may disrupt operation of the associated instances. Furthermore, associating the directory security group with your EC2 instances may create a potential security risk for your EC2 instances.
 
 ### Use AWS Managed Microsoft AD if trusts are required
+<a name="use_mad_for_trusts"></a>
 
-Simple AD does not support trust relationships. If you need to establish a trust
-between your Directory Service directory and another directory, you should use
-AWS Directory Service for Microsoft Active Directory.
+Simple AD does not support trust relationships. If you need to establish a trust between your Directory Service directory and another directory, you should use AWS Directory Service for Microsoft Active Directory.
 
 ## Setting up: Creating your directory
+<a name="simple_ad_best_practices_create"></a>
 
 Here are some suggestions to consider as you create your directory.
 
 ### Remember your administrator ID and password
+<a name="simple_ad_remember_pw"></a>
 
-When you set up your directory, you provide a password for the administrator account.
-That account ID is _Administrator_ for Simple AD. Remember the password
-that you create for this account; otherwise you will not be able to add objects to your
-directory.
+When you set up your directory, you provide a password for the administrator account. That account ID is *Administrator* for Simple AD. Remember the password that you create for this account; otherwise you will not be able to add objects to your directory.
 
 ### Understand username restrictions for AWS applications
+<a name="simple_ad_usernamerestrictions"></a>
 
-Directory Service provides support for most character formats that can be used in the construction
-of usernames. However, there are character restrictions that are enforced on usernames that
-will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick. These
-restrictions require that the following characters not be used:
+Directory Service provides support for most character formats that can be used in the construction of usernames. However, there are character restrictions that are enforced on usernames that will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick. These restrictions require that the following characters not be used:
++ Spaces
++ Multibyte characters
++ \!"\#$%&'()\*\+,/:;<=>?@[\\]^`{\|}\~
 
-- Spaces
-- Multibyte characters
-- !"#$%&'()\*+,/:;<=>?@[\]^`{|}~
-
-###### Note
-
-The @ symbol is allowed as long as it precedes a UPN suffix.
+**Note**  
+The @ symbol is allowed as long as it precedes a UPN suffix. 
 
 ## Programming your applications
+<a name="simple_ad_program_apps"></a>
 
 Before you program your applications, consider the following:
 
 ### Use the Windows DC locator service
+<a name="simple_ad_program_dc_locator"></a>
 
 When developing applications, use the Windows DC locator service or use the Dynamic DNS (DDNS) service of your AWS Managed Microsoft AD to locate domain controllers (DCs). Do not hard code applications with the address of a DC. The DC locator service helps ensure directory load is distributed and enables you to take advantage of horizontal scaling by adding domain controllers to your deployment. If you bind your application to a fixed DC and the DC undergoes patching or recovery, your application will lose access to the DC instead of using one of the remaining DCs. Furthermore, hard coding of the DC can result in hot spotting on a single DC. In severe cases, hot spotting may cause your DC to become unresponsive. Such cases may also cause AWS directory automation to flag the directory as impaired and may trigger recovery processes that replace the unresponsive DC.
 
 ### Load test before rolling out to production
+<a name="simple_ad_program_load_test"></a>
 
-Be sure to do lab testing with objects and requests that are representative of your
-production workload to confirm that the directory scales to the load of your application.
-Should you require additional capacity, you should use Directory Service for Microsoft
-Active Directory, which enables you to add domain controllers for high performance. For more
-information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
+Be sure to do lab testing with objects and requests that are representative of your production workload to confirm that the directory scales to the load of your application. Should you require additional capacity, you should use Directory Service for Microsoft Active Directory, which enables you to add domain controllers for high performance. For more information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md).
 
 ### Use efficient LDAP queries
+<a name="simple_ad_program_ldap_query"></a>
 
-Broad LDAP queries to a domain controller across thousands of objects can consume
-significant CPU cycles in a single DC, resulting in hot spotting. This may affect
-applications that share the same DC during the query.
+Broad LDAP queries to a domain controller across thousands of objects can consume significant CPU cycles in a single DC, resulting in hot spotting. This may affect applications that share the same DC during the query. 

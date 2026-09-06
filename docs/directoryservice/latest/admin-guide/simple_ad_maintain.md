@@ -1,20 +1,14 @@
+
+
 # Maintain your Simple AD directory
+<a name="simple_ad_maintain"></a>
 
-###### Important Notice
+**Important Notice**  
+Simple AD is no longer open to new customers. For capabilities similar to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md).
 
-Simple AD is no longer open to new customers. For capabilities similar
-to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
-
-You can use the AWS Management Console to maintain your Simple AD and complete day-to-day administrative
-tasks. Ways you can maintain your Simple AD include:
-
-- [View details
-  about your Simple AD](simple_ad_view_directory_info.md "simple_ad_view_directory_info.md") like the DNS name, Directory ID, and directory status.
-- [Update the DNS address for
-  your Simple AD](simple_ad_dns.md "simple_ad_dns.md").
-- [Restore your
-  Simple AD with snapshots](simple_ad_snapshots.md "simple_ad_snapshots.md"). You can also create snapshot and delete
-  snapshots.
-- [Delete your
-  Simple AD](simple_ad_delete.md "simple_ad_delete.md") when it is no longer needed.
-- [Tag your directory](simple_ad_tag_directory.md "simple_ad_tag_directory.md") to organize and manage your directories using key-value pairs.
+You can use the AWS Management Console to maintain your Simple AD and complete day-to-day administrative tasks. Ways you can maintain your Simple AD include:
++ [View details about your Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_view_directory_info.html) like the DNS name, Directory ID, and directory status.
++ [Update the DNS address for your Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_dns.html).
++  [Restore your Simple AD with snapshots](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_snapshots.html). You can also create snapshot and delete snapshots.
++ [Delete your Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_delete.html) when it is no longer needed.
++ [Tag your directory](simple_ad_tag_directory.md) to organize and manage your directories using key-value pairs.
