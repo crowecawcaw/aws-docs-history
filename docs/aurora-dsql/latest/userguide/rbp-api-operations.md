@@ -31,6 +31,15 @@ The _Supports RBP_ column indicates whether the API operation is subject to reso
 | [PutMultiRegionProperties](../APIReference/API_PutMultiRegionProperties.md "../APIReference/API_PutMultiRegionProperties.md") | Sets multi-region properties for a cluster          | Yes          |
 | [PutWitnessRegion](../APIReference/API_PutWitnessRegion.md "../APIReference/API_PutWitnessRegion.md")                         | Sets the witness region for a multi-region cluster  | Yes          |
 
+## Stream APIs
+
+| API Operation                                                                             | Description                                              | Supports RBP |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------ |
+| [CreateStream](../APIReference/API_CreateStream.md "../APIReference/API_CreateStream.md") | Creates a new change data capture stream                 | Yes          |
+| [DeleteStream](../APIReference/API_DeleteStream.md "../APIReference/API_DeleteStream.md") | Deletes a change data capture stream                     | No           |
+| [GetStream](../APIReference/API_GetStream.md "../APIReference/API_GetStream.md")          | Retrieves information about a change data capture stream | No           |
+| [ListStreams](../APIReference/API_ListStreams.md "../APIReference/API_ListStreams.md")    | Lists the change data capture streams in your account    | Yes          |
+
 ## Resource-based policy APIs
 
 | API Operation                                                                                                  | Description                                                | Supports RBP |

@@ -8,6 +8,17 @@ history](doc-history.md "doc-history.md").
 
 ### August 2026
 
+August 27, 2026
+
+🐘 _PostgreSQL Compatibility_ — **Extended
+statistics** — Aurora DSQL now supports the `CREATE STATISTICS`, `ALTER
+ STATISTICS`, and `DROP STATISTICS` commands. You can create extended
+statistics on correlated columns and expressions so that the query planner produces more
+accurate row estimates. For more information, see [CREATE
+STATISTICS](create-statistics-syntax-support.md "create-statistics-syntax-support.md"), [ALTER
+STATISTICS](alter-statistics-syntax-support.md "alter-statistics-syntax-support.md"), and [DROP
+STATISTICS](drop-statistics-syntax-support.md "drop-statistics-syntax-support.md").
+
 August 26, 2026
 
 🐘 _PostgreSQL Compatibility_ — **Foreign key
@@ -24,6 +35,18 @@ character data types** — Aurora DSQL now compresses large values in `text`,
 efficiently. Aurora DSQL compresses these values only in columns that aren't part of a key.
 Values in primary key columns and in the key columns of a secondary index are always
 stored uncompressed. For more information, see [Character data types](working-with-postgresql-compatibility-supported-data-types.md#character-data-types "working-with-postgresql-compatibility-supported-data-types.md#character-data-types").
+
+August 25, 2026
+
+🔌 _Developer Tools_ — **Aurora DSQL Adapter for
+Drizzle ORM** — Added the Aurora DSQL Adapter for
+Drizzle ORM, a TypeScript object-relational mapping (ORM)
+framework for Node.js. With this adapter, you can authenticate with IAM tokens
+and pool connections automatically. The adapter also provides opt-in optimistic concurrency
+control (OCC) retry. A migrator applies one DDL statement per transaction and waits for
+asynchronous DDL jobs. A CLI rewrites migration SQL for Aurora DSQL compatibility. For more
+information, see [Aurora DSQL adapters and
+dialects](aws-sdks.md#aurora-dsql-adapters "aws-sdks.md#aurora-dsql-adapters").
 
 August 25, 2026
 

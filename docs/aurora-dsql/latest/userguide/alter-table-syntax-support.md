@@ -181,8 +181,8 @@ existing rows violate the constraint, the job fails and the constraint remains i
 `NOT VALID` state.
 
 This command validates only constraints that you created with the `NOT
- VALID` option. Attempting to validate an already-valid constraint results in an
-error.
+ VALID` option. If you validate an already-valid constraint, Aurora DSQL succeeds without
+making changes.
 
 **`DROP CONSTRAINT [ IF EXISTS ]`**
 
