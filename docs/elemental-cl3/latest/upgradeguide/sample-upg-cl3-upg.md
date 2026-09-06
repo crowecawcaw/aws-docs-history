@@ -1,10 +1,12 @@
-# Sample Upgrade
 
-Following is a screen printout of a typical upgrade, showing the prompts and possible
-responses.
+
+# Sample Upgrade
+<a name="sample-upg-cl3-upg"></a>
+
+Following is a screen printout of a typical upgrade, showing the prompts and possible responses. 
 
 ```
-[elemental@hostname ~]$ **sudo sh ./elemental\_production\_conductor\_live247\_3.25.4.12345.run --skip-all**
+[elemental@hostname ~]$ sudo sh ./elemental_production_conductor_live247_3.25.4.12345.run --skip-all
 Verifying archive integrity... All good.
 Uncompressing Elemental Installer............
 Network device eth0 already initialized...
@@ -38,7 +40,7 @@ Continue? [Y] y
 .
 Continue? [Y] y
  
-TERM AND TERMINATION.  This Agreement is effective until terminated.  This
+TERM AND TERMINATION.  This Agreement is effective until terminated.  This 
 .
 .
 .
@@ -50,7 +52,7 @@ Continue? [Y] y
 Do you agree to these terms? [N] y
 ```
 
-The Conductor Live services and the database are stopped.
+ The Conductor Live services and the database are stopped.
 
 ```
 Stopping services...
