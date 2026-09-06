@@ -44,7 +44,7 @@ the AWS CLI or RDS API. For more information, see [Viewing support dates for eng
 | ----------------------- | ----------------------------------- | -------------------------- | ----------------------------------- | ------------------------------------------------- | ------------------------------------------------- | -------------------------------- | ------------------------------------------------ |
 | MySQL 8.4               | Aurora MySQL version 8.4            | April 2032                 | April 2032                          | To be determined                                  | To be determined                                  | To be determined                 | To be determined                                 |
 | MySQL 8.0               | Aurora MySQL version 3              | April 2026                 | 30 April 2028                       | 1 May 2028                                        | Not applicable                                    | 31 July 2029                     | To be determined                                 |
-| MySQL 5.7               | Aurora MySQL version 2              | October 2023               | 31 October 2024                     | 1 December 2024                                   | Not applicable                                    | 30 June 2029                     | Aurora MySQL 2.11 and 2.12                       |
+| MySQL 5.7               | Aurora MySQL version 2              | October 2023               | 31 October 2024                     | 1 December 2024                                   | 1 December 2026                                   | 30 June 2029                     | Aurora MySQL 2.11 and 2.12                       |
 | MySQL 5.6 (deprecated)  | Aurora MySQL version 1 (deprecated) | 5 February 2021            | 28 February 2023                    | Not applicable                                    | Not applicable                                    | Not applicable                   | Not applicable                                   |
 
 ## Release calendar for Aurora MySQL minor versions
@@ -62,6 +62,7 @@ Amazon RDS Extended Support charges apply only to certain minor versions after a
 
 | Aurora MySQL version                                                 | Aurora MySQL release date | Aurora MySQL end of standard support date |
 | -------------------------------------------------------------------- | ------------------------- | ----------------------------------------- |
+| *_8.4.8_<br>• (Compatible with Community MySQL 8.4.8)                | September 3, 2026         | September 3, 2027                         |
 | *_8.4.7_<br>• (Compatible with Community MySQL 8.4.7)                | May 21, 2026              | November 30, 2027                         |
 | *_3.13_<br>• (Compatible with Community MySQL 8.0.45)                | August 27, 2026           | August 27, 2027                           |
 | *_3.12_<br>• (Compatible with Community MySQL 8.0.44)                | February 17, 2026         | February 17, 2027                         |
