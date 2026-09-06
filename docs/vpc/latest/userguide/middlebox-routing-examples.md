@@ -1,4 +1,7 @@
+
+
 # Middlebox scenarios
+<a name="middlebox-routing-examples"></a>
 
 Amazon Virtual Private Cloud (VPC) provides a wide range of networking capabilities that allow you to customize and control the routing of traffic within your virtual network. One such feature is the middlebox routing wizard, which enables fine-grained control over the routing path of traffic entering or leaving your VPC.
 
@@ -8,8 +11,7 @@ The middlebox routing wizard supports several different scenarios. For example, 
 
 The following examples describe scenarios for the middlebox routing wizard.
 
-###### Contents
-
-- [Inspect traffic destined for a subnet](internet-gateway-subnet.md "internet-gateway-subnet.md")
-- [Configure middlebox traffic routing and inspection in a VPC](gwlb-route.md "gwlb-route.md")
-- [Inspect traffic between subnets](intra-vpc-route.md "intra-vpc-route.md")
+**Topics**
++ [Inspect traffic destined for a subnet](internet-gateway-subnet.md)
++ [Configure middlebox traffic routing and inspection in a VPC](gwlb-route.md)
++ [Inspect traffic between subnets](intra-vpc-route.md)

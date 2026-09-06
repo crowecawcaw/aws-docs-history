@@ -1,17 +1,25 @@
+
+
 # Getting started with Amazon VPC using the AWS CLI
+<a name="getting-started-with-amazon-vpc-using-the-aws-cli"></a>
 
 This tutorial guides you through creating a Virtual Private Cloud (VPC) using the AWS Command Line Interface (AWS CLI). You'll learn how to set up a VPC with public and private subnets, configure internet connectivity, and deploy EC2 instances to demonstrate a common web application architecture.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before you begin this tutorial, make sure you have the following:
 
-1. The AWS CLI. If you need to install it, follow the [AWS CLI installation guide](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
-2. Configured your AWS CLI with appropriate credentials. Run `aws configure` if you haven't set up your credentials yet.
-3. Basic understanding of networking concepts.
-4. [Identity and access management for Amazon VPC](security-iam.md "security-iam.md") to create and manage VPC resources in your AWS account.
+1. The AWS CLI. If you need to install it, follow the [AWS CLI installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+1. Configured your AWS CLI with appropriate credentials. Run `aws configure` if you haven't set up your credentials yet.
+
+1. Basic understanding of networking concepts.
+
+1. [Identity and access management for Amazon VPC](security-iam.md) to create and manage VPC resources in your AWS account.
 
 ### Cost considerations
+<a name="cost-considerations"></a>
 
 This tutorial creates AWS resources that may incur costs in your account. The primary cost comes from the NAT Gateway ($0.045 per hour plus data processing charges) and EC2 instances (t2.micro, approximately $0.0116 per hour each). If you complete this tutorial in one hour and then clean up all resources, the total cost will be approximately $0.07. For cost optimization in development environments, consider using a NAT Instance instead of a NAT Gateway, which can reduce costs significantly.
 
@@ -30,6 +38,7 @@ aws sts get-caller-identity
 This command displays your AWS account ID, user ID, and ARN, confirming that your credentials are valid.
 
 ## Create a VPC
+<a name="create-a-vpc"></a>
 
 A Virtual Private Cloud (VPC) is a virtual network dedicated to your AWS account. In this section, you'll create a VPC with a CIDR block of 10.0.0.0/16, which provides up to 65,536 IP addresses.
 
@@ -55,6 +64,7 @@ aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-hostnam
 These commands don't produce output if successful. Your VPC now has DNS support and hostname resolution enabled.
 
 ## Create subnets
+<a name="vpc-tutorial-cli-create-subnets"></a>
 
 Subnets are segments of a VPC's IP address range where you can place groups of isolated resources. In this section, you'll create public and private subnets in two Availability Zones for high availability.
 
@@ -121,6 +131,7 @@ You now have four subnets: two public subnets and two private subnets, distribut
 **Tip**: When planning your CIDR blocks, ensure they don't overlap with your existing networks. For production environments, allocate enough IP addresses for future growth while keeping subnets reasonably sized for security and management.
 
 ## Configure internet connectivity
+<a name="configure-internet-connectivity"></a>
 
 To allow resources in your VPC to communicate with the internet, you need to create and attach an Internet Gateway. In this section, you'll set up internet connectivity for your VPC.
 
@@ -186,6 +197,7 @@ aws ec2 associate-route-table --route-table-id rtb-0123456789abcdef1 --subnet-id
 ```
 
 ## Create a NAT Gateway
+<a name="create-a-nat-gateway"></a>
 
 A NAT Gateway allows instances in private subnets to initiate outbound traffic to the internet while preventing inbound traffic from the internet. This is essential for instances that need to download updates or access external services.
 
@@ -229,6 +241,7 @@ aws ec2 create-route --route-table-id rtb-0123456789abcdef1 --destination-cidr-b
 **Note**: For production environments, consider creating a NAT Gateway in each Availability Zone where you have private subnets to eliminate single points of failure.
 
 ## Configure subnet settings
+<a name="configure-subnet-settings"></a>
 
 Configure your public subnets to automatically assign public IP addresses to instances launched in them.
 
@@ -240,6 +253,7 @@ aws ec2 modify-subnet-attribute --subnet-id subnet-0123456789abcdef1 --map-publi
 This ensures that instances launched in your public subnets receive a public IP address by default, making them accessible from the internet.
 
 ## Create security groups
+<a name="create-security-groups"></a>
 
 Security groups act as virtual firewalls for your instances to control inbound and outbound traffic. In this section, you'll create security groups for web servers and database servers.
 
@@ -283,6 +297,7 @@ aws ec2 authorize-security-group-ingress --group-id sg-0123456789abcdef1 --proto
 This configuration ensures that only instances in the web server security group can connect to your database servers on port 3306, following the principle of least privilege.
 
 ## Verify your VPC configuration
+<a name="verify-your-vpc-configuration"></a>
 
 After creating all the necessary components, verify your VPC configuration to ensure everything is set up correctly.
 
@@ -325,6 +340,7 @@ aws ec2 describe-security-groups --filters "Name=vpc-id,Values=vpc-0123456789abc
 These commands provide detailed information about each component of your VPC, allowing you to verify that everything is configured correctly.
 
 ## Deploy EC2 instances
+<a name="deploy-ec2-instances"></a>
 
 Now that you have created your VPC infrastructure, you can deploy EC2 instances to demonstrate how the architecture works. You'll launch a web server in a public subnet and a database server in a private subnet.
 
@@ -441,6 +457,7 @@ ssh ec2-user@10.0.2.10
 This demonstrates the network architecture you've created: the web server is publicly accessible, while the database server is only accessible from within the VPC.
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
 Here are some common issues you might encounter when creating a VPC and how to resolve them:
 
@@ -461,6 +478,7 @@ AWS accounts have default limits on the number of VPCs, subnets, and other resou
 When cleaning up resources, you might encounter dependency errors if you try to delete resources in the wrong order. Always delete resources in the reverse order of creation, starting with the most dependent resources.
 
 ## Clean up resources
+<a name="clean-up-resources"></a>
 
 When you're finished with your VPC, you can clean up the resources to avoid incurring charges. Delete the resources in the reverse order of creation to handle dependencies correctly.
 
@@ -546,24 +564,35 @@ aws ec2 delete-vpc --vpc-id vpc-0123456789abcdef0
 ```
 
 ## Going to production
+<a name="going-to-production"></a>
 
 This tutorial is designed to help you learn how to create a VPC using the AWS CLI. For production environments, consider the following security and architecture best practices:
 
 1. **Security Group Rules**: Restrict inbound traffic to specific IP ranges rather than allowing traffic from 0.0.0.0/0.
-2. **High Availability**: Deploy NAT Gateways in each Availability Zone where you have private subnets to eliminate single points of failure.
-3. **Network ACLs**: Implement Network ACLs as an additional layer of security beyond security groups.
-4. **VPC Flow Logs**: Enable VPC Flow Logs to monitor and analyze network traffic patterns.
-5. **Resource Tagging**: Implement a comprehensive tagging strategy for better resource management.
 
-For more information on building production-ready architectures, refer to [AWS Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md") and [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance "https://aws.amazon.com/architecture/security-identity-compliance").
+1. **High Availability**: Deploy NAT Gateways in each Availability Zone where you have private subnets to eliminate single points of failure.
+
+1. **Network ACLs**: Implement Network ACLs as an additional layer of security beyond security groups.
+
+1. **VPC Flow Logs**: Enable VPC Flow Logs to monitor and analyze network traffic patterns.
+
+1. **Resource Tagging**: Implement a comprehensive tagging strategy for better resource management.
+
+For more information on building production-ready architectures, refer to [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) and [AWS Security Best Practices](https://aws.amazon.com/architecture/security-identity-compliance).
 
 ## Next steps
+<a name="next-steps"></a>
 
 Now that you've created a VPC with public and private subnets, you can:
 
-1. [Launch EC2 instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in your public or private subnets.
-2. [Deploy load balancers](../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md "../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md") to distribute traffic across multiple instances.
-3. [Set up Auto Scaling groups](../../../autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.md") for high availability and scalability.
-4. [Configure RDS databases](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.md") in your private subnets.
-5. [Implement VPC peering](../peering/what-is-vpc-peering.md "../peering/what-is-vpc-peering.md") to connect with other VPCs.
-6. [Set up VPN connections](../../../vpn/latest/s2svpn/SetUpVPNConnections.md "../../../vpn/latest/s2svpn/SetUpVPNConnections.md") to connect your VPC with your on-premises network.
+1. [Launch EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) in your public or private subnets.
+
+1. [Deploy load balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-getting-started.html) to distribute traffic across multiple instances.
+
+1. [Set up Auto Scaling groups](https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html) for high availability and scalability.
+
+1. [Configure RDS databases](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html) in your private subnets.
+
+1. [Implement VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) to connect with other VPCs.
+
+1. [Set up VPN connections](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html) to connect your VPC with your on-premises network.

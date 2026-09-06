@@ -1,159 +1,74 @@
+
+
 # Flow log limitations
+<a name="flow-logs-limitations"></a>
 
 To use flow logs, you need to be aware of the following limitations:
++ After you create a flow log, you won't see flow log data until there is active traffic for the network interface, subnet, or VPC that you selected.
++ You can't enable flow logs for VPCs that are peered with your VPC unless the peer VPC is in your account.
++ After you create a flow log, you can't change its configuration or the flow log record format. For example, you can't associate a different IAM role with the flow log, or add or remove fields in the flow log record. Instead, you can delete the flow log and create a new one with the required configuration. 
++ If your network interface has multiple IPv4 addresses and traffic is sent to a secondary private IPv4 address, the flow log displays the primary private IPv4 address in the `dstaddr` field. To capture the original destination IP address, create a flow log with the `pkt-dstaddr` field.
++ If traffic is sent to a network interface and the destination is not any of the network interface's IP addresses, the flow log displays the primary private IPv4 address in the `dstaddr` field. To capture the original destination IP address, create a flow log with the `pkt-dstaddr` field.
++  If traffic is sent from a network interface and the source is not any of the network interface's IP addresses, the behavior depends on the flow direction. For an egress flow, the flow log displays the primary private IPv4 address in the `srcaddr` field. To capture the original source IP address, create a flow log with the `pkt-srcaddr` field.
 
-- After you create a flow log, you won't see flow log data until there is active
-  traffic for the network interface, subnet, or VPC that you selected.
-- You can't enable flow logs for VPCs that are peered with your VPC unless the
-  peer VPC is in your account.
-- After you create a flow log, you can't change its configuration or the
-  flow log record format. For example, you can't associate a different IAM role
-  with the flow log, or add or remove fields in the flow log record. Instead, you
-  can delete the flow log and create a new one with the required configuration.
-- If your network interface has multiple IPv4 addresses and traffic is sent to a
-  secondary private IPv4 address, the flow log displays the primary private IPv4
-  address in the `dstaddr` field. To capture the original destination
-  IP address, create a flow log with the `pkt-dstaddr` field.
-- If traffic is sent to a network interface and the destination is not any of
-  the network interface's IP addresses, the flow log displays the primary private
-  IPv4 address in the `dstaddr` field. To capture the original
-  destination IP address, create a flow log with the `pkt-dstaddr`
-  field.
-- If traffic is sent from a network interface and the source is not any of the
-  network interface's IP addresses, the behavior depends on the flow direction.
-  For an egress flow, the flow log displays the primary private IPv4 address in
-  the `srcaddr` field. To capture the original source IP address,
-  create a flow log with the `pkt-srcaddr` field.
+  If the log record is for an ingress flow into the network interface, the primary private IP of the network interface will not be shown in the `srcaddr` field.
++ When your network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html), the aggregation interval is always 1 minute or less, regardless of the specified maximum aggregation interval.
++ For `pkt-srcaddr` and `pkt-dstaddr` fields, if the intermediate layer has Client IP address Preservation enabled, this field may show the preserved Client IP instead of the IP address of the intermediate layer.
++ For the `traffic-path` field, the value is the same for flows through resources in the same VPC and flows going through an Outpost local gateway.
++ Some flow log records may be skipped during the aggregation interval (see *log-status* in [Available fields](flow-log-records.md#flow-logs-fields)). This may be caused by an internal AWS capacity constraint or internal error. If you are using AWS Cost Explorer to view VPC flow log charges and some flow logs are skipped during the flow log aggregation interval, the number of flow logs reported in AWS Cost Explorer will be higher than the number of flow logs published by Amazon VPC.
++ If you are using [VPC Block Public Access (BPA)](security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl):
+  + Flow logs for VPC BPA do not include [skipped records](flow-logs-records-examples.md#flow-log-example-no-data).
+  + Flow logs for VPC BPA do not include [`bytes`](flow-log-records.md#flow-logs-fields) even if you include the `bytes` field in your flow log.
++ VPC Flow Logs supports a maximum of 250 subscriptions per resource per account. To create additional subscriptions on a resource that has reached this limit, you must first delete existing subscriptions.
 
-If the log record is for an ingress flow into the network interface, the
-primary private IP of the network interface will not be shown in the
-`srcaddr` field.
+Flow logs do not capture all IP traffic. The following types of traffic are not logged:
++ Traffic generated by instances when they contact the Amazon DNS server. If you use your own DNS server, then all traffic to that DNS server is logged. 
++ Traffic generated by a Windows instance for Amazon Windows license activation.
++ Traffic to and from `169.254.169.254` for instance metadata.
++ Traffic to and from `169.254.169.123` for the Amazon Time Sync Service.
++ DHCP traffic.
++ [Traffic mirrored](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-how-it-works.html) source traffic. You will see traffic mirrored target traffic only.
++ Traffic to the reserved IP address for the default VPC router.
++ Traffic between an endpoint network interface and a Network Load Balancer network interface.
++ Address Resolution Protocol (ARP) traffic.
++ Traffic on a short-lived regional NAT gateway, which is deleted a few minutes after creation.
 
-- When your network interface is attached to a [Nitro-based
-  instance](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"), the aggregation interval is always 1 minute or less,
-  regardless of the specified maximum aggregation interval.
-- For `pkt-srcaddr` and `pkt-dstaddr` fields, if the intermediate layer has Client
-  IP address Preservation enabled, this field may show the preserved Client IP
-  instead of the IP address of the intermediate layer.
-- For the `traffic-path` field, the value is the same for flows through
-  resources in the same VPC and flows going through an Outpost local gateway.
-- Some flow log records may be skipped during the aggregation interval (see _log-status_ in [Available fields](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields")). This may be caused by an internal AWS capacity constraint or internal error. If you are using AWS Cost Explorer to view VPC flow log charges and some flow logs are skipped during the flow log aggregation interval, the number of flow logs reported in AWS Cost Explorer will be higher than the number of flow logs published by Amazon VPC.
-- If you are using [VPC Block Public Access (BPA)](security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl "security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl"):
+Limitations specific to ECS fields available in version 7:
++ ECS fields are not computed if the underlying ECS tasks are not owned by the owner of the flow log subscription.
 
-  - Flow logs for VPC BPA do not include [skipped records](flow-logs-records-examples.md#flow-log-example-no-data "flow-logs-records-examples.md#flow-log-example-no-data").
-  - Flow logs for VPC BPA do not include [bytes](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields") even if you include the
-    `bytes` field in your flow log.
+  For example, suppose you share a subnet (`SubnetA`) with another account (`AccountB`), and then you create a flow log subscription for `SubnetA`. If `AccountB` launches ECS tasks in the shared subnet, your subscription receives traffic logs from those tasks. However, the ECS fields for these logs are not computed due to security concerns.
++ If you create flow log subscriptions with ECS fields at the VPC/Subnet resource level, any traffic generated for non-ECS network interfaces will also be delivered for your subscriptions. The values for ECS fields will be '-' for non-ECS IP traffic. For example, you have a subnet (`subnet-000000`) and you create a flow log subscription for this subnet with ECS fields (`fl-00000000`). In `subnet-000000`, you launch an EC2 instance (`i-0000000`) that is connected to the internet and is actively generating IP traffic. You also launch a running ECS task (`ECS-Task-1`) in the same subnet. Since both `i-0000000` and `ECS-Task-1` are generating IP traffic, your flow log subscription `fl-00000000` will deliver traffic logs for both entities. However, only `ECS-Task-1` will have actual ECS metadata for the ECS fields you included in your logFormat. For `i-0000000` related traffic, these fields will have a value of '-'.
++ `ecs-container-id` and `ecs-second-container-id` are ordered as the VPC Flow Logs service receives them from the ECS event stream. They are not guaranteed to be in the same order as you see them on ECS console or in the DescribeTask API call. If a container enters a STOPPED status while the task is still running, it may continue to appear in your log.
++ The ECS metadata and IP traffic logs are from two different sources. We start computing your ECS traffic as soon as we obtain all required information from upstream dependencies.
 
-- VPC Flow Logs supports a maximum of 250 subscriptions per resource per account.
-  To create additional subscriptions on a resource that has reached this limit, you must first delete existing subscriptions.
-  Flow logs do not capture all IP traffic. The following types of traffic are not
-  logged:
+  After you start a new task, we start computing your ECS fields when both of the following conditions are met: we receive IP traffic for the underlying network interface, and we receive the ECS event that contains the metadata for your ECS task to indicate the task is now running.
 
-- Traffic generated by instances when they contact the Amazon DNS server. If you
-  use your own DNS server, then all traffic to that DNS server is logged.
-- Traffic generated by a Windows instance for Amazon Windows license
-  activation.
-- Traffic to and from `169.254.169.254` for instance metadata.
-- Traffic to and from `169.254.169.123` for the Amazon Time Sync
-  Service.
-- DHCP traffic.
-- [Traffic mirrored](../mirroring/traffic-mirroring-how-it-works.md "../mirroring/traffic-mirroring-how-it-works.md") source traffic. You will see traffic mirrored target traffic
-  only.
-- Traffic to the reserved IP address for the default VPC router.
-- Traffic between an endpoint network interface and a Network Load Balancer network interface.
-- Address Resolution Protocol (ARP) traffic.
-- Traffic on a short-lived regional NAT gateway, which is deleted a few minutes after creation.
-  Limitations specific to ECS fields available in version 7:
+  After you stop a task, we stop computing your ECS fields when both of the following conditions are met: we no longer receive IP traffic for the underlying network interface (or we receive IP traffic that is delayed for more than one day), and we receive the ECS event that contains the metadata for your ECS task to indicate your task is no longer running.
++ Only ECS tasks launched in `awsvpc` [network mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) are supported. 
 
-- ECS fields are not computed if the underlying ECS tasks are not owned by the owner of the flow
-  log subscription.
+Limitations specific to `encryption-status` field:
++ The encryption status may be '-'(not available) in some flows, due to limitation of some network appliance to report the encryption status. Users can ignore these flows in the analysis.
++ Showing as encrypted in monitor mode does not mean the flow will be allowed in enforce mode. Vice versa.
+  + If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
+    + If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
+    + If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
+  + If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
 
-For example, suppose you share a subnet (`SubnetA`) with
-another account (`AccountB`), and then you create a flow log
-subscription for `SubnetA`. If `AccountB` launches ECS
-tasks in the shared subnet, your subscription receives traffic logs from those
-tasks. However, the ECS fields for these logs are not computed due to security
-concerns.
+Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
++ Tag fields are not computed if the tags on a resource are not owned by the owner of the flow log subscription.
 
-- If you create flow log subscriptions with ECS fields at the VPC/Subnet resource level, any
-  traffic generated for non-ECS network interfaces will also be delivered for your
-  subscriptions. The values for ECS fields will be '-' for non-ECS IP
-  traffic. For example, you have a subnet (`subnet-000000`) and you
-  create a flow log subscription for this subnet with ECS fields
-  (`fl-00000000`). In `subnet-000000`, you launch an EC2
-  instance (`i-0000000`) that is connected to the internet and is
-  actively generating IP traffic. You also launch a running ECS task
-  (`ECS-Task-1`) in the same subnet. Since both
-  `i-0000000` and `ECS-Task-1` are generating IP
-  traffic, your flow log subscription `fl-00000000` will deliver
-  traffic logs for both entities. However, only `ECS-Task-1` will have
-  actual ECS metadata for the ECS fields you included in your logFormat. For
-  `i-0000000` related traffic, these fields will have a value of
-  '-'.
-- `ecs-container-id` and `ecs-second-container-id` are ordered as the VPC
-  Flow Logs service receives them from the ECS event stream. They are not
-  guaranteed to be in the same order as you see them on ECS console or in the
-  DescribeTask API call. If a container enters a STOPPED status while the task is
-  still running, it may continue to appear in your log.
-- The ECS metadata and IP traffic logs are from two different sources. We start computing your
-  ECS traffic as soon as we obtain all required information from upstream
-  dependencies.
+  For example, suppose you share a subnet (`SubnetA`) with another account (`AccountB`), and then you create a flow log subscription for `SubnetA` with a tag field on network-interfaces. If `AccountB` launches a tagged network-interface with the key you configured, your subscription receives traffic logs for the network-interface launched by `AccountB`, but the tag fields configured by your subscription are not computed due to security concerns. You can tag that network-interface launched by `AccountB` to display tags if desired.
++ If you create flow log subscriptions with Tag fields at the VPC/Subnet resource level, any traffic generated for non-tagged network interfaces will also be delivered for your subscriptions. The values for Tag fields will be '-' for non-tagged resources.
++ Auto Scaling groups will not be able to display any tags if they are named '-' since this is a reserved character to indicate missing/no value.
++ Creation of any Flow Logs subscription with Tags fields will result in the creation of a few resources on the customer's behalf. To consume updates to your tag values, EventBridge Managed Rules will be created to send tag changes to the Flow Logs service. These EventBridge Managed Rules will be automatically cleaned up if all subscriptions with Tag fields are deleted. Do not manually delete these EventBridge Managed Rules. Doing so will result in large delays updating tag values. To control this creation/cleanup and provide access to tag values, a Service Linked Role will be created in your account. See [Using service-linked roles for VPC Flow Logs](flow-logs-slr.md) for more details.
++ Due to Amazon CloudWatch Logs parsing and Athena parsing constraints, all special characters in tag values will be encoded using UTF-8 percent encoding. This can be decoded natively in Athena using `url_decode` or can be decoded by any URL or URI decoder.
++ For the first hour after a new subscription is created, tag values may be missing or inaccurate. After this first hour, tag values will be able to accurately reflect the values of your tagged resources with 1 minute granularity.
++ If multiple tag changes are made on the same resource within the same second, there is potential for updates to be lost, resulting in up to one hour of stale tag values.
++ For Auto Scaling group tag fields, you must have at least one enabled CloudTrail trail in your account. Without an enabled trail, Auto Scaling group tag values may be stale or inaccurate.
 
-After you start a new task, we start computing your ECS fields when both
-of the following conditions are met: we receive IP traffic for the underlying
-network interface, and we receive the ECS event that contains the metadata for
-your ECS task to indicate the task is now running.
-
-After you stop a task, we stop computing your ECS
-fields when both of the following conditions are met: we no longer receive IP traffic for the underlying network
-interface (or we receive IP traffic that is delayed for more than one day), and
-we receive the ECS event that contains the metadata for your ECS task to
-indicate your task is no longer running.
-
-- Only ECS tasks launched in `awsvpc` [network mode](../../../AmazonECS/latest/developerguide/task-networking.md "../../../AmazonECS/latest/developerguide/task-networking.md") are supported.
-  Limitations specific to `encryption-status` field:
-
-- The encryption status may be '-'(not available) in some flows, due to limitation of some network appliance to report the encryption status. Users can ignore these flows in the analysis.
-- Showing as encrypted in monitor mode does not mean the flow will be allowed in enforce mode. Vice versa.
-
-  - If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
-
-    - If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
-    - If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
-
-  - If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
-    Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
-
-- Tag fields are not computed if the tags on a resource are not owned by the owner of the flow
-  log subscription.
-
-For example, suppose you share a subnet (`SubnetA`) with
-another account (`AccountB`), and then you create a flow log
-subscription for `SubnetA` with a tag field on network-interfaces.
-If `AccountB` launches a tagged network-interface with the key you configured,
-your subscription receives traffic logs for the network-interface launched by `AccountB`, but the tag fields configured by your subscription are
-not computed due to security concerns. You can tag that network-interface launched by `AccountB` to display tags if desired.
-
-- If you create flow log subscriptions with Tag fields at the VPC/Subnet resource level, any
-  traffic generated for non-tagged network interfaces will also be delivered for your
-  subscriptions. The values for Tag fields will be '-' for non-tagged resources.
-- Auto Scaling groups will not be able to display any tags if they are named '-' since this is a reserved character to indicate missing/no value.
-- Creation of any Flow Logs subscription with Tags fields will result in the creation of a few resources on the customer's behalf.
-  To consume updates to your tag values, EventBridge Managed Rules will be created to send tag changes to the Flow Logs service.
-  These EventBridge Managed Rules will be automatically cleaned up if all subscriptions with Tag fields are deleted.
-  Do not manually delete these EventBridge Managed Rules. Doing so will result in large delays updating tag values.
-  To control this creation/cleanup and provide access to tag values, a Service Linked Role will be created in your account.
-  See [Using service-linked roles for VPC Flow Logs](flow-logs-slr.md "flow-logs-slr.md") for more details.
-- Due to Amazon CloudWatch Logs parsing and Athena parsing constraints, all special characters in tag values will be encoded using UTF-8 percent encoding.
-  This can be decoded natively in Athena using `url_decode` or can be decoded by any URL or URI decoder.
-- For the first hour after a new subscription is created, tag values may be missing or inaccurate.
-  After this first hour, tag values will be able to accurately reflect the values of your tagged resources with 1 minute granularity.
-- If multiple tag changes are made on the same resource within the same second, there is potential for updates to be lost, resulting in up to one hour of stale tag values.
-- For Auto Scaling group tag fields, you must have at least one enabled CloudTrail trail in your account. Without an enabled trail, Auto Scaling group tag values may be stale or inaccurate.
-  Limitations specific to `next-hop-` fields:
-
-- The next hop fields are not computed if the next hop network interface is not owned by the owner of the flow log subscription, except for `next-hop-az-id`.
-- The next hop fields are not available if the next hop doesn't have a network interface(For example, traffic to internet gateway).
-- The next hop fields are not available for cross-region traffic.
-- The next hop fields are not available for ingress traffic from some network services(for example, transit gateway and Network Load Balancer).
-- If traffic goes through a middlebox (for example, transit gateway or Network Load Balancer), the next hop network interface is the interface associated with the middlebox(such as the transit gateway attachment), not the final destination of the traffic
+Limitations specific to `next-hop-` fields:
++ The next hop fields are not computed if the next hop network interface is not owned by the owner of the flow log subscription, except for `next-hop-az-id`.
++ The next hop fields are not available if the next hop doesn't have a network interface(For example, traffic to internet gateway).
++ The next hop fields are not available for cross-region traffic.
++ The next hop fields are not available for ingress traffic from some network services(for example, transit gateway and Network Load Balancer).
++ If traffic goes through a middlebox (for example, transit gateway or Network Load Balancer), the next hop network interface is the interface associated with the middlebox(such as the transit gateway attachment), not the final destination of the traffic

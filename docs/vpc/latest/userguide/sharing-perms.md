@@ -1,17 +1,14 @@
+
+
 # Shared prefix list permissions
+<a name="sharing-perms"></a>
 
 **Permissions for owners**
 
-Owners are responsible for managing a shared prefix list and its entries.
-Owners can view the IDs of the AWS resources that reference the prefix list.
-However, they cannot add or remove references to a prefix list in AWS resources
-that are owned by consumers.
+Owners are responsible for managing a shared prefix list and its entries. Owners can view the IDs of the AWS resources that reference the prefix list. However, they cannot add or remove references to a prefix list in AWS resources that are owned by consumers. 
 
-Owners cannot delete a prefix list if the prefix list is referenced in a
-resource that's owned by a consumer.
+Owners cannot delete a prefix list if the prefix list is referenced in a resource that's owned by a consumer.
 
 **Permissions for consumers**
 
-Consumers can view the entries in a shared prefix list, and they can reference
-a shared prefix list in their AWS resources. However, consumers can't modify,
-restore, or delete a shared prefix list.
+Consumers can view the entries in a shared prefix list, and they can reference a shared prefix list in their AWS resources. However, consumers can't modify, restore, or delete a shared prefix list.

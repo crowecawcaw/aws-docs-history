@@ -1,9 +1,11 @@
+
+
 # Generate the CloudFormation template using the AWS CLI
+<a name="flow-logs-generate-template-cli"></a>
 
-After the first flow logs are delivered to your S3 bucket, you can generate and
-use a CloudFormation template to integrate with Athena.
+After the first flow logs are delivered to your S3 bucket, you can generate and use a CloudFormation template to integrate with Athena.
 
-Use the following [get-flow-logs-integration-template](../../../cli/latest/reference/ec2/get-flow-logs-integration-template.md "../../../cli/latest/reference/ec2/get-flow-logs-integration-template.md") command to generate the CloudFormation template.
+Use the following [get-flow-logs-integration-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-flow-logs-integration-template.html) command to generate the CloudFormation template.
 
 ```
 aws ec2 get-flow-logs-integration-template --cli-input-json file://config.json
@@ -28,8 +30,7 @@ The following is an example of the `config.json` file.
 }
 ```
 
-Use the following [create-stack](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md")
-command to create a stack using the generated CloudFormation template.
+Use the following [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create a stack using the generated CloudFormation template.
 
 ```
 aws cloudformation create-stack --stack-name my-vpc-flow-logs --template-body file://my-cloudformation-template.json
