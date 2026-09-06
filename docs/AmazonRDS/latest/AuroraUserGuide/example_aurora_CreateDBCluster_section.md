@@ -1,21 +1,18 @@
+
+
 # Use `CreateDBCluster` with an AWS SDK
+<a name="example_aurora_CreateDBCluster_section"></a>
 
 The following code examples show how to use `CreateDBCluster`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md) 
 
-- [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md "example_aurora_Scenario_GetStartedClusters_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
 ```
     /// <summary>
@@ -52,23 +49,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _amazonRDS.CreateDBClusterAsync(request);
         return response.DBCluster;
     }
-
-
 ```
++  For API details, see [CreateDBCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateDBCluster](../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster.md "../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -99,26 +87,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
             cleanUpResources(CLUSTER_PARAMETER_GROUP_NAME, "", "", client);
             return false;
         }
+```
++  For API details, see [CreateDBCluster](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBCluster) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateDBCluster](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBCluster.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples").
-
-```
-
 import (
 	"context"
 	"errors"
@@ -158,24 +136,14 @@ func (clusters *DbClusters) CreateDbCluster(ctx context.Context, clusterName str
 		return output.DBCluster, err
 	}
 }
-
-
-
 ```
++  For API details, see [CreateDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     public static String createDBCluster(RdsClient rdsClient, String dbParameterGroupFamily, String dbName,
@@ -199,23 +167,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return "";
     }
-
-
 ```
++  For API details, see [CreateDBCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
 suspend fun createDBCluster(
@@ -240,23 +199,14 @@ suspend fun createDBCluster(
         return response.dbCluster?.dbClusterArn
     }
 }
-
-
 ```
++  For API details, see [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
 ```
 class AuroraWrapper:
@@ -323,24 +273,14 @@ class AuroraWrapper:
             raise
         else:
             return cluster
-
-
-
 ```
++  For API details, see [CreateDBCluster](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBCluster) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateDBCluster](../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md "../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
 ```
     // Get a list of allowed engine versions. rds.DescribeDbEngineVersions(Engine='aurora-mysql', DBParameterGroupFamily=<the family used to create your parameter group in step 2>)
@@ -793,14 +733,9 @@ async fn test_start_cluster_and_instance_wait_hiccup() {
     tokio::time::resume();
     let _ = assertions.await;
 }
-
-
 ```
++  For API details, see [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,10 +1,12 @@
+
+
 # Processing a database activity stream using the AWS SDK
+<a name="DBActivityStreams.CodeExample"></a>
 
-You can programmatically process an activity stream by using the AWS SDK. The
-following are fully functioning Java and Python examples of how you might process the Kinesis data
-stream.
+You can programmatically process an activity stream by using the AWS SDK. The following are fully functioning Java and Python examples of how you might process the Kinesis data stream.
 
-Java
+------
+#### [ Java ]
 
 ```
 import java.io.ByteArrayInputStream;
@@ -275,10 +277,10 @@ public class DemoConsumer {
         return byteArray;
     }
 }
-
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import base64
@@ -358,5 +360,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 ```
+
+------

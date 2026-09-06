@@ -1,22 +1,19 @@
+
+
 # Escaping identifiers in masking policy DDL procedure
+<a name="AuroraPostgreSQL.Security.DynamicMasking.EscapeIdentifiers"></a>
 
-When creating data masking policies with quoted identifiers, proper escaping is required to ensure correct object references
-and policy application. To use quoted identifiers inside the `pg_columnmask` masking policy management procedures:
+When creating data masking policies with quoted identifiers, proper escaping is required to ensure correct object references and policy application. To use quoted identifiers inside the `pg_columnmask` masking policy management procedures:
++ **Policy name** – Must be enclosed in double quotes.
++ **Table name** – Both schema name and table name must be enclosed in double quotes individually when required.
++ **Masking expressions** – Column and function names in masking expressions must be enclosed in double quotes and the quotes themselves must be escaped using a backslash.
++ **Roles** – The array of role names is automatically quoted. The role name should exactly match the name as seen in `pg_roles` including case sensitivity.
 
-- **Policy name** – Must be enclosed in double quotes.
-- **Table name** – Both schema name and table name must be enclosed in double quotes individually when required.
-- **Masking expressions** – Column and function names in masking expressions must be enclosed in
-  double quotes and the quotes themselves must be escaped using a backslash.
-- **Roles** – The array of role names is automatically quoted.
-  The role name should exactly match the name as seen in `pg_roles` including case sensitivity.
-
-###### Example of escaping and quoting syntax
-
-This example shows the proper escaping and quoting syntax when creating masking policies for tables,
-columns, functions, and roles that use mixed-case names or require quoted identifiers in Aurora PostgreSQL.
+**Example of escaping and quoting syntax**  
+This example shows the proper escaping and quoting syntax when creating masking policies for tables, columns, functions, and roles that use mixed-case names or require quoted identifiers in Aurora PostgreSQL.  
 
 ```
--- Create a table and columns with mixed case name
+-- Create a table and columns with mixed case name 
 CREATE TABLE public."Employees" (
     "Name" TEXT,
     "Email" TEXT,
@@ -39,7 +36,7 @@ CREATE OR REPLACE FUNCTION public."MaskEmail"(text)
 -- masking policy management procedures
 CALL pgcolumnmask.create_masking_policy(
     '"Policy1"',  -- policy name should be surrounded with double quotes for quoting
-    'public."Employees"', -- table and schema name should be individually
+    'public."Employees"', -- table and schema name should be individually 
                           -- surrounded with double quotes for quoting
     JSON_OBJECT('{
         "\"Email\"", "\"MaskEmail\"(\"Email\")"
@@ -61,21 +58,20 @@ roles             | {Masked_user}
 masked_columns    | {Email}
 masking_functions | {"(\"MaskEmail\"(\"Email\"))::text"}
 weight            | 100
-
-
 ```
 
 ## Administrative views
+<a name="AuroraPostgreSQL.Security.DynamicMasking.AdminViews"></a>
 
-You can review all the `pg_columnmask` policy using the publicly accessible `pgcolumnmask.pg_columnmask_policies` administrative view.
-Following information is available using this view. The view only returns the masking policies owned by current user.
+You can review all the `pg_columnmask` policy using the publicly accessible `pgcolumnmask.pg_columnmask_policies` administrative view. Following information is available using this view. The view only returns the masking policies owned by current user.
 
-| Column name        | Data type | Description                                                           |
-| ------------------ | --------- | --------------------------------------------------------------------- |
-| schemaname         | NAME      | Schema of the relation to which the policy is attached                |
-| tablename          | NAME      | Name of the relation to which the policy is attached                  |
-| policyname         | NAME      | Name of the masking policy, all masking policies have unique<br>names |
-| roles              | TEXT[]    | Role to which policy applies.                                         |
-| masked\_columns    | TEXT[]    | Masked columns                                                        |
-| masking\_functions | TEXT[]    | Masking functions                                                     |
-| weight             | INT       | Weight of the attached policy                                         |
+
+| Column name | Data type | Description | 
+| --- | --- | --- | 
+| schemaname | NAME | Schema of the relation to which the policy is attached | 
+| tablename | NAME | Name of the relation to which the policy is attached | 
+| policyname | NAME | Name of the masking policy, all masking policies have unique names | 
+| roles | TEXT[] | Role to which policy applies. | 
+| masked\_columns | TEXT[] | Masked columns | 
+| masking\_functions | TEXT[] | Masking functions | 
+| weight | INT | Weight of the attached policy | 

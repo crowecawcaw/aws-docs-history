@@ -1,55 +1,53 @@
+
+
 # Tutorial: Restoring a DB cluster from a DB cluster snapshot using the AWS CLI
+<a name="tut-restore-cluster.CLI"></a>
 
 In this tutorial, you restore a DB cluster from a DB cluster snapshot using the AWS CLI. Restoring a DB cluster from a snapshot using the AWS CLI has two steps:
 
-1. [Restoring the DB cluster](#tut-restore-cluster.CLI.restore "#tut-restore-cluster.CLI.restore") using the [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") command
-2. [Creating the primary (writer) DB instance](#tut-restore-cluster.CLI.create "#tut-restore-cluster.CLI.create") using the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command
+1. [Restoring the DB cluster](#tut-restore-cluster.CLI.restore) using the [restore-db-cluster-from-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-cluster-from-snapshot.html) command
+
+1. [Creating the primary (writer) DB instance](#tut-restore-cluster.CLI.create) using the [create-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) command
 
 ## Restoring the DB cluster
+<a name="tut-restore-cluster.CLI.restore"></a>
 
 You use the `restore-db-cluster-from-snapshot` command. The following options are required:
++ `--db-cluster-identifier` – The name of the restored DB cluster.
++ `--snapshot-identifier` – The name of the DB snapshot to restore from.
++ `--engine` – The database engine of the restored DB cluster. It must be compatible with the database engine of the source DB cluster.
 
-- `--db-cluster-identifier` – The name of the restored DB cluster.
-- `--snapshot-identifier` – The name of the DB snapshot to restore from.
-- `--engine` – The database engine of the restored DB cluster. It must be compatible with the
-  database engine of the source DB cluster.
+  The choices are the following:
+  + `aurora-mysql` – Aurora MySQL 5.7 and 8.0 compatible.
+  + `aurora-postgresql` – Aurora PostgreSQL compatible.
 
-The choices are the following:
+  In this example, we use `aurora-mysql`.
++ `--engine-version` – The version of the restored DB cluster. In this example, we use a MySQL-8.0 compatible version.
 
-    + `aurora-mysql` – Aurora MySQL 5.7 and 8.0 compatible.
-    + `aurora-postgresql` – Aurora PostgreSQL compatible.
+The following example restores an Aurora MySQL 8.0–compatible DB cluster named `my-new-80-cluster` from a DB cluster snapshot named `my-57-cluster-snapshot`.
 
-In this example, we use `aurora-mysql`.
+**To restore the DB cluster**
++ Use one of the following commands.
 
-- `--engine-version` – The version of the restored DB cluster. In this example, we use a MySQL-8.0
-  compatible version.
+  For Linux, macOS, or Unix:
 
-The following example restores an Aurora MySQL 8.0–compatible DB cluster named `my-new-80-cluster` from a
-DB cluster snapshot named `my-57-cluster-snapshot`.
+  ```
+  aws rds restore-db-cluster-from-snapshot \
+      --db-cluster-identifier {{my-new-80-cluster}} \
+      --snapshot-identifier {{my-57-cluster-snapshot}} \
+      --engine aurora-mysql \
+      --engine-version {{8.0.mysql_aurora.3.02.0}}
+  ```
 
-###### To restore the DB cluster
+  For Windows:
 
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds restore-db-cluster-from-snapshot \
-    --db-cluster-identifier `my-new-80-cluster` \
-    --snapshot-identifier `my-57-cluster-snapshot` \
-    --engine aurora-mysql \
-    --engine-version `8.0.mysql_aurora.3.02.0`
-```
-
-For Windows:
-
-```
-aws rds restore-db-cluster-from-snapshot ^
-    --db-cluster-identifier `my-new-80-cluster` ^
-    --snapshot-identifier `my-57-cluster-snapshot` ^
-    --engine aurora-mysql ^
-    --engine-version `8.0.mysql_aurora.3.02.0`
-```
+  ```
+  aws rds restore-db-cluster-from-snapshot ^
+      --db-cluster-identifier {{my-new-80-cluster}} ^
+      --snapshot-identifier {{my-57-cluster-snapshot}} ^
+      --engine aurora-mysql ^
+      --engine-version {{8.0.mysql_aurora.3.02.0}}
+  ```
 
 The output resembles the following.
 
@@ -105,58 +103,46 @@ The output resembles the following.
 ```
 
 ## Creating the primary (writer) DB instance
+<a name="tut-restore-cluster.CLI.create"></a>
 
-To create the primary (writer) DB instance, you use the
-`create-db-instance` command. The following options are
-required:
+To create the primary (writer) DB instance, you use the `create-db-instance` command. The following options are required:
++ `--db-cluster-identifier` – The name of the restored DB cluster.
++ `--db-instance-identifier` – The name of the primary DB instance.
++ `--db-instance-class` – The instance class of the primary DB instance. In this example, we use `db.t3.medium`.
+**Note**  
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).
++ `--engine` – The database engine of the primary DB instance. It must be the same database engine as the restored DB cluster uses.
 
-- `--db-cluster-identifier` – The name of the restored DB cluster.
-- `--db-instance-identifier` – The name of the primary DB instance.
-- `--db-instance-class` – The instance class of the
-  primary DB instance. In this example, we use
-  `db.t3.medium`.
+  The choices are the following:
+  + `aurora-mysql` – Aurora MySQL 5.7 and 8.0 compatible.
+  + `aurora-postgresql` – Aurora PostgreSQL compatible.
 
-###### Note
+  In this example, we use `aurora-mysql`.
 
-We recommend using the T DB instance classes only for development and test servers, or other non-production
-servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
+The following example creates a primary (writer) DB instance named `my-new-80-cluster-instance` in the restored Aurora MySQL 8.0–compatible DB cluster named `my-new-80-cluster`.
 
-- `--engine` – The database engine of the primary DB instance. It must be the same database engine
-  as the restored DB cluster uses.
+**To create the primary DB instance**
++ Use one of the following commands.
 
-The choices are the following:
+  For Linux, macOS, or Unix:
 
-    + `aurora-mysql` – Aurora MySQL 5.7 and 8.0 compatible.
-    + `aurora-postgresql` – Aurora PostgreSQL compatible.
+  ```
+  aws rds create-db-instance \
+      --db-cluster-identifier my-new-80-cluster \
+      --db-instance-identifier {{my-new-80-cluster-instance}} \
+      --db-instance-class {{db.t3.medium}} \
+      --engine aurora-mysql
+  ```
 
-In this example, we use `aurora-mysql`.
+  For Windows:
 
-The following example creates a primary (writer) DB instance named `my-new-80-cluster-instance` in the restored
-Aurora MySQL 8.0–compatible DB cluster named `my-new-80-cluster`.
-
-###### To create the primary DB instance
-
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds create-db-instance \
-    --db-cluster-identifier my-new-80-cluster \
-    --db-instance-identifier `my-new-80-cluster-instance` \
-    --db-instance-class `db.t3.medium` \
-    --engine aurora-mysql
-```
-
-For Windows:
-
-```
-aws rds create-db-instance ^
-    --db-cluster-identifier my-new-80-cluster ^
-    --db-instance-identifier `my-new-80-cluster-instance` ^
-    --db-instance-class `db.t3.medium` ^
-    --engine aurora-mysql
-```
+  ```
+  aws rds create-db-instance ^
+      --db-cluster-identifier my-new-80-cluster ^
+      --db-instance-identifier {{my-new-80-cluster-instance}} ^
+      --db-instance-class {{db.t3.medium}} ^
+      --engine aurora-mysql
+  ```
 
 The output resembles the following.
 

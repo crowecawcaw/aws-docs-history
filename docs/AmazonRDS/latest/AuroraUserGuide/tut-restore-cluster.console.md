@@ -1,68 +1,74 @@
+
+
 # Tutorial: Restoring a DB cluster from a DB cluster snapshot using the Amazon RDS console
+<a name="tut-restore-cluster.console"></a>
 
 In this tutorial, you restore a DB cluster from a DB cluster snapshot using the Amazon RDS console. When you restore a DB cluster from a snapshot using the AWS Management Console, the primary (writer) DB instance is also created.
 
-###### Note
+**Note**  
+While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer instance.
 
-While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer
-instance.
+**To restore a DB cluster from a DB cluster snapshot**
 
-###### To restore a DB cluster from a DB cluster snapshot
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Snapshots**.
-3. Choose the DB cluster snapshot that you want to restore from.
-4. For **Actions**, choose **Restore snapshot**.
+1. In the navigation pane, choose **Snapshots**.
 
-![Restore snapshot option in the Actions menu in the RDS console.](images/tut-restore-cluster1.png)
+1. Choose the DB cluster snapshot that you want to restore from.
 
-The **Restore snapshot** page appears. 5. Under **DB instance settings**, do the following:
+1. For **Actions**, choose **Restore snapshot**.  
+![Restore snapshot option in the Actions menu in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster1.png)
 
-    1. Use the default setting for **DB engine**.
-    2. For **Available versions**, choose a MySQL–8.0 compatible version, such as
-     **Aurora MySQL 3.04.0 (compatible with MySQL 8.0.28)**.
+   The **Restore snapshot** page appears.
 
-![Restore snapshot page.](images/tut-restore-cluster2.png) 6. Under **Settings**, for **DB instance identifier** enter the unique name that you
-want to use for the restored DB instance, for example `my-80`.
+1. Under **DB instance settings**, do the following:
 
-###### Note
+   1. Use the default setting for **DB engine**.
 
-To create the DB cluster identifier, Amazon RDS appends `-cluster` to the DB instance identifier you specify. 7. Under **Connectivity**, use the default settings for the following:
+   1. For **Available versions**, choose a MySQL–8.0 compatible version, such as **Aurora MySQL 3.04.0 (compatible with MySQL 8.0.28)**.  
+![Restore snapshot page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster2.png)
 
-    * **Virtual private cloud (VPC)**
-    * **DB subnet group**
-    * **Public access**
-    * **VPC security group (firewall)**
+1. Under **Settings**, for **DB instance identifier** enter the unique name that you want to use for the restored DB instance, for example **my-80**.
+**Note**  
+To create the DB cluster identifier, Amazon RDS appends `-cluster` to the DB instance identifier you specify.
 
-8. Choose the **DB instance class**.
+1. Under **Connectivity**, use the default settings for the following:
+   + **Virtual private cloud (VPC)**
+   + **DB subnet group**
+   + **Public access**
+   + **VPC security group (firewall)**
 
-For this tutorial, choose **Burstable classes (includes t classes)**, and then choose
-**db.t3.medium**.
+1. Choose the **DB instance class**.
 
-###### Note
+   For this tutorial, choose **Burstable classes (includes t classes)**, and then choose **db.t3.medium**.
+**Note**  
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).  
+![DB instance configuration panel with options for instance class, availability, and performance settings.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster3.png)
 
-We recommend using the T DB instance classes only for development and test servers, or other non-production
-servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
+1. For **Database authentication**, use the default setting.
 
-![DB instance configuration panel with options for instance class, availability, and performance settings.](images/tut-restore-cluster3.png) 9. For **Database authentication**, use the default setting. 10. For **Encryption**, use the default settings.
+1. For **Encryption**, use the default settings.
 
-If the source DB cluster for the snapshot was encrypted, the restored DB cluster is also encrypted. You can't
-make it unencrypted. 11. Expand **Additional configuration**.
+   If the source DB cluster for the snapshot was encrypted, the restored DB cluster is also encrypted. You can't make it unencrypted.
 
-![Additional configuration options for database restore including network settings, encryption, and maintenance preferences.](images/tut-restore-cluster4.png) 12. Make the following choices:
+1. Expand **Additional configuration**.  
+![Additional configuration options for database restore including network settings, encryption, and maintenance preferences.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster4.png)
 
-    1. For this tutorial, use the default value for **DB cluster
-     parameter group**.
-    2. For this tutorial, use the default value for **DB parameter
-     group**.
-    3. For **Log exports**, select all of the check boxes.
-    4. For **Deletion protection**, select the **Enable deletion protection** check
-     box.
+1. Make the following choices:
 
-13. Choose **Restore DB instance**.
+   1. For this tutorial, use the default value for **DB cluster parameter group**.
+
+   1. For this tutorial, use the default value for **DB parameter group**.
+
+   1. For **Log exports**, select all of the check boxes.
+
+   1. For **Deletion protection**, select the **Enable deletion protection** check box.
+
+1. Choose **Restore DB instance**.
+
 The **Databases** page displays the restored DB cluster, with a status of `Creating`.
 
-![Restored DB cluster on the Databases page.](images/tut-restore-cluster5.png)
-While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer
-instance.
+![Restored DB cluster on the Databases page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster5.png)
+
+
+While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer instance.

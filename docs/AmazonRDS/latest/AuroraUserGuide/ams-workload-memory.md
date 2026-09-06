@@ -1,62 +1,48 @@
+
+
 # Troubleshooting memory usage issues for Aurora MySQL databases
+<a name="ams-workload-memory"></a>
 
-While CloudWatch, Enhanced Monitoring, and Performance Insights provide a good overview of memory usage at the operating system level, such as how much memory the database process
-is using, they don't allow you to break down what connections or components within the engine might be causing this memory usage.
+While CloudWatch, Enhanced Monitoring, and Performance Insights provide a good overview of memory usage at the operating system level, such as how much memory the database process is using, they don't allow you to break down what connections or components within the engine might be causing this memory usage.
 
-To troubleshoot this, you can use the Performance Schema and `sys` schema. In Aurora MySQL version 3, memory instrumentation is
-enabled by default when the Performance Schema is enabled. In Aurora MySQL version 2, only memory instrumentation for Performance Schema memory
-usage is enabled by default. For information on tables available in the Performance Schema to track memory usage and enabling Performance Schema
-memory instrumentation, see [Memory summary
-tables](https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html "https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html") in the MySQL documentation. For more information on using the Performance Schema with Performance Insights, see [Overview of the Performance Schema for Database Insights in Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+To troubleshoot this, you can use the Performance Schema and `sys` schema. In Aurora MySQL version 3, memory instrumentation is enabled by default when the Performance Schema is enabled. In Aurora MySQL version 2, only memory instrumentation for Performance Schema memory usage is enabled by default. For information on tables available in the Performance Schema to track memory usage and enabling Performance Schema memory instrumentation, see [Memory summary tables](https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html) in the MySQL documentation. For more information on using the Performance Schema with Performance Insights, see [Overview of the Performance Schema for Database Insights in Aurora MySQL](USER_PerfInsights.EnableMySQL.md).
 
-While detailed information is available in the Performance Schema to track current memory usage, the MySQL [sys schema](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html "https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html") has views on top of Performance Schema tables that you can
-use to quickly pinpoint where memory is being used.
+While detailed information is available in the Performance Schema to track current memory usage, the MySQL [sys schema](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html) has views on top of Performance Schema tables that you can use to quickly pinpoint where memory is being used.
 
 In the `sys` schema, the following views are available to track memory usage by connection, component, and query.
 
-| View                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [memory\_by\_host\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-host-by-current-bytes.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-host-by-current-bytes.html")       | Provides information on engine memory usage by host. This can be useful for identifying which application servers or<br>client hosts are consuming memory.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [memory\_by\_thread\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html") | Provides information on engine memory usage by thread ID. The thread ID in MySQL can be a client connection or a<br>background thread. You can map thread IDs to MySQL connection IDs by using the [sys.processlist](https://dev.mysql.com/doc/refman/8.0/en/sys-processlist.html "https://dev.mysql.com/doc/refman/8.0/en/sys-processlist.html") view or [performance\_schema.threads](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-threads-table.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-threads-table.html")<br>table. |
-| [memory\_by\_user\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-user-by-current-bytes.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-user-by-current-bytes.html")       | Provides information on engine memory usage by user. This can be useful for identifying which user accounts or clients are<br>consuming memory.                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [memory\_global\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-by-current-bytes.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-by-current-bytes.html")           | Provides information on engine memory usage by engine component. This can be useful for identifying memory usage globally<br>by engine buffers or components. For example, you might see the `memory/innodb/buf_buf_pool` event for the InnoDB<br>buffer pool, or the `memory/sql/Prepared_statement::main_mem_root` event for prepared statements.                                                                                                                                                                                                              |
-| [memory\_global\_total](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-total.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-total.html")                                              | Provides an overview of total tracked memory usage in the database engine.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-In Aurora MySQL version 3.05 and higher, you can also track maximum memory usage by statement digest in the [Performance Schema statement summary
-tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html"). The statement summary tables contain normalized statement digests and aggregated statistics on their execution. The
-`MAX_TOTAL_MEMORY` column can help you identify maximum memory used by query digest since the statistics were last reset, or
-since the database instance was restarted. This can be useful in identifying specific queries that might be consuming a lot of memory.
+| View | Description | 
+| --- | --- | 
+| [memory\_by\_host\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-host-by-current-bytes.html) | Provides information on engine memory usage by host. This can be useful for identifying which application servers or client hosts are consuming memory. | 
+| [memory\_by\_thread\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html) | Provides information on engine memory usage by thread ID. The thread ID in MySQL can be a client connection or a background thread. You can map thread IDs to MySQL connection IDs by using the [sys.processlist](https://dev.mysql.com/doc/refman/8.0/en/sys-processlist.html) view or [performance\_schema.threads](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-threads-table.html) table. | 
+| [memory\_by\_user\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-user-by-current-bytes.html) | Provides information on engine memory usage by user. This can be useful for identifying which user accounts or clients are consuming memory. | 
+| [memory\_global\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-by-current-bytes.html) | Provides information on engine memory usage by engine component. This can be useful for identifying memory usage globally by engine buffers or components. For example, you might see the `memory/innodb/buf_buf_pool` event for the InnoDB buffer pool, or the `memory/sql/Prepared_statement::main_mem_root` event for prepared statements. | 
+| [memory\_global\_total](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-global-total.html) | Provides an overview of total tracked memory usage in the database engine. | 
 
-###### Note
+In Aurora MySQL version 3.05 and higher, you can also track maximum memory usage by statement digest in the [Performance Schema statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html). The statement summary tables contain normalized statement digests and aggregated statistics on their execution. The `MAX_TOTAL_MEMORY` column can help you identify maximum memory used by query digest since the statistics were last reset, or since the database instance was restarted. This can be useful in identifying specific queries that might be consuming a lot of memory.
 
-The Performance Schema and `sys` schema show you the current memory usage on the server, and the high-water marks for memory
-consumed per connection and engine component. Because the Performance Schema is maintained in memory, information is reset when the DB
-instance restarts. To maintain a history over time, we recommend that you configure retrieval and storage of this data outside of the
-Performance Schema.
+**Note**  
+The Performance Schema and `sys` schema show you the current memory usage on the server, and the high-water marks for memory consumed per connection and engine component. Because the Performance Schema is maintained in memory, information is reset when the DB instance restarts. To maintain a history over time, we recommend that you configure retrieval and storage of this data outside of the Performance Schema.
 
-###### Topics
-
-- [Example 1: Continuous high memory usage](#ams-workload-memory.example1 "#ams-workload-memory.example1")
-- [Example 2: Transient memory spikes](#ams-workload-memory.example2 "#ams-workload-memory.example2")
-- [Example 3: Freeable memory drops continuously and isn't reclaimed](#ams-workload-memory.example3 "#ams-workload-memory.example3")
+**Topics**
++ [Example 1: Continuous high memory usage](#ams-workload-memory.example1)
++ [Example 2: Transient memory spikes](#ams-workload-memory.example2)
++ [Example 3: Freeable memory drops continuously and isn't reclaimed](#ams-workload-memory.example3)
 
 ## Example 1: Continuous high memory usage
+<a name="ams-workload-memory.example1"></a>
 
 Looking globally at `FreeableMemory` in CloudWatch, we can see that memory usage greatly increased at 2024-03-26 02:59 UTC.
 
-![FreeableMemory graph showing high memory usage.](images/ams-freeable-memory.png)
+![FreeableMemory graph showing high memory usage.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-freeable-memory.png)
 
-This doesn't tell us the whole picture. To determine which component is using the most memory, you can log into the database and look at
-`sys.memory_global_by_current_bytes`. This table contains a list of memory events that MySQL tracks, along with information
-on memory allocation per event. Each memory tracking event starts with `memory/%`, followed by other information on which engine
-component/feature the event is associated with.
 
-For example, `memory/performance_schema/%` is for memory events related to the Performance Schema, `memory/innodb/%`
-is for InnoDB, and so on. For more information on event naming conventions, see [Performance Schema instrument naming
-conventions](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html") in the MySQL documentation.
+This doesn't tell us the whole picture. To determine which component is using the most memory, you can log into the database and look at `sys.memory_global_by_current_bytes`. This table contains a list of memory events that MySQL tracks, along with information on memory allocation per event. Each memory tracking event starts with `memory/%`, followed by other information on which engine component/feature the event is associated with.
 
-From the following query, we can find the likely culprit based on `current_alloc`, but we can also see many
-`memory/performance_schema/%` events.
+For example, `memory/performance_schema/%` is for memory events related to the Performance Schema, `memory/innodb/%` is for InnoDB, and so on. For more information on event naming conventions, see [Performance Schema instrument naming conventions](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-instrument-naming.html) in the MySQL documentation.
+
+From the following query, we can find the likely culprit based on `current_alloc`, but we can also see many `memory/performance_schema/%` events.
 
 ```
 mysql> SELECT * FROM sys.memory_global_by_current_bytes LIMIT 10;
@@ -78,22 +64,15 @@ mysql> SELECT * FROM sys.memory_global_by_current_bytes LIMIT 10;
 10 rows in set (0.02 sec)
 ```
 
-We mentioned previously that the Performance Schema is stored in memory, which means that it's also tracked in the
-`performance_schema` memory instrumentation.
+We mentioned previously that the Performance Schema is stored in memory, which means that it's also tracked in the `performance_schema` memory instrumentation.
 
-###### Note
-
-If you find that the Performance Schema is using a lot of memory, and want to limit its memory usage, you can tune database parameters
-based on your requirements. For more information, see [The Performance Schema memory-allocation
-model](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-memory-model.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-memory-model.html") in the MySQL documentation.
+**Note**  
+If you find that the Performance Schema is using a lot of memory, and want to limit its memory usage, you can tune database parameters based on your requirements. For more information, see [The Performance Schema memory-allocation model](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-memory-model.html) in the MySQL documentation.
 
 For readability, you can rerun the same query but exclude Performance Schema events. The output shows the following:
-
-- The main memory consumer is `memory/sql/Prepared_statement::main_mem_root`.
-- The `current_alloc` column tells us that MySQL has 4.91 GiB currently allocated to this event.
-- The `high_alloc column` tells us that 4.91 GiB is the high-water mark of `current_alloc` since the stats
-  were last reset or since the server restarted. This means that `memory/sql/Prepared_statement::main_mem_root` is at its
-  highest value.
++ The main memory consumer is `memory/sql/Prepared_statement::main_mem_root`.
++ The `current_alloc` column tells us that MySQL has 4.91 GiB currently allocated to this event.
++ The `high_alloc column` tells us that 4.91 GiB is the high-water mark of `current_alloc` since the stats were last reset or since the server restarted. This means that `memory/sql/Prepared_statement::main_mem_root` is at its highest value.
 
 ```
 mysql> SELECT * FROM sys.memory_global_by_current_bytes WHERE event_name NOT LIKE 'memory/performance_schema/%' LIMIT 10;
@@ -115,13 +94,9 @@ mysql> SELECT * FROM sys.memory_global_by_current_bytes WHERE event_name NOT LIK
 10 rows in set (0.06 sec)
 ```
 
-From the name of the event, we can tell that this memory is being used for prepared statements. If you want to see which connections are
-using this memory, you can check [memory\_by\_thread\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html "https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html").
+From the name of the event, we can tell that this memory is being used for prepared statements. If you want to see which connections are using this memory, you can check [memory\_by\_thread\_by\_current\_bytes](https://dev.mysql.com/doc/refman/8.0/en/sys-memory-by-thread-by-current-bytes.html).
 
-In the following example, each connection has approximately 7 MiB allocated, with a high-water mark of approximately 6.29 MiB
-(`current_max_alloc`). This makes sense, because the example is using `sysbench` with 80 tables and 800
-connections with prepared statements. If you want to reduce memory usage in this scenario, you can optimize your application's usage of
-prepared statements to reduce memory consumption.
+In the following example, each connection has approximately 7 MiB allocated, with a high-water mark of approximately 6.29 MiB (`current_max_alloc`). This makes sense, because the example is using `sysbench` with 80 tables and 800 connections with prepared statements. If you want to reduce memory usage in this scenario, you can optimize your application's usage of prepared statements to reduce memory consumption.
 
 ```
 mysql> SELECT * FROM sys.memory_by_thread_by_current_bytes;
@@ -192,9 +167,7 @@ mysql> SELECT * FROM sys.memory_by_thread_by_current_bytes;
 831 rows in set (2.48 sec)
 ```
 
-As mentioned earlier, the thread ID (`thd_id`) value here can refer to server background threads or database connections. If
-you want to map thread ID values to database connection IDs, you can use the `performance_schema.threads` table or the
-`sys.processlist` view, where `conn_id` is the connection ID.
+As mentioned earlier, the thread ID (`thd_id`) value here can refer to server background threads or database connections. If you want to map thread ID values to database connection IDs, you can use the `performance_schema.threads` table or the `sys.processlist` view, where `conn_id` is the connection ID.
 
 ```
 mysql> SELECT thd_id,conn_id,user,db,command,state,time,last_wait FROM sys.processlist WHERE user='reinvent@10.0.4.4';
@@ -227,10 +200,7 @@ mysql> SELECT thd_id,conn_id,user,db,command,state,time,last_wait FROM sys.proce
 804 rows in set (5.51 sec)
 ```
 
-Now we stop the `sysbench` workload, which closes the connections and released the memory. Checking the events again, we can
-confirm that memory is released, but `high_alloc` still tells us what the high-water mark is. The `high_alloc` column
-can be very useful in identifying short spikes in memory usage, where you might not be able to immediately identify usage from
-`current_alloc`, which shows only currently allocated memory.
+Now we stop the `sysbench` workload, which closes the connections and released the memory. Checking the events again, we can confirm that memory is released, but `high_alloc` still tells us what the high-water mark is. The `high_alloc` column can be very useful in identifying short spikes in memory usage, where you might not be able to immediately identify usage from `current_alloc`, which shows only currently allocated memory.
 
 ```
 mysql> SELECT * FROM sys.memory_global_by_current_bytes WHERE event_name='memory/sql/Prepared_statement::main_mem_root' LIMIT 10;
@@ -243,9 +213,7 @@ mysql> SELECT * FROM sys.memory_global_by_current_bytes WHERE event_name='memory
 1 row in set (0.00 sec)
 ```
 
-If you want to reset `high_alloc`, you can truncate the `performance_schema` memory summary tables, but this resets
-all memory instrumentation. For more information, see [Performance Schema general table
-characteristics](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-table-characteristics.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-table-characteristics.html") in the MySQL documentation.
+If you want to reset `high_alloc`, you can truncate the `performance_schema` memory summary tables, but this resets all memory instrumentation. For more information, see [Performance Schema general table characteristics](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-table-characteristics.html) in the MySQL documentation.
 
 In the following example, we can see that `high_alloc` is reset after truncation.
 
@@ -264,28 +232,21 @@ mysql> SELECT * FROM sys.memory_global_by_current_bytes WHERE event_name='memory
 ```
 
 ## Example 2: Transient memory spikes
+<a name="ams-workload-memory.example2"></a>
 
-Another common occurrence is short spikes in memory usage on a database server. These can be periodic drops in freeable memory that are
-difficult to troubleshoot using `current_alloc` in `sys.memory_global_by_current_bytes`, because the memory has
-already been freed.
+Another common occurrence is short spikes in memory usage on a database server. These can be periodic drops in freeable memory that are difficult to troubleshoot using `current_alloc` in `sys.memory_global_by_current_bytes`, because the memory has already been freed.
 
-###### Note
+**Note**  
+If Performance Schema statistics have been reset, or the database instance has been restarted, this information won't be available in `sys` or p`erformance_schema`. To retain this information, we recommend that you configure external metrics collection.
 
-If Performance Schema statistics have been reset, or the database instance has been restarted, this information won't be available in
-`sys` or p`erformance_schema`. To retain this information, we recommend that you configure external metrics
-collection.
+The following graph of the `os.memory.free` metric in Enhanced Monitoring shows brief 7-second spikes in memory usage. Enhanced Monitoring allows you to monitor at intervals as short as 1 second, which is perfect for catching transient spikes like these.
 
-The following graph of the `os.memory.free` metric in Enhanced Monitoring shows brief 7-second spikes in memory usage. Enhanced Monitoring allows you to
-monitor at intervals as short as 1 second, which is perfect for catching transient spikes like these.
+![Graph showing transient memory usage spikes over time with periodic pattern indicating potential memory management issues.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-free-memory-spikes.png)
 
-![Graph showing transient memory usage spikes over time with periodic pattern indicating potential memory management issues.](images/ams-free-memory-spikes.png)
 
-To help diagnose the cause of the memory usage here, we can use a combination of `high_alloc` in the `sys` memory
-summary views and [Performance Schema
-statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html") to try to identify offending sessions and connections.
+To help diagnose the cause of the memory usage here, we can use a combination of `high_alloc` in the `sys` memory summary views and [Performance Schema statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html) to try to identify offending sessions and connections.
 
-As expected, because memory usage isn't currently high, we can't see any major offenders in the `sys` schema view under
-`current_alloc`.
+As expected, because memory usage isn't currently high, we can't see any major offenders in the `sys` schema view under `current_alloc`.
 
 ```
 mysql> SELECT * FROM sys.memory_global_by_current_bytes LIMIT 10;
@@ -307,19 +268,15 @@ mysql> SELECT * FROM sys.memory_global_by_current_bytes LIMIT 10;
 10 rows in set (0.01 sec)
 ```
 
-Expanding the view to order by `high_alloc`, we can now see that the `memory/temptable/physical_ram` component is a
-very good candidate here. At its highest, it consumed 515.00 MiB.
+Expanding the view to order by `high_alloc`, we can now see that the `memory/temptable/physical_ram` component is a very good candidate here. At its highest, it consumed 515.00 MiB.
 
-As its name suggests, `memory/temptable/physical_ram` instruments memory usage for the `TEMP` storage engine in
-MySQL, which was introduced in MySQL 8.0. For more information on how MySQL uses temporary tables, see [Internal temporary table use in MySQL](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html") in the MySQL
-documentation.
+As its name suggests, `memory/temptable/physical_ram` instruments memory usage for the `TEMP` storage engine in MySQL, which was introduced in MySQL 8.0. For more information on how MySQL uses temporary tables, see [Internal temporary table use in MySQL](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html) in the MySQL documentation.
 
-###### Note
-
+**Note**  
 We're using the `sys.x$memory_global_by_current_bytes` view in this example.
 
 ```
-mysql> SELECT event_name, format_bytes(current_alloc) AS "currently allocated", sys.format_bytes(high_alloc) AS "high-water mark"
+mysql> SELECT event_name, format_bytes(current_alloc) AS "currently allocated", sys.format_bytes(high_alloc) AS "high-water mark"  
 FROM sys.x$memory_global_by_current_bytes ORDER BY high_alloc DESC LIMIT 10;
 
 +-----------------------------------------------------------------------------+---------------------+-----------------+
@@ -339,15 +296,9 @@ FROM sys.x$memory_global_by_current_bytes ORDER BY high_alloc DESC LIMIT 10;
 10 rows in set (0.00 sec)
 ```
 
-In [Example 1: Continuous high memory usage](#ams-workload-memory.example1 "#ams-workload-memory.example1"), we checked the current memory usage for
-each connection to determine which connection is responsible for using the memory in question. In this example, the memory is already freed,
-so checking the memory usage for current connections isn't useful.
+In [Example 1: Continuous high memory usage](#ams-workload-memory.example1), we checked the current memory usage for each connection to determine which connection is responsible for using the memory in question. In this example, the memory is already freed, so checking the memory usage for current connections isn't useful.
 
-To dig deeper and find the offending statements, users, and hosts, we use the Performance Schema. The Performance Schema contains multiple
-statement summary tables that are sliced by different dimensions such as event name, statement digest, host, thread, and user. Each view
-will allow you dig deeper into where certain statements are being run and what they are doing. This section is focused on
-`MAX_TOTAL_MEMORY`, but you can find more information on all of the columns available in the [Performance Schema statement summary
-tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html") documentation.
+To dig deeper and find the offending statements, users, and hosts, we use the Performance Schema. The Performance Schema contains multiple statement summary tables that are sliced by different dimensions such as event name, statement digest, host, thread, and user. Each view will allow you dig deeper into where certain statements are being run and what they are doing. This section is focused on `MAX_TOTAL_MEMORY`, but you can find more information on all of the columns available in the [Performance Schema statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html) documentation.
 
 ```
 mysql> SHOW TABLES IN performance_schema LIKE 'events_statements_summary_%';
@@ -369,12 +320,8 @@ mysql> SHOW TABLES IN performance_schema LIKE 'events_statements_summary_%';
 First we check `events_statements_summary_by_digest` to see `MAX_TOTAL_MEMORY`.
 
 From this we can see the following:
-
-- The query with digest `20676ce4a690592ff05debcffcbc26faeb76f22005e7628364d7a498769d0c4a` seems to be a good candidate
-  for this memory usage. The `MAX_TOTAL_MEMORY` is 537450710, which matches the high-water mark we saw for the
-  `memory/temptable/physical_ram` event in `sys.x$memory_global_by_current_bytes`.
-- It has been run four times (`COUNT_STAR`), first at 2024-03-26 04:08:34.943256, and last at 2024-03-26
-  04:43:06.998310.
++ The query with digest `20676ce4a690592ff05debcffcbc26faeb76f22005e7628364d7a498769d0c4a` seems to be a good candidate for this memory usage. The `MAX_TOTAL_MEMORY` is 537450710, which matches the high-water mark we saw for the `memory/temptable/physical_ram` event in `sys.x$memory_global_by_current_bytes`.
++ It has been run four times (`COUNT_STAR`), first at 2024-03-26 04:08:34.943256, and last at 2024-03-26 04:43:06.998310.
 
 ```
 mysql> SELECT SCHEMA_NAME,DIGEST,COUNT_STAR,MAX_TOTAL_MEMORY,FIRST_SEEN,LAST_SEEN
@@ -392,9 +339,7 @@ FROM performance_schema.events_statements_summary_by_digest ORDER BY MAX_TOTAL_M
 5 rows in set (0.00 sec)
 ```
 
-Now that we know the offending digest, we can get more details such as the query text, the user who ran it, and where it was run. Based on
-the digest text returned, we can see that this is a common table expression (CTE) that creates four temporary tables and performs four table
-scans, which is very inefficient.
+Now that we know the offending digest, we can get more details such as the query text, the user who ran it, and where it was run. Based on the digest text returned, we can see that this is a common table expression (CTE) that creates four temporary tables and performs four table scans, which is very inefficient.
 
 ```
 mysql> SELECT SCHEMA_NAME,DIGEST_TEXT,QUERY_SAMPLE_TEXT,MAX_TOTAL_MEMORY,SUM_ROWS_SENT,SUM_ROWS_EXAMINED,SUM_CREATED_TMP_TABLES,SUM_NO_INDEX_USED
@@ -413,14 +358,11 @@ SUM_CREATED_TMP_TABLES: 4
 1 row in set (0.01 sec)
 ```
 
-For more information on the `events_statements_summary_by_digest` table and other Performance Schema statement summary tables,
-see [Statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html")
-in the MySQL documentation.
+For more information on the `events_statements_summary_by_digest` table and other Performance Schema statement summary tables, see [Statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html) in the MySQL documentation.
 
-You can also run an [EXPLAIN](https://dev.mysql.com/doc/refman/8.0/en/explain.html "https://dev.mysql.com/doc/refman/8.0/en/explain.html") or [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.0/en/explain.html#explain-analyze "https://dev.mysql.com/doc/refman/8.0/en/explain.html#explain-analyze") statement to see more details.
+You can also run an [EXPLAIN](https://dev.mysql.com/doc/refman/8.0/en/explain.html) or [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.0/en/explain.html#explain-analyze) statement to see more details.
 
-###### Note
-
+**Note**  
 `EXPLAIN ANALYZE` can provide more information than `EXPLAIN`, but it also runs the query, so be careful.
 
 ```
@@ -436,7 +378,7 @@ mysql> EXPLAIN WITH RECURSIVE cte (n) AS (SELECT 1  FROM sbtest1 UNION ALL SELEC
 +----+-------------+------------+------------+-------+---------------+------+---------+------+----------+----------+-------------+
 3 rows in set, 1 warning (0.00 sec)
 
--- EXPLAIN format=tree
+-- EXPLAIN format=tree 
 mysql> EXPLAIN format=tree WITH RECURSIVE cte (n) AS (SELECT 1 FROM sbtest1 UNION ALL SELECT id + 1 FROM sbtest1) SELECT * FROM cte\G;
 
 *************************** 1. row ***************************
@@ -446,7 +388,7 @@ EXPLAIN: -> Table scan on cte  (cost=4.11e+6..4.35e+6 rows=19.2e+6)
         -> Index scan on sbtest1 using k_1  (cost=1.09e+6 rows=9.61e+6)
 1 row in set (0.00 sec)
 
--- EXPLAIN ANALYZE
+-- EXPLAIN ANALYZE 
 mysql> EXPLAIN ANALYZE WITH RECURSIVE cte (n) AS (SELECT 1 from sbtest1 UNION ALL SELECT id + 1 FROM sbtest1) SELECT * FROM cte\G;
 
 *************************** 1. row ***************************
@@ -457,15 +399,10 @@ EXPLAIN: -> Table scan on cte  (cost=4.11e+6..4.35e+6 rows=19.2e+6) (actual time
 1 row in set (10.53 sec)
 ```
 
-But who ran it? We can see in the Performance Schema that the `destructive_operator` user had `MAX_TOTAL_MEMORY` of
-537450710, which again matches the previous results.
+But who ran it? We can see in the Performance Schema that the `destructive_operator` user had `MAX_TOTAL_MEMORY` of 537450710, which again matches the previous results.
 
-###### Note
-
-The Performance Schema is stored in memory, so should not be relied upon as the sole source for auditing. If you need to maintain a
-history of statements run, and from which users, we recommend that you enable [Aurora Advanced
-Auditing](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md"). If you also need to maintain information on memory usage, we recommend that you configure monitoring to export and
-store these values.
+**Note**  
+The Performance Schema is stored in memory, so should not be relied upon as the sole source for auditing. If you need to maintain a history of statements run, and from which users, we recommend that you enable [Aurora Advanced Auditing](AuroraMySQL.Auditing.md). If you also need to maintain information on memory usage, we recommend that you configure monitoring to export and store these values.
 
 ```
 mysql> SELECT USER,EVENT_NAME,COUNT_STAR,MAX_TOTAL_MEMORY FROM performance_schema.events_statements_summary_by_user_by_event_name
@@ -494,12 +431,11 @@ WHERE HOST != 'localhost' AND COUNT_STAR>0 ORDER BY MAX_CONTROLLED_MEMORY DESC L
 ```
 
 ## Example 3: Freeable memory drops continuously and isn't reclaimed
+<a name="ams-workload-memory.example3"></a>
 
-The InnoDB database engine employs a range of specialized memory tracking events for different components. These specific events allow for
-granular tracking of memory usage in key InnoDB subsystems, for example:
-
-- `memory/innodb/buf0buf` – Dedicated to monitoring memory allocations for the InnoDB buffer pool.
-- `memory/innodb/ibuf0ibuf` – Specifically tracks memory changes related to the InnoDB change buffer.
+The InnoDB database engine employs a range of specialized memory tracking events for different components. These specific events allow for granular tracking of memory usage in key InnoDB subsystems, for example:
++ `memory/innodb/buf0buf` – Dedicated to monitoring memory allocations for the InnoDB buffer pool.
++ `memory/innodb/ibuf0ibuf` – Specifically tracks memory changes related to the InnoDB change buffer.
 
 To identify the top consumers of memory, we can query `sys.memory_global_by_current_bytes`:
 
@@ -523,32 +459,24 @@ mysql> SELECT event_name,current_alloc FROM sys.memory_global_by_current_bytes L
 10 rows in set (0.00 sec)
 ```
 
-The results show that `memory/innodb/memory` is the top consumer, using 5.28 GiB of currently allocated memory. This event
-serves as a category for memory allocations across various InnoDB components not associated with more specific wait events, such as
-`memory/innodb/buf0buf` mentioned previously.
+The results show that `memory/innodb/memory` is the top consumer, using 5.28 GiB of currently allocated memory. This event serves as a category for memory allocations across various InnoDB components not associated with more specific wait events, such as `memory/innodb/buf0buf` mentioned previously.
 
-Having established that InnoDB components are the primary consumers of memory, we can dive deeper into the specifics using the following
-MySQL command:
+Having established that InnoDB components are the primary consumers of memory, we can dive deeper into the specifics using the following MySQL command:
 
 ```
 SHOW ENGINE INNODB STATUS \G;
 ```
 
-The [SHOW ENGINE INNODB STATUS](https://dev.mysql.com/doc/refman/8.4/en/show-engine.html "https://dev.mysql.com/doc/refman/8.4/en/show-engine.html") command provides a
-comprehensive status report for the InnoDB storage engine, including detailed memory usage statistics for different InnoDB components. It
-can help identify which specific InnoDB structures or operations are consuming the most memory. For more information, see [InnoDB in-memory structures](https://dev.mysql.com/doc/refman/8.0/en/innodb-in-memory-structures.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-in-memory-structures.html") in the MySQL
-documentation.
+The [SHOW ENGINE INNODB STATUS](https://dev.mysql.com/doc/refman/8.4/en/show-engine.html) command provides a comprehensive status report for the InnoDB storage engine, including detailed memory usage statistics for different InnoDB components. It can help identify which specific InnoDB structures or operations are consuming the most memory. For more information, see [InnoDB in-memory structures](https://dev.mysql.com/doc/refman/8.0/en/innodb-in-memory-structures.html) in the MySQL documentation.
 
-Analyzing the `BUFFER POOL AND MEMORY` section of the InnoDB status report, we see that 5,051,647,748 bytes (4.7 GiB) is
-allocated to the [dictionary object cache](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-object-cache.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-object-cache.html"),
-which accounts for 89% of the memory tracked by `memory/innodb/memory`.
+Analyzing the `BUFFER POOL AND MEMORY` section of the InnoDB status report, we see that 5,051,647,748 bytes (4.7 GiB) is allocated to the [dictionary object cache](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-object-cache.html), which accounts for 89% of the memory tracked by `memory/innodb/memory`.
 
 ```
 ----------------------
 BUFFER POOL AND MEMORY
 ----------------------
 Total large memory allocated 0
-**`Dictionary memory allocated 5051647748`**
+Dictionary memory allocated 5051647748
 Buffer pool size 170512
 Free buffers 142568
 Database pages 27944
@@ -557,12 +485,9 @@ Modified db pages 6
 Pending reads 0
 ```
 
-The dictionary object cache is a shared global cache that stores previously accessed data dictionary objects in memory to enable object
-reuse and improve performance. The high memory allocation to the dictionary object cache suggests a large number of database objects in the
-data dictionary cache.
+The dictionary object cache is a shared global cache that stores previously accessed data dictionary objects in memory to enable object reuse and improve performance. The high memory allocation to the dictionary object cache suggests a large number of database objects in the data dictionary cache.
 
-Now that we know that the data dictionary cache is a primary consumer, we proceed to inspect the data dictionary cache for open tables. To
-find the number of tables in the table definition cache, query the global status variable [open\_table\_definitions](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html#statvar_Open_table_definitions "https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html#statvar_Open_table_definitions").
+Now that we know that the data dictionary cache is a primary consumer, we proceed to inspect the data dictionary cache for open tables. To find the number of tables in the table definition cache, query the global status variable [open\_table\_definitions](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html#statvar_Open_table_definitions).
 
 ```
 mysql> show global status like 'open_table_definitions';
@@ -575,23 +500,17 @@ mysql> show global status like 'open_table_definitions';
 1 row in set (0.00 sec)
 ```
 
-For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html "https://dev.mysql.com/doc/refman/8.0/en/table-cache.html")
-in the MySQL documentation.
+For more information, see [How MySQL opens and closes tables](https://dev.mysql.com/doc/refman/8.0/en/table-cache.html) in the MySQL documentation.
 
-You can limit the number of table definitions in the data dictionary cache by limiting the `table_definition_cache` parameter
-in the DB cluster or DB instance parameter group. For Aurora MySQL, this value serves as a soft limit for the number of tables in the table
-definition cache. The default value is dependent on the instance class and is set to the following:
+You can limit the number of table definitions in the data dictionary cache by limiting the `table_definition_cache` parameter in the DB cluster or DB instance parameter group. For Aurora MySQL, this value serves as a soft limit for the number of tables in the table definition cache. The default value is dependent on the instance class and is set to the following:
 
 ```
 LEAST({DBInstanceClassMemory/393040}, 20000)
 ```
 
-When the number of tables exceeds the `table_definition_cache` limit, a least recently used (LRU) mechanism evicts and remove
-tables from the cache. However, tables involved in foreign key relationships aren't placed in the LRU list, preventing their removal.
+When the number of tables exceeds the `table_definition_cache` limit, a least recently used (LRU) mechanism evicts and remove tables from the cache. However, tables involved in foreign key relationships aren't placed in the LRU list, preventing their removal.
 
-In our current scenario, we run [FLUSH TABLES](https://dev.mysql.com/doc/refman/8.4/en/flush.html "https://dev.mysql.com/doc/refman/8.4/en/flush.html") to clear the table
-definition cache. This action results in a significant drop in the [Open\_table\_definitions](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Open_table_definitions "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Open_table_definitions")
-global status variable, from 20,000 to 12, as shown here:
+In our current scenario, we run [FLUSH TABLES](https://dev.mysql.com/doc/refman/8.4/en/flush.html) to clear the table definition cache. This action results in a significant drop in the [Open\_table\_definitions](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Open_table_definitions) global status variable, from 20,000 to 12, as shown here:
 
 ```
 mysql> show global status like 'open_table_definitions';
@@ -604,8 +523,7 @@ mysql> show global status like 'open_table_definitions';
 1 row in set (0.00 sec)
 ```
 
-Despite this reduction, we observe that the memory allocation for `memory/innodb/memory` remains high at 5.18 GiB, and the
-dictionary memory allocated also remains unchanged. This is evident from the following query results:
+Despite this reduction, we observe that the memory allocation for `memory/innodb/memory` remains high at 5.18 GiB, and the dictionary memory allocated also remains unchanged. This is evident from the following query results:
 
 ```
 mysql> SELECT event_name,current_alloc FROM sys.memory_global_by_current_bytes LIMIT 10;
@@ -632,7 +550,7 @@ mysql> SELECT event_name,current_alloc FROM sys.memory_global_by_current_bytes L
 BUFFER POOL AND MEMORY
 ----------------------
 Total large memory allocated 0
-**`Dictionary memory allocated 5001599639`**
+Dictionary memory allocated 5001599639
 Buffer pool size 170512
 Free buffers 142568
 Database pages 27944
@@ -641,13 +559,12 @@ Modified db pages 6
 Pending reads 0
 ```
 
-This persistently high memory usage can be attributed to tables involved in foreign key relationships. These tables aren't placed in the
-LRU list for removal, explaining why the memory allocation remains high even after flushing the table definition cache.
+This persistently high memory usage can be attributed to tables involved in foreign key relationships. These tables aren't placed in the LRU list for removal, explaining why the memory allocation remains high even after flushing the table definition cache.
 
 To address this issue:
 
 1. Review and optimize your database schema, particularly foreign key relationships.
-2. Consider moving to a larger DB instance class that has more memory to accommodate your dictionary objects.
 
-By following these steps and understanding the memory allocation patterns, you can better manage memory usage in your Aurora MySQL DB
-instance and prevent potential performance issues due to memory pressure.
+1. Consider moving to a larger DB instance class that has more memory to accommodate your dictionary objects.
+
+By following these steps and understanding the memory allocation patterns, you can better manage memory usage in your Aurora MySQL DB instance and prevent potential performance issues due to memory pressure.

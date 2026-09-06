@@ -1,75 +1,66 @@
+
+
 # synch/mutex/innodb/fil\_system\_mutex
+<a name="ams-waits.innodb-fil-system-mutex"></a>
 
-The `synch/mutex/innodb/fil_system_mutex` event occurs when a session
-is waiting to access the tablespace memory cache.
+The `synch/mutex/innodb/fil_system_mutex` event occurs when a session is waiting to access the tablespace memory cache.
 
-###### Topics
-
-- [Supported engine versions](#ams-waits.innodb-fil-system-mutex.context.supported "#ams-waits.innodb-fil-system-mutex.context.supported")
-- [Context](#ams-waits.innodb-fil-system-mutex.context "#ams-waits.innodb-fil-system-mutex.context")
-- [Likely causes of increased waits](#ams-waits.innodb-fil-system-mutex.causes "#ams-waits.innodb-fil-system-mutex.causes")
-- [Actions](#ams-waits.innodb-fil-system-mutex.actions "#ams-waits.innodb-fil-system-mutex.actions")
+**Topics**
++ [Supported engine versions](#ams-waits.innodb-fil-system-mutex.context.supported)
++ [Context](#ams-waits.innodb-fil-system-mutex.context)
++ [Likely causes of increased waits](#ams-waits.innodb-fil-system-mutex.causes)
++ [Actions](#ams-waits.innodb-fil-system-mutex.actions)
 
 ## Supported engine versions
+<a name="ams-waits.innodb-fil-system-mutex.context.supported"></a>
 
 This wait event information is supported for the following engine versions:
-
-- Aurora MySQL versions 2 and 3
++ Aurora MySQL versions 2 and 3
 
 ## Context
+<a name="ams-waits.innodb-fil-system-mutex.context"></a>
 
-InnoDB
-uses tablespaces to manage the storage area for tables and log files. The _tablespace memory cache_ is a global memory structure that
-maintains information about tablespaces. MySQL uses
-`synch/mutex/innodb/fil_system_mutex` waits to control concurrent access
-to the tablespace memory cache.
+InnoDB uses tablespaces to manage the storage area for tables and log files. The *tablespace memory cache* is a global memory structure that maintains information about tablespaces. MySQL uses `synch/mutex/innodb/fil_system_mutex` waits to control concurrent access to the tablespace memory cache. 
 
-The event `synch/mutex/innodb/fil_system_mutex` indicates that
-there is currently more than one operation that needs to retrieve and manipulate
-information in the tablespace memory cache for the same tablespace.
+The event `synch/mutex/innodb/fil_system_mutex` indicates that there is currently more than one operation that needs to retrieve and manipulate information in the tablespace memory cache for the same tablespace.
 
 ## Likely causes of increased waits
+<a name="ams-waits.innodb-fil-system-mutex.causes"></a>
 
-When the `synch/mutex/innodb/fil_system_mutex` event appears more
-than normal, possibly indicating a performance problem, this typically occurs when all of the
-following conditions are present:
-
-- An increase in concurrent data manipulation language (DML) operations that update or delete data in the same table.
-- The tablespace for this table is very large and has a lot of data pages.
-- The fill factor for these data pages is low.
+When the `synch/mutex/innodb/fil_system_mutex` event appears more than normal, possibly indicating a performance problem, this typically occurs when all of the following conditions are present:
++ An increase in concurrent data manipulation language (DML) operations that update or delete data in the same table.
++ The tablespace for this table is very large and has a lot of data pages.
++ The fill factor for these data pages is low.
 
 ## Actions
+<a name="ams-waits.innodb-fil-system-mutex.actions"></a>
 
 We recommend different actions depending on the causes of your wait event.
 
-###### Topics
-
-- [Identify the sessions and queries causing the events](#ams-waits.innodb-fil-system-mutex.actions.identify "#ams-waits.innodb-fil-system-mutex.actions.identify")
-- [Reorganize large tables during off-peak hours](#ams-waits.innodb-fil-system-mutex.actions.reorganize "#ams-waits.innodb-fil-system-mutex.actions.reorganize")
+**Topics**
++ [Identify the sessions and queries causing the events](#ams-waits.innodb-fil-system-mutex.actions.identify)
++ [Reorganize large tables during off-peak hours](#ams-waits.innodb-fil-system-mutex.actions.reorganize)
 
 ### Identify the sessions and queries causing the events
+<a name="ams-waits.innodb-fil-system-mutex.actions.identify"></a>
 
-Typically, databases with moderate to significant load have wait events.
-The wait events might be acceptable if performance is optimal. If performance
-isn't optimal, examine where the database is spending the most time. Look at
-the wait events that contribute to the highest load, and find out whether you can
-optimize the database and application to reduce those events.
+Typically, databases with moderate to significant load have wait events. The wait events might be acceptable if performance is optimal. If performance isn't optimal, examine where the database is spending the most time. Look at the wait events that contribute to the highest load, and find out whether you can optimize the database and application to reduce those events.
 
-###### To find SQL queries that are responsible for high load
+**To find SQL queries that are responsible for high load**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a DB instance. The Performance Insights dashboard appears
-   for that DB instance.
-4. In the **Database load** chart, choose **Slice by
-   wait**.
-5. Choose the **Top SQL** tab.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-The chart lists the SQL queries that are responsible for the load. Those listed first are most
-responsible. To resolve a bottleneck, focus on these statements.
+1. In the navigation pane, choose **Performance Insights**.
 
-For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+1. Choose a DB instance. The Performance Insights dashboard appears for that DB instance.
+
+1. In the **Database load** chart, choose **Slice by wait**.
+
+1. Choose the **Top SQL** tab.
+
+   The chart lists the SQL queries that are responsible for the load. Those listed first are most responsible. To resolve a bottleneck, focus on these statements.
+
+For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/).
 
 Another way to find out which queries are causing high numbers of `synch/mutex/innodb/fil_system_mutex` waits is to check `performance_schema`, as in the following example.
 
@@ -138,9 +129,6 @@ OBJECT_INSTANCE_BEGIN: 47285552262176
 ```
 
 ### Reorganize large tables during off-peak hours
+<a name="ams-waits.innodb-fil-system-mutex.actions.reorganize"></a>
 
-Reorganize large tables that you identify as the source of high numbers of
-`synch/mutex/innodb/fil_system_mutex` wait events during a
-maintenance window outside of production hours. Doing so ensures that the internal tablespaces map cleanup doesn't occur when quick access to the table is critical.
-For information about reorganizing tables, see [OPTIMIZE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/optimize-table.html "https://dev.mysql.com/doc/refman/5.7/en/optimize-table.html")
-in the _MySQL Reference_.
+Reorganize large tables that you identify as the source of high numbers of `synch/mutex/innodb/fil_system_mutex` wait events during a maintenance window outside of production hours. Doing so ensures that the internal tablespaces map cleanup doesn't occur when quick access to the table is critical. For information about reorganizing tables, see [OPTIMIZE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/optimize-table.html) in the *MySQL Reference*.

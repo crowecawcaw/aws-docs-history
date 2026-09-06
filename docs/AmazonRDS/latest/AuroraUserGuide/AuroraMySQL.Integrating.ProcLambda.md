@@ -1,92 +1,66 @@
+
+
 # Invoking a Lambda function with an Aurora MySQL stored procedure (deprecated)
+<a name="AuroraMySQL.Integrating.ProcLambda"></a>
 
-You can invoke an AWS Lambda function from an Aurora MySQL DB cluster by calling the
-`mysql.lambda_async` procedure. This approach can be useful when you want
-to integrate your database running on Aurora MySQL with other AWS services. For example,
-you might want to send a notification using Amazon Simple Notification Service (Amazon SNS) whenever a row is inserted
-into a specific table in your database.
+You can invoke an AWS Lambda function from an Aurora MySQL DB cluster by calling the `mysql.lambda_async` procedure. This approach can be useful when you want to integrate your database running on Aurora MySQL with other AWS services. For example, you might want to send a notification using Amazon Simple Notification Service (Amazon SNS) whenever a row is inserted into a specific table in your database. 
 
-###### Contents
-
-- [Aurora MySQL version considerations](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats")
-- [Working with the mysql.lambda\_async procedure to invoke a Lambda function (deprecated)](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async")
-
-  - [Syntax](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax")
-  - [Parameters](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters")
-  - [Examples](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples")
+**Contents**
++ [Aurora MySQL version considerations](#AuroraMySQL.Integrating.ProcLambda.caveats)
++ [Working with the mysql.lambda\_async procedure to invoke a Lambda function (deprecated)](#AuroraMySQL.Integrating.Lambda.mysql_lambda_async)
+  + [Syntax](#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax)
+  + [Parameters](#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters)
+  + [Examples](#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples)
 
 ## Aurora MySQL version considerations
+<a name="AuroraMySQL.Integrating.ProcLambda.caveats"></a>
 
-Starting in Aurora MySQL version 2, you can use the native function method instead of these stored procedures to invoke a
-Lambda function. For more information about the native functions, see [Working with native functions to invoke a Lambda function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions").
+Starting in Aurora MySQL version 2, you can use the native function method instead of these stored procedures to invoke a Lambda function. For more information about the native functions, see [Working with native functions to invoke a Lambda function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions).
 
-In Aurora MySQL version 2, the stored procedure `mysql.lambda_async` is no longer supported. We strongly
-recommend that you work with native Lambda functions instead.
+In Aurora MySQL version 2, the stored procedure `mysql.lambda_async` is no longer supported. We strongly recommend that you work with native Lambda functions instead.
 
 In Aurora MySQL version 3, the stored procedure isn't available.
 
 ## Working with the mysql.lambda\_async procedure to invoke a Lambda function (deprecated)
+<a name="AuroraMySQL.Integrating.Lambda.mysql_lambda_async"></a>
 
-The `mysql.lambda_async` procedure is a built-in stored procedure that
-invokes a Lambda function asynchronously. To use this procedure, your database user
-must have `EXECUTE` privilege on the `mysql.lambda_async` stored
-procedure.
+The `mysql.lambda_async` procedure is a built-in stored procedure that invokes a Lambda function asynchronously. To use this procedure, your database user must have `EXECUTE` privilege on the `mysql.lambda_async` stored procedure.
 
 ### Syntax
+<a name="AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax"></a>
 
-The `mysql.lambda_async` procedure has the following
-syntax.
+The `mysql.lambda_async` procedure has the following syntax.
 
 ```
 CALL mysql.lambda_async (
-  `lambda_function_ARN`,
-  `lambda_function_input`
+  {{lambda_function_ARN}},
+  {{lambda_function_input}}
 )
 ```
 
 ### Parameters
+<a name="AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters"></a>
 
-The `mysql.lambda_async` procedure has the following
-parameters.
+The `mysql.lambda_async` procedure has the following parameters.
 
-_lambda\_function\_ARN_
+* lambda\_function\_ARN *  
+The Amazon Resource Name (ARN) of the Lambda function to invoke.
 
-The Amazon Resource Name (ARN) of the Lambda function to
-invoke.
-
-_lambda\_function\_input_
-
-The input string, in JSON format, for the invoked Lambda
-function.
+* lambda\_function\_input *  
+The input string, in JSON format, for the invoked Lambda function.
 
 ### Examples
+<a name="AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples"></a>
 
-As a best practice, we recommend that you wrap calls to the
-`mysql.lambda_async` procedure in a stored procedure that can be
-called from different sources such as triggers or client code. This approach can
-help to avoid impedance mismatch issues and make it easier to invoke Lambda
-functions.
+As a best practice, we recommend that you wrap calls to the `mysql.lambda_async` procedure in a stored procedure that can be called from different sources such as triggers or client code. This approach can help to avoid impedance mismatch issues and make it easier to invoke Lambda functions. 
 
-###### Note
+**Note**  
+Be careful when invoking an AWS Lambda function from triggers on tables that experience high write traffic. `INSERT`, `UPDATE`, and `DELETE` triggers are activated per row. A write-heavy workload on a table with `INSERT`, `UPDATE`, or `DELETE` triggers results in a large number of calls to your AWS Lambda function.   
+Although calls to the `mysql.lambda_async` procedure are asynchronous, triggers are synchronous. A statement that results in a large number of trigger activations doesn't wait for the call to the AWS Lambda function to complete, but it does wait for the triggers to complete before returning control to the client.
 
-Be careful when invoking an AWS Lambda function from triggers on tables
-that experience high write traffic. `INSERT`, `UPDATE`, and `DELETE` triggers
-are activated per row. A write-heavy workload on a table with `INSERT`,
-`UPDATE`, or `DELETE` triggers results in a large number of calls to your
-AWS Lambda function.
-
-Although calls to the `mysql.lambda_async` procedure are
-asynchronous, triggers are synchronous. A statement that results in a
-large number of trigger activations doesn't wait for the call to the
-AWS Lambda function to complete, but it does wait for the triggers to
-complete before returning control to the client.
-
-###### Example: Invoke an AWS Lambda function to send email
-
-The following example creates a stored procedure that you can call in your
-database code to send an email using a Lambda function.
-
-**AWS Lambda Function**
+**Example: Invoke an AWS Lambda function to send email**  
+The following example creates a stored procedure that you can call in your database code to send an email using a Lambda function.  
+**AWS Lambda Function**  
 
 ```
 import boto3
@@ -114,10 +88,8 @@ def SES_send_email(event, context):
             }
         }
     )
-
 ```
-
-**Stored Procedure**
+**Stored Procedure**  
 
 ```
 DROP PROCEDURE IF EXISTS SES_send_email;
@@ -137,24 +109,16 @@ DELIMITER ;;
   END
   ;;
 DELIMITER ;
+```
+**Call the Stored Procedure to Invoke the AWS Lambda Function**  
 
 ```
-
-**Call the Stored Procedure to Invoke the AWS Lambda
-Function**
-
-```
-`mysql>` call SES_send_email('example_from@amazon.com', 'example_to@amazon.com', 'Email subject', 'Email content');
-
+mysql> call SES_send_email('example_from@amazon.com', 'example_to@amazon.com', 'Email subject', 'Email content');
 ```
 
-###### Example: Invoke an AWS Lambda function to publish an event from a trigger
-
-The following example creates a stored procedure that publishes an event
-by using Amazon SNS. The code calls the procedure from a trigger when a row is
-added to a table.
-
-**AWS Lambda Function**
+**Example: Invoke an AWS Lambda function to publish an event from a trigger**  
+The following example creates a stored procedure that publishes an event by using Amazon SNS. The code calls the procedure from a trigger when a row is added to a table.  
+**AWS Lambda Function**  
 
 ```
 import boto3
@@ -170,8 +134,7 @@ def SNS_publish_message(event, context):
         MessageStructure='string'
     )
 ```
-
-**Stored Procedure**
+**Stored Procedure**  
 
 ```
 DROP PROCEDURE IF EXISTS SNS_Publish_Message;
@@ -187,8 +150,7 @@ END
 ;;
 DELIMITER ;
 ```
-
-**Table**
+**Table**  
 
 ```
 CREATE TABLE 'Customer_Feedback' (
@@ -198,8 +160,7 @@ CREATE TABLE 'Customer_Feedback' (
   PRIMARY KEY ('id')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-
-**Trigger**
+**Trigger**  
 
 ```
 DELIMITER ;;
@@ -212,13 +173,9 @@ BEGIN
 END
 ;;
 DELIMITER ;
+```
+**Insert a Row into the Table to Trigger the Notification**  
 
 ```
-
-**Insert a Row into the Table to Trigger the
-Notification**
-
-```
-`mysql>` insert into Customer_Feedback (customer_name, customer_feedback) VALUES ('Sample Customer', 'Good job guys!');
-
+mysql> insert into Customer_Feedback (customer_name, customer_feedback) VALUES ('Sample Customer', 'Good job guys!');
 ```

@@ -1,33 +1,31 @@
+
+
 # Audit log contents and examples for database activity streams
+<a name="DBActivityStreams.AuditLog"></a>
 
-Monitored events are represented in the database activity stream as JSON strings. The structure consists of a
-JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a
-`databaseActivityEventList` array of activity events.
+Monitored events are represented in the database activity stream as JSON strings. The structure consists of a JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a `databaseActivityEventList` array of activity events. 
 
-###### Note
-
+**Note**  
 For database activity streams, the `paramList` JSON array doesn't include null values from Hibernate applications.
 
-###### Topics
-
-- [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples "#DBActivityStreams.AuditLog.Examples")
-- [DatabaseActivityMonitoringRecords JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords "#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords")
-- [databaseActivityEvents JSON Object](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents")
+**Topics**
++ [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples)
++ [DatabaseActivityMonitoringRecords JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords)
++ [databaseActivityEvents JSON Object](#DBActivityStreams.AuditLog.databaseActivityEvents)
 
 ## Examples of an audit log for an activity stream
+<a name="DBActivityStreams.AuditLog.Examples"></a>
 
 Following are sample decrypted JSON audit logs of activity event records.
 
-###### Example Activity event record of an Aurora PostgreSQL CONNECT SQL statement
-
-The following activity event record shows a login with the use of a
-`CONNECT` SQL statement (`command`) by a psql client (`clientApplication`).
+**Example Activity event record of an Aurora PostgreSQL CONNECT SQL statement**  
+The following activity event record shows a login with the use of a `CONNECT` SQL statement (`command`) by a psql client (`clientApplication`).  
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecords",
   "version":"1.1",
-  "databaseActivityEvents":
+  "databaseActivityEvents": 
     {
       "type":"DatabaseActivityMonitoringRecord",
       "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
@@ -68,17 +66,14 @@ The following activity event record shows a login with the use of a
 }
 ```
 
-###### Example Activity event record of an Aurora MySQL CONNECT SQL statement
-
-The following activity event record shows a logon with the use of a
-`CONNECT` SQL statement (`command`) by a mysql client
-(`clientApplication`).
+**Example Activity event record of an Aurora MySQL CONNECT SQL statement**  
+The following activity event record shows a logon with the use of a `CONNECT` SQL statement (`command`) by a mysql client (`clientApplication`).   
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecord",
-  "clusterId":"cluster-`some_id`",
-  "instanceId":"db-`some_id`",
+  "clusterId":"cluster-{{some_id}}",
+  "instanceId":"db-{{some_id}}",
   "databaseActivityEventList":[
     {
       "logTime":"2020-05-22 18:07:13.267214+00",
@@ -115,15 +110,14 @@ The following activity event record shows a logon with the use of a
 }
 ```
 
-###### Example Activity event record of an Aurora PostgreSQL CREATE TABLE statement
-
-The following example shows a `CREATE TABLE` event for Aurora PostgreSQL.
+**Example Activity event record of an Aurora PostgreSQL CREATE TABLE statement**  
+The following example shows a `CREATE TABLE` event for Aurora PostgreSQL.  
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecords",
   "version":"1.1",
-  "databaseActivityEvents":
+  "databaseActivityEvents": 
     {
       "type":"DatabaseActivityMonitoringRecord",
       "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
@@ -164,23 +158,15 @@ The following example shows a `CREATE TABLE` event for Aurora PostgreSQL.
 }
 ```
 
-###### Example Activity event record of an Aurora MySQL CREATE TABLE statement
-
-The following example shows a `CREATE TABLE` statement for Aurora MySQL.
-The operation is represented as two separate event records. One event has
-`"class":"MAIN"`. The other event has `"class":"AUX"`. The
-messages might arrive in any order. The `logTime` field of the
-`MAIN` event is always earlier than the `logTime` fields of any
-corresponding `AUX` events.
-
-The following example shows the event with a `class` value of
-`MAIN`.
+**Example Activity event record of an Aurora MySQL CREATE TABLE statement**  
+The following example shows a `CREATE TABLE` statement for Aurora MySQL. The operation is represented as two separate event records. One event has `"class":"MAIN"`. The other event has `"class":"AUX"`. The messages might arrive in any order. The `logTime` field of the `MAIN` event is always earlier than the `logTime` fields of any corresponding `AUX` events.  
+The following example shows the event with a `class` value of `MAIN`.   
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecord",
-  "clusterId":"cluster-`some_id`",
-  "instanceId":"db-`some_id`",
+  "clusterId":"cluster-{{some_id}}",
+  "instanceId":"db-{{some_id}}",
   "databaseActivityEventList":[
     {
       "logTime":"2020-05-22 18:07:12.250221+00",
@@ -216,15 +202,13 @@ The following example shows the event with a `class` value of
   ]
 }
 ```
-
-The following example shows the corresponding event with a `class` value of
-`AUX`.
+ The following example shows the corresponding event with a `class` value of `AUX`.  
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecord",
-  "clusterId":"cluster-`some_id`",
-  "instanceId":"db-`some_id`",
+  "clusterId":"cluster-{{some_id}}",
+  "instanceId":"db-{{some_id}}",
   "databaseActivityEventList":[
     {
       "logTime":"2020-05-22 18:07:12.247182+00",
@@ -261,15 +245,14 @@ The following example shows the corresponding event with a `class` value of
 }
 ```
 
-###### Example Activity event record of an Aurora PostgreSQL SELECT statement
-
-The following example shows a `SELECT` event .
+**Example Activity event record of an Aurora PostgreSQL SELECT statement**  
+The following example shows a `SELECT` event .  
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecords",
   "version":"1.1",
-  "databaseActivityEvents":
+  "databaseActivityEvents": 
     {
       "type":"DatabaseActivityMonitoringRecord",
       "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
@@ -377,17 +360,15 @@ The following example shows a `SELECT` event .
 }
 ```
 
-###### Example Activity event record of an Aurora MySQL SELECT statement
-
-The following example shows a `SELECT` event.
-
-The following example shows the event with a `class` value of `MAIN`.
+**Example Activity event record of an Aurora MySQL SELECT statement**  
+The following example shows a `SELECT` event.  
+ The following example shows the event with a `class` value of `MAIN`.   
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecord",
-  "clusterId":"cluster-`some_id`",
-  "instanceId":"db-`some_id`",
+  "clusterId":"cluster-{{some_id}}",
+  "instanceId":"db-{{some_id}}",
   "databaseActivityEventList":[
     {
       "logTime":"2020-05-22 18:29:57.986467+00",
@@ -423,13 +404,12 @@ The following example shows the event with a `class` value of `MAIN`.
   ]
 }
 ```
-
-The following example shows the corresponding event with a `class` value of `AUX`.
+ The following example shows the corresponding event with a `class` value of `AUX`.   
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecord",
-  "instanceId":"db-`some_id`",
+  "instanceId":"db-{{some_id}}",
   "databaseActivityEventList":[
     {
       "logTime":"2020-05-22 18:29:57.986399+00",
@@ -467,82 +447,72 @@ The following example shows the corresponding event with a `class` value of `AUX
 ```
 
 ## DatabaseActivityMonitoringRecords JSON object
+<a name="DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords"></a>
 
 The database activity event records are in a JSON object that contains the following information.
 
-| JSON Field                                                                                                                        | Data Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                            | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `version`                                                                                                                         | string    | The version of the database activity monitoring<br>records. The version of the generated<br>database activity records depends on the engine version of the DB cluster:<br>• Version 1.1 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.10 and later minor versions and engine<br>versions 11.5 and later.<br>• Version 1.0 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.7 and 11.4.<br>All of the following fields are in both<br>version 1.0 and version 1.1 except where specifically noted. |
-| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents") | string    | A JSON object that contains the activity events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| key                                                                                                                               | string    | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md")                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+
+| JSON Field | Data Type | Description | 
+| --- | --- | --- | 
+| `type` | string | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`. | 
+| version | string |  The version of the database activity monitoring records. The version of the generated database activity records depends on the engine version of the DB cluster:+  Version 1.1 database activity records are generated for Aurora PostgreSQL DB clusters running the engine versions 10.10 and later minor versions and engine versions 11.5 and later. <br />+  Version 1.0 database activity records are generated for Aurora PostgreSQL DB clusters running the engine versions 10.7 and 11.4. <br />All of the following fields are in both version 1.0 and version 1.1 except where specifically noted. | 
+| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents) | string | A JSON object that contains the activity events. | 
+| key | string | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md)  | 
 
 ## databaseActivityEvents JSON Object
+<a name="DBActivityStreams.AuditLog.databaseActivityEvents"></a>
 
 The `databaseActivityEvents` JSON object contains the following information.
 
 ### Top-level fields in JSON record
+<a name="DBActivityStreams.AuditLog.topLevel"></a>
 
-Each event in the audit log is wrapped inside a record in JSON format.
-This record contains the following fields.
+ Each event in the audit log is wrapped inside a record in JSON format. This record contains the following fields. 
 
-**type**
+**type**  
+ This field always has the value `DatabaseActivityMonitoringRecords`. 
 
-This field always has the value `DatabaseActivityMonitoringRecords`.
+**version**  
+ This field represents the version of the database activity stream data protocol or contract. It defines which fields are available.  
+Version 1.0 represents the original data activity streams support for Aurora PostgreSQL versions 10.7 and 11.4. Version 1.1 represents the data activity streams support for Aurora PostgreSQL versions 10.10 and higher and Aurora PostgreSQL 11.5 and higher. Version 1.1 includes the additional fields `errorMessage` and `startTime`. Version 1.2 represents the data activity streams support for Aurora MySQL 2.08 and higher. Version 1.2 includes the additional fields `endTime` and `transactionId`.
 
-**version**
+**databaseActivityEvents**  
+ An encrypted string representing one or more activity events. It's represented as a base64 byte array. When you decrypt the string, the result is a record in JSON format with fields as shown in the examples in this section.
 
-This field represents the version of the database activity stream data
-protocol or contract. It defines which fields are available.
+**key**  
+ The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the same AWS KMS key that you provided when you started the database activity stream.
 
-Version 1.0 represents the original data activity streams support for
-Aurora PostgreSQL versions 10.7 and 11.4. Version 1.1 represents the data activity streams support for
-Aurora PostgreSQL versions 10.10 and higher and Aurora PostgreSQL 11.5 and higher. Version 1.1 includes the
-additional fields `errorMessage` and `startTime`. Version 1.2 represents the data
-activity streams support for Aurora MySQL 2.08 and higher. Version 1.2 includes the additional fields
-`endTime` and `transactionId`.
-
-**databaseActivityEvents**
-
-An encrypted string representing one or more activity events. It's represented as a base64 byte
-array. When you decrypt the string, the result is a record in JSON format with fields as shown in the
-examples in this section.
-
-**key**
-
-The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the
-same AWS KMS key that you provided when you started the database activity
-stream.
-
-The following example shows the format of this record.
+ The following example shows the format of this record.
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecords",
   "version":"1.1",
-  "databaseActivityEvents":"`encrypted audit records`",
-  "key":"`encrypted key`"
+  "databaseActivityEvents":"{{encrypted audit records}}",
+  "key":"{{encrypted key}}"
 }
 ```
 
 Take the following steps to decrypt the contents of the `databaseActivityEvents` field:
 
-1. Decrypt the value in the `key` JSON field using the KMS key you provided when starting
-   database activity stream. Doing so returns the data encryption key in clear text.
-2. Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext,
-   in binary format, of the audit payload.
-3. Decrypt the binary ciphertext with the data encryption key that you decoded in the first step.
-4. Decompress the decrypted payload.
+1.  Decrypt the value in the `key` JSON field using the KMS key you provided when starting database activity stream. Doing so returns the data encryption key in clear text. 
 
-   - The encrypted payload is in the `databaseActivityEvents` field.
-   - The `databaseActivityEventList` field contains an array of audit records. The
-     `type` fields in the array can be `record` or `heartbeat`.
+1.  Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext, in binary format, of the audit payload. 
+
+1.  Decrypt the binary ciphertext with the data encryption key that you decoded in the first step. 
+
+1.  Decompress the decrypted payload. 
+   +  The encrypted payload is in the `databaseActivityEvents` field. 
+   +  The `databaseActivityEventList` field contains an array of audit records. The `type` fields in the array can be `record` or `heartbeat`. 
 
 The audit log activity event record is a JSON object that contains the following information.
 
-| JSON Field                                                                                                                                                | Data Type | Description                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                                                    | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`.                                |
-| `clusterId`                                                                                                                                               | string    | The DB cluster resource identifier. It corresponds to the DB cluster<br>attribute `DbClusterResourceId`. |
-| `instanceId`                                                                                                                                              | string    | The DB instance resource identifier. It corresponds to the DB instance attribute<br>`DbiResourceId`.     |
-| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md") | string    | An array of activity audit records or heartbeat messages.                                                |
+
+
+| JSON Field | Data Type | Description | 
+| --- | --- | --- | 
+| `type` | string | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`. | 
+| clusterId | string | The DB cluster resource identifier. It corresponds to the DB cluster attribute DbClusterResourceId. | 
+| instanceId | string | The DB instance resource identifier. It corresponds to the DB instance attribute DbiResourceId. | 
+| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md)  | string | An array of activity audit records or heartbeat messages. | 

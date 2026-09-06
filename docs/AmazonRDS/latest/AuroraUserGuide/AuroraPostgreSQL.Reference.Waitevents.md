@@ -1,1472 +1,938 @@
+
+
 # Amazon Aurora PostgreSQL wait events
+<a name="AuroraPostgreSQL.Reference.Waitevents"></a>
 
-The following are common wait events for Aurora PostgreSQL. To learn more about wait
-events and tuning your Aurora PostgreSQL DB cluster, see [Tuning with wait events for Aurora PostgreSQL](AuroraPostgreSQL.Tuning.md "AuroraPostgreSQL.Tuning.md").
+The following are common wait events for Aurora PostgreSQL. To learn more about wait events and tuning your Aurora PostgreSQL DB cluster, see [Tuning with wait events for Aurora PostgreSQL](AuroraPostgreSQL.Tuning.md). 
 
-**Activity:ArchiverMain**
-
+**Activity:ArchiverMain**  
 The archiver process is waiting for activity.
 
-**Activity:AutoVacuumMain**
-
+**Activity:AutoVacuumMain**  
 The autovacuum launcher process is waiting for activity.
 
-**Activity:BgWriterHibernate**
+**Activity:BgWriterHibernate**  
+The background writer process is hibernating while waiting for activity.
 
-The background writer process is hibernating while waiting for
-activity.
-
-**Activity:BgWriterMain**
-
+**Activity:BgWriterMain**  
 The background writer process is waiting for activity.
 
-**Activity:CheckpointerMain**
-
+**Activity:CheckpointerMain**  
 The checkpointer process is waiting for activity.
 
-**Activity:LogicalApplyMain**
-
+**Activity:LogicalApplyMain**  
 The logical replication apply process is waiting for activity.
 
-**Activity:LogicalLauncherMain**
-
+**Activity:LogicalLauncherMain**  
 The logical replication launcher process is waiting for activity.
 
-**Activity:PgStatMain**
-
+**Activity:PgStatMain**  
 The statistics collector process is waiting for activity.
 
-**Activity:RecoveryWalAll**
+**Activity:RecoveryWalAll**  
+A process is waiting for the write-ahead log (WAL) from a stream at recovery.
 
-A process is waiting for the write-ahead log (WAL) from a stream at
-recovery.
+**Activity:RecoveryWalStream**  
+The startup process is waiting for the write-ahead log (WAL) to arrive during streaming recovery.
 
-**Activity:RecoveryWalStream**
-
-The startup process is waiting for the write-ahead log (WAL) to arrive
-during streaming recovery.
-
-**Activity:SysLoggerMain**
-
+**Activity:SysLoggerMain**  
 The syslogger process is waiting for activity.
 
-**Activity:WalReceiverMain**
-
+**Activity:WalReceiverMain**  
 The write-ahead log (WAL) receiver process is waiting for activity.
 
-**Activity:WalSenderMain**
-
+**Activity:WalSenderMain**  
 The write-ahead log (WAL) sender process is waiting for activity.
 
-**Activity:WalWriterMain**
-
+**Activity:WalWriterMain**  
 The write-ahead log (WAL) writer process is waiting for activity.
 
-**BufferPin:BufferPin**
-
+**BufferPin:BufferPin**  
 A process is waiting to acquire an exclusive pin on a buffer.
 
-**Client:GSSOpenServer**
+**Client:GSSOpenServer**  
+A process is waiting to read data from the client while establishing a Generic Security Service Application Program Interface (GSSAPI) session.
 
-A process is waiting to read data from the client while establishing a
-Generic Security Service Application Program Interface (GSSAPI)
-session.
+**Client:ClientRead**  
+A backend process is waiting to receive data from a PostgreSQL client. For more information, see [Client:ClientRead](apg-waits.clientread.md).
 
-**Client:ClientRead**
+**Client:ClientWrite**  
+A backend process is waiting to send more data to a PostgreSQL client. For more information, see [Client:ClientWrite](apg-waits.clientwrite.md).
 
-A backend process is waiting to receive data from a PostgreSQL client. For
-more information, see [Client:ClientRead](apg-waits.clientread.md "apg-waits.clientread.md").
+**Client:LibPQWalReceiverConnect**  
+A process is waiting in the write-ahead log (WAL) receiver to establish connection to remote server.
 
-**Client:ClientWrite**
+**Client:LibPQWalReceiverReceive**  
+A process is waiting in the write-ahead log (WAL) receiver to receive data from remote server.
 
-A backend process is waiting to send more data to a PostgreSQL client. For
-more information, see [Client:ClientWrite](apg-waits.clientwrite.md "apg-waits.clientwrite.md").
+**Client:SSLOpenServer**  
+A process is waiting for Secure Sockets Layer (SSL) while attempting connection.
 
-**Client:LibPQWalReceiverConnect**
+**Client:WalReceiverWaitStart**  
+A process is waiting for startup process to send initial data for streaming replication.
 
-A process is waiting in the write-ahead log (WAL) receiver to establish
-connection to remote server.
+**Client:WalSenderWaitForWAL**  
+A process is waiting for the write-ahead log (WAL) to be flushed in the WAL sender process.
 
-**Client:LibPQWalReceiverReceive**
+**Client:WalSenderWriteData**  
+A process is waiting for any activity when processing replies from the write-ahead log (WAL) receiver in the WAL sender process.
 
-A process is waiting in the write-ahead log (WAL) receiver to receive data
-from remote server.
+**CPU**  
+A backend process is active in or is waiting for CPU. For more information, see [CPU](apg-waits.cpu.md).
 
-**Client:SSLOpenServer**
+**Extension:extension**  
+A backend process is waiting for a condition defined by an extension or module.
 
-A process is waiting for Secure Sockets Layer (SSL) while attempting
-connection.
+**IO:AuroraEnhancedLogicalWALRead**  
+A backend process is fetching log records from the change data capture (CDC) volume.
 
-**Client:WalReceiverWaitStart**
+**IO:AuroraOptimizedReadsCacheRead**  
+A process is waiting for a read from Optimized Reads tiered cache because the page isn't available in shared memory.
 
-A process is waiting for startup process to send initial data for
-streaming replication.
+**IO:AuroraOptimizedReadsCacheSegmentTruncate**  
+A process is waiting for an Optimized Reads tiered cache segment file to be truncated.
 
-**Client:WalSenderWaitForWAL**
+**IO:AuroraOptimizedReadsCacheWrite**  
+The background writer process is waiting to write in Optimized Reads tiered cache.
 
-A process is waiting for the write-ahead log (WAL) to be flushed in the
-WAL sender process.
+**IO:AuroraStorageLogAllocate**  
+A session is allocating metadata and preparing for a transaction log write.
 
-**Client:WalSenderWriteData**
+**IO:BufFileRead**  
+When operations require more memory than the amount defined by working memory parameters, the engine creates temporary files on disk. This wait event occurs when operations read from the temporary files. For more information, see [IO:BufFileRead and IO:BufFileWrite](apg-waits.iobuffile.md).
 
-A process is waiting for any activity when processing replies from the
-write-ahead log (WAL) receiver in the WAL sender process.
+**IO:BufFileWrite**  
+When operations require more memory than the amount defined by working memory parameters, the engine creates temporary files on disk. This wait event occurs when operations write to the temporary files. For more information, see [IO:BufFileRead and IO:BufFileWrite](apg-waits.iobuffile.md).
 
-**CPU**
+**IO:ControlFileRead**  
+A process is waiting for a read from the `pg_control` file.
 
-A backend process is active in or is waiting for CPU. For more
-information, see [CPU](apg-waits.cpu.md "apg-waits.cpu.md").
+**IO:ControlFileSync**  
+A process is waiting for the `pg_control` file to reach durable storage.
 
-**Extension:extension**
+**IO:ControlFileSyncUpdate**  
+A process is waiting for an update to the `pg_control` file to reach durable storage.
 
-A backend process is waiting for a condition defined by an extension or
-module.
+**IO:ControlFileWrite**  
+A process is waiting for a write to the `pg_control` file.
 
-**IO:AuroraEnhancedLogicalWALRead**
+**IO:ControlFileWriteUpdate**  
+A process is waiting for a write to update the `pg_control` file.
 
-A backend process is fetching log records from the change data capture
-(CDC) volume.
-
-**IO:AuroraOptimizedReadsCacheRead**
-
-A process is waiting for a read from Optimized Reads tiered cache because
-the page isn't available in shared memory.
-
-**IO:AuroraOptimizedReadsCacheSegmentTruncate**
-
-A process is waiting for an Optimized Reads tiered cache segment file to
-be truncated.
-
-**IO:AuroraOptimizedReadsCacheWrite**
-
-The background writer process is waiting to write in Optimized Reads
-tiered cache.
-
-**IO:AuroraStorageLogAllocate**
-
-A session is allocating metadata and preparing for a transaction log
-write.
-
-**IO:BufFileRead**
-
-When operations require more memory than the amount defined by working
-memory parameters, the engine creates temporary files on disk. This wait
-event occurs when operations read from the temporary files. For more
-information, see [IO:BufFileRead and IO:BufFileWrite](apg-waits.iobuffile.md "apg-waits.iobuffile.md").
-
-**IO:BufFileWrite**
-
-When operations require more memory than the amount defined by working
-memory parameters, the engine creates temporary files on disk. This wait
-event occurs when operations write to the temporary files. For more
-information, see [IO:BufFileRead and IO:BufFileWrite](apg-waits.iobuffile.md "apg-waits.iobuffile.md").
-
-**IO:ControlFileRead**
-
-A process is waiting for a read from the `pg_control`
-file.
-
-**IO:ControlFileSync**
-
-A process is waiting for the `pg_control` file to reach
-durable storage.
-
-**IO:ControlFileSyncUpdate**
-
-A process is waiting for an update to the `pg_control`
-file to reach durable storage.
-
-**IO:ControlFileWrite**
-
-A process is waiting for a write to the `pg_control`
-file.
-
-**IO:ControlFileWriteUpdate**
-
-A process is waiting for a write to update the
-`pg_control` file.
-
-**IO:CopyFileRead**
-
+**IO:CopyFileRead**  
 A process is waiting for a read during a file copy operation.
 
-**IO:CopyFileWrite**
-
+**IO:CopyFileWrite**  
 A process is waiting for a write during a file copy operation.
 
-**IO:DataFileExtend**
-
+**IO:DataFileExtend**  
 A process is waiting for a relation data file to be extended.
 
-**IO:DataFileFlush**
+**IO:DataFileFlush**  
+A process is waiting for a relation data file to reach durable storage.
 
-A process is waiting for a relation data file to reach durable
-storage.
+**IO:DataFileImmediateSync**  
+A process is waiting for an immediate synchronization of a relation data file to durable storage.
 
-**IO:DataFileImmediateSync**
+**IO:DataFilePrefetch**  
+A process is waiting for an asynchronous prefetch from a relation data file.
 
-A process is waiting for an immediate synchronization of a relation data
-file to durable storage.
+**IO:DataFileSync**  
+A process is waiting for changes to a relation data file to reach durable storage.
 
-**IO:DataFilePrefetch**
+**IO:DataFileRead**  
+A backend process tried to find a page in the shared buffers, didn't find it, and so read it from storage. For more information, see [IO:DataFileRead](apg-waits.iodatafileread.md).
 
-A process is waiting for an asynchronous prefetch from a relation data
-file.
-
-**IO:DataFileSync**
-
-A process is waiting for changes to a relation data file to reach durable
-storage.
-
-**IO:DataFileRead**
-
-A backend process tried to find a page in the shared buffers, didn't find
-it, and so read it from storage. For more information, see [IO:DataFileRead](apg-waits.iodatafileread.md "apg-waits.iodatafileread.md").
-
-**IO:DataFileTruncate**
-
+**IO:DataFileTruncate**  
 A process is waiting for a relation data file to be truncated.
 
-**IO:DataFileWrite**
-
+**IO:DataFileWrite**  
 A process is waiting for a write to a relation data file.
 
-**IO:DSMFillZeroWrite**
+**IO:DSMFillZeroWrite**  
+A process is waiting to write zero bytes to a dynamic shared memory backing file.
 
-A process is waiting to write zero bytes to a dynamic shared memory
-backing file.
+**IO:LockFileAddToDataDirRead**  
+A process is waiting for a read while adding a line to the data directory lock file.
 
-**IO:LockFileAddToDataDirRead**
+**IO:LockFileAddToDataDirSync**  
+A process is waiting for data to reach durable storage while adding a line to the data directory lock file.
 
-A process is waiting for a read while adding a line to the data directory
-lock file.
+**IO:LockFileAddToDataDirWrite**  
+A process is waiting for a write while adding a line to the data directory lock file.
 
-**IO:LockFileAddToDataDirSync**
+**IO:LockFileCreateRead**  
+A process is waiting to read while creating the data directory lock file.
 
-A process is waiting for data to reach durable storage while adding a line
-to the data directory lock file.
+**IO:LockFileCreateSync**  
+A process is waiting for data to reach durable storage while creating the data directory lock file.
 
-**IO:LockFileAddToDataDirWrite**
+**IO:LockFileCreateWrite**  
+A process is waiting for a write while creating the data directory lock file.
 
-A process is waiting for a write while adding a line to the data directory
-lock file.
+**IO:LockFileReCheckDataDirRead**  
+A process is waiting for a read during recheck of the data directory lock file.
 
-**IO:LockFileCreateRead**
+**IO:LogicalRewriteCheckpointSync**  
+A process is waiting for logical rewrite mappings to reach durable storage during a checkpoint.
 
-A process is waiting to read while creating the data directory lock
-file.
+**IO:LogicalRewriteMappingSync**  
+A process is waiting for mapping data to reach durable storage during a logical rewrite.
 
-**IO:LockFileCreateSync**
+**IO:LogicalRewriteMappingWrite**  
+A process is waiting for a write of mapping data during a logical rewrite.
 
-A process is waiting for data to reach durable storage while creating the
-data directory lock file.
+**IO:LogicalRewriteSync**  
+A process is waiting for logical rewrite mappings to reach durable storage.
 
-**IO:LockFileCreateWrite**
+**IO:LogicalRewriteTruncate**  
+A process is waiting for the truncation of mapping data during a logical rewrite.
 
-A process is waiting for a write while creating the data directory lock
-file.
-
-**IO:LockFileReCheckDataDirRead**
-
-A process is waiting for a read during recheck of the data directory lock
-file.
-
-**IO:LogicalRewriteCheckpointSync**
-
-A process is waiting for logical rewrite mappings to reach durable storage
-during a checkpoint.
-
-**IO:LogicalRewriteMappingSync**
-
-A process is waiting for mapping data to reach durable storage during a
-logical rewrite.
-
-**IO:LogicalRewriteMappingWrite**
-
-A process is waiting for a write of mapping data during a logical
-rewrite.
-
-**IO:LogicalRewriteSync**
-
-A process is waiting for logical rewrite mappings to reach durable
-storage.
-
-**IO:LogicalRewriteTruncate**
-
-A process is waiting for the truncation of mapping data during a logical
-rewrite.
-
-**IO:LogicalRewriteWrite**
-
+**IO:LogicalRewriteWrite**  
 A process is waiting for a write of logical rewrite mappings.
 
-**IO:RelationMapRead**
-
+**IO:RelationMapRead**  
 A process is waiting for a read of the relation map file.
 
-**IO:RelationMapSync**
+**IO:RelationMapSync**  
+A process is waiting for the relation map file to reach durable storage.
 
-A process is waiting for the relation map file to reach durable
-storage.
-
-**IO:RelationMapWrite**
-
+**IO:RelationMapWrite**  
 A process is waiting for a write to the relation map file.
 
-**IO:ReorderBufferRead**
-
+**IO:ReorderBufferRead**  
 A process is waiting for a read during reorder buffer management.
 
-**IO:ReorderBufferWrite**
-
+**IO:ReorderBufferWrite**  
 A process is waiting for a write during reorder buffer management.
 
-**IO:ReorderLogicalMappingRead**
+**IO:ReorderLogicalMappingRead**  
+A process is waiting for a read of a logical mapping during reorder buffer management.
 
-A process is waiting for a read of a logical mapping during reorder buffer
-management.
+**IO:ReplicationSlotRead**  
+A process is waiting for a read from a replication slot control file.
 
-**IO:ReplicationSlotRead**
+**IO:ReplicationSlotRestoreSync**  
+A process is waiting for a replication slot control file to reach durable storage while restoring it to memory.
 
-A process is waiting for a read from a replication slot control
-file.
+**IO:ReplicationSlotSync**  
+A process is waiting for a replication slot control file to reach durable storage.
 
-**IO:ReplicationSlotRestoreSync**
+**IO:ReplicationSlotWrite**  
+A process is waiting for a write to a replication slot control file.
 
-A process is waiting for a replication slot control file to reach durable
-storage while restoring it to memory.
+**IO:SLRUFlushSync**  
+A process is waiting for simple least-recently used (SLRU) data to reach durable storage during a checkpoint or database shutdown.
 
-**IO:ReplicationSlotSync**
+**IO:SLRURead**  
+A process is waiting for a read of a simple least-recently used (SLRU) page.
 
-A process is waiting for a replication slot control file to reach durable
-storage.
+**IO:SLRUSync**  
+A process is waiting for simple least-recently used (SLRU) data to reach durable storage following a page write.
 
-**IO:ReplicationSlotWrite**
+**IO:SLRUWrite**  
+A process is waiting for a write of a simple least-recently used (SLRU) page.
 
-A process is waiting for a write to a replication slot control
-file.
+**IO:SnapbuildRead**  
+A process is waiting for a read of a serialized historical catalog snapshot.
 
-**IO:SLRUFlushSync**
+**IO:SnapbuildSync**  
+A process is waiting for a serialized historical catalog snapshot to reach durable storage.
 
-A process is waiting for simple least-recently used (SLRU) data to reach
-durable storage during a checkpoint or database shutdown.
+**IO:SnapbuildWrite**  
+A process is waiting for a write of a serialized historical catalog snapshot.
 
-**IO:SLRURead**
+**IO:TimelineHistoryFileSync**  
+A process is waiting for a timeline history file received through streaming replication to reach durable storage.
 
-A process is waiting for a read of a simple least-recently used (SLRU)
-page.
+**IO:TimelineHistoryFileWrite**  
+A process is waiting for a write of a timeline history file received through streaming replication.
 
-**IO:SLRUSync**
-
-A process is waiting for simple least-recently used (SLRU) data to reach
-durable storage following a page write.
-
-**IO:SLRUWrite**
-
-A process is waiting for a write of a simple least-recently used (SLRU)
-page.
-
-**IO:SnapbuildRead**
-
-A process is waiting for a read of a serialized historical catalog
-snapshot.
-
-**IO:SnapbuildSync**
-
-A process is waiting for a serialized historical catalog snapshot to reach
-durable storage.
-
-**IO:SnapbuildWrite**
-
-A process is waiting for a write of a serialized historical catalog
-snapshot.
-
-**IO:TimelineHistoryFileSync**
-
-A process is waiting for a timeline history file received through
-streaming replication to reach durable storage.
-
-**IO:TimelineHistoryFileWrite**
-
-A process is waiting for a write of a timeline history file received
-through streaming replication.
-
-**IO:TimelineHistoryRead**
-
+**IO:TimelineHistoryRead**  
 A process is waiting for a read of a timeline history file.
 
-**IO:TimelineHistorySync**
+**IO:TimelineHistorySync**  
+A process is waiting for a newly created timeline history file to reach durable storage.
 
-A process is waiting for a newly created timeline history file to reach
-durable storage.
+**IO:TimelineHistoryWrite**  
+A process is waiting for a write of a newly created timeline history file.
 
-**IO:TimelineHistoryWrite**
-
-A process is waiting for a write of a newly created timeline history
-file.
-
-**IO:TwophaseFileRead**
-
+**IO:TwophaseFileRead**  
 A process is waiting for a read of a two phase state file.
 
-**IO:TwophaseFileSync**
+**IO:TwophaseFileSync**  
+A process is waiting for a two phase state file to reach durable storage.
 
-A process is waiting for a two phase state file to reach durable
-storage.
-
-**IO:TwophaseFileWrite**
-
+**IO:TwophaseFileWrite**  
 A process is waiting for a write of a two phase state file.
 
-**IO:WALBootstrapSync**
+**IO:WALBootstrapSync**  
+A process is waiting for the write-ahead log (WAL) to reach durable storage during bootstrapping.
 
-A process is waiting for the write-ahead log (WAL) to reach durable
-storage during bootstrapping.
+**IO:WALBootstrapWrite**  
+A process is waiting for a write of a write-ahead log (WAL) page during bootstrapping.
 
-**IO:WALBootstrapWrite**
+**IO:WALCopyRead**  
+A process is waiting for a read when creating a new write-ahead log (WAL) segment by copying an existing one.
 
-A process is waiting for a write of a write-ahead log (WAL) page during
-bootstrapping.
+**IO:WALCopySync**  
+A process is waiting for a new write-ahead log (WAL) segment created by copying an existing one to reach durable storage. 
 
-**IO:WALCopyRead**
+**IO:WALCopyWrite**  
+A process is waiting for a write when creating a new write-ahead log (WAL) segment by copying an existing one.
 
-A process is waiting for a read when creating a new write-ahead log (WAL)
-segment by copying an existing one.
+**IO:WALInitSync**  
+A process is waiting for a newly initialized write-ahead log (WAL) file to reach durable storage.
 
-**IO:WALCopySync**
+**IO:WALInitWrite**  
+A process is waiting for a write while initializing a new write-ahead log (WAL) file.
 
-A process is waiting for a new write-ahead log (WAL) segment created by
-copying an existing one to reach durable storage.
-
-**IO:WALCopyWrite**
-
-A process is waiting for a write when creating a new write-ahead log (WAL)
-segment by copying an existing one.
-
-**IO:WALInitSync**
-
-A process is waiting for a newly initialized write-ahead log (WAL) file to
-reach durable storage.
-
-**IO:WALInitWrite**
-
-A process is waiting for a write while initializing a new write-ahead log
-(WAL) file.
-
-**IO:WALRead**
-
+**IO:WALRead**  
 A process is waiting for a read from a write-ahead log (WAL) file.
 
-**IO:WALSenderTimelineHistoryRead**
+**IO:WALSenderTimelineHistoryRead**  
+A process is waiting for a read from a timeline history file during a WAL sender timeline command.
 
-A process is waiting for a read from a timeline history file during a WAL
-sender timeline command.
+**IO:WALSync**  
+A process is waiting for a write-ahead log (WAL) file to reach durable storage.
 
-**IO:WALSync**
+**IO:WALSyncMethodAssign**  
+A process is waiting for data to reach durable storage while assigning a new write-ahead log (WAL) sync method.
 
-A process is waiting for a write-ahead log (WAL) file to reach durable
-storage.
-
-**IO:WALSyncMethodAssign**
-
-A process is waiting for data to reach durable storage while assigning a
-new write-ahead log (WAL) sync method.
-
-**IO:WALWrite**
-
+**IO:WALWrite**  
 A process is waiting for a write to a write-ahead log (WAL) file.
 
-**IO:XactSync**
+**IO:XactSync**  
+A backend process is waiting for the Aurora storage subsystem to acknowledge the commit of a regular transaction, or the commit or rollback of a prepared transaction. For more information, see [IO:XactSync](apg-waits.xactsync.md).
 
-A backend process is waiting for the Aurora storage subsystem to
-acknowledge the commit of a regular transaction, or the commit or rollback
-of a prepared transaction. For more information, see [IO:XactSync](apg-waits.xactsync.md "apg-waits.xactsync.md").
+**IPC:AuroraLogicalSchemaUpdate**  
+Two backend processes are attempting to insert the same entry into the schema cache. One process will continue while the other waits for it to complete.
 
-**IPC:AuroraLogicalSchemaUpdate**
+**IPC:AuroraOptimizedReadsCacheWriteStop**  
+A process is waiting for the background writer to stop writing into Optimized Reads tiered cache.
 
-Two backend processes are attempting to insert the same entry into the
-schema cache. One process will continue while the other waits for it to
-complete.
+**IPC:BackupWaitWalArchive**  
+A process is waiting for write-ahead log (WAL) files required for a backup to be successfully archived.
 
-**IPC:AuroraOptimizedReadsCacheWriteStop**
-
-A process is waiting for the background writer to stop writing into
-Optimized Reads tiered cache.
-
-**IPC:BackupWaitWalArchive**
-
-A process is waiting for write-ahead log (WAL) files required for a backup
-to be successfully archived.
-
-**IPC:BgWorkerShutdown**
-
+**IPC:BgWorkerShutdown**  
 A process is waiting for a background worker to shut down.
 
-**IPC:BgWorkerStartup**
+**IPC:BgWorkerStartup**  
+A process is waiting for a background worker to start. 
 
-A process is waiting for a background worker to start.
+**IPC:BtreePage**  
+A process is waiting for the page number needed to continue a parallel B-tree scan to become available. 
 
-**IPC:BtreePage**
+**IPC:CheckpointDone**  
+A process is waiting for a checkpoint to complete. 
 
-A process is waiting for the page number needed to continue a parallel
-B-tree scan to become available.
+**IPC:CheckpointStart**  
+A process is waiting for a checkpoint to start. 
 
-**IPC:CheckpointDone**
+**IPC:ClogGroupUpdate**  
+A process is waiting for the group leader to update the transaction status at a transaction's end.
 
-A process is waiting for a checkpoint to complete.
+**IPC:DamRecordTxAck**  
+A backend process has generated a database activity streams event and is waiting for the event to become durable. For more information, see [IPC:DamRecordTxAck](apg-waits.ipcdamrecordtxac.md).
 
-**IPC:CheckpointStart**
+**IPC:ExecuteGather**  
+A process is waiting for activity from a child process while executing a Gather plan node. 
 
-A process is waiting for a checkpoint to start.
+**IPC:Hash/Batch/Allocating**  
+A process is waiting for an elected parallel hash participant to allocate a hash table.
 
-**IPC:ClogGroupUpdate**
+**IPC:Hash/Batch/Electing**  
+A process is electing a parallel hash participant to allocate a hash table.
 
-A process is waiting for the group leader to update the transaction status
-at a transaction's end.
+**IPC:Hash/Batch/Loading**  
+A process is waiting for other parallel hash participants to finish loading a hash table.
 
-**IPC:DamRecordTxAck**
+**IPC:Hash/Build/Allocating**  
+A process is waiting for an elected parallel hash participant to allocate the initial hash table.
 
-A backend process has generated a database activity streams event and is
-waiting for the event to become durable. For more information, see [IPC:DamRecordTxAck](apg-waits.ipcdamrecordtxac.md "apg-waits.ipcdamrecordtxac.md").
+**IPC:Hash/Build/Electing**  
+A process is electing a parallel hash participant to allocate the initial hash table.
 
-**IPC:ExecuteGather**
+**IPC:Hash/Build/HashingInner**  
+A process is waiting for other parallel hash participants to finish hashing the inner relation.
 
-A process is waiting for activity from a child process while executing
-a Gather plan node.
+**IPC:Hash/Build/HashingOuter**  
+A process is waiting for other parallel hash participants to finish partitioning the outer relation.
 
-**IPC:Hash/Batch/Allocating**
+**IPC:Hash/GrowBatches/Allocating**  
+A process is waiting for an elected parallel hash participant to allocate more batches.
 
-A process is waiting for an elected parallel hash participant to allocate
-a hash table.
+**IPC:Hash/GrowBatches/Deciding**  
+A process is electing a parallel hash participant to decide on future batch growth.
 
-**IPC:Hash/Batch/Electing**
+**IPC:Hash/GrowBatches/Electing**  
+A process is electing a parallel hash participant to allocate more batches.
 
-A process is electing a parallel hash participant to allocate a hash
-table.
+**IPC:Hash/GrowBatches/Finishing**  
+A process is waiting for an elected parallel hash participant to decide on future batch growth.
 
-**IPC:Hash/Batch/Loading**
+**IPC:Hash/GrowBatches/Repartitioning**  
+A process is waiting for other parallel hash participants to finishing repartitioning.
 
-A process is waiting for other parallel hash participants to finish
-loading a hash table.
+**IPC:Hash/GrowBuckets/Allocating**  
+A process is waiting for an elected parallel hash participant to finish allocating more buckets.
 
-**IPC:Hash/Build/Allocating**
+**IPC:Hash/GrowBuckets/Electing**  
+A process is electing a parallel hash participant to allocate more buckets.
 
-A process is waiting for an elected parallel hash participant to allocate
-the initial hash table.
+**IPC:Hash/GrowBuckets/Reinserting**  
+A process is waiting for other parallel hash participants to finish inserting tuples into new buckets.
 
-**IPC:Hash/Build/Electing**
+**IPC:HashBatchAllocate**  
+A process is waiting for an elected parallel hash participant to allocate a hash table. 
 
-A process is electing a parallel hash participant to allocate the initial
-hash table.
+**IPC:HashBatchElect**  
+A process is waiting to elect a parallel hash participant to allocate a hash table. 
 
-**IPC:Hash/Build/HashingInner**
+**IPC:HashBatchLoad**  
+A process is waiting for other parallel hash participants to finish loading a hash table. 
 
-A process is waiting for other parallel hash participants to finish
-hashing the inner relation.
+**IPC:HashBuildAllocate**  
+A process is waiting for an elected parallel hash participant to allocate the initial hash table. 
 
-**IPC:Hash/Build/HashingOuter**
+**IPC:HashBuildElect**  
+A process is waiting to elect a parallel hash participant to allocate the initial hash table. 
 
-A process is waiting for other parallel hash participants to finish
-partitioning the outer relation.
+**IPC:HashBuildHashInner**  
+A process is waiting for other parallel hash participants to finish hashing the inner relation. 
 
-**IPC:Hash/GrowBatches/Allocating**
+**IPC:'HashBuildHashOuter**  
+A process is waiting for other parallel hash participants to finish partitioning the outer relation. 
 
-A process is waiting for an elected parallel hash participant to allocate
-more batches.
+**IPC:HashGrowBatchesAllocate**  
+A process is waiting for an elected parallel hash participant to allocate more batches. 
 
-**IPC:Hash/GrowBatches/Deciding**
+**IPC:'HashGrowBatchesDecide**  
+A process is waiting to elect a parallel hash participant to decide on future batch growth. 
 
-A process is electing a parallel hash participant to decide on future
-batch growth.
+**IPC:HashGrowBatchesElect**  
+A process is waiting to elect a parallel hash participant to allocate more batches. 
 
-**IPC:Hash/GrowBatches/Electing**
+**IPC:HashGrowBatchesFinish**  
+A process is waiting for an elected parallel hash participant to decide on future batch growth. 
 
-A process is electing a parallel hash participant to allocate more
-batches.
+**IPC:HashGrowBatchesRepartition**  
+A process is waiting for other parallel hash participants to finish repartitioning. 
 
-**IPC:Hash/GrowBatches/Finishing**
+**IPC:HashGrowBucketsAllocate**  
+A process is waiting for an elected parallel hash participant to finish allocating more buckets. 
 
-A process is waiting for an elected parallel hash participant to decide on
-future batch growth.
+**IPC:HashGrowBucketsElect**  
+A process is waiting to elect a parallel hash participant to allocate more buckets. 
 
-**IPC:Hash/GrowBatches/Repartitioning**
+**IPC:HashGrowBucketsReinsert**  
+A process is waiting for other parallel hash participants to finish inserting tuples into new buckets. 
 
-A process is waiting for other parallel hash participants to finishing
-repartitioning.
+**IPC:LogicalSyncData**  
+A process is waiting for a logical replication remote server to send data for initial table synchronization. 
 
-**IPC:Hash/GrowBuckets/Allocating**
+**IPC:LogicalSyncStateChange**  
+A process is waiting for a logical replication remote server to change state. 
 
-A process is waiting for an elected parallel hash participant to finish
-allocating more buckets.
+**IPC:MessageQueueInternal**  
+A process is waiting for another process to be attached to a shared message queue. 
 
-**IPC:Hash/GrowBuckets/Electing**
+**IPC:MessageQueuePutMessage**  
+A process is waiting to write a protocol message to a shared message queue. 
 
-A process is electing a parallel hash participant to allocate more
-buckets.
+**IPC:MessageQueueReceive**  
+A process is waiting to receive bytes from a shared message queue. 
 
-**IPC:Hash/GrowBuckets/Reinserting**
+**IPC:MessageQueueSend**  
+A process is waiting to send bytes to a shared message queue. 
 
-A process is waiting for other parallel hash participants to finish
-inserting tuples into new buckets.
+**IPC:ParallelBitmapScan**  
+A process is waiting for a parallel bitmap scan to become initialized. 
 
-**IPC:HashBatchAllocate**
+**IPC:ParallelCreateIndexScan**  
+A process is waiting for parallel CREATE INDEX workers to finish a heap scan. 
 
-A process is waiting for an elected parallel hash participant to allocate
-a hash table.
+**IPC:ParallelFinish**  
+A process is waiting for parallel workers to finish computing. 
 
-**IPC:HashBatchElect**
+**IPC:ProcArrayGroupUpdate**  
+A process is waiting for the group leader to clear the transaction ID at transaction end. 
 
-A process is waiting to elect a parallel hash participant to allocate a
-hash table.
+**IPC:ProcSignalBarrier**  
+A process is waiting for a barrier event to be processed by all backends. 
 
-**IPC:HashBatchLoad**
+**IPC:Promote**  
+A process is waiting for standby promotion. 
 
-A process is waiting for other parallel hash participants to finish
-loading a hash table.
+**IPC:RecoveryConflictSnapshot**  
+A process is waiting for recovery conflict resolution for a vacuum cleanup. 
 
-**IPC:HashBuildAllocate**
+**IPC:RecoveryConflictTablespace**  
+A process is waiting for recovery conflict resolution for dropping a tablespace. 
 
-A process is waiting for an elected parallel hash participant to allocate
-the initial hash table.
+**IPC:RecoveryPause**  
+A process is waiting for recovery to be resumed. 
 
-**IPC:HashBuildElect**
+**IPC:ReplicationOriginDrop**  
+A process is waiting for a replication origin to become inactive so it can be dropped. 
 
-A process is waiting to elect a parallel hash participant to allocate the
-initial hash table.
+**IPC:ReplicationSlotDrop**  
+A process is waiting for a replication slot to become inactive so it can be dropped. 
 
-**IPC:HashBuildHashInner**
+**IPC:SafeSnapshot**  
+A process is waiting to obtain a valid snapshot for a READ ONLY DEFERRABLE transaction. 
 
-A process is waiting for other parallel hash participants to finish
-hashing the inner relation.
+**IPC:SyncRep**  
+A process is waiting for confirmation from a remote server during synchronous replication. 
 
-**IPC:'HashBuildHashOuter**
+**IPC:XactGroupUpdate**  
+A process is waiting for the group leader to update the transaction status at transaction end.
 
-A process is waiting for other parallel hash participants to finish
-partitioning the outer relation.
+**Lock:advisory**  
+A backend process requested an advisory lock and is waiting for it. For more information, see [Lock:advisory](apg-waits.lockadvisory.md).
 
-**IPC:HashGrowBatchesAllocate**
+**Lock:extend**  
+A backend process is waiting for a lock to be released so that it can extend a relation. This lock is needed because only one backend process can extend a relation at a time. For more information, see [Lock:extend](apg-waits.lockextend.md).
 
-A process is waiting for an elected parallel hash participant to allocate
-more batches.
+**Lock:frozenid**  
+A process is waiting to update `pg_database.datfrozenxid` and `pg_database.datminmxid`. 
 
-**IPC:'HashGrowBatchesDecide**
+**Lock:object**  
+A process is waiting to get a lock on a nonrelation database object.
 
-A process is waiting to elect a parallel hash participant to decide on
-future batch growth.
-
-**IPC:HashGrowBatchesElect**
-
-A process is waiting to elect a parallel hash participant to allocate more
-batches.
-
-**IPC:HashGrowBatchesFinish**
-
-A process is waiting for an elected parallel hash participant to decide on
-future batch growth.
-
-**IPC:HashGrowBatchesRepartition**
-
-A process is waiting for other parallel hash participants to finish
-repartitioning.
-
-**IPC:HashGrowBucketsAllocate**
-
-A process is waiting for an elected parallel hash participant to finish
-allocating more buckets.
-
-**IPC:HashGrowBucketsElect**
-
-A process is waiting to elect a parallel hash participant to allocate more
-buckets.
-
-**IPC:HashGrowBucketsReinsert**
-
-A process is waiting for other parallel hash participants to finish
-inserting tuples into new buckets.
-
-**IPC:LogicalSyncData**
-
-A process is waiting for a logical replication remote server to send data
-for initial table synchronization.
-
-**IPC:LogicalSyncStateChange**
-
-A process is waiting for a logical replication remote server to change
-state.
-
-**IPC:MessageQueueInternal**
-
-A process is waiting for another process to be attached to a shared
-message queue.
-
-**IPC:MessageQueuePutMessage**
-
-A process is waiting to write a protocol message to a shared message
-queue.
-
-**IPC:MessageQueueReceive**
-
-A process is waiting to receive bytes from a shared message queue.
-
-**IPC:MessageQueueSend**
-
-A process is waiting to send bytes to a shared message queue.
-
-**IPC:ParallelBitmapScan**
-
-A process is waiting for a parallel bitmap scan to become initialized.
-
-**IPC:ParallelCreateIndexScan**
-
-A process is waiting for parallel CREATE INDEX workers to finish a heap
-scan.
-
-**IPC:ParallelFinish**
-
-A process is waiting for parallel workers to finish computing.
-
-**IPC:ProcArrayGroupUpdate**
-
-A process is waiting for the group leader to clear the transaction ID at
-transaction end.
-
-**IPC:ProcSignalBarrier**
-
-A process is waiting for a barrier event to be processed by all backends.
-
-**IPC:Promote**
-
-A process is waiting for standby promotion.
-
-**IPC:RecoveryConflictSnapshot**
-
-A process is waiting for recovery conflict resolution for a vacuum
-cleanup.
-
-**IPC:RecoveryConflictTablespace**
-
-A process is waiting for recovery conflict resolution for dropping a
-tablespace.
-
-**IPC:RecoveryPause**
-
-A process is waiting for recovery to be resumed.
-
-**IPC:ReplicationOriginDrop**
-
-A process is waiting for a replication origin to become inactive so it can
-be dropped.
-
-**IPC:ReplicationSlotDrop**
-
-A process is waiting for a replication slot to become inactive so it can
-be dropped.
-
-**IPC:SafeSnapshot**
-
-A process is waiting to obtain a valid snapshot for a READ ONLY
-DEFERRABLE transaction.
-
-**IPC:SyncRep**
-
-A process is waiting for confirmation from a remote server during
-synchronous replication.
-
-**IPC:XactGroupUpdate**
-
-A process is waiting for the group leader to update the transaction status
-at transaction end.
-
-**Lock:advisory**
-
-A backend process requested an advisory lock and is waiting for it. For
-more information, see [Lock:advisory](apg-waits.lockadvisory.md "apg-waits.lockadvisory.md").
-
-**Lock:extend**
-
-A backend process is waiting for a lock to be released so that it can
-extend a relation. This lock is needed because only one backend process can
-extend a relation at a time. For more information, see [Lock:extend](apg-waits.lockextend.md "apg-waits.lockextend.md").
-
-**Lock:frozenid**
-
-A process is waiting to update `pg_database.datfrozenxid` and
-`pg_database.datminmxid`.
-
-**Lock:object**
-
-A process is waiting to get a lock on a nonrelation database
-object.
-
-**Lock:page**
-
+**Lock:page**  
 A process is waiting to get a lock on a page of a relation.
 
-**Lock:Relation**
+**Lock:Relation**  
+A backend process is waiting to acquire a lock on a relation that is locked by another transaction. For more information, see [Lock:Relation](apg-waits.lockrelation.md).
 
-A backend process is waiting to acquire a lock on a relation that is
-locked by another transaction. For more information, see [Lock:Relation](apg-waits.lockrelation.md "apg-waits.lockrelation.md").
-
-**Lock:spectoken**
-
+**Lock:spectoken**  
 A process is waiting to get a speculative insertion lock.
 
-**Lock:speculative token**
-
+**Lock:speculative token**  
 A process is waiting to acquire a speculative insertion lock.
 
-**Lock:transactionid**
+**Lock:transactionid**  
+A transaction is waiting for a row-level lock. For more information, see [Lock:transactionid](apg-waits.locktransactionid.md).
 
-A transaction is waiting for a row-level lock. For more information, see
-[Lock:transactionid](apg-waits.locktransactionid.md "apg-waits.locktransactionid.md").
+**Lock:tuple**  
+A backend process is waiting to acquire a lock on a tuple while another backend process holds a conflicting lock on the same tuple. For more information, see [Lock:tuple](apg-waits.locktuple.md).
 
-**Lock:tuple**
-
-A backend process is waiting to acquire a lock on a tuple while another
-backend process holds a conflicting lock on the same tuple. For more
-information, see [Lock:tuple](apg-waits.locktuple.md "apg-waits.locktuple.md").
-
-**Lock:userlock**
-
+**Lock:userlock**  
 A process is waiting to get a user lock.
 
-**Lock:virtualxid**
-
+**Lock:virtualxid**  
 A process is waiting to get a virtual transaction ID lock.
 
-**LWLock:AddinShmemInit**
+**LWLock:AddinShmemInit**  
+A process is waiting to manage an extension's space allocation in shared memory.
 
-A process is waiting to manage an extension's space allocation in shared
-memory.
-
-**LWLock:AddinShmemInitLock**
-
+**LWLock:AddinShmemInitLock**  
 A process is waiting to manage space allocation in shared memory.
 
-**LWLock:async**
-
+**LWLock:async**  
 A process is waiting for I/O on an async (notify) buffer.
 
-**LWLock:AsyncCtlLock**
-
+**LWLock:AsyncCtlLock**  
 A process is waiting to read or update a shared notification state.
 
-**LWLock:AsyncQueueLock**
+**LWLock:AsyncQueueLock**  
+A process is waiting to read or update notification messages. 
 
-A process is waiting to read or update notification messages.
+**LWLock:AuroraOptimizedReadsCacheMapping**  
+A process is waiting to associate a data block with a page in the Optimized Reads tiered cache.
 
-**LWLock:AuroraOptimizedReadsCacheMapping**
+**LWLock:AutoFile**  
+A process is waiting to update the `postgresql.auto.conf` file.
 
-A process is waiting to associate a data block with a page in the
-Optimized Reads tiered cache.
+**LWLock:AutoFileLock**  
+A process is waiting to update the `postgresql.auto.conf` file.
 
-**LWLock:AutoFile**
+**LWLock:Autovacuum**  
+A process is waiting to read or update the current state of autovacuum workers.
 
-A process is waiting to update the
-`postgresql.auto.conf` file.
+**LWLock:AutovacuumLock**  
+An autovacuum worker or launcher is waiting to update or read the current state of autovacuum workers.
 
-**LWLock:AutoFileLock**
+**LWLock:AutovacuumSchedule**  
+A process is waiting to ensure that a table selected for autovacuum still needs vacuuming.
 
-A process is waiting to update the
-`postgresql.auto.conf` file.
+**LWLock:AutovacuumScheduleLock**  
+A process is waiting to ensure that the table it has selected for a vacuum still needs vacuuming. 
 
-**LWLock:Autovacuum**
+**LWLock:BackendRandomLock**  
+A process is waiting to generate a random number. 
 
-A process is waiting to read or update the current state of autovacuum
-workers.
-
-**LWLock:AutovacuumLock**
-
-An autovacuum worker or launcher is waiting to update or read the current
-state of autovacuum workers.
-
-**LWLock:AutovacuumSchedule**
-
-A process is waiting to ensure that a table selected for autovacuum still
-needs vacuuming.
-
-**LWLock:AutovacuumScheduleLock**
-
-A process is waiting to ensure that the table it has selected for a vacuum
-still needs vacuuming.
-
-**LWLock:BackendRandomLock**
-
-A process is waiting to generate a random number.
-
-**LWLock:BackgroundWorker**
-
+**LWLock:BackgroundWorker**  
 A process is waiting to read or update background worker state.
 
-**LWLock:BackgroundWorkerLock**
-
+**LWLock:BackgroundWorkerLock**  
 A process is waiting to read or update the background worker state.
 
-**LWLock:BtreeVacuum**
+**LWLock:BtreeVacuum**  
+A process is waiting to read or update vacuum-related information for a B-tree index.
 
-A process is waiting to read or update vacuum-related information for a
-B-tree index.
+**LWLock:BtreeVacuumLock**  
+A process is waiting to read or update vacuum-related information for a B-tree index.
 
-**LWLock:BtreeVacuumLock**
+**LWLock:buffer\_content**  
+A backend process is waiting to acquire a lightweight lock on the contents of a shared memory buffer. For more information, see [LWLock:buffer\_content (BufferContent)](apg-waits.lockbuffercontent.md).
 
-A process is waiting to read or update vacuum-related information for a
-B-tree index.
+**LWLock:buffer\_mapping**  
+A backend process is waiting to associate a data block with a buffer in the shared buffer pool. For more information, see [LWLock:buffer\_mapping](apg-waits.lwl-buffer-mapping.md).
 
-**LWLock:buffer\_content**
+**LWLock:BufferIO**  
+A backend process wants to read a page into shared memory. The process is waiting for other processes to finish their I/O for the page. For more information, see [LWLock:BufferIO (IPC:BufferIO)](apg-waits.lwlockbufferio.md).
 
-A backend process is waiting to acquire a lightweight lock on the contents
-of a shared memory buffer. For more information, see [LWLock:buffer\_content (BufferContent)](apg-waits.lockbuffercontent.md "apg-waits.lockbuffercontent.md").
+**LWLock:Checkpoint**  
+A process is waiting to begin a checkpoint. 
 
-**LWLock:buffer\_mapping**
+**LWLock:CheckpointLock**  
+A process is waiting to perform checkpoint. 
 
-A backend process is waiting to associate a data block with a buffer in
-the shared buffer pool. For more information, see [LWLock:buffer\_mapping](apg-waits.lwl-buffer-mapping.md "apg-waits.lwl-buffer-mapping.md").
+**LWLock:CheckpointerComm**  
+A process is waiting to manage `fsync` requests. 
 
-**LWLock:BufferIO**
+**LWLock:CheckpointerCommLock**  
+A process is waiting to manage `fsync` requests. 
 
-A backend process wants to read a page into shared memory. The process is
-waiting for other processes to finish their I/O for the page. For more
-information, see [LWLock:BufferIO (IPC:BufferIO)](apg-waits.lwlockbufferio.md "apg-waits.lwlockbufferio.md").
+**LWLock:clog**  
+A process is waiting for I/O on a clog (transaction status) buffer. 
 
-**LWLock:Checkpoint**
+**LWLock:CLogControlLock**  
+A process is waiting to read or update transaction status. 
 
-A process is waiting to begin a checkpoint.
+**LWLock:CLogTruncationLock**  
+A process is waiting to run `txid_status` or update the oldest transaction ID available to it. 
 
-**LWLock:CheckpointLock**
+**LWLock:commit\_timestamp**  
+A process is waiting for I/O on a commit timestamp buffer. 
 
-A process is waiting to perform checkpoint.
+**LWLock:CommitTs**  
+A process is waiting to read or update the last value set for a transaction commit timestamp. 
 
-**LWLock:CheckpointerComm**
+**LWLock:CommitTsBuffer**  
+A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a commit timestamp. 
 
-A process is waiting to manage `fsync` requests.
+**LWLock:CommitTsControlLock**  
+A process is waiting to read or update transaction commit timestamps. 
 
-**LWLock:CheckpointerCommLock**
+**LWLock:CommitTsLock**  
+A process is waiting to read or update the last value set for the transaction timestamp. 
 
-A process is waiting to manage `fsync` requests.
+**LWLock:CommitTsSLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a commit timestamp. 
 
-**LWLock:clog**
+**LWLock:ControlFile**  
+A process is waiting to read or update the `pg_control` file or create a new write-ahead log (WAL) file. 
 
-A process is waiting for I/O on a clog (transaction status) buffer.
+**LWLock:ControlFileLock**  
+A process is waiting to read or update the control file or creation of a new write-ahead log (WAL) file. 
 
-**LWLock:CLogControlLock**
+**LWLock:DynamicSharedMemoryControl**  
+A process is waiting to read or update dynamic shared memory allocation information. 
 
-A process is waiting to read or update transaction status.
+**LWLock:DynamicSharedMemoryControlLock**  
+A process is waiting to read or update the dynamic shared memory state. 
 
-**LWLock:CLogTruncationLock**
+**LWLock:lock\_manager**  
+A backend process is waiting to add or examine locks for backend processes. Or it's waiting to join or exit a locking group that is used by parallel query. For more information, see [LWLock:lock\_manager](apg-waits.lw-lock-manager.md).
 
-A process is waiting to run `txid_status` or update the oldest
-transaction ID available to it.
+**LWLock:LockFastPath**  
+A process is waiting to read or update a process's fast-path lock information. 
 
-**LWLock:commit\_timestamp**
+**LWLock:LogicalRepWorker**  
+A process is waiting to read or update the state of logical replication workers. 
 
-A process is waiting for I/O on a commit timestamp buffer.
+**LWLock:LogicalRepWorkerLock**  
+A process is waiting for an action on a logical replication worker to finish. 
 
-**LWLock:CommitTs**
-
-A process is waiting to read or update the last value set for a
-transaction commit timestamp.
-
-**LWLock:CommitTsBuffer**
-
-A process is waiting for I/O on a simple least-recently used (SLRU) buffer
-for a commit timestamp.
-
-**LWLock:CommitTsControlLock**
-
-A process is waiting to read or update transaction commit timestamps.
-
-**LWLock:CommitTsLock**
-
-A process is waiting to read or update the last value set for the
-transaction timestamp.
-
-**LWLock:CommitTsSLRU**
-
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a commit timestamp.
-
-**LWLock:ControlFile**
-
-A process is waiting to read or update the `pg_control`
-file or create a new write-ahead log (WAL) file.
-
-**LWLock:ControlFileLock**
-
-A process is waiting to read or update the control file or creation of a
-new write-ahead log (WAL) file.
-
-**LWLock:DynamicSharedMemoryControl**
-
-A process is waiting to read or update dynamic shared memory allocation
-information.
-
-**LWLock:DynamicSharedMemoryControlLock**
-
-A process is waiting to read or update the dynamic shared memory state.
-
-**LWLock:lock\_manager**
-
-A backend process is waiting to add or examine locks for backend
-processes. Or it's waiting to join or exit a locking group that is used by
-parallel query. For more information, see [LWLock:lock\_manager](apg-waits.lw-lock-manager.md "apg-waits.lw-lock-manager.md").
-
-**LWLock:LockFastPath**
-
-A process is waiting to read or update a process's fast-path lock
-information.
-
-**LWLock:LogicalRepWorker**
-
-A process is waiting to read or update the state of logical replication
-workers.
-
-**LWLock:LogicalRepWorkerLock**
-
-A process is waiting for an action on a logical replication worker to
-finish.
-
-**LWLock:LogicalSchemaCache**
-
+**LWLock:LogicalSchemaCache**  
 A process modified the schema cache.
 
-**LWLock:multixact\_member**
+**LWLock:multixact\_member**  
+A process is waiting for I/O on a multixact\_member buffer. 
 
-A process is waiting for I/O on a multixact\_member buffer.
+**LWLock:multixact\_offset**  
+A process is waiting for I/O on a multixact offset buffer. 
 
-**LWLock:multixact\_offset**
+**LWLock:MultiXactGen**  
+A process is waiting to read or update shared multixact state. 
 
-A process is waiting for I/O on a multixact offset buffer.
+**LWLock:MultiXactGenLock**  
+A process is waiting to read or update a shared multixact state. 
 
-**LWLock:MultiXactGen**
+**LWLock:MultiXactMemberBuffer**  
+A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a multixact member. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md). 
 
-A process is waiting to read or update shared multixact state.
+**LWLock:MultiXactMemberControlLock**  
+A process is waiting to read or update multixact member mappings. 
 
-**LWLock:MultiXactGenLock**
+**LWLock:MultiXactMemberSLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a multixact member. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md). 
 
-A process is waiting to read or update a shared multixact state.
+**LWLock:MultiXactOffsetBuffer**  
+A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a multixact offset. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md). 
 
-**LWLock:MultiXactMemberBuffer**
+**LWLock:MultiXactOffsetControlLock**  
+A process is waiting to read or update multixact offset mappings. 
 
-A process is waiting for I/O on a simple least-recently used (SLRU) buffer
-for a multixact member. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md "apg-waits.lwlockmultixact.md").
+**LWLock:MultiXactOffsetSLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a multixact offset. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md). 
 
-**LWLock:MultiXactMemberControlLock**
+**LWLock:MultiXactTruncation**  
+A process is waiting to read or truncate multixact information. 
 
-A process is waiting to read or update multixact member mappings.
+**LWLock:MultiXactTruncationLock**  
+A process is waiting to read or truncate multixact information. 
 
-**LWLock:MultiXactMemberSLRU**
+**LWLock:NotifyBuffer**  
+A process is waiting for I/O on the simple least-recently used (SLRU) buffer for a NOTIFY message. 
 
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a multixact member. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md "apg-waits.lwlockmultixact.md").
-
-**LWLock:MultiXactOffsetBuffer**
-
-A process is waiting for I/O on a simple least-recently used (SLRU) buffer
-for a multixact offset. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md "apg-waits.lwlockmultixact.md").
-
-**LWLock:MultiXactOffsetControlLock**
-
-A process is waiting to read or update multixact offset mappings.
-
-**LWLock:MultiXactOffsetSLRU**
-
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a multixact offset. For more information, see [LWLock:MultiXact](apg-waits.lwlockmultixact.md "apg-waits.lwlockmultixact.md").
-
-**LWLock:MultiXactTruncation**
-
-A process is waiting to read or truncate multixact information.
-
-**LWLock:MultiXactTruncationLock**
-
-A process is waiting to read or truncate multixact information.
-
-**LWLock:NotifyBuffer**
-
-A process is waiting for I/O on the simple least-recently used (SLRU)
-buffer for a NOTIFY message.
-
-**LWLock:NotifyQueue**
-
+**LWLock:NotifyQueue**  
 A process is waiting to read or update NOTIFY messages.
 
-**LWLock:NotifyQueueTail**
-
+**LWLock:NotifyQueueTail**  
 A process is waiting to update a limit on NOTIFY message storage.
 
-**LWLock:NotifyQueueTailLock**
+**LWLock:NotifyQueueTailLock**  
+A process is waiting to update limit on notification message storage.
 
-A process is waiting to update limit on notification message
-storage.
+**LWLock:NotifySLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a NOTIFY message.
 
-**LWLock:NotifySLRU**
+**LWLock:OidGen**  
+A process is waiting to allocate a new object ID (OID). 
 
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a NOTIFY message.
+**LWLock:OidGenLock**  
+A process is waiting to allocate or assign an object ID (OID). 
 
-**LWLock:OidGen**
+**LWLock:oldserxid**  
+A process is waiting for I/O on an oldserxid buffer. 
 
-A process is waiting to allocate a new object ID (OID).
+**LWLock:OldSerXidLock**  
+A process is waiting to read or record conflicting serializable transactions.
 
-**LWLock:OidGenLock**
+**LWLock:OldSnapshotTimeMap**  
+A process is waiting to read or update old snapshot control information.
 
-A process is waiting to allocate or assign an object ID (OID).
+**LWLock:OldSnapshotTimeMapLock**  
+A process is waiting to read or update old snapshot control information.
 
-**LWLock:oldserxid**
+**LWLock:parallel\_append**  
+A process is waiting to choose the next subplan during parallel append plan execution. 
 
-A process is waiting for I/O on an oldserxid buffer.
+**LWLock:parallel\_hash\_join**  
+A process is waiting to allocate or exchange a chunk of memory or update counters during a parallel hash plan execution.
 
-**LWLock:OldSerXidLock**
+**LWLock:parallel\_query\_dsa**  
+A process is waiting for a lock on dynamic shared memory allocation for a parallel query. 
 
-A process is waiting to read or record conflicting serializable
-transactions.
+**LWLock:ParallelAppend**  
+A process is waiting to choose the next subplan during parallel append plan execution. 
 
-**LWLock:OldSnapshotTimeMap**
+**LWLock:ParallelHashJoin**  
+A process is waiting to synchronize workers during plan execution for a parallel hash join. 
 
-A process is waiting to read or update old snapshot control
-information.
+**Lwlock:ParallelQueryDSA**  
+A process is waiting for dynamic shared memory allocation for a parallel query. 
 
-**LWLock:OldSnapshotTimeMapLock**
+**Lwlock:PerSessionDSA**  
+A process is waiting for dynamic shared memory allocation for a parallel query. 
 
-A process is waiting to read or update old snapshot control
-information.
+**Lwlock:PerSessionRecordType**  
+A process is waiting to access a parallel query's information about composite types. 
 
-**LWLock:parallel\_append**
+**Lwlock:PerSessionRecordTypmod**  
+A process is waiting to access a parallel query's information about type modifiers that identify anonymous record types. 
 
-A process is waiting to choose the next subplan during parallel append
-plan execution.
+**Lwlock:PerXactPredicateList**  
+A process is waiting to access the list of predicate locks held by the current serializable transaction during a parallel query. 
 
-**LWLock:parallel\_hash\_join**
-
-A process is waiting to allocate or exchange a chunk of memory or update
-counters during a parallel hash plan execution.
-
-**LWLock:parallel\_query\_dsa**
-
-A process is waiting for a lock on dynamic shared memory allocation for a
-parallel query.
-
-**LWLock:ParallelAppend**
-
-A process is waiting to choose the next subplan during parallel append
-plan execution.
-
-**LWLock:ParallelHashJoin**
-
-A process is waiting to synchronize workers during plan execution for a
-parallel hash join.
-
-**Lwlock:ParallelQueryDSA**
-
-A process is waiting for dynamic shared memory allocation for a parallel
-query.
-
-**Lwlock:PerSessionDSA**
-
-A process is waiting for dynamic shared memory allocation for a parallel
-query.
-
-**Lwlock:PerSessionRecordType**
-
-A process is waiting to access a parallel query's information about
-composite types.
-
-**Lwlock:PerSessionRecordTypmod**
-
-A process is waiting to access a parallel query's information about type
-modifiers that identify anonymous record types.
-
-**Lwlock:PerXactPredicateList**
-
-A process is waiting to access the list of predicate locks held by the
-current serializable transaction during a parallel query.
-
-**Lwlock:predicate\_lock\_manager**
-
+**Lwlock:predicate\_lock\_manager**  
 A process is waiting to add or examine predicate lock information.
 
-**Lwlock:PredicateLockManager**
+**Lwlock:PredicateLockManager**  
+A process is waiting to access predicate lock information used by serializable transactions.
 
-A process is waiting to access predicate lock information used by
-serializable transactions.
+**Lwlock:proc**  
+A process is waiting to read or update the fast-path lock information. 
 
-**Lwlock:proc**
+**LWLock:ProcArray**  
+A process is waiting to access the shared per-process data structures (typically, to get a snapshot or report a session's transaction ID). 
 
-A process is waiting to read or update the fast-path lock information.
+**LWLock:ProcArrayLock**  
+A process is waiting to get a snapshot or clearing a transaction Id at a transaction's end. 
 
-**LWLock:ProcArray**
+**LWLock:RelationMapping**  
+A process is waiting to read or update a `pg_filenode.map` file (used to track the file-node assignments of certain system catalogs). 
 
-A process is waiting to access the shared per-process data structures
-(typically, to get a snapshot or report a session's transaction ID).
+**LWLock:RelationMappingLock**  
+A process is waiting to update the relation map file used to store catalog-to-file-node mapping. 
 
-**LWLock:ProcArrayLock**
+**LWLock:RelCacheInit**  
+A process is waiting to read or update a `pg_internal.init` file (a relation cache initialization file). 
 
-A process is waiting to get a snapshot or clearing a transaction Id at a
-transaction's end.
+**LWLock:RelCacheInitLock**  
+A process is waiting to read or write a relation cache initialization file. 
 
-**LWLock:RelationMapping**
+**LWLock:replication\_origin**  
+A process is waiting to read or update the replication progress. 
 
-A process is waiting to read or update a
-`pg_filenode.map` file (used to track the file-node
-assignments of certain system catalogs).
+**LWLock:replication\_slot\_io**  
+A process is waiting for I/O on a replication slot. 
 
-**LWLock:RelationMappingLock**
-
-A process is waiting to update the relation map file used to store
-catalog-to-file-node mapping.
-
-**LWLock:RelCacheInit**
-
-A process is waiting to read or update a
-`pg_internal.init` file (a relation cache
-initialization file).
-
-**LWLock:RelCacheInitLock**
-
-A process is waiting to read or write a relation cache initialization
-file.
-
-**LWLock:replication\_origin**
-
-A process is waiting to read or update the replication progress.
-
-**LWLock:replication\_slot\_io**
-
-A process is waiting for I/O on a replication slot.
-
-**LWLock:ReplicationOrigin**
-
+**LWLock:ReplicationOrigin**  
 A process is waiting to create, drop, or use a replication origin.
 
-**LWLock:ReplicationOriginLock**
-
+**LWLock:ReplicationOriginLock**  
 A process is waiting to set up, drop, or use a replication origin.
 
-**LWLock:ReplicationOriginState**
+**LWLock:ReplicationOriginState**  
+A process is waiting to read or update the progress of one replication origin. 
 
-A process is waiting to read or update the progress of one replication
-origin.
-
-**LWLock:ReplicationSlotAllocation**
-
+**LWLock:ReplicationSlotAllocation**  
 A process is waiting to allocate or free a replication slot.
 
-**LWLock:ReplicationSlotAllocationLock**
-
+**LWLock:ReplicationSlotAllocationLock**  
 A process is waiting to allocate or free a replication slot.
 
-**LWLock:ReplicationSlotControl**
-
+**LWLock:ReplicationSlotControl**  
 A process is waiting to read or update a replication slot state.
 
-**LWLock:ReplicationSlotControlLock**
+**LWLock:ReplicationSlotControlLock**  
+A process is waiting to read or update the replication slot state. 
 
-A process is waiting to read or update the replication slot state.
+**LWLock:ReplicationSlotIO**  
+A process is waiting for I/O on a replication slot. 
 
-**LWLock:ReplicationSlotIO**
+**LWLock:SerialBuffer**  
+A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a serializable transaction conflict. 
 
-A process is waiting for I/O on a replication slot.
+**LWLock:SerializableFinishedList**  
+A process is waiting to access the list of finished serializable transactions.
 
-**LWLock:SerialBuffer**
+**LWLock:SerializableFinishedListLock**  
+A process is waiting to access the list of finished serializable transactions.
 
-A process is waiting for I/O on a simple least-recently used (SLRU) buffer
-for a serializable transaction conflict.
+**LWLock:SerializablePredicateList**  
+A process is waiting to access the list of predicate locks held by serializable transactions.
 
-**LWLock:SerializableFinishedList**
+**LWLock:SerializablePredicateLockListLock**  
+A process is waiting to perform an operation on a list of locks held by serializable transactions. 
 
-A process is waiting to access the list of finished serializable
-transactions.
+**LWLock:SerializableXactHash**  
+A process is waiting to read or update information about serializable transactions. 
 
-**LWLock:SerializableFinishedListLock**
+**LWLock:SerializableXactHashLock**  
+A process is waiting to retrieve or store information about serializable transactions. 
 
-A process is waiting to access the list of finished serializable
-transactions.
+**LWLock:SerialSLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a serializable transaction conflict. 
 
-**LWLock:SerializablePredicateList**
+**LWLock:SharedTidBitmap**  
+A process is waiting to access a shared tuple identifier (TID) bitmap during a parallel bitmap index scan. 
 
-A process is waiting to access the list of predicate locks held by
-serializable transactions.
+**LWLock:SharedTupleStore**  
+A process is waiting to access a shared tuple store during a parallel query. 
 
-**LWLock:SerializablePredicateLockListLock**
+**LWLock:ShmemIndex**  
+A process is waiting to find or allocate space in shared memory. 
 
-A process is waiting to perform an operation on a list of locks held by
-serializable transactions.
+**LWLock:ShmemIndexLock**  
+A process is waiting to find or allocate space in shared memory. 
 
-**LWLock:SerializableXactHash**
+**LWLock:SInvalRead**  
+A process is waiting to retrieve messages from the shared catalog invalidation queue. 
 
-A process is waiting to read or update information about serializable
-transactions.
+**LWLock:SInvalReadLock**  
+A process is waiting to retrieve or remove messages from a shared invalidation queue. 
 
-**LWLock:SerializableXactHashLock**
+**LWLock:SInvalWrite**  
+A process is waiting to add a message to the shared catalog invalidation queue. 
 
-A process is waiting to retrieve or store information about serializable
-transactions.
+**LWLock:SInvalWriteLock**  
+A process is waiting to add a message in a shared invalidation queue. 
 
-**LWLock:SerialSLRU**
+**LWLock:SyncRep**  
+A process is waiting to read or update information about the state of synchronous replication. 
 
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a serializable transaction conflict.
+**LWLock:SyncRepLock**  
+A process is waiting to read or update information about synchronous replicas. 
 
-**LWLock:SharedTidBitmap**
+**LWLock:SyncScan**  
+A process is waiting to select the starting location of a synchronized table scan.
 
-A process is waiting to access a shared tuple identifier (TID) bitmap
-during a parallel bitmap index scan.
+**LWLock:SyncScanLock**  
+A process is waiting to get the start location of a scan on a table for synchronized scans.
 
-**LWLock:SharedTupleStore**
+**LWLock:TablespaceCreate**  
+A process is waiting to create or drop a tablespace. 
 
-A process is waiting to access a shared tuple store during a parallel
-query.
+**LWLock:TablespaceCreateLock**  
+A process is waiting to create or drop the tablespace. 
 
-**LWLock:ShmemIndex**
+**LWLock:tbm**  
+A process is waiting for a shared iterator lock on a tree bitmap (TBM). 
 
-A process is waiting to find or allocate space in shared memory.
+**LWLock:TwoPhaseState**  
+A process is waiting to read or update the state of prepared transactions. 
 
-**LWLock:ShmemIndexLock**
+**LWLock:TwoPhaseStateLock**  
+A process is waiting to read or update the state of prepared transactions. 
 
-A process is waiting to find or allocate space in shared memory.
+**LWLock:wal\_insert**  
+A process is waiting to insert the write-ahead log (WAL) into a memory buffer. 
 
-**LWLock:SInvalRead**
+**LWLock:WALBufMapping**  
+A process is waiting to replace a page in write-ahead log (WAL) buffers. 
 
-A process is waiting to retrieve messages from the shared catalog
-invalidation queue.
+**LWLock:WALBufMappingLock**  
+A process is waiting to replace a page in write-ahead log (WAL) buffers. 
 
-**LWLock:SInvalReadLock**
+**LWLock:WALInsert**  
+A process is waiting to insert write-ahead log (WAL) data into a memory buffer. 
 
-A process is waiting to retrieve or remove messages from a shared
-invalidation queue.
+**LWLock:WALWrite**  
+A process is waiting for write-ahead log (WAL) buffers to be written to disk. 
 
-**LWLock:SInvalWrite**
+**LWLock:WALWriteLock**  
+A process is waiting for write-ahead log (WAL) buffers to be written to disk. 
 
-A process is waiting to add a message to the shared catalog invalidation
-queue.
+**LWLock:WrapLimitsVacuum**  
+A process is waiting to update limits on transaction ID and multixact consumption. 
 
-**LWLock:SInvalWriteLock**
+**LWLock:WrapLimitsVacuumLock**  
+A process is waiting to update limits on transaction ID and multixact consumption. 
 
-A process is waiting to add a message in a shared invalidation queue.
+**LWLock:XactBuffer**  
+A process is waiting for I/O on a simple least-recently used (SLRU) buffer for a transaction status. 
 
-**LWLock:SyncRep**
+**LWLock:XactSLRU**  
+A process is waiting to access the simple least-recently used (SLRU) cache for a transaction status. 
 
-A process is waiting to read or update information about the state of
-synchronous replication.
+**LWLock:XactTruncation**  
+A process is waiting to run pg\_xact\_status or update the oldest transaction ID available to it. 
 
-**LWLock:SyncRepLock**
-
-A process is waiting to read or update information about synchronous
-replicas.
-
-**LWLock:SyncScan**
-
-A process is waiting to select the starting location of a synchronized
-table scan.
-
-**LWLock:SyncScanLock**
-
-A process is waiting to get the start location of a scan on a table for
-synchronized scans.
-
-**LWLock:TablespaceCreate**
-
-A process is waiting to create or drop a tablespace.
-
-**LWLock:TablespaceCreateLock**
-
-A process is waiting to create or drop the tablespace.
-
-**LWLock:tbm**
-
-A process is waiting for a shared iterator lock on a tree bitmap (TBM).
-
-**LWLock:TwoPhaseState**
-
-A process is waiting to read or update the state of prepared transactions.
-
-**LWLock:TwoPhaseStateLock**
-
-A process is waiting to read or update the state of prepared transactions.
-
-**LWLock:wal\_insert**
-
-A process is waiting to insert the write-ahead log (WAL) into a memory
-buffer.
-
-**LWLock:WALBufMapping**
-
-A process is waiting to replace a page in write-ahead log (WAL) buffers.
-
-**LWLock:WALBufMappingLock**
-
-A process is waiting to replace a page in write-ahead log (WAL) buffers.
-
-**LWLock:WALInsert**
-
-A process is waiting to insert write-ahead log (WAL) data into a memory
-buffer.
-
-**LWLock:WALWrite**
-
-A process is waiting for write-ahead log (WAL) buffers to be written to
-disk.
-
-**LWLock:WALWriteLock**
-
-A process is waiting for write-ahead log (WAL) buffers to be written to
-disk.
-
-**LWLock:WrapLimitsVacuum**
-
-A process is waiting to update limits on transaction ID and multixact
-consumption.
-
-**LWLock:WrapLimitsVacuumLock**
-
-A process is waiting to update limits on transaction ID and multixact
-consumption.
-
-**LWLock:XactBuffer**
-
-A process is waiting for I/O on a simple least-recently used (SLRU) buffer
-for a transaction status.
-
-**LWLock:XactSLRU**
-
-A process is waiting to access the simple least-recently used (SLRU) cache
-for a transaction status.
-
-**LWLock:XactTruncation**
-
-A process is waiting to run pg\_xact\_status or update the oldest
-transaction ID available to it.
-
-**LWLock:XidGen**
-
+**LWLock:XidGen**  
 A process is waiting to allocate a new transaction ID.
 
-**LWLock:XidGenLock**
+**LWLock:XidGenLock**  
+A process is waiting to allocate or assign a transaction ID. 
 
-A process is waiting to allocate or assign a transaction ID.
+**Timeout:BaseBackupThrottle**  
+A process is waiting during base backup when throttling activity. 
 
-**Timeout:BaseBackupThrottle**
+**Timeout:PgSleep**  
+A backend process has called the pg\_sleep function and is waiting for the sleep timeout to expire. For more information, see [Timeout:PgSleep](apg-waits.timeoutpgsleep.md).
 
-A process is waiting during base backup when throttling activity.
+**Timeout:RecoveryApplyDelay**  
+A process is waiting to apply write-ahead log (WAL) during recovery because of a delay setting. 
 
-**Timeout:PgSleep**
+**Timeout:RecoveryRetrieveRetryInterval**  
+A process is waiting during recovery when write-ahead log (WAL) data is not available from any source (pg\_wal, archive, or stream). 
 
-A backend process has called the pg\_sleep function and is waiting for the
-sleep timeout to expire. For more information, see [Timeout:PgSleep](apg-waits.timeoutpgsleep.md "apg-waits.timeoutpgsleep.md").
+**Timeout:VacuumDelay**  
+A process is waiting in a cost-based vacuum delay point. 
 
-**Timeout:RecoveryApplyDelay**
-
-A process is waiting to apply write-ahead log (WAL) during recovery
-because of a delay setting.
-
-**Timeout:RecoveryRetrieveRetryInterval**
-
-A process is waiting during recovery when write-ahead log (WAL) data is
-not available from any source (pg\_wal, archive, or stream).
-
-**Timeout:VacuumDelay**
-
-A process is waiting in a cost-based vacuum delay point.
-
-For a complete list of PostgreSQL wait events, see [The Statistics Collector > Wait Event tables](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE "https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE") in the PostgreSQL
-documentation.
+For a complete list of PostgreSQL wait events, see [The Statistics Collector > Wait Event tables](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE) in the PostgreSQL documentation.

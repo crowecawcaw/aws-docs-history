@@ -1,34 +1,22 @@
+
+
 # Excluding users or databases from audit logging
+<a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db"></a>
 
-As discussed in [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md"), PostgreSQL logs consume
-storage space. Using the pgAudit extension adds to the volume of data
-gathered in your logs to varying degrees, depending on the changes that you track. You might not
-need to audit every user or database in your Aurora PostgreSQL DB cluster.
+As discussed in [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.PostgreSQL.md), PostgreSQL logs consume storage space. Using the pgAudit extension adds to the volume of data gathered in your logs to varying degrees, depending on the changes that you track. You might not need to audit every user or database in your Aurora PostgreSQL DB cluster. 
 
-To minimize impacts to your storage and to avoid needlessly capturing audit records, you
-can exclude users and databases from being audited. You can also
-change logging within a given session. The following examples show you how.
+To minimize impacts to your storage and to avoid needlessly capturing audit records, you can exclude users and databases from being audited. You can also change logging within a given session. The following examples show you how. 
 
-###### Note
+**Note**  
+Parameter settings at the session level take precedence over the settings in the custom DB cluster parameter group for the Aurora PostgreSQL DB cluster's writer instance. If you don't want database users to bypass your audit logging configuration settings, be sure to change their permissions. 
 
-Parameter settings at the session level take precedence over the settings
-in the custom DB cluster parameter group for the Aurora PostgreSQL DB cluster's
-writer instance. If you don't want database users to bypass your audit logging configuration
-settings, be sure to change their permissions.
-
-Suppose that your Aurora PostgreSQL DB cluster
-is configured
-to audit the same level of activity for all users and databases.
-You then decide that you don't want to audit the user
-`myuser`. You can turn off auditing for `myuser` with the following
-SQL command.
+Suppose that your Aurora PostgreSQL DB cluster is configured to audit the same level of activity for all users and databases. You then decide that you don't want to audit the user `myuser`. You can turn off auditing for `myuser` with the following SQL command.
 
 ```
 ALTER USER myuser SET pgaudit.log TO 'NONE';
 ```
 
-Then, you can use the following query to check the `user_specific_settings`
-column for `pgaudit.log` to confirm that the parameter is set to `NONE`.
+Then, you can use the following query to check the `user_specific_settings` column for `pgaudit.log` to confirm that the parameter is set to `NONE`.
 
 ```
 SELECT
@@ -49,14 +37,13 @@ You see output such as the following.
 (1 row)
 ```
 
-You can turn off logging for a given user in the midst of their session with the database with
-the following command.
+You can turn off logging for a given user in the midst of their session with the database with the following command.
 
 ```
 ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'none';
 ```
 
-Use the following query to check the settings column for pgaudit.log for a specific user and database combination.
+Use the following query to check the settings column for pgaudit.log for a specific user and database combination. 
 
 ```
 SELECT
@@ -84,16 +71,13 @@ You see output similar to the following.
 (1 row)
 ```
 
-After turning off auditing for `myuser`, you decide that
-you don't want to track changes to `mydatabase`. You turn off auditing
-for that specific database by using the following command.
+After turning off auditing for `myuser`, you decide that you don't want to track changes to `mydatabase`. You turn off auditing for that specific database by using the following command.
 
 ```
 ALTER DATABASE mydatabase SET pgaudit.log to 'NONE';
 ```
 
-Then, use the following query to check the database\_specific\_settings column
-to confirm that pgaudit.log is set to NONE.
+Then, use the following query to check the database\_specific\_settings column to confirm that pgaudit.log is set to NONE.
 
 ```
 SELECT
@@ -127,16 +111,13 @@ To return settings to their default setting for a database, use the following co
 ALTER DATABASE mydatabase RESET pgaudit.log;
 ```
 
-To reset user and database to the default setting,
-use the following command.
+To reset user and database to the default setting, use the following command.
 
 ```
 ALTER USER myuser IN DATABASE mydatabase RESET pgaudit.log;
 ```
 
-You can also capture specific events to the log by setting the `pgaudit.log` to one of the other
-allowed values for the `pgaudit.log` parameter. For more information, see
-[List of allowable settings for the pgaudit.log parameter](Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings "Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings").
+You can also capture specific events to the log by setting the `pgaudit.log` to one of the other allowed values for the `pgaudit.log` parameter. For more information, see [List of allowable settings for the `pgaudit.log` parameter](Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings).
 
 ```
 ALTER USER myuser SET pgaudit.log TO 'read';

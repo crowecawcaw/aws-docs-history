@@ -1,54 +1,42 @@
+
+
 # Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4
+<a name="AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions"></a>
 
-The following prechecks run when you upgrade from Aurora MySQL version 3 (compatible with MySQL 8.0) to
-Aurora MySQL version 8.4 (compatible with MySQL 8.4). These prechecks identify potential compatibility issues
-before the upgrade begins.
+The following prechecks run when you upgrade from Aurora MySQL version 3 (compatible with MySQL 8.0) to Aurora MySQL version 8.4 (compatible with MySQL 8.4). These prechecks identify potential compatibility issues before the upgrade begins.
 
-###### Contents
-
-- [Errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors")
-
-  - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql")
-  - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora")
-
-- [Warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings")
-
-  - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql")
-  - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora")
-
-- [Notices](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-notices "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-notices")
-- [Errors, warnings, or notices](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-all "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-all")
+**Contents**
++ [Errors](#precheck-v84-errors)
+  + [MySQL prechecks that report errors](#precheck-v84-errors.mysql)
+  + [Aurora MySQL prechecks that report errors](#precheck-v84-errors.aurora)
++ [Warnings](#precheck-v84-warnings)
+  + [MySQL prechecks that report warnings](#precheck-v84-warnings.mysql)
+  + [Aurora MySQL prechecks that report warnings](#precheck-v84-warnings.aurora)
++ [Notices](#precheck-v84-notices)
++ [Errors, warnings, or notices](#precheck-v84-all)
 
 ## Errors
+<a name="precheck-v84-errors"></a>
 
 The following prechecks generate errors when the precheck fails, and the upgrade can't proceed.
 
-###### Topics
-
-- [MySQL prechecks that report errors](#precheck-v84-errors.mysql "#precheck-v84-errors.mysql")
-- [Aurora MySQL prechecks that report errors](#precheck-v84-errors.aurora "#precheck-v84-errors.aurora")
+**Topics**
++ [MySQL prechecks that report errors](#precheck-v84-errors.mysql)
++ [Aurora MySQL prechecks that report errors](#precheck-v84-errors.aurora)
 
 ### MySQL prechecks that report errors
+<a name="precheck-v84-errors.mysql"></a>
 
 The following prechecks are from Community MySQL:
++ [deprecatedRouterAuthMethod](#v84-deprecatedRouterAuthMethod)
++ [partitionsWithPrefixKeys](#v84-partitionsWithPrefixKeys)
++ [columnDefinition](#v84-columnDefinition)
 
-- [deprecatedRouterAuthMethod](#v84-deprecatedRouterAuthMethod "#v84-deprecatedRouterAuthMethod")
-- [partitionsWithPrefixKeys](#v84-partitionsWithPrefixKeys "#v84-partitionsWithPrefixKeys")
-- [columnDefinition](#v84-columnDefinition "#v84-columnDefinition")
-
-**deprecatedRouterAuthMethod**
-
-**Precheck level: Error**
-
-**Check for deprecated or invalid authentication methods in use by
-MySQL Router internal accounts**
-
-This precheck validates that MySQL Router internal accounts are not using deprecated or
-invalid authentication methods that may be removed or changed in MySQL 8.4. MySQL Router
-accounts are automatically created at bootstrap time when the Router is not instructed to
-use an existing account.
-
-**Example output:**
+**deprecatedRouterAuthMethod**  
+**Precheck level: Error**  
+**Check for deprecated or invalid authentication methods in use by MySQL Router internal accounts**  
+This precheck validates that MySQL Router internal accounts are not using deprecated or invalid authentication methods that may be removed or changed in MySQL 8.4. MySQL Router accounts are automatically created at bootstrap time when the Router is not instructed to use an existing account.  
+**Example output:**  
 
 ```
 {
@@ -66,46 +54,26 @@ use an existing account.
   ]
 }
 ```
-
-The precheck returns an error because the `mysql_router_test` account is using
-a deprecated authentication method such as `mysql_native_password` or
-`sha256_password`.
-
-To verify the authentication method in use:
+The precheck returns an error because the `mysql_router_test` account is using a deprecated authentication method such as `mysql_native_password` or `sha256_password`.  
+To verify the authentication method in use:  
 
 ```
 SELECT user, host, plugin FROM mysql.user WHERE user = 'mysql_router_test';
 ```
-
-**Resolution:**
-
-Update the MySQL Router account to use `caching_sha2_password`
-authentication:
+**Resolution:**  
+Update the MySQL Router account to use `caching_sha2_password` authentication:  
 
 ```
-ALTER USER 'mysql_router_test'@'%' IDENTIFIED WITH caching_sha2_password BY '`new_password`';
+ALTER USER 'mysql_router_test'@'%' IDENTIFIED WITH caching_sha2_password BY '{{new_password}}';
 ```
+Alternatively, upgrade MySQL Router to the latest version to ensure deprecated authentication methods are no longer used. Since version 8.0.19, you can also instruct MySQL Router to use a dedicated account created using the AdminAPI.
 
-Alternatively, upgrade MySQL Router to the latest version to ensure deprecated
-authentication methods are no longer used. Since version 8.0.19, you can also instruct
-MySQL Router to use a dedicated account created using the AdminAPI.
-
-**partitionsWithPrefixKeys**
-
-**Precheck level: Error**
-
-**Checks for partitions by key using columns with prefix key
-indexes**
-
-This precheck identifies partitioned tables that use columns with prefix key indexes in
-their partitioning key. Indexes on column prefixes are not supported for key
-partitioning—they are ignored by the partition function and are not allowed as of
-MySQL 8.4.0.
-
-For more information, see [Restrictions and
-limitations on partitioning](https://dev.mysql.com/doc/refman/en/partitioning-limitations.html "https://dev.mysql.com/doc/refman/en/partitioning-limitations.html") in the MySQL documentation.
-
-**Example output:**
+**partitionsWithPrefixKeys**  
+**Precheck level: Error**  
+**Checks for partitions by key using columns with prefix key indexes**  
+This precheck identifies partitioned tables that use columns with prefix key indexes in their partitioning key. Indexes on column prefixes are not supported for key partitioning—they are ignored by the partition function and are not allowed as of MySQL 8.4.0.  
+For more information, see [Restrictions and limitations on partitioning](https://dev.mysql.com/doc/refman/en/partitioning-limitations.html) in the MySQL documentation.  
+**Example output:**  
 
 ```
 {
@@ -123,8 +91,7 @@ limitations on partitioning](https://dev.mysql.com/doc/refman/en/partitioning-li
   ]
 }
 ```
-
-**Resolution:**
+**Resolution:**  
 
 ```
 -- Check for prefix indexes (Sub_part column shows prefix length)
@@ -142,18 +109,11 @@ ALTER TABLE test.test_partition_prefix
 ALTER TABLE test.test_partition_prefix REMOVE PARTITIONING;
 ```
 
-**columnDefinition**
-
-**Precheck level: Error**
-
-**Checks for errors in column definitions**
-
-This precheck validates that all column definitions are compatible with MySQL 8.4
-requirements. It specifically identifies columns of type `FLOAT` or
-`DOUBLE` with the `AUTO_INCREMENT` flag set, which is no longer
-supported in MySQL 8.4.
-
-**Example output:**
+**columnDefinition**  
+**Precheck level: Error**  
+**Checks for errors in column definitions**  
+This precheck validates that all column definitions are compatible with MySQL 8.4 requirements. It specifically identifies columns of type `FLOAT` or `DOUBLE` with the `AUTO_INCREMENT` flag set, which is no longer supported in MySQL 8.4.  
+**Example output:**  
 
 ```
 {
@@ -170,11 +130,8 @@ supported in MySQL 8.4.
   ]
 }
 ```
-
-**Resolution:**
-
-Change the column type from `FLOAT` or `DOUBLE` to an integer
-type:
+**Resolution:**  
+Change the column type from `FLOAT` or `DOUBLE` to an integer type:  
 
 ```
 -- Check current definition
@@ -188,24 +145,18 @@ SHOW CREATE TABLE test.test_column_def\G
 ```
 
 ### Aurora MySQL prechecks that report errors
+<a name="precheck-v84-errors.aurora"></a>
 
 The following prechecks are specific to Aurora MySQL:
++ [auroraUnsupportedPluginsCheck](#v84-auroraUnsupportedPluginsCheck)
++ [auroraUnsupportedComponentsCheck](#v84-auroraUnsupportedComponentsCheck)
++ [auroraUpgradeCheckForSysSchemaObjectTypeMismatch](#v84-auroraUpgradeCheckForSysSchemaObjectTypeMismatch)
 
-- [auroraUnsupportedPluginsCheck](#v84-auroraUnsupportedPluginsCheck "#v84-auroraUnsupportedPluginsCheck")
-- [auroraUnsupportedComponentsCheck](#v84-auroraUnsupportedComponentsCheck "#v84-auroraUnsupportedComponentsCheck")
-- [auroraUpgradeCheckForSysSchemaObjectTypeMismatch](#v84-auroraUpgradeCheckForSysSchemaObjectTypeMismatch "#v84-auroraUpgradeCheckForSysSchemaObjectTypeMismatch")
-
-**auroraUnsupportedPluginsCheck**
-
-**Precheck level: Error**
-
-**Check for unsupported plugins**
-
-This Aurora-specific precheck identifies plugins that are not supported in Aurora MySQL
-version 8.4. Aurora has specific plugin compatibility requirements that differ from
-community MySQL.
-
-**Example output:**
+**auroraUnsupportedPluginsCheck**  
+**Precheck level: Error**  
+**Check for unsupported plugins**  
+This Aurora-specific precheck identifies plugins that are not supported in Aurora MySQL version 8.4. Aurora has specific plugin compatibility requirements that differ from community MySQL.  
+**Example output:**  
 
 ```
 {
@@ -223,26 +174,18 @@ community MySQL.
   ]
 }
 ```
-
-**Resolution:**
-
-Uninstall the unsupported plugins:
+**Resolution:**  
+Uninstall the unsupported plugins:  
 
 ```
-UNINSTALL PLUGIN `plugin_name`;
+UNINSTALL PLUGIN {{plugin_name}};
 ```
 
-**auroraUnsupportedComponentsCheck**
-
-**Precheck level: Error**
-
-**Check for unsupported components**
-
-This precheck validates that no MySQL components that are unsupported in Aurora MySQL
-version 8.4 are currently installed or active. Components are different from plugins and
-provide extended functionality through the component infrastructure.
-
-**Example output:**
+**auroraUnsupportedComponentsCheck**  
+**Precheck level: Error**  
+**Check for unsupported components**  
+This precheck validates that no MySQL components that are unsupported in Aurora MySQL version 8.4 are currently installed or active. Components are different from plugins and provide extended functionality through the component infrastructure.  
+**Example output:**  
 
 ```
 {
@@ -260,27 +203,18 @@ provide extended functionality through the component infrastructure.
   ]
 }
 ```
-
-**Resolution:**
-
-Uninstall the unsupported components:
+**Resolution:**  
+Uninstall the unsupported components:  
 
 ```
-UNINSTALL COMPONENT '`component_name`';
+UNINSTALL COMPONENT '{{component_name}}';
 ```
 
-**auroraUpgradeCheckForSysSchemaObjectTypeMismatch**
-
-**Precheck level: Error**
-
-**Check object type mismatch for sys schema**
-
-This precheck validates that all objects in the `sys` schema have the correct
-object types and definitions. The sys schema is a system schema that provides views and
-procedures for database monitoring and diagnostics. Mismatches can occur if the schema was
-manually modified or corrupted.
-
-**Example output:**
+**auroraUpgradeCheckForSysSchemaObjectTypeMismatch**  
+**Precheck level: Error**  
+**Check object type mismatch for sys schema**  
+This precheck validates that all objects in the `sys` schema have the correct object types and definitions. The sys schema is a system schema that provides views and procedures for database monitoring and diagnostics. Mismatches can occur if the schema was manually modified or corrupted.  
+**Example output:**  
 
 ```
 {
@@ -297,8 +231,7 @@ manually modified or corrupted.
   ]
 }
 ```
-
-**Resolution:**
+**Resolution:**  
 
 ```
 -- Check the object type
@@ -313,41 +246,28 @@ DROP TABLE sys.host_summary;
 ```
 
 ## Warnings
+<a name="precheck-v84-warnings"></a>
 
 The following prechecks generate warnings when the precheck fails, but the upgrade can proceed.
 
-###### Topics
-
-- [MySQL prechecks that report warnings](#precheck-v84-warnings.mysql "#precheck-v84-warnings.mysql")
-- [Aurora MySQL prechecks that report warnings](#precheck-v84-warnings.aurora "#precheck-v84-warnings.aurora")
+**Topics**
++ [MySQL prechecks that report warnings](#precheck-v84-warnings.mysql)
++ [Aurora MySQL prechecks that report warnings](#precheck-v84-warnings.aurora)
 
 ### MySQL prechecks that report warnings
+<a name="precheck-v84-warnings.mysql"></a>
 
 The following prechecks are from Community MySQL:
++ [deprecatedDefaultAuth](#v84-deprecatedDefaultAuth)
++ [foreignKeyReferences](#v84-foreignKeyReferences)
 
-- [deprecatedDefaultAuth](#v84-deprecatedDefaultAuth "#v84-deprecatedDefaultAuth")
-- [foreignKeyReferences](#v84-foreignKeyReferences "#v84-foreignKeyReferences")
-
-**deprecatedDefaultAuth**
-
-**Precheck level: Warning**
-
-**Check for deprecated or invalid default authentication methods in
-system variables**
-
-This precheck validates that the `default_authentication_plugin` system
-variable is not set to deprecated authentication methods.
-
-###### Important
-
-MySQL 8.4.0 removes the deprecated `default_authentication_plugin` option
-entirely. The `mysql_native_password` plugin is disabled by default as of
-MySQL 8.4.0 and is subject to removal in a future version.
-
-For more information about authentication changes in version 8.4, see
-[Security considerations for upgrading from Aurora MySQL version 3 to version 8.4](AuroraMySQL.Upgrade-v3-v84-security.md "AuroraMySQL.Upgrade-v3-v84-security.md").
-
-**Example output:**
+**deprecatedDefaultAuth**  
+**Precheck level: Warning**  
+**Check for deprecated or invalid default authentication methods in system variables**  
+This precheck validates that the `default_authentication_plugin` system variable is not set to deprecated authentication methods.  
+MySQL 8.4.0 removes the deprecated `default_authentication_plugin` option entirely. The `mysql_native_password` plugin is disabled by default as of MySQL 8.4.0 and is subject to removal in a future version.
+For more information about authentication changes in version 8.4, see [Security considerations for upgrading from Aurora MySQL version 3 to version 8.4](AuroraMySQL.Upgrade-v3-v84-security.md).  
+**Example output:**  
 
 ```
 {
@@ -369,40 +289,25 @@ For more information about authentication changes in version 8.4, see
   ]
 }
 ```
+**Resolution:**  
+Update the authentication system variables to use `caching_sha2_password`:  
 
-**Resolution:**
+1. Go to the Amazon RDS console and navigate to **Parameter groups**.
 
-Update the authentication system variables to use
-`caching_sha2_password`:
+1. Select your DB cluster parameter group.
 
-1. Go to the Amazon RDS console and navigate to **Parameter
-   groups**.
-2. Select your DB cluster parameter group.
-3. Modify the following parameters:
+1. Modify the following parameters:
+   + `default_authentication_plugin` = `caching_sha2_password`
+   + `authentication_policy` = `caching_sha2_password,*,`
 
-   - `default_authentication_plugin` =
-     `caching_sha2_password`
-   - `authentication_policy` =
-     `caching_sha2_password,*,`
+1. Apply the changes. A reboot may be required.
+Ensure your application clients support `caching_sha2_password` authentication before making this change. Some older MySQL client libraries may not support this authentication method.
 
-4. Apply the changes. A reboot may be required.
-
-Ensure your application clients support `caching_sha2_password`
-authentication before making this change. Some older MySQL client libraries may not
-support this authentication method.
-
-**foreignKeyReferences**
-
-**Precheck level: Warning**
-
-**Checks for foreign keys not referencing a full unique
-index**
-
-This precheck ensures that all foreign key constraints reference complete unique or
-primary key indexes. Foreign keys to partial indexes may be forbidden as of MySQL
-8.4.0.
-
-**Example output:**
+**foreignKeyReferences**  
+**Precheck level: Warning**  
+**Checks for foreign keys not referencing a full unique index**  
+This precheck ensures that all foreign key constraints reference complete unique or primary key indexes. Foreign keys to partial indexes may be forbidden as of MySQL 8.4.0.  
+**Example output:**  
 
 ```
 {
@@ -419,10 +324,8 @@ primary key indexes. Foreign keys to partial indexes may be forbidden as of MySQ
   ]
 }
 ```
-
-**Resolution:**
-
-Choose the option that works best with your application:
+**Resolution:**  
+Choose the option that works best with your application:  
 
 ```
 -- Option 1: Add unique index on parent table (if values are unique)
@@ -433,26 +336,17 @@ ALTER TABLE test.child_table DROP FOREIGN KEY child_table_ibfk_1;
 ```
 
 ### Aurora MySQL prechecks that report warnings
+<a name="precheck-v84-warnings.aurora"></a>
 
 The following prechecks are specific to Aurora MySQL:
++ [auroraValidatePasswordPluginCheck](#v84-auroraValidatePasswordPluginCheck)
 
-- [auroraValidatePasswordPluginCheck](#v84-auroraValidatePasswordPluginCheck "#v84-auroraValidatePasswordPluginCheck")
-
-**auroraValidatePasswordPluginCheck**
-
-**Precheck level: Warning**
-
-**Check for deprecated validate\_password plugin**
-
-This precheck identifies usage of the deprecated `validate_password` plugin.
-In MySQL 8.0+, the validate\_password functionality was reimplemented as a component
-(`component_validate_password`). Aurora MySQL version 8.4 requires migration to
-the component-based implementation.
-
-For more information, see
-[Password validation component migration](AuroraMySQL.Upgrade-v3-v84-security.md#AuroraMySQL.Upgrade-v3-v84-security.validate-password "AuroraMySQL.Upgrade-v3-v84-security.md#AuroraMySQL.Upgrade-v3-v84-security.validate-password").
-
-**Example output:**
+**auroraValidatePasswordPluginCheck**  
+**Precheck level: Warning**  
+**Check for deprecated validate\_password plugin**  
+This precheck identifies usage of the deprecated `validate_password` plugin. In MySQL 8.0\+, the validate\_password functionality was reimplemented as a component (`component_validate_password`). Aurora MySQL version 8.4 requires migration to the component-based implementation.  
+For more information, see [Password validation component migration](AuroraMySQL.Upgrade-v3-v84-security.md#AuroraMySQL.Upgrade-v3-v84-security.validate-password).  
+**Example output:**  
 
 ```
 {
@@ -469,8 +363,7 @@ For more information, see
   ]
 }
 ```
-
-**Resolution:**
+**Resolution:**  
 
 ```
 -- Check current plugin status
@@ -488,23 +381,16 @@ SELECT * FROM mysql.component WHERE component_urn LIKE '%validate_password%';
 ```
 
 ## Notices
+<a name="precheck-v84-notices"></a>
 
 The following precheck generates a notice when the precheck fails, but the upgrade can proceed.
++ [invalidPrivileges](#v84-invalidPrivileges)
 
-- [invalidPrivileges](#v84-invalidPrivileges "#v84-invalidPrivileges")
-
-**invalidPrivileges**
-
-**Precheck level: Notice**
-
-**Checks for user privileges that will be removed**
-
-This precheck identifies user accounts with privileges that are being removed or modified in
-MySQL 8.4. The `SET_USER_ID` privilege is being removed as part of the upgrade
-process. If the privileges are not being used, no action is required. Otherwise, ensure they
-stop being used before the upgrade because they will be lost.
-
-**Example output:**
+**invalidPrivileges**  
+**Precheck level: Notice**  
+**Checks for user privileges that will be removed**  
+This precheck identifies user accounts with privileges that are being removed or modified in MySQL 8.4. The `SET_USER_ID` privilege is being removed as part of the upgrade process. If the privileges are not being used, no action is required. Otherwise, ensure they stop being used before the upgrade because they will be lost.  
+**Example output:**  
 
 ```
 {
@@ -521,39 +407,24 @@ stop being used before the upgrade because they will be lost.
   ]
 }
 ```
-
-**Resolution:**
-
-This is an informational notice—no action is required. The `SET_USER_ID`
-privilege will be automatically removed during the upgrade process.
-
-However, if your application relies on the `SET_USER_ID` privilege, review and
-update your application before upgrading.
+**Resolution:**  
+This is an informational notice—no action is required. The `SET_USER_ID` privilege will be automatically removed during the upgrade process.  
+However, if your application relies on the `SET_USER_ID` privilege, review and update your application before upgrading.
 
 ## Errors, warnings, or notices
+<a name="precheck-v84-all"></a>
 
 The following prechecks can return an error, warning, or notice depending on the precheck output.
++ [authMethodUsage](#v84-authMethodUsage)
++ [pluginUsage](#v84-pluginUsage)
++ [checkTableCommand](#v84-checkTableCommand)
 
-- [authMethodUsage](#v84-authMethodUsage "#v84-authMethodUsage")
-- [pluginUsage](#v84-pluginUsage "#v84-pluginUsage")
-- [checkTableCommand](#v84-checkTableCommand "#v84-checkTableCommand")
-
-**authMethodUsage**
-
-**Precheck level: Error, Warning, or Notice**
-
-**Check for deprecated or invalid user authentication
-methods**
-
-This precheck identifies user accounts using authentication methods that are deprecated or
-will be removed in MySQL 8.4. The `mysql_native_password` authentication plugin is
-deprecated and disabled by default as of MySQL 8.4.0. The plugin is subject to removal in a
-future version.
-
-The severity level is dynamic based on the feature lifecycle—Notice before
-deprecation, Warning after deprecation, Error after removal.
-
-**Example output:**
+**authMethodUsage**  
+**Precheck level: Error, Warning, or Notice**  
+**Check for deprecated or invalid user authentication methods**  
+This precheck identifies user accounts using authentication methods that are deprecated or will be removed in MySQL 8.4. The `mysql_native_password` authentication plugin is deprecated and disabled by default as of MySQL 8.4.0. The plugin is subject to removal in a future version.  
+The severity level is dynamic based on the feature lifecycle—Notice before deprecation, Warning after deprecation, Error after removal.  
+**Example output:**  
 
 ```
 {
@@ -570,32 +441,19 @@ deprecation, Warning after deprecation, Error after removal.
   ]
 }
 ```
-
-**Resolution:**
-
-Update the user accounts to use `caching_sha2_password` authentication:
+**Resolution:**  
+Update the user accounts to use `caching_sha2_password` authentication:  
 
 ```
-ALTER USER '`username`'@'`host`' IDENTIFIED WITH caching_sha2_password BY '`new_password`';
+ALTER USER '{{username}}'@'{{host}}' IDENTIFIED WITH caching_sha2_password BY '{{new_password}}';
 ```
+No action is required for Aurora internal system accounts. They are automatically updated during the upgrade process. Attempting to modify these accounts manually may cause issues with Aurora functionality.
 
-###### Note
-
-No action is required for Aurora internal system accounts. They are automatically
-updated during the upgrade process. Attempting to modify these accounts manually may
-cause issues with Aurora functionality.
-
-**pluginUsage**
-
-**Precheck level: Error, Warning, or Notice**
-
-**Check for deprecated or removed plugin usage**
-
-This precheck identifies plugins that have been deprecated or removed in MySQL 8.4. It
-examines all active plugins and reports their deprecation status. The severity level is
-dynamic based on the feature lifecycle.
-
-**Example output:**
+**pluginUsage**  
+**Precheck level: Error, Warning, or Notice**  
+**Check for deprecated or removed plugin usage**  
+This precheck identifies plugins that have been deprecated or removed in MySQL 8.4. It examines all active plugins and reports their deprecation status. The severity level is dynamic based on the feature lifecycle.  
+**Example output:**  
 
 ```
 {
@@ -612,10 +470,8 @@ dynamic based on the feature lifecycle.
   ]
 }
 ```
-
-**Resolution:**
-
-Uninstall deprecated plugins and install their component replacements:
+**Resolution:**  
+Uninstall deprecated plugins and install their component replacements:  
 
 ```
 -- Check installed plugins
@@ -629,32 +485,15 @@ INSTALL COMPONENT 'file://component_keyring_file';
 -- Verify
 SELECT * FROM mysql.component WHERE component_urn LIKE '%keyring%';
 ```
+The following table lists deprecated plugins and their replacements:      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.html)
 
-The following table lists deprecated plugins and their replacements:
-
-| Plugin                   | Replacement                        |
-| ------------------------ | ---------------------------------- |
-| `keyring_file`           | `component_keyring_file`           |
-| `keyring_encrypted_file` | `component_keyring_encrypted_file` |
-| `keyring_oci`            | `component_keyring_oci`            |
-| `authentication_fido`    | `authentication_webauthn`          |
-
-**checkTableCommand**
-
-**Precheck level: Error, Warning, or Notice**
-
-**Issues reported by the `check table x for upgrade`
-command**
-
-This precheck runs the `CHECK TABLE ... FOR UPGRADE` command on all user tables
-to identify structural issues, deprecated features, or incompatibilities with MySQL 8.4. The
-command performs a comprehensive validation of table structure and metadata.
-
-Unlike other prechecks, it can return an error, warning, or notice depending on the
-`CHECK TABLE` output. If this precheck returns any tables, review them carefully
-along with the return code and message before initiating the upgrade.
-
-**Example output:**
+**checkTableCommand**  
+**Precheck level: Error, Warning, or Notice**  
+**Issues reported by the `check table x for upgrade` command**  
+This precheck runs the `CHECK TABLE ... FOR UPGRADE` command on all user tables to identify structural issues, deprecated features, or incompatibilities with MySQL 8.4. The command performs a comprehensive validation of table structure and metadata.  
+Unlike other prechecks, it can return an error, warning, or notice depending on the `CHECK TABLE` output. If this precheck returns any tables, review them carefully along with the return code and message before initiating the upgrade.  
+**Example output:**  
 
 ```
 {
@@ -676,16 +515,9 @@ along with the return code and message before initiating the upgrade.
   ]
 }
 ```
-
-**Resolution:**
-
-Review the reported objects and fix or remove them before upgrading. Common issues
-include:
-
-- Views referencing invalid tables or columns—drop or re-create the view.
-- Corrupt tables—run `REPAIR TABLE` or re-create the table.
-- Triggers with missing `CREATED` attribute—re-create the
-  trigger.
-
-For more information, see [CHECK TABLE statement](https://dev.mysql.com/doc/refman/8.4/en/check-table.html "https://dev.mysql.com/doc/refman/8.4/en/check-table.html")
-in the MySQL documentation.
+**Resolution:**  
+Review the reported objects and fix or remove them before upgrading. Common issues include:  
++ Views referencing invalid tables or columns—drop or re-create the view.
++ Corrupt tables—run `REPAIR TABLE` or re-create the table.
++ Triggers with missing `CREATED` attribute—re-create the trigger.
+For more information, see [CHECK TABLE statement](https://dev.mysql.com/doc/refman/8.4/en/check-table.html) in the MySQL documentation.

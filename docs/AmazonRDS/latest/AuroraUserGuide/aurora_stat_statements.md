@@ -1,95 +1,72 @@
-# aurora\_stat\_statements
 
-Displays all `pg_stat_statements` columns and adds more columns in the end.
+
+# aurora\_stat\_statements
+<a name="aurora_stat_statements"></a>
+
+Displays all `pg_stat_statements` columns and adds more columns in the end. 
 
 ## Syntax
+<a name="aurora_stat_statements-syntax"></a>
+
+ 
 
 ```
-aurora_stat_statements(`showtext boolean`)
+aurora_stat_statements({{showtext boolean}})
 ```
 
 ## Arguments
+<a name="aurora_stat_statements-arguments"></a>
 
-_showtext boolean_
+*showtext boolean*
 
 ## Return type
+<a name="aurora_stat_statements-return-type"></a>
 
-SETOF record with all `pg_stat_statements` columns and the following
-additional columns. For more information on `pg_stat_statements` columns,
-see [`pg_stat_statements`](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
+SETOF record with all `pg_stat_statements` columns and the following additional columns. For more information on `pg_stat_statements` columns, see [`pg_stat_statements`](https://www.postgresql.org/docs/current/pgstatstatements.html).
 
-You can reset stats for this function using
-`pg_stat_statements_reset()`.
+You can reset stats for this function using `pg_stat_statements_reset()`.
++ `storage_blks_read` – Total number of shared blocks read from aurora storage by this statement. 
++ `orcache_blks_hit` – Total number of optimized reads cache hits by this statement. 
++ `storage_blk_read_time` – If `track_io_timing` is enabled, it tracks the total time the statement spent reading shared blocks from aurora storage, in milliseconds, otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING). 
++ `local_blk_read_time` – If `track_io_timing` is enabled, it tracks the total time the statement spent reading local blocks, in milliseconds, otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING).
++ `orcache_blk_read_time` – If `track_io_timing` is enabled, it tracks the total time the statement spent reading shared blocks from optimized reads cache, in milliseconds, otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING). 
++ `total_plan_peakmem` – Total sum of peak memory values during planning phase for all calls to this statement. To see the average peak memory during planning for the statement, divide this value by the number of calls.
++ `min_plan_peakmem` – Smallest peak memory value seen during planning across all calls to this statement.
++ `max_plan_peakmem` – Largest peak memory value during planning seen across all calls to this statement.
++ `total_exec_peakmem` – Total sum of peak memory values during execution phase for all calls to this statement. To see the average peak memory during execution for the statement, divide this value by the number of calls.
++ `min_exec_peakmem` –Smallest peak memory value, in bytes, seen during execution across all calls to this statement. 
++ `max_exec_peakmem` – Largest peak memory value, in bytes, seen during execution across all calls to this statement.
 
-- `storage_blks_read` – Total number of shared blocks read
-  from aurora storage by this statement.
-- `orcache_blks_hit` – Total number of optimized reads
-  cache hits by this statement.
-- `storage_blk_read_time` – If
-  `track_io_timing` is enabled, it tracks the total time the
-  statement spent reading shared blocks from aurora storage, in milliseconds,
-  otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
-- `local_blk_read_time` – If `track_io_timing`
-  is enabled, it tracks the total time the statement spent reading local
-  blocks, in milliseconds, otherwise the value is zero. For more information,
-  see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
-- `orcache_blk_read_time` – If
-  `track_io_timing` is enabled, it tracks the total time the
-  statement spent reading shared blocks from optimized reads cache, in
-  milliseconds, otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
-- `total_plan_peakmem` – Total sum of peak memory values
-  during planning phase for all calls to this statement. To see the average
-  peak memory during planning for the statement, divide this value by the
-  number of calls.
-- `min_plan_peakmem` – Smallest peak memory value seen
-  during planning across all calls to this statement.
-- `max_plan_peakmem` – Largest peak memory value during
-  planning seen across all calls to this statement.
-- `total_exec_peakmem` – Total sum of peak memory values
-  during execution phase for all calls to this statement. To see the average
-  peak memory during execution for the statement, divide this value by the
-  number of calls.
-- `min_exec_peakmem` –Smallest peak memory value, in
-  bytes, seen during execution across all calls to this statement.
-- `max_exec_peakmem` – Largest peak memory value, in
-  bytes, seen during execution across all calls to this statement.
-
-###### Note
-
-`total_plan_peakmen`, `min_plan_peakmem`, and
-`max_plan_peakmem` are only monitored when the setting
-`pg_stat_statements.track_planning` is turned on.
+**Note**  
+`total_plan_peakmen`, `min_plan_peakmem`, and `max_plan_peakmem` are only monitored when the setting `pg_stat_statements.track_planning` is turned on.
 
 ## Usage notes
+<a name="aurora_stat_statements-usage-notes"></a>
 
-To use the aurora\_stat\_statements() function, you must include
-`pg_stat_statements` extension in the
-`shared_preload_libraries` parameter.
+To use the aurora\_stat\_statements() function, you must include `pg_stat_statements` extension in the `shared_preload_libraries` parameter.
 
 This function is available in the following Aurora PostgreSQL versions:
-
-- 15.4 and higher 15 versions
-- 14.9 and higher 14 versions
++ 15.4 and higher 15 versions
++ 14.9 and higher 14 versions
 
 The columns showing peak memory are available from the following versions:
-
-- 16.3 and higher versions
-- 15.7 and higher versions
-- 14.12 and higher versions
++ 16.3 and higher versions
++ 15.7 and higher versions
++ 14.12 and higher versions
 
 ## Examples
+<a name="aurora_stat_statements-examples"></a>
 
-The following example shows how it carries all the pg\_stat\_statements columns and
-append 11 new columns in the end:
+The following example shows how it carries all the pg\_stat\_statements columns and append 11 new columns in the end:
 
 ```
-`=>` `select * from aurora_stat_statements(true) where query like 'with window_max%';`
+=> select * from aurora_stat_statements(true) where query like 'with window_max%';
 -[ RECORD 1 ]----------+------------------------------------------------------------------------------------------------
 userid                 | 16409
 dbid                   | 5
 toplevel               | t
 queryid                | -8347523682669847482
-query                  | with window_max as (select custid, max(scratch) over (order by scratch rows between $1 preceding
+query                  | with window_max as (select custid, max(scratch) over (order by scratch rows between $1 preceding 
 and $2 following) wmax from ts) select sum(wmax), max(custid) from window_max
 plans                  | 0
 total_plan_time        | 0
@@ -140,5 +117,4 @@ max_plan_peakmem       | 0
 total_exec_peakmem     | 6356224
 min_exec_peakmem       | 1589056
 max_exec_peakmem       | 1589056
-
 ```

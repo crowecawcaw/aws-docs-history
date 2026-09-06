@@ -1,26 +1,22 @@
+
+
 # Learn the basics of Aurora with an AWS SDK
+<a name="example_aurora_Scenario_GetStartedClusters_section"></a>
 
 The following code examples show how to:
++ Create a custom Aurora DB cluster parameter group and set parameter values.
++ Create a DB cluster that uses the parameter group.
++ Create a DB instance that contains a database.
++ Take a snapshot of the DB cluster, then clean up resources.
 
-- Create a custom Aurora DB cluster parameter group and set parameter values.
-- Create a DB cluster that uses the parameter group.
-- Create a DB instance that contains a database.
-- Take a snapshot of the DB cluster, then clean up resources.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
 using Amazon.RDS;
 using Amazon.RDS.Model;
 using AuroraActions;
@@ -574,12 +570,8 @@ public class AuroraScenario
                            StringComparison.InvariantCultureIgnoreCase);
         return response;
     }
-
-
-
 ```
-
-Wrapper methods that are called by the scenario to manage Aurora actions.
+Wrapper methods that are called by the scenario to manage Aurora actions.  
 
 ```
 using Amazon.RDS;
@@ -956,37 +948,29 @@ public class AuroraWrapper
         return response.DBInstance;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateDBCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster)
+  + [CreateDBClusterParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterParameterGroup)
+  + [CreateDBClusterSnapshot](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterSnapshot)
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/CreateDBInstance)
+  + [DeleteDBCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DeleteDBCluster)
+  + [DeleteDBClusterParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DeleteDBClusterParameterGroup)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DeleteDBInstance)
+  + [DescribeDBClusterParameterGroups](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameterGroups)
+  + [DescribeDBClusterParameters](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameters)
+  + [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots)
+  + [DescribeDBClusters](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBClusterParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/ModifyDBClusterParameterGroup)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CreateDBCluster](../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster.md "../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBCluster.md")
-  - [CreateDBClusterParameterGroup](../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterParameterGroup.md")
-  - [CreateDBClusterSnapshot](../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBClusterSnapshot.md")
-  - [CreateDBInstance](../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBInstance.md "../../../goto/DotNetSDKV4/rds-2014-10-31/CreateDBInstance.md")
-  - [DeleteDBCluster](../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBCluster.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBCluster.md")
-  - [DeleteDBClusterParameterGroup](../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
-  - [DeleteDBInstance](../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBInstance.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DeleteDBInstance.md")
-  - [DescribeDBClusterParameterGroups](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
-  - [DescribeDBClusterParameters](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterParameters.md")
-  - [DescribeDBClusterSnapshots](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  - [DescribeDBClusters](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters.md")
-  - [DescribeDBEngineVersions](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBInstances.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBClusterParameterGroup](../../../goto/DotNetSDKV4/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/DotNetSDKV4/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -1847,42 +1831,32 @@ bool AwsDoc::Aurora::cleanUpResources(const Aws::String &parameterGroupName,
 
     return result;
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CreateDBCluster](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBCluster)
+  + [CreateDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBClusterParameterGroup)
+  + [CreateDBClusterSnapshot](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBClusterSnapshot)
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBInstance)
+  + [DeleteDBCluster](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DeleteDBCluster)
+  + [DeleteDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DeleteDBClusterParameterGroup)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance)
+  + [DescribeDBClusterParameterGroups](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameterGroups)
+  + [DescribeDBClusterParameters](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameters)
+  + [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots)
+  + [DescribeDBClusters](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/ModifyDBClusterParameterGroup)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CreateDBCluster](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBCluster.md")
-  - [CreateDBClusterParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBClusterParameterGroup.md")
-  - [CreateDBClusterSnapshot](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBClusterSnapshot.md")
-  - [CreateDBInstance](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md")
-  - [DeleteDBCluster](../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBCluster.md "../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBCluster.md")
-  - [DeleteDBClusterParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
-  - [DeleteDBInstance](../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance.md")
-  - [DescribeDBClusterParameterGroups](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
-  - [DescribeDBClusterParameters](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterParameters.md")
-  - [DescribeDBClusterSnapshots](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  - [DescribeDBClusters](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters.md")
-  - [DescribeDBEngineVersions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBClusterParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples").
-
-Run an interactive scenario at a command prompt.
-
-```
-
 import (
 	"aurora/actions"
 	"context"
@@ -2261,15 +2235,10 @@ func (helper ScenarioHelper) Pause(secs int) {
 func (helper ScenarioHelper) UniqueId() string {
 	return uuid.New().String()
 }
-
-
+```
+Define functions that are called by the scenario to manage Aurora actions.  
 
 ```
-
-Define functions that are called by the scenario to manage Aurora actions.
-
-```
-
 import (
 	"context"
 	"errors"
@@ -2588,38 +2557,29 @@ func (clusters *DbClusters) GetOrderableInstances(ctx context.Context, engine st
 	}
 	return instances, err
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CreateDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster)
+  + [CreateDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterParameterGroup)
+  + [CreateDBClusterSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterSnapshot)
+  + [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance)
+  + [DeleteDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBCluster)
+  + [DeleteDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBClusterParameterGroup)
+  + [DeleteDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance)
+  + [DescribeDBClusterParameterGroups](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameterGroups)
+  + [DescribeDBClusterParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameters)
+  + [DescribeDBClusterSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots)
+  + [DescribeDBClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters)
+  + [DescribeDBEngineVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances)
+  + [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions)
+  + [ModifyDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBClusterParameterGroup)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [CreateDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBCluster")
-  - [CreateDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterParameterGroup")
-  - [CreateDBClusterSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterSnapshot "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBClusterSnapshot")
-  - [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance")
-  - [DeleteDBCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBCluster")
-  - [DeleteDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBClusterParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBClusterParameterGroup")
-  - [DeleteDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance")
-  - [DescribeDBClusterParameterGroups](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameterGroups "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameterGroups")
-  - [DescribeDBClusterParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterParameters")
-  - [DescribeDBClusterSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots")
-  - [DescribeDBClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters")
-  - [DescribeDBEngineVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions")
-  - [DescribeDBInstances](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances")
-  - [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions")
-  - [ModifyDBClusterParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBClusterParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBClusterParameterGroup")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 /**
@@ -3232,40 +3192,31 @@ public class AuroraScenario {
         }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateDBCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster)
+  + [CreateDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup)
+  + [CreateDBClusterSnapshot](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot)
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance)
+  + [DeleteDBCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster)
+  + [DeleteDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance)
+  + [DescribeDBClusterParameterGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups)
+  + [DescribeDBClusterParameters](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters)
+  + [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots)
+  + [DescribeDBClusters](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBClusterParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBCluster.md")
-  - [CreateDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterParameterGroup.md")
-  - [CreateDBClusterSnapshot](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBClusterSnapshot.md")
-  - [CreateDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md")
-  - [DeleteDBCluster](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBCluster.md")
-  - [DeleteDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
-  - [DeleteDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md")
-  - [DescribeDBClusterParameterGroups](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
-  - [DescribeDBClusterParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterParameters.md")
-  - [DescribeDBClusterSnapshots](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  - [DescribeDBClusters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md")
-  - [DescribeDBEngineVersions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBClusterParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -3306,10 +3257,10 @@ suspend fun main(args: Array<String>) {
         Usage:
             <dbClusterGroupName> <dbParameterGroupFamily> <dbInstanceClusterIdentifier> <dbName> <dbSnapshotIdentifier> <secretName>
         Where:
-            dbClusterGroupName - The database group name.
+            dbClusterGroupName - The database group name. 
             dbParameterGroupFamily - The database parameter group name.
-            dbInstanceClusterIdentifier - The database instance identifier.
-            dbName -  The database name.
+            dbInstanceClusterIdentifier - The database instance identifier. 
+            dbName -  The database name. 
             dbSnapshotIdentifier - The snapshot identifier.
             secretName - The name of the AWS Secrets Manager secret that contains the database credentials.
     """
@@ -3752,40 +3703,30 @@ suspend fun describeAuroraDBEngines() {
         }
     }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateDBClusterSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBClusterParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBClusterParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBClusters](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ModifyDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [CreateDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateDBClusterSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDBCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBClusterParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBClusterParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBClusters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ModifyDBClusterParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class AuroraClusterScenario:
@@ -4077,11 +4018,8 @@ if __name__ == "__main__":
         )
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define functions that are called by the scenario to manage Aurora actions.
+Define functions that are called by the scenario to manage Aurora actions.  
 
 ```
 class AuroraWrapper:
@@ -4528,45 +4466,32 @@ class AuroraWrapper:
             raise
         else:
             return db_inst
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateDBCluster](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBCluster)
+  + [CreateDBClusterParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup)
+  + [CreateDBClusterSnapshot](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot)
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBInstance)
+  + [DeleteDBCluster](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DeleteDBCluster)
+  + [DeleteDBClusterParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DeleteDBInstance)
+  + [DescribeDBClusterParameterGroups](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups)
+  + [DescribeDBClusterParameters](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusterParameters)
+  + [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots)
+  + [DescribeDBClusters](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusters)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBClusterParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup)
 
+------
+#### [ Rust ]
 
-
-
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
+A library containing the scenario-specific functions for the Aurora scenario.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
-
-  - [CreateDBCluster](../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md "../../../goto/boto3/rds-2014-10-31/CreateDBCluster.md")
-  - [CreateDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterParameterGroup.md")
-  - [CreateDBClusterSnapshot](../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md "../../../goto/boto3/rds-2014-10-31/CreateDBClusterSnapshot.md")
-  - [CreateDBInstance](../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md "../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md")
-  - [DeleteDBCluster](../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md "../../../goto/boto3/rds-2014-10-31/DeleteDBCluster.md")
-  - [DeleteDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/DeleteDBClusterParameterGroup.md")
-  - [DeleteDBInstance](../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md "../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md")
-  - [DescribeDBClusterParameterGroups](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
-  - [DescribeDBClusterParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameters.md")
-  - [DescribeDBClusterSnapshots](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  - [DescribeDBClusters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md")
-  - [DescribeDBEngineVersions](../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md "../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBClusterParameterGroup](../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md "../../../goto/boto3/rds-2014-10-31/ModifyDBClusterParameterGroup.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
-
-A library containing the scenario-specific functions for the Aurora scenario.
-
-```
-
 use phf::{phf_set, Set};
 use secrecy::SecretString;
 use std::{collections::HashMap, fmt::Display, time::Duration};
@@ -5203,14 +5128,10 @@ impl AuroraScenario {
 
 #[cfg(test)]
 pub mod tests;
-
+```
+Tests for the library using automocks around the RDS Client wrapper.  
 
 ```
-
-Tests for the library using automocks around the RDS Client wrapper.
-
-```
-
 use crate::rds::MockRdsImpl;
 
 use super::*;
@@ -6223,14 +6144,10 @@ async fn test_scenario_snapshot_invalid() {
     let create_snapshot = scenario.snapshot("MockSnapshot").await;
     assert_matches!(create_snapshot, Err(ScenarioError { message, context: _}) if message == "Missing Snapshot");
 }
-
+```
+A binary to run the scenario from front to end, using inquirer so that the user can make some decisions.  
 
 ```
-
-A binary to run the scenario from front to end, using inquirer so that the user can make some decisions.
-
-```
-
 use std::fmt::Display;
 
 use anyhow::anyhow;
@@ -6503,14 +6420,10 @@ fn prompt_number_or_default(warnings: &mut Warnings, name: &str, default: u8) ->
         }
     }
 }
-
+```
+A wrapper around the Amazon RDS service that allows automocking for tests.  
 
 ```
-
-A wrapper around the Amazon RDS service that allows automocking for tests.
-
-```
-
 use aws_sdk_rds::{
     error::SdkError,
     operation::{
@@ -6761,17 +6674,14 @@ impl RdsImpl {
             .await
     }
 }
-
-
 ```
-
-The Cargo.toml with dependencies used in this scenario.
+The Cargo.toml with dependencies used in this scenario.  
 
 ```
 [package]
 name = "aurora-code-examples"
 authors = [
-  "David Souther <dpsouth@amazon.com>",
+  "David Souther <dpsouth@amazon.com>", 
 ]
 edition = "2021"
 version = "0.1.0"
@@ -6793,28 +6703,24 @@ secrecy = "0.8.0"
 tokio = { version = "1.20.1", features = ["full", "test-util"] }
 tracing = "0.1.37"
 tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster)
+  + [CreateDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group)
+  + [CreateDBClusterSnapshot](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot)
+  + [CreateDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance)
+  + [DeleteDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster)
+  + [DeleteDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group)
+  + [DeleteDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance)
+  + [DescribeDBClusterParameterGroups](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups)
+  + [DescribeDBClusterParameters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters)
+  + [DescribeDBClusterSnapshots](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots)
+  + [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters)
+  + [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions)
+  + [DescribeDBInstances](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances)
+  + [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options)
+  + [ModifyDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
+------
 
-  - [CreateDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster")
-  - [CreateDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group")
-  - [CreateDBClusterSnapshot](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_snapshot")
-  - [CreateDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_instance")
-  - [DeleteDBCluster](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster")
-  - [DeleteDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_cluster_parameter_group")
-  - [DeleteDBInstance](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.delete_db_instance")
-  - [DescribeDBClusterParameterGroups](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameter_groups")
-  - [DescribeDBClusterParameters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters")
-  - [DescribeDBClusterSnapshots](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_snapshots")
-  - [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters")
-  - [DescribeDBEngineVersions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_engine_versions")
-  - [DescribeDBInstances](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_instances")
-  - [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options")
-  - [ModifyDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

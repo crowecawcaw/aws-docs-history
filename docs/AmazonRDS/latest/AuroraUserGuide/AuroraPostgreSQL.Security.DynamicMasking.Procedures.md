@@ -1,12 +1,14 @@
+
+
 # Procedures for managing data masking policies
+<a name="AuroraPostgreSQL.Security.DynamicMasking.Procedures"></a>
 
-You can manage masking policies using procedures provided by the `pg_columnmask` extension.
-To create, modify, or drop masking policies, you must have one of the following privileges:
+You can manage masking policies using procedures provided by the `pg_columnmask` extension. To create, modify, or drop masking policies, you must have one of the following privileges:
++ Owner of the table on which you are creating the `pg_columnmask` policy.
++ Member of `rds_superuser`.
++ Member of `pg_columnmask` policy manager role set by the `pgcolumnmask.policy_admin_rolname` parameter.
 
-- Owner of the table on which you are creating the `pg_columnmask` policy.
-- Member of `rds_superuser`.
-- Member of `pg_columnmask` policy manager role set by the `pgcolumnmask.policy_admin_rolname` parameter.
-  The following command creates a table that is used in subsequent sections:
+The following command creates a table that is used in subsequent sections:
 
 ```
 CREATE TABLE public.customers (
@@ -19,6 +21,7 @@ CREATE TABLE public.customers (
 ```
 
 ## CREATE\_MASKING\_POLICY
+<a name="AuroraPostgreSQL.Security.DynamicMasking.Procedures.CreateMaskingPolicy"></a>
 
 The following procedure creates a new masking policy for a user table:
 
@@ -35,19 +38,20 @@ create_masking_policy(
 
 **Arguments**
 
-| Parameter             | Datatype | Description                                                                                                                                                                                                                                                                                |
-| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `policy_name`         | NAME     | The name of the masking policy. Must be unique per<br>table.                                                                                                                                                                                                                               |
-| `table_name`          | REGCLASS | The qualified/unqualified name or oid of the table to apply<br>masking policy.                                                                                                                                                                                                             |
-| `masking_expressions` | JSONB    | JSON object containing column name and masking function pairs.<br>Each key is a column name and its value is the masking<br>expression to be applied on that column.                                                                                                                       |
-| `roles`               | NAME[]   | The roles to which this masking policy applies. Default is<br>PUBLIC.                                                                                                                                                                                                                      |
-| `weight`              | INT      | Weight of the masking policy. When multiple policies are<br>applicable to a given user's query, the policy with the highest<br>weight (higher integer number) will be applied to each masked<br>column.<br>Default is 0. No two masking policies on the table can have<br>the same wieght. |
+
+| Parameter | Datatype | Description | 
+| --- | --- | --- | 
+| policy\_name | NAME | The name of the masking policy. Must be unique per table. | 
+| table\_name | REGCLASS | The qualified/unqualified name or oid of the table to apply masking policy. | 
+| masking\_expressions | JSONB | JSON object containing column name and masking function pairs. Each key is a column name and its value is the masking expression to be applied on that column. | 
+| roles | NAME[] | The roles to which this masking policy applies. Default is PUBLIC. | 
+| weight | INT | Weight of the masking policy. When multiple policies are applicable to a given user's query, the policy with the highest weight (higher integer number) will be applied to each masked column.<br />Default is 0. No two masking policies on the table can have the same wieght. | 
 
 **Return type**
 
 None
 
-###### Example of creating a masking policy that masks the email column for the `test_user` role:
+**Example of creating a masking policy that masks the email column for the `test_user` role:**  
 
 ```
 CALL pgcolumnmask.create_masking_policy(
@@ -62,10 +66,9 @@ CALL pgcolumnmask.create_masking_policy(
 ```
 
 ## ALTER\_MASKING\_POLICY
+<a name="AuroraPostgreSQL.Security.DynamicMasking.Procedures.AlterMaskingPolicy"></a>
 
-This procedure modifies an existing masking policy. `ALTER_MASKING_POLICY` can modify the policy masking expressions,
-set of roles to which the policy applies and the weight of the masking policy. When one of those parameters is omitted,
-the corresponding part of the policy is unchanged.
+This procedure modifies an existing masking policy. `ALTER_MASKING_POLICY` can modify the policy masking expressions, set of roles to which the policy applies and the weight of the masking policy. When one of those parameters is omitted, the corresponding part of the policy is unchanged.
 
 **Syntax**
 
@@ -80,19 +83,20 @@ alter_masking_policy(
 
 **Arguments**
 
-| Parameter             | Datatype | Description                                                                             |
-| --------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `policy_name`         | NAME     | Existing name of the masking policy.                                                    |
-| `table_name`          | REGCLASS | The qualified/unqualified name oid of the table containing the<br>masking policy.       |
-| `masking_expressions` | JSONB    | New JSON object containing column name and masking function pairs<br>or NULL otherwise. |
-| `roles`               | NAME[]   | The list of new roles to which this masking policy applies or NULL<br>otherwise.        |
-| `weight`              | INT      | New weight for the masking policy or NULL otherwise.                                    |
+
+| Parameter | Datatype | Description | 
+| --- | --- | --- | 
+| policy\_name | NAME | Existing name of the masking policy. | 
+| table\_name | REGCLASS | The qualified/unqualified name oid of the table containing the masking policy. | 
+| masking\_expressions | JSONB | New JSON object containing column name and masking function pairs or NULL otherwise. | 
+| roles | NAME[] | The list of new roles to which this masking policy applies or NULL otherwise. | 
+| weight | INT | New weight for the masking policy or NULL otherwise. | 
 
 **Return type**
 
 None
 
-###### Example of adding the analyst role to an existing masking policy without changing other policy attributes.
+**Example of adding the analyst role to an existing masking policy without changing other policy attributes.**  
 
 ```
 CALL pgcolumnmask.alter_masking_policy(
@@ -100,7 +104,7 @@ CALL pgcolumnmask.alter_masking_policy(
     'public.customers',
     NULL,
     ARRAY['test_user', 'analyst'],
-    NULL
+    NULL 
 );
 
 -- Alter the weight of the policy without altering other details
@@ -114,6 +118,7 @@ CALL pgcolumnmask.alter_masking_policy(
 ```
 
 ## DROP\_MASKING\_POLICY
+<a name="AuroraPostgreSQL.Security.DynamicMasking.Procedures.DropMaskingPolicy"></a>
 
 This procedure removes an existing masking policy.
 
@@ -127,16 +132,17 @@ drop_masking_policy(
 
 **Arguments**
 
-| Parameter     | Datatype | Description                                                                       |
-| ------------- | -------- | --------------------------------------------------------------------------------- |
-| `policy_name` | NAME     | Existing name of the masking policy.                                              |
-| `table_name`  | REGCLASS | The qualified/unqualified name oid of the table containing the<br>masking policy. |
+
+| Parameter | Datatype | Description | 
+| --- | --- | --- | 
+| policy\_name | NAME | Existing name of the masking policy. | 
+| table\_name | REGCLASS | The qualified/unqualified name oid of the table containing the masking policy. | 
 
 **Return type**
 
 None
 
-###### Example of dropping the masking policy customer\_mask
+**Example of dropping the masking policy customer\_mask**  
 
 ```
 -- Drop a masking policy

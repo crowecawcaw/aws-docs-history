@@ -1,114 +1,73 @@
+
+
 # Copying an encrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API
+<a name="USER_CopyDBClusterSnapshot.Encrypted.CrossRegion"></a>
 
-Use the procedures in the following sections to copy an encrypted DB cluster snapshot by
-using the AWS Management Console, AWS CLI, or Amazon RDS API.
+Use the procedures in the following sections to copy an encrypted DB cluster snapshot by using the AWS Management Console, AWS CLI, or Amazon RDS API.
 
-To cancel a copy operation once it is in progress, delete the target DB cluster
-snapshot identified by
-`--target-db-cluster-snapshot-identifier` or
-`TargetDBClusterSnapshotIdentifier` while that DB cluster snapshot is
-in **copying** status.
+To cancel a copy operation once it is in progress, delete the target DB cluster snapshot identified by `--target-db-cluster-snapshot-identifier` or `TargetDBClusterSnapshotIdentifier` while that DB cluster snapshot is in **copying** status.
 
-To copy a DB cluster snapshot using the AWS Management Console, see [Copying a DB cluster snapshot with the AWS Management Console](USER_CopyDBClusterSnapshot.CrossRegion.md "USER_CopyDBClusterSnapshot.CrossRegion.md").
+## Console
+<a name="USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.Console"></a>
 
-To copy a DB cluster snapshot, use the AWS CLI [copy-db-cluster-snapshot](../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md "../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md") command. If you are
-copying the snapshot to another AWS Region, run the command in the AWS Region to which
-the snapshot will be copied.
+To copy a DB cluster snapshot using the AWS Management Console, see [Copying a DB cluster snapshot with the AWS Management Console](USER_CopyDBClusterSnapshot.CrossRegion.md).
 
-The following options are used to copy an encrypted DB cluster
-snapshot:
+## AWS CLI
+<a name="USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.CLI"></a>
 
-- `--source-db-cluster-snapshot-identifier` – The identifier for the
-  encrypted DB cluster snapshot to be copied. If you are copying the
-  snapshot to another AWS Region, this identifier must be in the ARN
-  format for the source AWS Region.
-- `--target-db-cluster-snapshot-identifier`
-  – The identifier for the new copy of the encrypted DB cluster
-  snapshot.
-- `--kms-key-id` – The KMS key identifier
-  for the key to use to encrypt the copy of the DB cluster
-  snapshot.
+To copy a DB cluster snapshot, use the AWS CLI [copy-db-cluster-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-cluster-snapshot.html) command. If you are copying the snapshot to another AWS Region, run the command in the AWS Region to which the snapshot will be copied. 
 
-You can optionally use this option if the DB cluster snapshot is encrypted, you copy the
-snapshot in the same AWS Region, and you want to specify a new KMS key
-to encrypt the copy. Otherwise, the copy of the DB cluster snapshot is
-encrypted with the same KMS key as the source DB cluster snapshot.
+The following options are used to copy an encrypted DB cluster snapshot:
++ `--source-db-cluster-snapshot-identifier` – The identifier for the encrypted DB cluster snapshot to be copied. If you are copying the snapshot to another AWS Region, this identifier must be in the ARN format for the source AWS Region.
++ `--target-db-cluster-snapshot-identifier` – The identifier for the new copy of the encrypted DB cluster snapshot.
++ `--kms-key-id` – The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot.
 
-You must use this option if the DB cluster snapshot is encrypted and you are copying the
-snapshot to another AWS Region. In that case, you must specify a KMS key
-for the destination AWS Region.
-The following code example copies the encrypted DB cluster snapshot from the US West (Oregon) Region to the US East (N. Virginia)
-Region. The command is called in the US East (N. Virginia) Region.
+  You can optionally use this option if the DB cluster snapshot is encrypted, you copy the snapshot in the same AWS Region, and you want to specify a new KMS key to encrypt the copy. Otherwise, the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. 
 
-###### Example
+  You must use this option if the DB cluster snapshot is encrypted and you are copying the snapshot to another AWS Region. In that case, you must specify a KMS key for the destination AWS Region.
 
-For Linux, macOS, or Unix:
+The following code example copies the encrypted DB cluster snapshot from the US West (Oregon) Region to the US East (N. Virginia) Region. The command is called in the US East (N. Virginia) Region.
+
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds copy-db-cluster-snapshot \
-  --source-db-cluster-snapshot-identifier `arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115` \
-  --target-db-cluster-snapshot-identifier `myclustersnapshotcopy` \
-  --kms-key-id `my-us-east-1-key`
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115}} \
+  --target-db-cluster-snapshot-identifier {{myclustersnapshotcopy}} \
+  --kms-key-id {{my-us-east-1-key}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds copy-db-cluster-snapshot ^
-  --source-db-cluster-snapshot-identifier `arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115` ^
-  --target-db-cluster-snapshot-identifier `myclustersnapshotcopy` ^
-  --kms-key-id `my-us-east-1-key`
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115}} ^
+  --target-db-cluster-snapshot-identifier {{myclustersnapshotcopy}} ^
+  --kms-key-id {{my-us-east-1-key}}
 ```
 
-The `--source-region` parameter is required when you're copying an encrypted DB
-cluster snapshot between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
-Regions. For `--source-region`, specify the AWS Region of the
-source DB instance. The AWS Region specified in
-`source-db-cluster-snapshot-identifier` must match the
-AWS Region specified for `--source-region`.
+The `--source-region` parameter is required when you're copying an encrypted DB cluster snapshot between the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. For `--source-region`, specify the AWS Region of the source DB instance. The AWS Region specified in `source-db-cluster-snapshot-identifier` must match the AWS Region specified for `--source-region`.
 
-If `--source-region` isn't specified, specify a
-`--pre-signed-url` value. A _presigned
-URL_ is a URL that contains a Signature Version 4 signed request
-for the `copy-db-cluster-snapshot` command that's called in the
-source AWS Region. To learn more about the `pre-signed-url` option,
-see [copy-db-cluster-snapshot](../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md "../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md") in the _AWS CLI Command Reference_.
+If `--source-region` isn't specified, specify a `--pre-signed-url` value. A *presigned URL* is a URL that contains a Signature Version 4 signed request for the `copy-db-cluster-snapshot` command that's called in the source AWS Region. To learn more about the `pre-signed-url` option, see [copy-db-cluster-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-cluster-snapshot.html) in the *AWS CLI Command Reference*.
 
-To copy a DB cluster snapshot, use the Amazon RDS API [CopyDBClusterSnapshot](../APIReference/API_CopyDBClusterSnapshot.md "../APIReference/API_CopyDBClusterSnapshot.md") operation. If you are
-copying the snapshot to another AWS Region, perform the action in the AWS Region to
-which the snapshot will be copied.
+## RDS API
+<a name="USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.API"></a>
+
+To copy a DB cluster snapshot, use the Amazon RDS API [CopyDBClusterSnapshot](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html) operation. If you are copying the snapshot to another AWS Region, perform the action in the AWS Region to which the snapshot will be copied.
 
 The following parameters are used to copy an encrypted DB cluster snapshot:
++ `SourceDBClusterSnapshotIdentifier` – The identifier for the encrypted DB cluster snapshot to be copied. If you are copying the snapshot to another AWS Region, this identifier must be in the ARN format for the source AWS Region. 
++ `TargetDBClusterSnapshotIdentifier` – The identifier for the new copy of the encrypted DB cluster snapshot.
++ `KmsKeyId` – The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot.
 
-- `SourceDBClusterSnapshotIdentifier` – The
-  identifier for the encrypted DB cluster snapshot to be copied. If you
-  are copying the snapshot to another AWS Region, this identifier must be in
-  the ARN format for the source AWS Region.
-- `TargetDBClusterSnapshotIdentifier` – The
-  identifier for the new copy of the encrypted DB cluster snapshot.
-- `KmsKeyId` – The KMS key identifier for
-  the key to use to encrypt the copy of the DB cluster snapshot.
+  You can optionally use this parameter if the DB cluster snapshot is encrypted, you copy the snapshot in the same AWS Region, and you specify a new KMS key to use to encrypt the copy. Otherwise, the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot. 
 
-You can optionally use this parameter if the DB cluster snapshot is encrypted, you copy
-the snapshot in the same AWS Region, and you specify a new KMS key to
-use to encrypt the copy. Otherwise, the copy of the DB cluster snapshot
-is encrypted with the same KMS key as the source DB cluster snapshot.
+  You must use this parameter if the DB cluster snapshot is encrypted and you are copying the snapshot to another AWS Region. In that case, you must specify a KMS key for the destination AWS Region.
++ `PreSignedUrl` – If you are copying the snapshot to another AWS Region, you must specify the `PreSignedUrl` parameter. The `PreSignedUrl` value must be a URL that contains a Signature Version 4 signed request for the `CopyDBClusterSnapshot` action to be called in the source AWS Region where the DB cluster snapshot is copied from. To learn more about using a presigned URL, see [CopyDBClusterSnapshot](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html). 
 
-You must use this parameter if the DB cluster snapshot is encrypted and you are copying
-the snapshot to another AWS Region. In that case, you must specify a KMS key
-for the destination AWS Region.
+The following code example copies the encrypted DB cluster snapshot from the US West (Oregon) Region to the US East (N. Virginia) Region. The action is called in the US East (N. Virginia) Region.
 
-- `PreSignedUrl` – If you are copying the
-  snapshot to another AWS Region, you must specify the
-  `PreSignedUrl` parameter. The `PreSignedUrl`
-  value must be a URL that contains a Signature Version 4 signed request
-  for the `CopyDBClusterSnapshot` action to be called in the
-  source AWS Region where the DB cluster snapshot is copied from. To learn
-  more about using a presigned URL, see [CopyDBClusterSnapshot](../APIReference/API_CopyDBClusterSnapshot.md "../APIReference/API_CopyDBClusterSnapshot.md").
-  The following code example copies the encrypted DB cluster snapshot from the US West (Oregon) Region to the US East (N. Virginia)
-  Region. The action is called in the US East (N. Virginia) Region.
-
-###### Example
+**Example**  
 
 ```
 https://rds.us-east-1.amazonaws.com/
@@ -138,15 +97,8 @@ https://rds.us-east-1.amazonaws.com/
     &X-Amz-Date=20161117T221704Z
     &X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
     &X-Amz-Signature=da4f2da66739d2e722c85fcfd225dc27bba7e2b8dbea8d8612434378e52adccf
-
 ```
 
-The `PreSignedUrl` parameter is required when you are copying an encrypted DB
-cluster snapshot between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
-Regions. The `PreSignedUrl` value must be a URL that contains a
-Signature Version 4 signed request for the `CopyDBClusterSnapshot`
-operation to be called in the source AWS Region where the DB cluster snapshot
-is copied from. To learn more about using a presigned URL, see [CopyDBClusterSnapshot](../APIReference/API_CopyDBClusterSnapshot.md "../APIReference/API_CopyDBClusterSnapshot.md") in the _Amazon RDS API Reference_.
+The `PreSignedUrl` parameter is required when you are copying an encrypted DB cluster snapshot between the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. The `PreSignedUrl` value must be a URL that contains a Signature Version 4 signed request for the `CopyDBClusterSnapshot` operation to be called in the source AWS Region where the DB cluster snapshot is copied from. To learn more about using a presigned URL, see [CopyDBClusterSnapshot](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html) in the *Amazon RDS API Reference*. 
 
-To automatically rather than manually generate a presigned URL, use the AWS CLI [copy-db-cluster-snapshot](../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md "../../../cli/latest/reference/rds/copy-db-cluster-snapshot.md") command with the
-`--source-region` option instead.
+To automatically rather than manually generate a presigned URL, use the AWS CLI [copy-db-cluster-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-cluster-snapshot.html) command with the `--source-region` option instead.

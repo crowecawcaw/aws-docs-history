@@ -1,21 +1,18 @@
+
+
 # Use `DescribeDBClusterSnapshots` with an AWS SDK
+<a name="example_aurora_DescribeDBClusterSnapshots_section"></a>
 
 The following code examples show how to use `DescribeDBClusterSnapshots`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md) 
 
-- [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md "example_aurora_Scenario_GetStartedClusters_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
 ```
     /// <summary>
@@ -42,23 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         while (response.Marker is not null);
         return results;
     }
-
-
 ```
++  For API details, see [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeDBClusterSnapshots](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -84,26 +72,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                                  DB_CLUSTER_IDENTIFIER, DB_INSTANCE_IDENTIFIER, client);
                 return false;
             }
+```
++  For API details, see [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeDBClusterSnapshots](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples").
-
-```
-
 import (
 	"context"
 	"errors"
@@ -133,24 +111,14 @@ func (clusters *DbClusters) GetClusterSnapshot(ctx context.Context, snapshotName
 		return &output.DBClusterSnapshots[0], nil
 	}
 }
-
-
-
 ```
++  For API details, see [DescribeDBClusterSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeDBClusterSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusterSnapshots")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     public static void waitForSnapshotReady(RdsClient rdsClient, String dbSnapshotIdentifier,
@@ -186,23 +154,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeDBClusterSnapshots](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
 suspend fun waitSnapshotReady(
@@ -238,23 +197,14 @@ suspend fun waitSnapshotReady(
     }
     println("The Snapshot is available!")
 }
-
-
 ```
++  For API details, see [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeDBClusterSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
 ```
 class AuroraWrapper:
@@ -297,15 +247,9 @@ class AuroraWrapper:
             raise
         else:
             return snapshot
-
-
-
 ```
++  For API details, see [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeDBClusterSnapshots](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterSnapshots.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

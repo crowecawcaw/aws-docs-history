@@ -1,146 +1,76 @@
+
+
 # High availability for Amazon Aurora
+<a name="Concepts.AuroraHighAvailability"></a>
 
-The Amazon Aurora architecture involves separation of storage and compute. Aurora includes some
-high availability features that apply to the data in your DB cluster. The data remains safe even
-if some or all of the DB instances in the cluster become unavailable. Other high availability
-features apply to the DB instances. These features help to make sure that one or more DB
-instances are ready to handle database requests from your application.
+ The Amazon Aurora architecture involves separation of storage and compute. Aurora includes some high availability features that apply to the data in your DB cluster. The data remains safe even if some or all of the DB instances in the cluster become unavailable. Other high availability features apply to the DB instances. These features help to make sure that one or more DB instances are ready to handle database requests from your application. 
 
-###### Topics
-
-- [High availability for Aurora data](#Concepts.AuroraHighAvailability.Data "#Concepts.AuroraHighAvailability.Data")
-- [High availability for Aurora DB instances](#Concepts.AuroraHighAvailability.Instances "#Concepts.AuroraHighAvailability.Instances")
-- [High availability across AWS Regions with Aurora global databases](#Concepts.AuroraHighAvailability.GlobalDB "#Concepts.AuroraHighAvailability.GlobalDB")
-- [Fault tolerance for an Aurora DB cluster](#Aurora.Managing.FaultTolerance "#Aurora.Managing.FaultTolerance")
-- [High availability with Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy "#Concepts.AuroraHighAvailability.Proxy")
+**Topics**
++ [High availability for Aurora data](#Concepts.AuroraHighAvailability.Data)
++ [High availability for Aurora DB instances](#Concepts.AuroraHighAvailability.Instances)
++ [High availability across AWS Regions with Aurora global databases](#Concepts.AuroraHighAvailability.GlobalDB)
++ [Fault tolerance for an Aurora DB cluster](#Aurora.Managing.FaultTolerance)
++ [High availability with Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy)
 
 ## High availability for Aurora data
+<a name="Concepts.AuroraHighAvailability.Data"></a>
 
-Aurora stores copies of the data in a DB cluster across multiple Availability Zones in a
-single AWS Region. Aurora stores these copies regardless of whether the instances in the DB
-cluster span multiple Availability Zones. For more information on Aurora, see [Managing an Amazon Aurora DB cluster](CHAP_Aurora.md "CHAP_Aurora.md").
+Aurora stores copies of the data in a DB cluster across multiple Availability Zones in a single AWS Region. Aurora stores these copies regardless of whether the instances in the DB cluster span multiple Availability Zones. For more information on Aurora, see [Managing an Amazon Aurora DB cluster](CHAP_Aurora.md). 
 
-When data is written to the primary DB instance, Aurora synchronously replicates the data
-across Availability Zones to six storage nodes associated with your cluster volume. Doing so
-provides data redundancy, eliminates I/O freezes, and minimizes latency spikes during system
-backups. Running a DB instance with high availability can enhance availability during planned
-system maintenance, and help protect your databases against failure and Availability Zone
-disruption. For more information on Availability Zones, see [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
+When data is written to the primary DB instance, Aurora synchronously replicates the data across Availability Zones to six storage nodes associated with your cluster volume. Doing so provides data redundancy, eliminates I/O freezes, and minimizes latency spikes during system backups. Running a DB instance with high availability can enhance availability during planned system maintenance, and help protect your databases against failure and Availability Zone disruption. For more information on Availability Zones, see [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md).
 
 ## High availability for Aurora DB instances
+<a name="Concepts.AuroraHighAvailability.Instances"></a>
 
-After you create the primary (writer) instance, you can create up to 15
-read-only Aurora Replicas. The Aurora Replicas are also known as reader instances. Aurora
-Replicas use asynchronous replication to support high availability without affecting primary
-instance performance.
+After you create the primary (writer) instance, you can create up to 15 read-only Aurora Replicas. The Aurora Replicas are also known as reader instances. Aurora Replicas use asynchronous replication to support high availability without affecting primary instance performance.
 
-During day-to-day operations, you can offload some of the work for read-intensive
-applications by using the reader instances to process `SELECT` queries. When a
-problem affects the primary instance, one of these reader instances takes over as the primary
-instance. This mechanism is known as _failover_. Many Aurora features apply
-to the failover mechanism. For example, Aurora detects database problems and activates the
-failover mechanism automatically when necessary. Aurora also has features that reduce the time
-for failover to complete. Doing so minimizes the time that the database is unavailable for
-writing during a failover.
+During day-to-day operations, you can offload some of the work for read-intensive applications by using the reader instances to process `SELECT` queries. When a problem affects the primary instance, one of these reader instances takes over as the primary instance. This mechanism is known as *failover*. Many Aurora features apply to the failover mechanism. For example, Aurora detects database problems and activates the failover mechanism automatically when necessary. Aurora also has features that reduce the time for failover to complete. Doing so minimizes the time that the database is unavailable for writing during a failover.
 
-Aurora is designed to recover as quickly as possible, and the fastest path to recovery is
-often to restart or to fail over to the same DB instance. Restarting is faster and involves
-less overhead than failover.
+Aurora is designed to recover as quickly as possible, and the fastest path to recovery is often to restart or to fail over to the same DB instance. Restarting is faster and involves less overhead than failover.
 
-To use a connection string that stays the same even when a failover promotes a new primary
-instance, you connect to the cluster endpoint. The _cluster
-endpoint_ always represents the current primary instance in the cluster. For more
-information about the cluster endpoint, see [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md "Aurora.Overview.Endpoints.md").
+To use a connection string that stays the same even when a failover promotes a new primary instance, you connect to the cluster endpoint. The *cluster endpoint* always represents the current primary instance in the cluster. For more information about the cluster endpoint, see [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md).
 
-###### Tip
-
-Within each AWS Region, Availability Zones (AZs) represent locations that are distinct
-from each other to provide isolation in case of outages. We recommend that you distribute
-the primary instance and reader instances in your DB cluster over multiple AZs to improve
-the availability of your DB cluster. That way, an issue that affects an entire AZ
-doesn't cause an outage for your cluster.
-
-You can set up a Multi-AZ DB cluster by making a simple choice when you create the
-cluster. You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API. You can also convert an
-existing Aurora DB cluster into a Multi-AZ DB cluster by adding a new reader DB instance and
-specifying a different AZ.
+**Tip**  
+Within each AWS Region, Availability Zones (AZs) represent locations that are distinct from each other to provide isolation in case of outages. We recommend that you distribute the primary instance and reader instances in your DB cluster over multiple AZs to improve the availability of your DB cluster. That way, an issue that affects an entire AZ doesn't cause an outage for your cluster.  
+You can set up a Multi-AZ DB cluster by making a simple choice when you create the cluster. You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API. You can also convert an existing Aurora DB cluster into a Multi-AZ DB cluster by adding a new reader DB instance and specifying a different AZ.
 
 ## High availability across AWS Regions with Aurora global databases
+<a name="Concepts.AuroraHighAvailability.GlobalDB"></a>
 
-For high availability across multiple AWS Regions, you can set up Aurora global
-databases. Each Aurora global database spans multiple AWS Regions, enabling low latency
-global reads and disaster recovery from outages across an AWS Region. Aurora asynchronously
-replicates all data and updates from the primary AWS Region to each of the secondary
-Regions. For more information, see [Using Amazon Aurora Global Database](aurora-global-database.md "aurora-global-database.md").
+For high availability across multiple AWS Regions, you can set up Aurora global databases. Each Aurora global database spans multiple AWS Regions, enabling low latency global reads and disaster recovery from outages across an AWS Region. Aurora asynchronously replicates all data and updates from the primary AWS Region to each of the secondary Regions. For more information, see [Using Amazon Aurora Global Database](aurora-global-database.md).
 
 ## Fault tolerance for an Aurora DB cluster
+<a name="Aurora.Managing.FaultTolerance"></a>
 
-An Aurora DB cluster is fault tolerant by design. The cluster volume spans multiple
-Availability Zones (AZs) in a single AWS Region, and each Availability Zone contains a copy
-of the cluster volume data. This functionality means that your DB cluster can tolerate a
-failure of an Availability Zone without any loss of data and only a brief interruption of
-service.
+An Aurora DB cluster is fault tolerant by design. The cluster volume spans multiple Availability Zones (AZs) in a single AWS Region, and each Availability Zone contains a copy of the cluster volume data. This functionality means that your DB cluster can tolerate a failure of an Availability Zone without any loss of data and only a brief interruption of service.
 
-If the primary instance in a DB cluster fails, Aurora automatically fails over to a new primary instance in one of two
-ways:
+If the primary instance in a DB cluster fails, Aurora automatically fails over to a new primary instance in one of two ways:
++ By promoting an existing Aurora Replica to the new primary instance
++ By creating a new primary instance
 
-- By promoting an existing Aurora Replica to the new primary instance
-- By creating a new primary instance
+If the DB cluster has one or more Aurora Replicas, then an Aurora Replica is promoted to the primary instance during a failure event. A failure event results in a brief interruption, during which read and write operations fail with an exception. However, service is typically restored in less than 60 seconds, and often less than 30 seconds. To increase the availability of your DB cluster, we recommend that you create at least one or more Aurora Replicas in two or more different Availability Zones.
 
-If the DB cluster has one or more Aurora Replicas, then an Aurora Replica is promoted to the primary instance during a failure
-event. A failure event results in a brief interruption, during which read and write operations fail with an exception. However,
-service is typically restored in less than 60 seconds, and often less than 30 seconds. To increase the availability of your DB
-cluster, we recommend that you create at least one or more Aurora Replicas in two or more different Availability Zones.
+**Tip**  
+In Aurora MySQL, you can improve availability during a failover by having more than one reader DB instance in a cluster. In Aurora MySQL, Aurora restarts only the writer DB instance and the reader instance to which it fails over. Other reader instances in the cluster remain available during a failover to continue processing queries through connections to the reader endpoint.  
+You can also improve availability during a failover by using RDS Proxy with your Aurora DB cluster. For more information, see [High availability with Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy).
 
-###### Tip
+You can customize the order in which your Aurora Replicas are promoted to the primary instance after a failure by assigning each replica a priority. Priorities range from 0 for the highest priority to 15 for the lowest priority. If the primary instance fails, Amazon RDS promotes the Aurora Replica with the highest priority to the new primary instance. You can modify the priority of an Aurora Replica at any time. Modifying the priority doesn't trigger a failover.
 
-In Aurora MySQL, you can improve availability during a failover by having more than one reader DB instance in a cluster. In Aurora MySQL, Aurora
-restarts only the writer DB instance and the reader instance to which it fails over. Other reader instances in the cluster remain available during a
-failover to continue processing queries through connections to the reader endpoint.
+More than one Aurora Replica can share the same priority, resulting in promotion tiers. If two or more Aurora Replicas share the same priority, then Amazon RDS promotes the replica that is largest in size. If two or more Aurora Replicas share the same priority and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.
 
-You can also improve availability during a failover by using RDS Proxy with your Aurora DB cluster. For more information,
-see [High availability with Amazon RDS Proxy](#Concepts.AuroraHighAvailability.Proxy "#Concepts.AuroraHighAvailability.Proxy").
+**Note**  
+Several factors are involved in identifying a failover target. After five unsuccessful failover attempts, promotion tiers are no longer considered.
 
-You can customize the order in which your Aurora Replicas are promoted to the primary instance after a failure by assigning each
-replica a priority. Priorities range from 0 for the highest priority to 15 for the lowest priority. If the primary instance fails,
-Amazon RDS promotes the Aurora Replica with the highest priority to the new primary instance. You can modify the priority of an Aurora
-Replica at any time. Modifying the priority doesn't trigger a failover.
+If the DB cluster doesn't contain any Aurora Replicas, then the primary instance is recreated in the same AZ during a failure event. A failure event results in an interruption during which read and write operations fail with an exception. Service is restored when the new primary instance is created, which typically takes less than 10 minutes. Promoting an Aurora Replica to the primary instance is much faster than creating a new primary instance.
 
-More than one Aurora Replica can share the same priority, resulting in promotion tiers. If two or more Aurora Replicas share the
-same priority, then Amazon RDS promotes the replica that is largest in size. If two or more Aurora Replicas share the same priority
-and size, then Amazon RDS promotes an arbitrary replica in the same promotion tier.
+Suppose that the primary instance in your cluster is unavailable because of an outage that affects an entire AZ. In this case, the way to bring a new primary instance online depends on whether your cluster uses a Multi-AZ configuration:
++ If your provisioned or Aurora serverless cluster contains any reader instances in other AZs, Aurora uses the failover mechanism to promote one of those reader instances to be the new primary instance.
++ If your provisioned or Aurora serverless cluster only contains a single DB instance, or if the primary instance and all reader instances are in the same AZ, make sure to manually create one or more new DB instances in another AZ.
 
-###### Note
-
-Several factors are involved in identifying a failover target. After five unsuccessful failover attempts, promotion tiers are no longer
-considered.
-
-If the DB cluster doesn't contain any Aurora Replicas, then the primary instance is
-recreated in the same AZ during a failure event. A failure event results in an interruption during
-which read and write operations fail with an exception. Service is restored when the new
-primary instance is created, which typically takes less than 10 minutes. Promoting an
-Aurora Replica to the primary instance is much faster than creating a new primary
-instance.
-
-Suppose that the primary instance in your cluster is unavailable because of an outage that affects an entire AZ. In this case,
-the way to bring a new primary instance online depends on whether your cluster uses a Multi-AZ configuration:
-
-- If your provisioned or Aurora serverless cluster contains any reader instances in other AZs, Aurora uses the failover
-  mechanism to promote one of those reader instances to be the new primary instance.
-- If your provisioned or Aurora serverless cluster only contains a single DB instance, or if the primary instance and all
-  reader instances are in the same AZ, make sure to manually create one or more new DB instances in another AZ.
-
-###### Note
-
-Amazon Aurora also supports replication with an external MySQL database, or an RDS MySQL DB instance. For more information, see
-[Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.MySQL.md "AuroraMySQL.Replication.MySQL.md").
+**Note**  
+Amazon Aurora also supports replication with an external MySQL database, or an RDS MySQL DB instance. For more information, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)](AuroraMySQL.Replication.MySQL.md).
 
 ## High availability with Amazon RDS Proxy
+<a name="Concepts.AuroraHighAvailability.Proxy"></a>
 
-With RDS Proxy, you can build applications that can transparently tolerate database failures
-without needing to write complex failure handling code. The proxy automatically routes traffic
-to a new database instance while preserving application connections. It also bypasses Domain
-Name System (DNS) caches to reduce failover times by up to 66% for Aurora
-Multi-AZ databases.
-
-For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+With RDS Proxy, you can build applications that can transparently tolerate database failures without needing to write complex failure handling code. The proxy automatically routes traffic to a new database instance while preserving application connections. It also bypasses Domain Name System (DNS) caches to reduce failover times by up to 66% for Aurora Multi-AZ databases. For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md). 

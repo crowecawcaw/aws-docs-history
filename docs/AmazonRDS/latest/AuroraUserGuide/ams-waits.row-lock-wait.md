@@ -1,50 +1,49 @@
-# synch/cond/innodb/row\_lock\_wait
 
-The `synch/cond/innodb/row_lock_wait` event occurs when one session has locked a row for an update, and another session tries to update the
-same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html") in the MySQL
-documentation.
+
+# synch/cond/innodb/row\_lock\_wait
+<a name="ams-waits.row-lock-wait"></a>
+
+The `synch/cond/innodb/row_lock_wait` event occurs when one session has locked a row for an update, and another session tries to update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html) in the MySQL documentation.
+
+
 
 ## Supported engine versions
+<a name="ams-waits.row-lock-wait.versions"></a>
 
 This wait event information is supported for the following engine versions:
-
-- Aurora MySQL version 3
++ Aurora MySQL version 3
 
 ## Likely causes of increased waits
+<a name="ams-waits.row-lock-wait.causes"></a>
 
-Multiple data manipulation language (DML) statements are accessing the same row or
-rows simultaneously.
+Multiple data manipulation language (DML) statements are accessing the same row or rows simultaneously.
 
 ## Actions
+<a name="ams-waits.row-lock-wait.actions"></a>
 
 We recommend different actions depending on the other wait events that you see.
 
-###### Topics
-
-- [Find and respond to the SQL statements responsible for this wait event](#ams-waits.row-lock-wait.actions.id "#ams-waits.row-lock-wait.actions.id")
-- [Find and respond to the blocking session](#ams-waits.row-lock-wait.actions.blocker "#ams-waits.row-lock-wait.actions.blocker")
+**Topics**
++ [Find and respond to the SQL statements responsible for this wait event](#ams-waits.row-lock-wait.actions.id)
++ [Find and respond to the blocking session](#ams-waits.row-lock-wait.actions.blocker)
 
 ### Find and respond to the SQL statements responsible for this wait event
+<a name="ams-waits.row-lock-wait.actions.id"></a>
 
-Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
-the following strategies:
+Use Performance Insights to identify the SQL statements responsible for this wait event. Consider the following strategies:
++ If row locks are a persistent problem, consider rewriting the application to use optimistic locking.
++ Use multirow statements.
++ Spread the workload over different database objects. You can do this through partitioning.
++ Check the value of the `innodb_lock_wait_timeout` parameter. It controls how long transactions wait before generating a timeout error.
 
-- If row locks are a persistent problem, consider rewriting the application to use optimistic
-  locking.
-- Use multirow statements.
-- Spread the workload over different database objects. You can do this through partitioning.
-- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
-  long transactions wait before generating a timeout error.
-
-For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/).
 
 ### Find and respond to the blocking session
+<a name="ams-waits.row-lock-wait.actions.blocker"></a>
 
-Determine whether the blocking session is idle or active. Also, find out whether the session comes
-from an application or an active user.
+Determine whether the blocking session is idle or active. Also, find out whether the session comes from an application or an active user.
 
-To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
-following example shows sample output.
+To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The following example shows sample output.
 
 ```
 mysql> SHOW ENGINE INNODB STATUS;
@@ -108,10 +107,7 @@ blocker_host: 123.456.789.012:18156
 ```
 
 When you identify the session, your options include the following:
++ Contact the application owner or the user.
++ If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback. To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md).
 
-- Contact the application owner or the user.
-- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
-  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
-
-For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
-information](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-examples.html") in the MySQL documentation.
+For more information about identifying blocking transactions, see [Using InnoDB transaction and locking information](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-examples.html) in the MySQL documentation.

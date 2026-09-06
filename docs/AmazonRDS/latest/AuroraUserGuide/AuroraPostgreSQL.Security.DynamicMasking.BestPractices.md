@@ -1,26 +1,22 @@
+
+
 # Best practices for secure pg\_columnmask implementation
+<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices"></a>
 
-The following section provides security best practices for implementing `pg_columnmask` in your Aurora PostgreSQL environment.
-Follow these recommendations to:
-
-- Establish a secure role-based access control architecture
-- Develop masking functions that prevent security vulnerabilities
-- Understand and control trigger behavior with masked data
+The following section provides security best practices for implementing `pg_columnmask` in your Aurora PostgreSQL environment. Follow these recommendations to:
++ Establish a secure role-based access control architecture
++ Develop masking functions that prevent security vulnerabilities
++ Understand and control trigger behavior with masked data
 
 ## Role-based security architecture
+<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.architecture"></a>
 
-Define a role hierarchy to implement access controls in your database. Aurora PostgreSQL `pg_columnmask` augments these
-controls by providing an additional layer for fine-grained data masking within those roles.
+Define a role hierarchy to implement access controls in your database. Aurora PostgreSQL `pg_columnmask` augments these controls by providing an additional layer for fine-grained data masking within those roles.
 
-Create dedicated roles that align with organizational functions rather than granting permissions to individual users.
-This approach provides better auditability and simplifies permission management as your organizational structure evolves.
+Create dedicated roles that align with organizational functions rather than granting permissions to individual users. This approach provides better auditability and simplifies permission management as your organizational structure evolves.
 
-###### Example of creating an organzational role heirarchy
-
-The following example creates an organizational role hierarchy with dedicated roles for different functions,
-then assigns individual users to the appropriate roles. In this example, organizational roles
-(analyst\_role, support\_role) are created first, then individual users are granted membership in these roles.
-This structure allows you to manage permissions at the role level rather than for each individual user.
+**Example of creating an organzational role heirarchy**  
+The following example creates an organizational role hierarchy with dedicated roles for different functions, then assigns individual users to the appropriate roles. In this example, organizational roles (analyst\_role, support\_role) are created first, then individual users are granted membership in these roles. This structure allows you to manage permissions at the role level rather than for each individual user.  
 
 ```
 -- Create organizational role hierarchy
@@ -42,9 +38,7 @@ GRANT security_admin_role TO security_manager;
 GRANT analyst_role TO data_analyst1, data_analyst2;
 GRANT support_role TO support_agent1, support_agent2;
 ```
-
-Implement the principle of least privilege by granting only the minimum permissions
-necessary for each role. Avoid granting broad permissions that could be exploited if credentials are compromised.
+Implement the principle of least privilege by granting only the minimum permissions necessary for each role. Avoid granting broad permissions that could be exploited if credentials are compromised.  
 
 ```
 -- Grant specific table permissions rather than schema-wide access
@@ -52,23 +46,14 @@ GRANT SELECT ON sensitive_data.customers TO analyst_role;
 GRANT SELECT ON sensitive_data.transactions TO analyst_role;
 -- Do not grant: GRANT ALL ON SCHEMA sensitive_data TO analyst_role;
 ```
-
-Policy administrators require `USAGE` privileges on schemas where they manage masking policies.
-Grant these privileges selectively, following the principle of least privilege.
-Conduct regular reviews of schema access permissions to ensure only authorized personnel maintain policy management capabilities.
-
-The policy admin role parameter configuration is restricted to database administrators only.
-This parameter cannot be modified at the database or session level, preventing unprivileged users from
-overriding policy admin assignments. This restriction ensures that masking policy control remains centralized and secure.
-
-Assign the policy admin role to specific individuals rather than groups. This targeted approach ensures selective access to
-masking policy management, as policy administrators have the ability to mask all tables within the database.
+Policy administrators require `USAGE` privileges on schemas where they manage masking policies. Grant these privileges selectively, following the principle of least privilege. Conduct regular reviews of schema access permissions to ensure only authorized personnel maintain policy management capabilities.  
+The policy admin role parameter configuration is restricted to database administrators only. This parameter cannot be modified at the database or session level, preventing unprivileged users from overriding policy admin assignments. This restriction ensures that masking policy control remains centralized and secure.  
+Assign the policy admin role to specific individuals rather than groups. This targeted approach ensures selective access to masking policy management, as policy administrators have the ability to mask all tables within the database. 
 
 ## Secure masking function development
+<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.MaskingDevelopment"></a>
 
-Develop masking functions using early binding semantics to ensure proper dependency tracking and prevent late binding
-vulnerabilities such as search path modification during runtime. It is recommended to use `BEGIN ATOMIC`
-syntax for SQL functions to enable compile-time validation (i.e. early binding) and dependency management.
+Develop masking functions using early binding semantics to ensure proper dependency tracking and prevent late binding vulnerabilities such as search path modification during runtime. It is recommended to use `BEGIN ATOMIC` syntax for SQL functions to enable compile-time validation (i.e. early binding) and dependency management.
 
 ```
 -- Example - Secure masking function with early binding
@@ -85,8 +70,7 @@ CREATE OR REPLACE FUNCTION secure_mask_ssn(input_ssn TEXT)
     END;
 ```
 
-Alternatively, create functions that are immune to search path changes by explicitly schema qualifying
-all object references, ensuring consistent behavior across different user sessions.
+Alternatively, create functions that are immune to search path changes by explicitly schema qualifying all object references, ensuring consistent behavior across different user sessions.
 
 ```
 -- Function immune to search path changes
@@ -107,8 +91,7 @@ CREATE OR REPLACE FUNCTION data_masking.secure_phone_mask(phone_number TEXT)
     $$;
 ```
 
-Implement input validation within masking functions to handle edge cases and prevent unexpected behavior.
-Always include NULL handling and validate input formats to ensure consistent masking behavior.
+Implement input validation within masking functions to handle edge cases and prevent unexpected behavior. Always include NULL handling and validate input formats to ensure consistent masking behavior. 
 
 ```
 -- Robust masking function with comprehensive input validation
@@ -127,18 +110,13 @@ CREATE OR REPLACE FUNCTION secure_mask_phone(phone_number TEXT)
 ```
 
 ## DML Triggers behavior with pg\_columnmask
+<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.DMLTriggerBehavior"></a>
 
-For table triggers, transition tables will be fully unmasked. For view triggers(IOT),
-transition tables will be masked according to the current user's view permissions.
+For table triggers, transition tables will be fully unmasked. For view triggers(IOT), transition tables will be masked according to the current user's view permissions.
 
-Table triggers with pg\_columnmask
-Triggers are passed a transition table which contains the old and new version of the rows modified
-by the firing DML query. Depending upon when the trigger is fired, Aurora PostgreSQL populates the old and new rows.
-For example, a `BEFORE INSERT` trigger only has new versions of the rows and empty old versions because there is no old version to refer.
-
-`pg_columnmask` does not mask transition tables inside triggers on tables.
-Triggers can use masked columns inside their body and it sees unmasked data.
-The trigger creator should make sure how the trigger gets executed for an user. The following example works correctly in this case.
+Table triggers with pg\_columnmask  
+Triggers are passed a transition table which contains the old and new version of the rows modified by the firing DML query. Depending upon when the trigger is fired, Aurora PostgreSQL populates the old and new rows. For example, a `BEFORE INSERT` trigger only has new versions of the rows and empty old versions because there is no old version to refer.  
+`pg_columnmask` does not mask transition tables inside triggers on tables. Triggers can use masked columns inside their body and it sees unmasked data. The trigger creator should make sure how the trigger gets executed for an user. The following example works correctly in this case.  
 
 ```
 -- Example for table trigger uses masked column in its definition
@@ -201,7 +179,7 @@ BEGIN;
 SET ROLE intern_user;
 -- credit card number & is_fraud is completely masked from intern_user
 SELECT * FROM public.credit_card_table;
-    name    |  credit_card_no  | is_fraud
+    name    |  credit_card_no  | is_fraud 
 ------------+------------------+----------
  John Doe   | XXXXXXXXXXXXXXXX | f
  Jane Smith | XXXXXXXXXXXXXXXX | f
@@ -212,19 +190,15 @@ SELECT * FROM public.credit_card_table;
 -- intern_user sees their is_fraud = false, but the table trigger works with original
 -- unmasked value
 DELETE FROM public.credit_card_table RETURNING *;
-    name    |  credit_card_no  | is_fraud
+    name    |  credit_card_no  | is_fraud 
 ------------+------------------+----------
  Jane Smith | XXXXXXXXXXXXXXXX | f
  Brad Smith | XXXXXXXXXXXXXXXX | f
 (2 rows)
 
 COMMIT;
-
-
 ```
-
-Trigger creator leaks unmasked data to user if they are not careful about the statements they use
-in their trigger body. For example using a `RAISE NOTICE ‘%’, masked_column;` prints the column to current user.
+Trigger creator leaks unmasked data to user if they are not careful about the statements they use in their trigger body. For example using a `RAISE NOTICE ‘%’, masked_column;` prints the column to current user.  
 
 ```
 -- Example showing table trigger leaking column value to current user
@@ -273,16 +247,8 @@ NOTICE:  Old credit_card_no was: 4532015112830366
 NOTICE:  New credit_card_no is 4532015112830366
 ```
 
-Triggers on views with pg\_columnmask (Instead of triggers)
-Triggers can only be created on views in PostgreSQL.
-They are used for running DML statements on views that are not updatable.
-Transit tables are always masked inside instead of trigger (IOT), because
-the view and the base tables used inside the view query could have different owners.
-In which case, base tables might have some masking policies applicable
-on the view owner and the view owner must always see masked data from
-base tables inside its triggers. This is different from triggers on tables
-because in that case the trigger creator and the data inside the tables are
-owned by the same user which is not the case here.
+Triggers on views with pg\_columnmask (Instead of triggers)  
+Triggers can only be created on views in PostgreSQL. They are used for running DML statements on views that are not updatable. Transit tables are always masked inside instead of trigger (IOT), because the view and the base tables used inside the view query could have different owners. In which case, base tables might have some masking policies applicable on the view owner and the view owner must always see masked data from base tables inside its triggers. This is different from triggers on tables because in that case the trigger creator and the data inside the tables are owned by the same user which is not the case here.  
 
 ```
 -- Create a view over credit card table
@@ -304,10 +270,10 @@ CREATE OR REPLACE FUNCTION public.print_changes()
     BEGIN
         RAISE NOTICE 'Old row: name=%, credit card number=%, is fraud=%',
             OLD.name, OLD.credit_card_no, OLD.is_fraud;
-
+    
         RAISE NOTICE 'New row: name=%, credit card number=%, is fraud=%',
             NEW.name, NEW.credit_card_no, NEW.is_fraud;
-
+    
     RETURN NEW;
    END;
    $$ LANGUAGE plpgsql;
@@ -334,12 +300,12 @@ NOTICE:  Old row: name=Jane Smith, credit card number=XXXXXXXXXXXXXXXX, is fraud
 NOTICE:  New row: name=Jane Smith_new_name, credit card number=XXXXXXXXXXXXXXXX, is fraud=f
 NOTICE:  Old row: name=Brad Smith, credit card number=XXXXXXXXXXXXXXXX, is fraud=f
 NOTICE:  New row: name=Brad Smith_new_name, credit card number=XXXXXXXXXXXXXXXX, is fraud=f
-        name         |  credit_card_no  | is_fraud
+        name         |  credit_card_no  | is_fraud 
 ---------------------+------------------+----------
  John Doe_new_name   | XXXXXXXXXXXXXXXX | f
  Jane Smith_new_name | XXXXXXXXXXXXXXXX | f
  Brad Smith_new_name | XXXXXXXXXXXXXXXX | f
-
+ 
  -- Any new data going into the table using INSERT or UPDATE command will be unmasked
  UPDATE public.credit_card_view
     SET credit_card_no = '9876987698769876'
@@ -350,39 +316,28 @@ NOTICE:  Old row: name=Jane Smith, credit card number=XXXXXXXXXXXXXXXX, is fraud
 NOTICE:  New row: name=Jane Smith, credit card number=9876987698769876, is fraud=f
 NOTICE:  Old row: name=Brad Smith, credit card number=XXXXXXXXXXXXXXXX, is fraud=f
 NOTICE:  New row: name=Brad Smith, credit card number=9876987698769876, is fraud=f
-    name    |  credit_card_no  | is_fraud
+    name    |  credit_card_no  | is_fraud 
 ------------+------------------+----------
  John Doe   | 9876987698769876 | f
  Jane Smith | 9876987698769876 | f
  Brad Smith | 9876987698769876 | f
-
+ 
  COMMIT;
 ```
 
-Database/User level GuCs to control triggers behavior
-Two configuration parameters control trigger execution behavior for
-users with applicable masking policies. Use these parameters to prevent triggers
-from executing on masked tables or views when additional security restrictions are required.
-Both parameters are disabled by default, allowing triggers to execute normally.
-
-**First GUC: Trigger firing restriction on masked tables**
-
-Specifications:
-
-- Name: `pgcolumnmask.restrict_dml_triggers_for_masked_users`
-- Type: `boolean`
-- Default: `false` (triggers are allowed to be executed)
-
-Prevents trigger execution on masked tables for masked users when set to TRUE. `pg_columnmask` runs through the error.
-
-**Second GUC: Trigger firing restriction on views with masked tables**
-
-Specifications:
-
-- Name: `pgcolumnmask.restrict_iot_triggers_for_masked_users`
-- Type: `boolean`
-- Default: `false` (triggers are allowed to be executed)
-
+Database/User level GuCs to control triggers behavior  
+Two configuration parameters control trigger execution behavior for users with applicable masking policies. Use these parameters to prevent triggers from executing on masked tables or views when additional security restrictions are required. Both parameters are disabled by default, allowing triggers to execute normally.  
+**First GUC: Trigger firing restriction on masked tables**  
+Specifications:  
++ Name: `pgcolumnmask.restrict_dml_triggers_for_masked_users`
++ Type: `boolean`
++ Default: `false` (triggers are allowed to be executed)
+Prevents trigger execution on masked tables for masked users when set to TRUE. `pg_columnmask` runs through the error.  
+**Second GUC: Trigger firing restriction on views with masked tables**  
+Specifications:  
++ Name: `pgcolumnmask.restrict_iot_triggers_for_masked_users`
++ Type: `boolean`
++ Default: `false` (triggers are allowed to be executed)
 Prevents trigger execution on views that include masked tables in their definition for masked users when set to TRUE.
 
 These parameters operate independently and are configurable like standard database configuration parameters.

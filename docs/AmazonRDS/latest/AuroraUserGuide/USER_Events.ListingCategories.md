@@ -1,20 +1,32 @@
+
+
 # Listing the Amazon RDS event notification categories
+<a name="USER_Events.ListingCategories"></a>
 
-All events for a resource type are grouped into categories. To view the list of categories available, use the
-following procedures.
+All events for a resource type are grouped into categories. To view the list of categories available, use the following procedures.
 
-When you create or modify an event notification subscription, the event categories are displayed in the
-Amazon RDS console. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md "USER_Events.Modifying.md").
+## Console
+<a name="USER_Events.ListingCategories.Console"></a>
 
-![List DB event notification categories.](images/EventNotification-Categories.png)
-To list the Amazon RDS event notification categories, use the AWS CLI [`describe-event-categories`](../../../cli/latest/reference/rds/describe-event-categories.md "../../../cli/latest/reference/rds/describe-event-categories.md")
-command. This command has no required parameters.
+When you create or modify an event notification subscription, the event categories are displayed in the Amazon RDS console. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md). 
 
-###### Example
+![List DB event notification categories.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/EventNotification-Categories.png)
+
+
+
+
+## AWS CLI
+<a name="USER_Events.ListingCategories.CLI"></a>
+
+To list the Amazon RDS event notification categories, use the AWS CLI [`describe-event-categories`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-event-categories.html) command. This command has no required parameters.
+
+**Example**  
 
 ```
 aws rds describe-event-categories
 ```
 
-To list the Amazon RDS event notification categories, use the Amazon RDS API [`DescribeEventCategories`](../APIReference/API_DescribeEventCategories.md "../APIReference/API_DescribeEventCategories.md")
-command. This command has no required parameters.
+## API
+<a name="USER_Events.ListingCategories.API"></a>
+
+To list the Amazon RDS event notification categories, use the Amazon RDS API [`DescribeEventCategories`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html) command. This command has no required parameters.

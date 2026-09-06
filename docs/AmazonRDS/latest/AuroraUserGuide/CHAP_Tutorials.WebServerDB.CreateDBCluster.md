@@ -1,170 +1,128 @@
+
+
 # Create an Amazon Aurora DB cluster
+<a name="CHAP_Tutorials.WebServerDB.CreateDBCluster"></a>
 
-Create an Amazon Aurora MySQL or Aurora PostgreSQL DB cluster that maintains the data used by a
-web application.
+Create an Amazon Aurora MySQL or Aurora PostgreSQL DB cluster that maintains the data used by a web application.
 
-Aurora MySQL
+------
+#### [ Aurora MySQL ]
 
-###### To create an Aurora MySQL DB cluster
+**To create an Aurora MySQL DB cluster**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the AWS Management Console, make sure the
-   AWS Region is the same as the one where you created your EC2
-   instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose **Aurora
-   (MySQL Compatible)**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-![The engine type selection.](/images/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png)
+1. In the AWS Management Console, make sure the AWS Region is the same as the one where you created your EC2 instance.
 
-Keep the default values for **Version** and the
-other engine options. 7. In the **Templates** section, choose
-**Dev/Test**.
+1. In the navigation pane, choose **Databases**.
 
-![The template selection.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
-values:
+1. Choose **Create database**.
 
-    * **DB cluster identifier** – Type
-     `tutorial-db-cluster`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password** –
-     Leave the option turned off.
-    * **Master password** – Type a
-     password.
-    * **Confirm password** – Retype the
-     password.
+1. On the **Create database** page, choose **Standard create**.
 
-![Settings sections.](images/Tutorial_WebServer_Settings-Aurora.png) 9. In the **Instance configuration** section, set
-these values:
+1. For **Engine options**, choose **Aurora (MySQL Compatible)**.  
+![The engine type selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png)
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.small** or
-     **db.t3.medium**
+   Keep the default values for **Version** and the other engine options.
 
+1. In the **Templates** section, choose **Dev/Test**.  
+![The template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tutorial-create-template-2.png)
 
-    ###### Note
+1. In the **Settings** section, set these values:
+   + **DB cluster identifier** – Type **tutorial-db-cluster**.
+   + **Master username** – Type **tutorial\_user**.
+   + **Auto generate a password** – Leave the option turned off.
+   + **Master password** – Type a password.
+   + **Confirm password** – Retype the password.  
+![Settings sections.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Settings-Aurora.png)
 
-    We recommend using the T DB instance classes only for
-     development and test servers, or other non-production
-     servers. For more details on the T instance classes, see
-     [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
+1. In the **Instance configuration** section, set these values:
+   + **Burstable classes (includes t classes)**
+   + **db.t3.small** or **db.t3.medium**
+**Note**  
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).  
+![Instance configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_DB_instance_small_aurora.png)
 
-![Instance configuration section.](images/Tutorial_WebServer_DB_instance_small_aurora.png) 10. In the **Availability and durability** section,
-use the default values. 11. In the **Connectivity** section, set these values
-and keep the other values as their defaults:
+1. In the **Availability and durability** section, use the default values.
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the EC2
-     instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+1. In the **Connectivity** section, set these values and keep the other values as their defaults:
+   + For **Compute resource**, choose **Connect to an EC2 compute resource**.
+   + For **EC2 instance**, choose the EC2 instance you created previously, such as **tutorial-ec2-instance-web-server**.  
+![Connectivity section.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Connectivity.png)
 
-![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 12. Open the **Additional configuration** section,
-and enter `sample` for **Initial
-database name**. Keep the default settings for the
-other options. 13. To create your Aurora MySQL DB cluster, choose **Create
-database**.
+1. Open the **Additional configuration** section, and enter **sample** for **Initial database name**. Keep the default settings for the other options.
 
-Your new DB cluster appears in the **Databases**
-list with the status **Creating**. 14. Wait for the **Status** of your new DB cluster to
-show as **Available**. Then choose the DB cluster
-name to show its details. 15. In the **Connectivity & security** section,
-view the **Endpoint** and **Port**
-of the writer DB instance.
+1. To create your Aurora MySQL DB cluster, choose **Create database**.
 
-![DB cluster details.](images/Tutorial_WebServer_Endpoint_Port_Aurora.png)
+   Your new DB cluster appears in the **Databases** list with the status **Creating**.
 
-Note the endpoint and port for your writer DB instance. You use
-this information to connect your web server to your DB
-cluster. 16. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md").
+1. Wait for the **Status** of your new DB cluster to show as **Available**. Then choose the DB cluster name to show its details.
 
-Aurora PostgreSQL
+1. In the **Connectivity & security** section, view the **Endpoint** and **Port** of the writer DB instance.  
+![DB cluster details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Endpoint_Port_Aurora.png)
 
-###### To create an Aurora PostgreSQL DB cluster
+   Note the endpoint and port for your writer DB instance. You use this information to connect your web server to your DB cluster.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the AWS Management Console, make sure the
-   AWS Region is the same as the one where you created your EC2
-   instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose **Aurora
-   (PostgreSQL Compatible)**.
+1. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md).
 
-![The engine type and template selection.](images/aurora-engine-options-postgres.png)
+------
+#### [ Aurora PostgreSQL ]
 
-Keep the default values for **Version** and the
-other engine options. 7. In the **Templates** section, choose
-**Dev/Test**.
+**To create an Aurora PostgreSQL DB cluster**
 
-![The template selection.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
-values:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-    * **DB cluster identifier** – Type
-     `tutorial-db-cluster`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password** –
-     Leave the option turned off.
-    * **Master password** – Type a
-     password.
-    * **Confirm password** – Retype the
-     password.
+1. In the AWS Management Console, make sure the AWS Region is the same as the one where you created your EC2 instance.
 
-![Settings sections.](images/Tutorial_WebServer_Settings-Aurora.png) 9. In the **Instance configuration** section, set
-these values:
+1. In the navigation pane, choose **Databases**.
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.small** or
-     **db.t3.medium**
+1. Choose **Create database**.
 
+1. On the **Create database** page, choose **Standard create**.
 
-    ###### Note
+1. For **Engine options**, choose **Aurora (PostgreSQL Compatible)**.  
+![The engine type and template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-postgres.png)
 
-    We recommend using the T DB instance classes only for
-     development and test servers, or other non-production
-     servers. For more details on the T instance classes, see
-     [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
+   Keep the default values for **Version** and the other engine options.
 
-![Instance configuration section.](images/Tutorial_WebServer_DB_instance_small_aurora.png) 10. In the **Availability and durability** section,
-use the default values. 11. In the **Connectivity** section, set these values
-and keep the other values as their defaults:
+1. In the **Templates** section, choose **Dev/Test**.  
+![The template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tutorial-create-template-2.png)
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the EC2
-     instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+1. In the **Settings** section, set these values:
+   + **DB cluster identifier** – Type **tutorial-db-cluster**.
+   + **Master username** – Type **tutorial\_user**.
+   + **Auto generate a password** – Leave the option turned off.
+   + **Master password** – Type a password.
+   + **Confirm password** – Retype the password.  
+![Settings sections.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Settings-Aurora.png)
 
-![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 12. Open the **Additional configuration** section,
-and enter `sample` for **Initial
-database name**. Keep the default settings for the
-other options. 13. To create your Aurora PostgreSQL DB cluster, choose **Create
-database**.
+1. In the **Instance configuration** section, set these values:
+   + **Burstable classes (includes t classes)**
+   + **db.t3.small** or **db.t3.medium**
+**Note**  
+We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).  
+![Instance configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_DB_instance_small_aurora.png)
 
-Your new DB cluster appears in the **Databases**
-list with the status **Creating**. 14. Wait for the **Status** of your new DB cluster to
-show as **Available**. Then choose the DB cluster
-name to show its details. 15. In the **Connectivity & security** section,
-view the **Endpoint** and **Port**
-of the writer DB instance.
+1. In the **Availability and durability** section, use the default values.
 
-![DB cluster details.](images/Tutorial_WebServer_Endpoint_Port_APG.png)
+1. In the **Connectivity** section, set these values and keep the other values as their defaults:
+   + For **Compute resource**, choose **Connect to an EC2 compute resource**.
+   + For **EC2 instance**, choose the EC2 instance you created previously, such as **tutorial-ec2-instance-web-server**.  
+![Connectivity section.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Connectivity.png)
 
-Note the endpoint and port for your writer DB instance. You use
-this information to connect your web server to your DB
-cluster. 16. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md").
+1. Open the **Additional configuration** section, and enter **sample** for **Initial database name**. Keep the default settings for the other options.
+
+1. To create your Aurora PostgreSQL DB cluster, choose **Create database**.
+
+   Your new DB cluster appears in the **Databases** list with the status **Creating**.
+
+1. Wait for the **Status** of your new DB cluster to show as **Available**. Then choose the DB cluster name to show its details.
+
+1. In the **Connectivity & security** section, view the **Endpoint** and **Port** of the writer DB instance.  
+![DB cluster details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_Endpoint_Port_APG.png)
+
+   Note the endpoint and port for your writer DB instance. You use this information to connect your web server to your DB cluster.
+
+1. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md).
+
+------

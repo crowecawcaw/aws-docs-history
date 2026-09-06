@@ -1,15 +1,16 @@
+
+
 # Installing autovacuum monitoring and diagnostic tools in Aurora PostgreSQL
+<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Installation"></a>
 
-The `postgres_get_av_diag()` function is currently available in the following
-Aurora PostgreSQL versions:
+The `postgres_get_av_diag()` function is currently available in the following Aurora PostgreSQL versions:
++ 17.4 and higher 17 versions
++ 16.7 and higher 16 versions
++ 15.11 and higher 15 versions
++ 14.16 and higher 14 versions
++ 13.19 and higher 13 versions
 
-- 17.4 and higher 17 versions
-- 16.7 and higher 16 versions
-- 15.11 and higher 15 versions
-- 14.16 and higher 14 versions
-- 13.19 and higher 13 versions
-  In order to use `postgres_get_av_diag()`, create the `rds_tools`
-  extension.
+ In order to use `postgres_get_av_diag()`, create the `rds_tools` extension.
 
 ```
 postgres=> CREATE EXTENSION rds_tools ;

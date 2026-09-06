@@ -1,46 +1,36 @@
+
+
 # Supported features in Amazon Aurora by AWS Region and Aurora DB engine
+<a name="Concepts.AuroraFeaturesRegionsDBEngines.grids"></a>
 
-Aurora MySQL- and PostgreSQL-compatible database engines support several Amazon Aurora and
-Amazon RDS features and options. The support varies across specific versions of each database
-engine, and across AWS Regions. To identify Aurora database engine version support and
-availability for a feature in a given AWS Region, you can use the following
-sections.
+Aurora MySQL- and PostgreSQL-compatible database engines support several Amazon Aurora and Amazon RDS features and options. The support varies across specific versions of each database engine, and across AWS Regions. To identify Aurora database engine version support and availability for a feature in a given AWS Region, you can use the following sections.
 
-Some of these features are Aurora-only capabilities. For example, Aurora
-Serverless, Aurora global databases, and support for integration with AWS
-machine learning services aren't supported by Amazon RDS. Other features, such as
-Amazon RDS Proxy, are supported by both Amazon Aurora and Amazon RDS.
+Some of these features are Aurora-only capabilities. For example, Aurora Serverless, Aurora global databases, and support for integration with AWS machine learning services aren't supported by Amazon RDS. Other features, such as Amazon RDS Proxy, are supported by both Amazon Aurora and Amazon RDS.
 
-###### Supported Regions and DB engines
-
-- [Table conventions](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions")
-- [Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md")
-- [Aurora cluster configurations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md")
-- [Database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md")
-- [Exporting cluster data to Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.md")
-- [Exporting snapshot data to Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.md")
-- [Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md")
-- [IAM database authentication](Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.md")
-- [Kerberos authentication](Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md")
-- [Aurora machine learning](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md")
-- [Database Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md")
-- [Zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md")
-- [RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md")
-- [Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md")
-- [Aurora serverless](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md")
-- [RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md")
-- [Zero-downtime patching (ZDP)](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP.md")
-- [Aurora PostgreSQL Limitless Database](Concepts.Aurora_Fea_Regions_DB-eng.Feature.AuroraLimitless.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.AuroraLimitless.md")
-- [Engine-native features](Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.md")
+**Topics**
++ [Table conventions](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions)
++ [Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md)
++ [Aurora cluster configurations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md)
++ [Database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md)
++ [Exporting cluster data to Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.md)
++ [Exporting snapshot data to Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.md)
++ [Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md)
++ [IAM database authentication](Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.md)
++ [Kerberos authentication](Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md)
++ [Aurora machine learning](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md)
++ [Database Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md)
++ [Zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md)
++ [RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md)
++ [Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md)
++ [Aurora serverless](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md)
++ [RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md)
++ [Zero-downtime patching (ZDP)](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ZDP.md)
++ [Aurora PostgreSQL Limitless Database](Concepts.Aurora_Fea_Regions_DB-eng.Feature.AuroraLimitless.md)
++ [Engine-native features](Concepts.Aurora_Fea_Regions_DB-eng.Feature.EngineNativeFeatures.md)
 
 ## Table conventions
+<a name="Concepts.Aurora_Fea_Regions_DB-eng.Feature.TableConventions"></a>
 
-The tables in the feature sections use the following patterns to specify version
-numbers and level of support:
-
-- **Version x.y** – The specific version
-  alone is supported.
-- **Version x.y and higher** – The specified
-  version and all higher minor versions of its major version are supported. For
-  example, "version 10.11 and higher" means that versions 10.11,
-  10.11.1, and 10.12 are supported.
+The tables in the feature sections use the following patterns to specify version numbers and level of support: 
++ **Version x.y** – The specific version alone is supported.
++ **Version x.y and higher** – The specified version and all higher minor versions of its major version are supported. For example, "version 10.11 and higher" means that versions 10.11, 10.11.1, and 10.12 are supported. 

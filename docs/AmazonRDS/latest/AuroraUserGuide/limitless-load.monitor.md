@@ -1,21 +1,23 @@
+
+
 # Monitoring data loading
+<a name="limitless-load.monitor"></a>
 
 Aurora PostgreSQL Limitless Database provides several ways to monitor data loading jobs:
-
-- [Listing data loading jobs](#limitless-load.monitor-list "#limitless-load.monitor-list")
-- [Viewing details of data loading jobs using the job ID](#limitless-load.monitor-describe "#limitless-load.monitor-describe")
-- [Monitoring the Amazon CloudWatch log group](#limitless-load.monitor-cwl "#limitless-load.monitor-cwl")
-- [Monitoring RDS events](#limitless-load.monitor-events "#limitless-load.monitor-events")
++ [Listing data loading jobs](#limitless-load.monitor-list)
++ [Viewing details of data loading jobs using the job ID](#limitless-load.monitor-describe)
++ [Monitoring the Amazon CloudWatch log group](#limitless-load.monitor-cwl)
++ [Monitoring RDS events](#limitless-load.monitor-events)
 
 ## Listing data loading jobs
+<a name="limitless-load.monitor-list"></a>
 
-You can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_jobs` view to list data loading
-jobs.
+You can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_jobs` view to list data loading jobs.
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_data_load_jobs LIMIT 6;
 
-    job_id     |  status   | message |     source_db_identifier      | source_db_name | full_load_complete_time |                                                                progress_details                                                                 |       start_time       |   last_updated_time    |  streaming_mode   | source_engine_type | ignore_primary_key_conflict | is_dryrun
+    job_id     |  status   | message |     source_db_identifier      | source_db_name | full_load_complete_time |                                                                progress_details                                                                 |       start_time       |   last_updated_time    |  streaming_mode   | source_engine_type | ignore_primary_key_conflict | is_dryrun 
 ---------------+-----------+---------+-------------------------------+----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+------------------------+-------------------+--------------------+-----------------------------+-----------
  1725697520693 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 08:48:15+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "9 of 9 tables loaded", "COMPLETED_AT": "2024/09/07 08:48:15+00", "RECORDS_MIGRATED": 600003}} | 2024-09-07 08:47:13+00 | 2024-09-07 08:48:15+00 | full_load         | aurora_postgresql  | t                           | f
  1725696114225 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 08:24:20+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "3 of 3 tables loaded", "COMPLETED_AT": "2024/09/07 08:24:20+00", "RECORDS_MIGRATED": 200001}} | 2024-09-07 08:23:56+00 | 2024-09-07 08:24:20+00 | full_load         | aurora_postgresql  | t                           | f
@@ -29,10 +31,9 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_data_load_jobs LIMIT 6;
 Job records are deleted after 90 days.
 
 ## Viewing details of data loading jobs using the job ID
+<a name="limitless-load.monitor-describe"></a>
 
-If you know a job ID, you can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_job_details` view to
-see the details of that data loading job, including the table name, job status, and number of rows loaded. You can get the job ID in the
-responses to the data loading start functions, or from the `rds_aurora.limitless_data_load_jobs` view.
+If you know a job ID, you can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_job_details` view to see the details of that data loading job, including the table name, job status, and number of rows loaded. You can get the job ID in the responses to the data loading start functions, or from the `rds_aurora.limitless_data_load_jobs` view.
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_data_load_job_details WHERE job_id='1725696114225';
@@ -49,28 +50,31 @@ job_id        | destination_table_name | destination_schema_name | start_time   
 Job records are deleted after 90 days.
 
 ## Monitoring the Amazon CloudWatch log group
+<a name="limitless-load.monitor-cwl"></a>
 
 After the data loading job status changes to `RUNNING`, you can check the runtime progress using Amazon CloudWatch Logs.
 
-###### To monitor CloudWatch log streams
+**To monitor CloudWatch log streams**
 
-Sign in to the AWS Management Console and open the CloudWatch console at
-[https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
 1. Navigate to **Logs**, then **Log groups**.
-2. Choose the **/aws/rds/aurora-limitless-database** log group.
-3. Search for the log stream of your data loading job by **job\_id**.
 
-The log stream has the pattern **Data-Load-Job-`job_id`**. 4. Choose the log stream to see the log events.
+1. Choose the **/aws/rds/aurora-limitless-database** log group.
 
-Each log stream shows events containing the job status and the number of rows loaded to the Aurora PostgreSQL Limitless Database destination tables. If a data loading
-job fails, an error log is also created that shows the failure status and the reason.
+1. Search for the log stream of your data loading job by **job\_id**.
+
+   The log stream has the pattern **Data-Load-Job-{{job\_id}}**.
+
+1. Choose the log stream to see the log events.
+
+Each log stream shows events containing the job status and the number of rows loaded to the Aurora PostgreSQL Limitless Database destination tables. If a data loading job fails, an error log is also created that shows the failure status and the reason.
 
 Job records are deleted after 90 days.
 
 ## Monitoring RDS events
+<a name="limitless-load.monitor-events"></a>
 
-The data loading job also publishes RDS events, for example when a job succeeds, fails, or is canceled. You can view the events from the
-destination database.
+The data loading job also publishes RDS events, for example when a job succeeds, fails, or is canceled. You can view the events from the destination database.
 
-For more information, see [DB shard group events](USER_Events.Messages.md#USER_Events.Messages.shard-group "USER_Events.Messages.md#USER_Events.Messages.shard-group").
+For more information, see [DB shard group events](USER_Events.Messages.md#USER_Events.Messages.shard-group).

@@ -1,70 +1,62 @@
+
+
 # Aurora PostgreSQL Limitless Database views
+<a name="limitless-monitoring-views"></a>
 
 The following table shows the new views for Aurora PostgreSQL Limitless Database.
 
-###### Note
+**Note**  
+The views listed in this table are located in the `rds_aurora` schema. When using a Limitless Database view, make sure to include the fully qualified object name: `rds_aurora`.`{{object_name}}`.
 
-The views listed in this table are located in the `rds_aurora` schema. When using a Limitless Database view, make sure to include
-the fully qualified object name: `rds_aurora`.`object_name`.
 
-| Aurora PostgreSQL Limitless Database view                                                                                               | Corresponding Aurora PostgreSQL view |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| [limitless\_database](#limitless_database "#limitless_database")                                                                        | pg\_database                         |
-| [limitless\_locks](#limitless_locks "#limitless_locks")                                                                                 | pg\_locks                            |
-| [limitless\_stat\_activity](#limitless_stat_activity "#limitless_stat_activity")                                                        | pg\_stat\_activity                   |
-| [limitless\_stat\_all\_indexes](#limitless_stat_all_indexes "#limitless_stat_all_indexes")                                              | pg\_stat\_all\_indexes               |
-| [limitless\_stat\_all\_tables](#limitless_stat_all_tables "#limitless_stat_all_tables")                                                 | pg\_stat\_all\_tables                |
-| [limitless\_stat\_database](#limitless_stat_database "#limitless_stat_database")                                                        | pg\_stat\_database                   |
-| [limitless\_stat\_progress\_vacuum](#limitless_stat_progress_vacuum "#limitless_stat_progress_vacuum")                                  | pg\_stat\_progress\_vacuum           |
-| [limitless\_stat\_statements](#limitless_stat_statements "#limitless_stat_statements")                                                  | pg\_stat\_statements                 |
-| [limitless\_stat\_subclusters](#limitless_stat_subclusters "#limitless_stat_subclusters")                                               | None                                 |
-| [limitless\_stat\_statements\_info](#limitless_stat_statements_info "#limitless_stat_statements_info")                                  | pg\_stat\_statements\_info           |
-| [limitless\_statio\_all\_indexes](#limitless_statio_all_indexes "#limitless_statio_all_indexes")                                        | pg\_statio\_all\_indexes             |
-| [limitless\_statio\_all\_tables](#limitless_statio_all_tables "#limitless_statio_all_tables")                                           | pg\_statio\_all\_tables              |
-| [limitless\_tables](#limitless_tables "#limitless_tables")                                                                              | pg\_tables                           |
-| [limitless\_table\_collocations](#limitless_table_collocations "#limitless_table_collocations")                                         | None                                 |
-| [limitless\_table\_collocation\_distributions](#limitless_table_collocation_distributions "#limitless_table_collocation_distributions") | None                                 |
+| Aurora PostgreSQL Limitless Database view | Corresponding Aurora PostgreSQL view | 
+| --- | --- | 
+| [limitless\_database](#limitless_database) | pg\_database | 
+| [limitless\_locks](#limitless_locks) | pg\_locks | 
+| [limitless\_stat\_activity](#limitless_stat_activity) | pg\_stat\_activity | 
+| [limitless\_stat\_all\_indexes](#limitless_stat_all_indexes) | pg\_stat\_all\_indexes | 
+| [limitless\_stat\_all\_tables](#limitless_stat_all_tables) | pg\_stat\_all\_tables | 
+| [limitless\_stat\_database](#limitless_stat_database) | pg\_stat\_database | 
+| [limitless\_stat\_progress\_vacuum](#limitless_stat_progress_vacuum) | pg\_stat\_progress\_vacuum | 
+| [limitless\_stat\_statements](#limitless_stat_statements) | pg\_stat\_statements | 
+| [limitless\_stat\_subclusters](#limitless_stat_subclusters) | None | 
+| [limitless\_stat\_statements\_info](#limitless_stat_statements_info) | pg\_stat\_statements\_info | 
+| [limitless\_statio\_all\_indexes](#limitless_statio_all_indexes) | pg\_statio\_all\_indexes | 
+| [limitless\_statio\_all\_tables](#limitless_statio_all_tables) | pg\_statio\_all\_tables | 
+| [limitless\_tables](#limitless_tables) | pg\_tables | 
+| [limitless\_table\_collocations](#limitless_table_collocations) | None | 
+| [limitless\_table\_collocation\_distributions](#limitless_table_collocation_distributions) | None | 
 
-The following examples provide details about the Aurora PostgreSQL Limitless Database views. For more information on PostgreSQL views, see
-[Viewing statistics](https://www.postgresql.org/docs/15/monitoring-stats.html#MONITORING-STATS-VIEWS "https://www.postgresql.org/docs/15/monitoring-stats.html#MONITORING-STATS-VIEWS") in the
-PostgreSQL documentation.
+The following examples provide details about the Aurora PostgreSQL Limitless Database views. For more information on PostgreSQL views, see [Viewing statistics](https://www.postgresql.org/docs/15/monitoring-stats.html#MONITORING-STATS-VIEWS) in the PostgreSQL documentation.
 
-###### Note
-
+**Note**  
 Some statistics views can return inconsistent results if you have ongoing transactions.
 
-**limitless\_database**
-
-This view contains information about the available databases in the DB shard group. For example:
+**limitless\_database**  
+This view contains information about the available databases in the DB shard group. For example:  
 
 ```
 postgres_limitless=> SELECT subcluster_id, subcluster_type, oid, datname, datacl FROM rds_aurora.limitless_database;
 
- subcluster_id | subcluster_type |  oid  |      datname       |                                                         datacl
+ subcluster_id | subcluster_type |  oid  |      datname       |                                                         datacl                                                         
 ---------------+-----------------+-------+--------------------+------------------------------------------------------------------------------------------------------------------------
  2             | router          |     4 | template0          | {=c/rdsadmin,rdsadmin=CTc/rdsadmin}
- 2             | router          |     5 | postgres           |
+ 2             | router          |     5 | postgres           | 
  2             | router          | 16384 | rdsadmin           | {rdsadmin=CTc/rdsadmin,rds_aurora_limitless_metadata_admin=c/rdsadmin,rds_aurora_limitless_heat_mgmt_admin=c/rdsadmin}
- 2             | router          | 16477 | postgres_limitless |
+ 2             | router          | 16477 | postgres_limitless | 
  2             | router          |     1 | template1          | {=c/rdsadmin,rdsadmin=CTc/rdsadmin}
  6             | shard           |     4 | template0          | {=c/rdsadmin,rdsadmin=CTc/rdsadmin}
 ```
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster (node)
-- `subcluster_type` (text) – The type of subcluster (node), router or shard
-
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster (node)
++ `subcluster_type` (text) – The type of subcluster (node), router or shard
 The rest of the columns are the same as in `pg_database`.
 
-**limitless\_locks**
+**limitless\_locks**  
+This view contains one row per process per node. It provides access to information about the locks held by active processes in the database server.  
 
-This view contains one row per process per node. It provides access to information about the locks held by
-active processes in the database server.
-
-###### Example of creating a lock with two transactions
-
-In this example, we run two transactions simultaneously on two routers.
+**Example of creating a lock with two transactions**  
+In this example, we run two transactions simultaneously on two routers.  
 
 ```
 # Transaction 1 (run on router 1)
@@ -78,10 +70,7 @@ BEGIN;
 SET search_path = public;
 ALTER TABLE customers ADD COLUMN phone VARCHAR;
 ```
-
-The first transaction is run. Subsequent transactions have to wait until the first transaction is
-completed. Therefore the second transaction is blocked with a lock. To check the root cause of it, we run a
-command by joining `limitless_locks` with `limitless_stat_activity`.
+The first transaction is run. Subsequent transactions have to wait until the first transaction is completed. Therefore the second transaction is blocked with a lock. To check the root cause of it, we run a command by joining `limitless_locks` with `limitless_stat_activity`.  
 
 ```
 # Run on router 2
@@ -104,10 +93,8 @@ WHERE relname = 'customers'
 (6 rows)
 ```
 
-###### Example of creating a lock explicitly
-
-In this example, we create a lock explicitly, then use the `limitless_locks` view to see the
-locks (some columns are omitted).
+**Example of creating a lock explicitly**  
+In this example, we create a lock explicitly, then use the `limitless_locks` view to see the locks (some columns are omitted).  
 
 ```
 BEGIN;
@@ -126,10 +113,8 @@ SELECT * FROM rds_aurora.limitless_locks WHERE relname = 'customers';
 (6 rows)
 ```
 
-**limitless\_stat\_activity**
-
-This view contains one row per process per node. It can be used to track overall system health and triage
-processes that are taking a long time. For example:
+**limitless\_stat\_activity**  
+This view contains one row per process per node. It can be used to track overall system health and triage processes that are taking a long time. For example:  
 
 ```
 postgres=# SELECT
@@ -143,7 +128,7 @@ postgres=# SELECT
 FROM
     rds_aurora.limitless_stat_activity
 WHERE
-    distributed_session_id in ('D2470C97E3D07E06', '5A3CD7B8E5FD13FF')
+    distributed_session_id in ('D2470C97E3D07E06', '5A3CD7B8E5FD13FF') 
     order by  distributed_session_id;
 
  subcluster_id | subcluster_type | distributed_session_id | distributed_session_state |      datname       | distributed_query_id | is_sso_query
@@ -155,29 +140,18 @@ WHERE
  3             | shard           | D2470C97E3D07E06       | participant               | postgres_limitless |  4058400544464210222 |
 (5 rows)
 ```
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `distributed_session_id` (text) – The ID of the distributed session to which this
-  process belongs.
-- `distributed_session_state` (text) – Whether this is a coordinator, participant, or
-  standalone/nondistributed process (shown as `NULL`).
-- `datname` (text) – The database to which this process is connected.
-- `distributed_query_id` (bigint) – The query ID of the parent query from the
-  coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes
-  down the distributed query ID to the participant nodes. So for the participant nodes, the values for
-  distributed query ID and query ID are different.
-- `is_sso_query` (text) – This lets us know whether the query is single shard optimized or not.
-
+<a name="HOutput"></a>The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `distributed_session_id` (text) – The ID of the distributed session to which this process belongs.
++ `distributed_session_state` (text) – Whether this is a coordinator, participant, or standalone/nondistributed process (shown as `NULL`).
++ `datname` (text) – The database to which this process is connected.
++ `distributed_query_id` (bigint) – The query ID of the parent query from the coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes down the distributed query ID to the participant nodes. So for the participant nodes, the values for distributed query ID and query ID are different.
++ `is_sso_query` (text) – This lets us know whether the query is single shard optimized or not.
 The rest of the columns are the same as in `pg_stat_activity`.
 
-**limitless\_stat\_all\_indexes**
-
-This view contains usage statistics on indexes in the DB shard group. For example:
+**limitless\_stat\_all\_indexes**  
+This view contains usage statistics on indexes in the DB shard group. For example:  
 
 ```
 postgres_limitless=> SELECT schemaname, relname, indexrelname, idx_scan
@@ -199,10 +173,8 @@ postgres_limitless=> SELECT schemaname, relname, indexrelname, idx_scan
 (10 rows)
 ```
 
-**limitless\_stat\_all\_tables**
-
-This view contains statistics about all tables in the current database in the DB shard group. This is useful
-when tracking vacuum operations and Data Manipulation language (DML) operations. For example:
+**limitless\_stat\_all\_tables**  
+This view contains statistics about all tables in the current database in the DB shard group. This is useful when tracking vacuum operations and Data Manipulation language (DML) operations. For example:  
 
 ```
 postgres_limitless=> SELECT subcluster_id, subcluster_type, relname, n_ins_since_vacuum, n_tup_ins, last_vacuum
@@ -223,21 +195,14 @@ postgres_limitless=> SELECT subcluster_id, subcluster_type, relname, n_ins_since
  5             | shard           | orders_ts00010 |              34569 |    195560 |
 (10 rows)
 ```
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `relname` (name) – The name of the table.
-
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `relname` (name) – The name of the table.
 The rest of the columns are the same as in `pg_stat_all_tables`.
 
-**limitless\_stat\_database**
-
-This view contains statistics about all databases in the DB shard group. Returns one row per database per
-node. For example:
+**limitless\_stat\_database**  
+This view contains statistics about all databases in the DB shard group. Returns one row per database per node. For example:  
 
 ```
 postgres_limitless=> SELECT
@@ -260,20 +225,14 @@ WHERE
              6 | shard           | postgres_limitless |      1040 | 17437257
 (6 rows)
 ```
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `datname` (name) – The name of the database.
-
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `datname` (name) – The name of the database.
 The rest of the columns are the same as in `pg_stat_database`.
 
-**limitless\_stat\_progress\_vacuum**
-
-This view contains information about ongoing vacuuming operations. For example:
+**limitless\_stat\_progress\_vacuum**  
+This view contains information about ongoing vacuuming operations. For example:  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_progress_vacuum;
@@ -310,35 +269,18 @@ index_vacuum_count     | 0
 max_dead_tuples        | 8569523
 num_dead_tuples        | 0
 ```
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `distributed_session_id` (text) – The identifier for the session that initiated the
-  vacuuming operation.
-- `datname` (name) – The database where the vacuuming is being done.
-- `nspname` (name) – The name of the schema of the table that is being vacuumed. It's
-  `null` if the table being vacuumed is not in the same database as the one to which the
-  user is connected.
-- `relname` (name) – The name of the table that is being vacuumed. It's
-  `null` if the table being vacuumed is not in the same database as the one to which the
-  user is connected.
-
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `distributed_session_id` (text) – The identifier for the session that initiated the vacuuming operation.
++ `datname` (name) – The database where the vacuuming is being done.
++ `nspname` (name) – The name of the schema of the table that is being vacuumed. It's `null` if the table being vacuumed is not in the same database as the one to which the user is connected.
++ `relname` (name) – The name of the table that is being vacuumed. It's `null` if the table being vacuumed is not in the same database as the one to which the user is connected.
 The rest of the columns are the same as in `pg_stat_progress_vacuum`.
 
-**limitless\_stat\_statements**
-
-This view provides a means for tracking planning and running statistics of all SQL statements run on all
-nodes.
-
-###### Note
-
-You must install the
-[pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") extension
-to use the `limitless_stat_statements` view.
+**limitless\_stat\_statements**  
+This view provides a means for tracking planning and running statistics of all SQL statements run on all nodes.  
+You must install the [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) extension to use the `limitless_stat_statements` view.  
 
 ```
 -- CREATE EXTENSION must be run by a superuser
@@ -349,8 +291,7 @@ SELECT distinct node_id
     FROM rds_aurora.limitless_stat_statements
     LIMIT 10;
 ```
-
-The following example shows the use of the `limitless_stat_statements` view.
+The following example shows the use of the `limitless_stat_statements` view.  
 
 ```
 postgres_limitless=> SELECT
@@ -374,28 +315,17 @@ FROM
  3             | shard           | -7975178695405682176 | postgres                            | postgres_limitless |
 [...]
 ```
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` for or `shard`.
++ `distributedqueryid` (bigint) – The query ID of the parent query from the coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes down the distributed query ID to the participant nodes. So for the participant nodes, the values for distributed query ID and query ID are different.
++ `username` (name) – The user that queried the statement.
++ `dbname` (name) – The database where the query was run.
++ `sso_calls` (name) – The number of times statement was single-shard optimized.
+The rest of the columns are the same as in [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html).
 
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` for or `shard`.
-- `distributedqueryid` (bigint) – The query ID of the parent query from the
-  coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes
-  down the distributed query ID to the participant nodes. So for the participant nodes, the values for
-  distributed query ID and query ID are different.
-- `username` (name) – The user that queried the statement.
-- `dbname` (name) – The database where the query was run.
-- `sso_calls` (name) – The number of times statement was single-shard optimized.
-
-The rest of the columns are the same as in [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
-
-**limitless\_stat\_statements\_info**
-
-This view contains statistics for the `limitless_stat_statements` view. Each row contains data for the
-[pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7")
-view from each node. The `subcluster_id` column identifies each node.
+**limitless\_stat\_statements\_info**  
+This view contains statistics for the `limitless_stat_statements` view. Each row contains data for the [pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7) view from each node. The `subcluster_id` column identifies each node.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_statements_info;
@@ -410,24 +340,17 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_statements_info;
              6 | shard           |       0 | 2023-06-30 21:22:10.808267+00
 (6 rows)
 ```
+The output parameter is the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
+The rest of the columns are the same as in [pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7).
 
-The output parameter is the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-
-The rest of the columns are the same as in
-[pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7").
-
-**limitless\_stat\_subclusters**
-
-This view contains network statistics between routers and other nodes. It contains a row per pair of router and other node, for
-example:
+**limitless\_stat\_subclusters**  
+This view contains network statistics between routers and other nodes. It contains a row per pair of router and other node, for example:  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_subclusters;
 
- orig_subcluster | orig_instance_az | dest_subcluster | dest_instance_az | latency_us |       latest_collection       | failed_requests | received_bytes | sent_bytes | same_az_requests | cross_az_requests |     stat_reset_timestamp
+ orig_subcluster | orig_instance_az | dest_subcluster | dest_instance_az | latency_us |       latest_collection       | failed_requests | received_bytes | sent_bytes | same_az_requests | cross_az_requests |     stat_reset_timestamp      
 -----------------+------------------+-----------------+------------------+------------+-------------------------------+-----------------+----------------+------------+------------------+-------------------+-------------------------------
  3               | us-west-2b       | 2               | us-west-2a       |        847 | 2024-10-07 17:25:39.518617+00 |               0 |       35668633 |   92090171 |                0 |            302787 | 2024-10-05 12:39:55.239675+00
  3               | us-west-2b       | 4               | us-west-2b       |        419 | 2024-10-07 17:25:39.546376+00 |               0 |      101190464 |  248795719 |           883478 |                 0 | 2024-10-05 12:39:55.231218+00
@@ -437,32 +360,23 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_subclusters;
  2               | us-west-2a       | 3               | us-west-2b       |        868 | 2024-10-07 17:25:40.293927+00 |               0 |       35659611 |   92011872 |                0 |            302817 | 2024-10-05 12:39:54.420758+00
  2               | us-west-2a       | 4               | us-west-2b       |        786 | 2024-10-07 17:25:40.296863+00 |               0 |      102437253 |  251838024 |                0 |            895060 | 2024-10-05 12:39:54.404081+00
  2               | us-west-2a       | 5               | us-west-2c       |       1232 | 2024-10-07 17:25:40.292021+00 |               0 |       71990027 |  168828110 |                0 |            545453 | 2024-10-05 12:39:36.769549+00
-
 ```
+The output parameters are the following:  
++ `orig_subcluster` (text) – The ID of the router where the communications originate
++ `orig_subcluster_az` (text) – The Availability Zone (AZ) of the originator router
++ `dest_subcluster` (text) – The ID of the destination node
++ `dest_subcluster_az` (text) – The last collected AZ of the destination node
++ `latency_us` (bigint) – The last collected network latency between nodes, in microseconds. The value is `0` if the node is unreachable.
++ `latest_collection` (timestamp) – The timestamp of the latest collection of AZ and latency for the destination node
++ `failed_requests` (bigint) – The cumulative count of failed internal requests
++ `received_bytes` (bigint) – The estimated cumulative number of bytes received from this node
++ `sent_bytes` (bigint) – The estimated cumulative number of bytes sent to this node
++ `same_az_requests` (bigint) – The cumulative number of internal DB requests to this node when it's in the same AZ as the originator router
++ `cross_az_requests` (bigint) – The cumulative number of internal DB requests to this node when it's in a different AZ from the originator router
++ `stat_reset_timestamp` (timestamp) – The timestamp when the cumulative statistics for this view were last reset
 
-The output parameters are the following:
-
-- `orig_subcluster` (text) – The ID of the router where the communications originate
-- `orig_subcluster_az` (text) – The Availability Zone (AZ) of the originator router
-- `dest_subcluster` (text) – The ID of the destination node
-- `dest_subcluster_az` (text) – The last collected AZ of the destination node
-- `latency_us` (bigint) – The last collected network latency between nodes, in microseconds. The value is
-  `0` if the node is unreachable.
-- `latest_collection` (timestamp) – The timestamp of the latest collection of AZ and latency for the
-  destination node
-- `failed_requests` (bigint) – The cumulative count of failed internal requests
-- `received_bytes` (bigint) – The estimated cumulative number of bytes received from this node
-- `sent_bytes` (bigint) – The estimated cumulative number of bytes sent to this node
-- `same_az_requests` (bigint) – The cumulative number of internal DB requests to this node when it's in
-  the same AZ as the originator router
-- `cross_az_requests` (bigint) – The cumulative number of internal DB requests to this node when it's in a
-  different AZ from the originator router
-- `stat_reset_timestamp` (timestamp) – The timestamp when the cumulative statistics for this view were
-  last reset
-
-**limitless\_statio\_all\_indexes**
-
-This view contains input/output (I/O) statistics for all indexes in the DB shard group. For example:
+**limitless\_statio\_all\_indexes**  
+This view contains input/output (I/O) statistics for all indexes in the DB shard group. For example:  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_statio_all_indexes WHERE relname like'customers_ts%';
@@ -480,9 +394,8 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_statio_all_indexes WHERE
 (8 rows)
 ```
 
-**limitless\_statio\_all\_tables**
-
-This view contains input/output (I/O) statistics for all tables in the DB shard group. For example:
+**limitless\_statio\_all\_tables**  
+This view contains input/output (I/O) statistics for all tables in the DB shard group. For example:  
 
 ```
 postgres_limitless=> SELECT
@@ -510,34 +423,29 @@ WHERE
 (8 rows)
 ```
 
-**limitless\_tables**
-
-This view contains information about tables in Aurora PostgreSQL Limitless Database.
+**limitless\_tables**  
+This view contains information about tables in Aurora PostgreSQL Limitless Database.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_tables;
 
- table_gid | local_oid | schema_name | table_name  | table_status | table_type  | distribution_key
+ table_gid | local_oid | schema_name | table_name  | table_status | table_type  | distribution_key 
 -----------+-----------+-------------+-------------+--------------+-------------+------------------
-         5 |     18635 | public      | placeholder | active       | placeholder |
-         6 |     18641 | public      | ref         | active       | reference   |
+         5 |     18635 | public      | placeholder | active       | placeholder | 
+         6 |     18641 | public      | ref         | active       | reference   | 
          7 |     18797 | public      | orders      | active       | sharded     | HASH (order_id)
          2 |     18579 | public      | customer    | active       | sharded     | HASH (cust_id)
 (4 rows)
 ```
 
-**limitless\_table\_collocations**
-
-This view contains information about collocated sharded tables.
-
-In the following example, the `orders` and `customers` tables are collocated, and the
-`users` and `followers` tables are collocated. Collocated tables have the same
-`collocation_id`.
+**limitless\_table\_collocations**  
+This view contains information about collocated sharded tables.  
+In the following example, the `orders` and `customers` tables are collocated, and the `users` and `followers` tables are collocated. Collocated tables have the same `collocation_id`.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER BY collocation_id;
 
- collocation_id | schema_name | table_name
+ collocation_id | schema_name | table_name 
 ----------------+-------------+------------
               2 | public      | orders
               2 | public      | customers
@@ -546,14 +454,13 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER
 (4 rows)
 ```
 
-**limitless\_table\_collocation\_distributions**
-
-This view shows the key distribution for each collocation.
+**limitless\_table\_collocation\_distributions**  
+This view shows the key distribution for each collocation.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocation_distributions ORDER BY collocation_id, lower_bound;
 
- collocation_id | subcluster_id |     lower_bound      |     upper_bound
+ collocation_id | subcluster_id |     lower_bound      |     upper_bound      
 ----------------+---------------+----------------------+----------------------
               2 |             6 | -9223372036854775808 | -4611686018427387904
               2 |             5 | -4611686018427387904 |                    0

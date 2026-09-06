@@ -1,12 +1,12 @@
+
+
 # Database engine updates and fixes for Amazon Aurora MySQL
+<a name="AuroraMySQL.Updates.RN"></a>
 
-You can find the following information in the _Release notes for Amazon
-Aurora MySQL-Compatible Edition_:
-
-- [Database engine updates for Amazon Aurora MySQL version 8.4](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.md")
-- [Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md")
-- [Database engine updates for Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.md")
-- [Database engine updates for Amazon Aurora MySQL version 1
-  (Deprecated)](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.11Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.11Updates.md")
-- [MySQL bugs fixed by Aurora MySQL database engine updates](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.MySQLBugs.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.MySQLBugs.md")
-- [Security vulnerabilities fixed in Amazon Aurora MySQL](../AuroraMySQLReleaseNotes/AuroraMySQL.CVE_list.md "../AuroraMySQLReleaseNotes/AuroraMySQL.CVE_list.md")
+You can find the following information in the *Release notes for Amazon Aurora MySQL-Compatible Edition*:
++ [Database engine updates for Amazon Aurora MySQL version 8.4](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.84Updates.html)
++ [Database engine updates for Amazon Aurora MySQL version 3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.html)
++ [Database engine updates for Amazon Aurora MySQL version 2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.20Updates.html)
++ [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.11Updates.html)
++ [MySQL bugs fixed by Aurora MySQL database engine updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.MySQLBugs.html)
++ [Security vulnerabilities fixed in Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.CVE_list.html)

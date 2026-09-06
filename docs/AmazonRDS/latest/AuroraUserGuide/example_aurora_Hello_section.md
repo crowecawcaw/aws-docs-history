@@ -1,19 +1,17 @@
+
+
 # Hello Aurora
+<a name="example_aurora_Hello_section"></a>
 
 The following code examples show how to get started using Aurora.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
 ```
-
 using Amazon.RDS;
 using Amazon.RDS.Model;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,25 +51,15 @@ public static class HelloAurora
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeDBClusters](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeDBClusters](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeDBClusters.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora/hello_aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora/hello_aurora#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora/hello_aurora#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -101,7 +89,7 @@ find_package(AWSSDK REQUIRED COMPONENTS ${SERVICE_COMPONENTS})
 if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS)
      # Copy relevant AWS SDK for C++ libraries into the current binary directory for running and debugging.
 
-     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this
+     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this 
                                     # and set the proper subdirectory to the executables' location.
 
      AWSSDK_CPY_DYN_LIBS(SERVICE_COMPONENTS "" ${CMAKE_CURRENT_BINARY_DIR}${BIN_SUB_DIR})
@@ -112,11 +100,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_aurora.cpp source file.
+Code for the hello\_aurora.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -177,26 +162,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
+```
++  For API details, see [DescribeDBClusters](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeDBClusters](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBClusters.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples").
-
-```
-
 package main
 
 import (
@@ -238,24 +213,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [DescribeDBClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeDBClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBClusters")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -281,23 +246,14 @@ public class DescribeDbClusters {
                         .println("Database name: " + cluster.databaseName() + " Arn = " + cluster.dbClusterArn()));
     }
 }
-
-
 ```
++  For API details, see [DescribeDBClusters](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeDBClusters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBClusters.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
 ```
 import boto3
@@ -329,24 +285,14 @@ for page in response_iterator:
 
 if not clusters_found:
     print("No clusters found!")
-
-
-
 ```
++  For API details, see [DescribeDBClusters](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBClusters) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeDBClusters](../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusters.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/aurora#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/aurora#code-examples). 
 
 ```
 require 'aws-sdk-rds'
@@ -368,24 +314,14 @@ else
     puts "Cluster identifier: #{cluster.db_cluster_identifier}"
   end
 end
-
-
-
 ```
++  For API details, see [DescribeDBClusters](https://docs.aws.amazon.com/goto/SdkForRubyV3/rds-2014-10-31/DescribeDBClusters) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeDBClusters](../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBClusters.md "../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBClusters.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
 ```
 use aws_sdk_rds::Client;
@@ -427,14 +363,9 @@ async fn main() -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeDBClusters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_clusters")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

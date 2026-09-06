@@ -1,37 +1,29 @@
-# Creating limitless tables by using variables
 
-You can use variables to create sharded and reference tables by setting the table creation mode. Then the tables that you create will use this
-mode until you set a different mode.
+
+# Creating limitless tables by using variables
+<a name="limitless-creating-config"></a>
+
+You can use variables to create sharded and reference tables by setting the table creation mode. Then the tables that you create will use this mode until you set a different mode.
 
 Use the following variables to create sharded and reference tables:
++ `rds_aurora.limitless_create_table_mode` – Set this session variable to `sharded` or `reference`. The default value of this variable is `standard`.
++ `rds_aurora.limitless_create_table_shard_key` – Set this session variable to an array of column names to use as shard keys. This variable is ignored when `rds_aurora.limitless_create_table_mode` isn't `sharded`.
 
-- `rds_aurora.limitless_create_table_mode` – Set this session variable to `sharded` or `reference`.
-  The default value of this variable is `standard`.
-- `rds_aurora.limitless_create_table_shard_key` – Set this session variable to an array of column names to use as shard
-  keys. This variable is ignored when `rds_aurora.limitless_create_table_mode` isn't `sharded`.
+  Format the value as `untyped array literal`, similar to when you insert literals into an array column. For more information, see [Arrays](https://www.postgresql.org/docs/current/arrays.html) in the PostgreSQL documentation.
++ `rds_aurora.limitless_create_table_collocate_with` – Set this session variable to a specific table name to collocate newly created tables with that table.
 
-Format the value as `untyped array literal`, similar to when you insert literals into an array column. For more information,
-see [Arrays](https://www.postgresql.org/docs/current/arrays.html "https://www.postgresql.org/docs/current/arrays.html") in the PostgreSQL documentation.
+  If two or more tables are sharded using the same shard key, you can explicitly align (collocate) those tables. When two or more tables are collocated, rows from those tables with the same shard key values are placed on the same shard. Collocation helps to restrict some operations to a single shard, which results in better performance.
 
-- `rds_aurora.limitless_create_table_collocate_with` – Set this session variable to a specific table name to collocate
-  newly created tables with that table.
+**Note**  
+All primary and unique keys must include the shard key. This means that the shard key is a subset of the primary or unique key.  
+Limitless tables have some limitations. For more information, see [DDL limitations and other information for Aurora PostgreSQL Limitless Database](limitless-reference.DDL-limitations.md).
 
-If two or more tables are sharded using the same shard key, you can explicitly align (collocate) those tables. When two or more tables are
-collocated, rows from those tables with the same shard key values are placed on the same shard. Collocation helps to restrict some
-operations to a single shard, which results in better performance.
-
-###### Note
-
-All primary and unique keys must include the shard key. This means that the shard key is a subset of the primary or unique key.
-
-Limitless tables have some limitations. For more information, see [DDL limitations and other information for Aurora PostgreSQL Limitless Database](limitless-reference.DDL-limitations.md "limitless-reference.DDL-limitations.md").
-
-###### Topics
-
-- [Examples using variables to create limitless tables](#limitless-tables-examples "#limitless-tables-examples")
-- [Aurora PostgreSQL Limitless Database table views](#limitless-table-views "#limitless-table-views")
+**Topics**
++ [Examples using variables to create limitless tables](#limitless-tables-examples)
++ [Aurora PostgreSQL Limitless Database table views](#limitless-table-views)
 
 ## Examples using variables to create limitless tables
+<a name="limitless-tables-examples"></a>
 
 The following examples show how to use these variables to create sharded and reference tables.
 
@@ -45,8 +37,7 @@ CREATE TABLE items(id int, val int, item text);
 COMMIT;
 ```
 
-Create a sharded table named `items`, with a shard key composed of the `item_id` and `item_cat`
-columns.
+Create a sharded table named `items`, with a shard key composed of the `item_id` and `item_cat` columns.
 
 ```
 BEGIN;
@@ -56,8 +47,7 @@ CREATE TABLE items(item_id int, item_cat varchar, val int, item text);
 COMMIT;
 ```
 
-Create a sharded table named `item_description`, with a shard key composed of the `item_id` and `item_cat`
-columns, and collocate it with the `items` table from the previous example.
+Create a sharded table named `item_description`, with a shard key composed of the `item_id` and `item_cat` columns, and collocate it with the `items` table from the previous example.
 
 ```
 BEGIN;
@@ -77,40 +67,36 @@ CREATE TABLE colors(color_id int primary key, color varchar);
 COMMIT;
 ```
 
-To reset the `rds_aurora.limitless_create_table_mode` session variable to `standard`, use the following
-statement:
+To reset the `rds_aurora.limitless_create_table_mode` session variable to `standard`, use the following statement:
 
 ```
 RESET rds_aurora.limitless_create_table_mode;
 ```
 
-After you reset this variable, tables are created as standard tables, which is the default. For more information on standard tables, see [Converting standard tables to limitless tables](limitless-converting-standard.md "limitless-converting-standard.md").
+After you reset this variable, tables are created as standard tables, which is the default. For more information on standard tables, see [Converting standard tables to limitless tables](limitless-converting-standard.md).
 
 ## Aurora PostgreSQL Limitless Database table views
+<a name="limitless-table-views"></a>
 
 You can find information about Limitless Database tables by using the following views.
 
-**rds\_aurora.limitless\_tables**
-
-The `rds_aurora.limitless_tables` view contains information about limitless tables and their types.
+**rds\_aurora.limitless\_tables**  
+The `rds_aurora.limitless_tables` view contains information about limitless tables and their types.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_tables;
 
  table_gid | local_oid | schema_name | table_name  | table_status | table_type  | distribution_key
 -----------+-----------+-------------+-------------+--------------+-------------+------------------
-         5 |     18635 | public      | standard    | active       | standard    |
-         6 |     18641 | public      | ref         | active       | reference   |
+         5 |     18635 | public      | standard    | active       | standard    | 
+         6 |     18641 | public      | ref         | active       | reference   | 
          7 |     18797 | public      | orders      | active       | sharded     | HASH (order_id)
          2 |     18579 | public      | customer    | active       | sharded     | HASH (cust_id)
 (4 rows)
 ```
 
-**rds\_aurora.limitless\_table\_collocations**
-
-The `rds_aurora.limitless_table_collocations` view contains information about collocated sharded tables. For example,
-the `orders` and `customers` tables are collocated, and have the same `collocation_id`. The
-`users` and `followers` tables are collocated, and have the same `collocation_id`.
+**rds\_aurora.limitless\_table\_collocations**  
+The `rds_aurora.limitless_table_collocations` view contains information about collocated sharded tables. For example, the `orders` and `customers` tables are collocated, and have the same `collocation_id`. The `users` and `followers` tables are collocated, and have the same `collocation_id`.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER BY collocation_id;
@@ -124,9 +110,8 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER
 (4 rows)
 ```
 
-**rds\_aurora.limitless\_table\_collocation\_distributions**
-
-The `rds_aurora.limitless_table_collocation_distributions` shows the key distribution for each collocation.
+**rds\_aurora.limitless\_table\_collocation\_distributions**  
+The `rds_aurora.limitless_table_collocation_distributions` shows the key distribution for each collocation.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocation_distributions ORDER BY collocation_id, lower_bound;

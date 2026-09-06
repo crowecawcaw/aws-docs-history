@@ -1,38 +1,34 @@
+
+
 # Aurora PostgreSQL Limitless Database functions
+<a name="limitless-monitoring-functions"></a>
 
 The following table shows the new functions for Aurora PostgreSQL Limitless Database.
 
-###### Note
+**Note**  
+The functions listed in this table are located in the `rds_aurora` schema. When using a Limitless Database function, make sure to include the fully qualified object name: `rds_aurora`.`{{object_name}}`.
 
-The functions listed in this table are located in the `rds_aurora` schema. When using a Limitless Database function, make sure to
-include the fully qualified object name: `rds_aurora`.`object_name`.
 
-| Aurora PostgreSQL Limitless Database function                                                                                | Corresponding Aurora PostgreSQL function                                          |
-| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [limitless\_backend\_dsid](#limitless_backend_dsid "#limitless_backend_dsid")                                                | pg\_backend\_pid                                                                  |
-| [limitless\_cancel\_session](#limitless_cancel_session "#limitless_cancel_session")                                          | pg\_cancel\_backend                                                               |
-| [limitless\_stat\_clear\_snapshot](#limitless_stat_clear_snapshot "#limitless_stat_clear_snapshot")                          | pg\_stat\_clear\_snapshot                                                         |
-| [limitless\_stat\_database\_size](#limitless_stat_database_size "#limitless_stat_database_size")                             | pg\_database\_size                                                                |
-| [limitless\_stat\_get\_snapshot\_timestamp](#limitless_stat_get_snapshot_timestamp "#limitless_stat_get_snapshot_timestamp") | pg\_stat\_get\_snapshot\_timestamp                                                |
-| [limitless\_stat\_prepared\_xacts](#limitless_stat_prepared_xacts "#limitless_stat_prepared_xacts")                          | pg\_prepared\_xacts                                                               |
-| [limitless\_stat\_relation\_sizes](#limitless_stat_relation_sizes "#limitless_stat_relation_sizes")                          | pg\_indexes\_size, pg\_relation\_size, pg\_table\_size, pg\_total\_relation\_size |
-| [limitless\_stat\_reset](#limitless_stat_reset "#limitless_stat_reset")                                                      | pg\_stat\_reset                                                                   |
-| [limitless\_stat\_statements\_reset](#limitless_stat_statements_reset "#limitless_stat_statements_reset")                    | pg\_stat\_statements\_reset                                                       |
-| [limitless\_stat\_system\_waits](#limitless_stat_system_waits "#limitless_stat_system_waits")                                | aurora\_stat\_system\_waits                                                       |
-| [limitless\_terminate\_session](#limitless_terminate_session "#limitless_terminate_session")                                 | pg\_terminate\_backend                                                            |
-| [limitless\_wait\_report](#limitless_wait_report "#limitless_wait_report")                                                   | aurora\_wait\_report                                                              |
+| Aurora PostgreSQL Limitless Database function | Corresponding Aurora PostgreSQL function | 
+| --- | --- | 
+| [limitless\_backend\_dsid](#limitless_backend_dsid) | pg\_backend\_pid | 
+| [limitless\_cancel\_session](#limitless_cancel_session) | pg\_cancel\_backend | 
+| [limitless\_stat\_clear\_snapshot](#limitless_stat_clear_snapshot) | pg\_stat\_clear\_snapshot | 
+| [limitless\_stat\_database\_size](#limitless_stat_database_size) | pg\_database\_size | 
+| [limitless\_stat\_get\_snapshot\_timestamp](#limitless_stat_get_snapshot_timestamp) | pg\_stat\_get\_snapshot\_timestamp | 
+| [limitless\_stat\_prepared\_xacts](#limitless_stat_prepared_xacts) | pg\_prepared\_xacts | 
+| [limitless\_stat\_relation\_sizes](#limitless_stat_relation_sizes) | pg\_indexes\_size, pg\_relation\_size, pg\_table\_size, pg\_total\_relation\_size | 
+| [limitless\_stat\_reset](#limitless_stat_reset) | pg\_stat\_reset | 
+| [limitless\_stat\_statements\_reset](#limitless_stat_statements_reset) | pg\_stat\_statements\_reset | 
+| [limitless\_stat\_system\_waits](#limitless_stat_system_waits) | aurora\_stat\_system\_waits | 
+| [limitless\_terminate\_session](#limitless_terminate_session) | pg\_terminate\_backend | 
+| [limitless\_wait\_report](#limitless_wait_report) | aurora\_wait\_report | 
 
-The following examples provide details about the Aurora PostgreSQL Limitless Database functions. For more information on PostgreSQL functions, see
-[Functions and operators](https://www.postgresql.org/docs/15/functions.html "https://www.postgresql.org/docs/15/functions.html") in the PostgreSQL
-documentation.
+The following examples provide details about the Aurora PostgreSQL Limitless Database functions. For more information on PostgreSQL functions, see [Functions and operators](https://www.postgresql.org/docs/15/functions.html) in the PostgreSQL documentation.
 
-**limitless\_backend\_dsid**
-
-The `limitless_backend_dsid` function returns the distributed session ID for the current session. A
-distributed session runs on a router in a DB shard group and involves backend processes on one or more shards in
-the DB shard group.
-
-The following example shows how to use the `limitless_backend_dsid` function.
+**limitless\_backend\_dsid**  
+The `limitless_backend_dsid` function returns the distributed session ID for the current session. A distributed session runs on a router in a DB shard group and involves backend processes on one or more shards in the DB shard group.  
+The following example shows how to use the `limitless_backend_dsid` function.  
 
 ```
 SELECT rds_aurora.limitless_backend_dsid();
@@ -43,25 +39,15 @@ limitless_backend_dsid
 (1 row)
 ```
 
-**limitless\_cancel\_session**
-
-The `limitless_cancel_session` function works similarly to `pg_cancel_backend`, but it
-tries to cancel all backend processes related to the provided distributed session ID by sending a
-`SIGINT` (interruption signal).
-
-The input parameter is the following:
-
-- `distributed_session_id` (text) – The ID of the distributed session to be
-  canceled.
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `pid` (text) – The backend process ID.
-- `success` (boolean) – Whether the cancellation was successful.
-
-The following example shows how to use the `limitless_cancel_session` function.
+**limitless\_cancel\_session**  
+The `limitless_cancel_session` function works similarly to `pg_cancel_backend`, but it tries to cancel all backend processes related to the provided distributed session ID by sending a `SIGINT` (interruption signal).  
+The input parameter is the following:  
++ `distributed_session_id` (text) – The ID of the distributed session to be canceled.
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `pid` (text) – The backend process ID.
++ `success` (boolean) – Whether the cancellation was successful.
+The following example shows how to use the `limitless_cancel_session` function.  
 
 ```
 SELECT * FROM rds_aurora.limitless_cancel_session('940CD5C81E3C796B');
@@ -72,35 +58,23 @@ SELECT * FROM rds_aurora.limitless_cancel_session('940CD5C81E3C796B');
 (1 row)
 ```
 
-**limitless\_stat\_clear\_snapshot**
-
-The `limitless_stat_clear_snapshot` function discards the current statistics snapshot or cached
-information on all nodes.
-
-The following example shows how to use the `limitless_stat_clear_snapshot` function.
+**limitless\_stat\_clear\_snapshot**  
+The `limitless_stat_clear_snapshot` function discards the current statistics snapshot or cached information on all nodes.  
+The following example shows how to use the `limitless_stat_clear_snapshot` function.  
 
 ```
 SELECT rds_aurora.limitless_stat_clear_snapshot();
 ```
 
-**limitless\_stat\_database\_size**
-
-The `limitless_stat_database_size` function returns the sizes of a database in the DB shard
-group.
-
-The input parameter is the following:
-
-- `dbname` (name) – The database for which to get the sizes.
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `db_size` – The size of the database in this subcluster in bytes.
-
-The following example shows how to use the `limitless_stat_database_size` function.
+**limitless\_stat\_database\_size**  
+The `limitless_stat_database_size` function returns the sizes of a database in the DB shard group.  
+The input parameter is the following:  
++ `dbname` (name) – The database for which to get the sizes.
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `db_size` – The size of the database in this subcluster in bytes.
+The following example shows how to use the `limitless_stat_database_size` function.  
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_database_size('postgres_limitless');
@@ -115,36 +89,26 @@ SELECT * FROM rds_aurora.limitless_stat_database_size('postgres_limitless');
 (5 rows)
 ```
 
-**limitless\_stat\_get\_snapshot\_timestamp**
-
-The `limitless_stat_get_snapshot_timestamp` function returns the timestamp of the current
-statistics snapshot, or `NULL` if no statistics snapshot has been taken. A snapshot is taken the
-first time cumulative statistics are accessed in a transaction if `stats_fetch_consistency` is set to
-`snapshot`. Returns a consolidated view of snapshot timestamps from all nodes. The
-`subcluster_id` and `subcluster_type` columns show which node the data is from.
-
-The following example shows how to use the `limitless_stat_get_snapshot_timestamp` function.
+**limitless\_stat\_get\_snapshot\_timestamp**  
+The `limitless_stat_get_snapshot_timestamp` function returns the timestamp of the current statistics snapshot, or `NULL` if no statistics snapshot has been taken. A snapshot is taken the first time cumulative statistics are accessed in a transaction if `stats_fetch_consistency` is set to `snapshot`. Returns a consolidated view of snapshot timestamps from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from.  
+The following example shows how to use the `limitless_stat_get_snapshot_timestamp` function.  
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_get_snapshot_timestamp();
 
  subcluster_id | subcluster_type | snapshot_timestamp
 ---------------+-----------------+--------------------
-             1 | router          |
-             2 | router          |
-             3 | shard           |
-             4 | shard           |
-             5 | shard           |
+             1 | router          | 
+             2 | router          | 
+             3 | shard           | 
+             4 | shard           | 
+             5 | shard           | 
 (5 rows)
 ```
 
-**limitless\_stat\_prepared\_xacts**
-
-The `limitless_stat_prepared_xacts` function returns information about transactions on all nodes that are currently
-prepared for two-phase commit. For more information, see [pg\_prepared\_xacts](https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html "https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html") in the PostgreSQL
-documentation.
-
-The following example shows how to use the `limitless_stat_prepared_xacts` function.
+**limitless\_stat\_prepared\_xacts**  
+The `limitless_stat_prepared_xacts` function returns information about transactions on all nodes that are currently prepared for two-phase commit. For more information, see [pg\_prepared\_xacts](https://www.postgresql.org/docs/current/view-pg-prepared-xacts.html) in the PostgreSQL documentation.  
+The following example shows how to use the `limitless_stat_prepared_xacts` function.  
 
 ```
 postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_prepared_xacts;
@@ -156,38 +120,22 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_stat_prepared_xacts;
 (2 rows)
 ```
 
-**limitless\_stat\_relation\_sizes**
-
-The `limitless_stat_relation_sizes` function returns the different sizes of a table in the DB shard
-group.
-
-The input parameters are the following:
-
-- `relnspname` (name) – The name of the schema containing the table.
-- `relname` (name) – The name of the table.
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-- `main_size` – The size in bytes of the main data fork in this node.
-- `fsm_size` – The size in bytes of the free space map for the table in this
-  node.
-- `vm_size` – The size in bytes of the visibility map for the table in this
-  node.
-- `init_size` – The size in bytes of the initialization of the table in this
-  node.
-- `toast_size` – The size in bytes of the toast table associated with the table in
-  this fork.
-- `index_size` – The size in bytes of all of the indexes for the table in this
-  node.
-- `total_size` – The size in bytes of all of the segments of the table in this
-  node.
-
-The following example shows how to use the `limitless_stat_relation_sizes` function (some columns
-are omitted).
+**limitless\_stat\_relation\_sizes**  
+The `limitless_stat_relation_sizes` function returns the different sizes of a table in the DB shard group.  
+The input parameters are the following:  
++ `relnspname` (name) – The name of the schema containing the table.
++ `relname` (name) – The name of the table.
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
++ `main_size` – The size in bytes of the main data fork in this node.
++ `fsm_size` – The size in bytes of the free space map for the table in this node.
++ `vm_size` – The size in bytes of the visibility map for the table in this node.
++ `init_size` – The size in bytes of the initialization of the table in this node.
++ `toast_size` – The size in bytes of the toast table associated with the table in this fork.
++ `index_size` – The size in bytes of all of the indexes for the table in this node.
++ `total_size` – The size in bytes of all of the segments of the table in this node.
+The following example shows how to use the `limitless_stat_relation_sizes` function (some columns are omitted).  
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_relation_sizes('public','customers');
@@ -202,15 +150,9 @@ SELECT * FROM rds_aurora.limitless_stat_relation_sizes('public','customers');
 (5 rows)
 ```
 
-**limitless\_stat\_reset**
-
-The `limitless_stat_reset` function resets all statistics counters for the current database to zero
-(0). If `track_functions` is enabled, the `stats_reset` column in
-`limitless_stat_database` shows the last time statistics were reset for the database. By default,
-`limitless_stat_reset` can be run only by a superuser. Other users can be granted permission by
-using the `EXECUTE` privilege.
-
-The following example shows how to use the `limitless_stat_reset` function.
+**limitless\_stat\_reset**  
+The `limitless_stat_reset` function resets all statistics counters for the current database to zero (0). If `track_functions` is enabled, the `stats_reset` column in `limitless_stat_database` shows the last time statistics were reset for the database. By default, `limitless_stat_reset` can be run only by a superuser. Other users can be granted permission by using the `EXECUTE` privilege.  
+The following example shows how to use the `limitless_stat_reset` function.  
 
 ```
 SELECT tup_inserted, tup_deleted FROM pg_stat_database
@@ -221,7 +163,7 @@ WHERE datname = 'postgres_limitless';
           896 |           0
 (1 row)
 
-SELECT **rds\_aurora.limitless\_stat\_reset()**;
+SELECT rds_aurora.limitless_stat_reset();
 
 limitless_stat_reset
 ---------------------
@@ -236,42 +178,22 @@ tup_inserted | tup_deleted
 (1 row)
 ```
 
-**limitless\_stat\_statements\_reset**
-
-The `limitless_stat_statements_reset` function discards statistics gathered so far by
-`limitless_stat_statements` corresponding to the specified `username`,
-`dbname`, `distributed_query_id`, and `queryid` parameters. If any of the
-parameters aren't specified, the default value `""` or `0` (invalid) is used for each of
-them, and the statistics that match with other parameters are reset. If no parameter is specified, or all the
-specified parameters are `""` or `0` (invalid), the function discards all statistics. If
-all statistics in the `limitless_stat_statements` view are discarded, the function also resets the
-statistics in the `limitless_stat_statements_info` view.
-
-The input parameters are the following:
-
-- `username` (name) – The user that queried the statement.
-- `dbname` (name) – The database where the query was run.
-- `distributed_query_id` (bigint) – The query ID of the parent query from the
-  coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes
-  down the distributed query ID to the participant nodes. So for the participant nodes, the values for
-  distributed query ID and query ID are different.
-- `queryid` (bigint) – The query ID of the statement.
-
-The following example shows how to use the `limitless_stat_statements_reset` function to reset all
-of the statistics gathered by `limitless_stat_statements`.
+**limitless\_stat\_statements\_reset**  
+The `limitless_stat_statements_reset` function discards statistics gathered so far by `limitless_stat_statements` corresponding to the specified `username`, `dbname`, `distributed_query_id`, and `queryid` parameters. If any of the parameters aren't specified, the default value `""` or `0` (invalid) is used for each of them, and the statistics that match with other parameters are reset. If no parameter is specified, or all the specified parameters are `""` or `0` (invalid), the function discards all statistics. If all statistics in the `limitless_stat_statements` view are discarded, the function also resets the statistics in the `limitless_stat_statements_info` view.  
+The input parameters are the following:  
++ `username` (name) – The user that queried the statement.
++ `dbname` (name) – The database where the query was run.
++ `distributed_query_id` (bigint) – The query ID of the parent query from the coordinator node. This column is `NULL` if it's the parent query. The coordinator node pushes down the distributed query ID to the participant nodes. So for the participant nodes, the values for distributed query ID and query ID are different.
++ `queryid` (bigint) – The query ID of the statement.
+The following example shows how to use the `limitless_stat_statements_reset` function to reset all of the statistics gathered by `limitless_stat_statements`.  
 
 ```
 SELECT rds_aurora.limitless_stat_statements_reset();
 ```
 
-**limitless\_stat\_system\_waits**
-
-The `limitless_stat_system_waits` function returns a consolidated view of the wait event data from
-`aurora_stat_system_waits`, which reports system wide wait activity in an instance, from all
-nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is
-from.
-
-The following example shows how to use the `limitless_stat_system_waits` function.
+**limitless\_stat\_system\_waits**  
+The `limitless_stat_system_waits` function returns a consolidated view of the wait event data from `aurora_stat_system_waits`, which reports system wide wait activity in an instance, from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from.  
+The following example shows how to use the `limitless_stat_system_waits` function.  
 
 ```
 postgres_limitless=> SELECT *
@@ -288,51 +210,32 @@ WHERE lssw.event_id=aswe.event_id and aswe.event_name='LimitlessTaskScheduler';
 (5 rows)
 ```
 
-**limitless\_terminate\_session**
-
-The `limitless_terminate_session` function works similarly to `pg_terminate_backend`,
-but it tries to end all backend processes related to the provided distributed session ID by sending a
-`SIGTERM` (end signal).
-
-The input parameter is the following:
-
-- `distributed_session_id` (text) – The ID of the distributed session to be
-  ended.
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `pid` (text) – The backend process ID.
-- `success` (boolean) – Whether the process was successfully ended.
-
-The following example shows how to use the `limitless_terminate_session` function.
+**limitless\_terminate\_session**  
+The `limitless_terminate_session` function works similarly to `pg_terminate_backend`, but it tries to end all backend processes related to the provided distributed session ID by sending a `SIGTERM` (end signal).  
+The input parameter is the following:  
++ `distributed_session_id` (text) – The ID of the distributed session to be ended.
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `pid` (text) – The backend process ID.
++ `success` (boolean) – Whether the process was successfully ended.
+The following example shows how to use the `limitless_terminate_session` function.  
 
 ```
 SELECT * FROM rds_aurora.limitless_terminate_session('940CD5C81E3C796B');
 
  subcluster_id |  pid  | success
 ---------------+-------+---------
-             1 | 26920 | t
+             1 | 26920 | t 
 (1 row)
 ```
 
-**limitless\_wait\_report**
-
-The `limitless_wait_report` function returns the wait event activity over a period of time from all
-nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is
-from.
-
-The output parameters are the following:
-
-- `subcluster_id` (text) – The ID of the subcluster to which this process
-  belongs.
-- `subcluster_type` (text) – The type of subcluster to which this process belongs:
-  `router` or `shard`.
-
-The rest of the columns are the same as in `aurora_wait_report`.
-
-The following example shows how to use the `limitless_wait_report` function.
+**limitless\_wait\_report**  
+The `limitless_wait_report` function returns the wait event activity over a period of time from all nodes. The `subcluster_id` and `subcluster_type` columns show which node the data is from.  
+The output parameters are the following:  
++ `subcluster_id` (text) – The ID of the subcluster to which this process belongs.
++ `subcluster_type` (text) – The type of subcluster to which this process belongs: `router` or `shard`.
+The rest of the columns are the same as in `aurora_wait_report`.  
+The following example shows how to use the `limitless_wait_report` function.  
 
 ```
 postgres_limitless=> select * from rds_aurora.limitless_wait_report();

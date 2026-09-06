@@ -1,134 +1,75 @@
+
+
 # Best practices for Aurora PostgreSQL query plan management
+<a name="AuroraPostgreSQL.Optimize.BestPractice"></a>
 
-Query plan management lets you control how and when query execution plans change. As a
-DBA, your main goals when using QPM include preventing regressions when there are
-changes to your database, and controlling whether to allow the optimizer to use a new
-plan. In the following, you can find some recommended best practices for using query
-plan management. Proactive and reactive plan management approaches differ in how and
-when new plans get approved for use.
+Query plan management lets you control how and when query execution plans change. As a DBA, your main goals when using QPM include preventing regressions when there are changes to your database, and controlling whether to allow the optimizer to use a new plan. In the following, you can find some recommended best practices for using query plan management. Proactive and reactive plan management approaches differ in how and when new plans get approved for use. 
 
-###### Contents
-
-- [Proactive plan management to help prevent performance regression](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Proactive "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Proactive")
-
-  - [Ensuring plan stability after a major version upgrade](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade")
-
-    - [Version-specific considerations](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific")
-
-      - [Amazon Aurora PostgreSQL version 18 and later](AuroraPostgreSQL.Optimize.BestPractice.md#w2aac34d108c15b9b7c19b3 "AuroraPostgreSQL.Optimize.BestPractice.md#w2aac34d108c15b9b7c19b3")
-
-- [Reactive plan management to detect and repair performance regressions](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive")
+**Contents**
++ [Proactive plan management to help prevent performance regression](#AuroraPostgreSQL.Optimize.BestPractice.Proactive)
+  + [Ensuring plan stability after a major version upgrade](#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade)
+    + [Version-specific considerations](#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific)
+      + [Amazon Aurora PostgreSQL version 18 and later](#w2aac34d108c15b9b7c19b3)
++ [Reactive plan management to detect and repair performance regressions](#AuroraPostgreSQL.Optimize.BestPractice.Reactive)
 
 ## Proactive plan management to help prevent performance regression
+<a name="AuroraPostgreSQL.Optimize.BestPractice.Proactive"></a>
 
-To prevent plan performance regressions from occurring, you
-_evolve_ plan baselines by running a procedure that compares
-the performance of newly discovered plans to the performance of the existing
-baseline of Approved plans, and then automatically approves the fastest set of plans
-as the new baseline. In this way, the baseline of plans improves over time as faster
-plans are discovered.
+To prevent plan performance regressions from occurring, you *evolve* plan baselines by running a procedure that compares the performance of newly discovered plans to the performance of the existing baseline of Approved plans, and then automatically approves the fastest set of plans as the new baseline. In this way, the baseline of plans improves over time as faster plans are discovered.
 
-1. In a development environment, identify the SQL statements that have the
-   greatest impact on performance or system throughput. Then capture the plans
-   for these statements as described in [Manually capturing plans for specific SQL statements](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Manual "AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Manual") and
-   [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic "AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic").
-2. Export the captured plans from the development environment and import them
-   into the production environment. For more information, see [Exporting and importing managed plans for Aurora PostgreSQL](AuroraPostgreSQL.Optimize.Maintenance.ExportingImporting.md "AuroraPostgreSQL.Optimize.Maintenance.ExportingImporting.md").
-3. In production, run your application and enforce the use of approved
-   managed plans. For more information, see [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md "AuroraPostgreSQL.Optimize.UsePlans.md"). While the
-   application runs, also add new plans as the optimizer discovers them. For
-   more information, see [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic "AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic").
-4. Analyze the unapproved plans and approve those that perform well. For more
-   information, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").
-5. While your application continues to run, the optimizer begins to use the
-   new plans as appropriate.
+1. In a development environment, identify the SQL statements that have the greatest impact on performance or system throughput. Then capture the plans for these statements as described in [Manually capturing plans for specific SQL statements](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Manual) and [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic). 
+
+1. Export the captured plans from the development environment and import them into the production environment. For more information, see [Exporting and importing managed plans for Aurora PostgreSQL](AuroraPostgreSQL.Optimize.Maintenance.ExportingImporting.md). 
+
+1. In production, run your application and enforce the use of approved managed plans. For more information, see [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md). While the application runs, also add new plans as the optimizer discovers them. For more information, see [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic). 
+
+1. Analyze the unapproved plans and approve those that perform well. For more information, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance). 
+
+1. While your application continues to run, the optimizer begins to use the new plans as appropriate.
 
 ### Ensuring plan stability after a major version upgrade
+<a name="AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade"></a>
 
-Each major version of PostgreSQL includes enhancements and changes to the
-query optimizer that are designed to improve performance. However, query
-execution plans generated by the optimizer in earlier versions might cause
-performance regressions in newer upgraded versions. You can use query plan
-management to resolve these performance issues and to ensure plan stability
-after a major version upgrade.
+Each major version of PostgreSQL includes enhancements and changes to the query optimizer that are designed to improve performance. However, query execution plans generated by the optimizer in earlier versions might cause performance regressions in newer upgraded versions. You can use query plan management to resolve these performance issues and to ensure plan stability after a major version upgrade.
 
-The optimizer always uses a minimum-cost Approved plan, even if more than one
-Approved plan for the same statement exists. After an upgrade the optimizer
-might discover new plans but they will be saved as Unapproved plans. These plans
-are performed only if approved using the reactive style of plan management with
-the unapproved\_plan\_execution\_threshold parameter. You can maximize plan
-stability using the proactive style of plan management with the
-evolve\_plan\_baselines parameter. This compares the performance of the new plans
-to the old plans and approves or rejects plans that are at least 10% faster than
-the next best plan.
+The optimizer always uses a minimum-cost Approved plan, even if more than one Approved plan for the same statement exists. After an upgrade the optimizer might discover new plans but they will be saved as Unapproved plans. These plans are performed only if approved using the reactive style of plan management with the unapproved\_plan\_execution\_threshold parameter. You can maximize plan stability using the proactive style of plan management with the evolve\_plan\_baselines parameter. This compares the performance of the new plans to the old plans and approves or rejects plans that are at least 10% faster than the next best plan.
 
-After upgrading, you can use the `evolve_plan_baselines` function
-to compare plan performance before and after the upgrade using your query
-parameter bindings. The following steps assume that you have been using approved
-managed plans in your production environment, as detailed in [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md "AuroraPostgreSQL.Optimize.UsePlans.md").
+After upgrading, you can use the `evolve_plan_baselines` function to compare plan performance before and after the upgrade using your query parameter bindings. The following steps assume that you have been using approved managed plans in your production environment, as detailed in [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md). 
 
-1. Before upgrading, run your application with the query plan manager
-   running. While the application runs, add new plans as the optimizer
-   discovers them. For more information, see [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic "AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic").
-2. Evaluate each plan's performance. For more information, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").
-3. After upgrading, analyze your approved plans again using the
-   `evolve_plan_baselines` function. Compare performance
-   before and after using your query parameter bindings. If the new plan is
-   fast, you can add it to your approved plans. If it's faster than
-   another plan for the same parameter bindings, then you can mark the
-   slower plan as Rejected.
+1. Before upgrading, run your application with the query plan manager running. While the application runs, add new plans as the optimizer discovers them. For more information, see [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic). 
 
-For more information, see [Approving better plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving"). For reference information about this function, see [apg\_plan\_mgmt.evolve\_plan\_baselines](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines").
+1. Evaluate each plan's performance. For more information, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance).
 
-For more information, see [Ensuring consistent performance after major version upgrades with
-Amazon Aurora PostgreSQL-Compatible Edition Query Plan Management](https://aws.amazon.com/blogs/database/ensuring-consistent-performance-after-major-version-upgrades-with-amazon-aurora-postgresql-query-plan-management/ "https://aws.amazon.com/blogs/database/ensuring-consistent-performance-after-major-version-upgrades-with-amazon-aurora-postgresql-query-plan-management/").
+1. After upgrading, analyze your approved plans again using the `evolve_plan_baselines` function. Compare performance before and after using your query parameter bindings. If the new plan is fast, you can add it to your approved plans. If it's faster than another plan for the same parameter bindings, then you can mark the slower plan as Rejected. 
 
-###### Note
+   For more information, see [Approving better plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving). For reference information about this function, see [apg\_plan\_mgmt.evolve\_plan\_baselines](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines). 
 
-When you perform a major version upgrade using logical replication or
-AWS DMS, make sure that you replicate the `apg_plan_mgmt` schema to
-ensure existing plans are copied to the upgraded instance. For more
-information on logical replication, see [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md").
+For more information, see [Ensuring consistent performance after major version upgrades with Amazon Aurora PostgreSQL-Compatible Edition Query Plan Management](https://aws.amazon.com/blogs/database/ensuring-consistent-performance-after-major-version-upgrades-with-amazon-aurora-postgresql-query-plan-management/). 
 
-For information about upgrading the query plan management extension, see
-[Upgrading Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Upgrade "AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Upgrade").
+**Note**  
+When you perform a major version upgrade using logical replication or AWS DMS, make sure that you replicate the `apg_plan_mgmt` schema to ensure existing plans are copied to the upgraded instance. For more information on logical replication, see [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md).
+
+For information about upgrading the query plan management extension, see [Upgrading Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md#AuroraPostgreSQL.Optimize.Upgrade).
 
 #### Version-specific considerations
+<a name="AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific"></a>
 
 ##### Amazon Aurora PostgreSQL version 18 and later
+<a name="w2aac34d108c15b9b7c19b3"></a>
 
-After upgrading to Aurora PostgreSQL version 18 and later, queries that
-include preceding C-style comments (`/* ... */`) have a
-different `sql_hash` than in previous versions. For these
-queries, the plan `status` and `enabled` settings
-captured before the upgrade are not automatically applied because the
-SQL hashes differ.
+After upgrading to Aurora PostgreSQL version 18 and later, queries that include preceding C-style comments (`/* ... */`) have a different `sql_hash` than in previous versions. For these queries, the plan `status` and `enabled` settings captured before the upgrade are not automatically applied because the SQL hashes differ.
 
-To manage affected queries, run
-`apg_plan_mgmt.evolve_plan_baselines()` after the upgrade.
-The function evaluates all captured plans for the same query, regardless
-of whether they were captured under the previous or current
-`sql_hash`. It then applies the appropriate action based on
-relative performance. After evaluation, plans are associated with the
-current `sql_hash` value.
+To manage affected queries, run `apg_plan_mgmt.evolve_plan_baselines()` after the upgrade. The function evaluates all captured plans for the same query, regardless of whether they were captured under the previous or current `sql_hash`. It then applies the appropriate action based on relative performance. After evaluation, plans are associated with the current `sql_hash` value.
 
 ## Reactive plan management to detect and repair performance regressions
+<a name="AuroraPostgreSQL.Optimize.BestPractice.Reactive"></a>
 
-By monitoring your application as it runs, you can detect plans that cause
-performance regressions. When you detect regressions, you manually reject or fix the
-bad plans by following these steps:
+By monitoring your application as it runs, you can detect plans that cause performance regressions. When you detect regressions, you manually reject or fix the bad plans by following these steps:
 
-1. While your application runs, enforce the use of managed plans and
-   automatically add newly discovered plans as unapproved. For more
-   information, see [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md "AuroraPostgreSQL.Optimize.UsePlans.md") and [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic "AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic").
-2. Monitor your running application for performance regressions.
-3. When you discover a plan regression, set the plan's status to
-   `rejected`. The next time the optimizer runs the SQL
-   statement, it automatically ignores the rejected plan and uses a different
-   approved plan instead. For more information, see [Rejecting or disabling slower plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Rejecting "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Rejecting").
+1. While your application runs, enforce the use of managed plans and automatically add newly discovered plans as unapproved. For more information, see [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md) and [Automatically capturing plans](AuroraPostgreSQL.Optimize.CapturePlans.md#AuroraPostgreSQL.Optimize.CapturePlans.Automatic). 
 
-In some cases, you might prefer to fix a bad plan rather than reject,
-disable, or delete it. Use the `pg_hint_plan` extension to
-experiment with improving a plan. With `pg_hint_plan`, you use
-special comments to tell the optimizer to override how it normally creates a
-plan. For more information, see [Fixing plans using pg\_hint\_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan").
+1. Monitor your running application for performance regressions.
+
+1. When you discover a plan regression, set the plan's status to `rejected`. The next time the optimizer runs the SQL statement, it automatically ignores the rejected plan and uses a different approved plan instead. For more information, see [Rejecting or disabling slower plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Rejecting). 
+
+   In some cases, you might prefer to fix a bad plan rather than reject, disable, or delete it. Use the `pg_hint_plan` extension to experiment with improving a plan. With `pg_hint_plan`, you use special comments to tell the optimizer to override how it normally creates a plan. For more information, see [Fixing plans using pg\_hint\_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan). 

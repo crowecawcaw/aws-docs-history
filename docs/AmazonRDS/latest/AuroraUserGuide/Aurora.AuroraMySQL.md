@@ -1,31 +1,25 @@
+
+
 # Working with Amazon Aurora MySQL
+<a name="Aurora.AuroraMySQL"></a><a name="mysql"></a>
 
-Amazon Aurora MySQL is a fully managed, MySQL-compatible, relational database engine that
-combines the speed and reliability of high-end commercial databases with the simplicity and
-cost-effectiveness of open-source databases. Aurora MySQL is a drop-in replacement for
-MySQL and makes it simple and cost-effective to set up, operate, and scale your new and
-existing MySQL deployments, thus freeing you to focus on your business and applications.
-Amazon RDS provides administration for Aurora by handling routine database tasks such
-as provisioning, patching, backup, recovery, failure detection, and repair. Amazon RDS also
-provides push-button migration tools to convert your existing Amazon RDS for MySQL
-applications to Aurora MySQL.
+Amazon Aurora MySQL is a fully managed, MySQL-compatible, relational database engine that combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. Aurora MySQL is a drop-in replacement for MySQL and makes it simple and cost-effective to set up, operate, and scale your new and existing MySQL deployments, thus freeing you to focus on your business and applications. Amazon RDS provides administration for Aurora by handling routine database tasks such as provisioning, patching, backup, recovery, failure detection, and repair. Amazon RDS also provides push-button migration tools to convert your existing Amazon RDS for MySQL applications to Aurora MySQL.
 
-###### Topics
-
-- [Overview of Amazon Aurora MySQL](Aurora.AuroraMySQL.Overview.md "Aurora.AuroraMySQL.Overview.md")
-- [Security with Amazon Aurora MySQL](AuroraMySQL.Security.md "AuroraMySQL.Security.md")
-- [Updating applications to connect to Aurora MySQL DB clusters using new TLS certificates](ssl-certificate-rotation-aurora-mysql.md "ssl-certificate-rotation-aurora-mysql.md")
-- [Using Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md "aurora-mysql-kerberos.md")
-- [Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.md "AuroraMySQL.Migrating.md")
-- [Managing Amazon Aurora MySQL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md")
-- [Tuning Aurora MySQL](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md")
-- [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md "aurora-mysql-parallel-query.md")
-- [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md")
-- [Replication with Amazon Aurora MySQL](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md")
-- [Using local write forwarding in an Amazon Aurora MySQL DB cluster](aurora-mysql-write-forwarding.md "aurora-mysql-write-forwarding.md")
-- [Integrating Amazon Aurora MySQL with other AWS services](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
-- [Amazon Aurora MySQL lab mode](AuroraMySQL.Updates.LabMode.md "AuroraMySQL.Updates.LabMode.md")
-- [Best practices with Amazon Aurora MySQL](AuroraMySQL.BestPractices.md "AuroraMySQL.BestPractices.md")
-- [Troubleshooting Amazon Aurora MySQL database performance](aurora-mysql-troubleshooting.md "aurora-mysql-troubleshooting.md")
-- [Amazon Aurora MySQL reference](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md")
-- [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+**Topics**
++ [Overview of Amazon Aurora MySQL](Aurora.AuroraMySQL.Overview.md)
++ [Security with Amazon Aurora MySQL](AuroraMySQL.Security.md)
++ [Updating applications to connect to Aurora MySQL DB clusters using new TLS certificates](ssl-certificate-rotation-aurora-mysql.md)
++ [Using Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md)
++ [Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.md)
++ [Managing Amazon Aurora MySQL](AuroraMySQL.Managing.md)
++ [Tuning Aurora MySQL](AuroraMySQL.Managing.Tuning.md)
++ [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md)
++ [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Auditing.md)
++ [Replication with Amazon Aurora MySQL](AuroraMySQL.Replication.md)
++ [Using local write forwarding in an Amazon Aurora MySQL DB cluster](aurora-mysql-write-forwarding.md)
++ [Integrating Amazon Aurora MySQL with other AWS services](AuroraMySQL.Integrating.md)
++ [Amazon Aurora MySQL lab mode](AuroraMySQL.Updates.LabMode.md)
++ [Best practices with Amazon Aurora MySQL](AuroraMySQL.BestPractices.md)
++ [Troubleshooting Amazon Aurora MySQL database performance](aurora-mysql-troubleshooting.md)
++ [Amazon Aurora MySQL reference](AuroraMySQL.Reference.md)
++ [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md)

@@ -1,21 +1,18 @@
+
+
 # Use `DescribeOrderableDBInstanceOptions` with an AWS SDK or CLI
+<a name="example_aurora_DescribeOrderableDBInstanceOptions_section"></a>
 
 The following code examples show how to use `DescribeOrderableDBInstanceOptions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md) 
 
-- [Learn the basics](example_aurora_Scenario_GetStartedClusters_section.md "example_aurora_Scenario_GetStartedClusters_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Aurora#code-examples). 
 
 ```
     /// <summary>
@@ -42,23 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV4/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/aurora#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -127,26 +115,16 @@ bool AwsDoc::Aurora::chooseDBInstanceClass(const Aws::String &engine,
     dbInstanceClass = instanceClasses[choice - 1];
     return true;
 }
+```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/aurora#code-examples").
-
-```
-
 import (
 	"context"
 	"errors"
@@ -187,24 +165,14 @@ func (clusters *DbClusters) GetOrderableInstances(ctx context.Context, engine st
 	}
 	return instances, err
 }
-
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     public static void describeDBEngines(RdsClient rdsClient) {
@@ -231,19 +199,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**  
 
 ```
 $params = @{
@@ -252,10 +215,8 @@ $params = @{
   Region = 'us-east-1'
 }
 Get-RDSOrderableDBInstanceOption @params
-
 ```
-
-**Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**
+**Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**  
 
 ```
 $params = @{
@@ -264,16 +225,11 @@ $params = @{
   Region = 'us-east-1'
 }
 Get-RDSOrderableDBInstanceOption @params
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists the DB engine versions that support a specific DB instance class in an AWS Region.**  
 
 ```
 $params = @{
@@ -282,10 +238,8 @@ $params = @{
   Region = 'us-east-1'
 }
 Get-RDSOrderableDBInstanceOption @params
-
 ```
-
-**Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**
+**Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an AWS Region.**  
 
 ```
 $params = @{
@@ -294,22 +248,14 @@ $params = @{
   Region = 'us-east-1'
 }
 Get-RDSOrderableDBInstanceOption @params
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/aurora#code-examples). 
 
 ```
 class AuroraWrapper:
@@ -357,24 +303,14 @@ class AuroraWrapper:
             raise
         else:
             return inst_opts
-
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/aurora#code-examples). 
 
 ```
     pub async fn get_instance_classes(&self) -> Result<Vec<String>, ScenarioError> {
@@ -495,23 +431,14 @@ async fn test_scenario_get_instance_classes_error() {
         Err(ScenarioError {message, context: _}) if message == "Could not get available instance classes"
     );
 }
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
 ```
     " iv_engine        = 'mysql'
@@ -523,14 +450,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_option_count) = lines( oo_result->get_orderabledbinstoptions( ) ).
         MESSAGE |Retrieved { lv_option_count } orderable DB instance options.| TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

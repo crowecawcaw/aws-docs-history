@@ -1,26 +1,25 @@
-# Reading log file contents using REST
 
-Amazon RDS provides a REST endpoint that allows access to DB instance log files. This is useful if you need to write
-an application to stream Amazon RDS log file contents.
+
+# Reading log file contents using REST
+<a name="DownloadCompleteDBLogFile"></a>
+
+Amazon RDS provides a REST endpoint that allows access to DB instance log files. This is useful if you need to write an application to stream Amazon RDS log file contents.
 
 The syntax is:
 
 ```
-GET /v13/downloadCompleteLogFile/`DBInstanceIdentifier`/`LogFileName` HTTP/1.1
+GET /v13/downloadCompleteLogFile/{{DBInstanceIdentifier}}/{{LogFileName}} HTTP/1.1
 Content-type: application/json
-host: rds.`region`.amazonaws.com
+host: rds.{{region}}.amazonaws.com
 ```
 
 The following parameters are required:
++ `{{DBInstanceIdentifier}}`—the name of the DB instance that contains the log file you want to download.
++ `{{LogFileName}}`—the name of the log file to be downloaded.
 
-- `DBInstanceIdentifier`—the name of the DB instance that
-  contains the log file you want to download.
-- `LogFileName`—the name of the log file to be
-  downloaded.
-  The response contains the contents of the requested log file, as a stream.
+The response contains the contents of the requested log file, as a stream.
 
-The following example downloads the log file named _log/ERROR.6_ for the DB instance named
-_sample-sql_ in the _us-west-2_ region.
+The following example downloads the log file named *log/ERROR.6* for the DB instance named *sample-sql* in the *us-west-2* region.
 
 ```
 GET /v13/downloadCompleteLogFile/sample-sql/log/ERROR.6 HTTP/1.1
@@ -36,6 +35,4 @@ X-Amz-Signature: 353a4f14b3f250142d9afc34f9f9948154d46ce7d4ec091d0cdabbcf8b40c55
 ```
 
 If you specify a nonexistent DB instance, the response consists of the following error:
-
-- `DBInstanceNotFound`—`DBInstanceIdentifier` does
-  not refer to an existing DB instance. (HTTP status code: 404)
++ `DBInstanceNotFound`—`{{DBInstanceIdentifier}}` does not refer to an existing DB instance. (HTTP status code: 404)

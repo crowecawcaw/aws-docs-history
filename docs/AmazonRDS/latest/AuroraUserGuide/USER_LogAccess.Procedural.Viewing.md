@@ -1,36 +1,49 @@
+
+
 # Viewing and listing database log files
+<a name="USER_LogAccess.Procedural.Viewing"></a>
 
-You can view database log files for your Amazon Aurora DB engine by
-using the AWS Management Console. You can list what log files are available for download or monitoring by using the AWS CLI or Amazon RDS API.
+You can view database log files for your Amazon Aurora DB engine by using the AWS Management Console. You can list what log files are available for download or monitoring by using the AWS CLI or Amazon RDS API. 
 
-###### Note
+**Note**  
+You can't view the log files for Aurora Serverless v1 DB clusters in the RDS console. However, you can view them in the Amazon CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-You can't view the log files for Aurora Serverless v1 DB clusters in the RDS console. However, you can view them in the Amazon CloudWatch
-console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+## Console
+<a name="USER_LogAccess.CON"></a>
 
-###### To view a database log file
+**To view a database log file**
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the name of the DB instance that has the log file that you want to view.
-4. Choose the **Logs & events** tab.
-5. Scroll down to the **Logs** section.
-6. (Optional) Enter a search term to filter your results.
+1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-The following example lists logs filtered by the text `error`.
+1. In the navigation pane, choose **Databases**.
 
-![List DB logs.](images/ListEventsAMS.png) 7. Choose the log that you want to view, and then choose **View**.
-To list the available database log files for a DB instance, use the AWS CLI [`describe-db-log-files`](../../../cli/latest/reference/rds/describe-db-log-files.md "../../../cli/latest/reference/rds/describe-db-log-files.md")
-command.
+1. Choose the name of the DB instance that has the log file that you want to view.
 
-The following example returns a list of log files for a DB instance named
-`my-db-instance`.
+1. Choose the **Logs & events** tab.
 
-###### Example
+1. Scroll down to the **Logs** section.
+
+1. (Optional) Enter a search term to filter your results.
+
+   The following example lists logs filtered by the text **error**.  
+![List DB logs.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ListEventsAMS.png)
+
+1. Choose the log that you want to view, and then choose **View**.
+
+## AWS CLI
+<a name="USER_LogAccess.CLI"></a>
+
+To list the available database log files for a DB instance, use the AWS CLI [`describe-db-log-files`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-log-files.html) command.
+
+The following example returns a list of log files for a DB instance named `my-db-instance`.
+
+**Example**  
 
 ```
-aws rds describe-db-log-files --db-instance-identifier my-db-instance
+1. aws rds describe-db-log-files --db-instance-identifier my-db-instance
 ```
 
-To list the available database log files for a DB instance, use the Amazon RDS API [`DescribeDBLogFiles`](../APIReference/API_DescribeDBLogFiles.md "../APIReference/API_DescribeDBLogFiles.md") action.
+## RDS API
+<a name="USER_LogAccess.API"></a>
+
+To list the available database log files for a DB instance, use the Amazon RDS API [`DescribeDBLogFiles`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html) action.

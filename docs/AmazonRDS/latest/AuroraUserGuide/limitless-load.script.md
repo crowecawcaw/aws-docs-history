@@ -1,27 +1,32 @@
+
+
 # Setting up database authentication and resource access using a script
+<a name="limitless-load.script"></a>
 
 The setup script creates one customer-managed AWS KMS key, one AWS Identity and Access Management (IAM) role, and two AWS Secrets Manager secrets.
 
 Perform the following steps to use the setup script:
 
 1. Make sure that you have the AWS CLI installed and configured with your AWS account credentials.
-2. Install the `jq` command-line JSON processor. For more information, see [jqlang/jq](https://github.com/jqlang/jq "https://github.com/jqlang/jq").
-3. Copy the [data\_loading\_script.zip](samples/data_loading_script.zip.md "samples/data_loading_script.zip.md") file to your computer, and extract the
-   `data_load_aws_setup_script.sh` file from it.
-4. Edit the script to replace the placeholder variables with the appropriate values for the following:
 
-   - Your AWS account
-   - The AWS Region
-   - Source database credentials
-   - Destination database credentials
+1. Install the `jq` command-line JSON processor. For more information, see [jqlang/jq](https://github.com/jqlang/jq).
 
-5. Open a new terminal on your computer and run the following command:
+1. Copy the [data\_loading\_script.zip](samples/data_loading_script.zip) file to your computer, and extract the `data_load_aws_setup_script.sh` file from it.
 
-```
-bash ./data_load_aws_setup_script.sh
-```
+1. Edit the script to replace the placeholder variables with the appropriate values for the following:
+   + Your AWS account
+   + The AWS Region
+   + Source database credentials
+   + Destination database credentials
+
+1. Open a new terminal on your computer and run the following command:
+
+   ```
+   bash ./data_load_aws_setup_script.sh
+   ```
 
 ## Setup script for the data loading utility
+<a name="limitless-load.script.file"></a>
 
 We provide the text of the `data_load_aws_setup_script.sh` file here for reference.
 
@@ -34,16 +39,16 @@ We provide the text of the `data_load_aws_setup_script.sh` file here for referen
 ###################################
 #### Start of variable section ####
 
-ACCOUNT_ID="`12-digit_AWS_account_ID`"
-REGION="`AWS_Region`"
+ACCOUNT_ID="{{12-digit_AWS_account_ID}}"
+REGION="{{AWS_Region}}"
 DATE=$(date +'%m%d%H%M%S')
 RANDOM_SUFFIX="${DATE}"
 SOURCE_SECRET_NAME="secret-source-${DATE}"
-SOURCE_USERNAME="`source_db_username`"
-SOURCE_PASSWORD="`source_db_password`"
+SOURCE_USERNAME="{{source_db_username}}"
+SOURCE_PASSWORD="{{source_db_password}}"
 DESTINATION_SECRET_NAME="secret-destination-${DATE}"
-DESTINATION_USERNAME="`destination_db_username`"
-DESTINATION_PASSWORD="`destination_db_password`"
+DESTINATION_USERNAME="{{destination_db_username}}"
+DESTINATION_PASSWORD="{{destination_db_password}}"
 DATA_LOAD_IAM_ROLE_NAME="aurora-data-loader-${RANDOM_SUFFIX}"
 TMP_WORK_DIR="./tmp_data_load_aws_resource_setup/"
 
@@ -90,7 +95,7 @@ DESTINATION_SECRET_ARN=$(cat $TMP_FILE_PATH | jq -r '.ARN')
 # Use only rds.amazonaws.com for RDS PROD use cases.
 TRUST_POLICY_PATH="${TMP_WORK_DIR}rds_trust_policy.json"
 echo '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -118,7 +123,7 @@ IAM_ROLE_ARN=$(cat $TMP_FILE_PATH | jq -r '.Role.Arn')
 PERMISSION_POLICY_PATH="${TMP_WORK_DIR}data_load_permission_policy.json"
 permission_json_policy=$(cat &lt;&lt;EOF
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "Ec2Permission",
@@ -190,7 +195,7 @@ KEY_POLICY_PATH="${TMP_WORK_DIR}data_load_key_policy.json"
 key_json_policy=$(cat &lt;&lt;EOF
 {
     "Id": "key-aurora-limitless-data-load-$RANDOM_SUFFIX",
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "Enable IAM User Permissions",
@@ -247,23 +252,24 @@ echo "DESTINATION_SECRET_ARN : [${DESTINATION_SECRET_ARN}]"
 # SOURCE_SECRET_ARN : [arn:aws:secretsmanager:ap-northeast-1:012345678912:secret:secret-source-0305000703-yQDtow]
 # DESTINATION_SECRET_ARN : [arn:aws:secretsmanager:ap-northeast-1:012345678912:secret:secret-destination-0305000703-5d5Jy8]
 
-# If you want to manually clean up failed resource,
+# If you want to manually clean up failed resource, 
 # please remove them in the following order:
 # 1. IAM role.
  # aws iam delete-role-policy --role-name Test-Role --policy-name ExamplePolicy --region us-east-1
 # aws iam delete-role --role-name Test-Role --region us-east-1
-# 2. Source and destination secrets.
+# 2. Source and destination secrets. 
 # aws secretsmanager delete-secret --secret-id MyTestSecret --force-delete-without-recovery --region us-east-1
-# 3. KDM key.
+# 3. KDM key. 
 # aws kms schedule-key-deletion --key-id arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab --pending-window-in-days 7 --region us-east-1
 ```
 
 ## Output from the data loading utility setup script
+<a name="limitless-load.script.output"></a>
 
 The following example shows the output from a successful run of the script.
 
 ```
-% bash ./data_load_aws_setup_script.sh
+% bash ./data_load_aws_setup_script.sh 
 DATE - [0305000703]
 RANDOM_SUFFIX - [0305000703]
 START!
@@ -305,7 +311,7 @@ START!
         "Arn": "arn:aws:iam::123456789012:role/aurora-data-loader-0305000703",
         "CreateDate": "2024-03-05T00:07:54+00:00",
         "AssumeRolePolicyDocument": {
-           "Version": "2012-10-17",
+           "Version": "2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Effect": "Allow",
@@ -336,34 +342,35 @@ DESTINATION_SECRET_ARN : [arn:aws:secretsmanager:ap-northeast-1:123456789012:sec
 ```
 
 ## Cleaning up failed resources
+<a name="limitless-load.script.cleanup"></a>
 
 If you want to clean up failed resources manually, remove them in the following order:
 
 1. IAM role, for example:
 
-```
-aws iam delete-role-policy \
---role-name Test-Role \
---policy-name ExamplePolicy
+   ```
+   aws iam delete-role-policy \
+   --role-name Test-Role \
+   --policy-name ExamplePolicy
+   
+   aws iam delete-role \
+   --role-name Test-Role
+   ```
 
-aws iam delete-role \
---role-name Test-Role
-```
+1. Source and destination secrets, for example:
 
-2. Source and destination secrets, for example:
+   ```
+   aws secretsmanager delete-secret \
+   --secret-id MyTestSecret \
+   --force-delete-without-recovery
+   ```
 
-```
-aws secretsmanager delete-secret \
---secret-id MyTestSecret \
---force-delete-without-recovery
-```
+1. KMS key, for example:
 
-3. KMS key, for example:
-
-```
-aws kms schedule-key-deletion \
---key-id arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab \
---pending-window-in-days 7
-```
+   ```
+   aws kms schedule-key-deletion \
+   --key-id arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab \
+   --pending-window-in-days 7
+   ```
 
 Then you can retry the script.

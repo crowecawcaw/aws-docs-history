@@ -1,33 +1,42 @@
+
+
 # Deleting a DB cluster parameter groupin Amazon Aurora
+<a name="USER_WorkingWithParamGroups.DeletingCluster"></a>
 
-You can delete a DB cluster parameter group using the AWS Management Console, AWS CLI, or RDS API. A DB cluster parameter group parameter group
-is eligible for deletion only if it isn't associated with a DB cluster.
+You can delete a DB cluster parameter group using the AWS Management Console, AWS CLI, or RDS API. A DB cluster parameter group parameter group is eligible for deletion only if it isn't associated with a DB cluster.
 
-###### To delete parameter groups
+## Console
+<a name="USER_WorkingWithParamGroups.DeletingCluster.CON"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter
-   groups**.
+**To delete parameter groups**
 
-The parameter groups appear in a list. 3. Choose the name of the DB cluster parameter groups to be deleted. 4. Choose **Actions** and then
-**Delete**. 5. Review the parameter group names and then choose
-**Delete**.
-To delete a DB cluster parameter group, use the AWS CLI [`delete-db-cluster-parameter-group`](../../../cli/latest/reference/rds/delete-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/delete-db-cluster-parameter-group.md") command with the
-following required parameter.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-- `--db-parameter-group-name`
+1. In the navigation pane, choose **Parameter groups**.
 
-###### Example
+   The parameter groups appear in a list.
 
-The following example deletes a DB cluster parameter group named
-_mydbparametergroup._
+1. Choose the name of the DB cluster parameter groups to be deleted.
+
+1. Choose **Actions** and then **Delete**.
+
+1. Review the parameter group names and then choose **Delete**.
+
+## AWS CLI
+<a name="USER_WorkingWithParamGroups.DeletingCluster.CLI"></a>
+
+To delete a DB cluster parameter group, use the AWS CLI [`delete-db-cluster-parameter-group`](https://docs.aws.amazon.com/cli/latest/reference/rds/delete-db-cluster-parameter-group.html) command with the following required parameter.
++ `--db-parameter-group-name`
+
+**Example**  
+The following example deletes a DB cluster parameter group named *mydbparametergroup.*  
 
 ```
-aws rds delete-db-cluster-parameter-group --db-parameter-group-name `mydbparametergroup`
+aws rds delete-db-cluster-parameter-group --db-parameter-group-name {{mydbparametergroup}}
 ```
 
-To delete a DB cluster parameter group, use the RDS API [`DeleteDBClusterParameterGroup`](../APIReference/API_DeleteDBClusterParameterGroup.md "../APIReference/API_DeleteDBClusterParameterGroup.md") command with the
-following required parameter.
+## RDS API
+<a name="USER_WorkingWithParamGroups.DeletingCluster.API"></a>
 
-- `DBParameterGroupName`
+To delete a DB cluster parameter group, use the RDS API [`DeleteDBClusterParameterGroup`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterParameterGroup.html) command with the following required parameter.
++ `DBParameterGroupName`

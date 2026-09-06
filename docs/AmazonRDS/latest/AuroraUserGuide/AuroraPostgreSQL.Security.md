@@ -1,113 +1,59 @@
+
+
 # Security with Amazon Aurora PostgreSQL
+<a name="AuroraPostgreSQL.Security"></a>
 
-For a general overview of Aurora security, see [Security in Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md"). You can manage security for Amazon Aurora PostgreSQL at a few
-different levels:
+For a general overview of Aurora security, see [Security in Amazon Aurora](UsingWithRDS.md). You can manage security for Amazon Aurora PostgreSQL at a few different levels:
++ To control who can perform Amazon RDS management actions on Aurora PostgreSQL DB clusters and DB instances, use AWS Identity and Access Management (IAM). IAM handles the authentication of user identity before the user can access the service. It also handles authorization, that is, whether the user is allowed to do what they're trying to do. IAM database authentication is an additional authentication method that you can choose when you create your Aurora PostgreSQL DB cluster. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md).
 
-- To control who can perform Amazon RDS management actions on Aurora PostgreSQL DB clusters
-  and DB instances, use AWS Identity and Access Management (IAM). IAM handles the authentication of user
-  identity before the user can access the service. It also handles authorization, that
-  is, whether the user is allowed to do what they're trying to do. IAM database
-  authentication is an additional authentication method that you can choose when you
-  create your Aurora PostgreSQL DB cluster. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+  If you do use IAM with your Aurora PostgreSQL DB cluster, sign in to the AWS Management Console with your IAM credentials first, before opening the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
++ Make sure to create Aurora DB clusters in a virtual private cloud (VPC) based on the Amazon VPC service. To control which devices and Amazon EC2 instances can open connections to the endpoint and port of the DB instance for Aurora DB clusters in a VPC, use a VPC security group. You can make these endpoint and port connections by using Secure Sockets Layer (SSL). In addition, firewall rules at your company can control whether devices running at your company can open connections to a DB instance. For more information on VPCs, see [Amazon VPC and Amazon Aurora](USER_VPC.md).
 
-If you do use IAM with your Aurora PostgreSQL DB cluster, sign in to the AWS Management Console
-with your IAM credentials first, before opening the Amazon RDS console at
-[https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+  The supported VPC tenancy depends on the DB instance class used by your Aurora PostgreSQL DB clusters. With `default` VPC tenancy, the DB cluster runs on shared hardware. With `dedicated` VPC tenancy, the DB cluster runs on a dedicated hardware instance. The burstable performance DB instance classes support default VPC tenancy only. The burstable performance DB instance classes include the db.t3 and db.t4g DB instance classes. All other Aurora PostgreSQL DB instance classes support both default and dedicated VPC tenancy.
 
-- Make sure to create Aurora DB clusters in a virtual private cloud (VPC) based on
-  the Amazon VPC service. To control which devices and Amazon EC2 instances can open connections
-  to the endpoint and port of the DB instance for Aurora DB clusters in a VPC, use a
-  VPC security group. You can make these endpoint and port connections by using Secure
-  Sockets Layer (SSL). In addition, firewall rules at your company can control whether
-  devices running at your company can open connections to a DB instance. For more
-  information on VPCs, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md").
+  For more information about instance classes, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md). For more information about `default` and `dedicated` VPC tenancy, see [Dedicated instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html) in the *Amazon Elastic Compute Cloud User Guide*.
++ To grant permissions to the PostgreSQL databases running on your Amazon Aurora DB cluster, you can take the same general approach as with stand-alone instances of PostgreSQL. Commands such as `CREATE ROLE`, `ALTER ROLE`, `GRANT`, and `REVOKE` work just as they do in on-premises databases, as does directly modifying databases, schemas, and tables.
 
-The supported VPC tenancy depends on the DB instance class used by your
-Aurora PostgreSQL DB clusters. With `default` VPC tenancy, the DB cluster
-runs on shared hardware. With `dedicated` VPC tenancy, the DB cluster
-runs on a dedicated hardware instance. The burstable performance DB instance classes
-support default VPC tenancy only. The burstable performance DB instance classes
-include the db.t3 and db.t4g DB instance classes. All other Aurora PostgreSQL DB
-instance classes support both default and dedicated VPC tenancy.
+  PostgreSQL manages privileges by using *roles*. The `rds_superuser` role is the most privileged role on an Aurora PostgreSQL DB cluster. This role is created automatically, and it's granted to the user that creates the DB cluster (the master user account, `postgres` by default). To learn more, see [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.Roles.md). 
 
-For more information about instance classes, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
-For more information about `default` and `dedicated` VPC
-tenancy, see [Dedicated
-instances](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") in the _Amazon Elastic Compute Cloud User Guide_.
-
-- To grant permissions to the PostgreSQL databases running on your Amazon Aurora DB
-  cluster, you can take the same general approach as with stand-alone instances of
-  PostgreSQL. Commands such as `CREATE ROLE`, `ALTER ROLE`,
-  `GRANT`, and `REVOKE` work just as they do in on-premises
-  databases, as does directly modifying databases, schemas, and tables.
-
-PostgreSQL manages privileges by using _roles_. The
-`rds_superuser` role is the most privileged role on an Aurora PostgreSQL
-DB cluster. This role is created automatically, and it's granted to the user
-that creates the DB cluster (the master user account, `postgres` by
-default). To learn more, see [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
-All available Aurora PostgreSQL versions, including versions 10, 11, 12, 13, 14, and higher
-releases support the Salted Challenge Response Authentication Mechanism (SCRAM) for
-passwords as an alternative to message digest (MD5). We recommend that you use SCRAM because
-it's more secure than MD5. For more information, including how to migrate database user
-passwords from MD5 to SCRAM, see [Using SCRAM for PostgreSQL password encryption](PostgreSQL_Password_Encryption_configuration.md "PostgreSQL_Password_Encryption_configuration.md").
+All available Aurora PostgreSQL versions, including versions 10, 11, 12, 13, 14, and higher releases support the Salted Challenge Response Authentication Mechanism (SCRAM) for passwords as an alternative to message digest (MD5). We recommend that you use SCRAM because it's more secure than MD5. For more information, including how to migrate database user passwords from MD5 to SCRAM, see [Using SCRAM for PostgreSQL password encryption](PostgreSQL_Password_Encryption_configuration.md).
 
 ## Securing Aurora PostgreSQL data with SSL/TLS
+<a name="AuroraPostgreSQL.Security.SSL"></a>
 
-Amazon RDS supports Secure Socket Layer (SSL) and Transport Layer Security (TLS) encryption
-for Aurora PostgreSQL DB clusters. Using SSL/TLS, you can encrypt a connection between
-your applications and your Aurora PostgreSQL DB clusters. You can also force all
-connections to your Aurora PostgreSQL DB cluster to use SSL/TLS. Amazon Aurora PostgreSQL
-supports Transport Layer Security (TLS) versions 1.1 and 1.2. We recommend using TLS 1.2
-for encrypted connections. We have added support for TLSv1.3 from the following versions
-of Aurora PostgreSQL:
+Amazon RDS supports Secure Socket Layer (SSL) and Transport Layer Security (TLS) encryption for Aurora PostgreSQL DB clusters. Using SSL/TLS, you can encrypt a connection between your applications and your Aurora PostgreSQL DB clusters. You can also force all connections to your Aurora PostgreSQL DB cluster to use SSL/TLS. Amazon Aurora PostgreSQL supports Transport Layer Security (TLS) versions 1.1 and 1.2. We recommend using TLS 1.2 for encrypted connections. We have added support for TLSv1.3 from the following versions of Aurora PostgreSQL:
++ 15.3 and all higher versions
++ 14.8 and higher 14 versions
++ 13.11 and higher 13 versions
++ 12.15 and higher 12 versions
++ 11.20 and higher 11 versions
 
-- 15.3 and all higher versions
-- 14.8 and higher 14 versions
-- 13.11 and higher 13 versions
-- 12.15 and higher 12 versions
-- 11.20 and higher 11 versions
+For general information about SSL/TLS support and PostgreSQL databases, see [SSL support](https://www.postgresql.org/docs/current/libpq-ssl.html) in the PostgreSQL documentation. For information about using an SSL/TLS connection over JDBC, see [Configuring the client](https://jdbc.postgresql.org/documentation/head/ssl-client.html) in the PostgreSQL documentation.
 
-For general information about SSL/TLS support and PostgreSQL databases, see [SSL support](https://www.postgresql.org/docs/current/libpq-ssl.html "https://www.postgresql.org/docs/current/libpq-ssl.html") in
-the PostgreSQL documentation. For information about using an SSL/TLS connection over
-JDBC, see [Configuring the client](https://jdbc.postgresql.org/documentation/head/ssl-client.html "https://jdbc.postgresql.org/documentation/head/ssl-client.html") in the PostgreSQL documentation.
+**Topics**
++ [Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster](#AuroraPostgreSQL.Security.SSL.Requiring)
++ [Determining the SSL/TLS connection status](#AuroraPostgreSQL.Security.SSL.Status)
++ [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites)
 
-###### Topics
+SSL/TLS support is available in all AWS Regions for Aurora PostgreSQL. Amazon RDS creates an SSL/TLS certificate for your Aurora PostgreSQL DB cluster when the DB cluster is created. If you enable SSL/TLS certificate verification, then the SSL/TLS certificate includes the DB cluster endpoint as the Common Name (CN) for the SSL/TLS certificate to guard against spoofing attacks. 
 
-- [Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster](#AuroraPostgreSQL.Security.SSL.Requiring "#AuroraPostgreSQL.Security.SSL.Requiring")
-- [Determining the SSL/TLS connection status](#AuroraPostgreSQL.Security.SSL.Status "#AuroraPostgreSQL.Security.SSL.Status")
-- [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites")
-
-SSL/TLS support is available in all AWS Regions for Aurora PostgreSQL. Amazon RDS creates
-an SSL/TLS certificate for your Aurora PostgreSQL DB cluster when the DB cluster is
-created. If you enable SSL/TLS certificate verification, then the SSL/TLS certificate
-includes the DB cluster endpoint as the Common Name (CN) for the SSL/TLS certificate to
-guard against spoofing attacks.
-
-###### To connect to an Aurora PostgreSQL DB cluster over SSL/TLS
+**To connect to an Aurora PostgreSQL DB cluster over SSL/TLS**
 
 1. Download the certificate.
 
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md"). 2. Import the certificate into your operating system. 3. Connect to your Aurora PostgreSQL DB cluster over SSL/TLS.
+   For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md).
 
-When you connect using SSL/TLS, your client can choose to verify the
-certificate chain or not. If your connection parameters specify
-`sslmode=verify-ca` or `sslmode=verify-full`, then
-your client requires the RDS CA certificates to be in their trust store or
-referenced in the connection URL. This requirement is to verify the certificate
-chain that signs your database certificate.
+1. Import the certificate into your operating system.
 
-When a client, such as psql or JDBC, is configured with SSL/TLS support, the
-client first tries to connect to the database with SSL/TLS by default. If the
-client can't connect with SSL/TLS, it reverts to connecting without
-SSL/TLS. By default, the `sslmode` option for JDBC and libpq-based
-clients is set to `prefer`.
+1. Connect to your Aurora PostgreSQL DB cluster over SSL/TLS.
 
-Use the `sslrootcert` parameter to reference the certificate, for
-example `sslrootcert=rds-ssl-ca-cert.pem`.
+   When you connect using SSL/TLS, your client can choose to verify the certificate chain or not. If your connection parameters specify `sslmode=verify-ca` or `sslmode=verify-full`, then your client requires the RDS CA certificates to be in their trust store or referenced in the connection URL. This requirement is to verify the certificate chain that signs your database certificate.
 
-The following is an example of using psql to connect to an Aurora PostgreSQL DB
-cluster.
+   When a client, such as psql or JDBC, is configured with SSL/TLS support, the client first tries to connect to the database with SSL/TLS by default. If the client can't connect with SSL/TLS, it reverts to connecting without SSL/TLS. By default, the `sslmode` option for JDBC and libpq-based clients is set to `prefer`. 
+
+   Use the `sslrootcert` parameter to reference the certificate, for example `sslrootcert=rds-ssl-ca-cert.pem`.
+
+The following is an example of using psql to connect to an Aurora PostgreSQL DB cluster.
 
 ```
 $ psql -h testpg.cdhmuqifdpib.us-east-1.rds.amazonaws.com -p 5432 \
@@ -115,42 +61,26 @@ $ psql -h testpg.cdhmuqifdpib.us-east-1.rds.amazonaws.com -p 5432 \
 ```
 
 ### Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster
+<a name="AuroraPostgreSQL.Security.SSL.Requiring"></a>
 
 To require SSL/TLS connections to your Aurora PostgreSQL DB cluster, use `rds.force_ssl` parameter.
++ To require SSL/TLS connections, set the `rds.force_ssl` parameter value to 1 (on).
++ To turn off required SSL/TLS connections, set the `rds.force_ssl` parameter value to 0 (off).
 
-- To require SSL/TLS connections, set the
-  `rds.force_ssl` parameter value to 1 (on).
-- To turn off required SSL/TLS connections, set the
-  `rds.force_ssl` parameter value to 0 (off).
+The default value of this parameter depends on the Aurora PostgreSQL version:
++ For Aurora PostgreSQL versions 17 and later: The default value is 1 (on).
++ For Aurora PostgreSQL versions 16 and older: The default value is 0 (off).
 
-The default value of this parameter depends on the
-Aurora PostgreSQL version:
+**Note**  
+When you perform a major version upgrade from Aurora PostgreSQL version 16 or earlier to version 17 or later, the default value of the parameter changes from 0 (off) to 1 (on). This change may cause connectivity failures for applications that are not configured for SSL. You can revert to the previous default behavior by setting this parameter to 0 (off).
 
-- For Aurora PostgreSQL versions 17 and later: The default value is 1
-  (on).
-- For Aurora PostgreSQL versions 16 and older: The default value is 0
-  (off).
+For more information on handling parameters, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md).
 
-###### Note
+Updating the `rds.force_ssl` parameter also sets the PostgreSQL `ssl` parameter to 1 (on) and modifies your DB cluster's `pg_hba.conf` file to support the new SSL/TLS configuration.
 
-When you perform a major version upgrade from Aurora PostgreSQL version 16 or
-earlier to version 17 or later, the default value of the parameter changes from
-0 (off) to 1 (on). This change may cause connectivity failures for applications
-that are not configured for SSL. You can revert to the previous default behavior
-by setting this parameter to 0 (off).
-
-For more information on handling parameters, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-
-Updating the `rds.force_ssl` parameter also sets the PostgreSQL
-`ssl` parameter to 1 (on) and modifies your DB cluster's
-`pg_hba.conf` file to support the new SSL/TLS configuration.
-
-When the `rds.force_ssl` parameter is set to 1 for a DB cluster, you see
-output similar to the following when you connect, indicating that SSL/TLS is now
-required:
+When the `rds.force_ssl` parameter is set to 1 for a DB cluster, you see output similar to the following when you connect, indicating that SSL/TLS is now required:
 
 ```
-
 $ psql postgres -h SOMEHOST.amazonaws.com -p 8192 -U someuser
 psql (9.3.12, server 9.4.4)
 WARNING: psql major version 9.3, server major version 9.4.
@@ -159,30 +89,25 @@ SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
 Type "help" for help.
 
 postgres=>
-
 ```
 
 ### Determining the SSL/TLS connection status
+<a name="AuroraPostgreSQL.Security.SSL.Status"></a>
 
-The encrypted status of your connection is shown in the logon banner when you
-connect to the DB cluster.
+The encrypted status of your connection is shown in the logon banner when you connect to the DB cluster.
 
 ```
-Password for user master:
-psql (9.3.12)
-SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
-Type "help" for help.  
+Password for user master: 
+psql (9.3.12) 
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256) 
+Type "help" for help.   
 
 postgres=>
 ```
 
-You can also load the `sslinfo` extension and then call the
-`ssl_is_used()` function to determine if SSL/TLS is being used. The
-function returns `t` if the connection is using SSL/TLS, otherwise it
-returns `f`.
+You can also load the `sslinfo` extension and then call the `ssl_is_used()` function to determine if SSL/TLS is being used. The function returns `t` if the connection is using SSL/TLS, otherwise it returns `f`.
 
 ```
-
 postgres=> create extension sslinfo;
 CREATE EXTENSION
 
@@ -193,72 +118,55 @@ t
 (1 row)
 ```
 
-You can use the `select ssl_cipher()` command to determine the SSL/TLS
-cipher:
+You can use the `select ssl_cipher()` command to determine the SSL/TLS cipher:
 
 ```
-
 postgres=> select ssl_cipher();
 ssl_cipher
 --------------------
 DHE-RSA-AES256-SHA
 (1 row)
-
 ```
 
-If you enable `set rds.force_ssl` and restart your DB cluster, non-SSL
-connections are refused with the following message:
+ If you enable `set rds.force_ssl` and restart your DB cluster, non-SSL connections are refused with the following message:
 
 ```
-
 $ export PGSSLMODE=disable
 $ psql postgres -h SOMEHOST.amazonaws.com -p 8192 -U someuser
 psql: FATAL: no pg_hba.conf entry for host "host.ip", user "someuser", database "postgres", SSL off
 $
-
 ```
 
-For information about the `sslmode` option, see [Database connection control functions](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE "https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE") in the PostgreSQL
-documentation.
+For information about the `sslmode` option, see [Database connection control functions](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE) in the PostgreSQL documentation.
 
 ### Configuring cipher suites for connections to Aurora PostgreSQL DB clusters
+<a name="AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites"></a>
 
-By using configurable cipher suites, you can have more control over the security
-of your database connections. You can specify a list of cipher suites that you want
-to allow to secure client SSL/TLS connections to your database. With configurable
-cipher suites, you can control the connection encryption that your database server
-accepts. Doing this helps prevent the use of insecure or deprecated ciphers.
+By using configurable cipher suites, you can have more control over the security of your database connections. You can specify a list of cipher suites that you want to allow to secure client SSL/TLS connections to your database. With configurable cipher suites, you can control the connection encryption that your database server accepts. Doing this helps prevent the use of insecure or deprecated ciphers.
 
-Configurable cipher suites is supported in Aurora PostgreSQL versions 11.8 and
-higher.
+Configurable cipher suites is supported in Aurora PostgreSQL versions 11.8 and higher.
 
-To specify the list of permissible ciphers for encrypting connections, modify the
-`ssl_ciphers` cluster parameter. Set the `ssl_ciphers`
-parameter to a string of comma-separated cipher values in a cluster parameter group
-using the AWS Management Console, the AWS CLI, or the RDS API. To set cluster parameters, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
+To specify the list of permissible ciphers for encrypting connections, modify the `ssl_ciphers` cluster parameter. Set the `ssl_ciphers` parameter to a string of comma-separated cipher values in a cluster parameter group using the AWS Management Console, the AWS CLI, or the RDS API. To set cluster parameters, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md).
 
-The following table shows the allowed ciphers for each Aurora PostgreSQL major
-version.
+The following table shows the allowed ciphers for each Aurora PostgreSQL major version.
 
-| APG Major Version | Allowed Ciphers List                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 18                | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 17                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 16                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 15                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 14                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 13                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 12                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
-| 11                | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 |
 
-You can also use the [describe-engine-default-cluster-parameters](../../../cli/latest/reference/rds/describe-engine-default-cluster-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-cluster-parameters.md") CLI command to determine
-which cipher suites are currently supported for a specific parameter group family.
-The following example shows how to get the allowed values for the
-`ssl_cipher` cluster parameter for Aurora PostgreSQL 11.
+| APG Major Version | Allowed Ciphers List | 
+| --- | --- | 
+| 18 | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384 | 
+| 17 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 16 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 15 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 14 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 13 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 12 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+| 11 | DHE-RSA-AES128-SHA, DHE-RSA-AES128-SHA256, DHE-RSA-AES128-GCM-SHA256, DHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA256, DHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-SHA, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES256-GCM-SHA384, TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, ECDHE-ECDSA-AES256-SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384, ECDHE-ECDSA-AES256-GCM-SHA384 | 
+
+You can also use the [describe-engine-default-cluster-parameters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-engine-default-cluster-parameters.html) CLI command to determine which cipher suites are currently supported for a specific parameter group family. The following example shows how to get the allowed values for the `ssl_cipher` cluster parameter for Aurora PostgreSQL 11.
 
 ```
 aws rds describe-engine-default-cluster-parameters --db-parameter-group-family aurora-postgresql11
-
+                
     ...some output truncated...
 	{
 		"ParameterName": "ssl_ciphers",
@@ -279,25 +187,17 @@ aws rds describe-engine-default-cluster-parameters --db-parameter-group-family a
     ...some output truncated...
 ```
 
-The `ssl_ciphers` parameter defaults to all allowed TLS 1.2 cipher suites. For
-more information about ciphers, see the [ssl\_ciphers](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS "https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS") variable in the PostgreSQL documentation.
+The `ssl_ciphers` parameter defaults to all allowed TLS 1.2 cipher suites. For more information about ciphers, see the [ssl\_ciphers](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS) variable in the PostgreSQL documentation. 
 
-From Aurora PostgreSQL 18.3 onwards, two parameters control which cipher suites
-the server offers during the TLS handshake. The two parameters are independent and
-complementary – `ssl_ciphers` controls TLS 1.2 version ciphers,
-and `ssl_tls13_ciphers` controls TLS 1.3 version ciphers.
+From Aurora PostgreSQL 18.3 onwards, two parameters control which cipher suites the server offers during the TLS handshake. The two parameters are independent and complementary – `ssl_ciphers` controls TLS 1.2 version ciphers, and `ssl_tls13_ciphers` controls TLS 1.3 version ciphers.
 
-| Parameter           | TLS protocol scope | Modifiable | Available in                           | Allowed Values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Default values                                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------------ | ---------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ssl_ciphers`       | TLS 1.2            | Yes        | All current Aurora PostgreSQL versions | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 |
-| `ssl_tls13_ciphers` | TLS 1.3            | Yes        | Aurora PostgreSQL 18.3 and later       | TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384                                                                                                                                                                                                                                                        |
+
+| Parameter | TLS protocol scope | Modifiable | Available in | Allowed Values | Default values | 
+| --- | --- | --- | --- | --- | --- | 
+| `ssl_ciphers` | TLS 1.2 | Yes | All current Aurora PostgreSQL versions | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256, TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256, TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 | 
+| `ssl_tls13_ciphers` | TLS 1.3 | Yes | Aurora PostgreSQL 18.3 and later | TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384 | TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384 | 
 
 #### Upgrading from earlier Aurora PostgreSQL versions
+<a name="AuroraPostgreSQL.Security.SSL.UpgradingCiphers"></a>
 
-Starting with Aurora PostgreSQL 18.3, TLS 1.3 ciphers are no longer
-controlled by the `ssl_ciphers` parameter. If you upgrade from an
-earlier version and your custom DB cluster parameter group set
-`ssl_ciphers` with the intent of restricting TLS 1.3 ciphers, those
-entries no longer take effect against TLS 1.3 connections after the upgrade. To
-control the TLS 1.3 cipher list, set `ssl_tls13_ciphers` in your
-custom DB cluster parameter group.
+Starting with Aurora PostgreSQL 18.3, TLS 1.3 ciphers are no longer controlled by the `ssl_ciphers` parameter. If you upgrade from an earlier version and your custom DB cluster parameter group set `ssl_ciphers` with the intent of restricting TLS 1.3 ciphers, those entries no longer take effect against TLS 1.3 connections after the upgrade. To control the TLS 1.3 cipher list, set `ssl_tls13_ciphers` in your custom DB cluster parameter group.

@@ -1,21 +1,24 @@
+
+
 # Managing custom casts in Aurora PostgreSQL
+<a name="PostgreSQL.CustomCasts"></a>
 
 **Type casting** in PostgreSQL is the process of converting a value from one data type to another. PostgreSQL provides built-in casts for many common conversions, but you can also create custom casts to define how specific type conversions should behave.
 
 A cast specifies how to perform a conversion from one data type to another. For example, converting text `'123'` to integer `123`, or numeric `45.67` to text `'45.67'`.
 
-For comprehensive information about PostgreSQL casting concepts and syntax, refer to the [PostgreSQL CREATE CAST Documentation](https://www.postgresql.org/docs/current/sql-createcast.html "https://www.postgresql.org/docs/current/sql-createcast.html").
+For comprehensive information about PostgreSQL casting concepts and syntax, refer to the [PostgreSQL CREATE CAST Documentation](https://www.postgresql.org/docs/current/sql-createcast.html).
 
 Starting with Aurora PostgreSQL versions 13.23, 14.20, 15.15, 16.11, 17.7, and 18.1, you can use the rds\_casts extension to install additional casts for built-in types, while still being able to create your own casts for custom types.
 
-###### Topics
-
-- [Installing and using the rds\_casts extension](#PostgreSQL.CustomCasts.Installing "#PostgreSQL.CustomCasts.Installing")
-- [Supported casts](#PostgreSQL.CustomCasts.Supported "#PostgreSQL.CustomCasts.Supported")
-- [Creating or dropping casts](#PostgreSQL.CustomCasts.Creating "#PostgreSQL.CustomCasts.Creating")
-- [Creating custom casts with proper context strategy](#PostgreSQL.CustomCasts.BestPractices "#PostgreSQL.CustomCasts.BestPractices")
+**Topics**
++ [Installing and using the rds\_casts extension](#PostgreSQL.CustomCasts.Installing)
++ [Supported casts](#PostgreSQL.CustomCasts.Supported)
++ [Creating or dropping casts](#PostgreSQL.CustomCasts.Creating)
++ [Creating custom casts with proper context strategy](#PostgreSQL.CustomCasts.BestPractices)
 
 ## Installing and using the rds\_casts extension
+<a name="PostgreSQL.CustomCasts.Installing"></a>
 
 To create the `rds_casts` extension, connect to the writer instance of your Aurora PostgreSQL DB cluster as an `rds_superuser` and run the following command:
 
@@ -24,6 +27,7 @@ CREATE EXTENSION IF NOT EXISTS rds_casts;
 ```
 
 ## Supported casts
+<a name="PostgreSQL.CustomCasts.Supported"></a>
 
 Create the extension in each database where you want to use custom casts. After creating the extension, use the following command to view all available casts:
 
@@ -47,17 +51,18 @@ WHERE source_type = 'text' AND target_type = 'numeric';
 ```
 
 The rds\_casts extension provides two types of conversion functions for each cast:
-
-- _\_inout functions_ - Use PostgreSQL's standard I/O conversion mechanism, behaving identically to casts created with the INOUT method
-- _\_custom functions_ - Provide enhanced conversion logic that handles edge cases, such as converting empty strings to NULL values to avoid conversion errors
++ *\_inout functions* - Use PostgreSQL's standard I/O conversion mechanism, behaving identically to casts created with the INOUT method
++ *\_custom functions* - Provide enhanced conversion logic that handles edge cases, such as converting empty strings to NULL values to avoid conversion errors
 
 The `inout` functions replicate PostgreSQL's native casting behavior, while `custom` functions extend this functionality by handling scenarios that standard INOUT casts cannot accommodate, such as converting empty strings to integers.
 
 ## Creating or dropping casts
+<a name="PostgreSQL.CustomCasts.Creating"></a>
 
 You can create and drop supported casts using two methods:
 
 ### Cast creation
+<a name="PostgreSQL.CustomCasts.Creating.Methods"></a>
 
 **Method 1: Using native CREATE CAST command**
 
@@ -89,6 +94,7 @@ WHERE castsource = 'text'::regtype AND casttarget = 'numeric'::regtype;
 The `castcontext` column shows: `e` for EXPLICIT, `a` for ASSIGNMENT, or `i` for IMPLICIT.
 
 ### Dropping casts
+<a name="PostgreSQL.CustomCasts.Dropping"></a>
 
 **Method 1: Using DROP CAST command**
 
@@ -105,6 +111,7 @@ SELECT rds_casts.drop_cast(10);
 The `drop_cast` function takes the same ID used when creating the cast. This method ensures you're dropping the exact cast that was created with the corresponding ID.
 
 ## Creating custom casts with proper context strategy
+<a name="PostgreSQL.CustomCasts.BestPractices"></a>
 
 When creating multiple casts for integer types, operator ambiguity errors can occur if all casts are created as IMPLICIT. The following example demonstrates this issue by creating two implicit casts from text to different integer widths:
 
