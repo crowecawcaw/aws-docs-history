@@ -30,6 +30,16 @@ aws transfer update-connector --sftp-config '{"UserSecretId":"`secret-ARN`"}' \
    --connector-id `connector-id` --region `region-id`
 ```
 
+The following command configures ordered secret version stages for fallback
+authentication on an existing connector. To use this example command, replace the
+`user input placeholders` with your own
+information.
+
+```
+aws transfer update-connector --sftp-config '{"OrderedUserSecretVersionStages": ["AWSCURRENT", "AWSPREVIOUS"]}' \
+   --connector-id `connector-id` --region `region-id`
+```
+
 ### Updating VPC connectivity settings
 
 You can update VPC connectivity settings for existing connectors, including switching between service-managed and VPC egress types or changing the Resource Configuration ARN.

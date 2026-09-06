@@ -24,6 +24,7 @@ SFTP connector quotas| Name | Default | Adjustable |
 | Maximum request wait time per file | 12 hours | No |
 | Maximum bandwidth for connectors per account (both SFTP and AS2<br>connectors contribute to this value) | 50 MBps | No |
 | Maximum number of items for directory listing operations | 200,000 | No |
+| Maximum number of ordered secret version stages per<br>connector | 2 | No |
 
 ###### Note
 

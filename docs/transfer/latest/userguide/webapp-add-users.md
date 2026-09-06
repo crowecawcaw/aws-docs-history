@@ -29,7 +29,7 @@ will get an error when they attempt to log into your web app.
    edit.
 2. Choose **Assign users and groups**.
 
-![Screen showing the details for a selected web app.](/images/transfer/latest/userguide/images/webapp-transfer-details.png) 3. To assign users that you previously created in IAM Identity Center, select
+![Screen showing the details for a selected web app.](images/webapp-transfer-details.png) 3. To assign users that you previously created in IAM Identity Center, select
 **Assign existing users and groups**. To create new
 users, skip ahead to step 4.
 

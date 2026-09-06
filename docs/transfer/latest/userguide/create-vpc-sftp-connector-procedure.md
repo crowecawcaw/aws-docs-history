@@ -252,6 +252,14 @@ the following information:
      connections**, choose the number of concurrent
      connections that your connector creates to the remote server
      (default is 5).
+    * (Optional) For **Ordered secret version
+     stages**, enter an ordered list of Secrets Manager
+     version stage labels. The connector attempts authentication
+     using each stage in order during file transfers. If you
+     don't specify version stages, the connector uses only
+     `AWSCURRENT`. For example, specify
+     `AWSCURRENT`, `AWSPREVIOUS` to
+     enable automatic fallback during secret rotation.
 
 6. In the **Cryptographic algorithm options**
 section, choose a **Security policy** from the

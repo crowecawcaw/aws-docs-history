@@ -16,4 +16,4 @@ The bottom portion of the AS2 server details page contains details for any attac
 workflow and monitoring and tagging information.
 
 ![The server details console page for an AS2 server, showing tag details.](images/as2-server-details-workflows-monitoring.png)
-![The server details console page for an AS2 server, showing tag details.](/images/transfer/latest/userguide/images/edit-server-details-tags.png)
+![The server details console page for an AS2 server, showing tag details.](images/edit-server-details-tags.png)

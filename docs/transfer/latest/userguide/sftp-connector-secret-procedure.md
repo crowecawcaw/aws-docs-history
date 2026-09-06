@@ -67,3 +67,35 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
    **Next**.
 9. On the **Review** page, choose **Store**
    to create and store the secret.
+
+## Secret version fallback
+
+When you rotate credentials for your SFTP connector, external partners might
+take time to update to the new credentials. During this transition, the
+connector might fail to authenticate because it only attempts the current
+version of the secret by default.
+
+To support graceful rotation without downtime, you can configure an ordered
+list of version stages on your connector. The connector tries each version stage
+in sequence during authentication—it uses the first stage that
+authenticates successfully. For example, if you configure `["AWSCURRENT",
+ "AWSPREVIOUS"]`, the connector tries the new credentials first. If
+authentication fails, the connector falls back to the previous
+credentials.
+
+You configure the version stage list once on your
+connector—subsequent rotations require no manual intervention.
+
+###### Note
+
+When rotating secrets, you must keep the `Username` value the
+same across all version stages. The connector does not support different
+usernames for different version stages. If you need to change the username,
+update `UserSecretId` to point to a new secret rather than
+rotating the username within the same secret.
+
+For information about configuring version stage fallback on your connector,
+see [Managing SFTP connectors](manage-sftp-connectors.md "manage-sftp-connectors.md").
+
+For more information about Secrets Manager version stages, see [Version stages](../../../secretsmanager/latest/userguide/getting-started.md#term_version-stage "../../../secretsmanager/latest/userguide/getting-started.md#term_version-stage") in the _AWS Secrets Manager User
+Guide_.

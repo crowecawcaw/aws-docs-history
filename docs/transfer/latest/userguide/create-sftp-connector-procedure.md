@@ -225,6 +225,14 @@ following information:
      your connector can establish with the remote server at the same
      time. Creating concurrent connections can enhance connector
      performance by enabling parallel operations.
+    * (Optional) For **Ordered secret version
+     stages**, enter an ordered list of Secrets Manager version
+     stage labels. The connector attempts authentication using each
+     stage in order during file transfers. If you don't specify
+     version stages, the connector uses only
+     `AWSCURRENT`. For example, specify
+     `AWSCURRENT`, `AWSPREVIOUS` to enable
+     automatic fallback during secret rotation.
 
 7. In the **Cryptographic algorithm options** section,
 choose a **Security policy** from the dropdown list in
@@ -370,9 +378,16 @@ different account](../../../secretsmanager/latest/userguide/auth-and-access_exam
    "UserSecretId": "arn:aws::secretsmanager:`us-east-2`:`123456789012`:secret:aws/transfer/`example-username-key`",
    "TrustedHostKeys": [
       "`sftp.example.com ssh-rsa AAAAbbbb...EEEE=`"
-   ]
+   ],
+   "OrderedUserSecretVersionStages": ["AWSCURRENT", "AWSPREVIOUS"]
 }
 ```
+
+###### Note
+
+The `OrderedUserSecretVersionStages` parameter is
+optional. If you omit this parameter, the connector defaults to
+`["AWSCURRENT"]`.
 
 - Specify a security policy for your connector, entering the security
   policy name.
