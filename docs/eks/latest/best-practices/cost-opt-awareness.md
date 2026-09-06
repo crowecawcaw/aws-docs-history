@@ -1,26 +1,35 @@
+
+
 # Expenditure awareness
+<a name="cost-opt-awareness"></a>
 
 Expenditure awareness is understanding who, where and what is causing expenditures in your EKS cluster. Getting an accurate picture of this data will help raise awareness of your spend and highlight areas to remediate.
 
 ## Recommendations
+<a name="_recommendations"></a>
 
 ### Use Cost Explorer
+<a name="_use_cost_explorer"></a>
 
-[AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. You can analyze cost and usage data, at various levels using the filters available in Cost Explorer.
+ [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time. You can analyze cost and usage data, at various levels using the filters available in Cost Explorer.
 
 #### EKS Control Plane and EKS Fargate costs
+<a name="_eks_control_plane_and_eks_fargate_costs"></a>
 
 Using the filters, we can query the costs incurred for the EKS costs at the Control Plane and Fargate Pod as shown in the diagram below:
 
-![Cost Explorer - EKS Control Plane](images/eks-controlplane-costexplorer.png)
+![Cost Explorer - EKS Control Plane](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-controlplane-costexplorer.png)
+
 
 Using the filters, we can query the aggregate costs incurred for the Fargate Pods across regions in EKS - which includes both vCPU-Hours per CPU and GB Hrs as shown in the diagram below:
 
-![Cost Explorer - EKS Fargate](images/eks-fargate-costexplorer.png)
+![Cost Explorer - EKS Fargate](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-fargate-costexplorer.png)
+
 
 #### Tagging of Resources
+<a name="_tagging_of_resources"></a>
 
-Amazon EKS supports [adding AWS tags](../userguide/eks-using-tags.md "../userguide/eks-using-tags.md") to your Amazon EKS clusters. This makes it easy to control access to the EKS API for managing your clusters. Tags added to an EKS cluster are specific to the AWS EKS cluster resource, they do not propagate to other AWS resources used by the cluster such as EC2 instances or load balancers. Today, cluster tagging is supported for all new and existing EKS clusters via the AWS API, Console, and SDKs.
+Amazon EKS supports [adding AWS tags](https://docs.aws.amazon.com/eks/latest/userguide/eks-using-tags.html) to your Amazon EKS clusters. This makes it easy to control access to the EKS API for managing your clusters. Tags added to an EKS cluster are specific to the AWS EKS cluster resource, they do not propagate to other AWS resources used by the cluster such as EC2 instances or load balancers. Today, cluster tagging is supported for all new and existing EKS clusters via the AWS API, Console, and SDKs.
 
 AWS Fargate is a technology that provides on-demand, right-sized compute capacity for containers. Before you can schedule pods on Fargate in your cluster, you must define at least one Fargate profile that specifies which pods should use Fargate when they are launched.
 
@@ -39,11 +48,12 @@ $ aws eks list-tags-for-resource --resource-arn arn:aws:eks:us-west-2:xxx:cluste
 }
 ```
 
-After you activate cost allocation tags in the [AWS Cost Explorer](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md"), AWS uses the cost allocation tags to organize your resource costs on your cost allocation report, to make it easier for you to categorize and track your AWS costs.
+After you activate cost allocation tags in the [AWS Cost Explorer](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html), AWS uses the cost allocation tags to organize your resource costs on your cost allocation report, to make it easier for you to categorize and track your AWS costs.
 
 Tags don’t have any semantic meaning to Amazon EKS and are interpreted strictly as a string of characters. For example, you can define a set of tags for your Amazon EKS clusters to help you track each cluster’s owner and stack level.
 
 ### Use AWS Trusted Advisor
+<a name="_use_aws_trusted_advisor"></a>
 
 AWS Trusted Advisor offers a rich set of best practice checks and recommendations across five categories: cost optimization; security; fault tolerance; performance; and service limits.
 
@@ -51,17 +61,16 @@ For Cost Optimization, Trusted Advisor helps eliminate unused and idle resources
 
 The Trusted Advisor also provides Savings Plans and Reserved Instances recommendations for EC2 instances and Fargate which allows you to commit to a consistent usage amount in exchange for discounted rates.
 
-###### Note
-
+**Note**  
 The recommendations from Trusted Advisor are generic recommendations and not specific to EKS.
 
 ### View in-cluster resource usage
+<a name="_view_in_cluster_resource_usage"></a>
 
-###### Note
+**Note**  
+The [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) project is archived and no longer actively maintained, so deploying it is no longer recommended. For in-cluster resource visibility, use the `kubectl top` and `kubectl describe` commands below, or the CloudWatch Container Insights and Kubecost approaches described in the following sections. For AWS-native, pod-level cost visibility and attribution, see the Split Cost Allocation Data (SCAD) for Amazon EKS section below.
 
-The [Kubernetes Dashboard](https://github.com/kubernetes/dashboard "https://github.com/kubernetes/dashboard") project is archived and no longer actively maintained, so deploying it is no longer recommended. For in-cluster resource visibility, use the `kubectl top` and `kubectl describe` commands below, or the CloudWatch Container Insights and Kubecost approaches described in the following sections. For AWS-native, pod-level cost visibility and attribution, see the Split Cost Allocation Data (SCAD) for Amazon EKS section below.
-
-_**kubectl top and describe commands**_
+ ** *kubectl top and describe commands* ** 
 
 Viewing resource usage metrics with kubectl top and kubectl describe commands. kubectl top will show current CPU and memory usage for the pods or nodes across your cluster, or for a specific pod or node. The kubectl describe command will give more detailed information about a specific node or a pod.
 
@@ -71,48 +80,50 @@ $ kubectl top nodes
 $ kubectl top pod pod-name --namespace mynamespace --containers
 ```
 
-Using the top command, the output will display the total amount of CPU (in cores) and memory (in MiB) that the node is using, and the percentages of the node’s allocatable capacity those numbers represent. You can then drill-down to the next level, container level within pods by adding a _--containers_ flag.
+Using the top command, the output will display the total amount of CPU (in cores) and memory (in MiB) that the node is using, and the percentages of the node’s allocatable capacity those numbers represent. You can then drill-down to the next level, container level within pods by adding a *--containers* flag.
 
 ```
 $ kubectl describe node <node>
 $ kubectl describe pod <pod>
 ```
 
-_kubectl describe_ returns the percent of total available capacity that each resource request or limit represents.
+ *kubectl describe* returns the percent of total available capacity that each resource request or limit represents.
 
 kubectl top and describe, track the utilization and availability of critical resources such as CPU, memory, and storage across kubernetes pods, nodes and containers. This awareness will help in understanding resource usage and help in controlling costs.
 
 ### Use Split Cost Allocation Data (SCAD) for Amazon EKS
+<a name="_use_split_cost_allocation_data_scad_for_amazon_eks"></a>
 
-[Split Cost Allocation Data (SCAD) for Amazon EKS](../../../cur/latest/userguide/split-cost-allocation-data.md "../../../cur/latest/userguide/split-cost-allocation-data.md") adds container-level cost and usage data to the AWS Cost and Usage Report (CUR). Previously CUR reported costs only at the Amazon EC2 instance level; SCAD attributes cost to individual pods by taking the amortized cost of the EC2 instance and multiplying it by the percentage of CPU and memory that each pod consumed on that instance. For every pod it adds two usage records per hour (CPU and memory), or three on accelerated-computing instances (accelerator, CPU, and memory) covering NVIDIA and AMD GPUs, AWS Trainium, and AWS Inferentia. This lets you attribute EKS spend to business units, teams, namespaces, and workloads.
+ [Split Cost Allocation Data (SCAD) for Amazon EKS](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html) adds container-level cost and usage data to the AWS Cost and Usage Report (CUR). Previously CUR reported costs only at the Amazon EC2 instance level; SCAD attributes cost to individual pods by taking the amortized cost of the EC2 instance and multiplying it by the percentage of CPU and memory that each pod consumed on that instance. For every pod it adds two usage records per hour (CPU and memory), or three on accelerated-computing instances (accelerator, CPU, and memory) covering NVIDIA and AMD GPUs, AWS Trainium, and AWS Inferentia. This lets you attribute EKS spend to business units, teams, namespaces, and workloads.
 
-SCAD for Amazon EKS automatically creates AWS-generated cost allocation tags, including `aws:eks:cluster-name`, `aws:eks:namespace`, `aws:eks:workload-name`, `aws:eks:workload-type`, `aws:eks:deployment`, and `aws:eks:node`. Since [October 2025](https://aws.amazon.com/about-aws/whats-new/2025/10/split-cost-allocation-data-amazon-eks-kubernetes-labels/ "https://aws.amazon.com/about-aws/whats-new/2025/10/split-cost-allocation-data-amazon-eks-kubernetes-labels/") you can also import up to 50 Kubernetes custom labels per pod as cost allocation tags, allowing attribution by attributes such as cost center, application, business unit, and environment. Labels become available in AWS CUR within 24 hours of activation.
+SCAD for Amazon EKS automatically creates AWS-generated cost allocation tags, including `aws:eks:cluster-name`, `aws:eks:namespace`, `aws:eks:workload-name`, `aws:eks:workload-type`, `aws:eks:deployment`, and `aws:eks:node`. Since [October 2025](https://aws.amazon.com/about-aws/whats-new/2025/10/split-cost-allocation-data-amazon-eks-kubernetes-labels/) you can also import up to 50 Kubernetes custom labels per pod as cost allocation tags, allowing attribution by attributes such as cost center, application, business unit, and environment. Labels become available in AWS CUR within 24 hours of activation.
 
-To enable SCAD, opt in from the AWS Billing and Cost Management console under **Cost Management preferences** (only management/payer accounts can opt in; member accounts can then view the data), choose a measurement basis for Amazon EKS (resource requests, Amazon Managed Service for Prometheus, or CloudWatch Container Insights), and include split cost allocation data in your Cost and Usage Report. SCAD is available in legacy CUR and CUR 2.0 (through Data Exports), but not in AWS Cost Explorer. From the CUR, the data is typically queried with Amazon Athena and visualized in Amazon QuickSight using the Cloud Intelligence Dashboards (CID), such as the [SCAD containers cost allocation dashboard](../../../guidance/latest/cloud-intelligence-dashboards/scad-containers-dashboard.md "../../../guidance/latest/cloud-intelligence-dashboards/scad-containers-dashboard.md") built directly on split cost allocation data (a [Kubecost-based dashboard](../../../guidance/latest/cloud-intelligence-dashboards/kubecost-containers-dashboard.md "../../../guidance/latest/cloud-intelligence-dashboards/kubecost-containers-dashboard.md") is also available when using Kubecost as the data source).
+To enable SCAD, opt in from the AWS Billing and Cost Management console under **Cost Management preferences** (only management/payer accounts can opt in; member accounts can then view the data), choose a measurement basis for Amazon EKS (resource requests, Amazon Managed Service for Prometheus, or CloudWatch Container Insights), and include split cost allocation data in your Cost and Usage Report. SCAD is available in legacy CUR and CUR 2.0 (through Data Exports), but not in AWS Cost Explorer. From the CUR, the data is typically queried with Amazon Athena and visualized in Amazon QuickSight using the Cloud Intelligence Dashboards (CID), such as the [SCAD containers cost allocation dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/scad-containers-dashboard.html) built directly on split cost allocation data (a [Kubecost-based dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/kubecost-containers-dashboard.html) is also available when using Kubecost as the data source).
 
 ### Use CloudWatch Container Insights
+<a name="_use_cloudwatch_container_insights"></a>
 
-Use [CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md") to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Kubernetes Service on EC2, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.
+Use [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html) to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Kubernetes Service on EC2, and Kubernetes platforms on Amazon EC2. The metrics include utilization for resources such as CPU, memory, disk, and network.
 
-The installation of insights is given in the [documentation](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md").
+The installation of insights is given in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html).
 
 CloudWatch creates aggregated metrics at the cluster, node, pod, task, and service level as CloudWatch metrics.
 
-**The following query shows a list of nodes, sorted by average node CPU utilization**
+ **The following query shows a list of nodes, sorted by average node CPU utilization** 
 
 ```
 STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
 | SORT avg_node_cpu_utilization DESC
 ```
 
-**CPU usage by Container name**
+ **CPU usage by Container name** 
 
 ```
 stats pct(container_cpu_usage_total, 50) as CPUPercMedian by kubernetes.container_name
 | filter Type="Container"
 ```
 
-**Disk usage by Container name**
+ **Disk usage by Container name** 
 
 ```
 stats floor(avg(container_filesystem_usage/1024)) as container_filesystem_usage_avg_kb by InstanceId, kubernetes.container_name, device
@@ -120,13 +131,14 @@ stats floor(avg(container_filesystem_usage/1024)) as container_filesystem_usage_
 | sort container_filesystem_usage_avg_kb desc
 ```
 
-More sample queries are given in the [Container Insights documention](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.md")
+More sample queries are given in the [Container Insights documention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.html) 
 
 This awareness will help in understanding resource usage and help in controlling costs.
 
 ### Using Kubecost for expenditure awareness and guidance
+<a name="_using_kubecost_for_expenditure_awareness_and_guidance"></a>
 
-Third party tools like [kubecost](https://kubecost.com/ "https://kubecost.com/") can also be deployed on Amazon EKS to get visibility into cost of running your Kubernetes cluster. Please refer to this [AWS blog](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/") for tracking costs using Kubecost
+Third party tools like [kubecost](https://kubecost.com/) can also be deployed on Amazon EKS to get visibility into cost of running your Kubernetes cluster. Please refer to this [AWS blog](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/) for tracking costs using Kubecost
 
 Deploying kubecost using Helm 3:
 
@@ -160,55 +172,62 @@ NOTE: If you are using Cloud 9 or have a need to forward it to a different port 
 $ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 8080:9090
 ```
 
-Kubecost Dashboard -
-
-![Kubernetes Cluster Auto Scaler logs](images/kube-cost.png)
+Kubecost Dashboard - ![Kubernetes Cluster Auto Scaler logs](http://docs.aws.amazon.com/eks/latest/best-practices/images/kube-cost.png) 
 
 ### Use Kubernetes Cost Allocation and Capacity Planning Analytics Tool
+<a name="_use_kubernetes_cost_allocation_and_capacity_planning_analytics_tool"></a>
 
-[Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics") is a tool to help organizations track the resources being consumed by their Kubernetes clusters to prevent overpaying. To do so it generates, short- (7 days), mid- (14 days) and long-term (12 months) usage reports showing relevant insights on what amount of resources each project is spending over time.
+ [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics) is a tool to help organizations track the resources being consumed by their Kubernetes clusters to prevent overpaying. To do so it generates, short- (7 days), mid- (14 days) and long-term (12 months) usage reports showing relevant insights on what amount of resources each project is spending over time.
 
-![Kubernetes Opex Analytics](images/kube-opex-analytics.png)
+![Kubernetes Opex Analytics](http://docs.aws.amazon.com/eks/latest/best-practices/images/kube-opex-analytics.png)
+
 
 ### Yotascale
+<a name="_yotascale"></a>
 
 Yotascale helps with accurately allocating Kubernetes costs. Yotascale Kubernetes Cost Allocation feature utilizes actual cost data, which is inclusive of Reserved Instance discounts and spot instance pricing instead of generic market-rate estimations, to inform the total Kubernetes cost footprint
 
-More details can be found at [their website](https://www.yotascale.com/ "https://www.yotascale.com/").
+More details can be found at [their website](https://www.yotascale.com/).
 
 ### Alcide Advisor
+<a name="_alcide_advisor"></a>
 
 Alcide is an AWS Partner Network (APN) Advanced Technology Partner. Alcide Advisor helps ensure your Amazon EKS cluster, nodes, and pods configuration are tuned to run according to security best practices and internal guidelines. Alcide Advisor is an agentless service for Kubernetes audit and compliance that’s built to ensure a frictionless and secured DevSecOps flow by hardening the development stage before moving to production.
 
-More details can be found in this [blog post](https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/ "https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/").
+More details can be found in this [blog post](https://aws.amazon.com/blogs/apn/driving-continuous-security-and-configuration-checks-for-amazon-eks-with-alcide-advisor/).
 
 ## Other tools
+<a name="_other_tools"></a>
 
 ### Kubernetes Garbage Collection
+<a name="_kubernetes_garbage_collection"></a>
 
-The role of the [Kubernetes garbage collector](https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ "https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/") is to delete certain objects that once had an owner, but no longer have an owner.
+The role of the [Kubernetes garbage collector](https://kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/) is to delete certain objects that once had an owner, but no longer have an owner.
 
 ### Fargate count
+<a name="_fargate_count"></a>
 
-[Fargatecount](https://github.com/mreferre/fargatecount "https://github.com/mreferre/fargatecount") is an useful tool, which allows AWS customers to track, with a custom CloudWatch metric, the total number of EKS pods that have been deployed on Fargate in a specific region of a specific account. This helps in keeping track of all the Fargate pods running across an EKS cluster.
+ [Fargatecount](https://github.com/mreferre/fargatecount) is an useful tool, which allows AWS customers to track, with a custom CloudWatch metric, the total number of EKS pods that have been deployed on Fargate in a specific region of a specific account. This helps in keeping track of all the Fargate pods running across an EKS cluster.
 
 ### Popeye - A Kubernetes Cluster Sanitizer
+<a name="_popeye_a_kubernetes_cluster_sanitizer"></a>
 
-[Popeye - A Kubernetes Cluster Sanitizer](https://github.com/derailed/popeye "https://github.com/derailed/popeye") is a utility that scans live Kubernetes cluster and reports potential issues with deployed resources and configurations. It sanitizes your cluster based on what’s deployed and not what’s sitting on disk. By scanning your cluster, it detects misconfigurations and helps you to ensure that best practices are in place
+ [Popeye - A Kubernetes Cluster Sanitizer](https://github.com/derailed/popeye) is a utility that scans live Kubernetes cluster and reports potential issues with deployed resources and configurations. It sanitizes your cluster based on what’s deployed and not what’s sitting on disk. By scanning your cluster, it detects misconfigurations and helps you to ensure that best practices are in place
 
 ### Resources
+<a name="_resources"></a>
 
 Refer to the following resources to learn more about best practices for cost optimization.
 
 #### Documentation and Blogs
-
-- [Amazon EKS supports tagging](../userguide/eks-using-tags.md "../userguide/eks-using-tags.md")
+<a name="_documentation_and_blogs"></a>
++  [Amazon EKS supports tagging](https://docs.aws.amazon.com/eks/latest/userguide/eks-using-tags.html) 
 
 #### Tools
-
-- [What is AWS Billing and Cost Management?](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md")
-- [Amazon CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContainerInsights.md")
-- [How to track costs in multi-tenant Amazon EKS clusters using Kubecost](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/ "https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/")
-- [Kubecost](https://kubecost.com/ "https://kubecost.com/")
-- [Kube Opsview](https://github.com/hjacobs/kube-ops-view "https://github.com/hjacobs/kube-ops-view")
-- [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics "https://github.com/rchakode/kube-opex-analytics")
+<a name="_tools"></a>
++  [What is AWS Billing and Cost Management?](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) 
++  [Amazon CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html) 
++  [How to track costs in multi-tenant Amazon EKS clusters using Kubecost](https://aws.amazon.com/blogs/containers/how-to-track-costs-in-multi-tenant-amazon-eks-clusters-using-kubecost/) 
++  [Kubecost](https://kubecost.com/) 
++  [Kube Opsview](https://github.com/hjacobs/kube-ops-view) 
++  [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics) 

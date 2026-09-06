@@ -1,28 +1,33 @@
+
+
 # Protecting EKS Cluster Control Plane with Service Control Policies
+<a name="scp-control-plane-protection"></a>
 
 ## Problem Statement
+<a name="_problem_statement"></a>
 
 In multi-team organizations, a central platform or infrastructure team often provisions and manages EKS clusters on behalf of application teams. Application teams need the ability to deploy workloads (create namespaces, deployments, services, etc.) but should not be able to modify the cluster’s AWS-level control plane, such as upgrading the cluster version, changing networking configuration, adding or removing node groups, or deleting the cluster.
 
 Without guardrails at the AWS API layer, any principal with sufficient IAM permissions in the account can make destructive changes to the cluster infrastructure, even if Kubernetes RBAC restricts their in-cluster actions.
 
 ## Solution: SCP with Tag-Based Conditions
+<a name="_solution_scp_with_tag_based_conditions"></a>
 
 Use an AWS Organizations Service Control Policy (SCP) to deny EKS control plane mutations on clusters tagged with a specific owner tag, while allowing a designated admin role to retain full access. The action list in the example below covers the common control plane mutations; treat it as a representative starting point and review it against the current EKS API for your use case.
 
 This approach allows:
-
-- Application teams to create and fully manage their **own** EKS clusters (untagged or tagged differently)
-- Platform-owned clusters (identified by tag) to be immutable at the AWS API layer for non-admin principals
-- Kubernetes-level operations (kubectl, Helm, etc.) to remain unaffected since they use the Kubernetes API, not the AWS API
++ Application teams to create and fully manage their **own** EKS clusters (untagged or tagged differently)
++ Platform-owned clusters (identified by tag) to be immutable at the AWS API layer for non-admin principals
++ Kubernetes-level operations (kubectl, Helm, etc.) to remain unaffected since they use the Kubernetes API, not the AWS API
 
 ## Prerequisites
-
-- AWS Organizations with Service Control Policies enabled (not just consolidated billing)
-- A consistent tagging strategy; clusters owned by the platform team must be tagged (e.g., `Owner: PlatformTeam`)
-- A designated admin IAM role for the platform team
+<a name="_prerequisites"></a>
++ AWS Organizations with Service Control Policies enabled (not just consolidated billing)
++ A consistent tagging strategy; clusters owned by the platform team must be tagged (e.g., `Owner: PlatformTeam`)
++ A designated admin IAM role for the platform team
 
 ## Example SCP
+<a name="_example_scp"></a>
 
 ```
 {
@@ -78,43 +83,47 @@ This approach allows:
 }
 ```
 
-###### Note
-
+**Note**  
 Replace `111111111111` with your actual AWS account ID, or use a wildcard pattern (`arn:aws:iam::*:role/PlatformAdmin`) if applying across multiple accounts in the organization.
 
 ## How It Works
+<a name="_how_it_works"></a>
 
 The SCP uses two conditions that must both be true (AND logic) for the deny to apply:
 
-1. **`StringNotEquals` on `aws:PrincipalArn`**: The caller is NOT the designated admin role.
-2. **`StringEquals` on `aws:ResourceTag/Owner`**: The target resource is tagged `Owner: PlatformTeam`.
+1.  ** `StringNotEquals` on `aws:PrincipalArn` **: The caller is NOT the designated admin role.
+
+1.  ** `StringEquals` on `aws:ResourceTag/Owner` **: The target resource is tagged `Owner: PlatformTeam`.
 
 This means:
++ The platform admin role retains full control over tagged clusters
++ All other principals are denied control plane modifications on tagged clusters
++ Untagged clusters (or clusters with a different `Owner` tag) are unaffected, and teams retain full autonomy over their own clusters
 
-- The platform admin role retains full control over tagged clusters
-- All other principals are denied control plane modifications on tagged clusters
-- Untagged clusters (or clusters with a different `Owner` tag) are unaffected, and teams retain full autonomy over their own clusters
-
-###### Note
-
+**Note**  
 The `aws:ResourceTag/Owner` condition evaluates the tag on an **existing** resource. For actions that create a new top-level resource (such as `eks:CreateCluster` and `eks:RegisterCluster`), there is no resource tag to evaluate at request time, so the deny does not apply to those actions. This is consistent with the intent of letting teams create their own clusters, but it means this SCP does not, by itself, block cluster creation. For sub-resource create actions (for example `eks:CreateNodegroup`, `eks:CreateAddon`, `eks:CreateAccessEntry`, `eks:CreateFargateProfile`, `eks:CreatePodIdentityAssociation`), confirm in your own environment that `aws:ResourceTag/Owner` resolves from the parent cluster before relying on the deny. If you also need to prevent creation of untagged or non-compliant resources, pair this policy with a separate statement that uses `aws:RequestTag` and `aws:TagKeys` conditions on the create actions.
 
 ## Critical: Protect the Tag
+<a name="_critical_protect_the_tag"></a>
 
 The SCP includes `eks:TagResource` and `eks:UntagResource` in the deny list. This is essential. Without it, a non-admin principal could simply remove the `Owner` tag from the cluster to bypass the policy.
 
 ## Condition Logic Detail
+<a name="_condition_logic_detail"></a>
 
-| Caller              | Resource Tag           | Result                                   |
-| ------------------- | ---------------------- | ---------------------------------------- |
-| PlatformAdmin role  | Owner: PlatformTeam    | **Allowed**: principal exclusion applies |
-| PlatformAdmin role  | No tag / different tag | **Allowed**: tag condition not met       |
-| Any other principal | Owner: PlatformTeam    | **Denied**: both conditions met          |
-| Any other principal | No tag / different tag | **Allowed**: tag condition not met       |
+
+| Caller | Resource Tag | Result | 
+| --- | --- | --- | 
+| PlatformAdmin role | Owner: PlatformTeam |  **Allowed**: principal exclusion applies | 
+| PlatformAdmin role | No tag / different tag |  **Allowed**: tag condition not met | 
+| Any other principal | Owner: PlatformTeam |  **Denied**: both conditions met | 
+| Any other principal | No tag / different tag |  **Allowed**: tag condition not met | 
 
 ## Variations
+<a name="_variations"></a>
 
 ### Multiple Admin Roles
+<a name="_multiple_admin_roles"></a>
 
 To allow multiple roles to bypass the deny, use `ForAnyValue:StringEquals` or list multiple ARNs:
 
@@ -132,36 +141,34 @@ To allow multiple roles to bypass the deny, use `ForAnyValue:StringEquals` or li
 }
 ```
 
-###### Note
-
+**Note**  
 Using `arn:aws:iam::*:role/RoleName` with a wildcard account allows the role to work across all accounts in the organization.
 
-###### Tip
-
+**Tip**  
 The example SCP includes EKS Anywhere actions (`CreateEksAnywhereSubscription`, `DeleteEksAnywhereSubscription`, `UpdateEksAnywhereSubscription`). If your organization does not use EKS Anywhere, you can safely remove these actions to keep the policy concise.
 
 ### OU-Level Application
+<a name="_ou_level_application"></a>
 
 Apply the SCP at the Organizational Unit (OU) level containing application team accounts, rather than the entire organization. This limits the blast radius and avoids affecting the platform team’s management account.
 
 ## Limitations
+<a name="_limitations"></a>
 
-###### Important
-
+**Important**  
 This SCP protects the **AWS API layer only**. It does NOT restrict Kubernetes-level administrative actions.
 
 A principal denied by this SCP can still perform Kubernetes admin operations if they have a valid kubeconfig and appropriate Kubernetes RBAC bindings. To achieve full control plane protection, pair this SCP with:
-
-- **Kubernetes RBAC**: Restrict ClusterRole bindings for non-platform users.
-- **EKS Access Entries**: Use EKS access management (API mode) to control who gets Kubernetes API access and at what scope.
-- **Policy Engines**: OPA Gatekeeper or Kyverno to enforce in-cluster policies (e.g., prevent modification of platform namespaces, CRDs, or admission webhooks).
++  **Kubernetes RBAC**: Restrict ClusterRole bindings for non-platform users.
++  **EKS Access Entries**: Use EKS access management (API mode) to control who gets Kubernetes API access and at what scope.
++  **Policy Engines**: OPA Gatekeeper or Kyverno to enforce in-cluster policies (e.g., prevent modification of platform namespaces, CRDs, or admission webhooks).
 
 ## Recommendations
-
-- Apply the SCP at the OU level rather than the organization root
-- Use a naming convention for the admin role that is consistent across accounts
-- Audit SCP effectiveness with CloudTrail by looking for `AccessDenied` events on EKS actions
-- Document the tagging contract so that teams understand which tag values trigger protection
-- Consider using AWS Config rules to detect untagged EKS clusters that should be tagged
-- Review the denied action list against the current EKS API and add any newer mutating actions your organization wants to restrict (for example, EKS capability management or `eks:CancelUpdate`), since AWS adds control plane actions over time
-- Test the SCP in a non-production OU before applying broadly
+<a name="_recommendations"></a>
++ Apply the SCP at the OU level rather than the organization root
++ Use a naming convention for the admin role that is consistent across accounts
++ Audit SCP effectiveness with CloudTrail by looking for `AccessDenied` events on EKS actions
++ Document the tagging contract so that teams understand which tag values trigger protection
++ Consider using AWS Config rules to detect untagged EKS clusters that should be tagged
++ Review the denied action list against the current EKS API and add any newer mutating actions your organization wants to restrict (for example, EKS capability management or `eks:CancelUpdate`), since AWS adds control plane actions over time
++ Test the SCP in a non-production OU before applying broadly

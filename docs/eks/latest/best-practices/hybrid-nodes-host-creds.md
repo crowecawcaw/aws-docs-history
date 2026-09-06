@@ -1,8 +1,12 @@
+
+
 # Host credentials through network disconnections
+<a name="hybrid-nodes-host-creds"></a>
 
 EKS Hybrid Nodes is integrated with AWS Systems Manager (SSM) hybrid activations and AWS IAM Roles Anywhere for temporary IAM credentials that are used to authenticate the node with the EKS control plane. Both SSM and IAM Roles Anywhere automatically refresh the temporary credentials that they manage on on-premises hosts. It is recommended to use a single credential provider across the hybrid nodes in your cluster—either SSM hybrid activations or IAM Roles Anywhere, but not both.
 
 ## SSM hybrid activations
+<a name="_ssm_hybrid_activations"></a>
 
 The temporary credentials provisioned by SSM are valid for one hour. You cannot alter the credential validity duration when using SSM as your credential provider. The temporary credentials are automatically rotated by SSM before they expire, and the rotation does not affect the status of your nodes or applications. However, when there are network disconnections between the SSM agent and the SSM Regional endpoint, SSM is unable to refresh the credentials, and the credentials might expire.
 
@@ -46,7 +50,8 @@ INFO [CredentialRefresher] Sleeping for 1m24s before retrying retrieve credentia
 ```
 
 ## IAM Roles Anywhere
+<a name="_iam_roles_anywhere"></a>
 
-The temporary credentials provisioned by IAM Roles Anywhere are valid for one hour by default. You can configure the credential validity duration with IAM Roles Anywhere through the [`durationSeconds`](../../../rolesanywhere/latest/userguide/authentication-create-session.md#credentials-object "../../../rolesanywhere/latest/userguide/authentication-create-session.md#credentials-object") field in your IAM Roles Anywhere profile. The maximum credential validity duration is 12 hours. The [`MaxSessionDuration`](../../../managedservices/latest/ctref/management-advanced-identity-and-access-management-iam-update-maxsessionduration.md "../../../managedservices/latest/ctref/management-advanced-identity-and-access-management-iam-update-maxsessionduration.md") setting on your Hybrid Nodes IAM role must be greater than the `durationSeconds` setting on your IAM Roles Anywhere profile.
+The temporary credentials provisioned by IAM Roles Anywhere are valid for one hour by default. You can configure the credential validity duration with IAM Roles Anywhere through the [`durationSeconds`](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object) field in your IAM Roles Anywhere profile. The maximum credential validity duration is 12 hours. The [`MaxSessionDuration`](https://docs.aws.amazon.com/managedservices/latest/ctref/management-advanced-identity-and-access-management-iam-update-maxsessionduration.html) setting on your Hybrid Nodes IAM role must be greater than the `durationSeconds` setting on your IAM Roles Anywhere profile.
 
-When using IAM Roles Anywhere as the credential provider for your hybrid nodes, reconnection to the EKS control plane after network disconnections typically occurs within seconds of network restoration, because the kubelet calls `aws_signing_helper credential-process` to obtain credentials on demand. Although not directly related to hybrid nodes or network disconnections, you can configure notifications and alerts for certificate expiry when using IAM Roles Anywhere. For more information, see [Customize notification settings in IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/customize-notification-settings.md "../../../rolesanywhere/latest/userguide/customize-notification-settings.md").
+When using IAM Roles Anywhere as the credential provider for your hybrid nodes, reconnection to the EKS control plane after network disconnections typically occurs within seconds of network restoration, because the kubelet calls `aws_signing_helper credential-process` to obtain credentials on demand. Although not directly related to hybrid nodes or network disconnections, you can configure notifications and alerts for certificate expiry when using IAM Roles Anywhere. For more information, see [Customize notification settings in IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/customize-notification-settings.html).

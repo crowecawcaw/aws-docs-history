@@ -1,113 +1,155 @@
+
+
 # Cluster access management
+<a name="cluster-access-management"></a>
 
 Effective access management is crucial for maintaining the security and integrity of your Amazon EKS clusters. This guide explores various options for EKS access management, with a focus on using AWS IAM Identity Center (formerly AWS SSO). We’ll compare different approaches, discuss their trade-offs, and highlight known limitations and considerations.
 
 ## EKS access management options
+<a name="_eks_access_management_options"></a>
 
-###### Note
-
+**Note**  
 ConfigMap-based access management (aws-auth ConfigMap) is deprecated and replaced by Cluster Access Management (CAM) API. For new EKS clusters, implement CAM API to manage cluster access. For existing clusters using aws-auth ConfigMap, migrate to using CAM API.
 
 ## Option 1: AWS IAM Identity Center with Cluster Access Management (CAM) API
-
-- Centralized user and permission management
-- Integration with existing identity providers (e.g. Microsoft AD,Okta, PingId and more)
-- The CAM API uses Access Entries to link AWS IAM principals (users or roles) to the EKS cluster. These entries work with IAM Identity Center’s managed identities, allowing administrators to control cluster access for users and groups defined in Identity Center.
+<a name="_option_1_aws_iam_identity_center_with_cluster_access_management_cam_api"></a>
++ Centralized user and permission management
++ Integration with existing identity providers (e.g. Microsoft AD,Okta, PingId and more)
++ The CAM API uses Access Entries to link AWS IAM principals (users or roles) to the EKS cluster. These entries work with IAM Identity Center’s managed identities, allowing administrators to control cluster access for users and groups defined in Identity Center.
 
 ### EKS cluster authentication flow:
+<a name="_eks_cluster_authentication_flow"></a>
 
-![EKS cluster authentication flow](images/eks-auth-flow.jpg)
+![EKS cluster authentication flow](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-auth-flow.jpg)
+
 
 1. Principals(human users) or automated processes authenticate via AWS IAM by presenting appropriate AWS account permissions. In this step, they are mapped to appropriate AWS IAM principal (role or user).
-2. Next, an EKS access entry maps this IAM principal to a Kubernetes RBAC principal(user or group) by defining appropriate access policy, which contains Kubernetes permissions only.
-3. When a Kubernetes end user tries to access a cluster, its authentication request is processed by aws-iam-authenticator or AWS EKS CLI and validated against the cluster context in kubeconfig file.
-4. Finally, the EKS authorizer verifies the permissions associated with the authenticated user’s access entry and grants or denies access accordingly.
 
-   - The API uses Amazon EKS-specific Access Policies to define the level of authorization for each Access Entry. These policies can be mapped to roles and permissions set up in IAM Identity Center, ensuring consistent access control across AWS services and EKS clusters.
+1. Next, an EKS access entry maps this IAM principal to a Kubernetes RBAC principal(user or group) by defining appropriate access policy, which contains Kubernetes permissions only.
+
+1. When a Kubernetes end user tries to access a cluster, its authentication request is processed by aws-iam-authenticator or AWS EKS CLI and validated against the cluster context in kubeconfig file.
+
+1. Finally, the EKS authorizer verifies the permissions associated with the authenticated user’s access entry and grants or denies access accordingly.
+   + The API uses Amazon EKS-specific Access Policies to define the level of authorization for each Access Entry. These policies can be mapped to roles and permissions set up in IAM Identity Center, ensuring consistent access control across AWS services and EKS clusters.
 
 ### Benefits over ConfigMap-based access management:
+<a name="_benefits_over_configmap_based_access_management"></a>
 
-1. **Reduced risk of misconfigurations**: Direct API-based management eliminates common errors associated with manual ConfigMap editing. This helps in preventing accidental deletions or syntax errors that could lock users out of the cluster.
-2. **Enhanced least privilege principle**: Removes the need for cluster-admin permission from the cluster creator identity and allows for more granular and appropriate permissions assignment. You can choose to add this permission for break-glass use cases.
-3. **Enhanced security model**: Provides built-in validation of access entries before they are applied. Additionally, offers tighter integration with AWS IAM for authentication.
-4. **Streamlined operations**: Offers a more intuitive way to manage permissions through AWS-native tooling.
+1.  **Reduced risk of misconfigurations**: Direct API-based management eliminates common errors associated with manual ConfigMap editing. This helps in preventing accidental deletions or syntax errors that could lock users out of the cluster.
+
+1.  **Enhanced least privilege principle**: Removes the need for cluster-admin permission from the cluster creator identity and allows for more granular and appropriate permissions assignment. You can choose to add this permission for break-glass use cases.
+
+1.  **Enhanced security model**: Provides built-in validation of access entries before they are applied. Additionally, offers tighter integration with AWS IAM for authentication.
+
+1.  **Streamlined operations**: Offers a more intuitive way to manage permissions through AWS-native tooling.
 
 ### Best practices:
+<a name="_best_practices"></a>
 
 1. Use AWS Organizations to manage multiple accounts and apply service control policies (SCPs).
-2. Implement least privilege principle by creating specific permission sets for different EKS role (e.g. admin, developer, read-only).
-3. Utilize attribute-based access control (ABAC) to dynamically assign permissions to pods based on user attributes.
-4. Regularly audit and review access permissions.
+
+1. Implement least privilege principle by creating specific permission sets for different EKS role (e.g. admin, developer, read-only).
+
+1. Utilize attribute-based access control (ABAC) to dynamically assign permissions to pods based on user attributes.
+
+1. Regularly audit and review access permissions.
 
 ### Considerations/limitations:
+<a name="_considerationslimitations"></a>
 
 1. Role ARNs generated by Identity Center have random suffixes, making them challenging to use in static configurations.
-2. Limited support for fine-grained permissions at the Kubernetes resource level. Additional configuration is required for custom Kubernetes RBAC roles. Along with Kubernetes-native RBAC, consider using Kyverno for advanced permissions management in EKS clusters.
+
+1. Limited support for fine-grained permissions at the Kubernetes resource level. Additional configuration is required for custom Kubernetes RBAC roles. Along with Kubernetes-native RBAC, consider using Kyverno for advanced permissions management in EKS clusters.
 
 ## Option 2: AWS IAM Users/Roles mapped to Kubernetes groups
+<a name="_option_2_aws_iam_usersroles_mapped_to_kubernetes_groups"></a>
 
 ### Pros:
+<a name="_pros"></a>
 
 1. Fine-grained control over IAM permissions.
-2. Predictable and static role ARNs
+
+1. Predictable and static role ARNs
 
 ### Cons:
+<a name="_cons"></a>
 
 1. Increased management overhead for user accounts
-2. Lack of centralized identity management
-3. Potential for proliferation of IAM entities
+
+1. Lack of centralized identity management
+
+1. Potential for proliferation of IAM entities
 
 ### Best practices:
+<a name="_best_practices_2"></a>
 
 1. Use IAM roles instead of IAM users for improved security and manageability
-2. Implement a naming convention for roles to ensure consistency and ease of management
-3. Utilize IAM policy conditions to restrict access based on tags or other attributes.
-4. Regularly rotate access keys and review permissions.
+
+1. Implement a naming convention for roles to ensure consistency and ease of management
+
+1. Utilize IAM policy conditions to restrict access based on tags or other attributes.
+
+1. Regularly rotate access keys and review permissions.
 
 ### Considerations/limitations:
+<a name="_considerationslimitations_2"></a>
 
 1. Scalability issues when managing large number of users or roles
-2. No built-in single sign-on capabilities
+
+1. No built-in single sign-on capabilities
 
 ## Option 3: OIDC Providers
+<a name="_option_3_oidc_providers"></a>
 
 ### Pros:
+<a name="_pros_2"></a>
 
 1. Integration with existing identity management systems
-2. Reduced management overhead for user accounts
+
+1. Reduced management overhead for user accounts
 
 ### Cons:
+<a name="_cons_2"></a>
 
 1. Additional configuration complexity
-2. Potential for increased latency during authentication
-3. Dependency on external identity provider
+
+1. Potential for increased latency during authentication
+
+1. Dependency on external identity provider
 
 ### Best Practices:
+<a name="_best_practices_3"></a>
 
 1. Carefully configure the OIDC provider to ensure secure token validation.
-2. Use short-lived tokens and implement token refresh mechanisms.
-3. Regularly audit and update OIDC configurations.
 
-Review this guide for a reference implementation of [integrating external Single Sign-On providers with Amazon EKS](https://aws.amazon.com/solutions/guidance/integrating-external-single-sign-on-providers-with-amazon-eks/ "https://aws.amazon.com/solutions/guidance/integrating-external-single-sign-on-providers-with-amazon-eks/")
+1. Use short-lived tokens and implement token refresh mechanisms.
+
+1. Regularly audit and update OIDC configurations.
+
+Review this guide for a reference implementation of [integrating external Single Sign-On providers with Amazon EKS](https://aws.amazon.com/solutions/guidance/integrating-external-single-sign-on-providers-with-amazon-eks/) 
 
 ### Considerations/limitations:
+<a name="_considerationslimitations_3"></a>
 
 1. Limited native integration with AWS services compared to IAM.
-2. Issuer URL of the OIDC provider must be publicly accessible for EKS to discover signing keys.
+
+1. Issuer URL of the OIDC provider must be publicly accessible for EKS to discover signing keys.
 
 ## AWS EKS Pod Identity vs IRSA for workloads
+<a name="_aws_eks_pod_identity_vs_irsa_for_workloads"></a>
 
 Amazon EKS provides two ways to grant AWS IAM permissions to workloads that run in Amazon EKS clusters: IAM roles for service accounts (IRSA), and EKS Pod Identities.
 
 While both IRSA and EKS Pod Identities provide the benefits of least privilege access, credential isolation and auditability, EKS Pod Identity is the recommended way to grant permissions to workloads.
 
-For detailed guidance on Identity and credentials for EKS pods, please refer to the [Identities and Credentials section](identity-and-access-management.md#_identities_and_credentials_for_eks_pods "identity-and-access-management.md#_identities_and_credentials_for_eks_pods") of Security best practices.
+For detailed guidance on Identity and credentials for EKS pods, please refer to the [Identities and Credentials section](https://docs.aws.amazon.com/eks/latest/best-practices/identity-and-access-management.html#_identities_and_credentials_for_eks_pods) of Security best practices.
 
 ## Recommendation
+<a name="_recommendation"></a>
 
 ### Combine IAM Identity Center with CAM API
-
-- **Simplified management**: By using the Cluster Access Management API in conjunction with IAM Identity Center, administrators can manage EKS cluster access alongside other AWS services, reducing the need to switch between different interfaces or edit ConfigMaps manually.
-- Use access entries to manage the Kubernetes permissions of IAM principals from outside the cluster. You can add and manage access to the cluster by using the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console. This means you can manage users with the same tools that you created the cluster with.
-- Granular Kubernetes permissions can be applied with mapping Kubernetes users or groups with IAM principals associated with SSO identities via access entries and access policies.
-- To get started, follow [Change authentication mode to use access entries](../userguide/setting-up-access-entries.md#access-entries-setup-console "../userguide/setting-up-access-entries.md#access-entries-setup-console"), then [Migrating existing aws-auth ConfigMap entries to access entries](../userguide/migrating-access-entries.md "../userguide/migrating-access-entries.md").
+<a name="_combine_iam_identity_center_with_cam_api"></a>
++  **Simplified management**: By using the Cluster Access Management API in conjunction with IAM Identity Center, administrators can manage EKS cluster access alongside other AWS services, reducing the need to switch between different interfaces or edit ConfigMaps manually.
++ Use access entries to manage the Kubernetes permissions of IAM principals from outside the cluster. You can add and manage access to the cluster by using the EKS API, AWS Command Line Interface, AWS SDKs, AWS CloudFormation, and AWS Management Console. This means you can manage users with the same tools that you created the cluster with.
++ Granular Kubernetes permissions can be applied with mapping Kubernetes users or groups with IAM principals associated with SSO identities via access entries and access policies.
++ To get started, follow [Change authentication mode to use access entries](https://docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.html#access-entries-setup-console), then [Migrating existing aws-auth ConfigMap entries to access entries](https://docs.aws.amazon.com/eks/latest/userguide/migrating-access-entries.html).

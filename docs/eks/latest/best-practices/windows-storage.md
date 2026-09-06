@@ -1,6 +1,10 @@
+
+
 # Persistent storage options
+<a name="windows-storage"></a>
 
 ## What is an in-tree vs. out-of-tree volume plugin?
+<a name="_what_is_an_in_tree_vs_out_of_tree_volume_plugin"></a>
 
 Before the introduction of the Container Storage Interface (CSI), all volume plugins were in-tree meaning they were built, linked, compiled, and shipped with the core Kubernetes binaries and extend the core Kubernetes API. This meant that adding a new storage system to Kubernetes (a volume plugin) required checking code into the core Kubernetes code repository.
 
@@ -9,11 +13,11 @@ Out-of-tree volume plugins are developed independently of the Kubernetes code ba
 You can check more about Amazon Elastic Kubernetes Services (EKS) storage classes and CSI Drivers on https://docs.aws.amazon.com/eks/latest/userguide/storage.html
 
 ## In-tree Volume Plugin for Windows
+<a name="_in_tree_volume_plugin_for_windows"></a>
 
 Kubernetes volumes enable applications, with data persistence requirements, to be deployed on Kubernetes. The management of persistent volumes consists of provisioning/de-provisioning/resizing of volumes, attaching/detaching a volume to/from a Kubernetes node, and mounting/dismounting a volume to/from individual containers in a pod. The code for implementing these volume management actions for a specific storage back-end or protocol is shipped in the form of a Kubernetes volume plugin **(In-tree Volume Plugins)**. On Amazon Elastic Kubernetes Services (EKS) the following class of Kubernetes volume plugins are supported on Windows:
 
-_In-tree Volume Plugin:_
-[awsElasticBlockStore](https://kubernetes.io/docs/concepts/storage/volumes/#awselasticblockstore "https://kubernetes.io/docs/concepts/storage/volumes/#awselasticblockstore")
+ *In-tree Volume Plugin:* [awsElasticBlockStore](https://kubernetes.io/docs/concepts/storage/volumes/#awselasticblockstore) 
 
 In order to use In-tree volume plugin on Windows nodes, it is necessary to create an additional StorageClass to use NTFS as the fsType. On EKS, the default StorageClass uses ext4 as the default fsType.
 
@@ -141,7 +145,7 @@ Test the results by accessing the Windows pod via PowerShell:
 kubectl exec -it podname powershell -n windows
 ```
 
-Inside the Windows Pod, run: `ls`
+Inside the Windows Pod, run: `ls` 
 
 Output:
 
@@ -167,18 +171,22 @@ d-----          3/8/2021   3:36 PM                Windows
 The **data directory** is provided by the EBS volume.
 
 ## Out-of-tree for Windows
+<a name="_out_of_tree_for_windows"></a>
 
 Code associated with CSI plugins ship as out-of-tree scripts and binaries that are typically distributed as container images and deployed using standard Kubernetes constructs like DaemonSets and StatefulSets. CSI plugins handle a wide range of volume management actions in Kubernetes. CSI plugins typically consist of node plugins (that run on each node as a DaemonSet) and controller plugins.
 
-CSI node plugins (especially those associated with persistent volumes exposed as either block devices or over a shared file-system) need to perform various privileged operations like scanning of disk devices, mounting of file systems, etc. These operations differ for each host operating system. For Linux worker nodes, containerized CSI node plugins are typically deployed as privileged containers. For Windows worker nodes, privileged operations for containerized CSI node plugins is supported using [csi-proxy](https://github.com/kubernetes-csi/csi-proxy "https://github.com/kubernetes-csi/csi-proxy"), a community-managed, stand-alone binary that needs to be pre-installed on each Windows node.
+CSI node plugins (especially those associated with persistent volumes exposed as either block devices or over a shared file-system) need to perform various privileged operations like scanning of disk devices, mounting of file systems, etc. These operations differ for each host operating system. For Linux worker nodes, containerized CSI node plugins are typically deployed as privileged containers. For Windows worker nodes, privileged operations for containerized CSI node plugins is supported using [csi-proxy](https://github.com/kubernetes-csi/csi-proxy), a community-managed, stand-alone binary that needs to be pre-installed on each Windows node.
 
-[The Amazon EKS Optimized Windows AMI](../userguide/eks-optimized-windows-ami.md "../userguide/eks-optimized-windows-ami.md") includes CSI-proxy starting from April 2022. Customers can use the [SMB CSI Driver](https://github.com/kubernetes-csi/csi-driver-smb "https://github.com/kubernetes-csi/csi-driver-smb") on Windows nodes to access [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/ "https://aws.amazon.com/fsx/windows/"), [Amazon FSx for NetApp ONTAP SMB Shares](https://aws.amazon.com/fsx/netapp-ontap/ "https://aws.amazon.com/fsx/netapp-ontap/"), and/or [AWS Storage Gateway — File Gateway](https://aws.amazon.com/storagegateway/file/ "https://aws.amazon.com/storagegateway/file/").
+ [The Amazon EKS Optimized Windows AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-windows-ami.html) includes CSI-proxy starting from April 2022. Customers can use the [SMB CSI Driver](https://github.com/kubernetes-csi/csi-driver-smb) on Windows nodes to access [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/), [Amazon FSx for NetApp ONTAP SMB Shares](https://aws.amazon.com/fsx/netapp-ontap/), and/or [AWS Storage Gateway — File Gateway](https://aws.amazon.com/storagegateway/file/).
 
-The following [blog](https://aws.amazon.com/blogs/modernizing-with-aws/using-smb-csi-driver-on-amazon-eks-windows-nodes/ "https://aws.amazon.com/blogs/modernizing-with-aws/using-smb-csi-driver-on-amazon-eks-windows-nodes/") has implementation details on how to setup SMB CSI Driver to use Amazon FSx for Windows File Server as a persistent storage for Windows Pods.
+The following [blog](https://aws.amazon.com/blogs/modernizing-with-aws/using-smb-csi-driver-on-amazon-eks-windows-nodes/) has implementation details on how to setup SMB CSI Driver to use Amazon FSx for Windows File Server as a persistent storage for Windows Pods.
 
 ## Amazon FSx for Windows File Server
+<a name="_amazon_fsx_for_windows_file_server"></a>
 
-An option is to use Amazon FSx for Windows File Server through an SMB feature called [SMB Global Mapping](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/persistent-storage "https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/persistent-storage") which makes it possible to mount a SMB share on the host, then pass directories on that share into a container. The container doesn’t need to be configured with a specific server, share, username or password - that’s all handled on the host instead. The container will work the same as if it had local storage.
+An option is to use Amazon FSx for Windows File Server through an SMB feature called [SMB Global Mapping](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/persistent-storage) which makes it possible to mount a SMB share on the host, then pass directories on that share into a container. The container doesn’t need to be configured with a specific server, share, username or password - that’s all handled on the host instead. The container will work the same as if it had local storage.
+
+The SMB Global Mapping is transparent to the orchestrator, and it is mounted through HostPath which can **imply in secure concerns**.
 
 In the example below, the path `G:\Directory\app-state` is an SMB share on the Windows Node.
 
@@ -208,4 +216,4 @@ spec:
       beta.kubernetes.io/arch: amd64
 ```
 
-The following [blog](https://aws.amazon.com/blogs/containers/using-amazon-fsx-for-windows-file-server-on-eks-windows-containers/ "https://aws.amazon.com/blogs/containers/using-amazon-fsx-for-windows-file-server-on-eks-windows-containers/") has implementation details on how to setup Amazon FSx for Windows File Server as a persistent storage for Windows Pods.
+The following [blog](https://aws.amazon.com/blogs/containers/using-amazon-fsx-for-windows-file-server-on-eks-windows-containers/) has implementation details on how to setup Amazon FSx for Windows File Server as a persistent storage for Windows Pods.

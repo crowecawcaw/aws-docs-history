@@ -1,36 +1,37 @@
-# Running kube-proxy in nftables Mode
 
-With `kube-proxy` in nftables mode, Amazon EKS can resolve the [network latency issue](control-plane.md#reliability_cprunning_large_clusters "control-plane.md#reliability_cprunning_large_clusters") common in large clusters with over 1,000 services running kube-proxy in iptables mode. Iptables mode processes packet filtering rules sequentially for the first packet of each connection, which causes this performance issue. nftables is the successor to iptables, and the nftables `kube-proxy` backend addresses this latency issue by processing packets in near-constant time regardless of cluster size. To avoid this issue, configure your cluster to run `kube-proxy` in nftables mode.
+
+# Running kube-proxy in nftables Mode
+<a name="nftables"></a>
+
+With `kube-proxy` in nftables mode, Amazon EKS can resolve the [network latency issue](https://docs.aws.amazon.com/eks/latest/best-practices/control-plane.html#reliability_cprunning_large_clusters) common in large clusters with over 1,000 services running kube-proxy in iptables mode. Iptables mode processes packet filtering rules sequentially for the first packet of each connection, which causes this performance issue. nftables is the successor to iptables, and the nftables `kube-proxy` backend addresses this latency issue by processing packets in near-constant time regardless of cluster size. To avoid this issue, configure your cluster to run `kube-proxy` in nftables mode.
 
 ## Overview
+<a name="_overview"></a>
 
-The nftables `kube-proxy` backend has been generally available (GA) since [Kubernetes version 1.33](https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/ "https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/"). It was available as alpha in 1.29 and beta in 1.31. The iptables backend installs one rule for each Service and evaluates rules sequentially. This results in O(n) packet processing time that grows with the number of services. By contrast, nftables uses [verdict maps](https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/ "https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/") to dispatch packets in roughly O(1) time. This keeps per-packet latency nearly constant even in clusters with tens of thousands of services, providing efficiency for clusters with thousands of nodes and services.
+The nftables `kube-proxy` backend has been generally available (GA) since [Kubernetes version 1.33](https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/). It was available as alpha in 1.29 and beta in 1.31. The iptables backend installs one rule for each Service and evaluates rules sequentially. This results in O(n) packet processing time that grows with the number of services. By contrast, nftables uses [verdict maps](https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/) to dispatch packets in roughly O(1) time. This keeps per-packet latency nearly constant even in clusters with tens of thousands of services, providing efficiency for clusters with thousands of nodes and services.
 
-###### Note
-
+**Note**  
 Even though the nftables backend is GA, `iptables` remains the default `kube-proxy` mode for compatibility reasons. You must explicitly opt in to nftables mode.
 
-Unlike the [IPVS backend](https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-ipvs "https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-ipvs"), which was designed as a load balancer and exposes scheduling algorithms such as round robin and least connections, the nftables backend does not offer configurable scheduling algorithms. When a Service has multiple backing Pods, nftables mode selects a backend Pod at random.
+Unlike the [IPVS backend](https://kubernetes.io/docs/reference/networking/virtual-ips/#proxy-mode-ipvs), which was designed as a load balancer and exposes scheduling algorithms such as round robin and least connections, the nftables backend does not offer configurable scheduling algorithms. When a Service has multiple backing Pods, nftables mode selects a backend Pod at random.
 
 ### Requirements
+<a name="_requirements"></a>
 
 The nftables `kube-proxy` backend requires **Linux kernel 5.13 or later** on your worker nodes. Amazon Linux 2023 and current versions of Ubuntu meet this minimum requirement. Because `kube-proxy` programs nftables rules directly through the kernel’s netfilter subsystem, you do not need any additional userspace package (such as `ipvsadm`) or kernel module loading beyond a supported kernel.
 
-###### Note
+**Note**  
+Kernel 5.13 is the minimum required to run nftables mode. For improved rule sync performance in large clusters, we recommend a more recent kernel and `kube-proxy` version. For more information, see [Performance Considerations](#nftables-performance).
 
-Kernel 5.13 is the minimum required to run nftables mode. For improved rule sync performance in large clusters, we recommend a more recent kernel and `kube-proxy` version. For more information, see [Performance Considerations](#nftables-performance "#nftables-performance").
-
-###### Important
-
+**Important**  
 The nftables backend might not be compatible with all network plugins. Consult your CNI provider’s documentation before enabling nftables mode. The Amazon VPC CNI is compatible with nftables mode starting with version `v1.23.0`.
 
 ### Implementation
+<a name="_implementation"></a>
 
-Configure your cluster’s `kube-proxy` DaemonSet to run in nftables mode by setting the `kube-proxy`
-`mode` to `nftables`.
+Configure your cluster’s `kube-proxy` DaemonSet to run in nftables mode by setting the `kube-proxy` `mode` to `nftables`.
 
-###### Warning
-
+**Warning**  
 This is a disruptive change. We recommend performing it in off-hours or during initial EKS cluster creation to minimize impacts.
 
 You can issue an AWS Command Line Interface (AWS CLI) command to enable nftables by updating the `kube-proxy` EKS Add-on. This requires an EKS cluster running Kubernetes 1.33 or later.
@@ -47,8 +48,7 @@ Or you can do this by modifying the `kube-proxy-config` ConfigMap in your cluste
 kubectl -n kube-system edit cm kube-proxy-config
 ```
 
-Find the `mode` setting, which defaults to `iptables`, and change the value to `nftables`.
-The result of either option should look similar to the following configuration.
+Find the `mode` setting, which defaults to `iptables`, and change the value to `nftables`. The result of either option should look similar to the following configuration.
 
 ```
   mode: "nftables"
@@ -71,9 +71,10 @@ kubectl -n kube-system rollout restart ds kube-proxy
 ```
 
 ### Performance Considerations
+<a name="nftables-performance"></a>
 
 Although nftables mode is generally available starting with Kubernetes version `v1.33`, we recommend using this mode only starting with `v1.36`. In `kube-proxy` v1.36.0, the Kubernetes project made many performance enhancements to how nftables maps and rules are constructed. These changes significantly reduce the number of chains and `jump`/`goto` rules, vastly improving sync performance at scale.
 
 These enhancements primarily benefit clusters with a large number of endpoints (the Pods backing your Services). Before `kube-proxy` v1.36.0, clusters with hundreds of thousands of endpoints can experience very slow nftables rule sync times and CPU soft lockups. This happens because the Linux kernel verifies that the chains and jumps that `kube-proxy` generates contain no loops.
 
-This behavior is also affected by the Linux kernel version. The underlying kernel improvements are included in Linux kernel `6.18` (and are being backported to some earlier stable kernels). Using nftables mode with earlier Linux kernel versions can result in slower rule sync times and potential CPU soft lockups. For the best performance in large clusters, we recommend running a recent Linux kernel together with `kube-proxy` v1.36.0 or later. For more information, see [kube-proxy nftables performance issue (kubernetes/kubernetes#135639)](https://github.com/kubernetes/kubernetes/issues/135639 "https://github.com/kubernetes/kubernetes/issues/135639") on the GitHub website.
+This behavior is also affected by the Linux kernel version. The underlying kernel improvements are included in Linux kernel `6.18` (and are being backported to some earlier stable kernels). Using nftables mode with earlier Linux kernel versions can result in slower rule sync times and potential CPU soft lockups. For the best performance in large clusters, we recommend running a recent Linux kernel together with `kube-proxy` v1.36.0 or later. For more information, see [kube-proxy nftables performance issue (kubernetes/kubernetes\#135639)](https://github.com/kubernetes/kubernetes/issues/135639) on the GitHub website.

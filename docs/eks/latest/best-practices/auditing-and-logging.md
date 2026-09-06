@@ -1,15 +1,12 @@
+
+
 # Auditing and logging
+<a name="auditing-and-logging"></a>
 
-###### Tip
+**Tip**  
+ [Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
-[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
-
-Collecting and analyzing [audit] logs is useful for a variety of
-different reasons. Logs can help with root cause analysis and
-attribution, i.e. ascribing a change to a particular user. When enough
-logs have been collected, they can be used to detect anomalous behaviors
-too. On EKS, the audit logs are sent to Amazon Cloudwatch Logs. The
-audit policy for EKS is as follows:
+Collecting and analyzing [audit] logs is useful for a variety of different reasons. Logs can help with root cause analysis and attribution, i.e. ascribing a change to a particular user. When enough logs have been collected, they can be used to detect anomalous behaviors too. On EKS, the audit logs are sent to Amazon Cloudwatch Logs. The audit policy for EKS is as follows:
 
 ```
 apiVersion: audit.k8s.io/v1beta1
@@ -174,43 +171,33 @@ rules:
 ```
 
 ## Recommendations
+<a name="_recommendations"></a>
 
 ### Enable audit logs
+<a name="_enable_audit_logs"></a>
 
-The audit logs are part of the EKS managed Kubernetes control plane logs
-that are managed by EKS. Instructions for enabling/disabling the control
-plane logs, which includes the logs for the Kubernetes API server, the
-controller manager, and the scheduler, along with the audit log, can be
-found here,
-https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html#enabling-control-plane-log-export.
+The audit logs are part of the EKS managed Kubernetes control plane logs that are managed by EKS. Instructions for enabling/disabling the control plane logs, which includes the logs for the Kubernetes API server, the controller manager, and the scheduler, along with the audit log, can be found here, https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html\#enabling-control-plane-log-export.
 
-###### Note
+**Note**  
+When you enable control plane logging, you will incur [costs](https://aws.amazon.com/cloudwatch/pricing/) for storing the logs in CloudWatch. This raises a broader issue about the ongoing cost of security. Ultimately you will have to weigh those costs against the cost of a security breach, e.g. financial loss, damage to your reputation, etc. You may find that you can adequately secure your environment by implementing only some of the recommendations in this guide.
 
-When you enable control plane logging, you will incur [costs](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for storing the logs in CloudWatch. This raises a broader issue about the ongoing cost of security. Ultimately you will have to weigh those costs against the cost of a security breach, e.g. financial loss, damage to your reputation, etc. You may find that you can adequately secure your environment by implementing only some of the recommendations in this guide.
-
-###### Warning
-
-The maximum size for a CloudWatch Logs entry is [1MB](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") whereas the maximum Kubernetes API request size is 1.5MiB. Log entries greater than 1MB will either be truncated or only include the request metadata.
+**Warning**  
+The maximum size for a CloudWatch Logs entry is [1MB](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html) whereas the maximum Kubernetes API request size is 1.5MiB. Log entries greater than 1MB will either be truncated or only include the request metadata.
 
 ### Utilize audit metadata
+<a name="_utilize_audit_metadata"></a>
 
-Kubernetes audit logs include two annotations that indicate whether or
-not a request was authorized `authorization.k8s.io/decision` and the
-reason for the decision `authorization.k8s.io/reason`. Use these
-attributes to ascertain why a particular API call was allowed.
+Kubernetes audit logs include two annotations that indicate whether or not a request was authorized `authorization.k8s.io/decision` and the reason for the decision `authorization.k8s.io/reason`. Use these attributes to ascertain why a particular API call was allowed.
 
 ### Create alarms for suspicious events
+<a name="_create_alarms_for_suspicious_events"></a>
 
-Create an alarm to automatically alert you where there is an increase in
-403 Forbidden and 401 Unauthorized responses, and then use attributes
-like `host`, `sourceIPs`, and `k8s_user.username` to find out
-where those requests are coming from.
+Create an alarm to automatically alert you where there is an increase in 403 Forbidden and 401 Unauthorized responses, and then use attributes like `host`, `sourceIPs`, and `k8s_user.username` to find out where those requests are coming from.
 
 ### Analyze logs with Log Insights
+<a name="_analyze_logs_with_log_insights"></a>
 
-Use CloudWatch Log Insights to monitor changes to RBAC objects,
-e.g. Roles, RoleBindings, ClusterRoles, and ClusterRoleBindings. A few
-sample queries appear below:
+Use CloudWatch Log Insights to monitor changes to RBAC objects, e.g. Roles, RoleBindings, ClusterRoles, and ClusterRoleBindings. A few sample queries appear below:
 
 Lists updates to the `aws-auth` ConfigMap:
 
@@ -288,65 +275,31 @@ fields @timestamp, @message, sourceIPs.0
 ```
 
 ### Audit your CloudTrail logs
+<a name="_audit_your_cloudtrail_logs"></a>
 
-AWS APIs called by pods that are utilizing IAM Roles for Service
-Accounts (IRSA) are automatically logged to CloudTrail along with the
-name of the service account. If the name of a service account that
-wasn’t explicitly authorized to call an API appears in the log, it may
-be an indication that the IAM role’s trust policy was misconfigured.
-Generally speaking, Cloudtrail is a great way to ascribe AWS API calls
-to specific IAM principals.
+AWS APIs called by pods that are utilizing IAM Roles for Service Accounts (IRSA) are automatically logged to CloudTrail along with the name of the service account. If the name of a service account that wasn’t explicitly authorized to call an API appears in the log, it may be an indication that the IAM role’s trust policy was misconfigured. Generally speaking, Cloudtrail is a great way to ascribe AWS API calls to specific IAM principals.
 
 ### Use CloudTrail Insights to unearth suspicious activity
+<a name="_use_cloudtrail_insights_to_unearth_suspicious_activity"></a>
 
-CloudTrail insights automatically analyzes write management events from
-CloudTrail trails and alerts you of unusual activity. This can help you
-identify when there’s an increase in call volume on write APIs in your
-AWS account, including from pods that use IRSA to assume an IAM role.
-See
-[Announcing
-CloudTrail Insights: Identify and Response to Unusual API Activity](https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/ "https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/") for
-further information.
+CloudTrail insights automatically analyzes write management events from CloudTrail trails and alerts you of unusual activity. This can help you identify when there’s an increase in call volume on write APIs in your AWS account, including from pods that use IRSA to assume an IAM role. See [Announcing CloudTrail Insights: Identify and Response to Unusual API Activity](https://aws.amazon.com/blogs/aws/announcing-cloudtrail-insights-identify-and-respond-to-unusual-api-activity/) for further information.
 
 ### Additional resources
+<a name="_additional_resources"></a>
 
-As the volume of logs increases, parsing and filtering them with Log
-Insights or another log analysis tool may become ineffective. As an
-alternative, you might want to consider running
-[Sysdig Falco](https://github.com/falcosecurity/falco "https://github.com/falcosecurity/falco") and
-[ekscloudwatch](https://github.com/sysdiglabs/ekscloudwatch "https://github.com/sysdiglabs/ekscloudwatch"). Falco
-analyzes audit logs and flags anomalies or abuse over an extended period
-of time. The ekscloudwatch project forwards audit log events from
-CloudWatch to Falco for analysis. Falco provides a set of
-[default
-audit rules](https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml "https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml") along with the ability to add your own.
+As the volume of logs increases, parsing and filtering them with Log Insights or another log analysis tool may become ineffective. As an alternative, you might want to consider running [Sysdig Falco](https://github.com/falcosecurity/falco) and [ekscloudwatch](https://github.com/sysdiglabs/ekscloudwatch). Falco analyzes audit logs and flags anomalies or abuse over an extended period of time. The ekscloudwatch project forwards audit log events from CloudWatch to Falco for analysis. Falco provides a set of [default audit rules](https://github.com/falcosecurity/plugins/blob/master/plugins/k8saudit/rules/k8s_audit_rules.yaml) along with the ability to add your own.
 
-Yet another option might be to store the audit logs in S3 and use the
-SageMaker
-[Random
-Cut Forest](../../../sagemaker/latest/dg/randomcutforest.md "../../../sagemaker/latest/dg/randomcutforest.md") algorithm to anomalous behaviors that warrant further
-investigation.
+Yet another option might be to store the audit logs in S3 and use the SageMaker [Random Cut Forest](https://docs.aws.amazon.com/sagemaker/latest/dg/randomcutforest.html) algorithm to anomalous behaviors that warrant further investigation.
 
 ## Tools and resources
+<a name="_tools_and_resources"></a>
 
-The following commercial and open source projects can be used to assess
-your cluster’s alignment with established best practices:
-
-- [Amazon
-  EKS Security Immersion Workshop - Detective Controls](https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls "https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls")
-- [kubeaudit](https://github.com/Shopify/kubeaudit "https://github.com/Shopify/kubeaudit")
-- [kube-scan](https://github.com/octarinesec/kube-scan "https://github.com/octarinesec/kube-scan") Assigns a risk
-  score to the workloads running in your cluster in accordance with the
-  Kubernetes Common Configuration Scoring System framework
-- [kubesec.io](https://kubesec.io/ "https://kubesec.io/")
-- [polaris](https://github.com/FairwindsOps/polaris "https://github.com/FairwindsOps/polaris")
-- [Starboard](https://github.com/aquasecurity/starboard "https://github.com/aquasecurity/starboard")
-- [Snyk](https://docs.snyk.io/scan-with-snyk/snyk-container/kubernetes-integration "https://docs.snyk.io/scan-with-snyk/snyk-container/kubernetes-integration")
-- [Kubescape](https://github.com/kubescape/kubescape "https://github.com/kubescape/kubescape") Kubescape is an open
-  source kubernetes security tool that scans clusters, YAML files, and
-  Helm charts. It detects misconfigurations according to multiple
-  frameworks (including
-  [NSA-CISA](https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository "https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository")
-  and
-  [MITRE
-  ATT&CK®](https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/ "https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/").)
+The following commercial and open source projects can be used to assess your cluster’s alignment with established best practices:
++  [Amazon EKS Security Immersion Workshop - Detective Controls](https://catalog.workshops.aws/eks-security-immersionday/en-US/5-detective-controls) 
++  [kubeaudit](https://github.com/Shopify/kubeaudit) 
++  [kube-scan](https://github.com/octarinesec/kube-scan) Assigns a risk score to the workloads running in your cluster in accordance with the Kubernetes Common Configuration Scoring System framework
++  [kubesec.io](https://kubesec.io/) 
++  [polaris](https://github.com/FairwindsOps/polaris) 
++  [Starboard](https://github.com/aquasecurity/starboard) 
++  [Snyk](https://docs.snyk.io/scan-with-snyk/snyk-container/kubernetes-integration) 
++  [Kubescape](https://github.com/kubescape/kubescape) Kubescape is an open source kubernetes security tool that scans clusters, YAML files, and Helm charts. It detects misconfigurations according to multiple frameworks (including [NSA-CISA](https://www.armosec.io/blog/kubernetes-hardening-guidance-summary-by-armo/?utm_source=github&utm_medium=repository) and [MITRE ATT&CK®](https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/).)

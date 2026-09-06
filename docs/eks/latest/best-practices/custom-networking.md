@@ -1,8 +1,10 @@
+
+
 # Custom Networking
+<a name="custom-networking"></a>
 
-###### Tip
-
-[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
+**Tip**  
+ [Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
 By default, Amazon VPC CNI will assign Pods an IP address selected from the primary subnet. The primary subnet is the subnet CIDR that the primary ENI is attached to, usually the subnet of the node/host.
 
@@ -15,12 +17,14 @@ Custom networking addresses the IP exhaustion issue by assigning the node and Po
 Since the primary ENI is not used by custom networking, the maximum number of Pods you can run on a node is lower. The host network Pods continue to use IP address assigned to the primary ENI. Additionally, the primary ENI is used to handle source network translation and route Pods traffic outside the node.
 
 ## Example Configuration
+<a name="_example_configuration"></a>
 
-While custom networking will accept valid VPC range for secondary CIDR range, we recommend that you use CIDRs from the `100.64.0.0/10` shared address space (RFC 6598) as those are less likely to be used in a corporate setting than other RFC1918 ranges. For example, you can use `100.64.0.0/16` as a secondary CIDR for your VPC. For additional information about the permitted and restricted CIDR block associations you can use with your VPC, see [IPv4 CIDR block association restrictions](../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions "../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions") in the VPC and subnet sizing section of the VPC documentation.
+While custom networking will accept valid VPC range for secondary CIDR range, we recommend that you use CIDRs from the `100.64.0.0/10` shared address space (RFC 6598) as those are less likely to be used in a corporate setting than other RFC1918 ranges. For example, you can use `100.64.0.0/16` as a secondary CIDR for your VPC. For additional information about the permitted and restricted CIDR block associations you can use with your VPC, see [IPv4 CIDR block association restrictions](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#add-cidr-block-restrictions) in the VPC and subnet sizing section of the VPC documentation.
 
-As shown in the diagram below, the primary Elastic Network Interface ([ENI](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")) of the worker node still uses the primary VPC CIDR range (in this case 10.0.0.0/16) but the secondary ENIs use the secondary VPC CIDR Range (in this case 100.64.0.0/16). Now, in order to have the Pods use the 100.64.0.0/16 CIDR range, you must configure the CNI plugin to use custom networking. You can follow through the steps as documented [here](../userguide/cni-custom-network-tutorial.md "../userguide/cni-custom-network-tutorial.md").
+As shown in the diagram below, the primary Elastic Network Interface ([ENI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html)) of the worker node still uses the primary VPC CIDR range (in this case 10.0.0.0/16) but the secondary ENIs use the secondary VPC CIDR Range (in this case 100.64.0.0/16). Now, in order to have the Pods use the 100.64.0.0/16 CIDR range, you must configure the CNI plugin to use custom networking. You can follow through the steps as documented [here](https://docs.aws.amazon.com/eks/latest/userguide/cni-custom-network-tutorial.html).
 
-![Architecture diagram showing an EKS worker node with its primary ENI attached to the primary VPC CIDR range 10.0.0.0/16 and secondary ENIs attached to the secondary VPC CIDR range 100.64.0.0/16](images/networking/cn-image.png)
+![Architecture diagram showing an EKS worker node with its primary ENI attached to the primary VPC CIDR range 10.0.0.0/16 and secondary ENIs attached to the secondary VPC CIDR range 100.64.0.0/16](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cn-image.png)
+
 
 If you want the CNI to use custom networking, set the `AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG` environment variable to `true`.
 
@@ -44,85 +48,96 @@ spec:
 Upon creating the `ENIconfig` custom resources, you will need to create new worker nodes and drain the existing nodes. The existing worker nodes and Pods will remain unaffected.
 
 ## Recommendations
+<a name="_recommendations"></a>
 
 ### Use Custom Networking When
+<a name="_use_custom_networking_when"></a>
 
-We recommend you to consider custom networking if you are dealing with IPv4 exhaustion and can’t use IPv6 yet. Amazon EKS support for [RFC6598](https://datatracker.ietf.org/doc/html/rfc6598 "https://datatracker.ietf.org/doc/html/rfc6598") space enables you to scale Pods beyond [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.ietf.org/doc/html/rfc1918") address exhaustion challenges. Please consider using prefix delegation with custom networking to increase the Pods density on a node.
+We recommend you to consider custom networking if you are dealing with IPv4 exhaustion and can’t use IPv6 yet. Amazon EKS support for [RFC6598](https://datatracker.ietf.org/doc/html/rfc6598) space enables you to scale Pods beyond [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) address exhaustion challenges. Please consider using prefix delegation with custom networking to increase the Pods density on a node.
 
 You might consider custom networking if you have a security requirement to run Pods on a different network with different security group requirements. When custom networking enabled, the pods use different subnet or security groups as defined in the ENIConfig than the node’s primary network interface.
 
-Custom networking is indeed an ideal option for deploying multiple EKS clusters and applications to connect on-premise datacenter services. You can increase the number of private addresses (RFC1918) accessible to EKS in your VPC for services such as Amazon Elastic Load Balancing and NAT-GW, while using non-routable CG-NAT space for your Pods across multiple clusters. Custom networking with the [transit gateway](https://aws.amazon.com/transit-gateway/ "https://aws.amazon.com/transit-gateway/") and a Shared Services VPC (including NAT gateways across several Availability Zones for high availability) enables you to deliver scalable and predictable traffic flows. This [blog post](https://aws.amazon.com/blogs/containers/eks-vpc-routable-ip-address-conservation/ "https://aws.amazon.com/blogs/containers/eks-vpc-routable-ip-address-conservation/") describes an architectural pattern that is one of the most recommended ways to connect EKS Pods to a datacenter network using custom networking.
+Custom networking is indeed an ideal option for deploying multiple EKS clusters and applications to connect on-premise datacenter services. You can increase the number of private addresses (RFC1918) accessible to EKS in your VPC for services such as Amazon Elastic Load Balancing and NAT-GW, while using non-routable CG-NAT space for your Pods across multiple clusters. Custom networking with the [transit gateway](https://aws.amazon.com/transit-gateway/) and a Shared Services VPC (including NAT gateways across several Availability Zones for high availability) enables you to deliver scalable and predictable traffic flows. This [blog post](https://aws.amazon.com/blogs/containers/eks-vpc-routable-ip-address-conservation/) describes an architectural pattern that is one of the most recommended ways to connect EKS Pods to a datacenter network using custom networking.
 
 ### Avoid Custom Networking When
+<a name="_avoid_custom_networking_when"></a>
 
 #### Ready to Implement IPv6
+<a name="_ready_to_implement_ipv6"></a>
 
-Custom networking can mitigate IP exhaustion issues, but it requires additional operational overhead. If you are currently deploying a dual-stack (IPv4/IPv6) VPC or if your plan includes IPv6 support, we recommend implementing IPv6 clusters instead. You can set up IPv6 EKS clusters and migrate your apps. In an IPv6 EKS cluster, both Kubernetes and Pods get an IPv6 address and can communicate in and out to both IPv4 and IPv6 endpoints. Please review best practices for [Running IPv6 EKS Clusters](ipv6.md "ipv6.md").
+Custom networking can mitigate IP exhaustion issues, but it requires additional operational overhead. If you are currently deploying a dual-stack (IPv4/IPv6) VPC or if your plan includes IPv6 support, we recommend implementing IPv6 clusters instead. You can set up IPv6 EKS clusters and migrate your apps. In an IPv6 EKS cluster, both Kubernetes and Pods get an IPv6 address and can communicate in and out to both IPv4 and IPv6 endpoints. Please review best practices for [Running IPv6 EKS Clusters](ipv6.md).
 
 #### Exhausted CG-NAT Space
+<a name="_exhausted_cg_nat_space"></a>
 
-Furthermore, if you’re currently utilizing CIDRs from the CG-NAT space or are unable to link a secondary CIDR with your cluster VPC, you may need to explore other options, such as using an alternative CNI. We strongly recommend that you either obtain commercial support or possess the in-house knowledge to debug and submit patches to the open source CNI plugin project. Refer [Alternate CNI Plugins](../userguide/alternate-cni-plugins.md "../userguide/alternate-cni-plugins.md") user guide for more details.
+Furthermore, if you’re currently utilizing CIDRs from the CG-NAT space or are unable to link a secondary CIDR with your cluster VPC, you may need to explore other options, such as using an alternative CNI. We strongly recommend that you either obtain commercial support or possess the in-house knowledge to debug and submit patches to the open source CNI plugin project. Refer [Alternate CNI Plugins](https://docs.aws.amazon.com/eks/latest/userguide/alternate-cni-plugins.html) user guide for more details.
 
 #### Use Private NAT Gateway
+<a name="_use_private_nat_gateway"></a>
 
-Amazon VPC now offers [private NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") capabilities. Amazon’s private NAT Gateway enables instances in private subnets to connect to other VPCs and on-premises networks with overlapping CIDRs. Consider utilizing the method described on this [blog post](https://aws.amazon.com/blogs/containers/addressing-ipv4-address-exhaustion-in-amazon-eks-clusters-using-private-nat-gateways/ "https://aws.amazon.com/blogs/containers/addressing-ipv4-address-exhaustion-in-amazon-eks-clusters-using-private-nat-gateways/") to employ a private NAT gateway to overcome communication issues for the EKS workloads caused by overlapping CIDRs, a significant complaint expressed by our clients. Custom networking cannot address the overlapping CIDR difficulties on its own, and it adds to the configuration challenges.
+Amazon VPC now offers [private NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) capabilities. Amazon’s private NAT Gateway enables instances in private subnets to connect to other VPCs and on-premises networks with overlapping CIDRs. Consider utilizing the method described on this [blog post](https://aws.amazon.com/blogs/containers/addressing-ipv4-address-exhaustion-in-amazon-eks-clusters-using-private-nat-gateways/) to employ a private NAT gateway to overcome communication issues for the EKS workloads caused by overlapping CIDRs, a significant complaint expressed by our clients. Custom networking cannot address the overlapping CIDR difficulties on its own, and it adds to the configuration challenges.
 
-The network architecture used in this blog post implementation follows the recommendations under [Enable communication between overlapping networks](../../../vpc/latest/userguide/nat-gateway-scenarios.md#private-nat-overlapping-networks "../../../vpc/latest/userguide/nat-gateway-scenarios.md#private-nat-overlapping-networks") in Amazon VPC documentation. As demonstrated in this blog post, you may expand the usage of private NAT Gateway in conjunction with RFC6598 addresses to manage customers' private IP exhaustion issues. The EKS clusters, worker nodes are deployed in the non-routable 100.64.0.0/16 VPC secondary CIDR range, whereas the private NAT gateway, NAT gateway are deployed to the routable RFC1918 CIDR ranges. The blog explains how a transit gateway is used to connect VPCs in order to facilitate communication across VPCs with overlapping non-routable CIDR ranges. For use cases in which EKS resources in a VPC’s non-routable address range need to communicate with other VPCs that do not have overlapping address ranges, customers have the option of using VPC Peering to interconnect such VPCs. This method could provide potential cost savings as all data transit within an Availability Zone via a VPC peering connection is now free.
+The network architecture used in this blog post implementation follows the recommendations under [Enable communication between overlapping networks](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html#private-nat-overlapping-networks) in Amazon VPC documentation. As demonstrated in this blog post, you may expand the usage of private NAT Gateway in conjunction with RFC6598 addresses to manage customers' private IP exhaustion issues. The EKS clusters, worker nodes are deployed in the non-routable 100.64.0.0/16 VPC secondary CIDR range, whereas the private NAT gateway, NAT gateway are deployed to the routable RFC1918 CIDR ranges. The blog explains how a transit gateway is used to connect VPCs in order to facilitate communication across VPCs with overlapping non-routable CIDR ranges. For use cases in which EKS resources in a VPC’s non-routable address range need to communicate with other VPCs that do not have overlapping address ranges, customers have the option of using VPC Peering to interconnect such VPCs. This method could provide potential cost savings as all data transit within an Availability Zone via a VPC peering connection is now free.
 
-![Architecture diagram showing EKS clusters deployed in non-routable 100.64.0.0/16 secondary CIDR range](images/networking/cn-image-3.png)
+![Architecture diagram showing EKS clusters deployed in non-routable 100.64.0.0/16 secondary CIDR range](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cn-image-3.png)
+
 
 #### Unique network for nodes and Pods
+<a name="_unique_network_for_nodes_and_pods"></a>
 
-If you need to isolate your nodes and Pods to a specific network for security reasons, we recommend that you deploy nodes and Pods to a subnet from a larger secondary CIDR block (e.g. 100.64.0.0/8). Following the installation of the new CIDR in your VPC, you can deploy another node group using the secondary CIDR and drain the original nodes to automatically redeploy the pods to the new worker nodes. For more information on how to implement this, see this [blog](https://aws.amazon.com/blogs/containers/optimize-ip-addresses-usage-by-pods-in-your-amazon-eks-cluster/ "https://aws.amazon.com/blogs/containers/optimize-ip-addresses-usage-by-pods-in-your-amazon-eks-cluster/") post.
+If you need to isolate your nodes and Pods to a specific network for security reasons, we recommend that you deploy nodes and Pods to a subnet from a larger secondary CIDR block (e.g. 100.64.0.0/8). Following the installation of the new CIDR in your VPC, you can deploy another node group using the secondary CIDR and drain the original nodes to automatically redeploy the pods to the new worker nodes. For more information on how to implement this, see this [blog](https://aws.amazon.com/blogs/containers/optimize-ip-addresses-usage-by-pods-in-your-amazon-eks-cluster/) post.
 
 Custom networking is not used in the setup represented in the diagram below. Rather, Kubernetes worker nodes are deployed on subnets from your VPC’s secondary VPC CIDR range, such as 100.64.0.0/10. You can keep the EKS cluster running (the control plane will remain on the original subnet/s), but the nodes and Pods will be moved to a secondary subnet/s. This is yet another, albeit unconventional, technique to mitigate the danger of IP exhaustion in a VPC. We propose draining the old nodes before redeploying the pods to the new worker nodes.
 
-![Architecture diagram showing Kubernetes worker nodes deployed on subnets from a secondary VPC CIDR range such as 100.64.0.0/10 without custom networking](images/networking/cn-image-2.png)
+![Architecture diagram showing Kubernetes worker nodes deployed on subnets from a secondary VPC CIDR range such as 100.64.0.0/10 without custom networking](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cn-image-2.png)
+
 
 ### Automate Configuration with Availability Zone Labels
+<a name="_automate_configuration_with_availability_zone_labels"></a>
 
 You can enable Kubernetes to automatically apply the corresponding ENIConfig for the worker node Availability Zone (AZ).
 
-Kubernetes automatically adds the tag [`topology.kubernetes.io/zone`](http://topology.kubernetes.io/zone "http://topology.kubernetes.io/zone") to your worker nodes. Amazon EKS recommends using the availability zone as your ENI config name when you only have one secondary subnet (alternate CIDR) per AZ.
-You can then set label used to discover the ENI config name to `topology.kubernetes.io/zone`. Note that tag `failure-domain.beta.kubernetes.io/zone` is deprecated and replaced with the tag `topology.kubernetes.io/zone`.
+Kubernetes automatically adds the tag [`topology.kubernetes.io/zone`](http://topology.kubernetes.io/zone) to your worker nodes. Amazon EKS recommends using the availability zone as your ENI config name when you only have one secondary subnet (alternate CIDR) per AZ. You can then set label used to discover the ENI config name to `topology.kubernetes.io/zone`. Note that tag `failure-domain.beta.kubernetes.io/zone` is deprecated and replaced with the tag `topology.kubernetes.io/zone`.
 
 1. Set `name` field to the Availability Zone of your VPC.
-2. Enable automatic configuration via the following command
-3. Set the configuration label via the following command
+
+1. Enable automatic configuration via the following command
+
+1. Set the configuration label via the following command
 
 ```
 kubectl set env daemonset aws-node -n kube-system "AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true"
 kubectl set env daemonset aws-node -n kube-system "ENI_CONFIG_LABEL_DEF=topology.kubernetes.io/zone"
 ```
 
-If you have multiple secondary subnets per availability zone, you need create a specific `ENI_CONFIG_LABEL_DEF`. You might consider configuring `ENI_CONFIG_LABEL_DEF` as [`k8s.amazonaws.com/eniConfig`](http://k8s.amazonaws.com/eniConfig "http://k8s.amazonaws.com/eniConfig") and label nodes with custom eniConfig names, such as [`k8s.amazonaws.com/eniConfig=us-west-2a-subnet-1`](http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-1 "http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-1") and [`k8s.amazonaws.com/eniConfig=us-west-2a-subnet-2`](http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-2 "http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-2").
+If you have multiple secondary subnets per availability zone, you need create a specific `ENI_CONFIG_LABEL_DEF`. You might consider configuring `ENI_CONFIG_LABEL_DEF` as [`k8s.amazonaws.com/eniConfig`](http://k8s.amazonaws.com/eniConfig) and label nodes with custom eniConfig names, such as [`k8s.amazonaws.com/eniConfig=us-west-2a-subnet-1`](http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-1) and [`k8s.amazonaws.com/eniConfig=us-west-2a-subnet-2`](http://k8s.amazonaws.com/eniConfig=us-west-2a-subnet-2).
 
 ### Replace Pods when Configuring Secondary Networking
+<a name="_replace_pods_when_configuring_secondary_networking"></a>
 
-Enabling custom networking does not modify existing nodes. Custom networking is a disruptive action. Rather than doing a rolling replacement of all the worker nodes in your cluster after enabling custom networking, we suggest updating the AWS CloudFormation template in the [EKS Getting Started Guide](../userguide/getting-started.md "../userguide/getting-started.md") with a custom resource that calls a Lambda function to update the `aws-node` Daemonset with the environment variable to enable custom networking before the worker nodes are provisioned.
+Enabling custom networking does not modify existing nodes. Custom networking is a disruptive action. Rather than doing a rolling replacement of all the worker nodes in your cluster after enabling custom networking, we suggest updating the AWS CloudFormation template in the [EKS Getting Started Guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) with a custom resource that calls a Lambda function to update the `aws-node` Daemonset with the environment variable to enable custom networking before the worker nodes are provisioned.
 
-If you had any nodes in your cluster with running Pods before you switched to the custom CNI networking feature, you should cordon and [drain the nodes](https://aws.amazon.com/premiumsupport/knowledge-center/eks-worker-node-actions/ "https://aws.amazon.com/premiumsupport/knowledge-center/eks-worker-node-actions/") to gracefully shutdown the Pods and then terminate the nodes. Only new nodes matching the ENIConfig label or annotations use custom networking, and hence the Pods scheduled on these new nodes can be assigned an IP from secondary CIDR.
+If you had any nodes in your cluster with running Pods before you switched to the custom CNI networking feature, you should cordon and [drain the nodes](https://aws.amazon.com/premiumsupport/knowledge-center/eks-worker-node-actions/) to gracefully shutdown the Pods and then terminate the nodes. Only new nodes matching the ENIConfig label or annotations use custom networking, and hence the Pods scheduled on these new nodes can be assigned an IP from secondary CIDR.
 
 ### Calculate Max Pods per Node
+<a name="_calculate_max_pods_per_node"></a>
 
 Since the node’s primary ENI is no longer used to assign Pod IP addresses, there is a decrease in the number of Pods you can run on a given EC2 instance type. To work around this limitation you can use prefix assignment with custom networking. With prefix assignment, each secondary IP is replaced with a /28 prefix on secondary ENIs.
 
 Consider the maximum number of Pods for an m5.large instance with custom networking.
 
 The maximum number of Pods you can run without prefix assignment is 29
-
-- `3 ENIs - 1) * (10 secondary IPs per ENI - 1 + 2 = 20`
++  ` 3 ENIs - 1) * (10 secondary IPs per ENI - 1 + 2 = 20` 
 
 Enabling prefix attachments increases the number of Pods to 290.
-
-- `(3 ENIs - 1) * ((10 secondary IPs per ENI - 1) * 16 + 2 = 290`
++  `(3 ENIs - 1) * ((10 secondary IPs per ENI - 1) * 16 + 2 = 290` 
 
 However, we suggest setting max-pods to 110 rather than 290 because the instance has a rather small number of virtual CPUs. On bigger instances, EKS recommends a max pods value of 250. When utilizing prefix attachments with smaller instance types (e.g. m5.large), it is possible that you will exhaust the instance’s CPU and memory resources well before its IP addresses.
 
-###### Note
-
-When the CNI prefix allocates a /28 prefix to an ENI, it has to be a contiguous block of IP addresses. If the subnet that the prefix is generated from is highly fragmented, the prefix attachment may fail. You can mitigate this from happening by creating a new dedicated VPC for the cluster or by reserving subnet a set of CIDR exclusively for prefix attachments. Visit [Subnet CIDR reservations](../../../vpc/latest/userguide/subnet-cidr-reservation.md "../../../vpc/latest/userguide/subnet-cidr-reservation.md") for more information on this topic.
+**Note**  
+When the CNI prefix allocates a /28 prefix to an ENI, it has to be a contiguous block of IP addresses. If the subnet that the prefix is generated from is highly fragmented, the prefix attachment may fail. You can mitigate this from happening by creating a new dedicated VPC for the cluster or by reserving subnet a set of CIDR exclusively for prefix attachments. Visit [Subnet CIDR reservations](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html) for more information on this topic.
 
 ### Identify Existing Usage of CG-NAT Space
+<a name="_identify_existing_usage_of_cg_nat_space"></a>
 
 Custom networking allows you to mitigate IP exhaustion issue, however it can’t solve all the challenges. If you already using CG-NAT space for your cluster, or simply don’t have the ability to associate a secondary CIDR with your cluster VPC, we suggest you to explore other options, like using an alternate CNI or moving to IPv6 clusters.

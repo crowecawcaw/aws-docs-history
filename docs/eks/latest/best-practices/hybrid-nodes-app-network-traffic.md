@@ -1,12 +1,16 @@
+
+
 # Application network traffic through network disconnections
+<a name="hybrid-nodes-app-network-traffic"></a>
 
 The topics on this page are related to Kubernetes cluster networking and the application traffic during network disconnections between nodes and the Kubernetes control plane.
 
 ## Cilium
+<a name="_cilium"></a>
 
 Cilium has several modes for IP address management (IPAM), encapsulation, load balancing, and cluster routing. The modes validated in this guide used Cluster Scope IPAM, VXLAN overlay, BGP load balancing, and kube-proxy. Cilium was also used without BGP load balancing, replacing it with MetalLB L2 load balancing.
 
-The base of the Cilium install consists of the Cilium operator and Cilium agents. The Cilium operator runs as a Deployment and registers the Cilium Custom Resource Definitions (CRDs), manages IPAM, and synchronizes cluster objects with the Kubernetes API server among [other capabilities](https://docs.cilium.io/en/stable/internals/cilium_operator/ "https://docs.cilium.io/en/stable/internals/cilium_operator/"). The Cilium agents run on each node as a DaemonSet and manage the eBPF programs to control the network rules for workloads running on the cluster.
+The base of the Cilium install consists of the Cilium operator and Cilium agents. The Cilium operator runs as a Deployment and registers the Cilium Custom Resource Definitions (CRDs), manages IPAM, and synchronizes cluster objects with the Kubernetes API server among [other capabilities](https://docs.cilium.io/en/stable/internals/cilium_operator/). The Cilium agents run on each node as a DaemonSet and manage the eBPF programs to control the network rules for workloads running on the cluster.
 
 Generally, the in-cluster routing configured by Cilium remains available and in-place during network disconnections, which can be confirmed by observing the in-cluster traffic flows and IP table (iptables) rules for the pod network.
 
@@ -41,14 +45,17 @@ msg="failed to start: Get \"https://<k8s-cluster-ip>:443/api/v1/namespaces/kube-
 If you are using Cilium’s BGP Control Plane capability for application load balancing, the BGP session for your pods and services might be down during network disconnections because the BGP speaker functionality is integrated with the Cilium agent, and the Cilium agent will continuously restart when disconnected from the Kubernetes control plane. For more information, see the Cilium BGP Control Plane Operation Guide in the Cilium documentation. Additionally, if you experience a simultaneous failure during a network disconnection such as a power cycle or machine reboot, the Cilium routes will not be preserved through these actions, though the routes are recreated when the node reconnects to the Kubernetes control plane and Cilium starts up again.
 
 ## Calico
+<a name="_calico"></a>
 
-_Coming soon_
+ *Coming soon* 
 
 ## MetalLB
+<a name="_metallb"></a>
 
-MetalLB has two modes for load balancing: [L2 mode](https://metallb.universe.tf/concepts/layer2/ "https://metallb.universe.tf/concepts/layer2/") and [BGP mode](https://metallb.universe.tf/concepts/bgp/ "https://metallb.universe.tf/concepts/bgp/"). Reference the MetalLB documentation for details of how these load balancing modes work and their limitations. The validation for this guide used MetalLB in L2 mode, where one machine in the cluster takes ownership of the Kubernetes Service, and uses ARP for IPv4 to make the load balancer IP addresses reachable on the local network. When running MetalLB there is a controller that is responsible for the IP assignment and speakers that run on each node which are responsible for advertising services with assigned IP addresses. The MetalLB controller runs as a Deployment and the MetalLB speakers run as a DaemonSet. During network disconnections, the MetalLB controller and speakers fail to watch the Kubernetes API server for cluster resources but continue running. Most importantly, the Services that are using MetalLB for external connectivity remain available and accessible during network disconnections.
+MetalLB has two modes for load balancing: [L2 mode](https://metallb.universe.tf/concepts/layer2/) and [BGP mode](https://metallb.universe.tf/concepts/bgp/). Reference the MetalLB documentation for details of how these load balancing modes work and their limitations. The validation for this guide used MetalLB in L2 mode, where one machine in the cluster takes ownership of the Kubernetes Service, and uses ARP for IPv4 to make the load balancer IP addresses reachable on the local network. When running MetalLB there is a controller that is responsible for the IP assignment and speakers that run on each node which are responsible for advertising services with assigned IP addresses. The MetalLB controller runs as a Deployment and the MetalLB speakers run as a DaemonSet. During network disconnections, the MetalLB controller and speakers fail to watch the Kubernetes API server for cluster resources but continue running. Most importantly, the Services that are using MetalLB for external connectivity remain available and accessible during network disconnections.
 
 ## kube-proxy
+<a name="_kube_proxy"></a>
 
 In EKS clusters, kube-proxy runs as a DaemonSet on each node and is responsible for managing network rules to enable communication between services and pods by translating service IP addresses to the IP addresses of the underlying pods. The IP tables (iptables) rules configured by kube-proxy are maintained during network disconnections and in-cluster routing continues to function and the kube-proxy pods continue to run.
 
@@ -69,18 +76,18 @@ Inspecting the `KUBE-SERVICES` chain we can see the rules for the various cluste
 ```
 Chain KUBE-SERVICES (2 references)
 target                     prot opt source      destination
-KUBE-SVL-NZTS37XDTDNXGCKJ  tcp  --  anywhere    172.16.189.136  /* kube-system/hubble-peer:peer-service cluster IP **/
-KUBE-SVC-2BINP2AXJOTI3HJ5 tcp -- anywhere 172.16.62.72 /** default/metallb-webhook-service cluster IP **/
-KUBE-SVC-LRNEBRA3Z5YGJ4QC tcp -- anywhere 172.16.145.111 /** default/redis-leader cluster IP **/
-KUBE-SVC-I7SKRZYQ7PWYV5X7 tcp -- anywhere 172.16.142.147 /** kube-system/eks-extension-metrics-api:metrics-api cluster IP **/
-KUBE-SVC-JD5MR3NA4I4DYORP tcp -- anywhere 172.16.0.10 /** kube-system/kube-dns:metrics cluster IP **/
-KUBE-SVC-TCOU7JCQXEZGVUNU udp -- anywhere 172.16.0.10 /** kube-system/kube-dns:dns cluster IP **/
-KUBE-SVC-ERIFXISQEP7F7OF4 tcp -- anywhere 172.16.0.10 /** kube-system/kube-dns:dns-tcp cluster IP **/
-KUBE-SVC-ENODL3HWJ5BZY56Q tcp -- anywhere 172.16.7.26 /** default/frontend cluster IP **/
-KUBE-EXT-ENODL3HWJ5BZY56Q tcp -- anywhere <LB-IP> /** default/frontend loadbalancer IP **/
-KUBE-SVC-NPX46M4PTMTKRN6Y tcp -- anywhere 172.16.0.1 /** default/kubernetes:https cluster IP **/
-KUBE-SVC-YU5RV2YQWHLZ5XPR tcp -- anywhere 172.16.228.76 /** default/redis-follower cluster IP **/
-KUBE-NODEPORTS all -- anywhere anywhere /** kubernetes service nodeports; NOTE: this must be the last rule in this chain */
+KUBE-SVL-NZTS37XDTDNXGCKJ  tcp  --  anywhere    172.16.189.136  /* kube-system/hubble-peer:peer-service cluster IP /
+KUBE-SVC-2BINP2AXJOTI3HJ5  tcp  --  anywhere    172.16.62.72    / default/metallb-webhook-service cluster IP /
+KUBE-SVC-LRNEBRA3Z5YGJ4QC  tcp  --  anywhere    172.16.145.111  / default/redis-leader cluster IP /
+KUBE-SVC-I7SKRZYQ7PWYV5X7  tcp  --  anywhere    172.16.142.147  / kube-system/eks-extension-metrics-api:metrics-api cluster IP /
+KUBE-SVC-JD5MR3NA4I4DYORP  tcp  --  anywhere    172.16.0.10     / kube-system/kube-dns:metrics cluster IP /
+KUBE-SVC-TCOU7JCQXEZGVUNU  udp  --  anywhere    172.16.0.10     / kube-system/kube-dns:dns cluster IP /
+KUBE-SVC-ERIFXISQEP7F7OF4  tcp  --  anywhere    172.16.0.10     / kube-system/kube-dns:dns-tcp cluster IP /
+KUBE-SVC-ENODL3HWJ5BZY56Q  tcp  --  anywhere    172.16.7.26     / default/frontend cluster IP /
+KUBE-EXT-ENODL3HWJ5BZY56Q  tcp  --  anywhere    <LB-IP>    / default/frontend loadbalancer IP /
+KUBE-SVC-NPX46M4PTMTKRN6Y  tcp  --  anywhere    172.16.0.1      / default/kubernetes:https cluster IP /
+KUBE-SVC-YU5RV2YQWHLZ5XPR  tcp  --  anywhere    172.16.228.76   / default/redis-follower cluster IP /
+KUBE-NODEPORTS             all  --  anywhere    anywhere        / kubernetes service nodeports; NOTE: this must be the last rule in this chain */
 ```
 
 Inspecting the chain of the frontend service for the application we can see the pod IP addresses backing the service.
@@ -92,9 +99,9 @@ iptables -t nat -L KUBE-SVC-ENODL3HWJ5BZY56Q
 ```
 Chain KUBE-SVC-ENODL3HWJ5BZY56Q (2 references)
 target                     prot opt source    destination
-KUBE-SEP-EKXE7ASH7Y74BGBO  all  --  anywhere  anywhere    /* default/frontend -> 10.86.2.103:80 **/ statistic mode random probability 0.33333333349
-KUBE-SEP-GCY3OUXWSVMSEAR6 all -- anywhere anywhere /** default/frontend -> 10.86.2.179:80 **/ statistic mode random probability 0.50000000000
-KUBE-SEP-6GJJR3EF5AUP2WBU all -- anywhere anywhere /** default/frontend -> 10.86.3.47:80 */
+KUBE-SEP-EKXE7ASH7Y74BGBO  all  --  anywhere  anywhere    /* default/frontend -> 10.86.2.103:80 / statistic mode random probability 0.33333333349
+KUBE-SEP-GCY3OUXWSVMSEAR6  all  --  anywhere  anywhere    / default/frontend -> 10.86.2.179:80 / statistic mode random probability 0.50000000000
+KUBE-SEP-6GJJR3EF5AUP2WBU  all  --  anywhere  anywhere    / default/frontend -> 10.86.3.47:80 */
 ```
 
 The following kube-proxy log messages are expected during network disconnections as it attempts to watch the Kubernetes API server for updates to node and endpoint resources.
@@ -105,6 +112,7 @@ The following kube-proxy log messages are expected during network disconnections
 ```
 
 ## CoreDNS
+<a name="_coredns"></a>
 
 By default, pods in EKS clusters use the CoreDNS cluster IP address as the name server for in-cluster DNS queries. In EKS clusters, CoreDNS runs as a Deployment on nodes. With hybrid nodes, pods are able to continue communicating with the CoreDNS during network disconnections when there are CoreDNS replicas running locally on hybrid nodes. If you have an EKS cluster with nodes in the cloud and hybrid nodes in your on-premises environment, it is recommended to have at least one CoreDNS replica in each environment. CoreDNS continues serving DNS queries for records that were created before the network disconnection and continues running through the network reconnection for static stability.
 

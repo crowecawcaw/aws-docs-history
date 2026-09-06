@@ -1,15 +1,23 @@
+
+
 # Control Plane Monitoring
+<a name="control_plane_monitoring"></a>
 
 ## API Server
+<a name="_api_server"></a>
 
 When looking at our API server it’s important to remember that one of its functions is to throttle inbound requests to prevent overloading the control plane. What can seem like a bottleneck at the API server level might actually be protecting it from more serious issues. We need to factor in the pros and cons of increasing the volume of requests moving through the system. To make a determination if the API server values should be increased, here is small sampling of the things we need to be mindful of:
 
 1. What is the latency of requests moving through the system?
-2. Is that latency the API server itself, or something "downstream" like etcd?
-3. Is the API server queue depth a factor in this latency?
-4. Are the API Priority and Fairness (APF) queues setup correctly for the API call patterns we want?
+
+1. Is that latency the API server itself, or something "downstream" like etcd?
+
+1. Is the API server queue depth a factor in this latency?
+
+1. Are the API Priority and Fairness (APF) queues setup correctly for the API call patterns we want?
 
 ## Where is the issue?
+<a name="_where_is_the_issue"></a>
 
 To start, we can use the metric for API latency to give us insight into how long it’s taking the API server to service requests. Let’s use the below PromQL and Grafana heatmap to display this data.
 
@@ -17,25 +25,26 @@ To start, we can use the metric for API latency to give us insight into how long
 max(increase(apiserver_request_duration_seconds_bucket{subresource!="status",subresource!="token",subresource!="scale",subresource!="/healthz",subresource!="binding",subresource!="proxy",verb!="WATCH"}[$__rate_interval])) by (le)
 ```
 
-###### Note
+**Note**  
+For an in depth write up on how to monitor the API server with the API dashboard used in this article, please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/) 
 
-For an in depth write up on how to monitor the API server with the API dashboard used in this article, please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/ "https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/")
+![API request duration heatmap](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/api-request-duration.png)
 
-![API request duration heatmap](images/scalability/api-request-duration.png)
 
 These requests are all under the one second mark, which is a good indication that the control plane is handling requests in a timely fashion. But what if that was not the case?
 
-The format we are using in the above API Request Duration is a heatmap. What’s nice about the heatmap format, is that it tells us the timeout value for the API by default (60 sec). However, what we really need to know is at what threshold should this value be of concern before we reach the timeout threshold. For a rough guideline of what acceptable thresholds are we can use the upstream Kubernetes SLO, which can be found [here](https://github.com/kubernetes/community/blob/master/sig-scalability/slos/slos.md#steady-state-slisslos "https://github.com/kubernetes/community/blob/master/sig-scalability/slos/slos.md#steady-state-slisslos")
+The format we are using in the above API Request Duration is a heatmap. What’s nice about the heatmap format, is that it tells us the timeout value for the API by default (60 sec). However, what we really need to know is at what threshold should this value be of concern before we reach the timeout threshold. For a rough guideline of what acceptable thresholds are we can use the upstream Kubernetes SLO, which can be found [here](https://github.com/kubernetes/community/blob/master/sig-scalability/slos/slos.md#steady-state-slisslos) 
 
-###### Note
-
+**Note**  
 Notice the max function on this statement? When using metrics that are aggregating multiple servers (by default two API servers on EKS) it’s important not to average those servers together.
 
 ### Asymmetrical traffic patterns
+<a name="_asymmetrical_traffic_patterns"></a>
 
 What if one API server [pod] was lightly loaded, and the other heavily loaded? If we averaged those two numbers together we might misinterpret what was happening. For example, here we have three API servers but all of the load is on one of these API servers. As a rule anything that has multiple servers such as etcd and API servers should be broken out when investing scale and performance issues.
 
-![Total inflight requests](images/scalability/inflight-requests.png)
+![Total inflight requests](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/inflight-requests.png)
+
 
 With the move to API Priority and Fairness the total number of requests on the system is only one factor to check to see if the API server is oversubscribed. Since the system now works off a series of queues, we must look to see if any of these queues are full and if the traffic for that queue is getting dropped.
 
@@ -45,27 +54,29 @@ Let’s look at these queues with the following query:
 max without(instance)(apiserver_flowcontrol_nominal_limit_seats{})
 ```
 
-###### Note
-
-For more information on how API A&F works please see the following [best practices guide](scale-control-plane.md#_api_priority_and_fairness "scale-control-plane.md#_api_priority_and_fairness")
+**Note**  
+For more information on how API A&F works please see the following [best practices guide](https://docs.aws.amazon.com/eks/latest/best-practices/scale-control-plane.html#_api_priority_and_fairness) 
 
 Here we see the seven different priority groups that come by default on the cluster
 
-![Shared concurrency](images/scalability/shared-concurrency.png)
+![Shared concurrency](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/shared-concurrency.png)
+
 
 Next we want to see what percentage of that priority group is being used, so that we can understand if a certain priority level is being saturated. Throttling requests in the workload-low level might be desirable, however drops in a leader election level would not be.
 
 The API Priority and Fairness (APF) system has a number of complex options, some of those options can have unintended consequences. A common issue we see in the field is increasing the queue depth to the point it starts adding unnecessary latency. We can monitor this problem by using the `apiserver_flowcontrol_current_inqueue_request` metric. We can check for drops using the `apiserver_flowcontrol_rejected_requests_total`. These metrics will be a non-zero value if any bucket exceeds its concurrency.
 
-![Requests in use](images/scalability/requests-in-use.png)
+![Requests in use](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/requests-in-use.png)
+
 
 Increasing the queue depth can make the API Server a significant source of latency and should be done with care. We recommend being judicious with the number of queues created. For example, the number of shares on a EKS system is 600, if we create too many queues, this can reduce the shares in important queues that need the throughput such as the leader-election queue or system queue. Creating too many extra queues can make it more difficult to size theses queues correctly.
 
 To focus on a simple impactful change you can make in APF we simply take shares from underutilized buckets and increase the size of buckets that are at their max usage. By intelligently redistributing the shares among these buckets, you can make drops less likely.
 
-For more information, visit [API Priority and Fairness settings](scale-control-plane.md#_api_priority_and_fairness "scale-control-plane.md#_api_priority_and_fairness") in the EKS Best Practices Guide.
+For more information, visit [API Priority and Fairness settings](https://docs.aws.amazon.com/eks/latest/best-practices/scale-control-plane.html#_api_priority_and_fairness) in the EKS Best Practices Guide.
 
 ### API vs. etcd latency
+<a name="_api_vs_etcd_latency"></a>
 
 How can we use the metrics/logs of the API server to determine whether there’s a problem with API server, or a problem that’s upstream/downstream of the API server, or a combination of both. To understand this better, lets look at how API Server and etcd can be related, and how easy it can be to troubleshoot the wrong system.
 
@@ -73,28 +84,30 @@ In the below chart we see API server latency, but we also see much of this laten
 
 By looking at the whole flow, we see that it’s wise to not focus solely on the API Server, but also look for signals that indicate that etcd is under duress (i.e. slow apply counters increasing). Being able to quickly move to the right problem area with just a glance is what makes a dashboard powerful.
 
-###### Note
-
+**Note**  
 The dashboard in section can be found at https://github.com/RiskyAdventure/Troubleshooting-Dashboards/blob/main/api-troubleshooter.json
 
-![ETCD duress](images/scalability/etcd-duress.png)
+![ETCD duress](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/etcd-duress.png)
+
 
 ### Control plane vs. Client side issues
+<a name="_control_plane_vs_client_side_issues"></a>
 
 In this chart we are looking for the API calls that took the most time to complete for that period. In this case we see a custom resource (CRD) is calling a APPLY function that is the most latent call during the 05:40 time frame.
 
-![Slowest requests](images/scalability/slowest-requests.png)
+![Slowest requests](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/slowest-requests.png)
+
 
 Armed with this data we can use an Ad-Hoc PromQL or a CloudWatch Insights query to pull LIST requests from the audit log during that time frame to see which application this might be.
 
 ### Finding the Source with CloudWatch
+<a name="_finding_the_source_with_cloudwatch"></a>
 
-Metrics are best used to find the problem area we want to look at and narrow both the timeframe and the search parameters of the problem. Once we have this data we want to transition to logs for more detailed times and errors. To do this we will turn our logs into metrics using [CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md").
+Metrics are best used to find the problem area we want to look at and narrow both the timeframe and the search parameters of the problem. Once we have this data we want to transition to logs for more detailed times and errors. To do this we will turn our logs into metrics using [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
 
 For example, to investigate the issue above, we will use the following CloudWatch Logs Insights query to pull the userAgent and requestURI so that we can pin down which application is causing this latency.
 
-###### Note
-
+**Note**  
 An appropriate Count needs to be used as to not pull normal List/Resync behavior on a Watch.
 
 ```
@@ -112,17 +125,19 @@ fields @timestamp, @message
 
 Using this query we found two different agents running a large number of high latency list operations. Splunk and CloudWatch agent. Armed with the data, we can make a decision to remove, update, or replace this controller with another project.
 
-![Query results](images/scalability/query-results.png)
+![Query results](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/query-results.png)
 
-###### Note
 
-For more details on this subject please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/ "https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/")
+**Note**  
+For more details on this subject please see the following [blog](https://aws.amazon.com/blogs/containers/troubleshooting-amazon-eks-api-servers-with-prometheus/) 
 
 ## Scheduler
+<a name="_scheduler"></a>
 
 Since the EKS control plane instances are run in separate AWS account we will not be able to scrape those components for metrics (The API server being the exception). However, since we have access to the audit logs for these components, we can turn those logs into metrics to see if any of the sub-systems are causing a scaling bottleneck. Let’s use CloudWatch Logs Insights to see how many unscheduled pods are in the scheduler queue.
 
 ### Unscheduled pods in the scheduler log
+<a name="_unscheduled_pods_in_the_scheduler_log"></a>
 
 If we had access to scrape the scheduler metrics directly on a self managed Kubernetes (such as Kops) we would use the following PromQL to understand the scheduler backlog.
 
@@ -143,10 +158,10 @@ fields timestamp, pod, err, @message
 
 Here we see the errors from the scheduler saying the pod did not deploy because the storage PVC was unavailable.
 
-![CloudWatch Logs query](images/scalability/cwl-query.png)
+![CloudWatch Logs query](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/cwl-query.png)
 
-###### Note
 
+**Note**  
 Audit logging must be turned on the control plane to enable this function. It is also a best practice to limit the log retention as to not drive up cost over time unnecessarily. An example for turning on all logging functions using the EKSCTL tool below.
 
 ```
@@ -157,6 +172,7 @@ cloudWatch:
 ```
 
 ## Kube Controller Manager
+<a name="_kube_controller_manager"></a>
 
 Kube Controller Manager, like all other controllers, has limits on how many operations it can do at once. Let’s review what some of those flags are by looking at a KOPS configuration where we can set these parameters.
 
@@ -175,7 +191,8 @@ Kube Controller Manager, like all other controllers, has limits on how many oper
 
 These controllers have queues that fill up during times of high churn on a cluster. In this case we see the replicaset set controller has a large backlog in its queue.
 
-![Queues](images/scalability/queues.png)
+![Queues](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/queues.png)
+
 
 We have two different ways of addressing such a situation. If running self managed we could simply increase the concurrent goroutines, however this would have an impact on etcd by processing more data in the KCM. The other option would be to reduce the number of replicaset objects using `.spec.revisionHistoryLimit` on the deployment to reduce the number of replicaset objects we can rollback, thus reducing the pressure on this controller.
 
@@ -195,6 +212,7 @@ spec:
 In systems where we can’t get access to the metrics, we can again look at the logs to detect contention. If we wanted to see the number of requests being being processed on a per controller or an aggregate level we would use the following CloudWatch Logs Insights Query.
 
 ### Total Volume Processed by the KCM
+<a name="_total_volume_processed_by_the_kcm"></a>
 
 ```
 # Query to count API qps coming from kube-controller-manager, split by controller type.
@@ -225,6 +243,7 @@ fields @timestamp, @logStream, @message
 The key takeaway here is when looking into scalability issues, to look at every step in the path (API, scheduler, KCM, etcd) before moving to the detailed troubleshooting phase. Often in production you will find that it takes adjustments to more than one part of Kubernetes to allow the system to work at its most performant. It’s easy to inadvertently troubleshoot what is just a symptom (such as a node timeout) of a much larger bottle neck.
 
 ## ETCD
+<a name="_etcd"></a>
 
 etcd uses a memory mapped file to store key value pairs efficiently. There is a protection mechanism to set the size of this memory space available set commonly at the 2, 4, and 8GB limits. Fewer objects in the database means less clean up etcd needs to do when objects are updated and older versions needs to be cleaned out. This process of cleaning old versions of an object out is referred to as compaction. After a number of compaction operations, there is a subsequent process that recovers usable space space called defragging that happens above a certain threshold or on a fixed schedule of time.
 
@@ -248,4 +267,4 @@ fields @timestamp, @message
 | sort @timestamp asc
 ```
 
-![Defrag query](images/scalability/defrag.png)
+![Defrag query](http://docs.aws.amazon.com/eks/latest/best-practices/images/scalability/defrag.png)

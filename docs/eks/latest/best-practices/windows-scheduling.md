@@ -1,12 +1,17 @@
+
+
 # Running Heterogeneous workloads
+<a name="windows-scheduling"></a>
 
 Kubernetes has support for heterogeneous clusters where you can have a mixture of Linux and Windows nodes in the same cluster. Within that cluster, you can have a mixture of Pods that run on Linux and Pods that run on Windows. You can even run multiple versions of Windows in the same cluster. However, there are several factors (as mentioned below) that will need to be accounted for when making this decision.
 
 ## Assigning PODs to Nodes Best practices
+<a name="_assigning_pods_to_nodes_best_practices"></a>
 
 In order to keep Linux and Windows workloads on their respective OS-specific nodes, you need to use some combination of node selectors and taints/tolerations. The main goal of scheduling workloads in a heterogeneous environment is to avoid breaking compatibility for existing Linux workloads.
 
 ## Ensuring OS-specific workloads land on the appropriate container host
+<a name="_ensuring_os_specific_workloads_land_on_the_appropriate_container_host"></a>
 
 Users can ensure Windows containers can be scheduled on the appropriate host using nodeSelectors. All Kubernetes nodes today have the following default labels:
 
@@ -19,7 +24,7 @@ If a Pod specification does not include a nodeSelector like `"kubernetes.io/os":
 
 In Enterprise environments, it’s not uncommon to have a large number of pre-existing deployments for Linux containers, as well as an ecosystem of off-the-shelf configurations, like Helm charts. In these situations, you may be hesitant to make changes to a deployment’s nodeSelectors. **The alternative is to use Taints**.
 
-For example: `--register-with-taints='os=windows:NoSchedule'`
+For example: `--register-with-taints='os=windows:NoSchedule'` 
 
 If you are using EKS, eksctl offers ways to apply taints through clusterConfig:
 
@@ -47,6 +52,7 @@ tolerations:
 ```
 
 ## Handling multiple Windows build in the same cluster
+<a name="_handling_multiple_windows_build_in_the_same_cluster"></a>
 
 The Windows container base image used by each pod must match the same kernel build version as the node. If you want to use multiple Windows Server builds in the same cluster, then you should set additional node labels, nodeSelectors or leverage a label called **windows-build**.
 
@@ -56,10 +62,11 @@ This label reflects the Windows major, minor, and build number that need to matc
 
 It’s important to note that Windows Server is moving to the Long-Term Servicing Channel (LTSC) as the primary release channel. The Windows Server Semi-Annual Channel (SAC) was retired on August 9, 2022. There will be no future SAC releases of Windows Server.
 
-| Product Name          | Build Number(s) |
-| --------------------- | --------------- |
-| Server full 2022 LTSC | 10.0.20348      |
-| Server core 2019 LTSC | 10.0.17763      |
+
+| Product Name | Build Number(s) | 
+| --- | --- | 
+| Server full 2022 LTSC | 10.0.20348 | 
+| Server core 2019 LTSC | 10.0.17763 | 
 
 It is possible to check the OS build version through the following command:
 
@@ -90,6 +97,7 @@ tolerations:
 ```
 
 ## Simplifying NodeSelector and Toleration in Pod manifests using RuntimeClass
+<a name="_simplifying_nodeselector_and_toleration_in_pod_manifests_using_runtimeclass"></a>
 
 You can also make use of RuntimeClass to simplify the process of using taints and tolerations. This can be accomplished by creating a RuntimeClass object which is used to encapsulate these taints and tolerations.
 
@@ -136,24 +144,25 @@ spec:
 ```
 
 ## Managed Node Group Support
+<a name="_managed_node_group_support"></a>
 
-To help customers run their Windows applications in a more streamlined manner, AWS launched the support for Amazon [EKS Managed Node Group (MNG) support for Windows containers](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-eks-automated-provisioning-lifecycle-management-windows-containers/ "https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-eks-automated-provisioning-lifecycle-management-windows-containers/") on December 15, 2022. To help align operations teams, [Windows MNGs](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md") are enabled using the same workflows and tools as [Linux MNGs](../userguide/managed-node-groups.md "../userguide/managed-node-groups.md"). Full and core AMI (Amazon Machine Image) family versions of Windows Server 2019 and 2022 are supported.
+To help customers run their Windows applications in a more streamlined manner, AWS launched the support for Amazon [EKS Managed Node Group (MNG) support for Windows containers](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-eks-automated-provisioning-lifecycle-management-windows-containers/) on December 15, 2022. To help align operations teams, [Windows MNGs](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) are enabled using the same workflows and tools as [Linux MNGs](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html). Full and core AMI (Amazon Machine Image) family versions of Windows Server 2019 and 2022 are supported.
 
 Following AMI families are supported for Managed Node Groups(MNG)s.
 
-| AMI Family                   |
-| ---------------------------- |
-| WINDOWS\_CORE\_2019\_x86\_64 |
-| WINDOWS\_FULL\_2019\_x86\_64 |
-| WINDOWS\_CORE\_2022\_x86\_64 |
-| WINDOWS\_FULL\_2022\_x86\_64 |
+
+| AMI Family | 
+| --- | 
+| WINDOWS\_CORE\_2019\_x86\_64 | 
+| WINDOWS\_FULL\_2019\_x86\_64 | 
+| WINDOWS\_CORE\_2022\_x86\_64 | 
+| WINDOWS\_FULL\_2022\_x86\_64 | 
 
 ## Additional documentations
+<a name="_additional_documentations"></a>
 
-AWS Official Documentation:
-https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
+AWS Official Documentation: https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html
 
 To better understand how Pod Networking (CNI) works, check the following link: https://docs.aws.amazon.com/eks/latest/userguide/pod-networking.html
 
-AWS Blog on Deploying Managed Node Group for Windows on EKS:
-https://aws.amazon.com/blogs/containers/deploying-amazon-eks-windows-managed-node-groups/
+AWS Blog on Deploying Managed Node Group for Windows on EKS: https://aws.amazon.com/blogs/containers/deploying-amazon-eks-windows-managed-node-groups/
