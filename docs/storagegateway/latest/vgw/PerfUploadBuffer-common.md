@@ -1,96 +1,86 @@
+
+
 # Monitoring the upload buffer
+<a name="PerfUploadBuffer-common"></a>
 
-You can find information following about how to monitor a gateway's upload buffer
-and how to create an alarm so that you get a notification when the buffer exceeds a
-specified threshold. By using this approach, you can add buffer storage to a gateway
-before it fills completely and your storage application stops backing up to
-AWS.
+You can find information following about how to monitor a gateway's upload buffer and how to create an alarm so that you get a notification when the buffer exceeds a specified threshold. By using this approach, you can add buffer storage to a gateway before it fills completely and your storage application stops backing up to AWS.
 
-You monitor the upload buffer in the same way in both the cached-volume and
-Tape Gateway architectures. For more information, see [How Volume Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+You monitor the upload buffer in the same way in both the cached-volume and Tape Gateway architectures. For more information, see [How Volume Gateway works](StorageGatewayConcepts.md).
 
-###### Note
+**Note**  
+The `WorkingStoragePercentUsed`, `WorkingStorageUsed`, and `WorkingStorageFree` metrics represent the upload buffer for stored volumes only before the release of the cached-volume feature in Storage Gateway. Now, use the equivalent upload buffer metrics `UploadBufferPercentUsed`, `UploadBufferUsed`, and `UploadBufferFree`. These metrics apply to both gateway architectures.
 
-The `WorkingStoragePercentUsed`, `WorkingStorageUsed`, and
-`WorkingStorageFree` metrics represent the upload buffer for stored
-volumes only before the release of the cached-volume feature in Storage Gateway. Now,
-use the equivalent upload buffer metrics `UploadBufferPercentUsed`,
-`UploadBufferUsed`, and `UploadBufferFree`. These metrics
-apply to both gateway architectures.
 
-| Item of Interest    | How to Measure                                                                                                                                                                                                                                        |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Upload buffer usage | Use the `UploadBufferPercentUsed`,<br>`UploadBufferUsed`, and `UploadBufferFree`<br>metrics with the `Average` statistic. For example, use<br>the `UploadBufferUsed` with the `Average`<br>statistic to analyze the storage usage over a time period. |
+| Item of Interest | How to Measure | 
+| --- | --- | 
+| Upload buffer usage | Use the `UploadBufferPercentUsed`, `UploadBufferUsed`, and `UploadBufferFree` metrics with the `Average` statistic. For example, use the `UploadBufferUsed` with the `Average` statistic to analyze the storage usage over a time period. | <a name="PerfUploadBufferMeasuring-common"></a>
 
-###### To measure the percent of the upload buffer that is used
+**To measure the percent of the upload buffer that is used**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose the **StorageGateway: Gateway Metrics** dimension, and
-   find the gateway that you want to work with.
-3. Choose the `UploadBufferPercentUsed` metric.
-4. For **Time Range**, choose a value.
-5. Choose the `Average` statistic.
-6. For **Period**, choose a value of 5 minutes to match the
-   default reporting time.
-   The resulting time-ordered set of data points contains the percent used of the upload
-   buffer.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-Using the following procedure, you can create an alarm using the CloudWatch console. To
-learn more about alarms and thresholds, see [Creating CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the
-_Amazon CloudWatch User Guide_.
+1. Choose the **StorageGateway: Gateway Metrics** dimension, and find the gateway that you want to work with.
 
-###### To set an upper threshold alarm for a gateway's upload buffer
+1. Choose the `UploadBufferPercentUsed` metric.
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Create Alarm** to start the Create Alarm
-   wizard.
-3. Specify a metric for your alarm:
+1. For **Time Range**, choose a value.
 
-   1. On the **Select Metric** page of the Create Alarm
-      wizard, choose the
-      **AWS/StorageGateway:GatewayId,GatewayName**
-      dimension, and then find the gateway that you want to work with.
-   2. Choose the `UploadBufferPercentUsed` metric. Use the
-      `Average` statistic and a period of 5 minutes.
-   3. Choose **Continue**.
+1. Choose the `Average` statistic.
 
-4. Define the alarm name, description, and threshold:
+1. For **Period**, choose a value of 5 minutes to match the default reporting time.
 
-   1. On the **Define Alarm** page of the Create Alarm
-      wizard, identify your alarm by giving it a name and description in the
-      **Name** and **Description**
-      boxes.
-   2. Define the alarm threshold.
-   3. Choose **Continue**.
+The resulting time-ordered set of data points contains the percent used of the upload buffer.
 
-5. Configure an email action for the alarm:
+Using the following procedure, you can create an alarm using the CloudWatch console. To learn more about alarms and thresholds, see [Creating CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.<a name="GatewayAlarm1-common"></a>
 
-   1. On the **Configure Actions** page of the Create Alarm
-      wizard, choose **Alarm** for **Alarm
-      State**.
-   2. Choose **Choose or create email topic** for
-      **Topic**.
+**To set an upper threshold alarm for a gateway's upload buffer**
 
-   To create an email topic means that you set up an Amazon SNS topic. For
-   more information about Amazon SNS, see [Set Up
-   Amazon SNS](../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md "../../../AmazonCloudWatch/latest/monitoring/US_SetupSNS.md") in the
-   _Amazon CloudWatch User Guide._ 3. For **Topic**, enter a descriptive name for the
-   topic. 4. Choose **Add Action**. 5. Choose **Continue**.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-6. Review the alarm settings, and then create the alarm:
+1. Choose **Create Alarm** to start the Create Alarm wizard.
 
-   1. On the **Review** page of the Create Alarm wizard,
-      review the alarm definition, metric, and associated actions to take (for
-      example, sending an email notification).
-   2. After reviewing the alarm summary, choose **Save
-      Alarm**.
+1. Specify a metric for your alarm:
 
-7. Confirm your subscription to the alarm topic:
+   1. On the **Select Metric** page of the Create Alarm wizard, choose the **AWS/StorageGateway:GatewayId,GatewayName** dimension, and then find the gateway that you want to work with.
 
-   1. Open the Amazon SNS email that was sent to the email address that you
-      specified when creating the topic.
-   2. Confirm your subscription by clicking the link in the email.
+   1. Choose the `UploadBufferPercentUsed` metric. Use the `Average` statistic and a period of 5 minutes.
 
-   A subscription confirmation appears.
+   1. Choose **Continue**.
+
+1. Define the alarm name, description, and threshold:
+
+   1. On the **Define Alarm** page of the Create Alarm wizard, identify your alarm by giving it a name and description in the **Name** and **Description** boxes.
+
+   1. Define the alarm threshold.
+
+   1. Choose **Continue**.
+
+1. Configure an email action for the alarm:
+
+   1. On the **Configure Actions** page of the Create Alarm wizard, choose **Alarm** for **Alarm State**.
+
+   1. Choose **Choose or create email topic** for **Topic**.
+
+      To create an email topic means that you set up an Amazon SNS topic. For more information about Amazon SNS, see [Set Up Amazon SNS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html) in the *Amazon CloudWatch User Guide.*
+
+   1. For **Topic**, enter a descriptive name for the topic.
+
+   1. Choose **Add Action**.
+
+      
+
+   1. Choose **Continue**.
+
+1. Review the alarm settings, and then create the alarm:
+
+   1. On the **Review** page of the Create Alarm wizard, review the alarm definition, metric, and associated actions to take (for example, sending an email notification).
+
+   1. After reviewing the alarm summary, choose **Save Alarm**.
+
+1. Confirm your subscription to the alarm topic:
+
+   1. Open the Amazon SNS email that was sent to the email address that you specified when creating the topic.
+
+   1. Confirm your subscription by clicking the link in the email.
+
+      A subscription confirmation appears.

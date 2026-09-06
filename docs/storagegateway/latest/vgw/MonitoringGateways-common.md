@@ -1,55 +1,46 @@
+
+
 # Understanding gateway metrics
+<a name="MonitoringGateways-common"></a>
 
-For the discussion in this topic, we define _gateway_ metrics as
-metrics that are scoped to the gateway—that is, they measure something about the
-gateway. Because a gateway contains one or more volumes, a gateway-specific metric is
-representative of all volumes on the gateway. For example, the
-`CloudBytesUploaded` metric is the total number of bytes that the gateway
-sent to the cloud during the reporting period. This metric includes the activity of all
-the volumes on the gateway.
+For the discussion in this topic, we define *gateway* metrics as metrics that are scoped to the gateway—that is, they measure something about the gateway. Because a gateway contains one or more volumes, a gateway-specific metric is representative of all volumes on the gateway. For example, the `CloudBytesUploaded` metric is the total number of bytes that the gateway sent to the cloud during the reporting period. This metric includes the activity of all the volumes on the gateway.
 
-When working with gateway metric data, you specify the unique identification of the
-gateway that you are interested in viewing metrics for. To do this, you specify both the
-`GatewayId` and the `GatewayName`
-values. When you want to work with metric for a gateway, you specify the gateway
-_dimension_ in the metrics namespace, which distinguishes a
-gateway-specific metric from a volume-specific metric. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-common.md "UsingCloudWatchConsole-common.md").
+When working with gateway metric data, you specify the unique identification of the gateway that you are interested in viewing metrics for. To do this, you specify both the `GatewayId` and the `GatewayName` values. When you want to work with metric for a gateway, you specify the gateway *dimension* in the metrics namespace, which distinguishes a gateway-specific metric from a volume-specific metric. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-common.md).
 
-###### Note
+**Note**  
+Some metrics return data points only when new data has been generated during the most recent monitoring period.
 
-Some metrics return data points only when new data has been generated during the
-most recent monitoring period.
 
-| Metric                       | Description                                                                                                                                                                                                                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AvailabilityNotifications`  | Number of availability-related health notifications generated<br>by the gateway.<br>Use this metric with the `Sum` statistic to observe<br>whether the gateway is experiencing any availability-related events.<br>For details about the events, check your configured CloudWatch log<br>group.<br>Unit: Number |
-| `CacheHitPercent`            | Percent of application reads served from the cache. The sample is<br>taken at the end of the reporting period.<br>Unit: Percent                                                                                                                                                                                 |
-| `CachePercentDirty`          | The overall percentage of the gateway cache that has not been<br>persisted to AWS. The sample is taken at the end of the reporting<br>period.<br>Use this metric with the `Sum` statistic.<br>Ideally, this metric should remain low.<br>Unit: Percent                                                          |
-| `CacheUsed`                  | The total number of bytes being used in the gateway's cache<br>storage. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                               |
-| `IoWaitPercent`              | Percent of time that the gateway is waiting on a response from the<br>local disk.<br>Unit: Percent                                                                                                                                                                                                              |
-| `MemTotalBytes`              | Amount of RAM provisioned to the gateway VM, in bytes.<br>Unit: Bytes                                                                                                                                                                                                                                           |
-| `MemUsedBytes`               | Amount of RAM currently in use by the gateway VM, in bytes.<br>Unit: Bytes                                                                                                                                                                                                                                      |
-| `QueuedWrites`               | Normally, this value represents the number of locally-stored bytes<br>waiting to be written to AWS, but it also reflects the<br>synchronization process that occurs between local data and cloud<br>data during "bootstrapping", which occurs each time a gateway<br>restarts.<br>Unit: Bytes                   |
-| `ReadBytes`                  | The total number of bytes read from your on-premises applications<br>in the reporting period for all volumes in the gateway.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Unit: Bytes                                           |
-| `ReadTime`                   | The total number of milliseconds spent to do read operations from<br>your on-premises applications in the reporting period for all<br>volumes in the gateway.<br>Use this metric with the `Average` statistic to measure<br>latency.<br>Unit: Milliseconds                                                      |
-| `TimeSinceLastRecoveryPoint` | The time since the last available recovery point. For more<br>information, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").<br>Unit: Seconds          |
-| `TotalCacheSize`             | The total size of the cache in bytes. The sample is taken at the<br>end of the reporting period.<br>Unit: Bytes                                                                                                                                                                                                 |
-| `UploadBufferPercentUsed`    | Percent use of the gateway's upload buffer. The sample is<br>taken at the end of the reporting period.<br>Unit: Percent                                                                                                                                                                                         |
-| `UploadBufferUsed`           | The total number of bytes being used in the gateway's upload<br>buffer. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                               |
-| `UserCpuPercent`             | Percent of CPU time spent on gateway processing, averaged across<br>all cores.<br>Unit: Percent                                                                                                                                                                                                                 |
-| `WorkingStorageFree`         | The total amount of unused space in the gateway's working<br>storage. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                                 |
-| `WorkingStoragePercentUsed`  | Percent use of the gateway's upload buffer. The sample is<br>taken at the end of the reporting period.<br>Unit: Percent                                                                                                                                                                                         |
-| `WorkingStorageUsed`         | The total number of bytes being used in the gateway's upload<br>buffer. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                               |
-| `WriteBytes`                 | The total number of bytes written to your on-premises applications<br>in the reporting period for all volumes in the gateway.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Unit: Bytes                                          |
-| `WriteTime`                  | The total number of milliseconds spent to do write operations from<br>your on-premises applications in the reporting period for all<br>volumes in the gateway.<br>Use this metric with the `Average` statistic to measure<br>latency.<br>Unit: Milliseconds                                                     |
+| Metric | Description | 
+| --- | --- | 
+| AvailabilityNotifications | Number of availability-related health notifications generated by the gateway.<br />Use this metric with the `Sum` statistic to observe whether the gateway is experiencing any availability-related events. For details about the events, check your configured CloudWatch log group.<br />Unit: Number | 
+| CacheHitPercent | Percent of application reads served from the cache. The sample is taken at the end of the reporting period.<br />Unit: Percent | 
+| CachePercentDirty | The overall percentage of the gateway cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.<br />Use this metric with the `Sum` statistic.<br />Ideally, this metric should remain low.<br />Unit: Percent | 
+| CacheUsed | The total number of bytes being used in the gateway's cache storage. The sample is taken at the end of the reporting period.<br />Unit: Bytes | 
+| IoWaitPercent | Percent of time that the gateway is waiting on a response from the local disk.<br />Unit: Percent | 
+| MemTotalBytes | Amount of RAM provisioned to the gateway VM, in bytes.<br />Unit: Bytes | 
+| MemUsedBytes | Amount of RAM currently in use by the gateway VM, in bytes.<br />Unit: Bytes | 
+| QueuedWrites | Normally, this value represents the number of locally-stored bytes waiting to be written to AWS, but it also reflects the synchronization process that occurs between local data and cloud data during "bootstrapping", which occurs each time a gateway restarts.<br />Unit: Bytes | 
+| ReadBytes | The total number of bytes read from your on-premises applications in the reporting period for all volumes in the gateway.<br />Use this metric with the `Sum` statistic to measure throughput and with the `Samples` statistic to measure IOPS.<br />Unit: Bytes | 
+| ReadTime | The total number of milliseconds spent to do read operations from your on-premises applications in the reporting period for all volumes in the gateway.<br />Use this metric with the `Average` statistic to measure latency.<br />Unit: Milliseconds | 
+| TimeSinceLastRecoveryPoint | The time since the last available recovery point. For more information, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting).<br />Unit: Seconds | 
+| TotalCacheSize | The total size of the cache in bytes. The sample is taken at the end of the reporting period.<br />Unit: Bytes | 
+| UploadBufferPercentUsed | Percent use of the gateway's upload buffer. The sample is taken at the end of the reporting period.<br />Unit: Percent | 
+| UploadBufferUsed | The total number of bytes being used in the gateway's upload buffer. The sample is taken at the end of the reporting period.<br />Unit: Bytes | 
+| UserCpuPercent | Percent of CPU time spent on gateway processing, averaged across all cores.<br />Unit: Percent | 
+| WorkingStorageFree | The total amount of unused space in the gateway's working storage. The sample is taken at the end of the reporting period.<br />Unit: Bytes | 
+| WorkingStoragePercentUsed | Percent use of the gateway's upload buffer. The sample is taken at the end of the reporting period.<br />Unit: Percent | 
+| WorkingStorageUsed | The total number of bytes being used in the gateway's upload buffer. The sample is taken at the end of the reporting period.<br />Unit: Bytes | 
+| WriteBytes | The total number of bytes written to your on-premises applications in the reporting period for all volumes in the gateway.<br />Use this metric with the `Sum` statistic to measure throughput and with the `Samples` statistic to measure IOPS.<br />Unit: Bytes | 
+| WriteTime | The total number of milliseconds spent to do write operations from your on-premises applications in the reporting period for all volumes in the gateway.<br />Use this metric with the `Average` statistic to measure latency.<br />Unit: Milliseconds | 
 
 ## Dimensions for Storage Gateway metrics
+<a name="storagegateway-metric-dimensions"></a>
 
-The CloudWatch namespace for the Storage Gateway service is
-`AWS/StorageGateway`. Data is available automatically in 5-minute periods
-at no charge.
+The CloudWatch namespace for the Storage Gateway service is `AWS/StorageGateway`. Data is available automatically in 5-minute periods at no charge.
 
-| Dimension                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GatewayId`, `GatewayName` | These dimensions filter the data that you request to<br>gateway-specific metrics. You can identify a gateway to work by<br>the value for `GatewayId` or<br>`GatewayName`. If the name of your gateway was<br>different for the time range that you are interested in viewing<br>metrics, use the `GatewayId`.<br>Throughput and latency data of a gateway is based on all the<br>volumes for the gateway. For information about working with<br>gateway metrics, see [Measuring Performance Between Your Gateway and<br>AWS](monitoring-volume-gateway.md#PerfGatewayAWS-common "monitoring-volume-gateway.md#PerfGatewayAWS-common"). |
-| `VolumeId`                 | This dimension filters the data you request to volume-specific<br>metrics. Identify a storage volume to work with by its<br>`VolumeId` value. For information about working<br>with volume metrics, see [Measuring Performance Between Your Application and<br>Gateway](monitoring-volume-gateway.md#PerfAppGateway-common "monitoring-volume-gateway.md#PerfAppGateway-common").                                                                                                                                                                                                                                                      |
+
+| Dimension | Description | 
+| --- | --- | 
+|  GatewayId, GatewayName | These dimensions filter the data that you request to gateway-specific metrics. You can identify a gateway to work by the value for `GatewayId` or `GatewayName`. If the name of your gateway was different for the time range that you are interested in viewing metrics, use the `GatewayId`.<br />Throughput and latency data of a gateway is based on all the volumes for the gateway. For information about working with gateway metrics, see [Measuring Performance Between Your Gateway and AWS](https://docs.aws.amazon.com/storagegateway/latest/vgw/monitoring-volume-gateway.html#PerfGatewayAWS-common).  | 
+|  VolumeId  | This dimension filters the data you request to volume-specific metrics. Identify a storage volume to work with by its `VolumeId` value. For information about working with volume metrics, see [Measuring Performance Between Your Application and Gateway](https://docs.aws.amazon.com/storagegateway/latest/vgw/monitoring-volume-gateway.html#PerfAppGateway-common). | 
