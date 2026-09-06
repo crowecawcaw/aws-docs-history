@@ -1,60 +1,55 @@
+
+
 # AWS AppSync resolver mapping template changelog
+<a name="resolver-mapping-template-changelog"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
-runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+Resolver and function mapping templates are versioned. The mapping template version, such as `2018-05-29`) dictates the following:
++ The expected shape of the data source request configuration provided by the request template
++ The execution behavior of the request mapping template and the response mapping template
 
-Resolver and function mapping templates are versioned. The mapping template version, such
-as `2018-05-29`) dictates the following:
+Versions are represented using the YYYY-MM-DD format, a later date corresponds to a more recent version. This page lists the differences between the mapping template versions currently supported in AWS AppSync.
 
-- The expected shape of the data source request configuration provided by the request
-  template
-- The execution behavior of the request mapping template and the response mapping
-  template
-  Versions are represented using the YYYY-MM-DD format, a later date corresponds to a more
-  recent version. This page lists the differences between the mapping template versions
-  currently supported in AWS AppSync.
-
-###### Topics
-
-- [Datasource Operation Availability Per Version Matrix](#aws-appsync-resolver-mapping-template-operation-availability-per-version "#aws-appsync-resolver-mapping-template-operation-availability-per-version")
-- [Changing the Version on a Unit Resolver Mapping Template](#changing-the-version-on-a-unit-resolver-mapping-template "#changing-the-version-on-a-unit-resolver-mapping-template")
-- [Changing the Version on a Function](#changing-the-version-on-a-function "#changing-the-version-on-a-function")
-- [2018-05-29](#aws-appsync-resolver-mapping-template-version-2018-05-29 "#aws-appsync-resolver-mapping-template-version-2018-05-29")
-- [2017-02-28](#aws-appsync-resolver-mapping-template-version-2017-02-28 "#aws-appsync-resolver-mapping-template-version-2017-02-28")
+**Topics**
++ [Datasource Operation Availability Per Version Matrix](#aws-appsync-resolver-mapping-template-operation-availability-per-version)
++ [Changing the Version on a Unit Resolver Mapping Template](#changing-the-version-on-a-unit-resolver-mapping-template)
++ [Changing the Version on a Function](#changing-the-version-on-a-function)
++ [2018-05-29](#aws-appsync-resolver-mapping-template-version-2018-05-29)
++ [2017-02-28](#aws-appsync-resolver-mapping-template-version-2017-02-28)
 
 ## Datasource Operation Availability Per Version Matrix
+<a name="aws-appsync-resolver-mapping-template-operation-availability-per-version"></a>
 
-| Operation/Version Supported | 2017-02-28 | 2018-05-29 |
-| --------------------------- | ---------- | ---------- |
-| AWS Lambda Invoke           | Yes        | Yes        |
-| AWS Lambda BatchInvoke      | Yes        | Yes        |
-| None Datasource             | Yes        | Yes        |
-| Amazon OpenSearch GET       | Yes        | Yes        |
-| Amazon OpenSearch POST      | Yes        | Yes        |
-| Amazon OpenSearch PUT       | Yes        | Yes        |
-| Amazon OpenSearch DELETE    | Yes        | Yes        |
-| Amazon OpenSearch GET       | Yes        | Yes        |
-| DynamoDB GetItem            | Yes        | Yes        |
-| DynamoDB Scan               | Yes        | Yes        |
-| DynamoDB Query              | Yes        | Yes        |
-| DynamoDB DeleteItem         | Yes        | Yes        |
-| DynamoDB PutItem            | Yes        | Yes        |
-| DynamoDB BatchGetItem       | No         | Yes        |
-| DynamoDB BatchPutItem       | No         | Yes        |
-| DynamoDB BatchDeleteItem    | No         | Yes        |
-| HTTP                        | No         | Yes        |
-| Amazon RDS                  | No         | Yes        |
 
-**Note**: Only **2018-05-29**
-version is currently supported in functions.
+| Operation/Version Supported | 2017-02-28 | 2018-05-29 | 
+| --- | --- | --- | 
+| AWS Lambda Invoke | Yes | Yes | 
+| AWS Lambda BatchInvoke | Yes | Yes | 
+| None Datasource | Yes | Yes | 
+| Amazon OpenSearch GET | Yes | Yes | 
+| Amazon OpenSearch POST | Yes | Yes | 
+| Amazon OpenSearch PUT | Yes | Yes | 
+| Amazon OpenSearch DELETE | Yes | Yes | 
+| Amazon OpenSearch GET | Yes | Yes | 
+| DynamoDB GetItem | Yes | Yes | 
+| DynamoDB Scan | Yes | Yes | 
+| DynamoDB Query | Yes | Yes | 
+| DynamoDB DeleteItem | Yes | Yes | 
+| DynamoDB PutItem | Yes | Yes | 
+| DynamoDB BatchGetItem | No | Yes | 
+| DynamoDB BatchPutItem | No | Yes | 
+| DynamoDB BatchDeleteItem | No | Yes | 
+| HTTP | No | Yes | 
+| Amazon RDS | No | Yes | 
+
+ **Note**: Only **2018-05-29** version is currently supported in functions.
 
 ## Changing the Version on a Unit Resolver Mapping Template
+<a name="changing-the-version-on-a-unit-resolver-mapping-template"></a>
 
-For Unit resolvers, the version is specified as part of the body of the request mapping
-template. To update the version, simply update the `version` field to the new
-version.
+For Unit resolvers, the version is specified as part of the body of the request mapping template. To update the version, simply update the `version` field to the new version.
 
 For example, to update the version on the AWS Lambda template:
 
@@ -69,8 +64,7 @@ For example, to update the version on the AWS Lambda template:
 }
 ```
 
-You need to update the version field from `2017-02-28` to
-`2018-05-29` as follows:
+You need to update the version field from `2017-02-28` to `2018-05-29` as follows:
 
 ```
 {
@@ -84,14 +78,11 @@ You need to update the version field from `2017-02-28` to
 ```
 
 ## Changing the Version on a Function
+<a name="changing-the-version-on-a-function"></a>
 
-For functions, the version is specified as the `functionVersion` field on the
-function object. To update the version, simply update the `functionVersion`.
-_Note:_ Currently, only `2018-05-29` is supported for
-function.
+For functions, the version is specified as the `functionVersion` field on the function object. To update the version, simply update the `functionVersion`. *Note:* Currently, only `2018-05-29` is supported for function.
 
-The following is an example of a CLI command to update an existing function
-version:
+The following is an example of a CLI command to update an existing function version:
 
 ```
 aws appsync update-function \
@@ -103,30 +94,19 @@ aws appsync update-function \
 --response-mapping-template "\$util.toJson(\$ctx.result)"
 ```
 
-**Note:** It is recommended to omit the version field from the
-function request mapping template as it will not be honored. If you do specify a version
-inside a function request mapping template, the version value will be overridden by the
-value of the `functionVersion` field.
+ **Note:** It is recommended to omit the version field from the function request mapping template as it will not be honored. If you do specify a version inside a function request mapping template, the version value will be overridden by the value of the `functionVersion` field.
 
 ## 2018-05-29
+<a name="aws-appsync-resolver-mapping-template-version-2018-05-29"></a>
 
 ### Behavior Change
-
-- If the datasource invocation result is `null`, the response mapping
-  template is executed.
-- If the datasource invocation yields an error, it is now up to you to handle the
-  error, the response mapping template evaluated result will **always** be placed inside the GraphQL response `data`
-  block.
+<a name="behavior-change"></a>
++ If the datasource invocation result is `null`, the response mapping template is executed.
++ If the datasource invocation yields an error, it is now up to you to handle the error, the response mapping template evaluated result will **always** be placed inside the GraphQL response `data` block.
 
 ### Reasoning
-
-- A `null` invocation result has meaning, and in some application use
-  cases we might want to handle `null` results in a custom way. For
-  example, an application might check if a record exists in an Amazon DynamoDB table
-  to perform some authorization check. In this case, a `null` invocation
-  result would mean the user might not be authorized. Executing the response mapping
-  template now provides the ability to raise an unauthorized error. This behavior
-  provides greater control to the API designer.
+<a name="reasoning"></a>
++ A `null` invocation result has meaning, and in some application use cases we might want to handle `null` results in a custom way. For example, an application might check if a record exists in an Amazon DynamoDB table to perform some authorization check. In this case, a `null` invocation result would mean the user might not be authorized. Executing the response mapping template now provides the ability to raise an unauthorized error. This behavior provides greater control to the API designer.
 
 Given the following response mapping template:
 
@@ -134,10 +114,7 @@ Given the following response mapping template:
 $util.toJson($ctx.result)
 ```
 
-Previously with `2017-02-28`, if `$ctx.result` came back null,
-the response mapping template was not executed. With `2018-05-29`, we can now
-handle this scenario. For example, we can choose to raise an authorization error as
-follows:
+Previously with `2017-02-28`, if `$ctx.result` came back null, the response mapping template was not executed. With `2018-05-29`, we can now handle this scenario. For example, we can choose to raise an authorization error as follows:
 
 ```
 # throw an unauthorized error if the result is null
@@ -147,10 +124,7 @@ follows:
 $util.toJson($ctx.result)
 ```
 
-**Note:** Errors coming back from a data source are
-sometimes not fatal or even expected, that is why the response mapping template should
-be given the flexibility to handle the invocation error and decide whether to ignore it,
-re-raise it, or throw a different error.
+ **Note:** Errors coming back from a data source are sometimes not fatal or even expected, that is why the response mapping template should be given the flexibility to handle the invocation error and decide whether to ignore it, re-raise it, or throw a different error.
 
 Given the following response mapping template:
 
@@ -158,16 +132,12 @@ Given the following response mapping template:
 $util.toJson($ctx.result)
 ```
 
-Previously, with `2017-02-28`, in case of an invocation error, the
-response mapping template was evaluated and the result was placed automatically in the
-`errors` block of the GraphQL response. With `2018-05-29`, we
-can now choose what to do with the error, re-raise it, raise a different error, or
-append the error while return data.
+Previously, with `2017-02-28`, in case of an invocation error, the response mapping template was evaluated and the result was placed automatically in the `errors` block of the GraphQL response. With `2018-05-29`, we can now choose what to do with the error, re-raise it, raise a different error, or append the error while return data.
 
 ### Re-raise an Invocation Error
+<a name="re-raise-an-invocation-error"></a>
 
-In the following response template, we raise the same error that came back from the
-data source.
+In the following response template, we raise the same error that came back from the data source.
 
 ```
 #if ( $ctx.error )
@@ -176,8 +146,7 @@ data source.
 $util.toJson($ctx.result)
 ```
 
-In case of an invocation error (for example, `$ctx.error` is present) the
-response looks like the following:
+In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
 ```
 {
@@ -203,9 +172,9 @@ response looks like the following:
 ```
 
 ### Raise a Different Error
+<a name="raise-a-different-error"></a>
 
-In the following response template, we raise our own custom error after processing
-the error that came back from the data source.
+In the following response template, we raise our own custom error after processing the error that came back from the data source.
 
 ```
 #if ( $ctx.error )
@@ -219,8 +188,7 @@ the error that came back from the data source.
 $util.toJson($ctx.result)
 ```
 
-In case of an invocation error (for example, `$ctx.error` is present) the
-response looks like the following:
+In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
 ```
 {
@@ -246,10 +214,9 @@ response looks like the following:
 ```
 
 ### Append an Error to Return Data
+<a name="append-an-error-to-return-data"></a>
 
-In the following response template, we append the same error that came back from the
-data source while returning data back inside the response. This is also known as a
-partial response.
+In the following response template, we append the same error that came back from the data source while returning data back inside the response. This is also known as a partial response.
 
 ```
 #if ( $ctx.error )
@@ -261,8 +228,7 @@ partial response.
 #end
 ```
 
-In case of an invocation error (for example, `$ctx.error` is present) the
-response looks like the following:
+In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
 ```
 {
@@ -290,22 +256,20 @@ response looks like the following:
 }
 ```
 
-#### Migrating from _2017-02-28_ to _2018-05-29_
+#### Migrating from *2017-02-28* to *2018-05-29*
+<a name="migrating-from-2017-02-28-to-2018-05-29"></a>
 
-Migrating from **2017-02-28** to **2018-05-29** is straightforward. Change the version field on
-the resolver request mapping template or on the function version object. However,
-note that **2018-05-29** execution behaves differently
-from **2017-02-28**, changes are outlined [here](#aws-appsync-resolver-mapping-template-version-2018-05-29 "#aws-appsync-resolver-mapping-template-version-2018-05-29").
+Migrating from **2017-02-28** to **2018-05-29** is straightforward. Change the version field on the resolver request mapping template or on the function version object. However, note that **2018-05-29** execution behaves differently from **2017-02-28**, changes are outlined [here](#aws-appsync-resolver-mapping-template-version-2018-05-29).
 
-#### Preserving the same execution behavior from _2017-02-28_ to _2018-05-29_
+#### Preserving the same execution behavior from *2017-02-28* to *2018-05-29*
+<a name="preserving-the-same-execution-behavior-from-2017-02-28-to-2018-05-29"></a>
 
-In some cases, it is possible to retain the same execution behavior as the
-**2017-02-28** version while executing a **2018-05-29** versioned template.
+In some cases, it is possible to retain the same execution behavior as the **2017-02-28** version while executing a **2018-05-29** versioned template.
 
 ### Example: DynamoDB PutItem
+<a name="example-dynamodb-putitem"></a>
 
-Given the following **2017-02-28** DynamoDB PutItem
-request template:
+Given the following **2017-02-28** DynamoDB PutItem request template:
 
 ```
 {
@@ -330,8 +294,7 @@ And the following response template:
 $util.toJson($ctx.result)
 ```
 
-Migrating to **2018-05-29** changes these templates as
-follows:
+Migrating to **2018-05-29** changes these templates as follows:
 
 ```
 {
@@ -367,16 +330,12 @@ And changes the response template as follows:
 $util.toJson($ctx.result)
 ```
 
-Now that it is your responsibility to handle errors, we chose to raise the same error
-using `$util.error()` that was returned from DynamoDB. You can adapt this
-snippet to convert your mapping template to **2018-05-29**,
-note that if your response template is different you will have to take account of the
-execution behavior changes.
+Now that it is your responsibility to handle errors, we chose to raise the same error using `$util.error()` that was returned from DynamoDB. You can adapt this snippet to convert your mapping template to **2018-05-29**, note that if your response template is different you will have to take account of the execution behavior changes.
 
 ### Example: DynamoDB GetItem
+<a name="example-dynamodb-getitem"></a>
 
-Given the following **2017-02-28** DynamoDB GetItem
-request template:
+Given the following **2017-02-28** DynamoDB GetItem request template:
 
 ```
 {
@@ -399,8 +358,7 @@ $util.qr($ctx.result.put("id", $ctx.result.get("postId")))
 $util.toJson($ctx.result)
 ```
 
-Migrating to **2018-05-29** changes these templates as
-follows:
+Migrating to **2018-05-29** changes these templates as follows:
 
 ```
 {
@@ -433,18 +391,12 @@ $util.qr($ctx.result.put("id", $ctx.result.get("postId")))
 $util.toJson($ctx.result)
 ```
 
-In the **2017-02-28** version, if the datasource
-invocation was `null`, meaning there is no item in the DynamoDB table that
-matches our key, the response mapping template would not execute. It might be fine for
-most of the cases, but if you expected the `$ctx.result` to not be
-`null`, you now have to handle that scenario.
+In the **2017-02-28** version, if the datasource invocation was `null`, meaning there is no item in the DynamoDB table that matches our key, the response mapping template would not execute. It might be fine for most of the cases, but if you expected the `$ctx.result` to not be `null`, you now have to handle that scenario.
 
 ## 2017-02-28
+<a name="aws-appsync-resolver-mapping-template-version-2017-02-28"></a>
 
 ### Characteristics
-
-- If the datasource invocation result is `null`, the response mapping
-  template is **not** executed.
-- If the datasource invocation yields an error, the response mapping template is
-  executed and the evaluated result is placed inside the GraphQL response
-  `errors.data` block.
+<a name="characteristics"></a>
++ If the datasource invocation result is `null`, the response mapping template is **not** executed.
++ If the datasource invocation yields an error, the response mapping template is executed and the evaluated result is placed inside the GraphQL response `errors.data` block.

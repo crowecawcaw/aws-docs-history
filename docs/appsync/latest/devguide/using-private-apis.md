@@ -1,110 +1,89 @@
+
+
 # Using AWS AppSync Private APIs
+<a name="using-private-apis"></a>
 
-If you use Amazon Virtual Private Cloud (Amazon VPC), you can create AWS AppSync Private APIs, which are APIs that can only be accessed from
-a VPC. With a Private API, you can restrict API access to your internal applications and connect to your GraphQL and
-Realtime endpoints without exposing data publicly.
+If you use Amazon Virtual Private Cloud (Amazon VPC), you can create AWS AppSync Private APIs, which are APIs that can only be accessed from a VPC. With a Private API, you can restrict API access to your internal applications and connect to your GraphQL and Realtime endpoints without exposing data publicly.
 
-To establish a private connection between your VPC and the AWS AppSync service, you must create
-interface VPC endpoints. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink "http://aws.amazon.com/privatelink"), which enables you to privately
-access AWS AppSync APIs without an internet gateway, NAT device, VPN connection, or Direct Connect
-connection. Instances in your VPC don't need public IP addresses to communicate with AWS AppSync
-APIs. Traffic between your VPC and AWS AppSync doesn't leave the AWS network.
+To establish a private connection between your VPC and the AWS AppSync service, you must create interface VPC endpoints. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink), which enables you to privately access AWS AppSync APIs without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with AWS AppSync APIs. Traffic between your VPC and AWS AppSync doesn't leave the AWS network.
 
 AWS AppSync supports AWS PrivateLink for both data plane and control plane operations:
++ **Data plane endpoint** (`com.amazonaws.{region}.appsync-api`): Provides private access to your GraphQL and Real-time APIs for querying, mutations, and subscriptions.
++ **Control plane endpoint** (`com.amazonaws.{region}.appsync`): Provides private access to AWS AppSync management operations such as creating APIs, updating schemas, and configuring data sources.
 
-- **Data plane endpoint** (`com.amazonaws.{region}.appsync-api`):
-  Provides private access to your GraphQL and Real-time APIs for querying, mutations, and subscriptions.
-- **Control plane endpoint** (`com.amazonaws.{region}.appsync`):
-  Provides private access to AWS AppSync management operations such as creating APIs, updating schemas,
-  and configuring data sources.
+![Architecture diagram showing EC2 instances connecting to AppSync via PrivateLink through VPC endpoints.](http://docs.aws.amazon.com/appsync/latest/devguide/images/private-api-architecture.png)
 
-![Architecture diagram showing EC2 instances connecting to AppSync via PrivateLink through VPC endpoints.](images/private-api-architecture.png)
+
 There are some additional factors to consider before enabling Private API features:
-
-- Setting up VPC interface endpoints for AWS AppSync with Private DNS features enabled will prevent resources in
-  the VPC from being able to invoke other AWS AppSync public APIs using the AWS AppSync generated API URL. This is due to
-  the request to the public API being routed via the interface endpoint, which is not allowed for public APIs. To
-  invoke public APIs in this scenario, it is recommended to configure custom domain names on public APIs, which
-  can then be used by resources in the VPC to invoke the public API.
-- Your AWS AppSync Private APIs will only be available from your VPC. The AWS AppSync console Query
-  editor will only be able to reach your API if your browser's network configuration can route
-  traffic to your VPC (e.g., connection via VPN or over Direct Connect).
-- With a VPC interface endpoint for AWS AppSync, you can access any Private API in the same AWS account and
-  Region. To further restrict access to Private APIs, you can consider the following options:
-
-  - Ensuring only the required administrators can create VPC endpoint interfaces for AWS AppSync.
-  - Using VPC endpoint custom policies to restrict which APIs can be invoked from resources in the VPC.
-  - For resources in the VPC, we recommend that you use IAM authorization to invoke AWS AppSync APIs by
-    ensuring that the resources are given scoped-down roles to the APIs.
-
-- When creating or using policies that restrict IAM principals, you must set the
-  `authorizationType` of the method to `AWS_IAM` or `NONE`.
++ Setting up VPC interface endpoints for AWS AppSync with Private DNS features enabled will prevent resources in the VPC from being able to invoke other AWS AppSync public APIs using the AWS AppSync generated API URL. This is due to the request to the public API being routed via the interface endpoint, which is not allowed for public APIs. To invoke public APIs in this scenario, it is recommended to configure custom domain names on public APIs, which can then be used by resources in the VPC to invoke the public API. 
++ Your AWS AppSync Private APIs will only be available from your VPC. The AWS AppSync console Query editor will only be able to reach your API if your browser's network configuration can route traffic to your VPC (e.g., connection via VPN or over Direct Connect).
++ With a VPC interface endpoint for AWS AppSync, you can access any Private API in the same AWS account and Region. To further restrict access to Private APIs, you can consider the following options:
+  + Ensuring only the required administrators can create VPC endpoint interfaces for AWS AppSync.
+  + Using VPC endpoint custom policies to restrict which APIs can be invoked from resources in the VPC. 
+  + For resources in the VPC, we recommend that you use IAM authorization to invoke AWS AppSync APIs by ensuring that the resources are given scoped-down roles to the APIs.
++ When creating or using policies that restrict IAM principals, you must set the `authorizationType` of the method to `AWS_IAM` or `NONE`.
 
 ## Creating AWS AppSync Private APIs
+<a name="creating-private-apis"></a>
 
 The following steps below show you how to create Private APIs in the AWS AppSync service.
 
-###### Warning
+**Warning**  
+You can enable Private API features only during the creation of the API. This setting cannot be modified on an AWS AppSync API or an AWS AppSync Private API after it has been created.
 
-You can enable Private API features only during the creation of the API. This setting cannot be modified on
-an AWS AppSync API or an AWS AppSync Private API after it has been created.
+1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/).
 
-1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+   1. In the **Dashboard**, choose **Create API**.
 
-   1. In the **Dashboard**, choose **Create
-      API**.
+1. Choose **Design an API from scratch**, then choose **Next**.
 
-2. Choose **Design an API from scratch**, then choose **Next**.
-3. In the **Private API** section, choose **Use Private API features**.
-4. Configure the rest of the options, review your API's data, then choose **Create**.
+1. In the **Private API** section, choose **Use Private API features**.
 
-Before you can use your AWS AppSync Private API, you must configure interface endpoints for
-AWS AppSync in your VPC. Note that both the Private API and VPC must be in the same AWS account
-and Region.
+1. Configure the rest of the options, review your API's data, then choose **Create**.
+
+Before you can use your AWS AppSync Private API, you must configure interface endpoints for AWS AppSync in your VPC. Note that both the Private API and VPC must be in the same AWS account and Region.
 
 ## Creating interface endpoints for AWS AppSync
+<a name="creating-interface-endpoint"></a>
 
-You can create interface endpoints for AWS AppSync using either the Amazon VPC console or the
-AWS Command Line Interface (AWS CLI). Depending on your use case, you may need to create one or both endpoint types:
+You can create interface endpoints for AWS AppSync using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). Depending on your use case, you may need to create one or both endpoint types:
++ **Data plane endpoint**: Required for accessing Private APIs from your VPC
++ **Control plane endpoint**: Required for managing AWS AppSync resources from your VPC using the AWS CLI or SDKs
 
-- **Data plane endpoint**: Required for accessing Private APIs from your VPC
-- **Control plane endpoint**: Required for managing AWS AppSync resources from your VPC using the AWS CLI or SDKs
+For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*.
 
-For more information, see [Creating an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint") in the _Amazon VPC User
-Guide_.
+**Note**  
+Make sure you select the right VPC endpoint service; there are two for AppSync: `com.amazonaws.{region}.appsync-api` is the one required for private APIs while `com.amazonaws.{region}.appsync` is used for API management.
 
-###### Note
+------
+#### [ Console ]
 
-Make sure you select the right VPC endpoint service; there are two for AppSync:
-`com.amazonaws.{region}.appsync-api` is the one required for private APIs while
-`com.amazonaws.{region}.appsync` is used for API management.
+1. Sign in to the AWS Management Console and open the [Endpoints](https://console.aws.amazon.com/vpc/home?#Endpoints) page of the Amazon VPC console.
 
-Console
-
-1. Sign in to the AWS Management Console and open the [Endpoints](https://console.aws.amazon.com/vpc/home?#Endpoints "https://console.aws.amazon.com/vpc/home?#Endpoints") page of the Amazon VPC
-   console.
-2. Choose **Create endpoint**.
+1. Choose **Create endpoint**.
 
    1. In the **Service category** field, verify that **AWS services** is selected.
-   2. In the **Services** table, choose one of the following services:
 
-      - For data plane access: `com.amazonaws.{region}.appsync-api`
-      - For control plane access: `com.amazonaws.{region}.appsync`
-        Verify that the **Type** column value is `Interface`.
+   1. In the **Services** table, choose one of the following services:
+      + For data plane access: `com.amazonaws.{region}.appsync-api`
+      + For control plane access: `com.amazonaws.{region}.appsync`
 
-   3. In the **VPC** field, choose a VPC and its subnets.
-   4. To enable private DNS features for the interface endpoint, tick the **Enable
-      DNS Name** check box.
-   5. In the **Security group** field, choose one or more security
-      groups.
+      Verify that the **Type** column value is `Interface`.
 
-3. Choose **Create endpoint**.
-4. Repeat the process to create the second endpoint type if needed.
+   1. In the **VPC** field, choose a VPC and its subnets.
 
-CLI
-Use the `create-vpc-endpoint` command and specify the VPC ID, VPC endpoint type (interface),
-service name, subnets that will use the endpoint, and security groups to associate with the endpoint's
-network interfaces.
+   1. To enable private DNS features for the interface endpoint, tick the **Enable DNS Name** check box.
+
+   1. In the **Security group** field, choose one or more security groups.
+
+1. Choose **Create endpoint**.
+
+1. Repeat the process to create the second endpoint type if needed.
+
+------
+#### [ CLI ]
+
+Use the `[create-vpc-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-vpc-endpoint.html)` command and specify the VPC ID, VPC endpoint type (interface), service name, subnets that will use the endpoint, and security groups to associate with the endpoint's network interfaces.
 
 **Create data plane endpoint:**
 
@@ -124,12 +103,9 @@ $ aws ec2 create-vpc-endpoint —vpc-id vpc-ec43eb89 \
   —subnet-id subnet-abababab —security-group-id sg-1a2b3c4d
 ```
 
-To use the private DNS option, you must set the `enableDnsHostnames` and
-`enableDnsSupportattributes` values of your VPC. For more information, see [Viewing
-and updating DNS support for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating") in the _Amazon VPC User
-Guide_. If you enable private DNS features for the interface endpoint, you can
-make requests to your AWS AppSync API GraphQL and Real-time endpoint using its default public DNS
-endpoints using the format below:
+------
+
+To use the private DNS option, you must set the `enableDnsHostnames` and `enableDnsSupportattributes` values of your VPC. For more information, see [Viewing and updating DNS support for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-updating) in the *Amazon VPC User Guide*. If you enable private DNS features for the interface endpoint, you can make requests to your AWS AppSync API GraphQL and Real-time endpoint using its default public DNS endpoints using the format below:
 
 ```
 https://{api_url_identifier}.appsync-api.{region}.amazonaws.com/graphql
@@ -141,25 +117,22 @@ For control plane operations, you can use the standard AWS AppSync service endpo
 https://appsync.{region}.amazonaws.com
 ```
 
-For more information on service endpoints, see [Service endpoints and
-quotas](../../../general/latest/gr/aws-service-information.md "../../../general/latest/gr/aws-service-information.md") in the _AWS General Reference_.
+For more information on service endpoints, see [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html) in the *AWS General Reference*.
 
-For more information on service interactions with interface endpoints, see [Accessing a service through an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#access-service-though-endpoint") in the _Amazon VPC User Guide_.
+For more information on service interactions with interface endpoints, see [Accessing a service through an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#access-service-though-endpoint) in the *Amazon VPC User Guide*.
 
-For information about creating and configuring an endpoint using AWS CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource in the _AWS CloudFormation User
-Guide_.
+For information about creating and configuring an endpoint using AWS CloudFormation, see the [AWS::EC2::VPCEndpoint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html) resource in the *AWS CloudFormation User Guide*.
 
 ## Advanced examples
+<a name="advanced-example"></a>
 
-If you enable private DNS features for the interface endpoint, you can make requests to your AWS AppSync API
-GraphQL and Real-time endpoint using its default public DNS endpoints using the format below:
+If you enable private DNS features for the interface endpoint, you can make requests to your AWS AppSync API GraphQL and Real-time endpoint using its default public DNS endpoints using the format below:
 
 ```
 https://{api_url_identifier}.appsync-api.{region}.amazonaws.com/graphql
 ```
 
-Using the interface VPC endpoint public DNS hostnames, the base URL to invoke the API will be in the following
-format:
+Using the interface VPC endpoint public DNS hostnames, the base URL to invoke the API will be in the following format:
 
 ```
 https://{vpc_endpoint_id}-{endpoint_dns_identifier}.appsync-api.{region}.vpce.amazonaws.com/graphql
@@ -171,10 +144,7 @@ You can also use the AZ-specific DNS hostname if you have deployed an endpoint i
 https://{vpc_endpoint_id}-{endpoint_dns_identifier}-{az_id}.appsync-api.{region}.vpce.amazonaws.com/graphql.
 ```
 
-Using the VPC endpoint public DNS name will require the AWS AppSync API endpoint hostname to be passed as
-`Host` or as a `x-appsync-domain` header to the request. These examples use a
-`TodoAPI` that was created in the [Launch a sample
-schema](quickstart-launch-a-sample-schema.md "quickstart-launch-a-sample-schema.md") guide:
+Using the VPC endpoint public DNS name will require the AWS AppSync API endpoint hostname to be passed as `Host` or as a ` x-appsync-domain` header to the request. These examples use a `TodoAPI` that was created in the [Launch a sample schema](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-launch-a-sample-schema.html) guide:
 
 ```
 curl https://{vpc_endpoint_id}-{endpoint_dns_identifier}.appsync-api.{region}.vpce.amazonaws.com/graphql \
@@ -184,12 +154,7 @@ curl https://{vpc_endpoint_id}-{endpoint_dns_identifier}.appsync-api.{region}.vp
 -d '{"query":"mutation add($createtodoinput: CreateTodoInput!) {\n createTodo(input: $createtodoinput) {\n id\n name\n where\n when\n description\n }\n}","variables":{"createtodoinput":{"name":"My first GraphQL task","when":"Friday Night","where":"Day 1","description":"Learn more about GraphQL"}}}'
 ```
 
-In the following examples, we will use the _Todo_ app that is generated in
-the [Launch
-a sample schema](quickstart-launch-a-sample-schema.md "quickstart-launch-a-sample-schema.md") guide. To test out the sample Todo API, we will be using the Private DNS to invoke the
-API. You can use any command line tool of your choice; this example uses [curl](https://curl.se/ "https://curl.se/") to send queries and mutations and [wscat](https://www.npmjs.com/package/wscat "https://www.npmjs.com/package/wscat")
-to set up subscriptions. To emulate our example, replace the values in brackets `{ }` in the commands
-below with the corresponding values from your AWS account.
+In the following examples, we will use the *Todo* app that is generated in the [Launch a sample schema](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart-launch-a-sample-schema.html) guide. To test out the sample Todo API, we will be using the Private DNS to invoke the API. You can use any command line tool of your choice; this example uses [curl](https://curl.se/) to send queries and mutations and [wscat](https://www.npmjs.com/package/wscat) to set up subscriptions. To emulate our example, replace the values in brackets `{ }` in the commands below with the corresponding values from your AWS account.
 
 **Testing Mutation Operation – `createTodo` Request**
 
@@ -245,13 +210,9 @@ curl https://{api_url_identifier}.appsync-api.{region}.amazonaws.com/graphql \
 }
 ```
 
-**Testing Subscription Operation – Subscribing to `createTodo`
-mutation**
+**Testing Subscription Operation – Subscribing to `createTodo` mutation**
 
-To set up GraphQL subscriptions in AWS AppSync, see [Building a real-time
-WebSocket client.](real-time-websocket-client.md "real-time-websocket-client.md") From an Amazon EC2 instance in a VPC, you can test your AWS AppSync Private API subscription
-endpoint using [wscat](https://github.com/websockets/wscat "https://github.com/websockets/wscat"). The example below uses an `API
- KEY` for authorization.
+To set up GraphQL subscriptions in AWS AppSync, see [Building a real-time WebSocket client.](https://docs.aws.amazon.com/appsync/latest/devguide/real-time-websocket-client.html) From an Amazon EC2 instance in a VPC, you can test your AWS AppSync Private API subscription endpoint using [wscat](https://github.com/websockets/wscat). The example below uses an `API KEY` for authorization.
 
 ```
 $ header=`echo '{"host":"{api_url_identifier}.appsync-api.{region}.amazonaws.com","x-api-key":"da2-{xxxxxxxxxxxxxxxxxxxxxxxxxx}"}' | base64 | tr -d '\n'`
@@ -293,6 +254,7 @@ Afterwards, a subscription is trigged, and the message notification appears as s
 ```
 
 ## Control plane examples
+<a name="control-plane-examples"></a>
 
 With the control plane VPC endpoint configured, you can manage AWS AppSync resources from within your VPC using the AWS CLI or SDKs. Here are examples of common control plane operations:
 
@@ -334,15 +296,11 @@ aws appsync create-graphql-api \
 ```
 
 ## Using IAM policies to limit public API creation
+<a name="blocking-public-apis"></a>
 
-AWS AppSync supports IAM [`Condition` statements](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") for use with Private APIs. The `visibility` field can be
-included with IAM policy statements for the `appsync:CreateGraphqlApi` operation to control which
-IAM roles and users can create private and public APIs. This gives an IAM administrator the ability to define
-an IAM policy that will only allow a user to create a Private GraphQL API. A user attempting to create a public
-API will receive an unauthorized message.
+AWS AppSync supports IAM [`Condition` statements](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) for use with Private APIs. The `visibility` field can be included with IAM policy statements for the `appsync:CreateGraphqlApi` operation to control which IAM roles and users can create private and public APIs. This gives an IAM administrator the ability to define an IAM policy that will only allow a user to create a Private GraphQL API. A user attempting to create a public API will receive an unauthorized message. 
 
-For example, an IAM administrator could create the following IAM policy statement to allow for the
-creation of Private APIs:
+For example, an IAM administrator could create the following IAM policy statement to allow for the creation of Private APIs:
 
 ```
 {
@@ -358,8 +316,7 @@ creation of Private APIs:
 }
 ```
 
-An IAM administrator could also add the following [service control policy](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") to block all users in an AWS organization from creating
-AWS AppSync APIs other than Private APIs:
+An IAM administrator could also add the following [service control policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) to block all users in an AWS organization from creating AWS AppSync APIs other than Private APIs:
 
 ```
 {
@@ -376,15 +333,11 @@ AWS AppSync APIs other than Private APIs:
 ```
 
 ## VPC PrivateLink support
+<a name="privatelink-support"></a>
 
-VPC Privatelink support is available in AWS AppSync. PrivateLink allows you to use and interact
-with an AWS Service without any traffic leaving the AWS network.
+VPC Privatelink support is available in AWS AppSync. PrivateLink allows you to use and interact with an AWS Service without any traffic leaving the AWS network. 
 
 AWS AppSync supports AWS PrivateLink for both data plane and control plane operations.
-
-- **VPCE endpoint**
-  (`appsync.<region>.vpce.amazonaws.com`): Provides VPC access to data plane
-  and control plane operations as follows:
-
-  - **appsync** for control plane operations
-  - **appsync-api** for data plane operations
++ **VPCE endpoint** (`appsync.<region>.vpce.amazonaws.com`): Provides VPC access to data plane and control plane operations as follows:
+  + **appsync** for control plane operations
+  + **appsync-api** for data plane operations

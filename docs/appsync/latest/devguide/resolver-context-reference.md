@@ -1,18 +1,17 @@
+
+
 # AWS AppSync resolver mapping template context reference
+<a name="resolver-context-reference"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider
-using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
-
-AWS AppSync defines a set of variables and functions for working with resolver mapping
-templates. This makes logical operations on data easier with GraphQL. This document describes
-those functions and provides examples for working with templates.
+AWS AppSync defines a set of variables and functions for working with resolver mapping templates. This makes logical operations on data easier with GraphQL. This document describes those functions and provides examples for working with templates.
 
 ## Accessing the `$context`
+<a name="accessing-the-context"></a>
 
-The `$context` variable is a map that holds all of the contextual information
-for your resolver invocation. It has the following structure:
+The `$context` variable is a map that holds all of the contextual information for your resolver invocation. It has the following structure:
 
 ```
 {
@@ -25,49 +24,29 @@ for your resolver invocation. It has the following structure:
 }
 ```
 
-###### Note
-
-If you're trying to access a dictionary/map entry (such as an entry in
-`context`) by its key to retrieve the value, the Velocity Template
-Language (VTL) lets you directly use the notation
-`<dictionary-element>.<key-name>`. However, this might not
-work for all cases, such as when the key names have special characters (for example, an
-underscore "\_"). We recommend that you always use
-`<dictionary-element>.get("<key-name>")` notation.
+**Note**  
+If you're trying to access a dictionary/map entry (such as an entry in `context`) by its key to retrieve the value, the Velocity Template Language (VTL) lets you directly use the notation `<dictionary-element>.<key-name>`. However, this might not work for all cases, such as when the key names have special characters (for example, an underscore "\_"). We recommend that you always use `<dictionary-element>.get("<key-name>")` notation.
 
 Each field in the `$context` map is defined as follows:
 
 ### `$context` fields
+<a name="accessing-the-context-list"></a>
 
-**`arguments`**
-
+** `arguments` **  
 A map that contains all GraphQL arguments for this field.
 
-**`identity`**
+** `identity` **  
+An object that contains information about the caller. For more information about the structure of this field, see [Identity](#aws-appsync-resolver-context-reference-identity).
 
-An object that contains information about the caller. For more
-information about the structure of this field, see [Identity](#aws-appsync-resolver-context-reference-identity "#aws-appsync-resolver-context-reference-identity").
-
-**`source`**
-
+** `source` **  
 A map that contains the resolution of the parent field.
 
-**`stash`**
+** `stash` **  
+The stash is a map that is made available inside each resolver and function mapping template. The same stash instance lives through a single resolver execution. This means that you can use the stash to pass arbitrary data across request and response mapping templates, and across functions in a pipeline resolver. The stash exposes the same methods as the [Java Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) data structure.
 
-The stash is a map that is made available inside each resolver and
-function mapping template. The same stash instance lives through a single
-resolver execution. This means that you can use the stash to pass arbitrary
-data across request and response mapping templates, and across functions in
-a pipeline resolver. The stash exposes the same methods as the [Java
-Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html "https://docs.oracle.com/javase/8/docs/api/java/util/Map.html") data structure.
-
-**`result`**
-
-A container for the results of this resolver. This field is available
-only to response mapping templates.
-
-For example, if you're resolving the `author` field of the
-following query:
+** `result` **  
+A container for the results of this resolver. This field is available only to response mapping templates.  
+For example, if you're resolving the `author` field of the following query:  
 
 ```
 query {
@@ -82,9 +61,7 @@ query {
     }
 }
 ```
-
-Then the full `$context` variable that is available when
-processing a response mapping template might be:
+Then the full `$context` variable that is available when processing a response mapping template might be:  
 
 ```
 {
@@ -110,50 +87,30 @@ processing a response mapping template might be:
 }
 ```
 
-**`prev.result`**
+** `prev.result` **  
+The result of whatever previous operation was executed in a pipeline resolver.  
+If the previous operation was the pipeline resolver's Before mapping template, then `$ctx.prev.result` represents the output of the evaluation of the template and is made available to the first function in the pipeline.  
+If the previous operation was the first function, then `$ctx.prev.result` represents the output of the first function and is made available to the second function in the pipeline.  
+If the previous operation was the last function, then `$ctx.prev.result` represents the output of the last function and is made available to the pipeline resolver's After mapping template.
 
-The result of whatever previous operation was executed in a pipeline
-resolver.
-
-If the previous operation was the pipeline resolver's Before mapping
-template, then `$ctx.prev.result` represents the output of the
-evaluation of the template and is made available to the first function in
-the pipeline.
-
-If the previous operation was the first function, then
-`$ctx.prev.result` represents the output of the first function
-and is made available to the second function in the pipeline.
-
-If the previous operation was the last function, then
-`$ctx.prev.result` represents the output of the last function
-and is made available to the pipeline resolver's After mapping
-template.
-
-**`info`**
-
-An object that contains information about the GraphQL request. For the
-structure of this field, see [Info](#aws-appsync-resolver-context-reference-info "#aws-appsync-resolver-context-reference-info").
+** `info` **  
+An object that contains information about the GraphQL request. For the structure of this field, see [Info](#aws-appsync-resolver-context-reference-info).
 
 ### Identity
+<a name="aws-appsync-resolver-context-reference-identity"></a>
 
-The `identity` section contains information about the caller. The shape of
-this section depends on the authorization type of your AWS AppSync API.
+The `identity` section contains information about the caller. The shape of this section depends on the authorization type of your AWS AppSync API.
 
-For more information about AWS AppSync security options, see [Authorization and authentication](security-authz.md#aws-appsync-security "security-authz.md#aws-appsync-security").
+For more information about AWS AppSync security options, see [Authorization and authentication](security-authz.md#aws-appsync-security).
 
-**`API_KEY` authorization**
-
+** `API_KEY` authorization**  
 The `identity` field isn't populated.
 
-**`AWS_LAMBDA` authorization**
+**`AWS_LAMBDA` authorization**  
+The `identity` contains the `resolverContext` key, containing the same `resolverContext` content returned by the Lambda function authorizing the request.
 
-The `identity` contains the `resolverContext` key,
-containing the same `resolverContext` content returned by the Lambda
-function authorizing the request.
-
-**`AWS_IAM` authorization**
-
-The `identity` has the following form:
+** `AWS_IAM` authorization**  
+The `identity` has the following form:  
 
 ```
 {
@@ -168,9 +125,8 @@ The `identity` has the following form:
 }
 ```
 
-**`AMAZON_COGNITO_USER_POOLS` authorization**
-
-The `identity` has the following form:
+** `AMAZON_COGNITO_USER_POOLS` authorization**  
+The `identity` has the following form:  
 
 ```
 {
@@ -185,128 +141,88 @@ The `identity` has the following form:
 
 Each field is defined as follows:
 
-**`accountId`**
-
+** `accountId` **  
 The AWS account ID of the caller.
 
-**`claims`**
-
+** `claims` **  
 The claims that the user has.
 
-**`cognitoIdentityAuthType`**
-
+** `cognitoIdentityAuthType` **  
 Either authenticated or unauthenticated based on the identity type.
 
-**`cognitoIdentityAuthProvider`**
+** `cognitoIdentityAuthProvider` **  
+A comma-separated list of external identity provider information used in obtaining the credentials used to sign the request.
 
-A comma-separated list of external identity provider information used in
-obtaining the credentials used to sign the request.
-
-**`cognitoIdentityId`**
-
+** `cognitoIdentityId` **  
 The Amazon Cognito identity ID of the caller.
 
-**`cognitoIdentityPoolId`**
-
+** `cognitoIdentityPoolId` **  
 The Amazon Cognito identity pool ID associated with the caller.
 
-**`defaultAuthStrategy`**
+** `defaultAuthStrategy` **  
+The default authorization strategy for this caller (`ALLOW` or `DENY`).
 
-The default authorization strategy for this caller (`ALLOW` or
-`DENY`).
-
-**`issuer`**
-
+** `issuer` **  
 The token issuer.
 
-**`sourceIp`**
+** `sourceIp` **  
+The source IP address of the caller that AWS AppSync receives. If the request doesn't include the `x-forwarded-for` header, the source IP value contains only a single IP address from the TCP connection. If the request includes a `x-forwarded-for` header, the source IP is a list of IP addresses from the `x-forwarded-for` header, in addition to the IP address from the TCP connection.
 
-The source IP address of the caller that AWS AppSync receives. If the request
-doesn't include the `x-forwarded-for` header, the source IP value
-contains only a single IP address from the TCP connection. If the request
-includes a `x-forwarded-for` header, the source IP is a list of IP
-addresses from the `x-forwarded-for` header, in addition to the IP
-address from the TCP connection.
-
-**`sub`**
-
+** `sub` **  
 The UUID of the authenticated user.
 
-**`user`**
-
+** `user` **  
 The IAM user.
 
-**`userArn`**
-
+** `userArn` **  
 The Amazon Resource Name (ARN) of the IAM user.
 
-**`username`**
-
-The user name of the authenticated user. In the case of
-`AMAZON_COGNITO_USER_POOLS` authorization, the value of _username_ is the value of attribute
-_cognito:username_. In the case of
-`AWS_IAM` authorization, the value of _username_ is the value of the AWS user
-principal. If you're using IAM authorization with credentials vended from
-Amazon Cognito identity pools, we recommend that you use
-`cognitoIdentityId`.
+** `username` **  
+The user name of the authenticated user. In the case of `AMAZON_COGNITO_USER_POOLS` authorization, the value of *username* is the value of attribute *cognito:username*. In the case of `AWS_IAM` authorization, the value of *username* is the value of the AWS user principal. If you're using IAM authorization with credentials vended from Amazon Cognito identity pools, we recommend that you use `cognitoIdentityId`.
 
 ### Access request headers
+<a name="aws-appsync-resolver-context-reference-util"></a>
 
-AWS AppSync supports passing custom headers from clients and accessing them in your
-GraphQL resolvers by using `$context.request.headers`. You can then use the
-header values for actions such as inserting data into a data source or authorization
-checks. You can use single or multiple request headers using `$curl` with an
-API key from the command line, as shown in the following examples:
+AWS AppSync supports passing custom headers from clients and accessing them in your GraphQL resolvers by using `$context.request.headers`. You can then use the header values for actions such as inserting data into a data source or authorization checks. You can use single or multiple request headers using `$curl` with an API key from the command line, as shown in the following examples:
 
-**Single header example**
+**Single header example** 
 
-Suppose you set a header of `custom` with a value of `nadia`
-like the following:
+Suppose you set a header of `custom` with a value of `nadia` like the following:
 
 ```
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
-This could then be accessed with `$context.request.headers.custom`. For
-example, it might be in the following VTL for DynamoDB:
+This could then be accessed with `$context.request.headers.custom`. For example, it might be in the following VTL for DynamoDB:
 
 ```
 "custom": $util.dynamodb.toDynamoDBJson($context.request.headers.custom)
 ```
 
-**Multiple header example**
+**Multiple header example** 
 
-You can also pass multiple headers in a single request and access these in the
-resolver mapping template. For example, if the `custom` header is set with
-two values:
+You can also pass multiple headers in a single request and access these in the resolver mapping template. For example, if the `custom` header is set with two values:
 
 ```
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:bailey" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
-You could then access these as an array, such as
-`$context.request.headers.custom[1]`.
+You could then access these as an array, such as `$context.request.headers.custom[1]`.
 
-###### Note
-
-AWS AppSync doesn't expose the cookie header in
-`$context.request.headers`.
+**Note**  
+AWS AppSync doesn't expose the cookie header in `$context.request.headers`.
 
 ### Access the request custom domain name
+<a name="aws-access-requested-custom-domain-names"></a>
 
-AWS AppSync supports configuring a custom domain that you can use to access your GraphQL
-and real-time
-endpoints
-for your APIs. When making a request with a custom domain name, you can get the domain
-name using `$context.request.domainName`.
+AWS AppSync supports configuring a custom domain that you can use to access your GraphQL and real-time endpoints for your APIs. When making a request with a custom domain name, you can get the domain name using `$context.request.domainName`.
 
-When using the default GraphQL endpoint domain name, the value is
-`null`.
+When using the default GraphQL endpoint domain name, the value is `null`.
 
 ### Info
+<a name="aws-appsync-resolver-context-reference-info"></a>
 
-The `info` section contains information about the GraphQL request. This
-section has the following form:
+The `info` section contains information about the GraphQL request. This section has the following form:
 
 ```
 {
@@ -320,40 +236,25 @@ section has the following form:
 
 Each field is defined as follows:
 
-**`fieldName`**
-
+** `fieldName` **  
 The name of the field that is currently being resolved.
 
-**`parentTypeName`**
+** `parentTypeName` **  
+The name of the parent type for the field that is currently being resolved.
 
-The name of the parent type for the field that is currently being
-resolved.
+** `variables` **  
+A map which holds all variables that are passed into the GraphQL request.
 
-**`variables`**
+** `selectionSetList` **  
+A list representation of the fields in the GraphQL selection set. Fields that are aliased are referenced only by the alias name, not the field name. The following example shows this in detail.
 
-A map which holds all variables that are passed into the GraphQL
-request.
+** `selectionSetGraphQL` **  
+A string representation of the selection set, formatted as GraphQL schema definition language (SDL). Although fragments aren't merged into the selection set, inline fragments are preserved, as shown in the following example.
 
-**`selectionSetList`**
+**Note**  
+When using `$utils.toJson()` on `context.info`, the values that `selectionSetGraphQL` and `selectionSetList` return are not serialized by default.
 
-A list representation of the fields in the GraphQL selection set. Fields
-that are aliased are referenced only by the alias name, not the field name. The
-following example shows this in detail.
-
-**`selectionSetGraphQL`**
-
-A string representation of the selection set, formatted as GraphQL schema
-definition language (SDL). Although fragments aren't merged into the selection
-set, inline fragments are preserved, as shown in the following example.
-
-###### Note
-
-When using `$utils.toJson()` on `context.info`, the values
-that `selectionSetGraphQL` and `selectionSetList` return are
-not serialized by default.
-
-For example, if you are resolving the `getPost` field of the following
-query:
+For example, if you are resolving the `getPost` field of the following query:
 
 ```
 query {
@@ -385,8 +286,7 @@ fragment postFrag on Post {
 }
 ```
 
-Then the full `$context.info` variable that is available when processing a
-mapping template might be:
+Then the full `$context.info` variable that is available when processing a mapping template might be:
 
 ```
 {
@@ -415,9 +315,7 @@ mapping template might be:
 }
 ```
 
-`selectionSetList` exposes only fields that belong to the current type. If
-the current type is an interface or union, only selected fields that belong to the
-interface are exposed. For example, given the following schema:
+`selectionSetList` exposes only fields that belong to the current type. If the current type is an interface or union, only selected fields that belong to the interface are exposed. For example, given the following schema:
 
 ```
 type Query {
@@ -458,8 +356,7 @@ query {
 }
 ```
 
-When calling `$ctx.info.selectionSetList` at the `Query.node`
-field resolution, only `id` is exposed:
+When calling `$ctx.info.selectionSetList` at the `Query.node` field resolution, only `id` is exposed:
 
 ```
 "selectionSetList": [
@@ -468,23 +365,13 @@ field resolution, only `id` is exposed:
 ```
 
 ## Sanitizing inputs
+<a name="sanitizing-inputs"></a>
 
-Applications must sanitize untrusted inputs to prevent any external party from using an
-application outside of its intended use. As the `$context` contains user inputs
-in properties such as `$context.arguments`, `$context.identity`,
-`$context.result`, `$context.info.variables`, and
-`$context.request.headers`, care must be taken to sanitize their values in
-mapping templates.
+Applications must sanitize untrusted inputs to prevent any external party from using an application outside of its intended use. As the `$context` contains user inputs in properties such as `$context.arguments`, `$context.identity`, `$context.result`, `$context.info.variables`, and `$context.request.headers`, care must be taken to sanitize their values in mapping templates.
 
-Since mapping templates represent JSON, input sanitization takes the form of escaping
-JSON reserved characters from strings that represent user inputs. It is best practice to
-use the `$util.toJson()` utility to escape JSON reserved characters from
-sensitive string values when placing them into a mapping template.
+Since mapping templates represent JSON, input sanitization takes the form of escaping JSON reserved characters from strings that represent user inputs. It is best practice to use the `$util.toJson()` utility to escape JSON reserved characters from sensitive string values when placing them into a mapping template.
 
-For example, in the following Lambda request mapping template, because we accessed an
-unsafe customer input string (`$context.arguments.id`), we wrapped it with
-`$util.toJson()` to prevent unescaped JSON characters from breaking the JSON
-template.
+For example, in the following Lambda request mapping template, because we accessed an unsafe customer input string (`$context.arguments.id`), we wrapped it with `$util.toJson()` to prevent unescaped JSON characters from breaking the JSON template.
 
 ```
 {
@@ -497,10 +384,7 @@ template.
 }
 ```
 
-As opposed to the mapping template below, where we directly insert
-`$context.arguments.id` without sanitization. This does not work for strings
-containing unescaped quotation marks or other JSON reserved characters, and can leave your
-template open to failure.
+As opposed to the mapping template below, where we directly insert `$context.arguments.id` without sanitization. This does not work for strings containing unescaped quotation marks or other JSON reserved characters, and can leave your template open to failure.
 
 ```
 ## DO NOT DO THIS

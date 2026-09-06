@@ -1,74 +1,27 @@
+
+
 # AWS AppSync resolver mapping template reference for DynamoDB
+<a name="resolver-mapping-template-reference-dynamodb"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
-runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
-
-The AWS AppSync DynamoDB function allows you to use [GraphQL](https://graphql.org "https://graphql.org") to store and retrieve data in existing Amazon DynamoDB tables in your account by
-mapping an incoming GraphQL request into a DynamoDB call, and then mapping the DynamoDB response
-back to GraphQL. This section describes the request and response handlers for supported DynamoDB
-operations:
-
-- [GetItem](aws-appsync-resolver-mapping-template-reference-dynamodb-getitem.md "aws-appsync-resolver-mapping-template-reference-dynamodb-getitem.md") - The GetItem request lets you tell the DynamoDB function to make a
-  GetItem request to DynamoDB, and enables you to specify the key of the item in DynamoDB
-  and whether to use a consistent read or not.
-- [PutItem](aws-appsync-resolver-mapping-template-reference-dynamodb-putitem.md "aws-appsync-resolver-mapping-template-reference-dynamodb-putitem.md") - The PutItem request mapping document lets you tell the DynamoDB
-  function to make a PutItem request to DynamoDB, and enables you to specify the key of
-  the item in DynamoDB, the full contents of the item (composed of key and
-  attributeValues), and conditions for the operation to succeed.
-- [UpdateItem](aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem.md "aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem.md") - The UpdateItem request enables you to tell the DynamoDB
-  function to make a UpdateItem request to DynamoDB and allows you to specify the key of
-  the item in DynamoDB, an update expression describing how to update the item in
-  DynamoDB, and conditions for the operation to succeed.
-- [DeleteItem](aws-appsync-resolver-mapping-template-reference-dynamodb-deleteitem.md "aws-appsync-resolver-mapping-template-reference-dynamodb-deleteitem.md") - The DeleteItem request lets you tell the DynamoDB function to
-  make a DeleteItem request to DynamoDB, and enables you to specify the key of the item in
-  DynamoDB and conditions for the operation to succeed.
-- [Query](aws-appsync-resolver-mapping-template-reference-dynamodb-query.md "aws-appsync-resolver-mapping-template-reference-dynamodb-query.md") - The Query request object lets you tell the DynamoDB resolver to make
-  a Query request to DynamoDB, and enables you to specify the key expression, which index
-  to use, additional filters, how many items to return, whether to use consistent reads,
-  query direction (forward or backward), and pagination tokens.
-- [Scan](aws-appsync-resolver-mapping-template-reference-dynamodb-scan.md "aws-appsync-resolver-mapping-template-reference-dynamodb-scan.md") - The Scan request lets you tell the DynamoDB function to make a Scan
-  request to DynamoDB, and enables you to specify a filter to exclude results, which index
-  to use, how many items to return, whether to use consistent reads, pagination tokens,
-  and parallel scans.
-- [Sync](aws-appsync-resolver-mapping-template-reference-dynamodb-sync.md "aws-appsync-resolver-mapping-template-reference-dynamodb-sync.md") - The Sync request object lets you retrieve all the results from a
-  DynamoDB table and then receive only the data altered since your last query (the delta
-  updates). Sync requests can only be made to versioned DynamoDB data sources. You can
-  specify a filter to exclude results, how many items to return, pagination Tokens, and
-  when your last Sync operation was started.
-- [BatchGetItem](aws-appsync-resolver-mapping-template-reference-dynamodb-batch-get-item.md "aws-appsync-resolver-mapping-template-reference-dynamodb-batch-get-item.md") - The BatchGetItem request object lets you tell the DynamoDB
-  function to make a BatchGetItem request to DynamoDB to retrieve multiple items,
-  potentially across multiple tables. For this request object, you must specify the table
-  names to retrieve the items from and the keys of the items to retrieve from each
-  table.
-- [BatchDeleteItem](aws-appsync-resolver-mapping-template-reference-dynamodb-batch-delete-item.md "aws-appsync-resolver-mapping-template-reference-dynamodb-batch-delete-item.md") - The BatchDeleteItem request object lets you tell the
-  DynamoDB function to make a BatchWriteItem request to DynamoDB to delete multiple items,
-  potentially across multiple tables. For this request object, you must specify the table
-  names to delete the items from and the keys of the items to delete from each
-  table.
-- [BatchPutItem](aws-appsync-resolver-mapping-template-reference-dynamodb-batch-put-item.md "aws-appsync-resolver-mapping-template-reference-dynamodb-batch-put-item.md") - The BatchPutItem request object lets you tell the DynamoDB
-  function to make a BatchWriteItem request to DynamoDB to put multiple items, potentially
-  across multiple tables. For this request object, you must specify the table names to put
-  the items in and the full items to put in each table.
-- [TransactGetItems](aws-appsync-resolver-mapping-template-reference-dynamodb-transact-get-items.md "aws-appsync-resolver-mapping-template-reference-dynamodb-transact-get-items.md") - The TransactGetItems request object lets you to tell
-  the DynamoDB function to make a TransactGetItems request to DynamoDB to retrieve
-  multiple items, potentially across multiple tables. For this request object, you must
-  specify the table name of each request item to retrieve the item from and the key of
-  each request item to retrieve from each table.
-- [TransactWriteItems](js-aws-appsync-resolver-reference-dynamodb-transact-write-items.md "js-aws-appsync-resolver-reference-dynamodb-transact-write-items.md") - The TransactWriteItems request object lets you tell
-  the DynamoDB function to make a TransactWriteItems request to DynamoDB to write multiple
-  items, potentially to multiple tables. For this request object, you must specify the
-  destination table name of each request item, the operation of each request item to
-  perform, and the key of each request item to write.
-- [Type system (request mapping)](aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.md "aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.md") - Learn more about how DynamoDB typing is
-  integrated into AWS AppSync requests.
-- [Type system (response mapping)](aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-responses.md "aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-responses.md") - Learn more about how DynamoDB types are
-  converted automatically to GraphQL or JSON in a response payload.
-- [Filters](aws-appsync-resolver-mapping-template-reference-dynamodb-filter.md "aws-appsync-resolver-mapping-template-reference-dynamodb-filter.md") - Learn more about filters for query and scan operations.
-- [Condition expressions](aws-appsync-resolver-mapping-template-reference-dynamodb-condition-expressions.md "aws-appsync-resolver-mapping-template-reference-dynamodb-condition-expressions.md") - Learn more about condition expressions for
-  PutItem, UpdateItem, and DeleteItem operations.
-- [Transaction condition expressions](aws-appsync-resolver-mapping-template-reference-dynamodb-transaction-condition-expressions.md "aws-appsync-resolver-mapping-template-reference-dynamodb-transaction-condition-expressions.md") - Learn more about condition expressions
-  for TransactWriteItems operations.
-- [Projections](aws-appsync-resolver-mapping-template-reference-dynamodb-projections.md "aws-appsync-resolver-mapping-template-reference-dynamodb-projections.md") - Learn more about how to specify attributes in read
-  operations.
+The AWS AppSync DynamoDB function allows you to use [GraphQL](https://graphql.org) to store and retrieve data in existing Amazon DynamoDB tables in your account by mapping an incoming GraphQL request into a DynamoDB call, and then mapping the DynamoDB response back to GraphQL. This section describes the request and response handlers for supported DynamoDB operations:
++  [GetItem](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-getitem.html) - The GetItem request lets you tell the DynamoDB function to make a GetItem request to DynamoDB, and enables you to specify the key of the item in DynamoDB and whether to use a consistent read or not.
++  [ PutItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-putitem.html) - The PutItem request mapping document lets you tell the DynamoDB function to make a PutItem request to DynamoDB, and enables you to specify the key of the item in DynamoDB, the full contents of the item (composed of key and attributeValues), and conditions for the operation to succeed.
++  [ UpdateItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem.html) - The UpdateItem request enables you to tell the DynamoDB function to make a UpdateItem request to DynamoDB and allows you to specify the key of the item in DynamoDB, an update expression describing how to update the item in DynamoDB, and conditions for the operation to succeed.
++  [ DeleteItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-deleteitem.html) - The DeleteItem request lets you tell the DynamoDB function to make a DeleteItem request to DynamoDB, and enables you to specify the key of the item in DynamoDB and conditions for the operation to succeed.
++  [ Query ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-query.html) - The Query request object lets you tell the DynamoDB resolver to make a Query request to DynamoDB, and enables you to specify the key expression, which index to use, additional filters, how many items to return, whether to use consistent reads, query direction (forward or backward), and pagination tokens.
++  [ Scan ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-scan.html) - The Scan request lets you tell the DynamoDB function to make a Scan request to DynamoDB, and enables you to specify a filter to exclude results, which index to use, how many items to return, whether to use consistent reads, pagination tokens, and parallel scans.
++  [ Sync ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-sync.html) - The Sync request object lets you retrieve all the results from a DynamoDB table and then receive only the data altered since your last query (the delta updates). Sync requests can only be made to versioned DynamoDB data sources. You can specify a filter to exclude results, how many items to return, pagination Tokens, and when your last Sync operation was started.
++  [ BatchGetItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-batch-get-item.html) - The BatchGetItem request object lets you tell the DynamoDB function to make a BatchGetItem request to DynamoDB to retrieve multiple items, potentially across multiple tables. For this request object, you must specify the table names to retrieve the items from and the keys of the items to retrieve from each table.
++  [ BatchDeleteItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-batch-delete-item.html) - The BatchDeleteItem request object lets you tell the DynamoDB function to make a BatchWriteItem request to DynamoDB to delete multiple items, potentially across multiple tables. For this request object, you must specify the table names to delete the items from and the keys of the items to delete from each table.
++  [ BatchPutItem ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-batch-put-item.html) - The BatchPutItem request object lets you tell the DynamoDB function to make a BatchWriteItem request to DynamoDB to put multiple items, potentially across multiple tables. For this request object, you must specify the table names to put the items in and the full items to put in each table.
++  [ TransactGetItems ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-transact-get-items.html) - The TransactGetItems request object lets you to tell the DynamoDB function to make a TransactGetItems request to DynamoDB to retrieve multiple items, potentially across multiple tables. For this request object, you must specify the table name of each request item to retrieve the item from and the key of each request item to retrieve from each table.
++  [ TransactWriteItems ](https://docs.aws.amazon.com/appsync/latest/devguide/js-aws-appsync-resolver-reference-dynamodb-transact-write-items.html) - The TransactWriteItems request object lets you tell the DynamoDB function to make a TransactWriteItems request to DynamoDB to write multiple items, potentially to multiple tables. For this request object, you must specify the destination table name of each request item, the operation of each request item to perform, and the key of each request item to write.
++  [ Type system (request mapping) ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.html) - Learn more about how DynamoDB typing is integrated into AWS AppSync requests.
++  [ Type system (response mapping) ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-responses.html) - Learn more about how DynamoDB types are converted automatically to GraphQL or JSON in a response payload.
++  [Filters](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-filter.html) - Learn more about filters for query and scan operations.
++  [ Condition expressions ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-condition-expressions.html) - Learn more about condition expressions for PutItem, UpdateItem, and DeleteItem operations.
++  [ Transaction condition expressions ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-transaction-condition-expressions.html) - Learn more about condition expressions for TransactWriteItems operations.
++  [ Projections ](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-resolver-mapping-template-reference-dynamodb-projections.html) - Learn more about how to specify attributes in read operations.

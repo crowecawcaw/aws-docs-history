@@ -1,20 +1,17 @@
+
+
 # AWS AppSync resolver mapping template reference for Lambda
+<a name="resolver-mapping-template-reference-lambda"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
-APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
-
-You can use AWS AppSync functions and resolvers to invoke Lambda functions located in
-your account. You can shape your request payloads and the response from your Lambda functions
-before returning them to your clients. You can also use mapping templates to give hints to
-AWS AppSync about the nature of the operation to be invoked. This section describes the
-different mapping templates for the supported Lambda operations.
+You can use AWS AppSync functions and resolvers to invoke Lambda functions located in your account. You can shape your request payloads and the response from your Lambda functions before returning them to your clients. You can also use mapping templates to give hints to AWS AppSync about the nature of the operation to be invoked. This section describes the different mapping templates for the supported Lambda operations.
 
 ## Request mapping template
+<a name="request-mapping-template"></a>
 
-The Lambda request mapping template handles fields related to your Lambda
-function:
+The Lambda request mapping template handles fields related to your Lambda function:
 
 ```
 {
@@ -25,8 +22,7 @@ function:
 }
 ```
 
-This is the JSON schema representation of the Lambda request mapping template when
-resolved:
+This is the JSON schema representation of the Lambda request mapping template when resolved:
 
 ```
 {
@@ -76,9 +72,7 @@ resolved:
 }
 ```
 
-Here's an example that uses an `invoke` operation with its payload data
-being the `getPost` field from a GraphQL schema along with its arguments from
-the context:
+Here's an example that uses an `invoke` operation with its payload data being the `getPost` field from a GraphQL schema along with its arguments from the context:
 
 ```
 {
@@ -91,8 +85,7 @@ the context:
 }
 ```
 
-The entire mapping document is passed as the input to your Lambda function so that the
-previous example now looks like this:
+The entire mapping document is passed as the input to your Lambda function so that the previous example now looks like this:
 
 ```
 {
@@ -108,25 +101,20 @@ previous example now looks like this:
 ```
 
 ### Version
+<a name="version"></a>
 
-Common to all request mapping templates, the `version` defines the
-version that the template uses. The `version` is required and is a static
-value:
+Common to all request mapping templates, the `version` defines the version that the template uses. The `version` is required and is a static value:
 
 ```
 "version": "2018-05-29"
 ```
 
 ### Operation
+<a name="operation"></a>
 
-The Lambda data source lets you define two operations in the `operation`
-field: `Invoke` and `BatchInvoke`. The `Invoke`
-operation lets AWS AppSync know to call your Lambda function for every GraphQL
-field resolver. `BatchInvoke` instructs AWS AppSync to batch requests
-for the current GraphQL field. The `operation` field is required.
+The Lambda data source lets you define two operations in the `operation` field: `Invoke` and `BatchInvoke`. The `Invoke` operation lets AWS AppSync know to call your Lambda function for every GraphQL field resolver. `BatchInvoke` instructs AWS AppSync to batch requests for the current GraphQL field. The `operation` field is required.
 
-For `Invoke`, the resolved request mapping template matches the input
-payload of the Lambda function. Let's modify the example above:
+For `Invoke`, the resolved request mapping template matches the input payload of the Lambda function. Let's modify the example above:
 
 ```
 {
@@ -138,8 +126,7 @@ payload of the Lambda function. Let's modify the example above:
 }
 ```
 
-This is resolved and passed to the Lambda function, which could look something like
-this:
+This is resolved and passed to the Lambda function, which could look something like this:
 
 ```
 {
@@ -153,11 +140,7 @@ this:
 }
 ```
 
-For `BatchInvoke`, the mapping template is applied to every field
-resolver in the batch. For conciseness, AWS AppSync merges all the resolved
-mapping template `payload` values into a list under a single object
-matching the mapping template. The following example template shows the
-merge:
+For `BatchInvoke`, the mapping template is applied to every field resolver in the batch. For conciseness, AWS AppSync merges all the resolved mapping template `payload` values into a list under a single object matching the mapping template. The following example template shows the merge:
 
 ```
 {
@@ -181,9 +164,7 @@ This template is resolved into the following mapping document:
 }
 ```
 
-Each element of the `payload` list corresponds to a single batch item.
-The Lambda function is also expected to return a list-shaped response matching the
-order of the items sent in the request:
+Each element of the `payload` list corresponds to a single batch item. The Lambda function is also expected to return a list-shaped response matching the order of the items sent in the request:
 
 ```
 [
@@ -194,27 +175,16 @@ order of the items sent in the request:
 ```
 
 ### Payload
+<a name="payload"></a>
 
-The `payload` field is a container used to pass any well-formed JSON to
-the Lambda function. If the `operation` field is set to
-`BatchInvoke`, AWS AppSync wraps the existing `payload`
-values into a list. The `payload` field is optional.
+The `payload` field is a container used to pass any well-formed JSON to the Lambda function. If the `operation` field is set to `BatchInvoke`, AWS AppSync wraps the existing `payload` values into a list. The `payload` field is optional.
 
 ### Invocation type
+<a name="async-invocation-type"></a>
 
-The Lambda data source allows you to define two invocation types:
-`RequestResponse` and `Event`. The invocation types are
-synonymous with the invocation types defined in the [Lambda API](../../../lambda/latest/api/API_Invoke.md "../../../lambda/latest/api/API_Invoke.md"). The
-`RequestResponse` invocation type lets AWS AppSync call your Lambda
-function synchronously to wait for a response. The `Event` invocation
-allows you to invoke your Lambda function asynchronously. For more information on how
-Lambda handles `Event` invocation type requests, see [Asynchronous
-invocation](../../../lambda/latest/dg/invocation-async.md "../../../lambda/latest/dg/invocation-async.md"). The `invocationType` field is optional. If this
-field is not included in the request, AWS AppSync will default to the
-`RequestResponse` invocation type.
+The Lambda data source allows you to define two invocation types: `RequestResponse` and `Event`. The invocation types are synonymous with the invocation types defined in the [Lambda API](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html). The `RequestResponse` invocation type lets AWS AppSync call your Lambda function synchronously to wait for a response. The `Event` invocation allows you to invoke your Lambda function asynchronously. For more information on how Lambda handles `Event` invocation type requests, see [Asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html). The `invocationType` field is optional. If this field is not included in the request, AWS AppSync will default to the `RequestResponse` invocation type.
 
-For any `invocationType` field, the resolved request matches the input
-payload of the Lambda function. Let's modify the example above:
+For any `invocationType` field, the resolved request matches the input payload of the Lambda function. Let's modify the example above:
 
 ```
 {
@@ -227,8 +197,7 @@ payload of the Lambda function. Let's modify the example above:
 }
 ```
 
-This is resolved and passed to the Lambda function, which could look something like
-this:
+This is resolved and passed to the Lambda function, which could look something like this:
 
 ```
 {
@@ -243,63 +212,42 @@ this:
 }
 ```
 
-When the `BatchInvoke` operation is used in conjunction with the
-`Event` invocation type field, AWS AppSync merges the field
-resolver in the same way mentioned above, and the request is passed to your Lambda
-function as an asynchronous event with the `payload` being a list of
-values. We recommend that you disable resolver caching for `Event`
-invocation type resolvers because these would not be sent to Lambda if there were a
-cache hit.
+When the `BatchInvoke` operation is used in conjunction with the `Event` invocation type field, AWS AppSync merges the field resolver in the same way mentioned above, and the request is passed to your Lambda function as an asynchronous event with the `payload` being a list of values. We recommend that you disable resolver caching for `Event` invocation type resolvers because these would not be sent to Lambda if there were a cache hit.
 
 ## Response mapping template
+<a name="response-mapping-template"></a>
 
-As with other data sources, your Lambda function sends a response to AWS AppSync that
-must be converted to a GraphQL type.
+As with other data sources, your Lambda function sends a response to AWS AppSync that must be converted to a GraphQL type.
 
-The result of the Lambda function is set on the `context` object that is
-available via the Velocity Template Language (VTL) `$context.result`
-property.
+The result of the Lambda function is set on the `context` object that is available via the Velocity Template Language (VTL) `$context.result` property.
 
-If the shape of your Lambda function response exactly matches the shape of the GraphQL
-type, you can forward the response using the following response mapping template:
+If the shape of your Lambda function response exactly matches the shape of the GraphQL type, you can forward the response using the following response mapping template:
 
 ```
 $util.toJson($context.result)
 ```
 
-There are no required fields or shape restrictions that apply to the response mapping
-template. However, because GraphQL is strongly typed, the resolved mapping template must
-match the expected GraphQL type.
+There are no required fields or shape restrictions that apply to the response mapping template. However, because GraphQL is strongly typed, the resolved mapping template must match the expected GraphQL type.
 
 ## Lambda function batched response
+<a name="aws-appsync-resolver-mapping-template-reference-lambda-batched-response"></a>
 
-If the `operation` field is set to `BatchInvoke`, AWS AppSync
-expects a list of items back from the Lambda function. In order for AWS AppSync to map
-each result back to the original request item, the response list must match in size and
-order. It's valid to have `null` items in the response list;
-`$ctx.result` is set to _null_ accordingly.
+If the `operation` field is set to `BatchInvoke`, AWS AppSync expects a list of items back from the Lambda function. In order for AWS AppSync to map each result back to the original request item, the response list must match in size and order. It's valid to have `null` items in the response list; `$ctx.result` is set to *null* accordingly.
 
 ## Direct Lambda Resolvers
+<a name="direct-lambda-resolvers"></a>
 
-If you wish to circumvent the use of mapping templates entirely, AWS AppSync can
-provide a default payload to your Lambda function and a default Lambda function response
-to a GraphQL type. You can choose to provide a request template, a response template, or
-neither, and AWS AppSync handles it accordingly.
+If you wish to circumvent the use of mapping templates entirely, AWS AppSync can provide a default payload to your Lambda function and a default Lambda function response to a GraphQL type. You can choose to provide a request template, a response template, or neither, and AWS AppSync handles it accordingly.
 
 ### Direct Lambda request mapping template
+<a name="lambda-mapping-template-bypass-request"></a>
 
-When the request mapping template is not provided, AWS AppSync will send the
-`Context` object directly to your Lambda function as an
-`Invoke` operation. For more information about the structure of the
-`Context` object, see [AWS AppSync resolver mapping template context reference](resolver-context-reference.md "resolver-context-reference.md").
+When the request mapping template is not provided, AWS AppSync will send the `Context` object directly to your Lambda function as an `Invoke` operation. For more information about the structure of the `Context` object, see [AWS AppSync resolver mapping template context reference](resolver-context-reference.md).
 
 ### Direct Lambda response mapping template
+<a name="lambda-mapping-template-bypass-response"></a>
 
-When the response mapping template is not provided, AWS AppSync does one of two
-things upon receiving your Lambda function's response. If you did not provide a
-request mapping template or if you provided a request mapping template with the
-version `2018-05-29`, the response will be equivalent to the following
-response mapping template:
+When the response mapping template is not provided, AWS AppSync does one of two things upon receiving your Lambda function's response. If you did not provide a request mapping template or if you provided a request mapping template with the version `2018-05-29`, the response will be equivalent to the following response mapping template:
 
 ```
 #if($ctx.error)
@@ -308,25 +256,18 @@ response mapping template:
  $util.toJson($ctx.result)
 ```
 
-If you provided a template with the version `2017-02-28`, the response
-logic functions equivalently to the following response mapping template:
+If you provided a template with the version `2017-02-28`, the response logic functions equivalently to the following response mapping template:
 
 ```
 $util.toJson($ctx.result)
 ```
 
-Superficially, the mapping template bypass operates similarly to using certain
-mapping templates as shown in the preceding examples. However, behind the scenes,
-the evaluation of the mapping templates is circumvented entirely. Because the
-template evaluation step is bypassed, applications might experience less overhead
-and latency during the response in some scenarios compared to a Lambda function with
-a response mapping template that needs to be evaluated.
+Superficially, the mapping template bypass operates similarly to using certain mapping templates as shown in the preceding examples. However, behind the scenes, the evaluation of the mapping templates is circumvented entirely. Because the template evaluation step is bypassed, applications might experience less overhead and latency during the response in some scenarios compared to a Lambda function with a response mapping template that needs to be evaluated. 
 
 ### Custom error handling in Direct Lambda Resolver responses
+<a name="lambda-mapping-template-bypass-errors"></a>
 
-You can customize error responses from Lambda functions that Direct Lambda Resolvers
-invoke by raising a custom exception. The following example demonstrates how to
-create a custom exception using JavaScript:
+You can customize error responses from Lambda functions that Direct Lambda Resolvers invoke by raising a custom exception. The following example demonstrates how to create a custom exception using JavaScript:
 
 ```
 class CustomException extends Error {
@@ -335,20 +276,15 @@ class CustomException extends Error {
     this.name = "CustomException";
   }
 }
-
+ 
 throw new CustomException("Custom message");
 ```
 
-When exceptions are raised, the `errorType` and
-`errorMessage` are the `name` and `message`,
-respectively, of the custom error that is thrown.
+When exceptions are raised, the `errorType` and `errorMessage` are the `name` and `message`, respectively, of the custom error that is thrown.
 
-If `errorType` is `UnauthorizedException`, AWS AppSync
-returns the default message (`"You are not authorized to make this
- call."`) instead of a custom message.
+If `errorType` is `UnauthorizedException`, AWS AppSync returns the default message (`"You are not authorized to make this call."`) instead of a custom message.
 
-The following snippet is an example GraphQL response that demonstrates a custom
-`errorType`:
+The following snippet is an example GraphQL response that demonstrates a custom `errorType`:
 
 ```
 {
@@ -377,29 +313,23 @@ The following snippet is an example GraphQL response that demonstrates a custom
 ```
 
 ### Direct Lambda Resolvers: Batching enabled
+<a name="lambda-resolvers-batching"></a>
 
-You can enable batching for your Direct Lambda Resolver by configuring the
-`maxBatchSize` on your resolver. When `maxBatchSize` is
-set to a value greater than `0` for a Direct Lambda resolver,
-AWS AppSync sends requests in batches to your Lambda function in sizes up to
-`maxBatchSize`.
+You can enable batching for your Direct Lambda Resolver by configuring the `maxBatchSize` on your resolver. When `maxBatchSize` is set to a value greater than `0` for a Direct Lambda resolver, AWS AppSync sends requests in batches to your Lambda function in sizes up to `maxBatchSize`. 
 
-Setting `maxBatchSize` to `0` on a Direct Lambda resolver
-turns off batching.
+Setting `maxBatchSize` to `0` on a Direct Lambda resolver turns off batching.
 
-For more information on how batching with Lambda resolvers works, see [Advanced use case: Batching](tutorial-lambda-resolvers.md#advanced-use-case-batching "tutorial-lambda-resolvers.md#advanced-use-case-batching").
+For more information on how batching with Lambda resolvers works, see [Advanced use case: Batching](tutorial-lambda-resolvers.md#advanced-use-case-batching).
 
 #### Request mapping template
+<a name="lambda-resolvers-batching-request-template"></a>
 
-When batching is enabled and the request mapping template is not provided,
-AWS AppSync sends a list of `Context` objects as a
-`BatchInvoke` operation directly to your Lambda function.
+When batching is enabled and the request mapping template is not provided, AWS AppSync sends a list of `Context` objects as a `BatchInvoke` operation directly to your Lambda function.
 
 #### Response mapping template
+<a name="lambda-resolvers-batching-response-template"></a>
 
-When batching is enabled and the response mapping template is not provided,
-the response logic is equivalent to the following response mapping
-template:
+When batching is enabled and the response mapping template is not provided, the response logic is equivalent to the following response mapping template:
 
 ```
 #if( $context.result && $context.result.errorMessage )
@@ -410,38 +340,30 @@ template:
 #end
 ```
 
-The Lambda function must return a list of results in the same order as the list
-of `Context` objects that were sent. You can return individual
-errors by providing an `errorMessage` and `errorType` for
-a specific result. Each result in the list has the following format:
+The Lambda function must return a list of results in the same order as the list of `Context` objects that were sent. You can return individual errors by providing an `errorMessage` and `errorType` for a specific result. Each result in the list has the following format:
 
 ```
 {
    "data" : { ... }, // your data
-   "errorMessage" : { ... }, // optional, if included an error entry is added to the "errors" object in the AppSync response
+   "errorMessage" : { ... }, // optional, if included an error entry is added to the "errors" object in the AppSync response 
    "errorType" : { ... } // optional, the error type
 }
 ```
 
-###### Note
-
+**Note**  
 Other fields in the result object are currently ignored.
 
 #### Handling errors from Lambda
+<a name="lambda-resolvers-batching-error-handling"></a>
 
-You can return an error for all results by throwing an exception or an error
-in your Lambda function. If the payload request or response size for your batch
-request is too large, Lambda returns an error. In that case, you should consider
-reducing your `maxBatchSize` or reducing the size of the response
-payload.
+You can return an error for all results by throwing an exception or an error in your Lambda function. If the payload request or response size for your batch request is too large, Lambda returns an error. In that case, you should consider reducing your `maxBatchSize` or reducing the size of the response payload.
 
-For information on handling individual errors, see [Returning individual errors](tutorial-lambda-resolvers.md#returning-individual-errors "tutorial-lambda-resolvers.md#returning-individual-errors").
+For information on handling individual errors, see [Returning individual errors](tutorial-lambda-resolvers.md#returning-individual-errors).
 
 #### Sample Lambda functions
+<a name="sample-lambda-function"></a>
 
-Using the schema below, you can create a Direct Lambda Resolver for the
-`Post.relatedPosts` field resolver and enable batching by setting
-`maxBatchSize` above `0`:
+Using the schema below, you can create a Direct Lambda Resolver for the `Post.relatedPosts` field resolver and enable batching by setting `maxBatchSize` above `0`:
 
 ```
 schema {
@@ -470,8 +392,7 @@ type Post {
 }
 ```
 
-In the following query, the Lambda function will be called with batches of
-requests to resolve `relatedPosts`:
+In the following query, the Lambda function will be called with batches of requests to resolve `relatedPosts`:
 
 ```
 query getAllPosts {

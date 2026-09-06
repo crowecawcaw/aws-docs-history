@@ -1,9 +1,12 @@
-# AWS AppSync JavaScript resolver function reference for EventBridge data source
 
-The AWS AppSync resolver function request and response used with the EventBridge data source allows you to send
-custom events to the Amazon EventBridge bus.
+
+# AWS AppSync JavaScript resolver function reference for EventBridge data source
+<a name="resolver-reference-eventbridge-js"></a>
+
+The AWS AppSync resolver function request and response used with the EventBridge data source allows you to send custom events to the Amazon EventBridge bus.
 
 ## Request
+<a name="request-js"></a>
 
 The request handler allows you to send multiple custom events to an EventBridge event bus:
 
@@ -32,9 +35,9 @@ type PutEventsRequest = {
 ```
 
 ## Response
+<a name="response-js"></a>
 
-If the `PutEvents` operation is successful, the response from EventBridge is included in the
-`ctx.result`:
+If the `PutEvents` operation is successful, the response from EventBridge is included in the `ctx.result`:
 
 ```
 export function response(ctx) {
@@ -45,9 +48,7 @@ export function response(ctx) {
 }
 ```
 
-Errors that occur while performing `PutEvents` operations such as
-`InternalExceptions` or `Timeouts` will appear in `ctx.error`. For a
-list of EventBridge's common errors, see the [EventBridge common error reference](../../../eventbridge/latest/APIReference/CommonErrors.md "../../../eventbridge/latest/APIReference/CommonErrors.md").
+Errors that occur while performing `PutEvents` operations such as `InternalExceptions` or `Timeouts` will appear in `ctx.error`. For a list of EventBridge's common errors, see the [EventBridge common error reference](https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html).
 
 The `result` will have the following type definition:
 
@@ -61,21 +62,16 @@ type PutEventsResult = {
   FailedEntryCount: number
 }
 ```
++ **Entries**
 
-- **Entries**
+  The ingested event results, both successful and unsuccessful. If the ingestion was successful, the entry has the `EventID` in it. Otherwise, you can use the `ErrorCode` and `ErrorMessage` to identify the problem with the entry.
 
-The ingested event results, both successful and unsuccessful. If the ingestion was successful, the
-entry has the `EventID` in it. Otherwise, you can use the `ErrorCode` and
-`ErrorMessage` to identify the problem with the entry.
+  For each record, the index of the response element is the same as the index in the request array.
++ **FailedEntryCount**
 
-For each record, the index of the response element is the same as the index in the request
-array.
+  The number of failed entries. This value is represented as an integer.
 
-- **FailedEntryCount**
-
-The number of failed entries. This value is represented as an integer.
-
-For more information about the response of `PutEvents`, see [PutEvents](../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_ResponseElements "../../../eventbridge/latest/APIReference/API_PutEvents.md#API_PutEvents_ResponseElements").
+For more information about the response of `PutEvents`, see [PutEvents](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html#API_PutEvents_ResponseElements).
 
 **Example sample response 1**
 
@@ -83,10 +79,10 @@ The following example is a `PutEvents` operation with two successful events:
 
 ```
 {
-    "Entries" : [
+    "Entries" : [ 
         {
             "EventId": "11710aed-b79e-4468-a20b-bb3c0c3b4860"
-        },
+        }, 
         {
             "EventId": "d804d26a-88db-4b66-9eaf-9a11c708ae82"
         }
@@ -97,15 +93,14 @@ The following example is a `PutEvents` operation with two successful events:
 
 **Example sample response 2**
 
-The following example is a `PutEvents` operation with three events, two successes and one
-fail:
+The following example is a `PutEvents` operation with three events, two successes and one fail:
 
 ```
 {
-    "Entries" : [
+    "Entries" : [ 
         {
             "EventId": "11710aed-b79e-4468-a20b-bb3c0c3b4860"
-        },
+        }, 
         {
             "EventId": "d804d26a-88db-4b66-9eaf-9a11c708ae82"
         },
@@ -119,36 +114,25 @@ fail:
 ```
 
 ## `PutEvents` fields
+<a name="putevents-field"></a>
 
 `PutEvents` contains the following mapping template fields:
++ **Version**
 
-- **Version**
+  Common to all request mapping templates, the `version` field defines the version that the template uses. This field is required. The value `2018-05-29` is the only version supported for the EventBridge mapping templates.
++ **Operation**
 
-Common to all request mapping templates, the `version` field defines the version
-that the template uses. This field is required. The value `2018-05-29` is the only
-version supported for the EventBridge mapping templates.
+  The only supported operation is `PutEvents`. This operation allows you to add custom events to your event bus.
++ **Events**
 
-- **Operation**
+  An array of events that will be added to the event bus. This array should have an allocation of 1 - 10 items.
 
-The only supported operation is `PutEvents`. This operation allows you to add
-custom events to your event bus.
-
-- **Events**
-
-An array of events that will be added to the event bus. This array should have an allocation
-of 1 - 10 items.
-
-The `Event` object has the following fields:
-
-    + `"source"`: A string that defines the source of the event.
-    + `"detail"`: A JSON object that you can use to attach information about the
-     event. This field can be an empty map ( `{ }` ).
-    + `"detailType`: A string that identifies the type of event.
-    + `"resources"`: A JSON array of strings that identifies resources involved in
-     the event. This field can be an empty array.
-    + `"time"`: The event timestamp provided as a string. This should follow the
-     [RFC3339](https://www.rfc-editor.org/rfc/rfc3339.txt "https://www.rfc-editor.org/rfc/rfc3339.txt") timestamp
-     format.
+  The `Event` object has the following fields:
+  + `"source"`: A string that defines the source of the event.
+  + `"detail"`: A JSON object that you can use to attach information about the event. This field can be an empty map ( `{ }` ).
+  + `"detailType`: A string that identifies the type of event.
+  + `"resources"`: A JSON array of strings that identifies resources involved in the event. This field can be an empty array.
+  + `"time"`: The event timestamp provided as a string. This should follow the [RFC3339](https://www.rfc-editor.org/rfc/rfc3339.txt) timestamp format.
 
 The snippets below are some examples of valid `Event` objects:
 

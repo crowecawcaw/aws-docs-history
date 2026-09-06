@@ -1,18 +1,14 @@
+
+
 # DynamoDB helpers in $util.dynamodb
+<a name="dynamodb-helpers-in-util-dynamodb"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please
-consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+`$util.dynamodb` contains helper methods that make it easier to write and read data to Amazon DynamoDB, such as automatic type mapping and formatting. These methods are designed to make mapping primitive types and Lists to the proper DynamoDB input format automatically, which is a `Map` of the format `{ "TYPE" : VALUE }`.
 
-`$util.dynamodb` contains helper methods that make it easier to write and
-read data to Amazon DynamoDB, such as automatic type mapping and formatting. These methods are
-designed to make mapping primitive types and Lists to the proper DynamoDB input format
-automatically, which is a `Map` of the format `{ "TYPE" : VALUE
- }`.
-
-For example, previously, a request mapping template to create a new item in DynamoDB might
-have looked like this:
+For example, previously, a request mapping template to create a new item in DynamoDB might have looked like this:
 
 ```
 {
@@ -29,10 +25,7 @@ have looked like this:
 }
 ```
 
-If we wanted to add fields to the object we would have to update the GraphQL query in
-the schema, as well as the request mapping template. However, we can now restructure our
-request mapping template so it automatically picks up new fields added in our schema and
-adds them to DynamoDB with the correct types:
+If we wanted to add fields to the object we would have to update the GraphQL query in the schema, as well as the request mapping template. However, we can now restructure our request mapping template so it automatically picks up new fields added in our schema and adds them to DynamoDB with the correct types:
 
 ```
 {
@@ -45,18 +38,9 @@ adds them to DynamoDB with the correct types:
 }
 ```
 
-In the previous example, we are using the
-`$util.dynamodb.toDynamoDBJson(...)` helper to automatically take the
-generated id and convert it to the DynamoDB representation of a string attribute. We then take
-all the arguments and convert them to their DynamoDB representations and output them to the
-`attributeValues` field in the template.
+In the previous example, we are using the `$util.dynamodb.toDynamoDBJson(...)` helper to automatically take the generated id and convert it to the DynamoDB representation of a string attribute. We then take all the arguments and convert them to their DynamoDB representations and output them to the `attributeValues` field in the template.
 
-Each helper has two versions: a version that returns an object (for example,
-`$util.dynamodb.toString(...)`), and a version that returns the object as a
-JSON string (for example, `$util.dynamodb.toStringJson(...)`). In the previous
-example, we used the version that returns the data as a JSON string. If you want to
-manipulate the object before it's used in the template, you can choose to return an object
-instead, as shown following:
+Each helper has two versions: a version that returns an object (for example, `$util.dynamodb.toString(...)`), and a version that returns the object as a JSON string (for example, `$util.dynamodb.toStringJson(...)`). In the previous example, we used the version that returns the data as a JSON string. If you want to manipulate the object before it's used in the template, you can choose to return an object instead, as shown following:
 
 ```
 {
@@ -74,14 +58,9 @@ instead, as shown following:
 }
 ```
 
-In the previous example, we are returning the converted arguments as a map instead of a
-JSON string, and are then adding the `version` and `timestamp` fields
-before finally outputting them to the `attributeValues` field in the template
-using `$util.toJson(...)`.
+In the previous example, we are returning the converted arguments as a map instead of a JSON string, and are then adding the `version` and `timestamp` fields before finally outputting them to the `attributeValues` field in the template using `$util.toJson(...)`.
 
-The JSON version of each of the helpers is equivalent to wrapping the non-JSON version
-in `$util.toJson(...)`. For example, the following statements are exactly the
-same:
+The JSON version of each of the helpers is equivalent to wrapping the non-JSON version in `$util.toJson(...)`. For example, the following statements are exactly the same:
 
 ```
 $util.toStringJson("Hello, World!")
@@ -89,37 +68,32 @@ $util.toJson($util.toString("Hello, World!"))
 ```
 
 ## toDynamoDB
+<a name="utility-helpers-in-toDynamoDB"></a>
 
-**`$util.dynamodb.toDynamoDB(Object) : Map`**
+### toDynamoDB utils list
+<a name="utility-helpers-in-toDynamoDB-list"></a>
 
-General object conversion tool for DynamoDB that converts input objects
-to the appropriate DynamoDB representation. It's opinionated about how it
-represents some types: e.g., it will use lists ("L") rather than sets
-("SS", "NS", "BS"). This returns an object that describes the DynamoDB
-attribute value.
-
-**String example**
+** `$util.dynamodb.toDynamoDB(Object) : Map` **  
+General object conversion tool for DynamoDB that converts input objects to the appropriate DynamoDB representation. It's opinionated about how it represents some types: e.g., it will use lists ("L") rather than sets ("SS", "NS", "BS"). This returns an object that describes the DynamoDB attribute value.  
+**String example**  
 
 ```
 Input:      $util.dynamodb.toDynamoDB("foo")
 Output:     { "S" : "foo" }
 ```
-
-**Number example**
+**Number example**  
 
 ```
 Input:      $util.dynamodb.toDynamoDB(12345)
 Output:     { "N" : 12345 }
 ```
-
-**Boolean example**
+**Boolean example**  
 
 ```
 Input:      $util.dynamodb.toDynamoDB(true)
 Output:     { "BOOL" : true }
 ```
-
-**List example**
+**List example**  
 
 ```
 Input:      $util.dynamodb.toDynamoDB([ "foo", 123, { "bar" : "baz" } ])
@@ -135,8 +109,7 @@ Output:     {
                ]
            }
 ```
-
-**Map example**
+**Map example**  
 
 ```
 Input:      $util.dynamodb.toDynamoDB({ "foo": "bar", "baz" : 1234, "beep": [ "boop"] })
@@ -153,158 +126,135 @@ Output:     {
            }
 ```
 
-****`$util.dynamodb.toDynamoDBJson(Object) :
- String`****
-
-The same as `$util.dynamodb.toDynamoDB(Object) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
+****`$util.dynamodb.toDynamoDBJson(Object) : String`** **  
+The same as `$util.dynamodb.toDynamoDB(Object) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toString utils
+<a name="utility-helpers-in-toString"></a>
 
-****`$util.dynamodb.toString(String) :
- String`****
+### toString utils list
+<a name="utility-helpers-in-toString-list"></a>
 
-Converts an input string to the DynamoDB string format. This returns an
-object that describes the DynamoDB attribute value.
+****`$util.dynamodb.toString(String) : String`** **  
+Converts an input string to the DynamoDB string format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toString("foo")
 Output:     { "S" : "foo" }
 ```
 
-**`$util.dynamodb.toStringJson(String) : Map`**
+** `$util.dynamodb.toStringJson(String) : Map` **  
+The same as `$util.dynamodb.toString(String) : String`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toString(String) : String`, but
-returns the DynamoDB attribute value as a JSON encoded string.
-
-**`$util.dynamodb.toStringSet(List<String>) : Map`**
-
-Converts a list with Strings to the DynamoDB string set format. This
-returns an object that describes the DynamoDB attribute value.
+** `$util.dynamodb.toStringSet(List<String>) : Map` **  
+Converts a list with Strings to the DynamoDB string set format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toStringSet([ "foo", "bar", "baz" ])
 Output:     { "SS" : [ "foo", "bar", "baz" ] }
 ```
 
-**`$util.dynamodb.toStringSetJson(List<String>) : String`**
-
-The same as `$util.dynamodb.toStringSet(List<String>) :
- Map`, but returns the DynamoDB attribute value as a JSON encoded
-string.
+** `$util.dynamodb.toStringSetJson(List<String>) : String` **  
+The same as `$util.dynamodb.toStringSet(List<String>) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toNumber utils
+<a name="utility-helpers-in-toNumber"></a>
 
-**`$util.dynamodb.toNumber(Number) : Map`**
+### toNumber utils list
+<a name="utility-helpers-in-toNumber-list"></a>
 
-Converts a number to the DynamoDB number format. This returns an object
-that describes the DynamoDB attribute value.
+** `$util.dynamodb.toNumber(Number) : Map` **  
+Converts a number to the DynamoDB number format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toNumber(12345)
 Output:     { "N" : 12345 }
 ```
 
-**`$util.dynamodb.toNumberJson(Number) : String`**
+** `$util.dynamodb.toNumberJson(Number) : String` **  
+The same as `$util.dynamodb.toNumber(Number) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toNumber(Number) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
-
-**`$util.dynamodb.toNumberSet(List<Number>) : Map`**
-
-Converts a list of numbers to the DynamoDB number set format. This
-returns an object that describes the DynamoDB attribute value.
+** `$util.dynamodb.toNumberSet(List<Number>) : Map` **  
+Converts a list of numbers to the DynamoDB number set format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toNumberSet([ 1, 23, 4.56 ])
 Output:     { "NS" : [ 1, 23, 4.56 ] }
 ```
 
-**`$util.dynamodb.toNumberSetJson(List<Number>) : String`**
-
-The same as `$util.dynamodb.toNumberSet(List<Number>) :
- Map`, but returns the DynamoDB attribute value as a JSON encoded
-string.
+** `$util.dynamodb.toNumberSetJson(List<Number>) : String` **  
+The same as `$util.dynamodb.toNumberSet(List<Number>) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toBinary utils
+<a name="utility-helpers-in-toBinary"></a>
 
-**`$util.dynamodb.toBinary(String) : Map`**
+### toBinary utils list
+<a name="utility-helpers-in-toBinary-list"></a>
 
-Converts binary data encoded as a base64 string to DynamoDB binary
-format. This returns an object that describes the DynamoDB attribute
-value.
+** `$util.dynamodb.toBinary(String) : Map` **  
+Converts binary data encoded as a base64 string to DynamoDB binary format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toBinary("foo")
 Output:     { "B" : "foo" }
 ```
 
-**`$util.dynamodb.toBinaryJson(String) : String`**
+** `$util.dynamodb.toBinaryJson(String) : String` **  
+The same as `$util.dynamodb.toBinary(String) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toBinary(String) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
-
-**`$util.dynamodb.toBinarySet(List<String>) : Map`**
-
-Converts a list of binary data encoded as base64 strings to DynamoDB
-binary set format. This returns an object that describes the DynamoDB
-attribute value.
+** `$util.dynamodb.toBinarySet(List<String>) : Map` **  
+Converts a list of binary data encoded as base64 strings to DynamoDB binary set format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toBinarySet([ "foo", "bar", "baz" ])
 Output:     { "BS" : [ "foo", "bar", "baz" ] }
 ```
 
-**`$util.dynamodb.toBinarySetJson(List<String>) : String`**
-
-The same as `$util.dynamodb.toBinarySet(List<String>) :
- Map`, but returns the DynamoDB attribute value as a JSON encoded
-string.
+** `$util.dynamodb.toBinarySetJson(List<String>) : String` **  
+The same as `$util.dynamodb.toBinarySet(List<String>) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toBoolean utils
+<a name="utility-helpers-in-toBoolean"></a>
 
-**`$util.dynamodb.toBoolean(Boolean) : Map`**
+### toBoolean utils list
+<a name="utility-helpers-in-toBoolean-list"></a>
 
-Converts a Boolean to the appropriate DynamoDB Boolean format. This
-returns an object that describes the DynamoDB attribute value.
+** `$util.dynamodb.toBoolean(Boolean) : Map` **  
+Converts a Boolean to the appropriate DynamoDB Boolean format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toBoolean(true)
 Output:     { "BOOL" : true }
 ```
 
-**`$util.dynamodb.toBooleanJson(Boolean) : String`**
-
-The same as `$util.dynamodb.toBoolean(Boolean) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
+** `$util.dynamodb.toBooleanJson(Boolean) : String` **  
+The same as `$util.dynamodb.toBoolean(Boolean) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toNull utils
+<a name="utility-helpers-in-toNull"></a>
 
-**`$util.dynamodb.toNull() : Map`**
+### toNull utils list
+<a name="utility-helpers-in-toNull-list"></a>
 
-Returns a null in DynamoDB null format. This returns an object that
-describes the DynamoDB attribute value.
+** `$util.dynamodb.toNull() : Map` **  
+Returns a null in DynamoDB null format. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toNull()
 Output:     { "NULL" : null }
 ```
 
-**`$util.dynamodb.toNullJson() : String`**
-
-The same as `$util.dynamodb.toNull() : Map`, but returns
-the DynamoDB attribute value as a JSON encoded string.
+** `$util.dynamodb.toNullJson() : String` **  
+The same as `$util.dynamodb.toNull() : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toList utils
+<a name="utility-helpers-in-toList"></a>
 
-****`$util.dynamodb.toList(List) :
- Map`****
+### toList utils list
+<a name="utility-helpers-in-toList-list"></a>
 
-Converts a list of objects to the DynamoDB list format. Each item in the
-list is also converted to its appropriate DynamoDB format. It's opinionated
-about how it represents some of the nested objects: e.g., it will use
-lists ("L") rather than sets ("SS", "NS", "BS"). This returns an object
-that describes the DynamoDB attribute value.
+****`$util.dynamodb.toList(List) : Map`** **  
+Converts a list of objects to the DynamoDB list format. Each item in the list is also converted to its appropriate DynamoDB format. It's opinionated about how it represents some of the nested objects: e.g., it will use lists ("L") rather than sets ("SS", "NS", "BS"). This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toList([ "foo", 123, { "bar" : "baz" } ])
@@ -321,20 +271,17 @@ Output:     {
            }
 ```
 
-**`$util.dynamodb.toListJson(List) : String`**
-
-The same as `$util.dynamodb.toList(List) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
+** `$util.dynamodb.toListJson(List) : String` **  
+The same as `$util.dynamodb.toList(List) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toMap utils
+<a name="utility-helpers-in-toMap"></a>
 
-**`$util.dynamodb.toMap(Map) : Map`**
+### toMap utils list
+<a name="utility-helpers-in-toMap-list"></a>
 
-Converts a map to the DynamoDB map format. Each value in the map is also
-converted to its appropriate DynamoDB format. It's opinionated about how it
-represents some of the nested objects: e.g., it will use lists ("L")
-rather than sets ("SS", "NS", "BS"). This returns an object that
-describes the DynamoDB attribute value.
+** `$util.dynamodb.toMap(Map) : Map` **  
+Converts a map to the DynamoDB map format. Each value in the map is also converted to its appropriate DynamoDB format. It's opinionated about how it represents some of the nested objects: e.g., it will use lists ("L") rather than sets ("SS", "NS", "BS"). This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toMap({ "foo": "bar", "baz" : 1234, "beep": [ "boop"] })
@@ -351,17 +298,11 @@ Output:     {
            }
 ```
 
-**`$util.dynamodb.toMapJson(Map) : String`**
+** `$util.dynamodb.toMapJson(Map) : String` **  
+The same as `$util.dynamodb.toMap(Map) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toMap(Map) : Map`, but returns
-the DynamoDB attribute value as a JSON encoded string.
-
-**`$util.dynamodb.toMapValues(Map) : Map`**
-
-Creates a copy of the map where each value has been converted to its
-appropriate DynamoDB format. It's opinionated about how it represents some
-of the nested objects: e.g., it will use lists ("L") rather than sets
-("SS", "NS", "BS").
+** `$util.dynamodb.toMapValues(Map) : Map` **  
+Creates a copy of the map where each value has been converted to its appropriate DynamoDB format. It's opinionated about how it represents some of the nested objects: e.g., it will use lists ("L") rather than sets ("SS", "NS", "BS").  
 
 ```
 Input:      $util.dynamodb.toMapValues({ "foo": "bar", "baz" : 1234, "beep": [ "boop"] })
@@ -375,68 +316,46 @@ Output:     {
                }
            }
 ```
-
-###### Note
-
-This is slightly different to `$util.dynamodb.toMap(Map) :
- Map` as it returns only the contents of the DynamoDB attribute
-value, but not the whole attribute value itself. For example, the
-following statements are exactly the same:
+This is slightly different to `$util.dynamodb.toMap(Map) : Map` as it returns only the contents of the DynamoDB attribute value, but not the whole attribute value itself. For example, the following statements are exactly the same:  
 
 ```
 $util.dynamodb.toMapValues($map)
 $util.dynamodb.toMap($map).get("M")
 ```
 
-**`$util.dynamodb.toMapValuesJson(Map) : String`**
-
-The same as `$util.dynamodb.toMapValues(Map) : Map`, but
-returns the DynamoDB attribute value as a JSON encoded string.
+** `$util.dynamodb.toMapValuesJson(Map) : String` **  
+The same as `$util.dynamodb.toMapValues(Map) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
 ## S3Object utils
+<a name="utility-helpers-in-S3Object"></a>
 
-**`$util.dynamodb.toS3Object(String key, String bucket, String region) :
- Map`**
+### S3Object utils list
+<a name="utility-helpers-in-S3Object-list"></a>
 
-Converts the key, bucket and region into the DynamoDB S3 Object
-representation. This returns an object that describes the DynamoDB attribute
-value.
+** `$util.dynamodb.toS3Object(String key, String bucket, String region) : Map` **  
+Converts the key, bucket and region into the DynamoDB S3 Object representation. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toS3Object("foo", "bar", region = "baz")
 Output:     { "S" : "{ \"s3\" : { \"key\" : \"foo", \"bucket\" : \"bar", \"region\" : \"baz" } }" }
 ```
 
-**`$util.dynamodb.toS3ObjectJson(String key, String bucket, String
- region) : String`**
+** `$util.dynamodb.toS3ObjectJson(String key, String bucket, String region) : String` **  
+The same as `$util.dynamodb.toS3Object(String key, String bucket, String region) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toS3Object(String key, String bucket,
- String region) : Map`, but returns the DynamoDB attribute value as
-a JSON encoded string.
-
-**`$util.dynamodb.toS3Object(String key, String bucket, String region,
- String version) : Map`**
-
-Converts the key, bucket, region and optional version into the DynamoDB
-S3 Object representation. This returns an object that describes the DynamoDB
-attribute value.
+** `$util.dynamodb.toS3Object(String key, String bucket, String region, String version) : Map` **  
+Converts the key, bucket, region and optional version into the DynamoDB S3 Object representation. This returns an object that describes the DynamoDB attribute value.  
 
 ```
 Input:      $util.dynamodb.toS3Object("foo", "bar", "baz", "beep")
 Output:     { "S" : "{ \"s3\" : { \"key\" : \"foo\", \"bucket\" : \"bar\", \"region\" : \"baz\", \"version\" = \"beep\" } }" }
 ```
 
-**`$util.dynamodb.toS3ObjectJson(String key, String bucket, String
- region, String version) : String`**
+** `$util.dynamodb.toS3ObjectJson(String key, String bucket, String region, String version) : String` **  
+The same as `$util.dynamodb.toS3Object(String key, String bucket, String region, String version) : Map`, but returns the DynamoDB attribute value as a JSON encoded string.
 
-The same as `$util.dynamodb.toS3Object(String key, String bucket,
- String region, String version) : Map`, but returns the DynamoDB
-attribute value as a JSON encoded string.
-
-**`$util.dynamodb.fromS3ObjectJson(String) : Map`**
-
-Accepts the string value of a DynamoDB S3 Object and returns a map that
-contains the key, bucket, region and optional version.
+** `$util.dynamodb.fromS3ObjectJson(String) : Map` **  
+Accepts the string value of a DynamoDB S3 Object and returns a map that contains the key, bucket, region and optional version.  
 
 ```
 Input:      $util.dynamodb.fromS3ObjectJson({ "S" : "{ \"s3\" : { \"key\" : \"foo\", \"bucket\" : \"bar\", \"region\" : \"baz\", \"version\" = \"beep\" } }" })

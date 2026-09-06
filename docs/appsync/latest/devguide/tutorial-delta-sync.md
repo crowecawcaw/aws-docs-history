@@ -1,67 +1,37 @@
+
+
 # Using Delta Sync operations on versioned data sources in AWS AppSync
+<a name="tutorial-delta-sync"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
-runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+Client applications in AWS AppSync store data by caching GraphQL responses locally to disk in a mobile/web application. Versioned data sources and `Sync` operations give customers the ability to perform the sync process using a single resolver. This allows clients to hydrate their local cache with results from one base query that might have a lot of records, and then receive only the data altered since their last query (the *delta updates*). By allowing clients to perform the base hydration of the cache with an initial request and incremental updates in another, you can move the computation from your client application to the backend. This is substantially more efficient for client applications that frequently switch between online and offline states.
 
-Client applications in AWS AppSync store data by caching GraphQL responses locally to disk
-in a mobile/web application. Versioned data sources and `Sync` operations give
-customers the ability to perform the sync process using a single resolver. This allows clients
-to hydrate their local cache with results from one base query that might have a lot of records,
-and then receive only the data altered since their last query (the _delta updates_). By allowing clients to perform the base
-hydration of the cache with an initial request and incremental updates in another, you can move
-the computation from your client application to the backend. This is substantially more
-efficient for client applications that frequently switch between online and offline
-states.
+To implement Delta Sync, the `Sync` query uses the `Sync` operation on a versioned data source. When an AWS AppSync mutation changes an item in a versioned data source, a record of that change will be stored in the *Delta* table as well. You can choose to use different *Delta* tables (e.g. one per type, one per domain area) for other versioned data sources or a single *Delta* table for your API. AWS AppSync recommends against using a single *Delta* table for multiple APIs to avoid the collision of primary keys.
 
-To implement Delta Sync, the `Sync` query uses the `Sync` operation on
-a versioned data source. When an AWS AppSync mutation changes an item in a versioned data source,
-a record of that change will be stored in the _Delta_
-table as well. You can choose to use different _Delta_
-tables (e.g. one per type, one per domain area) for other versioned data sources or a single
-_Delta_ table for your API. AWS AppSync recommends
-against using a single _Delta_ table for multiple APIs
-to avoid the collision of primary keys.
+In addition, Delta Sync clients can also receive a subscription as an argument, and then the client coordinates subscription reconnects and writes between offline to online transitions. Delta Sync performs this by automatically resuming subscriptions (including exponential backoff and retry with jitter through different network error scenarios), and storing events in a queue. The appropriate delta or base query is then run before merging any events from the queue, and finally processing subscriptions as normal.
 
-In addition, Delta Sync clients can also receive a subscription as an argument, and then the
-client coordinates subscription reconnects and writes between offline to online transitions.
-Delta Sync performs this by automatically resuming subscriptions (including exponential backoff
-and retry with jitter through different network error scenarios), and storing events in a queue.
-The appropriate delta or base query is then run before merging any events from the queue, and
-finally processing subscriptions as normal.
-
-Documentation for client configuration options, including the Amplify DataStore, is
-available on the [Amplify Framework website](https://aws-amplify.github.io/ "https://aws-amplify.github.io/").
-This documentation outlines how to set up versioned DynamoDB data sources and `Sync`
-operations to work with the Delta Sync client for optimal data access.
+Documentation for client configuration options, including the Amplify DataStore, is available on the [Amplify Framework website](https://aws-amplify.github.io/). This documentation outlines how to set up versioned DynamoDB data sources and `Sync` operations to work with the Delta Sync client for optimal data access.
 
 ## One-Click Setup
+<a name="one-click-setup"></a>
 
-To automatically set up the GraphQL endpoint in AWS AppSync with all the resolvers
-configured and the necessary AWS resources, use this AWS CloudFormation template:
+To automatically set up the GraphQL endpoint in AWS AppSync with all the resolvers configured and the necessary AWS resources, use this AWS CloudFormation template:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml) 
 
 This stack creates the following resources in your account:
++ 2 DynamoDB tables (Base and Delta)
++ 1 AWS AppSync API with API key
++ 1 IAM Role with policy for DynamoDB tables
 
-- 2 DynamoDB tables (Base and Delta)
-- 1 AWS AppSync API with API key
-- 1 IAM Role with policy for DynamoDB tables
-
-Two tables are used to partition your sync queries into a second table that acts as a
-journal of missed events when the clients were offline. To keep the queries efficient on the
-delta table, [Amazon
-DynamoDB TTLs](../../../amazondynamodb/latest/developerguide/TTL.md "../../../amazondynamodb/latest/developerguide/TTL.md") are used to automatically groom the events as necessary. The TTL time
-is configurable for your needs on the data source (you might want this as 1hour, 1day,
-etc.).
+Two tables are used to partition your sync queries into a second table that acts as a journal of missed events when the clients were offline. To keep the queries efficient on the delta table, [Amazon DynamoDB TTLs](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) are used to automatically groom the events as necessary. The TTL time is configurable for your needs on the data source (you might want this as 1hour, 1day, etc.).
 
 ## Schema
+<a name="schema"></a>
 
-To demonstrate Delta Sync, the sample application creates a _Posts_ schema backed by a _Base_ and _Delta_ table in DynamoDB.
-AWS AppSync automatically writes the mutations to both tables. The sync query pulls records from
-the _Base_ or _Delta_ table as appropriate, and a single subscription is defined to show how
-clients can leverage this in their reconnection logic.
+To demonstrate Delta Sync, the sample application creates a *Posts* schema backed by a *Base* and *Delta* table in DynamoDB. AWS AppSync automatically writes the mutations to both tables. The sync query pulls records from the *Base* or *Delta* table as appropriate, and a single subscription is defined to show how clients can leverage this in their reconnection logic.
 
 ```
 input CreatePostInput {
@@ -141,56 +111,28 @@ schema {
 }
 ```
 
-The GraphQL schema is standard, but a couple things are worth calling out before moving
-forward. First, all of the mutations automatically first write to the _Base_ table and then to the _Delta_ table. The _Base_ table is the central source of truth for state while the _Delta_ table is your journal. If you don’t pass in the
-`lastSync: AWSTimestamp`, the `syncPosts` query runs against the
-_Base_ table and hydrates the cache as well as
-running at periodic times as a _global catchup
-process_ for edge cases when clients are offline longer than your configured TTL
-time in the _Delta_ table. If you do pass in the
-`lastSync: AWSTimestamp`, the `syncPosts` query runs against your
-_Delta_ table and is used by clients to retrieve
-changed events since they were last offline. Amplify clients automatically pass the
-`lastSync: AWSTimestamp` value, and persist to disk appropriately.
+The GraphQL schema is standard, but a couple things are worth calling out before moving forward. First, all of the mutations automatically first write to the *Base* table and then to the *Delta* table. The *Base* table is the central source of truth for state while the *Delta* table is your journal. If you don’t pass in the `lastSync: AWSTimestamp`, the `syncPosts` query runs against the *Base* table and hydrates the cache as well as running at periodic times as a *global catchup process* for edge cases when clients are offline longer than your configured TTL time in the *Delta* table. If you do pass in the `lastSync: AWSTimestamp`, the `syncPosts` query runs against your *Delta* table and is used by clients to retrieve changed events since they were last offline. Amplify clients automatically pass the `lastSync: AWSTimestamp` value, and persist to disk appropriately.
 
-The _\_deleted_ field on _Post_ is used for **DELETE**
-operations. When clients are offline and records are removed from the _Base_ table, this attribute notifies clients performing
-synchronization to evict items from their local cache. In cases where clients are offline for
-longer periods of time and the item has been removed before the client can retrieve this value
-with a Delta Sync query, the global catch-up event in the base query (configurable in the
-client) runs and removes the item from the cache. This field is marked optional because it
-only returns a value when running a sync query that has deleted items present.
+The *\_deleted* field on *Post* is used for **DELETE** operations. When clients are offline and records are removed from the *Base* table, this attribute notifies clients performing synchronization to evict items from their local cache. In cases where clients are offline for longer periods of time and the item has been removed before the client can retrieve this value with a Delta Sync query, the global catch-up event in the base query (configurable in the client) runs and removes the item from the cache. This field is marked optional because it only returns a value when running a sync query that has deleted items present.
 
 ## Mutations
+<a name="mutations"></a>
 
-For all of the mutations, AWS AppSync does a standard Create/Update/Delete operation in the
-_Base_ table and also records the change in the
-_Delta_ table automatically. You can reduce or
-extend the time to keep records by modifying the `DeltaSyncTableTTL` value on the
-data source. For organizations with a high velocity of data, it may make sense to keep this
-short. Alternatively, if your clients are offline for longer periods of time, it might be
-prudent to keep this longer.
+For all of the mutations, AWS AppSync does a standard Create/Update/Delete operation in the *Base* table and also records the change in the *Delta* table automatically. You can reduce or extend the time to keep records by modifying the `DeltaSyncTableTTL` value on the data source. For organizations with a high velocity of data, it may make sense to keep this short. Alternatively, if your clients are offline for longer periods of time, it might be prudent to keep this longer.
 
 ## Sync Queries
+<a name="sync-queries"></a>
 
-The _base query_ is a DynamoDB Sync operation
-without a `lastSync` value specified. For many organizations, this works because
-the base query only runs on startup and at a periodic basis thereafter.
+The *base query* is a DynamoDB Sync operation without a `lastSync` value specified. For many organizations, this works because the base query only runs on startup and at a periodic basis thereafter.
 
-The _delta query_ is a DynamoDB Sync operation with
-a `lastSync` value specified. The _delta
-query_ executes whenever the client comes back online from an offline state (as
-long as the base query periodic time hasn’t triggered to run). Clients automatically track the
-last time they successfully ran a query to sync data.
+The *delta query* is a DynamoDB Sync operation with a `lastSync` value specified. The *delta query* executes whenever the client comes back online from an offline state (as long as the base query periodic time hasn’t triggered to run). Clients automatically track the last time they successfully ran a query to sync data.
 
-When a delta query is run, the query’s resolver uses the `ds_pk` and
-`ds_sk` to query only for the records that have changed since the last time the
-client performed a sync. The client stores the appropriate GraphQL response.
+When a delta query is run, the query’s resolver uses the `ds_pk` and `ds_sk` to query only for the records that have changed since the last time the client performed a sync. The client stores the appropriate GraphQL response.
 
-For more information on executing Sync Queries, see the [Sync Operation
-documentation](aws-appsync-conflict-detection-and-sync-sync-operations.md "aws-appsync-conflict-detection-and-sync-sync-operations.md").
+For more information on executing Sync Queries, see the [Sync Operation documentation](aws-appsync-conflict-detection-and-sync-sync-operations.md).
 
 ## Example
+<a name="example"></a>
 
 Let’s start first by calling a `createPost` mutation to create an item:
 
@@ -226,8 +168,7 @@ The return value of this mutation will look as follows:
 }
 ```
 
-If you examine the contents of the _Base_ table,
-you will see a record that looks like:
+If you examine the contents of the *Base* table, you will see a record that looks like:
 
 ```
 {
@@ -252,8 +193,7 @@ you will see a record that looks like:
 }
 ```
 
-If you examine the contents of the _Delta_
-table, you will see a record that looks like:
+If you examine the contents of the *Delta* table, you will see a record that looks like:
 
 ```
 {
@@ -287,8 +227,7 @@ table, you will see a record that looks like:
 }
 ```
 
-Now we can simulate a _Base_ query that a client
-will run to hydrate its local data store using a `syncPosts` query like:
+Now we can simulate a *Base* query that a client will run to hydrate its local data store using a `syncPosts` query like:
 
 ```
 query baseQuery {
@@ -307,8 +246,7 @@ query baseQuery {
 }
 ```
 
-The return value of this _Base_ query will look
-as follows:
+The return value of this *Base* query will look as follows:
 
 ```
 {
@@ -331,8 +269,7 @@ as follows:
 }
 ```
 
-We’ll save the `startedAt` value later to simulate a _Delta_ query, but first we need to make a change to our
-table. Let’s use the `updatePost` mutation to modify our existing Post:
+We’ll save the `startedAt` value later to simulate a *Delta* query, but first we need to make a change to our table. Let’s use the `updatePost` mutation to modify our existing Post:
 
 ```
 mutation updatePost {
@@ -366,8 +303,7 @@ The return value of this mutation will look as follows:
 }
 ```
 
-If you examine the contents of the _Base_ table
-now, you should see the updated item:
+If you examine the contents of the *Base* table now, you should see the updated item:
 
 ```
 {
@@ -392,11 +328,11 @@ now, you should see the updated item:
 }
 ```
 
-If you examine the contents of the _Delta_ table
-now, you should see two records:
+If you examine the contents of the *Delta* table now, you should see two records:
 
 1. A record when the item was created
-2. A record for when the item was updated.
+
+1. A record for when the item was updated.
 
 The new item will look like:
 
@@ -432,10 +368,7 @@ The new item will look like:
 }
 ```
 
-Now we can simulate a _Delta_ query to retrieve
-modifications that occurred when a client was offline. We will use the `startedAt`
-value returned from our _Base_ query to make the
-request:
+Now we can simulate a *Delta* query to retrieve modifications that occurred when a client was offline. We will use the `startedAt` value returned from our *Base* query to make the request:
 
 ```
 query delta {
@@ -453,8 +386,7 @@ query delta {
 }
 ```
 
-The return value of this _Delta_ query will look
-as follows:
+The return value of this *Delta* query will look as follows:
 
 ```
 {

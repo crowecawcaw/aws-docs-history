@@ -1,17 +1,15 @@
+
+
 # AWS AppSync resolver mapping template reference for HTTP
+<a name="resolver-mapping-template-reference-http"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
-APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
-
-The AWS AppSync HTTP resolver mapping templates enable you to send requests from
-AWS AppSync to any HTTP endpoint, and responses from your HTTP endpoint back to
-AWS AppSync. By using mapping templates, you can provide hints to AWS AppSync about the
-nature of the operation to be invoked. This section describes the different mapping
-templates for the supported HTTP resolver.
+The AWS AppSync HTTP resolver mapping templates enable you to send requests from AWS AppSync to any HTTP endpoint, and responses from your HTTP endpoint back to AWS AppSync. By using mapping templates, you can provide hints to AWS AppSync about the nature of the operation to be invoked. This section describes the different mapping templates for the supported HTTP resolver.
 
 ## Request mapping template
+<a name="request-mapping-template"></a>
 
 ```
 {
@@ -26,8 +24,7 @@ templates for the supported HTTP resolver.
 }
 ```
 
-After the HTTP request mapping template is resolved, the JSON schema representation of
-the request mapping template looks like the following:
+After the HTTP request mapping template is resolved, the JSON schema representation of the request mapping template looks like the following:
 
 ```
 {
@@ -103,8 +100,7 @@ the request mapping template looks like the following:
 }
 ```
 
-Following is an example of an HTTP POST request, with a `text/plain`
-body:
+Following is an example of an HTTP POST request, with a `text/plain` body:
 
 ```
 {
@@ -121,77 +117,65 @@ body:
 ```
 
 ## Version
+<a name="version"></a>
 
-###### Note
+**Note**  
+This applies only to the Request mapping template. 
 
-This applies only to the Request mapping template.
-
-Defines the version that the template uses. `version` is common to all
-request mapping templates and is required.
+Defines the version that the template uses. `version` is common to all request mapping templates and is required.
 
 ```
 "version": "2018-05-29"
 ```
 
 ## Method
+<a name="method"></a>
 
-###### Note
+**Note**  
+This applies only to the Request mapping template. 
 
-This applies only to the Request mapping template.
-
-HTTP method or verb (GET, POST, PUT, PATCH, or DELETE) that AWS AppSync sends to the
-HTTP endpoint.
+HTTP method or verb (GET, POST, PUT, PATCH, or DELETE) that AWS AppSync sends to the HTTP endpoint.
 
 ```
 "method": "PUT"
 ```
 
 ## ResourcePath
+<a name="resourcepath"></a>
 
-###### Note
+**Note**  
+This applies only to the Request mapping template. 
 
-This applies only to the Request mapping template.
-
-The resource path that you want to access. Along with the endpoint in the HTTP data
-source, the resource path forms the URL that the AWS AppSync service makes a request
-to.
+The resource path that you want to access. Along with the endpoint in the HTTP data source, the resource path forms the URL that the AWS AppSync service makes a request to.
 
 ```
 "resourcePath": "/v1/users"
 ```
 
-When the mapping template is evaluated, this path is sent as part of the HTTP request,
-including the HTTP endpoint. For example, the previous example might translate to the
-following:
+When the mapping template is evaluated, this path is sent as part of the HTTP request, including the HTTP endpoint. For example, the previous example might translate to the following:
 
 ```
 PUT <endpoint>/v1/users
 ```
 
 ## Params fields
+<a name="params-field"></a>
 
-###### Note
+**Note**  
+This applies only to the Request mapping template. 
 
-This applies only to the Request mapping template.
+Used to specify what action your search performs, most commonly by setting the **query** value inside the **body**. However, there are several other capabilities that can be configured, such as the formatting of responses.
 
-Used to specify what action your search performs, most commonly by setting the
-**query** value inside the **body**. However, there are several other capabilities that can be
-configured, such as the formatting of responses.
-
-****headers****
-
-The header information, as key-value pairs. Both the key and the value
-must be strings.
-
-For example:
+** **headers** **  
+The header information, as key-value pairs. Both the key and the value must be strings.  
+For example:  
 
 ```
 "headers" : {
     "Content-Type" : "application/json"
 }
 ```
-
-Currently supported `Content-Type` headers are:
+Currently supported `Content-Type` headers are:  
 
 ```
 text/*
@@ -203,9 +187,7 @@ application/x-amz-json-1.1
 application/vnd.api+json
 application/x-ndjson
 ```
-
-**Note**: You can’t set the following HTTP
-headers:
+ **Note**: You can’t set the following HTTP headers:  
 
 ```
 HOST
@@ -216,12 +198,8 @@ TRANSFER_ENCODING
 CONTENT_LENGTH
 ```
 
-****query****
-
-Key-value pairs that specify common options, such as code formatting for
-JSON responses. Both the key and the value must be a string. The following
-example shows how you can send a query string as
-`?type=json`:
+** **query** **  
+Key-value pairs that specify common options, such as code formatting for JSON responses. Both the key and the value must be a string. The following example shows how you can send a query string as `?type=json`:  
 
 ```
 "query" : {
@@ -229,16 +207,14 @@ example shows how you can send a query string as
 }
 ```
 
-****body****
-
-The body contains the HTTP request body that you choose to set. The
-request body is always a UTF-8 encoded string unless the content type
-specifies the charset.
+** **body** **  
+The body contains the HTTP request body that you choose to set. The request body is always a UTF-8 encoded string unless the content type specifies the charset.  
 
 ```
 "body":"body string"
 ```
 
 ## Response
+<a name="response"></a>
 
-See an example [here](tutorial-http-resolvers.md "tutorial-http-resolvers.md").
+See an example [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-http-resolvers.html).

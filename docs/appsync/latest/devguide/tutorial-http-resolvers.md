@@ -1,68 +1,60 @@
+
+
 # Using HTTP resolvers in AWS AppSync
+<a name="tutorial-http-resolvers"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
-runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+AWS AppSync enables you to use supported data sources (that is, AWS Lambda, Amazon DynamoDB, Amazon OpenSearch Service, or Amazon Aurora) to perform various operations, in addition to any arbitrary HTTP endpoints to resolve GraphQL fields. After your HTTP endpoints are available, you can connect to them using a data source. Then, you can configure a resolver in the schema to perform GraphQL operations such as queries, mutations, and subscriptions. This tutorial walks you through some common examples.
 
-AWS AppSync enables you to use supported data sources (that is, AWS Lambda, Amazon DynamoDB,
-Amazon OpenSearch Service, or Amazon Aurora) to perform various operations, in addition to any arbitrary HTTP
-endpoints to resolve GraphQL fields. After your HTTP endpoints are available, you can connect
-to them using a data source. Then, you can configure a resolver in the schema to perform
-GraphQL operations such as queries, mutations, and subscriptions. This tutorial walks you
-through some common examples.
-
-In this tutorial you use a REST API (created using Amazon API Gateway and Lambda) with an
-AWS AppSync GraphQL endpoint.
+In this tutorial you use a REST API (created using Amazon API Gateway and Lambda) with an AWS AppSync GraphQL endpoint.
 
 ## One-Click Setup
+<a name="one-click-setup"></a>
 
-If you want to automatically set up a GraphQL endpoint in AWS AppSync with an HTTP
-endpoint configured (using Amazon API Gateway and Lambda), you can use the following AWS CloudFormation
-template :
+If you want to automatically set up a GraphQL endpoint in AWS AppSync with an HTTP endpoint configured (using Amazon API Gateway and Lambda), you can use the following AWS CloudFormation template :
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml")
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-full.yaml)
 
 ## Creating a REST API
+<a name="creating-a-rest-api"></a>
 
-You can use the following AWS CloudFormation template to set up a REST endpoint that works for
-this tutorial:
+You can use the following AWS CloudFormation template to set up a REST endpoint that works for this tutorial:
 
-[![](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml")
+[![](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/http/http-api-gw.yaml)
 
 The AWS CloudFormation stack performs the following steps:
 
-1. Sets up a Lambda function that contains your business logic for your
-   microservice.
-2. Sets up an API Gateway REST API with the following endpoint/method/content type
-   combination:
+1. Sets up a Lambda function that contains your business logic for your microservice.
 
-| API Resource Path | HTTP Method | Supported Content Type |
-| ----------------- | ----------- | ---------------------- |
-| /v1/users         | POST        | application/json       |
-| /v1/users         | GET         | application/json       |
-| /v1/users/1       | GET         | application/json       |
-| /v1/users/1       | PUT         | application/json       |
-| /v1/users/1       | DELETE      | application/json       |
+1. Sets up an API Gateway REST API with the following endpoint/method/content type combination:
+
+
+
+| API Resource Path | HTTP Method | Supported Content Type | 
+| --- | --- | --- | 
+| /v1/users | POST | application/json | 
+| /v1/users | GET | application/json | 
+| /v1/users/1 | GET | application/json | 
+| /v1/users/1 | PUT | application/json | 
+| /v1/users/1 | DELETE | application/json | 
 
 ## Creating Your GraphQL API
+<a name="creating-your-graphql-api"></a>
 
 To create the GraphQL API in AWS AppSync:
++ Open the AWS AppSync console and choose **Create API**.
++ For the API name, type `UserData`.
++ Choose **Custom schema**.
++ Choose **Create**.
 
-- Open the AWS AppSync console and choose **Create
-  API**.
-- For the API name, type `UserData`.
-- Choose **Custom schema**.
-- Choose **Create**.
-
-The AWS AppSync console creates a new GraphQL API for you using the API key
-authentication mode. You can use the console to set up the rest of the GraphQL API and run
-queries on it for the remainder of this tutorial.
+The AWS AppSync console creates a new GraphQL API for you using the API key authentication mode. You can use the console to set up the rest of the GraphQL API and run queries on it for the remainder of this tutorial.
 
 ## Creating a GraphQL Schema
+<a name="creating-a-graphql-schema"></a>
 
-Now that you have a GraphQL API, let’s create a GraphQL schema. From the schema editor
-in the AWS AppSync console, make sure you schema matches the following schema:
+Now that you have a GraphQL API, let’s create a GraphQL schema. From the schema editor in the AWS AppSync console, make sure you schema matches the following schema:
 
 ```
 schema {
@@ -100,34 +92,27 @@ input UserInput {
 ```
 
 ## Configure Your HTTP Data Source
+<a name="configure-your-http-data-source"></a>
 
 To configure your HTTP data source, do the following:
++ On the **DataSources** tab, choose **New**, and then type a friendly name for the data source (for example, `HTTP`).
++ In **Data source type**, choose **HTTP**.
++ Set the endpoint to the API Gateway endpoint that is created. Make sure that you don’t include the stage name as part of the endpoint.
 
-- On the **DataSources** tab, choose **New**, and then type a friendly name for the data source (for
-  example, `HTTP`).
-- In **Data source type**, choose **HTTP**.
-- Set the endpoint to the API Gateway endpoint that is created. Make sure that you don’t
-  include the stage name as part of the endpoint.
+ **Note:** At this time only public endpoints are supported by AWS AppSync.
 
-**Note:** At this time only public endpoints are supported by
-AWS AppSync.
-
-**Note:** For more information about the certifying
-authorities that are recognized by the AWS AppSync service, see [Certificate Authorities (CA)
-Recognized by AWS AppSync for HTTPS Endpoints](http-cert-authorities.md#aws-appsync-http-certificate-authorities "http-cert-authorities.md#aws-appsync-http-certificate-authorities").
+ **Note:** For more information about the certifying authorities that are recognized by the AWS AppSync service, see [Certificate Authorities (CA) Recognized by AWS AppSync for HTTPS Endpoints](http-cert-authorities.md#aws-appsync-http-certificate-authorities).
 
 ## Configuring Resolvers
+<a name="configuring-resolvers"></a>
 
 In this step, you connect the http data source to the **getUser** query.
 
 To set up the resolver:
-
-- Choose the **Schema** tab.
-- In the **Data types** pane on the right under the
-  **Query** type, find the **getUser** field and choose **Attach**.
-- In **Data source name**, choose **HTTP**.
-- In **Configure the request mapping template**, paste
-  the following code:
++ Choose the **Schema** tab.
++ In the **Data types** pane on the right under the **Query** type, find the **getUser** field and choose **Attach**.
++ In **Data source name**, choose **HTTP**.
++ In **Configure the request mapping template**, paste the following code:
 
 ```
 {
@@ -141,9 +126,7 @@ To set up the resolver:
     "resourcePath": $util.toJson("/v1/users/${ctx.args.id}")
 }
 ```
-
-- In **Configure the response mapping template**, paste
-  the following code:
++ In **Configure the response mapping template**, paste the following code:
 
 ```
 ## return the body
@@ -155,9 +138,7 @@ To set up the resolver:
     $utils.appendError($ctx.result.body, "$ctx.result.statusCode")
 #end
 ```
-
-- Choose the **Query** tab, and then run the following
-  query:
++ Choose the **Query** tab, and then run the following query:
 
 ```
 query GetUser{
@@ -180,13 +161,10 @@ This should return the following response:
     }
 }
 ```
-
-- Choose the **Schema** tab.
-- In the **Data types** pane on the right under
-  **Mutation**, find the **addUser** field and choose **Attach**.
-- In **Data source name**, choose **HTTP**.
-- In **Configure the request mapping template**, paste
-  the following code:
++ Choose the **Schema** tab.
++ In the **Data types** pane on the right under **Mutation**, find the **addUser** field and choose **Attach**.
++ In **Data source name**, choose **HTTP**.
++ In **Configure the request mapping template**, paste the following code:
 
 ```
 {
@@ -201,9 +179,7 @@ This should return the following response:
     }
 }
 ```
-
-- In **Configure the response mapping template**, paste
-  the following code:
++ In **Configure the response mapping template**, paste the following code:
 
 ```
 ## Raise a GraphQL field error in case of a datasource invocation error
@@ -219,9 +195,7 @@ This should return the following response:
     $utils.appendError($ctx.result.body, "$ctx.result.statusCode")
 #end
 ```
-
-- Choose the **Query** tab, and then run the following
-  query:
++ Choose the **Query** tab, and then run the following query:
 
 ```
 mutation addUser{
@@ -249,42 +223,39 @@ This should return the following response:
 ```
 
 ## Invoking AWS Services
+<a name="invoking-aws-services"></a>
 
-You can use HTTP resolvers to set up a GraphQL API interface for AWS services. HTTP
-requests to AWS must be signed with the [Signature Version 4
-process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") so that AWS can identify who sent them. AWS AppSync calculates the
-signature on your behalf when you associate an IAM role with the HTTP data source.
+You can use HTTP resolvers to set up a GraphQL API interface for AWS services. HTTP requests to AWS must be signed with the [Signature Version 4 process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) so that AWS can identify who sent them. AWS AppSync calculates the signature on your behalf when you associate an IAM role with the HTTP data source.
 
 You provide two additional components to invoke AWS services with HTTP resolvers:
++ An IAM role with permissions to call the AWS service APIs
++ Signing configuration in the data source
 
-- An IAM role with permissions to call the AWS service APIs
-- Signing configuration in the data source
+For example, if you want to call the [ListGraphqlApis operation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListGraphqlApis.html) with HTTP resolvers, you first [create an IAM role](attaching-a-data-source.md#aws-appsync-getting-started-build-a-schema-from-scratch) that AWS AppSync assumes with the following policy attached:
 
-For example, if you want to call the [ListGraphqlApis operation](../APIReference/API_ListGraphqlApis.md "../APIReference/API_ListGraphqlApis.md") with HTTP resolvers, you first [create an IAM
-role](attaching-a-data-source.md#aws-appsync-getting-started-build-a-schema-from-scratch "attaching-a-data-source.md#aws-appsync-getting-started-build-a-schema-from-scratch") that AWS AppSync assumes with the following policy attached:
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "appsync:ListGraphqlApis"
- ],
- "Effect": "Allow",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "appsync:ListGraphqlApis"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-Next, create the HTTP data source for AWS AppSync. In this example, you call
-AWS AppSync in the US West (Oregon) Region. Set up the following HTTP configuration in a
-file named `http.json`, which includes the signing region and service
-name:
+------
+
+Next, create the HTTP data source for AWS AppSync. In this example, you call AWS AppSync in the US West (Oregon) Region. Set up the following HTTP configuration in a file named `http.json`, which includes the signing region and service name:
 
 ```
 {
@@ -299,8 +270,7 @@ name:
 }
 ```
 
-Then, use the AWS CLI to create the data source with an associated role as
-follows:
+Then, use the AWS CLI to create the data source with an associated role as follows:
 
 ```
 aws appsync create-data-source --api-id <API-ID> \
@@ -310,8 +280,7 @@ aws appsync create-data-source --api-id <API-ID> \
                                --service-role-arn <ROLE-ARN>
 ```
 
-When you attach a resolver to the field in the schema, use the following request mapping
-template to call AWS AppSync:
+When you attach a resolver to the field in the schema, use the following request mapping template to call AWS AppSync:
 
 ```
 {
@@ -321,6 +290,4 @@ template to call AWS AppSync:
 }
 ```
 
-When you run a GraphQL query for this data source, AWS AppSync signs the request using
-the role you provided and includes the signature in the request. The query returns a list
-of AWS AppSync GraphQL APIs in your account in that AWS Region.
+When you run a GraphQL query for this data source, AWS AppSync signs the request using the role you provided and includes the signature in the request. The query returns a list of AWS AppSync GraphQL APIs in your account in that AWS Region.

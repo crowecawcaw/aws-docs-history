@@ -1,87 +1,52 @@
+
+
 # Logging AWS AppSync API calls using AWS CloudTrail
+<a name="cloudtrail-logging"></a>
 
-AWS AppSync is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or AWS service in AWS AppSync. CloudTrail captures all API calls for AWS AppSync as events. The
-calls captured include calls from the AWS AppSync console and from code calls to the AWS AppSync APIs. You
-can use the information collected by CloudTrail to determine the request that was made to AWS AppSync, the
-IP address of the requester, who made the request, when the request was made, and additional
-details.
+AWS AppSync is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or AWS service in AWS AppSync. CloudTrail captures all API calls for AWS AppSync as events. The calls captured include calls from the AWS AppSync console and from code calls to the AWS AppSync APIs. You can use the information collected by CloudTrail to determine the request that was made to AWS AppSync, the IP address of the requester, who made the request, when the request was made, and additional details.
 
-You can create a _trail_ to enable continuous delivery of CloudTrail events to
-an Amazon Simple Storage Service (Amazon S3) bucket, including events for AWS AppSync. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console.
+You can create a *trail* to enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for AWS AppSync. If you don't configure a trail, you can still view the most recent events in the CloudTrail console.
 
-For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## AWS AppSync information in CloudTrail
+<a name="aws-appsync-information-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. In the CloudTrail console in
-**Event history**, you can view, search, and download recent events in your
-AWS account. For more information, see [Viewing Events with CloudTrail
-Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account when you create the account. In the CloudTrail console in **Event history**, you can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for AWS AppSync, create
-a trail. By default, when you create a trail in the console, the trail applies to all AWS
-Regions. The trail logs events from all Regions in the AWS partition and delivers the log
-files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS
-services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following in the _AWS CloudTrail User Guide_:
+For an ongoing record of events in your AWS account, including events for AWS AppSync, create a trail. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following in the *AWS CloudTrail User Guide*:
++  [Creating a Trail For Your AWS Account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++  [AWS Service Integrations With CloudTrail Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++  [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++  [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating
-  a Trail For Your AWS Account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS Service Integrations With CloudTrail Logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+CloudTrail logs all AWS AppSync API operations. For example, calls to the `CreateGraphqlApi`, `CreateDataSource`, and `ListResolvers` APIs generate entries in the CloudTrail log files. These and other operations are documented in the [AWS AppSync API Reference](https://docs.aws.amazon.com/appsync/latest/APIReference/Welcome.html).
 
-CloudTrail logs all AWS AppSync API operations. For example, calls to the
-`CreateGraphqlApi`, `CreateDataSource`, and `ListResolvers`
-APIs generate entries in the CloudTrail log files. These and other operations are documented in the
-[AWS AppSync API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+Every event or log entry contains information about who generated the request. The identity information helps you determine:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see [CloudTrail userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## AWS AppSync data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, reading or writing to an Amazon S3 object). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
-data events. The CloudTrail **Event history** doesn't record data events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the `AWS::AppSync::GraphQLApi` resource type
-by using the CloudTrail console, AWS CLI, or CloudTrail API operations (these include query, mutation, and
-subscription operations, connect operations to your real-time WebSocket endpoint, but not
-messages sent over your real-time WebSocket endpoint.) For more information about how to log
-data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the `AWS::AppSync::GraphQLApi` resource type by using the CloudTrail console, AWS CLI, or CloudTrail API operations (these include query, mutation, and subscription operations, connect operations to your real-time WebSocket endpoint, but not messages sent over your real-time WebSocket endpoint.) For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the AWS AppSync resource type for which you can log data events. The
-**Data event type (console)** column shows the value to choose
-from the **Data event type** list in the CloudTrail console. The **resources.type value** column shows the `resources.type`
-value, which you would specify when configuring advanced event selectors using the AWS CLI or
-CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
-calls logged to CloudTrail for the resource type.
+The following table lists the AWS AppSync resource type for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list in the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Data event type (console) | resources.type value       | Data APIs logged to CloudTrail                                                   |
-| ------------------------- | -------------------------- | -------------------------------------------------------------------------------- |
-| **AppSync GraphQL**       | `AWS::AppSync::GraphQLApi` | [GraphQL](../APIReference/API_GraphqlApi.md "../APIReference/API_GraphqlApi.md") |
 
-You can configure advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log only those events that
-are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| AppSync GraphQL |  AWS::AppSync::GraphQLApi  | [GraphQL](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GraphqlApi.html) | 
+
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ```
 [
@@ -112,21 +77,14 @@ _AWS CloudTrail API Reference_.
 ```
 
 ## Understanding AWS AppSync log file entries
+<a name="understanding-your-service-name-entries"></a>
 
-CloudTrail delivers events as log files that contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-operation, the date and time of the operation, the request parameters, and so on. Because
-these log files aren't an ordered stack trace of the public API calls, they don't appear in
-any specific order.
+CloudTrail delivers events as log files that contain one or more log entries. An event represents a single request from any source and includes information about the requested operation, the date and time of the operation, the request parameters, and so on. Because these log files aren't an ordered stack trace of the public API calls, they don't appear in any specific order.
 
-###### Note
+**Note**  
+The `requestID` isn't an authoritative unique ID for logs emitted from AWS AppSync. The `requestID` can be overwritten by the client. Therefore, you should use caution when making decisions based on this information.
 
-The `requestID` isn't an authoritative unique ID for logs emitted from
-AWS AppSync. The `requestID` can be overwritten by the client. Therefore, you should
-use caution when making decisions based on this information.
-
-The following example CloudTrail log entry demonstrates the `CreateApiKey`
-operation.
+The following example CloudTrail log entry demonstrates the `CreateApiKey` operation.
 
 ```
 {
@@ -165,8 +123,7 @@ operation.
 }
 ```
 
-The following example CloudTrail log entry demonstrates the `ListApiKeys`
-operation.
+The following example CloudTrail log entry demonstrates the `ListApiKeys` operation.
 
 ```
 {
@@ -211,8 +168,7 @@ operation.
 }
 ```
 
-The following example CloudTrail log entry demonstrates the `DeleteApiKey`
-operation.
+The following example CloudTrail log entry demonstrates the `DeleteApiKey` operation.
 
 ```
 {
@@ -247,8 +203,7 @@ operation.
 }
 ```
 
-The following example CloudTrail log entry demonstrates a successful GraphQL mutation authorized
-with a custom Lambda function authorizer.
+The following example CloudTrail log entry demonstrates a successful GraphQL mutation authorized with a custom Lambda function authorizer.
 
 ```
 {
@@ -290,10 +245,7 @@ with a custom Lambda function authorizer.
 }
 ```
 
-The following example CloudTrail log entry demonstrates a partially successful GraphQL operation
-authorized with a custom Lambda function authorizer. Note the
-`fieldAuthorizationResults.deniedFields` property that specifies the denied
-fields.
+The following example CloudTrail log entry demonstrates a partially successful GraphQL operation authorized with a custom Lambda function authorizer. Note the `fieldAuthorizationResults.deniedFields` property that specifies the denied fields.
 
 ```
 {

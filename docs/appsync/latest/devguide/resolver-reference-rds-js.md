@@ -1,73 +1,52 @@
+
+
 # AWS AppSync JavaScript resolver function reference for Amazon RDS
+<a name="resolver-reference-rds-js"></a>
 
-The AWS AppSync RDS function and resolver allows developers to send SQL queries
-to an Amazon Aurora cluster database using the RDS Data API and get back the result of these
-queries. You can write SQL statements that are sent to the Data API by using
-AWS AppSync's `rds` module `sql`-tagged template or by using the
-`rds` module's `select`, `insert`, `update`,
-and `remove` helper functions. AWS AppSync utilizes the RDS Data Service's [`ExecuteStatement`](../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md "../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md") action to run SQL statements against the
-database.
+The AWS AppSync RDS function and resolver allows developers to send SQL queries to an Amazon Aurora cluster database using the RDS Data API and get back the result of these queries. You can write SQL statements that are sent to the Data API by using AWS AppSync's `rds` module `sql`-tagged template or by using the `rds` module's `select`, `insert`, `update`, and `remove` helper functions. AWS AppSync utilizes the RDS Data Service's [`ExecuteStatement`](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_ExecuteStatement.html) action to run SQL statements against the database. 
 
-###### Topics
-
-- [SQL tagged template](#sql-tagged-templates "#sql-tagged-templates")
-- [Creating statements](#creating-statements "#creating-statements")
-- [Retrieving data](#retrieving-data "#retrieving-data")
-- [Utility functions](#utility-functions "#utility-functions")
-- [SQL Select](#utility-functions-select "#utility-functions-select")
-- [SQL Insert](#utility-functions-insert "#utility-functions-insert")
-- [SQL Update](#utility-functions-update "#utility-functions-update")
-- [SQL Delete](#utility-functions-delete "#utility-functions-delete")
-- [Casting](#casting "#casting")
+**Topics**
++ [SQL tagged template](#sql-tagged-templates)
++ [Creating statements](#creating-statements)
++ [Retrieving data](#retrieving-data)
++ [Utility functions](#utility-functions)
++ [SQL Select](#utility-functions-select)
++ [SQL Insert](#utility-functions-insert)
++ [SQL Update](#utility-functions-update)
++ [SQL Delete](#utility-functions-delete)
++ [Casting](#casting)
 
 ## SQL tagged template
+<a name="sql-tagged-templates"></a>
 
-AWS AppSync's `sql` tagged template enables you to create a static statement
-that can receive dynamic values at runtime by using template expressions. AWS AppSync builds
-a variable map from the expression values to construct a [`SqlParameterized`](../../../rdsdataservice/latest/APIReference/API_SqlParameter.md "../../../rdsdataservice/latest/APIReference/API_SqlParameter.md") query that is sent to the Amazon Aurora
-Serverless Data API. With this method, it isn't possible for dynamic values passed at
-run time to modify the original statement, which could cause unintented execution. All
-dynamic values are passed as parameters, can't modify the original statement, and aren't
-executed by the database. This makes your query less vulnerable to SQL
-injection attacks.
+AWS AppSync's `sql` tagged template enables you to create a static statement that can receive dynamic values at runtime by using template expressions. AWS AppSync builds a variable map from the expression values to construct a [`SqlParameterized`](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_SqlParameter.html) query that is sent to the Amazon Aurora Serverless Data API. With this method, it isn't possible for dynamic values passed at run time to modify the original statement, which could cause unintented execution. All dynamic values are passed as parameters, can't modify the original statement, and aren't executed by the database. This makes your query less vulnerable to SQL injection attacks.
 
-###### Note
+**Note**  
+In all cases, when writing SQL statements, you should follow security guidelines to properly handle data that you receive as input.
 
-In all cases, when writing SQL statements, you should follow
-security guidelines to properly handle data that you receive as input.
+**Note**  
+The `sql` tagged template only supports passing variable values. You can't use an expression to dynamically specify the column or table names. However, you can use utility functions to build dynamic statements.
 
-###### Note
-
-The `sql` tagged template only supports passing variable values. You
-can't use an expression to dynamically specify the column or table names. However,
-you can use utility functions to build dynamic statements.
-
-In the following example, we create a query that filters based on the value of the
-`col` argument that is set dynamically in the GraphQL query at run time.
-The value can only be added to the statement using the tag expression:
+In the following example, we create a query that filters based on the value of the `col` argument that is set dynamically in the GraphQL query at run time. The value can only be added to the statement using the tag expression:
 
 ```
 import { sql, createMySQLStatement } from '@aws-appsync/utils/rds';
 
 export function request(ctx) {
   const query = sql`
-SELECT * FROM table
+SELECT * FROM table 
 WHERE column = ${ctx.args.col}`
   ;
   return createMySQLStatement(query);
 }
 ```
 
-By passing all dynamic values through the variable map, we rely on the database engine
-to securely handle and sanitize values.
+By passing all dynamic values through the variable map, we rely on the database engine to securely handle and sanitize values.
 
 ## Creating statements
+<a name="creating-statements"></a>
 
-Functions and resolvers can interact with MySQL and PostgreSQL databases. Use
-`createMySQLStatement` and `createPgStatement` respectively to
-build statements. For example, `createMySQLStatement` can create a MySQL
-query. These functions accept up to two statements, useful when a request should
-retrieve results immediately. With MySQL, you could do:
+Functions and resolvers can interact with MySQL and PostgreSQL databases. Use `createMySQLStatement` and `createPgStatement` respectively to build statements. For example, `createMySQLStatement` can create a MySQL query. These functions accept up to two statements, useful when a request should retrieve results immediately. With MySQL, you could do:
 
 ```
 import { sql, createMySQLStatement } from '@aws-appsync/utils/rds';
@@ -80,16 +59,13 @@ export function request(ctx) {
 }
 ```
 
-###### Note
-
-`createPgStatement` and `createMySQLStatement` does not
-escape or quote statements built with the `sql` tagged template.
+**Note**  
+`createPgStatement` and `createMySQLStatement` does not escape or quote statements built with the `sql` tagged template.
 
 ## Retrieving data
+<a name="retrieving-data"></a>
 
-The result of your executed SQL statement is available in your response handler in the
-`context.result` object. The result is a JSON string with the [response elements](../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md#API_ExecuteStatement_ResponseElements "../../../rdsdataservice/latest/APIReference/API_ExecuteStatement.md#API_ExecuteStatement_ResponseElements") from the `ExecuteStatement` action. When
-parsed, the result has the following shape:
+The result of your executed SQL statement is available in your response handler in the `context.result` object. The result is a JSON string with the [response elements](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_ExecuteStatement.html#API_ExecuteStatement_ResponseElements) from the `ExecuteStatement` action. When parsed, the result has the following shape:
 
 ```
 type SQLStatementResults = {
@@ -102,8 +78,7 @@ type SQLStatementResults = {
 }
 ```
 
-You can use the `toJsonObject` utility to transform the result into a list
-of JSON objects representing the returned rows. For example:
+You can use the `toJsonObject` utility to transform the result into a list of JSON objects representing the returned rows. For example:
 
 ```
 import { toJsonObject } from '@aws-appsync/utils/rds';
@@ -121,19 +96,17 @@ export function response(ctx) {
 }
 ```
 
-Note that `toJsonObject` returns an array of statement results. If you
-provided one statement, the array length is `1`. If you provided two
-statements, the array length is `2`. Each result in the array contains
-`0` or more rows. `toJsonObject` returns `null` if
-the result value is invalid or unexpected.
+Note that `toJsonObject` returns an array of statement results. If you provided one statement, the array length is `1`. If you provided two statements, the array length is `2`. Each result in the array contains `0` or more rows. `toJsonObject` returns `null` if the result value is invalid or unexpected.
 
 ## Utility functions
+<a name="utility-functions"></a>
 
-You can use the AWS AppSync RDS module's utility helpers to interact with your
-database.
+You can use the AWS AppSync RDS module's utility helpers to interact with your database.
 
-The `select` utility creates a `SELECT` statement to
-query your relational database.
+### SQL Select
+<a name="utility-functions-select"></a>
+
+The `select` utility creates a `SELECT` statement to query your relational database. 
 
 **Basic use**
 
@@ -144,7 +117,7 @@ import { select, createPgStatement } from '@aws-appsync/utils/rds';
 
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // "SELECT * FROM "persons"
     return createPgStatement(select({table: 'persons'}));
 }
@@ -165,8 +138,7 @@ export function request(ctx) {
 
 **Specifying columns**
 
-You can specify columns with the `columns` property. If this isn't
-set to a value, it defaults to `*`:
+You can specify columns with the `columns` property. If this isn't set to a value, it defaults to `*`:
 
 ```
 export function request(ctx) {
@@ -186,7 +158,7 @@ You can specify a column's table as well:
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "persons"."name"
     // FROM "persons"
     return createPgStatement(select({
@@ -203,7 +175,7 @@ You can apply `limit` and `offset` to the query:
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "name"
     // FROM "persons"
     // LIMIT :limit
@@ -219,14 +191,12 @@ export function request(ctx) {
 
 **Order By**
 
-You can sort your results with the `orderBy` property. Provide an
-array of objects specifying the column and an optional `dir`
-property:
+You can sort your results with the `orderBy` property. Provide an array of objects specifying the column and an optional `dir` property:
 
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "name" FROM "persons"
     // ORDER BY "name", "id" DESC
     return createPgStatement(select({
@@ -315,30 +285,32 @@ export function request(ctx) {
 
 You can also use the following operators to compare values:
 
-| Operator        | Description                      | Possible value types    |
-| --------------- | -------------------------------- | ----------------------- |
-| eq              | Equal                            | number, string, boolean |
-| ne              | Not equal                        | number, string, boolean |
-| le              | Less than or equal               | number, string          |
-| lt              | Less than                        | number, string          |
-| ge              | Greater than or equal            | number, string          |
-| gt              | Greater than                     | number, string          |
-| contains        | Like                             | string                  |
-| notContains     | Not like                         | string                  |
-| beginsWith      | Starts with prefix               | string                  |
-| between         | Between two values               | number, string          |
-| attributeExists | The attribute is not null        | number, string, boolean |
-| size            | checks the length of the element | string                  |
 
-The `insert` utility provides a straightforward way of inserting
-single row items in your database with the `INSERT` operation.
+| 
+| 
+| Operator | Description | Possible value types | 
+| --- |--- |--- |
+| eq | Equal | number, string, boolean | 
+| ne | Not equal | number, string, boolean | 
+| le | Less than or equal | number, string | 
+| lt | Less than | number, string | 
+| ge | Greater than or equal | number, string | 
+| gt | Greater than | number, string | 
+| contains | Like | string | 
+| notContains | Not like | string | 
+| beginsWith | Starts with prefix | string | 
+| between | Between two values | number, string | 
+| attributeExists | The attribute is not null | number, string, boolean | 
+| size | checks the length of the element | string | 
+
+### SQL Insert
+<a name="utility-functions-insert"></a>
+
+The `insert` utility provides a straightforward way of inserting single row items in your database with the `INSERT` operation.
 
 **Single item insertions**
 
-To insert an item, specify the table and then pass in your object of values.
-The object keys are mapped to your table columns. Columns names are
-automatically escaped, and values are sent to the database using the variable
-map:
+To insert an item, specify the table and then pass in your object of values. The object keys are mapped to your table columns. Columns names are automatically escaped, and values are sent to the database using the variable map:
 
 ```
 import { insert, createMySQLStatement } from '@aws-appsync/utils/rds';
@@ -346,7 +318,7 @@ import { insert, createMySQLStatement } from '@aws-appsync/utils/rds';
 export function request(ctx) {
     const { input: values } = ctx.args;
     const insertStatement = insert({ table: 'persons', values });
-
+    
     // Generates statement:
     // INSERT INTO `persons`(`name`)
     // VALUES(:NAME)
@@ -356,8 +328,7 @@ export function request(ctx) {
 
 **MySQL use case**
 
-You can combine an `insert` followed by a `select` to
-retrieve your inserted row:
+You can combine an `insert` followed by a `select` to retrieve your inserted row:
 
 ```
 import { insert, select, createMySQLStatement } from '@aws-appsync/utils/rds';
@@ -371,7 +342,7 @@ export function request(ctx) {
         where: { id: { eq: values.id } },
         limit: 1,
     });
-
+    
     // Generates statement:
     // INSERT INTO `persons`(`name`)
     // VALUES(:NAME)
@@ -385,8 +356,7 @@ export function request(ctx) {
 
 **Postgres use case**
 
-With Postgres, you can use [`returning`](https://www.postgresql.org/docs/current/dml-returning.html "https://www.postgresql.org/docs/current/dml-returning.html") to obtain data from the row that you
-inserted. It accepts `*` or an array of column names:
+With Postgres, you can use [`returning`](https://www.postgresql.org/docs/current/dml-returning.html) to obtain data from the row that you inserted. It accepts `*` or an array of column names:
 
 ```
 import { insert, createPgStatement } from '@aws-appsync/utils/rds';
@@ -407,13 +377,10 @@ export function request(ctx) {
 }
 ```
 
-The `update` utility allows you to update existing rows. You can
-use the condition object to apply changes to the specified columns in all the
-rows that satisfy the condition. For example, let's say we have a schema that
-allows us to make this mutation. We want to update the `name` of
-`Person` with the `id` value of `3` but
-only if we've known them (`known_since`) since the year
-`2000`:
+### SQL Update
+<a name="utility-functions-update"></a>
+
+The `update` utility allows you to update existing rows. You can use the condition object to apply changes to the specified columns in all the rows that satisfy the condition. For example, let's say we have a schema that allows us to make this mutation. We want to update the `name` of `Person` with the `id` value of `3` but only if we've known them (`known_since`) since the year `2000`:
 
 ```
 mutation Update {
@@ -454,15 +421,12 @@ export function request(ctx) {
 }
 ```
 
-We can add a check to our condition to make sure that only the row that has
-the primary key `id` equal to `3` is updated. Similarly,
-for Postgres `inserts`, you can use `returning` to return
-the modified data.
+We can add a check to our condition to make sure that only the row that has the primary key `id` equal to `3` is updated. Similarly, for Postgres `inserts`, you can use `returning` to return the modified data. 
 
-The `remove` utility allows you to delete existing rows. You can
-use the condition object on all rows that satisfy the condition. Note that
-`delete` is a reserved keyword in JavaScript. `remove`
-should be used instead:
+### SQL Delete
+<a name="utility-functions-delete"></a>
+
+The `remove` utility allows you to delete existing rows. You can use the condition object on all rows that satisfy the condition. Note that `delete` is a reserved keyword in JavaScript. `remove` should be used instead:
 
 ```
 import { remove, createPgStatement } from '@aws-appsync/utils/rds';
@@ -485,16 +449,11 @@ export function request(ctx) {
 ```
 
 ## Casting
+<a name="casting"></a>
 
-In some cases, you may want more specificity about the correct object type to use in
-your statement. You can use the provided type hints to specify the type of your
-parameters. AWS AppSync supports the [same type hints](../../../rdsdataservice/latest/APIReference/API_SqlParameter.md#rdsdtataservice-Type-SqlParameter-typeHint "../../../rdsdataservice/latest/APIReference/API_SqlParameter.md#rdsdtataservice-Type-SqlParameter-typeHint") as the Data API. You can cast your parameters by using the
-`typeHint` functions from the AWS AppSync `rds` module.
+In some cases, you may want more specificity about the correct object type to use in your statement. You can use the provided type hints to specify the type of your parameters. AWS AppSync supports the [same type hints](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_SqlParameter.html#rdsdtataservice-Type-SqlParameter-typeHint) as the Data API. You can cast your parameters by using the `typeHint` functions from the AWS AppSync `rds` module. 
 
-The following example allows you to send an array as a value that is casted as a JSON
-object. We use the `->` operator to retrieve the element at the
-`index`
-`2` in the JSON array:
+The following example allows you to send an array as a value that is casted as a JSON object. We use the `->` operator to retrieve the element at the `index` `2` in the JSON array:
 
 ```
 import { sql, createPgStatement, toJsonObject, typeHint } from '@aws-appsync/utils/rds';
@@ -510,8 +469,7 @@ export function response(ctx) {
 }
 ```
 
-Casting is also useful when handling and comparing `DATE`,
-`TIME`, and `TIMESTAMP`:
+Casting is also useful when handling and comparing `DATE`, `TIME`, and `TIMESTAMP`:
 
 ```
 import { select, createPgStatement, typeHint } from '@aws-appsync/utils/rds';
@@ -538,19 +496,9 @@ export function request(ctx) {
 ```
 
 **Available type hints**
-
-- `typeHint.DATE` - The corresponding parameter is sent as an object
-  of the `DATE` type to the database. The accepted format is
-  `YYYY-MM-DD`.
-- `typeHint.DECIMAL` - The corresponding parameter is sent as an
-  object of the `DECIMAL` type to the database.
-- `typeHint.JSON` - The corresponding parameter is sent as an object
-  of the `JSON` type to the database.
-- `typeHint.TIME` - The corresponding string parameter value is sent
-  as an object of the `TIME` type to the database. The accepted format
-  is `HH:MM:SS[.FFF]`.
-- `typeHint.TIMESTAMP` - The corresponding string parameter value is
-  sent as an object of the `TIMESTAMP` type to the database. The
-  accepted format is `YYYY-MM-DD HH:MM:SS[.FFF]`.
-- `typeHint.UUID` - The corresponding string parameter value is sent
-  as an object of the `UUID` type to the database.
++ `typeHint.DATE` - The corresponding parameter is sent as an object of the `DATE` type to the database. The accepted format is `YYYY-MM-DD`.
++ `typeHint.DECIMAL` - The corresponding parameter is sent as an object of the `DECIMAL` type to the database.
++ `typeHint.JSON` - The corresponding parameter is sent as an object of the `JSON` type to the database.
++ `typeHint.TIME` - The corresponding string parameter value is sent as an object of the `TIME` type to the database. The accepted format is `HH:MM:SS[.FFF]`. 
++ `typeHint.TIMESTAMP` - The corresponding string parameter value is sent as an object of the `TIMESTAMP` type to the database. The accepted format is `YYYY-MM-DD HH:MM:SS[.FFF]`.
++ `typeHint.UUID` - The corresponding string parameter value is sent as an object of the `UUID` type to the database.

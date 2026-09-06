@@ -1,58 +1,41 @@
-# HTTP helpers in util.http
 
-The `util.http` utility provides helper methods that you can use to manage
-HTTP request parameters and to add response headers.
+
+# HTTP helpers in util.http
+<a name="http-helpers-in-utils-http-js"></a>
+
+The `util.http` utility provides helper methods that you can use to manage HTTP request parameters and to add response headers.
 
 ## util.http utils list
+<a name="http-helpers-in-utils-http-list-js"></a>
 
-**`util.http.copyHeaders(headers)`**
+ **`util.http.copyHeaders(headers)`**  
+Copies the headers from the map, excluding the following restricted HTTP headers:  
++ transfer-encoding
++ connection
++ host
++ expect
++ keep-alive
++ upgrade
++ proxy-authenticate
++ proxy-authorization
++ te
++ content-length
 
-Copies the headers from the map, excluding the following restricted HTTP
-headers:
-
-- transfer-encoding
-- connection
-- host
-- expect
-- keep-alive
-- upgrade
-- proxy-authenticate
-- proxy-authorization
-- te
-- content-length
-
-**`util.http.addResponseHeader(String,
- Object)`**
-
-Adds a single custom header with the name (`String`) and value
-(`Object`) of the response. The following limitations
-apply:
-
-- In addition to the list of restricted headers for
-  `copyHeaders(headers)`, header names cannot match any of
-  the following:
-
-  - Access-Control-Allow-Credentials
-  - Access-Control-Allow-Origin
-  - Access-Control-Expose-Headers
-  - Access-Control-Max-Age
-  - Access-Control-Allow-Methods
-  - Access-Control-Allow-Headers
-  - Vary
-  - Content-Type
-
-- Header names can't start with the restricted prefixes
-  `x-amzn-` or `x-amz-`.
-- The size of custom response headers can't exceed 4 KB. This
-  includes header names and values.
-- You should define each response header once per GraphQL operation.
-  However, if you define a custom header with the same name multiple
-  times, the most recent definition appears in the response. All headers
-  count towards the header size limit regardless of naming.
-- Headers with an empty or restricted name `(String)` or a null value
-  `(Object)` will be ignored and yield a
-  `ResponseHeaderError` error that is added to the
-  operation's `errors` output.
+**`util.http.addResponseHeader(String, Object)`**  
+Adds a single custom header with the name (`String`) and value (`Object`) of the response. The following limitations apply:  
++ In addition to the list of restricted headers for `copyHeaders(headers)`, header names cannot match any of the following:
+  + Access-Control-Allow-Credentials
+  + Access-Control-Allow-Origin
+  + Access-Control-Expose-Headers
+  + Access-Control-Max-Age
+  + Access-Control-Allow-Methods
+  + Access-Control-Allow-Headers
+  + Vary
+  + Content-Type
++ Header names can't start with the restricted prefixes `x-amzn-` or `x-amz-`.
++ The size of custom response headers can't exceed 4 KB. This includes header names and values.
++ You should define each response header once per GraphQL operation. However, if you define a custom header with the same name multiple times, the most recent definition appears in the response. All headers count towards the header size limit regardless of naming.
++ Headers with an empty or restricted name `(String)` or a null value `(Object)` will be ignored and yield a `ResponseHeaderError` error that is added to the operation's `errors` output.
 
 ```
 export function request(ctx) {
@@ -62,12 +45,8 @@ export function request(ctx) {
 }
 ```
 
-**`util.http.addResponseHeaders(Map)`**
-
-Adds multiple response headers to the response from the specified map of
-names `(String)` and values `(Object)`. The same
-limitations listed for the `addResponseHeader(String, Object)`
-method also apply to this method.
+**`util.http.addResponseHeaders(Map)`**  
+Adds multiple response headers to the response from the specified map of names `(String)` and values `(Object)`. The same limitations listed for the `addResponseHeader(String, Object)` method also apply to this method.  
 
 ```
 export function request(ctx) {

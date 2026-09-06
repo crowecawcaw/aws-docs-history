@@ -1,13 +1,13 @@
+
+
 # BatchPutItem
+<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-batch-put-item"></a>
 
-The `BatchPutItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a
-`BatchWriteItem` request to DynamoDB to put multiple items, potentially across multiple tables. For
-this request template, you must specify the following:
+The `BatchPutItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `BatchWriteItem` request to DynamoDB to put multiple items, potentially across multiple tables. For this request template, you must specify the following:
++ The table names where to put the items in
++ The full items to put in each table
 
-- The table names where to put the items in
-- The full items to put in each table
-  The DynamoDB `BatchWriteItem` limits apply and **no
-  condition expression** can be provided.
+The DynamoDB `BatchWriteItem` limits apply and **no condition expression** can be provided.
 
 The `BatchPutItem` mapping document has the following structure:
 
@@ -45,38 +45,29 @@ The `BatchPutItem` mapping document has the following structure:
 The fields are defined as follows:
 
 ## BatchPutItem fields
+<a name="BatchPutItem-list"></a>
 
-**`version`**
+### BatchPutItem fields list
+<a name="BatchPutItem-list-col"></a>
 
-The template definition version. Only `2018-05-29` is supported. This value is
-required.
+** `version` **  
+The template definition version. Only `2018-05-29` is supported. This value is required.
 
-**`operation`**
+** `operation` **  
+The DynamoDB operation to perform. To perform the `BatchPutItem` DynamoDB operation, this must be set to `BatchPutItem`. This value is required.
 
-The DynamoDB operation to perform. To perform the `BatchPutItem` DynamoDB
-operation, this must be set to `BatchPutItem`. This value is required.
-
-**`tables`**
-
-The DynamoDB tables to put the items in. Each table entry represents a list of DynamoDB items to
-insert for this specific table. At least one table must be provided. This value is
-required.
+** `tables` **  
+The DynamoDB tables to put the items in. Each table entry represents a list of DynamoDB items to insert for this specific table. At least one table must be provided. This value is required.
 
 Things to remember:
++ The fully inserted items are returned in the response, if successful.
++ If an item hasn’t been inserted in the table, a *null* element is displayed in the data block for that table.
++ The inserted items are sorted per table, based on the order in which they were provided inside the request mapping template.
++ Each `Put` command inside a `BatchPutItem` is atomic, however, a batch can be partially processed. If a batch is partially processed due to an error, the unprocessed keys are returned as part of the invocation result inside the *unprocessedKeys* block.
++  `BatchPutItem` is limited to 25 items.
++ This operation **is not** supported when used with conflict detection. Using both at the same time may result in an error.
 
-- The fully inserted items are returned in the response, if successful.
-- If an item hasn’t been inserted in the table, a _null_
-  element is displayed in the data block for that table.
-- The inserted items are sorted per table, based on the order in which they were
-  provided inside the request mapping template.
-- Each `Put` command inside a `BatchPutItem` is atomic,
-  however, a batch can be partially processed. If a batch is partially processed due to
-  an error, the unprocessed keys are returned as part of the invocation result inside
-  the _unprocessedKeys_ block.
-- `BatchPutItem` is limited to 25 items.
-- This operation **is not** supported when used with
-  conflict detection. Using both at the same time may result in an error.
-  For the following example request mapping template:
+For the following example request mapping template:
 
 ```
 {
@@ -140,10 +131,6 @@ The invocation result available in `$ctx.result` is as follows:
 }
 ```
 
-The `$ctx.error` contains details about the error. The keys **data**, **unprocessedItems**, and each table key that was provided in
-the request mapping template are guaranteed to be present in the invocation result. Items that have been
-inserted are in the **data** block. Items that haven’t been processed are marked
-as _null_ inside the data block and are placed inside the **unprocessedItems** block.
+The `$ctx.error` contains details about the error. The keys **data**, **unprocessedItems**, and each table key that was provided in the request mapping template are guaranteed to be present in the invocation result. Items that have been inserted are in the **data** block. Items that haven’t been processed are marked as *null* inside the data block and are placed inside the **unprocessedItems** block.
 
-For a more complete example, follow the DynamoDB Batch tutorial with AppSync here [Tutorial: DynamoDB batch
-resolvers](tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch "tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch").
+For a more complete example, follow the DynamoDB Batch tutorial with AppSync here [Tutorial: DynamoDB batch resolvers](tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch).

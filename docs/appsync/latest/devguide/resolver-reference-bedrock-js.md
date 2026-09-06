@@ -1,21 +1,17 @@
+
+
 # AWS AppSync JavaScript resolver and function reference for Amazon Bedrock runtime
+<a name="resolver-reference-bedrock-js"></a>
 
-You can use AWS AppSync functions and resolvers to invoke models on Amazon Bedrock in your
-AWS account. You can shape your request payloads and the response from your model invocations
-functions before returning them to your clients. You can use the Amazon Bedrock runtime’s `InvokeModel` API
-or the `Converse` API. This section describes the requests for the supported Amazon Bedrock
-operations.
+You can use AWS AppSync functions and resolvers to invoke models on Amazon Bedrock in your AWS account. You can shape your request payloads and the response from your model invocations functions before returning them to your clients. You can use the Amazon Bedrock runtime’s `InvokeModel` API or the `Converse` API. This section describes the requests for the supported Amazon Bedrock operations.
 
-###### Note
-
-AWS AppSync only supports synchronous invocations that complete within 10 seconds. It is not
-possible to call Amazon Bedrock's stream APIs. AWS AppSync only supports invoking foundation models and [inference profiles](../../../bedrock/latest/userguide/inference-profiles.md "../../../bedrock/latest/userguide/inference-profiles.md")
-in the same region as the AWS AppSync API.
+**Note**  
+AWS AppSync only supports synchronous invocations that complete within 10 seconds. It is not possible to call Amazon Bedrock's stream APIs. AWS AppSync only supports invoking foundation models and [inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html) in the same region as the AWS AppSync API.
 
 ## Request object
+<a name="request_object"></a>
 
-The `InvokeModel` request object allows you to interact with Amazon Bedrock’s
-`InvokeModel` API.
+The `InvokeModel` request object allows you to interact with Amazon Bedrock’s `InvokeModel` API.
 
 ```
 type BedrockInvokeModelRequest = {
@@ -45,23 +41,14 @@ type BedrockConverseRequest = {
 }
 ```
 
-See the [Type reference](#type-reference-bedrock "#type-reference-bedrock") section later in
-this topic for more details.
+See the [Type reference](#type-reference-bedrock) section later in this topic for more details.
 
-From your functions and resolvers, you can build your request objects directly or use the
-helper functions from @aws-appsync/utils/ai to create the request. When specifying the model
-Id (modelId) in your requests, you can use the model Id or the model ARN.
+From your functions and resolvers, you can build your request objects directly or use the helper functions from @aws-appsync/utils/ai to create the request. When specifying the model Id (modelId) in your requests, you can use the model Id or the model ARN.
 
-The following example uses the `invokeModel` function to summarize text using
-Amazon Titan Text G1 - Lite (amazon.titan-text-lite-v1). A configured guardrail is used to
-identify and block or filter unwanted content in the prompt flow. Learn more about [Amazon Bedrock
-Guardrails](../../../bedrock/latest/userguide/guardrails.md "../../../bedrock/latest/userguide/guardrails.md") in the _Amazon Bedrock User Guide_.
+The following example uses the `invokeModel` function to summarize text using Amazon Titan Text G1 - Lite (amazon.titan-text-lite-v1). A configured guardrail is used to identify and block or filter unwanted content in the prompt flow. Learn more about [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*.
 
-###### Important
-
-You are responsible for secure application development and preventing vulnerabilities,
-such as prompt injection. To learn more, see [Prompt injection security](../../../bedrock/latest/userguide/prompt-injection.md "../../../bedrock/latest/userguide/prompt-injection.md") in
-the _Amazon Bedrock User Guide_.
+**Important**  
+You are responsible for secure application development and preventing vulnerabilities, such as prompt injection. To learn more, see [Prompt injection security](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-injection.html) in the *Amazon Bedrock User Guide*.
 
 ```
 import { invokeModel } from '@aws-appsync/utils/ai'
@@ -79,12 +66,9 @@ export function response(ctx) {
 }
 ```
 
-The following example uses the `converse` function with a cross-region
-inference profile (us.anthropic.claude-3-5-haiku-20241022-v1:0). Learn more about Amazon Bedrock's [Prerequisites for inference profiles](../../../bedrock/latest/userguide/inference-profiles-prereq.md "../../../bedrock/latest/userguide/inference-profiles-prereq.md") in the _Amazon Bedrock User
-Guide_
+The following example uses the `converse` function with a cross-region inference profile (us.anthropic.claude-3-5-haiku-20241022-v1:0). Learn more about Amazon Bedrock's [Prerequisites for inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-prereq.html) in the *Amazon Bedrock User Guide*
 
-**Reminder**: You are responsible for secure application
-development and preventing vulnerabilities, such as prompt injection.
+**Reminder**: You are responsible for secure application development and preventing vulnerabilities, such as prompt injection.
 
 ```
 import { converse } from '@aws-appsync/utils/ai'
@@ -95,49 +79,49 @@ export function request(ctx) {
     system: [
       {
         text: `
-You are a database assistant that provides SQL queries to retrieve data based on a natural language request.
+You are a database assistant that provides SQL queries to retrieve data based on a natural language request. 
 ${ctx.args.explain ? 'Explain your answer' : 'Do not explain your answer'}.
 Assume a database with the following tables and columns exists:
 
-Customers:
-- customer_id (INT, PRIMARY KEY)
-- first_name (VARCHAR)
-- last_name (VARCHAR)
-- email (VARCHAR)
-- phone (VARCHAR)
-- address (VARCHAR)
-- city (VARCHAR)
-- state (VARCHAR)
-- zip_code (VARCHAR)
+Customers:  
+- customer_id (INT, PRIMARY KEY)  
+- first_name (VARCHAR)  
+- last_name (VARCHAR)  
+- email (VARCHAR)  
+- phone (VARCHAR)  
+- address (VARCHAR)  
+- city (VARCHAR)  
+- state (VARCHAR)  
+- zip_code (VARCHAR)  
+  
+Products:  
+- product_id (INT, PRIMARY KEY)  
+- product_name (VARCHAR)  
+- description (TEXT)  
+- category (VARCHAR)  
+- price (DECIMAL)  
+- stock_quantity (INT)  
 
-Products:
-- product_id (INT, PRIMARY KEY)
-- product_name (VARCHAR)
-- description (TEXT)
-- category (VARCHAR)
-- price (DECIMAL)
-- stock_quantity (INT)
+Orders:  
+- order_id (INT, PRIMARY KEY)  
+- customer_id (INT, FOREIGN KEY REFERENCES Customers)  
+- order_date (DATE)  
+- total_amount (DECIMAL)  
+- status (VARCHAR)  
 
-Orders:
-- order_id (INT, PRIMARY KEY)
-- customer_id (INT, FOREIGN KEY REFERENCES Customers)
-- order_date (DATE)
-- total_amount (DECIMAL)
-- status (VARCHAR)
+Order_Items:  
+- order_item_id (INT, PRIMARY KEY)  
+- order_id (INT, FOREIGN KEY REFERENCES Orders)  
+- product_id (INT, FOREIGN KEY REFERENCES Products)  
+- quantity (INT)  
+- price (DECIMAL)  
 
-Order_Items:
-- order_item_id (INT, PRIMARY KEY)
-- order_id (INT, FOREIGN KEY REFERENCES Orders)
-- product_id (INT, FOREIGN KEY REFERENCES Products)
-- quantity (INT)
-- price (DECIMAL)
-
-Reviews:
-- review_id (INT, PRIMARY KEY)
-- product_id (INT, FOREIGN KEY REFERENCES Products)
-- customer_id (INT, FOREIGN KEY REFERENCES Customers)
-- rating (INT)
-- comment (TEXT)
+Reviews:  
+- review_id (INT, PRIMARY KEY)  
+- product_id (INT, FOREIGN KEY REFERENCES Products)  
+- customer_id (INT, FOREIGN KEY REFERENCES Customers)  
+- rating (INT)  
+- comment (TEXT)  
 - review_date (DATE)`,
       },
     ],
@@ -155,9 +139,7 @@ export function response(ctx) {
 }
 ```
 
-The following example uses `converse` to create a structured response. Note
-that we use environment variables for our DB schema reference and we configure a guardrail to
-help prevent attacks.
+The following example uses `converse` to create a structured response. Note that we use environment variables for our DB schema reference and we configure a guardrail to help prevent attacks.
 
 ```
 import { converse } from '@aws-appsync/utils/ai'
@@ -176,7 +158,7 @@ export function request(ctx) {
     system: [
       {
         text: `
-You are a database assistant that provides SQL queries to retrieve data based on a natural language request.
+You are a database assistant that provides SQL queries to retrieve data based on a natural language request. 
 
 Assume a database with the following tables and columns exists:
 
@@ -263,7 +245,7 @@ query db($text: String!) {
 }
 ```
 
-With the following parameters:
+With the following parameters: 
 
 ```
 {
@@ -305,15 +287,12 @@ The following response is returned:
 }
 ```
 
-To learn more about configuring Amazon Bedrock Guardrails, see [Stop harmful content in models using Amazon Bedrock
-Guardrails](../../../bedrock/latest/userguide/guardrails.md "../../../bedrock/latest/userguide/guardrails.md") in the _Amazon Bedrock User Guide_.
+To learn more about configuring Amazon Bedrock Guardrails, see [Stop harmful content in models using Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*.
 
 ## Response object
+<a name="response_object"></a>
 
-The response from your Amazon Bedrock runtime invocation is contained in the context‘s result
-property (context.result). The response matches the shape specified by Amazon Bedrock’s APIs. See the
-[Amazon Bedrock User
-Guide](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md") for more information about the expected shape of invocation results.
+The response from your Amazon Bedrock runtime invocation is contained in the context‘s result property (context.result). The response matches the shape specified by Amazon Bedrock’s APIs. See the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) for more information about the expected shape of invocation results.
 
 ```
 export function response(ctx) {
@@ -321,36 +300,30 @@ export function response(ctx) {
 }
 ```
 
-There are no required fields or shape restrictions that apply to the response object.
-However, because GraphQL is strongly typed, the resolved response must match the expected
-GraphQL type.
+There are no required fields or shape restrictions that apply to the response object. However, because GraphQL is strongly typed, the resolved response must match the expected GraphQL type.
 
 ## Long running invocations
+<a name="long-running-invocations"></a>
 
-Many organizations currently use AWS AppSync as an AI gateway to build generative AI
-applications that are powered by foundation models on Amazon Bedrock. Customers use AWS AppSync
-subscriptions, powered by WebSockets, to return progressive updates from long-running model
-invocations. This allows them to implement asynchronous patterns.
+Many organizations currently use AWS AppSync as an AI gateway to build generative AI applications that are powered by foundation models on Amazon Bedrock. Customers use AWS AppSync subscriptions, powered by WebSockets, to return progressive updates from long-running model invocations. This allows them to implement asynchronous patterns.
 
-The following diagram
-demonstrates how you can implement this pattern. In the diagram, the following steps
-occur.
+The following diagram demonstrates how you can implement this pattern. In the diagram, the following steps occur.
 
-1. Your client starts a subscription, which sets up a WebSocket, and makes a request to
-   AWS AppSync to trigger a Generative AI invocation.
-2. AWS AppSync calls your AWS Lambda function in Event mode and immediately returns a response
-   to the client.
-3. Your Lambda function invokes the model on Amazon Bedrock. The Lambda function can use a
-   synchronous API, such as `InvokeModel`, or a stream API, such as
-   `InvokeModelWithResponseStream`, to get progressive updates.
-4. As updates are received, or when the invocation completes, the Lambda function sends
-   updates via mutations to your AWS AppSync API which triggers subscriptions.
-5. The subscription events are sent in real-time and received by your client over the
-   WebSocket.
+1. Your client starts a subscription, which sets up a WebSocket, and makes a request to AWS AppSync to trigger a Generative AI invocation.
 
-![A diagram that demonstrates the workflow for using an AWS AppSync subscription to return updates from a Amazon Bedrock model.](images/bedrock-workflow.png)
+1. AWS AppSync calls your AWS Lambda function in Event mode and immediately returns a response to the client.
+
+1. Your Lambda function invokes the model on Amazon Bedrock. The Lambda function can use a synchronous API, such as `InvokeModel`, or a stream API, such as `InvokeModelWithResponseStream`, to get progressive updates.
+
+1. As updates are received, or when the invocation completes, the Lambda function sends updates via mutations to your AWS AppSync API which triggers subscriptions.
+
+1. The subscription events are sent in real-time and received by your client over the WebSocket.
+
+![A diagram that demonstrates the workflow for using an AWS AppSync subscription to return updates from a Amazon Bedrock model.](http://docs.aws.amazon.com/appsync/latest/devguide/images/bedrock-workflow.png)
+
 
 ## Type reference
+<a name="type-reference-bedrock"></a>
 
 ```
 export type BedrockMessage = {

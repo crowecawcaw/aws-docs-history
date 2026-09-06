@@ -1,126 +1,108 @@
+
+
 # Performing DynamoDB transactions in AWS AppSync
+<a name="tutorial-dynamodb-transact"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
-APPSYNC\_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
-
-AWS AppSync supports using Amazon DynamoDB transaction operations across one or more tables in
-a single region. Supported operations are `TransactGetItems` and
-`TransactWriteItems`. By using these features in AWS AppSync, you can
-perform tasks such as:
-
-- Pass a list of keys in a single query and return the results from a table
-- Read records from one or more tables in a single query
-- Write records in transaction to one or more tables in an all-or-nothing way
-- Execute transactions when some conditions are satisfied
+AWS AppSync supports using Amazon DynamoDB transaction operations across one or more tables in a single region. Supported operations are `TransactGetItems` and `TransactWriteItems`. By using these features in AWS AppSync, you can perform tasks such as:
++ Pass a list of keys in a single query and return the results from a table
++ Read records from one or more tables in a single query
++ Write records in transaction to one or more tables in an all-or-nothing way
++ Execute transactions when some conditions are satisfied
 
 ## Permissions
+<a name="permissions"></a>
 
-Like other resolvers, you need to create a data source in AWS AppSync and either
-create a role or use an existing one. Because transaction operations require different
-permissions on DynamoDB tables, you need to grant the configured role permissions for read
-or write actions:
+Like other resolvers, you need to create a data source in AWS AppSync and either create a role or use an existing one. Because transaction operations require different permissions on DynamoDB tables, you need to grant the configured role permissions for read or write actions:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "dynamodb:DeleteItem",
- "dynamodb:GetItem",
- "dynamodb:PutItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:UpdateItem"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:dynamodb:us-east-1:111122223333:table/TABLENAME",
- "arn:aws:dynamodb:us-east-1:111122223333:table/TABLENAME/*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:DeleteItem",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:UpdateItem"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:dynamodb:us-east-1:111122223333:table/TABLENAME",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/TABLENAME/*"
+            ]
+        }
+    ]
+}
+```
 
-**Note**: Roles are tied to data sources in AWS AppSync,
-and resolvers on fields are invoked against a data source. Data sources configured to
-fetch against DynamoDB only have one table specified, to keep configuration simple.
-Therefore, when performing a transaction operation against multiple tables in a single
-resolver, which is a more advanced task, you must grant the role on that data source
-access to any tables the resolver will interact with. This would be done in the
-**Resource** field in the IAM policy above.
-Configuration of the transaction calls against the tables is done in the resolver
-template, which we describe below.
+------
+
+ **Note**: Roles are tied to data sources in AWS AppSync, and resolvers on fields are invoked against a data source. Data sources configured to fetch against DynamoDB only have one table specified, to keep configuration simple. Therefore, when performing a transaction operation against multiple tables in a single resolver, which is a more advanced task, you must grant the role on that data source access to any tables the resolver will interact with. This would be done in the **Resource** field in the IAM policy above. Configuration of the transaction calls against the tables is done in the resolver template, which we describe below.
 
 ## Data Source
+<a name="data-source"></a>
 
-For the sake of simplicity, we’ll use the same data source for all the resolvers used
-in this tutorial. On the **Data sources** tab, create a new
-DynamoDB data source and name it **TransactTutorial**. The
-table name can be anything because table names are specified as part of the request
-mapping template for transaction operations. We will give the table name
-`empty`.
+For the sake of simplicity, we’ll use the same data source for all the resolvers used in this tutorial. On the **Data sources** tab, create a new DynamoDB data source and name it **TransactTutorial**. The table name can be anything because table names are specified as part of the request mapping template for transaction operations. We will give the table name `empty`.
 
-We’ll have two tables called **savingAccounts** and
-**checkingAccounts**, both with
-`accountNumber` as partition key, and a **transactionHistory** table with `transactionId` as partition
-key.
+We’ll have two tables called **savingAccounts** and **checkingAccounts**, both with `accountNumber` as partition key, and a **transactionHistory** table with `transactionId` as partition key.
 
-For this tutorial, any role with the following inline policy will work. Replace
-`region` and `accountId` with your region and account
-ID:
+For this tutorial, any role with the following inline policy will work. Replace `region` and `accountId` with your region and account ID:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "dynamodb:DeleteItem",
- "dynamodb:GetItem",
- "dynamodb:PutItem",
- "dynamodb:Query",
- "dynamodb:Scan",
- "dynamodb:UpdateItem"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:dynamodb:us-east-1:111122223333:table/savingAccounts",
- "arn:aws:dynamodb:us-east-1:111122223333:table/savingAccounts/*",
- "arn:aws:dynamodb:us-east-1:111122223333:table/checkingAccounts",
- "arn:aws:dynamodb:us-east-1:111122223333:table/checkingAccounts/*",
- "arn:aws:dynamodb:us-east-1:111122223333:table/transactionHistory",
- "arn:aws:dynamodb:us-east-1:111122223333:table/transactionHistory/*"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:DeleteItem",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:UpdateItem"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:dynamodb:us-east-1:111122223333:table/savingAccounts",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/savingAccounts/*",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/checkingAccounts",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/checkingAccounts/*",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/transactionHistory",
+                "arn:aws:dynamodb:us-east-1:111122223333:table/transactionHistory/*"
+            ]
+        }
+    ]
+}
 ```
+
+------
 
 ## Transactions
+<a name="transactions"></a>
 
-For this example, the context is a classic banking transaction, where we’ll use
-`TransactWriteItems` to:
+For this example, the context is a classic banking transaction, where we’ll use `TransactWriteItems` to:
++ Transfer money from saving accounts to checking accounts
++ Generate new transaction records for each transaction
 
-- Transfer money from saving accounts to checking accounts
-- Generate new transaction records for each transaction
+And then we’ll use `TransactGetItems` to retrieve details from saving accounts and checking accounts.
 
-And then we’ll use `TransactGetItems` to retrieve details from saving
-accounts and checking accounts.
-
-###### Warning
-
-`TransactWriteItems` is not supported when used with conflict detection
-and resolution. These settings must be disabled to prevent possible errors.
+**Warning**  
+`TransactWriteItems` is not supported when used with conflict detection and resolution. These settings must be disabled to prevent possible errors.
 
 We define our GraphQL schema as follows:
 
@@ -184,18 +166,15 @@ schema {
 ```
 
 ### TransactWriteItems - Populate Accounts
+<a name="transactwriteitems-populate-accounts"></a>
 
-In order to transfer money between accounts, we need to populate the table with
-the details. We’ll use the GraphQL operation `Mutation.populateAccounts`
-to do so.
+In order to transfer money between accounts, we need to populate the table with the details. We’ll use the GraphQL operation `Mutation.populateAccounts` to do so.
 
-In the Schema section, click on **Attach** next to the
-`Mutation.populateAccounts` operation. Go to VTL Unit Resolvers, then choose the same
-`TransactTutorial` data source.
+In the Schema section, click on **Attach** next to the `Mutation.populateAccounts` operation. Go to VTL Unit Resolvers, then choose the same `TransactTutorial` data source.
 
 Now use the following request mapping template:
 
-**Request Mapping Template**
+ **Request Mapping Template** 
 
 ```
 #set($savingAccountTransactPutItems = [])
@@ -243,7 +222,7 @@ $util.qr($transactItems.addAll($checkingAccountTransactPutItems))
 
 And the following response mapping template:
 
-**Response Mapping Template**
+ **Response Mapping Template** 
 
 ```
 #if ($ctx.error)
@@ -267,8 +246,7 @@ $util.qr($transactionResult.put('checkingAccounts', $checkingAccounts))
 $util.toJson($transactionResult)
 ```
 
-Save the resolver and navigate to the **Queries**
-section of the AWS AppSync console to populate the accounts.
+Save the resolver and navigate to the **Queries** section of the AWS AppSync console to populate the accounts.
 
 Execute the following mutation:
 
@@ -300,11 +278,9 @@ We populated 3 saving accounts and 3 checking accounts in one mutation.
 Use the DynamoDB console to validate that data shows up in both the **savingAccounts** and **checkingAccounts** tables.
 
 ### TransactWriteItems - Transfer Money
+<a name="transactwriteitems-transfer-money"></a>
 
-Attach a resolver to the `transferMoney` mutation with the following
-**Request Mapping Template**. Note the values of
-`amounts`, `savingAccountNumbers`, and
-`checkingAccountNumbers` are the same.
+Attach a resolver to the `transferMoney` mutation with the following **Request Mapping Template**. Note the values of `amounts`, `savingAccountNumbers`, and `checkingAccountNumbers` are the same.
 
 ```
 #set($amounts = [])
@@ -373,9 +349,7 @@ $util.qr($transactItems.addAll($transactionHistoryTransactPutItems))
 }
 ```
 
-We will have 3 banking transactions in a single `TransactWriteItems`
-operation. Use the following **Response Mapping
-Template**:
+We will have 3 banking transactions in a single `TransactWriteItems` operation. Use the following **Response Mapping Template**:
 
 ```
 #if ($ctx.error)
@@ -405,9 +379,7 @@ $util.qr($transactionResult.put('transactionHistory', $transactionHistory))
 $util.toJson($transactionResult)
 ```
 
-Now navigate to the **Queries** section of the
-AWS AppSync console and execute the **transferMoney**
-mutation as follows:
+Now navigate to the **Queries** section of the AWS AppSync console and execute the **transferMoney** mutation as follows:
 
 ```
 mutation write {
@@ -430,18 +402,14 @@ mutation write {
 }
 ```
 
-We sent 2 banking transactions in one mutation. Use the DynamoDB console to validate
-that data shows up in the **savingAccounts**, **checkingAccounts**, and **transactionHistory** tables.
+We sent 2 banking transactions in one mutation. Use the DynamoDB console to validate that data shows up in the **savingAccounts**, **checkingAccounts**, and **transactionHistory** tables.
 
 ### TransactGetItems - Retrieve Accounts
+<a name="transactgetitems-retrieve-accounts"></a>
 
-In order to retrieve the details from saving accounts and checking accounts in a single transactional
-request we’ll attach a resolver to the `Query.getAccounts` GraphQL operation on our schema.
-Select **Attach**, go to VTL Unit Resolvers, then on the next screen, pick
-the same `TransactTutorial` data source created at the beginning of the tutorial. Configure
-the templates as follows:
+In order to retrieve the details from saving accounts and checking accounts in a single transactional request we’ll attach a resolver to the `Query.getAccounts` GraphQL operation on our schema. Select **Attach**, go to VTL Unit Resolvers, then on the next screen, pick the same `TransactTutorial` data source created at the beginning of the tutorial. Configure the templates as follows:
 
-**Request Mapping Template**
+ **Request Mapping Template** 
 
 ```
 #set($savingAccountsTransactGets = [])
@@ -471,7 +439,7 @@ $util.qr($transactItems.addAll($checkingAccountsTransactGets))
 }
 ```
 
-**Response Mapping Template**
+ **Response Mapping Template** 
 
 ```
 #if ($ctx.error)
@@ -495,9 +463,7 @@ $util.qr($transactionResult.put('checkingAccounts', $checkingAccounts))
 $util.toJson($transactionResult)
 ```
 
-Save the resolver and navigate to the **Queries**
-sections of the AWS AppSync console. In order to retrieve the saving accounts and
-checing accounts, execute the following query:
+Save the resolver and navigate to the **Queries** sections of the AWS AppSync console. In order to retrieve the saving accounts and checing accounts, execute the following query:
 
 ```
 query getAccounts {
@@ -519,5 +485,4 @@ query getAccounts {
 }
 ```
 
-We have successfully demonstrated the use of DynamoDB transactions using
-AWS AppSync.
+We have successfully demonstrated the use of DynamoDB transactions using AWS AppSync.

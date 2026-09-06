@@ -1,28 +1,19 @@
+
+
 # Amazon RDS helpers in $util.rds
+<a name="rds-helpers-in-util-rds"></a>
 
-###### Note
+**Note**  
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
 
-We now primarily support the APPSYNC\_JS runtime and its documentation. Please
-consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
-
-`$util.rds` contains helper methods that format Amazon RDS operations by getting
-rid of extraneous data in result outputs.
+`$util.rds` contains helper methods that format Amazon RDS operations by getting rid of extraneous data in result outputs.
 
 ## $util.rds utils list
+<a name="rds-helpers-in-util-rds-list"></a>
 
-****`$util.rds.toJsonString(String
- serializedSQLResult): String`****
-
-Returns a `String` by transforming the stringified raw
-Amazon Relational Database Service (Amazon RDS) Data API operation result format to a more concise string.
-The returned string is a serialized list of SQL records of the result set.
-Every record is represented as a collection of key-value pairs. The keys are
-the corresponding column names.
-
-If the corresponding statement in the input was a SQL query that causes a
-mutation (for example INSERT, UPDATE, DELETE), then an empty list is
-returned. For example, the query `select * from Books limit 2`
-provides the raw result from the Amazon RDS Data operation:
+****`$util.rds.toJsonString(String serializedSQLResult): String`****  
+Returns a `String` by transforming the stringified raw Amazon Relational Database Service (Amazon RDS) Data API operation result format to a more concise string. The returned string is a serialized list of SQL records of the result set. Every record is represented as a collection of key-value pairs. The keys are the corresponding column names.  
+If the corresponding statement in the input was a SQL query that causes a mutation (for example INSERT, UPDATE, DELETE), then an empty list is returned. For example, the query `select * from Books limit 2` provides the raw result from the Amazon RDS Data operation:  
 
 ```
 {
@@ -107,8 +98,7 @@ provides the raw result from the Amazon RDS Data operation:
     ]
 }
 ```
-
-The `util.rds.toJsonString` is:
+The `util.rds.toJsonString` is:  
 
 ```
 [
@@ -125,8 +115,5 @@ The `util.rds.toJsonString` is:
 ]
 ```
 
-****`$util.rds.toJsonObject(String
- serializedSQLResult): Object`****
-
-This is the same as `util.rds.toJsonString`, but with the
-result being a JSON `Object`.
+****`$util.rds.toJsonObject(String serializedSQLResult): Object`****  
+This is the same as `util.rds.toJsonString`, but with the result being a JSON `Object`.

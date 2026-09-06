@@ -1,14 +1,14 @@
-# AWS AppSync JavaScript resolver context object reference
 
-AWS AppSync defines a set of variables and functions for working with request and response
-handlers. This makes logical operations on data easier with GraphQL. This document describes
-those functions and provides examples.
+
+# AWS AppSync JavaScript resolver context object reference
+<a name="resolver-context-reference-js"></a>
+
+AWS AppSync defines a set of variables and functions for working with request and response handlers. This makes logical operations on data easier with GraphQL. This document describes those functions and provides examples.
 
 ## Accessing the `context`
+<a name="accessing-the-context-js"></a>
 
-The `context` argument of a request and response handler is an object that
-holds all of the contextual information for your resolver invocation. It has the following
-structure:
+The `context` argument of a request and response handler is an object that holds all of the contextual information for your resolver invocation. It has the following structure:
 
 ```
 type Context = {
@@ -28,42 +28,27 @@ type Context = {
 };
 ```
 
-###### Note
-
-You will often find that the `context` object is referred to as
-`ctx`.
+**Note**  
+You will often find that the `context` object is referred to as `ctx`.
 
 Each field in the `context` object is defined as follows:
 
 ### `context` fields
+<a name="accessing-the-context-list-js"></a>
 
-**`arguments`**
-
+** `arguments` **  
 A map that contains all GraphQL arguments for this field.
 
-**`identity`**
+** `identity` **  
+An object that contains information about the caller. For more information about the structure of this field, see [Identity](#aws-appsync-resolver-context-reference-identity-js).
 
-An object that contains information about the caller. For more information
-about the structure of this field, see [Identity](#aws-appsync-resolver-context-reference-identity-js "#aws-appsync-resolver-context-reference-identity-js").
-
-**`source`**
-
+** `source` **  
 A map that contains the resolution of the parent field.
 
-**`stash`**
-
-The stash is an object that is made available inside each resolver and
-function handler. The same stash object lives through a single resolver run.
-This means that you can use the stash to pass arbitrary data across request and
-response handlers and across functions in a pipeline resolver.
-
-###### Note
-
-You cannot delete or replace the entire stash, but you can add, update,
-delete, and read properties of the stash.
-
-You can add items to the stash by modifying one of the code examples
-below:
+** `stash` **  
+The stash is an object that is made available inside each resolver and function handler. The same stash object lives through a single resolver run. This means that you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.   
+You cannot delete or replace the entire stash, but you can add, update, delete, and read properties of the stash. 
+You can add items to the stash by modifying one of the code examples below:  
 
 ```
 //Example 1
@@ -72,20 +57,15 @@ ctx.stash.newItem = { key: "something" }
 //Example 2
 Object.assign(ctx.stash, {key1: value1, key2: value})
 ```
-
-You can remove items from the stash by modifying the code below:
+You can remove items from the stash by modifying the code below:  
 
 ```
 delete ctx.stash.key
 ```
 
-**`result`**
-
-A container for the results of this resolver. This field is available only
-to response handlers.
-
-For example, if you're resolving the `author` field of the
-following query:
+** `result` **  
+A container for the results of this resolver. This field is available only to response handlers.  
+For example, if you're resolving the `author` field of the following query:  
 
 ```
 query {
@@ -100,9 +80,7 @@ query {
     }
 }
 ```
-
-Then the full `context` variable is available when a response
-handler is evaluated:
+Then the full `context` variable is available when a response handler is evaluated:  
 
 ```
 {
@@ -128,58 +106,37 @@ handler is evaluated:
 }
 ```
 
-**`prev.result`**
+** `prev.result` **  
+The result of whatever previous operation was executed in a pipeline resolver.  
+If the previous operation was the pipeline resolver's request handler, then `ctx.prev.result` represents that evaluation result and is made available to the first function in the pipeline.  
+If the previous operation was the first function, then `ctx.prev.result` represents the evaluation result of the first function response handler and is made available to the second function in the pipeline.  
+If the previous operation was the last function, then `ctx.prev.result` represents the evaluation result of the last function and is made available to the pipeline resolver's response handler.
 
-The result of whatever previous operation was executed in a pipeline
-resolver.
-
-If the previous operation was the pipeline resolver's request handler, then
-`ctx.prev.result` represents that evaluation result and is made
-available to the first function in the pipeline.
-
-If the previous operation was the first function, then
-`ctx.prev.result` represents the evaluation result of the first
-function response handler and is made available to the second function in the
-pipeline.
-
-If the previous operation was the last function, then
-`ctx.prev.result` represents the evaluation result of the last
-function and is made available to the pipeline resolver's response
-handler.
-
-**`info`**
-
-An object that contains information about the GraphQL request. For the
-structure of this field, see [Info](#aws-appsync-resolver-context-reference-info-js "#aws-appsync-resolver-context-reference-info-js").
+** `info` **  
+An object that contains information about the GraphQL request. For the structure of this field, see [Info](#aws-appsync-resolver-context-reference-info-js).
 
 ### Identity
+<a name="aws-appsync-resolver-context-reference-identity-js"></a>
 
-The `identity` section contains information about the caller. The shape of
-this section depends on the authorization type of your AWS AppSync API.
+The `identity` section contains information about the caller. The shape of this section depends on the authorization type of your AWS AppSync API.
 
-For more information about AWS AppSync security options, see [Authorization and authentication](security-authz.md#aws-appsync-security "security-authz.md#aws-appsync-security").
+For more information about AWS AppSync security options, see [Authorization and authentication](security-authz.md#aws-appsync-security).
 
-**`API_KEY` authorization**
-
+** `API_KEY` authorization**  
 The `identity` field isn't populated.
 
-**`AWS_LAMBDA` authorization**
-
-The `identity` has the following form:
+**`AWS_LAMBDA` authorization**  
+The `identity` has the following form:  
 
 ```
 type AppSyncIdentityLambda = {
   resolverContext: any;
 };
 ```
+The `identity` contains the `resolverContext` key, containing the same `resolverContext` content returned by the Lambda function authorizing the request.
 
-The `identity` contains the `resolverContext` key,
-containing the same `resolverContext` content returned by the Lambda
-function authorizing the request.
-
-**`AWS_IAM` authorization**
-
-The `identity` has the following form:
+** `AWS_IAM` authorization**  
+The `identity` has the following form:  
 
 ```
 type AppSyncIdentityIAM = {
@@ -194,9 +151,8 @@ type AppSyncIdentityIAM = {
 };
 ```
 
-**`AMAZON_COGNITO_USER_POOLS` authorization**
-
-The `identity` has the following form:
+** `AMAZON_COGNITO_USER_POOLS` authorization**  
+The `identity` has the following form:  
 
 ```
 type AppSyncIdentityCognito = {
@@ -212,126 +168,88 @@ type AppSyncIdentityCognito = {
 
 Each field is defined as follows:
 
-**`accountId`**
-
+** `accountId` **  
 The AWS account ID of the caller.
 
-**`claims`**
-
+** `claims` **  
 The claims that the user has.
 
-**`cognitoIdentityAuthType`**
-
+** `cognitoIdentityAuthType` **  
 Either authenticated or unauthenticated based on the identity type.
 
-**`cognitoIdentityAuthProvider`**
+** `cognitoIdentityAuthProvider` **  
+A comma-separated list of external identity provider information used in obtaining the credentials used to sign the request.
 
-A comma-separated list of external identity provider information used in
-obtaining the credentials used to sign the request.
-
-**`cognitoIdentityId`**
-
+** `cognitoIdentityId` **  
 The Amazon Cognito identity ID of the caller.
 
-**`cognitoIdentityPoolId`**
-
+** `cognitoIdentityPoolId` **  
 The Amazon Cognito identity pool ID associated with the caller.
 
-**`defaultAuthStrategy`**
+** `defaultAuthStrategy` **  
+The default authorization strategy for this caller (`ALLOW` or `DENY`).
 
-The default authorization strategy for this caller (`ALLOW` or
-`DENY`).
-
-**`issuer`**
-
+** `issuer` **  
 The token issuer.
 
-**`sourceIp`**
+** `sourceIp` **  
+The source IP address of the caller that AWS AppSync receives. If the request doesn't include the `x-forwarded-for` header, the source IP value contains only a single IP address from the TCP connection. If the request includes a `x-forwarded-for` header, the source IP is a list of IP addresses from the `x-forwarded-for` header, in addition to the IP address from the TCP connection.
 
-The source IP address of the caller that AWS AppSync receives. If the request
-doesn't include the `x-forwarded-for` header, the source IP value
-contains only a single IP address from the TCP connection. If the request
-includes a `x-forwarded-for` header, the source IP is a list of IP
-addresses from the `x-forwarded-for` header, in addition to the IP
-address from the TCP connection.
-
-**`sub`**
-
+** `sub` **  
 The UUID of the authenticated user.
 
-**`user`**
-
+** `user` **  
 The IAM user.
 
-**`userArn`**
-
+** `userArn` **  
 The Amazon Resource Name (ARN) of the IAM user.
 
-**`username`**
-
-The user name of the authenticated user. In the case of
-`AMAZON_COGNITO_USER_POOLS` authorization, the value of _username_ is the value of attribute
-_cognito:username_. In the case of
-`AWS_IAM` authorization, the value of _username_ is the value of the AWS user
-principal. If you're using IAM authorization with credentials vended from
-Amazon Cognito identity pools, we recommend that you use
-`cognitoIdentityId`.
+** `username` **  
+The user name of the authenticated user. In the case of `AMAZON_COGNITO_USER_POOLS` authorization, the value of *username* is the value of attribute *cognito:username*. In the case of `AWS_IAM` authorization, the value of *username* is the value of the AWS user principal. If you're using IAM authorization with credentials vended from Amazon Cognito identity pools, we recommend that you use `cognitoIdentityId`.
 
 ### Access request headers
+<a name="aws-appsync-resolver-context-reference-util-js"></a>
 
-AWS AppSync supports passing custom headers from clients and accessing them in your
-GraphQL resolvers by using `ctx.request.headers`. You can then use the header
-values for actions such as inserting data into a data source or authorization checks.
-You can use single or multiple request headers using `$curl` with an API key
-from the command line, as shown in the following examples:
+AWS AppSync supports passing custom headers from clients and accessing them in your GraphQL resolvers by using `ctx.request.headers`. You can then use the header values for actions such as inserting data into a data source or authorization checks. You can use single or multiple request headers using `$curl` with an API key from the command line, as shown in the following examples:
 
-**Single header example**
+**Single header example** 
 
-Suppose you set a header of `custom` with a value of `nadia`
-like the following:
+Suppose you set a header of `custom` with a value of `nadia` like the following:
 
 ```
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
-This could then be accessed with `ctx.request.headers.custom`. For
-example, it might be in the following code for DynamoDB:
+This could then be accessed with `ctx.request.headers.custom`. For example, it might be in the following code for DynamoDB:
 
 ```
 "custom": util.dynamodb.toDynamoDB(ctx.request.headers.custom)
 ```
 
-**Multiple header example**
+**Multiple header example** 
 
-You can also pass multiple headers in a single request and access these in the
-resolver handler. For example, if the `custom` header is set with two
-values:
+You can also pass multiple headers in a single request and access these in the resolver handler. For example, if the `custom` header is set with two values:
 
 ```
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:bailey" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
-You could then access these as an array, such as
-`ctx.request.headers.custom[1]`.
+You could then access these as an array, such as `ctx.request.headers.custom[1]`.
 
-###### Note
-
-AWS AppSync doesn't expose the cookie header in
-`ctx.request.headers`.
+**Note**  
+AWS AppSync doesn't expose the cookie header in `ctx.request.headers`.
 
 ### Access the request custom domain name
+<a name="aws-access-requested-custom-domain-names-js"></a>
 
-AWS AppSync supports configuring a custom domain that you can use to access your GraphQL
-and real-time endpoints for your APIs. When making a request with a custom domain name,
-you can get the domain name using `ctx.request.domainName`.
+AWS AppSync supports configuring a custom domain that you can use to access your GraphQL and real-time endpoints for your APIs. When making a request with a custom domain name, you can get the domain name using `ctx.request.domainName`.
 
-When using the default GraphQL endpoint domain name, the value is
-`null`.
+When using the default GraphQL endpoint domain name, the value is `null`.
 
 ### Info
+<a name="aws-appsync-resolver-context-reference-info-js"></a>
 
-The `info` section contains information about the GraphQL request. This
-section has the following form:
+The `info` section contains information about the GraphQL request. This section has the following form:
 
 ```
 type Info = {
@@ -345,40 +263,25 @@ type Info = {
 
 Each field is defined as follows:
 
-**`fieldName`**
-
+** `fieldName` **  
 The name of the field that is currently being resolved.
 
-**`parentTypeName`**
+** `parentTypeName` **  
+The name of the parent type for the field that is currently being resolved.
 
-The name of the parent type for the field that is currently being
-resolved.
+** `variables` **  
+A map which holds all variables that are passed into the GraphQL request.
 
-**`variables`**
+** `selectionSetList` **  
+A list representation of the fields in the GraphQL selection set. Fields that are aliased are referenced only by the alias name, not the field name. The following example shows this in detail.
 
-A map which holds all variables that are passed into the GraphQL
-request.
+** `selectionSetGraphQL` **  
+A string representation of the selection set, formatted as GraphQL schema definition language (SDL). Although fragments aren't merged into the selection set, inline fragments are preserved, as shown in the following example.
 
-**`selectionSetList`**
+**Note**  
+`JSON.stringify` will not include `selectionSetGraphQL` and `selectionSetList` in the string serialization. You must reference these properties directly.
 
-A list representation of the fields in the GraphQL selection set. Fields
-that are aliased are referenced only by the alias name, not the field name. The
-following example shows this in detail.
-
-**`selectionSetGraphQL`**
-
-A string representation of the selection set, formatted as GraphQL schema
-definition language (SDL). Although fragments aren't merged into the selection
-set, inline fragments are preserved, as shown in the following example.
-
-###### Note
-
-`JSON.stringify` will not include `selectionSetGraphQL` and
-`selectionSetList` in the string serialization. You must reference
-these properties directly.
-
-For example, if you are resolving the `getPost` field of the following
-query:
+For example, if you are resolving the `getPost` field of the following query:
 
 ```
 query {
@@ -410,8 +313,7 @@ fragment postFrag on Post {
 }
 ```
 
-Then the full `ctx.info` variable that is available when processing a
-handler might be:
+Then the full `ctx.info` variable that is available when processing a handler might be:
 
 ```
 {
@@ -440,9 +342,7 @@ handler might be:
 }
 ```
 
-`selectionSetList` exposes only fields that belong to the current type. If
-the current type is an interface or union, only selected fields that belong to the
-interface are exposed. For example, given the following schema:
+`selectionSetList` exposes only fields that belong to the current type. If the current type is an interface or union, only selected fields that belong to the interface are exposed. For example, given the following schema:
 
 ```
 type Query {
@@ -483,8 +383,7 @@ query {
 }
 ```
 
-When calling `ctx.info.selectionSetList` at the `Query.node`
-field resolution, only `id` is exposed:
+When calling `ctx.info.selectionSetList` at the `Query.node` field resolution, only `id` is exposed:
 
 ```
 "selectionSetList": [

@@ -1,34 +1,31 @@
-# Built-in modules
 
-Modules are a part of the `APPSYNC_JS` runtime and provide utilities to help
-write JavaScript resolvers and functions. For samples and examples, see the [aws-appsync-resolver-samples](https://github.com/aws-samples/aws-appsync-resolver-samples "https://github.com/aws-samples/aws-appsync-resolver-samples")
-GitHub repository.
+
+# Built-in modules
+<a name="built-in-modules-js"></a>
+
+Modules are a part of the `APPSYNC_JS` runtime and provide utilities to help write JavaScript resolvers and functions. For samples and examples, see the [aws-appsync-resolver-samples](https://github.com/aws-samples/aws-appsync-resolver-samples) GitHub repository.
 
 ## DynamoDB module functions
+<a name="built-in-ddb-modules"></a>
 
-DynamoDB module functions provide an enhanced experience when interacting with DynamoDB
-data sources. You can make requests toward your DynamoDB data sources using the functions
-and without adding type mapping.
+DynamoDB module functions provide an enhanced experience when interacting with DynamoDB data sources. You can make requests toward your DynamoDB data sources using the functions and without adding type mapping. 
 
 Modules are imported using `@aws-appsync/utils/dynamodb`:
 
 ```
-// Modules are imported using `@aws-appsync/utils/dynamodb`
+// Modules are imported using @aws-appsync/utils/dynamodb
 import * as ddb from '@aws-appsync/utils/dynamodb';
 ```
 
 ### Functions
+<a name="built-in-ddb-modules-functions"></a>
 
-**`get<T>(payload: GetInput):
- DynamoDBGetItemRequest`**
+#### Functions list
+<a name="built-in-ddb-modules-functions-list"></a>
 
-###### Tip
-
-See [Inputs](#built-in-ddb-modules-inputs "#built-in-ddb-modules-inputs") for
-information about GetInput.
-
-Generates a `DynamoDBGetItemRequest` object to make a
-[GetItem](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-getitem "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-getitem") request to DynamoDB.
+ **` get<T>(payload: GetInput): DynamoDBGetItemRequest`**  
+See [Inputs](#built-in-ddb-modules-inputs) for information about GetInput.
+Generates a `DynamoDBGetItemRequest` object to make a [GetItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-getitem) request to DynamoDB.  
 
 ```
 import { get } from '@aws-appsync/utils/dynamodb';
@@ -38,11 +35,8 @@ export function request(ctx) {
 }
 ```
 
-**`put<T>(payload):
- DynamoDBPutItemRequest`**
-
-Generates a `DynamoDBPutItemRequest` object to make a
-[PutItem](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-putitem "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-putitem") request to DynamoDB.
+ **`put<T>(payload): DynamoDBPutItemRequest`**  
+Generates a `DynamoDBPutItemRequest` object to make a [PutItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-putitem) request to DynamoDB.  
 
 ```
 import * as ddb from '@aws-appsync/utils/dynamodb'
@@ -52,11 +46,8 @@ export function request(ctx) {
 }
 ```
 
-**`remove<T>(payload):
- DynamoDBDeleteItemRequest`**
-
-Generates a `DynamoDBDeleteItemRequest` object to make a
-[DeleteItem](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-deleteitem "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-deleteitem") request to DynamoDB.
+**`remove<T>(payload): DynamoDBDeleteItemRequest`**  
+Generates a `DynamoDBDeleteItemRequest` object to make a [DeleteItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-deleteitem) request to DynamoDB.  
 
 ```
 import * as ddb from '@aws-appsync/utils/dynamodb';
@@ -66,10 +57,8 @@ export function request(ctx) {
 }
 ```
 
-**`scan<T>(payload):
- DynamoDBScanRequest`**
-
-Generates a `DynamoDBScanRequest` to make a [Scan](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-scan "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-scan") request to DynamoDB.
+**`scan<T>(payload): DynamoDBScanRequest`**  
+Generates a `DynamoDBScanRequest` to make a [Scan](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-scan) request to DynamoDB.  
 
 ```
 import * as ddb from '@aws-appsync/utils/dynamodb';
@@ -80,13 +69,8 @@ export function request(ctx) {
 }
 ```
 
-**`sync<T>(payload):
- DynamoDBSyncRequest`**
-
-Generates a `DynamoDBSyncRequest` object to make a
-[Sync](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-sync "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-sync") request. The request only receives the data altered
-since the last query (delta updates). Requests can only be made to
-versioned DynamoDB data sources.
+**`sync<T>(payload): DynamoDBSyncRequest`**  
+Generates a `DynamoDBSyncRequest` object to make a [Sync](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-sync) request. The request only receives the data altered since the last query (delta updates). Requests can only be made to versioned DynamoDB data sources.  
 
 ```
 import * as ddb from '@aws-appsync/utils/dynamodb';
@@ -97,32 +81,26 @@ export function request(ctx) {
 }
 ```
 
-**`update<T>(payload):
- DynamoDBUpdateItemRequest`**
-
-Generates a `DynamoDBUpdateItemRequest` object to make
-an [UpdateItem](js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-updateitem "js-resolver-reference-dynamodb.md#js-aws-appsync-resolver-reference-dynamodb-updateitem") request to DynamoDB.
+**`update<T>(payload): DynamoDBUpdateItemRequest`**  
+Generates a `DynamoDBUpdateItemRequest` object to make an [UpdateItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-updateitem) request to DynamoDB.
 
 ### Operations
+<a name="built-in-ddb-modules-operations"></a>
 
-Operation helpers allow you to take specific actions on parts of your data during
-updates. To get started, import `operations` from
-`@aws-appsync/utils/dynamodb`:
+Operation helpers allow you to take specific actions on parts of your data during updates. To get started, import `operations` from `@aws-appsync/utils/dynamodb`:
 
 ```
 // Modules are imported using operations
-`import {operations} from '@aws-appsync/utils/dynamodb';`
+import {operations} from '@aws-appsync/utils/dynamodb';
 ```
 
-**`add<T>(payload)`**
+#### Operations list
+<a name="built-in-ddb-modules-operations-list"></a>
 
-A helper function that adds a new attribute item when updating
-DynamoDB.
-
-**Example**
-
-To add an address (street, city, and zip code) to an existing DynamoDB
-item using the ID value:
+ **`add<T>(payload)`**  
+A helper function that adds a new attribute item when updating DynamoDB.  
+**Example**  
+To add an address (street, city, and zip code) to an existing DynamoDB item using the ID value:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -139,17 +117,10 @@ export function request(ctx) {
 }
 ```
 
-**`append
- <T>(payload)`**
-
-A helper function that appends a payload to the existing list in
-DynamoDB.
-
-**Example**
-
-To append newly added friend IDs (`newFriendIds`) to an
-existing friends list (`friendsIds`) during an
-update:
+**`append <T>(payload)`**  
+A helper function that appends a payload to the existing list in DynamoDB.  
+**Example**  
+To append newly added friend IDs (`newFriendIds`) to an existing friends list (`friendsIds`) during an update:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -163,15 +134,10 @@ export function request(ctx) {
 }
 ```
 
-**`decrement (by?)`**
-
-A helper function that decrements the existing attribute value in
-the item when updating DynamoDB.
-
-**Example**
-
-To decrement a friends counter (`friendsCount`) by
-10:
+**`decrement (by?)`**  
+A helper function that decrements the existing attribute value in the item when updating DynamoDB.  
+**Example**  
+To decrement a friends counter (`friendsCount`) by 10:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -184,15 +150,10 @@ export function request(ctx) {
 }
 ```
 
-**`increment (by?)`**
-
-A helper function that increments the existing attribute value in
-the item when updating DynamoDB.
-
-**Example**
-
-To increment a friends counter (`friendsCount`) by
-10:
+**`increment (by?)`**  
+A helper function that increments the existing attribute value in the item when updating DynamoDB.  
+**Example**  
+To increment a friends counter (`friendsCount`) by 10:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -205,17 +166,10 @@ export function request(ctx) {
 }
 ```
 
-**`prepend
- <T>(payload)`**
-
-A helper function that prepends to the existing list in
-DynamoDB.
-
-**Example**
-
-To prepend newly added friend IDs (`newFriendIds`) to an
-existing friends list (`friendsIds`) during an
-update:
+**`prepend <T>(payload)`**  
+A helper function that prepends to the existing list in DynamoDB.  
+**Example**  
+To prepend newly added friend IDs (`newFriendIds`) to an existing friends list (`friendsIds`) during an update:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -229,18 +183,10 @@ export function request(ctx) {
 }
 ```
 
-**`replace
- <T>(payload)`**
-
-A helper function that replaces an existing attribute when updating
-an item in DynamoDB. This is useful for when you want to update the
-entire object or subobject in the attribute and not just the keys in
-the payload.
-
-**Example**
-
-To replace an address (street, city, and zip code) in an
-`info` object:
+**`replace <T>(payload)`**  
+A helper function that replaces an existing attribute when updating an item in DynamoDB. This is useful for when you want to update the entire object or subobject in the attribute and not just the keys in the payload.  
+**Example**  
+To replace an address (street, city, and zip code) in an `info` object:  
 
 ```
 import { update, operations } from '@aws-appsync/utils/dynamodb';
@@ -259,18 +205,10 @@ export function request(ctx) {
 }
 ```
 
-**`updateListItem <T>(payload,
- index)`**
-
-A helper function that replaces an item in a list.
-
-**Example**
-
-In the scope of the update (`newFriendIds`), this
-example used `updateListItem` to update the ID values of
-the second item (index: `1`, new ID: `102`) and
-third item (index: `2`, new ID: `112`) in a list
-(`friendsIds`).
+**`updateListItem <T>(payload, index)`**  
+A helper function that replaces an item in a list.  
+**Example**  
+In the scope of the update (`newFriendIds`), this example used `updateListItem` to update the ID values of the second item (index: `1`, new ID: `102`) and third item (index: `2`, new ID: `112`) in a list (`friendsIds`).  
 
 ```
 import { update, operations as ops } from '@aws-appsync/utils/dynamodb';
@@ -285,457 +223,308 @@ export function request(ctx) {
 ```
 
 ### Inputs
+<a name="built-in-ddb-modules-inputs"></a>
 
-**`Type GetInput<T>`**
+#### Inputs list
+<a name="built-in-ddb-modules-inputs-list"></a>
+
+ **`Type GetInput<T>`**  
 
 ```
-GetInput<T>: {
-    consistentRead?: boolean;
-    key: DynamoDBKey<T>;
+GetInput<T>: { 
+    consistentRead?: boolean; 
+    key: DynamoDBKey<T>; 
 }
 ```
+**Type Declaration**  
++ `consistentRead?: boolean` (optional)
 
-**Type Declaration**
+  An optional boolean to specify whether you want to perform a strongly consistent read with DynamoDB.
++ `key: DynamoDBKey<T>` (required)
 
-- `consistentRead?: boolean` (optional)
+  A required parameter that specifies the key of the item in DynamoDB. DynamoDB items may have a single hash key or hash and sort keys.
 
-An optional boolean to specify whether you want to perform a
-strongly consistent read with DynamoDB.
-
-- `key: DynamoDBKey<T>` (required)
-
-A required parameter that specifies the key of the item in
-DynamoDB. DynamoDB items may have a single hash key or hash and sort
-keys.
-
-**`Type
- PutInput<T>`**
+**`Type PutInput<T>`**  
 
 ```
-PutInput<T>: {
-    _version?: number;
-    condition?: DynamoDBFilterObject<T> | null;
-    customPartitionKey?: string;
-    item: Partial<T>;
-    key: DynamoDBKey<T>;
-    populateIndexFields?: boolean;
+PutInput<T>: { 
+    _version?: number; 
+    condition?: DynamoDBFilterObject<T> | null; 
+    customPartitionKey?: string; 
+    item: Partial<T>; 
+    key: DynamoDBKey<T>; 
+    populateIndexFields?: boolean; 
 }
 ```
+**Type Declaration**  
++ `_version?: number` (optional)
++ `condition?: DynamoDBFilterObject<T> | null` (optional)
 
-**Type Declaration**
+  When you put an object in a DynamoDB table, you can optionally specify a conditional expression that controls whether the request should succeed or not based on the state of the object already in DynamoDB before the operation is performed.
++ `customPartitionKey?: string` (optional)
 
-- `_version?: number` (optional)
-- `condition?: DynamoDBFilterObject<T> | null`
-  (optional)
+  When enabled, this string value modifies the format of the `ds_sk` and `ds_pk` records used by the delta sync table when versioning has been enabled. When enabled, the processing of the `populateIndexFields` entry is also enabled. 
++ `item: Partial<T>` (required)
 
-When you put an object in a DynamoDB table, you can optionally
-specify a conditional expression that controls whether the
-request should succeed or not based on the state of the object
-already in DynamoDB before the operation is performed.
+  The rest of the attributes of the item to be placed into DynamoDB.
++ `key: DynamoDBKey<T>` (required)
 
-- `customPartitionKey?: string` (optional)
+  A required parameter that specifies the key of the item in DynamoDB on which the put will be performed. DynamoDB items may have a single hash key or hash and sort keys.
++ `populateIndexFields?: boolean` (optional)
 
-When enabled, this string value modifies the format of the
-`ds_sk` and `ds_pk` records used by the
-delta sync table when versioning has been enabled. When enabled,
-the processing of the `populateIndexFields` entry is
-also enabled.
+  A boolean value that, when enabled along with the `customPartitionKey`, creates new entries for each record in the delta sync table, specifically in the `gsi_ds_pk` and `gsi_ds_sk` columns. For more information, see [Conflict detection and sync](https://docs.aws.amazon.com/appsync/latest/devguide/conflict-detection-and-sync.html) in the *AWS AppSync Developer Guide*.
 
-- `item: Partial<T>` (required)
-
-The rest of the attributes of the item to be placed into
-DynamoDB.
-
-- `key: DynamoDBKey<T>` (required)
-
-A required parameter that specifies the key of the item in
-DynamoDB on which the put will be performed. DynamoDB items may have a
-single hash key or hash and sort keys.
-
-- `populateIndexFields?: boolean` (optional)
-
-A boolean value that, when enabled along with the
-`customPartitionKey`, creates new entries for each
-record in the delta sync table, specifically in the
-`gsi_ds_pk` and `gsi_ds_sk` columns.
-For more information, see [Conflict detection and sync](conflict-detection-and-sync.md "conflict-detection-and-sync.md") in the _AWS AppSync Developer Guide_.
-
-**`Type
- QueryInput<T>`**
+**`Type QueryInput<T>`**  
 
 ```
-QueryInput<T>: ScanInput<T> & {
-    query: DynamoDBKeyCondition<Required<T>>;
+QueryInput<T>: ScanInput<T> & { 
+    query: DynamoDBKeyCondition<Required<T>>; 
 }
 ```
+**Type Declaration**  
++ `query: DynamoDBKeyCondition<Required<T>>` (required)
 
-**Type Declaration**
+  Specifies a key condition that describes items to query. For a given index, the condition for a partition key should be an equality and the sort key a comparison or a `beginsWith` (when it's a string). Only number and string types are supported for partition and sort keys.
 
-- `query: DynamoDBKeyCondition<Required<T>>`
-  (required)
+  **Example**
 
-Specifies a key condition that describes items to query. For
-a given index, the condition for a partition key should be an
-equality and the sort key a comparison or a
-`beginsWith` (when it's a string). Only number and
-string types are supported for partition and sort keys.
+  Take the `User` type below:
 
-**Example**
+  ```
+  type User = {
+    id: string;
+    name: string;
+    age: number;
+    isVerified: boolean;
+    friendsIds: string[] 
+  }
+  ```
 
-Take the `User` type below:
+  The query can only include the following fields: `id`, `name`, and `age`:
+
+  ```
+  const query: QueryInput<User> = {
+      name: { eq: 'John' },
+      age: { gt: 20 },
+  }
+  ```
+
+**`Type RemoveInput<T>`**  
 
 ```
-type User = {
-  id: string;
-  name: string;
-  age: number;
-  isVerified: boolean;
-  friendsIds: string[]
+RemoveInput<T>: { 
+    _version?: number; 
+    condition?: DynamoDBFilterObject<T>; 
+    customPartitionKey?: string; 
+    key: DynamoDBKey<T>; 
+    populateIndexFields?: boolean; 
 }
 ```
+**Type Declaration**  
++ `_version?: number` (optional)
++ `condition?: DynamoDBFilterObject<T>` (optional)
 
-The query can only include the following fields:
-`id`, `name`, and
-`age`:
+  When you remove an object in DynamoDB, you can optionally specify a conditional expression that controls whether the request should succeed or not based on the state of the object already in DynamoDB before the operation is performed.
+
+  **Example**
+
+  The following example is a `DeleteItem` expression containing a condition that allows the operation succeed only if the owner of the document matches the user making the request.
+
+  ```
+  type Task = {
+    id: string;
+    title: string;
+    description: string;
+    owner: string;
+    isComplete: boolean;
+  }
+  const condition: DynamoDBFilterObject<Task> = {
+    owner: { eq: 'XXXXXXXXXXXXXXXX' },
+  }
+  
+  remove<Task>({
+     key: {
+       id: 'XXXXXXXXXXXXXXXX',
+    },
+    condition,
+  });
+  ```
++ `customPartitionKey?: string` (optional)
+
+  When enabled, the `customPartitionKey` value modifies the format of the `ds_sk` and `ds_pk` records used by the delta sync table when versioning has been enabled. When enabled, the processing of the `populateIndexFields` entry is also enabled. 
++ `key: DynamoDBKey<T>` (required)
+
+  A required parameter that specifies the key of the item in DynamoDB that is being removed. DynamoDB items may have a single hash key or hash and sort keys.
+
+  **Example**
+
+  If a `User` only has the hash key with a user `id`, then the key would look like this:
+
+  ```
+  type User = {
+  	id: number
+  	name: string
+  	age: number
+  	isVerified: boolean
+  }
+  const key: DynamoDBKey<User> = {
+  	id: 1,
+  }
+  ```
+
+  If the table user has a hash key (`id`) and sort key (`name`), then the key would look like this:
+
+  ```
+  type User = {
+  	id: number
+  	name: string
+  	age: number
+  	isVerified: boolean
+  	friendsIds: string[]
+  }
+  
+  const key: DynamoDBKey<User> = {
+  	id: 1,
+  	name: 'XXXXXXXXXX',
+  }
+  ```
++ `populateIndexFields?: boolean` (optional)
+
+  A boolean value that, when enabled along with the `customPartitionKey`, creates new entries for each record in the delta sync table, specifically in the `gsi_ds_pk` and `gsi_ds_sk` columns.
+
+**`Type ScanInput<T>`**  
 
 ```
-const query: QueryInput<User> = {
-    name: { eq: 'John' },
-    age: { gt: 20 },
+ScanInput<T>: { 
+    consistentRead?: boolean | null; 
+    filter?: DynamoDBFilterObject<T> | null; 
+    index?: string | null; 
+    limit?: number | null; 
+    nextToken?: string | null; 
+    scanIndexForward?: boolean | null; 
+    segment?: number; 
+    select?: DynamoDBSelectAttributes; 
+    totalSegments?: number; 
 }
 ```
+**Type Declaration**  
++ `consistentRead?: boolean | null` (optional)
 
-**`Type
- RemoveInput<T>`**
+  An optional boolean to indicate consistent reads when querying DynamoDB. The default value is `false`.
++ `filter?: DynamoDBFilterObject<T> | null` (optional)
+
+  An optional filter to apply to the results after retrieving it from the table.
++ `index?: string | null` (optional)
+
+  An optional name of the index to scan.
++ `limit?: number | null` (optional)
+
+  An optional max number of results to return.
++ `nextToken?: string | null` (optional)
+
+  An optional pagination token to continue a previous query. This would have been obtained from a previous query.
++ `scanIndexForward?: boolean | null` (optional)
+
+  An optional boolean to indicate whether the query is performed in ascending or descending order. By default, this value is set to `true`.
++ `segment?: number` (optional)
++ `select?: DynamoDBSelectAttributes` (optional)
+
+  Attributes to return from DynamoDB. By default, the AWS AppSync DynamoDB resolver only returns attributes that are projected into the index. The supported values are:
+  + `ALL_ATTRIBUTES`
+
+    Returns all the item attributes from the specified table or index. If you query a local secondary index, DynamoDB fetches the entire item from the parent table for each matching item in the index. If the index is configured to project all item attributes, all of the data can be obtained from the local secondary index and no fetching is required.
+  + `ALL_PROJECTED_ATTRIBUTES`
+
+    Returns all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying `ALL_ATTRIBUTES`.
+  + `SPECIFIC_ATTRIBUTES`
+
+    Returns only the attributes listed in `ProjectionExpression`. This return value is equivalent to specifying `ProjectionExpression` without specifying any value for `AttributesToGet`.
++ `totalSegments?: number` (optional)
+
+**`Type DynamoDBSyncInput<T>`**  
 
 ```
-RemoveInput<T>: {
-    _version?: number;
-    condition?: DynamoDBFilterObject<T>;
-    customPartitionKey?: string;
-    key: DynamoDBKey<T>;
-    populateIndexFields?: boolean;
+DynamoDBSyncInput<T>: { 
+    basePartitionKey?: string; 
+    deltaIndexName?: string; 
+    filter?: DynamoDBFilterObject<T> | null; 
+    lastSync?: number; 
+    limit?: number | null; 
+    nextToken?: string | null; 
 }
 ```
+**Type Declaration**  
++ `basePartitionKey?: string` (optional)
 
-**Type Declaration**
+  The partition key of the base table to be used when performing a Sync operation. This field allows a Sync operation to be performed when the table utilizes a custom partition key.
++ `deltaIndexName?: string` (optional)
 
-- `_version?: number` (optional)
-- `condition?: DynamoDBFilterObject<T>`
-  (optional)
+  The index used for the Sync operation. This index is required to enable a Sync operation on the whole delta store table when the table uses a custom partition key. The Sync operation will be performed on the GSI (created on `gsi_ds_pk` and `gsi_ds_sk`).
++ `filter?: DynamoDBFilterObject<T> | null` (optional)
 
-When you remove an object in DynamoDB, you can optionally
-specify a conditional expression that controls whether the
-request should succeed or not based on the state of the object
-already in DynamoDB before the operation is performed.
+  An optional filter to apply to the results after retrieving it from the table.
++ `lastSync?: number` (optional)
 
-**Example**
+  The moment, in epoch milliseconds, at which the last successful Sync operation started. If specified, only items that have changed after `lastSync` are returned. This field should only be populated after retrieving all pages from an initial Sync operation. If omitted, results from the base table will be returned. Otherwise, results from the delta table will be returned.
++ `limit?: number | null` (optional)
 
-The following example is a `DeleteItem` expression
-containing a condition that allows the operation succeed only if
-the owner of the document matches the user making the
-request.
+  An optional maximum number of items to evaluate at a single time. If omitted, the default limit will be set to `100` items. The maximum value for this field is `1000` items.
++ `nextToken?: string | null` (optional)
 
-```
-type Task = {
-  id: string;
-  title: string;
-  description: string;
-  owner: string;
-  isComplete: boolean;
-}
-const condition: DynamoDBFilterObject<Task> = {
-  owner: { eq: 'XXXXXXXXXXXXXXXX' },
-}
-
-remove<Task>({
-   key: {
-     id: 'XXXXXXXXXXXXXXXX',
-  },
-  condition,
-});
-```
-
-- `customPartitionKey?: string` (optional)
-
-When enabled, the `customPartitionKey` value
-modifies the format of the `ds_sk` and
-`ds_pk` records used by the delta sync table when
-versioning has been enabled. When enabled, the processing of the
-`populateIndexFields` entry is also enabled.
-
-- `key: DynamoDBKey<T>` (required)
-
-A required parameter that specifies the key of the item in
-DynamoDB that is being removed. DynamoDB items may have a single hash
-key or hash and sort keys.
-
-**Example**
-
-If a `User` only has the hash key with a user
-`id`, then the key would look like this:
+**`Type DynamoDBUpdateInput<T>`**  
 
 ```
-type User = {
-	id: number
-	name: string
-	age: number
-	isVerified: boolean
-}
-const key: DynamoDBKey<User> = {
-	id: 1,
+DynamoDBUpdateInput<T>: { 
+    _version?: number; 
+    condition?: DynamoDBFilterObject<T>; 
+    customPartitionKey?: string; 
+    key: DynamoDBKey<T>; 
+    populateIndexFields?: boolean; 
+    update: DynamoDBUpdateObject<T>; 
 }
 ```
+**Type Declaration**  
++ `_version?: number` (optional)
++ `condition?: DynamoDBFilterObject<T>` (optional)
 
-If the table user has a hash key (`id`) and sort
-key (`name`), then the key would look like
-this:
+  When you update an object in DynamoDB, you can optionally specify a conditional expression that controls whether the request should succeed or not based on the state of the object already in DynamoDB before the operation is performed.
++ `customPartitionKey?: string` (optional)
 
-```
-type User = {
-	id: number
-	name: string
-	age: number
-	isVerified: boolean
-	friendsIds: string[]
-}
+  When enabled, the `customPartitionKey` value modifies the format of the `ds_sk` and `ds_pk` records used by the delta sync table when versioning has been enabled. When enabled, the processing of the `populateIndexFields` entry is also enabled. 
++ `key: DynamoDBKey<T>` (required)
 
-const key: DynamoDBKey<User> = {
-	id: 1,
-	name: 'XXXXXXXXXX',
-}
-```
+  A required parameter that specifies the key of the item in DynamoDB that is being updated. DynamoDB items may have a single hash key or hash and sort keys.
++ `populateIndexFields?: boolean` (optional)
 
-- `populateIndexFields?: boolean` (optional)
+  A boolean value that, when enabled along with the `customPartitionKey`, creates new entries for each record in the delta sync table, specifically in the `gsi_ds_pk` and `gsi_ds_sk` columns. 
++ `update: DynamoDBUpdateObject<T>`
 
-A boolean value that, when enabled along with the
-`customPartitionKey`, creates new entries for each
-record in the delta sync table, specifically in the
-`gsi_ds_pk` and `gsi_ds_sk`
-columns.
-
-**`Type
- ScanInput<T>`**
-
-```
-ScanInput<T>: {
-    consistentRead?: boolean | null;
-    filter?: DynamoDBFilterObject<T> | null;
-    index?: string | null;
-    limit?: number | null;
-    nextToken?: string | null;
-    scanIndexForward?: boolean | null;
-    segment?: number;
-    select?: DynamoDBSelectAttributes;
-    totalSegments?: number;
-}
-```
-
-**Type Declaration**
-
-- `consistentRead?: boolean | null`
-  (optional)
-
-An optional boolean to indicate consistent reads when
-querying DynamoDB. The default value is `false`.
-
-- `filter?: DynamoDBFilterObject<T> | null`
-  (optional)
-
-An optional filter to apply to the results after retrieving
-it from the table.
-
-- `index?: string | null` (optional)
-
-An optional name of the index to scan.
-
-- `limit?: number | null` (optional)
-
-An optional max number of results to return.
-
-- `nextToken?: string | null` (optional)
-
-An optional pagination token to continue a previous query.
-This would have been obtained from a previous query.
-
-- `scanIndexForward?: boolean | null`
-  (optional)
-
-An optional boolean to indicate whether the query is
-performed in ascending or descending order. By default, this
-value is set to `true`.
-
-- `segment?: number` (optional)
-- `select?: DynamoDBSelectAttributes`
-  (optional)
-
-Attributes to return from DynamoDB. By default, the AWS AppSync DynamoDB
-resolver only returns attributes that are projected into the
-index. The supported values are:
-
-    + `ALL_ATTRIBUTES`
-
-
-    Returns all the item attributes from the specified
-     table or index. If you query a local secondary index,
-     DynamoDB fetches the entire item from the parent table for
-     each matching item in the index. If the index is
-     configured to project all item attributes, all of the data
-     can be obtained from the local secondary index and no
-     fetching is required.
-    + `ALL_PROJECTED_ATTRIBUTES`
-
-
-    Returns all attributes that have been projected into
-     the index. If the index is configured to project all
-     attributes, this return value is equivalent to specifying
-     `ALL_ATTRIBUTES`.
-    + `SPECIFIC_ATTRIBUTES`
-
-
-    Returns only the attributes listed in
-     `ProjectionExpression`. This return value is
-     equivalent to specifying `ProjectionExpression`
-     without specifying any value for
-     `AttributesToGet`.
-
-- `totalSegments?: number` (optional)
-
-**`Type
- DynamoDBSyncInput<T>`**
-
-```
-DynamoDBSyncInput<T>: {
-    basePartitionKey?: string;
-    deltaIndexName?: string;
-    filter?: DynamoDBFilterObject<T> | null;
-    lastSync?: number;
-    limit?: number | null;
-    nextToken?: string | null;
-}
-```
-
-**Type Declaration**
-
-- `basePartitionKey?: string` (optional)
-
-The partition key of the base table to be used when
-performing a Sync operation. This field allows a Sync operation
-to be performed when the table utilizes a custom partition
-key.
-
-- `deltaIndexName?: string` (optional)
-
-The index used for the Sync operation. This index is required
-to enable a Sync operation on the whole delta store table when
-the table uses a custom partition key. The Sync operation will
-be performed on the GSI (created on `gsi_ds_pk` and
-`gsi_ds_sk`).
-
-- `filter?: DynamoDBFilterObject<T> | null`
-  (optional)
-
-An optional filter to apply to the results after retrieving
-it from the table.
-
-- `lastSync?: number` (optional)
-
-The moment, in epoch milliseconds, at which the last
-successful Sync operation started. If specified, only items that
-have changed after `lastSync` are returned. This
-field should only be populated after retrieving all pages from
-an initial Sync operation. If omitted, results from the base
-table will be returned. Otherwise, results from the delta table
-will be returned.
-
-- `limit?: number | null` (optional)
-
-An optional maximum number of items to evaluate at a single
-time. If omitted, the default limit will be set to
-`100` items. The maximum value for this field is
-`1000` items.
-
-- `nextToken?: string | null` (optional)
-
-**`Type
- DynamoDBUpdateInput<T>`**
-
-```
-DynamoDBUpdateInput<T>: {
-    _version?: number;
-    condition?: DynamoDBFilterObject<T>;
-    customPartitionKey?: string;
-    key: DynamoDBKey<T>;
-    populateIndexFields?: boolean;
-    update: DynamoDBUpdateObject<T>;
-}
-```
-
-**Type Declaration**
-
-- `_version?: number` (optional)
-- `condition?: DynamoDBFilterObject<T>`
-  (optional)
-
-When you update an object in DynamoDB, you can optionally
-specify a conditional expression that controls whether the
-request should succeed or not based on the state of the object
-already in DynamoDB before the operation is performed.
-
-- `customPartitionKey?: string` (optional)
-
-When enabled, the `customPartitionKey` value
-modifies the format of the `ds_sk` and
-`ds_pk` records used by the delta sync table when
-versioning has been enabled. When enabled, the processing of the
-`populateIndexFields` entry is also enabled.
-
-- `key: DynamoDBKey<T>` (required)
-
-A required parameter that specifies the key of the item in
-DynamoDB that is being updated. DynamoDB items may have a single hash
-key or hash and sort keys.
-
-- `populateIndexFields?: boolean` (optional)
-
-A boolean value that, when enabled along with the
-`customPartitionKey`, creates new entries for each
-record in the delta sync table, specifically in the
-`gsi_ds_pk` and `gsi_ds_sk` columns.
-
-- `update: DynamoDBUpdateObject<T>`
-
-An object that specifies the attributes to be updated along
-with the new values for them. The update object can be used with
-`add`, `remove`, `replace`,
-`increment`, `decrement`,
-`append`, `prepend`,
-`updateListItem`.
+  An object that specifies the attributes to be updated along with the new values for them. The update object can be used with `add`, `remove`, `replace`, `increment`, `decrement`, `append`, `prepend`, `updateListItem`.
 
 ## Amazon RDS module functions
+<a name="built-in-rds-modules"></a>
 
-Amazon RDS module functions provide an enhanced experience when interacting with databases
-configured with the Amazon RDS Data API. The module is imported using
-`@aws-appsync/utils/rds`:
+Amazon RDS module functions provide an enhanced experience when interacting with databases configured with the Amazon RDS Data API. The module is imported using `@aws-appsync/utils/rds`: 
 
 ```
 import * as rds from '@aws-appsync/utils/rds';
 ```
 
-Functions can also be imported individually. For instance, the import below uses
-`sql`:
+Functions can also be imported individually. For instance, the import below uses `sql`:
 
 ```
 import { sql } from '@aws-appsync/utils/rds';
 ```
 
 ### Functions
+<a name="built-in-rds-modules-functions"></a>
 
-You can use the AWS AppSync RDS module's utility helpers to interact with your
-database.
+You can use the AWS AppSync RDS module's utility helpers to interact with your database.
 
-The `select` utility creates a `SELECT` statement to
-query your relational database.
+#### Select
+<a name="built-in-rds-modules-functions-select"></a>
+
+The `select` utility creates a `SELECT` statement to query your relational database. 
 
 **Basic use**
 
@@ -746,7 +535,7 @@ import { select, createPgStatement } from '@aws-appsync/utils/rds';
 
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // "SELECT * FROM "persons"
     return createPgStatement(select({table: 'persons'}));
 }
@@ -767,8 +556,7 @@ export function request(ctx) {
 
 **Specifying columns**
 
-You can specify columns with the `columns` property. If this
-isn't set to a value, it defaults to `*`:
+You can specify columns with the `columns` property. If this isn't set to a value, it defaults to `*`:
 
 ```
 export function request(ctx) {
@@ -788,7 +576,7 @@ You can specify a column's table as well:
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "persons"."name"
     // FROM "persons"
     return createPgStatement(select({
@@ -800,13 +588,12 @@ export function request(ctx) {
 
 **Limits and offsets**
 
-You can apply `limit` and `offset` to the
-query:
+You can apply `limit` and `offset` to the query:
 
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "name"
     // FROM "persons"
     // LIMIT :limit
@@ -822,14 +609,12 @@ export function request(ctx) {
 
 **Order By**
 
-You can sort your results with the `orderBy` property. Provide an
-array of objects specifying the column and an optional `dir`
-property:
+You can sort your results with the `orderBy` property. Provide an array of objects specifying the column and an optional `dir` property:
 
 ```
 export function request(ctx) {
 
-    // Generates statement:
+    // Generates statement: 
     // SELECT "id", "name" FROM "persons"
     // ORDER BY "name", "id" DESC
     return createPgStatement(select({
@@ -918,31 +703,32 @@ export function request(ctx) {
 
 You can also use the following operators to compare values:
 
-| Operator        | Description                      | Possible value types    |
-| --------------- | -------------------------------- | ----------------------- |
-| eq              | Equal                            | number, string, boolean |
-| ne              | Not equal                        | number, string, boolean |
-| le              | Less than or equal               | number, string          |
-| lt              | Less than                        | number, string          |
-| ge              | Greater than or equal            | number, string          |
-| gt              | Greater than                     | number, string          |
-| contains        | Like                             | string                  |
-| notContains     | Not like                         | string                  |
-| beginsWith      | Starts with prefix               | string                  |
-| between         | Between two values               | number, string          |
-| attributeExists | The attribute is not null        | number, string, boolean |
-| size            | checks the length of the element | string                  |
 
-The `insert` utility provides a straightforward way of inserting
-single row items in your database with the `INSERT`
-operation.
+| 
+| 
+| Operator | Description | Possible value types | 
+| --- |--- |--- |
+| eq | Equal | number, string, boolean | 
+| ne | Not equal | number, string, boolean | 
+| le | Less than or equal | number, string | 
+| lt | Less than | number, string | 
+| ge | Greater than or equal | number, string | 
+| gt | Greater than | number, string | 
+| contains | Like | string | 
+| notContains | Not like | string | 
+| beginsWith | Starts with prefix | string | 
+| between | Between two values | number, string | 
+| attributeExists | The attribute is not null | number, string, boolean | 
+| size | checks the length of the element | string | 
+
+#### Insert
+<a name="built-in-rds-modules-functions-insert"></a>
+
+The `insert` utility provides a straightforward way of inserting single row items in your database with the `INSERT` operation.
 
 **Single item insertions**
 
-To insert an item, specify the table and then pass in your object of values.
-The object keys are mapped to your table columns. Columns names are
-automatically escaped, and values are sent to the database using the variable
-map:
+To insert an item, specify the table and then pass in your object of values. The object keys are mapped to your table columns. Columns names are automatically escaped, and values are sent to the database using the variable map:
 
 ```
 import { insert, createMySQLStatement } from '@aws-appsync/utils/rds';
@@ -950,7 +736,7 @@ import { insert, createMySQLStatement } from '@aws-appsync/utils/rds';
 export function request(ctx) {
     const { input: values } = ctx.args;
     const insertStatement = insert({ table: 'persons', values });
-
+    
     // Generates statement:
     // INSERT INTO `persons`(`name`)
     // VALUES(:NAME)
@@ -960,8 +746,7 @@ export function request(ctx) {
 
 **MySQL use case**
 
-You can combine an `insert` followed by a `select` to
-retrieve your inserted row:
+You can combine an `insert` followed by a `select` to retrieve your inserted row:
 
 ```
 import { insert, select, createMySQLStatement } from '@aws-appsync/utils/rds';
@@ -975,7 +760,7 @@ export function request(ctx) {
         where: { id: { eq: values.id } },
         limit: 1,
     });
-
+    
     // Generates statement:
     // INSERT INTO `persons`(`name`)
     // VALUES(:NAME)
@@ -989,8 +774,7 @@ export function request(ctx) {
 
 **Postgres use case**
 
-With Postgres, you can use [`returning`](https://www.postgresql.org/docs/current/dml-returning.html "https://www.postgresql.org/docs/current/dml-returning.html") to obtain data from the row that you
-inserted. It accepts `*` or an array of column names:
+With Postgres, you can use [`returning`](https://www.postgresql.org/docs/current/dml-returning.html) to obtain data from the row that you inserted. It accepts `*` or an array of column names:
 
 ```
 import { insert, createPgStatement } from '@aws-appsync/utils/rds';
@@ -1011,13 +795,10 @@ export function request(ctx) {
 }
 ```
 
-The `update` utility allows you to update existing rows. You can
-use the condition object to apply changes to the specified columns in all the
-rows that satisfy the condition. For example, let's say we have a schema that
-allows us to make this mutation. We want to update the `name` of
-`Person` with the `id` value of `3` but
-only if we've known them (`known_since`) since the year
-`2000`:
+#### Update
+<a name="built-in-rds-modules-functions-update"></a>
+
+The `update` utility allows you to update existing rows. You can use the condition object to apply changes to the specified columns in all the rows that satisfy the condition. For example, let's say we have a schema that allows us to make this mutation. We want to update the `name` of `Person` with the `id` value of `3` but only if we've known them (`known_since`) since the year `2000`:
 
 ```
 mutation Update {
@@ -1058,15 +839,12 @@ export function request(ctx) {
 }
 ```
 
-We can add a check to our condition to make sure that only the row that has
-the primary key `id` equal to `3` is updated. Similarly,
-for Postgres `inserts`, you can use `returning` to return
-the modified data.
+We can add a check to our condition to make sure that only the row that has the primary key `id` equal to `3` is updated. Similarly, for Postgres `inserts`, you can use `returning` to return the modified data. 
 
-The `remove` utility allows you to delete existing rows. You can
-use the condition object on all rows that satisfy the condition. Note that
-`delete` is a reserved keyword in JavaScript. `remove`
-should be used instead:
+#### Remove
+<a name="built-in-rds-modules-functions-remove"></a>
+
+The `remove` utility allows you to delete existing rows. You can use the condition object on all rows that satisfy the condition. Note that `delete` is a reserved keyword in JavaScript. `remove` should be used instead:
 
 ```
 import { remove, createPgStatement } from '@aws-appsync/utils/rds';
@@ -1089,16 +867,11 @@ export function request(ctx) {
 ```
 
 ### Casting
+<a name="built-in-rds-modules-casting"></a>
 
-In some cases, you may want more specificity about the correct object type to use
-in your statement. You can use the provided type hints to specify the type of your
-parameters. AWS AppSync supports the [same type hints](../../../rdsdataservice/latest/APIReference/API_SqlParameter.md#rdsdtataservice-Type-SqlParameter-typeHint "../../../rdsdataservice/latest/APIReference/API_SqlParameter.md#rdsdtataservice-Type-SqlParameter-typeHint") as the Data API. You can cast your parameters by using
-the `typeHint` functions from the AWS AppSync `rds` module.
+In some cases, you may want more specificity about the correct object type to use in your statement. You can use the provided type hints to specify the type of your parameters. AWS AppSync supports the [same type hints](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_SqlParameter.html#rdsdtataservice-Type-SqlParameter-typeHint) as the Data API. You can cast your parameters by using the `typeHint` functions from the AWS AppSync `rds` module. 
 
-The following example allows you to send an array as a value that is casted as a
-JSON object. We use the `->` operator to retrieve the element at the
-`index`
-`2` in the JSON array:
+The following example allows you to send an array as a value that is casted as a JSON object. We use the `->` operator to retrieve the element at the `index` `2` in the JSON array:
 
 ```
 import { sql, createPgStatement, toJsonObject, typeHint } from '@aws-appsync/utils/rds';
@@ -1114,8 +887,7 @@ export function response(ctx) {
 }
 ```
 
-Casting is also useful when handling and comparing `DATE`,
-`TIME`, and `TIMESTAMP`:
+Casting is also useful when handling and comparing `DATE`, `TIME`, and `TIMESTAMP`:
 
 ```
 import { select, createPgStatement, typeHint } from '@aws-appsync/utils/rds';
@@ -1142,19 +914,9 @@ export function request(ctx) {
 ```
 
 **Available type hints**
-
-- `typeHint.DATE` - The corresponding parameter is sent as an
-  object of the `DATE` type to the database. The accepted format is
-  `YYYY-MM-DD`.
-- `typeHint.DECIMAL` - The corresponding parameter is sent as an
-  object of the `DECIMAL` type to the database.
-- `typeHint.JSON` - The corresponding parameter is sent as an
-  object of the `JSON` type to the database.
-- `typeHint.TIME` - The corresponding string parameter value is
-  sent as an object of the `TIME` type to the database. The accepted
-  format is `HH:MM:SS[.FFF]`.
-- `typeHint.TIMESTAMP` - The corresponding string parameter value
-  is sent as an object of the `TIMESTAMP` type to the database. The
-  accepted format is `YYYY-MM-DD HH:MM:SS[.FFF]`.
-- `typeHint.UUID` - The corresponding string parameter value is
-  sent as an object of the `UUID` type to the database.
++ `typeHint.DATE` - The corresponding parameter is sent as an object of the `DATE` type to the database. The accepted format is `YYYY-MM-DD`.
++ `typeHint.DECIMAL` - The corresponding parameter is sent as an object of the `DECIMAL` type to the database.
++ `typeHint.JSON` - The corresponding parameter is sent as an object of the `JSON` type to the database.
++ `typeHint.TIME` - The corresponding string parameter value is sent as an object of the `TIME` type to the database. The accepted format is `HH:MM:SS[.FFF]`. 
++ `typeHint.TIMESTAMP` - The corresponding string parameter value is sent as an object of the `TIMESTAMP` type to the database. The accepted format is `YYYY-MM-DD HH:MM:SS[.FFF]`.
++ `typeHint.UUID` - The corresponding string parameter value is sent as an object of the `UUID` type to the database.

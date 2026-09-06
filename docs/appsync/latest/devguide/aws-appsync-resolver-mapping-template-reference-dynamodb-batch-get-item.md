@@ -1,13 +1,13 @@
+
+
 # BatchGetItem
+<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-batch-get-item"></a>
 
-The `BatchGetItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a
-`BatchGetItem` request to DynamoDB to retrieve multiple items, potentially across multiple tables.
-For this request template, you must specify the following:
+The `BatchGetItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `BatchGetItem` request to DynamoDB to retrieve multiple items, potentially across multiple tables. For this request template, you must specify the following:
++ The table names where to retrieve the items from
++ The keys of the items to retrieve from each table
 
-- The table names where to retrieve the items from
-- The keys of the items to retrieve from each table
-  The DynamoDB `BatchGetItem` limits apply and **no condition
-  expression** can be provided.
+The DynamoDB `BatchGetItem` limits apply and **no condition expression** can be provided.
 
 The `BatchGetItem` mapping document has the following structure:
 
@@ -29,7 +29,7 @@ The `BatchGetItem` mapping document has the following structure:
                    "bar" : ... typed value
               }
             ],
-            "consistentRead": true|false,
+            "consistentRead": true|false,            
             "projection" : {
                  ...
             }
@@ -59,53 +59,33 @@ The `BatchGetItem` mapping document has the following structure:
 The fields are defined as follows:
 
 ## BatchGetItem fields
+<a name="BatchGetItem-list"></a>
 
-**`version`**
+### BatchGetItem fields list
+<a name="BatchGetItem-list-col"></a>
 
-The template definition version. Only `2018-05-29` is supported. This value is
-required.
+** `version` **  
+The template definition version. Only `2018-05-29` is supported. This value is required.
 
-**`operation`**
+** `operation` **  
+The DynamoDB operation to perform. To perform the `BatchGetItem` DynamoDB operation, this must be set to `BatchGetItem`. This value is required.
 
-The DynamoDB operation to perform. To perform the `BatchGetItem` DynamoDB operation,
-this must be set to `BatchGetItem`. This value is required.
-
-**`tables`**
-
-The DynamoDB tables to retrieve the items from. The value is a map where table names are
-specified as the keys of the map. At least one table must be provided. This
-`tables` value is required.
-
-**`keys`**
-
-List of DynamoDB keys representing the primary key of the items
-to retrieve. DynamoDB items may have a single hash key, or a hash
-key and sort key, depending on the table structure. For more
-information about how to specify a “typed value”, see [Type system (request mapping)](aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.md "aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.md").
-
-**`consistentRead`**
-
-Whether to use a consistent read when executing a _GetItem_ operation. This value is optional and
-defaults to _false_.
-
-**`projection`**
-
-A projection that's used to specify the attributes to return
-from the DynamoDB operation. For more information about
-projections, see [Projections](resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb-projections "resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb-projections"). This field is optional.
+** `tables` **  
+The DynamoDB tables to retrieve the items from. The value is a map where table names are specified as the keys of the map. At least one table must be provided. This `tables` value is required.    
+** `keys` **  
+List of DynamoDB keys representing the primary key of the items to retrieve. DynamoDB items may have a single hash key, or a hash key and sort key, depending on the table structure. For more information about how to specify a “typed value”, see [Type system (request mapping)](aws-appsync-resolver-mapping-template-reference-dynamodb-typed-values-request.md).  
+** `consistentRead` **  
+Whether to use a consistent read when executing a *GetItem* operation. This value is optional and defaults to *false*.  
+**`projection`**  
+A projection that's used to specify the attributes to return from the DynamoDB operation. For more information about projections, see [Projections](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html#aws-appsync-resolver-mapping-template-reference-dynamodb-projections). This field is optional.
 
 Things to remember:
++ If an item has not been retrieved from the table, a *null* element appears in the data block for that table.
++ Invocation results are sorted per table, based on the order in which they were provided inside the request mapping template.
++ Each `Get` command inside a `BatchGetItem` is atomic, however, a batch can be partially processed. If a batch is partially processed due to an error, the unprocessed keys are returned as part of the invocation result inside the *unprocessedKeys* block.
++  `BatchGetItem` is limited to 100 keys.
 
-- If an item has not been retrieved from the table, a _null_
-  element appears in the data block for that table.
-- Invocation results are sorted per table, based on the order in which they were
-  provided inside the request mapping template.
-- Each `Get` command inside a `BatchGetItem` is atomic,
-  however, a batch can be partially processed. If a batch is partially processed due to
-  an error, the unprocessed keys are returned as part of the invocation result inside
-  the _unprocessedKeys_ block.
-- `BatchGetItem` is limited to 100 keys.
-  For the following example request mapping template:
+For the following example request mapping template:
 
 ```
 {
@@ -161,10 +141,6 @@ The invocation result available in `$ctx.result` is as follows:
 }
 ```
 
-The `$ctx.error` contains details about the error. The keys **data**, **unprocessedKeys**, and each table key that was provided in the
-request mapping template are guaranteed to be present in the invocation result. Items that have been deleted
-appear in the **data** block. Items that haven’t been processed are marked as
-_null_ inside the data block and are placed inside the **unprocessedKeys** block.
+The `$ctx.error` contains details about the error. The keys **data**, **unprocessedKeys**, and each table key that was provided in the request mapping template are guaranteed to be present in the invocation result. Items that have been deleted appear in the **data** block. Items that haven’t been processed are marked as *null* inside the data block and are placed inside the **unprocessedKeys** block.
 
-For a more complete example, follow the DynamoDB Batch tutorial with AppSync here [Tutorial: DynamoDB batch
-resolvers](tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch "tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch").
+For a more complete example, follow the DynamoDB Batch tutorial with AppSync here [Tutorial: DynamoDB batch resolvers](tutorial-dynamodb-batch.md#aws-appsync-tutorial-dynamodb-batch).
