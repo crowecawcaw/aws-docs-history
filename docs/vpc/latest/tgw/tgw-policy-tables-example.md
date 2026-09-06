@@ -1,48 +1,38 @@
+
+
 # Example: Steering traffic to a security appliance in AWS Transit Gateway
+<a name="tgw-policy-tables-example"></a>
 
-The following example steers traffic from a specific internal subnet to a firewall VPC for
-inspection, while routing all other traffic directly.
+The following example steers traffic from a specific internal subnet to a firewall VPC for inspection, while routing all other traffic directly.
 
-###### Scenario
-
+**Scenario**  
 Consider the following requirements.
++ Traffic from `10.1.10.0/24` (sensitive workload subnet) must pass through a firewall in a VPC before forwarding.
++ All other traffic forwards using the standard route table.
 
-- Traffic from `10.1.10.0/24` (sensitive workload subnet) must pass
-  through a firewall in a VPC before forwarding.
-- All other traffic forwards using the standard route table.
-
-###### Policy table configuration
-
+**Policy table configuration**  
 Configure the policy table with the following entries.
 
-Policy table configuration| Rule # | Entry type | Source CIDR block | Destination CIDR block | Protocol | Source port range | Destination port range | Target route table |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 100 | customer-managed | `10.1.10.0/24` | Any | Any | Any | Any | `tgw-rtb-firewall` |
-| 200 | customer-managed | Any | Any | Any | Any | Any | `tgw-rtb-default` |
 
-###### How it works
+**Policy table configuration**  
 
+| Rule \# | Entry type | Source CIDR block | Destination CIDR block | Protocol | Source port range | Destination port range | Target route table | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| 100 | customer-managed | 10.1.10.0/24 | Any | Any | Any | Any | tgw-rtb-firewall | 
+| 200 | customer-managed | Any | Any | Any | Any | Any | tgw-rtb-default | 
+
+**How it works**  
 Traffic is evaluated as follows.
++ Traffic from `10.1.10.0/24` arrives on the transit gateway attachment associated with the policy table.
++ The transit gateway evaluates rule 100 first. The source CIDR matches `10.1.10.0/24`, so the traffic is forwarded using route table `tgw-rtb-firewall`.
++ Route table `tgw-rtb-firewall` contains routes that send traffic to the firewall VPC attachment.
++ The firewall inspects the traffic and forwards it back to the transit gateway.
++ On return, the transit gateway re-evaluates the traffic for onward routing using destination-based lookup on the route table associated with the firewall VPC attachment.
 
-- Traffic from `10.1.10.0/24` arrives on the transit gateway attachment associated
-  with the policy table.
-- The transit gateway evaluates rule 100 first. The source CIDR matches
-  `10.1.10.0/24`, so the traffic is forwarded using route table
-  `tgw-rtb-firewall`.
-- Route table `tgw-rtb-firewall` contains routes that send traffic to the
-  firewall VPC attachment.
-- The firewall inspects the traffic and forwards it back to the transit gateway.
-- On return, the transit gateway re-evaluates the traffic for onward routing using
-  destination-based lookup on the route table associated with the firewall VPC
-  attachment.
-  All other traffic (not from `10.1.10.0/24`) does not match rule 100 and falls
-  through to rule 200, which forwards it using the default route table without
-  inspection.
+All other traffic (not from `10.1.10.0/24`) does not match rule 100 and falls through to rule 200, which forwards it using the default route table without inspection.
 
-###### AWS CLI commands to create this configuration
-
-Use the following commands to create the policy table, add the rules, and associate
-the table with the source VPC attachment.
+**AWS CLI commands to create this configuration**  
+Use the following commands to create the policy table, add the rules, and associate the table with the source VPC attachment.
 
 ```
 # Create the policy table

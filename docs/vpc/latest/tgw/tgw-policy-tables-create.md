@@ -1,26 +1,28 @@
+
+
 # Create a transit gateway policy table in AWS Transit Gateway
+<a name="tgw-policy-tables-create"></a>
 
 Create a policy table and associate it with your transit gateway.
 
-###### To create a transit gateway policy table using the console
+**To create a transit gateway policy table using the console**
 
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane, under **Transit gateways**, choose
-   **Transit Gateway Policy Tables**.
-3. Choose **Create transit gateway policy table**.
-4. For **Transit gateway ID**, select your transit gateway from the dropdown
-   list.
-5. (Optional) Under **Tags**, add tags to help identify the policy
-   table.
-6. Choose **Create transit gateway policy table**.
-   The policy table enters a **Pending** state. Wait for the state to change
-   to **Available** before proceeding.
+1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
-###### To create a transit gateway policy table using the AWS CLI
+1. In the navigation pane, under **Transit gateways**, choose **Transit Gateway Policy Tables**.
 
-Use the [create-transit-gateway-policy-table](../../../cli/latest/reference/ec2/create-transit-gateway-policy-table.md "../../../cli/latest/reference/ec2/create-transit-gateway-policy-table.md") command. Replace
-`tgw-0bc994abffEXAMPLE` with your transit gateway ID.
+1. Choose **Create transit gateway policy table**.
+
+1. For **Transit gateway ID**, select your transit gateway from the dropdown list.
+
+1. (Optional) Under **Tags**, add tags to help identify the policy table.
+
+1. Choose **Create transit gateway policy table**.
+
+The policy table enters a **Pending** state. Wait for the state to change to **Available** before proceeding.
+
+**To create a transit gateway policy table using the AWS CLI**  
+Use the [create-transit-gateway-policy-table](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-transit-gateway-policy-table.html) command. Replace `tgw-0bc994abffEXAMPLE` with your transit gateway ID.
 
 ```
 aws ec2 create-transit-gateway-policy-table \

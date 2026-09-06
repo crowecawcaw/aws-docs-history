@@ -1,15 +1,14 @@
+
+
 # View AWS Transit Gateway Flow Logs records in Amazon CloudWatch
+<a name="view-flow-log-records"></a>
 
-You can view your flow log records using the CloudWatch Logs console or Amazon S3 console,
-depending on the chosen destination type. It might take a few minutes after you've
-created your flow log for it to be visible in the console.
+You can view your flow log records using the CloudWatch Logs console or Amazon S3 console, depending on the chosen destination type. It might take a few minutes after you've created your flow log for it to be visible in the console.
 
-###### To view flow log records published to CloudWatch Logs
+**To view flow log records published to CloudWatch Logs**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Logs**, and select the
-   log group that contains your flow log. A list of log streams for each transit gateway
-   is displayed.
-3. Select the log stream that contains the ID of the transit gateway that you want to
-   view the flow log records for. For more information, see [Transit Gateway Flow Log records](tgw-flow-logs.md#flow-log-records "tgw-flow-logs.md#flow-log-records").
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, choose **Logs**, and select the log group that contains your flow log. A list of log streams for each transit gateway is displayed.
+
+1.  Select the log stream that contains the ID of the transit gateway that you want to view the flow log records for. For more information, see [Transit Gateway Flow Log records](tgw-flow-logs.md#flow-log-records).
