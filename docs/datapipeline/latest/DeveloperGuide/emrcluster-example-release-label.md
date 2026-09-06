@@ -1,11 +1,12 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Launch an Amazon EMR cluster with release label emr-4.x or greater
+<a name="emrcluster-example-release-label"></a>
 
-###### Example
-
-The following example launches an Amazon EMR cluster using the newer
-`releaseLabel` field:
+**Example**  
+The following example launches an Amazon EMR cluster using the newer `releaseLabel` field:  
 
 ```
 {
@@ -19,6 +20,6 @@ The following example launches an Amazon EMR cluster using the newer
   "taskInstanceCount": "10",
   "releaseLabel": "emr-4.1.0",
   "applications": ["spark", "hive", "pig"],
-  "configuration": {"ref":"myConfiguration"}
+  "configuration": {"ref":"myConfiguration"}  
 }
 ```

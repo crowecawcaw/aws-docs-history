@@ -1,26 +1,20 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # EmrConfiguration
+<a name="dp-object-emrconfiguration"></a>
 
-The EmrConfiguration object is the configuration used for EMR clusters with
-releases 4.0.0 or greater. Configurations (as a list) is a parameter to the
-RunJobFlow API call. The configuration API for Amazon EMR takes a classification and
-properties. AWS Data Pipeline uses EmrConfiguration with corresponding Property objects to
-configure an [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md") application such as
-Hadoop, Hive, Spark, or Pig on EMR clusters launched in a pipeline execution.
-Because configuration can only be changed for new clusters, you cannot provide a
-EmrConfiguration object for existing resources. For more information, see [http://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md").
+The EmrConfiguration object is the configuration used for EMR clusters with releases 4.0.0 or greater. Configurations (as a list) is a parameter to the RunJobFlow API call. The configuration API for Amazon EMR takes a classification and properties. AWS Data Pipeline uses EmrConfiguration with corresponding Property objects to configure an [EmrCluster](dp-object-emrcluster.md) application such as Hadoop, Hive, Spark, or Pig on EMR clusters launched in a pipeline execution. Because configuration can only be changed for new clusters, you cannot provide a EmrConfiguration object for existing resources. For more information, see [http://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/](http://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/).
 
 ## Example
+<a name="emrconfiguration-example"></a>
 
-The following configuration object sets the
-`io.file.buffer.size` and
-`fs.s3.block.size` properties in
-`core-site.xml`:
+The following configuration object sets the `io.file.buffer.size` and `fs.s3.block.size` properties in `core-site.xml`:
 
 ```
 [
-   {
+   {  
       "classification":"core-site",
       "properties":
       {
@@ -31,8 +25,7 @@ The following configuration object sets the
 ]
 ```
 
-The corresponding pipeline object definition uses a EmrConfiguration object
-and a list of Property objects in the `property` field:
+The corresponding pipeline object definition uses a EmrConfiguration object and a list of Property objects in the `property` field:
 
 ```
 {
@@ -78,9 +71,7 @@ and a list of Property objects in the `property` field:
 }
 ```
 
-The following example is a nested configuration used to set the Hadoop
-environment with the `hadoop-env`
-classification:
+The following example is a nested configuration used to set the Hadoop environment with the `hadoop-env` classification:
 
 ```
 [
@@ -99,8 +90,7 @@ classification:
 ]
 ```
 
-The corresponding pipeline definition object that uses this configuration is
-below:
+The corresponding pipeline definition object that uses this configuration is below:
 
 ```
 {
@@ -144,8 +134,7 @@ below:
 }
 ```
 
-The following example modifies a Hive-specific property for an EMR
-cluster:
+The following example modifies a Hive-specific property for an EMR cluster:
 
 ```
 {
@@ -173,31 +162,46 @@ cluster:
 ```
 
 ## Syntax
+<a name="emrconfiguration-syntax"></a>
 
 This object includes the following fields.
 
-| Required Fields | Description                           | Slot Type |
-| --------------- | ------------------------------------- | --------- |
-| classification  | Classification for the configuration. | String    |
 
-| Optional Fields | Description                                                      | Slot Type                                                             |
-| --------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------- |
-| configuration   | Sub-configuration for this configuration.                        | Reference Object, e.g. "configuration":{"ref":"myEmrConfigurationId"} |
-| parent          | Parent of the current object from which slots will be inherited. | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"}              |
-| property        | Configuration property.                                          | Reference Object, e.g. "property":{"ref":"myPropertyId"}              |
 
-| Runtime Fields | Description                                   | Slot Type |
-| -------------- | --------------------------------------------- | --------- |
-| @version       | Pipeline version the object was created with. | String    |
+| Required Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| classification | Classification for the configuration. | String | 
 
-| System Fields | Description                                                                                                                               | Slot Type |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| @error        | Error describing the ill-formed object                                                                                                    | String    |
-| @pipelineId   | Id of the pipeline to which this object belongs to                                                                                        | String    |
-| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String    |
+ 
+
+
+
+| Optional Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| configuration | Sub-configuration for this configuration. | Reference Object, e.g. "configuration":{"ref":"myEmrConfigurationId"} | 
+| parent | Parent of the current object from which slots will be inherited. | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} | 
+| property | Configuration property. | Reference Object, e.g. "property":{"ref":"myPropertyId"} | 
+
+ 
+
+
+
+| Runtime Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @version | Pipeline version the object was created with. | String | 
+
+ 
+
+
+
+| System Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @error | Error describing the ill-formed object | String | 
+| @pipelineId | Id of the pipeline to which this object belongs to | String | 
+| @sphere | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String | 
 
 ## See Also
-
-- [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md")
-- [Property](dp-object-property.md "dp-object-property.md")
-- [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md")
+<a name="emrconfiguration-seealso"></a>
++ [EmrCluster](dp-object-emrcluster.md)
++ [Property](dp-object-property.md)
++ [Amazon EMR Release Guide](http://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/)

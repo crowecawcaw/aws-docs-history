@@ -1,21 +1,13 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Configure an Amazon EMR cluster in a private subnet
+<a name="emrcluster-example-private-subnet"></a>
 
-###### Example
-
-This example includes a configuration that launches the cluster into a
-private subnet in a VPC. For more information, see [Launch Amazon EMR
-Clusters into a VPC](../../../emr/latest/ManagementGuide/emr-vpc-launching-job-flows.md "../../../emr/latest/ManagementGuide/emr-vpc-launching-job-flows.md") in the
-_Amazon EMR Management Guide_. This configuration is
-optional. You can use it in any pipeline that uses an
-`EmrCluster` object.
-
-To launch an Amazon EMR cluster in a private subnet, specify
-`SubnetId`, `emrManagedMasterSecurityGroupId`,
-`emrManagedSlaveSecurityGroupId`, and
-`serviceAccessSecurityGroupId` in your
-`EmrCluster` configuration.
+**Example**  <a name="example8"></a>
+This example includes a configuration that launches the cluster into a private subnet in a VPC. For more information, see [Launch Amazon EMR Clusters into a VPC](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-vpc-launching-job-flows.html) in the *Amazon EMR Management Guide*. This configuration is optional. You can use it in any pipeline that uses an `EmrCluster` object.  
+To launch an Amazon EMR cluster in a private subnet, specify `SubnetId`, `emrManagedMasterSecurityGroupId`, `emrManagedSlaveSecurityGroupId`, and `serviceAccessSecurityGroupId` in your `EmrCluster` configuration.  
 
 ```
 {
@@ -65,7 +57,7 @@ To launch an Amazon EMR cluster in a private subnet, specify
       "serviceAccessSecurityGroupId": "#{myServiceAccessSecurityGroup}",
       "region": "#{myDDBRegion}",
       "type": "EmrCluster",
-      "keyPair": `"user-key-pair"`
+      "keyPair": {{"user-key-pair"}}
     },
     {
       "failureAndRerunMode": "CASCADE",
@@ -107,13 +99,12 @@ To launch an Amazon EMR cluster in a private subnet, specify
      "myDDBRegion": "us-east-1",
       "myDDBTableName": "ddb_table",
       "myDDBReadThroughputRatio": "0.25",
-      "myOutputS3Loc": `"s3://s3_path"`,
-      "mySubnetId": `"subnet_id"`,
-      "myServiceAccessSecurityGroup":  `"service access security group"`,
-      "mySlaveSecurityGroup": `"slave security group"`,
-      "myMasterSecurityGroup": `"master security group"`,
-      "myPipelineLogUri": `"s3://s3_path"`
+      "myOutputS3Loc": {{"s3://s3_path"}},
+      "mySubnetId": {{"subnet_id"}},
+      "myServiceAccessSecurityGroup":  {{"service access security group"}},
+      "mySlaveSecurityGroup": {{"slave security group"}},
+      "myMasterSecurityGroup": {{"master security group"}},
+      "myPipelineLogUri": {{"s3://s3_path"}}
   }
 }
-
 ```

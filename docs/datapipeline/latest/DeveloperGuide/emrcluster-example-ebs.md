@@ -1,28 +1,15 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Attach EBS volumes to cluster nodes
+<a name="emrcluster-example-ebs"></a>
 
-###### Example
-
-You can attach EBS volumes to any type of node in the EMR cluster
-within your pipeline. To attach EBS volumes to nodes, use
-`coreEbsConfiguration`,
-`masterEbsConfiguration`, and
-`TaskEbsConfiguration` in your `EmrCluster`
-configuration.
-
-This example of the Amazon EMR cluster uses Amazon EBS volumes for its master,
-task, and core nodes. For more information, see [Amazon EBS volumes in
-Amazon EMR](../../../emr/latest/ManagementGuide/emr-plan-storage.md "../../../emr/latest/ManagementGuide/emr-plan-storage.md") in the _Amazon EMR Management Guide_.
-
-These configurations are optional. You can use them in any pipeline that
-uses an `EmrCluster` object.
-
-In the pipeline, click the `EmrCluster` object
-configuration, choose **Master EBS Configuration**,
-**Core EBS Configuration**, or **Task EBS
-Configuration**, and enter the configuration details
-similar to the following example.
+**Example**  <a name="example8"></a>
+You can attach EBS volumes to any type of node in the EMR cluster within your pipeline. To attach EBS volumes to nodes, use `coreEbsConfiguration`, `masterEbsConfiguration`, and `TaskEbsConfiguration` in your `EmrCluster` configuration.   
+This example of the Amazon EMR cluster uses Amazon EBS volumes for its master, task, and core nodes. For more information, see [Amazon EBS volumes in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html) in the *Amazon EMR Management Guide*.  
+These configurations are optional. You can use them in any pipeline that uses an `EmrCluster` object.  
+In the pipeline, click the `EmrCluster` object configuration, choose **Master EBS Configuration**, **Core EBS Configuration**, or **Task EBS Configuration**, and enter the configuration details similar to the following example.  
 
 ```
 {
@@ -80,7 +67,7 @@ similar to the following example.
       "taskEbsConfiguration": {
         "ref": "EBSConfiguration"
       },
-      "keyPair": `"user-key-pair"`
+      "keyPair": {{"user-key-pair"}}
     },
     {
        "name": "EBSConfiguration",
@@ -148,12 +135,11 @@ similar to the following example.
      "myDDBRegion": "us-east-1",
       "myDDBTableName": "ddb_table",
       "myDDBReadThroughputRatio": "0.25",
-      "myOutputS3Loc": `"s3://s3_path"`,
-      "mySubnetId": `"subnet_id"`,
-      "mySlaveSecurityGroup": `"slave security group"`,
-      "myMasterSecurityGroup": `"master security group"`,
-      "myPipelineLogUri": `"s3://s3_path"`
+      "myOutputS3Loc": {{"s3://s3_path"}},
+      "mySubnetId": {{"subnet_id"}},
+      "mySlaveSecurityGroup": {{"slave security group"}},
+      "myMasterSecurityGroup": {{"master security group"}},
+      "myPipelineLogUri": {{"s3://s3_path"}}
   }
 }
-
 ```

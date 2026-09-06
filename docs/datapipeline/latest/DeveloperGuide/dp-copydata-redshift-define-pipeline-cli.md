@@ -1,12 +1,13 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Define a Pipeline in JSON Format
+<a name="dp-copydata-redshift-define-pipeline-cli"></a>
 
 This example scenario shows how to copy data from an Amazon S3 bucket to Amazon Redshift.
 
-This is the full pipeline definition JSON file followed by an explanation for each of its sections.
-We recommend that you use a text editor that can help you verify the syntax
-of JSON-formatted files, and name the file using the `.json` file extension.
+This is the full pipeline definition JSON file followed by an explanation for each of its sections. We recommend that you use a text editor that can help you verify the syntax of JSON-formatted files, and name the file using the `.json` file extension.
 
 ```
 {
@@ -18,10 +19,10 @@ of JSON-formatted files, and name the file using the `.json` file extension.
     },
     {
       "id": "RedshiftDatabaseId1",
-      "databaseName": "`dbname`",
-      "username": "`user`",
+      "databaseName": "{{dbname}}",
+      "username": "{{user}}",
       "name": "DefaultRedshiftDatabase1",
-      "*password": "`password`",
+      "*password": "{{password}}",
       "type": "RedshiftDatabase",
       "clusterId": "redshiftclusterId"
     },
@@ -51,20 +52,20 @@ of JSON-formatted files, and name the file using the `.json` file extension.
       "schedule": {
         "ref": "ScheduleId1"
       },
-      "securityGroups": "`MySecurityGroup`",
+      "securityGroups": "{{MySecurityGroup}}",
       "name": "DefaultEc2Resource1",
       "role": "DataPipelineDefaultRole",
-      "logUri": "`s3://myLogs`",
+      "logUri": "{{s3://myLogs}}",
       "resourceRole": "DataPipelineDefaultResourceRole",
       "type": "Ec2Resource"
     },
     {
       "id": "ScheduleId1",
-      "startDateTime": "`yyyy-mm-dd`T00:00:00",
+      "startDateTime": "{{yyyy-mm-dd}}T00:00:00",
       "name": "DefaultSchedule1",
       "type": "Schedule",
-      "period": "`period`",
-      "endDateTime": "`yyyy-mm-dd`T00:00:00"
+      "period": "{{period}}",
+      "endDateTime": "{{yyyy-mm-dd}}T00:00:00"
     },
     {
       "id": "S3DataNodeId1",
@@ -102,8 +103,7 @@ of JSON-formatted files, and name the file using the `.json` file extension.
 
 For more information about these objects, see the following documentation.
 
-###### Objects
-
-- [Data Nodes](dp-copydata-redshift-node-cli.md "dp-copydata-redshift-node-cli.md")
-- [Resource](dp-copydata-redshift-resource-cli.md "dp-copydata-redshift-resource-cli.md")
-- [Activity](dp-copydata-redshift-activity-cli.md "dp-copydata-redshift-activity-cli.md")
+**Topics**
++ [Data Nodes](dp-copydata-redshift-node-cli.md)
++ [Resource](dp-copydata-redshift-resource-cli.md)
++ [Activity](dp-copydata-redshift-activity-cli.md)

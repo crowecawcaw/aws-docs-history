@@ -1,12 +1,12 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Configure Hadoop KMS ACLs and create encryption zones in HDFS
+<a name="emrcluster-example-hadoop-kms"></a>
 
-###### Example
-
-The following objects create ACLs for Hadoop KMS and
-create encryption zones and corresponding encryption keys in
-HDFS:
+**Example**  <a name="example5"></a>
+The following objects create ACLs for Hadoop KMS and create encryption zones and corresponding encryption keys in HDFS:  
 
 ```
 {

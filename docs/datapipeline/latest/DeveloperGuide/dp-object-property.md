@@ -1,13 +1,16 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Property
+<a name="dp-object-property"></a>
 
 A single key-value property for use with an EmrConfiguration object.
 
 ## Example
+<a name="property-example"></a>
 
-The following pipeline definition shows an EmrConfiguration object and
-corresponding Property objects to launch an EmrCluster:
+The following pipeline definition shows an EmrConfiguration object and corresponding Property objects to launch an EmrCluster:
 
 ```
 {
@@ -54,30 +57,45 @@ corresponding Property objects to launch an EmrCluster:
 ```
 
 ## Syntax
+<a name="property-syntax"></a>
 
 This object includes the following fields.
 
-| Required Fields | Description | Slot Type |
-| --------------- | ----------- | --------- |
-| key             | key         | String    |
-| value           | value       | String    |
 
-| Optional Fields | Description                                                  | Slot Type                                                        |
-| --------------- | ------------------------------------------------------------ | ---------------------------------------------------------------- |
-| parent          | Parent of the current object from which slots are inherited. | Reference Object, for example, "parent":{"ref":"myBaseObjectId"} |
 
-| Runtime Fields | Description                                        | Slot Type |
-| -------------- | -------------------------------------------------- | --------- |
-| @version       | Pipeline version that the object was created with. | String    |
+| Required Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| key | key | String | 
+| value | value | String | 
 
-| System Fields | Description                                                                                                                                    | Slot Type |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| @error        | Error describing the ill-formed object.                                                                                                        | String    |
-| @pipelineId   | ID of the pipeline to which this object belongs.                                                                                               | String    |
-| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to<br>Instance Objects, which execute Attempt Objects. | String    |
+ 
+
+
+
+| Optional Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| parent | Parent of the current object from which slots are inherited. | Reference Object, for example, "parent":{"ref":"myBaseObjectId"} | 
+
+ 
+
+
+
+| Runtime Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @version | Pipeline version that the object was created with. | String | 
+
+ 
+
+
+
+| System Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @error | Error describing the ill-formed object. | String | 
+| @pipelineId | ID of the pipeline to which this object belongs. | String | 
+| @sphere | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects, which execute Attempt Objects. | String | 
 
 ## See Also
-
-- [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md")
-- [EmrConfiguration](dp-object-emrconfiguration.md "dp-object-emrconfiguration.md")
-- [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md")
+<a name="property-seealso"></a>
++ [EmrCluster](dp-object-emrcluster.md)
++ [EmrConfiguration](dp-object-emrconfiguration.md)
++ [Amazon EMR Release Guide](http://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/)

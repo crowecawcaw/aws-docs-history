@@ -1,12 +1,11 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # Resource
+<a name="dp-copydata-redshift-resource-cli"></a>
 
-This is a definition of the computational resource that performs the copy
-operation. In this example, AWS Data Pipeline should automatically create an EC2 instance
-to perform the copy task and terminate the instance after the task completes.
-The fields defined here control the creation and function of the instance that
-does the work. For more information, see [Ec2Resource](dp-object-ec2resource.md "dp-object-ec2resource.md").
+This is a definition of the computational resource that performs the copy operation. In this example, AWS Data Pipeline should automatically create an EC2 instance to perform the copy task and terminate the instance after the task completes. The fields defined here control the creation and function of the instance that does the work. For more information, see [Ec2Resource](dp-object-ec2resource.md).
 
 The `Ec2Resource` is defined by the following fields:
 
@@ -16,43 +15,32 @@ The `Ec2Resource` is defined by the following fields:
   "schedule": {
     "ref": "ScheduleId1"
   },
-  "securityGroups": "`MySecurityGroup`",
+  "securityGroups": "{{MySecurityGroup}}",
   "name": "DefaultEc2Resource1",
   "role": "DataPipelineDefaultRole",
-  "logUri": "`s3://myLogs`",
+  "logUri": "{{s3://myLogs}}",
   "resourceRole": "DataPipelineDefaultResourceRole",
   "type": "Ec2Resource"
 },
 ```
 
-`id`
-
+`id`  
 The user-defined ID, which is a label for your reference only.
 
-`schedule`
-
+`schedule`  
 The schedule on which to create this computational resource.
 
-`securityGroups`
-
+`securityGroups`  
 The security group to use for the instances in the resource pool.
 
-`name`
-
+`name`  
 The user-defined name, which is a label for your reference only.
 
-`role`
+`role`  
+The IAM role of the account that accesses resources, such as accessing an Amazon S3 bucket to retrieve data.
 
-The IAM role of the account that accesses resources, such as
-accessing an Amazon S3 bucket to retrieve data.
-
-`logUri`
-
+`logUri`  
 The Amazon S3 destination path to back up Task Runner logs from the `Ec2Resource`.
 
-`resourceRole`
-
-The IAM role of the account that creates resources, such as
-creating and configuring an EC2 instance on your behalf. Role and
-ResourceRole can be the same role, but separately provide greater
-granularity in your security configuration.
+`resourceRole`  
+The IAM role of the account that creates resources, such as creating and configuring an EC2 instance on your behalf. Role and ResourceRole can be the same role, but separately provide greater granularity in your security configuration.

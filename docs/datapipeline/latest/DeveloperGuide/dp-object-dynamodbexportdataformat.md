@@ -1,28 +1,22 @@
-AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/)
 
 # DynamoDBExportDataFormat
+<a name="dp-object-dynamodbexportdataformat"></a>
 
-Applies a schema to an DynamoDB table to make it accessible by a Hive query. Use
-`DynamoDBExportDataFormat` with a `HiveCopyActivity`
-object and `DynamoDBDataNode` or `S3DataNode` input and
-output. `DynamoDBExportDataFormat` has the following benefits:
+Applies a schema to an DynamoDB table to make it accessible by a Hive query. Use `DynamoDBExportDataFormat` with a `HiveCopyActivity` object and `DynamoDBDataNode` or `S3DataNode` input and output. `DynamoDBExportDataFormat` has the following benefits: 
++ Provides both DynamoDB and Amazon S3 support
++ Allows you to filter data by certain columns in your Hive query
++ Exports all attributes from DynamoDB even if you have a sparse schema
 
-- Provides both DynamoDB and Amazon S3 support
-- Allows you to filter data by certain columns in your Hive query
-- Exports all attributes from DynamoDB even if you have a sparse
-  schema
-
-###### Note
-
-DynamoDB Boolean types are not mapped to Hive Boolean types. However, it is
-possible to map DynamoDB integer values of 0 or 1 to Hive Boolean types.
+**Note**  
+DynamoDB Boolean types are not mapped to Hive Boolean types. However, it is possible to map DynamoDB integer values of 0 or 1 to Hive Boolean types.
 
 ## Example
+<a name="dynamodbexportdataformat-example"></a>
 
-The following example shows how to use `HiveCopyActivity` and
-`DynamoDBExportDataFormat` to copy data from one
-`DynamoDBDataNode` to another, while filtering based on a time
-stamp.
+The following example shows how to use `HiveCopyActivity` and `DynamoDBExportDataFormat` to copy data from one `DynamoDBDataNode` to another, while filtering based on a time stamp.
 
 ```
 {
@@ -86,18 +80,29 @@ stamp.
 ```
 
 ## Syntax
+<a name="dynamodbexportdataformat-syntax"></a>
 
-| Optional Fields | Description                                                                                                     | Slot Type                                                |
-| --------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| column          | Column name with datatype specified by each field for the data described by this data node. Ex: hostname STRING | String                                                   |
-| parent          | Parent of the current object from which slots will be inherited.                                                | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} |
 
-| Runtime Fields | Description                                   | Slot Type |
-| -------------- | --------------------------------------------- | --------- |
-| @version       | Pipeline version the object was created with. | String    |
 
-| System Fields | Description                                                                                                                               | Slot Type |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| @error        | Error describing the ill-formed object                                                                                                    | String    |
-| @pipelineId   | Id of the pipeline to which this object belongs to                                                                                        | String    |
-| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String    |
+| Optional Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| column | Column name with datatype specified by each field for the data described by this data node. Ex: hostname STRING | String | 
+| parent | Parent of the current object from which slots will be inherited. | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} | 
+
+ 
+
+
+
+| Runtime Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @version | Pipeline version the object was created with. | String | 
+
+ 
+
+
+
+| System Fields | Description | Slot Type | 
+| --- | --- | --- | 
+| @error | Error describing the ill-formed object | String | 
+| @pipelineId | Id of the pipeline to which this object belongs to | String | 
+| @sphere | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String | 
