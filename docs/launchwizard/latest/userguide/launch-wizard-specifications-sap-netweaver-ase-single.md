@@ -1,7 +1,9 @@
-# SapNWOnAseSingle
 
-The following is an example of the specifications required to create a single-node
-deployment with SAP software installed:
+
+# SapNWOnAseSingle
+<a name="launch-wizard-specifications-sap-netweaver-ase-single"></a>
+
+The following is an example of the specifications required to create a single-node deployment with SAP software installed:
 
 ```
 {
@@ -48,8 +50,7 @@ deployment with SAP software installed:
 }
 ```
 
-[Show moreShow less](# "#")The following is an example of the specifications required to create a single-node
-deployment with only infrastructure resources:
+The following is an example of the specifications required to create a single-node deployment with only infrastructure resources:
 
 ```
 {
@@ -92,463 +93,416 @@ deployment with only infrastructure resources:
 }
 ```
 
-[Show moreShow less](# "#")The following list describes each specification input:
+The following list describes each specification input:
++ **DisableDeploymentRollback**
 
-- **DisableDeploymentRollback**
+  Type: String
 
-Type: String
+  AllowedValues: `Yes` \| `No`
 
-AllowedValues: `Yes` | `No`
+  Description: Specifies whether to disable rollback of the CloudFormation stack if the stack creation fails.
 
-Description: Specifies whether to disable rollback of the CloudFormation stack if the stack creation fails.
+  Required: Yes
++ **SaveDeploymentArtifacts**
 
-Required: Yes
+  Type: String
 
-- **SaveDeploymentArtifacts**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether to save the deployment artifacts in Service Catalog after deployment is complete.
 
-AllowedValues: `Yes` | `No`
+  Required: Yes
++ **DeploymentArtifactsS3Uri**
 
-Description: Specifies whether to save the deployment artifacts in Service Catalog after deployment is complete.
+  Type: String
 
-Required: Yes
+  Example: s3://save-test-us-east-1
 
-- **DeploymentArtifactsS3Uri**
+  Description: The Amazon S3 URI in which to save the deployment artifacts for Service Catalog.
 
-Type: String
+  Required: No
++ **KeyPairName**
 
-Example: s3://save-test-us-east-1
+  Type: String
 
-Description: The Amazon S3 URI in which to save the deployment artifacts for Service Catalog.
+  Constraints: Up to 255 ASCII characters
 
-Required: No
+  Example: home
 
-- **KeyPairName**
+  Description: The name of an existing Amazon EC2 key pair. All instances will launch with this key pair.
 
-Type: String
+  Required: Yes
++ **VpcId**
 
-Constraints: Up to 255 ASCII characters
+  Type: String
 
-Example: home
+  Example: vpc-01234567890
 
-Description: The name of an existing Amazon EC2 key pair. All instances will launch with this key pair.
+  Description: The existing Amazon VPC where you want to deploy the system.
 
-Required: Yes
+  Required: Yes
++ **Timezone**
 
-- **VpcId**
+  Type: String
 
-Type: String
+  Example: UTC
 
-Example: vpc-01234567890
+  Description: The time zone to configure for your SAP resources.
 
-Description: The existing Amazon VPC where you want to deploy the system.
+  Required: Yes
++ **EnableEbsVolumeEncryption**
 
-Required: Yes
+  Type: String
 
-- **Timezone**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether to encrypt the EBS volumes used for the deployment. 
 
-Example: UTC
+  Required: Yes
++ **EbsKmsKeyArn**
 
-Description: The time zone to configure for your SAP resources.
+  Type: String
 
-Required: Yes
+  Example: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 
-- **EnableEbsVolumeEncryption**
+  Description: Specifies a KMS key ARN for encrypting EBS volumes when `EnableEbsVolumeEncryption` is set to `Yes`.
 
-Type: String
+  Conditional: If `EnableEbsVolumeEncryption` is `Yes`, you must specify a KMS key ARN.
 
-AllowedValues: `Yes` | `No`
+  Required: No
++ **DatabaseDataVolumeType**
 
-Description: Specifies whether to encrypt the EBS volumes used for the deployment.
+  Type: String
 
-Required: Yes
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2` \| `fsx`
 
-- **EbsKmsKeyArn**
+  Description: The Amazon EBS volume type, or Amazon FSx for NetApp ONTAP (if supported) file share, for database data.
 
-Type: String
+  Conditional: If `fsx` is specified for `DatabaseDataVolumeType`, you must also specify `fsx` for `DatabaseLogVolumeType`.
 
-Example: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+  Required: Yes
++ **DatabaseLogVolumeType**
 
-Description: Specifies a KMS key ARN for encrypting EBS volumes when `EnableEbsVolumeEncryption` is set to `Yes`.
+  Type: String
 
-Conditional: If `EnableEbsVolumeEncryption` is `Yes`, you must specify a KMS key ARN.
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2` \| `fsx`
 
-Required: No
+  Description: The Amazon EBS volume type, or FSx for ONTAP (if supported) file share, for database logging.
 
-- **DatabaseDataVolumeType**
+  Conditional: If `fsx` is specified for `DatabaseLogVolumeType`, you must also specify `fsx` for `DatabaseDataVolumeType`.
 
-Type: String
+  Required: Yes
++ **DatabaseBackupVolume**
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2` | `fsx`
+  Type: String
 
-Description: The Amazon EBS volume type, or Amazon FSx for NetApp ONTAP (if supported) file share, for database data.
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2` \| `fsx`
 
-Conditional: If `fsx` is specified for `DatabaseDataVolumeType`, you must also specify `fsx` for `DatabaseLogVolumeType`.
+  Description: The Amazon EBS volume type, or Amazon FSx for NetApp ONTAP (if supported) file share, for database backup.
 
-Required: Yes
+  Required: Yes
++ **SapSid**
 
-- **DatabaseLogVolumeType**
+  Type: String
 
-Type: String
+  Constraints: This value must consist of 3 characters.
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2` | `fsx`
+  Example: HDB
 
-Description: The Amazon EBS volume type, or FSx for ONTAP (if supported) file share, for database logging.
+  Description: The SAP application system ID for installation and setup.
 
-Conditional: If `fsx` is specified for `DatabaseLogVolumeType`, you must also specify `fsx` for `DatabaseDataVolumeType`.
+  Required: Yes
++ **SybSidUserId**
 
-Required: Yes
+  Type: String
 
-- **DatabaseBackupVolume**
+  Constraints: The minimum is 100, and the maximum is 65536.
 
-Type: String
+  Example: 1000
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2` | `fsx`
+  Description: The system ID user ID for SAP ASE database.
 
-Description: The Amazon EBS volume type, or Amazon FSx for NetApp ONTAP (if supported) file share, for database backup.
+  Required: Yes
++ **SidAdmUserId**
 
-Required: Yes
+  Type: String
 
-- **SapSid**
+  Constraints: The minimum is 100, and the maximum is 65536.
 
-Type: String
+  Example: 1002
 
-Constraints: This value must consist of 3 characters.
+  Description: The UID for the `<sid>adm` user. The default UID is `1002`.
 
-Example: HDB
+  Required: No
++ **SapPassword**
 
-Description: The SAP application system ID for installation and setup.
+  Type: String
 
-Required: Yes
+  Description: Specifes the password to use for setting up the SAP application and database defaults users. The password must:
+  + Be between 10 and 13 alphanumeric characters.
+  + Not begin with a number or special character.
+  + Have at least one uppercase letter.
+  + Have at least one lowercase letter.
+  + Have at least one digit.
+  + Only use the following special characters: **\#**, **@**, and **\_**.
 
-- **SybSidUserId**
+  Required: Yes
++ **ApplicationDataVolumeType**
 
-Type: String
+  Type: String
 
-Constraints: The minimum is 100, and the maximum is 65536.
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2`
 
-Example: 1000
+  Description: The Amazon EBS volume type for the SAP application.
 
-Description: The system ID user ID for SAP ASE database.
+  Required: Yes
++ **SetupTransportDomainController**
 
-Required: Yes
+  Type: String
 
-- **SidAdmUserId**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether to use transport FS.
 
-Constraints: The minimum is 100, and the maximum is 65536.
+  Required: Yes
++ **CreateTransportDomainControllerFileSystem**
 
-Example: 1002
+  Type: String
 
-Description: The UID for the `<sid>adm` user. The default UID is `1002`.
+  AllowedValues: `Yes` \| `No`
 
-Required: No
+  Default: `No`
 
-- **SapPassword**
+  Description: Specifies whether to create a new Amazon EFS for the transport domain controller.
 
-Type: String
+  Conditional: You must specify `Yes` for `SetupTransportDomainController` to provide value for this specification.
 
-Description: Specifes the password to use for setting up the SAP application and database defaults users. The password must:
+  Required: No
++ **AvailabilityZone1PrivateSubnet1Id**
 
-    + Be between 10 and 13 alphanumeric characters.
-    + Not begin with a number or special character.
-    + Have at least one uppercase letter.
-    + Have at least one lowercase letter.
-    + Have at least one digit.
-    + Only use the following special characters: `#`, `@`, and `_`.
+  Type: String
 
-Required: Yes
+  Example: subnet-11111111aaaaaaaaa
 
-- **ApplicationDataVolumeType**
+  Description: The existing private subnet where you want to deploy the system.
 
-Type: String
+  Required: Yes
++ **CentralSystemOperatingSystem**
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2`
+  Type: String
 
-Description: The Amazon EBS volume type for the SAP application.
+  Example: SuSE-Linux-12-SP5-For-SAP-HVM
 
-Required: Yes
+  Description: The operating system (including the version) for database.
 
-- **SetupTransportDomainController**
+  AllowedValues: `SuSE-Linux-12-SP4-HVM | SuSE-Linux-12-SP4-For-SAP-HVM | SuSE-Linux-12-SP5-HVM | SuSE-Linux-12-SP5-For-SAP-HVM | SuSE-Linux-15-HVM | SuSE-Linux-15-For-SAP-HVM | SuSE-Linux-15-SP1-HVM | SuSE-Linux-15-SP1-For-SAP-HVM | SuSE-Linux-15-SP2-HVM | SuSE-Linux-15-SP2-For-SAP-HVM | SuSE-Linux-15-SP3-HVM | SuSE-Linux-15-SP3-For-SAP-HVM | SuSE-Linux-15-SP4-HVM | SuSE-Linux-15-SP5-HVM | SuSE-Linux-15-SP6-HVM | SuSE-Linux-15-SP4-For-SAP-HVM | SuSE-Linux-15-SP5-For-SAP-HVM| SuSE-Linux-15-SP6-For-SAP-HVM | Red-Hat-Enterprise-Linux-7.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.7-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.9-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.1-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.8-For-SAP-HA-US-HVM| Red-Hat-Enterprise-Linux-8.10-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.0-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.6-BYOS | Red-Hat-Enterprise-Linux-7.7-BYOS | Red-Hat-Enterprise-Linux-8.1-BYOS | Red-Hat-Enterprise-Linux-8.2-BYOS | Red-Hat-Enterprise-Linux-8.4-BYOS | Red-Hat-Enterprise-Linux-8.6-BYOS | Red-Hat-Enterprise-Linux-8.8-BYOS| Red-Hat-Enterprise-Linux-8.10-BYOS | Red-Hat-Enterprise-Linux-9.0-BYOS | Red-Hat-Enterprise-Linux-9.2-BYOS | Red-Hat-Enterprise-Linux-9.4-BYOS | SuSE-Linux-12-SP4-For-SAP-BYOS-HVM | SuSE-Linux-12-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-For-SAP-BYOS-HVM | SuSE-Linux-15-SP1-For-SAP-BYOS-HVM | SuSE-Linux-15-SP2-For-SAP-BYOS-HVM | SuSE-Linux-15-SP3-For-SAP-BYOS-HVM | SuSE-Linux-15-SP4-For-SAP-BYOS-HVM | SuSE-Linux-15-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-SP6-For-SAP-BYOS-HVM ` 
 
-Type: String
+  Required: Yes
++ **CentralSystemAmiId**
 
-AllowedValues: `Yes` | `No`
+  Type: String
 
-Description: Specifies whether to use transport FS.
+  Example: ami-11111111111111
 
-Required: Yes
+  Description: The AMI ID to use for the database nodes. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI). If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
 
-- **CreateTransportDomainControllerFileSystem**
+  Required: Yes
++ **CentralSystemInstanceType**
 
-Type: String
+  Type: String
 
-AllowedValues: `Yes` | `No`
+  Example: r5.2xlarge
 
-Default: `No`
+  Description: The instance type used for database nodes.
 
-Description: Specifies whether to create a new Amazon EFS for the transport domain controller.
+  Required: Yes
++ **EnableCloudwatchLogs**
 
-Conditional: You must specify `Yes` for `SetupTransportDomainController` to provide value for this specification.
+  Type: String
 
-Required: No
+  AllowedValues: `Yes` \| `No`
 
-- **AvailabilityZone1PrivateSubnet1Id**
+  Description: Specifies whether to enable Amazon CloudWatch logs.
 
-Type: String
+  Required: No
++ **EC2InstanceRoleName**
 
-Example: subnet-11111111aaaaaaaaa
+  Type: String
 
-Description: The existing private subnet where you want to deploy the system.
+  Example: `AmazonEC2RoleForLaunchWizard`
 
-Required: Yes
+  Description: The name of the Amazon EC2 instance role.
 
-- **CentralSystemOperatingSystem**
+  Required: Yes
++ **CentralSystemHostname**
 
-Type: String
+  Type: String
 
-Example: SuSE-Linux-12-SP5-For-SAP-HVM
+  Example: sapci
 
-Description: The operating system (including the version) for database.
+  Description: The host name or DNS short name to use for the primary database node.
 
-AllowedValues: `SuSE-Linux-12-SP4-HVM | SuSE-Linux-12-SP4-For-SAP-HVM | SuSE-Linux-12-SP5-HVM | SuSE-Linux-12-SP5-For-SAP-HVM | SuSE-Linux-15-HVM | SuSE-Linux-15-For-SAP-HVM | SuSE-Linux-15-SP1-HVM | SuSE-Linux-15-SP1-For-SAP-HVM | SuSE-Linux-15-SP2-HVM | SuSE-Linux-15-SP2-For-SAP-HVM | SuSE-Linux-15-SP3-HVM | SuSE-Linux-15-SP3-For-SAP-HVM | SuSE-Linux-15-SP4-HVM | SuSE-Linux-15-SP5-HVM | SuSE-Linux-15-SP6-HVM | SuSE-Linux-15-SP4-For-SAP-HVM | SuSE-Linux-15-SP5-For-SAP-HVM| SuSE-Linux-15-SP6-For-SAP-HVM | Red-Hat-Enterprise-Linux-7.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.7-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.9-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.1-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.8-For-SAP-HA-US-HVM| Red-Hat-Enterprise-Linux-8.10-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.0-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.6-BYOS | Red-Hat-Enterprise-Linux-7.7-BYOS | Red-Hat-Enterprise-Linux-8.1-BYOS | Red-Hat-Enterprise-Linux-8.2-BYOS | Red-Hat-Enterprise-Linux-8.4-BYOS | Red-Hat-Enterprise-Linux-8.6-BYOS | Red-Hat-Enterprise-Linux-8.8-BYOS| Red-Hat-Enterprise-Linux-8.10-BYOS | Red-Hat-Enterprise-Linux-9.0-BYOS | Red-Hat-Enterprise-Linux-9.2-BYOS | Red-Hat-Enterprise-Linux-9.4-BYOS | SuSE-Linux-12-SP4-For-SAP-BYOS-HVM | SuSE-Linux-12-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-For-SAP-BYOS-HVM | SuSE-Linux-15-SP1-For-SAP-BYOS-HVM | SuSE-Linux-15-SP2-For-SAP-BYOS-HVM | SuSE-Linux-15-SP3-For-SAP-BYOS-HVM | SuSE-Linux-15-SP4-For-SAP-BYOS-HVM | SuSE-Linux-15-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-SP6-For-SAP-BYOS-HVM`
+  Required: Yes
++ **CentralSystemVirtualHostname**
 
-Required: Yes
+  Type: String
 
-- **CentralSystemAmiId**
+  Example: sapvirtualci
 
-Type: String
+  Description: The virtual host name or DNS short name to use for the primary database node.
 
-Example: ami-11111111111111
+  Required: Yes
++ **CentralSystemAutomaticRecovery**
 
-Description: The AMI ID to use for the database nodes. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI).
-If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
+  Type: String
 
-Required: Yes
+  AllowedValues: `Yes` \| `No`
 
-- **CentralSystemInstanceType**
+  Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for database nodes or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
 
-Type: String
+  Required: Yes
++ **AseBackupFileSpecifications**
 
-Example: r5.2xlarge
+  Type: String
 
-Description: The instance type used for database nodes.
+  Example: `[{\"fileSize\":300,\"IOPS\":900,\"throughPut\":250}]`
 
-Required: Yes
+  Description: Parameters for the backup filesystem for SAP ASE database formatted as stringified JSON.
 
-- **EnableCloudwatchLogs**
+  Required: Yes
++ **AseAbapDataFilesSpecifications**
 
-Type: String
+  Type: String
 
-AllowedValues: `Yes` | `No`
+  Example: `[{\"fileSize\":300,\"IOPS\":3000,\"throughPut\":250}]`
 
-Description: Specifies whether to enable Amazon CloudWatch logs.
+  Description: Parameters for the data filesystem for SAP ASE database formatted as stringified JSON.
 
-Required: No
+  Required: Yes
++ **AseAbapLogFilesSpecifications**
 
-- **EC2InstanceRoleName**
+  Type: String
 
-Type: String
+  Example: `[{\"fileSize\":300,\"IOPS\":3000,\"throughPut\":250}]`
 
-Example: `AmazonEC2RoleForLaunchWizard`
+  Description: Parameters for the log filesystem for SAP ASE database formatted as stringified JSON.
 
-Description: The name of the Amazon EC2 instance role.
+  Required: Yes
++ **SapInstallationSpecifications**
 
-Required: Yes
+  Type: String
 
-- **CentralSystemHostname**
+  Example: `{"parameters":{"PRODUCT_ID":"saps4hana-2022","HDB_SCHEMA_NAME":"SAPABAP1","CI_INSTANCE_NR":"12","ASCS_INSTANCE_NR":"10","SAPINST_CD_SAPCAR":"{{s3://launchwizard-test-sap-media/sapcar}}","SAPINST_CD_SWPM":"{{s3://launchwizard-test-sap-media/swpm/10-sp30}}","SAPINST_CD_KERNEL":"{{s3://launchwizard-test-sap-media/kernel}}","SAPINST_CD_LOAD":"{{s3://launchwizard-test-sap-media/exports/nw-75}}","SAPINST_CD_RDBMS":"{{s3://launchwizard-test-sap-media/database}}","SAPINST_CD_RDBMS_CLIENT":"{{s3://launchwizard-test-sap-media/hana-client}}"}, "onFailureBehaviour": "CONTINUE/ROLLBACK"}`
 
-Type: String
+  Description: A list of SAP Application installation parameters formatted as stringified JSON. You can specify any of the following values for the `PRODUCT_ID`: `sapNetWeaver-752 | sapNetWeaver-750 | sapNetweaverJavaOnly-750 | saps4hana-1909 | saps4hana-2020 | saps4hana-2021 | saps4hana-2022 | saps4hana-2023 | saps4hanafoundations-2021 | saps4hanafoundations-2022 | saps4hanafoundations-2023 | sapbw4hana-2.0 | sapbw4hana-2021 | sapsolman-7.2`
 
-Example: sapci
+  Conditional: If you specify `Yes` for `InstallSap`, you must also provide input for this specification.
 
-Description: The host name or DNS short name to use for the primary database node.
+  Required: No
++ **CreateSecurityGroup**
 
-Required: Yes
+  Type: String
 
-- **CentralSystemVirtualHostname**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether you want to create new security groups for the deployment.
 
-Example: sapvirtualci
+  Required: Yes
++ **DatabaseSecurityGroupId**
 
-Description: The virtual host name or DNS short name to use for the primary database node.
+  Type: String
 
-Required: Yes
+  Example: sg-1234567890abcdef
 
-- **CentralSystemAutomaticRecovery**
+  Description: The security group ID for your HANA database.
 
-Type: String
+  Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
 
-AllowedValues: `Yes` | `No`
+  Required: No
++ **ApplicationSecurityGroupId**
 
-Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for database nodes or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
+  Type: String
 
-Required: Yes
+  Example: sg-1234567890ghijkl
 
-- **AseBackupFileSpecifications**
+  Description: The security group ID for your SAP application.
 
-Type: String
+  Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
 
-Example: `[{\"fileSize\":300,\"IOPS\":900,\"throughPut\":250}]`
+  Required: No
++ **NewDatabaseSecurityGroupName**
 
-Description: Parameters for the backup filesystem for SAP ASE database formatted as stringified JSON.
+  Type: String
 
-Required: Yes
+  Example: dbsgname
 
-- **AseAbapDataFilesSpecifications**
+  Description: The name of the database tier security group.
 
-Type: String
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-Example: `[{\"fileSize\":300,\"IOPS\":3000,\"throughPut\":250}]`
+  Required: No
++ **NewApplicationSecurityGroupName**
 
-Description: Parameters for the data filesystem for SAP ASE database formatted as stringified JSON.
+  Type: String
 
-Required: Yes
+  Example: dbsgname
 
-- **AseAbapLogFilesSpecifications**
+  Description: The name of the application tier security group.
 
-Type: String
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-Example: `[{\"fileSize\":300,\"IOPS\":3000,\"throughPut\":250}]`
+  Required: No
++ **NewSecurityGroupRules**
 
-Description: Parameters for the log filesystem for SAP ASE database formatted as stringified JSON.
+  Type: String
 
-Required: Yes
+  Example: `"[{\"type\":\"ip\",\"value\":\"10.0.0.0/32\"},{\"type\":\"securityGroupId\",\"value\":\"sg-0e1c107d640209244\"}]"`
 
-- **SapInstallationSpecifications**
+  Description: A list of CIDR blocks or Security Group IDs to be used for creating a new security group.
 
-Type: String
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-Example: `{"parameters":{"PRODUCT_ID":"saps4hana-2022","HDB_SCHEMA_NAME":"SAPABAP1","CI_INSTANCE_NR":"12","ASCS_INSTANCE_NR":"10","SAPINST_CD_SAPCAR":"`s3://launchwizard-test-sap-media/sapcar`","SAPINST_CD_SWPM":"`s3://launchwizard-test-sap-media/swpm/10-sp30`","SAPINST_CD_KERNEL":"`s3://launchwizard-test-sap-media/kernel`","SAPINST_CD_LOAD":"`s3://launchwizard-test-sap-media/exports/nw-75`","SAPINST_CD_RDBMS":"`s3://launchwizard-test-sap-media/database`","SAPINST_CD_RDBMS_CLIENT":"`s3://launchwizard-test-sap-media/hana-client`"}, "onFailureBehaviour": "CONTINUE/ROLLBACK"}`
+  Required: No
++ **SapSysGroupId**
 
-Description: A list of SAP Application installation parameters formatted as stringified JSON. You can specify any of the following values for the `PRODUCT_ID`: `sapNetWeaver-752 | sapNetWeaver-750 | sapNetweaverJavaOnly-750 | saps4hana-1909 | saps4hana-2020 | saps4hana-2021 | saps4hana-2022 | saps4hana-2023 | saps4hanafoundations-2021 | saps4hanafoundations-2022 | saps4hanafoundations-2023 | sapbw4hana-2.0 | sapbw4hana-2021 | sapsolman-7.2`
+  Type: String
 
-Conditional: If you specify `Yes` for `InstallSap`, you must also provide input for this specification.
+  Example: 1001
 
-Required: No
+  Description: GID for the `sapsys` group. The default GID is `1001`.
 
-- **CreateSecurityGroup**
+  Required: Yes
++ **SapVirtualIPOptIn**
 
-Type: String
+  Type: String
 
-AllowedValues: `Yes` | `No`
+  AllowedValues: `Yes` \| `No`
 
-Description: Specifies whether you want to create new security groups for the deployment.
+  Description: Specifies if or not a virtual IP address is assigned to the EC2 instance hosting the SAP system.
 
-Required: Yes
+  Required: No
++ **ConfigurationScripts**
 
-- **DatabaseSecurityGroupId**
+  Type: String
 
-Type: String
+  Example: `{"preConfigurationScripts":{"onFailureBehaviour":"{{CONTINUE}}","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"{{s3://launchwizard-scripts-preconfig-us-west-2/preconfig-install.sh}}","sequence":"{{0}}"}]},"postConfigurationScripts":{"onFailureBehaviour":"{{CONTINUE}}","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"{{s3://launchwizard-scripts-postconfig-us-west-2/postconfig-install.sh}}","sequence":"{{0}}"}]}}`
 
-Example: sg-1234567890abcdef
+  Description: A list of pre- and post-configuration deployment scripts formatted as stringified JSON. You can specify one or more pre- or post-configuration scripts separately, or together. You must provide the follow details for each script:
+  + The URL for the script that has been uploaded to Amazon S3.
+  + A sequence number which specifies the order of execution.
+  + The type of node to run the script on. You can only specify `DB` for this deployment.
+  + The behavior to use should a failure or timeout occur when running the script. You can specify `CONTINUE` to proceed with the deployment or `ROLLBACK` to cancel the deployment.
 
-Description: The security group ID for your HANA database.
+  Required: No
++ **InstallSap**
 
-Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
+  Type: String
 
-Required: No
+  AllowedValues: `Yes` \| `No`
 
-- **ApplicationSecurityGroupId**
+  Description: Specifies whether to install SAP. The following specification combinations can be used to customize your application:
+  + To install SAP application software, specify `No` for `InstallDatabaseSoftware` and `Yes` for `InstallSap`.
+  + To install only the database software and deploy infrastructure resources for the application and database components, specify `Yes` for `InstallDatabaseSoftware` and `No` for `InstallSap`.
+  + To only deploy infrastructure resources for the SAP application and database components, specify `No` for `InstallDatabaseSoftware` and `InstallSap`.
 
-Type: String
-
-Example: sg-1234567890ghijkl
-
-Description: The security group ID for your SAP application.
-
-Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
-
-Required: No
-
-- **NewDatabaseSecurityGroupName**
-
-Type: String
-
-Example: dbsgname
-
-Description: The name of the database tier security group.
-
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
-
-Required: No
-
-- **NewApplicationSecurityGroupName**
-
-Type: String
-
-Example: dbsgname
-
-Description: The name of the application tier security group.
-
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
-
-Required: No
-
-- **NewSecurityGroupRules**
-
-Type: String
-
-Example: `"[{\"type\":\"ip\",\"value\":\"10.0.0.0/32\"},{\"type\":\"securityGroupId\",\"value\":\"sg-0e1c107d640209244\"}]"`
-
-Description: A list of CIDR blocks or Security Group IDs to be used for creating a new security group.
-
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
-
-Required: No
-
-- **SapSysGroupId**
-
-Type: String
-
-Example: 1001
-
-Description: GID for the `sapsys` group. The default GID is `1001`.
-
-Required: Yes
-
-- **SapVirtualIPOptIn**
-
-Type: String
-
-AllowedValues: `Yes` | `No`
-
-Description: Specifies if or not a virtual IP address is assigned to the EC2 instance hosting the SAP system.
-
-Required: No
-
-- **ConfigurationScripts**
-
-Type: String
-
-Example: `{"preConfigurationScripts":{"onFailureBehaviour":"`CONTINUE`","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"`s3://launchwizard-scripts-preconfig-us-west-2/preconfig-install.sh`","sequence":"`0`"}]},"postConfigurationScripts":{"onFailureBehaviour":"`CONTINUE`","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"`s3://launchwizard-scripts-postconfig-us-west-2/postconfig-install.sh`","sequence":"`0`"}]}}`
-
-Description: A list of pre- and post-configuration deployment scripts formatted as stringified JSON.
-You can specify one or more pre- or post-configuration scripts separately, or together.
-You must provide the follow details for each script:
-
-    + The URL for the script that has been uploaded to Amazon S3.
-    + A sequence number which specifies the order of execution.
-    + The type of node to run the script on. You can only specify `DB` for this deployment.
-    + The behavior to use should a failure or timeout occur when running the script. You can specify `CONTINUE` to proceed with the deployment or `ROLLBACK` to cancel the deployment.
-
-Required: No
-
-- **InstallSap**
-
-Type: String
-
-AllowedValues: `Yes` | `No`
-
-Description: Specifies whether to install SAP. The following specification combinations can be used to customize your application:
-
-    + To install SAP application software, specify `No` for `InstallDatabaseSoftware` and `Yes` for `InstallSap`.
-    + To install only the database software and deploy infrastructure resources for the application and database components, specify `Yes` for `InstallDatabaseSoftware` and `No` for `InstallSap`.
-    + To only deploy infrastructure resources for the SAP application and database components, specify `No` for `InstallDatabaseSoftware` and `InstallSap`.
-
-Required: Yes
+  Required: Yes

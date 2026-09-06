@@ -1,7 +1,9 @@
-# SapNWOnHanaSingle
 
-The following are examples of the specifications required to create single-node
-deployments.
+
+# SapNWOnHanaSingle
+<a name="launch-wizard-specifications-sap-netweaver-single"></a>
+
+The following are examples of the specifications required to create single-node deployments.
 
 Single-node deployment with SAP software installed
 
@@ -42,7 +44,7 @@ Single-node deployment with SAP software installed
 }
 ```
 
-[Show moreShow less](# "#")Single-node deployment with only HANA database software installed:
+Single-node deployment with only HANA database software installed:
 
 ```
 {
@@ -82,7 +84,7 @@ Single-node deployment with SAP software installed
 }
 ```
 
-[Show moreShow less](# "#")Single-node deployment with only infrastructure resources:
+Single-node deployment with only infrastructure resources:
 
 ```
 {
@@ -121,8 +123,7 @@ Single-node deployment with SAP software installed
 }
 ```
 
-[Show moreShow less](# "#")Single-node deployment with SAP Web Dispatcher, an Application Load Balancer with a secure protocol enabled,
-and SAP software installed:
+Single-node deployment with SAP Web Dispatcher, an Application Load Balancer with a secure protocol enabled, and SAP software installed:
 
 ```
 {
@@ -177,1012 +178,879 @@ and SAP software installed:
 }
 ```
 
-[Show moreShow less](# "#")The following list describes each specification input:
+The following list describes each specification input:
++ **KeyPairName**
 
-- **KeyPairName**
+  Type: String
 
-Type: String
+  Constraints: Up to 255 ASCII characters
 
-Constraints: Up to 255 ASCII characters
+  Example: home
 
-Example: home
+  Description: The name of an existing Amazon EC2 key pair. All instances will launch with this key pair.
 
-Description: The name of an existing Amazon EC2 key pair. All instances will launch with this key pair.
+  Required: Yes
++ **VpcId**
 
-Required: Yes
+  Type: String
 
-- **VpcId**
+  Example: vpc-01234567890
 
-Type: String
+  Description: The existing Amazon VPC where you want to deploy the system.
 
-Example: vpc-01234567890
+  Required: Yes
++ **AvailabilityZone1PrivateSubnet1Id**
 
-Description: The existing Amazon VPC where you want to deploy the system.
+  Type: String
 
-Required: Yes
+  Example: subnet-11111111aaaaaaaaa
 
-- **AvailabilityZone1PrivateSubnet1Id**
+  Description: The existing private subnet where you want to deploy the system.
 
-Type: String
+  Required: Yes
++ **ProxyServerAddress**
 
-Example: subnet-11111111aaaaaaaaa
+  Type: String
 
-Description: The existing private subnet where you want to deploy the system.
+  Example: http://10.x.x.x:8080
 
-Required: Yes
+  Description: The `ProxyServerAddress` address for http access. For example, {{http://xyz.abc.com:8080}} or {{http://10.x.x.x:8080}}.
 
-- **ProxyServerAddress**
+  Required: No
++ **NoProxy**
 
-Type: String
+  Type: String
 
-Example: http://10.x.x.x:8080
+  Example: http://10.x.x.x:8080
 
-Description: The `ProxyServerAddress` address for http access. For example, `http://xyz.abc.com:8080` or `http://10.x.x.x:8080`.
+  Description: A comma separated list of URLs, CIDR ranges, or IP addresses for which to disable ProxyServerAddress settings using the `NO_ProxyServerAddress` environment variable. You can specify input for this specification when input has been provided for `ProxyServerAddress`. Any values you specify are appended to the default configuration for the `NO_ProxyServerAddress` environment variable. The following entries are used by default:
 
-Required: No
+  `NO_ProxyServerAddress="localhost,127.0.0.1,169.254.169.254,.internal,{VPC_CIDR_RANGE}"`
 
-- **NoProxy**
+  Required: No
++ **Timezone**
 
-Type: String
+  Type: String
 
-Example: http://10.x.x.x:8080
+  Example: UTC
 
-Description: A comma separated list of URLs, CIDR ranges, or IP addresses for which to disable ProxyServerAddress settings using the `NO_ProxyServerAddress` environment variable.
-You can specify input for this specification when input has been provided for `ProxyServerAddress`.
-Any values you specify are appended to the default configuration for the `NO_ProxyServerAddress` environment variable. The following entries are used by default:
+  Description: The time zone to configure for your SAP resources.
 
-`NO_ProxyServerAddress="localhost,127.0.0.1,169.254.169.254,.internal,{VPC_CIDR_RANGE}"`
+  Required: Yes
++ **EnableEbsVolumeEncryption**
 
-Required: No
+  Type: String
 
-- **Timezone**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether to encrypt the EBS volumes used for the deployment. 
 
-Example: UTC
+  Required: Yes
++ **EbsKmsKeyArn**
 
-Description: The time zone to configure for your SAP resources.
+  Type: String
 
-Required: Yes
+  Example: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 
-- **EnableEbsVolumeEncryption**
+  Description: Specifies a KMS key ARN for encrypting EBS volumes when `EnableEbsVolumeEncryption` is set to `Yes`.
 
-Type: String
+  Conditional: If `EnableEbsVolumeEncryption` is `Yes`, you must specify a KMS key ARN.
 
-AllowedValues: `Yes` | `No`
+  Required: No
++ **CreateSecurityGroup**
 
-Description: Specifies whether to encrypt the EBS volumes used for the deployment.
+  Type: String
 
-Required: Yes
+  AllowedValues: `Yes` \| `No`
 
-- **EbsKmsKeyArn**
+  Description: Specifies whether you want to create new security groups for the deployment.
 
-Type: String
+  Required: Yes
++ **NewSecurityGroupRules**
 
-Example: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+  Type: String
 
-Description: Specifies a KMS key ARN for encrypting EBS volumes when `EnableEbsVolumeEncryption` is set to `Yes`.
+  Example: `"[{\"type\":\"ip\",\"value\":\"10.0.0.0/32\"},{\"type\":\"securityGroupId\",\"value\":\"sg-0e1c107d640209244\"}]"`
 
-Conditional: If `EnableEbsVolumeEncryption` is `Yes`, you must specify a KMS key ARN.
+  Description: A list of CIDR blocks or Security Group IDs to be used for creating a new security group.
 
-Required: No
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-- **CreateSecurityGroup**
+  Required: No
++ **NewDatabaseSecurityGroupName**
 
-Type: String
+  Type: String
 
-AllowedValues: `Yes` | `No`
+  Example: dbsgname
 
-Description: Specifies whether you want to create new security groups for the deployment.
+  Description: The name of the database tier security group.
 
-Required: Yes
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-- **NewSecurityGroupRules**
+  Required: No
++ **NewApplicationSecurityGroupName**
 
-Type: String
+  Type: String
 
-Example: `"[{\"type\":\"ip\",\"value\":\"10.0.0.0/32\"},{\"type\":\"securityGroupId\",\"value\":\"sg-0e1c107d640209244\"}]"`
+  Example: dbsgname
 
-Description: A list of CIDR blocks or Security Group IDs to be used for creating a new security group.
+  Description: The name of the application tier security group.
 
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
+  Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
 
-Required: No
+  Required: No
++ **DatabaseSecurityGroupId**
 
-- **NewDatabaseSecurityGroupName**
+  Type: String
 
-Type: String
+  Example: sg-1234567890abcdef
 
-Example: dbsgname
+  Description: The security group ID for your HANA database.
 
-Description: The name of the database tier security group.
+  Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
 
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
+  Required: No
++ **ApplicationSecurityGroupId**
 
-Required: No
+  Type: String
 
-- **NewApplicationSecurityGroupName**
+  Example: sg-1234567890ghijkl
 
-Type: String
+  Description: The security group ID for your SAP application.
 
-Example: dbsgname
+  Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
 
-Description: The name of the application tier security group.
+  Required: No
++ **DomainName**
 
-Conditional: If you specify `Yes` for `CreateSecurityGroup`, you must also provide input for this configuration.
+  Type: String
 
-Required: No
+  Example: example.com
 
-- **DatabaseSecurityGroupId**
+  Description: The domain name to be used for the deployment.
 
-Type: String
+  Required: No
++ **HostedZoneName**
 
-Example: sg-1234567890abcdef
+  Type: String
 
-Description: The security group ID for your HANA database.
+  Example: example.com
 
-Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
+  Description: The Amazon Route 53 hosted zone name.
 
-Required: No
+  Required: No
++ **HostedZoneId**
 
-- **ApplicationSecurityGroupId**
+  Type: String
 
-Type: String
+  Example: Z36KTIQEXAMPLE
 
-Example: sg-1234567890ghijkl
+  Description: Route 53 hosted zone id.
 
-Description: The security group ID for your SAP application.
+  Conditional: If you specify a value for `HostedZoneName`, you must also provide input for this specification.
 
-Conditional: If you specify `No` for `CreateSecurityGroup`, you must provide an input for this configuration.
+  Required: No
++ **DedicatedHostId**
 
-Required: No
+  Type: CommaDelimitedList String
 
-- **DomainName**
+  Example: h-012a3456b7890cdef
 
-Type: String
+  Description: The existing Dedicated Hosts on which you want to launch your instances.
 
-Example: example.com
+  Conditional: If you are using Amazon EC2 High Memory Instances, you must provide an input for this specification. For more information on Amazon EC2 High Memory Instances, see [Amazon EC2 High Memory Instances](https://aws.amazon.com/ec2/instance-types/high-memory/).
 
-Description: The domain name to be used for the deployment.
+  Required: No
++ **ConfigurationScripts**
 
-Required: No
+  Type: String
 
-- **HostedZoneName**
+  Example: `{"preConfigurationScripts":{"onFailureBehaviour":"{{CONTINUE}}","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"{{s3://launchwizard-scripts-preconfig-us-west-2/preconfig-install.sh}}","sequence":"{{0}}"}]},"postConfigurationScripts":{"onFailureBehaviour":"{{CONTINUE}}","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"{{s3://launchwizard-scripts-postconfig-us-west-2/postconfig-install.sh}}","sequence":"{{0}}"}]}}`
 
-Type: String
+  Description: A list of pre- and post-configuration deployment scripts formatted as stringified JSON. You can specify one or more pre- or post-configuration scripts separately, or together. You must provide the follow details for each script:
+  + The URL for the script that has been uploaded to Amazon S3.
+  + A sequence number which specifies the order of execution.
+  + The type of node to run the script on. You can only specify `DB` for this deployment.
+  + The behavior to use should a failure or timeout occur when running the script. You can specify `CONTINUE` to proceed with the deployment or `ROLLBACK` to cancel the deployment.
 
-Example: example.com
+  Required: No
++ **SidAdmUserId**
 
-Description: The Amazon Route 53 hosted zone name.
+  Type: String
 
-Required: No
+  Example: 1002
 
-- **HostedZoneId**
+  Description: The UID for the `<sid>adm` user. The default UID is `1002`.
 
-Type: String
+  Required: Yes
++ **SapSysGroupId**
 
-Example: Z36KTIQEXAMPLE
+  Type: String
 
-Description: Route 53 hosted zone id.
+  Example: 1001
 
-Conditional: If you specify a value for `HostedZoneName`, you must also provide input for this specification.
+  Description: GID for the `sapsys` group. The default GID is `1001`.
 
-Required: No
+  Required: Yes
++ **DatabaseSystemId**
 
-- **DedicatedHostId**
+  Type: String
 
-Type: CommaDelimitedList String
+  Constraints: This value must consist of 3 characters.
 
-Example: h-012a3456b7890cdef
+  Example: HDB
 
-Description: The existing Dedicated Hosts on which you want to launch your instances.
+  Description: The SAP HANA system ID for installation and setup.
 
-Conditional: If you are using Amazon EC2 High Memory Instances, you must provide an input for this specification. For more information on Amazon EC2 High Memory Instances, see [Amazon EC2 High Memory Instances](https://aws.amazon.com/ec2/instance-types/high-memory/ "https://aws.amazon.com/ec2/instance-types/high-memory/").
+  Required: Yes
++ **SapSid**
 
-Required: No
+  Type: String
 
-- **ConfigurationScripts**
+  Constraints: This value must consist of 3 characters.
 
-Type: String
+  Example: HDB
 
-Example: `{"preConfigurationScripts":{"onFailureBehaviour":"`CONTINUE`","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"`s3://launchwizard-scripts-preconfig-us-west-2/preconfig-install.sh`","sequence":"`0`"}]},"postConfigurationScripts":{"onFailureBehaviour":"`CONTINUE`","configurationScripts":[{"nodeTypesToRunScriptFor":["DB"],"s3URL":"`s3://launchwizard-scripts-postconfig-us-west-2/postconfig-install.sh`","sequence":"`0`"}]}}`
+  Description: The SAP application system ID for installation and setup.
 
-Description: A list of pre- and post-configuration deployment scripts formatted as stringified JSON.
-You can specify one or more pre- or post-configuration scripts separately, or together.
-You must provide the follow details for each script:
+  Required: Yes
++ **ApplicationDataVolumeType**
 
-    + The URL for the script that has been uploaded to Amazon S3.
-    + A sequence number which specifies the order of execution.
-    + The type of node to run the script on. You can only specify `DB` for this deployment.
-    + The behavior to use should a failure or timeout occur when running the script. You can specify `CONTINUE` to proceed with the deployment or `ROLLBACK` to cancel the deployment.
+  Type: String
 
-Required: No
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2`
 
-- **SidAdmUserId**
+  Description: The Amazon EBS volume type for the SAP application.
 
-Type: String
+  Required: Yes
++ **DatabaseInstanceNumber**
 
-Example: 1002
+  Type: String
 
-Description: The UID for the `<sid>adm` user. The default UID is `1002`.
+  Constraints: The instance number must be between `00` and `97`.
 
-Required: Yes
+  Example: 00
 
-- **SapSysGroupId**
+  Description: The SAP HANA instance number to use for installation, setup, and to open ports for security groups.
 
-Type: String
+  Required: Yes
++ **InstallAwsBackintAgent**
 
-Example: 1001
+  Type: String
 
-Description: GID for the `sapsys` group. The default GID is `1001`.
+  AllowedValues: `Yes` \| `No`
 
-Required: Yes
+  Description: Specifies whether to install the AWS Backint Agent for SAP HANA.
 
-- **DatabaseSystemId**
+  Conditional: This specification can only used in this deployment pattern if `InstallSap` is specified as `Yes`, or `InstallSap` is specified as `No` and `InstallDatabaseSoftware` is set to `Yes`.
 
-Type: String
+  Required: Yes
++ **BackintSpecifications**
 
-Constraints: This value must consist of 3 characters.
+  Type: String
 
-Example: HDB
+  Example:
 
-Description: The SAP HANA system ID for installation and setup.
+  ```
+  "{\"backintBucketName\":\"{{amzn-s3-demo-bucket}}\",\"backintBucketFolder\":\"{{HANABackintBucketFolder}}\",\"backintBucketRegion\":\"{{us-east-1}}\",\"backintKmsKeyArn\":\"{{arn:aws:kms:us-east-1:111122223333:alias/aws/s3}}\",\"backintAgentVersion\":\"{{2.0.2.732}}\",\"backintContinueOnFailure\":\"{{No}}\",\"backintCreateEbsVolume\":\"{{No}}\"}"
+  ```
 
-Required: Yes
+  Description: Parameters for the AWS Backint Agent for SAP HANA formatted as stringified JSON.
 
-- **SapSid**
+  Conditional: If you specify `Yes` for `InstallAwsBackintAgent`, you must also provide input for this specification.
 
-Type: String
+  Required: No
++ **PasOperatingSystem**
 
-Constraints: This value must consist of 3 characters.
+  Type: String
 
-Example: HDB
+  Example: SuSE-Linux-12-SP5-For-SAP-HVM
 
-Description: The SAP application system ID for installation and setup.
+  Description: The operating system (including the version) for the PAS node.
 
-Required: Yes
+  Required: Yes
++ **PasAmiId**
 
-- **ApplicationDataVolumeType**
+  Type: String
 
-Type: String
+  Example: ami-33333333333333
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2`
+  Description: The AMI ID to use for the PAS node. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI). If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
 
-Description: The Amazon EBS volume type for the SAP application.
+  Required: Yes
++ **PasByoip**
 
-Required: Yes
+  Type: String
 
-- **DatabaseInstanceNumber**
+  Example: 10.0.1.10
 
-Type: String
+  Description: A private IPv4 address to be used by the PAS node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
 
-Constraints: The instance number must be between `00` and `97`.
+  Required: No
++ **PasSlesByosRegistrationCode**
 
-Example: 00
+  Type: String
 
-Description: The SAP HANA instance number to use for installation, setup, and to open ports for security groups.
+  Description: The SLES registration code for Bring Your Own Subscription model (BYOS) images.
 
-Required: Yes
+  Conditional: If you specify SUSE as the operating system, and it uses BYOS, you must also provide input for this specification.
 
-- **InstallAwsBackintAgent**
+  Required: No
++ **PasRhelByosUsername**
 
-Type: String
+  Type: String
 
-AllowedValues: `Yes` | `No`
+  Example: admin
 
-Description: Specifies whether to install the AWS Backint Agent for SAP HANA.
+  Description: The username in the Red Hat Enterprise Linux (RHEL) operating system to use.
 
-Conditional: This specification can only used in this deployment pattern if `InstallSap` is specified as `Yes`, or `InstallSap` is specified as `No` and `InstallDatabaseSoftware` is set to `Yes`.
+  Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
 
-Required: Yes
+  Required: No
++ **PasRhelByosUserPassword**
 
-- **BackintSpecifications**
+  Type: String
 
-Type: String
+  Description: The password for the user specified in `PasRhelByosUsername`.
 
-Example:
+  Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
 
-```
-"{\"backintBucketName\":\"`amzn-s3-demo-bucket`\",\"backintBucketFolder\":\"`HANABackintBucketFolder`\",\"backintBucketRegion\":\"`us-east-1`\",\"backintKmsKeyArn\":\"`arn:aws:kms:us-east-1:111122223333:alias/aws/s3`\",\"backintAgentVersion\":\"`2.0.2.732`\",\"backintContinueOnFailure\":\"`No`\",\"backintCreateEbsVolume\":\"`No`\"}"
-```
+  Required: No
++ **PasAutomaticRecovery**
 
-Description: Parameters for the AWS Backint Agent for SAP HANA formatted as stringified JSON.
+  Type: String
 
-Conditional: If you specify `Yes` for `InstallAwsBackintAgent`, you must also provide input for this specification.
+  AllowedValues: `Yes` \| `No`
 
-Required: No
+  Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for the PAS node or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
 
-- **PasOperatingSystem**
+  Required: Yes
++ **PasInstanceType**
 
-Type: String
+  Type: String
 
-Example: SuSE-Linux-12-SP5-For-SAP-HVM
+  Example: r5.2xlarge
 
-Description: The operating system (including the version) for the PAS node.
+  Description: The instance type used for the PAS node.
 
-Required: Yes
+  Required: Yes
++ **PasHostname**
 
-- **PasAmiId**
+  Type: String
 
-Type: String
+  Example: PASPrimary
 
-Example: ami-33333333333333
+  Description: The host name or DNS short name to use for the PAS node.
 
-Description: The AMI ID to use for the PAS node. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI).
-If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
+  Required: Yes
++ **InstallAas**
 
-Required: Yes
+  Type: String
 
-- **PasByoip**
+  AllowedValues: `Yes` \| `No`
 
-Type: String
+  Description: Specifies whether to install AAS instances.
 
-Example: 10.0.1.10
+  Required: Yes
++ **AasHostCount**
 
-Description: A private IPv4 address to be used by the PAS node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
+  Type: Number
 
-Required: No
+  Min: 0
 
-- **PasSlesByosRegistrationCode**
+  Max: 10
 
-Type: String
+  Description: The number of AAS instances to deploy.
 
-Description: The SLES registration code for Bring Your Own Subscription model (BYOS) images.
+  Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
 
-Conditional: If you specify SUSE as the operating system, and it uses BYOS, you must also provide input for this specification.
+  Required: Yes
++ **AasByoip**
 
-Required: No
+  Type: String
 
-- **PasRhelByosUsername**
+  Example: 10.0.1.10
 
-Type: String
+  Description: A private IPv4 address to be used by the AAS node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
 
-Example: admin
+  Conditional: You must specify `true` for `InstallAas` to provide a value for this specification.
 
-Description: The username in the Red Hat Enterprise Linux (RHEL) operating system to use.
+  Required: No
++ **AasAutomaticRecovery**
 
-Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
+  Type: String
 
-Required: No
+  AllowedValues: `Yes` \| `No`
 
-- **PasRhelByosUserPassword**
+  Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for the PAS node or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
 
-Type: String
+  Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
 
-Description: The password for the user specified in `PasRhelByosUsername`.
+  Required: Yes
++ **AasInstanceType**
 
-Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
+  Type: String
 
-Required: No
+  Example: r5.2xlarge
 
-- **PasAutomaticRecovery**
+  Description: The instance type used for the AAS node.
 
-Type: String
+  Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
 
-AllowedValues: `Yes` | `No`
+  Required: Yes
++ **AasHostnames**
 
-Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for the PAS node or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
+  Type: String
 
-Required: Yes
+  Example: AASPrimary
 
-- **PasInstanceType**
+  Description: The host name or DNS short name to use for the AAS node.
 
-Type: String
+  Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
 
-Example: r5.2xlarge
+  Required: Yes
++ **CentralSystemOperatingSystem**
 
-Description: The instance type used for the PAS node.
+  Type: String
 
-Required: Yes
+  Example: SuSE-Linux-12-SP5-For-SAP-HVM
 
-- **PasHostname**
+  Description: The operating system (including the version) for database.
 
-Type: String
+  AllowedValues: `SuSE-Linux-12-SP4-HVM | SuSE-Linux-12-SP4-For-SAP-HVM | SuSE-Linux-12-SP5-HVM | SuSE-Linux-12-SP5-For-SAP-HVM | SuSE-Linux-15-HVM | SuSE-Linux-15-For-SAP-HVM | SuSE-Linux-15-SP1-HVM | SuSE-Linux-15-SP1-For-SAP-HVM | SuSE-Linux-15-SP2-HVM | SuSE-Linux-15-SP2-For-SAP-HVM | SuSE-Linux-15-SP3-HVM | SuSE-Linux-15-SP3-For-SAP-HVM | SuSE-Linux-15-SP4-HVM | SuSE-Linux-15-SP5-HVM | SuSE-Linux-15-SP6-HVM | SuSE-Linux-15-SP4-For-SAP-HVM | SuSE-Linux-15-SP5-For-SAP-HVM| SuSE-Linux-15-SP6-For-SAP-HVM | Red-Hat-Enterprise-Linux-7.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.7-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.9-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.1-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.8-For-SAP-HA-US-HVM| Red-Hat-Enterprise-Linux-8.10-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.0-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.6-BYOS | Red-Hat-Enterprise-Linux-7.7-BYOS | Red-Hat-Enterprise-Linux-8.1-BYOS | Red-Hat-Enterprise-Linux-8.2-BYOS | Red-Hat-Enterprise-Linux-8.4-BYOS | Red-Hat-Enterprise-Linux-8.6-BYOS | Red-Hat-Enterprise-Linux-8.8-BYOS| Red-Hat-Enterprise-Linux-8.10-BYOS | Red-Hat-Enterprise-Linux-9.0-BYOS | Red-Hat-Enterprise-Linux-9.2-BYOS | Red-Hat-Enterprise-Linux-9.4-BYOS | SuSE-Linux-12-SP4-For-SAP-BYOS-HVM | SuSE-Linux-12-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-For-SAP-BYOS-HVM | SuSE-Linux-15-SP1-For-SAP-BYOS-HVM | SuSE-Linux-15-SP2-For-SAP-BYOS-HVM | SuSE-Linux-15-SP3-For-SAP-BYOS-HVM | SuSE-Linux-15-SP4-For-SAP-BYOS-HVM | SuSE-Linux-15-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-SP6-For-SAP-BYOS-HVM ` 
 
-Example: PASPrimary
+  Required: Yes
++ **CentralSystemAmiId**
 
-Description: The host name or DNS short name to use for the PAS node.
+  Type: String
 
-Required: Yes
+  Example: ami-11111111111111
 
-- **InstallAas**
+  Description: The AMI ID to use for the database nodes. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI). If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
 
-Type: String
+  Required: Yes
++ **CentralSystemByoip**
 
-AllowedValues: `Yes` | `No`
+  Type: String
 
-Description: Specifies whether to install AAS instances.
+  Example: 10.0.1.10
 
-Required: Yes
+  Description: A private IPv4 address to be used by the primary SAP HANA node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
 
-- **AasHostCount**
+  Required: No
++ **CentralSystemAutomaticRecovery**
 
-Type: Number
+  Type: String
 
-Min: 0
+  AllowedValues: `Yes` \| `No`
 
-Max: 10
+  Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for database nodes or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
 
-Description: The number of AAS instances to deploy.
+  Required: Yes
++ **CentralSystemInstanceType**
 
-Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
+  Type: String
 
-Required: Yes
+  Example: r5.2xlarge
 
-- **AasByoip**
+  Description: The instance type used for database nodes.
 
-Type: String
+  Required: Yes
++ **CentralSystemHostname**
 
-Example: 10.0.1.10
+  Type: String
 
-Description: A private IPv4 address to be used by the AAS node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
+  Example: sapci
 
-Conditional: You must specify `true` for `InstallAas` to provide a value for this specification.
+  Description: The host name or DNS short name to use for the primary database node.
 
-Required: No
+  Required: Yes
++ **CentralSystemSlesByosRegistrationCode**
 
-- **AasAutomaticRecovery**
+  Type: String
 
-Type: String
+  Description: The SLES registration code for Bring Your Own Subscription model (BYOS) images.
 
-AllowedValues: `Yes` | `No`
+  Conditional: If you specify SUSE as the operating system, and it uses BYOS, you must also provide input for this specification.
 
-Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for the PAS node or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
+  Required: No
++ **CentralSystemRhelByosUserName**
 
-Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
+  Type: String
 
-Required: Yes
+  Example: admin
 
-- **AasInstanceType**
+  Description: The username in the Red Hat Enterprise Linux (RHEL) operating system to use.
 
-Type: String
+  Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
 
-Example: r5.2xlarge
+  Required: No
++ **CentralSystemRhelByosUserPassword**
 
-Description: The instance type used for the AAS node.
+  Type: String
 
-Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
+  Description: The password for the user specified in `DatabaseRhelByosUserName`.
 
-Required: Yes
+  Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
 
-- **AasHostnames**
+  Required: No
++ **SapPassword**
 
-Type: String
+  Type: String
 
-Example: AASPrimary
+  Description: Specifes the password to use for setting up the SAP application and database defaults users. The password must:
+  + Be between 10 and 13 alphanumeric characters.
+  + Not begin with a number or special character.
+  + Have at least one uppercase letter.
+  + Have at least one lowercase letter.
+  + Have at least one digit.
+  + Only use the following special characters: **\#**, **@**, and **\_**.
 
-Description: The host name or DNS short name to use for the AAS node.
+  Required: Yes
++ **DatabaseLogVolumeType**
 
-Conditional: If you specify `true` for `InstallAas`, you must provide a value for this specification.
+  Type: String
 
-Required: Yes
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2` \| `fsx`
 
-- **CentralSystemOperatingSystem**
+  Description: The Amazon EBS volume type, or FSx for ONTAP (if supported) file share, for database logging.
 
-Type: String
+  Conditional: If `fsx` is specified for `DatabaseLogVolumeType`, you must also specify `fsx` for `DatabaseDataVolumeType`.
 
-Example: SuSE-Linux-12-SP5-For-SAP-HVM
+  Required: Yes
++ **DatabaseOthersVolumeType**
 
-Description: The operating system (including the version) for database.
+  Type: String
 
-AllowedValues: `SuSE-Linux-12-SP4-HVM | SuSE-Linux-12-SP4-For-SAP-HVM | SuSE-Linux-12-SP5-HVM | SuSE-Linux-12-SP5-For-SAP-HVM | SuSE-Linux-15-HVM | SuSE-Linux-15-For-SAP-HVM | SuSE-Linux-15-SP1-HVM | SuSE-Linux-15-SP1-For-SAP-HVM | SuSE-Linux-15-SP2-HVM | SuSE-Linux-15-SP2-For-SAP-HVM | SuSE-Linux-15-SP3-HVM | SuSE-Linux-15-SP3-For-SAP-HVM | SuSE-Linux-15-SP4-HVM | SuSE-Linux-15-SP5-HVM | SuSE-Linux-15-SP6-HVM | SuSE-Linux-15-SP4-For-SAP-HVM | SuSE-Linux-15-SP5-For-SAP-HVM| SuSE-Linux-15-SP6-For-SAP-HVM | Red-Hat-Enterprise-Linux-7.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.7-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.9-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.1-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.6-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-8.8-For-SAP-HA-US-HVM| Red-Hat-Enterprise-Linux-8.10-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.0-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.2-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-9.4-For-SAP-HA-US-HVM | Red-Hat-Enterprise-Linux-7.6-BYOS | Red-Hat-Enterprise-Linux-7.7-BYOS | Red-Hat-Enterprise-Linux-8.1-BYOS | Red-Hat-Enterprise-Linux-8.2-BYOS | Red-Hat-Enterprise-Linux-8.4-BYOS | Red-Hat-Enterprise-Linux-8.6-BYOS | Red-Hat-Enterprise-Linux-8.8-BYOS| Red-Hat-Enterprise-Linux-8.10-BYOS | Red-Hat-Enterprise-Linux-9.0-BYOS | Red-Hat-Enterprise-Linux-9.2-BYOS | Red-Hat-Enterprise-Linux-9.4-BYOS | SuSE-Linux-12-SP4-For-SAP-BYOS-HVM | SuSE-Linux-12-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-For-SAP-BYOS-HVM | SuSE-Linux-15-SP1-For-SAP-BYOS-HVM | SuSE-Linux-15-SP2-For-SAP-BYOS-HVM | SuSE-Linux-15-SP3-For-SAP-BYOS-HVM | SuSE-Linux-15-SP4-For-SAP-BYOS-HVM | SuSE-Linux-15-SP5-For-SAP-BYOS-HVM | SuSE-Linux-15-SP6-For-SAP-BYOS-HVM`
+  AllowedValues: `gp2` \| `gp3` \| `io1` \| `io2`
 
-Required: Yes
+  Default: `gp3`
 
-- **CentralSystemAmiId**
+  Description: The Amazon EBS volume type for other file systems, including the root volume.
 
-Type: String
+  Conditional: If `fsx` is specified for `DatabaseDataVolumeType` and `DatabaseLogVolumeType`, you must provide input for this specification.
 
-Example: ami-11111111111111
+  Required: No
++ **InstallDatabaseSoftware**
 
-Description: The AMI ID to use for the database nodes. The AMI can be provided by Amazon, sourced from AWS Marketplace, or with Bring your own images (BYOI).
-If the AMI from AWS Marketplace is using the Bring Your Own Subscription model (BYOS), you must provide the registation code for SUSE distributions or an account and password for RHEL distributions.
+  Type: String
 
-Required: Yes
+  AllowedValues: `Yes` \| `No`
 
-- **CentralSystemByoip**
+  Description: Specifies whether to install SAP HANA software.
 
-Type: String
+  Required: Yes
++ **DatabaseInstallationMediaS3Uri**
 
-Example: 10.0.1.10
+  Type: String
 
-Description: A private IPv4 address to be used by the primary SAP HANA node. If no value is provided, Amazon EC2 will assign an available IPv4 address in the subnet.
+  Example: s3://myhanabucket/sap-hana-sps11/
 
-Required: No
+  Description: The full path to the Amazon S3 location with SAP HANA installation media.
 
-- **CentralSystemAutomaticRecovery**
+  Required: No
++ **DatabaseDataFsxVolumeSize**
 
-Type: String
+  Type: Number
 
-AllowedValues: `Yes` | `No`
+  Example: 500
 
-Description: Specify `Yes` to enable Amazon CloudWatch action based recovery for database nodes or `No` to keep it disabled. For HA deployments, set this value to `No` as the cluster will manage availability for the nodes.
+  Description: The volume size of the SAP HANA data volume on Amazon FSx, in GBs.
 
-Required: Yes
+  Conditional: If you specify `fsx` for `DatabaseDataVolumeType`, you must also provide input for this specification.
 
-- **CentralSystemInstanceType**
+  Required: No
++ **DatabaseLogFsxVolumeSize**
 
-Type: String
+  Type: Number
 
-Example: r5.2xlarge
+  Example: 50
 
-Description: The instance type used for database nodes.
+  Description: The volume size of the SAP HANA log volume on Amazon FSx, in GBs.
 
-Required: Yes
+  Conditional: If you specify `fsx` for `DatabaseLogVolumeType`, you must also provide input for this specification.
 
-- **CentralSystemHostname**
+  Required: No
++ **DatabaseOtherFsxVolumeSize**
 
-Type: String
+  Type: Number
 
-Example: sapci
+  Example: 50
 
-Description: The host name or DNS short name to use for the primary database node.
+  Description: The volume size of the other SAP HANA volume on Amazon FSx, in GBs.
 
-Required: Yes
+  Conditional: If you specify `fsx` for `DatabaseOthersVolumeType`, you must also provide input for this specification.
 
-- **CentralSystemSlesByosRegistrationCode**
+  Required: No
++ **SetupTransportDomainController**
 
-Type: String
+  Type: String
 
-Description: The SLES registration code for Bring Your Own Subscription model (BYOS) images.
+  AllowedValues: `Yes` \| `No`
 
-Conditional: If you specify SUSE as the operating system, and it uses BYOS, you must also provide input for this specification.
+  Description: Specifies whether to use transport FS.
 
-Required: No
+  Required: Yes
++ **CreateTransportDomainControllerFileSystem**
 
-- **CentralSystemRhelByosUserName**
+  Type: String
 
-Type: String
+  AllowedValues: `Yes` \| `No`
 
-Example: admin
+  Default: `No`
 
-Description: The username in the Red Hat Enterprise Linux (RHEL) operating system to use.
+  Description: Specifies whether to create a new Amazon EFS for the transport domain controller.
 
-Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
+  Conditional: You must specify `Yes` for `SetupTransportDomainController` to provide value for this specification.
 
-Required: No
+  Required: No
++ **TransportDomainControllerFileSystemId**
 
-- **CentralSystemRhelByosUserPassword**
+  Type: String
 
-Type: String
+  Example: `fs-1234567890abcdef0`
 
-Description: The password for the user specified in `DatabaseRhelByosUserName`.
+  Description: The ID of an existing Elastic File System for the transport domain controller.
 
-Conditional: If you specify a BYOS RHEL AMI, you must also provide input for this specification.
+  Conditional: If you specify `No` for `CreateTransportDomainControllerFileSystem`, you must also provide input for this specification.
 
-Required: No
+  Required: Yes
++ **InstallSap**
 
-- **SapPassword**
+  Type: String
 
-Type: String
+  AllowedValues: `Yes` \| `No`
 
-Description: Specifes the password to use for setting up the SAP application and database defaults users. The password must:
+  Description: Specifies whether to install SAP. The following specification combinations can be used to customize your application:
+  + To install SAP application software, specify `No` for `InstallDatabaseSoftware` and `Yes` for `InstallSap`.
+  + To install only the database software and deploy infrastructure resources for the application and database components, specify `Yes` for `InstallDatabaseSoftware` and `No` for `InstallSap`.
+  + To only deploy infrastructure resources for the SAP application and database components, specify `No` for `InstallDatabaseSoftware` and `InstallSap`.
 
-    + Be between 10 and 13 alphanumeric characters.
-    + Not begin with a number or special character.
-    + Have at least one uppercase letter.
-    + Have at least one lowercase letter.
-    + Have at least one digit.
-    + Only use the following special characters: `#`, `@`, and `_`.
+  Required: Yes
++ **SapInstallationSpecifications**
 
-Required: Yes
+  Type: String
 
-- **DatabaseLogVolumeType**
+  Example without SAP Web Dispatcher: `{"parameters":{"PRODUCT_ID":"saps4hana-2022","HDB_SCHEMA_NAME":"SAPABAP1","CI_INSTANCE_NR":"12","ASCS_INSTANCE_NR":"10","SAPINST_CD_SAPCAR":"{{s3://launchwizard-test-sap-media/sapcar}}","SAPINST_CD_SWPM":"{{s3://launchwizard-test-sap-media/swpm/10-sp30}}","SAPINST_CD_KERNEL":"{{s3://launchwizard-test-sap-media/kernel}}","SAPINST_CD_LOAD":"{{s3://launchwizard-test-sap-media/exports/nw-75}}","SAPINST_CD_RDBMS":"{{s3://launchwizard-test-sap-media/database}}","SAPINST_CD_RDBMS_CLIENT":"{{s3://launchwizard-test-sap-media/hana-client}}"}, "onFailureBehaviour": "CONTINUE/ROLLBACK"}`
 
-Type: String
+  Example with SAP Web Dispatcher: {"parameters":{"PRODUCT\_ID":"sapNetweaver-752","CI\_INSTANCE\_NR":"12","ASCS\_INSTANCE\_NR":"10","WD\_INSTANCE\_NR":"14","ASCS\_VIRTUAL\_HOSTNAME":"sapvirascs","ASCS\_OVERLAY\_IP":"10.0.0.8","ERS\_VIRTUAL\_HOSTNAME":"sapvirers","ERS\_OVERLAY\_IP":"10.0.0.9","DB\_VIRTUAL\_HOSTNAME":"sapvirdb","SAP\_PACEMAKER\_TAG":"sappacetag","SAPINST\_CD\_SAPCAR":"s3://launchwizard-example/sapcar/","SAPINST\_CD\_SWPM":"s3://launchwizard-example/swpm/10-sp39/","SAPINST\_CD\_KERNEL":"s3://launchwizard-example/kernel/","SAPINST\_CD\_LOAD":"s3://launchwizard-example/exports/nw-752/","SAPINST\_CD\_RDBMS":"s3://launchwizard-example/database/hana-20-sp07/","SAPINST\_CD\_RDBMS\_CLIENT":"s3://launchwizard-example/hana-client/20-11/","SAPINST\_CD\_WD":"s3://launchwizard-example-us-east-1/webdisp/"}
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2` | `fsx`
+  Description: A list of SAP Application installation parameters formatted as stringified JSON. You can specify any of the following values for the `PRODUCT_ID`: `sapNetWeaver-752 | sapNetWeaver-750 | sapNetweaverJavaOnly-750 | saps4hana-1909 | saps4hana-2020 | saps4hana-2021 | saps4hana-2022 | saps4hana-2023 | saps4hanafoundations-2021 | saps4hanafoundations-2022 | saps4hanafoundations-2023 | sapbw4hana-2.0 | sapbw4hana-2021 | sapsolman-7.2`
 
-Description: The Amazon EBS volume type, or FSx for ONTAP (if supported) file share, for database logging.
+  Conditional: If you specify `Yes` for `InstallSap`, you must also provide input for this specification.
 
-Conditional: If `fsx` is specified for `DatabaseLogVolumeType`, you must also specify `fsx` for `DatabaseDataVolumeType`.
+  Required: No
++ **SnsTopicArn**
 
-Required: Yes
+  Type: String
 
-- **DatabaseOthersVolumeType**
+  Example: arn:aws:sns:us-east-1:1234567890:Test-Topic
 
-Type: String
+  Description: The Amazon SNS topic used to receive the final deployment status from Launch Wizard.
 
-AllowedValues: `gp2` | `gp3` | `io1` | `io2`
+  Required: No
++ **DisableDeploymentRollback**
 
-Default: `gp3`
+  Type: String
 
-Description: The Amazon EBS volume type for other file systems, including the root volume.
+  AllowedValues: `Yes` \| `No`
 
-Conditional: If `fsx` is specified for `DatabaseDataVolumeType` and `DatabaseLogVolumeType`, you must provide input for this specification.
+  Description: Specifies whether to disable rollback of the CloudFormation stack if the stack creation fails.
 
-Required: No
+  Required: Yes
++ **SaveDeploymentArtifacts**
 
-- **InstallDatabaseSoftware**
+  Type: String
 
-Type: String
+  AllowedValues: `Yes` \| `No`
 
-AllowedValues: `Yes` | `No`
+  Description: Specifies whether to save the deployment artifacts in Service Catalog after deployment is complete.
 
-Description: Specifies whether to install SAP HANA software.
+  Required: Yes
++ **DeploymentArtifactsS3Uri**
 
-Required: Yes
+  Type: String
 
-- **DatabaseInstallationMediaS3Uri**
+  Example: s3://save-test-us-east-1
 
-Type: String
+  Description: The Amazon S3 URI in which to save the deployment artifacts for Service Catalog.
 
-Example: s3://myhanabucket/sap-hana-sps11/
+  Required: No
++ **InstallSapWebDispatcher**
 
-Description: The full path to the Amazon S3 location with SAP HANA installation media.
+  Type: String
 
-Required: No
+  AllowedValues: `Yes` \| `No`
 
-- **DatabaseDataFsxVolumeSize**
+  Description: Specifies whether to install SAP Web Dispatcher.
 
-Type: Number
+  Required: No
++ **InstallWebDispatcherLoadBalancer**
 
-Example: 500
+  Type: String
 
-Description: The volume size of the SAP HANA data volume on Amazon FSx, in GBs.
+  AllowedValues: `Yes` \| `No`
 
-Conditional: If you specify `fsx` for `DatabaseDataVolumeType`, you must also provide input for this specification.
+  Description: Specifies whether to deploy a load balancer in front of SAP Web Dispatcher nodes.
 
-Required: No
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` and `InstallSap` are specified as `Yes`.
 
-- **DatabaseLogFsxVolumeSize**
+  Required: Yes
++ **WebDispatcherLoadBalancerType**
 
-Type: Number
+  Type: String
 
-Example: 50
+  AllowedValues: ALB \| NLB
 
-Description: The volume size of the SAP HANA log volume on Amazon FSx, in GBs.
+  Description: Specifies the kind of load balancer to deploy in front of SAP Web Dispatcher nodes.
 
-Conditional: If you specify `fsx` for `DatabaseLogVolumeType`, you must also provide input for this specification.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-Required: No
+  Required: Yes
++ **WebDispatcherLoadBalancerInternetFacing**
 
-- **DatabaseOtherFsxVolumeSize**
+  Type: String
 
-Type: Number
+  AllowedValues: `Yes` \| `No`
 
-Example: 50
+  Description: Specifies whether the load balancer in front of SAP Web Dispatcher is internet-facing.
 
-Description: The volume size of the other SAP HANA volume on Amazon FSx, in GBs.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-Conditional: If you specify `fsx` for `DatabaseOthersVolumeType`, you must also provide input for this specification.
+  Required: Yes
++ **WebDispatcherInstanceNumber**
 
-Required: No
+  Type: Number
 
-- **SetupTransportDomainController**
+  Min: 00
 
-Type: String
+  Max: 97
 
-AllowedValues: `Yes` | `No`
+  Description: The double-digit instance number for the SAP Web Dispatcher instance.
 
-Description: Specifies whether to use transport FS.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` and `InstallSap` are specified as `Yes`.
 
-Required: Yes
+  Required: Yes
++ **WebDispatcherAdminUserId**
 
-- **CreateTransportDomainControllerFileSystem**
+  Type: Number
 
-Type: String
+  Min: 100
 
-AllowedValues: `Yes` | `No`
+  Max: 65536
 
-Default: `No`
+  Description: The user ID number for the SAP Web Dispatcher administrator.
 
-Description: Specifies whether to create a new Amazon EFS for the transport domain controller.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` is specified as `Yes`.
 
-Conditional: You must specify `Yes` for `SetupTransportDomainController` to provide value for this specification.
+  Required: Yes
++ **WebDispatcherSystemId**
 
-Required: No
+  Type: String
 
-- **TransportDomainControllerFileSystemId**
+  Description: This value must consist of 3 uppercase characters.
 
-Type: String
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` is specified as `Yes`.
 
-Example: `fs-1234567890abcdef0`
+  Required: Yes
++ **WebDispatcherVersion**
 
-Description: The ID of an existing Elastic File System for the transport domain controller.
+  Type: String
 
-Conditional: If you specify `No` for `CreateTransportDomainControllerFileSystem`, you must also provide input for this specification.
+  AllowedValues: `7.89`
 
-Required: Yes
+  Description: The SAP Web Dispatcher version to use. For more information, see [ Supported versions of SAP Web Dispatcher](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap-versions.html).
 
-- **InstallSap**
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` and `InstallSap` are specified as `Yes`.
 
-Type: String
+  Required: Yes
++ **WebDispatcherLoadBalancerSecureProtocolEnabled**
 
-AllowedValues: `Yes` | `No`
+  Type: String
 
-Description: Specifies whether to install SAP. The following specification combinations can be used to customize your application:
+  AllowedValues: `Yes` \| `No`
 
-    + To install SAP application software, specify `No` for `InstallDatabaseSoftware` and `Yes` for `InstallSap`.
-    + To install only the database software and deploy infrastructure resources for the application and database components, specify `Yes` for `InstallDatabaseSoftware` and `No` for `InstallSap`.
-    + To only deploy infrastructure resources for the SAP application and database components, specify `No` for `InstallDatabaseSoftware` and `InstallSap`.
+  Description: Specifies the ACM certificate to use for your load balancer’s TLS/HTTPS listener.
 
-Required: Yes
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-- **SapInstallationSpecifications**
+  Required: Yes
++ **WebDispatcherLoadBalancerACMCertificateArn**
 
-Type: String
+  Type: String
 
-Example without SAP Web Dispatcher: `{"parameters":{"PRODUCT_ID":"saps4hana-2022","HDB_SCHEMA_NAME":"SAPABAP1","CI_INSTANCE_NR":"12","ASCS_INSTANCE_NR":"10","SAPINST_CD_SAPCAR":"`s3://launchwizard-test-sap-media/sapcar`","SAPINST_CD_SWPM":"`s3://launchwizard-test-sap-media/swpm/10-sp30`","SAPINST_CD_KERNEL":"`s3://launchwizard-test-sap-media/kernel`","SAPINST_CD_LOAD":"`s3://launchwizard-test-sap-media/exports/nw-75`","SAPINST_CD_RDBMS":"`s3://launchwizard-test-sap-media/database`","SAPINST_CD_RDBMS_CLIENT":"`s3://launchwizard-test-sap-media/hana-client`"}, "onFailureBehaviour": "CONTINUE/ROLLBACK"}`
+  Example: 
 
-Example with SAP Web Dispatcher: {"parameters":{"PRODUCT\_ID":"sapNetweaver-752","CI\_INSTANCE\_NR":"12","ASCS\_INSTANCE\_NR":"10","WD\_INSTANCE\_NR":"14","ASCS\_VIRTUAL\_HOSTNAME":"sapvirascs","ASCS\_OVERLAY\_IP":"10.0.0.8","ERS\_VIRTUAL\_HOSTNAME":"sapvirers","ERS\_OVERLAY\_IP":"10.0.0.9","DB\_VIRTUAL\_HOSTNAME":"sapvirdb","SAP\_PACEMAKER\_TAG":"sappacetag","SAPINST\_CD\_SAPCAR":"s3://launchwizard-example/sapcar/","SAPINST\_CD\_SWPM":"s3://launchwizard-example/swpm/10-sp39/","SAPINST\_CD\_KERNEL":"s3://launchwizard-example/kernel/","SAPINST\_CD\_LOAD":"s3://launchwizard-example/exports/nw-752/","SAPINST\_CD\_RDBMS":"s3://launchwizard-example/database/hana-20-sp07/","SAPINST\_CD\_RDBMS\_CLIENT":"s3://launchwizard-example/hana-client/20-11/","SAPINST\_CD\_WD":"s3://launchwizard-example-us-east-1/webdisp/"}
+  Description: The ARN of the ACM certificate to use for your load balancer’s TLS/HTTPS listener.
 
-Description: A list of SAP Application installation parameters formatted as stringified JSON. You can specify any of the following values for the `PRODUCT_ID`: `sapNetWeaver-752 | sapNetWeaver-750 | sapNetweaverJavaOnly-750 | saps4hana-1909 | saps4hana-2020 | saps4hana-2021 | saps4hana-2022 | saps4hana-2023 | saps4hanafoundations-2021 | saps4hanafoundations-2022 | saps4hanafoundations-2023 | sapbw4hana-2.0 | sapbw4hana-2021 | sapsolman-7.2`
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, `InstallWebDispatcherLoadBalancer`, and WebDispatcherLoadBalancerSecureProtocolEnabled are specified as `Yes`.
 
-Conditional: If you specify `Yes` for `InstallSap`, you must also provide input for this specification.
+  Required: Yes
++ **WebDispatcherLoadBalancerAvailabilityZone1SubnetId**
 
-Required: No
+  Type: String
 
-- **SnsTopicArn**
+  Example: subnet-11111111aaaaaaaaa
 
-Type: String
+  Description: The existing private subnet where you want to deploy SAP Web Dispatcher nodes.
 
-Example: arn:aws:sns:us-east-1:1234567890:Test-Topic
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-Description: The Amazon SNS topic used to receive the final deployment status from Launch Wizard.
+  Required: Yes
++ **WebDispatcherLoadBalancerAvailabilityZone2SubnetId**
 
-Required: No
+  Type: String
 
-- **DisableDeploymentRollback**
+  Example: subnet-22222222aaaaaaaaa
 
-Type: String
+  Description: The additional existing private subnet where you want to deploy SAP Web Dispatcher nodes.
 
-AllowedValues: `Yes` | `No`
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-Description: Specifies whether to disable rollback of the CloudFormation stack if the stack creation fails.
+  Required: Yes
++ **WebDispatcherSecurityGroupId**
 
-Required: Yes
+  Type: String
 
-- **SaveDeploymentArtifacts**
+  Example: 
 
-Type: String
+   sg-1234567890abcdef
 
-AllowedValues: `Yes` | `No`
+  Description: The security group to assign to your SAP Web Dispatcher nodes.
 
-Description: Specifies whether to save the deployment artifacts in Service Catalog after deployment is complete.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher` is specified as `Yes`.
 
-Required: Yes
+  Required: Yes
++ **WebDispatcherLoadBalancerSecurityGroupId**
 
-- **DeploymentArtifactsS3Uri**
+  Type: String
 
-Type: String
+  Example: sg-1234567890abcdef
 
-Example: s3://save-test-us-east-1
+  Description: The security group to assign to the load balancer for SAP Web Dispatcher nodes.
 
-Description: The Amazon S3 URI in which to save the deployment artifacts for Service Catalog.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
 
-Required: No
+  Required: Yes
++ **NewWebDispatcherSecurityGroupName**
 
-- **InstallSapWebDispatcher**
+  Type: String
 
-Type: String
+  Example: 
 
-AllowedValues: `Yes` | `No`
+  Description: The name of the security group to create for SAP Web Dispatcher.
 
-Description: Specifies whether to install SAP Web Dispatcher.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, `InstallWebDispatcherLoadBalancer`, and`CreateSecurityGroup` are specified as `Yes`.
 
-Required: No
+  Required: Yes
++ **WebDispatcherNewLoadBalancerSecurityGroupName**
 
-- **InstallWebDispatcherLoadBalancer**
+  Type: String
 
-Type: String
+  Example: 
 
-AllowedValues: `Yes` | `No`
+  Description: The name of the security group to create for the load balancer for SAP Web Dispatcher.
 
-Description: Specifies whether to deploy a load balancer in front of
-SAP Web Dispatcher nodes.
+  Conditional: This specification can only be used if `InstallSapWebDispatcher`, `InstallSap`, `InstallWebDispatcherLoadBalancer`, and`CreateSecurityGroup` are specified as `Yes`.
 
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` and `InstallSap` are specified as
-`Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerType**
-
-Type: String
-
-AllowedValues: ALB | NLB
-
-Description: Specifies the kind of load balancer to deploy in front of
-SAP Web Dispatcher nodes.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerInternetFacing**
-
-Type: String
-
-AllowedValues: `Yes` | `No`
-
-Description: Specifies whether the load balancer in front of SAP Web Dispatcher is
-internet-facing.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherInstanceNumber**
-
-Type: Number
-
-Min: 00
-
-Max: 97
-
-Description: The double-digit instance number for the SAP Web Dispatcher
-instance.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` and `InstallSap` are specified as
-`Yes`.
-
-Required: Yes
-
-- **WebDispatcherAdminUserId**
-
-Type: Number
-
-Min: 100
-
-Max: 65536
-
-Description: The user ID number for the SAP Web Dispatcher administrator.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` is specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherSystemId**
-
-Type: String
-
-Description: This value must consist of 3 uppercase characters.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` is specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherVersion**
-
-Type: String
-
-AllowedValues: `7.89`
-
-Description: The SAP Web Dispatcher version to use. For more information, see [Supported versions of SAP Web Dispatcher](launch-wizard-sap-versions.md "launch-wizard-sap-versions.md").
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` and `InstallSap` are specified as
-`Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerSecureProtocolEnabled**
-
-Type: String
-
-AllowedValues: `Yes` | `No`
-
-Description: Specifies the ACM certificate to use for your load balancer’s TLS/HTTPS
-listener.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerACMCertificateArn**
-
-Type: String
-
-Example:
-
-Description: The ARN of the ACM certificate to use for your load balancer’s TLS/HTTPS
-listener.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`,
-`InstallSap`, `InstallWebDispatcherLoadBalancer`, and
-WebDispatcherLoadBalancerSecureProtocolEnabled are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerAvailabilityZone1SubnetId**
-
-Type: String
-
-Example: subnet-11111111aaaaaaaaa
-
-Description: The existing private subnet where you want to deploy SAP Web Dispatcher
-nodes.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerAvailabilityZone2SubnetId**
-
-Type: String
-
-Example: subnet-22222222aaaaaaaaa
-
-Description: The additional existing private subnet where you want to deploy
-SAP Web Dispatcher nodes.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherSecurityGroupId**
-
-Type: String
-
-Example:
-
-sg-1234567890abcdef
-
-Description: The security group to assign to your SAP Web Dispatcher nodes.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher` is specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherLoadBalancerSecurityGroupId**
-
-Type: String
-
-Example: sg-1234567890abcdef
-
-Description: The security group to assign to the load balancer for
-SAP Web Dispatcher nodes.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-and`InstallWebDispatcherLoadBalancer` are specified as `Yes`.
-
-Required: Yes
-
-- **NewWebDispatcherSecurityGroupName**
-
-Type: String
-
-Example:
-
-Description: The name of the security group to create for SAP Web Dispatcher.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`,
-`InstallSap`, `InstallWebDispatcherLoadBalancer`,
-and`CreateSecurityGroup` are specified as `Yes`.
-
-Required: Yes
-
-- **WebDispatcherNewLoadBalancerSecurityGroupName**
-
-Type: String
-
-Example:
-
-Description: The name of the security group to create for the load balancer for SAP
-Web Dispatcher.
-
-Conditional: This specification can only be used
-if `InstallSapWebDispatcher`, `InstallSap`,
-`InstallWebDispatcherLoadBalancer`, and`CreateSecurityGroup` are
-specified as `Yes`.
-
-Required: Yes
+  Required: Yes
