@@ -1,100 +1,95 @@
+
+
 # SIGv4 authenticated requests for Amazon VPC Lattice
+<a name="sigv4-authenticated-requests"></a>
 
-VPC Lattice uses Signature Version 4 (SIGv4) or Signature Version 4A (SIGv4A) for client
-authentication. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md")
-in the _IAM User Guide_.
+VPC Lattice uses Signature Version 4 (SIGv4) or Signature Version 4A (SIGv4A) for client authentication. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) in the *IAM User Guide*.
 
-###### Considerations
+**Considerations**
++ VPC Lattice attempts to authenticate any request that is signed with SIGv4 or SIGv4A. The request fails without authentication.
++ VPC Lattice does not support payload signing. You must send an `x-amz-content-sha256` header with the value set to `"UNSIGNED-PAYLOAD"`.
 
-- VPC Lattice attempts to authenticate any request that is signed with SIGv4 or SIGv4A.
-  The request fails without authentication.
-- VPC Lattice does not support payload signing. You must send an `x-amz-content-sha256`
-  header with the value set to `"UNSIGNED-PAYLOAD"`.
-
-###### Examples
-
-- [Python](#sigv4-authenticated-requests-python "#sigv4-authenticated-requests-python")
-- [Java](#sigv4-authenticated-requests-java-custom-interceptor "#sigv4-authenticated-requests-java-custom-interceptor")
-- [Node.js](#sigv4-authenticated-requests-nodejs "#sigv4-authenticated-requests-nodejs")
-- [Golang](#sigv4-authenticated-requests-golang "#sigv4-authenticated-requests-golang")
-- [Golang - GRPC](#sigv4-authenticated-requests-golang-grpc "#sigv4-authenticated-requests-golang-grpc")
+**Topics**
++ [Python](#sigv4-authenticated-requests-python)
++ [Java](#sigv4-authenticated-requests-java-custom-interceptor)
++ [Node.js](#sigv4-authenticated-requests-nodejs)
++ [Golang](#sigv4-authenticated-requests-golang)
++ [Golang - GRPC](#sigv4-authenticated-requests-golang-grpc)
 
 ## Python
+<a name="sigv4-authenticated-requests-python"></a>
 
-This example sends the signed requests over a secure connection to a service
-registered in the network. If you prefer to use [requests](https://requests.readthedocs.io/en/latest/ "https://requests.readthedocs.io/en/latest/"), the [botocore](https://github.com/boto/botocore "https://github.com/boto/botocore") package simplifies the
-authentication process, but is not strictly required. For more information, see
-[Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html") in the Boto3 documentation.
+This example sends the signed requests over a secure connection to a service registered in the network. If you prefer to use [requests](https://requests.readthedocs.io/en/latest/), the [botocore](https://github.com/boto/botocore) package simplifies the authentication process, but is not strictly required. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) in the Boto3 documentation.
 
-To install the `botocore` and `awscrt` packages, use the
-following command. For more information, see [AWS CRT Python](https://pypi.org/project/awscrt/ "https://pypi.org/project/awscrt/").
+To install the `botocore` and `awscrt` packages, use the following command. For more information, see [AWS CRT Python](https://pypi.org/project/awscrt/).
 
 ```
 pip install botocore awscrt
 ```
 
-If you run the client application on Lambda, install the required modules using [Lambda layers](../../../lambda/latest/dg/python-layers.md "../../../lambda/latest/dg/python-layers.md"), or include them in your deployment
-package.
+If you run the client application on Lambda, install the required modules using [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/python-layers.html), or include them in your deployment package.
 
 In the following example, replace the placeholder values with your own values.
 
-SIGv4
+------
+#### [ SIGv4 ]
 
 ```
 from botocore import crt
-import requests
+import requests 
 from botocore.awsrequest import AWSRequest
 import botocore.session
 
 if __name__ == '__main__':
     session = botocore.session.Session()
-    signer = crt.auth.CrtSigV4Auth(session.get_credentials(), 'vpc-lattice-svcs', '`us-west-2`')
-    endpoint = '`https://data-svc-022f67d3a42.1234abc.vpc-lattice-svcs.us-west-2`.on.aws'
-    data = "`some-data-here`"
+    signer = crt.auth.CrtSigV4Auth(session.get_credentials(), 'vpc-lattice-svcs', '{{us-west-2}}')
+    endpoint = '{{https://data-svc-022f67d3a42.1234abc.vpc-lattice-svcs.us-west-2}}.on.aws'
+    data = "{{some-data-here}}"
     headers = {'Content-Type': 'application/json', 'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'}
     request = AWSRequest(method='POST', url=endpoint, data=data, headers=headers)
     request.context["payload_signing_enabled"] = False
     signer.add_auth(request)
-
+    
     prepped = request.prepare()
-
+    
     response = requests.post(prepped.url, headers=prepped.headers, data=data)
     print(response.text)
 ```
 
-SIGv4A
+------
+#### [ SIGv4A ]
 
 ```
 from botocore import crt
-import requests
+import requests 
 from botocore.awsrequest import AWSRequest
 import botocore.session
 
 if __name__ == '__main__':
     session = botocore.session.Session()
     signer = crt.auth.CrtSigV4AsymAuth(session.get_credentials(), 'vpc-lattice-svcs', '*')
-    endpoint = '`https://data-svc-022f67d3a42.1234abc.vpc-lattice-svcs.us-west-2`.on.aws'
-    data = "`some-data-here`"
+    endpoint = '{{https://data-svc-022f67d3a42.1234abc.vpc-lattice-svcs.us-west-2}}.on.aws'
+    data = "{{some-data-here}}"
     headers = {'Content-Type': 'application/json', 'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'}
     request = AWSRequest(method='POST', url=endpoint, data=data, headers=headers)
-    request.context["payload_signing_enabled"] = False
+    request.context["payload_signing_enabled"] = False 
     signer.add_auth(request)
-
+    
     prepped = request.prepare()
-
+    
     response = requests.post(prepped.url, headers=prepped.headers, data=data)
     print(response.text)
 ```
 
+------
+
 ## Java
+<a name="sigv4-authenticated-requests-java-custom-interceptor"></a>
 
-This example shows how you can perform request signing by using custom interceptors.
-It uses the default credentials provider class from [AWS SDK for Java 2.x](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2"), which gets the
-correct credentials for you. If you would prefer to use a specific credential provider,
-you can select one from the [AWS SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/credentials.md "../../../sdk-for-java/latest/developer-guide/credentials.md"). The AWS SDK for Java allows only unsigned payloads over HTTPS.
-However, you can extend the signer to support unsigned payloads over HTTP.
+This example shows how you can perform request signing by using custom interceptors. It uses the default credentials provider class from [AWS SDK for Java 2.x](https://github.com/aws/aws-sdk-java-v2), which gets the correct credentials for you. If you would prefer to use a specific credential provider, you can select one from the [AWS SDK for Java 2.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html). The AWS SDK for Java allows only unsigned payloads over HTTPS. However, you can extend the signer to support unsigned payloads over HTTP.
 
-SIGv4
+------
+#### [ SIGv4 ]
 
 ```
 package com.example;
@@ -182,8 +177,10 @@ public class sigv4 {
 }
 ```
 
-SIGv4AThis example requires an additional dependency on
-`software.amazon.awssdk:http-auth-aws-crt`.
+------
+#### [ SIGv4A ]
+
+This example requires an additional dependency on `software.amazon.awssdk:http-auth-aws-crt`.
 
 ```
 package com.example;
@@ -207,7 +204,7 @@ import java.util.Arrays;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 
 public class sigv4a {
-
+    
     public static void main(String[] args) {
         AwsV4aHttpSigner signer = AwsV4aHttpSigner.create();
 
@@ -273,10 +270,12 @@ public class sigv4a {
 }
 ```
 
-## Node.js
+------
 
-This example uses [aws-crt NodeJS
-bindings](https://github.com/awslabs/aws-crt-nodejs "https://github.com/awslabs/aws-crt-nodejs") to send a signed request using HTTPS.
+## Node.js
+<a name="sigv4-authenticated-requests-nodejs"></a>
+
+This example uses [aws-crt NodeJS bindings](https://github.com/awslabs/aws-crt-nodejs) to send a signed request using HTTPS.
 
 To install the `aws-crt` package, use the following command.
 
@@ -284,11 +283,10 @@ To install the `aws-crt` package, use the following command.
 npm -i aws-crt
 ```
 
-If the `AWS_REGION` environment variable exists, the example
-uses the Region specified by `AWS_REGION`. The default Region is
-`us-east-1`.
+If the `AWS_REGION` environment variable exists, the example uses the Region specified by `AWS_REGION`. The default Region is `us-east-1`.
 
-SIGv4
+------
+#### [ SIGv4 ]
 
 ```
 const https = require('https')
@@ -350,7 +348,8 @@ sigV4Sign('GET', process.argv[2], 'vpc-lattice-svcs', algorithm).then(
 )
 ```
 
-SIGv4A
+------
+#### [ SIGv4A ]
 
 ```
 const https = require('https')
@@ -412,17 +411,19 @@ sigV4Sign('GET', process.argv[2], 'vpc-lattice-svcs', algorithm).then(
 )
 ```
 
+------
+
 ## Golang
+<a name="sigv4-authenticated-requests-golang"></a>
 
-This example uses the [Smithy code generators for Go](https://github.com/aws/smithy-go "https://github.com/aws/smithy-go")
-and the [AWS SDK for the Go programming language](https://github.com/aws/aws-sdk-go "https://github.com/aws/aws-sdk-go") to handle
-request signing requests. The example requires a Go version of 1.21 or higher.
+This example uses the [Smithy code generators for Go](https://github.com/aws/smithy-go) and the [AWS SDK for the Go programming language](https://github.com/aws/aws-sdk-go) to handle request signing requests. The example requires a Go version of 1.21 or higher.
 
-SIGv4
+------
+#### [ SIGv4 ]
 
 ```
 package main
-
+ 
 import (
         "context"
         "flag"
@@ -433,64 +434,64 @@ import (
         "net/http/httputil"
         "os"
         "strings"
-
+ 
         "github.com/aws/aws-sdk-go-v2/aws"
         "github.com/aws/aws-sdk-go-v2/config"
         "github.com/aws/smithy-go/aws-http-auth/credentials"
         "github.com/aws/smithy-go/aws-http-auth/sigv4"
         v4 "github.com/aws/smithy-go/aws-http-auth/v4"
 )
-
+ 
 type nopCloser struct {
         io.ReadSeeker
 }
-
+ 
 func (nopCloser) Close() error {
         return nil
 }
-
+ 
 type stringFlag struct {
         set   bool
         value string
 }
-
-
+ 
+ 
         flag.PrintDefaults()
         os.Exit(1)
 }
-
+ 
 func main() {
         flag.Parse()
         if !url.set || !region.set {
                 Usage()
         }
-
+ 
         cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithClientLogMode(aws.LogSigning))
         if err != nil {
                 log.Fatalf("failed to load SDK configuration, %v", err)
         }
-
+ 
         if len(os.Args) < 2 {
                 log.Fatalf("Usage: go run main.go  <url>")
         }
-
+ 
         // Retrieve credentials from an SDK source, such as the instance profile
         sdkCreds, err := cfg.Credentials.Retrieve(context.TODO())
         if err != nil {
                 log.Fatalf("Unable to retrieve credentials from SDK, %v", err)
         }
-
+ 
         creds := credentials.Credentials{
                 AccessKeyID:     sdkCreds.AccessKeyID,
                 SecretAccessKey: sdkCreds.SecretAccessKey,
                 SessionToken:    sdkCreds.SessionToken,
         }
-
+ 
         // Add a payload body, which will not be part of the signature calculation
         body := nopCloser{strings.NewReader(`Example payload body`)}
-
+ 
         req, _ := http.NewRequest(http.MethodPost, url.value, body)
-
+ 
         // Create a sigv4a signer with specific options
         signer := sigv4.New(func(o *v4.SignerOptions) {
                 o.DisableDoublePathEscape = true
@@ -498,7 +499,7 @@ func main() {
                 o.AddPayloadHashHeader = true
                 o.DisableImplicitPayloadHashing = true
         })
-
+ 
         // Perform the signing on req, using the credentials we retrieved from the SDK
         err = signer.SignRequest(&sigv4.SignRequestInput{
                 Request:     req,
@@ -506,44 +507,45 @@ func main() {
                 Service:     "vpc-lattice-svcs",
                 Region: region.String(),
         })
-
+ 
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         res, err := httputil.DumpRequest(req, true)
-
+ 
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Raw request\n%s\n", string(res))
-
+ 
         log.Printf("[*] Sending request to %s\n", url.value)
-
+ 
         resp, err := http.DefaultClient.Do(req)
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Request sent\n")
-
+ 
         log.Printf("[*] Response status code: %d\n", resp.StatusCode)
-
+ 
         respBody, err := io.ReadAll(resp.Body)
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Response body: \n%s\n", respBody)
 }
 ```
 
-SIGv4A
+------
+#### [ SIGv4A ]
 
 ```
 package main
-
+ 
 import (
         "context"
         "flag"
@@ -554,56 +556,56 @@ import (
         "net/http/httputil"
         "os"
         "strings"
-
+ 
         "github.com/aws/aws-sdk-go-v2/aws"
         "github.com/aws/aws-sdk-go-v2/config"
         "github.com/aws/smithy-go/aws-http-auth/credentials"
         "github.com/aws/smithy-go/aws-http-auth/sigv4a"
         v4 "github.com/aws/smithy-go/aws-http-auth/v4"
 )
-
+ 
 type nopCloser struct {
         io.ReadSeeker
 }
-
+ 
 func (nopCloser) Close() error {
         return nil
 }
-
+ 
 type stringFlag struct {
-
+ 
 func main() {
         flag.Parse()
         if !url.set || !regionSet.set {
                 Usage()
         }
-
+ 
         cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithClientLogMode(aws.LogSigning))
         if err != nil {
                 log.Fatalf("failed to load SDK configuration, %v", err)
         }
-
+ 
         if len(os.Args) < 2 {
                 log.Fatalf("Usage: go run main.go <url>")
         }
-
+ 
         // Retrieve credentials from an SDK source, such as the instance profile
         sdkCreds, err := cfg.Credentials.Retrieve(context.TODO())
         if err != nil {
                 log.Fatalf("Unable to retrieve credentials from SDK, %v", err)
         }
-
+ 
         creds := credentials.Credentials{
                 AccessKeyID:     sdkCreds.AccessKeyID,
                 SecretAccessKey: sdkCreds.SecretAccessKey,
                 SessionToken:    sdkCreds.SessionToken,
         }
-
+ 
         // Add a payload body, which will not be part of the signature calculation
         body := nopCloser{strings.NewReader(`Example payload body`)}
-
+ 
         req, _ := http.NewRequest(http.MethodPost, url.value, body)
-
+ 
         // Create a sigv4a signer with specific options
         signer := sigv4a.New(func(o *v4.SignerOptions) {
                 o.DisableDoublePathEscape = true
@@ -611,10 +613,10 @@ func main() {
                 o.AddPayloadHashHeader = true
                 o.DisableImplicitPayloadHashing = true
         })
-
+ 
         // Create a slice out of the provided regionset
         rs := strings.Split(regionSet.value, ",")
-
+ 
         // Perform the signing on req, using the credentials we retrieved from the SDK
         err = signer.SignRequest(&sigv4a.SignRequestInput{
                 Request:     req,
@@ -622,44 +624,45 @@ func main() {
                 Service:     "vpc-lattice-svcs",
                 RegionSet: rs,
         })
-
+ 
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         res, err := httputil.DumpRequest(req, true)
-
+ 
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Raw request\n%s\n", string(res))
-
+ 
         log.Printf("[*] Sending request to %s\n", url.value)
-
+ 
         resp, err := http.DefaultClient.Do(req)
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Request sent\n")
-
+ 
         log.Printf("[*] Response status code: %d\n", resp.StatusCode)
-
+ 
         respBody, err := io.ReadAll(resp.Body)
         if err != nil {
                 log.Fatalf("%s", err)
         }
-
+ 
         log.Printf("[*] Response body: \n%s\n", respBody)
 }
 ```
 
-## Golang - GRPC
+------
 
-This example uses the [AWS SDK for the Go programming language](https://github.com/aws/aws-sdk-go-v2/ "https://github.com/aws/aws-sdk-go-v2/")
-to handle request signing for GRPC requests. This can be used with the [echo server](https://github.com/grpc/grpc-go/tree/master/examples/features/proto/echo "https://github.com/grpc/grpc-go/tree/master/examples/features/proto/echo")
-from the GRPC sample code repository.
+## Golang - GRPC
+<a name="sigv4-authenticated-requests-golang-grpc"></a>
+
+This example uses the [AWS SDK for the Go programming language](https://github.com/aws/aws-sdk-go-v2/) to handle request signing for GRPC requests. This can be used with the [echo server](https://github.com/grpc/grpc-go/tree/master/examples/features/proto/echo) from the GRPC sample code repository.
 
 ```
 package main
@@ -811,5 +814,4 @@ func main() {
 
     callUnaryEcho(rgc, "hello world")
 }
-
 ```

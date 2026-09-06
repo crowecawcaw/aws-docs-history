@@ -1,183 +1,146 @@
+
+
 # Access logs for Amazon VPC Lattice
+<a name="monitoring-access-logs"></a>
 
-Access logs capture detailed information about your VPC Lattice services and resource
-configurations. You can use these access logs to analyze traffic patterns and audit all of
-the services in the network. For VPC Lattice services, we publish `VpcLatticeAccessLogs` and for
-resource configurations, we publish `VpcLatticeResourceAccessLogs` which needs to be
-configured separately.
+Access logs capture detailed information about your VPC Lattice services and resource configurations. You can use these access logs to analyze traffic patterns and audit all of the services in the network. For VPC Lattice services, we publish `VpcLatticeAccessLogs` and for resource configurations, we publish `VpcLatticeResourceAccessLogs` which needs to be configured separately.
 
-Access logs are optional and are disabled by default. After you enable access logs, you
-can disable them at any time.
+Access logs are optional and are disabled by default. After you enable access logs, you can disable them at any time.
 
-###### Pricing
+**Pricing**  
+Charges apply when access logs are published. Logs that AWS natively publishes on your behalf are called *vended logs*. For more information about pricing for vended logs, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/), choose **Logs**, and view the pricing under **Vended Logs**.
 
-Charges apply when access logs are published. Logs that AWS natively publishes on
-your behalf are called _vended logs_. For more
-information about pricing for vended logs, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"), choose **Logs**, and view the pricing under **Vended
-Logs**.
-
-###### Contents
-
-- [IAM permissions required to enable access logs](#monitoring-access-logs-IAM "#monitoring-access-logs-IAM")
-- [Access log destinations](#monitoring-access-logs-destinations "#monitoring-access-logs-destinations")
-- [Enable access logs](#monitoring-access-logs-enable "#monitoring-access-logs-enable")
-- [Request tracking](#x-amzn-RequestId-enable "#x-amzn-RequestId-enable")
-- [Access log contents](#monitoring-access-logs-contents "#monitoring-access-logs-contents")
-- [Resource access log contents](#monitoring-resource-access-logs-contents "#monitoring-resource-access-logs-contents")
-- [Troubleshoot access logs](#monitoring-access-logs-troubleshoot "#monitoring-access-logs-troubleshoot")
+**Topics**
++ [IAM permissions required to enable access logs](#monitoring-access-logs-IAM)
++ [Access log destinations](#monitoring-access-logs-destinations)
++ [Enable access logs](#monitoring-access-logs-enable)
++ [Request tracking](#x-amzn-RequestId-enable)
++ [Access log contents](#monitoring-access-logs-contents)
++ [Resource access log contents](#monitoring-resource-access-logs-contents)
++ [Troubleshoot access logs](#monitoring-access-logs-troubleshoot)
 
 ## IAM permissions required to enable access logs
+<a name="monitoring-access-logs-IAM"></a>
 
-To enable access logs and send the logs to their destinations, you must have the
-following actions in the policy attached to the IAM user, group, or role that you are
-using.
+To enable access logs and send the logs to their destinations, you must have the following actions in the policy attached to the IAM user, group, or role that you are using.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Sid": "ManageVPCLatticeAccessLogSetup",
- "Action": [
- "logs:CreateLogDelivery",
- "logs:GetLogDelivery",
- "logs:UpdateLogDelivery",
- "logs:DeleteLogDelivery",
- "logs:ListLogDeliveries",
- "vpc-lattice:CreateAccessLogSubscription",
- "vpc-lattice:GetAccessLogSubscription",
- "vpc-lattice:UpdateAccessLogSubscription",
- "vpc-lattice:DeleteAccessLogSubscription",
- "vpc-lattice:ListAccessLogSubscriptions"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Sid": "ManageVPCLatticeAccessLogSetup",
+            "Action": [
+                "logs:CreateLogDelivery",
+                "logs:GetLogDelivery",
+                "logs:UpdateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "vpc-lattice:CreateAccessLogSubscription",
+                "vpc-lattice:GetAccessLogSubscription",
+                "vpc-lattice:UpdateAccessLogSubscription",
+                "vpc-lattice:DeleteAccessLogSubscription",
+                "vpc-lattice:ListAccessLogSubscriptions"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
 
-For more information, see [Adding and
-removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS Identity and Access Management
-User Guide_.
+------
 
-After you’ve updated the policy attached to the IAM user, group, or role that you
-are using, go to [Enable access logs](#monitoring-access-logs-enable "#monitoring-access-logs-enable").
+For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *AWS Identity and Access Management User Guide*.
+
+After you’ve updated the policy attached to the IAM user, group, or role that you are using, go to [Enable access logs](#monitoring-access-logs-enable).
 
 ## Access log destinations
+<a name="monitoring-access-logs-destinations"></a>
 
 You can send access logs to the following destinations.
 
-###### Amazon CloudWatch Logs
+**Amazon CloudWatch Logs**
++ VPC Lattice typically delivers logs to CloudWatch Logs within 2 minutes. However, keep in mind that actual log delivery time is on a best effort basis and there may be additional latency.
++ A resource policy is created automatically and added to the CloudWatch log group if the log group does not have certain permissions. For more information, see [Logs sent to CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-CWL) in the *Amazon CloudWatch User Guide*.
++ You can find access logs that are sent to CloudWatch under Log Groups in the CloudWatch console. For more information, see [View log data sent to CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#ViewingLogData) in the *Amazon CloudWatch User Guide*.
 
-- VPC Lattice typically delivers logs to CloudWatch Logs within 2 minutes. However, keep in
-  mind that actual log delivery time is on a best effort basis and there may be
-  additional latency.
-- A resource policy is created automatically and added to the CloudWatch log group if
-  the log group does not have certain permissions. For more information, see
-  [Logs sent to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") in the _Amazon CloudWatch User Guide_.
-- You can find access logs that are sent to CloudWatch under Log Groups in the CloudWatch
-  console. For more information, see [View log data sent to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData") in the _Amazon CloudWatch User Guide_.
+**Amazon S3**
++ VPC Lattice typically delivers logs to Amazon S3 within 6 minutes. However, keep in mind that actual log delivery time is on a best effort basis and there may be additional latency.
++ A bucket policy will be created automatically and added to your Amazon S3 bucket if the bucket does not have certain permissions. For more information, see [Logs sent to Amazon S3 ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-S3) in the *Amazon CloudWatch User Guide*.
++ Access logs that are sent to Amazon S3 use the following naming convention:
 
-###### Amazon S3
+  ```
+  [bucket]/[prefix]/AWSLogs/[accountId]/VpcLattice/AccessLogs/[region]/[YYYY/MM/DD]/[resource-id]/[accountId]_VpcLatticeAccessLogs_[region]_[resource-id]_YYYYMMDDTHHmmZ_[hash].json.gz
+  ```
++ VpcLatticeResourceAccessLogs that are sent to Amazon S3 use the following naming convention:
 
-- VPC Lattice typically delivers logs to Amazon S3 within 6 minutes. However, keep in
-  mind that actual log delivery time is on a best effort basis and there may be
-  additional latency.
-- A bucket policy will be created automatically and added to your Amazon S3 bucket if
-  the bucket does not have certain permissions. For more information, see [Logs sent to Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") in the _Amazon CloudWatch
-  User Guide_.
-- Access logs that are sent to Amazon S3 use the following naming convention:
+  ```
+  [bucket]/[prefix]/AWSLogs/[accountId]/VpcLattice/ResourceAccessLogs/[region]/[YYYY/MM/DD]/[resource-id]/[accountId]_VpcLatticeResourceAccessLogs_[region]_[resource-id]_YYYYMMDDTHHmmZ_[hash].json.gz
+  ```
 
-```
-[bucket]/[prefix]/AWSLogs/[accountId]/VpcLattice/AccessLogs/[region]/[YYYY/MM/DD]/[resource-id]/[accountId]_VpcLatticeAccessLogs_[region]_[resource-id]_YYYYMMDDTHHmmZ_[hash].json.gz
-```
-
-- VpcLatticeResourceAccessLogs that are sent to Amazon S3 use the following naming convention:
-
-```
-[bucket]/[prefix]/AWSLogs/[accountId]/VpcLattice/ResourceAccessLogs/[region]/[YYYY/MM/DD]/[resource-id]/[accountId]_VpcLatticeResourceAccessLogs_[region]_[resource-id]_YYYYMMDDTHHmmZ_[hash].json.gz
-```
-
-###### Amazon Data Firehose
-
-- VPC Lattice typically delivers logs to Firehose within 2 minutes. However, keep in
-  mind that actual log delivery time is on a best effort basis and there may be
-  additional latency.
-- A service-linked role is automatically created that grants VPC Lattice permission
-  to send access logs to Amazon Data Firehose. For automatic role
-  creation to succeed, users must have permission for the
-  `iam:CreateServiceLinkedRole` action. For more information, see
-  [Logs sent to Amazon Data Firehose](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose") in the _Amazon CloudWatch User Guide_.
-- For more information about viewing the logs sent to
-  Amazon Data Firehose, see [Monitoring Amazon Kinesis Data
-  Streams](../../../streams/latest/dev/monitoring.md "../../../streams/latest/dev/monitoring.md") in the _Amazon Data Firehose Developer
-  Guide_.
+**Amazon Data Firehose**
++ VPC Lattice typically delivers logs to Firehose within 2 minutes. However, keep in mind that actual log delivery time is on a best effort basis and there may be additional latency.
++ A service-linked role is automatically created that grants VPC Lattice permission to send access logs to Amazon Data Firehose. For automatic role creation to succeed, users must have permission for the `iam:CreateServiceLinkedRole` action. For more information, see [Logs sent to Amazon Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-Firehose) in the *Amazon CloudWatch User Guide*.
++ For more information about viewing the logs sent to Amazon Data Firehose, see [Monitoring Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/monitoring.html) in the *Amazon Data Firehose Developer Guide*.
 
 ## Enable access logs
+<a name="monitoring-access-logs-enable"></a>
 
-Complete the following procedure to configure access logs to capture and deliver
-access logs to the destination that you choose.
+Complete the following procedure to configure access logs to capture and deliver access logs to the destination that you choose.
 
-###### Contents
-
-- [Enable access logs using the console](#monitoring-access-logs-console "#monitoring-access-logs-console")
-- [Enable access logs using the AWS CLI](#monitoring-access-logs-cli "#monitoring-access-logs-cli")
+**Topics**
++ [Enable access logs using the console](#monitoring-access-logs-console)
++ [Enable access logs using the AWS CLI](#monitoring-access-logs-cli)
 
 ### Enable access logs using the console
+<a name="monitoring-access-logs-console"></a>
 
-You can enable access logs for a service network, a service, or a resource configuration during creation.
-You can also enable access logs after you create a service network, service, or resource configuration as
-described in the following procedure.
+You can enable access logs for a service network, a service, or a resource configuration during creation. You can also enable access logs after you create a service network, service, or resource configuration as described in the following procedure.
 
-###### To create a basic service using the console
+**To create a basic service using the console**
 
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. Select the service network, service, or resource configuration.
-3. Choose **Actions**, **Edit log
-   settings**.
-4. Turn on the **Access logs** toggle switch.
-5. Add a delivery destination for your access logs as follows:
+1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
-   - Select **CloudWatch Log group** and choose a log
-     group. To create a log group, choose **Create a log group in
-     CloudWatch**.
-   - Select **S3 bucket** and enter the S3 bucket
-     path, including any prefix. To search your S3 buckets, choose
-     **Browse S3**.
-   - Select **Kinesis Data Firehose delivery stream**
-     and choose a delivery stream. To create a delivery stream, choose
-     **Create a delivery stream in Kinesis**.
+1. Select the service network, service, or resource configuration.
 
-6. Choose **Save changes**.
+1. Choose **Actions**, **Edit log settings**.
+
+1. Turn on the **Access logs** toggle switch.
+
+1. Add a delivery destination for your access logs as follows:
+   + Select **CloudWatch Log group** and choose a log group. To create a log group, choose **Create a log group in CloudWatch**.
+   + Select **S3 bucket** and enter the S3 bucket path, including any prefix. To search your S3 buckets, choose **Browse S3**.
+   + Select **Kinesis Data Firehose delivery stream** and choose a delivery stream. To create a delivery stream, choose **Create a delivery stream in Kinesis**.
+
+1. Choose **Save changes**.
 
 ### Enable access logs using the AWS CLI
+<a name="monitoring-access-logs-cli"></a>
 
-Use the CLI command [create-access-log-subscription](../../../cli/latest/reference/vpc-lattice/create-access-log-subscription.md "../../../cli/latest/reference/vpc-lattice/create-access-log-subscription.md") to enable access logs for service
-networks or services.
+Use the CLI command [create-access-log-subscription](https://docs.aws.amazon.com/cli/latest/reference/vpc-lattice/create-access-log-subscription.html) to enable access logs for service networks or services.
 
 ## Request tracking
+<a name="x-amzn-RequestId-enable"></a>
 
-VPC Lattice supports request tracking and correlation across clients, targets, and logs for observability and debugging with the x-amzn-requestid header. This header can be set and sent by the client or generated by VPC Lattice and is sent to targets and also available in access logs.
+ VPC Lattice supports request tracking and correlation across clients, targets, and logs for observability and debugging with the x-amzn-requestid header. This header can be set and sent by the client or generated by VPC Lattice and is sent to targets and also available in access logs.
 
-###### Default behavior
+**Default behavior**
++ VPC Lattice automatically generates this header for every request.
++ The value is a randomly generated identifier (UUID-style by default).
++ The generated identifier is:
+  + Propagated to downstream targets.
+  +  Returned in response headers to clients.
+  + Logged in access logs
 
-- VPC Lattice automatically generates this header for every request.
-- The value is a randomly generated identifier (UUID-style by default).
-- The generated identifier is:
-
-  - Propagated to downstream targets.
-  - Returned in response headers to clients.
-  - Logged in access logs
-
-###### Example (default response)
-
+**Example (default response)**  
 The following is an example of a response sent to client with the default behavior of VPC Lattice generating a random value for the valu eof x-amzn-requestid header.
 
 ```
@@ -187,34 +150,28 @@ The following is an example of a response sent to client with the default behavi
 }
 ```
 
-###### Client setting the value
+**Client setting the value**
++ Clients can optionally set this header on incoming requests to override the automatically generated value.
++ Considerations
+  +  The header value does not need to follow a UUID format.
+  + If the header value exceeds 512 bytes, VPC Lattice will truncate it to 512.
++  When overridden successfully, the provided header value will:
+  + Appear in response headers
+  + Be propagated to targets
+  + Appear in access logs and metrics
 
-- Clients can optionally set this header on incoming requests to override the automatically generated value.
-- Considerations
-
-  - The header value does not need to follow a UUID format.
-  - If the header value exceeds 512 bytes, VPC Lattice will truncate it to 512.
-
-- When overridden successfully, the provided header value will:
-
-  - Appear in response headers
-  - Be propagated to targets
-  - Appear in access logs and metrics
-
-###### Example (override client reqeust)
-
+**Example (override client reqeust)**  
 The following is an example of a reqeust sent by the client with a header value.
 
 ```
 {
-    "GET /my-service/endpoint HTTP/1.1
+    "GET /my-service/endpoint HTTP/1.1 
     Host: my-api.example.com
     x-amzn-requestid: trace-request-foobar"
 }
 ```
 
-###### Example (default override response)
-
+**Example (default override response)**  
 The following is an example of a response sent to client with the overridden value.
 
 ```
@@ -225,49 +182,50 @@ The following is an example of a response sent to client with the overridden val
 ```
 
 ## Access log contents
+<a name="monitoring-access-logs-contents"></a>
 
 The following table describes the fields of an access log entry.
 
-| Field                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Format                                                     |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `callerPrincipalTags`        | The PrincipalTags in the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | JSON                                                       |
-| `hostHeader`                 | The authority header of the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string                                                     |
-| `sslCipher`                  | The OpenSSL name for the set of ciphers used to establish the<br>client TLS connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | string                                                     |
-| `serviceNetworkArn`          | The service network ARN.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | arn:aws:vpc-lattice:`region`:`account`:servicenetwork/`id` |
-| `resolvedUser`               | The ARN of the user when authentication is enabled and<br>authentication is done.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | null                                                       | ARN       | "Anonymous" | "Unknown"  |
-| `authDeniedReason`           | The reason that access is denied when authentication is<br>enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | null                                                       | "Service" | "Network"   | "Identity" |
-| `requestMethod`              | The method header of the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | string                                                     |
-| `targetGroupArn`             | The target host group to which the target host belongs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | string                                                     |
-| `tlsVersion`                 | The TLS version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | TLSv`x`                                                    |
-| `userAgent`                  | The user-agent header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | string                                                     |
-| `serverNameIndication`       | [HTTPS only] The value set on ssl connection socket for Server<br>Name Indication (SNI).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | string                                                     |
-| `destinationVpcId`           | The destination VPC ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | vpc-`xxxxxxxx`                                             |
-| `sourceIpPort`               | The IP address and :port of the source.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `ip`:`port`                                                |
-| `targetIpPort`               | The IP address and port of the target.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `ip`:`port`                                                |
-| `serviceArn`                 | The service ARN.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | arn:aws:vpc-lattice:`region`:`account`:service/`id`        |
-| `sourceVpcId`                | The source VPC ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | vpc-`xxxxxxxx`                                             |
-| `requestPath`                | The path of the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | LatticePath?:`path`                                        |
-| `startTime`                  | The request start time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `YYYY`-`MM`-`DD`T`HH`:`MM`:`SS`Z                           |
-| `protocol`                   | The protocol. Currently either HTTP/1.1 or HTTP/2.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | string                                                     |
-| `responseCode`               | The HTTP response code. Only the response code for the final<br>headers are logged. For more information, see [Troubleshoot access logs](#monitoring-access-logs-troubleshoot "#monitoring-access-logs-troubleshoot").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | integer                                                    |
-| `bytesReceived`              | The body and header bytes received.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | integer                                                    |
-| `bytesSent`                  | The body and header bytes sent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | integer                                                    |
-| `duration`                   | Total duration in milliseconds of the request from the start time<br>to the last byte out.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | integer                                                    |
-| `requestToTargetDuration`    | Total duration in milliseconds of the request from the start time<br>to the last byte sent to the target.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | integer                                                    |
-| `responseFromTargetDuration` | Total duration in milliseconds of the request from the first byte<br>read from the target host to the last byte sent to the<br>client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | integer                                                    |
-| `grpcResponseCode`           | The gRPC response code. For more information, see [Status codes and their use in gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html "https://grpc.github.io/grpc/core/md_doc_statuscodes.html"). This field is<br>logged only if the service supports gRPC.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | integer                                                    |
-| `requestId`                  | This a unique identifier automatically included in responses as the value of the x-amzn-requestid header. It enables request correlation across clients, targets, and logs for observability and debugging.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | string                                                     |
-| `callerPrincipal`            | The authenticated principal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | string                                                     |
-| `callerX509SubjectCN`        | The subject name (CN).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | string                                                     |
-| `callerX509IssuerOU`         | The issuer (OU).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | string                                                     |
-| `callerX509SANNameCN`        | The issuer alternative (Name/CN).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | string                                                     |
-| `callerX509SANDNS`           | The subject alternative name (DNS).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | string                                                     |
-| `callerX509SANURI`           | The subject alternative name (URI).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | string                                                     |
-| `sourceVpcArn`               | The ARN of the VPC where the request originated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | arn:aws:ec2:`region`:`account`:vpc/`id`                    |
-| `failureReason`              | Indicates the reason a request failed. The possible values are the following:<br>• `TargetConnectionError` - The request failed to<br>connect to a target in the target group.<br>• `TargetProtocolError` - The target did not<br>respond with valid data. This might indicate the target has invalid TLS<br>records or used an invalid target group protocol.<br>• `TargetDataTimeout` - The idle timeout was reached.<br>• `TargetConnectionClosed` - The target closed the connection before completing the response.<br>• `ClientConnectionClosed` - The client closed the connection before it received the complete response.<br>• `ClientRateLimited` - The client exceeded the connection limit and VPC Lattice limited the rate.<br>• `ClientAccessDenied` - VPC Lattice denied access<br>to the resource. Use the `authDeniedReason` for<br>more information about why VPC Lattice denied access.<br>• `ClientProtocolError` - The client sent data<br>that was not understood. This might indicate the client used<br>invalid TLS records or an invalid protocol.<br>• `ConnectionDurationExceeded` - The connection reached the maximum connection duration limit.<br>• `InternalError` - An internal error occurred while processing the request. | string                                                     |
 
-###### Example
+| Field | Description | Format | 
+| --- | --- | --- | 
+|  callerPrincipalTags  | The PrincipalTags in the request. | JSON | 
+|  hostHeader  | The authority header of the request. | string | 
+|  sslCipher  | The OpenSSL name for the set of ciphers used to establish the client TLS connection. | string | 
+|  serviceNetworkArn  | The service network ARN. | arn:aws:vpc-lattice:{{region}}:{{account}}:servicenetwork/{{id}} | 
+|  resolvedUser  | The ARN of the user when authentication is enabled and authentication is done. | null \| ARN \| "Anonymous" \| "Unknown" | 
+|  authDeniedReason  | The reason that access is denied when authentication is enabled. | null \| "Service" \| "Network" \| "Identity" | 
+|  requestMethod  | The method header of the request. | string | 
+|  targetGroupArn  | The target host group to which the target host belongs. | string | 
+|  tlsVersion  | The TLS version. | TLSv{{x}} | 
+|  userAgent  | The user-agent header. | string | 
+|  serverNameIndication  | [HTTPS only] The value set on ssl connection socket for Server Name Indication (SNI). | string | 
+|  destinationVpcId  | The destination VPC ID. | vpc-{{xxxxxxxx}} | 
+|  sourceIpPort  | The IP address and :port of the source. | {{ip}}:{{port}} | 
+|  targetIpPort  | The IP address and port of the target. | {{ip}}:{{port}} | 
+|  serviceArn  | The service ARN. | arn:aws:vpc-lattice:{{region}}:{{account}}:service/{{id}} | 
+|  sourceVpcId  | The source VPC ID. | vpc-{{xxxxxxxx}} | 
+|  requestPath  | The path of the request. | LatticePath?:{{path}} | 
+|  startTime  | The request start time. | {{YYYY}}-{{MM}}-{{DD}}T{{HH}}:{{MM}}:{{SS}}Z | 
+|  protocol  | The protocol. Currently either HTTP/1.1 or HTTP/2. | string | 
+|  responseCode  | The HTTP response code. Only the response code for the final headers are logged. For more information, see [Troubleshoot access logs](#monitoring-access-logs-troubleshoot).  | integer | 
+|  bytesReceived  | The body and header bytes received. | integer | 
+|  bytesSent  | The body and header bytes sent. | integer | 
+|  duration  | Total duration in milliseconds of the request from the start time to the last byte out. | integer | 
+|  requestToTargetDuration  | Total duration in milliseconds of the request from the start time to the last byte sent to the target. | integer | 
+|  responseFromTargetDuration  | Total duration in milliseconds of the request from the first byte read from the target host to the last byte sent to the client. | integer | 
+|  grpcResponseCode  | The gRPC response code. For more information, see [Status codes and their use in gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html). This field is logged only if the service supports gRPC. | integer | 
+|  requestId  | This a unique identifier automatically included in responses as the value of the x-amzn-requestid header. It enables request correlation across clients, targets, and logs for observability and debugging. | string | 
+|  callerPrincipal  | The authenticated principal. | string | 
+|  callerX509SubjectCN  | The subject name (CN). | string | 
+|  callerX509IssuerOU  | The issuer (OU). | string | 
+|  callerX509SANNameCN  | The issuer alternative (Name/CN). | string | 
+|  callerX509SANDNS  | The subject alternative name (DNS). | string | 
+|  callerX509SANURI  | The subject alternative name (URI). | string | 
+|  sourceVpcArn  | The ARN of the VPC where the request originated. | arn:aws:ec2:{{region}}:{{account}}:vpc/{{id}} | 
+| failureReason | Indicates the reason a request failed. The possible values are the following:+  `TargetConnectionError` - The request failed to connect to a target in the target group.<br />+  `TargetProtocolError` - The target did not respond with valid data. This might indicate the target has invalid TLS records or used an invalid target group protocol. <br />+ `TargetDataTimeout` - The idle timeout was reached.<br />+ `TargetConnectionClosed` - The target closed the connection before completing the response.<br />+ `ClientConnectionClosed` - The client closed the connection before it received the complete response.<br />+ `ClientRateLimited` - The client exceeded the connection limit and VPC Lattice limited the rate.<br />+  `ClientAccessDenied` - VPC Lattice denied access to the resource. Use the `authDeniedReason` for more information about why VPC Lattice denied access. <br />+  `ClientProtocolError` - The client sent data that was not understood. This might indicate the client used invalid TLS records or an invalid protocol.<br />+ `ConnectionDurationExceeded` - The connection reached the maximum connection duration limit.<br />+ `InternalError` - An internal error occurred while processing the request. | string | 
 
+**Example**  
 The following is an example log entry.
 
 ```
@@ -303,24 +261,25 @@ The following is an example log entry.
 ```
 
 ## Resource access log contents
+<a name="monitoring-resource-access-logs-contents"></a>
 
 The following table describes the fields of a resource access log entry.
 
-| Field                                 | Description                                                                                           | Format                                                            |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `serviceNetworkArn`                   | The service network ARN.                                                                              | arn:`partition`vpc-lattice:`region`:`account`:servicenetwork/`id` |
-| `serviceNetworkResourceAssociationId` | The service network resource ID.                                                                      | `snra`-`xxx`                                                      |
-| `vpcEndpointId`                       | The endpoint ID that was used to access the resource.                                                 | string                                                            |
-| `sourceVpcArn`                        | The source VPC ARN or the VPC from where connection was initiated.                                    | string                                                            |
-| `resourceConfigurationArn`            | The ARN of the resource configuration that was accessed.                                              | string                                                            |
-| `protocol`                            | The protocol used to communicate to the resource configuration. Currently only tcp is supported.      | string                                                            |
-| `sourceIpPort`                        | The IP address and port of the source which initiated the connection.                                 | `ip`:`port`                                                       |
-| `destinationIpPort`                   | The IP address and port against which the connection was initiated. This will be the IP of SN-E/SN-A. | `ip`:`port`                                                       |
-| `gatewayIpPort`                       | The IP address and port used by the resource gateway to access the resource.                          | `ip`:`port`                                                       |
-| `resourceIpPort`                      | The IP address and port of the resource.                                                              | `ip`:`port`                                                       |
 
-###### Example
+| Field | Description | Format | 
+| --- | --- | --- | 
+|  serviceNetworkArn  | The service network ARN. | arn:{{partition}}vpc-lattice:{{region}}:{{account}}:servicenetwork/{{id}} | 
+|  serviceNetworkResourceAssociationId  | The service network resource ID. | {{snra}}-{{xxx}} | 
+|  vpcEndpointId  | The endpoint ID that was used to access the resource. | string | 
+|  sourceVpcArn  | The source VPC ARN or the VPC from where connection was initiated. | string | 
+|  resourceConfigurationArn  | The ARN of the resource configuration that was accessed. | string | 
+|  protocol  | The protocol used to communicate to the resource configuration. Currently only tcp is supported. | string | 
+|  sourceIpPort  | The IP address and port of the source which initiated the connection. | {{ip}}:{{port}} | 
+|  destinationIpPort  | The IP address and port against which the connection was initiated. This will be the IP of SN-E/SN-A. | {{ip}}:{{port}} | 
+|  gatewayIpPort  | The IP address and port used by the resource gateway to access the resource. | {{ip}}:{{port}} | 
+|  resourceIpPort  | The IP address and port of the resource. | {{ip}}:{{port}} | 
 
+**Example**  
 The following is an example log entry.
 
 ```
@@ -340,14 +299,15 @@ The following is an example log entry.
 ```
 
 ## Troubleshoot access logs
+<a name="monitoring-access-logs-troubleshoot"></a>
 
-This section contains an explanation of the HTTP error codes that you may see in
-access logs.
+This section contains an explanation of the HTTP error codes that you may see in access logs.
 
-| Error code                      | Possible causes                                                                                                                                                                                                                                                   |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| HTTP 400: Bad Request           | • The client sent a malformed request that doesn't meet the<br>HTTP specification.<br>• The request header exceeded 60K for the entire request<br>header or more than 100 headers.<br>• The client closed the connection before sending the full<br>request body. |
-| HTTP 403: Forbidden             | Authentication has been configured for the service, but the<br>incoming request is not authenticated or authorized.                                                                                                                                               |
-| HTTP 404: Non Existent Service  | You're trying to connect to a service that does not exist or is<br>not registered to the right service network.                                                                                                                                                   |
-| HTTP 500: Internal Server Error | VPC Lattice has encountered an error, such as failure to connect to<br>targets.                                                                                                                                                                                   |
-| HTTP 502: Bad Gateway           | VPC Lattice has encountered an error.                                                                                                                                                                                                                             |
+
+| Error code | Possible causes | 
+| --- | --- | 
+| HTTP 400: Bad Request |  +  The client sent a malformed request that doesn't meet the HTTP specification. <br />+  The request header exceeded 60K for the entire request header or more than 100 headers. <br />+  The client closed the connection before sending the full request body.   | 
+| HTTP 403: Forbidden | Authentication has been configured for the service, but the incoming request is not authenticated or authorized. | 
+| HTTP 404: Non Existent Service | You're trying to connect to a service that does not exist or is not registered to the right service network. | 
+| HTTP 500: Internal Server Error | VPC Lattice has encountered an error, such as failure to connect to targets. | 
+| HTTP 502: Bad Gateway | VPC Lattice has encountered an error. | 
