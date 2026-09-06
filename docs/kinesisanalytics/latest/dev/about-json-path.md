@@ -1,36 +1,29 @@
-After careful consideration, we have decided to discontinue Amazon Kinesis
-Data Analytics for SQL applications:
+
+
+After careful consideration, we have decided to discontinue Amazon Kinesis Data Analytics for SQL applications:
 
 1. From **September 1, 2025**, we won't provide any bug fixes for Amazon Kinesis Data Analytics for SQL applications because we will have limited support for it, given the upcoming discontinuation.
 
-2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL
-   applications.
+2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL applications.
 
-3. We will delete your applications starting **January 27, 2026**. You will not be able to
-   start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer
-   be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
-   [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
+3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Working with JSONPath
+<a name="about-json-path"></a>
 
-###### Note
+**Note**  
+After September 12, 2023, you will not able to create new applications using Kinesis Data Firehose as a source if you do not already use Kinesis Data Analytics for SQL. For more information, see [Limits](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html).
 
-After September 12, 2023, you will not able to create new applications using Kinesis Data Firehose as a source if you do not already use Kinesis Data Analytics for SQL. For more information, see [Limits](limits.md "limits.md").
-
-JSONPath is a standardized way to query elements of a JSON object. JSONPath uses path
-expressions to navigate elements, nested elements, and arrays in a JSON document. For
-more information about JSON, see [Introducing
-JSON](http://www.json.org/ "http://www.json.org/").
+JSONPath is a standardized way to query elements of a JSON object. JSONPath uses path expressions to navigate elements, nested elements, and arrays in a JSON document. For more information about JSON, see [Introducing JSON](http://www.json.org/).
 
 Amazon Kinesis Data Analytics uses JSONPath expressions in the application's source schema to identify data elements in a streaming source that contains JSON-format data.
 
-For more information about how to map streaming data to your application's input stream, see [Mapping Streaming Source Elements to SQL Input Columns](sch-mapping.md "sch-mapping.md").
+For more information about how to map streaming data to your application's input stream, see [Mapping Streaming Source Elements to SQL Input Columns](sch-mapping.md).
 
 ## Accessing JSON Elements with JSONPath
+<a name="about-json-path-elements"></a>
 
-Following, you can find how to use JSONPath expressions to access various elements
-in JSON-formatted data. For the examples in this section, assume that the source
-stream contains the following JSON record:
+Following, you can find how to use JSONPath expressions to access various elements in JSON-formatted data. For the examples in this section, assume that the source stream contains the following JSON record:
 
 ```
 {
@@ -51,67 +44,55 @@ stream contains the following JSON record:
     { "orderId":"77284", "itemName":"Sprocket", "itemPrice":"12.00" }
   ]
 }
-
 ```
 
 ### Accessing JSON Elements
+<a name="about-json-path-firstlevel"></a>
 
-To query an element in JSON data using JSONPath, use the following syntax.
-Here, `$` represents the root of the data hierarchy and
-`elementName` is the name of the element node to query.
-
-```
-$.`elementName`
+To query an element in JSON data using JSONPath, use the following syntax. Here, `$` represents the root of the data hierarchy and `elementName` is the name of the element node to query.
 
 ```
+$.{{elementName}}
+```
 
-The following expression queries the `customerName` element in the
-preceding JSON example.
+The following expression queries the `customerName` element in the preceding JSON example.
 
 ```
 $.customerName
 ```
 
-The preceding expression returns the following from the preceding JSON
-record.
+The preceding expression returns the following from the preceding JSON record.
 
 ```
 John Doe
 ```
 
-###### Note
+**Note**  
+Path expressions are case sensitive. The expression `$.customername` returns `null` from the preceding JSON example.
 
-Path expressions are case sensitive. The expression `$.customername`
-returns `null` from the preceding JSON example.
-
-###### Note
-
-If no element appears at the location where the path expression specifies,
-the expression returns `null`. The following expression returns
-`null` from the preceding JSON example, because there is no
-matching element.
+**Note**  
+If no element appears at the location where the path expression specifies, the expression returns `null`. The following expression returns `null` from the preceding JSON example, because there is no matching element.  
 
 ```
 $.customerId
 ```
 
 ### Accessing Nested JSON Elements
+<a name="about-json-path-nested"></a>
 
 To query a nested JSON element, use the following syntax.
 
 ```
-$.`parentElement`.`element`
+$.{{parentElement}}.{{element}}
 ```
 
-The following expression queries the `city` element in the
-preceding JSON example.
+The following expression queries the `city` element in the preceding JSON example.
 
 ```
 $.address.city
 ```
 
-The preceding expression returns the following from the preceding JSON
-record.
+The preceding expression returns the following from the preceding JSON record.
 
 ```
 Anytown
@@ -120,160 +101,126 @@ Anytown
 You can query further levels of subelements using the following syntax.
 
 ```
-$.`parentElement`.`element`.`subElement`
+$.{{parentElement}}.{{element}}.{{subElement}}
 ```
 
-The following expression queries the `street` element in the
-preceding JSON example.
+The following expression queries the `street` element in the preceding JSON example.
 
 ```
 $.address.streetAddress.street
 ```
 
-The preceding expression returns the following from the preceding JSON
-record.
+The preceding expression returns the following from the preceding JSON record.
 
 ```
 AnyStreet
 ```
 
 ### Accessing Arrays
+<a name="about-json-path-arrays"></a>
 
 You can access the data in a JSON array in the following ways:
-
-- Retrieve all the elements in the array as a single row.
-- Retrieve each element in the array as a separate row.
++ Retrieve all the elements in the array as a single row.
++ Retrieve each element in the array as a separate row.
 
 #### Retrieve All Elements in an Array in a Single Row
+<a name="about-json-path-arrays-row"></a>
 
-To query the entire contents of an array as a single row, use the following
-syntax.
+To query the entire contents of an array as a single row, use the following syntax.
 
 ```
-$.`arrayObject`[0:]
+$.{{arrayObject}}[0:]
 ```
 
-The following expression queries the entire contents of the
-`orders` element in the preceding JSON example used in this section. It returns the
-array contents in a single column in a single row.
+The following expression queries the entire contents of the `orders` element in the preceding JSON example used in this section. It returns the array contents in a single column in a single row.
 
 ```
 $.orders[0:]
 ```
 
-The preceding expression returns the following from the example JSON
-record used in this section.
+The preceding expression returns the following from the example JSON record used in this section.
 
 ```
 [{"orderId":"23284","itemName":"Widget","itemPrice":"33.99"},{"orderId":"61322","itemName":"Gadget","itemPrice":"22.50"},{"orderId":"77284","itemName":"Sprocket","itemPrice":"12.00"}]
 ```
 
 #### Retrieve All Elements in an Array in Separate Rows
+<a name="about-json-path-arrays-separate"></a>
 
-To query the individual elements in an array as separate rows, use the
-following syntax.
+To query the individual elements in an array as separate rows, use the following syntax.
 
 ```
-$.`arrayObject`[0:].`element`
+$.{{arrayObject}}[0:].{{element}}
 ```
 
-The following expression queries the `orderId` elements in the
-preceding JSON example, and returns each array element as a separate row.
+The following expression queries the `orderId` elements in the preceding JSON example, and returns each array element as a separate row.
 
 ```
 $.orders[0:].orderId
 ```
 
-The preceding expression returns the following from the preceding JSON record,
-with each data item returned as a separate row.
+The preceding expression returns the following from the preceding JSON record, with each data item returned as a separate row.
 
-|       |
-| ----- |
-| 23284 |
-| 63122 |
-| 77284 |
 
-###### Note
 
-If expressions that query nonarray elements are included in a schema that
-queries individual array elements, the nonarray elements are repeated for
-each element in the array. For example, suppose that a schema for the
-preceding JSON example includes the following expressions:
+|  | 
+| --- |
+| 23284 | 
+| 63122 | 
+| 77284 | 
 
-- $.customerName
-- $.orders[0:].orderId
-  In this case, the returned data rows from the sample input stream element
-  resemble the following, with the `name` element repeated for
-  every `orderId` element.
+**Note**  
+If expressions that query nonarray elements are included in a schema that queries individual array elements, the nonarray elements are repeated for each element in the array. For example, suppose that a schema for the preceding JSON example includes the following expressions:  
+$.customerName
+$.orders[0:].orderId
+In this case, the returned data rows from the sample input stream element resemble the following, with the `name` element repeated for every `orderId` element.  
 
-|          |       |
-| -------- | ----- |
-| John Doe | 23284 |
-| John Doe | 63122 |
-| John Doe | 77284 |
 
-###### Note
 
-The following limitations apply to array expressions in Amazon Kinesis Data Analytics:
+|  |  | 
+| --- |--- |
+| John Doe | 23284 | 
+| John Doe | 63122 | 
+| John Doe | 77284 | 
 
-- Only one level of dereferencing is supported in an array
-  expression. The following expression format is not supported.
+**Note**  
+The following limitations apply to array expressions in Amazon Kinesis Data Analytics:  
+Only one level of dereferencing is supported in an array expression. The following expression format is not supported.  
 
-```
-$.`arrayObject`[0:].`element`[0:].`subElement`
-```
+  ```
+  $.{{arrayObject}}[0:].{{element}}[0:].{{subElement}}
+  ```
+Only one array can be flattened in a schema. Multiple arrays can be referenced—returned as one row containing all of the elements in the array. However, only one array can have each of its elements returned as individual rows.  
+A schema containing elements in the following format is valid. This format returns the contents of the second array as a single column, repeated for every element in the first array.  
 
-- Only one array can be flattened in a schema. Multiple arrays can
-  be referenced—returned as one row containing all of the
-  elements in the array. However, only one array can have each of its
-  elements returned as individual rows.
+  ```
+  {{$.arrayObjectOne}}[0:].{{element}}
+  {{$.arrayObjectTwo}}[0:]
+  ```
+A schema containing elements in the following format is not valid.  
 
-A schema containing elements in the following format is valid.
-This format returns the contents of the second array as a single
-column, repeated for every element in the first array.
-
-```
-`$.arrayObjectOne`[0:].`element`
-`$.arrayObjectTwo`[0:]
-```
-
-A schema containing elements in the following format is not
-valid.
-
-```
-`$.arrayObjectOne`[0:].`element`
-`$.arrayObjectTwo`[0:].`element`
-```
+  ```
+  {{$.arrayObjectOne}}[0:].{{element}}
+  {{$.arrayObjectTwo}}[0:].{{element}}
+  ```
 
 ## Other Considerations
+<a name="about-json-path-other"></a>
 
 Additional considerations for working with JSONPath are as follows:
++ If no arrays are accessed by an individual element in the JSONPath expressions in the application schema, then a single row is created in the application's input stream for each JSON record processed. 
++ When an array is flattened (that is, its elements are returned as individual rows), any missing elements result in a null value being created in the in-application stream. 
++ An array is always flattened to at least one row. If no values would be returned (that is, the array is empty or none of its elements are queried), a single row with all null values is returned.
 
-- If no arrays are accessed by an individual element in the JSONPath
-  expressions in the application schema, then a single row is created in the application's input stream for each JSON record processed.
-- When an array is flattened (that is, its elements are returned as individual rows), any missing elements result in a null value
-  being created in the in-application stream.
-- An array is always flattened to at least one row. If no values would be
-  returned (that is, the array is empty or none of its elements are queried),
-  a single row with all null values is returned.
+  The following expression returns records with null values from the preceding JSON example, because there is no matching element at the specified path.
 
-The following expression returns records with null values from the
-preceding JSON example, because there is no matching element at the
-specified path.
+  ```
+  $.orders[0:].itemId
+  ```
 
-```
-$.orders[0:].itemId
-```
-
-The preceding expression returns the following from the preceding JSON
-example record.
-
-|      |
-| ---- |
-| null |
-| null |
-| null |
+  The preceding expression returns the following from the preceding JSON example record.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/about-json-path.html)
 
 ## Related Topics
-
-- [Introducing JSON](http://www.json.org/ "http://www.json.org/")
+<a name="about-json-path.Related"></a>
++ [Introducing JSON](http://www.json.org/)

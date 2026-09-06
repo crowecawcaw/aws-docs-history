@@ -1,55 +1,52 @@
-After careful consideration, we have decided to discontinue Amazon Kinesis
-Data Analytics for SQL applications:
+
+
+After careful consideration, we have decided to discontinue Amazon Kinesis Data Analytics for SQL applications:
 
 1. From **September 1, 2025**, we won't provide any bug fixes for Amazon Kinesis Data Analytics for SQL applications because we will have limited support for it, given the upcoming discontinuation.
 
-2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL
-   applications.
+2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL applications.
 
-3. We will delete your applications starting **January 27, 2026**. You will not be able to
-   start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer
-   be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
-   [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
+3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # Creating Lambda Functions for Preprocessing
+<a name="lambda-preprocessing-functions"></a>
 
-Your Amazon Kinesis Data Analytics application can use Lambda functions for preprocessing records as
-they are ingested into the application. Kinesis Data Analytics provides the following templates on
-the console to use as a starting point for preprocessing your data.
+Your Amazon Kinesis Data Analytics application can use Lambda functions for preprocessing records as they are ingested into the application. Kinesis Data Analytics provides the following templates on the console to use as a starting point for preprocessing your data.
 
-###### Topics
-
-- [Creating a Preprocessing Lambda Function in Node.js](#lambda-preprocessing-functions-nodejs "#lambda-preprocessing-functions-nodejs")
-- [Creating a Preprocessing Lambda Function in Python](#lambda-preprocessing-functions-python "#lambda-preprocessing-functions-python")
-- [Creating a Preprocessing Lambda Function in Java](#lambda-preprocessing-functions-java "#lambda-preprocessing-functions-java")
-- [Creating a Preprocessing Lambda Function in .NET](#lambda-preprocessing-functions-net "#lambda-preprocessing-functions-net")
+**Topics**
++ [Creating a Preprocessing Lambda Function in Node.js](#lambda-preprocessing-functions-nodejs)
++ [Creating a Preprocessing Lambda Function in Python](#lambda-preprocessing-functions-python)
++ [Creating a Preprocessing Lambda Function in Java](#lambda-preprocessing-functions-java)
++ [Creating a Preprocessing Lambda Function in .NET](#lambda-preprocessing-functions-net)
 
 ## Creating a Preprocessing Lambda Function in Node.js
+<a name="lambda-preprocessing-functions-nodejs"></a>
 
-The following templates for creating preprocessing Lambda function in Node.js
-are available on the Kinesis Data Analytics console:
+The following templates for creating preprocessing Lambda function in Node.js are available on the Kinesis Data Analytics console:
 
-| Lambda Blueprint                                | Language and version | Description                                                                                                                                                                                                              |
-| ----------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| General Kinesis Data Analytics Input Processing | Node.js 6.10         | A Kinesis Data Analytics record preprocessor that receives JSON or CSV<br>records as input and then returns them with a processing<br>status. Use this processor as a starting point for custom<br>transformation logic. |
-| Compressed Input Processing                     | Node.js 6.10         | A Kinesis Data Analytics record processor that receives compressed (GZIP or<br>Deflate compressed) JSON or CSV records as input and returns<br>decompressed records with a processing status.                            |
+
+| Lambda Blueprint | Language and version | Description | 
+| --- | --- | --- | 
+| General Kinesis Data Analytics Input Processing  | Node.js 6.10 | A Kinesis Data Analytics record preprocessor that receives JSON or CSV records as input and then returns them with a processing status. Use this processor as a starting point for custom transformation logic. | 
+| Compressed Input Processing | Node.js 6.10 | A Kinesis Data Analytics record processor that receives compressed (GZIP or Deflate compressed) JSON or CSV records as input and returns decompressed records with a processing status. | 
 
 ## Creating a Preprocessing Lambda Function in Python
+<a name="lambda-preprocessing-functions-python"></a>
 
-The following templates for creating preprocessing Lambda function in Python
-are available on the console:
+The following templates for creating preprocessing Lambda function in Python are available on the console:
 
-| Lambda Blueprint                           | Language and version | Description                                                                                                                                                                                                              |
-| ------------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| General Kinesis Analytics Input Processing | Python 2.7           | A Kinesis Data Analytics record preprocessor that receives JSON or CSV<br>records as input and then returns them with a processing<br>status. Use this processor as a starting point for custom<br>transformation logic. |
-| KPL Input Processing                       | Python 2.7           | A Kinesis Data Analytics record processor that receives Kinesis Producer<br>Library (KPL) aggregates of JSON or CSV records as input and<br>returns disaggregated records with a processing status.                      |
+
+| Lambda Blueprint | Language and version | Description | 
+| --- | --- | --- | 
+| General Kinesis Analytics Input Processing  | Python 2.7 | A Kinesis Data Analytics record preprocessor that receives JSON or CSV records as input and then returns them with a processing status. Use this processor as a starting point for custom transformation logic. | 
+| KPL Input Processing | Python 2.7 | A Kinesis Data Analytics record processor that receives Kinesis Producer Library (KPL) aggregates of JSON or CSV records as input and returns disaggregated records with a processing status.  | 
 
 ## Creating a Preprocessing Lambda Function in Java
+<a name="lambda-preprocessing-functions-java"></a>
 
-To create a Lambda function in Java for preprocessing records, use the [Java events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events "https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events") classes.
+To create a Lambda function in Java for preprocessing records, use the [Java events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events) classes.
 
-The following code demonstrates a sample Lambda function that preprocesses
-records using Java:
+The following code demonstrates a sample Lambda function that preprocesses records using Java:
 
 ```
 public class LambdaFunctionHandler implements
@@ -68,22 +65,21 @@ public class LambdaFunctionHandler implements
         event.records.stream().forEach(record -> {
             context.getLogger().log("recordId is : " + record.recordId);
             context.getLogger().log("record aat is :" + record.kinesisStreamRecordMetadata.approximateArrivalTimestamp);
-             // Add your record.data pre-processing logic here.
+             // Add your record.data pre-processing logic here.                               
             // response.records.add(new Record(record.recordId, KinesisAnalyticsInputPreprocessingResult.Ok, <preprocessedrecordData>));
         });
         return response;
     }
 
 }
-
 ```
 
 ## Creating a Preprocessing Lambda Function in .NET
+<a name="lambda-preprocessing-functions-net"></a>
 
-To create a Lambda function in .NET for preprocessing records, use the [.NET events](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents "https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents") classes.
+To create a Lambda function in .NET for preprocessing records, use the [.NET events](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents) classes.
 
-The following code demonstrates a sample Lambda function that preprocesses
-records using C#:
+The following code demonstrates a sample Lambda function that preprocesses records using C\#:
 
 ```
 public class Function
@@ -122,5 +118,4 @@ public class Function
     }
 ```
 
-For more information about creating Lambda functions for preprocessing and
-destinations in .NET, see [`Amazon.Lambda.KinesisAnalyticsEvents`](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents "https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents").
+For more information about creating Lambda functions for preprocessing and destinations in .NET, see [`Amazon.Lambda.KinesisAnalyticsEvents`](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents).

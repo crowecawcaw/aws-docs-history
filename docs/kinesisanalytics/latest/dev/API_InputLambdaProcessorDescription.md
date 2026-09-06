@@ -1,54 +1,39 @@
-After careful consideration, we have decided to discontinue Amazon Kinesis
-Data Analytics for SQL applications:
+
+
+After careful consideration, we have decided to discontinue Amazon Kinesis Data Analytics for SQL applications:
 
 1. From **September 1, 2025**, we won't provide any bug fixes for Amazon Kinesis Data Analytics for SQL applications because we will have limited support for it, given the upcoming discontinuation.
 
-2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL
-   applications.
+2. From **October 15, 2025**, you will not be able to create new Kinesis Data Analytics for SQL applications.
 
-3. We will delete your applications starting **January 27, 2026**. You will not be able to
-   start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer
-   be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
-   [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
+3. We will delete your applications starting **January 27, 2026**. You will not be able to start or operate your Amazon Kinesis Data Analytics for SQL applications. Support will no longer be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md).
 
 # InputLambdaProcessorDescription
+<a name="API_InputLambdaProcessorDescription"></a>
 
-An object that contains the Amazon Resource Name (ARN) of the [AWS Lambda](../../../lambda.md "../../../lambda.md") function that is used to preprocess records in the
-stream, and the ARN of the IAM role that is used to access the AWS Lambda
-expression.
+An object that contains the Amazon Resource Name (ARN) of the [AWS Lambda](https://docs.aws.amazon.com/lambda/) function that is used to preprocess records in the stream, and the ARN of the IAM role that is used to access the AWS Lambda expression.
 
 ## Contents
+<a name="API_InputLambdaProcessorDescription_Contents"></a>
 
-**ResourceARN**
-
-The ARN of the [AWS Lambda](../../../lambda.md "../../../lambda.md") function that is used to preprocess the records in
-the stream.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 2048.
-
-Pattern: `arn:.*`
-
+ ** ResourceARN **   <a name="analytics-Type-InputLambdaProcessorDescription-ResourceARN"></a>
+The ARN of the [AWS Lambda](https://docs.aws.amazon.com/lambda/) function that is used to preprocess the records in the stream.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 2048.  
+Pattern: `arn:.*`   
 Required: No
 
-**RoleARN**
-
-The ARN of the IAM role that is used to access the AWS Lambda
-function.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 2048.
-
-Pattern: `arn:.*`
-
+ ** RoleARN **   <a name="analytics-Type-InputLambdaProcessorDescription-RoleARN"></a>
+The ARN of the IAM role that is used to access the AWS Lambda function.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 2048.  
+Pattern: `arn:.*`   
 Required: No
 
 ## See Also
+<a name="API_InputLambdaProcessorDescription_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md "../../../goto/SdkForCpp/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md "../../../goto/SdkForJavaV2/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md "../../../goto/SdkForRubyV3/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/kinesisanalytics-2015-08-14/InputLambdaProcessorDescription) 
