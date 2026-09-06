@@ -1,41 +1,37 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Manage chat in a shared Environment
+<a name="chat-delete-share-environment"></a>
 
 This topic shows how you can chat with other environment members, view chat messages in a shared Environment, and delete them from a shared Environment.
 
 ## Chat with other environment members
+<a name="share-environment-chat"></a>
 
-With the shared environment open, at the bottom of the **Collaborate**
-window, for **Enter your message here**, enter your chat message, and then
-press `Enter`.
+With the shared environment open, at the bottom of the **Collaborate** window, for **Enter your message here**, enter your chat message, and then press `Enter`.
 
-![The chat area in the AWS Cloud9 IDE](images/ide-collaborate-chat.png)
+![The chat area in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-chat.png)
+
 
 ## View chat messages in a shared Environment
+<a name="share-environment-chat-view"></a>
 
-With the shared environment open, in the **Collaborate** window, expand
-**Group Chat**, if the list of chat messages isn't visible.
+With the shared environment open, in the **Collaborate** window, expand **Group Chat**, if the list of chat messages isn't visible.
 
 ## Delete chat messages from a shared Environment
+<a name="share-environment-chat-delete"></a>
 
-With the shared environment open, in the **Collaborate** window, open the
-context (right-click) menu for the chat message in **Group Chat**. Then,
-choose **Delete Message**.
+With the shared environment open, in the **Collaborate** window, open the context (right-click) menu for the chat message in **Group Chat**. Then, choose **Delete Message**.
 
-###### Note
-
+**Note**  
 When you delete a chat message, it is deleted from the environment for all members.
 
 ## Delete all chat messages from a shared Environment
+<a name="share-environment-chat-delete-all"></a>
 
-With the shared environment open, in the **Collaborate** window, open a
-context (right-click) menu anywhere in **Group Chat**. Then, choose
-**Clear history**.
+With the shared environment open, in the **Collaborate** window, open a context (right-click) menu anywhere in **Group Chat**. Then, choose **Clear history**.
 
-###### Note
-
-When you delete all chat messages, they're deleted from the environment for all
-members.
+**Note**  
+When you delete all chat messages, they're deleted from the environment for all members.

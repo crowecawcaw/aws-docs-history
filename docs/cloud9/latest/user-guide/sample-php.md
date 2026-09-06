@@ -1,106 +1,87 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # PHP tutorial for AWS Cloud9
+<a name="sample-php"></a>
 
 This tutorial enables you to run some PHP scripts in an AWS Cloud9 development environment.
 
-Following this tutorial and creating this sample might result in charges to your AWS
-account. These include possible charges for services such as Amazon EC2 and Amazon S3. For more
-information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+Following this tutorial and creating this sample might result in charges to your AWS account. These include possible charges for services such as Amazon EC2 and Amazon S3. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-###### Topics
-
-- [Prerequisites](#sample-php-prereqs "#sample-php-prereqs")
-- [Step 1: Install required tools](#sample-php-install "#sample-php-install")
-- [Step 2: Add code](#sample-php-code "#sample-php-code")
-- [Step 3: Run the code](#sample-php-run "#sample-php-run")
-- [Step 4: Install and configure the AWS SDK for PHP](#sample-php-sdk "#sample-php-sdk")
-- [Step 5: Add AWS SDK code](#sample-php-sdk-code "#sample-php-sdk-code")
-- [Step 6: Run the AWS SDK code](#sample-php-sdk-run "#sample-php-sdk-run")
-- [Step 7: Clean up](#sample-php-clean-up "#sample-php-clean-up")
+**Topics**
++ [Prerequisites](#sample-php-prereqs)
++ [Step 1: Install required tools](#sample-php-install)
++ [Step 2: Add code](#sample-php-code)
++ [Step 3: Run the code](#sample-php-run)
++ [Step 4: Install and configure the AWS SDK for PHP](#sample-php-sdk)
++ [Step 5: Add AWS SDK code](#sample-php-sdk-code)
++ [Step 6: Run the AWS SDK code](#sample-php-sdk-run)
++ [Step 7: Clean up](#sample-php-clean-up)
 
 ## Prerequisites
+<a name="sample-php-prereqs"></a>
 
-Before you use this sample, make sure that your setup meets the following
-requirements:
-
-- **You must have an existing AWS Cloud9 EC2 development environment.** This sample
-  assumes that you already have an EC2 environment that's connected to an Amazon EC2 instance that
-  runs Amazon Linux or Ubuntu Server. If you have a different type of environment or
-  operating system, you might need to adapt this sample's instructions to set up related
-  tools. For more information, see [Creating an environment in AWS Cloud9](create-environment.md "create-environment.md").
-- **You have the AWS Cloud9 IDE for the existing environment already
-  open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your
-  web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md").
+Before you use this sample, make sure that your setup meets the following requirements:
++ **You must have an existing AWS Cloud9 EC2 development environment.** This sample assumes that you already have an EC2 environment that's connected to an Amazon EC2 instance that runs Amazon Linux or Ubuntu Server. If you have a different type of environment or operating system, you might need to adapt this sample's instructions to set up related tools. For more information, see [Creating an environment in AWS Cloud9](create-environment.md).
++ **You have the AWS Cloud9 IDE for the existing environment already open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md).
 
 ## Step 1: Install required tools
+<a name="sample-php-install"></a>
 
 In this step, you install PHP, which is required to run this sample.
 
-###### Note
+**Note**  
+The following procedure installs PHP only. To install related tools such as an Apache web server and a MySQL database, see [Tutorial: Installing a LAMP Web Server on Amazon Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html) in the *Amazon EC2 User Guide*.
 
-The following procedure installs PHP only. To install related tools such as an Apache
-web server and a MySQL database, see [Tutorial: Installing a LAMP Web Server on Amazon Linux](../../../AWSEC2/latest/UserGuide/install-LAMP.md "../../../AWSEC2/latest/UserGuide/install-LAMP.md") in the
-_Amazon EC2 User Guide_.
+1. In a terminal session in the AWS Cloud9 IDE, confirm whether PHP is already installed by running the ** `php --version` ** command. (To start a new terminal session, on the menu bar, choose **Window**, **New Terminal**.) If successful, the output contains the PHP version number. If PHP is installed, skip ahead to [Step 2: Add code](#sample-php-code).
 
-1. In a terminal session in the AWS Cloud9 IDE, confirm whether PHP is already installed by
-   running the **`php --version`** command. (To start a new terminal session, on the menu bar, choose
-   **Window**, **New Terminal**.) If successful,
-   the output contains the PHP version number. If PHP is installed, skip ahead to [Step 2: Add code](#sample-php-code "#sample-php-code").
-2. Run the **`yum update`** for (Amazon Linux) or **`apt update`** for (Ubuntu Server) command to help ensure the latest security updates
-   and bug fixes are installed.
+1. Run the ** `yum update` ** for (Amazon Linux) or ** `apt update` ** for (Ubuntu Server) command to help ensure the latest security updates and bug fixes are installed.
 
-For Amazon Linux 2 and Amazon Linux:
+   For Amazon Linux 2 and Amazon Linux:
 
-```
-sudo yum -y update
-```
+   ```
+   sudo yum -y update
+   ```
 
-For Ubuntu Server:
+   For Ubuntu Server:
 
-```
-sudo apt update
-```
+   ```
+   sudo apt update
+   ```
 
-3. Install PHP by running the **`install`** command.
+1. Install PHP by running the ** `install` ** command.
 
-For Amazon Linux 2:
+   For Amazon Linux 2:
 
-```
-sudo amazon-linux-extras install -y php7.2
-```
+   ```
+   sudo amazon-linux-extras install -y php7.2
+   ```
 
-For Amazon Linux:
+   For Amazon Linux:
 
-```
-sudo yum -y install php72
-```
+   ```
+   sudo yum -y install php72
+   ```
+**Note**  
+You can view your version of Amazon Linux using the following command:   
 
-###### Note
+   ```
+   cat /etc/system-release
+   ```
 
-You can view your version of Amazon Linux using the following command:
+   For Ubuntu Server:
 
-```
-cat /etc/system-release
-```
+   ```
+   sudo apt install -y php php-xml
+   ```
 
-For Ubuntu Server:
-
-```
-sudo apt install -y php php-xml
-```
-
-For more information, see [Installation and Configuration](http://php.net/manual/en/install.php "http://php.net/manual/en/install.php") on the PHP website.
+   For more information, see [Installation and Configuration](http://php.net/manual/en/install.php) on the PHP website.
 
 ## Step 2: Add code
+<a name="sample-php-code"></a>
 
-In the AWS Cloud9 IDE, create a file with this content, and save the file with the name
-`hello.php`. (To create a file, on the menu bar, choose
-**File**, **New File**. To save the file, choose
-**File**, **Save**, type `hello.php` for
-**Filename**, and then choose **Save**.)
+In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `hello.php`. (To create a file, on the menu bar, choose **File**, **New File**. To save the file, choose **File**, **Save**, type `hello.php` for **Filename**, and then choose **Save**.)
 
 ```
 <?php
@@ -114,112 +95,86 @@ In the AWS Cloud9 IDE, create a file with this content, and save the file with t
 ?>
 ```
 
-###### Note
-
-The preceding code doesn't rely on any external files. However, if you ever include
-or require other PHP files in your file, and you want AWS Cloud9 to use those files to do
-code completion as you type, turn on the **Project, PHP Support, Enable PHP code
-completion** setting in **Preferences**, and then add the
-paths to those files to the **Project, PHP Support, PHP Completion Include
-Paths** setting. (To view and change your preferences, choose
-**AWS Cloud9, Preferences** on the menu bar.)
+**Note**  
+The preceding code doesn't rely on any external files. However, if you ever include or require other PHP files in your file, and you want AWS Cloud9 to use those files to do code completion as you type, turn on the **Project, PHP Support, Enable PHP code completion** setting in **Preferences**, and then add the paths to those files to the **Project, PHP Support, PHP Completion Include Paths** setting. (To view and change your preferences, choose **AWS Cloud9, Preferences** on the menu bar.)
 
 ## Step 3: Run the code
+<a name="sample-php-run"></a>
 
-1. In the AWS Cloud9 IDE, on the menu bar, choose **Run**, **Run
-   Configurations**, **New Run Configuration**.
-2. On the **[New] - Idle** tab, choose **Runner:
-   Auto**, and then choose **PHP (cli)**.
-3. For **Command**, type `hello.php 5 9`. In the code,
-   `5` represents `$argv[1]`, and `9` represents
-   `$argv[2]`. (`$argv[0]` represents the name of the file
-   (`hello.php`).)
-4. Choose the **Run** button, and compare your output.
+1. In the AWS Cloud9 IDE, on the menu bar, choose **Run**, **Run Configurations**, **New Run Configuration**.
 
-```
-Hello, World!
-The sum of 2 and 3 is 5.
-The sum of 5 and 9 is 14.
-```
+1. On the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **PHP (cli)**.
 
-![Output of running the PHP code in the AWS Cloud9 IDE](images/ide-php-simple.png)
+1. For **Command**, type `hello.php 5 9`. In the code, `5` represents `$argv[1]`, and `9` represents `$argv[2]`. (`$argv[0]` represents the name of the file (`hello.php`).)
+
+1. Choose the **Run** button, and compare your output.
+
+   ```
+   Hello, World!
+   The sum of 2 and 3 is 5.
+   The sum of 5 and 9 is 14.
+   ```
+
+![Output of running the PHP code in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-php-simple.png)
+
 
 ## Step 4: Install and configure the AWS SDK for PHP
+<a name="sample-php-sdk"></a>
 
-You can enhance this sample to use the AWS SDK for PHP to create an Amazon S3 bucket, list your
-available buckets, and then delete the bucket you just created.
+You can enhance this sample to use the AWS SDK for PHP to create an Amazon S3 bucket, list your available buckets, and then delete the bucket you just created.
 
-In this step, you install and configure the AWS SDK for PHP, which provides a convenient way
-to interact with AWS services such as Amazon S3, from your PHP code. Before you can install
-the AWS SDK for PHP, you should install [Composer](https://getcomposer.org/ "https://getcomposer.org/").
-After you install the AWS SDK for PHP, you must set up credentials management in your environment. The
-AWS SDK for PHP needs these credentials to interact with AWS services.
+In this step, you install and configure the AWS SDK for PHP, which provides a convenient way to interact with AWS services such as Amazon S3, from your PHP code. Before you can install the AWS SDK for PHP, you should install [Composer](https://getcomposer.org/). After you install the AWS SDK for PHP, you must set up credentials management in your environment. The AWS SDK for PHP needs these credentials to interact with AWS services.
 
 ### To install Composer
+<a name="sample-php-sdk-install-composer"></a>
 
-Run the **`curl`** command with the silent (`-s`) and show error (`-S`)
-options, piping the Composer installer into a PHP archive (PHAR) file, named
-`composer.phar` by convention.
+Run the ** `curl` ** command with the silent (`-s`) and show error (`-S`) options, piping the Composer installer into a PHP archive (PHAR) file, named `composer.phar` by convention.
 
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
 
 ### To install the AWS SDK for PHP
+<a name="sample-php-sdk-install-sdk"></a>
 
-For Ubuntu Server, install additional packages that Composer needs to install the
-AWS SDK for PHP.
+For Ubuntu Server, install additional packages that Composer needs to install the AWS SDK for PHP.
 
 ```
 sudo apt install -y php-xml php-curl
 ```
 
-For Amazon Linux or Ubuntu Server, use the **php** command to run the Composer
-installer to install the AWS SDK for PHP.
+For Amazon Linux or Ubuntu Server, use the **php** command to run the Composer installer to install the AWS SDK for PHP.
 
 ```
 php composer.phar require aws/aws-sdk-php
 ```
 
-This command creates several folders and files in your environment. The primary file you
-will use is `autoload.php`, which is in the
-`vendor` folder in your environment.
+This command creates several folders and files in your environment. The primary file you will use is `autoload.php`, which is in the `vendor` folder in your environment.
 
-###### Note
-
-After installation, Composer might suggest that you install additional
-dependencies. You can do this with a command such as the following, specifying the
-list of dependencies to install. For example, the following command instructs
-Composer to install the following list of dependencies.
+**Note**  
+After installation, Composer might suggest that you install additional dependencies. You can do this with a command such as the following, specifying the list of dependencies to install. For example, the following command instructs Composer to install the following list of dependencies.  
 
 ```
 php composer.phar require psr/log ext-curl doctrine/cache aws/aws-php-sns-message-validator
 ```
 
-For more information, see [Installation](../../../sdk-for-php/v3/developer-guide/installation.md "../../../sdk-for-php/v3/developer-guide/installation.md") in the _AWS SDK for PHP Developer Guide_.
+For more information, see [Installation](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/installation.html) in the *AWS SDK for PHP Developer Guide*.
 
 ### To set up credentials management in your environment
+<a name="sample-php-sdk-creds"></a>
 
-Each time you use the AWS SDK for PHP to call an AWS service, you must provide a set of
-credentials with the call. These credentials determine whether the AWS SDK for PHP has the
-appropriate permissions to make that call. If the credentials don't cover the
-appropriate permissions, the call will fail.
+Each time you use the AWS SDK for PHP to call an AWS service, you must provide a set of credentials with the call. These credentials determine whether the AWS SDK for PHP has the appropriate permissions to make that call. If the credentials don't cover the appropriate permissions, the call will fail.
 
-In this step, you store your credentials within the environment. To do this, follow the
-instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then
-return to this topic.
+In this step, you store your credentials within the environment. To do this, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md), and then return to this topic.
 
-For additional information, see the "Creating a client" section of [Basic
-Usage](../../../sdk-for-php/v3/developer-guide/basic-usage.md "../../../sdk-for-php/v3/developer-guide/basic-usage.md") in the _AWS SDK for PHP Developer Guide_.
+For additional information, see the "Creating a client" section of [Basic Usage](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/basic-usage.html) in the *AWS SDK for PHP Developer Guide*.
 
 ## Step 5: Add AWS SDK code
+<a name="sample-php-sdk-code"></a>
 
-In this step, you add some more code, this time to interact with Amazon S3 to create a
-bucket, list your available buckets, and then delete the bucket you just created. You will
-run this code later.
+In this step, you add some more code, this time to interact with Amazon S3 to create a bucket, list your available buckets, and then delete the bucket you just created. You will run this code later.
 
-In the AWS Cloud9 IDE, create a file with this content, and save the file with the name
-`s3.php`.
+In the AWS Cloud9 IDE, create a file with this content, and save the file with the name `s3.php`.
 
 ```
 <?php
@@ -294,49 +249,41 @@ listMyBuckets($s3);
 ```
 
 ## Step 6: Run the AWS SDK code
+<a name="sample-php-sdk-run"></a>
 
-1. In the AWS Cloud9 IDE, on the menu bar, choose **Run**, **Run
-   Configurations**, **New Run Configuration**.
-2. On the **[New] - Idle** tab, choose **Runner:
-   Auto**, and then choose **PHP (cli)**.
-3. For **Command**, type `s3.php America/Los_Angeles
- my-test-bucket us-east-2`, where:
+1. In the AWS Cloud9 IDE, on the menu bar, choose **Run**, **Run Configurations**, **New Run Configuration**.
 
-   - `America/Los_Angeles` is your default time zone ID. For more IDs,
-     see [List of Supported
-     Timezones](http://php.net/manual/en/timezones.php "http://php.net/manual/en/timezones.php") on the PHP website.
-   - `my-test-bucket` is the name of the bucket you want to create and
-     then delete.
+1. On the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **PHP (cli)**.
 
-   ###### Note
+1. For **Command**, type `s3.php America/Los_Angeles my-test-bucket us-east-2`, where:
+   +  `America/Los_Angeles` is your default time zone ID. For more IDs, see [List of Supported Timezones](http://php.net/manual/en/timezones.php) on the PHP website.
+   +  `my-test-bucket` is the name of the bucket you want to create and then delete.
+**Note**  
+Amazon S3 bucket names must be unique across AWS—not just your AWS account.
+   +  `us-east-2` is the ID of the AWS Region you want to create the bucket in. For more IDs, see [Amazon Simple Storage Service (Amazon S3)](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*.
 
-   Amazon S3 bucket names must be unique across AWS—not just your AWS
-   account.
-   - `us-east-2` is the ID of the AWS Region you want to create the
-     bucket in. For more IDs, see [Amazon Simple Storage Service (Amazon S3)](../../../general/latest/gr/rande.md#s3_region "../../../general/latest/gr/rande.md#s3_region") in the _Amazon Web Services General Reference_.
+1. Choose the **Run** button, and compare your output.
 
-4. Choose the **Run** button, and compare your output.
-
-```
-My buckets now are:
-
-Creating a new bucket named 'my-test-bucket'...
-
-My buckets now are:
-
-my-test-bucket
-
-Deleting the bucket named 'my-test-bucket'...
-
-My buckets now are:
-```
+   ```
+   My buckets now are:
+   
+   Creating a new bucket named 'my-test-bucket'...
+   
+   My buckets now are:
+   
+   my-test-bucket
+   
+   Deleting the bucket named 'my-test-bucket'...
+   
+   My buckets now are:
+   ```
 
 ## Step 7: Clean up
+<a name="sample-php-clean-up"></a>
 
-To prevent ongoing charges to your AWS account after you're done using this sample,
-you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
+To prevent ongoing charges to your AWS account after you're done using this sample, you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md).
 
 ### Troubleshooting issues with PHP runner for AWS Cloud9
+<a name="sample-php-troubleshooting"></a>
 
-In the event that you encounter issues with the PHP CLI runner, you must ensure that
-the runner has been set to PHP and that debugger mode is enabled.
+In the event that you encounter issues with the PHP CLI runner, you must ensure that the runner has been set to PHP and that debugger mode is enabled.

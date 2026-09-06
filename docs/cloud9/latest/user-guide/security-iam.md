@@ -1,180 +1,178 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Identity and Access Management for AWS Cloud9
+<a name="security-iam"></a>
 
-AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
-to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use AWS Cloud9 resources. IAM is an AWS service that you can
-use with no additional charge.
 
-###### Topics
 
-- [Audience](#security_iam_audience "#security_iam_audience")
-- [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
-- [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How AWS Cloud9 works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
-- [Troubleshooting AWS Cloud9 identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
-- [How AWS Cloud9 works with IAM resources and operations](#how-cloud9-with-iam "#how-cloud9-with-iam")
-- [AWS managed policies for AWS Cloud9](#auth-and-access-control-managed-policies "#auth-and-access-control-managed-policies")
-- [Creating customer managed policies for AWS Cloud9](#auth-and-access-control-customer-policies "#auth-and-access-control-customer-policies")
-- [AWS Cloud9 permissions reference](#auth-and-access-control-ref "#auth-and-access-control-ref")
-- [AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials "#auth-and-access-control-temporary-managed-credentials")
+
+
+AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Cloud9 resources. IAM is an AWS service that you can use with no additional charge.
+
+**Topics**
++ [Audience](#security_iam_audience)
++ [Authenticating with identities](#security_iam_authentication)
++ [Managing access using policies](#security_iam_access-manage)
++ [How AWS Cloud9 works with IAM](#security_iam_service-with-iam)
++ [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples)
++ [Troubleshooting AWS Cloud9 identity and access](#security_iam_troubleshoot)
++ [How AWS Cloud9 works with IAM resources and operations](#how-cloud9-with-iam)
++ [AWS managed policies for AWS Cloud9](#auth-and-access-control-managed-policies)
++ [Creating customer managed policies for AWS Cloud9](#auth-and-access-control-customer-policies)
++ [AWS Cloud9 permissions reference](#auth-and-access-control-ref)
++ [AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials)
 
 ## Audience
+<a name="security_iam_audience"></a>
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
-
-- **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Cloud9 identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot"))
-- **Service administrator** - determine user access and
-  submit permission requests (see [How AWS Cloud9 works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
-- **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples"))
++ **Service user** - request permissions from your administrator if you cannot access features (see [Troubleshooting AWS Cloud9 identity and access](#security_iam_troubleshoot))
++ **Service administrator** - determine user access and submit permission requests (see [How AWS Cloud9 works with IAM](#security_iam_service-with-iam))
++ **IAM administrator** - write policies to manage access (see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples))
 
 ## Authenticating with identities
+<a name="security_iam_authentication"></a>
 
 Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
 
-You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
+You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](https://docs.aws.amazon.com/signin/latest/userguide/how-to-sign-in.html) in the *AWS Sign-In User Guide*.
 
-For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
+For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) in the *IAM User Guide*.
 
 ### AWS account root user
+<a name="security_iam_authentication-rootuser"></a>
 
-When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
+ When you create an AWS account, you begin with one sign-in identity called the AWS account *root user* that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#root-user-tasks) in the *IAM User Guide*. 
 
 ### Federated identity
+<a name="security_iam_authentication-federated"></a>
 
 As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
 
-A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
+A *federated identity* is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
 
-For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
+For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) in the *AWS IAM Identity Center User Guide*.
 
 ### IAM users and groups
+<a name="security_iam_authentication-iamuser"></a>
 
-An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
+An *[IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html)* is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp) in the *IAM User Guide*.
 
-An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
+An [*IAM group*](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html) specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities-iam-users.html) in the *IAM User Guide*.
 
 ### IAM roles
+<a name="security_iam_authentication-iamrole"></a>
 
-An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
+An *[IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)* is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage-assume.html) in the *IAM User Guide*.
 
-IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
+IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 ## Managing access using policies
+<a name="security_iam_access-manage"></a>
 
-You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
+You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json) in the *IAM User Guide*.
 
 Using policies, administrators specify who has access to what by defining which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
 ### Identity-based policies
+<a name="security_iam_access-manage-id-based-policies"></a>
 
-Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
+Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
-Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
+Identity-based policies can be *inline policies* (embedded directly into a single identity) or *managed policies* (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.html) in the *IAM User Guide*.
 
 ### Resource-based policies
+<a name="security_iam_access-manage-resource-based-policies"></a>
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
+Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy.
 
 Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
 
 ### Other policy types
+<a name="security_iam_access-manage-other-policies"></a>
 
 AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
-
-- **Permissions boundaries** – Set the maximum permissions that an identity-based policy can grant to an IAM entity. For more information, see [Permissions boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _IAM User Guide_.
-- **Service control policies (SCPs)** – Specify the maximum permissions for an organization or organizational unit in AWS Organizations. For more information, see [Service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_.
-- **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
-- **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
++ **Permissions boundaries** – Set the maximum permissions that an identity-based policy can grant to an IAM entity. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide*.
++ **Service control policies (SCPs)** – Specify the maximum permissions for an organization or organizational unit in AWS Organizations. For more information, see [Service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) in the *AWS Organizations User Guide*.
++ **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html) in the *AWS Organizations User Guide*.
++ **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) in the *IAM User Guide*.
 
 ### Multiple policy types
+<a name="security_iam_access-manage-multiple-policies"></a>
 
-When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
+When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*.
 
 ## How AWS Cloud9 works with IAM
+<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to AWS Cloud9, learn what IAM features are
-available to use with AWS Cloud9.
+Before you use IAM to manage access to AWS Cloud9, learn what IAM features are available to use with AWS Cloud9.
 
-IAM features you can use with AWS Cloud9| IAM feature | AWS Cloud9 support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
-| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Yes |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
-| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
-To get a high-level view of how AWS Cloud9 and other AWS services work with most IAM
-features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
-_IAM User Guide_.
+
+
+
+
+**IAM features you can use with AWS Cloud9**  
+
+| IAM feature | AWS Cloud9 support | 
+| --- | --- | 
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies) |  Yes | 
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies) |  No  | 
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions) |  Yes | 
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources) |  Yes | 
+| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys) |  Yes | 
+| [ACLs](#security_iam_service-with-iam-acls) |  No  | 
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Yes | 
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
+| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions) |  Yes | 
+| [Service roles](#security_iam_service-with-iam-roles-service) |  Yes | 
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  Yes | 
+
+To get a high-level view of how AWS Cloud9 and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ### Identity-based policies for AWS Cloud9
+<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-**Supports identity-based policies:**
+**Supports identity-based policies:** Yes
 
-Yes
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
-Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
-policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
-policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_.
-
-With IAM identity-based policies, you can specify allowed or denied actions and
-resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a
-JSON policy, see [IAM JSON
-policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
-_IAM User Guide_.
+With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*.
 
 #### Identity-based policy examples for AWS Cloud9
+<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
-To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+
+
+To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples).
 
 ### Resource-based policies within AWS Cloud9
+<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
-**Supports resource-based policies:**
+**Supports resource-based policies:** No 
 
-No
+Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
-
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-_IAM User Guide_.
+To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 AWS Cloud9 doesn't support resource-based policies but you can still control AWS Cloud9 environment resource permissions for AWS Cloud9 environment members via the AWS Cloud9 API and AWS Cloud9 IDE.
 
 ### Policy actions for AWS Cloud9
+<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
-**Supports policy actions:**
+**Supports policy actions:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-The `Action` element of a JSON policy describes the
-actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of AWS Cloud9 actions, see [Actions defined by AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions") in the
-_Service Authorization Reference_.
+
+To see a list of AWS Cloud9 actions, see [Actions defined by AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html#your_service-actions-as-permissions) in the *Service Authorization Reference*.
 
 Policy actions in AWS Cloud9 use the following prefix before the action:
 
@@ -186,210 +184,147 @@ To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "account:`action1`",
-      "account:`action2`"
+      "account:{{action1}}",
+      "account:{{action2}}"
          ]
 ```
 
-To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+
+
+
+
+To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples).
 
 ### Policy resources for AWS Cloud9
+<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:**
+**Supports policy resources:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
-
-The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
+The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
 
 ```
 "Resource": "*"
 ```
 
-To see a list of AWS Cloud9 resource types and their ARNs, see [Resources defined by AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md#your_service-resources-for-iam-policies "../../../service-authorization/latest/reference/list_your_service.md#your_service-resources-for-iam-policies")
-in the _Service Authorization Reference_. To learn with which actions you can
-specify the ARN of each resource, see [Actions defined by AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
+To see a list of AWS Cloud9 resource types and their ARNs, see [Resources defined by AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html#your_service-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html#your_service-actions-as-permissions).
 
-To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+
+
+
+
+To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples).
 
 ### Policy condition keys for AWS Cloud9
+<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
-**Supports service-specific policy condition keys:**
+**Supports service-specific policy condition keys:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
-operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
-policy with values in the request. To see all AWS global
-condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+To see a list of AWS Cloud9 condition keys, see [Condition keys for AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html#your_service-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions defined by AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html#your_service-actions-as-permissions).
 
-To see a list of AWS Cloud9 condition keys, see [Condition keys for AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md#your_service-policy-keys "../../../service-authorization/latest/reference/list_your_service.md#your_service-policy-keys") in the
-_Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions defined by AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
-
-To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of AWS Cloud9 identity-based policies, see [Identity-based policy examples for AWS Cloud9](#security_iam_id-based-policy-examples).
 
 ### ACLs in AWS Cloud9
+<a name="security_iam_service-with-iam-acls"></a>
 
-**Supports ACLs:**
+**Supports ACLs:** No 
 
-No
-
-Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
-similar to resource-based policies, although they do not use the JSON policy document format.
+Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format.
 
 ### ABAC with AWS Cloud9
+<a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):**
+**Supports ABAC (tags in policies):** Yes
 
-Yes
+Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 
-Attribute-based access control (ABAC) is an authorization strategy that defines permissions
-based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
-
-To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, 
- `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys.
+To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
 
 If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
 
-For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
-[Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
 ### Using temporary credentials with AWS Cloud9
+<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
-**Supports temporary credentials:**
+**Supports temporary credentials:** Yes
 
-Yes
-
-Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
-dynamically generate temporary credentials instead of using long-term access keys. For
-more information, see [Temporary
-security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ### Forward access sessions for AWS Cloud9
+<a name="security_iam_service-with-iam-principal-permissions"></a>
 
-**Supports forward access sessions (FAS):**
+**Supports forward access sessions (FAS):** Yes
 
-Yes
-
-Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
-when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+ Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html). 
 
 ### Service roles for AWS Cloud9
+<a name="security_iam_service-with-iam-roles-service"></a>
 
-**Supports service roles:**
+**Supports service roles:** Yes
 
-Yes
+ A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
-A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
-actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
-more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
-
-###### Warning
-
-Changing the permissions for a service role might break AWS Cloud9 functionality.
-Edit service roles only when AWS Cloud9 provides guidance to do so.
+**Warning**  
+Changing the permissions for a service role might break AWS Cloud9 functionality. Edit service roles only when AWS Cloud9 provides guidance to do so.
 
 ### Service-linked roles for AWS Cloud9
+<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:**
+**Supports service-linked roles:** Yes
 
-Yes
+ A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 
 
-A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-but not edit the permissions for service-linked roles.
-
-For details about creating or managing service-linked roles, see [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"). Find a service in the table that includes a
-`Yes` in the **Service-linked role** column. Choose the
-**Yes** link to view the service-linked role documentation for that
-service.
+For details about creating or managing service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html). Find a service in the table that includes a `Yes` in the **Service-linked role** column. Choose the **Yes** link to view the service-linked role documentation for that service.
 
 ## Identity-based policy examples for AWS Cloud9
+<a name="security_iam_id-based-policy-examples"></a>
 
-By default, users and roles don't have permission to create or modify AWS Cloud9
-resources. To grant users permission to perform actions on the
-resources that they need, an IAM administrator can create IAM policies.
+By default, users and roles don't have permission to create or modify AWS Cloud9 resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
-To learn how to create an IAM identity-based policy by using these example JSON policy
-documents, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
-_IAM User Guide_.
+To learn how to create an IAM identity-based policy by using these example JSON policy documents, see [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*.
 
-For details about actions and resource types defined by AWS Cloud9, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for AWS Cloud9](../../../service-authorization/latest/reference/list_your_service.md "../../../service-authorization/latest/reference/list_your_service.md") in the _Service Authorization Reference_.
+For details about actions and resource types defined by AWS Cloud9, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for AWS Cloud9](https://docs.aws.amazon.com/service-authorization/latest/reference/list_your_service.html) in the *Service Authorization Reference*.
 
-###### Topics
-
-- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS Cloud9 console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+**Topics**
++ [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
++ [Using the AWS Cloud9 console](#security_iam_id-based-policy-examples-console)
++ [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 
 ### Policy best practices
+<a name="security_iam_service-with-iam-policy-best-practices"></a>
 
-Identity-based policies determine whether someone can create, access, or delete AWS Cloud9 resources in your
-account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
-recommendations:
+Identity-based policies determine whether someone can create, access, or delete AWS Cloud9 resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
++ **Get started with AWS managed policies and move toward least-privilege permissions** – To get started granting permissions to your users and workloads, use the *AWS managed policies* that grant permissions for many common use cases. They are available in your AWS account. We recommend that you reduce permissions further by defining AWS customer managed policies that are specific to your use cases. For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) or [AWS managed policies for job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) in the *IAM User Guide*.
++ **Apply least-privilege permissions** – When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as *least-privilege permissions*. For more information about using IAM to apply permissions, see [ Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*.
++ **Use conditions in IAM policies to further restrict access** – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must be sent using SSL. You can also use conditions to grant access to service actions if they are used through a specific AWS service, such as CloudFormation. For more information, see [ IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*.
++ **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions** – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices. IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help you author secure and functional policies. For more information, see [Validate policies with IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html) in the *IAM User Guide*.
++ **Require multi-factor authentication (MFA)** – If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require MFA when API operations are called, add MFA conditions to your policies. For more information, see [ Secure API access with MFA](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) in the *IAM User Guide*.
 
-- **Get started with AWS managed policies and move toward least-privilege permissions**
-  – To get started granting permissions to your users and workloads, use the _AWS
-  managed policies_ that grant permissions for many common use cases. They are
-  available in your AWS account. We recommend that you reduce permissions further by
-  defining AWS customer managed policies that are specific to your use cases. For more information, see
-  [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
-- **Apply least-privilege permissions** –
-  When you set permissions with IAM policies, grant only the permissions required to
-  perform a task. You do this by defining the actions that can be taken on specific resources
-  under specific conditions, also known as _least-privilege permissions_.
-  For more information about using IAM to apply permissions, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
-- **Use conditions in IAM policies to further restrict access**
-  – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
-  be sent using SSL. You can also use conditions to grant access to service actions
-  if they are used through a specific AWS service, such as CloudFormation. For more information, see
-  [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
-- **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
-  – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
-  IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help
-  you author secure and functional policies. For more information, see [Validate policies with IAM Access Analyzer](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md") in the _IAM User Guide_.
-- **Require multi-factor authentication (MFA)** –
-  If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require
-  MFA when API operations are called, add MFA conditions to your policies. For
-  more information, see [Secure API access with MFA](../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md "../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md") in the _IAM User Guide_.
-
-For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
+For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
 ### Using the AWS Cloud9 console
+<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the AWS Cloud9 console, you must have a minimum set of permissions.
-These permissions must allow you to list and view details about the AWS Cloud9 resources
-in your AWS account. If you create an identity-based policy that is more restrictive
-than the minimum required permissions, the console won't function as intended for
-entities (users or roles) with that policy.
+To access the AWS Cloud9 console, you must have a minimum set of permissions. These permissions must allow you to list and view details about the AWS Cloud9 resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities (users or roles) with that policy.
 
-You don't need to allow minimum console permissions for users that are making calls
-only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
-the API operation that they're trying to perform.
+You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the AWS Cloud9 console, also attach the
-AWS Cloud9 `ConsoleAccess` or
-`ReadOnly` AWS managed policy to the
-entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
-_IAM User Guide_.
+To ensure that users and roles can still use the AWS Cloud9 console, also attach the AWS Cloud9 `{{ConsoleAccess}}` or `{{ReadOnly}}` AWS managed policy to the entities. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
 ### Allow users to view their own permissions
+<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
-This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
-identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "ViewOwnUserInfo",
@@ -422,50 +357,48 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
+
+
+
+
+
+
 ## Troubleshooting AWS Cloud9 identity and access
+<a name="security_iam_troubleshoot"></a>
 
-Use the following information to help you diagnose and fix common issues that you might
-encounter when working with AWS Cloud9 and IAM.
+Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Cloud9 and IAM.
 
-###### Topics
-
-- [I am not authorized to perform an action in AWS Cloud9](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people outside of my AWS account to access my AWS Cloud9 resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+**Topics**
++ [I am not authorized to perform an action in AWS Cloud9](#security_iam_troubleshoot-no-permissions)
++ [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
++ [I want to allow people outside of my AWS account to access my AWS Cloud9 resources](#security_iam_troubleshoot-cross-account-access)
 
 ### I am not authorized to perform an action in AWS Cloud9
+<a name="security_iam_troubleshoot-no-permissions"></a>
 
-If you receive an error that you're not authorized to perform an action, your
-policies must be updated to allow you to perform the action.
+If you receive an error that you're not authorized to perform an action, your policies must be updated to allow you to perform the action.
 
-The following example error occurs when the `mateojackson` IAM user
-tries to use the console to view details about a fictional
-`my-example-widget` resource but doesn't
-have the fictional `awes:`GetWidget`` permissions.
+The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a fictional `{{my-example-widget}}` resource but doesn't have the fictional `awes:{{GetWidget}}` permissions.
 
 ```
-User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: awes:GetWidget on resource: my-example-widget
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: awes:{{GetWidget}} on resource: {{my-example-widget}}
 ```
 
-In this case, the policy for the `mateojackson` user must be updated to allow access to the
-`my-example-widget` resource by using the
-`awes:`GetWidget`` action.
+In this case, the policy for the `mateojackson` user must be updated to allow access to the `{{my-example-widget}}` resource by using the `awes:{{GetWidget}}` action.
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
 ### I am not authorized to perform iam:PassRole
+<a name="security_iam_troubleshoot-passrole"></a>
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to AWS Cloud9.
 
-Some AWS services allow you to pass an existing role to that service instead of creating a new service role or service-linked role. To do
-this, you must have permissions to pass the role to the service.
+Some AWS services allow you to pass an existing role to that service instead of creating a new service role or service-linked role. To do this, you must have permissions to pass the role to the service.
 
-The following example error occurs when an IAM user named `marymajor` tries to use the console to perform an action in
-AWS Cloud9. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the
-role to the service.
+The following example error occurs when an IAM user named `marymajor` tries to use the console to perform an action in AWS Cloud9. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the role to the service.
 
 ```
-User: arn:aws:iam::123456789012:user/`marymajor` is not authorized to perform: iam:PassRole
+User: arn:aws:iam::123456789012:user/marymajor is not authorized to perform: iam:PassRole
 ```
 
 In this case, Mary's policies must be updated to allow her to perform the `iam:PassRole` action.
@@ -473,57 +406,49 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
 ### I want to allow people outside of my AWS account to access my AWS Cloud9 resources
+<a name="security_iam_troubleshoot-cross-account-access"></a>
 
-You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
-is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
-people access to your resources.
+You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources.
 
 To learn more, consult the following:
-
-- To learn whether AWS Cloud9 supports these features, see [How AWS Cloud9 works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam").
-- To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
-  own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
-- To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the
-  _IAM User Guide_.
-- To learn how to provide access through identity federation, see [Providing access to externally authenticated users (identity federation)](../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md") in the _IAM User Guide_.
-- To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-  _IAM User Guide_.
++ To learn whether AWS Cloud9 supports these features, see [How AWS Cloud9 works with IAM](#security_iam_service-with-iam).
++ To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you own](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) in the *IAM User Guide*.
++ To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) in the *IAM User Guide*.
++ To learn how to provide access through identity federation, see [Providing access to externally authenticated users (identity federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html) in the *IAM User Guide*.
++ To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 ## How AWS Cloud9 works with IAM resources and operations
+<a name="how-cloud9-with-iam"></a>
 
-AWS Identity and Access Management is used to manage the permissions that allow you to work with both
-AWS Cloud9 development environments and other AWS services and resources.
+AWS Identity and Access Management is used to manage the permissions that allow you to work with both AWS Cloud9 development environments and other AWS services and resources.
 
 ### AWS Cloud9 resources and operations
+<a name="access-permissions-overview-resources-and-operations"></a>
 
-In AWS Cloud9, the primary resource is an AWS Cloud9 development environment. In a policy, you use an Amazon
-Resource Name (ARN) to identify the resource that the policy applies to. The following
-table lists environment ARNs. For more information, see [Amazon Resource Names (ARNs) and
-AWS Service Namespaces](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") in the _Amazon Web Services General Reference_.
+In AWS Cloud9, the primary resource is an AWS Cloud9 development environment. In a policy, you use an Amazon Resource Name (ARN) to identify the resource that the policy applies to. The following table lists environment ARNs. For more information, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) in the *Amazon Web Services General Reference*.
 
-| Resource type                                                                          | ARN format                                                                |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Environment                                                                            | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| Every environment that's owned by the specified account in the specified<br>AWS Region | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*`                 |
-| Every environment that's owned by the specified account in the specified<br>Region     | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:*`                             |
-| Every AWS Cloud9 resource, regardless of account and Region                            | `arn:aws:cloud9:*`                                                        |
 
-For example, you can indicate a specific environment in your statement using its Amazon
-Resource Name (ARN), as follows.
+
+| Resource type | ARN format | 
+| --- | --- | 
+| Environment |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+| Every environment that's owned by the specified account in the specified AWS Region |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:*`  | 
+| Every environment that's owned by the specified account in the specified Region |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:*`  | 
+| Every AWS Cloud9 resource, regardless of account and Region |  `arn:aws:cloud9:*`  | 
+
+For example, you can indicate a specific environment in your statement using its Amazon Resource Name (ARN), as follows.
 
 ```
 "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:70d899206236474f9590d93b7c41dfEX"
 ```
 
-To specify all resources, use the wildcard character (`*`) in the
-`Resource` element.
+To specify all resources, use the wildcard character (`*`) in the `Resource` element.
 
 ```
 "Resource": "*"
 ```
 
-To specify multiple resources in a single statement, separate their Amazon Resource
-Names (ARNs) with commas.
+To specify multiple resources in a single statement, separate their Amazon Resource Names (ARNs) with commas.
 
 ```
 "Resource": [
@@ -532,1215 +457,1032 @@ Names (ARNs) with commas.
 ]
 ```
 
-AWS Cloud9 provides a set of operations to work with AWS Cloud9 resources. For a list, see the
-[AWS Cloud9 permissions reference](#auth-and-access-control-ref "#auth-and-access-control-ref").
+AWS Cloud9 provides a set of operations to work with AWS Cloud9 resources. For a list, see the [AWS Cloud9 permissions reference](#auth-and-access-control-ref).
 
 ### Understanding resource ownership
+<a name="auth-and-access-control-overview-resource-ownership"></a>
 
-The AWS account account owns the resources that are created in the account,
-regardless of who created the resources.
+The AWS account account owns the resources that are created in the account, regardless of who created the resources. 
 
 Consider the following use cases and scenarios:
++ Suppose that you use the root account credentials of your AWS account to create an AWS Cloud9 development environment. Although possible, this isn't a recommended. In this case, your AWS account is the owner of the environment.
++ Suppose that you create an IAM user in your AWS account and you grant permissions to create an environment to that user. Then, the user can create an environment. However, your AWS account, which the user belongs to, still owns the environment.
++ Suppose that you create an IAM role in your AWS account with permissions to create an environment. Then, anyone who can assume the role can create an environment. Your AWS account, which the role belongs to, owns the environment.
 
-- Suppose that you use the root account credentials of your AWS account to
-  create an AWS Cloud9 development environment. Although possible, this isn't a recommended. In this case,
-  your AWS account is the owner of the environment.
-- Suppose that you create an IAM user in your AWS account and you grant
-  permissions to create an environment to that user. Then, the user can create an environment.
-  However, your AWS account, which the user belongs to, still owns the
-  environment.
-- Suppose that you create an IAM role in your AWS account with permissions to
-  create an environment. Then, anyone who can assume the role can create an environment. Your
-  AWS account, which the role belongs to, owns the environment.
-
-###### Note
-
-If you delete a user account that is the ARN owner of one or more AWS Cloud9 environments, these environments
-will have no owner. A workaround for this scenario is to use the AWS Cloud9 SDK to add another
-IAM user with read and write privileges using the `CreateEnvironmentMembership`
-action, and the `EnvironmentMember` data type. Once you have added this IAM user,
-you can copy the environment files to new AWS Cloud9 environments and make this owner the ARN owner. For more
-information about this action, see [CreateEnvironmentMembership](../APIReference/API_CreateEnvironmentMembership.md "../APIReference/API_CreateEnvironmentMembership.md"), and for more information about this data type, see
-[EnvironmentMember](../APIReference/API_EnvironmentMember.md "../APIReference/API_EnvironmentMember.md") in the _AWS Cloud9 API Reference Guide._
+**Note**  
+If you delete a user account that is the ARN owner of one or more AWS Cloud9 environments, these environments will have no owner. A workaround for this scenario is to use the AWS Cloud9 SDK to add another IAM user with read and write privileges using the `CreateEnvironmentMembership` action, and the `EnvironmentMember` data type. Once you have added this IAM user, you can copy the environment files to new AWS Cloud9 environments and make this owner the ARN owner. For more information about this action, see [CreateEnvironmentMembership](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_CreateEnvironmentMembership.html), and for more information about this data type, see [EnvironmentMember](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_EnvironmentMember.html) in the *AWS Cloud9 API Reference Guide.*
 
 ### Managing access to resources
+<a name="access-permissions-overview-managing-access"></a>
 
 A permissions policy describes who has access to which resources.
 
-###### Note
+**Note**  
+This section discusses the use of IAM in AWS Cloud9. It doesn't provide detailed information about the IAM service. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*. For information about IAM policy syntax and descriptions, see the [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*.
 
-This section discusses the use of IAM in AWS Cloud9. It doesn't provide detailed
-information about the IAM service. For complete IAM documentation, see [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the
-_IAM User Guide_. For information about IAM policy syntax
-and descriptions, see the [IAM
-JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
+Policies attached to an IAM identity are referred to as *identity-based policies* (or *IAM policies*). Policies attached to a resource are referred to as *resource-based policies*. AWS Cloud9 supports both identity-based and resource-based policies.
 
-Policies attached to an IAM identity are referred to as _identity-based
-policies_ (or _IAM policies_). Policies attached to a
-resource are referred to as _resource-based policies_. AWS Cloud9 supports
-both identity-based and resource-based policies.
+Each of the following API actions requires only an IAM policy to be attached to the IAM identity that wants to call these API actions:
++  `CreateEnvironmentEC2` 
++  `DescribeEnvironments` 
 
-Each of the following API actions requires only an IAM policy to be attached to the
-IAM identity that wants to call these API actions:
+The following API actions require a resource-based policy. An IAM policy isn't required, but AWS Cloud9 uses an IAM policy if it's attached to the IAM identity that wants to call these API actions. The resource-based policy must be applied to the desired AWS Cloud9 resource:
++  `CreateEnvironmentMembership` 
++  `DeleteEnvironment` 
++  `DeleteEnvironmentMembership` 
++  `DescribeEnvironmentMemberships` 
++  `DescribeEnvironmentStatus` 
++  `UpdateEnvironment` 
++  `UpdateEnvironmentMembership` 
 
-- `CreateEnvironmentEC2`
-- `DescribeEnvironments`
+For more information about what each of these API actions does, see the *AWS Cloud9 API Reference*.
 
-The following API actions require a resource-based policy. An IAM policy isn't
-required, but AWS Cloud9 uses an IAM policy if it's attached to the IAM identity that
-wants to call these API actions. The resource-based policy must be applied to the
-desired AWS Cloud9 resource:
+You cannot attach a resource-based policy to an AWS Cloud9 resource directly. Instead, AWS Cloud9 attaches the appropriate resource-based policies to AWS Cloud9 resources as you add, modify, update, or delete environment members.
 
-- `CreateEnvironmentMembership`
-- `DeleteEnvironment`
-- `DeleteEnvironmentMembership`
-- `DescribeEnvironmentMemberships`
-- `DescribeEnvironmentStatus`
-- `UpdateEnvironment`
-- `UpdateEnvironmentMembership`
+To grant a user permissions to perform actions on AWS Cloud9 resources, you attach a permissions policy to an IAM group that the user belongs to. We recommend that you attach an AWS managed (predefined) policy for AWS Cloud9 whenever possible. AWS managed policies contain predefined sets of access permissions for common usage scenarios and user types, such as full administration of an environment, environment users, and users who have only read-only access to an environment. For a list of AWS managed policies for AWS Cloud9, see [AWS managed policies for AWS Cloud9](#auth-and-access-control-managed-policies).
 
-For more information about what each of these API actions does, see the
-_AWS Cloud9 API Reference_.
+For more detailed usage scenarios and unique user types, you can create and attach your own customer managed policies. See [Additional setup options for AWS Cloud9](setup-teams.md) and [Creating customer managed policies for AWS Cloud9](#auth-and-access-control-customer-policies).
 
-You cannot attach a resource-based policy to an AWS Cloud9 resource directly. Instead,
-AWS Cloud9 attaches the appropriate resource-based policies to AWS Cloud9 resources as you add,
-modify, update, or delete environment members.
-
-To grant a user permissions to perform actions on AWS Cloud9 resources, you attach a
-permissions policy to an IAM group that the user belongs to. We recommend that you
-attach an AWS managed (predefined) policy for AWS Cloud9 whenever possible. AWS managed
-policies contain predefined sets of access permissions for common usage scenarios and
-user types, such as full administration of an environment, environment users, and users who have
-only read-only access to an environment. For a list of AWS managed policies for AWS Cloud9, see
-[AWS managed policies for AWS Cloud9](#auth-and-access-control-managed-policies "#auth-and-access-control-managed-policies").
-
-For more detailed usage scenarios and unique user types, you can create and attach
-your own customer managed policies. See [Additional setup options for AWS Cloud9](setup-teams.md "setup-teams.md") and [Creating customer managed policies for AWS Cloud9](#auth-and-access-control-customer-policies "#auth-and-access-control-customer-policies").
-
-To attach an IAM policy (AWS managed or customer managed) to an IAM identity,
-see [Attaching IAM Policies (Console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console") in the
-_IAM User Guide_.
+To attach an IAM policy (AWS managed or customer managed) to an IAM identity, see [Attaching IAM Policies (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console) in the *IAM User Guide*.
 
 ### Session permissions for API operations
+<a name="session-and-resource-permissions"></a>
 
-When using the AWS CLI or AWS API to programmatically create a temporary session for
-a role or federated user, you can pass session policies as a parameter to extend the
-scope of the role session. This means that the effective permissions of the session are
-[the intersection of
-the role’s identity-based policies and the session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session").
+When using the AWS CLI or AWS API to programmatically create a temporary session for a role or federated user, you can pass session policies as a parameter to extend the scope of the role session. This means that the effective permissions of the session are [the intersection of the role’s identity-based policies and the session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session).
 
-When a request is made to access a resource during a session, if there's no
-applicable `Deny` statement but also no applicable `Allow`
-statement in the session policy, the result of the policy evaluation is an [implicit denial](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#AccessPolicyLanguage_Interplay "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#AccessPolicyLanguage_Interplay"). (For more information, see [Determining whether a request is allowed or denied within an account](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow") in the
-_IAM User Guide_.)
+When a request is made to access a resource during a session, if there's no applicable `Deny` statement but also no applicable `Allow` statement in the session policy, the result of the policy evaluation is an [ implicit denial](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#AccessPolicyLanguage_Interplay). (For more information, see [Determining whether a request is allowed or denied within an account](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow) in the *IAM User Guide*.)
 
-But, for AWS Cloud9 API operations that require a resource-based policy (see above),
-permissions are granted to the IAM entity that's calling if it's specified as the
-`Principal` in the resource policy. This explicit permission takes
-precedence over the implicit denial of the session policy, thereby allowing the session
-to call the AWS Cloud9 API operation successfully.
+But, for AWS Cloud9 API operations that require a resource-based policy (see above), permissions are granted to the IAM entity that's calling if it's specified as the `Principal` in the resource policy. This explicit permission takes precedence over the implicit denial of the session policy, thereby allowing the session to call the AWS Cloud9 API operation successfully.
 
 ## AWS managed policies for AWS Cloud9
+<a name="auth-and-access-control-managed-policies"></a>
 
-An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
-to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
+An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
-Keep in mind that AWS managed policies might not grant least-privilege permissions for your specific use cases because
-they're available for all AWS customers to use. We recommend that you reduce permissions further by defining
-[customer managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies") that are specific to your use cases.
+Keep in mind that AWS managed policies might not grant least-privilege permissions for your specific use cases because they're available for all AWS customers to use. We recommend that you reduce permissions further by defining [ customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) that are specific to your use cases.
 
-You cannot change the permissions defined in AWS managed policies. If AWS updates the permissions defined in an AWS
-managed policy, the update affects all principal identities (users, groups, and roles) that the policy is attached to. AWS is
-most likely to update an AWS managed policy when a new AWS service is launched or new API operations become available for
-existing services.
+You cannot change the permissions defined in AWS managed policies. If AWS updates the permissions defined in an AWS managed policy, the update affects all principal identities (users, groups, and roles) that the policy is attached to. AWS is most likely to update an AWS managed policy when a new AWS service is launched or new API operations become available for existing services.
 
-For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
-_IAM User Guide_.
+For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
 ### AWS managed policy: AWSCloud9Administrator
+<a name="security-iam-awsmanpol-AWSCloud9Administrator"></a>
 
-You can attach the `AWSCloud9Administrator` policy to your IAM
-identities.
+You can attach the `AWSCloud9Administrator` policy to your IAM identities.
 
-This policy grants `administrative` permissions that provide
-administrator access to AWS Cloud9.
+This policy grants {{administrative}} permissions that provide administrator access to AWS Cloud9.
 
 **Permissions details**
 
 This policy includes the following permissions.
++ AWS Cloud9 – All AWS Cloud9 actions in their AWS account.
++ Amazon EC2 – Get information about multiple Amazon VPC and subnet resources in their AWS account.
++ IAM – Get information about IAM users in their AWS account, and create the AWS Cloud9 service-linked role in their AWS account as needed.
++ Systems Manager– Allow the user to call StartSession to initiate a connection to an instance for a Session Manager session. This permission is required for users opening an environment that communicates with its EC2 instance through Systems Manager. For more information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md)
 
-- AWS Cloud9 – All AWS Cloud9 actions in their AWS account.
-- Amazon EC2 – Get information about multiple Amazon VPC and subnet resources in
-  their AWS account.
-- IAM – Get information about IAM users in their AWS account, and
-  create the AWS Cloud9 service-linked role in their AWS account as needed.
-- Systems Manager– Allow the user to call StartSession to initiate a connection to
-  an instance for a Session Manager session. This permission is required for users
-  opening an environment that communicates with its EC2 instance through Systems Manager. For more
-  information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
-
-To view the permissions for this policy, see [AWSCloud9Administrator](../../../aws-managed-policy/latest/reference/AWSCloud9Administrator.md "../../../aws-managed-policy/latest/reference/AWSCloud9Administrator.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloud9Administrator](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloud9Administrator.html) in the *AWS Managed Policy Reference*.
 
 ### AWS managed policy: AWSCloud9User
+<a name="security-iam-awsmanpol-AWSCloud9User"></a>
 
 You can attach the `AWSCloud9User` policy to your IAM identities.
 
-This policy grants `user` permissions to create AWS Cloud9
-development environments and to manage owned environments.
+This policy grants {{user}} permissions to create AWS Cloud9 development environments and to manage owned environments.
 
 **Permissions details**
 
 This policy includes the following permissions.
++ AWS Cloud9 – Create and get information about their environments, and get and change user settings for their environments. 
++ Amazon EC2 – Get information about multiple Amazon VPC and subnet resources in their AWS account.
++ IAM – Get information about IAM users in their AWS account, and create the AWS Cloud9 service-linked role in their AWS account as needed.
++ Systems Manager– Allow the user to call StartSession to initiate a connection to an instance for a Session Manager session. This permission is required for users opening an environment that communicates with its EC2 instance through Systems Manager. For more information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md)
 
-- AWS Cloud9 – Create and get information about their environments, and get and
-  change user settings for their environments.
-- Amazon EC2 – Get information about multiple Amazon VPC and subnet resources in
-  their AWS account.
-- IAM – Get information about IAM users in their AWS account, and
-  create the AWS Cloud9 service-linked role in their AWS account as needed.
-- Systems Manager– Allow the user to call StartSession to initiate a connection to
-  an instance for a Session Manager session. This permission is required for users opening an
-  environment that communicates with its EC2 instance through Systems Manager. For more information,
-  see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
-
-To view the permissions for this policy, see [AWSCloud9User](../../../aws-managed-policy/latest/reference/AWSCloud9User.md "../../../aws-managed-policy/latest/reference/AWSCloud9User.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloud9User](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloud9User.html) in the *AWS Managed Policy Reference*.
 
 ### AWS managed policy: AWSCloud9EnvironmentMember
+<a name="security-iam-awsmanpol-AWSCloud9EnvironmentMember"></a>
 
-You can attach the `AWSCloud9EnvironmentMember` policy to your IAM
-identities.
+You can attach the `AWSCloud9EnvironmentMember` policy to your IAM identities.
 
-This policy grants `membership` permissions that provide the
-ability to join an AWS Cloud9 shared environment.
+This policy grants {{membership}} permissions that provide the ability to join an AWS Cloud9 shared environment.
 
 **Permissions details**
 
 This policy includes the following permissions:
++ AWS Cloud9 – Get information about their environments, and get and change user settings for their environments. 
++ IAM – Get information about IAM users in their AWS account, and create the AWS Cloud9 service-linked role in their AWS account as needed.
++ Systems Manager– Allow the user to call StartSession to initiate a connection to an instance for a Session Manager session. This permission is required for users opening an environment that communicates with its EC2 instance through Systems Manager. For more information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md)
 
-- AWS Cloud9 – Get information about their environments, and get and change
-  user settings for their environments.
-- IAM – Get information about IAM users in their AWS account, and
-  create the AWS Cloud9 service-linked role in their AWS account as needed.
-- Systems Manager– Allow the user to call StartSession to initiate a connection to
-  an instance for a Session Manager session. This permission is required for users opening an
-  environment that communicates with its EC2 instance through Systems Manager. For more information,
-  see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
-
-To view the permissions for this policy, see [AWSCloud9EnvironmentMember](../../../aws-managed-policy/latest/reference/AWSCloud9EnvironmentMember.md "../../../aws-managed-policy/latest/reference/AWSCloud9EnvironmentMember.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloud9EnvironmentMember](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloud9EnvironmentMember.html) in the *AWS Managed Policy Reference*.
 
 ### AWS managed policy: `AWSCloud9ServiceRolePolicy`
+<a name="security-iam-awsmanpol-AWSCloud9SLR"></a>
 
-The service-linked role **AWSServiceRoleForAWSCloud9** uses this policy to allow the AWS Cloud9 environment interact with Amazon EC2 and CloudFormation resources.
+The service-linked role **AWSServiceRoleForAWSCloud9** uses this policy to allow the AWS Cloud9 environment interact with Amazon EC2 and CloudFormation resources. 
 
 **Permissions details**
 
-The **AWSCloud9ServiceRolePolicy** grants the AWSServiceRoleForAWSCloud9
-the necessary permissions to allow AWS Cloud9 to interact with the AWS services (Amazon EC2 and
-CloudFormation) that are required to create and run development environments.
+The **AWSCloud9ServiceRolePolicy** grants the AWSServiceRoleForAWSCloud9 the necessary permissions to allow AWS Cloud9 to interact with the AWS services (Amazon EC2 and CloudFormation) that are required to create and run development environments.
 
-AWS Cloud9 defines the permissions of its service-linked
-roles, and only AWS Cloud9 can assume its roles. The defined permissions include the
-trust policy and the permissions policy, and that permissions policy cannot be attached to
-any other IAM entity.
+AWS Cloud9 defines the permissions of its service-linked roles, and only AWS Cloud9 can assume its roles. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
 
-For more information on how AWS Cloud9 uses service-linked roles, see [Using service-linked roles for AWS Cloud9](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information on how AWS Cloud9 uses service-linked roles, see [Using service-linked roles for AWS Cloud9](using-service-linked-roles.md).
 
-To view the permissions for this policy, see [AWSCloud9ServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloud9ServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloud9ServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloud9ServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloud9ServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ### AWS Cloud9 updates to AWS managed policies
+<a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for AWS Cloud9 since this service
-began tracking these changes. For automatic alerts about changes to this page, subscribe
-to the RSS feed on the AWS Cloud9 Document history page.
+View details about updates to AWS managed policies for AWS Cloud9 since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the AWS Cloud9 Document history page.
 
-| Change                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                | Date               |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| A new action has been added to *_AWSCloud9Administrator_<br>• policy.                                                                | The `ssm:OpenDataChannel` action has been added to *_AWSCloud9Administrator_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                              | September 25, 2025 |
-| A new action has been added to *_AWSCloud9User_<br>• policy.                                                                         | The `ssm:OpenDataChannel` action has been added to *_AWSCloud9User_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                                       | September 25, 2025 |
-| A new action has been added to *_AWSCloud9EnvironmentMember_<br>• policy.                                                            | The `ssm:OpenDataChannel` action has been added to *_AWSCloud9EnvironmentMember_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                          | September 25, 2025 |
-| A new action has been added to **AWSCloud9User**, *_AWSCloud9Administrator_<br>• and<br>*_AWSCloud9EnvironmentMember_<br>• policies. | The `ssm:GetConnectionStatus` action has been added to *_AWSCloud9User_<br>• *_AWSCloud9Administrator_<br>• and<br>*_AWSCloud9EnvironmentMember_<br>• policies. This action will grant users the permissions to check the SSM connection status. The `cloud9:ValidateEnvironmentName` API has been removed from the<br>*_AWSCloud9User_<br>• policy as it is deprecated.                   | October 12, 2023   |
-| API's added to *_AWSCloud9User_<br>• and *_AWSCloud9Administrator_<br>• policies.                                                    | Two new API's have been added to the *_AWSCloud9User_<br>• and *_AWSCloud9Administrator_<br>• policies,<br>these API's are `ec2:DescribeInstanceTypeOfferings` and `ec2:DescribeRouteTables`. The purpose of these API's is to enable AWS Cloud9 to validate<br>that the default subnet supports the instance type chosen by the customer when they are creating a AWS Cloud9 environment. | August 02, 2023    |
-| Update to [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR")                  | [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR") was updated to allow AWS Cloud9 to start and stop Amazon EC2 instances that are managed by License Manager license configurations.                                                                                                                                               | January 12, 2022   |
-| AWS Cloud9 started tracking changes                                                                                                  | AWS Cloud9 started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                                                                                                                                                       | March 15, 2021     |
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+| A new action has been added to **AWSCloud9Administrator** policy. | The `ssm:OpenDataChannel` action has been added to **AWSCloud9Administrator** policy. This action will grant users the permissions to open data channel for SSM sessions. | September 25, 2025 | 
+| A new action has been added to **AWSCloud9User** policy. | The `ssm:OpenDataChannel` action has been added to **AWSCloud9User** policy. This action will grant users the permissions to open data channel for SSM sessions. | September 25, 2025 | 
+| A new action has been added to **AWSCloud9EnvironmentMember** policy. | The `ssm:OpenDataChannel` action has been added to **AWSCloud9EnvironmentMember** policy. This action will grant users the permissions to open data channel for SSM sessions. | September 25, 2025 | 
+| A new action has been added to **AWSCloud9User**, **AWSCloud9Administrator** and **AWSCloud9EnvironmentMember** policies. | The `ssm:GetConnectionStatus` action has been added to **AWSCloud9User** **AWSCloud9Administrator** and **AWSCloud9EnvironmentMember** policies. This action will grant users the permissions to check the SSM connection status. The `cloud9:ValidateEnvironmentName` API has been removed from the **AWSCloud9User** policy as it is deprecated. | October 12, 2023 | 
+| API's added to **AWSCloud9User** and **AWSCloud9Administrator** policies. | Two new API's have been added to the **AWSCloud9User** and **AWSCloud9Administrator** policies, these API's are `ec2:DescribeInstanceTypeOfferings` and `ec2:DescribeRouteTables`. The purpose of these API's is to enable AWS Cloud9 to validate that the default subnet supports the instance type chosen by the customer when they are creating a AWS Cloud9 environment. | August 02, 2023 | 
+| Update to [** AWSCloud9ServiceRolePolicy**](#security-iam-awsmanpol-AWSCloud9SLR) | [** AWSCloud9ServiceRolePolicy**](#security-iam-awsmanpol-AWSCloud9SLR) was updated to allow AWS Cloud9 to start and stop Amazon EC2 instances that are managed by License Manager license configurations. | January 12, 2022 | 
+| AWS Cloud9 started tracking changes | AWS Cloud9 started tracking changes for its AWS managed policies. | March 15, 2021 | 
 
 ## Creating customer managed policies for AWS Cloud9
+<a name="auth-and-access-control-customer-policies"></a>
 
-If none of the AWS managed policies meet your access control requirements, you can
-create and attach your own customer managed policies.
+If none of the AWS managed policies meet your access control requirements, you can create and attach your own customer managed policies.
 
-To create a customer managed policy, see [Create an
-IAM Policy (Console)](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start") in the _IAM User Guide_.
+To create a customer managed policy, see [Create an IAM Policy (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) in the *IAM User Guide*.
 
-###### Topics
-
-- [Specifying policy elements: effects, principals, actions, and resources](#auth-and-access-control-customer-policies-specifying-policy-elements "#auth-and-access-control-customer-policies-specifying-policy-elements")
-- [Customer managed policy examples](#auth-and-access-control-customer-policies-examples "#auth-and-access-control-customer-policies-examples")
+**Topics**
++ [Specifying policy elements: effects, principals, actions, and resources](#auth-and-access-control-customer-policies-specifying-policy-elements)
++ [Customer managed policy examples](#auth-and-access-control-customer-policies-examples)
 
 ### Specifying policy elements: effects, principals, actions, and resources
+<a name="auth-and-access-control-customer-policies-specifying-policy-elements"></a>
 
-For each AWS Cloud9 resource, the service defines a set of API operations. To grant
-permissions for these API operations, AWS Cloud9 defines a set of actions that you can
-specify in a policy.
+For each AWS Cloud9 resource, the service defines a set of API operations. To grant permissions for these API operations, AWS Cloud9 defines a set of actions that you can specify in a policy.
 
 The following are the basic policy elements:
++  `Effect` – You specify the effect, either allow or deny, when the user requests the action. If you don't explicitly grant access to (allow) a resource, access is implicitly denied. You can also explicitly deny access to a resource. You might do this to ensure a user can't access a resource, even if a different policy grants access.
++  `Principal` – In identity-based policies (IAM policies), the user the policy is attached to is the implicit principal. For resource-based policies, you specify the user, account, service, or other entity that you want to receive permissions.
++  `Resource` – Use an Amazon Resource Name (ARN) to identify the resource that the policy applies to.
++  `Action` – Use action keywords to identify resource operations you want to allow or deny. For example, the `cloud9:CreateEnvironmentEC2` permission gives the user permissions to perform the `CreateEnvironmentEC2` operation.
 
-- `Effect` – You specify the effect, either allow or deny, when
-  the user requests the action. If you don't explicitly grant access to (allow) a
-  resource, access is implicitly denied. You can also explicitly deny access to a
-  resource. You might do this to ensure a user can't access a resource, even if a
-  different policy grants access.
-- `Principal` – In identity-based policies (IAM policies), the
-  user the policy is attached to is the implicit principal. For resource-based
-  policies, you specify the user, account, service, or other entity that you want to
-  receive permissions.
-- `Resource` – Use an Amazon Resource Name (ARN) to identify the
-  resource that the policy applies to.
-- `Action` – Use action keywords to identify resource operations
-  you want to allow or deny. For example, the
-  `cloud9:CreateEnvironmentEC2` permission gives the user permissions
-  to perform the `CreateEnvironmentEC2` operation.
+To learn more about IAM policy syntax and descriptions, see the [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*.
 
-To learn more about IAM policy syntax and descriptions, see the [IAM JSON Policy
-Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
-
-For a table showing all of the AWS Cloud9 API actions and the resources they apply to, see
-the [AWS Cloud9 permissions reference](#auth-and-access-control-ref "#auth-and-access-control-ref").
+For a table showing all of the AWS Cloud9 API actions and the resources they apply to, see the [AWS Cloud9 permissions reference](#auth-and-access-control-ref).
 
 ### Customer managed policy examples
+<a name="auth-and-access-control-customer-policies-examples"></a>
 
-In this section, you can find example policies that grant permissions for AWS Cloud9
-actions. You can adapt the following example IAM policies to allow or explicitly deny
-AWS Cloud9 access for your IAM identities.
+In this section, you can find example policies that grant permissions for AWS Cloud9 actions. You can adapt the following example IAM policies to allow or explicitly deny AWS Cloud9 access for your IAM identities.
 
-To create or attach a customer managed policy to an IAM identity, see [Create
-an IAM Policy (Console)](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start") and [Attaching IAM Policies (Console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#attach-managed-policy-console") in the
-_IAM User Guide_.
+To create or attach a customer managed policy to an IAM identity, see [Create an IAM Policy (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) and [Attaching IAM Policies (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#attach-managed-policy-console) in the *IAM User Guide*.
 
-###### Note
+**Note**  
+The following examples use the US East (Ohio) Region (`us-east-2`), a fictitious AWS account ID (`123456789012`), and a fictitious AWS Cloud9 development environment ID (`81e900317347585a0601e04c8d52eaEX`).
 
-The following examples use the US East (Ohio) Region (`us-east-2`), a
-fictitious AWS account ID (`123456789012`), and a fictitious AWS Cloud9 development environment
-ID (`81e900317347585a0601e04c8d52eaEX`).
-
-###### Topics
-
-- [Get information about environments](#auth-and-access-control-customer-policies-examples-describe-environments "#auth-and-access-control-customer-policies-examples-describe-environments")
-- [Create EC2 environments](#auth-and-access-control-customer-policies-examples-create-environment-ec2 "#auth-and-access-control-customer-policies-examples-create-environment-ec2")
-- [Create EC2 environments with specific Amazon EC2 instance types](#auth-and-access-control-customer-policies-examples-ec2-instance-types "#auth-and-access-control-customer-policies-examples-ec2-instance-types")
-- [Create EC2 environments in specific Amazon VPC subnets](#auth-and-access-control-customer-policies-examples-ec2-subnets "#auth-and-access-control-customer-policies-examples-ec2-subnets")
-- [Create an EC2 environments with a specific environment name](#auth-and-access-control-customer-policies-examples-ec2-name "#auth-and-access-control-customer-policies-examples-ec2-name")
-- [Create SSH environments only](#auth-and-access-control-customer-policies-examples-no-ec2 "#auth-and-access-control-customer-policies-examples-no-ec2")
-- [Update environments or prevent updating an environment](#auth-and-access-control-customer-policies-examples-update-environment "#auth-and-access-control-customer-policies-examples-update-environment")
-- [Get lists of environment members](#auth-and-access-control-customer-policies-examples-describe-environment-memberships "#auth-and-access-control-customer-policies-examples-describe-environment-memberships")
-- [Share environments only with a specific user](#auth-and-access-control-customer-policies-examples-restrict-collaboration "#auth-and-access-control-customer-policies-examples-restrict-collaboration")
-- [Prevent sharing environments](#auth-and-access-control-customer-policies-examples-no-collaboration "#auth-and-access-control-customer-policies-examples-no-collaboration")
-- [Change, or prevent changing, the settings of environment members](#auth-and-access-control-customer-policies-examples-update-environment-membership "#auth-and-access-control-customer-policies-examples-update-environment-membership")
-- [Remove, or prevent removing, environment members](#auth-and-access-control-customer-policies-examples-delete-environment-membership "#auth-and-access-control-customer-policies-examples-delete-environment-membership")
-- [Delete, or prevent deleting, an environment](#auth-and-access-control-customer-policies-examples-delete-environment "#auth-and-access-control-customer-policies-examples-delete-environment")
-- [Custom IAM policy for SSM environment creation](#custom-policy-ssm-environment "#custom-policy-ssm-environment")
+**Topics**
++ [Get information about environments](#auth-and-access-control-customer-policies-examples-describe-environments)
++ [Create EC2 environments](#auth-and-access-control-customer-policies-examples-create-environment-ec2)
++ [Create EC2 environments with specific Amazon EC2 instance types](#auth-and-access-control-customer-policies-examples-ec2-instance-types)
++ [Create EC2 environments in specific Amazon VPC subnets](#auth-and-access-control-customer-policies-examples-ec2-subnets)
++ [Create an EC2 environments with a specific environment name](#auth-and-access-control-customer-policies-examples-ec2-name)
++ [Create SSH environments only](#auth-and-access-control-customer-policies-examples-no-ec2)
++ [Update environments or prevent updating an environment](#auth-and-access-control-customer-policies-examples-update-environment)
++ [Get lists of environment members](#auth-and-access-control-customer-policies-examples-describe-environment-memberships)
++ [Share environments only with a specific user](#auth-and-access-control-customer-policies-examples-restrict-collaboration)
++ [Prevent sharing environments](#auth-and-access-control-customer-policies-examples-no-collaboration)
++ [Change, or prevent changing, the settings of environment members](#auth-and-access-control-customer-policies-examples-update-environment-membership)
++ [Remove, or prevent removing, environment members](#auth-and-access-control-customer-policies-examples-delete-environment-membership)
++ [Delete, or prevent deleting, an environment](#auth-and-access-control-customer-policies-examples-delete-environment)
++ [Custom IAM policy for SSM environment creation](#custom-policy-ssm-environment)
 
 #### Get information about environments
+<a name="auth-and-access-control-customer-policies-examples-describe-environments"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to get information about any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to get information about any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:DescribeEnvironments",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:DescribeEnvironments",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The preceding access permission is already included in the AWS managed
-policies `AWSCloud9Administrator` and
-`AWSCloud9User`.
+**Note**  
+The preceding access permission is already included in the AWS managed policies `AWSCloud9Administrator` and `AWSCloud9User`.
 
 #### Create EC2 environments
+<a name="auth-and-access-control-customer-policies-examples-create-environment-ec2"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to create AWS Cloud9 EC2 development environments in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to create AWS Cloud9 EC2 development environments in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:CreateEnvironmentEC2",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:CreateEnvironmentEC2",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The
-preceding access permission is already included in the AWS managed policies
-`AWSCloud9Administrator` and `AWSCloud9User`.
+**Note**  
+The preceding access permission is already included in the AWS managed policies `AWSCloud9Administrator` and `AWSCloud9User`.
 
 #### Create EC2 environments with specific Amazon EC2 instance types
+<a name="auth-and-access-control-customer-policies-examples-ec2-instance-types"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to create AWS Cloud9 EC2 development environments in their account. However, EC2 environments
-can use only the specified class of Amazon EC2 instance types.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to create AWS Cloud9 EC2 development environments in their account. However, EC2 environments can use only the specified class of Amazon EC2 instance types.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:CreateEnvironmentEC2",
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "cloud9:InstanceType": "t3.*"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:CreateEnvironmentEC2",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "cloud9:InstanceType": "t3.*"
+        }
+      }
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-If the AWS managed policy `AWSCloud9Administrator` or
-`AWSCloud9User` is already attached to the IAM entity, that AWS
-managed policy overrides the behavior of the preceding IAM policy statement.
-This is because those AWS managed policies are more permissive.
+**Note**  
+If the AWS managed policy `AWSCloud9Administrator` or `AWSCloud9User` is already attached to the IAM entity, that AWS managed policy overrides the behavior of the preceding IAM policy statement. This is because those AWS managed policies are more permissive.
 
 #### Create EC2 environments in specific Amazon VPC subnets
+<a name="auth-and-access-control-customer-policies-examples-ec2-subnets"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to create AWS Cloud9 EC2 development environments in their account. However, EC2 environments
-can use only the specified Amazon VPC subnets.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to create AWS Cloud9 EC2 development environments in their account. However, EC2 environments can use only the specified Amazon VPC subnets.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:CreateEnvironmentEC2",
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "cloud9:SubnetId": [
- "subnet-12345678",
- "subnet-23456789"
- ]
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:CreateEnvironmentEC2",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "cloud9:SubnetId": [
+            "subnet-12345678",
+            "subnet-23456789"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-If
-the AWS managed policy `AWSCloud9Administrator` or
-`AWSCloud9User` is already attached to the IAM entity, that AWS
-managed policy overrides the behavior of the preceding IAM policy statement.
-This is because those AWS managed policies are more permissive.
+**Note**  
+If the AWS managed policy `AWSCloud9Administrator` or `AWSCloud9User` is already attached to the IAM entity, that AWS managed policy overrides the behavior of the preceding IAM policy statement. This is because those AWS managed policies are more permissive.
 
 #### Create an EC2 environments with a specific environment name
+<a name="auth-and-access-control-customer-policies-examples-ec2-name"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to create an AWS Cloud9 EC2 development environment in their account. However, the EC2 environment can
-use only the specified name.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to create an AWS Cloud9 EC2 development environment in their account. However, the EC2 environment can use only the specified name.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:CreateEnvironmentEC2",
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "cloud9:EnvironmentName": "my-demo-environment"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:CreateEnvironmentEC2",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "cloud9:EnvironmentName": "my-demo-environment"
+        }
+      }
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-If
-the AWS managed policy `AWSCloud9Administrator` or
-`AWSCloud9User` is already attached to the IAM entity, that AWS
-managed policy overrides the behavior of the preceding IAM policy statement.
-This is because those AWS managed policies are more permissive.
+**Note**  
+If the AWS managed policy `AWSCloud9Administrator` or `AWSCloud9User` is already attached to the IAM entity, that AWS managed policy overrides the behavior of the preceding IAM policy statement. This is because those AWS managed policies are more permissive.
 
 #### Create SSH environments only
+<a name="auth-and-access-control-customer-policies-examples-no-ec2"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to create AWS Cloud9 SSH development environments in their account. However, the entity can't
-create AWS Cloud9 EC2 development environments.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to create AWS Cloud9 SSH development environments in their account. However, the entity can't create AWS Cloud9 EC2 development environments.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:CreateEnvironmentSSH",
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": "cloud9:CreateEnvironmentEC2",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:CreateEnvironmentSSH",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Deny",
+      "Action": "cloud9:CreateEnvironmentEC2",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+------
 
 #### Update environments or prevent updating an environment
+<a name="auth-and-access-control-customer-policies-examples-update-environment"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to change information about any AWS Cloud9 development environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to change information about any AWS Cloud9 development environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:UpdateEnvironment",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:UpdateEnvironment",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`.
 
-The following example IAM policy statement, attached to an IAM entity,
-explicitly prevents that entity from changing information about the environment with the
-specified Amazon Resource Name (ARN).
+The following example IAM policy statement, attached to an IAM entity, explicitly prevents that entity from changing information about the environment with the specified Amazon Resource Name (ARN).
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "cloud9:UpdateEnvironment",
- "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "cloud9:UpdateEnvironment",
+      "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
+    }
+  ]
+}
 ```
+
+------
 
 #### Get lists of environment members
+<a name="auth-and-access-control-customer-policies-examples-describe-environment-memberships"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to get a list of members for any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to get a list of members for any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:DescribeEnvironmentMemberships",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:DescribeEnvironmentMemberships",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`. Also, the preceding access permission is
-more permissive than the equivalent access permission in the AWS managed policy
-`AWSCloud9User`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`. Also, the preceding access permission is more permissive than the equivalent access permission in the AWS managed policy `AWSCloud9User`.
 
 #### Share environments only with a specific user
+<a name="auth-and-access-control-customer-policies-examples-restrict-collaboration"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to share any environment in their account with only the specified user.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to share any environment in their account with only the specified user.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:CreateEnvironmentMembership"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "cloud9:UserArn": "arn:aws:iam::123456789012:user/MyDemoUser"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloud9:CreateEnvironmentMembership"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "cloud9:UserArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+        }
+      }
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-If the AWS managed policy `AWSCloud9Administrator` or
-`AWSCloud9User` is already attached to the IAM entity, those AWS
-managed policies overrides the behavior of the preceding IAM policy statement.
-This is because those AWS managed policies are more permissive.
+**Note**  
+If the AWS managed policy `AWSCloud9Administrator` or `AWSCloud9User` is already attached to the IAM entity, those AWS managed policies overrides the behavior of the preceding IAM policy statement. This is because those AWS managed policies are more permissive.
 
 #### Prevent sharing environments
+<a name="auth-and-access-control-customer-policies-examples-no-collaboration"></a>
 
-The following example IAM policy statement, attached to an IAM entity,
-prevents that entity from sharing any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, prevents that entity from sharing any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": [
- "cloud9:CreateEnvironmentMembership",
- "cloud9:UpdateEnvironmentMembership"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "cloud9:CreateEnvironmentMembership",
+        "cloud9:UpdateEnvironmentMembership"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+------
 
 #### Change, or prevent changing, the settings of environment members
+<a name="auth-and-access-control-customer-policies-examples-update-environment-membership"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to change the settings of members in any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to change the settings of members in any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:UpdateEnvironmentMembership",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:UpdateEnvironmentMembership",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The
-preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`.
 
-The following example IAM policy statement, attached to an IAM entity,
-explicitly prevents that entity from changing the settings of members in the environment
-with the specified Amazon Resource Name (ARN).
+The following example IAM policy statement, attached to an IAM entity, explicitly prevents that entity from changing the settings of members in the environment with the specified Amazon Resource Name (ARN).
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "cloud9:UpdateEnvironmentMembership",
- "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "cloud9:UpdateEnvironmentMembership",
+      "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
+    }
+  ]
+}
 ```
+
+------
 
 #### Remove, or prevent removing, environment members
+<a name="auth-and-access-control-customer-policies-examples-delete-environment-membership"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to remove any member from any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to remove any member from any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:DeleteEnvironmentMembership",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:DeleteEnvironmentMembership",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The
-preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`.
 
-The following example IAM policy statement, attached to an IAM entity,
-explicitly prevents that entity from removing any member from the environment with the
-specified Amazon Resource Name (ARN).
+The following example IAM policy statement, attached to an IAM entity, explicitly prevents that entity from removing any member from the environment with the specified Amazon Resource Name (ARN).
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "cloud9:DeleteEnvironmentMembership",
- "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "cloud9:DeleteEnvironmentMembership",
+      "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
+    }
+  ]
+}
 ```
+
+------
 
 #### Delete, or prevent deleting, an environment
+<a name="auth-and-access-control-customer-policies-examples-delete-environment"></a>
 
-The following example IAM policy statement, attached to an IAM entity, allows
-that entity to delete any environment in their account.
+The following example IAM policy statement, attached to an IAM entity, allows that entity to delete any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "cloud9:DeleteEnvironment",
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloud9:DeleteEnvironment",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The
-preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`.
 
-The following example IAM policy statement, attached to an IAM entity,
-explicitly prevents that entity from deleting the environment with the specified Amazon
-Resource Name (ARN).
+The following example IAM policy statement, attached to an IAM entity, explicitly prevents that entity from deleting the environment with the specified Amazon Resource Name (ARN).
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "cloud9:DeleteEnvironment",
- "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "cloud9:DeleteEnvironment",
+      "Resource": "arn:aws:cloud9:us-east-2:123456789012:environment:81e900317347585a0601e04c8d52eaEX"
+    }
+  ]
+}
 ```
+
+------
 
 #### Custom IAM policy for SSM environment creation
+<a name="custom-policy-ssm-environment"></a>
 
-There is a current permissions issue that occurs when creating an SSM
-environment with the `AWSCloud9Administrator` or
-`AWSCloud9User` policies attached. The following example IAM policy
-statement, when attached to an IAM entity, enables users to attach and use either
-the AWS managed policy `AWSCloud9Administrator` or
-`AWSCloud9User`.
+There is a current permissions issue that occurs when creating an SSM environment with the `AWSCloud9Administrator` or `AWSCloud9User` policies attached. The following example IAM policy statement, when attached to an IAM entity, enables users to attach and use either the AWS managed policy `AWSCloud9Administrator` or `AWSCloud9User`. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:UpdateUserSettings",
- "cloud9:GetUserSettings",
- "iam:GetUser",
- "iam:ListUsers",
- "iam:ListRoles",
- "ec2:DescribeVpcs",
- "ec2:DescribeSubnets",
- "ec2:DescribeRouteTables"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:CreateEnvironmentEC2",
- "cloud9:CreateEnvironmentSSH"
- ],
- "Resource": "*",
- "Condition": {
- "Null": {
- "cloud9:OwnerArn": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:GetUserPublicKey"
- ],
- "Resource": "*",
- "Condition": {
- "Null": {
- "cloud9:UserArn": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:DescribeEnvironmentMemberships"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "Null": {
- "cloud9:UserArn": "true",
- "cloud9:EnvironmentId": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateServiceLinkedRole"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "ssm:StartSession",
- "Resource": "arn:aws:ec2:*:*:instance/*",
- "Condition": {
- "StringLike": {
- "ssm:resourceTag/aws:cloud9:environment": "*"
- },
- "StringEquals": {
- "aws:CalledViaFirst": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession"
- ],
- "Resource": [
- "arn:aws:ssm:*:*:document/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": ["iam:ListInstanceProfilesForRole", "iam:CreateRole"],
- "Resource": ["arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole"]
- },
- {
- "Effect": "Allow",
- "Action": ["iam:AttachRolePolicy"],
- "Resource": ["arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole"],
- "Condition": {
- "StringEquals": {
- "iam:PolicyARN": "arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": "arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole",
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "ec2.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateInstanceProfile",
- "iam:AddRoleToInstanceProfile"
- ],
- "Resource": [
- "arn:aws:iam::*:instance-profile/cloud9/AWSCloud9SSMInstanceProfile"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloud9:UpdateUserSettings",
+                "cloud9:GetUserSettings",
+                "iam:GetUser",
+                "iam:ListUsers",
+                "iam:ListRoles",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeRouteTables"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloud9:CreateEnvironmentEC2",
+                "cloud9:CreateEnvironmentSSH"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "cloud9:OwnerArn": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloud9:GetUserPublicKey"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "cloud9:UserArn": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloud9:DescribeEnvironmentMemberships"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "Null": {
+                    "cloud9:UserArn": "true",
+                    "cloud9:EnvironmentId": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "cloud9.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ssm:StartSession",
+            "Resource": "arn:aws:ec2:*:*:instance/*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/aws:cloud9:environment": "*"
+                },
+                "StringEquals": {
+                    "aws:CalledViaFirst": "cloud9.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:document/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["iam:ListInstanceProfilesForRole", "iam:CreateRole"],
+            "Resource": ["arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole"]
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["iam:AttachRolePolicy"],
+            "Resource": ["arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole"],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PolicyARN": "arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ec2.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateInstanceProfile",
+                "iam:AddRoleToInstanceProfile"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:instance-profile/cloud9/AWSCloud9SSMInstanceProfile"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 ## AWS Cloud9 permissions reference
+<a name="auth-and-access-control-ref"></a>
 
-You can use AWS wide condition keys in your AWS Cloud9 policies to express conditions. For
-a list, see [IAM JSON Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the
-_IAM User Guide_.
+You can use AWS wide condition keys in your AWS Cloud9 policies to express conditions. For a list, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*.
 
-You specify the actions in the policy's `Action` field. To specify an action,
-use the `cloud9:` prefix followed by the API operation name (for example,
-`"Action": "cloud9:DescribeEnvironments"`). To specify multiple actions in a
-single statement, separate them with commas (for example, `"Action": [
- "cloud9:UpdateEnvironment", "cloud9:DeleteEnvironment" ]`).
+You specify the actions in the policy's `Action` field. To specify an action, use the `cloud9:` prefix followed by the API operation name (for example, `"Action": "cloud9:DescribeEnvironments"`). To specify multiple actions in a single statement, separate them with commas (for example, `"Action": [ "cloud9:UpdateEnvironment", "cloud9:DeleteEnvironment" ]`).
 
 ### Using wildcard characters
+<a name="auth-and-access-control-ref-wildcards"></a>
 
-You specify an ARN, with or without a wildcard character (`*`), as the
-resource value in the policy's `Resource` field. You can use a wildcard to
-specify multiple actions or resources. For example, `cloud9:*` specifies all
-AWS Cloud9 actions and `cloud9:Describe*` specifies all AWS Cloud9 actions that begin
-with `Describe`.
+You specify an ARN, with or without a wildcard character (`*`), as the resource value in the policy's `Resource` field. You can use a wildcard to specify multiple actions or resources. For example, `cloud9:*` specifies all AWS Cloud9 actions and `cloud9:Describe*` specifies all AWS Cloud9 actions that begin with `Describe`.
 
-The following example allows an IAM entity to get information about environments and
-environment memberships for any environment in their account.
+The following example allows an IAM entity to get information about environments and environment memberships for any environment in their account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:Describe*"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloud9:Describe*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-###### Note
+------
 
-The preceding access permission is already included in the AWS managed policy
-`AWSCloud9Administrator`. Also, that the preceding access permission is
-more permissive than the equivalent access permission in the AWS managed policy
-`AWSCloud9User`.
+**Note**  
+The preceding access permission is already included in the AWS managed policy `AWSCloud9Administrator`. Also, that the preceding access permission is more permissive than the equivalent access permission in the AWS managed policy `AWSCloud9User`.
 
 ### AWS Cloud9 API operations and required permissions for actions
+<a name="auth-and-access-control-ref-matrix"></a>
 
-###### Note
+**Note**  
+You can use the tables below as a reference when you're setting up access control and writing permissions policies to attach to an IAM identity (identity-based policies).   
+The [Public API operations](#callable-api) table lists API operations that can be called by customers using SDKs and the AWS Command Line Interface.  
+ The [Permission-only API operations](#permissions-only-api) lists API operations that are not directly callable by customer code or the AWS Command Line Interface. But IAM users do require permissions for these operations that are called when AWS Cloud9 actions are performed using the console. 
 
-You can use the tables below as a reference when you're setting up access control
-and writing permissions policies to attach to an IAM identity (identity-based
-policies).
 
-The [Public API operations](#callable-api "#callable-api") table lists API
-operations that can be called by customers using SDKs and the AWS Command Line Interface.
+**Public API operations**  
 
-The [Permission-only API operations](#permissions-only-api "#permissions-only-api") lists API
-operations that are not directly callable by customer code or the AWS Command Line Interface. But
-IAM users do require permissions for these operations that are called when AWS Cloud9
-actions are performed using the console.
+| AWS Cloud9 operation | Required permission (API action) | Resource | 
+| --- | --- | --- | 
+|  `CreateEnvironmentEC2`  |  `cloud9:CreateEnvironmentEC2` <br />Required to create an AWS Cloud9 EC2 development environment. |  `*`  | 
+|  `CreateEnvironmentMembership`  |  `cloud9:CreateEnvironmentMembership` <br />Required to add a member to an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `DeleteEnvironment`  |  `cloud9:DeleteEnvironment` <br />Required to delete an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `DeleteEnvironmentMembership`  |  `cloud9:DeleteEnvironmentMembership` <br />Required to remove a member from an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `DescribeEnvironmentMemberships`  |  `cloud9:DescribeEnvironmentMemberships` <br />Required to get a list of members in an environment. |  `*`  | 
+|  `DescribeEnvironments`  |  `cloud9:DescribeEnvironments` <br />Required to get information about an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `DescribeEnvironmentStatus`  |  `cloud9:DescribeEnvironmentStatus` <br />Required to get information about the status of an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `UpdateEnvironment`  |  `cloud9:UpdateEnvironment` <br />Required to update settings for an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
+|  `UpdateEnvironmentMembership`  |  `cloud9:UpdateEnvironmentMembership` <br />Required to update settings for a member in an environment. |  `arn:aws:cloud9:REGION_ID:ACCOUNT_ID:environment:ENVIRONMENT_ID `  | 
 
-Public API operations| AWS Cloud9 operation | Required permission (API action) | Resource |
-| --- | --- | --- |
-| `CreateEnvironmentEC2` | `cloud9:CreateEnvironmentEC2`<br>Required to create an AWS Cloud9 EC2 development environment. | `*` |
-| `CreateEnvironmentMembership` | `cloud9:CreateEnvironmentMembership`<br>Required to add a member to an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `DeleteEnvironment` | `cloud9:DeleteEnvironment`<br>Required to delete an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `DeleteEnvironmentMembership` | `cloud9:DeleteEnvironmentMembership`<br>Required to remove a member from an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `DescribeEnvironmentMemberships` | `cloud9:DescribeEnvironmentMemberships`<br>Required to get a list of members in an environment. | `*` |
-| `DescribeEnvironments` | `cloud9:DescribeEnvironments`<br>Required to get information about an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `DescribeEnvironmentStatus` | `cloud9:DescribeEnvironmentStatus`<br>Required to get information about the status of an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `UpdateEnvironment` | `cloud9:UpdateEnvironment`<br>Required to update settings for an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
-| `UpdateEnvironmentMembership` | `cloud9:UpdateEnvironmentMembership`<br>Required to update settings for a member in an environment. | `arn:aws:cloud9:*REGION\_ID*:*ACCOUNT\_ID*:environment:*ENVIRONMENT\_ID*` |
 
-Permission-only API operations| AWS Cloud9 operation | Description | Console documentation |
-| --- | --- | --- |
-| `ActivateEC2Remote` | `cloud9:ActivateEC2Remote`<br>Starts the Amazon EC2 instance that your AWS Cloud9 IDE connects to. | [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md") |
-| `CreateEnvironmentSSH` | `cloud9:CreateEnvironmentSSH`<br>Creates an AWS Cloud9 SSH development environment. | [Creating an SSH Environment](create-environment-ssh.md "create-environment-ssh.md") |
-| `CreateEnvironmentToken` | `cloud9:CreateEnvironmentToken`<br>Creates an authentication token that allows a connection between the<br>AWS Cloud9 IDE and the user's environment. | [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md") |
-| `DescribeEC2Remote` | `cloud9:DescribeEC2Remote`<br>Gets details about the connection to the EC2 development environment,<br>including host, user, and port. | [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md") |
-| `DescribeSSHRemote` | `cloud9:DescribeSSHRemote`<br>Gets details about the connection to the SSH development environment,<br>including host, user, and port. | [Creating an SSH Environment](create-environment-ssh.md "create-environment-ssh.md") |
-| `GetEnvironmentConfig` | `cloud9:GetEnvironmentConfig`<br>Gets configuration information that's used to initialize the<br>AWS Cloud9 IDE. | [Working with the AWS Cloud9 IDE](ide.md "ide.md") |
-| `GetEnvironmentSettings` | `cloud9:GetEnvironmentSettings`<br>Gets the AWS Cloud9 IDE settings for a specified development<br>environment. | [Working with the AWS Cloud9 IDE](ide.md "ide.md") |
-| `GetMembershipSettings` | `cloud9:GetMembershipSettings`<br>Gets the AWS Cloud9 IDE settings for a specified environment member. | [Working with shared environment in AWS Cloud9](share-environment.md "share-environment.md") |
-| `GetUserPublicKey` | `cloud9:GetUserPublicKey`<br>Gets the user's public SSH key, which is used by AWS Cloud9 to connect to<br>SSH development environments. | [Creating an SSH Environment](create-environment-ssh.md "create-environment-ssh.md") |
-| `GetUserSettings` | `cloud9:GetUserSettings`<br>Gets the AWS Cloud9 IDE settings for a specified user. | [Working with the AWS Cloud9 IDE](ide.md "ide.md") |
-| `ModifyTemporaryCredentialsOnEnvironmentEC2` | `cloud9:ModifyTemporaryCredentialsOnEnvironmentEC2`<br>Sets AWS managed temporary credentials on the Amazon EC2 instance that's used by the<br>AWS Cloud9 integrated development environment (IDE). | [AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials "#auth-and-access-control-temporary-managed-credentials") |
-| `UpdateEnvironmentSettings` | `cloud9:UpdateEnvironmentSettings`<br>Updates the AWS Cloud9 IDE settings for a specified development<br>environment. | [Working with the AWS Cloud9 IDE](ide.md "ide.md") |
-| `UpdateMembershipSettings` | `cloud9:UpdateMembershipSettings`<br>Updates the AWS Cloud9 IDE settings for a specified environment<br>member. | [Working with shared environment in AWS Cloud9](share-environment.md "share-environment.md") |
-| `UpdateSSHRemote` | `cloud9:UpdateSSHRemote`<br>Updates details about the connection to the SSH development<br>environment, including host, user, and port. | [Creating an SSH Environment](create-environment-ssh.md "create-environment-ssh.md") |
-| `UpdateUserSettings` | `cloud9:UpdateUserSettings`<br>Updates the AWS Cloud9 IDE settings for a specified user. | [Working with the AWS Cloud9 IDE](ide.md "ide.md") |
-| `GetMigrationExperiences` | `cloud9:GetMigrationExperiences`<br>Grants permission to a AWS Cloud9 user to get the migration experience from<br>AWS Cloud9 to CodeCatalyst. |
+**Permission-only API operations**  
+
+| AWS Cloud9 operation | Description | Console documentation | 
+| --- | --- | --- | 
+|  `ActivateEC2Remote`  |  `cloud9:ActivateEC2Remote` <br />Starts the Amazon EC2 instance that your AWS Cloud9 IDE connects to. |  [Opening an environment in AWS Cloud9](open-environment.md)  | 
+|  `CreateEnvironmentSSH`  |  `cloud9:CreateEnvironmentSSH` <br />Creates an AWS Cloud9 SSH development environment. |  [Creating an SSH Environment](create-environment-ssh.md) | 
+|  `CreateEnvironmentToken`  |  `cloud9:CreateEnvironmentToken` <br />Creates an authentication token that allows a connection between the AWS Cloud9 IDE and the user's environment. |  [Creating an EC2 Environment](create-environment-main.md) | 
+|  `DescribeEC2Remote`  |  `cloud9:DescribeEC2Remote` <br />Gets details about the connection to the EC2 development environment, including host, user, and port. |  [Creating an EC2 Environment](create-environment-main.md) | 
+|  `DescribeSSHRemote`  |  `cloud9:DescribeSSHRemote` <br />Gets details about the connection to the SSH development environment, including host, user, and port. |  [Creating an SSH Environment](create-environment-ssh.md)  | 
+|  `GetEnvironmentConfig`  | `cloud9:GetEnvironmentConfig` <br />Gets configuration information that's used to initialize the AWS Cloud9 IDE. |  [Working with the AWS Cloud9 IDE](ide.md)  | 
+|  `GetEnvironmentSettings`  | `cloud9:GetEnvironmentSettings` <br />Gets the AWS Cloud9 IDE settings for a specified development environment. |  [Working with the AWS Cloud9 IDE](ide.md)  | 
+|  `GetMembershipSettings`  |  `cloud9:GetMembershipSettings` <br />Gets the AWS Cloud9 IDE settings for a specified environment member. |  [Working with shared environment in AWS Cloud9](share-environment.md)  | 
+|  `GetUserPublicKey`  |  `cloud9:GetUserPublicKey` <br />Gets the user's public SSH key, which is used by AWS Cloud9 to connect to SSH development environments. |  [Creating an SSH Environment](create-environment-ssh.md)  | 
+|  `GetUserSettings`  |  `cloud9:GetUserSettings` <br />Gets the AWS Cloud9 IDE settings for a specified user. |  [Working with the AWS Cloud9 IDE](ide.md)  | 
+|  `ModifyTemporaryCredentialsOnEnvironmentEC2`  | `cloud9:ModifyTemporaryCredentialsOnEnvironmentEC2` <br />Sets AWS managed temporary credentials on the Amazon EC2 instance that's used by the AWS Cloud9 integrated development environment (IDE). |  [AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials)  | 
+|  `UpdateEnvironmentSettings`  |  `cloud9:UpdateEnvironmentSettings` <br />Updates the AWS Cloud9 IDE settings for a specified development environment. |  [Working with the AWS Cloud9 IDE](ide.md)  | 
+|  `UpdateMembershipSettings`  |  `cloud9:UpdateMembershipSettings` <br />Updates the AWS Cloud9 IDE settings for a specified environment member. |  [Working with shared environment in AWS Cloud9](share-environment.md)  | 
+|  `UpdateSSHRemote`  |  `cloud9:UpdateSSHRemote` <br />Updates details about the connection to the SSH development environment, including host, user, and port. |  [Creating an SSH Environment](create-environment-ssh.md)  | 
+|  `UpdateUserSettings`  |  `cloud9:UpdateUserSettings` <br />Updates the AWS Cloud9 IDE settings for a specified user. |  [Working with the AWS Cloud9 IDE](ide.md)  | 
+|  `GetMigrationExperiences`  |  `cloud9:GetMigrationExperiences` <br />Grants permission to a AWS Cloud9 user to get the migration experience from AWS Cloud9 to CodeCatalyst. | 
 
 ## AWS managed temporary credentials
+<a name="auth-and-access-control-temporary-managed-credentials"></a>
 
-|                                                                                                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| If you're just looking for the list of actions that AWS managed temporary credentials<br>supports, skip ahead to [Actions supported by AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-supported "#auth-and-access-control-temporary-managed-credentials-supported"). |
 
-For an AWS Cloud9 EC2 development environment, AWS Cloud9 makes temporary AWS access credentials available to you in
-the environment. We call these _AWS managed temporary credentials_. This provides the following
-benefits:
 
-- You don't need to store the permanent AWS access credentials of an AWS entity
-  (for example, an IAM user) anywhere in the environment. This prevents those credentials
-  from being accessed by environment members without your knowledge and approval.
-- You don't need to manually set up, manage, or attach an instance profile to the
-  Amazon EC2 instance that connects to the environment. An instance profile is another approach
-  for managing temporary AWS access credentials.
-- AWS Cloud9 continually renews its temporary credentials, so a single set of credentials
-  can be used only for a limited time. This is an AWS security best practice. For
-  more information, see [Creating and updating AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-create-update "#auth-and-access-control-temporary-managed-credentials-create-update").
-- AWS Cloud9 puts additional restrictions on how its temporary credentials can be used to
-  access AWS actions and resources from the environment. This is also an AWS security
-  best practice.
+|  | 
+| --- |
+| If you're just looking for the list of actions that AWS managed temporary credentials supports, skip ahead to [Actions supported by AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-supported). | 
 
-###### Important
+For an AWS Cloud9 EC2 development environment, AWS Cloud9 makes temporary AWS access credentials available to you in the environment. We call these *AWS managed temporary credentials*. This provides the following benefits:
++ You don't need to store the permanent AWS access credentials of an AWS entity (for example, an IAM user) anywhere in the environment. This prevents those credentials from being accessed by environment members without your knowledge and approval.
++ You don't need to manually set up, manage, or attach an instance profile to the Amazon EC2 instance that connects to the environment. An instance profile is another approach for managing temporary AWS access credentials.
++ AWS Cloud9 continually renews its temporary credentials, so a single set of credentials can be used only for a limited time. This is an AWS security best practice. For more information, see [Creating and updating AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-create-update).
++ AWS Cloud9 puts additional restrictions on how its temporary credentials can be used to access AWS actions and resources from the environment. This is also an AWS security best practice.
 
-Currently, if your environment’s EC2 instance is launched into a **private subnet**, you can't use AWS managed temporary credentials to allow the EC2
-environment to access an AWS service on behalf of an AWS entity (for example, an
-IAM user).
+**Important**  
+Currently, if your environment’s EC2 instance is launched into a **private subnet**, you can't use AWS managed temporary credentials to allow the EC2 environment to access an AWS service on behalf of an AWS entity (for example, an IAM user).  
+For more information about when you can launch an EC2 instance into a private subnet, see [Create a subnet for AWS Cloud9](vpc-settings.md#vpc-settings-create-subnet).
 
-For more information about when you can launch an EC2 instance into a private subnet,
-see [Create a subnet for AWS Cloud9](vpc-settings.md#vpc-settings-create-subnet "vpc-settings.md#vpc-settings-create-subnet").
+**Note**  
+Consider using an AWS managed policy instead of an inline policy when you're using AWS managed temporary credentials.
 
-###### Note
+Here's how AWS managed temporary credentials work whenever an EC2 environment tries to access an AWS service on behalf of an AWS entity (for example, an IAM user):
 
-Consider using an AWS managed policy instead of an inline policy when you're using
-AWS managed temporary credentials.
+1. AWS Cloud9 checks to see if the calling AWS entity (for example, the IAM user) has permissions to take the requested action for the requested resource in AWS. If the permission doesn't exist or is explicitly denied, the request fails.
 
-Here's how AWS managed temporary credentials work whenever an EC2 environment tries to access an AWS service on
-behalf of an AWS entity (for example, an IAM user):
+1. AWS Cloud9 checks AWS managed temporary credentials to see if its permissions allow the requested action for the requested resource in AWS. If the permission doesn't exist or is explicitly denied, the request fails. For a list of permissions that AWS managed temporary credentials support, see [Actions supported by AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-supported).
++ If both the AWS entity and AWS managed temporary credentials allow the requested action for the requested resource, the request succeeds.
++ If either the AWS entity or AWS managed temporary credentials explicitly deny or fail to explicitly allow the requested action for the requested resource, the request fails. This means that even if the calling AWS entity has the correct permissions, the request will fail if AWS Cloud9 doesn't also explicitly allow it. Likewise, if AWS Cloud9 allows a specific action to be taken for a specific resource, the request fails if the AWS entity doesn't also explicitly allow it.
 
-1. AWS Cloud9 checks to see if the calling AWS entity (for example, the IAM user) has
-   permissions to take the requested action for the requested resource in AWS. If the
-   permission doesn't exist or is explicitly denied, the request fails.
-2. AWS Cloud9 checks AWS managed temporary credentials to see if its permissions allow the requested action
-   for the requested resource in AWS. If the permission doesn't exist or is explicitly
-   denied, the request fails. For a list of permissions that AWS managed temporary credentials support, see
-   [Actions supported by AWS managed temporary credentials](#auth-and-access-control-temporary-managed-credentials-supported "#auth-and-access-control-temporary-managed-credentials-supported").
+The owner of an EC2 environment can turn on or off AWS managed temporary credentials for that environment at any time, as follows:
 
-- If both the AWS entity and AWS managed temporary credentials allow the requested action for the
-  requested resource, the request succeeds.
-- If either the AWS entity or AWS managed temporary credentials explicitly deny or fail to explicitly
-  allow the requested action for the requested resource, the request fails. This means
-  that even if the calling AWS entity has the correct permissions, the request will
-  fail if AWS Cloud9 doesn't also explicitly allow it. Likewise, if AWS Cloud9 allows a specific
-  action to be taken for a specific resource, the request fails if the AWS entity
-  doesn't also explicitly allow it.
+1. With the environment open, in the AWS Cloud9 IDE, on the menu bar choose **AWS Cloud9, Preferences**.
 
-The owner of an EC2 environment can turn on or off AWS managed temporary credentials for that environment at any time,
-as follows:
+1. On the **Preferences** tab, in the navigation pane, choose **AWS Settings, Credentials**.
 
-1. With the environment open, in the AWS Cloud9 IDE, on the menu bar choose **AWS Cloud9,
-   Preferences**.
-2. On the **Preferences** tab, in the navigation pane, choose
-   **AWS Settings, Credentials**.
-3. Use **AWS managed temporary credentials** to turn
-   AWS managed temporary credentials on or off.
+1. Use **AWS managed temporary credentials** to turn AWS managed temporary credentials on or off.
 
-###### Note
+**Note**  
+You can also turn on or off AWS managed temporary credentials by calling the AWS Cloud9 API operation [`UpdateEnvironment`](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_UpdateEnvironment.html) and assigning a value to the `managedCredentialsAction` parameter. You can request this API operation using standard AWS tools such as AWS SDKs and the AWS CLI. 
 
-You can also turn on or off AWS managed temporary credentials by calling the AWS Cloud9 API operation [`UpdateEnvironment`](../APIReference/API_UpdateEnvironment.md "../APIReference/API_UpdateEnvironment.md") and assigning a value to the
-`managedCredentialsAction` parameter. You can request this API operation
-using standard AWS tools such as AWS SDKs and the AWS CLI.
+If you turn off AWS managed temporary credentials, the environment cannot access any AWS services, regardless of the AWS entity who makes the request. But, suppose that you can't or don't want to turn on AWS managed temporary credentials for an environment, and you still need the environment to access AWS services. Then, consider the following alternatives:
++ Attach an instance profile to the Amazon EC2 instance that connects to the environment. For instructions, see [Create and Use an Instance Profile to Manage Temporary Credentials](credentials.md#credentials-temporary).
++ Store your permanent AWS access credentials in the environment, for example, by setting special environment variables or by running the `aws configure` command. For instructions, see [Create and store permanent access credentials in an Environment](credentials.md#credentials-permanent-create).
 
-If you turn off AWS managed temporary credentials, the environment cannot access any AWS services, regardless
-of the AWS entity who makes the request. But, suppose that you can't or don't want to
-turn on AWS managed temporary credentials for an environment, and you still need the environment to access AWS services.
-Then, consider the following alternatives:
-
-- Attach an instance profile to the Amazon EC2 instance that connects to the environment. For
-  instructions, see [Create and Use an Instance
-  Profile to Manage Temporary Credentials](credentials.md#credentials-temporary "credentials.md#credentials-temporary").
-- Store your permanent AWS access credentials in the environment, for example, by
-  setting special environment variables or by running the `aws configure`
-  command. For instructions, see [Create and store permanent access credentials in an Environment](credentials.md#credentials-permanent-create "credentials.md#credentials-permanent-create").
-
-The preceding alternatives override all permissions that are allowed (or denied) by
-AWS managed temporary credentials in an EC2 environment.
+The preceding alternatives override all permissions that are allowed (or denied) by AWS managed temporary credentials in an EC2 environment.
 
 ### Actions supported by AWS managed temporary credentials
+<a name="auth-and-access-control-temporary-managed-credentials-supported"></a>
 
-For an AWS Cloud9 EC2 development environment, AWS managed temporary credentials allow all AWS actions for all AWS resources
-in the caller's AWS account, with the following restrictions:
+For an AWS Cloud9 EC2 development environment, AWS managed temporary credentials allow all AWS actions for all AWS resources in the caller's AWS account, with the following restrictions:
++ For AWS Cloud9, only the following actions are allowed:
+  +  `cloud9:CreateEnvironmentEC2` 
+  +  `cloud9:CreateEnvironmentSSH` 
+  +  `cloud9:DescribeEnvironmentMemberships` 
+  +  `cloud9:DescribeEnvironments` 
+  +  `cloud9:DescribeEnvironmentStatus` 
+  +  `cloud9:UpdateEnvironment` 
++ For IAM, only the following actions are allowed:
+  +  `iam:AttachRolePolicy` 
+  +  `iam:ChangePassword` 
+  +  `iam:CreatePolicy` 
+  +  `iam:CreatePolicyVersion` 
+  +  `iam:CreateRole` 
+  +  `iam:CreateServiceLinkedRole` 
+  +  `iam:DeletePolicy` 
+  +  `iam:DeletePolicyVersion` 
+  +  `iam:DeleteRole` 
+  +  `iam:DeleteRolePolicy` 
+  +  `iam:DeleteSSHPublicKey` 
+  +  `iam:DetachRolePolicy` 
+  +  `iam:GetInstanceProfile` 
+  +  `iam:GetPolicy` 
+  +  `iam:GetPolicyVersion` 
+  +  `iam:GetRole` 
+  +  `iam:GetRolePolicy` 
+  +  `iam:GetSSHPublicKey` 
+  +  `iam:GetUser` 
+  +  `iam:List*` 
+  +  `iam:PassRole` 
+  +  `iam:PutRolePolicy` 
+  +  `iam:SetDefaultPolicyVersion` 
+  +  `iam:UpdateAssumeRolePolicy` 
+  +  `iam:UpdateRoleDescription` 
+  +  `iam:UpdateSSHPublicKey` 
+  +  `iam:UploadSSHPublicKey` 
++ All IAM actions that interact with roles are allowed only for role names starting with `Cloud9-`. However, `iam:PassRole` works with all role names.
++ For AWS Security Token Service (AWS STS), only the following actions are allowed:
+  +  `sts:GetCallerIdentity` 
+  +  `sts:DecodeAuthorizationMessage` 
++ All supported AWS actions are restricted to the IP address of the environment. This is an AWS security best practice.
 
-- For AWS Cloud9, only the following actions are allowed:
+If AWS Cloud9 doesn't support an action or resource that you need an EC2 environment to access, or if AWS managed temporary credentials is turned off for an EC2 environment and you can't turn it back on, consider the following alternatives:
++ Attach an instance profile to the Amazon EC2 instance that connects to the EC2 environment. For instructions, see [Create and use an instance profile to manage temporary credentials](credentials.md#credentials-temporary).
++ Store your permanent AWS access credentials in the EC2 environment, for example, by setting special environment variables or by running the `aws configure` command. For instructions, see [Create and store permanent access credentials in an Environment](credentials.md#credentials-permanent-create).
 
-  - `cloud9:CreateEnvironmentEC2`
-  - `cloud9:CreateEnvironmentSSH`
-  - `cloud9:DescribeEnvironmentMemberships`
-  - `cloud9:DescribeEnvironments`
-  - `cloud9:DescribeEnvironmentStatus`
-  - `cloud9:UpdateEnvironment`
-
-- For IAM, only the following actions are allowed:
-
-  - `iam:AttachRolePolicy`
-  - `iam:ChangePassword`
-  - `iam:CreatePolicy`
-  - `iam:CreatePolicyVersion`
-  - `iam:CreateRole`
-  - `iam:CreateServiceLinkedRole`
-  - `iam:DeletePolicy`
-  - `iam:DeletePolicyVersion`
-  - `iam:DeleteRole`
-  - `iam:DeleteRolePolicy`
-  - `iam:DeleteSSHPublicKey`
-  - `iam:DetachRolePolicy`
-  - `iam:GetInstanceProfile`
-  - `iam:GetPolicy`
-  - `iam:GetPolicyVersion`
-  - `iam:GetRole`
-  - `iam:GetRolePolicy`
-  - `iam:GetSSHPublicKey`
-  - `iam:GetUser`
-  - `iam:List*`
-  - `iam:PassRole`
-  - `iam:PutRolePolicy`
-  - `iam:SetDefaultPolicyVersion`
-  - `iam:UpdateAssumeRolePolicy`
-  - `iam:UpdateRoleDescription`
-  - `iam:UpdateSSHPublicKey`
-  - `iam:UploadSSHPublicKey`
-
-- All IAM actions that interact with roles are allowed only for role names
-  starting with `Cloud9-`. However, `iam:PassRole` works with
-  all role names.
-- For AWS Security Token Service (AWS STS), only the following actions are allowed:
-
-  - `sts:GetCallerIdentity`
-  - `sts:DecodeAuthorizationMessage`
-
-- All supported AWS actions are restricted to the IP address of the
-  environment. This is an AWS security best practice.
-
-If AWS Cloud9 doesn't support an action or resource that you need an EC2 environment to access,
-or if AWS managed temporary credentials is turned off for an EC2 environment and you can't turn it back on,
-consider the following alternatives:
-
-- Attach an instance profile to the Amazon EC2 instance that connects to the EC2 environment.
-  For instructions, see [Create and use an instance profile to manage temporary credentials](credentials.md#credentials-temporary "credentials.md#credentials-temporary").
-- Store your permanent AWS access credentials in the EC2 environment, for example, by
-  setting special environment variables or by running the `aws configure`
-  command. For instructions, see [Create and store permanent access credentials in an Environment](credentials.md#credentials-permanent-create "credentials.md#credentials-permanent-create").
-
-The preceding alternatives override all permissions that are allowed (or denied) by
-AWS managed temporary credentials in an EC2 environment.
+The preceding alternatives override all permissions that are allowed (or denied) by AWS managed temporary credentials in an EC2 environment.
 
 #### Creating and updating AWS managed temporary credentials
+<a name="auth-and-access-control-temporary-managed-credentials-create-update"></a>
 
-For an AWS Cloud9 EC2 development environment, AWS managed temporary credentials are created the first time you open the
-environment.
+For an AWS Cloud9 EC2 development environment, AWS managed temporary credentials are created the first time you open the environment.
 
 AWS managed temporary credentials are updated under any of the following conditions:
-
-- Whenever a certain period of time passes. Currently, this is every five
-  minutes.
-- Whenever you reload the web browser tab that displays the IDE for the
-  environment.
-- When the timestamp that is listed in the
-  `~/.aws/credentials` file for the environment is
-  reached.
-- If the **AWS managed temporary credentials** setting is
-  set to off, whenever you turn it back on. (To view or change this setting,
-  choose **AWS Cloud9, Preferences** in the menu bar of the
-  IDE. On the **Preferences** tab, in the navigation pane,
-  choose **AWS Settings, Credentials**.)
-- For security, AWS managed temporary credentials expire automatically after 15 minutes. For
-  credentials to be refreshed, the environment owner must be connected to the
-  AWS Cloud9 environment through the IDE. For more information on the role of the
-  environment owner, see [Controlling access to AWS managed temporary credentials](#temporary-managed-credentials-control "#temporary-managed-credentials-control").
++ Whenever a certain period of time passes. Currently, this is every five minutes.
++ Whenever you reload the web browser tab that displays the IDE for the environment.
++ When the timestamp that is listed in the `~/.aws/credentials` file for the environment is reached.
++ If the **AWS managed temporary credentials** setting is set to off, whenever you turn it back on. (To view or change this setting, choose **AWS Cloud9, Preferences** in the menu bar of the IDE. On the **Preferences** tab, in the navigation pane, choose **AWS Settings, Credentials**.)
++ For security, AWS managed temporary credentials expire automatically after 15 minutes. For credentials to be refreshed, the environment owner must be connected to the AWS Cloud9 environment through the IDE. For more information on the role of the environment owner, see [Controlling access to AWS managed temporary credentials](#temporary-managed-credentials-control).
 
 #### Controlling access to AWS managed temporary credentials
+<a name="temporary-managed-credentials-control"></a>
 
-A collaborator with AWS managed temporary credentials can use AWS Cloud9 to interact with other
-AWS services. To ensure that only trusted collaborators are provided with
-AWS managed temporary credentials, these credentials are disabled if a new member is added by anyone
-other than the environment owner. The credentials are disabled by the deletion of the
-`~/.aws/credentials` file.
+A collaborator with AWS managed temporary credentials can use AWS Cloud9 to interact with other AWS services. To ensure that only trusted collaborators are provided with AWS managed temporary credentials, these credentials are disabled if a new member is added by anyone other than the environment owner. The credentials are disabled by the deletion of the `~/.aws/credentials` file.
 
-###### Important
+**Important**  
+AWS managed temporary credentials also expire automatically every 15 minutes. For the credentials to be refreshed so that collaborators can continue to use them, the environment owner must be connected to AWS Cloud9 environment through the IDE. 
 
-AWS managed temporary credentials also expire automatically every 15 minutes. For the credentials
-to be refreshed so that collaborators can continue to use them, the environment
-owner must be connected to AWS Cloud9 environment through the IDE.
+Only the environment owner can re-enable AWS managed temporary credentials so that they can be shared with other members. When the environment owner opens the IDE, a dialog box confirms that AWS managed temporary credentials are disabled. The environment owner can re-enable the credentials for all members or keep them disabled for all members.
 
-Only the environment owner can re-enable AWS managed temporary credentials so that they can be shared
-with other members. When the environment owner opens the IDE, a dialog box confirms
-that AWS managed temporary credentials are disabled. The environment owner can re-enable the credentials
-for all members or keep them disabled for all members.
-
-###### Warning
-
-To comply with best security practices, keep the managed temporary credentials
-disabled if you're not certain about the identity of the last user added to the
-environment. You can check the list of members with read/write permissions in the
-[Collaborate](share-environment-members-list.md "share-environment-members-list.md") window.
+**Warning**  
+To comply with best security practices, keep the managed temporary credentials disabled if you're not certain about the identity of the last user added to the environment. You can check the list of members with read/write permissions in the [Collaborate](share-environment-members-list.md) window. 

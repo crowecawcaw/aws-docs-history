@@ -1,213 +1,171 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # .NET tutorial for AWS Cloud9
+<a name="sample-dotnetcore"></a>
 
 This tutorial enables you to run some .NET code in an AWS Cloud9 development environment.
 
-Following this tutorial and creating this sample might result in charges to your AWS account. These include possible
-charges for services such as Amazon EC2 and Amazon S3. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+Following this tutorial and creating this sample might result in charges to your AWS account. These include possible charges for services such as Amazon EC2 and Amazon S3. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-###### Topics
-
-- [Prerequisites](#sample-dotnetcore-prereqs "#sample-dotnetcore-prereqs")
-- [Step 1: Install required tools](#sample-dotnetcore-setup "#sample-dotnetcore-setup")
-- [Step 2 (Optional): Install the .NET CLI extension for Lambda functions](#sample-dotnetcore-lambda "#sample-dotnetcore-lambda")
-- [Step 3: Create a .NET console application project](#sample-dotnetcore-app "#sample-dotnetcore-app")
-- [Step 4: Add code](#sample-dotnetcore-code "#sample-dotnetcore-code")
-- [Step 5: Build and run the code](#sample-dotnetcore-run "#sample-dotnetcore-run")
-- [Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET](#sample-dotnetcore-sdk "#sample-dotnetcore-sdk")
-- [Step 7: Add AWS SDK code](#sample-dotnetcore-sdk-code "#sample-dotnetcore-sdk-code")
-- [Step 8: Build and run the AWS SDK code](#sample-dotnetcore-sdk-run "#sample-dotnetcore-sdk-run")
-- [Step 9: Clean up](#sample-dotnetcore-clean-up "#sample-dotnetcore-clean-up")
+**Topics**
++ [Prerequisites](#sample-dotnetcore-prereqs)
++ [Step 1: Install required tools](#sample-dotnetcore-setup)
++ [Step 2 (Optional): Install the .NET CLI extension for Lambda functions](#sample-dotnetcore-lambda)
++ [Step 3: Create a .NET console application project](#sample-dotnetcore-app)
++ [Step 4: Add code](#sample-dotnetcore-code)
++ [Step 5: Build and run the code](#sample-dotnetcore-run)
++ [Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET](#sample-dotnetcore-sdk)
++ [Step 7: Add AWS SDK code](#sample-dotnetcore-sdk-code)
++ [Step 8: Build and run the AWS SDK code](#sample-dotnetcore-sdk-run)
++ [Step 9: Clean up](#sample-dotnetcore-clean-up)
 
 ## Prerequisites
+<a name="sample-dotnetcore-prereqs"></a>
 
-Before you use this sample, make sure that your setup meets the following
-requirements:
-
-- **You must have an existing AWS Cloud9 EC2 development environment.** This sample
-  assumes that you already have an EC2 environment that's connected to an Amazon EC2 instance that
-  runs Amazon Linux or Ubuntu Server. If you have a different type of environment or
-  operating system, you might need to adapt this sample's instructions to set up related
-  tools. For more information, see [Creating an environment in AWS Cloud9](create-environment.md "create-environment.md").
-- **You have the AWS Cloud9 IDE for the existing environment already
-  open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your
-  web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md").
+Before you use this sample, make sure that your setup meets the following requirements:
++ **You must have an existing AWS Cloud9 EC2 development environment.** This sample assumes that you already have an EC2 environment that's connected to an Amazon EC2 instance that runs Amazon Linux or Ubuntu Server. If you have a different type of environment or operating system, you might need to adapt this sample's instructions to set up related tools. For more information, see [Creating an environment in AWS Cloud9](create-environment.md).
++ **You have the AWS Cloud9 IDE for the existing environment already open.** When you open an environment, AWS Cloud9 opens the IDE for that environment in your web browser. For more information, see [Opening an environment in AWS Cloud9](open-environment.md).
 
 ## Step 1: Install required tools
+<a name="sample-dotnetcore-setup"></a>
 
-In this step, you install the .NET SDK into your environment, which is required to run this
-sample.
+In this step, you install the .NET SDK into your environment, which is required to run this sample.
 
-1. Confirm whether the latest version of the .NET SDK is already installed in your
-   environment. To do this, in a terminal session in the AWS Cloud9 IDE, run the .NET Core command
-   line interface (CLI) with the **`--version`** option.
-
-```
-dotnet --version
-```
-
-If the .NET Command Line Tools version is displayed, and the version is 2.0 or
-greater, skip ahead to [Step 3: Create a .NET console application project](#sample-dotnetcore-app "#sample-dotnetcore-app"). If the version is less than 2.0, or if an
-error such as `bash: dotnet: command not found` is displayed, continue on
-to install the .NET SDK. 2. For Amazon Linux, in a terminal session in the AWS Cloud9 IDE, run the following commands to
-help ensure the latest security updates and bug fixes are installed, and to install a
-`libunwind` package that the .NET SDK needs. (To start a new terminal
-session, on the menu bar, choose **Window, New Terminal**.)
-
-```
-sudo yum -y update
-sudo yum -y install libunwind
-```
-
-For Ubuntu Server, in a terminal session in the AWS Cloud9 IDE, run the following
-command to help ensure the latest security updates and bug fixes are installed. (To
-start a new terminal session, on the menu bar, choose **Window, New
-Terminal**.)
-
-```
-sudo apt -y update
-```
-
-3. Download the .NET SDK installer script into your environment by running the following
-   command.
-
-```
-wget https://dot.net/v1/dotnet-install.sh
-```
-
-4. Make the installer script executable by the current user by running the following
-   command.
-
-```
-sudo chmod u=rx dotnet-install.sh
-```
-
-5. Run the installer script, which downloads and installs the .NET SDK, by running
-   the following command.
-
-```
-./dotnet-install.sh -c Current
-```
-
-6. Add the .NET SDK to your `PATH`. To do this, in the shell profile for
-   the environment (for example, the `.bashrc` file), add the
-   `$HOME/.dotnet` subdirectory to the `PATH` variable
-   for the environment, as follows.
-
-   1. Open the `.bashrc` file for editing by using the
-      **`vi`** command.
+1. Confirm whether the latest version of the .NET SDK is already installed in your environment. To do this, in a terminal session in the AWS Cloud9 IDE, run the .NET Core command line interface (CLI) with the ** `--version` ** option.
 
    ```
-   vi ~/.bashrc
-   ```
-   2. For Amazon Linux, using the down arrow or `j` key, move to the line that
-      starts with `export PATH`.
-
-   For Ubuntu Server, move to the last line of the file by typing
-   `G`. 3. Using the right arrow or `$` key, move to the end of that
-   line. 4. Switch to insert mode by pressing the `i` key. (`-- INSERT
-  ---` will appear at the end of the display.) 5. For Amazon Linux, add the `$HOME/.dotnet` subdirectory to the
-   **`PATH`** variable by typing `:$HOME/.dotnet`. Be sure to include
-   the colon character (`:`). The line should now look similar to the
-   following.
-
-   ```
-   export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.dotnet
+   dotnet --version
    ```
 
-   For Ubuntu Server, press the right arrow key and then press
-   `Enter` twice, followed by typing the following line by itself at
-   the end of the file.
+   If the .NET Command Line Tools version is displayed, and the version is 2.0 or greater, skip ahead to [Step 3: Create a .NET console application project](#sample-dotnetcore-app). If the version is less than 2.0, or if an error such as `bash: dotnet: command not found` is displayed, continue on to install the .NET SDK.
+
+1. For Amazon Linux, in a terminal session in the AWS Cloud9 IDE, run the following commands to help ensure the latest security updates and bug fixes are installed, and to install a `libunwind` package that the .NET SDK needs. (To start a new terminal session, on the menu bar, choose **Window, New Terminal**.)
 
    ```
-   export PATH=$HOME/.dotnet:$PATH
+   sudo yum -y update
+   sudo yum -y install libunwind
    ```
-   6. Save the file. To do this, press the `Esc` key (`-- INSERT
-  ---` will disappear from the end of the display), type
-      `:wq` (to write to and then quit the file), and then press
-      `Enter`.
 
-7. Load the .NET SDK by sourcing the `.bashrc` file.
+   For Ubuntu Server, in a terminal session in the AWS Cloud9 IDE, run the following command to help ensure the latest security updates and bug fixes are installed. (To start a new terminal session, on the menu bar, choose **Window, New Terminal**.)
 
-```
-. ~/.bashrc
-```
+   ```
+   sudo apt -y update
+   ```
 
-8. Confirm the .NET SDK is loaded by running .NET CLI with the **`--help`** option.
+1. Download the .NET SDK installer script into your environment by running the following command.
 
-```
-dotnet --help
-```
+   ```
+   wget https://dot.net/v1/dotnet-install.sh
+   ```
 
-If successful, the .NET SDK version number is displayed, with additional usage
-information. 9. If you no longer want to keep the .NET SDK installer script in your environment, you can
-delete it as follows.
+1. Make the installer script executable by the current user by running the following command.
 
-```
-rm dotnet-install.sh
-```
+   ```
+   sudo chmod u=rx dotnet-install.sh
+   ```
+
+1. Run the installer script, which downloads and installs the .NET SDK, by running the following command.
+
+   ```
+   ./dotnet-install.sh -c Current
+   ```
+
+1. Add the .NET SDK to your `PATH`. To do this, in the shell profile for the environment (for example, the `.bashrc` file), add the `$HOME/.dotnet` subdirectory to the `PATH` variable for the environment, as follows.
+
+   1. Open the `.bashrc` file for editing by using the ** `vi` ** command.
+
+      ```
+      vi ~/.bashrc
+      ```
+
+   1. For Amazon Linux, using the down arrow or `j` key, move to the line that starts with `export PATH`.
+
+      For Ubuntu Server, move to the last line of the file by typing `G`.
+
+   1. Using the right arrow or `$` key, move to the end of that line.
+
+   1. Switch to insert mode by pressing the `i` key. (`-- INSERT ---` will appear at the end of the display.)
+
+   1. For Amazon Linux, add the `$HOME/.dotnet` subdirectory to the ** `PATH` ** variable by typing `:$HOME/.dotnet`. Be sure to include the colon character (`:`). The line should now look similar to the following.
+
+      ```
+      export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.dotnet
+      ```
+
+      For Ubuntu Server, press the right arrow key and then press `Enter` twice, followed by typing the following line by itself at the end of the file.
+
+      ```
+      export PATH=$HOME/.dotnet:$PATH
+      ```
+
+   1. Save the file. To do this, press the `Esc` key (`-- INSERT ---` will disappear from the end of the display), type `:wq` (to write to and then quit the file), and then press `Enter`.
+
+1. Load the .NET SDK by sourcing the `.bashrc` file.
+
+   ```
+   . ~/.bashrc
+   ```
+
+1. Confirm the .NET SDK is loaded by running .NET CLI with the ** `--help` ** option.
+
+   ```
+   dotnet --help
+   ```
+
+   If successful, the .NET SDK version number is displayed, with additional usage information.
+
+1. If you no longer want to keep the .NET SDK installer script in your environment, you can delete it as follows.
+
+   ```
+   rm dotnet-install.sh
+   ```
 
 ## Step 2 (Optional): Install the .NET CLI extension for Lambda functions
+<a name="sample-dotnetcore-lambda"></a>
 
-Although not required for this tutorial, you can deploy AWS Lambda functions and
-AWS Serverless Application Model applications using the .NET CLI if you also install the
-`Amazon.Lambda.Tools` package.
+Although not required for this tutorial, you can deploy AWS Lambda functions and AWS Serverless Application Model applications using the .NET CLI if you also install the `Amazon.Lambda.Tools` package. 
 
 1. To install the package, run the following command:
 
-```
-dotnet tool install -g Amazon.Lambda.Tools
-```
+   ```
+   dotnet tool install -g Amazon.Lambda.Tools
+   ```
 
-2. Now set the `PATH` and `DOTNET_ROOT` environment variable to
-   point to the installed Lambda tool. In the `.bashrc` file, find the
-   `export PATH` section and edit it so that it appears similar to
-   the following (see Step 1 for details on editing this file):
+1. Now set the `PATH` and `DOTNET_ROOT` environment variable to point to the installed Lambda tool. In the `.bashrc` file, find the `export PATH` section and edit it so that it appears similar to the following (see Step 1 for details on editing this file):
 
-```
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.dotnet:$HOME/.dotnet/tools
-export DOTNET_ROOT=$HOME/.dotnet
-```
+   ```
+   export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.dotnet:$HOME/.dotnet/tools
+   export DOTNET_ROOT=$HOME/.dotnet
+   ```
 
 ## Step 3: Create a .NET console application project
+<a name="sample-dotnetcore-app"></a>
 
-In this step, you use .NET to create a project named `hello`. This project
-contains all of the files that .NET needs to run a simple application from the terminal in
-the IDE. The application's code is written in C#.
+In this step, you use .NET to create a project named `hello`. This project contains all of the files that .NET needs to run a simple application from the terminal in the IDE. The application's code is written in C\#.
 
-Create a .NET console application project. To do this, run the .NET CLI with the
-**`new`** command, specifying the console application project template type and the
-programming language to use (in this sample, C#).
+Create a .NET console application project. To do this, run the .NET CLI with the ** `new` ** command, specifying the console application project template type and the programming language to use (in this sample, C\#).
 
-The `-n` option indicates that the project is outputted to a new directory,
-`hello`. We then navigate to that directory.
+ The `-n` option indicates that the project is outputted to a new directory, `hello`. We then navigate to that directory. 
 
 ```
-dotnet new console -lang C`# -n hello`
+dotnet new console -lang C# -n hello
 cd hello
 ```
 
-The preceding command adds a subdirectory named `obj` with several
-files, and some additional standalone files, to the `hello` directory.
-You should note the following two key files:
-
-- The `hello/hello.csproj` file contains information about the
-  console application project.
-- The `hello/Program.cs` file contains the application's code to
-  run.
+The preceding command adds a subdirectory named `obj` with several files, and some additional standalone files, to the `hello` directory. You should note the following two key files:
++ The `hello/hello.csproj` file contains information about the console application project.
++ The `hello/Program.cs` file contains the application's code to run.
 
 ## Step 4: Add code
+<a name="sample-dotnetcore-code"></a>
 
 In this step, you add some code to the application.
 
-From the **Environment** window in the AWS Cloud9 IDE, open the
-`hello/Program.cs` file.
+From the **Environment** window in the AWS Cloud9 IDE, open the `hello/Program.cs` file.
 
-In the editor, replace the file's current contents with the following code, and then
-save the `Program.cs` file.
+In the editor, replace the file's current contents with the following code, and then save the `Program.cs` file.
 
 ```
 using System;
@@ -238,160 +196,126 @@ namespace hello
 ```
 
 ## Step 5: Build and run the code
+<a name="sample-dotnetcore-run"></a>
 
-In this step, you build the project and its dependencies into a set of binary files,
-including a runnable application file. Then you run the application.
+In this step, you build the project and its dependencies into a set of binary files, including a runnable application file. Then you run the application.
 
 1. In the IDE, create a builder for .NET as follows.
 
-   1. On the menu bar, choose **Run, Build System, New Build
-      System**.
-   2. On the **My Builder.build** tab, replace the tab's contents
-      with the following code.
+   1. On the menu bar, choose **Run, Build System, New Build System**.
 
-   ```
-   {
-     "cmd" : ["dotnet", "build"],
-     "info" : "Building..."
-   }
-   ```
-   3. Choose **File, Save As**.
-   4. For **Filename**, type `.NET.build`.
-   5. For **Folder**, type `/.c9/builders`.
-   6. Choose **Save**.
+   1. On the **My Builder.build** tab, replace the tab's contents with the following code.
 
-2. With the contents of the `Program.cs` file displayed in the
-   editor, choose **Run, Build System, .NET**. Then choose
-   **Run, Build**.
+      ```
+      {
+        "cmd" : ["dotnet", "build"],
+        "info" : "Building..."
+      }
+      ```
 
-This builder adds a subdirectory named `bin` and adds a
-subdirectory named `Debug` to the `hello/obj`
-subdirectory. Note the following three key files.
+   1. Choose **File, Save As**.
 
-    * The `hello/bin/Debug/netcoreapp3.1/hello.dll` file is the
-     runnable application file.
-    * The `hello/bin/Debug/netcoreapp3.1/hello.deps.json` file
-     lists the application's dependencies.
-    * The
-     `hello/bin/Debug/netcoreapp3.1/hello.runtimeconfig.json`
-     file specifies the shared runtime and its version for the application.
+   1. For **Filename**, type `.NET.build`.
 
-###### Note
+   1. For **Folder**, type `/.c9/builders`.
 
-The folder name, `netcoreapp3.1`, reflects the version of
-the .NET SDK used in this example. You may see a different number in the folder
-name depending on the version you've installed. 3. Create a runner for .NET as follows.
+   1. Choose **Save**.
 
-    1. On the menu bar, choose **Run, Run With, New
-     Runner**.
-    2. On the **My Runner.run** tab, replace the tab's contents
-     with the following code.
+1. With the contents of the `Program.cs` file displayed in the editor, choose **Run, Build System, .NET**. Then choose **Run, Build**.
 
+   This builder adds a subdirectory named `bin` and adds a subdirectory named `Debug` to the `hello/obj` subdirectory. Note the following three key files.
+   + The `hello/bin/Debug/netcoreapp3.1/hello.dll` file is the runnable application file.
+   + The `hello/bin/Debug/netcoreapp3.1/hello.deps.json` file lists the application's dependencies.
+   + The `hello/bin/Debug/netcoreapp3.1/hello.runtimeconfig.json` file specifies the shared runtime and its version for the application.
+**Note**  
+The folder name, `netcoreapp3.1`, reflects the version of the .NET SDK used in this example. You may see a different number in the folder name depending on the version you've installed.
 
+1. Create a runner for .NET as follows.
 
-    ```
-    {
-      "cmd" : ["dotnet", "run", "$args"],
-      "working_dir": "$file_path",
-      "info" : "Running..."
-    }
-    ```
-    3. Choose **File, Save As**.
-    4. For **Filename**, type `.NET.run`.
-    5. For **Folder**, type `/.c9/runners`.
-    6. Choose **Save**.
+   1. On the menu bar, choose **Run, Run With, New Runner**.
 
-4. Run the application with two integers to add (for example, `5` and
-`9`) as follows.
+   1. On the **My Runner.run** tab, replace the tab's contents with the following code.
 
-    1. With the contents of the `Program.cs` file displayed in
-     the editor, choose **Run, Run Configurations, New Run
-     Configuration**.
-    2. In the **[New] - Idle** tab, choose **Runner:
-     Auto**, and then choose **.NET**.
-    3. In the **Command** box, type `hello 5 9`.
-    4. Choose **Run**.
+      ```
+      {
+        "cmd" : ["dotnet", "run", "$args"],
+        "working_dir": "$file_path",
+        "info" : "Running..."
+      }
+      ```
 
+   1. Choose **File, Save As**.
 
-    By default, this runner instructs .NET to run the
-     `hello.dll` file in the
-     `hello/bin/Debug/netcoreapp3.1` directory.
+   1. For **Filename**, type `.NET.run`.
 
+   1. For **Folder**, type `/.c9/runners`.
 
-    Compare your output to the following.
+   1. Choose **Save**.
 
+1. Run the application with two integers to add (for example, `5` and `9`) as follows.
 
+   1. With the contents of the `Program.cs` file displayed in the editor, choose **Run, Run Configurations, New Run Configuration**.
 
-    ```
-    Hello, World!
-    The sum of 2 and 3 is 5.
-    The sum of 5 and 9 is 14.
-    ```
+   1. In the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **.NET**.
+
+   1. In the **Command** box, type `hello 5 9`.
+
+   1. Choose **Run**.
+
+      By default, this runner instructs .NET to run the `hello.dll` file in the `hello/bin/Debug/netcoreapp3.1` directory.
+
+      Compare your output to the following.
+
+      ```
+      Hello, World!
+      The sum of 2 and 3 is 5.
+      The sum of 5 and 9 is 14.
+      ```
 
 ## Step 6: Create and set up a .NET console application project that uses the AWS SDK for .NET
+<a name="sample-dotnetcore-sdk"></a>
 
-You can enhance this sample to use the AWS SDK for .NET to create an Amazon S3 bucket, list your
-available buckets, and then delete the bucket you just created.
+You can enhance this sample to use the AWS SDK for .NET to create an Amazon S3 bucket, list your available buckets, and then delete the bucket you just created.
 
-In this new project, you add a reference to the AWS SDK for .NET. The AWS SDK for .NET provides a
-convenient way to interact with AWS services such as Amazon S3, from your .NET code. You then
-set up AWS credentials management in your environment. The AWS SDK for .NET needs these credentials to
-interact with AWS services.
+In this new project, you add a reference to the AWS SDK for .NET. The AWS SDK for .NET provides a convenient way to interact with AWS services such as Amazon S3, from your .NET code. You then set up AWS credentials management in your environment. The AWS SDK for .NET needs these credentials to interact with AWS services.
 
 ### To create the project
+<a name="sample-dotnetcore-sdk-create"></a>
 
-1. Create a .NET console application project. To do this, run the .NET CLI with
-   the **`new`** command, specifying the console application project template type and
-   the programming language to use.
+1. Create a .NET console application project. To do this, run the .NET CLI with the ** `new` ** command, specifying the console application project template type and the programming language to use. 
 
-The `-n` option indicates that the project is outputted to a new
-directory, `s3`. We then navigate to that directory.
+   The `-n` option indicates that the project is outputted to a new directory, `s3`. We then navigate to that directory.
 
-```
-dotnet new console -lang C`# -n s3`
-cd s3
-```
+   ```
+   dotnet new console -lang C# -n s3
+   cd s3
+   ```
 
-2. Add a project reference to the Amazon S3 package in the AWS SDK for .NET. To do this, run
-   the .NET CLI with the **`add package`** command, specifying the name of the Amazon S3 package in NuGet. (NuGet
-   defines how packages for .NET are created, hosted, and consumed, and provides the
-   tools for each of those roles.)
+1. Add a project reference to the Amazon S3 package in the AWS SDK for .NET. To do this, run the .NET CLI with the ** `add package` ** command, specifying the name of the Amazon S3 package in NuGet. (NuGet defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those roles.)
 
-```
-dotnet add package AWSSDK.S3
-```
+   ```
+   dotnet add package AWSSDK.S3
+   ```
 
-When you add a project reference to the Amazon S3 package, NuGet also adds a project
-reference to the rest of the AWS SDK for .NET.
-
-###### Note
-
-For the names and versions of other AWS related packages in NuGet, see
-[NuGet
-packages tagged with aws-sdk](https://www.nuget.org/packages?q=Tags%3A%22aws-sdk%22 "https://www.nuget.org/packages?q=Tags%3A%22aws-sdk%22") on the NuGet website.
+   When you add a project reference to the Amazon S3 package, NuGet also adds a project reference to the rest of the AWS SDK for .NET.
+**Note**  
+For the names and versions of other AWS related packages in NuGet, see [NuGet packages tagged with aws-sdk](https://www.nuget.org/packages?q=Tags%3A%22aws-sdk%22) on the NuGet website.
 
 ### To set up AWS credentials management
+<a name="sample-dotnetcore-sdk-creds"></a>
 
-Each time you use the AWS SDK for .NET to call an AWS service, you must provide a set of
-AWS credentials with the call. These credentials determine whether the AWS SDK for .NET has
-the appropriate permissions to make that call. If the credentials don't cover the
-appropriate permissions, the call will fail.
+Each time you use the AWS SDK for .NET to call an AWS service, you must provide a set of AWS credentials with the call. These credentials determine whether the AWS SDK for .NET has the appropriate permissions to make that call. If the credentials don't cover the appropriate permissions, the call will fail.
 
-To store your credentials within the environment, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then return to this
-topic.
+To store your credentials within the environment, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md), and then return to this topic.
 
-For additional information, see [Configuring AWS Credentials](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md") in the
-_AWS SDK for .NET Developer Guide_.
+For additional information, see [Configuring AWS Credentials](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-creds.html) in the *AWS SDK for .NET Developer Guide*.
 
 ## Step 7: Add AWS SDK code
+<a name="sample-dotnetcore-sdk-code"></a>
 
-In this step, you add code to interact with Amazon S3 to create a bucket, delete the bucket
-you just created, and then list your available buckets.
+In this step, you add code to interact with Amazon S3 to create a bucket, delete the bucket you just created, and then list your available buckets.
 
-From the **Environment** window in the AWS Cloud9 IDE, open the
-`s3/Program.cs` file. In the editor, replace the file's current
-contents with the following code, and then save the `Program.cs`
-file.
+From the **Environment** window in the AWS Cloud9 IDE, open the `s3/Program.cs` file. In the editor, replace the file's current contents with the following code, and then save the `Program.cs` file.
 
 ```
 using Amazon;
@@ -400,7 +324,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Util;
 using System;
 using System.Threading.Tasks;
-
+     
 namespace s3
 {
   class Program
@@ -412,19 +336,19 @@ namespace s3
       Console.WriteLine("Example: my-test-bucket us-east-2");
       return;
     }
-
+     
     if (args[1] != "us-east-2") {
       Console.WriteLine("Cannot continue. The only supported AWS Region ID is " +
       "'us-east-2'.");
        return;
      }
-
+         
       var bucketRegion = RegionEndpoint.USEast2;
       // Note: You could add more valid AWS Regions above as needed.
-
+     
       using (var s3Client = new AmazonS3Client(bucketRegion)) {
       var bucketName = args[0];
-
+        
       // Create the bucket.
       try
       {
@@ -446,7 +370,7 @@ namespace s3
        {
         Console.WriteLine("Cannot continue. {0}", e.Message);
        }
-
+        
        // Confirm that the bucket was created.
        if (await AmazonS3Util.DoesS3BucketExistV2Async(s3Client, bucketName))
        {
@@ -454,11 +378,11 @@ namespace s3
        } else {
          Console.WriteLine("Did not create the bucket named '{0}'.", bucketName);
        }
-
+        
        // Delete the bucket.
        Console.WriteLine("\nDeleting the bucket named '{0}'...", bucketName);
        await s3Client.DeleteBucketAsync(bucketName);
-
+        
        // Confirm that the bucket was deleted.
        if (await AmazonS3Util.DoesS3BucketExistV2Async(s3Client, bucketName))
        {
@@ -466,11 +390,11 @@ namespace s3
        } else {
          Console.WriteLine("Deleted the bucket named '{0}'.", bucketName);
        };
-
+        
         // List current buckets.
        Console.WriteLine("\nMy buckets now are:");
        var response = await s3Client.ListBucketsAsync();
-
+        
        foreach (var bucket in response.Buckets)
        {
        Console.WriteLine(bucket.BucketName);
@@ -482,44 +406,37 @@ namespace s3
 ```
 
 ## Step 8: Build and run the AWS SDK code
+<a name="sample-dotnetcore-sdk-run"></a>
 
-In this step, you build the project and its dependencies into a set of binary files,
-including a runnable application file. Then you run the application.
+In this step, you build the project and its dependencies into a set of binary files, including a runnable application file. Then you run the application.
 
-1. Build the project. To do this, with the contents of the
-   `s3/Program.cs` file displayed in the editor, on the menu bar,
-   choose **Run, Build**.
-2. Run the application with the name of the Amazon S3 bucket to create and the ID of the
-   AWS Region to create the bucket in (for example, `my-test-bucket` and
-   `us-east-2`) as follows.
+1. Build the project. To do this, with the contents of the `s3/Program.cs` file displayed in the editor, on the menu bar, choose **Run, Build**.
 
-   1. With the contents of the `s3/Program.cs` file still
-      displayed in the editor, choose **Run, Run Configurations, New Run
-      Configuration**.
-   2. In the **[New] - Idle** tab, choose **Runner:
-      Auto**, and then choose **.NET**.
-   3. In the **Command** box, type the name of the application,
-      the name of the Amazon S3 bucket to create, and the ID of the AWS Region to create
-      the bucket in (for example, `s3 my-test-bucket us-east-2`).
-   4. Choose **Run**.
+1. Run the application with the name of the Amazon S3 bucket to create and the ID of the AWS Region to create the bucket in (for example, `my-test-bucket` and `us-east-2`) as follows.
 
-   By default, this runner instructs .NET to run the
-   `s3.dll` file in the
-   `s3/bin/Debug/netcoreapp3.1` directory.
+   1. With the contents of the `s3/Program.cs` file still displayed in the editor, choose **Run, Run Configurations, New Run Configuration**.
 
-   Compare your results to the following output.
+   1. In the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **.NET**.
 
-   ```
-   Creating a new bucket named 'my-test-bucket'...
-   Created the bucket named 'my-test-bucket'.
+   1. In the **Command** box, type the name of the application, the name of the Amazon S3 bucket to create, and the ID of the AWS Region to create the bucket in (for example, `s3 my-test-bucket us-east-2`).
 
-   Deleting the bucket named 'my-test-bucket'...
-   Deleted the bucket named 'my-test-bucket'.
+   1. Choose **Run**.
 
-   My buckets now are:
-   ```
+      By default, this runner instructs .NET to run the `s3.dll` file in the `s3/bin/Debug/netcoreapp3.1` directory.
+
+      Compare your results to the following output.
+
+      ```
+      Creating a new bucket named 'my-test-bucket'...
+      Created the bucket named 'my-test-bucket'.
+      
+      Deleting the bucket named 'my-test-bucket'...
+      Deleted the bucket named 'my-test-bucket'.
+      
+      My buckets now are:
+      ```
 
 ## Step 9: Clean up
+<a name="sample-dotnetcore-clean-up"></a>
 
-To prevent ongoing charges to your AWS account after you're done using this sample,
-you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
+To prevent ongoing charges to your AWS account after you're done using this sample, you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md).

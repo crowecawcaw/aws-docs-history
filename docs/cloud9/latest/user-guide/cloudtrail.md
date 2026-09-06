@@ -1,108 +1,77 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Logging AWS Cloud9 API calls with AWS CloudTrail
+<a name="cloudtrail"></a>
 
-AWS Cloud9 is integrated with CloudTrail, a service that provides a record of actions taken by a user,
-role, or an AWS service in AWS Cloud9. CloudTrail captures all API calls for AWS Cloud9 as events. The calls
-captured include calls from the AWS Cloud9 console and from code calls to the AWS Cloud9 APIs. If you
-create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket,
-including events for AWS Cloud9. If you don't configure a trail, you can still view the most recent
-events in the CloudTrail console in **Event history**. Using the information
-collected by CloudTrail, you can determine the request that was made to AWS Cloud9, the IP address from
-which the request was made, who made the request, when it was made, and additional
-details.
+AWS Cloud9 is integrated with CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Cloud9. CloudTrail captures all API calls for AWS Cloud9 as events. The calls captured include calls from the AWS Cloud9 console and from code calls to the AWS Cloud9 APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for AWS Cloud9. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Cloud9, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## AWS Cloud9 information in CloudTrail
+<a name="ac9-information-in-ct"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-AWS Cloud9, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download recent events in your
-AWS account. For more information, see [Viewing
-Events with
-CloudTrail
-Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS Cloud9, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for AWS Cloud9, create
-a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. By
-default, when you create a trail in the console, the trail applies to all AWS Regions. The
-trail logs events from all Regions in the AWS partition and delivers the log files to the S3
-bucket that you specify. Additionally, you can configure other AWS services to further
-analyze and act upon the event data collected in CloudTrail logs. For more information, see the
-following:
-
-- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+For an ongoing record of events in your AWS account, including events for AWS Cloud9, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++  [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) 
++  [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html) 
++  [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html) 
++  [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html) 
 
 AWS Cloud9 supports logging the following actions as events in CloudTrail log files:
++  `CreateEnvironmentEC2` 
++  `CreateEnvironmentSSH` 
++  `CreateEnvironmentMembership` 
++  `DeleteEnvironment` 
++  `DeleteEnvironmentMembership` 
++  `DescribeEnvironmentMemberships` 
++  `DescribeEnvironments` 
++  `DescribeEnvironmentStatus` 
++  `ListEnvironments` 
++  `ListTagsForResource` 
++  `TagResource` 
++  `UntagResource` 
++  `UpdateEnvironment` 
++  `UpdateEnvironmentMembership` 
 
-- `CreateEnvironmentEC2`
-- `CreateEnvironmentSSH`
-- `CreateEnvironmentMembership`
-- `DeleteEnvironment`
-- `DeleteEnvironmentMembership`
-- `DescribeEnvironmentMemberships`
-- `DescribeEnvironments`
-- `DescribeEnvironmentStatus`
-- `ListEnvironments`
-- `ListTagsForResource`
-- `TagResource`
-- `UntagResource`
-- `UpdateEnvironment`
-- `UpdateEnvironmentMembership`
+**Note**  
+Some CloudTrail events for AWS Cloud9 aren't caused by public API operations. Instead, the following events are initiated by internal updates affecting user authentication and managed temporary credentials:  
+`DisableManagedCredentialsByCollaborator`
+`EnvironmentTokenSuccessfullyCreated`
+`ManagedCredentialsUpdatedOnEnvironment`
 
-###### Note
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management IAM user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Some CloudTrail events for AWS Cloud9 aren't caused by public API operations. Instead, the
-following events are initiated by internal updates affecting user authentication and managed
-temporary credentials:
-
-- `DisableManagedCredentialsByCollaborator`
-- `EnvironmentTokenSuccessfullyCreated`
-- `ManagedCredentialsUpdatedOnEnvironment`
-
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding AWS Cloud9 log file entries
+<a name="cloudtrail-understanding-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, and request parameters. CloudTrail log files aren't an ordered stack trace of the
-public API calls, so they don't appear in any specific order.
-
-- [CreateEnvironmentEC2](#cloudtrail-understanding-entries-createenvironmentec2 "#cloudtrail-understanding-entries-createenvironmentec2")
-- [CreateEnvironmentSSH](#cloudtrail-understanding-entries-createenvironmentssh "#cloudtrail-understanding-entries-createenvironmentssh")
-- [CreateEnvironmentMembership](#cloudtrail-understanding-entries-createenvironmentmembership "#cloudtrail-understanding-entries-createenvironmentmembership")
-- [DeleteEnvironment](#cloudtrail-understanding-entries-deleteenvironment "#cloudtrail-understanding-entries-deleteenvironment")
-- [DeleteEnvironmentMembership](#cloudtrail-understanding-entries-deleteenvironmentmembership "#cloudtrail-understanding-entries-deleteenvironmentmembership")
-- [DescribeEnvironmentMemberships](#cloudtrail-understanding-entries-describeenvironmentmemberships "#cloudtrail-understanding-entries-describeenvironmentmemberships")
-- [DescribeEnvironments](#cloudtrail-understanding-entries-describeenvironments "#cloudtrail-understanding-entries-describeenvironments")
-- [DescribeEnvironmentStatus](#cloudtrail-understanding-entries-describeenvironmentstatus "#cloudtrail-understanding-entries-describeenvironmentstatus")
-- [ListEnvironments](#cloudtrail-understanding-entries-listenvironments "#cloudtrail-understanding-entries-listenvironments")
-- [ListTagsForResource](#cloudtrail-understanding-entries-listtagsforresource "#cloudtrail-understanding-entries-listtagsforresource")
-- [TagResource](#cloudtrail-understanding-entries-tagresource "#cloudtrail-understanding-entries-tagresource")
-- [UntagResource](#cloudtrail-understanding-entries-untagresource "#cloudtrail-understanding-entries-untagresource")
-- [UpdateEnvironment](#cloudtrail-understanding-entries-updateenvironment "#cloudtrail-understanding-entries-updateenvironment")
-- [UpdateEnvironmentMembership](#cloudtrail-understanding-entries-updateenvironmentmembership "#cloudtrail-understanding-entries-updateenvironmentmembership")
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, and request parameters. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
++  [CreateEnvironmentEC2](#cloudtrail-understanding-entries-createenvironmentec2) 
++  [CreateEnvironmentSSH](#cloudtrail-understanding-entries-createenvironmentssh) 
++  [CreateEnvironmentMembership](#cloudtrail-understanding-entries-createenvironmentmembership) 
++  [DeleteEnvironment](#cloudtrail-understanding-entries-deleteenvironment) 
++  [DeleteEnvironmentMembership](#cloudtrail-understanding-entries-deleteenvironmentmembership) 
++  [DescribeEnvironmentMemberships](#cloudtrail-understanding-entries-describeenvironmentmemberships) 
++  [DescribeEnvironments](#cloudtrail-understanding-entries-describeenvironments) 
++  [DescribeEnvironmentStatus](#cloudtrail-understanding-entries-describeenvironmentstatus) 
++  [ListEnvironments](#cloudtrail-understanding-entries-listenvironments) 
++  [ListTagsForResource](#cloudtrail-understanding-entries-listtagsforresource) 
++  [TagResource](#cloudtrail-understanding-entries-tagresource) 
++  [UntagResource](#cloudtrail-understanding-entries-untagresource) 
++  [UpdateEnvironment](#cloudtrail-understanding-entries-updateenvironment) 
++  [UpdateEnvironmentMembership](#cloudtrail-understanding-entries-updateenvironmentmembership) 
 
 ### CreateEnvironmentEC2
+<a name="cloudtrail-understanding-entries-createenvironmentec2"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateEnvironmentEC2` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentEC2` action.
 
 ```
 {
@@ -150,9 +119,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### CreateEnvironmentSSH
+<a name="cloudtrail-understanding-entries-createenvironmentssh"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateEnvironmentSSH` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentSSH` action.
 
 ```
 {
@@ -201,9 +170,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### CreateEnvironmentMembership
+<a name="cloudtrail-understanding-entries-createenvironmentmembership"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateEnvironmentMembership` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateEnvironmentMembership` action.
 
 ```
 {
@@ -254,9 +223,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DeleteEnvironment
+<a name="cloudtrail-understanding-entries-deleteenvironment"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DeleteEnvironment` action.
+The following example shows a CloudTrail log entry that demonstrates the `DeleteEnvironment` action.
 
 ```
 {
@@ -298,9 +267,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DeleteEnvironmentMembership
+<a name="cloudtrail-understanding-entries-deleteenvironmentmembership"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DeleteEnvironmentMembership` action.
+The following example shows a CloudTrail log entry that demonstrates the `DeleteEnvironmentMembership` action.
 
 ```
 {
@@ -343,9 +312,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DescribeEnvironmentMemberships
+<a name="cloudtrail-understanding-entries-describeenvironmentmemberships"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DescribeEnvironmentMemberships` action.
+The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironmentMemberships` action.
 
 ```
 {
@@ -390,9 +359,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DescribeEnvironments
+<a name="cloudtrail-understanding-entries-describeenvironments"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DescribeEnvironments` action.
+The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironments` action.
 
 ```
 {
@@ -437,9 +406,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DescribeEnvironmentStatus
+<a name="cloudtrail-understanding-entries-describeenvironmentstatus"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DescribeEnvironmentStatus` action.
+The following example shows a CloudTrail log entry that demonstrates the `DescribeEnvironmentStatus` action.
 
 ```
 {
@@ -486,9 +455,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### ListEnvironments
+<a name="cloudtrail-understanding-entries-listenvironments"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ListEnvironments` action.
+The following example shows a CloudTrail log entry that demonstrates the `ListEnvironments` action.
 
 ```
 {
@@ -532,9 +501,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### ListTagsForResource
+<a name="cloudtrail-understanding-entries-listtagsforresource"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ListTagsForResource` action.
+The following example shows a CloudTrail log entry that demonstrates the `ListTagsForResource` action.
 
 ```
 {
@@ -583,9 +552,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### TagResource
+<a name="cloudtrail-understanding-entries-tagresource"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`TagResource` action.
+The following example shows a CloudTrail log entry that demonstrates the `TagResource` action.
 
 ```
 {
@@ -633,9 +602,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### UntagResource
+<a name="cloudtrail-understanding-entries-untagresource"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UntagResource` action.
+The following example shows a CloudTrail log entry that demonstrates the `UntagResource` action.
 
 ```
 {
@@ -683,9 +652,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### UpdateEnvironment
+<a name="cloudtrail-understanding-entries-updateenvironment"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UpdateEnvironment` action.
+The following example shows a CloudTrail log entry that demonstrates the `UpdateEnvironment` action.
 
 ```
 {
@@ -729,9 +698,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### UpdateEnvironmentMembership
+<a name="cloudtrail-understanding-entries-updateenvironmentmembership"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UpdateEnvironmentMembership` action.
+The following example shows a CloudTrail log entry that demonstrates the `UpdateEnvironmentMembership` action.
 
 ```
 {

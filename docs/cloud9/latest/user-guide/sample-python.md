@@ -1,84 +1,74 @@
-AWS Cloud9 is no longer available to new customers. Existing customers of
-AWS Cloud9 can continue to use the service as normal.
-[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+
+ AWS Cloud9 is no longer available to new customers. Existing customers of AWS Cloud9 can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
 # Python tutorial for AWS Cloud9
+<a name="sample-python"></a>
 
 This tutorial shows you how to run Python code in an AWS Cloud9 development environment.
 
-Following this tutorial might result in charges to your AWS account. These include
-possible charges for services such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3). For more
-information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+Following this tutorial might result in charges to your AWS account. These include possible charges for services such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service (Amazon S3). For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/) and [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-###### Topics
-
-- [Prerequisites](#sample-python-prereqs "#sample-python-prereqs")
-- [Step 1: Install Python](#sample-python-install "#sample-python-install")
-- [Step 2: Add code](#sample-python-code "#sample-python-code")
-- [Step 3: Run the code](#sample-python-run "#sample-python-run")
-- [Step 4: Install and configure the AWS SDK for Python (Boto3)](#sample-python-sdk "#sample-python-sdk")
-- [Step 5: Add AWS SDK code](#sample-python-sdk-code "#sample-python-sdk-code")
-- [Step 6: Run the AWS SDK code](#sample-python-sdk-run "#sample-python-sdk-run")
-- [Step 7: Clean up](#sample-python-clean-up "#sample-python-clean-up")
+**Topics**
++ [Prerequisites](#sample-python-prereqs)
++ [Step 1: Install Python](#sample-python-install)
++ [Step 2: Add code](#sample-python-code)
++ [Step 3: Run the code](#sample-python-run)
++ [Step 4: Install and configure the AWS SDK for Python (Boto3)](#sample-python-sdk)
++ [Step 5: Add AWS SDK code](#sample-python-sdk-code)
++ [Step 6: Run the AWS SDK code](#sample-python-sdk-run)
++ [Step 7: Clean up](#sample-python-clean-up)
 
 ## Prerequisites
+<a name="sample-python-prereqs"></a>
 
 Before you use this tutorial, be sure to meet the following requirements.
++ **You have an AWS Cloud9 EC2 development environment**
 
-- **You have an AWS Cloud9 EC2 development environment**
+  This tutorial assumes that you have an EC2 environment, and that the environment is connected to an Amazon EC2 instance running Amazon Linux or Ubuntu Server. See [Creating an EC2 Environment](create-environment-main.md) for details.
 
-This tutorial assumes that you have an EC2 environment, and that the environment is connected to an Amazon EC2 instance running Amazon Linux or Ubuntu Server.
-See [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md") for details.
+  If you have a different type of environment or operating system, you might need to adapt this tutorial's instructions.
++ **You have opened the AWS Cloud9 IDE for that environment**
 
-If you have a different type of environment or operating system, you might need to adapt this tutorial's instructions.
-
-- **You have opened the AWS Cloud9 IDE for that environment**
-
-When you open an environment, AWS Cloud9 opens the IDE for that environment in your web browser.
-See [Opening an environment in AWS Cloud9](open-environment.md "open-environment.md") for details.
+  When you open an environment, AWS Cloud9 opens the IDE for that environment in your web browser. See [Opening an environment in AWS Cloud9](open-environment.md) for details.
 
 ## Step 1: Install Python
+<a name="sample-python-install"></a>
 
-1. In a terminal session in the AWS Cloud9 IDE, confirm whether Python is already installed
-   by running the **`python --version`** command. (To start a new terminal session, on the menu bar choose
-   **Window**, **New Terminal**.) If Python is
-   installed, skip ahead to [Step 2: Add code](#sample-python-code "#sample-python-code").
-2. Run the **`yum update`** (for Amazon Linux) or **`apt
- update`** (for Ubuntu Server) command to help ensure the latest
-   security updates and bug fixes are installed.
+1. In a terminal session in the AWS Cloud9 IDE, confirm whether Python is already installed by running the ** `python --version` ** command. (To start a new terminal session, on the menu bar choose **Window**, **New Terminal**.) If Python is installed, skip ahead to [Step 2: Add code](#sample-python-code).
 
-For Amazon Linux:
+1. Run the ** `yum update`** (for Amazon Linux) or **`apt update`** (for Ubuntu Server) command to help ensure the latest security updates and bug fixes are installed.
 
-```
-sudo yum -y update
-```
+   For Amazon Linux:
 
-For Ubuntu Server:
+   ```
+   sudo yum -y update
+   ```
 
-```
-sudo apt update
-```
+   For Ubuntu Server:
 
-3. Install Python by running the **`install`** command.
+   ```
+   sudo apt update
+   ```
 
-For Amazon Linux:
+1. Install Python by running the ** `install` ** command.
 
-```
-sudo yum -y install python3
-```
+   For Amazon Linux:
 
-For Ubuntu Server:
+   ```
+   sudo yum -y install python3
+   ```
 
-```
-sudo apt-get install python3
-```
+   For Ubuntu Server:
+
+   ```
+   sudo apt-get install python3
+   ```
 
 ## Step 2: Add code
+<a name="sample-python-code"></a>
 
-In the AWS Cloud9 IDE, create a file with the following content and save the file with the
-name `hello.py`. (To create a file, on the menu bar choose
-**File**, **New File**. To save the file, choose
-**File**, **Save**.)
+In the AWS Cloud9 IDE, create a file with the following content and save the file with the name `hello.py`. (To create a file, on the menu bar choose **File**, **New File**. To save the file, choose **File**, **Save**.)
 
 ```
 import sys
@@ -93,44 +83,35 @@ print('The sum of {0} and {1} is {2}.'.format(sys.argv[1], sys.argv[2], sum))
 ```
 
 ## Step 3: Run the code
+<a name="sample-python-run"></a>
 
-1. In the AWS Cloud9 IDE, on the menu bar choose **Run**, **Run
-   Configurations**, **New Run Configuration**.
-2. On the **[New] - Stopped** tab, enter `hello.py 5 9`
-   for **Command**. In the code, `5` represents
-   `sys.argv[1]`, and `9` represents
-   `sys.argv[2]`.
-3. Choose **Run** and compare your output.
+1. In the AWS Cloud9 IDE, on the menu bar choose **Run**, **Run Configurations**, **New Run Configuration**.
 
-```
-Hello, World!
-The sum of 2 and 3 is 5.
-The sum of 5 and 9 is 14.
-```
+1. On the **[New] - Stopped** tab, enter `hello.py 5 9` for **Command**. In the code, `5` represents `sys.argv[1]`, and `9` represents `sys.argv[2]`.
 
-4. By default, AWS Cloud9 automatically selects a runner for your code. To change the
-   runner, choose **Runner**, and then choose **Python
-   2** or **Python 3**.
+1. Choose **Run** and compare your output.
 
-###### Note
+   ```
+   Hello, World!
+   The sum of 2 and 3 is 5.
+   The sum of 5 and 9 is 14.
+   ```
 
-You can create custom runners for specific versions of Python. For details, see
-[Create a Builder or Runner](build-run-debug.md#build-run-debug-create-builder-runner "build-run-debug.md#build-run-debug-create-builder-runner").
+1. By default, AWS Cloud9 automatically selects a runner for your code. To change the runner, choose **Runner**, and then choose **Python 2** or **Python 3**.
+**Note**  
+You can create custom runners for specific versions of Python. For details, see [Create a Builder or Runner](build-run-debug.md#build-run-debug-create-builder-runner).
 
 ## Step 4: Install and configure the AWS SDK for Python (Boto3)
+<a name="sample-python-sdk"></a>
 
-The AWS SDK for Python (Boto3) enables you to use Python code to interact with AWS services like
-Amazon S3. For example, you can use the SDK to create an Amazon S3 bucket, list your available
-buckets, and then delete the bucket you just created.
+The AWS SDK for Python (Boto3) enables you to use Python code to interact with AWS services like Amazon S3. For example, you can use the SDK to create an Amazon S3 bucket, list your available buckets, and then delete the bucket you just created.
 
 ### Install pip
+<a name="sample-python-sdk-install-pip"></a>
 
-In the AWS Cloud9 IDE, confirm whether `pip` is already installed for the active
-version of Python by running the **`python -m pip --version`** command. If `pip` is installed, skip to the next section.
+In the AWS Cloud9 IDE, confirm whether `pip` is already installed for the active version of Python by running the ** `python -m pip --version` ** command. If `pip` is installed, skip to the next section.
 
-To install `pip`, run the following commands. Because sudo is in a
-different environment from your user, you must specify the version of Python to use if
-it differs from the current aliased version.
+To install `pip`, run the following commands. Because sudo is in a different environment from your user, you must specify the version of Python to use if it differs from the current aliased version.
 
 ```
 curl -O https://bootstrap.pypa.io/get-pip.py # Get the install script.
@@ -139,41 +120,35 @@ python -m pip --version                      # Verify pip is installed.
 rm get-pip.py                                # Delete the install script.
 ```
 
-For more information, see [Installation](https://pip.pypa.io/en/stable/installing/ "https://pip.pypa.io/en/stable/installing/") on the `pip` website.
+For more information, see [Installation](https://pip.pypa.io/en/stable/installing/) on the `pip` website.
 
 ### Install the AWS SDK for Python (Boto3)
+<a name="sample-python-sdk-install-sdk"></a>
 
-After you install `pip`, install the AWS SDK for Python (Boto3) by running the
-**`pip install`** command.
+After you install `pip`, install the AWS SDK for Python (Boto3) by running the ** `pip install` ** command.
 
 ```
 sudo python3 -m pip install boto3  # Install boto3 for Python 3.
 python -m pip show boto3            # Verify boto3 is installed for the current version of Python.
 ```
 
-For more information, see the "Installation" section of [Quickstart](../../../boto3/latest/guide/quickstart.md "../../../boto3/latest/guide/quickstart.md") in the
-AWS SDK for Python (Boto3).
+For more information, see the "Installation" section of [Quickstart](https://docs.aws.amazon.com/boto3/latest/guide/quickstart.html) in the AWS SDK for Python (Boto3).
 
 ### Set up credentials in your environment
+<a name="sample-python-sdk-credentials"></a>
 
-Each time you use the AWS SDK for Python (Boto3) to call an AWS service, you must provide a set
-of credentials with the call. These credentials determine whether the SDK has the
-necessary permissions to make the call. If the credentials don't cover the necessary
-permissions, the call fails.
+Each time you use the AWS SDK for Python (Boto3) to call an AWS service, you must provide a set of credentials with the call. These credentials determine whether the SDK has the necessary permissions to make the call. If the credentials don't cover the necessary permissions, the call fails.
 
-To store your credentials within the environment, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then return to this
-topic.
+To store your credentials within the environment, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md), and then return to this topic.
 
-For additional information, see [Credentials](../../../boto3/latest/guide/configuration.md "../../../boto3/latest/guide/configuration.md") in the
-AWS SDK for Python (Boto3).
+For additional information, see [Credentials](https://docs.aws.amazon.com/boto3/latest/guide/configuration.html) in the AWS SDK for Python (Boto3).
 
 ## Step 5: Add AWS SDK code
+<a name="sample-python-sdk-code"></a>
 
-Add code that uses Amazon S3 to create a bucket, list your available buckets, and optionally
-delete the bucket you just created.
+Add code that uses Amazon S3 to create a bucket, list your available buckets, and optionally delete the bucket you just created.
 
-In the AWS Cloud9 IDE, create a file with the following content and save the file with the
-name `s3.py`.
+In the AWS Cloud9 IDE, create a file with the following content and save the file with the name `s3.py`.
 
 ```
 import sys
@@ -244,46 +219,37 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
 ## Step 6: Run the AWS SDK code
+<a name="sample-python-sdk-run"></a>
 
-1. On the menu bar, choose **Run**, **Run
-   Configurations**, **New Run Configuration**.
-2. For **Command**, enter `s3.py my-test-bucket
- us-west-2`, where `my-test-bucket` is the name of the bucket to
-   create, and `us-west-2` is the ID of the AWS Region where your bucket is
-   created. By default, your bucket is deleted before the script exits. To keep your
-   bucket, add `--keep_bucket` to your command. For a list of AWS Region
-   IDs, see [Amazon Simple Storage Service Endpoints and Quotas](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in
-   the _AWS General Reference_.
+1. On the menu bar, choose **Run**, **Run Configurations**, **New Run Configuration**.
 
-###### Note
+1. For **Command**, enter `s3.py my-test-bucket us-west-2`, where `my-test-bucket` is the name of the bucket to create, and `us-west-2` is the ID of the AWS Region where your bucket is created. By default, your bucket is deleted before the script exits. To keep your bucket, add `--keep_bucket` to your command. For a list of AWS Region IDs, see [Amazon Simple Storage Service Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html) in the *AWS General Reference*.
+**Note**  
+Amazon S3 bucket names must be unique across AWS—not just your AWS account.
 
-Amazon S3 bucket names must be unique across AWS—not just your AWS
-account. 3. Choose **Run**, and compare your output.
+1. Choose **Run**, and compare your output.
 
-```
-
-Buckets:
-
-        a-pre-existing-bucket
-
-Creating new bucket: my-test-bucket
-Buckets:
-
-        a-pre-existing-bucket
-        my-test-bucket
-
-Deleting bucket: my-test-bucket
-Buckets:
-
-        a-pre-existing-bucket
-
-```
+   ```
+   Buckets:
+   
+           a-pre-existing-bucket
+   
+   Creating new bucket: my-test-bucket
+   Buckets:
+   
+           a-pre-existing-bucket
+           my-test-bucket
+   
+   Deleting bucket: my-test-bucket
+   Buckets:
+   
+           a-pre-existing-bucket
+   ```
 
 ## Step 7: Clean up
+<a name="sample-python-clean-up"></a>
 
-To prevent ongoing charges to your AWS account after you're done with this tutorial,
-delete the AWS Cloud9 environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
+To prevent ongoing charges to your AWS account after you're done with this tutorial, delete the AWS Cloud9 environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md).
