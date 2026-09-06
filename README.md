@@ -5,7 +5,7 @@ This repository provides weekly snapshots of AWS documentation converted to Mark
 - **Markdown versions of AWS docs** for giving context to AI agents, training models, or offline reference
 - **Historical tracking** of how AWS documentation changes over time
 
-The repository automatically crawls the AWS documentation index once per week, converts the HTML pages to Markdown, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
+The repository automatically crawls the AWS documentation index once per week, downloads the Markdown provided by AWS, and commits the results. The Git history provides a complete timeline of documentation updates across all AWS services.
 
 ## Running the crawler
 

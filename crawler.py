@@ -1,7 +1,7 @@
 """AWS documentation crawler using sitemap-based discovery.
 
-This crawler downloads AWS documentation pages and converts them to Markdown.
-It uses AWS's sitemap.xml files to discover all services and pages.
+This crawler downloads AWS-provided Markdown for pages discovered through the
+AWS sitemap.xml files.
 """
 
 from __future__ import annotations
@@ -378,6 +378,18 @@ def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
     # Append .md rather than using with_suffix to preserve internal dots.
     relative_path = Path(*parts[:-1], parts[-1] + ".md")
     return output_root / relative_path if output_root else relative_path
+
+
+def url_to_markdown_url(url: str) -> str:
+    """Translate an AWS documentation page URL to its Markdown endpoint."""
+    parsed = urlparse(url)
+    path = parsed.path.rstrip("/")
+
+    if path.endswith(".html"):
+        path = path[:-5]
+
+    path = f"{path}.md"
+    return urlunparse(parsed._replace(path=path, fragment="", query=""))
 
 
 def convert_tag_to_markdown(
@@ -852,30 +864,35 @@ class AwsDocsCrawler:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
-        """Process a single URL: fetch, convert, and save."""
+        """Download a page's AWS-provided Markdown and save it."""
         # Check if already visited
         with self._known_urls_lock:
             if url in self._visited_urls:
                 LOGGER.debug("Skipping already visited URL: %s", url)
                 return
 
-        LOGGER.debug("Fetching %s", url)
-
         if not self._link_checker or not self._link_checker(url):
             LOGGER.debug("Skipping %s because it does not look like an HTML page", url)
             return
 
+        markdown_url = url_to_markdown_url(url)
+        LOGGER.debug("Fetching %s", markdown_url)
+
         try:
             self._rate_limiter.acquire()
-            response = self.session.get(url, timeout=30)
+            response = self.session.get(markdown_url, timeout=30)
             response.raise_for_status()
         except requests.RequestException as exc:
-            LOGGER.warning("Failed to fetch %s: %s", url, exc)
+            LOGGER.warning("Failed to fetch Markdown for %s: %s", url, exc)
             return
 
         content_type = response.headers.get("Content-Type", "")
-        if "text/html" not in content_type:
-            LOGGER.debug("Skipping %s due to non-HTML content type %s", url, content_type)
+        if "text/markdown" not in content_type.lower():
+            LOGGER.warning(
+                "Skipping %s due to non-Markdown content type %s",
+                markdown_url,
+                content_type,
+            )
             return
 
         if "charset=" not in content_type.lower():
@@ -883,20 +900,9 @@ class AwsDocsCrawler:
             if apparent:
                 response.encoding = apparent
 
-        html = response.text
-        soup = BeautifulSoup(html, "html.parser")
-        main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
-        self._image_handler.download_and_rewrite_images(main, url, output_path)
-        markdown = convert_tag_to_markdown(
-            url,
-            main,
-            output_path=output_path,
-            output_root=self.output_dir,
-        )
-
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(markdown, encoding="utf-8")
+        output_path.write_text(response.text, encoding="utf-8")
 
         with self._known_urls_lock:
             self._visited_urls.add(url)
@@ -935,7 +941,7 @@ class AwsDocsCrawler:
         *,
         enable_commit: bool = False,
     ) -> tuple[int, bool]:
-        """Process a single service guide: crawl, format, and optionally commit.
+        """Process a single service guide: crawl and optionally commit.
 
         Returns:
             Tuple of (pages_crawled, commit_success)
@@ -990,11 +996,7 @@ class AwsDocsCrawler:
         path = path.strip().strip("/")
         guide_dir = self.output_dir / path
 
-        # Step 6: Run prettier on the guide
-        LOGGER.info("Formatting markdown files with prettier...")
-        run_prettier_on_guide(guide_dir)
-
-        # Step 7: Commit if enabled
+        # Step 6: Commit if enabled
         commit_success = False
         if enable_commit:
             LOGGER.info("Committing changes for %s...", service_url)
