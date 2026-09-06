@@ -1,74 +1,46 @@
+
+
 # Logging AWS CodeConnections API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail-connections"></a>
 
-AWS CodeConnections is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service. CloudTrail captures all API calls for notifications as
-events. The calls captured include calls from the Developer Tools console and code calls to the
-AWS CodeConnections API operations.
+AWS CodeConnections is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for notifications as events. The calls captured include calls from the Developer Tools console and code calls to the AWS CodeConnections API operations. 
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service
-(Amazon S3) bucket, including events for notifications. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console in **Event history**.
-Using the information collected by CloudTrail, you can determine the request that was made to
-AWS CodeConnections, the IP address from which the request was made, who made the request, when it was
-made, and other details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for notifications. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS CodeConnections, the IP address from which the request was made, who made the request, when it was made, and other details. 
 
-For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## AWS CodeConnections information in CloudTrail
+<a name="service-name-info-in-cloudtrail-connections"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in AWS CodeConnections, that activity is recorded in a CloudTrail event along with other AWS
-service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing events with CloudTrail event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS CodeConnections, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. 
 
-For an ongoing record of events in your AWS account, including events for AWS CodeConnections,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an
-Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs.
+For an ongoing record of events in your AWS account, including events for AWS CodeConnections, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. 
 
-For more information, see the following topics in the
-_AWS CloudTrail User Guide_:
+For more information, see the following topics in the *AWS CloudTrail User Guide*: 
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview
-  for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All AWS CodeConnections actions are logged by CloudTrail and are documented in the [AWS CodeConnections API reference](https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html). For example, calls to the `CreateConnection`, `DeleteConnection` and `GetConnection` actions generate entries in the CloudTrail log files. 
 
-All AWS CodeConnections actions are logged by CloudTrail and are documented in the [AWS CodeConnections API reference](../../../codeconnections/latest/APIReference/Welcome.md "../../../codeconnections/latest/APIReference/Welcome.md"). For example, calls to the
-`CreateConnection`, `DeleteConnection` and
-`GetConnection` actions generate entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or other IAM credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or other IAM credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding log file entries
+<a name="understanding-service-name-entries-connections"></a>
 
-A _trail_ is a configuration that enables delivery of events as log
-files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log
-entries. An _event_ represents a single request from any source and
-includes information about the requested action, the date and time of the action,
-request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the
-public API calls, so they don't appear in any specific order.
+A *trail* is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
 ## `CreateConnection` example
+<a name="w2aab5c25c39c13"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateConnection` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateConnection` action.
 
 ```
 {
@@ -107,7 +79,7 @@ The following example shows a CloudTrail log entry that demonstrates the
         "eventSource": "codeconnections.amazonaws.com",
         "eventName": "CreateConnection",
         "awsRegion": "us-east-1",
-        "sourceIPAddress": "`IP`",
+        "sourceIPAddress": "{{IP}}",
         "userAgent": "aws-cli/2.13.30 Python/3.11.6 Darwin/23.2.0 exe/x86_64 prompt/off command/codeconnections.create-connection",
         "requestParameters": {
             "providerType": "GitHub",
@@ -131,9 +103,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `CreateHost` example
+<a name="w2aab5c25c39c15"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateHost` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateHost` action.
 
 ```
 {
@@ -197,9 +169,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `CreateSyncConfiguration` example
+<a name="w2aab5c25c39c17"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateSyncConfiguration` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateSyncConfiguration` action.
 
 ```
 {
@@ -276,9 +248,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `DeleteConnection` example
+<a name="w2aab5c25c39c19"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DeleteConnection` action.
+The following example shows a CloudTrail log entry that demonstrates the `DeleteConnection` action.
 
 ```
 {
@@ -338,9 +310,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `DeleteHost` example
+<a name="w2aab5c25c39c21"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DeleteHost` action.
+The following example shows a CloudTrail log entry that demonstrates the `DeleteHost` action.
 
 ```
 {
@@ -400,9 +372,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `DeleteSyncConfiguration` example
+<a name="w2aab5c25c39c23"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DeleteSyncConfiguration` action.
+The following example shows a CloudTrail log entry that demonstrates the `DeleteSyncConfiguration` action.
 
 ```
 {
@@ -463,9 +435,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `GetConnection` example
+<a name="w2aab5c25c39c25"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetConnection` action.
+The following example shows a CloudTrail log entry that demonstrates the `GetConnection` action.
 
 ```
 {
@@ -525,9 +497,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `GetHost` example
+<a name="w2aab5c25c39c27"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetHost` action.
+The following example shows a CloudTrail log entry that demonstrates the `GetHost` action.
 
 ```
 {
@@ -587,9 +559,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `GetRepositoryLink` example
+<a name="w2aab5c25c39c29"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetRepositoryLink` action.
+The following example shows a CloudTrail log entry that demonstrates the `GetRepositoryLink` action.
 
 ```
 {
@@ -658,8 +630,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## `GetRepositorySyncStatus` example
+<a name="w2aab5c25c39c31"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [GetRepositorySyncStatus](../../../codeconnections/latest/APIReference/API_GetRepositorySyncStatus.md "../../../codeconnections/latest/APIReference/API_GetRepositorySyncStatus.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetRepositorySyncStatus](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetRepositorySyncStatus.html) action.
 
 ```
 {
@@ -723,8 +696,9 @@ The following example shows a CloudTrail log entry that demonstrates the [GetRep
 ```
 
 ## `GetResourceSyncStatus` example
+<a name="w2aab5c25c39c33"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [GetResourceSyncStatus](../../../codeconnections/latest/APIReference/API_GetResourceSyncStatus.md "../../../codeconnections/latest/APIReference/API_GetResourceSyncStatus.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetResourceSyncStatus](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetResourceSyncStatus.html) action.
 
 ```
 {
@@ -785,8 +759,9 @@ The following example shows a CloudTrail log entry that demonstrates the [GetRes
 ```
 
 ## `GetSyncBlockerSummary` example
+<a name="w2aab5c25c39c35"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [GetSyncBlockerSummary](../../../codeconnections/latest/APIReference/API_GetSyncBlockerSummary.md "../../../codeconnections/latest/APIReference/API_GetSyncBlockerSummary.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetSyncBlockerSummary](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetSyncBlockerSummary.html) action.
 
 ```
 {
@@ -852,8 +827,9 @@ The following example shows a CloudTrail log entry that demonstrates the [GetSyn
 ```
 
 ## `GetSyncConfiguration` example
+<a name="w2aab5c25c39c37"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [GetSyncConfiguration](../../../codeconnections/latest/APIReference/API_GetSyncConfiguration.md "../../../codeconnections/latest/APIReference/API_GetSyncConfiguration.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetSyncConfiguration](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_GetSyncConfiguration.html) action.
 
 ```
 {
@@ -926,8 +902,9 @@ The following example shows a CloudTrail log entry that demonstrates the [GetSyn
 ```
 
 ## `ListConnections` example
+<a name="w2aab5c25c39c39"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListConnections](../../../codeconnections/latest/APIReference/API_ListConnections.md "../../../codeconnections/latest/APIReference/API_ListConnections.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListConnections.html) action.
 
 ```
 {
@@ -987,8 +964,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListCo
 ```
 
 ## `ListHosts` example
+<a name="w2aab5c25c39c41"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListHosts](../../../codeconnections/latest/APIReference/API_ListHosts.md "../../../codeconnections/latest/APIReference/API_ListHosts.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListHosts](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListHosts.html) action.
 
 ```
 {
@@ -1048,8 +1026,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListHo
 ```
 
 ## `ListRepositoryLinks` example
+<a name="w2aab5c25c39c43"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListRepositoryLinks](../../../codeconnections/latest/APIReference/API_ListRepositoryLinks.md "../../../codeconnections/latest/APIReference/API_ListRepositoryLinks.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListRepositoryLinks](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListRepositoryLinks.html) action.
 
 ```
 {
@@ -1128,8 +1107,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListRe
 ```
 
 ## `ListRepositorySyncDefinitions` example
+<a name="w2aab5c25c39c45"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListRepositorySyncDefinitions](../../../codeconnections/latest/APIReference/API_ListRepositorySyncDefinitions.md "../../../codeconnections/latest/APIReference/API_ListRepositorySyncDefinitions.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListRepositorySyncDefinitions](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListRepositorySyncDefinitions.html) action.
 
 ```
 {
@@ -1192,8 +1172,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListRe
 ```
 
 ## `ListSyncConfigurations` example
+<a name="w2aab5c25c39c47"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListSyncConfigurations](../../../codeconnections/latest/APIReference/API_ListSyncConfigurations.md "../../../codeconnections/latest/APIReference/API_ListSyncConfigurations.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListSyncConfigurations](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListSyncConfigurations.html) action.
 
 ```
 {
@@ -1270,8 +1251,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListSy
 ```
 
 ## `ListTagsForResource` example
+<a name="w2aab5c25c39c49"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [ListTagsForResource](../../../codeconnections/latest/APIReference/API_ListTagsForResource.md "../../../codeconnections/latest/APIReference/API_ListTagsForResource.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [ListTagsForResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_ListTagsForResource.html) action.
 
 ```
 {
@@ -1331,8 +1313,9 @@ The following example shows a CloudTrail log entry that demonstrates the [ListTa
 ```
 
 ## `TagResource` example
+<a name="w2aab5c25c39c51"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [TagResource](../../../codeconnections/latest/APIReference/API_TagResource.md "../../../codeconnections/latest/APIReference/API_TagResource.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [TagResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_TagResource.html) action.
 
 ```
 {
@@ -1398,8 +1381,9 @@ The following example shows a CloudTrail log entry that demonstrates the [TagRes
 ```
 
 ## `UnTagResource` example
+<a name="w2aab5c25c39c53"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [UntagResource](../../../codeconnections/latest/APIReference/API_UntagResource.md "../../../codeconnections/latest/APIReference/API_UntagResource.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [UntagResource](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UntagResource.html) action.
 
 ```
 {
@@ -1463,8 +1447,9 @@ The following example shows a CloudTrail log entry that demonstrates the [UntagR
 ```
 
 ## `UpdateHost` example
+<a name="w2aab5c25c39c55"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [UpdateHost](../../../codeconnections/latest/APIReference/API_UpdateHost.md "../../../codeconnections/latest/APIReference/API_UpdateHost.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [UpdateHost](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateHost.html) action.
 
 ```
 "Events": [{
@@ -1522,8 +1507,9 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 ```
 
 ## `UpdateRepositoryLink` example
+<a name="w2aab5c25c39c57"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [UpdateRepositoryLink](../../../codeconnections/latest/APIReference/API_UpdateRepositoryLink.md "../../../codeconnections/latest/APIReference/API_UpdateRepositoryLink.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [UpdateRepositoryLink](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateRepositoryLink.html) action.
 
 ```
 {
@@ -1596,8 +1582,9 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 ```
 
 ## `UpdateSyncBlocker` example
+<a name="w2aab5c25c39c59"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncBlocker](../../../codeconnections/latest/APIReference/API_UpdateSyncBlocker.md "../../../codeconnections/latest/APIReference/API_UpdateSyncBlocker.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncBlocker](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateSyncBlocker.html) action.
 
 ```
 {
@@ -1660,8 +1647,9 @@ The following example shows a CloudTrail log entry that demonstrates the [Update
 ```
 
 ## `UpdateSyncConfiguration` example
+<a name="w2aab5c25c39c61"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncConfiguration](../../../codeconnections/latest/APIReference/API_UpdateSyncConfiguration.md "../../../codeconnections/latest/APIReference/API_UpdateSyncConfiguration.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [UpdateSyncConfiguration](https://docs.aws.amazon.com/codeconnections/latest/APIReference/API_UpdateSyncConfiguration.html) action.
 
 ```
 {
