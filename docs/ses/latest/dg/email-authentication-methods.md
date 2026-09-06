@@ -16,6 +16,7 @@ emails.
 ###### Contents
 
 - [Authenticating Email with DKIM in Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md")
+- [Authenticating email with S/MIME in Amazon SES](send-email-authentication-smime.md "send-email-authentication-smime.md")
 - [Authenticating Email with SPF in Amazon SES](send-email-authentication-spf.md "send-email-authentication-spf.md")
 - [Using a custom MAIL FROM domain](mail-from.md "mail-from.md")
 - [Complying with DMARC authentication protocol in Amazon SES](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md")
