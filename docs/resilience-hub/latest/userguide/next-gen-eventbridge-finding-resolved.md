@@ -1,7 +1,9 @@
-# Failure mode finding resolved event
 
-The following is an example event emitted when a failure mode finding is marked as
-Resolved or Irrelevant.
+
+# Failure mode finding resolved event
+<a name="next-gen-eventbridge-finding-resolved"></a>
+
+The following is an example event emitted when a failure mode finding is marked as Resolved or Irrelevant.
 
 ```
 {
@@ -26,9 +28,10 @@ Resolved or Irrelevant.
 
 The `detail` object contains the following fields:
 
-| Field       | Description                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------- |
-| `findingId` | The unique identifier of the resolved finding.                                           |
-| `status`    | The resolution status. Values: `RESOLVED`,<br>`IRRELEVANT`.                              |
-| `severity`  | The severity of the finding. Values: `HIGH`,<br>`MEDIUM`, `LOW`.                         |
-| `category`  | The failure mode category (for example,<br>`SINGLE_POINT_OF_FAILURE`,<br>`SHARED_FATE`). |
+
+| Field | Description | 
+| --- | --- | 
+| findingId | The unique identifier of the resolved finding. | 
+| status | The resolution status. Values: RESOLVED, IRRELEVANT. | 
+| severity | The severity of the finding. Values: HIGH, MEDIUM, LOW. | 
+| category | The failure mode category (for example, SINGLE\_POINT\_OF\_FAILURE, SHARED\_FATE). | 

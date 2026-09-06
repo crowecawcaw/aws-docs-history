@@ -1,9 +1,16 @@
-# Delete a user journey
 
-###### To delete a user journey (console)
+
+# Delete a user journey
+<a name="next-gen-delete-user-journey"></a>
+
+**To delete a user journey (console)**
 
 1. Open the Next generation Resilience Hub console and navigate to your system.
-2. Choose the **User journeys** tab.
-3. Select the user journey you want to delete.
-4. Choose **Delete**.
-5. Confirm the deletion.
+
+1. Choose the **User journeys** tab.
+
+1. Select the user journey you want to delete.
+
+1. Choose **Delete**.
+
+1. Confirm the deletion.

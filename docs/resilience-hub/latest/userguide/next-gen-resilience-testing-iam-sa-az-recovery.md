@@ -1,11 +1,13 @@
+
+
 # Availability Zone: recovery
+<a name="next-gen-resilience-testing-iam-sa-az-recovery"></a>
 
 The **Availability Zone: recovery** template runs AWS FIS actions against the following services: Amazon EC2, Amazon EC2 Auto Scaling, Amazon ElastiCache, Amazon RDS, network ACLs, and AWS Application Recovery Controller zonal shift. Attach the following permissions policy to the execution role.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "EC2StopAndStartInstances",
@@ -14,7 +16,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
         "ec2:StopInstances",
         "ec2:StartInstances"
       ],
-      "Resource": "arn:aws:ec2:*:`account-id`:instance/*"
+      "Resource": "arn:aws:ec2:*:{{account-id}}:instance/*"
     },
     {
       "Sid": "EC2DescribeInstances",
@@ -26,7 +28,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Sid": "EC2EncryptedVolumesKmsGrant",
       "Effect": "Allow",
       "Action": "kms:CreateGrant",
-      "Resource": "arn:aws:kms:*:`account-id`:key/*",
+      "Resource": "arn:aws:kms:*:{{account-id}}:key/*",
       "Condition": {
         "StringLike": {
           "kms:ViaService": "ec2.*.amazonaws.com"
@@ -78,13 +80,13 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
         "elasticache:InterruptClusterAzPower",
         "elasticache:DescribeReplicationGroups"
       ],
-      "Resource": "arn:aws:elasticache:*:`account-id`:replicationgroup:*"
+      "Resource": "arn:aws:elasticache:*:{{account-id}}:replicationgroup:*"
     },
     {
       "Sid": "EBSPauseVolumeIO",
       "Effect": "Allow",
       "Action": "ec2:PauseVolumeIO",
-      "Resource": "arn:aws:ec2:*:`account-id`:volume/*"
+      "Resource": "arn:aws:ec2:*:{{account-id}}:volume/*"
     },
     {
       "Sid": "EBSDescribeVolumes",
@@ -96,7 +98,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Sid": "NetworkTagManagedNacl",
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
-      "Resource": "arn:aws:ec2:*:`account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "ec2:CreateAction": "CreateNetworkAcl",
@@ -108,7 +110,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Sid": "NetworkCreateManagedNacl",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkAcl",
-      "Resource": "arn:aws:ec2:*:`account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -119,7 +121,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Sid": "NetworkCreateNaclOnVpc",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkAcl",
-      "Resource": "arn:aws:ec2:*:`account-id`:vpc/*"
+      "Resource": "arn:aws:ec2:*:{{account-id}}:vpc/*"
     },
     {
       "Sid": "NetworkModifyManagedNacl",
@@ -128,7 +130,7 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
         "ec2:CreateNetworkAclEntry",
         "ec2:DeleteNetworkAcl"
       ],
-      "Resource": "arn:aws:ec2:*:`account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "ec2:ResourceTag/managedByFIS": "true"
@@ -151,15 +153,15 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Effect": "Allow",
       "Action": "ec2:ReplaceNetworkAclAssociation",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:subnet/*",
-        "arn:aws:ec2:*:`account-id`:network-acl/*"
+        "arn:aws:ec2:*:{{account-id}}:subnet/*",
+        "arn:aws:ec2:*:{{account-id}}:network-acl/*"
       ]
     },
     {
       "Sid": "NetworkPrefixListEntries",
       "Effect": "Allow",
       "Action": "ec2:GetManagedPrefixListEntries",
-      "Resource": "arn:aws:ec2:*:`account-id`:prefix-list/*"
+      "Resource": "arn:aws:ec2:*:{{account-id}}:prefix-list/*"
     },
     {
       "Sid": "RDSFailoverCluster",
@@ -168,13 +170,13 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
         "rds:FailoverDBCluster",
         "rds:DescribeDBClusters"
       ],
-      "Resource": "arn:aws:rds:*:`account-id`:cluster:*"
+      "Resource": "arn:aws:rds:*:{{account-id}}:cluster:*"
     },
     {
       "Sid": "RDSDescribeForTargetResolution",
       "Effect": "Allow",
       "Action": "rds:DescribeDBInstances",
-      "Resource": "arn:aws:rds:*:`account-id`:db:*"
+      "Resource": "arn:aws:rds:*:{{account-id}}:db:*"
     },
     {
       "Sid": "ARCZonalShiftManagedElb",
@@ -186,8 +188,8 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
         "arc-zonal-shift:CancelZonalShift"
       ],
       "Resource": [
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*",
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/net/*"
+        "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/net/*"
       ]
     },
     {
@@ -203,8 +205,8 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
       "Condition": {
         "StringLike": {
           "arc-zonal-shift:ResourceIdentifier": [
-            "arn:aws:autoscaling:*:`account-id`:autoScalingGroup:*",
-            "arn:aws:eks:*:`account-id`:cluster/*"
+            "arn:aws:autoscaling:*:{{account-id}}:autoScalingGroup:*",
+            "arn:aws:eks:*:{{account-id}}:cluster/*"
           ]
         }
       }
@@ -245,5 +247,4 @@ The **Availability Zone: recovery** template runs AWS FIS actions against the fo
     }
   ]
 }
-
 ```

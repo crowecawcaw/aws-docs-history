@@ -1,10 +1,10 @@
+
+
 # Test run stops before completing
+<a name="next-gen-troubleshoot-test-stopped"></a>
 
 **Symptom:** A test run stops on its own before it finishes.
 
-**Cause:** A CloudWatch alarm that you configured as a stop
-condition breached its threshold, and resilience testing stopped the run to limit impact.
+**Cause:** A CloudWatch alarm that you configured as a stop condition breached its threshold, and resilience testing stopped the run to limit impact.
 
-**Solution:** Review the alarm that triggered the stop
-condition to determine the impact on your service. After you address the underlying issue, start
-a new test run.
+**Solution:** Review the alarm that triggered the stop condition to determine the impact on your service. After you address the underlying issue, start a new test run.

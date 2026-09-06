@@ -1,4 +1,7 @@
+
+
 # Failure mode assessment failed event
+<a name="next-gen-eventbridge-assessment-failed"></a>
 
 The following is an example event emitted when a failure mode assessment fails.
 
@@ -24,8 +27,9 @@ The following is an example event emitted when a failure mode assessment fails.
 
 The `detail` object contains the following fields:
 
-| Field           | Description                                     |
-| --------------- | ----------------------------------------------- |
-| `assessmentId`  | The unique identifier of the failed assessment. |
-| `status`        | The assessment status. Value: `FAILED`.         |
-| `failureReason` | A description of why the assessment failed.     |
+
+| Field | Description | 
+| --- | --- | 
+| assessmentId | The unique identifier of the failed assessment. | 
+| status | The assessment status. Value: FAILED. | 
+| failureReason | A description of why the assessment failed. | 

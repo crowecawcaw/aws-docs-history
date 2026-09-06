@@ -1,4 +1,7 @@
+
+
 # Policy components structure
+<a name="next-gen-api-policy-components-structure"></a>
 
 ```
 {

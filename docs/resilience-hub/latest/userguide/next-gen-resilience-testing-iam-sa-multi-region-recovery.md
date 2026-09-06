@@ -1,11 +1,13 @@
+
+
 # Multi-Region: recovery
+<a name="next-gen-resilience-testing-iam-sa-multi-region-recovery"></a>
 
 The **Multi-Region: recovery** template runs AWS FIS actions that block dependency traffic in the impaired Region to exercise cross-Region failover. Attach the following permissions policy to the execution role.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "SsmSendCommandOnDocuments",
@@ -21,9 +23,9 @@ The **Multi-Region: recovery** template runs AWS FIS actions that block dependen
       "Effect": "Allow",
       "Action": "ssm:SendCommand",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:instance/*",
-        "arn:aws:ssm:*:`account-id`:managed-instance/*",
-        "arn:aws:ecs:*:`account-id`:task/*/*"
+        "arn:aws:ec2:*:{{account-id}}:instance/*",
+        "arn:aws:ssm:*:{{account-id}}:managed-instance/*",
+        "arn:aws:ecs:*:{{account-id}}:task/*/*"
       ]
     },
     {
@@ -53,16 +55,16 @@ The **Multi-Region: recovery** template runs AWS FIS actions that block dependen
         "ecs:ListTasks"
       ],
       "Resource": [
-        "arn:aws:ecs:*:`account-id`:task/*/*",
-        "arn:aws:ecs:*:`account-id`:container-instance/*/*",
-        "arn:aws:ecs:*:`account-id`:cluster/*"
+        "arn:aws:ecs:*:{{account-id}}:task/*/*",
+        "arn:aws:ecs:*:{{account-id}}:container-instance/*/*",
+        "arn:aws:ecs:*:{{account-id}}:cluster/*"
       ]
     },
     {
       "Sid": "EksDescribeCluster",
       "Effect": "Allow",
       "Action": "eks:DescribeCluster",
-      "Resource": "arn:aws:eks:*:`account-id`:cluster/*"
+      "Resource": "arn:aws:eks:*:{{account-id}}:cluster/*"
     },
     {
       "Sid": "TargetResolutionByTags",
@@ -94,5 +96,4 @@ The **Multi-Region: recovery** template runs AWS FIS actions that block dependen
     }
   ]
 }
-
 ```

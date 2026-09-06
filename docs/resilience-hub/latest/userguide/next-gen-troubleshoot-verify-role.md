@@ -1,7 +1,9 @@
-# Verifying role configuration
 
-Check that your invoker role is correctly configured using the following AWS CLI
-commands.
+
+# Verifying role configuration
+<a name="next-gen-troubleshoot-verify-role"></a>
+
+Check that your invoker role is correctly configured using the following AWS CLI commands.
 
 To verify that the role exists:
 

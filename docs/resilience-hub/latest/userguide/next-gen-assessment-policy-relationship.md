@@ -1,8 +1,9 @@
-# Relationship to resilience policies
 
-Failure mode assessments evaluate your application against the targets defined in your
-resilience policies. Each finding maps to specific policy requirements, showing you exactly which
-resilience targets are at risk. For example:
+
+# Relationship to resilience policies
+<a name="next-gen-assessment-policy-relationship"></a>
+
+Failure mode assessments evaluate your application against the targets defined in your resilience policies. Each finding maps to specific policy requirements, showing you exactly which resilience targets are at risk. For example:
 
 ```
 Finding: "RDS database is not configured for Multi-AZ"

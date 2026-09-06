@@ -1,11 +1,13 @@
+
+
 # Multi-Region: isolation
+<a name="next-gen-resilience-testing-iam-sa-multi-region-isolation"></a>
 
 The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross-Region connectivity (route tables, transit gateways, and VPC endpoints) and pause cross-Region replication for Amazon S3, Amazon DynamoDB, and Amazon MemoryDB. Attach the following permissions policy to the execution role.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "RouteTableDisruptCrossRegion",
@@ -17,15 +19,15 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "ec2:CreateRoute"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:route-table/*",
-        "arn:aws:ec2:*:`account-id`:subnet/*"
+        "arn:aws:ec2:*:{{account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{account-id}}:subnet/*"
       ]
     },
     {
       "Sid": "RouteTableManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateRouteTable",
-      "Resource": "arn:aws:ec2:*:`account-id`:route-table/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:route-table/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -36,15 +38,15 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Sid": "RouteTableManagedCreateOnVpc",
       "Effect": "Allow",
       "Action": "ec2:CreateRouteTable",
-      "Resource": "arn:aws:ec2:*:`account-id`:vpc/*"
+      "Resource": "arn:aws:ec2:*:{{account-id}}:vpc/*"
     },
     {
       "Sid": "RouteTableManagedDelete",
       "Effect": "Allow",
       "Action": "ec2:DeleteRouteTable",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:route-table/*",
-        "arn:aws:ec2:*:`account-id`:vpc/*"
+        "arn:aws:ec2:*:{{account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{account-id}}:vpc/*"
       ],
       "Condition": {
         "StringEquals": {
@@ -56,7 +58,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Sid": "PrefixListManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateManagedPrefixList",
-      "Resource": "arn:aws:ec2:*:`account-id`:prefix-list/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:prefix-list/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -70,7 +72,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "ec2:DeleteManagedPrefixList",
         "ec2:ModifyManagedPrefixList"
       ],
-      "Resource": "arn:aws:ec2:*:`account-id`:prefix-list/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:prefix-list/*",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/managedByFIS": "true"
@@ -81,7 +83,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Sid": "NetworkInterfaceManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkInterface",
-      "Resource": "arn:aws:ec2:*:`account-id`:network-interface/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:network-interface/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -93,15 +95,15 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkInterface",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:subnet/*",
-        "arn:aws:ec2:*:`account-id`:security-group/*"
+        "arn:aws:ec2:*:{{account-id}}:subnet/*",
+        "arn:aws:ec2:*:{{account-id}}:security-group/*"
       ]
     },
     {
       "Sid": "NetworkInterfaceManagedDelete",
       "Effect": "Allow",
       "Action": "ec2:DeleteNetworkInterface",
-      "Resource": "arn:aws:ec2:*:`account-id`:network-interface/*",
+      "Resource": "arn:aws:ec2:*:{{account-id}}:network-interface/*",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/managedByFIS": "true"
@@ -113,10 +115,10 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:route-table/*",
-        "arn:aws:ec2:*:`account-id`:prefix-list/*",
-        "arn:aws:ec2:*:`account-id`:network-interface/*",
-        "arn:aws:ec2:*:`account-id`:security-group/*"
+        "arn:aws:ec2:*:{{account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{account-id}}:prefix-list/*",
+        "arn:aws:ec2:*:{{account-id}}:network-interface/*",
+        "arn:aws:ec2:*:{{account-id}}:security-group/*"
       ],
       "Condition": {
         "StringEquals": {
@@ -152,8 +154,8 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "ec2:DisassociateTransitGatewayRouteTable"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:transit-gateway-route-table/*",
-        "arn:aws:ec2:*:`account-id`:transit-gateway-attachment/*"
+        "arn:aws:ec2:*:{{account-id}}:transit-gateway-route-table/*",
+        "arn:aws:ec2:*:{{account-id}}:transit-gateway-attachment/*"
       ]
     },
     {
@@ -161,8 +163,8 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Effect": "Allow",
       "Action": "ec2:ModifyVpcEndpoint",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:vpc-endpoint/*",
-        "arn:aws:ec2:*:`account-id`:security-group/*"
+        "arn:aws:ec2:*:{{account-id}}:vpc-endpoint/*",
+        "arn:aws:ec2:*:{{account-id}}:security-group/*"
       ]
     },
     {
@@ -174,8 +176,8 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "ec2:RevokeSecurityGroupEgress"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:security-group/*",
-        "arn:aws:ec2:*:`account-id`:vpc/*"
+        "arn:aws:ec2:*:{{account-id}}:security-group/*",
+        "arn:aws:ec2:*:{{account-id}}:vpc/*"
       ]
     },
     {
@@ -192,9 +194,9 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Effect": "Allow",
       "Action": "ssm:SendCommand",
       "Resource": [
-        "arn:aws:ec2:*:`account-id`:instance/*",
-        "arn:aws:ssm:*:`account-id`:managed-instance/*",
-        "arn:aws:ecs:*:`account-id`:task/*/*"
+        "arn:aws:ec2:*:{{account-id}}:instance/*",
+        "arn:aws:ssm:*:{{account-id}}:managed-instance/*",
+        "arn:aws:ecs:*:{{account-id}}:task/*/*"
       ]
     },
     {
@@ -215,16 +217,16 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "ecs:ListTasks"
       ],
       "Resource": [
-        "arn:aws:ecs:*:`account-id`:task/*/*",
-        "arn:aws:ecs:*:`account-id`:container-instance/*/*",
-        "arn:aws:ecs:*:`account-id`:cluster/*"
+        "arn:aws:ecs:*:{{account-id}}:task/*/*",
+        "arn:aws:ecs:*:{{account-id}}:container-instance/*/*",
+        "arn:aws:ecs:*:{{account-id}}:cluster/*"
       ]
     },
     {
       "Sid": "EksDescribeCluster",
       "Effect": "Allow",
       "Action": "eks:DescribeCluster",
-      "Resource": "arn:aws:eks:*:`account-id`:cluster/*"
+      "Resource": "arn:aws:eks:*:{{account-id}}:cluster/*"
     },
     {
       "Sid": "DynamoDbGlobalTablePauseReplication",
@@ -236,7 +238,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "dynamodb:DescribeTable",
         "dynamodb:InjectError"
       ],
-      "Resource": "arn:aws:dynamodb:*:`account-id`:table/*"
+      "Resource": "arn:aws:dynamodb:*:{{account-id}}:table/*"
     },
     {
       "Sid": "S3PauseReplicationConfiguration",
@@ -251,7 +253,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
           "s3:IsReplicationPauseRequest": "true"
         },
         "StringEquals": {
-          "aws:ResourceAccount": "`account-id`"
+          "aws:ResourceAccount": "{{account-id}}"
         }
       }
     },
@@ -262,7 +264,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Resource": "arn:aws:s3:::*",
       "Condition": {
         "StringEquals": {
-          "aws:ResourceAccount": "`account-id`"
+          "aws:ResourceAccount": "{{account-id}}"
         }
       }
     },
@@ -273,7 +275,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "aws:ResourceAccount": "`account-id`"
+          "aws:ResourceAccount": "{{account-id}}"
         }
       }
     },
@@ -284,7 +286,7 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
         "memorydb:PauseMultiRegionClusterReplication",
         "memorydb:DescribeMultiRegionClusters"
       ],
-      "Resource": "arn:aws:memorydb::`account-id`:multiregioncluster/*"
+      "Resource": "arn:aws:memorydb::{{account-id}}:multiregioncluster/*"
     },
     {
       "Sid": "TargetResolutionByTags",
@@ -316,5 +318,4 @@ The **Multi-Region: isolation** template runs AWS FIS actions that disrupt cross
     }
   ]
 }
-
 ```

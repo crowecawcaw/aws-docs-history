@@ -1,4 +1,7 @@
+
+
 # Permission model structure
+<a name="next-gen-api-permission-model-structure"></a>
 
 ```
 {

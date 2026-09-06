@@ -1,10 +1,11 @@
-# Example CloudTrail event
 
-The following is an example CloudTrail event for a
-`StartFailureModeAssessment` API call.
+
+# Example CloudTrail event
+<a name="next-gen-cloudtrail-example"></a>
+
+The following is an example CloudTrail event for a `StartFailureModeAssessment` API call.
 
 ```
-
 {
   "eventVersion": "1.08",
   "eventSource": "resiliencehub.amazonaws.com",

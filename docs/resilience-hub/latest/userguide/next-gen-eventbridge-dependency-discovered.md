@@ -1,8 +1,9 @@
-# New dependency discovered event
 
-The following is an example event emitted when dependency discovery identifies a new
-dependency for your service. This event is emitted after a stabilization period to reduce
-noise during initial discovery.
+
+# New dependency discovered event
+<a name="next-gen-eventbridge-dependency-discovered"></a>
+
+The following is an example event emitted when dependency discovery identifies a new dependency for your service. This event is emitted after a stabilization period to reduce noise during initial discovery.
 
 ```
 {
@@ -32,11 +33,12 @@ noise during initial discovery.
 
 The `detail` object contains the following fields:
 
-| Field            | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| `dependencyId`   | The unique identifier of the discovered dependency.                         |
-| `dependencyName` | The name of the dependency (for example, the AWS service name).             |
-| `dnsName`        | The DNS name used by your service to communicate with the dependency.       |
-| `location`       | The AWS Region or location where the dependency is hosted.                  |
-| `provider`       | The dependency provider. Values include `AWS`,<br>`ThirdParty`, `Internal`. |
-| `sourceRegions`  | The Regions from which your service communicates with this<br>dependency.   |
+
+| Field | Description | 
+| --- | --- | 
+| dependencyId | The unique identifier of the discovered dependency. | 
+| dependencyName | The name of the dependency (for example, the AWS service name). | 
+| dnsName | The DNS name used by your service to communicate with the dependency. | 
+| location | The AWS Region or location where the dependency is hosted. | 
+| provider | The dependency provider. Values include AWS, ThirdParty, Internal. | 
+| sourceRegions | The Regions from which your service communicates with this dependency. | 

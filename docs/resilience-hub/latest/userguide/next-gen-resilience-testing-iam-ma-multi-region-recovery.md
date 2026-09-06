@@ -1,11 +1,13 @@
+
+
 # Multi-Region: recovery
+<a name="next-gen-resilience-testing-iam-ma-multi-region-recovery"></a>
 
 Attach the following permissions policy to the target role for the **Multi-Region: recovery** template.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "SsmSendCommandOnDocuments",
@@ -21,9 +23,9 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Effect": "Allow",
       "Action": "ssm:SendCommand",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:instance/*",
-        "arn:aws:ssm:*:`target-account-id`:managed-instance/*",
-        "arn:aws:ecs:*:`target-account-id`:task/*/*"
+        "arn:aws:ec2:*:{{target-account-id}}:instance/*",
+        "arn:aws:ssm:*:{{target-account-id}}:managed-instance/*",
+        "arn:aws:ecs:*:{{target-account-id}}:task/*/*"
       ]
     },
     {
@@ -53,16 +55,16 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ecs:ListTasks"
       ],
       "Resource": [
-        "arn:aws:ecs:*:`target-account-id`:task/*/*",
-        "arn:aws:ecs:*:`target-account-id`:container-instance/*/*",
-        "arn:aws:ecs:*:`target-account-id`:cluster/*"
+        "arn:aws:ecs:*:{{target-account-id}}:task/*/*",
+        "arn:aws:ecs:*:{{target-account-id}}:container-instance/*/*",
+        "arn:aws:ecs:*:{{target-account-id}}:cluster/*"
       ]
     },
     {
       "Sid": "EksDescribeCluster",
       "Effect": "Allow",
       "Action": "eks:DescribeCluster",
-      "Resource": "arn:aws:eks:*:`target-account-id`:cluster/*"
+      "Resource": "arn:aws:eks:*:{{target-account-id}}:cluster/*"
     },
     {
       "Sid": "TargetResolutionByTags",
@@ -72,5 +74,4 @@ Attach the following permissions policy to the target role for the **Multi-Regio
     }
   ]
 }
-
 ```

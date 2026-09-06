@@ -1,7 +1,9 @@
-# Failure mode assessment completed event
 
-The following is an example event emitted when a failure mode assessment completes
-successfully.
+
+# Failure mode assessment completed event
+<a name="next-gen-eventbridge-assessment-completed"></a>
+
+The following is an example event emitted when a failure mode assessment completes successfully.
 
 ```
 {
@@ -26,9 +28,10 @@ successfully.
 
 The `detail` object contains the following fields:
 
-| Field               | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| `assessmentId`      | The unique identifier of the completed assessment.    |
-| `status`            | The assessment status. Value: `SUCCESS`.              |
-| `findingsCount`     | The total number of failure mode findings identified. |
-| `highSeverityCount` | The number of high-severity findings identified.      |
+
+| Field | Description | 
+| --- | --- | 
+| assessmentId | The unique identifier of the completed assessment. | 
+| status | The assessment status. Value: SUCCESS. | 
+| findingsCount | The total number of failure mode findings identified. | 
+| highSeverityCount | The number of high-severity findings identified. | 

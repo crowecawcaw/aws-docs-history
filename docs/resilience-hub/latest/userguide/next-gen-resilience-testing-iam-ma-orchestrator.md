@@ -1,13 +1,13 @@
+
+
 # Orchestrator account role
+<a name="next-gen-resilience-testing-iam-ma-orchestrator"></a>
 
 Create the orchestrator role in the account that runs the experiment. Its trust policy allows AWS FIS to assume it, with the same confused-deputy protection as the single-account trust policy.
 
-###### Trust policy
-
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "FISTrustPolicy",
@@ -18,10 +18,10 @@ Create the orchestrator role in the account that runs the experiment. Its trust 
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "`orchestrator-account-id`"
+          "aws:SourceAccount": "{{orchestrator-account-id}}"
         },
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:fis:*:`orchestrator-account-id`:experiment/*"
+          "aws:SourceArn": "arn:aws:fis:*:{{orchestrator-account-id}}:experiment/*"
         }
       }
     },
@@ -29,30 +29,26 @@ Create the orchestrator role in the account that runs the experiment. Its trust 
       "Sid": "SelfAssume",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::`orchestrator-account-id`:role/`orchestrator-role-name`"
+        "AWS": "arn:aws:iam::{{orchestrator-account-id}}:role/{{orchestrator-role-name}}"
       },
       "Action": "sts:AssumeRole"
     }
   ]
 }
-
 ```
-
-###### Permissions policy
 
 The orchestrator permissions policy is the same for every test template. It allows the role to assume the target-account roles, resolve targets, and manage experiment logging and lifecycle. List the ARN of each target-account role in the `AssumeTargetAccountRole` statement.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "AssumeTargetAccountRole",
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Resource": [
-        "arn:aws:iam::`target-account-id`:role/`target-role-name`"
+        "arn:aws:iam::{{target-account-id}}:role/{{target-role-name}}"
       ]
     },
     {
@@ -85,7 +81,7 @@ The orchestrator permissions policy is the same for every test template. It allo
         "fis:StopExperiment",
         "fis:ListExperimentResolvedTargets"
       ],
-      "Resource": "arn:aws:fis:*:`orchestrator-account-id`:experiment/*"
+      "Resource": "arn:aws:fis:*:{{orchestrator-account-id}}:experiment/*"
     },
     {
       "Sid": "OrchestratorTagGetResources",
@@ -139,5 +135,4 @@ The orchestrator permissions policy is the same for every test template. It allo
     }
   ]
 }
-
 ```

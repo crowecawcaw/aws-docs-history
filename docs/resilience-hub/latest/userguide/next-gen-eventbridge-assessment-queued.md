@@ -1,8 +1,9 @@
-# Failure mode assessment queued event
 
-The following is an example event emitted when an assessment is queued for delayed
-processing. The assessment is retried and completes within 24
-hours.
+
+# Failure mode assessment queued event
+<a name="next-gen-eventbridge-assessment-queued"></a>
+
+The following is an example event emitted when an assessment is queued for delayed processing. The assessment is retried and completes within 24 hours.
 
 ```
 {
@@ -24,10 +25,9 @@ hours.
 
 The `detail` object contains the following fields:
 
-| Field          | Description                                     |
-| -------------- | ----------------------------------------------- |
-| `assessmentId` | The unique identifier of the queued assessment. |
 
-When the queued assessment completes, a separate
-`Failure Mode Assessment Completed` or
-`Failure Mode Assessment Failed` event is emitted.
+| Field | Description | 
+| --- | --- | 
+| assessmentId | The unique identifier of the queued assessment. | 
+
+When the queued assessment completes, a separate `Failure Mode Assessment Completed` or `Failure Mode Assessment Failed` event is emitted.

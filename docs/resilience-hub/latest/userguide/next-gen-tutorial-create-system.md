@@ -1,14 +1,19 @@
+
+
 # Create a system
+<a name="next-gen-tutorial-create-system"></a>
 
 **Console:**
 
 1. Open the the next generation of Resilience Hub console.
-2. Choose **Systems** > **Create
-   system**.
-3. Enter a name (for example, `My Application`) and an optional
-   description.
-4. Choose **Create**.
-   **AWS CLI:**
+
+1. Choose **Systems** > **Create system**.
+
+1. Enter a name (for example, `My Application`) and an optional description.
+
+1. Choose **Create**.
+
+**AWS CLI:**
 
 ```
 aws resiliencehubv2 create-system \

@@ -1,20 +1,13 @@
+
+
 # Integrating operational recommendations into your application with CloudFormation
+<a name="cfn-integration"></a>
 
-After you choose **Create CloudFormation template** in the
-**Operational recommendations** page, AWS Resilience Hub creates an CloudFormation template that
-describes the specific alarm, standard operating procedure (SOP), or AWS FIS experiment for your application. The CloudFormation template is stored in an Amazon S3 bucket, and you
-can check the S3 path to the template in the **Template details** tab on the
-**Operational recommendations** page.
+After you choose **Create CloudFormation template** in the **Operational recommendations** page, AWS Resilience Hub creates an CloudFormation template that describes the specific alarm, standard operating procedure (SOP), or AWS FIS experiment for your application. The CloudFormation template is stored in an Amazon S3 bucket, and you can check the S3 path to the template in the **Template details** tab on the **Operational recommendations** page. 
 
-For example, the listing below shows a JSON-formatted CloudFormation template that describes an alarm
-recommendation rendered by AWS Resilience Hub. It's a Read Throttling Alarm for a DynamoDB table called
-`Employees`.
+For example, the listing below shows a JSON-formatted CloudFormation template that describes an alarm recommendation rendered by AWS Resilience Hub. It's a Read Throttling Alarm for a DynamoDB table called `Employees`.
 
-The `Resources` section of the template describes the
-`AWS::CloudWatch::Alarm` alarm that's activated when the number of read throttle
-events for the DynamoDB table exceeds 1. And the two `AWS::SSM::Parameter` resources
-define metadata that allow AWS Resilience Hub to identify installed resources without having to scan the
-actual application.
+The `Resources` section of the template describes the `AWS::CloudWatch::Alarm` alarm that's activated when the number of read throttle events for the DynamoDB table exceeds 1. And the two `AWS::SSM::Parameter` resources define metadata that allow AWS Resilience Hub to identify installed resources without having to scan the actual application.
 
 ```
 {
@@ -83,12 +76,9 @@ actual application.
 ```
 
 ## Modifying the CloudFormation template
+<a name="modifying-resource-template"></a>
 
-The easiest way to integrate an alarm, SOP, or AWS FIS resource into your main application is
-to simply add it as another resource in the template that describes your application template.
-The JSON-formatted file provided below provides a basic outline of how a DynamoDB table is
-described in an CloudFormation template. A real application is likely to include several more
-resources, such as additional tables.
+The easiest way to integrate an alarm, SOP, or AWS FIS resource into your main application is to simply add it as another resource in the template that describes your application template. The JSON-formatted file provided below provides a basic outline of how a DynamoDB table is described in an CloudFormation template. A real application is likely to include several more resources, such as additional tables. 
 
 ```
 {
@@ -172,11 +162,9 @@ resources, such as additional tables.
 }
 ```
 
-To allow the alarm resource to be deployed with your application, you now need to replace
-the hardcoded resources with a dynamic reference in the application stacks.
+To allow the alarm resource to be deployed with your application, you now need to replace the hardcoded resources with a dynamic reference in the application stacks. 
 
-So, in the `AWS::CloudWatch::Alarm` resource definition, change the
-following:
+So, in the `AWS::CloudWatch::Alarm` resource definition, change the following:
 
 ```
 "Value" : "Employees-ON-DEMAND-0-DynamoDBTable-PXBZQYH3DCJ9"
@@ -188,8 +176,7 @@ to the below:
 "Value" : {"Ref": "Employees"}
 ```
 
-And under in the `AWS::SSM::Parameter` resource definition, change the
-following:
+And under in the `AWS::SSM::Parameter` resource definition, change the following:
 
 ```
 "Fn::Sub" : "{\"alarmName\":\"${ReadthrottleeventsthresholdexceededDynamoDBEmployeesONDEMAND0DynamoDBTablePXBZQYH3DCJ9Alarm}\",\"referenceId\":\"dynamodb:alarm:health_read_throttle_events:2020-04-01\",\"resourceId\":\"Employees-ON-DEMAND-0-DynamoDBTable-PXBZQYH3DCJ9\",\"relatedSOPs\":[\"dynamodb:sop:update_provisioned_capacity:2020-04-01\"]}"
@@ -201,24 +188,12 @@ to the below:
 "Fn::Sub" : "{\"alarmName\":\"${ReadthrottleeventsthresholdexceededEmployeesONDEMAND0DynamoDBTablePXBZQYH3DCJ9Alarm}\",\"referenceId\":\"dynamodb:alarm:health_read_throttle_events:2020-04-01\",\"resourceId\":\"${Employees}\",\"relatedSOPs\":[\"dynamodb:sop:update_provisioned_capacity:2020-04-01\"]}"
 ```
 
-When modifying CloudFormation templates for SOPs and AWS FIS experiments, you will take the same
-approach, replacing hardcoded reference IDs with dynamic references that continue to work even
-after hardware changes.
+When modifying CloudFormation templates for SOPs and AWS FIS experiments, you will take the same approach, replacing hardcoded reference IDs with dynamic references that continue to work even after hardware changes. 
 
 By using a reference to the DynamoDB table, you allow CloudFormation to do the following:
++ Create the database table first.
++  Always use the actual ID of the generated resource in the alarm, and update the alarm dynamically if CloudFormation needs to replace the resource.
 
-- Create the database table first.
-- Always use the actual ID of the generated resource in the alarm, and update the alarm
-  dynamically if CloudFormation needs to replace the resource.
-
-###### Note
-
-You can choose more advanced methods for managing your application resources with CloudFormation
-such as [nesting
-stacks](../../../AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.md") or [referring to
-resource outputs in a separate CloudFormation stack](../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md "../../../AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.md"). (But if you want to keep the
-recommendation stack separate from the main stack, you need to configure a way to pass
-information between the two stacks.)
-
-In addition, third-party tools, such as Terraform by HashiCorp, can also be used to
-provision Infrastructure as Code (IaC).
+**Note**  
+You can choose more advanced methods for managing your application resources with CloudFormation such as [nesting stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-nested-stacks.html) or [referring to resource outputs in a separate CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.html). (But if you want to keep the recommendation stack separate from the main stack, you need to configure a way to pass information between the two stacks.)   
+In addition, third-party tools, such as Terraform by HashiCorp, can also be used to provision Infrastructure as Code (IaC).

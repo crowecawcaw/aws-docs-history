@@ -1,11 +1,13 @@
+
+
 # Availability Zone: recovery
+<a name="next-gen-resilience-testing-iam-ma-az-recovery"></a>
 
 Attach the following permissions policy to the target role for the **Availability Zone: recovery** template.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "EC2StopAndStartInstances",
@@ -14,7 +16,7 @@ Attach the following permissions policy to the target role for the **Availabilit
         "ec2:StopInstances",
         "ec2:StartInstances"
       ],
-      "Resource": "arn:aws:ec2:*:`target-account-id`:instance/*"
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:instance/*"
     },
     {
       "Sid": "EC2DescribeInstances",
@@ -26,7 +28,7 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Sid": "EC2EncryptedVolumesKmsGrant",
       "Effect": "Allow",
       "Action": "kms:CreateGrant",
-      "Resource": "arn:aws:kms:*:`target-account-id`:key/*",
+      "Resource": "arn:aws:kms:*:{{target-account-id}}:key/*",
       "Condition": {
         "StringLike": {
           "kms:ViaService": "ec2.*.amazonaws.com"
@@ -75,13 +77,13 @@ Attach the following permissions policy to the target role for the **Availabilit
         "elasticache:InterruptClusterAzPower",
         "elasticache:DescribeReplicationGroups"
       ],
-      "Resource": "arn:aws:elasticache:*:`target-account-id`:replicationgroup:*"
+      "Resource": "arn:aws:elasticache:*:{{target-account-id}}:replicationgroup:*"
     },
     {
       "Sid": "EBSPauseVolumeIO",
       "Effect": "Allow",
       "Action": "ec2:PauseVolumeIO",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:volume/*"
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:volume/*"
     },
     {
       "Sid": "EBSDescribeVolumes",
@@ -93,7 +95,7 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Sid": "NetworkTagManagedNacl",
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "ec2:CreateAction": "CreateNetworkAcl",
@@ -105,7 +107,7 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Sid": "NetworkCreateManagedNacl",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkAcl",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -116,7 +118,7 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Sid": "NetworkCreateNaclOnVpc",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkAcl",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:vpc/*"
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:vpc/*"
     },
     {
       "Sid": "NetworkModifyManagedNacl",
@@ -125,7 +127,7 @@ Attach the following permissions policy to the target role for the **Availabilit
         "ec2:CreateNetworkAclEntry",
         "ec2:DeleteNetworkAcl"
       ],
-      "Resource": "arn:aws:ec2:*:`target-account-id`:network-acl/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:network-acl/*",
       "Condition": {
         "StringEquals": {
           "ec2:ResourceTag/managedByFIS": "true"
@@ -148,15 +150,15 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Effect": "Allow",
       "Action": "ec2:ReplaceNetworkAclAssociation",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:subnet/*",
-        "arn:aws:ec2:*:`target-account-id`:network-acl/*"
+        "arn:aws:ec2:*:{{target-account-id}}:subnet/*",
+        "arn:aws:ec2:*:{{target-account-id}}:network-acl/*"
       ]
     },
     {
       "Sid": "NetworkPrefixListEntries",
       "Effect": "Allow",
       "Action": "ec2:GetManagedPrefixListEntries",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:prefix-list/*"
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:prefix-list/*"
     },
     {
       "Sid": "RDSFailoverCluster",
@@ -165,13 +167,13 @@ Attach the following permissions policy to the target role for the **Availabilit
         "rds:FailoverDBCluster",
         "rds:DescribeDBClusters"
       ],
-      "Resource": "arn:aws:rds:*:`target-account-id`:cluster:*"
+      "Resource": "arn:aws:rds:*:{{target-account-id}}:cluster:*"
     },
     {
       "Sid": "RDSDescribeForTargetResolution",
       "Effect": "Allow",
       "Action": "rds:DescribeDBInstances",
-      "Resource": "arn:aws:rds:*:`target-account-id`:db:*"
+      "Resource": "arn:aws:rds:*:{{target-account-id}}:db:*"
     },
     {
       "Sid": "ARCZonalShiftManagedElb",
@@ -183,8 +185,8 @@ Attach the following permissions policy to the target role for the **Availabilit
         "arc-zonal-shift:CancelZonalShift"
       ],
       "Resource": [
-        "arn:aws:elasticloadbalancing:*:`target-account-id`:loadbalancer/app/*",
-        "arn:aws:elasticloadbalancing:*:`target-account-id`:loadbalancer/net/*"
+        "arn:aws:elasticloadbalancing:*:{{target-account-id}}:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:{{target-account-id}}:loadbalancer/net/*"
       ]
     },
     {
@@ -200,8 +202,8 @@ Attach the following permissions policy to the target role for the **Availabilit
       "Condition": {
         "StringLike": {
           "arc-zonal-shift:ResourceIdentifier": [
-            "arn:aws:autoscaling:*:`target-account-id`:autoScalingGroup:*",
-            "arn:aws:eks:*:`target-account-id`:cluster/*"
+            "arn:aws:autoscaling:*:{{target-account-id}}:autoScalingGroup:*",
+            "arn:aws:eks:*:{{target-account-id}}:cluster/*"
           ]
         }
       }
@@ -220,5 +222,4 @@ Attach the following permissions policy to the target role for the **Availabilit
     }
   ]
 }
-
 ```

@@ -1,53 +1,48 @@
-# Running and managing AWS Resilience Hub resiliency assessments
 
-After you publish a new version of your application, you must run a new resiliency
-assessment and analyze the results to ensure that your application meets the estimated
-workload RTO and estimated RPO that are defined in your resiliency policy. The
-assessment compares each Application Component configuration to the policy and makes
-alarm, SOP, and test recommendations.
+
+# Running and managing AWS Resilience Hub resiliency assessments
+<a name="running-app-using-api"></a>
+
+After you publish a new version of your application, you must run a new resiliency assessment and analyze the results to ensure that your application meets the estimated workload RTO and estimated RPO that are defined in your resiliency policy. The assessment compares each Application Component configuration to the policy and makes alarm, SOP, and test recommendations. 
 
 For more information, see the following topics:
-
-- [Running and monitoring AWS Resilience Hub resiliency assessments](#run-assess-analyze-using-api "#run-assess-analyze-using-api")
-- [Examining assessment results](#run-assessment-using-api "#run-assessment-using-api")
++ [Running and monitoring AWS Resilience Hub resiliency assessments](#run-assess-analyze-using-api)
++ [Examining assessment results](#run-assessment-using-api)
 
 ## Running and monitoring AWS Resilience Hub resiliency assessments
+<a name="run-assess-analyze-using-api"></a>
 
-To run resiliency assessments in AWS Resilience Hub and monitor their status, you must use
-the following APIs:
+To run resiliency assessments in AWS Resilience Hub and monitor their status, you must use the following APIs:
++ `StartAppAssessment` – This API creates a new assessment for an application. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_StartAppAssessment.html](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_StartAppAssessment.html).
++ `DescribeAppAssessment` – This API describes an assessment for the application and provides the completion status of the assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html).
 
-- `StartAppAssessment` – This API creates a new assessment
-  for an application. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_StartAppAssessment.html](../APIReference/API_StartAppAssessment.md "../APIReference/API_StartAppAssessment.md").
-- `DescribeAppAssessment` – This API describes an
-  assessment for the application and provides the completion status of the
-  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
-
-The following example shows how to start running a new assessment in AWS Resilience Hub
-using `StartAppAssessment` API.
+The following example shows how to start running a new assessment in AWS Resilience Hub using `StartAppAssessment` API.
 
 ### Request
+<a name="start-app-assessment-req"></a>
 
 ```
 aws resiliencehub start-app-assessment \
---app-arn `<App_ARN>` \
+--app-arn <App_ARN> \
 --app-version release \
 --assessment-name first-assessment
 ```
 
 ### Response
+<a name="start-app-assessment-res"></a>
 
 ```
 {
     "assessment": {
-        "appArn": "`<App_ARN>`",
+        "appArn": "<App_ARN>",
         "appVersion": "release",
         "invoker": "User",
         "assessmentStatus": "Pending",
         "startTime": "2022-10-27T08:15:10.452000+03:00",
         "assessmentName": "first-assessment",
-        "assessmentArn": "`<Assessment_ARN>`",
+        "assessmentArn": "<Assessment_ARN>",
         "policy": {
-            "policyArn": "`<Policy_ARN>`",
+            "policyArn": "<Policy_ARN>",
             "policyName": "newPolicy",
             "dataLocationConstraint": "AnyLocation",
             "policy": {
@@ -70,23 +65,23 @@ aws resiliencehub start-app-assessment \
 }
 ```
 
-The following example shows how to monitor the status of your assessment in
-AWS Resilience Hub using `DescribeAppAssessment` API. You can extract the status
-of your assessment from the `assessmentStatus` variable.
+The following example shows how to monitor the status of your assessment in AWS Resilience Hub using `DescribeAppAssessment` API. You can extract the status of your assessment from the `assessmentStatus` variable.
 
 ### Request
+<a name="app-monitor-status-req"></a>
 
 ```
 aws resiliencehub describe-app-assessment \
---assessment-arn `<Assessment_ARN>`
+--assessment-arn <Assessment_ARN>
 ```
 
 ### Response
+<a name="app-monitor-status-res"></a>
 
 ```
 {
     "assessment": {
-        "appArn": "`<App_ARN>`",
+        "appArn": "<App_ARN>",
         "appVersion": "release",
         "cost": {
             "amount": 0.0,
@@ -130,9 +125,9 @@ aws resiliencehub describe-app-assessment \
         "startTime": "2022-10-27T08:15:10.452000+03:00",
         "endTime": "2022-10-27T08:15:31.883000+03:00",
         "assessmentName": "first-assessment",
-        "assessmentArn": "`<Assessment_ARN>`",
+        "assessmentArn": "<Assessment_ARN>",
         "policy": {
-            "policyArn": "`<Policy_ARN>`",
+            "policyArn": "<Policy_ARN>",
             "policyName": "newPolicy",
             "dataLocationConstraint": "AnyLocation",
             "policy": {
@@ -156,44 +151,29 @@ aws resiliencehub describe-app-assessment \
 ```
 
 ## Examining assessment results
+<a name="run-assessment-using-api"></a>
 
-After your assessment is completed successfully, you can examine the assessment
-results using the following APIs.
+After your assessment is completed successfully, you can examine the assessment results using the following APIs.
++ `DescribeAppAssessment` – This API allows you to track the current status of your application against the resiliency policy. In addition, you can also extract the compliance status from `complianceStatus` variable, and the resiliency score for each disruption type from the `resiliencyScore` structure. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html).
++ `ListAlarmRecommendations` – This API allows you to obtain the alarm recommendations using the Amazon Resource Name (ARN) of the assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListAlarmRecommendations.html](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListAlarmRecommendations.html).
+**Note**  
+To obtain the SOP and FIS test recommendations, use `ListSopRecommendations` and `ListTestRecommendations` APIs.
 
-- `DescribeAppAssessment` – This API allows you to track
-  the current status of your application against the resiliency policy. In
-  addition, you can also extract the compliance status from
-  `complianceStatus` variable, and the resiliency score for
-  each disruption type from the `resiliencyScore` structure. For
-  more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
-- `ListAlarmRecommendations` – This API allows you to
-  obtain the alarm recommendations using the Amazon Resource Name (ARN) of the
-  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_ListAlarmRecommendations.html](../APIReference/API_ListAlarmRecommendations.md "../APIReference/API_ListAlarmRecommendations.md").
+The following example shows how to obtain the alarm recommendations using the Amazon Resource Name (ARN) of the assessment using `ListAlarmRecommendations` API.
 
-###### Note
-
-To obtain the SOP and FIS test recommendations, use
-`ListSopRecommendations` and
-`ListTestRecommendations` APIs.
-
-The following example shows how to obtain the alarm recommendations using the
-Amazon Resource Name (ARN) of the assessment using
-`ListAlarmRecommendations` API.
-
-###### Note
-
-To obtain the SOP and FIS test recommendations, replace with either
-`ListSopRecommendations` or
-`ListTestRecommendations`.
+**Note**  
+To obtain the SOP and FIS test recommendations, replace with either `ListSopRecommendations` or `ListTestRecommendations`.
 
 ### Request
+<a name="app-alarm-recomm-req"></a>
 
 ```
 aws resiliencehub list-alarm-recommendations \
---assessment-arn `<Assessment_ARN>`
+--assessment-arn <Assessment_ARN>
 ```
 
 ### Response
+<a name="app-alarm-recomm-res"></a>
 
 ```
 {
@@ -381,18 +361,18 @@ aws resiliencehub list-alarm-recommendations \
 }
 ```
 
-The following example shows how to obtain the configuration recommendations
-(recommendations on how to improve your current resiliency) using
-`ListAppComponentRecommendations` API.
+The following example shows how to obtain the configuration recommendations (recommendations on how to improve your current resiliency) using `ListAppComponentRecommendations` API.
 
 ### Request
+<a name="config-recomm-req"></a>
 
 ```
 aws resiliencehub list-app-component-recommendations \
---assessment-arn `<Assessment_ARN>`
+--assessment-arn <Assessment_ARN>
 ```
 
 ### Response
+<a name="config-recomm-res"></a>
 
 ```
 {

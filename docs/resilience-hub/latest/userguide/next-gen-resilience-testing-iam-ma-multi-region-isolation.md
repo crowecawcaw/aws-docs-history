@@ -1,11 +1,13 @@
+
+
 # Multi-Region: isolation
+<a name="next-gen-resilience-testing-iam-ma-multi-region-isolation"></a>
 
 Attach the following permissions policy to the target role for the **Multi-Region: isolation** template.
 
 ```
-
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "RouteTableDisruptCrossRegion",
@@ -17,15 +19,15 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ec2:CreateRoute"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:route-table/*",
-        "arn:aws:ec2:*:`target-account-id`:subnet/*"
+        "arn:aws:ec2:*:{{target-account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{target-account-id}}:subnet/*"
       ]
     },
     {
       "Sid": "RouteTableManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateRouteTable",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:route-table/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:route-table/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -36,15 +38,15 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Sid": "RouteTableManagedCreateOnVpc",
       "Effect": "Allow",
       "Action": "ec2:CreateRouteTable",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:vpc/*"
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:vpc/*"
     },
     {
       "Sid": "RouteTableManagedDelete",
       "Effect": "Allow",
       "Action": "ec2:DeleteRouteTable",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:route-table/*",
-        "arn:aws:ec2:*:`target-account-id`:vpc/*"
+        "arn:aws:ec2:*:{{target-account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{target-account-id}}:vpc/*"
       ],
       "Condition": {
         "StringEquals": {
@@ -56,7 +58,7 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Sid": "PrefixListManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateManagedPrefixList",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:prefix-list/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:prefix-list/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -70,7 +72,7 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ec2:DeleteManagedPrefixList",
         "ec2:ModifyManagedPrefixList"
       ],
-      "Resource": "arn:aws:ec2:*:`target-account-id`:prefix-list/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:prefix-list/*",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/managedByFIS": "true"
@@ -81,7 +83,7 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Sid": "NetworkInterfaceManagedCreate",
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkInterface",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:network-interface/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:network-interface/*",
       "Condition": {
         "StringEquals": {
           "aws:RequestTag/managedByFIS": "true"
@@ -93,15 +95,15 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Effect": "Allow",
       "Action": "ec2:CreateNetworkInterface",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:subnet/*",
-        "arn:aws:ec2:*:`target-account-id`:security-group/*"
+        "arn:aws:ec2:*:{{target-account-id}}:subnet/*",
+        "arn:aws:ec2:*:{{target-account-id}}:security-group/*"
       ]
     },
     {
       "Sid": "NetworkInterfaceManagedDelete",
       "Effect": "Allow",
       "Action": "ec2:DeleteNetworkInterface",
-      "Resource": "arn:aws:ec2:*:`target-account-id`:network-interface/*",
+      "Resource": "arn:aws:ec2:*:{{target-account-id}}:network-interface/*",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/managedByFIS": "true"
@@ -113,10 +115,10 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:route-table/*",
-        "arn:aws:ec2:*:`target-account-id`:prefix-list/*",
-        "arn:aws:ec2:*:`target-account-id`:network-interface/*",
-        "arn:aws:ec2:*:`target-account-id`:security-group/*"
+        "arn:aws:ec2:*:{{target-account-id}}:route-table/*",
+        "arn:aws:ec2:*:{{target-account-id}}:prefix-list/*",
+        "arn:aws:ec2:*:{{target-account-id}}:network-interface/*",
+        "arn:aws:ec2:*:{{target-account-id}}:security-group/*"
       ],
       "Condition": {
         "StringEquals": {
@@ -152,8 +154,8 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ec2:DisassociateTransitGatewayRouteTable"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:transit-gateway-route-table/*",
-        "arn:aws:ec2:*:`target-account-id`:transit-gateway-attachment/*"
+        "arn:aws:ec2:*:{{target-account-id}}:transit-gateway-route-table/*",
+        "arn:aws:ec2:*:{{target-account-id}}:transit-gateway-attachment/*"
       ]
     },
     {
@@ -161,8 +163,8 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Effect": "Allow",
       "Action": "ec2:ModifyVpcEndpoint",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:vpc-endpoint/*",
-        "arn:aws:ec2:*:`target-account-id`:security-group/*"
+        "arn:aws:ec2:*:{{target-account-id}}:vpc-endpoint/*",
+        "arn:aws:ec2:*:{{target-account-id}}:security-group/*"
       ]
     },
     {
@@ -174,8 +176,8 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ec2:RevokeSecurityGroupEgress"
       ],
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:security-group/*",
-        "arn:aws:ec2:*:`target-account-id`:vpc/*"
+        "arn:aws:ec2:*:{{target-account-id}}:security-group/*",
+        "arn:aws:ec2:*:{{target-account-id}}:vpc/*"
       ]
     },
     {
@@ -192,9 +194,9 @@ Attach the following permissions policy to the target role for the **Multi-Regio
       "Effect": "Allow",
       "Action": "ssm:SendCommand",
       "Resource": [
-        "arn:aws:ec2:*:`target-account-id`:instance/*",
-        "arn:aws:ssm:*:`target-account-id`:managed-instance/*",
-        "arn:aws:ecs:*:`target-account-id`:task/*/*"
+        "arn:aws:ec2:*:{{target-account-id}}:instance/*",
+        "arn:aws:ssm:*:{{target-account-id}}:managed-instance/*",
+        "arn:aws:ecs:*:{{target-account-id}}:task/*/*"
       ]
     },
     {
@@ -215,16 +217,16 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "ecs:ListTasks"
       ],
       "Resource": [
-        "arn:aws:ecs:*:`target-account-id`:task/*/*",
-        "arn:aws:ecs:*:`target-account-id`:container-instance/*/*",
-        "arn:aws:ecs:*:`target-account-id`:cluster/*"
+        "arn:aws:ecs:*:{{target-account-id}}:task/*/*",
+        "arn:aws:ecs:*:{{target-account-id}}:container-instance/*/*",
+        "arn:aws:ecs:*:{{target-account-id}}:cluster/*"
       ]
     },
     {
       "Sid": "EksDescribeCluster",
       "Effect": "Allow",
       "Action": "eks:DescribeCluster",
-      "Resource": "arn:aws:eks:*:`target-account-id`:cluster/*"
+      "Resource": "arn:aws:eks:*:{{target-account-id}}:cluster/*"
     },
     {
       "Sid": "DynamoDbGlobalTablePauseReplication",
@@ -236,7 +238,7 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "dynamodb:DescribeTable",
         "dynamodb:InjectError"
       ],
-      "Resource": "arn:aws:dynamodb:*:`target-account-id`:table/*"
+      "Resource": "arn:aws:dynamodb:*:{{target-account-id}}:table/*"
     },
     {
       "Sid": "S3PauseReplicationConfiguration",
@@ -271,7 +273,7 @@ Attach the following permissions policy to the target role for the **Multi-Regio
         "memorydb:PauseMultiRegionClusterReplication",
         "memorydb:DescribeMultiRegionClusters"
       ],
-      "Resource": "arn:aws:memorydb::`target-account-id`:multiregioncluster/*"
+      "Resource": "arn:aws:memorydb::{{target-account-id}}:multiregioncluster/*"
     },
     {
       "Sid": "TargetResolutionByTags",
@@ -281,5 +283,4 @@ Attach the following permissions policy to the target role for the **Multi-Regio
     }
   ]
 }
-
 ```
