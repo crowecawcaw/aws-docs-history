@@ -49,9 +49,8 @@ After you have completed the integration in AWS Marketplace, you must go on to s
 integration in Coupa. You use the information generated on this page to configure the punchout
 in your Coupa system.
 
-The AWS Marketplace configuration defaults to test mode being enabled. In test mode, subscription
-requests go to the Coupa backend so you can see the full flow, but a final invoice is not
-created. This helps you complete the configuration and enable the punchout in a planned
+The AWS Marketplace configuration defaults to test mode being enabled. In test mode, subscription requests are transmitted to the Coupa backend, but transmitted purchase orders will not result in a subscription and will not generate an invoice.
+This helps you complete the configuration and enable the punchout in a planned
 manner.
 
 ###### Note
@@ -64,9 +63,11 @@ purchased.
 
 ## Step 3. Configure Coupa
 
-To configure the integration with AWS Marketplace in your Coupa system, copy the information
+To configure the integration with AWS Marketplace in your Coupa system, your Coupa administrator will copy the information
 from the **Purchase information** pane of the **Manage Coupa
-integration** page in AWS Marketplace. Use this information to complete the steps in
+integration** page in AWS Marketplace. To send purchase orders to AWS Marketplace, your Coupa administrator must turn on
+**Enable Mutual TLS for PO cXML** under the **PO
+Transmission** setup section of your Coupa Supplier Portal. Use this information to complete the steps in
 the following links that guide you through configuring your Coupa procurement system:
 
 - [Coupa Punchout Setup](https://success.coupa.com/Suppliers/For_Customers/Toolkit/Manage_Catalogs/Punchout_Catalogs/Punchout_Setup "https://success.coupa.com/Suppliers/For_Customers/Toolkit/Manage_Catalogs/Punchout_Catalogs/Punchout_Setup")

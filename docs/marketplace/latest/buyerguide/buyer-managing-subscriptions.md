@@ -42,6 +42,19 @@ A unique identifier for your subscription agreement. Choose the agreement ID to 
 
 The current status of your agreement. See the **Agreement status** section for more details.
 
+**At expiration**
+
+What happens when the agreement reaches its end date: it auto-renews, converts to a
+public offer, or access ends.
+
+**Renewal status**
+
+Whether the agreement is set to renew automatically. Agreements with auto-renewal
+terms show **Auto-renew enabled**, **Opted out**,
+**Seller opted out**, or **Renewal limit reached**;
+agreements without renewal terms show **No renewal terms**. You can
+filter the list by this column. For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md "buyer-private-offers-auto-renewal.md").
+
 ### Agreement status
 
 Your subscription agreements can have the following statuses:
@@ -77,7 +90,15 @@ To view detailed information about a specific agreement, choose the agreement ID
 - [Purchase order details](buyer-purchase-orders.md "buyer-purchase-orders.md") (if applicable)
 - Deployed on AWS status
 - Option to download the agreement as a PDF
+- **Renewal details** tab – the renewal terms for
+  the next cycle, and the option to opt in or out of auto-renewal (present only when the
+  agreement has auto-renewal terms)
+- **Renewal history** tab – the offers and
+  agreements in the agreement's renewal chain (present only when the agreement has
+  auto-renewal terms)
 
 From the **agreement detail** page, you can manage your subscription and access all related information in one place.
+
+For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md "buyer-private-offers-auto-renewal.md").
 
 ![The agreement detail page showing comprehensive information about a specific agreement](images/agreement-detail-page.png)
