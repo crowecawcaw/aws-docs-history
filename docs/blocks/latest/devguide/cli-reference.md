@@ -1,10 +1,14 @@
+
+
 # CLI reference
+<a name="cli-reference"></a>
 
-AWS Blocks uses standard npm scripts for all development and deployment workflows. After scaffolding a project, all commands run from your project root.
+ AWS Blocks uses standard npm scripts for all development and deployment workflows. After scaffolding a project, all commands run from your project root.
 
-For more information about CLI commands and options, see [AWS Blocks CLI documentation on GitHub](https://github.com/aws-devtools-labs/aws-blocks "https://github.com/aws-devtools-labs/aws-blocks").
+For more information about CLI commands and options, see [AWS Blocks CLI documentation on GitHub](https://github.com/aws-devtools-labs/aws-blocks).
 
 ## Create a project
+<a name="cli-create"></a>
 
 ```
 npm create @aws-blocks/blocks-app@latest <project-name> [-- --template <template>]
@@ -12,23 +16,25 @@ npm create @aws-blocks/blocks-app@latest <project-name> [-- --template <template
 
 Scaffolds a new AWS Blocks project.
 
-| Option               | Description                                                                   |
-| -------------------- | ----------------------------------------------------------------------------- |
-| `--template default` | Todo app with auth, DistributedTable, Realtime, and CRUD operations (default) |
-| `--template demo`    | Full-stack app with auth, KVStore, DistributedTable, and CRUD operations      |
+
+| Option | Description | 
+| --- | --- | 
+|  `--template default`  | Todo app with auth, DistributedTable, Realtime, and CRUD operations (default) | 
+|  `--template demo`  | Full-stack app with auth, KVStore, DistributedTable, and CRUD operations | 
 
 ## Local development
+<a name="cli-dev"></a>
 
 ```
 npm run dev
 ```
 
 Starts the full-stack development server with hot reload. Blocks use local in-memory and filesystem storage. No AWS account required.
-
-- Default template: The dev server serves the frontend and API from a single front door at `http://localhost:3000`, with the API at `http://localhost:3000/aws-blocks/api`.
-- `backend` and `amplify` templates only: The dev server serves the API on `http://localhost:3001`.
++ Default template: The dev server serves the frontend and API from a single front door at `http://localhost:3000`, with the API at `http://localhost:3000/aws-blocks/api`.
++  `backend` and `amplify` templates only: The dev server serves the API on `http://localhost:3001`.
 
 ## Sandbox deployment
+<a name="cli-sandbox"></a>
 
 ```
 npm run sandbox
@@ -43,6 +49,7 @@ npm run sandbox:destroy
 Tears down all sandbox resources.
 
 ## Production deployment
+<a name="cli-deploy"></a>
 
 ```
 npm run deploy
@@ -57,5 +64,6 @@ npm run destroy
 Tears down all deployed resources.
 
 ## Related resources
+<a name="cli-further-reading"></a>
 
-For more information about advanced CLI options, environment variables, and CI/CD configuration, see [AWS Blocks CLI reference on GitHub](https://github.com/aws-devtools-labs/aws-blocks "https://github.com/aws-devtools-labs/aws-blocks").
+For more information about advanced CLI options, environment variables, and CI/CD configuration, see [AWS Blocks CLI reference on GitHub](https://github.com/aws-devtools-labs/aws-blocks).

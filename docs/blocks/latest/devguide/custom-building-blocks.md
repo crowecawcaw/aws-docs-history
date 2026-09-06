@@ -1,38 +1,52 @@
+
+
 # Creating custom Blocks
+<a name="custom-building-blocks"></a>
 
 When the built-in Blocks don’t cover your use case, you can create your own. A custom Block packages infrastructure, runtime logic, and a local implementation into a single reusable module, usable across projects or shared with your team.
 
 ## Use cases for custom Blocks
+<a name="custom-bb-when"></a>
 
 Create a custom Block when:
-
-- You’re repeating the same AWS resource + SDK boilerplate across multiple API methods
-- You want local development support for a resource that doesn’t have a built-in Block
-- You want to share a reusable capability across projects or teams
++ You’re repeating the same AWS resource \+ SDK boilerplate across multiple API methods
++ You want local development support for a resource that doesn’t have a built-in Block
++ You want to share a reusable capability across projects or teams
 
 Don’t create a custom Block when:
-
-- You only need the resource in one place. Use the [The CDK layer](concepts.md#concepts-cdk-layer "concepts.md#concepts-cdk-layer") directly instead
-- A built-in Block already does what you need
++ You only need the resource in one place. Use the [The CDK layer](concepts.md#concepts-cdk-layer) directly instead
++ A built-in Block already does what you need
 
 ## Block structure
+<a name="custom-bb-structure"></a>
 
 A Block is an npm package with up to four exports, each targeting a different execution context:
 
 ```
 my-building-block/
 ├── src/
-│   ├── index.ts
-│   ├── index.mock.ts
-│   ├── index.cdk.ts
-│   ├── client-hook.ts
-│   └── types.ts
+│   ├── index.ts          
+│   ├── index.mock.ts     
+│   ├── index.cdk.ts      
+│   ├── client-hook.ts    
+│   └── types.ts          
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
 
+ **Runtime**: AWS SDK integration, runs in Lambda.
+
+ **Local**: In-memory/filesystem implementation, runs during `npm run dev`.
+
+ **Infrastructure**: CDK constructs, runs during `cdk synth`.
+
+ **Client hook**: Browser-side protocol extensions (optional).
+
+ **Shared types**: Type definitions shared across all exports.
+
 ## Configure package.json exports
+<a name="custom-bb-package-json"></a>
 
 The `package.json` uses conditional exports to route imports to the correct file:
 
@@ -53,14 +67,16 @@ The `package.json` uses conditional exports to route imports to the correct file
 }
 ```
 
-| Export condition | File            | When it’s used                              |
-| ---------------- | --------------- | ------------------------------------------- |
-| `types`          | `types.d.ts`    | IDE IntelliSense and TypeScript compilation |
-| `cdk`            | `index.cdk.js`  | CDK synthesis (infrastructure provisioning) |
-| `aws-runtime`    | `index.js`      | Lambda execution (production)               |
-| `default`        | `index.mock.js` | Local development (`npm run dev`)           |
+
+| Export condition | File | When it’s used | 
+| --- | --- | --- | 
+|  `types`  |  `types.d.ts`  | IDE IntelliSense and TypeScript compilation | 
+|  `cdk`  |  `index.cdk.js`  | CDK synthesis (infrastructure provisioning) | 
+|  `aws-runtime`  |  `index.js`  | Lambda execution (production) | 
+|  `default`  |  `index.mock.js`  | Local development (`npm run dev`) | 
 
 ## Define shared types
+<a name="custom-bb-types"></a>
 
 Start by defining the interface your Block exposes. Both the runtime and local implementations must conform to this interface.
 
@@ -86,6 +102,7 @@ export declare class Notifications {
 ```
 
 ## Implement the runtime
+<a name="custom-bb-runtime"></a>
 
 The runtime implementation uses the AWS SDK to interact with real services. It runs inside Lambda in production.
 
@@ -121,6 +138,7 @@ export class Notifications {
 ```
 
 ## Implement the local version
+<a name="custom-bb-mock"></a>
 
 The local implementation provides the same API but runs without AWS. Use in-memory data structures, the filesystem, or embedded databases.
 
@@ -153,6 +171,7 @@ export class Notifications {
 During local development, emails are logged to the console and saved as JSON files in `.bb-data/` instead of being sent through SES.
 
 ## Implement the infrastructure
+<a name="custom-bb-infra"></a>
 
 The infrastructure export defines CDK constructs that are synthesized during deployment. Grant the Lambda handler the permissions it needs.
 
@@ -180,6 +199,7 @@ export class Notifications {
 ```
 
 ## Client hook (optional)
+<a name="custom-bb-client-hook"></a>
 
 Most Blocks don’t need a client hook. Add one only if your Block requires a custom client-server protocol (such as WebSockets or streaming).
 
@@ -211,6 +231,7 @@ export class RealtimeClientHook {
 ```
 
 ## Use your Block
+<a name="custom-bb-usage"></a>
 
 After building your package, install it in your project and use it like any built-in Block:
 
@@ -236,12 +257,12 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 ```
 
 ## Testing your Block
+<a name="custom-bb-testing"></a>
 
 Test both the mock and runtime implementations:
-
-- **Mock tests**: Run directly with a test runner (Vitest, Jest). Verify that the mock behaves correctly and returns expected shapes.
-- **Runtime tests**: Deploy to a sandbox and verify against real AWS services.
-- **Interface parity**: Ensure both implementations accept the same inputs and return the same output shapes.
++  **Mock tests**: Run directly with a test runner (Vitest, Jest). Verify that the mock behaves correctly and returns expected shapes.
++  **Runtime tests**: Deploy to a sandbox and verify against real AWS services.
++  **Interface parity**: Ensure both implementations accept the same inputs and return the same output shapes.
 
 ```
 // tests/notifications.test.ts
@@ -267,20 +288,20 @@ describe('Notifications (mock)', () => {
 ```
 
 ## Publishing
+<a name="custom-bb-publishing"></a>
 
 To share your Block:
-
-- **Within a monorepo**: Reference it as a workspace dependency. No publishing needed.
-- **Within your organization**: Publish to a private npm registry (such as AWS CodeArtifact).
-- **Publicly**: Publish to the npm public registry.
++  **Within a monorepo**: Reference it as a workspace dependency. No publishing needed.
++  **Within your organization**: Publish to a private npm registry (such as AWS CodeArtifact).
++  **Publicly**: Publish to the npm public registry.
 
 Include a `README.md` with usage examples, API documentation, and information about the AWS resources provisioned. AI coding agents use this documentation to help developers integrate your Block.
 
 ## Best practices for custom Blocks
-
-- **Keep the interface identical** between runtime and mock. Consumers shouldn’t need to know which implementation is active.
-- **Document mock limitations**: If the mock doesn’t replicate all production behavior (such as DynamoDB query limits), document the differences.
-- **Use `getMockDataDir(scope)`** for persistent mock data. This follows the `.bb-data/{id}/` convention.
-- **Minimize client hooks**: Only use them for non-HTTP protocols. Most Blocks don’t need one.
-- **Export `{}` for unused layers**: Don’t omit files. An explicit empty export signals intent.
-- **Share types in a separate file**: This ensures type consistency across all implementations.
+<a name="custom-bb-best-practices"></a>
++  **Keep the interface identical** between runtime and mock. Consumers shouldn’t need to know which implementation is active.
++  **Document mock limitations**: If the mock doesn’t replicate all production behavior (such as DynamoDB query limits), document the differences.
++  **Use `getMockDataDir(scope)` ** for persistent mock data. This follows the `.bb-data/{id}/` convention.
++  **Minimize client hooks**: Only use them for non-HTTP protocols. Most Blocks don’t need one.
++  **Export `{}` for unused layers**: Don’t omit files. An explicit empty export signals intent.
++  **Share types in a separate file**: This ensures type consistency across all implementations.

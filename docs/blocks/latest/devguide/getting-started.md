@@ -1,14 +1,17 @@
+
+
 # Getting started with AWS Blocks
+<a name="getting-started"></a>
 
 In this tutorial, you set up your development environment, create a todo application with user authentication, data persistence, and a type-safe API. The application runs locally and can optionally deploy to AWS.
 
 ## Prerequisites
+<a name="getting-started-prerequisites"></a>
 
 To develop with AWS Blocks, you need the following on your local machine:
-
-- **Node.js** version 22 or later. Download from https://nodejs.org/.
-- **npm** version 10 or later (included with Node.js).
-- A code editor with TypeScript support, such as Visual Studio Code or Kiro.
++  **Node.js** version 22 or later. Download from https://nodejs.org/.
++  **npm** version 10 or later (included with Node.js).
++ A code editor with TypeScript support, such as Visual Studio Code or Kiro.
 
 To verify your Node.js and npm versions:
 
@@ -18,13 +21,13 @@ npm --version
 ```
 
 For the optional deployment step, you also need:
++  AWS CLI configured with credentials
++  AWS CDK bootstrapped in your account
 
-- AWS CLI configured with credentials
-- AWS CDK bootstrapped in your account
-
-For deployment details, see [Deploy your application to AWS](deploy-to-aws.md "deploy-to-aws.md").
+For deployment details, see [Deploy your application to AWS](deploy-to-aws.md).
 
 ## Create your AWS Blocks project
+<a name="getting-started-create"></a>
 
 Create a new AWS Blocks application:
 
@@ -38,15 +41,20 @@ This creates a project with the following structure:
 
 ```
 my-todo-app/
-├── aws-blocks/
+├── aws-blocks/          
 │   └── index.ts
-├── src/
+├── src/                 
 │   └── index.ts
 ├── index.html
 └── package.json
 ```
 
+The backend: Block instantiations and API definitions.
+
+The frontend: imports and calls the backend API directly.
+
 ## Run the application locally
+<a name="getting-started-run-locally"></a>
 
 Start the development server:
 
@@ -57,14 +65,14 @@ npm run dev
 In your web browser, navigate to `http://localhost:3000`. You see a todo application with authentication, CRUD operations, and sorting.
 
 All Blocks are running with local implementations:
-
-- `DistributedTable` uses in-memory storage for structured data
-- `AuthBasic` uses local JWT tokens for authentication
-- `ApiNamespace` routes calls through a local HTTP server
++  `DistributedTable` uses in-memory storage for structured data
++  `AuthBasic` uses local JWT tokens for authentication
++  `ApiNamespace` routes calls through a local HTTP server
 
 No AWS account is needed. Changes to your code are reflected immediately through hot reload.
 
 ## Explore the backend code
+<a name="getting-started-explore-backend"></a>
 
 The `aws-blocks/index.ts` file defines your backend and API in a single place:
 
@@ -91,9 +99,8 @@ const todos = new DistributedTable(scope, 'todos', {
 ```
 
 This code creates two Blocks:
-
-- `new AuthBasic(scope, 'auth')` creates an authentication system. Locally, this uses JWT tokens. On AWS, this provisions a DynamoDB table for user records. The `auth.createApi()` call exports the auth API for the frontend to use.
-- `new DistributedTable(scope, 'todos', {…​})` creates structured data storage with a Zod schema for validation. Locally, this is in-memory. On AWS, this provisions a DynamoDB table with indexes.
++  `new AuthBasic(scope, 'auth')` creates an authentication system. Locally, this uses JWT tokens. On AWS, this provisions a DynamoDB table for user records. The `auth.createApi()` call exports the auth API for the frontend to use.
++  `new DistributedTable(scope, 'todos', {…​})` creates structured data storage with a Zod schema for validation. Locally, this is in-memory. On AWS, this provisions a DynamoDB table with indexes.
 
 The API methods use these Blocks:
 
@@ -126,6 +133,7 @@ export { auth };
 ```
 
 ## Explore the frontend code
+<a name="getting-started-explore-frontend"></a>
 
 The frontend in `src/index.ts` imports the backend API directly:
 
@@ -136,6 +144,7 @@ import { api, authApi } from 'aws-blocks';
 There is no client generation step, no API URL configuration, and no SDK initialization. TypeScript provides full type safety. If you change a method signature in the backend, the frontend shows a compile error immediately.
 
 ## Make a change
+<a name="getting-started-make-change"></a>
 
 Add a new API method to `aws-blocks/index.ts` inside the `ApiNamespace` definition:
 
@@ -149,27 +158,31 @@ Add a new API method to `aws-blocks/index.ts` inside the `ApiNamespace` definiti
 The development server hot-reloads. You can immediately call `api.deleteTodo(todoId)` from the frontend with full type safety.
 
 ## Available Blocks
+<a name="getting-started-available-bbs"></a>
 
 The following table lists the Blocks used in this tutorial and other commonly used blocks:
 
-| Block              | Purpose                                            |
-| ------------------ | -------------------------------------------------- |
-| `DistributedTable` | Structured data with indexes and queries           |
-| `AuthBasic`        | Username/password authentication with JWT sessions |
-| `ApiNamespace`     | Type-safe RPC from browser to backend              |
-| `Database`         | Full PostgreSQL with Kysely query builder          |
-| `FileBucket`       | File uploads and downloads                         |
-| `Realtime`         | WebSocket pub/sub channels                         |
-| `AsyncJob`         | Background job processing                          |
-| `Agent`            | AI agent with tool calling                         |
 
-For the complete list of all available Blocks, see [Blocks reference](building-blocks-reference.md "building-blocks-reference.md").
+| Block | Purpose | 
+| --- | --- | 
+|  `DistributedTable`  | Structured data with indexes and queries | 
+|  `AuthBasic`  | Username/password authentication with JWT sessions | 
+|  `ApiNamespace`  | Type-safe RPC from browser to backend | 
+|  `Database`  | Full PostgreSQL with Kysely query builder | 
+|  `FileBucket`  | File uploads and downloads | 
+|  `Realtime`  | WebSocket pub/sub channels | 
+|  `AsyncJob`  | Background job processing | 
+|  `Agent`  | AI agent with tool calling | 
+
+For the complete list of all available Blocks, see [Blocks reference](building-blocks-reference.md).
 
 ## Optional: Deploy your application to AWS
+<a name="getting-started-deploy"></a>
 
-When you’re ready to deploy to a real AWS environment, see [Deploy your application to AWS](deploy-to-aws.md "deploy-to-aws.md") for the full setup and deployment steps.
+When you’re ready to deploy to a real AWS environment, see [Deploy your application to AWS](deploy-to-aws.md) for the full setup and deployment steps.
 
 ## Clean up
+<a name="getting-started-cleanup"></a>
 
 To stop the local development server, press `Ctrl+C` in your terminal.
 
@@ -184,7 +197,7 @@ npm run sandbox:destroy
 ```
 
 ## Next steps
-
-- [AWS Blocks concepts](concepts.md "concepts.md"): Learn about Blocks, scopes, the IFC layer, and how code maps to resources.
-- [Blocks reference](building-blocks-reference.md "building-blocks-reference.md"): Explore all available Blocks and their APIs.
-- [Examples and patterns](examples.md "examples.md"): See common application patterns and sample code.
+<a name="getting-started-next-steps"></a>
++  [AWS Blocks concepts](concepts.md): Learn about Blocks, scopes, the IFC layer, and how code maps to resources.
++  [Blocks reference](building-blocks-reference.md): Explore all available Blocks and their APIs.
++  [Examples and patterns](examples.md): See common application patterns and sample code.

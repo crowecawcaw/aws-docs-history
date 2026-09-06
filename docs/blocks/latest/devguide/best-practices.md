@@ -1,12 +1,16 @@
+
+
 # Best practices for AWS Blocks
+<a name="best-practices"></a>
 
 This topic covers best practices for structuring, securing, testing, and scaling AWS Blocks applications.
 
 ## Project structure
+<a name="bp-project-structure"></a>
 
 Organize your backend code for clarity and maintainability.
 
-**Keep the IFC layer thin.** Your `aws-blocks/index.ts` should contain Block instantiations and API definitions. Move complex business logic into separate modules.
+ **Keep the IFC layer thin.** Your `aws-blocks/index.ts` should contain Block instantiations and API definitions. Move complex business logic into separate modules.
 
 ```
 // aws-blocks/index.ts - thin orchestration layer
@@ -29,13 +33,14 @@ export async function createOrder(store, context, input) {
 }
 ```
 
-**Use a single Scope per application.** Multiple scopes in one backend create separate resource namespaces, which adds complexity without benefit for most applications.
+ **Use a single Scope per application.** Multiple scopes in one backend create separate resource namespaces, which adds complexity without benefit for most applications.
 
-**Co-locate related Blocks.** If your app has distinct domains (orders, users, notifications), group them logically but keep them in the same IFC layer file unless the file becomes unwieldy.
+ **Co-locate related Blocks.** If your app has distinct domains (orders, users, notifications), group them logically but keep them in the same IFC layer file unless the file becomes unwieldy.
 
 ## Error handling
+<a name="bp-error-handling"></a>
 
-AWS Blocks propagates errors from your API methods to the frontend with the error `name` preserved. Use named errors to enable structured error handling on the client.
+ AWS Blocks propagates errors from your API methods to the frontend with the error `name` preserved. Use named errors to enable structured error handling on the client.
 
 ```
 // Backend
@@ -66,15 +71,15 @@ try {
 }
 ```
 
-**Best practices for errors:**
-
-- Use descriptive error names (`NotFoundError`, `ValidationError`, `UnauthorizedError`). Avoid generic `Error`.
-- Never expose internal details (stack traces, AWS resource ARNs) in error messages. The `Error.cause` property stays server-side and is never sent to the client.
-- Let unhandled errors bubble up. AWS Blocks returns them as generic 500 responses without leaking internals.
+ **Best practices for errors:** 
++ Use descriptive error names (`NotFoundError`, `ValidationError`, `UnauthorizedError`). Avoid generic `Error`.
++ Never expose internal details (stack traces, AWS resource ARNs) in error messages. The `Error.cause` property stays server-side and is never sent to the client.
++ Let unhandled errors bubble up. AWS Blocks returns them as generic 500 responses without leaking internals.
 
 ## Authentication and authorization
+<a name="bp-authentication"></a>
 
-**Always validate the user in every API method that accesses user data.** Don’t rely on frontend-only checks.
+ **Always validate the user in every API method that accesses user data.** Don’t rely on frontend-only checks.
 
 ```
 export const api = new ApiNamespace(scope, 'api', (context) => ({
@@ -86,7 +91,7 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 }));
 ```
 
-**Scope data access by user.** Use the user ID as a key prefix to prevent users from accessing each other’s data:
+ **Scope data access by user.** Use the user ID as a key prefix to prevent users from accessing each other’s data:
 
 ```
 // Good: scoped to user
@@ -96,35 +101,37 @@ await store.put(`${user.username}:${itemId}`, data);
 await store.put(itemId, data);
 ```
 
-**Choose the right auth Block:**
-
-- `AuthBasic`: Username/password for prototypes and internal tools.
-- `AuthOIDC`: Social login with Google, GitHub, Okta, or any OIDC-compliant provider.
-- `AuthCognito`: Production-ready authentication with social sign-in, MFA, SAML, passkeys, and OAuth/OIDC.
+ **Choose the right auth Block:** 
++  `AuthBasic`: Username/password for prototypes and internal tools.
++  `AuthOIDC`: Social login with Google, GitHub, Okta, or any OIDC-compliant provider.
++  `AuthCognito`: Production-ready authentication with social sign-in, MFA, SAML, passkeys, and OAuth/OIDC.
 
 ## Local development
+<a name="bp-local-development"></a>
 
-**Develop locally first.** Use `npm run dev` as your primary development loop. Only deploy to a sandbox when you need to test behavior specific to real AWS services.
+ **Develop locally first.** Use `npm run dev` as your primary development loop. Only deploy to a sandbox when you need to test behavior specific to real AWS services.
 
-**Understand local implementation limitations.** Local implementations replicate the API surface but not all production behavior:
+ **Understand local implementation limitations.** Local implementations replicate the API surface but not all production behavior:
 
-| Block              | Local behavior             | Production difference                                                            |
-| ------------------ | -------------------------- | -------------------------------------------------------------------------------- |
-| `KVStore`          | Local filesystem store     | DynamoDB has eventual consistency for some operations, item size limits (400 KB) |
-| `DistributedTable` | In-memory store            | DynamoDB query pagination, GSI propagation delays                                |
-| `Database`         | PGlite (embedded Postgres) | Aurora Serverless v2 has connection limits, cold start latency                   |
-| `AuthBasic`        | Local JWT tokens           | Tokens are not portable between local and deployed environments                  |
-| `Realtime`         | Local WebSocket server     | API Gateway WebSocket has connection limits and message size limits              |
 
-**Clear local data when needed.** Delete the `.bb-data/` directory to reset all local state:
+| Block | Local behavior | Production difference | 
+| --- | --- | --- | 
+|  `KVStore`  | Local filesystem store | DynamoDB has eventual consistency for some operations, item size limits (400 KB) | 
+|  `DistributedTable`  | In-memory store | DynamoDB query pagination, GSI propagation delays | 
+|  `Database`  | PGlite (embedded Postgres) | Aurora Serverless v2 has connection limits, cold start latency | 
+|  `AuthBasic`  | Local JWT tokens | Tokens are not portable between local and deployed environments | 
+|  `Realtime`  | Local WebSocket server | API Gateway WebSocket has connection limits and message size limits | 
+
+ **Clear local data when needed.** Delete the `.bb-data/` directory to reset all local state:
 
 ```
 rm -rf .bb-data
 ```
 
 ## Testing
+<a name="bp-testing"></a>
 
-**Unit test your business logic independently.** Extract logic from API handlers into pure functions that accept Block instances as parameters.
+ **Unit test your business logic independently.** Extract logic from API handlers into pure functions that accept Block instances as parameters.
 
 ```
 // orders.ts - testable without the full framework
@@ -148,13 +155,14 @@ it('creates an order', async () => {
 });
 ```
 
-**Integration test locally.** Run your full application with `npm run dev` and test the API endpoints. Local implementations are deterministic and fast.
+ **Integration test locally.** Run your full application with `npm run dev` and test the API endpoints. Local implementations are deterministic and fast.
 
-**End-to-end test with sandbox.** For critical paths, deploy to a sandbox and run tests against real AWS services to catch behavior differences.
+ **End-to-end test with sandbox.** For critical paths, deploy to a sandbox and run tests against real AWS services to catch behavior differences.
 
 ## Performance
+<a name="bp-performance"></a>
 
-**Minimize Block instantiations.** Each Block maps to AWS resources. Don’t create a new `KVStore` for every data type. Use key prefixes to partition data within a single store.
+ **Minimize Block instantiations.** Each Block maps to AWS resources. Don’t create a new `KVStore` for every data type. Use key prefixes to partition data within a single store.
 
 ```
 // Good: one store, partitioned by prefix
@@ -167,17 +175,18 @@ const userStore = new KVStore(scope, 'users', {});
 const orderStore = new KVStore(scope, 'orders', {});
 ```
 
-**Use `DistributedTable` for query-heavy workloads.** If you need to query by multiple attributes or sort data, `DistributedTable` with indexes is more efficient than scanning a `KVStore`.
+ **Use `DistributedTable` for query-heavy workloads.** If you need to query by multiple attributes or sort data, `DistributedTable` with indexes is more efficient than scanning a `KVStore`.
 
-**Keep API methods focused.** Each `ApiNamespace` method becomes a Lambda invocation path. Avoid methods that do too many things. Split them into focused operations.
+ **Keep API methods focused.** Each `ApiNamespace` method becomes a Lambda invocation path. Avoid methods that do too many things. Split them into focused operations.
 
 ## Deployment
+<a name="bp-deployment"></a>
 
-**Use sandbox for development, full deploy for production.** Sandboxes use Lambda hot-swapping for speed but aren’t suitable for production traffic.
+ **Use sandbox for development, full deploy for production.** Sandboxes use Lambda hot-swapping for speed but aren’t suitable for production traffic.
 
-**Set up separate AWS accounts** for development, staging, and production. AWS Blocks deploys the same code to any account. The resources are derived from your code, not from environment-specific configuration.
+ **Set up separate AWS accounts** for development, staging, and production. AWS Blocks deploys the same code to any account. The resources are derived from your code, not from environment-specific configuration.
 
-**Configure environment-specific settings in the CDK layer.** Custom domains, VPC configuration, and other environment differences belong in `aws-blocks/index.cdk.ts`, not in your runtime code.
+ **Configure environment-specific settings in the CDK layer.** Custom domains, VPC configuration, and other environment differences belong in `aws-blocks/index.cdk.ts`, not in your runtime code.
 
 ```
 // aws-blocks/index.cdk.ts
@@ -194,19 +203,19 @@ if (isProd) {
 ```
 
 ## Working with AI agents
+<a name="bp-ai-development"></a>
 
-AWS Blocks is designed to work well with AI coding assistants. Steering files ship in the npm package, guiding agents to produce correct architecture from the start.
+ AWS Blocks is designed to work well with AI coding assistants. Steering files ship in the npm package, guiding agents to produce correct architecture from the start.
 
 To get the best results from AI coding agents:
-
-- **Keep your IFC layer clean and readable.** AI agents use it as context to understand your application.
-- **Use descriptive Block IDs.**
-  `new KVStore(scope, 'user-sessions', {})` gives agents more context than `new KVStore(scope, 's1', {})`.
-- **Write JSDoc comments on API methods.** Agents use these to understand intent when generating frontend code.
-- **Install Block packages.** Their `README.md` and type definitions in `node_modules` provide agents with API documentation and usage examples.
-- **Use the Agent Block for AI features.** The Agent block provides tool calling, HITL approval, and conversation persistence. Locally, it uses a canned provider for predictable testing without API keys.
++  **Keep your IFC layer clean and readable.** AI agents use it as context to understand your application.
++  **Use descriptive Block IDs.** `new KVStore(scope, 'user-sessions', {})` gives agents more context than `new KVStore(scope, 's1', {})`.
++  **Write JSDoc comments on API methods.** Agents use these to understand intent when generating frontend code.
++  **Install Block packages.** Their `README.md` and type definitions in `node_modules` provide agents with API documentation and usage examples.
++  **Use the Agent Block for AI features.** The Agent block provides tool calling, HITL approval, and conversation persistence. Locally, it uses a canned provider for predictable testing without API keys.
 
 ### Example prompt for AI agents
+<a name="example-prompt-for-ai-agents"></a>
 
 The following prompt demonstrates how an AI agent can add multiple capabilities in a single interaction:
 

@@ -1,10 +1,14 @@
+
+
 # Examples and patterns
+<a name="examples"></a>
 
 This topic shows common application patterns you can build with AWS Blocks. Each example demonstrates how Blocks compose together to solve real-world problems.
 
-For more information about runnable sample applications, see [AWS Blocks example applications on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples "https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples").
+For more information about runnable sample applications, see [AWS Blocks example applications on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples).
 
 ## CRUD API with authentication
+<a name="example-crud-api"></a>
 
 A typical data-driven application with user authentication and scoped data access.
 
@@ -42,10 +46,10 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 export { auth };
 ```
 
-**Blocks used:**
-`AuthBasic`, `KVStore`, `ApiNamespace`
+ **Blocks used:** `AuthBasic`, `KVStore`, `ApiNamespace` 
 
 ## Real-time chat
+<a name="example-realtime-chat"></a>
 
 A chat application with WebSocket pub/sub and message history.
 
@@ -90,6 +94,7 @@ export { auth };
 ```
 
 ### Frontend integration
+<a name="frontend-integration"></a>
 
 The frontend subscribes to real-time updates:
 
@@ -109,10 +114,10 @@ await api.sendMessage('Hello, world!');
 const history = await api.getHistory();
 ```
 
-**Blocks used:**
-`AuthBasic`, `KVStore`, `Realtime`, `ApiNamespace`
+ **Blocks used:** `AuthBasic`, `KVStore`, `Realtime`, `ApiNamespace` 
 
 ## File uploads with metadata
+<a name="example-file-uploads"></a>
 
 An application that stores files with associated metadata.
 
@@ -152,10 +157,10 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 export { auth };
 ```
 
-**Blocks used:**
-`AuthBasic`, `FileBucket`, `KVStore`, `ApiNamespace`
+ **Blocks used:** `AuthBasic`, `FileBucket`, `KVStore`, `ApiNamespace` 
 
 ## SQL-backed application
+<a name="example-sql-app"></a>
 
 An application using relational data with joins and transactions.
 
@@ -201,22 +206,23 @@ export const api = new ApiNamespace(scope, 'api', (context) => ({
 export { auth };
 ```
 
-**Blocks used:**
-`AuthBasic`, `Database`, `ApiNamespace`
+ **Blocks used:** `AuthBasic`, `Database`, `ApiNamespace` 
 
 ## Common patterns
+<a name="example-patterns-summary"></a>
 
-| Pattern          | Approach                                                                                  |
-| ---------------- | ----------------------------------------------------------------------------------------- |
-| User-scoped data | Prefix keys with `${user.username}:` to isolate data per user                             |
-| Optimistic UI    | Return the created/updated object from API methods so the frontend can update immediately |
-| Background work  | Use the CDK layer to add SQS queues or EventBridge rules alongside Blocks                 |
-| Multi-tenant     | Use Scope IDs or key prefixes to partition data by tenant                                 |
-| Feature flags    | Store flags in a `KVStore` and read them in API methods before executing logic            |
+
+| Pattern | Approach | 
+| --- | --- | 
+| User-scoped data | Prefix keys with `${user.username}:` to isolate data per user | 
+| Optimistic UI | Return the created/updated object from API methods so the frontend can update immediately | 
+| Background work | Use the CDK layer to add SQS queues or EventBridge rules alongside Blocks | 
+| Multi-tenant | Use Scope IDs or key prefixes to partition data by tenant | 
+| Feature flags | Store flags in a `KVStore` and read them in API methods before executing logic | 
 
 ## Related resources
+<a name="examples-further-reading"></a>
 
 For more information about runnable sample applications with frontend code, deployment instructions, and tests:
-
-- [AWS Blocks example applications on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples "https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples")
-- [AWS Blocks project templates](https://github.com/aws-devtools-labs/aws-blocks/tree/main/templates "https://github.com/aws-devtools-labs/aws-blocks/tree/main/templates") used by `npm create @aws-blocks/blocks-app@latest`
++  [AWS Blocks example applications on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/examples) 
++  [AWS Blocks project templates](https://github.com/aws-devtools-labs/aws-blocks/tree/main/templates) used by `npm create @aws-blocks/blocks-app@latest` 
