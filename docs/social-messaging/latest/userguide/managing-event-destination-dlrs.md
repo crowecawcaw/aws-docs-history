@@ -1,13 +1,14 @@
-# Message and event format in AWS End User Messaging Social
 
-The JSON object for an event contains the AWS event header and WhatsApp JSON payload.
-For a list of the JSON WhatsApp notification payload and values, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components "https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components") and [Message Status](https://developers.facebook.com/docs/whatsapp/conversation-types#message-status "https://developers.facebook.com/docs/whatsapp/conversation-types#message-status") in the _WhatsApp Business Platform Cloud API Reference_.
+
+# Message and event format in AWS End User Messaging Social
+<a name="managing-event-destination-dlrs"></a>
+
+The JSON object for an event contains the AWS event header and WhatsApp JSON payload. For a list of the JSON WhatsApp notification payload and values, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components) and [Message Status](https://developers.facebook.com/docs/whatsapp/conversation-types#message-status) in the *WhatsApp Business Platform Cloud API Reference*.
 
 ## AWS End User Messaging Social event header
+<a name="managing-event-destination-dlrs_body"></a>
 
-The JSON object for an event contains the AWS event header and WhatsApp JSON. The
-header contains the AWS identifiers and ARNs of your WhatsApp Business Account (WABA) and
-phone number.
+The JSON object for an event contains the AWS event header and WhatsApp JSON. The header contains the AWS identifiers and ARNs of your WhatsApp Business Account (WABA) and phone number.
 
 ```
 {
@@ -34,23 +35,18 @@ phone number.
 {
 //WhatsApp notification payload
 }
-
 ```
 
 In the preceding example event:
-
-- `1234567890abcde` is the WABA id from Meta.
-- `abcde1234567890` is the phone number id from Meta.
-- `fb2594b8a7974770b128a409e2example` is the ID of the WhatsApp Business Account (WABA).
-- `976c72a700aac43eaf573ae050example` is the ID of the phone number.
++ {{1234567890abcde}} is the WABA id from Meta.
++ {{abcde1234567890}} is the phone number id from Meta.
++ {{fb2594b8a7974770b128a409e2example}} is the ID of the WhatsApp Business Account (WABA).
++ {{976c72a700aac43eaf573ae050example}} is the ID of the phone number.
 
 ## Example WhatsApp JSON for receiving a message
+<a name="managing-event-destination-dlrs-example-receive-text"></a>
 
-The following shows the event record for an incoming message from WhatsApp. The JSON
-received from WhatsApp in the `whatsAppWebhookEntry` is received as a JSON string
-and can be converted to JSON. For a list of fields and their meaning, see [Webhooks
-Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components "https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components") in the _WhatsApp Business Platform Cloud API
-Reference_.
+The following shows the event record for an incoming message from WhatsApp. The JSON received from WhatsApp in the `whatsAppWebhookEntry` is received as a JSON string and can be converted to JSON. For a list of fields and their meaning, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components) in the *WhatsApp Business Platform Cloud API Reference*.
 
 ```
 {
@@ -75,9 +71,7 @@ Reference_.
 }
 ```
 
-You can use a tool, such as [jq](https://jqlang.org/ "https://jqlang.org/"), to convert the
-JSON string to JSON. The following is the `whatsAppWebhookEntry` in JSON
-form:
+You can use a tool, such as [jq](https://jqlang.org/), to convert the JSON string to JSON. The following is the `whatsAppWebhookEntry` in JSON form:
 
 ```
 {
@@ -115,15 +109,12 @@ form:
     }
   ]
 }
-
 ```
 
 ## Example WhatsApp JSON for receiving a media message
+<a name="managing-event-destination-dlrs-example-receive-media"></a>
 
-The following shows the event record for an incoming media message. To retrieve the
-media file, use the GetWhatsAppMessageMedia API command. For a list of fields and their
-meaning, see [Webhooks
-Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components "https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components")
+The following shows the event record for an incoming media message. To retrieve the media file, use the GetWhatsAppMessageMedia API command. For a list of fields and their meaning, see [Webhooks Notification Payload Reference](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/components)
 
 ```
 {

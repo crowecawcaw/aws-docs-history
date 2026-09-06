@@ -1,25 +1,27 @@
+
+
 # Monitoring with Amazon EventBridge
+<a name="monitor-event-bridge"></a>
 
-AWS End User Messaging Social sends events to EventBridge for WhatsApp events. You can use EventBridge to write rules that take actions, such as notifying you, when specific event types
-are received. For more information, see the following topics in the Amazon EventBridge User Guide:
+AWS End User Messaging Social sends events to EventBridge for WhatsApp events. You can use EventBridge to write rules that take actions, such as notifying you, when specific event types are received. For more information, see the following topics in the Amazon EventBridge User Guide: 
++ [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
++ [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html)
++ [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html)
++ [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html)
 
-- [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md")
-- [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md")
-- [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
-- [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md")
-  AWS End User Messaging Social sends the following events to Amazon EventBridge:
-
-- WhatsApp Message Delivered
-- WhatsApp Message Failed
-- WhatsApp Message Handover Failed
-- WhatsApp Message Handover Succeeded
-- WhatsApp Message Read
-- WhatsApp Message Received
-- WhatsApp Message Sent
-- WhatsApp Message Undeliverable
-- WhatsApp Unknown Notification Received
+AWS End User Messaging Social sends the following events to Amazon EventBridge:
++ WhatsApp Message Delivered
++ WhatsApp Message Failed
++ WhatsApp Message Handover Failed
++ WhatsApp Message Handover Succeeded
++ WhatsApp Message Read
++ WhatsApp Message Received
++ WhatsApp Message Sent
++ WhatsApp Message Undeliverable
++ WhatsApp Unknown Notification Received
 
 ## Event for a delivered WhatsApp message
+<a name="event-delivered-whatsapp-message"></a>
 
 ```
 {
@@ -43,6 +45,7 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a read WhatsApp message
+<a name="event-read-whatsapp-message"></a>
 
 ```
 {
@@ -66,6 +69,7 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a sent WhatsApp message
+<a name="event-sent-whatsapp-message"></a>
 
 ```
 {
@@ -89,6 +93,7 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a failed WhatsApp message
+<a name="event-failed-whatsapp-message"></a>
 
 ```
 {
