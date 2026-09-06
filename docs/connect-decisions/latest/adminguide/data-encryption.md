@@ -8,7 +8,7 @@ All communication between customers and Amazon Connect Decisions and between Ama
 
 ## Encryption at Rest
 
-All data at rest is encrypted using server-side encryption. No additional configuration is required — encryption is handled transparently by the service.
+All data at rest is encrypted using server-side encryption. No additional configuration is required as encryption is handled transparently by the service.
 
 By default, Amazon Connect Decisions encrypts your data using AWS owned encryption keys from AWS Key Management Service (AWS KMS). You don't have to take any action to protect the AWS owned keys that encrypt your data. For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
 
@@ -52,172 +52,172 @@ Open the [AWS KMS console](https://console.aws.amazon.com/kms "https://console.a
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowAccountRootFullAccess",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::<customer-account-id>:root"
-      },
-      "Action": "kms:*",
-      "Resource": "*"
-    },
-    {
-      "Sid": "AllowScnRetrievalOfKeyMetadata",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "scn.amazonaws.com"
-      },
-      "Action": "kms:DescribeKey",
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "aws:SourceAccount": "<customer-account-id>"
-        }
-      }
-    },
-    {
-      "Sid": "AllowScnEncryptDecryptWithContext",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "scn.amazonaws.com"
-      },
-      "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey",
-        "kms:GenerateDataKeyWithoutPlaintext"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "aws:SourceAccount": "<customer-account-id>"
-        }
-      }
-    },
-    {
-      "Sid": "AllowScnCryptoViaDependencyServices",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "scn.amazonaws.com"
-      },
-      "Action": [
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey*",
-        "kms:DescribeKey"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "kms:ViaService": [
-            "redshift-serverless.<region>.amazonaws.com",
-            "aoss.<region>.amazonaws.com",
-            "dynamodb.<region>.amazonaws.com",
-            "s3.<region>.amazonaws.com"
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "AllowAccountRootFullAccess",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "arn:aws:iam::<customer-account-id>:root"
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            },
+            {
+              "Sid": "AllowScnRetrievalOfKeyMetadata",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "scn.amazonaws.com"
+              },
+              "Action": "kms:DescribeKey",
+              "Resource": "*",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": "<customer-account-id>"
+                }
+              }
+            },
+            {
+              "Sid": "AllowScnEncryptDecryptWithContext",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "scn.amazonaws.com"
+              },
+              "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": "<customer-account-id>"
+                }
+              }
+            },
+            {
+              "Sid": "AllowScnCryptoViaDependencyServices",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "scn.amazonaws.com"
+              },
+              "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "StringEquals": {
+                  "kms:ViaService": [
+                    "redshift-serverless.<region>.amazonaws.com",
+                    "aoss.<region>.amazonaws.com",
+                    "dynamodb.<region>.amazonaws.com",
+                    "s3.<region>.amazonaws.com"
+                  ]
+                }
+              }
+            },
+            {
+              "Sid": "AllowScnCreateGrantForDependencyServices",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "scn.amazonaws.com"
+              },
+              "Action": "kms:CreateGrant",
+              "Resource": "*",
+              "Condition": {
+                "ForAllValues:StringEquals": {
+                  "kms:GrantOperations": [
+                    "Encrypt",
+                    "Decrypt",
+                    "GenerateDataKey",
+                    "GenerateDataKeyWithoutPlaintext",
+                    "DescribeKey",
+                    "RetireGrant",
+                    "ReEncryptFrom",
+                    "ReEncryptTo",
+                    "CreateGrant"
+                  ]
+                },
+                "Bool": {
+                  "kms:GrantIsForAWSResource": "true"
+                }
+              }
+            },
+            {
+              "Sid": "AllowInstanceRoleDescribeKey",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Action": "kms:DescribeKey",
+              "Resource": "*",
+              "Condition": {
+                "ArnLike": {
+                  "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
+                },
+                "StringEquals": {
+                  "kms:ViaService": "scn.<region>.amazonaws.com"
+                }
+              }
+            },
+            {
+              "Sid": "AllowInstanceRoleEncryptDecrypt",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey*"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "ArnLike": {
+                  "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
+                },
+                "StringEquals": {
+                  "kms:ViaService": "scn.<region>.amazonaws.com"
+                }
+              }
+            },
+            {
+              "Sid": "AllowInstanceRoleCreateGrant",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Action": "kms:CreateGrant",
+              "Resource": "*",
+              "Condition": {
+                "ArnLike": {
+                  "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
+                },
+                "StringEquals": {
+                  "kms:ViaService": "scn.<region>.amazonaws.com"
+                },
+                "ForAllValues:StringEquals": {
+                  "kms:GrantOperations": [
+                    "Encrypt",
+                    "Decrypt",
+                    "GenerateDataKey",
+                    "GenerateDataKeyWithoutPlaintext",
+                    "DescribeKey",
+                    "CreateGrant"
+                  ]
+                },
+                "Bool": {
+                  "kms:GrantIsForAWSResource": "true"
+                }
+              }
+            }
           ]
         }
-      }
-    },
-    {
-      "Sid": "AllowScnCreateGrantForDependencyServices",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "scn.amazonaws.com"
-      },
-      "Action": "kms:CreateGrant",
-      "Resource": "*",
-      "Condition": {
-        "ForAllValues:StringEquals": {
-          "kms:GrantOperations": [
-            "Encrypt",
-            "Decrypt",
-            "GenerateDataKey",
-            "GenerateDataKeyWithoutPlaintext",
-            "DescribeKey",
-            "RetireGrant",
-            "ReEncryptFrom",
-            "ReEncryptTo",
-            "CreateGrant"
-          ]
-        },
-        "Bool": {
-          "kms:GrantIsForAWSResource": "true"
-        }
-      }
-    },
-    {
-      "Sid": "AllowInstanceRoleDescribeKey",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "kms:DescribeKey",
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
-        },
-        "StringEquals": {
-          "kms:ViaService": "scn.<region>.amazonaws.com"
-        }
-      }
-    },
-    {
-      "Sid": "AllowInstanceRoleEncryptDecrypt",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": [
-        "kms:Decrypt",
-        "kms:GenerateDataKey*"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
-        },
-        "StringEquals": {
-          "kms:ViaService": "scn.<region>.amazonaws.com"
-        }
-      }
-    },
-    {
-      "Sid": "AllowInstanceRoleCreateGrant",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "kms:CreateGrant",
-      "Resource": "*",
-      "Condition": {
-        "ArnLike": {
-          "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/service-role/scn-instance-role-*"
-        },
-        "StringEquals": {
-          "kms:ViaService": "scn.<region>.amazonaws.com"
-        },
-        "ForAllValues:StringEquals": {
-          "kms:GrantOperations": [
-            "Encrypt",
-            "Decrypt",
-            "GenerateDataKey",
-            "GenerateDataKeyWithoutPlaintext",
-            "DescribeKey",
-            "CreateGrant"
-          ]
-        },
-        "Bool": {
-          "kms:GrantIsForAWSResource": "true"
-        }
-      }
-    }
-  ]
-}
 ```
 
 **Policy statement explanations:**
@@ -256,41 +256,41 @@ Updated policy (showing only the statements that change):
 
 ```
 "Condition": {
-  "StringEquals": {
-    "aws:SourceAccount": "<customer-account-id>"
-  },
-  "ArnLike": {
-    "aws:SourceArn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
-  }
-}
+          "StringEquals": {
+            "aws:SourceAccount": "<customer-account-id>"
+          },
+          "ArnLike": {
+            "aws:SourceArn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
+          }
+        }
 ```
 
 **AllowScnEncryptDecryptWithContext** — add `EncryptionContext` and `SourceArn` conditions:
 
 ```
 "Condition": {
-  "StringEquals": {
-    "aws:SourceAccount": "<customer-account-id>",
-    "kms:EncryptionContext:aws:scn:arn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
-  },
-  "ArnLike": {
-    "aws:SourceArn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
-  }
-}
+          "StringEquals": {
+            "aws:SourceAccount": "<customer-account-id>",
+            "kms:EncryptionContext:aws:scn:arn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
+          },
+          "ArnLike": {
+            "aws:SourceArn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>"
+          }
+        }
 ```
 
 **AllowInstanceRoleEncryptDecrypt** — add `EncryptionContext` condition:
 
 ```
 "Condition": {
-  "ArnLike": {
-    "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/scn-instance-role-*"
-  },
-  "StringEquals": {
-    "kms:EncryptionContext:aws:scn:arn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>",
-    "kms:ViaService": "scn.<region>.amazonaws.com"
-  }
-}
+          "ArnLike": {
+            "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/scn-instance-role-*"
+          },
+          "StringEquals": {
+            "kms:EncryptionContext:aws:scn:arn": "arn:aws:scn:<region>:<customer-account-id>:instance/<instance-id>",
+            "kms:ViaService": "scn.<region>.amazonaws.com"
+          }
+        }
 ```
 
 ##### Creating a new instance with a customer managed KMS key
@@ -318,10 +318,10 @@ Dependency services (Redshift Serverless, OpenSearch Serverless, DynamoDB) do no
 
 You can use AWS CloudTrail to track KMS requests that Amazon Connect Decisions makes on your behalf. Look for log entries with the following values:
 
-CloudTrail log entry fields for KMS monitoring| Field | Expected value |
-| --- | --- |
-| eventName | `Decrypt`, `GenerateDataKey`, `CreateGrant` |
-| userIdentity.invokedBy | `scn.amazonaws.com` |
+| Field                               | Expected value                                                                |
+| ----------------------------------- | ----------------------------------------------------------------------------- |
+| eventName                           | `Decrypt`, `GenerateDataKey`, `CreateGrant`                                   |
+| userIdentity.invokedBy              | `scn.amazonaws.com`                                                           |
 | requestParameters.encryptionContext | `{"aws:scn:arn": "arn:aws:scn:<region>:<account-id>:instance/<instance-id>"}` |
 
 You can filter CloudTrail events using these values to audit when and how Amazon Connect Decisions accesses your KMS key.

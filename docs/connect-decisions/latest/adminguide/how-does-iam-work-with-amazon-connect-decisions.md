@@ -61,9 +61,9 @@ To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "scn:action1",
-      "scn:action2"
-         ]
+              "scn:action1",
+              "scn:action2"
+                 ]
 ```
 
 ## Policy resources for Amazon Connect Decisions

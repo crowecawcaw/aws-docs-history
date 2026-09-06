@@ -24,7 +24,7 @@ parameters, follow these steps.
     * An email from Identity Management team.
 
 ![](images/creating-your-instance-email-invite.png) 3. Once you receive the invite email, log on to Amazon Connect Decisions. See
-[Log on to Amazon Connect Decisions web application](../../../aws-supply-chain/latest/adminguide/viewing-homepage.md "../../../aws-supply-chain/latest/adminguide/viewing-homepage.md").
+[Log on to Amazon Connect Decisions web application](../../../aws-supply-chain/latest/adminguide/viewing-homepage.md "../../../aws-supply-chain/latest/adminguide/viewing-homepage.md") .
 
 ## Using advanced configuration
 

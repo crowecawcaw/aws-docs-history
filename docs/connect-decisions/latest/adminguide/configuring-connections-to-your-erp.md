@@ -30,9 +30,9 @@ connection parameters and the credentials Amazon Connect Decisions should use du
 
    ```
    {
-     "Username": "<`username`>",
-     "Password": "<`password`>"
-   }
+         "Username": "<`username`>",
+         "Password": "<`password`>"
+       }
    ```
 
 2. Encrypt your secret with an AWS KMS Key, take note of the Key's id, as you will
@@ -55,22 +55,22 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 
 ```
 {
-    "Sid": "Allow Amazon Connect Decisions to access the AWS KMS Key",
-    "Effect": "Allow",
-    "Principal": {
-       "Service": "scn.amazonaws.com",
-        "AWS": "arn:aws:iam::`YourAccountNumber`:role/service-role/scn-instance-role-`YourInstanceID`"
-    },
-    "Action": [
-       "kms:DescribeKey",
-       "kms:CreateGrant",
-        "kms:Encrypt",
-        "kms:Decrypt",
-        "kms:GenerateDataKey",
-       "kms:GenerateDataKeyWithoutPlaintext"
-    ],
-    "Resource": "*"
-}
+        "Sid": "Allow Amazon Connect Decisions to access the AWS KMS Key",
+        "Effect": "Allow",
+        "Principal": {
+           "Service": "scn.amazonaws.com",
+            "AWS": "arn:aws:iam::`YourAccountNumber`:role/service-role/scn-instance-role-`YourInstanceID`"
+        },
+        "Action": [
+           "kms:DescribeKey",
+           "kms:CreateGrant",
+            "kms:Encrypt",
+            "kms:Decrypt",
+            "kms:GenerateDataKey",
+           "kms:GenerateDataKeyWithoutPlaintext"
+        ],
+        "Resource": "*"
+    }
 ```
 
 2. Update the inline policy for your instance role to grant permission on the key
@@ -82,25 +82,25 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "Statement1",
-            "Effect": "Allow",
-            "Action": "secretsmanager:*",
-            "Resource": "`YourSecretArn`"
-        },
-        {
-            "Sid": "AllowKmsForSecretsManager",
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt",
-                "kms:DescribeKey"
-            ],
-            "Resource": "arn:aws:kms:us-east-1:`YourAccountNumber`:key/`YourKeyId`"
-        }
-    ]
-}
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "Statement1",
+                "Effect": "Allow",
+                "Action": "secretsmanager:*",
+                "Resource": "`YourSecretArn`"
+            },
+            {
+                "Sid": "AllowKmsForSecretsManager",
+                "Effect": "Allow",
+                "Action": [
+                    "kms:Decrypt",
+                    "kms:DescribeKey"
+                ],
+                "Resource": "arn:aws:kms:us-east-1:`YourAccountNumber`:key/`YourKeyId`"
+            }
+        ]
+    }
 ```
 
 ## Update the Secrets Manager resource policy for your Secret
@@ -111,21 +111,21 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 
 ```
 {
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"scn.amazonaws.com"
-         },
-         "Action":[
-            "secretsmanager:GetSecretValue",
-            "secretsmanager:DescribeSecret"
-         ],
-         "Resource":"`YourSecretArn`"
-      }
-   ]
-}
+       "Version":"2012-10-17",
+       "Statement":[
+          {
+             "Effect":"Allow",
+             "Principal":{
+                "Service":"scn.amazonaws.com"
+             },
+             "Action":[
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret"
+             ],
+             "Resource":"`YourSecretArn`"
+          }
+       ]
+    }
 ```
 
 ## Configure the Amazon Connect Decisions Connection

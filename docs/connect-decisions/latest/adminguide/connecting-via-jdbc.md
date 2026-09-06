@@ -72,19 +72,19 @@ Before connecting your database to Amazon Connect Decisions, you'll need to set 
 
 ```
 {
-  "Sid": "Allow GDIS service to decrypt",
-  "Effect": "Allow",
-  "Principal": {
-    "Service": "scn.amazonaws.com"
-  },
-  "Action": [
-    "kms:Decrypt",
-    "kms:DescribeKey",
-    "kms:CreateGrant",
-    "kms:GenerateDataKeyWithoutPlaintext"
-  ],
-  "Resource": "*"
-}
+      "Sid": "Allow GDIS service to decrypt",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "scn.amazonaws.com"
+      },
+      "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource": "*"
+    }
 ```
 
 8. **Review and finalize**
@@ -120,10 +120,10 @@ Now that you have a KMS key, you'll create a secret in AWS Secrets Manager to se
 
 ```
 Key: username, Value: your database username
-Key: password, Value: your database password
-Key: host, Value: your database hostname (e.g., database.example.com)
-Key: port, Value: your database port (e.g., 3306 for MySQL)
-Key: database, Value: your database name
+    Key: password, Value: your database password
+    Key: host, Value: your database hostname (e.g., database.example.com)
+    Key: port, Value: your database port (e.g., 3306 for MySQL)
+    Key: database, Value: your database name
 ```
 
 4. **Select your encryption key**
@@ -144,16 +144,16 @@ Key: database, Value: your database name
 
 ```
 {
-  "Version" : "2012-10-17",
-  "Statement" : [ {
-    "Effect" : "Allow",
-    "Principal" : {
-      "Service" : "scn.amazonaws.com"
-    },
-    "Action" : [ "secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret" ],
-    "Resource" : "<COPY-THE-SECRET-ARN-HERE-AFTER-CREATING>"
-  } ]
-}
+      "Version" : "2012-10-17",
+      "Statement" : [ {
+        "Effect" : "Allow",
+        "Principal" : {
+          "Service" : "scn.amazonaws.com"
+        },
+        "Action" : [ "secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret" ],
+        "Resource" : "<COPY-THE-SECRET-ARN-HERE-AFTER-CREATING>"
+      } ]
+    }
 ```
 
 7. **Save the policy**
