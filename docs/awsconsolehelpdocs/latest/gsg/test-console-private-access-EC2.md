@@ -1,17 +1,19 @@
+
+
 # Test setup with Amazon EC2
+<a name="test-console-private-access-EC2"></a>
 
-This setup demonstrates a AWS Management Console Private Access connection to Amazon Simple Storage Service from an
-Amazon EC2 instance. The example uses CloudFormation to create the network configuration, and connects
-to the Amazon EC2 Windows instance through Fleet Manager (a capability of AWS Systems Manager) using the
-Remote Desktop Protocol (RDP).
+This setup demonstrates a AWS Management Console Private Access connection to Amazon Simple Storage Service from an Amazon EC2 instance. The example uses CloudFormation to create the network configuration, and connects to the Amazon EC2 Windows instance through Fleet Manager (a capability of AWS Systems Manager) using the Remote Desktop Protocol (RDP).
 
-The following diagram describes the workflow for using Amazon EC2 to access an AWS Management Console
-Private Access setup. It shows how a user is connected to Amazon S3 using a private
-endpoint.
+The following diagram describes the workflow for using Amazon EC2 to access an AWS Management Console Private Access setup. It shows how a user is connected to Amazon S3 using a private endpoint.
 
-![The setup configuration for trying out AWS Management Console Private Access using an Amazon EC2.](images/vpce-ec2-how-to-1.png)
-Copy the following CloudFormation template and save it to a file that you will use in step three
-of the _To set up a network_ procedure.
+![The setup configuration for trying out AWS Management Console Private Access using an Amazon EC2.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-ec2-how-to-1.png)
+
+
+Copy the following CloudFormation template and save it to a file that you will use in step three of the *To set up a network* procedure.
+
+## AWS Management Console Private Access environment Amazon EC2 CloudFormation template
+<a name="private-access-environment-ec2-cloudformation-template"></a>
 
 ```
 Description: |
@@ -43,7 +45,7 @@ Resources:
   #########################
   # VPC AND SUBNETS
   #########################
-
+  
   AppVPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -359,52 +361,49 @@ Resources:
       Tags:
         - Key: Name
           Value: Console VPCE test instance
-
 ```
 
-###### To set up a network
+**To set up a network**
 
-1. Sign in to the management account for your organization and open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
-2. Choose **Create stack**.
-3. Choose **With new resources (standard)**. Upload the CloudFormation template
-   file that you previously created, and choose **Next**.
-4. Enter a name for the stack, such as
-   `PrivateConsoleNetworkForS3`, then choose
-   **Next**.
-5. For **VPC and subnets**, enter your preferred IP CIDR ranges, or
-   use the provided default values. If you use the default values, verify that they don’t
-   overlap with existing VPC resources in your AWS account.
-6. For the **Ec2KeyPair** parameter, select one from the existing
-   Amazon EC2 key pairs in your account. If you don't have an existing Amazon EC2 key pair, you must
-   create one before proceeding to the next step. For more information, see [Create a key pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/create-key-pairs.md#having-ec2-create-your-key-pair "../../../AWSEC2/latest/UserGuide/create-key-pairs.md#having-ec2-create-your-key-pair") in the
-   _Amazon EC2 User Guide_.
-7. Choose **Create stack**.
-8. After the stack is created, choose the **Resources** tab to view
-   the resources that have been created.
+1. Sign in to the management account for your organization and open the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
 
-###### To connect to the Amazon EC2 instance
+1. Choose **Create stack**.
 
-1. Sign in to the management account for your organization and open the [Amazon EC2 console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
-2. In the navigation pane, choose **Instances**.
-3. On the **Instances** page, select **Console VPCE test
-   instance** that was created by the CloudFormation template. Then choose
-   **Connect**.
+1. Choose **With new resources (standard)**. Upload the CloudFormation template file that you previously created, and choose **Next**.
 
-###### Note
+1. Enter a name for the stack, such as **PrivateConsoleNetworkForS3**, then choose **Next**.
 
-This example uses Fleet Manager, a capability of AWS Systems Manager Explorer, to connect to your
-Windows Server. It might take a few minutes before the connection can be
-started. 4. On the **Connect to instance** page, choose **RDP
-Client**, then **Connect using Fleet Manager**. 5. Choose **Fleet Manager Remote Desktop**. 6. To get the administrative password for the Amazon EC2 instance and access the Windows
-Desktop using the web interface, use the private key associated with the Amazon EC2 key pair
-that you used when creating the CloudFormation template . 7. From the Amazon EC2 Windows instance, open the AWS Management Console in the browser. 8. After you sign in with your AWS credentials, open the [Amazon S3 console](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3") and verify that you are connected using AWS Management Console
-Private Access.
+1. For **VPC and subnets**, enter your preferred IP CIDR ranges, or use the provided default values. If you use the default values, verify that they don’t overlap with existing VPC resources in your AWS account.
 
-###### To test AWS Management Console Private Access setup
+1. For the **Ec2KeyPair** parameter, select one from the existing Amazon EC2 key pairs in your account. If you don't have an existing Amazon EC2 key pair, you must create one before proceeding to the next step. For more information, see [Create a key pair using Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#having-ec2-create-your-key-pair) in the *Amazon EC2 User Guide*.
 
-1. Sign in to the management account for your organization and open the [Amazon S3 console](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3").
-2. Choose the lock-private icon in the navigation bar to view the VPC endpoint in use.
-   The following screenshot shows the location of the lock-private icon and the VPC
-   information.
+1. Choose **Create stack**.
 
-![The Amazon S3 console showing the lock icon and AWS Management Console Private Access information.](images/console-private-access-verify-1.png)
+1. After the stack is created, choose the **Resources** tab to view the resources that have been created.
+
+**To connect to the Amazon EC2 instance**
+
+1. Sign in to the management account for your organization and open the [Amazon EC2 console](https://console.aws.amazon.com/ec2).
+
+1. In the navigation pane, choose **Instances**.
+
+1. On the **Instances** page, select **Console VPCE test instance** that was created by the CloudFormation template. Then choose **Connect**.
+**Note**  
+This example uses Fleet Manager, a capability of AWS Systems Manager Explorer, to connect to your Windows Server. It might take a few minutes before the connection can be started.
+
+1. On the **Connect to instance** page, choose **RDP Client**, then **Connect using Fleet Manager**.
+
+1. Choose **Fleet Manager Remote Desktop**.
+
+1. To get the administrative password for the Amazon EC2 instance and access the Windows Desktop using the web interface, use the private key associated with the Amazon EC2 key pair that you used when creating the CloudFormation template .
+
+1. From the Amazon EC2 Windows instance, open the AWS Management Console in the browser.
+
+1. After you sign in with your AWS credentials, open the [Amazon S3 console](https://console.aws.amazon.com/s3) and verify that you are connected using AWS Management Console Private Access.
+
+**To test AWS Management Console Private Access setup**
+
+1. Sign in to the management account for your organization and open the [Amazon S3 console](https://console.aws.amazon.com/s3).
+
+1. Choose the lock-private icon in the navigation bar to view the VPC endpoint in use. The following screenshot shows the location of the lock-private icon and the VPC information.  
+![The Amazon S3 console showing the lock icon and AWS Management Console Private Access information.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)

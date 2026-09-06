@@ -1,35 +1,27 @@
+
+
 # Logging AWS Recommended Actions API calls using AWS CloudTrail
+<a name="log-using-cloudtrail-rec-actions"></a>
 
-AWS Recommended Actions is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
-AWS service. CloudTrail captures all
-API calls for AWS Recommended Actions as events. The calls captured include calls from the AWS Management Console
-and code calls to the AWS Recommended Actions API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to AWS Recommended Actions, the IP address from which the request was
-made, when it was made, and additional details.
+AWS Recommended Actions is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for AWS Recommended Actions as events. The calls captured include calls from the AWS Management Console and code calls to the AWS Recommended Actions API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS Recommended Actions, the IP address from which the request was made, when it was made, and additional details.
 
-CloudTrail is active in your AWS account when you create the account and you automatically have
-access to the CloudTrail **Event history**. The CloudTrail **Event
-history** provides a viewable, searchable, downloadable, and immutable record of the
-past 90 days of recorded management events in an AWS Region. For more information, see [Working
-with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
 ## AWS Recommended Actions management events in CloudTrail
+<a name="cloudtrail-management-events-rec-actions"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
 AWS Recommended Actions logs all AWS Recommended Actions control plane operations as management events.
 
 ## AWS Recommended Actions event examples
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
-The following example shows a CloudTrail event that demonstrates the
-operation.
+The following example shows a CloudTrail event that demonstrates the operation.
 
 ```
 {
@@ -76,5 +68,4 @@ operation.
 }
 ```
 
-For information about CloudTrail record contents, see [CloudTrail
-record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.

@@ -1,126 +1,71 @@
-# Expected networks
 
-With AWS Management Console Private Access, you can enforce that users access the AWS Management Console only
-from approved networks, such as your VPCs or on-premises data centers connected through
-Direct Connect or AWS Site-to-Site VPN. This prevents access from unexpected locations even when users have
-valid credentials.
+
+# Expected networks
+<a name="expected-networks"></a>
+
+With AWS Management Console Private Access, you can enforce that users access the AWS Management Console only from approved networks, such as your VPCs or on-premises data centers connected through Direct Connect or AWS Site-to-Site VPN. This prevents access from unexpected locations even when users have valid credentials.
 
 To enforce these network controls, you use three types of policies:
++ **IAM identity-based policies** – Attached to identities (users, groups of users, or roles). Limit which AWS services users can access from a given network. Evaluated when the authenticated session calls AWS services.
++ **Resource-based policies** – Attached to specific AWS resources (such as Amazon S3 buckets and AWS KMS keys). Limit access to those resources by network. Evaluated when a session calls the resource.
++ **AWS Sign-In resource-based policies (RBPs) and resource control policies (RCPs)** – Limit which networks can be used to sign in to the AWS Management Console itself. Evaluated during the sign-in flow.
 
-- **IAM identity-based policies** – Attached
-  to identities (users, groups of users, or roles). Limit which AWS services users
-  can access from a given network. Evaluated when the authenticated session calls
-  AWS services.
-- **Resource-based policies** – Attached to
-  specific AWS resources (such as Amazon S3 buckets and AWS KMS keys). Limit access to those
-  resources by network. Evaluated when a session calls the resource.
-- **AWS Sign-In resource-based policies (RBPs) and resource control
-  policies (RCPs)** – Limit which networks can be used to sign in to the
-  AWS Management Console itself. Evaluated during the sign-in flow.
-  These policies are complementary and work together. IAM identity-based policies and
-  resource-based policies apply to all access methods, including the AWS Management Console, AWS CLI,
-  and SDKs, and control which resources a principal can reach after authentication. AWS Sign-In
-  RBPs and RCPs apply only to console sign-in itself – they can prevent unauthorized
-  sign-in attempts, but they do not restrict the resources an authenticated session can
-  access.
+These policies are complementary and work together. IAM identity-based policies and resource-based policies apply to all access methods, including the AWS Management Console, AWS CLI, and SDKs, and control which resources a principal can reach after authentication. AWS Sign-In RBPs and RCPs apply only to console sign-in itself – they can prevent unauthorized sign-in attempts, but they do not restrict the resources an authenticated session can access.
 
-###### Topics
-
-- [Restrict service access using aws:SourceVpc](#supported-global-condition-keys "#supported-global-condition-keys")
-- [Restrict console access using AWS Sign-In policies](#restrict-console-access-by-network "#restrict-console-access-by-network")
+**Topics**
++ [Restrict service access using aws:SourceVpc](#supported-global-condition-keys)
++ [Restrict console access using AWS Sign-In policies](#restrict-console-access-by-network)
 
 ## Restrict service access using aws:SourceVpc
+<a name="supported-global-condition-keys"></a><a name="identity-other-policy-types"></a>
 
-You can restrict service access by network using the `aws:SourceVpc`
-condition key. It works in both IAM identity-based policies (attached to users,
-groups of users, or roles) and resource-based policies (attached to AWS resources
-such as Amazon S3 buckets or AWS KMS keys). For AWS Management Console Private Access,
-`aws:SourceVpc` is the recommended condition key for restricting service
-access by network. The following example shows an identity-based policy that denies
-access to Amazon Simple Storage Service unless the request originates from your specified VPC.
+You can restrict service access by network using the `aws:SourceVpc` condition key. It works in both IAM identity-based policies (attached to users, groups of users, or roles) and resource-based policies (attached to AWS resources such as Amazon S3 buckets or AWS KMS keys). For AWS Management Console Private Access, `aws:SourceVpc` is the recommended condition key for restricting service access by network. The following example shows an identity-based policy that denies access to Amazon Simple Storage Service unless the request originates from your specified VPC.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": "S3:*",
- "Resource": "*",
- "Condition": {
- "StringNotEqualsIfExists": {
- "aws:SourceVpc": "`vpc-12345678`"
- },
- "Bool": {
- "aws:ViaAwsService": "false"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "S3:*",
+            "Resource": "*",
+            "Condition": {
+                "StringNotEqualsIfExists": {
+                    "aws:SourceVpc": "{{vpc-12345678}}"
+                },
+                "Bool": {
+                    "aws:ViaAwsService": "false"
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
 
 ### How AWS Management Console Private Access works with aws:SourceVpce
+<a name="location-identity"></a>
 
-This section describes the various network paths that the requests generated by
-your AWS Management Console can take to AWS services. AWS service consoles use a mix of direct
-browser requests and requests that are proxied by the AWS Management Console web servers to
-AWS services. These implementations are subject to change without notice. If your
-security requirements include access to AWS services using VPC endpoints, we
-recommend that you configure VPC endpoints for all of the services that you intend to
-use from VPC, whether directly from CLI/IDE or through AWS Management Console Private Access.
-Furthermore, we recommend to use the `aws:SourceVpc` IAM condition in
-your policies rather than specific `aws:SourceVpce` values with the
-AWS Management Console Private Access feature.
+This section describes the various network paths that the requests generated by your AWS Management Console can take to AWS services. AWS service consoles use a mix of direct browser requests and requests that are proxied by the AWS Management Console web servers to AWS services. These implementations are subject to change without notice. If your security requirements include access to AWS services using VPC endpoints, we recommend that you configure VPC endpoints for all of the services that you intend to use from VPC, whether directly from CLI/IDE or through AWS Management Console Private Access. Furthermore, we recommend to use the `aws:SourceVpc` IAM condition in your policies rather than specific `aws:SourceVpce` values with the AWS Management Console Private Access feature.
 
-After a user signs in to the AWS Management Console, they make requests to AWS services
-through a combination of direct browser requests and requests that are proxied by
-AWS Management Console web servers to AWS servers. For example, CloudWatch graph data requests are
-made directly from the browser. Whereas some AWS service console requests, such as
-Amazon S3, are proxied by the web server to Amazon S3.
+After a user signs in to the AWS Management Console, they make requests to AWS services through a combination of direct browser requests and requests that are proxied by AWS Management Console web servers to AWS servers. For example, CloudWatch graph data requests are made directly from the browser. Whereas some AWS service console requests, such as Amazon S3, are proxied by the web server to Amazon S3.
 
-For direct browser requests, using AWS Management Console Private Access does not change
-anything. As before, the request reaches the service through whatever network path
-the VPC has configured to reach monitoring.region.amazonaws.com. If
-the VPC is configured with a VPC endpoint for
-com.amazonaws.region.monitoring, the request will reach CloudWatch through
-that CloudWatch VPC endpoint. If there is no VPC endpoint for CloudWatch, the request will reach
-CloudWatch at its public endpoint, by way of an Internet Gateway on the VPC. Requests that
-arrive at CloudWatch by way of the CloudWatch VPC endpoint will have the IAM conditions
-`aws:SourceVpc` and `aws:SourceVpce` set to their respective
-values. Those that reach CloudWatch through its public endpoint will have
-`aws:SourceIp` set to the source IP address of the request. For more
-information about these IAM condition keys, see [Global condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcevpc "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcevpc") in the _IAM User Guide_.
+For direct browser requests, using AWS Management Console Private Access does not change anything. As before, the request reaches the service through whatever network path the VPC has configured to reach monitoring.region.amazonaws.com. If the VPC is configured with a VPC endpoint for com.amazonaws.region.monitoring, the request will reach CloudWatch through that CloudWatch VPC endpoint. If there is no VPC endpoint for CloudWatch, the request will reach CloudWatch at its public endpoint, by way of an Internet Gateway on the VPC. Requests that arrive at CloudWatch by way of the CloudWatch VPC endpoint will have the IAM conditions `aws:SourceVpc` and `aws:SourceVpce` set to their respective values. Those that reach CloudWatch through its public endpoint will have `aws:SourceIp` set to the source IP address of the request. For more information about these IAM condition keys, see [Global condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc) in the *IAM User Guide*.
 
-For requests that are proxied by the AWS Management Console web server, such as the request
-that the Amazon S3 console makes to list your buckets when you visit the Amazon S3 console, the
-network path is different. These requests aren't initiated from your VPC, but rather
-from the AWS Management Console web server, and therefore don't use the Amazon S3 VPC endpoint you may
-have configured. However, when you use AWS Management Console Private Access with supported
-services, these requests (for example, to Amazon S3) will include the
-`aws:SourceVpc` condition key in their request context. The
-`aws:SourceVpc` condition key will be set to the VPC ID where your
-AWS Management Console Private Access endpoints for sign-in and console are deployed. The
-`aws:SourceVpce` condition will be set to the respective console VPC
-endpoint ID.
+For requests that are proxied by the AWS Management Console web server, such as the request that the Amazon S3 console makes to list your buckets when you visit the Amazon S3 console, the network path is different. These requests aren't initiated from your VPC, but rather from the AWS Management Console web server, and therefore don't use the Amazon S3 VPC endpoint you may have configured. However, when you use AWS Management Console Private Access with supported services, these requests (for example, to Amazon S3) will include the `aws:SourceVpc` condition key in their request context. The `aws:SourceVpc` condition key will be set to the VPC ID where your AWS Management Console Private Access endpoints for sign-in and console are deployed. The `aws:SourceVpce` condition will be set to the respective console VPC endpoint ID.
 
-###### Note
-
-If your users require access to services that aren't supported by
-AWS PrivateLink, you must include a list of your expected public network addresses
-(such as your on-premises network range) using the `aws:SourceIp`
-condition key in the users' identity-based policies.
+**Note**  
+If your users require access to services that aren't supported by AWS PrivateLink, you must include a list of your expected public network addresses (such as your on-premises network range) using the `aws:SourceIp` condition key in the users' identity-based policies.
 
 ## Restrict console access using AWS Sign-In policies
+<a name="restrict-console-access-by-network"></a>
 
-AWS Sign-In resource-based policies (RBPs) apply to individual AWS accounts. Resource
-control policies (RCPs) apply organization-wide through AWS Organizations. Both deny console
-sign-in when the request does not originate from your specified IP ranges or
-VPCs.
+AWS Sign-In resource-based policies (RBPs) apply to individual AWS accounts. Resource control policies (RCPs) apply organization-wide through AWS Organizations. Both deny console sign-in when the request does not originate from your specified IP ranges or VPCs.
 
-To configure AWS Sign-In RBPs and RCPs, see [Controlling console
-access with resource-based policies and resource control policies](../../../signin/latest/userguide/console-access-control.md "../../../signin/latest/userguide/console-access-control.md") in the
-_AWS Sign-In User Guide_.
+To configure AWS Sign-In RBPs and RCPs, see [Controlling console access with resource-based policies and resource control policies](https://docs.aws.amazon.com/signin/latest/userguide/console-access-control.html) in the *AWS Sign-In User Guide*.

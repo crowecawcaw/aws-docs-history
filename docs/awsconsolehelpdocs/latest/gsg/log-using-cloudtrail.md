@@ -1,68 +1,46 @@
+
+
 # Logging AWS User Experience Customization API calls using AWS CloudTrail
+<a name="log-using-cloudtrail"></a>
 
-AWS User Experience Customization is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
-AWS service. CloudTrail captures API calls for UXC as events, including management events and
-data events. The calls captured include calls from the UXC console
-and code calls to the UXC API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to UXC, the IP address from which the request was
-made, when it was made, and additional details.
+AWS User Experience Customization is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for UXC as events, including management events and data events. The calls captured include calls from the UXC console and code calls to the UXC API operations. Using the information collected by CloudTrail, you can determine the request that was made to UXC, the IP address from which the request was made, when it was made, and additional details.
 
-CloudTrail is active in your AWS account when you create the account and you automatically have
-access to the CloudTrail **Event history**. The CloudTrail **Event
-history** provides a viewable, searchable, downloadable, and immutable record of the
-past 90 days of recorded management events in an AWS Region. For more information, see [Working
-with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
 ## UXC data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, reading or writing to an Amazon S3
-object). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
-data events. The CloudTrail **Event history** doesn't record data events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the UXC resource types by using the CloudTrail console, AWS CLI,
-or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the UXC resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the UXC resource types for which you can log data events.
-The **Resource type (console)** column shows the value to
-choose from the **Resource type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
-value, which you would specify when configuring advanced event selectors using the AWS CLI or
-CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
-calls logged to CloudTrail for the resource type.
+The following table lists the UXC resource types for which you can log data events. The **Resource type (console)** column shows the value to choose from the **Resource type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Resource type (console)       | resources.type value             | Data APIs logged to CloudTrail                                                                                                  |
-| ----------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **UXC account customization** | `AWS::UXC::AccountCustomization` | • [GetAccountCustomizations](../APIReference/API_GetAccountCustomizations.md "../APIReference/API_GetAccountCustomizations.md") |
 
-You can configure advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log only those events that
-are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+| Resource type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| UXC account customization |  AWS::UXC::AccountCustomization  |  +  [GetAccountCustomizations](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_GetAccountCustomizations.html)   | 
+
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ## UXC management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
 AWS User Experience Customization logs the following UXC control plane operations to CloudTrail as management events.
-
-- [UpdateAccountCustomizations](../APIReference/API_UpdateAccountCustomizations.md "../APIReference/API_UpdateAccountCustomizations.md")
++ [UpdateAccountCustomizations](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_UpdateAccountCustomizations.html)
 
 ## UXC event examples
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
-The following example shows a CloudTrail event that demonstrates the
-`GetAccountCustomizations` operation.
+The following example shows a CloudTrail event that demonstrates the `GetAccountCustomizations` operation.
 
 ```
 {
@@ -112,5 +90,4 @@ The following example shows a CloudTrail event that demonstrates the
 }
 ```
 
-For information about CloudTrail record contents, see [CloudTrail
-record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.
