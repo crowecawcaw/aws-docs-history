@@ -1,146 +1,156 @@
+
+
 # Common Issues and Solutions
+<a name="common-issues-and-solutions"></a>
 
 ## Common Data Issues
+<a name="common-issues-common-data-issues"></a>
 
 ### Demand history has mixed date formats
+<a name="common-issues-demand-history-mixed-date-formats"></a>
 
 Source systems may export dates as DD/MM/YYYY, MM/DD/YYYY, or YYYY-MM-DD, sometimes within the same file. The system may parse these incorrectly, assigning orders to wrong months.
 
 **Fix:** Standardize date formats in your export process. If you can't control the source, add date validation in your data flow SQL.
 
 ### Negative quantities in order history
+<a name="common-issues-negative-quantities"></a>
 
 Credit notes, returns, or reversals can appear as negative quantities. These can distort demand averages and confuse the model.
 
 **Fix:** Filter to only positive quantities, or filter by order status (e.g., only Paid/Invoiced orders).
 
 ### Record counts don't match your source system
+<a name="common-issues-record-counts-dont-match"></a>
++ Most commonly caused by composite key collisions — if two records share the same unique identifier, one overwrites the other.
++ Can also occur if filter criteria in the data mapping exclude records you expect to see.
 
-- Most commonly caused by composite key collisions — if two records share the same unique identifier, one overwrites the other.
-- Can also occur if filter criteria in the data mapping exclude records you expect to see.
-
-Provide a specific product+site example and your expected record count so the team can trace the discrepancy.
+Provide a specific product\+site example and your expected record count so the team can trace the discrepancy.
 
 ### Orders appear in the system that don't exist in ERP (or vice versa)
-
-- Orders fulfilled or removed between report runs will disappear from the next refresh but may still appear in exceptions generated from the previous day's data.
-- Newly created orders won't appear until the next data refresh.
+<a name="common-issues-orders-dont-exist-in-erp"></a>
++ Orders fulfilled or removed between report runs will disappear from the next refresh but may still appear in exceptions generated from the previous day's data.
++ Newly created orders won't appear until the next data refresh.
 
 This is expected behavior — exceptions will update on the next evaluation cycle after fresh data loads.
 
 ### Plan input files include products from other plants or business units
+<a name="common-issues-plan-inputs-other-plants"></a>
 
 If your source system exports include products outside the scope of your forecasting project:
-
-- **The system will filter to the product master automatically.** Only products present in your product master file will be included in the forecast. However, if a large percentage of your input file is out of scope (e.g., 50%+ of rows), this indicates the source export needs tightening.
-- **Check your product coverage rate regularly.** After each data load, verify what percentage of products in your sales and forecast input files match the product master. If coverage drops below 80%, investigate whether the source export scope has changed or the product master needs updating.
-- **Out-of-scope products in plan inputs can cause inflated totals.** If your EDI or SIOP files include products from other plants, the aggregate forecast signal will be higher than it should be. Ensure plan input files are filtered to the same product scope as your product master before loading.
++ **The system will filter to the product master automatically.** Only products present in your product master file will be included in the forecast. However, if a large percentage of your input file is out of scope (e.g., 50%\+ of rows), this indicates the source export needs tightening.
++ **Check your product coverage rate regularly.** After each data load, verify what percentage of products in your sales and forecast input files match the product master. If coverage drops below 80%, investigate whether the source export scope has changed or the product master needs updating.
++ **Out-of-scope products in plan inputs can cause inflated totals.** If your EDI or SIOP files include products from other plants, the aggregate forecast signal will be higher than it should be. Ensure plan input files are filtered to the same product scope as your product master before loading.
 
 ## Common Exception and Recommendation Issues
+<a name="common-issues-exception-recommendation-issues"></a>
 
-### Same product+site appears multiple times in exception list
+### Same product\+site appears multiple times in exception list
+<a name="common-issues-duplicate-exceptions"></a>
 
 This can happen when the underlying rule generates a separate exception for each qualifying date in the projection horizon.
 
-Contact your support team to adjust the rule to flag only the earliest breach date per product+site.
+Contact your support team to adjust the rule to flag only the earliest breach date per product\+site.
 
 ### Recommendation doesn't match what I see in the chart
+<a name="common-issues-recommendation-doesnt-match-chart"></a>
 
 The recommendation is generated by an AI agent that analyzes the data available at the time the exception was created. If data has changed since, the recommendation may reference orders or quantities that are no longer current.
-
-- Check the timestamp on the exception — if it's more than a day old, the recommendation may be stale.
-- If the recommendation is clearly wrong (e.g., ignores a large order visible in the chart), provide feedback using thumbs down and report the specific exception to your support team.
++ Check the timestamp on the exception — if it's more than a day old, the recommendation may be stale.
++ If the recommendation is clearly wrong (e.g., ignores a large order visible in the chart), provide feedback using thumbs down and report the specific exception to your support team.
 
 ### Impact date or "Act By" date seems wrong
-
-- The impact date shows when the inventory issue begins (e.g., when stockout starts or excess exceeds threshold).
-- The "Act By" date should account for lead time so you have time to act before the issue materializes. If Act By equals the impact date, lead time may not be incorporated — report this to your support team.
+<a name="common-issues-impact-date-act-by-wrong"></a>
++ The impact date shows when the inventory issue begins (e.g., when stockout starts or excess exceeds threshold).
++ The "Act By" date should account for lead time so you have time to act before the issue materializes. If Act By equals the impact date, lead time may not be incorporated — report this to your support team.
 
 ### Recommendations reference orders I can't find in ERP
+<a name="common-issues-recommendations-reference-missing-orders"></a>
 
 ERP snapshots change daily. An order referenced in yesterday's recommendation may have been fulfilled, cancelled, or rescheduled in today's ERP run.
 
 This is a known limitation of ERP-based data. Historical consumption data can be added to provide better context.
 
 ## Common Accuracy Issues
+<a name="common-issues-common-accuracy-issues"></a>
 
 ### Forecast is significantly worse than a simple moving average
+<a name="common-issues-forecast-worse-than-moving-average"></a>
 
 If your ASC forecast is losing to a 6-month moving average on aggregate WAPE, check these common causes:
-
-- **Too many low-volume/inactive products in scope.** Products with sparse, intermittent demand are hard for any model to beat a simple average on. Use a preprocessing rule to scope the forecast to products with meaningful demand history (e.g., at least 6 months of non-zero demand).
-- **Training on stale or contaminated history.** If your order history goes back many years, old demand patterns may not reflect current reality. Consider a preprocessing rule to limit training history to the most recent 3–5 years, or to replace anomalous periods (e.g., COVID) with normalized values.
-- **Demand spikes from one-time orders.** A single large bulk order can create a false upward trend in the training data. Use a preprocessing rule to cap anomalous monthly demand values at a multiple of the trailing average (e.g., 5x).
-- **Consensus rules applied in wrong direction.** The LLM agent can misinterpret rule language. "Decrease by 27%" may be applied as an increase. Always validate consensus output against baseline by comparing specific products and months. Use explicit multiplication language ("multiply by 0.725") rather than directional language ("decrease by 27.5%").
++ **Too many low-volume/inactive products in scope.** Products with sparse, intermittent demand are hard for any model to beat a simple average on. Use a preprocessing rule to scope the forecast to products with meaningful demand history (e.g., at least 6 months of non-zero demand).
++ **Training on stale or contaminated history.** If your order history goes back many years, old demand patterns may not reflect current reality. Consider a preprocessing rule to limit training history to the most recent 3–5 years, or to replace anomalous periods (e.g., COVID) with normalized values.
++ **Demand spikes from one-time orders.** A single large bulk order can create a false upward trend in the training data. Use a preprocessing rule to cap anomalous monthly demand values at a multiple of the trailing average (e.g., 5x).
++ **Consensus rules applied in wrong direction.** The LLM agent can misinterpret rule language. "Decrease by 27%" may be applied as an increase. Always validate consensus output against baseline by comparing specific products and months. Use explicit multiplication language ("multiply by 0.725") rather than directional language ("decrease by 27.5%").
 
 ### Over-forecasting bias (forecast systematically higher than actuals)
+<a name="common-issues-over-forecasting-bias"></a>
 
 A positive bias means you're ordering more than needed across the catalog. Common causes:
-
-- **The model is trained on a growth period.** If recent years showed growth that isn't continuing, the model extrapolates a trend that no longer exists.
-- **Consensus rules are stacking upward adjustments.** Multiple rules that each increase the forecast (stockout bias, trend boost, seasonal uplift) can compound. Review which rules are active and check if they're all applying to the same products.
-- **Deleted/discontinued products still in scope.** Products with trailing-off demand that are still being forecast will show systematic over-forecasting.
++ **The model is trained on a growth period.** If recent years showed growth that isn't continuing, the model extrapolates a trend that no longer exists.
++ **Consensus rules are stacking upward adjustments.** Multiple rules that each increase the forecast (stockout bias, trend boost, seasonal uplift) can compound. Review which rules are active and check if they're all applying to the same products.
++ **Deleted/discontinued products still in scope.** Products with trailing-off demand that are still being forecast will show systematic over-forecasting.
 
 ### Under-forecasting bias (forecast systematically lower than actuals)
+<a name="common-issues-under-forecasting-bias"></a>
 
 A negative bias means you're consistently forecasting less than actual demand, leading to potential stockouts and expediting costs. Common causes:
-
-- **External forecast signals not being incorporated.** If you have plan inputs (e.g., EDI customer forecasts, SIOP production plans) loaded but your consensus rules aren't applying them, the forecast defaults to the statistical baseline — which may not capture demand signals your planners see. Verify that consensus rules are actually modifying the output by comparing the ConsensusForecast export against the Forecast (baseline) export. If they're identical, the rules aren't firing.
-- **Sparse product×site combinations pulling the aggregate down.** If you forecast at product×site granularity but many combinations have zero or near-zero demand, the model produces small non-zero forecasts for inactive combinations. These don't add up to much individually but collectively drag the total forecast below actuals. Use a preprocessing rule to exclude combinations with insufficient demand history, or use conditional zero-filling in your plan inputs to explicitly signal "no demand expected" for inactive combinations.
-- **The model hasn't captured a recent growth trend.** Statistical models weight historical data. If your business has grown significantly in recent months but the model has years of lower-volume history, it will lag the trend. This typically improves over time as the model accumulates more recent data. In the interim, consider a consensus rule that uses a trailing average of recent actuals as a floor for outer forecast weeks.
-- **Year-over-year seasonality mismatch.** If this year's demand pattern differs from prior years (e.g., earlier seasonal ramp, new product launches), the model may under-forecast during the divergent period. Check whether the under-bias is concentrated in specific weeks or months that differ from the prior year pattern.
++ **External forecast signals not being incorporated.** If you have plan inputs (e.g., EDI customer forecasts, SIOP production plans) loaded but your consensus rules aren't applying them, the forecast defaults to the statistical baseline — which may not capture demand signals your planners see. Verify that consensus rules are actually modifying the output by comparing the ConsensusForecast export against the Forecast (baseline) export. If they're identical, the rules aren't firing.
++ **Sparse product×site combinations pulling the aggregate down.** If you forecast at product×site granularity but many combinations have zero or near-zero demand, the model produces small non-zero forecasts for inactive combinations. These don't add up to much individually but collectively drag the total forecast below actuals. Use a preprocessing rule to exclude combinations with insufficient demand history, or use conditional zero-filling in your plan inputs to explicitly signal "no demand expected" for inactive combinations.
++ **The model hasn't captured a recent growth trend.** Statistical models weight historical data. If your business has grown significantly in recent months but the model has years of lower-volume history, it will lag the trend. This typically improves over time as the model accumulates more recent data. In the interim, consider a consensus rule that uses a trailing average of recent actuals as a floor for outer forecast weeks.
++ **Year-over-year seasonality mismatch.** If this year's demand pattern differs from prior years (e.g., earlier seasonal ramp, new product launches), the model may under-forecast during the divergent period. Check whether the under-bias is concentrated in specific weeks or months that differ from the prior year pattern.
 
 ### Forecast accuracy degrades significantly at longer horizons
+<a name="common-issues-accuracy-degrades-longer-horizons"></a>
 
 It's normal for accuracy to worsen as the forecast horizon increases — week 1 is always more accurate than week 8. However, if the degradation is steeper than expected:
-
-- **External signals only help near-term.** If you have consensus rules that incorporate customer forecasts (EDI) for the first few weeks, accuracy will be noticeably better near-term and drop off when the rules stop applying. This is expected — consider extending the rules to cover more weeks with a blended approach (e.g., 50/50 blend of external signal and baseline for medium-term weeks).
-- **The baseline reverts to a long-term average at longer horizons.** Statistical models become less confident at longer horizons and tend toward the historical mean. If recent demand is above the historical mean, the outer weeks will appear under-biased. This is a model behavior, not a configuration issue.
-- **Demand volatility makes longer horizons inherently harder.** If your demand has high week-to-week variability (coefficient of variation > 0.5), even a perfect model will show high error at longer horizons. Focus accuracy evaluation on the first 3–4 weeks, which is the actionable planning window for most operations.
++ **External signals only help near-term.** If you have consensus rules that incorporate customer forecasts (EDI) for the first few weeks, accuracy will be noticeably better near-term and drop off when the rules stop applying. This is expected — consider extending the rules to cover more weeks with a blended approach (e.g., 50/50 blend of external signal and baseline for medium-term weeks).
++ **The baseline reverts to a long-term average at longer horizons.** Statistical models become less confident at longer horizons and tend toward the historical mean. If recent demand is above the historical mean, the outer weeks will appear under-biased. This is a model behavior, not a configuration issue.
++ **Demand volatility makes longer horizons inherently harder.** If your demand has high week-to-week variability (coefficient of variation > 0.5), even a perfect model will show high error at longer horizons. Focus accuracy evaluation on the first 3–4 weeks, which is the actionable planning window for most operations.
 
 ### External forecast (EDI/customer forecast) not improving accuracy when used in consensus rules
+<a name="common-issues-external-forecast-not-improving"></a>
 
 If you've added consensus rules to incorporate external forecasts but accuracy hasn't improved:
-
-- **The external signal may not cover enough products.** EDI or customer forecasts typically only cover a subset of your product catalog (often 30–50%). Products without external signal still use the baseline. Check your coverage rate — if it's below 50%, the impact on aggregate accuracy will be limited.
-- **The external signal may not be accurate enough to help.** Measure the external forecast's accuracy independently before using it in rules. If its WAPE is worse than the baseline, incorporating it will hurt rather than help. Consider limiting the rule to specific sites or products where the external signal is demonstrably better (e.g., volume-weighted WAPE below 50%).
-- **The external signal doesn't report zeros.** Many EDI systems only send records for products with active orders — they omit products with zero demand rather than explicitly reporting zero. If your consensus rule says "when EDI = 0, set forecast to 0," it will never fire because there are no zero records. You need to generate synthetic zero records in preprocessing for product×site combinations that have no external signal AND no recent sales history.
-- **The external signal accuracy varies by horizon.** Customer forecasts are typically most accurate for the immediate next week (essentially confirmed orders) and degrade rapidly. A rule that uses the external signal directly for all weeks may hurt accuracy at longer horizons. Consider a tiered approach: direct replacement for weeks 1–3, blended for weeks 4–6, baseline only for weeks 7+.
++ **The external signal may not cover enough products.** EDI or customer forecasts typically only cover a subset of your product catalog (often 30–50%). Products without external signal still use the baseline. Check your coverage rate — if it's below 50%, the impact on aggregate accuracy will be limited.
++ **The external signal may not be accurate enough to help.** Measure the external forecast's accuracy independently before using it in rules. If its WAPE is worse than the baseline, incorporating it will hurt rather than help. Consider limiting the rule to specific sites or products where the external signal is demonstrably better (e.g., volume-weighted WAPE below 50%).
++ **The external signal doesn't report zeros.** Many EDI systems only send records for products with active orders — they omit products with zero demand rather than explicitly reporting zero. If your consensus rule says "when EDI = 0, set forecast to 0," it will never fire because there are no zero records. You need to generate synthetic zero records in preprocessing for product×site combinations that have no external signal AND no recent sales history.
++ **The external signal accuracy varies by horizon.** Customer forecasts are typically most accurate for the immediate next week (essentially confirmed orders) and degrade rapidly. A rule that uses the external signal directly for all weeks may hurt accuracy at longer horizons. Consider a tiered approach: direct replacement for weeks 1–3, blended for weeks 4–6, baseline only for weeks 7\+.
 
 ### Planning rules not taking effect
+<a name="common-issues-planning-rules-not-taking-effect"></a>
 
 If a consensus rule doesn't appear to change the forecast:
-
-- **The rule may have been overridden by a higher-priority rule.** Rules are applied in priority order. A later rule can undo an earlier one. Check the rule ordering.
-- **The rule condition may not match any products.** If the rule references a product attribute (e.g., product\_group\_id) that isn't in the item metadata, it will silently match nothing.
-- **The rule language was misinterpreted.** The LLM agent generates code from natural language. Ambiguous phrasing can produce unexpected results. Be as specific and literal as possible. Use exact field names, explicit multipliers, and clear conditions.
++ **The rule may have been overridden by a higher-priority rule.** Rules are applied in priority order. A later rule can undo an earlier one. Check the rule ordering.
++ **The rule condition may not match any products.** If the rule references a product attribute (e.g., product\_group\_id) that isn't in the item metadata, it will silently match nothing.
++ **The rule language was misinterpreted.** The LLM agent generates code from natural language. Ambiguous phrasing can produce unexpected results. Be as specific and literal as possible. Use exact field names, explicit multipliers, and clear conditions.
 
 ### Consensus plan output is identical to the baseline forecast
+<a name="common-issues-consensus-identical-to-baseline"></a>
 
 If the ConsensusForecast export has the same values as the Forecast (baseline) export, the consensus rules did not execute. Common causes:
-
-- **Dimension mismatch in the join.** The consensus engine joins plan inputs to the baseline on dimension columns (product ID, site ID, date). If the column names differ between the baseline and the plan inputs (e.g., baseline uses item\_id while EDI uses product\_id), the join produces no matches and all rules fall through to the baseline default. Verify that the dimension mapping in your data flow configuration correctly maps between the two schemas.
-- **Date format mismatch.** The baseline may store dates as 2026-03-02 while plan inputs store them as 2026-03-02T00:00:00.000Z. If the join requires exact match, timezone-aware and timezone-naive dates won't match. Check that date columns are converted to the same format before joining.
-- **Plan inputs not loaded.** Verify that your plan input files (EDI, SIOP, etc.) were successfully ingested. Check the record counts in the system — if they show zero rows for a plan input, the file may have failed to load.
-- **The consensus forecast\_id matches the baseline forecast\_id.** If both exports share the same forecast\_id, the consensus engine produced a direct copy of the baseline without processing. This indicates a system-level issue — contact your support team with the forecast\_id and demand\_plan\_run\_id.
++ **Dimension mismatch in the join.** The consensus engine joins plan inputs to the baseline on dimension columns (product ID, site ID, date). If the column names differ between the baseline and the plan inputs (e.g., baseline uses item\_id while EDI uses product\_id), the join produces no matches and all rules fall through to the baseline default. Verify that the dimension mapping in your data flow configuration correctly maps between the two schemas.
++ **Date format mismatch.** The baseline may store dates as 2026-03-02 while plan inputs store them as 2026-03-02T00:00:00.000Z. If the join requires exact match, timezone-aware and timezone-naive dates won't match. Check that date columns are converted to the same format before joining.
++ **Plan inputs not loaded.** Verify that your plan input files (EDI, SIOP, etc.) were successfully ingested. Check the record counts in the system — if they show zero rows for a plan input, the file may have failed to load.
++ **The consensus forecast\_id matches the baseline forecast\_id.** If both exports share the same forecast\_id, the consensus engine produced a direct copy of the baseline without processing. This indicates a system-level issue — contact your support team with the forecast\_id and demand\_plan\_run\_id.
 
 ### Consensus rules apply to wrong products or sites
+<a name="common-issues-consensus-wrong-products-sites"></a>
 
 If a rule that should only apply to specific sites or product categories is affecting the entire catalog:
-
-- **The site/product filter condition may reference the wrong column.** If your rule says "apply to sites in [list]" but the generated code checks a column that doesn't exist or has different values, the filter may silently pass all rows. Verify by spot-checking a few specific products that should NOT be affected by the rule.
-- **Rule priority order may be inverted.** Rules are applied as a chain where later rules override earlier ones. If a broad rule (e.g., "use baseline for everything") is applied after a specific rule (e.g., "use EDI for these 50 sites"), the broad rule will undo the specific one. Ensure your rule descriptions clearly state the priority order.
++ **The site/product filter condition may reference the wrong column.** If your rule says "apply to sites in [list]" but the generated code checks a column that doesn't exist or has different values, the filter may silently pass all rows. Verify by spot-checking a few specific products that should NOT be affected by the rule.
++ **Rule priority order may be inverted.** Rules are applied as a chain where later rules override earlier ones. If a broad rule (e.g., "use baseline for everything") is applied after a specific rule (e.g., "use EDI for these 50 sites"), the broad rule will undo the specific one. Ensure your rule descriptions clearly state the priority order.
 
 ### Forecast values are fractional (e.g., 2,500.37 units)
+<a name="common-issues-fractional-forecast-values"></a>
 
 Statistical models produce continuous values, not integers. If your business deals in whole units, case packs, or minimum order quantities:
-
-- **Add a rounding rule as the final consensus step.** A simple "round to nearest integer" rule applied after all other consensus rules will clean up fractional values. Values below 0.5 will round to zero, which is appropriate for very low-demand combinations.
-- **Consider rounding to operational quantities.** If your products ship in standard pack sizes (e.g., cases of 12, pallets of 48), rounding to the nearest valid pack size may improve both the usability and accuracy of the forecast. This requires pack size data in your product master. Share your MOQ or pack size data with your support team to explore this option.
++ **Add a rounding rule as the final consensus step.** A simple "round to nearest integer" rule applied after all other consensus rules will clean up fractional values. Values below 0.5 will round to zero, which is appropriate for very low-demand combinations.
++ **Consider rounding to operational quantities.** If your products ship in standard pack sizes (e.g., cases of 12, pallets of 48), rounding to the nearest valid pack size may improve both the usability and accuracy of the forecast. This requires pack size data in your product master. Share your MOQ or pack size data with your support team to explore this option.
 
 ### Product coverage drops significantly after adding preprocessing rules
+<a name="common-issues-product-coverage-drops"></a>
 
 Preprocessing rules that filter the training data (e.g., "only forecast products with at least 8 weeks of non-zero demand") can dramatically reduce the number of products in the forecast if your data is sparse at the product×site level:
-
-- **Check the granularity.** A product may have 52 weeks of demand at the product level but only 3 weeks at any individual product×site combination. A minimum history threshold applied at product×site level will exclude most combinations. Consider applying the threshold at product level instead, or lowering the threshold significantly.
-- **Test before deploying.** Before activating a preprocessing rule, count how many product×site combinations pass the filter vs. your current total. If more than 20% are excluded, the rule is likely too aggressive. Start with a lenient threshold and tighten gradually.
++ **Check the granularity.** A product may have 52 weeks of demand at the product level but only 3 weeks at any individual product×site combination. A minimum history threshold applied at product×site level will exclude most combinations. Consider applying the threshold at product level instead, or lowering the threshold significantly.
++ **Test before deploying.** Before activating a preprocessing rule, count how many product×site combinations pass the filter vs. your current total. If more than 20% are excluded, the rule is likely too aggressive. Start with a lenient threshold and tighten gradually.
