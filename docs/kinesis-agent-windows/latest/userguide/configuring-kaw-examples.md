@@ -1,34 +1,27 @@
+
+
 # Kinesis Agent for Windows Configuration Examples
+<a name="configuring-kaw-examples"></a>
 
-The `appsettings.json` configuration file is a JSON document that
-controls how Amazon Kinesis Agent for Microsoft Windows collects logs, events, and metrics. It also controls how Kinesis Agent for Windows transforms
-that data and streams it to various AWS services. For details about the source, sink, and pipe
-declarations in the configuration file, see [Source Declarations](source-object-declarations.md "source-object-declarations.md"), [Sink Declarations](sink-object-declarations.md "sink-object-declarations.md"), and [Pipe Declarations](pipe-object-declarations.md "pipe-object-declarations.md").
+ The `appsettings.json` configuration file is a JSON document that controls how Amazon Kinesis Agent for Microsoft Windows collects logs, events, and metrics. It also controls how Kinesis Agent for Windows transforms that data and streams it to various AWS services. For details about the source, sink, and pipe declarations in the configuration file, see [Source Declarations](source-object-declarations.md), [Sink Declarations](sink-object-declarations.md), and [Pipe Declarations](pipe-object-declarations.md). 
 
-The following sections contain examples of configuration files for several different kinds
-of scenarios.
+The following sections contain examples of configuration files for several different kinds of scenarios. 
 
-###### Topics
-
-- [Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources")
-- [Streaming from the Windows Application Event Log to Sinks](#configuring-kaw-examples-sinks "#configuring-kaw-examples-sinks")
-- [Using Pipes](#configuring-kaw-examples-pipes "#configuring-kaw-examples-pipes")
-- [Using Multiple Sources and Pipes](#configuring-kaw-examples-multiple "#configuring-kaw-examples-multiple")
+**Topics**
++ [Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources)
++ [Streaming from the Windows Application Event Log to Sinks](#configuring-kaw-examples-sinks)
++ [Using Pipes](#configuring-kaw-examples-pipes)
++ [Using Multiple Sources and Pipes](#configuring-kaw-examples-multiple)
 
 ## Streaming from Various Sources to Kinesis Data Streams
+<a name="configuring-kaw-examples-sources"></a>
 
-The following example `appsettings.json` configuration files
-demonstrate streaming logs and events from various sources to Kinesis Data Streams and from Windows
-performance counters to Amazon CloudWatch metrics.
+The following example `appsettings.json` configuration files demonstrate streaming logs and events from various sources to Kinesis Data Streams and from Windows performance counters to Amazon CloudWatch metrics.
 
 ### `DirectorySource`, `SysLog` Record Parser
+<a name="configuring-kaw-examples-sources-ds-sl"></a>
 
-The following file streams syslog format log records from all files with a
-`.log` file extension in the `C:\LogSource\`
-directory to the `SyslogKinesisDataStream` Kinesis Data Streams stream in the us-east-1 Region.
-A bookmark is established to ensure that all data from the log files is sent even if the
-agent is shut down and restarted later. A custom application can read and process the
-records from the `SyslogKinesisDataStream` stream.
+The following file streams syslog format log records from all files with a `.log` file extension in the `C:\LogSource\` directory to the `SyslogKinesisDataStream` Kinesis Data Streams stream in the us-east-1 Region. A bookmark is established to ensure that all data from the log files is sent even if the agent is shut down and restarted later. A custom application can read and process the records from the `SyslogKinesisDataStream` stream.
 
 ```
 {
@@ -62,14 +55,9 @@ records from the `SyslogKinesisDataStream` stream.
 ```
 
 ### `DirectorySource`, `SingleLineJson` Record Parser
+<a name="configuring-kaw-examples-sources-ds-slj"></a>
 
-The following file streams JSON-formatted log records from all files with a
-`.log` file extension in the `C:\LogSource\`
-directory to the `JsonKinesisDataStream` Kinesis Data Streams stream in the us-east-1 Region.
-Before streaming, key-value pairs for the `ComputerName` and `DT` keys
-are added to each JSON object, with values for the computer name and the date and time the
-record is processed. A custom application can read and process the records from the
-`JsonKinesisDataStream` stream.
+The following file streams JSON-formatted log records from all files with a `.log` file extension in the `C:\LogSource\` directory to the `JsonKinesisDataStream` Kinesis Data Streams stream in the us-east-1 Region. Before streaming, key-value pairs for the `ComputerName` and `DT` keys are added to each JSON object, with values for the computer name and the date and time the record is processed. A custom application can read and process the records from the `JsonKinesisDataStream` stream. 
 
 ```
 {
@@ -104,16 +92,9 @@ record is processed. A custom application can read and process the records from 
 ```
 
 ### `ExchangeLogSource`
+<a name="configuring-kaw-examples-sources-exchange"></a>
 
-The following file streams log records generated by Microsoft Exchange and stored in
-files with the `.log` extension in the
-`C:\temp\ExchangeLog\` directory to the
-`ExchangeKinesisDataStream` Kinesis data stream in the us-east-1 Region in JSON
-format. Although the Exchange logs are not in JSON format, Kinesis Agent for Windows can parse the logs and
-transform them to JSON. Before streaming, key-value pairs for the `ComputerName`
-and `DT` keys are added to each JSON object containing values for the computer
-name and the date and time the record is processed. A custom application can read and
-process the records from the `ExchangeKinesisDataStream` stream.
+The following file streams log records generated by Microsoft Exchange and stored in files with the `.log` extension in the `C:\temp\ExchangeLog\` directory to the `ExchangeKinesisDataStream` Kinesis data stream in the us-east-1 Region in JSON format. Although the Exchange logs are not in JSON format, Kinesis Agent for Windows can parse the logs and transform them to JSON. Before streaming, key-value pairs for the `ComputerName` and `DT` keys are added to each JSON object containing values for the computer name and the date and time the record is processed. A custom application can read and process the records from the `ExchangeKinesisDataStream` stream. 
 
 ```
 {
@@ -143,16 +124,12 @@ process the records from the `ExchangeKinesisDataStream` stream.
     }
   ]
 }
-
-
 ```
 
 ### `W3SVCLogSource`
+<a name="configuring-kaw-examples-sources-iis"></a>
 
-The following file streams Internet Information Services (IIS) for Windows log records
-stored in the standard location for those files to the `IISKinesisDataStream`
-Kinesis Data Streams stream in the us-east-1 Region. A custom application can read and process the records
-from the `IISKinesisDataStream` stream. IIS is a web server for Windows.
+The following file streams Internet Information Services (IIS) for Windows log records stored in the standard location for those files to the `IISKinesisDataStream` Kinesis Data Streams stream in the us-east-1 Region. A custom application can read and process the records from the `IISKinesisDataStream` stream. IIS is a web server for Windows. 
 
 ```
 {
@@ -183,12 +160,9 @@ from the `IISKinesisDataStream` stream. IIS is a web server for Windows.
 ```
 
 ### `WindowsEventLogSource` with Query
+<a name="configuring-kaw-examples-sources-wevq"></a>
 
-The following file streams log events from the Windows system event log that have a
-level of `Critical` or `Error` (less than or equal to 2) to the
-`SystemKinesisDataStream` Kinesis data stream in the us-east-1 Region in JSON
-format. A custom application can read and process the records from the
-`SystemKinesisDataStream` stream.
+The following file streams log events from the Windows system event log that have a level of `Critical` or `Error` (less than or equal to 2) to the `SystemKinesisDataStream` Kinesis data stream in the us-east-1 Region in JSON format. A custom application can read and process the records from the `SystemKinesisDataStream` stream. 
 
 ```
 {
@@ -220,11 +194,9 @@ format. A custom application can read and process the records from the
 ```
 
 ### `WindowsETWEventSource`
+<a name="configuring-kaw-examples-sources-etw"></a>
 
-The following file streams Microsoft Common Language Runtime (CLR) exception and
-security events to the `ClrKinesisDataStream` Kinesis data stream in the us-east-1
-Region in JSON format. A custom application can read and process the records from the
-`ClrKinesisDataStream` stream.
+The following file streams Microsoft Common Language Runtime (CLR) exception and security events to the `ClrKinesisDataStream` Kinesis data stream in the us-east-1 Region in JSON format. A custom application can read and process the records from the `ClrKinesisDataStream` stream. 
 
 ```
 {
@@ -257,11 +229,9 @@ Region in JSON format. A custom application can read and process the records fro
 ```
 
 ### `WindowsPerformanceCounterSource`
+<a name="configuring-kaw-examples-sources-wpc"></a>
 
-The following file streams performance counters for total files open, total login
-attempts since reboot, number of disk reads per second, and percentage of free disk space to
-CloudWatch metrics in the us-east-1 Region. You can graph these metrics in CloudWatch, build dashboards
-from the graphs, and set alarms that send notifications when thresholds are exceeded.
+The following file streams performance counters for total files open, total login attempts since reboot, number of disk reads per second, and percentage of free disk space to CloudWatch metrics in the us-east-1 Region. You can graph these metrics in CloudWatch, build dashboards from the graphs, and set alarms that send notifications when thresholds are exceeded. 
 
 ```
 {
@@ -310,22 +280,16 @@ from the graphs, and set alarms that send notifications when thresholds are exce
 ```
 
 ## Streaming from the Windows Application Event Log to Sinks
+<a name="configuring-kaw-examples-sinks"></a>
 
-The following example `appsettings.json` configuration files
-demonstrate streaming Windows application event logs to various sinks in Amazon Kinesis Agent for Microsoft Windows. For
-examples of using the `KinesisStream` and `CloudWatch` sink types, see
-[Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources").
+The following example `appsettings.json` configuration files demonstrate streaming Windows application event logs to various sinks in Amazon Kinesis Agent for Microsoft Windows. For examples of using the `KinesisStream` and `CloudWatch` sink types, see [Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources).
 
 ### `KinesisFirehose`
+<a name="configuring-kaw-examples-sinks-fh"></a>
 
-The following file streams `Critical` or `Error` Windows
-application log events to the `WindowsLogFirehoseDeliveryStream` Firehose delivery
-stream in the us-east-1 Region. If connectivity to Firehose is interrupted, events are first
-queued in memory. Then if necessary, they are queued to a file on disk until connectivity is
-restored. Then events are unqueued and sent followed by any new events.
+The following file streams `Critical` or `Error` Windows application log events to the `WindowsLogFirehoseDeliveryStream` Firehose delivery stream in the us-east-1 Region. If connectivity to Firehose is interrupted, events are first queued in memory. Then if necessary, they are queued to a file on disk until connectivity is restored. Then events are unqueued and sent followed by any new events.
 
-You can configure Firehose to store the streamed data to several different kinds of storage
-and analysis services based on data pipeline requirements.
+You can configure Firehose to store the streamed data to several different kinds of storage and analysis services based on data pipeline requirements. 
 
 ```
 {
@@ -344,7 +308,7 @@ and analysis services based on data pipeline requirements.
        "StreamName": "WindowsLogFirehoseDeliveryStream",
        "Region": "us-east-1",
        "QueueType": "file"
-    }
+    }  
     ],
   "Pipes": [
     {
@@ -357,13 +321,9 @@ and analysis services based on data pipeline requirements.
 ```
 
 ### `CloudWatchLogs`
+<a name="configuring-kaw-examples-sinks-cwl"></a>
 
-The following file streams `Critical` or `Error` Windows
-application log events to CloudWatch Logs log streams in the
-`MyServiceApplicationLog-Group` log group. The name of each stream begins with
-`Stream-`. It ends with the four-digit year, two-digit month, and two-digit day
-that the stream was created, all concatenated (for example, `Stream-20180501` is
-the stream created on May 1, 2018).
+The following file streams `Critical` or `Error` Windows application log events to CloudWatch Logs log streams in the `MyServiceApplicationLog-Group` log group. The name of each stream begins with `Stream-`. It ends with the four-digit year, two-digit month, and two-digit day that the stream was created, all concatenated (for example, `Stream-20180501` is the stream created on May 1, 2018). 
 
 ```
 {
@@ -396,15 +356,11 @@ the stream created on May 1, 2018).
 ```
 
 ## Using Pipes
+<a name="configuring-kaw-examples-pipes"></a>
 
-The following example `appsettings.json` configuration file
-demonstrates using pipe-related features.
+The following example `appsettings.json` configuration file demonstrates using pipe-related features.
 
-This example streams log entries from the `c:\LogSource\` to the
-`ApplicationLogFirehoseDeliveryStream` Firehose delivery stream. It includes only
-lines that match the regular expression specified by the `FilterPattern` key-value
-pair. Specifically, only lines in the log file that start with `10` or
-`11` are streamed to Firehose.
+ This example streams log entries from the `c:\LogSource\` to the `ApplicationLogFirehoseDeliveryStream` Firehose delivery stream. It includes only lines that match the regular expression specified by the `FilterPattern` key-value pair. Specifically, only lines in the log file that start with `10` or `11` are streamed to Firehose. 
 
 ```
 {
@@ -423,7 +379,7 @@ pair. Specifically, only lines in the log file that start with `10` or
        "SinkType": "KinesisFirehose",
        "StreamName": "ApplicationLogFirehoseDeliveryStream",
        "Region": "us-east-1"
-    }
+    }  
     ],
   "Pipes": [
     {
@@ -438,13 +394,11 @@ pair. Specifically, only lines in the log file that start with `10` or
 ```
 
 ## Using Multiple Sources and Pipes
+<a name="configuring-kaw-examples-multiple"></a>
 
-The following example `appsettings.json` configuration file demonstrates using
-multiple sources and pipes.
+The following example `appsettings.json` configuration file demonstrates using multiple sources and pipes.
 
-This example streams the application, security, and system Windows Event Logs to the
-`EventLogStream` Firehose delivery stream using three sources, three pipes, and a
-single sink.
+This example streams the application, security, and system Windows Event Logs to the `EventLogStream` Firehose delivery stream using three sources, three pipes, and a single sink.
 
 ```
 {

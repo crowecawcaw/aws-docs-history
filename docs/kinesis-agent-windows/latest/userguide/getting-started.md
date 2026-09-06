@@ -1,89 +1,72 @@
+
+
 # Getting Started with Amazon Kinesis Agent for Microsoft Windows
+<a name="getting-started"></a>
 
-You can use Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows) to collect, parse, transform, and stream logs, events, and
-metrics from your Windows fleet to various AWS services. The following information contains
-prerequisites and step-by-step instructions for installing and configuring Kinesis Agent for Windows.
+You can use Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows) to collect, parse, transform, and stream logs, events, and metrics from your Windows fleet to various AWS services. The following information contains prerequisites and step-by-step instructions for installing and configuring Kinesis Agent for Windows.
 
-###### Topics
-
-- [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
-- [Setting Up an AWS account](#getting-started-setting-up "#getting-started-setting-up")
-- [Installing Kinesis Agent for Windows](#getting-started-installation "#getting-started-installation")
-- [Configuring and Starting Kinesis Agent for Windows](#getting-started-start-service "#getting-started-start-service")
+**Topics**
++ [Prerequisites](#getting-started-prerequisites)
++ [Setting Up an AWS account](#getting-started-setting-up)
++ [Installing Kinesis Agent for Windows](#getting-started-installation)
++ [Configuring and Starting Kinesis Agent for Windows](#getting-started-start-service)
 
 ## Prerequisites
+<a name="getting-started-prerequisites"></a>
 
-Before installing Kinesis Agent for Windows, ensure that you have the following
-prerequisites:
+Before installing Kinesis Agent for Windows, ensure that you have the following prerequisites:
++ Familiarity with Kinesis Agent for Windows concepts. For more information, see [Amazon Kinesis Agent for Microsoft Windows Concepts](kinesis-agent-windows-concepts.md).
++ An AWS account for using the various AWS services related to your data pipeline. For information about creating and configuring an AWS account, see [Sign up for an AWS account](#sign-up-for-aws).
++ Microsoft .NET Framework 4.6 or later on each desktop or server that will run Kinesis Agent for Windows. For more information, see [Install the .NET Framework for developers](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers) in the Microsoft .NET documentation.
 
-- Familiarity with Kinesis Agent for Windows concepts. For more information, see [Amazon Kinesis Agent for Microsoft Windows Concepts](kinesis-agent-windows-concepts.md "kinesis-agent-windows-concepts.md").
-- An AWS account for using the various AWS services related to your data pipeline. For
-  information about creating and configuring an AWS account, see [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws").
-- Microsoft .NET Framework 4.6 or later on each desktop or server that will run Kinesis Agent for Windows. For
-  more information, see [Install
-  the .NET Framework for developers](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers "https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers") in the Microsoft .NET documentation.
+  To determine the latest version of the .NET Framework that is installed on a desktop or server, use the following PowerShell script:
 
-To determine the latest version of the .NET Framework that is installed on a desktop or
-server, use the following PowerShell script:
-
-```
-
-     [System.Version](
-     (Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -recurse `
-     | Get-ItemProperty -Name Version -ErrorAction SilentlyContinue `
-     | Where-Object { ($_.PSChildName -match 'Full') } `
-     | Select-Object Version | Sort-Object -Property Version -Descending)[0]).Version
-
-```
-
-- The streams where you want to send data from Kinesis Agent for Windows (if using Amazon Kinesis Data Streams). Create the
-  streams using the [Kinesis Data Streams console](https://console.aws.amazon.com/kinesis/ "https://console.aws.amazon.com/kinesis/"), the [AWS CLI](../../../cli/latest/reference/kinesis/create-stream.md "../../../cli/latest/reference/kinesis/create-stream.md"), or
-  [AWS Tools for Windows PowerShell](../../../powershell/latest/reference/items/New-KINStream.md "../../../powershell/latest/reference/items/New-KINStream.md"). For more information, see [Creating and Updating Data Streams](../../../streams/latest/dev/amazon-kinesis-streams.md "../../../streams/latest/dev/amazon-kinesis-streams.md") in
-  the _Amazon Kinesis Data Streams Developer Guide_.
-- The Firehose delivery streams where you want to send data from Kinesis Agent for Windows (if using Amazon Data Firehose).
-  Create delivery streams using the [Firehose
-  console](https://console.aws.amazon.com/firehose/ "https://console.aws.amazon.com/firehose/"), the [AWS CLI](../../../cli/latest/reference/firehose/create-delivery-stream.md "../../../cli/latest/reference/firehose/create-delivery-stream.md"), or [AWS Tools for Windows PowerShell](../../../powershell/latest/reference/items/New-KINFDeliveryStream.md "../../../powershell/latest/reference/items/New-KINFDeliveryStream.md"). For more information, see [Creating an Amazon Data Firehose Delivery Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the
-  _Amazon Data Firehose Developer Guide_.
+  ```
+       [System.Version](
+       (Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -recurse `
+       | Get-ItemProperty -Name Version -ErrorAction SilentlyContinue `
+       | Where-Object { ($_.PSChildName -match 'Full') } `
+       | Select-Object Version | Sort-Object -Property Version -Descending)[0]).Version
+  ```
++ The streams where you want to send data from Kinesis Agent for Windows (if using Amazon Kinesis Data Streams). Create the streams using the [Kinesis Data Streams console](https://console.aws.amazon.com/kinesis/), the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/kinesis/create-stream.html), or [AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/New-KINStream.html). For more information, see [Creating and Updating Data Streams](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html) in the *Amazon Kinesis Data Streams Developer Guide*.
++ The Firehose delivery streams where you want to send data from Kinesis Agent for Windows (if using Amazon Data Firehose). Create delivery streams using the [Firehose console](https://console.aws.amazon.com/firehose/), the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/firehose/create-delivery-stream.html), or [AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/New-KINFDeliveryStream.html). For more information, see [Creating an Amazon Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Data Firehose Developer Guide*.
 
 ## Setting Up an AWS account
+<a name="getting-started-setting-up"></a>
 
 ### Sign up for an AWS account
+<a name="sign-up-for-aws"></a>
 
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.
 
 ## Installing Kinesis Agent for Windows
+<a name="getting-started-installation"></a>
 
 There are three ways that you can install Kinesis Agent for Windows on Windows:
++ Install using MSI (a Windows installer package).
++ Install from [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/), a set of services for administering servers and desktops.
++ Run a PowerShell script.
 
-- Install using MSI (a Windows installer package).
-- Install from [AWS Systems Manager](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md"), a set of services for
-  administering servers and desktops.
-- Run a PowerShell script.
-
-###### Note
-
-The following instructions occasionally use the terms _KinesisTap_ and `*AWSKinesisTap*`. These words mean
-the same thing as Kinesis Agent for Windows, but you must specify them as-is when executing these
-instructions.
+**Note**  
+The following instructions occasionally use the terms *KinesisTap* and `AWSKinesisTap`. These words mean the same thing as Kinesis Agent for Windows, but you must specify them as-is when executing these instructions.
 
 ### Install Kinesis Agent for Windows using MSI
+<a name="install-msi"></a>
 
-You can download the latest Kinesis Agent for Windows MSI package from the [kinesis-agent-windows repository on GitHub](https://github.com/awslabs/kinesis-agent-windows/releases "https://github.com/awslabs/kinesis-agent-windows/releases"). After you download the MSI, use Windows to launch it and follow the installer prompts. After installation, you can uninstall as you would any Windows application.
+You can download the latest Kinesis Agent for Windows MSI package from the [kinesis-agent-windows repository on GitHub](https://github.com/awslabs/kinesis-agent-windows/releases). After you download the MSI, use Windows to launch it and follow the installer prompts. After installation, you can uninstall as you would any Windows application.
 
-Alternatively, you can use the [msiexec](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec "https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec") command from the Windows command prompt to install silently, turn on logging, and uninstall as shown in the following examples. Replace ``AWSKinesisTap.1.1.216.4.msi` with the appropriate version of Kinesis Agent for Windows for your application.`
+Alternatively, you can use the [msiexec](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) command from the Windows command prompt to install silently, turn on logging, and uninstall as shown in the following examples. Replace `{{AWSKinesisTap.1.1.216.4.msi}} with the appropriate version of Kinesis Agent for Windows for your application.`
 
 **To install Kinesis Agent for Windows silently:**
 
 ```
-msiexec /i `AWSKinesisTap.1.1.216.4.msi` /q
+msiexec /i {{AWSKinesisTap.1.1.216.4.msi}} /q
 ```
 
-**To log installation messages for troubleshooting in a file named `logfile.log`:**
+**To log installation messages for troubleshooting in a file named `{{logfile.log}}`:**
 
 ```
-msiexec /i `AWSKinesisTap.1.1.216.4.msi` /q /L*V `logfile.log`
+msiexec /i {{AWSKinesisTap.1.1.216.4.msi}} /q /L*V {{logfile.log}}
 ```
 
 **To uninstall Kinesis Agent for Windows using the command prompt:**
@@ -93,37 +76,38 @@ msiexec.exe /x {ADAB3982-68AA-4B45-AE09-7B9C03F3EBD3} /q
 ```
 
 ### Install Kinesis Agent for Windows using AWS Systems Manager
+<a name="install-systems-manager"></a>
 
-Follow these steps to install Kinesis Agent for Windows using Systems Manager Run Command. For more information about Run
-Command, see [`AWS Systems Manager Run
- Command`](../../../systems-manager/latest/userguide/execute-remote-commands.md "../../../systems-manager/latest/userguide/execute-remote-commands.md") in the _AWS Systems Manager User Guide_. In addition to using Systems Manager Run Command, you can also use Systems Manager [Maintenance Windows](../../../systems-manager/latest/userguide/systems-manager-maintenance.md "../../../systems-manager/latest/userguide/systems-manager-maintenance.md") and [State Manager](../../../systems-manager/latest/userguide/systems-manager-state.md "../../../systems-manager/latest/userguide/systems-manager-state.md") to automate the deployment
-of Kinesis Agent for Windows over time.
+Follow these steps to install Kinesis Agent for Windows using Systems Manager Run Command. For more information about Run Command, see [`AWS Systems Manager Run Command`](https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html) in the *AWS Systems Manager User Guide*. In addition to using Systems Manager Run Command, you can also use Systems Manager [Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html) and [State Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html) to automate the deployment of Kinesis Agent for Windows over time.
 
-###### Note
+**Note**  
+Systems Manager installation for Kinesis Agent for Windows is available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) except the following:  
+cn-north-1
+cn-northwest-1
+All AWS GovCloud Regions.
 
-Systems Manager installation for Kinesis Agent for Windows is available in the AWS Regions listed in [AWS Systems Manager](../../../general/latest/gr/rande.md#ssm_region "../../../general/latest/gr/rande.md#ssm_region") except the following:
+**To install Kinesis Agent for Windows using Systems Manager**
 
-- cn-north-1
-- cn-northwest-1
-- All AWS GovCloud Regions.
+1. Ensure that version 2.2.58.0 or later of the SSM Agent is installed on instances where you want to install Kinesis Agent for Windows. For more information, see [Installing and configuring SSM Agent on Windows instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-win.html) in the *AWS Systems Manager User Guide*.
 
-###### To install Kinesis Agent for Windows using Systems Manager
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-1. Ensure that version 2.2.58.0 or later of the SSM Agent is installed on instances where you want to install Kinesis Agent for Windows. For more information, see [Installing and configuring SSM Agent on Windows instances](../../../systems-manager/latest/userguide/sysman-install-ssm-win.md "../../../systems-manager/latest/userguide/sysman-install-ssm-win.md") in the _AWS Systems Manager User Guide_.
-2. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-3. From the navigation pane, under **Node Management**, choose **Run Command**, and then choose **Run Command**.
-4. From the **Command document** list, select the **`AWS-ConfigureAWSPackage`** document.
+1. From the navigation pane, under **Node Management**, choose **Run Command**, and then choose **Run Command**.
 
-![Select the AWS-ConfigureAWSPackage document.](images/runcommand-document-select.png) 5. Under **Command Parameters**, for **Name**, enter `**AWSKinesisTap**`. Leave other settings to their defaults.
+1. From the **Command document** list, select the **`AWS-ConfigureAWSPackage`** document.  
+![Select the AWS-ConfigureAWSPackage document.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-document-select.png)
 
-###### Note
+1. Under **Command Parameters**, for **Name**, enter `AWSKinesisTap`. Leave other settings to their defaults.
+**Note**  
+Leave **Version** blank to specify the latest version of the `AWSKinesisTap` package. Optionally, you can enter a specific version to install.  
+![Specify the AWSKinesisTap package in Command parameters.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-specify-options.png)
 
-Leave **Version** blank to specify the latest version of the `AWSKinesisTap`
-package. Optionally, you can enter a specific version to install.
+1. Under **Targets**, specify the instances on which to run the command. You can choose to specify instances based on tags associated with instances, you can choose instances manually, or you can specify a resource group that includes instances.
 
-![Specify the AWSKinesisTap package in Command parameters.](images/runcommand-specify-options.png) 6. Under **Targets**, specify the instances on which to run the command. You can choose to specify instances based on tags associated with instances, you can choose instances manually, or you can specify a resource group that includes instances. 7. Leave all other settings to their defaults and choose **Run**.
+1. Leave all other settings to their defaults and choose **Run**.
 
 ### Install Kinesis Agent for Windows Using PowerShell
+<a name="install-ps"></a>
 
 Use a text editor to copy the following commands into a file and save it as a PowerShell script. We use `InstallKinesisAgent.ps1` in the following example.
 
@@ -225,11 +209,9 @@ if ($null -eq $service) {
     Write-Host "Kinesis Tap Installed." -ForegroundColor Green
     Write-Host "After configuring run the following to start the service: Start-Service -Name $serviceName." -ForegroundColor Green
 }
-
 ```
 
-Open an elevated command prompt window. In the directory where the file was downloaded,
-use the following command to run the script:
+Open an elevated command prompt window. In the directory where the file was downloaded, use the following command to run the script:
 
 ```
 PowerShell.exe -File ".\InstallKinesisAgent.ps1"
@@ -238,28 +220,28 @@ PowerShell.exe -File ".\InstallKinesisAgent.ps1"
 To install a specific version of Kinesis Agent for Windows, add the `-version` option:
 
 ```
-PowerShell.exe -File ".\InstallKinesisAgent.ps1" -version "`version`"
+PowerShell.exe -File ".\InstallKinesisAgent.ps1" -version "{{version}}"
 ```
 
-Replace `version` with a valid Kinesis Agent for Windows version number. For version information, see the [kinesis-agent-windows repository on GitHub](https://github.com/awslabs/kinesis-agent-windows/blob/master/README.md "https://github.com/awslabs/kinesis-agent-windows/blob/master/README.md").
+Replace {{version}} with a valid Kinesis Agent for Windows version number. For version information, see the [kinesis-agent-windows repository on GitHub](https://github.com/awslabs/kinesis-agent-windows/blob/master/README.md).
 
 There are many deployment tools which can remotely execute PowerShell scripts. They can be used to automate the installation of Kinesis Agent for Windows on fleets of servers or desktops.
 
 ## Configuring and Starting Kinesis Agent for Windows
+<a name="getting-started-start-service"></a>
 
-After installing Kinesis Agent for Windows, you must configure and start the agent. After that, no further
-operation intervention should be required.
+After installing Kinesis Agent for Windows, you must configure and start the agent. After that, no further operation intervention should be required.
 
-###### To configure and start Kinesis Agent for Windows
+**To configure and start Kinesis Agent for Windows**
 
-1. Create and deploy a Kinesis Agent for Windows configuration file. This file configures sources, sinks, and
-   pipes, along with other global configuration items.
+1. Create and deploy a Kinesis Agent for Windows configuration file. This file configures sources, sinks, and pipes, along with other global configuration items. 
 
-For more information about Kinesis Agent for Windows configuration, see [Configuring Amazon Kinesis Agent for Microsoft Windows](configuring-kinesis-agent-windows.md "configuring-kinesis-agent-windows.md").
+   For more information about Kinesis Agent for Windows configuration, see [Configuring Amazon Kinesis Agent for Microsoft Windows](configuring-kinesis-agent-windows.md).
 
-For complete configuration file examples that you can customize and install, see [Kinesis Agent for Windows Configuration Examples](configuring-kaw-examples.md "configuring-kaw-examples.md"). 2. Open an elevated PowerShell command prompt window, and start Kinesis Agent for Windows using the following
-PowerShell command:
+   For complete configuration file examples that you can customize and install, see [Kinesis Agent for Windows Configuration Examples](configuring-kaw-examples.md).
 
-```
-Start-Service -Name AWSKinesisTap
-```
+1. Open an elevated PowerShell command prompt window, and start Kinesis Agent for Windows using the following PowerShell command:
+
+   ```
+   Start-Service -Name AWSKinesisTap
+   ```
