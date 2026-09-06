@@ -63,6 +63,7 @@ instances:
 
 - Ultra-low latency with deterministic performance **bmn-sf2e**
 - High throughput and low latency **bmn-cx2**
+- High throughput and low latency with AMD processors **bmn-cx3a**
 
 ## AWS Outposts racks generations
 
@@ -71,7 +72,7 @@ second-generation Outposts racks:
 
 |                                | First-generation Outposts racks                                                                                                                                                                                              | Second-generation Outposts racks                                                                                                  |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **Compute**                    | M5, C5, R5, G4dn                                                                                                                                                                                                             | M7i, M8i, C7i, C8i, R7i, R8i, Bmn-sf2e, Bmn-cx2                                                                                   |
+| **Compute**                    | M5, C5, R5, G4dn                                                                                                                                                                                                             | M7i, M8i, C7i, C8i, R7i, R8i, Bmn-sf2e, Bmn-cx2, Bmn-cx3a                                                                         |
 | **Networking**                 | • Coupled scaling of compute and networking<br>• User-managed scaling and resiliency setup                                                                                                                                   | • Decoupled scaling of compute from networking<br>• Built-in resiliency to handle network device failures                         |
 | **Locally supported services** | Amazon EC2, Amazon EBS, Amazon S3, Amazon EBS snapshots, Amazon EKS, Amazon ECS, Route 53 Resolver,<br>Amazon RDS, Amazon EMR, AWS IoT Greengrass, Application Load Balancers, Amazon ElastiCache, Elastic Disaster Recovery | Amazon EC2, Amazon EBS, Amazon S3, Amazon EKS, Amazon ECS, Amazon RDS, Amazon EMR, AWS IoT Greengrass, Application Load Balancers |
 | **Power**                      | Supported power configurations: 5 kVA, 10 kVA, or 15 kVA                                                                                                                                                                     | Supported power configurations: 10 kVA, 15 kVA, 30 kVA                                                                            |
