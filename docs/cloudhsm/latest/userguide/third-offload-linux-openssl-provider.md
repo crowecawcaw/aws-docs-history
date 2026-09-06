@@ -509,7 +509,7 @@ Use the [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-p
 
 ###### ML-DSA availability and requirements
 
-ML-DSA is only available on non-FIPS clusters and requires OpenSSL 3.5 or later for CSR creation, certificate creation, and TLS offload. ML-DSA supports TLS 1.3 only.
+ML-DSA requires OpenSSL 3.5 or later for CSR creation, certificate creation, and TLS offload. ML-DSA supports TLS 1.3 only.
 
 For ML-DSA TLS offload on Amazon Linux 2023 and RHEL platforms, you might need to enable the post-quantum (PQ) crypto sub-policy. For more information, see [Issue: ML-DSA TLS handshake fails on Amazon Linux 2023 and RHEL with "no shared signature algorithms"](ki-openssl-provider-sdk.md#ki-openssl-provider-5 "ki-openssl-provider-sdk.md#ki-openssl-provider-5").
 

@@ -7,6 +7,10 @@ You can generate an ML-DSA private key using the [Generate an asymmetric ML-DSA 
 
 ###### Note
 
+Starting September 1, 2026, ML-DSA is available in FIPS mode for hsm2m.medium clusters.
+
+###### Note
+
 You can verify signatures in AWS CloudHSM using [The crypto verify category in CloudHSM CLI](cloudhsm_cli-crypto-verify.md "cloudhsm_cli-crypto-verify.md") subcommands.
 
 You can generate a signature using two data types: raw data or computed external mu data.

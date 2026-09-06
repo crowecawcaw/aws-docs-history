@@ -5,7 +5,7 @@ These are the known issues for OpenSSL Provider for AWS CloudHSM.
 ###### Topics
 
 - [Issue: Errors in OpenSSL CLI when used with OpenSSL Provider](#ki-openssl-provider-1 "#ki-openssl-provider-1")
-- [Issue: Ed25519 and ML-DSA TLS offload not supported on FIPS clusters](#ki-openssl-provider-3 "#ki-openssl-provider-3")
+- [Issue: Ed25519 TLS offload not supported on FIPS clusters](#ki-openssl-provider-3 "#ki-openssl-provider-3")
 - [Issue: ML-DSA operations fail on platforms with OpenSSL earlier than 3.5](#ki-openssl-provider-4 "#ki-openssl-provider-4")
 - [Issue: ML-DSA TLS handshake fails on Amazon Linux 2023 and RHEL with "no shared signature algorithms"](#ki-openssl-provider-5 "#ki-openssl-provider-5")
 
@@ -15,12 +15,12 @@ These are the known issues for OpenSSL Provider for AWS CloudHSM.
   The AWS CloudHSM OpenSSL Provider did not support OpenSSL CLI operations (CSR creation, certificate signing). You had to use the OpenSSL Dynamic Engine for CSR and certificate operations.
 - **Resolution status:** Client SDK 5.18.0 resolves this issue. The OpenSSL Provider now supports OpenSSL CLI operations for all key types (RSA, EC, Ed25519, and ML-DSA). Upgrade to version 5.18.0 or later to benefit from the fix.
 
-## Issue: Ed25519 and ML-DSA TLS offload not supported on FIPS clusters
+## Issue: Ed25519 TLS offload not supported on FIPS clusters
 
 - **Impact:**
-  Ed25519 and ML-DSA key types are not available on FIPS-mode clusters. Attempts to use these key types for TLS offload on a FIPS cluster fail.
+  Ed25519 key types are not available on FIPS-mode clusters. Attempts to use this key type for TLS offload on a FIPS cluster fail.
 - **Resolution:**
-  Use Ed25519 and ML-DSA only on non-FIPS clusters. For FIPS clusters, use RSA or EC key types for TLS offload.
+  Use Ed25519 only on non-FIPS clusters. For FIPS clusters, use RSA or EC key types for TLS offload.
 
 ## Issue: ML-DSA operations fail on platforms with OpenSSL earlier than 3.5
 

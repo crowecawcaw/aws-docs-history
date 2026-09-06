@@ -9,6 +9,10 @@ Use the **crypto verify ml-dsa** command in CloudHSM CLI to confirm data integri
 
 ###### Note
 
+Starting September 1, 2026, ML-DSA is available in FIPS mode for hsm2m.medium clusters.
+
+###### Note
+
 You can generate a signature in CloudHSM CLI with [The crypto sign category in CloudHSM CLI](cloudhsm_cli-crypto-sign.md "cloudhsm_cli-crypto-sign.md") subcommands.
 
 ###### Note

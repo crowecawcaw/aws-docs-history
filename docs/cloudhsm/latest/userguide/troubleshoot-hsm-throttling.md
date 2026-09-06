@@ -36,3 +36,12 @@ refer to [Advanced configurations for the Client SDK 5 configure tool](configure
 ###### Important
 
 We recommend load testing your cluster to determine the peak load you should anticipate, and then add one more HSM to it to ensure high availability.
+
+- Reduce the number of requests that your application sends. With the
+  PKCS #11 library in Client SDK 5, each `C_GetAttributeValue` call sends one
+  request, no matter how many attributes the template contains. Request every attribute that
+  you need in one template, and cache the values in your application. For more information,
+  see [Retrieve attributes with the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-attributes-retrieve.md "pkcs11-attributes-retrieve.md").
+
+With JCE, each attribute that you request costs one request, so request only the
+attributes that your application needs.

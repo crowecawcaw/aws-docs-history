@@ -33,3 +33,11 @@ The following behaviors apply when you exceed these limits:
   [Issue: The PKCS #11 library does not retry throttled certificate storage operations](ki-pkcs11-sdk.md#ki-pkcs11-16 "ki-pkcs11-sdk.md#ki-pkcs11-16")), so your application
   must retry them with exponential backoff. For more information, see
   [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").
+
+To stay within the read rate limit, reduce the number of read operations that your
+application sends. Each `C_GetAttributeValue` call counts as one read
+operation, whatever the number of attributes in the template. An application that requests
+every attribute it needs in one call uses one read operation. An application that makes
+a separate call for each attribute uses one read operation for each of them. Adding HSMs increases the total rate that your cluster supports,
+but it does not change this ratio. For more information, see
+[Retrieve attributes with the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-attributes-retrieve.md "pkcs11-attributes-retrieve.md").

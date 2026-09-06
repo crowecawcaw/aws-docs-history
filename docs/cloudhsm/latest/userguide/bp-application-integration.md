@@ -51,6 +51,15 @@ out of the HSM. For more information, see our attributes pages for the following
 For optimal performance, AWS recommends that you utilize key find commands (like [Search for AWS CloudHSM keys by attributes using KMU](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") and [List keys for a user with CloudHSM CLI](cloudhsm_cli-key-list.md "cloudhsm_cli-key-list.md")) only once during your application start-up and cache the key object returned in application memory.
 If you require this key object later on, you should retrieve the object from your cache instead of querying for this object for each operation which will add significant performance overhead.
 
+### Read object attributes in as few calls as possible
+
+Reading attributes sends requests to your cluster, and the number of requests depends on the SDK that you use:
+
+- With the PKCS #11 library, each `C_GetAttributeValue` call sends one request, no matter how many attributes the template contains. Request every attribute that you need in one template. For more information, see [Retrieve attributes with the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-attributes-retrieve.md "pkcs11-attributes-retrieve.md").
+- With JCE, each attribute that you request costs one request. Request only the attributes that your application needs.
+
+In both cases, cache the values in your application and reuse them until something changes the object.
+
 ## Use multi-threading
 
 AWS CloudHSM supports multi-threaded applications, but there are certain things to keep in mind with multi-threaded applications.

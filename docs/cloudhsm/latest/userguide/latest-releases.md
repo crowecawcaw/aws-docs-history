@@ -263,7 +263,7 @@ Client SDK 5.18.0 introduces new features and improvements across multiple compo
 
 ###### OpenSSL Provider
 
-- Added support for PureEdDSA (Ed25519) and ML-DSA (ML-DSA-44, ML-DSA-65, and ML-DSA-87) key types for TLS offload on non-FIPS clusters. For more information, see [Supported key types for OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-key-types.md "openssl-provider-key-types.md") and [OpenSSL Provider Supported Mechanisms](openssl-provider-mechanisms.md "openssl-provider-mechanisms.md").
+- Added support for PureEdDSA (Ed25519) key types for TLS offload on non-FIPS clusters, and ML-DSA (ML-DSA-44, ML-DSA-65, and ML-DSA-87) key types for TLS offload on both FIPS and non-FIPS clusters. For more information, see [Supported key types for OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-key-types.md "openssl-provider-key-types.md") and [OpenSSL Provider Supported Mechanisms](openssl-provider-mechanisms.md "openssl-provider-mechanisms.md").
 - The OpenSSL Provider now supports OpenSSL CLI operations, including certificate signing request (CSR) creation and certificate signing, for all supported key types.
 
 ###### Bug fixes/Improvements

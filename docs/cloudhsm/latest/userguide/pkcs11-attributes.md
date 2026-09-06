@@ -14,10 +14,12 @@ Cryptographic functions such as `C_CreateObject`, `C_GenerateKey`,
 create, modify, or copy objects take an attribute template as one of their parameters. For
 more information about passing an attribute template during object creation, see [Generate keys through PKCS #11 library](https://github.com/aws-samples/aws-cloudhsm-pkcs11-examples/tree/master/src/generate "https://github.com/aws-samples/aws-cloudhsm-pkcs11-examples/tree/master/src/generate") for examples.
 
-The following topics provide more information about AWS CloudHSM key attributes.
+The following topics provide more information about AWS CloudHSM key attributes, and about
+reading the attributes of key and certificate objects.
 
 ###### Topics
 
+- [Retrieve attributes](pkcs11-attributes-retrieve.md "pkcs11-attributes-retrieve.md")
 - [Attributes tables](pkcs11-attributes-interpreting.md "pkcs11-attributes-interpreting.md")
 - [Modifying attributes](modify-attr.md "modify-attr.md")
 - [Interpreting error codes](attr-errors.md "attr-errors.md")

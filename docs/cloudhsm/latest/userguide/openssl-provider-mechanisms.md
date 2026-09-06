@@ -75,7 +75,7 @@ Ed25519 performs EdDSA signatures using Curve25519 (RFC 8032) with one-shot sign
 
 ## ML-DSA signature types
 
-The OpenSSL Provider supports ML-DSA (Module-Lattice Digital Signature Algorithm) post-quantum digital signatures as defined in FIPS 204. ML-DSA is only available on non-FIPS clusters and requires OpenSSL 3.5 or later.
+The OpenSSL Provider supports ML-DSA (Module-Lattice Digital Signature Algorithm) post-quantum digital signatures as defined in FIPS 204. ML-DSA requires OpenSSL 3.5 or later.
 
 ML-DSA-44, ML-DSA-65, ML-DSA-87
 
