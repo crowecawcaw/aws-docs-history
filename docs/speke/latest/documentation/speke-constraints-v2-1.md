@@ -1,6 +1,6 @@
-# SPEKE API v2.0 - Customizations and constraints to the DASH-IF specification
+# SPEKE API v2.1 - Customizations and constraints to the DASH-IF specification
 
-The DASH Industry Forum [CPIX 2.3 specification](https://dashif.org/docs/CPIX2.3/Cpix.html "https://dashif.org/docs/CPIX2.3/Cpix.html") supports a number of use cases and topologies. The SPEKE API v2.0 specification defines both a CPIX Profile and an API for CPIX. In order to achieve these two goals, it adheres to the CPIX specification with the following customizations and constraints:
+The DASH Industry Forum [CPIX 2.4 specification](https://dashif.org/docs/CPIX2.4/Cpix.html "https://dashif.org/docs/CPIX2.4/Cpix.html") on the DASH-IF website supports a number of use cases and topologies. The SPEKE API v2.1 specification defines both a CPIX Profile and an API for CPIX. To achieve these two goals, it adheres to the CPIX specification with the following customizations and constraints:
 
 ###### CPIX Profile
 
@@ -10,25 +10,25 @@ The DASH Industry Forum [CPIX 2.3 specification](https://dashif.org/docs/CPIX2.3
   - SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
   - SPEKE requires 2048 RSA-based certificates.
 
-- SPEKE leverages only a subset of CPIX functionalities:
+- SPEKE uses only a subset of CPIX functionalities:
 
   - SPEKE omits the `UpdateHistoryItemList` functionality. If the list is present in the response, SPEKE ignores it.
   - SPEKE omits the root/leaf key functionality. If the `ContentKey@dependsOnKey` attribute is present in the response, SPEKE ignores it.
   - SPEKE omits the `BitrateFilter` element and the `VideoFilter@wcg` attribute. If these elements or attributes are present in the CPIX payload, SPEKE ignores it.
 
-- Only the elements or attributes referenced as 'Supported' on the [Standard Payload Components page](standard-payload-components-v2.md "standard-payload-components-v2.md") or the [Encryption contract page](encryption-contract-v2.md "encryption-contract-v2.md") can be used in CPIX documents exchanged with SPEKE v2.
+- Only the elements or attributes referenced as 'Supported' on the [Standard Payload Components page](standard-payload-components-v2-1.md "standard-payload-components-v2-1.md") or the [Encryption contract page](encryption-contract-v2-1.md "encryption-contract-v2-1.md") can be used in CPIX documents exchanged with SPEKE v2.1.
 - When included in a CPIX request by the encryptor, all elements and attributes shall carry a valid value in the key provider CPIX response. If not, the encryptor shall stop and throw an error.
-- SPEKE supports key rotation with `KeyPeriodFilter` elements. SPEKE uses only the `ContentKeyPeriod@index` to track the key period.
-- For HLS signaling, multiple `DRMSystem.HLSSignalingData` elements must be used: one with a `DRMSystem.HLSSignalingData@playlist` attribute value of ‘media’, and another one with a `DRMSystem.HLSSignalingData@playlist` attribute value of ‘master’.
+- SPEKE supports key rotation with `KeyPeriodFilter` elements. SPEKE uses the `ContentKeyPeriod@index` to track the key period. In SPEKE v2.1, the encryptor can also signal the time interval that a key period covers, in addition to the `@index`. For Live content, use the `ContentKeyPeriod@start` and `ContentKeyPeriod@end` attributes (wall clock start and end times). For VOD content, use the `ContentKeyPeriod@startOffset` and `ContentKeyPeriod@endOffset` attributes.
+- For HLS signaling, multiple `DRMSystem.HLSSignalingData` elements must be used: one with a `DRMSystem.HLSSignalingData@playlist` attribute value of 'media', and another one with a `DRMSystem.HLSSignalingData@playlist` attribute value of 'master'.
 - When requesting keys, the encryptor might use the optional `@explicitIV` attribute on the `ContentKey` element. The key provider can respond with an IV using `@explicitIV`, even if the attribute is not included in the request.
 - The encryptor creates the key identifier (`KID`), which stays the same for any given content ID and key period. The key provider includes the `KID` in its response to the request document.
-- The encryptor shall include a value for the `CPIX@contentId` attribute. When receiving an empty value for this attribute, the key provider shall return an error with description 'Missing CPIX@contentId'. `CPIX@contentId` value cannot be overriden by the key provider.
+- The encryptor shall include a value for the `CPIX@contentId` attribute. When receiving an empty value for this attribute, the key provider shall return an error with description 'Missing CPIX@contentId'. `CPIX@contentId` value cannot be overridden by the key provider.
 
 `CPIX@id` value, if not null, shall be ignored by the key provider.
 
 - The encryptor shall include a value for the `CPIX@version` attribute. When receiving an empty value for this attribute, the key provider shall return an error with description 'Missing CPIX@version'. When receiving a request with an unsupported version, the error description returned by the key provider shall be 'Unsupported CPIX@version'.
 
-`CPIX@version` value cannot be overriden by the key provider.
+`CPIX@version` value cannot be overridden by the key provider.
 
 - The encryptor shall include a value for the `ContentKey@commonEncryptionScheme` attribute for each requested key. When receiving an empty value for this attribute, the key provider shall return an error with description 'Missing ContentKey@commonEncryptionScheme for KID `id` '.
 
@@ -36,7 +36,7 @@ A unique CPIX document cannot mix multiple values for different `ContentKey@comm
 
 Not all `ContentKey@commonEncryptionScheme` values are compatible with all DRM technologies. When receiving such a combination, the key provider shall return an error with description 'ContentKey@commonEncryptionScheme non compatible with DRMSystem `id` '.
 
-`ContentKey@commonEncryptionScheme` value cannot be overriden by the key provider.
+`ContentKey@commonEncryptionScheme` value cannot be overridden by the key provider.
 
 - When receiving different values for `DRMSystem@PSSH` and `DRMSystem.ContentProtectionData` innerXML `<pssh>` element in the CPIX response body, the encryptor shall stop and throw an error.
 
@@ -44,7 +44,7 @@ Not all `ContentKey@commonEncryptionScheme` values are compatible with all DRM t
 
 - The key provider shall include a value for the `X-Speke-User-Agent` HTTP response header.
 - A SPEKE-compliant encryptor acts as a client and sends POST operations to the key provider endpoint.
-- The encryptor shall include a value for the `X-Speke-Version` HTTP request header, with the SPEKE version used with the request, formulated as MajorVersion.MinorVersion, like '2.0' for SPEKE v2.0. If the key provider doesn’t support the SPEKE version used by the encryptor for the current request, the key provider shall return an error with description 'Unsupported SPEKE version' and not try to process the CPIX document on a best effort basis.
+- The encryptor shall include a value for the `X-Speke-Version` HTTP request header, with the SPEKE version used with the request, formulated as MajorVersion.MinorVersion, like '2.1' for SPEKE v2.1. If the key provider doesn’t support the SPEKE version used by the encryptor for the current request, the key provider shall return an error with description 'Unsupported SPEKE version' and not try to process the CPIX document on a best effort basis.
 
 The `X-Speke-Version` header value defined by the encryptor cannot be modified by the key provider in the response to the request.
 

@@ -1,11 +1,11 @@
-# SPEKE API v2.0 - Live workflow method call examples
+# SPEKE API v2.1 - Live workflow method call examples
 
 _Request Syntax Example_
 
 The following URL is an example and does not indicate a fixed format:
 
 ```
-POST https://speke-compatible-server/speke/v2.0/copyProtection
+POST https://speke-compatible-server/speke/v2.1/copyProtection
 ```
 
 _Request Body_
@@ -20,7 +20,7 @@ _Request Headers_
 | `X-Amz-Security-Token` | String | 1..1   | See [AWS Sigv4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md")  |
 | `X-Amz-Date`           | String | 1..1   | See [AWS Sigv4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md")  |
 | `Content-Type`         | String | 1..1   | application/xml                                                                                             |
-| `X-Speke-Version`      | String | 1..1   | SPEKE API version used with the request, formulated as MajorVersion.MinorVersion, like '2.0' for SPEKE v2.0 |
+| `X-Speke-Version`      | String | 1..1   | SPEKE API version used with the request, formulated as MajorVersion.MinorVersion, like '2.1' for SPEKE v2.1 |
 
 _Response Headers_
 
@@ -28,7 +28,7 @@ _Response Headers_
 | -------------------- | ------ | ------ | ----------------------------------------------------------------------------------------------------------- |
 | `X-Speke-User-Agent` | String | 1..1   | String that identifies the key provider                                                                     |
 | `Content-Type`       | String | 1..1   | application/xml                                                                                             |
-| `X-Speke-Version`    | String | 1..1   | SPEKE API version used with the request, formulated as MajorVersion.MinorVersion, like '2.0' for SPEKE v2.0 |
+| `X-Speke-Version`    | String | 1..1   | SPEKE API version used with the request, formulated as MajorVersion.MinorVersion, like '2.1' for SPEKE v2.1 |
 
 _Request Response_
 
@@ -40,14 +40,14 @@ _Request Response_
 
 ###### Note
 
-The examples in this section do not include content key encryption. For information on how to add content key encryption, see [Content key encryption](content-key-encryption-v2.md "content-key-encryption-v2.md").
+The examples in this section do not include content key encryption. For information on how to add content key encryption, see [Content key encryption](content-key-encryption-v2-1.md "content-key-encryption-v2-1.md").
 
 _Live Example Request Payload with Keys in the Clear_
 
 The following example shows a typical live request payload from the encryptor to the DRM key provider, with one content key for all video tracks and one content key for all audio tracks:
 
 ```
-<cpix:CPIX contentId="abc123" version="2.3" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
+<cpix:CPIX contentId="abc123" version="2.4" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs"></cpix:ContentKey>
 		<cpix:ContentKey explicitIV="L6jzdXrXAFbCJGBuMrrKrG==" kid="53abdba2-f210-43cb-bc90-f18f9a890a02" commonEncryptionScheme="cbcs"></cpix:ContentKey>
@@ -109,10 +109,10 @@ The following example shows a typical live request payload from the encryptor to
 
 _Live Example Response Payload with Keys in the Clear_
 
-The following example shows a typical response payload from the DRM key provider (returned values have been shortened with […​] for readability):
+The following example shows a typical response payload from the DRM key provider, with returned values shortened for readability:
 
 ```
-<cpix:CPIX contentId="abc123" version="2.3" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
+<cpix:CPIX contentId="abc123" version="2.4" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
 			<cpix:Data>

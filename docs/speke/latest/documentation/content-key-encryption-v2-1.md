@@ -1,4 +1,4 @@
-# SPEKE API v2.0 - Content key encryption
+# SPEKE API v2.1 - Content key encryption
 
 You can optionally add content key encryption to your SPEKE implementation. Content key encryption guarantees full end-to-end protection by encrypting the content keys for transit, in addition to encrypting the content itself. If you don’t implement this for your key provider, you rely on the transport layer encryption plus strong authentication for security.
 
@@ -10,7 +10,7 @@ SPEKE supports content key encryption as specified in the DASH-IF CPIX specifica
 
 - SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
 - SPEKE requires 2048 RSA-based certificates.
-  These restrictions are also listed in [Customizations and constraints to the DASH-IF specification](speke-constraints-v2.md "speke-constraints-v2.md").
+  These restrictions are also listed in [Customizations and constraints to the DASH-IF specification](speke-constraints-v2-1.md "speke-constraints-v2-1.md").
 
 ###### Implement content key encryption
 
@@ -18,13 +18,13 @@ To provide content key encryption, include the following in your DRM key provide
 
 - Handle the element `<cpix:DeliveryDataList>` in the request and response payloads.
 - Provide encrypted values in the `<cpix:ContentKeyList>` of the response payloads.
-  For more information about these elements, see the [DASH-IF CPIX 2.3 specification](https://dashif.org/docs/CPIX2.3/Cpix.html "https://dashif.org/docs/CPIX2.3/Cpix.html").
+  For more information about these elements, see the [CPIX 2.4 specification](https://dashif.org/docs/CPIX2.4/Cpix.html "https://dashif.org/docs/CPIX2.4/Cpix.html") on the DASH-IF website.
 
 _Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Request Payload_
 
 ```
 <cpix:CPIX contentId="abc123"
-    version="2.3"
+    version="2.4"
     xmlns:cpix="urn:dashif:org:cpix"
     xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
     <cpix:DeliveryDataList>
@@ -46,7 +46,7 @@ _Example Content Key Encryption Element `*<cpix:DeliveryDataList>*` in the Respo
 
 ```
 <cpix:CPIX contentId="abc123"
-    version="2.3"
+    version="2.4"
     xmlns:cpix="urn:dashif:org:cpix"
     xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
     <cpix:DeliveryDataList>

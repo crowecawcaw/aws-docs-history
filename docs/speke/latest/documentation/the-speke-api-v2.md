@@ -1,4 +1,4 @@
-# SPEKE API v2
+# SPEKE API v2.0
 
 This is the REST API for Secure Packager and Encoder Key Exchange (SPEKE) v2. Use this specification to provide DRM copyright protection for customers who use encryption. To be SPEKE-compliant, your DRM key provider must expose the REST API described in this specification. The encryptor makes API calls to your key provider.
 
@@ -30,10 +30,10 @@ Overall, SPEKE v2.0 brings the following evolutions compared to SPEKE v1.0:
 
 ###### Topics
 
-- [SPEKE API v2 - Customizations and constraints to the DASH-IF specification](speke-constraints-v2.md "speke-constraints-v2.md")
-- [SPEKE API v2 - Standard payload components](standard-payload-components-v2.md "standard-payload-components-v2.md")
-- [SPEKE API v2 - Encryption contract](encryption-contract-v2.md "encryption-contract-v2.md")
-- [SPEKE API v2 - Live workflow method call examples](live-workflow-methods-v2.md "live-workflow-methods-v2.md")
-- [SPEKE API v2 - VOD workflow method call examples](vod-workflow-method-v2.md "vod-workflow-method-v2.md")
-- [SPEKE API v2 - Content key encryption](content-key-encryption-v2.md "content-key-encryption-v2.md")
-- [SPEKE API v2 - Overriding the key identifier](kid-override-v2.md "kid-override-v2.md")
+- [SPEKE API v2.0 - Customizations and constraints to the DASH-IF specification](speke-constraints-v2.md "speke-constraints-v2.md")
+- [SPEKE API v2.0 - Standard payload components](standard-payload-components-v2.md "standard-payload-components-v2.md")
+- [SPEKE API v2.0 - Encryption contract](encryption-contract-v2.md "encryption-contract-v2.md")
+- [SPEKE API v2.0 - Live workflow method call examples](live-workflow-methods-v2.md "live-workflow-methods-v2.md")
+- [SPEKE API v2.0 - VOD workflow method call examples](vod-workflow-method-v2.md "vod-workflow-method-v2.md")
+- [SPEKE API v2.0 - Content key encryption](content-key-encryption-v2.md "content-key-encryption-v2.md")
+- [SPEKE API v2.0 - Overriding the key identifier](kid-override-v2.md "kid-override-v2.md")

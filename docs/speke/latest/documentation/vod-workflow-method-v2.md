@@ -1,4 +1,4 @@
-# SPEKE API v2 - VOD workflow method call examples
+# SPEKE API v2.0 - VOD workflow method call examples
 
 _Request Syntax Example_
 

@@ -18,6 +18,7 @@ SPEKE v1| Change | Description | Date |
 
 SPEKE v2| Change | Description | Date |
 | --- | --- | --- |
+| SPEKE API v2.1 specification | Added the SPEKE API v2.1 specification, a minor revision aligned with the CPIX 2.4 specification. SPEKE v2.1 adds content key period start and end times, extended `ContentKey@commonEncryptionScheme` values, HDCP signaling, and expected DRM robustness signaling. | September 1, 2026 |
 | Updates to DRM platform providers section and AWS services and products supporting SPEKE section | Added Webstream to the SPEKE v2 column of the DRM platform provider list, added MediaConvert to the SPEKE v2 column of the SPEKE support in AWS services and products table. | October 10, 2024 |
 | Updates to DRM platform providers section | Added new qualified partners to the SPEKE v2 column of the DRM platform provider list. | August 9, 2023 |
 | Updates to Live and VOD workflow method call examples sections | Added missing X-Speke-Version response header in SPEKE v2 Live and VOD workflow method call examples sections. | January 13, 2023 |

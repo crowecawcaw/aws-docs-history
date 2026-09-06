@@ -24,5 +24,6 @@ THE MATERIAL CONTAINED HEREIN IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 
 - [Authentication required for SPEKE](authentication.md "authentication.md")
 - [SPEKE API v1](the-speke-api.md "the-speke-api.md")
-- [SPEKE API v2](the-speke-api-v2.md "the-speke-api-v2.md")
+- [SPEKE API v2.0](the-speke-api-v2.md "the-speke-api-v2.md")
+- [SPEKE API v2.1](the-speke-api-v2-1.md "the-speke-api-v2-1.md")
 - [License for the SPEKE API specification](license.md "license.md")

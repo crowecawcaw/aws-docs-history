@@ -1,4 +1,4 @@
-# SPEKE API v2 - Standard payload components
+# SPEKE API v2.0 - Standard payload components
 
 Through a single SPEKE request, the encryptor can request multiple content keys, together with the necessary manfest signaling for multiple packaging formats, according to the encryption contract that is defined for a given content.
 
