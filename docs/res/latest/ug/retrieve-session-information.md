@@ -1,5 +1,9 @@
+
+
 # Retrieve session information
+<a name="retrieve-session-information"></a>
 
-1. Choose **Actions**.
+1. Choose **Actions**.   
+![Virtual desktops](http://docs.aws.amazon.com/res/latest/ug/images/res-virtualdesktops.png)
 
-![Virtual desktops](images/res-virtualdesktops.png) 2. Choose **Show Info**.
+1. Choose **Show Info**. 

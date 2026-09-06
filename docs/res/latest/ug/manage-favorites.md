@@ -1,13 +1,16 @@
+
+
 # Manage favorites
+<a name="manage-favorites"></a>
 
 To pin important files and folders, you can add them to Favorites.
 
-1. Select a file or folder.
+1. Select a file or folder.  
+![File browser](http://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
 
-![File browser](images/res-filebrowser.jpg) 2. Choose **Favorite**.
-Alternatively, you can right-click any file or folder and select **Favorite**.
+1. Choose **Favorite**. 
 
-###### Note
+Alternatively, you can right-click any file or folder and select ** Favorite**. 
 
-Favorites are stored to the local browser. If you change your browser or clear
-the cache, you will need to re-pin your favorites.
+**Note**  
+Favorites are stored to the local browser. If you change your browser or clear the cache, you will need to re-pin your favorites.

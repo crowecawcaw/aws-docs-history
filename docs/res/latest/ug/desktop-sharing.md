@@ -1,8 +1,16 @@
+
+
 # Share a desktop
+<a name="desktop-sharing"></a>
 
-1. From your desktop session, choose **Actions**.
+1. From your desktop session, choose **Actions**.   
+![Virtual desktops](http://docs.aws.amazon.com/res/latest/ug/images/res-virtualdesktops.png)
 
-![Virtual desktops](images/res-virtualdesktops.png) 2. Choose **Session Permissions**. 3. Select the user and permission level. You may also set an expiration time. 4. Choose **Save**.
+1. Choose **Session Permissions**. 
 
-![Shared desktop permissions](images/res-sharedesktoppermissions.jpg)
-For more information on permissions, see [Permission policy](permission-profiles.md "permission-profiles.md").
+1. Select the user and permission level. You may also set an expiration time.
+
+1. Choose **Save**.   
+![Shared desktop permissions](http://docs.aws.amazon.com/res/latest/ug/images/res-sharedesktoppermissions.jpg)
+
+For more information on permissions, see [Permission policy](permission-profiles.md).

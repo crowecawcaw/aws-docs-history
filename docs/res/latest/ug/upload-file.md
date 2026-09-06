@@ -1,5 +1,11 @@
+
+
 # Upload files
+<a name="upload-file"></a>
 
-1. Choose **Upload files**.
+1. Choose **Upload files**.   
+![File browser](http://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
 
-![File browser](images/res-filebrowser.jpg) 2. Either drop files or browse for files to upload. 3. Choose **Upload (n) files**.
+1. Either drop files or browse for files to upload.
+
+1. Choose **Upload (n) files**. 

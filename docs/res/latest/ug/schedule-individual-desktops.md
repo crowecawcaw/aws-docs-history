@@ -1,7 +1,14 @@
+
+
 # Set individual desktop schedules
+<a name="schedule-individual-desktops"></a>
 
-1. Choose **Actions**.
+1. Choose **Actions**.   
+![Virtual desktops](http://docs.aws.amazon.com/res/latest/ug/images/res-virtualdesktops.png)
 
-![Virtual desktops](images/res-virtualdesktops.png) 2. Choose **Schedule**. 3. Set your schedule for each day. 4. Choose **Save**.
+1. Choose **Schedule**. 
 
-![Schedule desktop sessions](images/res-sessionschedule.jpg)
+1. Set your schedule for each day.
+
+1. Choose **Save**.   
+![Schedule desktop sessions](http://docs.aws.amazon.com/res/latest/ug/images/res-sessionschedule.jpg)
