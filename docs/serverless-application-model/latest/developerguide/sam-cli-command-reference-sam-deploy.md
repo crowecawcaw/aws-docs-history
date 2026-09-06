@@ -170,6 +170,29 @@ You can specify either the
 `--disable-rollback` option or the `--on-failure` option, but
 not both.
 
+`--output `[ text | json ]``
+
+The format of the command output:
+
+- `text` – Prints regular, human-readable output. This is the
+  default value.
+- `json` – Prints structured, machine-readable output. Use this
+  format when you want to consume the output programmatically, such as in CI/CD
+  pipelines, IDE extensions, and AI-assisted tools.
+
+A deployment runs over a period of time. When you specify `--output json`,
+the AWS SAM CLI prints a stream of JSON objects, one per line, as the
+deployment progresses. Each object includes a `type` field
+that identifies the kind of information it contains, such as the changeset, deployment
+events, stack outputs, and the final result. On failure, the final object includes an
+`error` object that describes what went wrong.
+
+###### Note
+
+The `--output json` option isn't compatible with options that require
+interactive prompts, such as `--guided` and
+`--confirm-changeset`.
+
 `--parameter-overrides `LIST``
 
 A string that contains CloudFormation parameter overrides encoded as key-value pairs. Each override uses the format `ParameterKey=name,ParameterValue=value`. Multiple overrides are separated by spaces. Here are two examples:

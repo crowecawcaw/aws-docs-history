@@ -119,6 +119,28 @@ in the template configuration.
 Disable interactive prompting for init parameters, and fail if any required values
 are missing.
 
+`--output `[ text | json ]``
+
+The format of the command output:
+
+- `text` – Prints regular, human-readable output. This is the
+  default value.
+- `json` – Prints structured, machine-readable output. Use this
+  format when you want to consume the output programmatically, such as in CI/CD
+  pipelines, IDE extensions, and AI-assisted tools.
+
+When you specify `--output json`, the AWS SAM CLI prints a single
+JSON object after the command completes. On success, this object includes fields such as the
+project directory and the template file. You can chain the output into subsequent commands
+such as `sam build`. On failure, it includes an `error` object that
+describes what went wrong.
+
+###### Note
+
+The `--output json` option isn't compatible with the interactive
+workflow. To use it, specify a fully non-interactive run by providing all of the
+required options.
+
 `--output-dir, -o `PATH``
 
 The location where the initialized application is output.

@@ -195,6 +195,22 @@ By default, symlinks are not mounted except for those needed to use `build-in-so
 An option that allows you to use the IDE toolkit to set default behavior. You can also use
 `sam build --no-use-container` to run a build in your local machine instead of a docker container.
 
+`--output `[ text | json ]``
+
+The format of the command output:
+
+- `text` – Prints regular, human-readable output. This is the
+  default value.
+- `json` – Prints structured, machine-readable output. Use this
+  format when you want to consume the output programmatically, such as in CI/CD
+  pipelines, IDE extensions, and AI-assisted tools.
+
+When you specify `--output json`, the AWS SAM CLI prints a single
+JSON object after the command completes. On success, this object includes fields such as the
+build status, the build directory, the template file, and a list of the resources that were
+built. On failure, it includes an `error` object that describes what went
+wrong.
+
 `--parallel`
 
 Enables parallel builds. Use this option to build your AWS SAM template's functions
