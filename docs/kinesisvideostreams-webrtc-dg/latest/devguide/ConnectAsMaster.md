@@ -1,72 +1,66 @@
-# ConnectAsMaster
 
-Connects as a master to the signaling channel specified by the endpoint. Any
-WebSocket-complaint library can be used to connect to the secure websocket (WSS) endpoint obtained from a
-`GetSignalingChannelEndpoint` API call. The Amazon Resource Name (ARN) of the signaling
-channel must be provided as a query string parameter. There are separate endpoints for connecting
-as a master and as a viewer. If more than one client connects as master to a specific channel,
-then the most recent request takes precedence. Existing connection metadata is overwritten by the new
-one.
+
+# ConnectAsMaster
+<a name="ConnectAsMaster"></a>
+
+Connects as a master to the signaling channel specified by the endpoint. Any WebSocket-complaint library can be used to connect to the secure websocket (WSS) endpoint obtained from a `GetSignalingChannelEndpoint` API call. The Amazon Resource Name (ARN) of the signaling channel must be provided as a query string parameter. There are separate endpoints for connecting as a master and as a viewer. If more than one client connects as master to a specific channel, then the most recent request takes precedence. Existing connection metadata is overwritten by the new one.
 
 ## Request
+<a name="ConnectAsMaster-request"></a>
 
 ```
 "X-Amz-ChannelARN": "string"
 ```
-
-- **X-Amz-ChannelARN** - ARN of the signaling channel.
-
-  - Type: string
-  - Length constraints: Minimum length of 1. Maximum length of 1024.
-  - Pattern: `arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+`
-  - Required: Yes
++ **X-Amz-ChannelARN** - ARN of the signaling channel.
+  + Type: string
+  + Length constraints: Minimum length of 1. Maximum length of 1024.
+  + Pattern: `arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+`
+  + Required: Yes
 
 ## Response
+<a name="ConnectAsMaster-response"></a>
 
 200 OK HTTP status code with an empty body.
 
 ## Errors
+<a name="ConnectAsMaster-errors"></a>
++ InvalidArgumentException
 
-- InvalidArgumentException
+  A specified parameter exceeds its restrictions, is not supported, or cannot be used. For more information, see the returned message.
 
-A specified parameter exceeds its restrictions, is not supported, or cannot be used. For
-more information, see the returned message.
+  HTTP Status Code: 400
++ AccessDeniedException
 
-HTTP Status Code: 400
+  The caller is not authorized to access the given channel or the token has expired.
 
-- AccessDeniedException
+  HTTP Status Code: 403
++ ResourceNotFoundException
 
-The caller is not authorized to access the given channel or the token has expired.
+  The channel doesn't exist.
 
-HTTP Status Code: 403
+  HTTP Status Code: 404
++ ClientLimitExceededException
 
-- ResourceNotFoundException
+  When the API is invoked at a rate that is too high. For more information, see [Amazon Kinesis Video Streams with WebRTC service quotas](kvswebrtc-limits.md) and [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html).
 
-The channel doesn't exist.
-
-HTTP Status Code: 404
-
-- ClientLimitExceededException
-
-When the API is invoked at a rate that is too high. For more information, see [Amazon Kinesis Video Streams with WebRTC service quotas](kvswebrtc-limits.md "kvswebrtc-limits.md") and [Error Retries and
-Exponential Backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md").
-
-HTTP Status Code: 400
+  HTTP Status Code: 400
 
 ## Limits/Throttling
+<a name="ConnectAsMaster-limits"></a>
 
-This API is throttled at an account level if the API is invoked at too high a rate. An error
-returned when throttled with `ClientLimitExceededException`.
+This API is throttled at an account level if the API is invoked at too high a rate. An error returned when throttled with `ClientLimitExceededException`.
 
 ## Idempotent
+<a name="ConnectAsMaster-idempotent"></a>
 
-If a connection already exists for the specified clientId and channel, the connection
-metadata is updated with the new information.
+If a connection already exists for the specified clientId and channel, the connection metadata is updated with the new information.
 
 ## Retry behavior
+<a name="ConnectAsMaster-retry"></a>
 
 This is counted as a new API call.
 
 ## Concurrent calls
+<a name="ConnectAsMaster-concurrent"></a>
 
 Concurrent calls are allowed, the connection metadata is updated for each call.

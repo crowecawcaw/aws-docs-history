@@ -1,23 +1,16 @@
+
+
 # SendIceCandidate
+<a name="SendIceCandidate"></a>
 
-Sends the ICE candidate to the target recipient. The prerequisite is that the client must be
-already connected to the WebSocket endpoint obtained from the
-`GetSignalingChannelEndpoint` API.
+Sends the ICE candidate to the target recipient. The prerequisite is that the client must be already connected to the WebSocket endpoint obtained from the `GetSignalingChannelEndpoint` API.
 
-If the sender type is a viewer, then it sends the ICE candidate to a master. Also, it is not
-necessary to specify the `RecipientClientId` and any specified value for
-`RecipientClientId` is ignored. If the sender type is master,
-the
-ICE candidate is sent to the target specified by the
-`RecipientClientId`. `RecipientClientId` is a required input in this
-case.
+If the sender type is a viewer, then it sends the ICE candidate to a master. Also, it is not necessary to specify the `RecipientClientId` and any specified value for `RecipientClientId` is ignored. If the sender type is master, the ICE candidate is sent to the target specified by the `RecipientClientId`. `RecipientClientId` is a required input in this case.
 
-A master client app is allowed to send an ICE candidate to any viewer, whereas a viewer
-client app is only allowed to send an ICE candidate to a master client app. If a viewer client app
-attempts to send an ICE candidate to another viewer client app, the request will NOT be
-honored.
+A master client app is allowed to send an ICE candidate to any viewer, whereas a viewer client app is only allowed to send an ICE candidate to a master client app. If a viewer client app attempts to send an ICE candidate to another viewer client app, the request will NOT be honored.
 
 ## Request
+<a name="SendIceCandidate-request"></a>
 
 ```
 {
@@ -27,74 +20,61 @@ honored.
     "correlationId": "string"
 }
 ```
-
-- **action** - Type of the message that is being sent.
-
-  - Type: ENUM
-  - Valid values: `SDP_OFFER`, `SDP_ANSWER`, `ICE_CANDIDATE`
-  - Length constraints: Minimum length of 1. Maximum length of 256.
-  - Pattern: `[a-zA-Z0-9_.-]+`
-  - Required: Yes
-
-- **recipientClientId** - A unique identifier for the
-  recipient.
-
-  - Type: String
-  - Length constraints: Minimum length of 1. Maximum length of 256.
-  - Pattern: `[a-zA-Z0-9_.-]+`
-  - Required: No
-
-- **messagePayload** - The base64-encoded message
-  content.
-
-  - Type: String
-  - Length constraints: Minimum length of 1. Maximum length of 10K.
-  - Required: Yes
-
-- **correlationId** - A unique identifier for the
-  message.
-
-  - Type: String
-  - Length constraints: Minimum length of 1. Maximum length of 256.
-  - Pattern: `[a-zA-Z0-9_.-]+`
-  - Required: No
++ **action** - Type of the message that is being sent.
+  + Type: ENUM
+  + Valid values: `SDP_OFFER`, `SDP_ANSWER`, `ICE_CANDIDATE`
+  + Length constraints: Minimum length of 1. Maximum length of 256.
+  + Pattern: `[a-zA-Z0-9_.-]+`
+  + Required: Yes
++ **recipientClientId** - A unique identifier for the recipient.
+  + Type: String
+  + Length constraints: Minimum length of 1. Maximum length of 256.
+  + Pattern: `[a-zA-Z0-9_.-]+`
+  + Required: No
++ **messagePayload** - The base64-encoded message content.
+  + Type: String
+  + Length constraints: Minimum length of 1. Maximum length of 10K.
+  + Required: Yes
++ **correlationId** - A unique identifier for the message.
+  + Type: String
+  + Length constraints: Minimum length of 1. Maximum length of 256.
+  + Pattern: `[a-zA-Z0-9_.-]+`
+  + Required: No
 
 ## Response
+<a name="SendIceCandidate-response"></a>
 
-No response is returned if the message is successfully received by the signaling backend. If
-the service encounters an error and if the `correlationId` is specified in the
-request, the error details are returned as a `STATUS_RESPONSE` message. For more
-information, see [Asynchronous message reception](async-message-reception-api.md "async-message-reception-api.md").
+No response is returned if the message is successfully received by the signaling backend. If the service encounters an error and if the `correlationId` is specified in the request, the error details are returned as a `STATUS_RESPONSE` message. For more information, see [Asynchronous message reception](async-message-reception-api.md).
 
 ## Errors
+<a name="SendIceCandidate-errors"></a>
++ InvalidArgumentException
 
-- InvalidArgumentException
+  A specified parameter exceeds its restrictions, is not supported, or cannot be used. For more information, see the returned message.
 
-A specified parameter exceeds its restrictions, is not supported, or cannot be used. For
-more information, see the returned message.
+  HTTP Status Code: 400
++ ClientLimitExceededException
 
-HTTP Status Code: 400
+  When the API is invoked at a rate that is too high. For more information, see [Amazon Kinesis Video Streams with WebRTC service quotas](kvswebrtc-limits.md) and [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html).
 
-- ClientLimitExceededException
-
-When the API is invoked at a rate that is too high. For more information, see [Amazon Kinesis Video Streams with WebRTC service quotas](kvswebrtc-limits.md "kvswebrtc-limits.md") and [Error Retries and
-Exponential Backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md").
-
-HTTP Status Code: 400
+  HTTP Status Code: 400
 
 ## Limits/Throttling
+<a name="SendIceCandidate-limits"></a>
 
-This API is throttled at an account level if the API is invoked at too high a rate. An error
-returned when throttled with `ClientLimitExceededException`.
+This API is throttled at an account level if the API is invoked at too high a rate. An error returned when throttled with `ClientLimitExceededException`.
 
 ## Idempotent
+<a name="SendIceCandidate-idempotent"></a>
 
 This API is not idempotent.
 
 ## Retry behavior
+<a name="SendIceCandidate-retry"></a>
 
 This is counted as a new API call.
 
 ## Concurrent calls
+<a name="SendIceCandidate-concurrent"></a>
 
 Concurrent calls are allowed. An offer is sent once per each call.
