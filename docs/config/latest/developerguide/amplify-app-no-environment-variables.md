@@ -1,6 +1,11 @@
-# amplify-app-no-environment-variables
 
-Checks that AWS Amplify apps do not contain environment variables. The rule is NON\_COMPLIANT if configuration.EnvironmentVariables is not an empty list.
+
+# amplify-app-no-environment-variables
+<a name="amplify-app-no-environment-variables"></a>
+
+Checks that AWS Amplify apps do not contain environment variables. The rule is NON\_COMPLIANT if configuration.EnvironmentVariables is not an empty list. 
+
+
 
 **Identifier:** AMPLIFY\_APP\_NO\_ENVIRONMENT\_VARIABLES
 
@@ -12,8 +17,9 @@ Checks that AWS Amplify apps do not contain environment variables. The rule is N
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c37c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

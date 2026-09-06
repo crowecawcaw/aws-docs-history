@@ -1,6 +1,11 @@
-# backup-recovery-point-encrypted
 
-Checks if a recovery point is encrypted. The rule is NON\_COMPLIANT if the recovery point is not encrypted.
+
+# backup-recovery-point-encrypted
+<a name="backup-recovery-point-encrypted"></a>
+
+Checks if a recovery point is encrypted. The rule is NON\_COMPLIANT if the recovery point is not encrypted. 
+
+
 
 **Identifier:** BACKUP\_RECOVERY\_POINT\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks if a recovery point is encrypted. The rule is NON\_COMPLIANT if the recov
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d249c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

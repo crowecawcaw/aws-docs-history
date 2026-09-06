@@ -1,6 +1,11 @@
-# appmesh-mesh-ip-pref-check
 
-Checks if an AWS App Mesh mesh is configured with the specified IP preference for traffic control. The rule is NON\_COMPLIANT if the App Mesh mesh is not configured with the IP preference specified in the required rule parameter.
+
+# appmesh-mesh-ip-pref-check
+<a name="appmesh-mesh-ip-pref-check"></a>
+
+Checks if an AWS App Mesh mesh is configured with the specified IP preference for traffic control. The rule is NON\_COMPLIANT if the App Mesh mesh is not configured with the IP preference specified in the required rule parameter. 
+
+
 
 **Identifier:** APPMESH\_MESH\_IP\_PREF\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an AWS App Mesh mesh is configured with the specified IP preference fo
 
 **Parameters:**
 
-ipPreference
-Type: String
-
+ipPreferenceType: String  
 The IP preference value for the rule to check. The rule is NON\_COMPLIANT if an App Mesh mesh is configured with a value that does not match this value. Valid values include: 'IPv6\_PREFERRED', 'IPv4\_PREFERRED', 'IPv4\_ONLY', and 'IPv6\_ONLY'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d131c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

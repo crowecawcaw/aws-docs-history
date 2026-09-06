@@ -1,108 +1,94 @@
+
+
 # Creating AWS Config Custom Policy Rules
+<a name="evaluate-config_develop-rules_cfn-guard"></a>
 
 You can create AWS Config Custom Policy rules from the AWS Management Console, AWS CLI, or AWS Config API.
 
 ## Adding AWS Config Custom Policy rules
+<a name="config-custom-policy-rules-add"></a>
 
-Using the console 1. Sign in to the AWS Management Console and open the AWS Config console at
-[https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home"). 2. In the AWS Management Console menu, verify that the Region selector is set to an AWS
-Region that supports AWS Config rules. For the list of supported Regions, see [AWS Config Regions and Endpoints](../../../general/latest/gr/awsconfig.md "../../../general/latest/gr/awsconfig.md") in the
-_Amazon Web Services General Reference_. 3. In the left navigation, choose **Rules**. 4. On the **Rules** page, choose **Add rule**. 5. On the **Specify rule type** page, choose **Create
-custom rule using Guard**. 6. On the **Configure rule** page, create your rule by
-completing the following steps:
+------
+#### [ Using the console ]
 
-    1. For **Rule name**, type a unique name for the
-     rule.
-    2. For **Description**, type a description for the
-     rule.
-    3. For **Guard runtime version**, choose the runtime
-     system for your AWS Config Custom Policy rule.
-    4. For **Rule Content**, you can populate it with the
-     Guard Custom policy for your rule.
-    5. For **Evaluation mode**, choose when in the resource creation and management process you want AWS Config to evaluate your resources.
-     Depending on the rule, AWS Config can evaluate your resource configurations before a resource has been provisioned, after a resource has been provisoned, or both.
+1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
 
+1. In the AWS Management Console menu, verify that the Region selector is set to an AWS Region that supports AWS Config rules. For the list of supported Regions, see [AWS Config Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/awsconfig.html) in the *Amazon Web Services General Reference*. 
 
-    	1. Choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
+1. In the left navigation, choose **Rules**. 
 
+1. On the **Rules** page, choose **Add rule**. 
 
-    	After you have turned on proactive evaluation,
-    	 you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
+1. On the **Specify rule type** page, choose **Create custom rule using Guard**.
 
+1. On the **Configure rule** page, create your rule by completing the following steps:
 
+   1. For **Rule name**, type a unique name for the rule.
 
-    	 For more information on using this commands, see [Evaluating Your Resources with AWS Config Rules](evaluating-your-resources.md#evaluating-your-resources-proactive "evaluating-your-resources.md#evaluating-your-resources-proactive"). For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](managed-rules-by-evaluation-mode.md "managed-rules-by-evaluation-mode.md").
-    	2. Choose **Turn on detective evaluation** to evaluate the configuration settings of your existing resources.
+   1. For **Description**, type a description for the rule.
 
+   1. For **Guard runtime version**, choose the runtime system for your AWS Config Custom Policy rule.
 
-    	For detective evaluation, AWS Config Custom Policy rules are
-    	 initiated by **Configuration changes**. This option
-    	 will be pre-selected.
+   1. For **Rule Content**, you can populate it with the Guard Custom policy for your rule. 
 
+   1. For **Evaluation mode**, choose when in the resource creation and management process you want AWS Config to evaluate your resources. Depending on the rule, AWS Config can evaluate your resource configurations before a resource has been provisioned, after a resource has been provisoned, or both.
 
+      1. Choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
 
+         After you have turned on proactive evaluation, you can use the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API and [GetResourceEvaluationSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceEvaluationSummary.html) API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
-    		* **Resources** – When a resource that
-    		 matches the specified resource type, or the type plus
-    		 identifier, is created, changed, or deleted.
-    		* **Tags** – When a resource with the
-    		 specified tag is created, changed, or deleted.
-    		* **All changes** – When a resource
-    		 recorded by AWS Config is created, changed, or deleted.
-    	AWS Config runs the evaluation when it detects a change
-    	 to a resource that matches the rule's scope. You
-    	 can use the scope to constrain which resources
-    	 initiate evaluations. Otherwise, evaluations are
-    	 initiated when there is a change to a
-    	 post-provisioned resource.
-    6. For **Parameters**, you can customize the values for the
-     provided keys if your rule includes parameters. A parameter is an attribute that your resources must adhere to
-     before they are considered compliant with the rule.
+          For more information on using this commands, see [Evaluating Your Resources with AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluating-your-resources.html#evaluating-your-resources-proactive). For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-evaluation-mode.html).
 
-7. On the **Review and create** page, review all your selections before adding the rule to your AWS account. 8. When you finish reviewing your rules, choose **Add
-rule**.
+      1. Choose **Turn on detective evaluation** to evaluate the configuration settings of your existing resources.
 
-Using the AWS CLIUse the [`put-config-rule`](../../../cli/latest/reference/configservice/put-config-rule.md "../../../cli/latest/reference/configservice/put-config-rule.md") command.
+         For detective evaluation, AWS Config Custom Policy rules are initiated by **Configuration changes**. This option will be pre-selected.
+         +  **Resources** – When a resource that matches the specified resource type, or the type plus identifier, is created, changed, or deleted.
+         +  **Tags** – When a resource with the specified tag is created, changed, or deleted.
+         +  **All changes** – When a resource recorded by AWS Config is created, changed, or deleted.
 
-The `Owner` field should be `CUSTOM_POLICY`. The following
-additional fields are required for AWS Config Custom Policy rules:
+         AWS Config runs the evaluation when it detects a change to a resource that matches the rule's scope. You can use the scope to constrain which resources initiate evaluations. Otherwise, evaluations are initiated when there is a change to a post-provisioned resource.
 
-- `Runtime`: The runtime system for your AWS Config Custom Policy
-  rules.
-- `PolicyText`: The policy definition containing the logic for your
-  AWS Config Custom Policy rules.
-- `EnableDebugLogDelivery`: The Boolean expression for enabling debug
-  logging for your AWS Config Custom Policy rule. The default value is
-  `false`.
+   1. For **Parameters**, you can customize the values for the provided keys if your rule includes parameters. A parameter is an attribute that your resources must adhere to before they are considered compliant with the rule.
 
-Using the API Reference Use the [PutConfigRule](../APIReference/API_PutConfigRule.md "../APIReference/API_PutConfigRule.md") action.
+1. On the **Review and create** page, review all your selections before adding the rule to your AWS account.
 
-The `Owner` field should be `CUSTOM_POLICY`. The following
-additional fields are required for AWS Config Custom Policy rules:
+1. When you finish reviewing your rules, choose **Add rule**.
 
-- `Runtime`: The runtime system for your AWS Config Custom Policy
-  rules.
-- `PolicyText`: The policy definition containing the logic for your AWS Config
-  Custom Policy rules.
-- `EnableDebugLogDelivery`: The Boolean expression for enabling debug
-  logging for your AWS Config Custom Policy rule. The default value is
-  `false`.
+------
+#### [ Using the AWS CLI ]
+
+Use the [`put-config-rule`](http://docs.aws.amazon.com/cli/latest/reference/configservice/put-config-rule.html) command.
+
+The `Owner` field should be `CUSTOM_POLICY`. The following additional fields are required for AWS Config Custom Policy rules:
++ `Runtime`: The runtime system for your AWS Config Custom Policy rules.
++ `PolicyText`: The policy definition containing the logic for your AWS Config Custom Policy rules.
++ `EnableDebugLogDelivery`: The Boolean expression for enabling debug logging for your AWS Config Custom Policy rule. The default value is `false`.
+
+------
+#### [ Using the API Reference ]
+
+Use the [PutConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html) action.
+
+The `Owner` field should be `CUSTOM_POLICY`. The following additional fields are required for AWS Config Custom Policy rules:
++ `Runtime`: The runtime system for your AWS Config Custom Policy rules.
++ `PolicyText`: The policy definition containing the logic for your AWS Config Custom Policy rules.
++ `EnableDebugLogDelivery`: The Boolean expression for enabling debug logging for your AWS Config Custom Policy rule. The default value is `false`.
+
+------
 
 ## Writing rule content for AWS Config Custom Policy rules
+<a name="config-custom-policy-rules"></a>
 
 With AWS Config Custom Policy rules, you can use AWS CloudFormation Guard's domain-specific language (DSL) to evaluate resource configurations. This topic provides patterns and best practices for writing custom policy rules.
 
-For more
-information on how to write rules with Guard, see [Writing Guard
-rules](../../../cfn-guard/latest/ug/writing-rules.md "../../../cfn-guard/latest/ug/writing-rules.md") in the AWS CloudFormation Guard User Guide and [AWS CloudFormation Guard 2.0's Modes of Operation](https://github.com/aws-cloudformation/cloudformation-guard/tree/main/guard "https://github.com/aws-cloudformation/cloudformation-guard/tree/main/guard") in the Guard
-GitHub Repository.
+For more information on how to write rules with Guard, see [Writing Guard rules](https://docs.aws.amazon.com/cfn-guard/latest/ug/writing-rules.html) in the AWS CloudFormation Guard User Guide and [AWS CloudFormation Guard 2.0's Modes of Operation](https://github.com/aws-cloudformation/cloudformation-guard/tree/main/guard) in the Guard GitHub Repository.
 
 ### Basic rule structure
+<a name="config-custom-policy-rules-structure"></a>
 
 Use the following basic format to create rules:
 
 ```
-
 # Basic rule format
 rule <rule_name> when
     resourceType == "<AWS::Service::Resource>" {
@@ -117,30 +103,28 @@ rule check_resources when %resources_of_type !empty {
 ```
 
 ### Key components
+<a name="config-custom-policy-rules-components"></a>
 
-configuration
-
+configuration  
 Contains the contents for the resource configuration.
 
-supplementaryConfiguration
-
+supplementaryConfiguration  
 Contains additional contents for the resource configuration. AWS Config returns this field for certain resource types to supplement the information returned for the configuration field.
 
-resourceType
-
+resourceType  
 AWS resource type being evaluated.
 
-resourceId
-
+resourceId  
 The ID of the resource (for example, `sg-xxxxxx`).
 
-accountId
-
+accountId  
 The 12-digit AWS account ID associated with the resource.
 
 ### Common patterns
+<a name="config-custom-policy-rules-patterns"></a>
 
-Status checks
+------
+#### [ Status checks ]
 
 ```
 let allowed_status = ['ACTIVE', 'RUNNING']
@@ -150,7 +134,8 @@ rule check_resource_status when
 }
 ```
 
-Required properties
+------
+#### [ Required properties ]
 
 ```
 rule check_required_properties when
@@ -160,7 +145,8 @@ rule check_required_properties when
 }
 ```
 
-Query blocks
+------
+#### [ Query blocks ]
 
 ```
 configuration.Properties {
@@ -170,7 +156,8 @@ configuration.Properties {
 }
 ```
 
-Conditional evaluation
+------
+#### [ Conditional evaluation ]
 
 ```
 when configuration.feature_enabled == true {
@@ -179,7 +166,8 @@ when configuration.feature_enabled == true {
 }
 ```
 
-Custom messages
+------
+#### [ Custom messages ]
 
 ```
 rule check_compliance when
@@ -188,17 +176,21 @@ rule check_compliance when
 }}
 ```
 
-### Advanced features
+------
 
-Range checks
+### Advanced features
+<a name="config-custom-policy-rules-advanced"></a>
+
+------
+#### [ Range checks ]
 
 ```
 rule check_numeric_limits {
     # Inclusive range (lower_limit <= value <= upper_limit)
-    configuration.value IN r[minimum_value, maximum_value]
+    configuration.value IN r[minimum_value, maximum_value]  
 
     # Exclusive range (lower_limit < value < upper_limit)
-    configuration.value IN r(exclusive_min, exclusive_max)
+    configuration.value IN r(exclusive_min, exclusive_max)  
 
     # Left inclusive, right exclusive (lower_limit <= value < upper_limit)
     configuration.value IN r[minimum_value, exclusive_max)
@@ -208,7 +200,8 @@ rule check_numeric_limits {
 }
 ```
 
-Combining conditions
+------
+#### [ Combining conditions ]
 
 ```
 # AND conditions (implicit through new lines)
@@ -220,7 +213,8 @@ condition_3 OR
 condition_4
 ```
 
-Chaining rules
+------
+#### [ Chaining rules ]
 
 ```
 rule check_prerequisites {
@@ -232,21 +226,22 @@ rule check_details when check_prerequisites {
 }
 ```
 
-### Best practices
+------
 
-- Use variables with `let` statements for improved readability.
-- Group related checks using named rule blocks.
-- Include descriptive comments.
-- Use appropriate operators (`exists`, `is_string`, `is_list`).
-- Use regex patterns with case-insensitive matching.
+### Best practices
+<a name="config-custom-policy-rules-best-practices"></a>
++ Use variables with `let` statements for improved readability.
++ Group related checks using named rule blocks.
++ Include descriptive comments.
++ Use appropriate operators (`exists`, `is_string`, `is_list`).
++ Use regex patterns with case-insensitive matching.
 
 ### Example: dynamodb-pitr-enabled
+<a name="config-custom-policy-rules-example"></a>
 
-The following example shows the policy definition for an AWS Config Custom
-Policy rule version of the AWS Config Managed rule [dynamodb-pitr-enabled](dynamodb-pitr-enabled.md "dynamodb-pitr-enabled.md"). This rule checks if DynamoDB tables have Point-in-Time Recovery enabled.
+The following example shows the policy definition for an AWS Config Custom Policy rule version of the AWS Config Managed rule [dynamodb-pitr-enabled](dynamodb-pitr-enabled.md). This rule checks if DynamoDB tables have Point-in-Time Recovery enabled.
 
 ```
-
 # Check if DynamoDB tables have Point-in-Time Recovery enabled
 let status = ['ACTIVE']
 

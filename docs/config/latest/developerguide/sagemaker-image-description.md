@@ -1,6 +1,11 @@
-# sagemaker-image-description
 
-Checks if Amazon SageMaker images have a description. The rule is NON\_COMPLIANT if configuration.ImageDescription does not exist.
+
+# sagemaker-image-description
+<a name="sagemaker-image-description"></a>
+
+Checks if Amazon SageMaker images have a description. The rule is NON\_COMPLIANT if configuration.ImageDescription does not exist. 
+
+
 
 **Identifier:** SAGEMAKER\_IMAGE\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker images have a description. The rule is NON\_COMPLIANT
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1459c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,15 +1,17 @@
+
+
 # ec2-instance-managed-by-systems-manager
+<a name="ec2-instance-managed-by-systems-manager"></a>
 
-###### Important
-
+**Important**  
 For this rule, the rule identifier (EC2\_INSTANCE\_MANAGED\_BY\_SSM) and rule name (ec2-instance-managed-by-systems-manager) are different.
 
-Checks if your Amazon EC2 instances are managed by AWS Systems Manager Agent (SSM Agent).
-The rule is NON\_COMPLIANT if an EC2 instance is running and the SSM Agent is stopped, or if an EC2 instance is running and the SSM Agent is terminated.
+Checks if your Amazon EC2 instances are managed by AWS Systems Manager Agent (SSM Agent). The rule is NON\_COMPLIANT if an EC2 instance is running and the SSM Agent is stopped, or if an EC2 instance is running and the SSM Agent is terminated.
 
-###### Note
-
+**Note**  
 The rule will not return NON\_COMPLIANT if an EC2 instance is stopped and the SSM Agent is running.
+
+
 
 **Identifier:** EC2\_INSTANCE\_MANAGED\_BY\_SSM
 
@@ -21,8 +23,9 @@ The rule will not return NON\_COMPLIANT if an EC2 instance is stopped and the SS
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d557c23"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

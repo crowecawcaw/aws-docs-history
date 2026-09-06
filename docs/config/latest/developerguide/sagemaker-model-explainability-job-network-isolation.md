@@ -1,6 +1,11 @@
-# sagemaker-model-explainability-job-network-isolation
 
-Checks whether an Amazon SageMaker model explainability job definition has network isolation enabled. The rule is NON\_COMPLIANT if NetworkConfig.EnableNetworkIsolation is not set to true.
+
+# sagemaker-model-explainability-job-network-isolation
+<a name="sagemaker-model-explainability-job-network-isolation"></a>
+
+Checks whether an Amazon SageMaker model explainability job definition has network isolation enabled. The rule is NON\_COMPLIANT if NetworkConfig.EnableNetworkIsolation is not set to true. 
+
+
 
 **Identifier:** SAGEMAKER\_MODEL\_EXPLAINABILITY\_JOB\_NETWORK\_ISOLATION
 
@@ -12,8 +17,9 @@ Checks whether an Amazon SageMaker model explainability job definition has netwo
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1475c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

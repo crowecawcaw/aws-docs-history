@@ -1,6 +1,11 @@
-# bedrock-data-source-encryption-enabled
 
-Checks whether an Amazon Bedrock data source is encrypted with a customer-managed KMS key. The rule is NON\_COMPLIANT if the data source does not have ServerSideEncryptionConfiguration.KmsKeyArn configured.
+
+# bedrock-data-source-encryption-enabled
+<a name="bedrock-data-source-encryption-enabled"></a>
+
+Checks whether an Amazon Bedrock data source is encrypted with a customer-managed KMS key. The rule is NON\_COMPLIANT if the data source does not have ServerSideEncryptionConfiguration.KmsKeyArn configured. 
+
+
 
 **Identifier:** BEDROCK\_DATA\_SOURCE\_ENCRYPTION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks whether an Amazon Bedrock data source is encrypted with a customer-manage
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d285c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

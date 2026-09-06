@@ -1,6 +1,11 @@
-# iam-policy-blacklisted-check
 
-Checks in each AWS Identity and Access Management (IAM) resource, if a policy Amazon Resource Name (ARN) in the input parameter is attached to the IAM resource. The rule is NON\_COMPLIANT if the policy ARN is attached to the IAM resource.
+
+# iam-policy-blacklisted-check
+<a name="iam-policy-blacklisted-check"></a>
+
+Checks in each AWS Identity and Access Management (IAM) resource, if a policy Amazon Resource Name (ARN) in the input parameter is attached to the IAM resource. The rule is NON\_COMPLIANT if the policy ARN is attached to the IAM resource. 
+
+
 
 **Identifier:** IAM\_POLICY\_BLACKLISTED\_CHECK
 
@@ -12,23 +17,14 @@ Checks in each AWS Identity and Access Management (IAM) resource, if a policy Am
 
 **Parameters:**
 
-policyArns
-Type: CSV
-Default: arn:aws:iam::aws:policy/AdministratorAccess
-
+policyArnsType: CSVDefault: arn:aws:iam::aws:policy/AdministratorAccess  
 Comma separated list of IAM policy arns which should not be attached to any IAM entity.
 
-exceptionList (Optional)
-Type: CSV
-
-Comma separated list of resourcetypes and list of resource name pairs.
-For example, users:[user1;user2], groups:[group1;group2], roles:[role1;role2;role3].
-
-###### Note
-
-For the exception list, specify the name of the resource and not the full ARN.
-Not valid: `arn:aws:iam::444455556666:role/Admin`. Valid: `Admin`.
+exceptionList (Optional)Type: CSV  
+Comma separated list of resourcetypes and list of resource name pairs. For example, users:[user1;user2], groups:[group1;group2], roles:[role1;role2;role3].  
+For the exception list, specify the name of the resource and not the full ARN. Not valid: `arn:aws:iam::444455556666:role/Admin`. Valid: `Admin`.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d931c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

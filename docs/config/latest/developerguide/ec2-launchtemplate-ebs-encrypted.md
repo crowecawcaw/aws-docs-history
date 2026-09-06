@@ -1,6 +1,11 @@
-# ec2-launchtemplate-ebs-encrypted
 
-Checks if Amazon EC2 launch template resources have encrypted EBS volumes. The rule is NON\_COMPLIANT if any EBS volumes are not encrypted. The rule will only check the default version of the LaunchTemplate.
+
+# ec2-launchtemplate-ebs-encrypted
+<a name="ec2-launchtemplate-ebs-encrypted"></a>
+
+Checks if Amazon EC2 launch template resources have encrypted EBS volumes. The rule is NON\_COMPLIANT if any EBS volumes are not encrypted. The rule will only check the default version of the LaunchTemplate. 
+
+
 
 **Identifier:** EC2\_LAUNCHTEMPLATE\_EBS\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks if Amazon EC2 launch template resources have encrypted EBS volumes. The r
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d569c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

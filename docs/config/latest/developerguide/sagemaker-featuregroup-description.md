@@ -1,6 +1,11 @@
-# sagemaker-featuregroup-description
 
-Checks if Amazon SageMaker FeatureGroup resources contain a description. The rule is NON\_COMPLIANT if the FeatureGroup does not contain a description field or the description is empty.
+
+# sagemaker-featuregroup-description
+<a name="sagemaker-featuregroup-description"></a>
+
+Checks if Amazon SageMaker FeatureGroup resources contain a description. The rule is NON\_COMPLIANT if the FeatureGroup does not contain a description field or the description is empty. 
+
+
 
 **Identifier:** SAGEMAKER\_FEATUREGROUP\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker FeatureGroup resources contain a description. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1451c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

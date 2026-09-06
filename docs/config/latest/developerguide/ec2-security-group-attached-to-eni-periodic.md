@@ -1,11 +1,12 @@
+
+
 # ec2-security-group-attached-to-eni-periodic
+<a name="ec2-security-group-attached-to-eni-periodic"></a>
 
-Checks if non-default security groups are attached to Elastic network interfaces (ENIs). The rule is NON\_COMPLIANT if the security group is not associated with an ENI. Security groups not owned by the calling account evaluate as NOT\_APPLICABLE.
+Checks if non-default security groups are attached to Elastic network interfaces (ENIs). The rule is NON\_COMPLIANT if the security group is not associated with an ENI. Security groups not owned by the calling account evaluate as NOT\_APPLICABLE. 
 
-###### Note
-
-This rule reports on the `AWS::EC2::SecurityGroup` resource type.
-However, in order for the rule to run effectively, you must enable the recording of the `AWS::EC2::NetworkInterface` resource type.
+**Note**  
+This rule reports on the `AWS::EC2::SecurityGroup` resource type. However, in order for the rule to run effectively, you must enable the recording of the `AWS::EC2::NetworkInterface` resource type.
 
 **Identifier:** EC2\_SECURITY\_GROUP\_ATTACHED\_TO\_ENI\_PERIODIC
 
@@ -17,8 +18,9 @@ However, in order for the rule to run effectively, you must enable the recording
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d613c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

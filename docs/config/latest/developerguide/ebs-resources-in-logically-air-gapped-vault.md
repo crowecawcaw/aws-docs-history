@@ -1,6 +1,11 @@
-# ebs-resources-in-logically-air-gapped-vault
 
-Checks if Amazon Elastic Block Store (Amazon EBS) volumes are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an Amazon EBS volume is not in a logically air-gapped vault within the specified time period.
+
+# ebs-resources-in-logically-air-gapped-vault
+<a name="ebs-resources-in-logically-air-gapped-vault"></a>
+
+Checks if Amazon Elastic Block Store (Amazon EBS) volumes are in a logically air-gapped vault. The rule is NON\_COMPLIANT if an Amazon EBS volume is not in a logically air-gapped vault within the specified time period. 
+
+
 
 **Identifier:** EBS\_RESOURCES\_IN\_LOGICALLY\_AIR\_GAPPED\_VAULT
 
@@ -12,28 +17,19 @@ Checks if Amazon Elastic Block Store (Amazon EBS) volumes are in a logically air
 
 **Parameters:**
 
-resourceTags (Optional)
-Type: String
-
+resourceTags (Optional)Type: String  
 Tags of Amazon EBS volumes for the rule to check, in JSON format.
 
-resourceId (Optional)
-Type: String
-
+resourceId (Optional)Type: String  
 ID of Amazon EBS volume for the rule to check.
 
-recoveryPointAgeValue (Optional)
-Type: int
-Default: 1
-
+recoveryPointAgeValue (Optional)Type: intDefault: 1  
 Numerical value for maximum allowed age. No more than 2184 for hours, 91 for days.
 
-recoveryPointAgeUnit (Optional)
-Type: String
-Default: days
-
+recoveryPointAgeUnit (Optional)Type: StringDefault: days  
 Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d525c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

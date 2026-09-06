@@ -1,6 +1,11 @@
-# alb-desync-mode-check
 
-Checks if an Application Load Balancer (ALB) is configured with a user defined desync mitigation mode. The rule is NON\_COMPLIANT if ALB desync mitigation mode does not match with the user defined desync mitigation mode.
+
+# alb-desync-mode-check
+<a name="alb-desync-mode-check"></a>
+
+Checks if an Application Load Balancer (ALB) is configured with a user defined desync mitigation mode. The rule is NON\_COMPLIANT if ALB desync mitigation mode does not match with the user defined desync mitigation mode. 
+
+
 
 **Identifier:** ALB\_DESYNC\_MODE\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an Application Load Balancer (ALB) is configured with a user defined d
 
 **Parameters:**
 
-desyncMode
-Type: CSV
-
+desyncModeType: CSV  
 Comma-separated list, in which customers can choose max 2 values among - 'defensive', 'strictest', and 'monitor'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c17c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

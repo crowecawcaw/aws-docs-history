@@ -1,25 +1,20 @@
+
+
 # cloudformation-stack-drift-detection-check
+<a name="cloudformation-stack-drift-detection-check"></a>
 
-Checks if the actual configuration of a AWS CloudFormation (CloudFormation) stack differs, or has drifted, from the expected configuration.
-A stack is considered to have drifted if one or more of its resources differ from their expected configuration.
-The rule and the stack are COMPLIANT when the stack drift status is IN\_SYNC. The rule is NON\_COMPLIANT if the stack drift status is DRIFTED.
+Checks if the actual configuration of a AWS CloudFormation (CloudFormation) stack differs, or has drifted, from the expected configuration. A stack is considered to have drifted if one or more of its resources differ from their expected configuration. The rule and the stack are COMPLIANT when the stack drift status is IN\_SYNC. The rule is NON\_COMPLIANT if the stack drift status is DRIFTED.
 
-###### Note
+**Note**  
+This rule performs the DetectStackDrift operation on each stack in your account. The DetectStackDrift operation can take up to several minutes, depending on the number of resources contained within the stack. Given that the maximum execution time of this rule is limited to 15 mins, it is possible that the rule times out before it completes the evaluation of all the stacks in your account.  
+If you encounter this issue, it is suggested that you to restrict the number of stacks in-scope for the rule, using tags. You can do the following:  
+Divide your stacks into groups, each with a different tag.
+Apply the same tag to all the stacks in that group.
+Have multiple instances of this rule in your account, each scoped by a different tag. This allows each instance of the rule to only process the stacks which have the corresponding tag mentioned in its scope.
 
-This rule performs the DetectStackDrift operation on each stack in your account.
-The DetectStackDrift operation can take up to several minutes,
-depending on the number of resources contained within the stack.
-Given that the maximum execution time of this rule is limited to 15 mins,
-it is possible that the rule times out before it completes the evaluation of all the stacks in your account.
 
-If you encounter this issue, it is suggested that you to restrict the number of stacks in-scope for the rule, using tags.
-You can do the following:
 
-1. Divide your stacks into groups, each with a different tag.
-2. Apply the same tag to all the stacks in that group.
-3. Have multiple instances of this rule in your account, each scoped by a different tag.
-   This allows each instance of the rule to only process the stacks which have the corresponding tag mentioned in its scope.
-   **Identifier:** CLOUDFORMATION\_STACK\_DRIFT\_DETECTION\_CHECK
+**Identifier:** CLOUDFORMATION\_STACK\_DRIFT\_DETECTION\_CHECK
 
 **Resource Types:** AWS::CloudFormation::Stack
 
@@ -29,13 +24,10 @@ You can do the following:
 
 **Parameters:**
 
-cloudformationRoleArn
-Type: String
-
-The Amazon Resource Name (ARN) of the IAM role with policy permissions to detect drift for CloudFormation stacks.
-For information on required IAM permissions for the role,
-see [Detecting unmanaged configuration changes to stacks and resources | Considerations when detecting drift](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md#drift-considerations "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md#drift-considerations") in the _CloudFormation User Guide_.
+cloudformationRoleArnType: String  
+ The Amazon Resource Name (ARN) of the IAM role with policy permissions to detect drift for CloudFormation stacks. For information on required IAM permissions for the role, see [Detecting unmanaged configuration changes to stacks and resources \| Considerations when detecting drift](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#drift-considerations) in the *CloudFormation User Guide*. 
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d293c21"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

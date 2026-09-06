@@ -1,6 +1,11 @@
-# redshift-default-admin-check
 
-Checks if an Amazon Redshift cluster has changed the admin username from its default value. The rule is NON\_COMPLIANT if the admin username for a Redshift cluster is set to “awsuser” or if the username does not match what is listed in parameter.
+
+# redshift-default-admin-check
+<a name="redshift-default-admin-check"></a>
+
+Checks if an Amazon Redshift cluster has changed the admin username from its default value. The rule is NON\_COMPLIANT if the admin username for a Redshift cluster is set to “awsuser” or if the username does not match what is listed in parameter. 
+
+
 
 **Identifier:** REDSHIFT\_DEFAULT\_ADMIN\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an Amazon Redshift cluster has changed the admin username from its def
 
 **Parameters:**
 
-validAdminUserNames (Optional)
-Type: CSV
-
+validAdminUserNames (Optional)Type: CSV  
 Comma-separated list of admin username(s) for Redshift clusters to use. Note: 'awsuser' is the default and not accepted.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1309c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

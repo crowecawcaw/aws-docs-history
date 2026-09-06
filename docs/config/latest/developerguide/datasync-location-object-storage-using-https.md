@@ -1,6 +1,11 @@
-# datasync-location-object-storage-using-https
 
-Checks if AWS DataSync location object storage servers use the HTTPS protocol to communicate. The rule is NON\_COMPLIANT if configuration.ServerProtocol is not 'HTTPS'.
+
+# datasync-location-object-storage-using-https
+<a name="datasync-location-object-storage-using-https"></a>
+
+Checks if AWS DataSync location object storage servers use the HTTPS protocol to communicate. The rule is NON\_COMPLIANT if configuration.ServerProtocol is not 'HTTPS'. 
+
+
 
 **Identifier:** DATASYNC\_LOCATION\_OBJECT\_STORAGE\_USING\_HTTPS
 
@@ -12,8 +17,9 @@ Checks if AWS DataSync location object storage servers use the HTTPS protocol to
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d439c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

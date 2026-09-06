@@ -1,6 +1,11 @@
-# batch-managed-compute-environment-using-launch-template
 
-Checks if AWS Batch managed compute environments are configured using a launch template. The rule is NON\_COMPLIANT if configuration.ComputeResources.LaunchTemplate does not exist.
+
+# batch-managed-compute-environment-using-launch-template
+<a name="batch-managed-compute-environment-using-launch-template"></a>
+
+Checks if AWS Batch managed compute environments are configured using a launch template. The rule is NON\_COMPLIANT if configuration.ComputeResources.LaunchTemplate does not exist. 
+
+
 
 **Identifier:** BATCH\_MANAGED\_COMPUTE\_ENVIRONMENT\_USING\_LAUNCH\_TEMPLATE
 
@@ -12,8 +17,9 @@ Checks if AWS Batch managed compute environments are configured using a launch t
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d265c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

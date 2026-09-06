@@ -1,6 +1,11 @@
-# sagemaker-notebook-instance-root-access-check
 
-Checks if the Amazon SageMaker RootAccess setting is enabled for Amazon SageMaker notebook instances. The rule is NON\_COMPLIANT if the RootAccess setting is set to ‘Enabled’ for an Amazon SageMaker notebook instance.
+
+# sagemaker-notebook-instance-root-access-check
+<a name="sagemaker-notebook-instance-root-access-check"></a>
+
+Checks if the Amazon SageMaker RootAccess setting is enabled for Amazon SageMaker notebook instances. The rule is NON\_COMPLIANT if the RootAccess setting is set to ‘Enabled’ for an Amazon SageMaker notebook instance. 
+
+
 
 **Identifier:** SAGEMAKER\_NOTEBOOK\_INSTANCE\_ROOT\_ACCESS\_CHECK
 
@@ -12,8 +17,9 @@ Checks if the Amazon SageMaker RootAccess setting is enabled for Amazon SageMake
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1499c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

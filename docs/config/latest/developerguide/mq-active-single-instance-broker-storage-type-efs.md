@@ -1,6 +1,11 @@
-# mq-active-single-instance-broker-storage-type-efs
 
-Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 instance type family is configured with Amazon Elastic File System (EFS) for broker storage. The rule is NON\_COMPLIANT if configuration.StorageType is not 'efs'.
+
+# mq-active-single-instance-broker-storage-type-efs
+<a name="mq-active-single-instance-broker-storage-type-efs"></a>
+
+Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 instance type family is configured with Amazon Elastic File System (EFS) for broker storage. The rule is NON\_COMPLIANT if configuration.StorageType is not 'efs'. 
+
+
 
 **Identifier:** MQ\_ACTIVE\_SINGLE\_INSTANCE\_BROKER\_STORAGE\_TYPE\_EFS
 
@@ -12,8 +17,9 @@ Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 insta
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1107c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# iottwinmaker-sync-job-tagged
 
-Checks if AWS IoT TwinMaker sync jobs have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+
+# iottwinmaker-sync-job-tagged
+<a name="iottwinmaker-sync-job-tagged"></a>
+
+Checks if AWS IoT TwinMaker sync jobs have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
+
+
 
 **Identifier:** IOTTWINMAKER\_SYNC\_JOB\_TAGGED
 
@@ -12,11 +17,10 @@ Checks if AWS IoT TwinMaker sync jobs have tags. Optionally, you can specify tag
 
 **Parameters:**
 
-requiredKeyTags (Optional)
-Type: CSV
-
+requiredKeyTags (Optional)Type: CSV  
 Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1007c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# batch-job-queue-enabled
 
-Checks if AWS Batch job queues are enabled. The rule is NON\_COMPLIANT if configuration.State is 'DISABLED'.
+
+# batch-job-queue-enabled
+<a name="batch-job-queue-enabled"></a>
+
+Checks if AWS Batch job queues are enabled. The rule is NON\_COMPLIANT if configuration.State is 'DISABLED'. 
+
+
 
 **Identifier:** BATCH\_JOB\_QUEUE\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS Batch job queues are enabled. The rule is NON\_COMPLIANT if config
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d261c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

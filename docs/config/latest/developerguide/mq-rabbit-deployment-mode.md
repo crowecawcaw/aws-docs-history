@@ -1,6 +1,11 @@
-# mq-rabbit-deployment-mode
 
-Checks the deployment mode configured for the Amazon MQ RabbitMQ broker engine. The rule is NON\_COMPLIANT if the default single-instance broker mode is being used.
+
+# mq-rabbit-deployment-mode
+<a name="mq-rabbit-deployment-mode"></a>
+
+Checks the deployment mode configured for the Amazon MQ RabbitMQ broker engine. The rule is NON\_COMPLIANT if the default single-instance broker mode is being used. 
+
+
 
 **Identifier:** MQ\_RABBIT\_DEPLOYMENT\_MODE
 
@@ -12,8 +17,9 @@ Checks the deployment mode configured for the Amazon MQ RabbitMQ broker engine. 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1121c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

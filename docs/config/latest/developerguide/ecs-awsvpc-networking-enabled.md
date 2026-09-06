@@ -1,9 +1,11 @@
+
+
 # ecs-awsvpc-networking-enabled
+<a name="ecs-awsvpc-networking-enabled"></a>
 
-Checks if the networking mode for active ECSTaskDefinitions is set to ‘awsvpc’. This rule is NON\_COMPLIANT if active ECSTaskDefinitions is not set to ‘awsvpc’.
+Checks if the networking mode for active ECSTaskDefinitions is set to ‘awsvpc’. This rule is NON\_COMPLIANT if active ECSTaskDefinitions is not set to ‘awsvpc’. 
 
-###### Note
-
+**Note**  
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
 **Identifier:** ECS\_AWSVPC\_NETWORKING\_ENABLED
@@ -16,8 +18,9 @@ This rule only evaluates the latest active revision of an Amazon ECS task defini
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d655c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

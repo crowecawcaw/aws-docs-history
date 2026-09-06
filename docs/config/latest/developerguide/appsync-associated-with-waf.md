@@ -1,6 +1,11 @@
-# appsync-associated-with-waf
 
-Checks if AWS AppSync APIs are associated with AWS WAFv2 web access control lists (ACLs). The rule is NON\_COMPLIANT for an AWS AppSync API if it is not associated with a web ACL.
+
+# appsync-associated-with-waf
+<a name="appsync-associated-with-waf"></a>
+
+Checks if AWS AppSync APIs are associated with AWS WAFv2 web access control lists (ACLs). The rule is NON\_COMPLIANT for an AWS AppSync API if it is not associated with a web ACL. 
+
+
 
 **Identifier:** APPSYNC\_ASSOCIATED\_WITH\_WAF
 
@@ -12,11 +17,10 @@ Checks if AWS AppSync APIs are associated with AWS WAFv2 web access control list
 
 **Parameters:**
 
-wafWebAclARNs (Optional)
-Type: CSV
-
+wafWebAclARNs (Optional)Type: CSV  
 Comma-separated list of Amazon Resource Names (ARNs) for authorized web ACLs.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d185c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

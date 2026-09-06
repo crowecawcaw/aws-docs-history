@@ -1,6 +1,11 @@
-# docdb-cluster-backup-retention-check
 
-Checks if an Amazon Document DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter.
+
+# docdb-cluster-backup-retention-check
+<a name="docdb-cluster-backup-retention-check"></a>
+
+Checks if an Amazon Document DB cluster retention period is set to specific number of days. The rule is NON\_COMPLIANT if the retention period is less than the value specified by the parameter. 
+
+
 
 **Identifier:** DOCDB\_CLUSTER\_BACKUP\_RETENTION\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an Amazon Document DB cluster retention period is set to specific numb
 
 **Parameters:**
 
-minimumBackupRetentionPeriod (Optional)
-Type: int
-
+minimumBackupRetentionPeriod (Optional)Type: int  
 Minimum days backups should be kept. Valid values 1 to 35, default value is 7. This rule is NON\_COMPLIANT if value is greater than 'backupRetentionPeriod'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d487c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

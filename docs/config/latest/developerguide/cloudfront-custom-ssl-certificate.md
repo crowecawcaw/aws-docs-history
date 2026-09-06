@@ -1,6 +1,11 @@
-# cloudfront-custom-ssl-certificate
 
-Checks if the certificate associated with an Amazon CloudFront distribution is the default SSL certificate. The rule is NON\_COMPLIANT if a CloudFront distribution uses the default SSL certificate. Multi-tenant distributions are not applicable.
+
+# cloudfront-custom-ssl-certificate
+<a name="cloudfront-custom-ssl-certificate"></a>
+
+Checks if the certificate associated with an Amazon CloudFront distribution is the default SSL certificate. The rule is NON\_COMPLIANT if a CloudFront distribution uses the default SSL certificate. Multi-tenant distributions are not applicable. 
+
+
 
 **Identifier:** CLOUDFRONT\_CUSTOM\_SSL\_CERTIFICATE
 
@@ -12,8 +17,9 @@ Checks if the certificate associated with an Amazon CloudFront distribution is t
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d305c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

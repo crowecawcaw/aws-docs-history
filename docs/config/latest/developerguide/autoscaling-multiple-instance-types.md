@@ -1,6 +1,11 @@
-# autoscaling-multiple-instance-types
 
-Checks if an Amazon EC2 Auto Scaling group uses multiple instance types. The rule is NON\_COMPLIANT if the Amazon EC2 Auto Scaling group has only one instance type defined. This rule does not evaluate attribute-based instance types.
+
+# autoscaling-multiple-instance-types
+<a name="autoscaling-multiple-instance-types"></a>
+
+Checks if an Amazon EC2 Auto Scaling group uses multiple instance types. The rule is NON\_COMPLIANT if the Amazon EC2 Auto Scaling group has only one instance type defined. This rule does not evaluate attribute-based instance types. 
+
+
 
 **Identifier:** AUTOSCALING\_MULTIPLE\_INSTANCE\_TYPES
 
@@ -12,8 +17,9 @@ Checks if an Amazon EC2 Auto Scaling group uses multiple instance types. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d245c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

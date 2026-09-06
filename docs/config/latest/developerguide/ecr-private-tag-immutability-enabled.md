@@ -1,6 +1,11 @@
-# ecr-private-tag-immutability-enabled
 
-Checks if a private Amazon Elastic Container Registry (ECR) repository has tag immutability enabled. This rule is NON\_COMPLIANT if tag immutability is not enabled for the private ECR repository.
+
+# ecr-private-tag-immutability-enabled
+<a name="ecr-private-tag-immutability-enabled"></a>
+
+Checks if a private Amazon Elastic Container Registry (ECR) repository has tag immutability enabled. This rule is NON\_COMPLIANT if tag immutability is not enabled for the private ECR repository. 
+
+
 
 **Identifier:** ECR\_PRIVATE\_TAG\_IMMUTABILITY\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if a private Amazon Elastic Container Registry (ECR) repository has tag i
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d649c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

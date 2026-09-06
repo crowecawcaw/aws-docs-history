@@ -1,6 +1,11 @@
-# lightsail-bucket-object-versioning-enabled
 
-Checks if Amazon Lightsail Bucket resources have object versioning enabled to protect against unintended deletions and modifications. The rule is NON\_COMPLIANT if the bucket does not have object versioning enabled.
+
+# lightsail-bucket-object-versioning-enabled
+<a name="lightsail-bucket-object-versioning-enabled"></a>
+
+Checks if Amazon Lightsail Bucket resources have object versioning enabled to protect against unintended deletions and modifications. The rule is NON\_COMPLIANT if the bucket does not have object versioning enabled. 
+
+
 
 **Identifier:** LIGHTSAIL\_BUCKET\_OBJECT\_VERSIONING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Lightsail Bucket resources have object versioning enabled to pr
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1081c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

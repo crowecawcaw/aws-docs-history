@@ -1,6 +1,11 @@
-# amplify-app-description
 
-Checks if AWS Amplify apps have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
+
+# amplify-app-description
+<a name="amplify-app-description"></a>
+
+Checks if AWS Amplify apps have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
+
+
 
 **Identifier:** AMPLIFY\_APP\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS Amplify apps have a description. The rule is NON\_COMPLIANT if con
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c35c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

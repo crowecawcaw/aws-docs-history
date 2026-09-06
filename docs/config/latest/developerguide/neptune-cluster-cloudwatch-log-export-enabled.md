@@ -1,6 +1,11 @@
-# neptune-cluster-cloudwatch-log-export-enabled
 
-Checks if an Amazon Neptune cluster has CloudWatch log export enabled for audit logs. The rule is NON\_COMPLIANT if a Neptune cluster does not have CloudWatch log export enabled for audit logs.
+
+# neptune-cluster-cloudwatch-log-export-enabled
+<a name="neptune-cluster-cloudwatch-log-export-enabled"></a>
+
+Checks if an Amazon Neptune cluster has CloudWatch log export enabled for audit logs. The rule is NON\_COMPLIANT if a Neptune cluster does not have CloudWatch log export enabled for audit logs. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_CLOUDWATCH\_LOG\_EXPORT\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon Neptune cluster has CloudWatch log export enabled for audit 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1141c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

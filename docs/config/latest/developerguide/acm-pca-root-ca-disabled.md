@@ -1,6 +1,11 @@
-# acm-pca-root-ca-disabled
 
-Checks if AWS Private Certificate Authority (AWS Private CA) has a root CA that is disabled. The rule is NON\_COMPLIANT for root CAs with status that is not DISABLED.
+
+# acm-pca-root-ca-disabled
+<a name="acm-pca-root-ca-disabled"></a>
+
+Checks if AWS Private Certificate Authority (AWS Private CA) has a root CA that is disabled. The rule is NON\_COMPLIANT for root CAs with status that is not DISABLED. 
+
+
 
 **Identifier:** ACM\_PCA\_ROOT\_CA\_DISABLED
 
@@ -12,11 +17,10 @@ Checks if AWS Private Certificate Authority (AWS Private CA) has a root CA that 
 
 **Parameters:**
 
-exemptedCAArns (Optional)
-Type: CSV
-
+exemptedCAArns (Optional)Type: CSV  
 Comma-separated list of Amazon Resource Names (ARN) of CA's that can be enabled. This value can be supplied for other CAs, like specific root CAs or intermediate CA's that can be enabled.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c13c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

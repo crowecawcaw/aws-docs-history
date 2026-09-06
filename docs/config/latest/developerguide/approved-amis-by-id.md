@@ -1,6 +1,11 @@
-# approved-amis-by-id
 
-Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify a list of approved AMI IDs. Running instances with AMIs that are not on this list are NON\_COMPLIANT.
+
+# approved-amis-by-id
+<a name="approved-amis-by-id"></a>
+
+Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specify a list of approved AMI IDs. Running instances with AMIs that are not on this list are NON\_COMPLIANT. 
+
+
 
 **Identifier:** APPROVED\_AMIS\_BY\_ID
 
@@ -12,11 +17,10 @@ Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specif
 
 **Parameters:**
 
-amiIds
-Type: CSV
-
+amiIdsType: CSV  
 Comma-separated list of AMI IDs. There is a 1024 characters limit.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d165c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

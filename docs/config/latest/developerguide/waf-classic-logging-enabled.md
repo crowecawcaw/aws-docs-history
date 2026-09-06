@@ -1,6 +1,11 @@
-# waf-classic-logging-enabled
 
-Checks if logging is enabled on AWS WAF classic global web access control lists (web ACLs). The rule is NON\_COMPLIANT for a global web ACL, if it does not have logging enabled.
+
+# waf-classic-logging-enabled
+<a name="waf-classic-logging-enabled"></a>
+
+Checks if logging is enabled on AWS WAF classic global web access control lists (web ACLs). The rule is NON\_COMPLIANT for a global web ACL, if it does not have logging enabled. 
+
+
 
 **Identifier:** WAF\_CLASSIC\_LOGGING\_ENABLED
 
@@ -12,11 +17,10 @@ Checks if logging is enabled on AWS WAF classic global web access control lists 
 
 **Parameters:**
 
-KinesisFirehoseDeliveryStreamArns (Optional)
-Type: CSV
-
+KinesisFirehoseDeliveryStreamArns (Optional)Type: CSV  
 Comma separated list of Amazon Kinesis stream ARN for AWS WAF logs.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1623c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

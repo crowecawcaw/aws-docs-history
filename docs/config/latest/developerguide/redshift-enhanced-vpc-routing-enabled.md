@@ -1,6 +1,11 @@
-# redshift-enhanced-vpc-routing-enabled
 
-Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is NON\_COMPLIANT if 'enhancedVpcRouting' is not enabled or if the configuration.enhancedVpcRouting field is 'false'.
+
+# redshift-enhanced-vpc-routing-enabled
+<a name="redshift-enhanced-vpc-routing-enabled"></a>
+
+Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is NON\_COMPLIANT if 'enhancedVpcRouting' is not enabled or if the configuration.enhancedVpcRouting field is 'false'. 
+
+
 
 **Identifier:** REDSHIFT\_ENHANCED\_VPC\_ROUTING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Redshift cluster has 'enhancedVpcRouting' enabled. The rule is 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1313c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

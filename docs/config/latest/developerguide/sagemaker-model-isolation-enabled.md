@@ -1,6 +1,11 @@
-# sagemaker-model-isolation-enabled
 
-Checks if an Amazon SageMaker model has network isolation enabled. The rule is NON\_COMPLIANT if configuration.EnableNetworkIsolation is false.
+
+# sagemaker-model-isolation-enabled
+<a name="sagemaker-model-isolation-enabled"></a>
+
+Checks if an Amazon SageMaker model has network isolation enabled. The rule is NON\_COMPLIANT if configuration.EnableNetworkIsolation is false. 
+
+
 
 **Identifier:** SAGEMAKER\_MODEL\_ISOLATION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon SageMaker model has network isolation enabled. The rule is N
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1479c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

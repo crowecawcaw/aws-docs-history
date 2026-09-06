@@ -1,6 +1,11 @@
-# wafv2-webacl-not-empty
 
-Checks if a WAFv2 Web ACL contains any WAF rules or WAF rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rules or WAF rule groups.
+
+# wafv2-webacl-not-empty
+<a name="wafv2-webacl-not-empty"></a>
+
+Checks if a WAFv2 Web ACL contains any WAF rules or WAF rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rules or WAF rule groups. 
+
+
 
 **Identifier:** WAFV2\_WEBACL\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if a WAFv2 Web ACL contains any WAF rules or WAF rule groups. This rule i
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1621c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

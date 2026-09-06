@@ -1,6 +1,11 @@
-# dms-mongo-db-authentication-enabled
 
-Checks if AWS Database Migration Service (AWS DMS) endpoints for MongoDb data stores are enabled for password-based authentication and access control. The rule is NON\_COMPLIANT if password-based authentication and access control is not enabled.
+
+# dms-mongo-db-authentication-enabled
+<a name="dms-mongo-db-authentication-enabled"></a>
+
+Checks if AWS Database Migration Service (AWS DMS) endpoints for MongoDb data stores are enabled for password-based authentication and access control. The rule is NON\_COMPLIANT if password-based authentication and access control is not enabled. 
+
+
 
 **Identifier:** DMS\_MONGO\_DB\_AUTHENTICATION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS Database Migration Service (AWS DMS) endpoints for MongoDb data st
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d469c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

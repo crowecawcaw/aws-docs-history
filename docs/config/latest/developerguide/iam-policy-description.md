@@ -1,6 +1,11 @@
-# iam-policy-description
 
-Checks if AWS Identity and Access Management (IAM) Policy description field exists. The rule is NON\_COMPLIANT if the description field does not exist or is an empty string.
+
+# iam-policy-description
+<a name="iam-policy-description"></a>
+
+Checks if AWS Identity and Access Management (IAM) Policy description field exists. The rule is NON\_COMPLIANT if the description field does not exist or is an empty string. 
+
+
 
 **Identifier:** IAM\_POLICY\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS Identity and Access Management (IAM) Policy description field exis
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d933c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

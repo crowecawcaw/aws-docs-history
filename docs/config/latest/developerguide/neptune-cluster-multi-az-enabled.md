@@ -1,6 +1,11 @@
-# neptune-cluster-multi-az-enabled
 
-Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ replication. The rule is NON\_COMPLIANT if Multi-AZ replication is not enabled.
+
+# neptune-cluster-multi-az-enabled
+<a name="neptune-cluster-multi-az-enabled"></a>
+
+Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ replication. The rule is NON\_COMPLIANT if Multi-AZ replication is not enabled. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_MULTI\_AZ\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ repli
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1151c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

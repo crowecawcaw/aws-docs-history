@@ -1,6 +1,11 @@
-# elbv2-targetgroup-healthcheck-protocol-encrypted
 
-Checks the target groups for load balancers healthchecks use an encrypted transport protocol. The rule is NON\_COMPLIANT if configuration.healthCheckProtocol is not HTTPS. Lambda target types are not applicable.
+
+# elbv2-targetgroup-healthcheck-protocol-encrypted
+<a name="elbv2-targetgroup-healthcheck-protocol-encrypted"></a>
+
+Checks the target groups for load balancers healthchecks use an encrypted transport protocol. The rule is NON\_COMPLIANT if configuration.healthCheckProtocol is not HTTPS. Lambda target types are not applicable. 
+
+
 
 **Identifier:** ELBV2\_TARGETGROUP\_HEALTHCHECK\_PROTOCOL\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks the target groups for load balancers healthchecks use an encrypted transp
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d783c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

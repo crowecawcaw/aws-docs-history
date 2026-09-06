@@ -1,8 +1,9 @@
-# Example Rules Evaluation Started Notification
 
-AWS Config sends a notification when it starts to evaluate your custom or managed rule
-against your resources. The following is an example notification when AWS Config starts to
-evaluate the `iam-password-policy` managed rule.
+
+# Example Rules Evaluation Started Notification
+<a name="config-rules-evaluation-started"></a>
+
+AWS Config sends a notification when it starts to evaluate your custom or managed rule against your resources. The following is an example notification when AWS Config starts to evaluate the `iam-password-policy` managed rule.
 
 ```
 {

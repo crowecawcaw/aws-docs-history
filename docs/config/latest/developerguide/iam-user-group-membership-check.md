@@ -1,6 +1,11 @@
-# iam-user-group-membership-check
 
-Checks whether IAM users are members of at least one IAM group.
+
+# iam-user-group-membership-check
+<a name="iam-user-group-membership-check"></a>
+
+Checks whether IAM users are members of at least one IAM group. 
+
+
 
 **Identifier:** IAM\_USER\_GROUP\_MEMBERSHIP\_CHECK
 
@@ -12,15 +17,11 @@ Checks whether IAM users are members of at least one IAM group.
 
 **Parameters:**
 
-groupNames (Optional)
-Type: CSV
-
-Comma-separated list of IAM groups in which IAM users must be members.
-
-###### Note
-
+groupNames (Optional)Type: CSV  
+Comma-separated list of IAM groups in which IAM users must be members.  
 This rule does not support group names with commas.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d951c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

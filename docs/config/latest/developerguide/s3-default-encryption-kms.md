@@ -1,6 +1,11 @@
-# s3-default-encryption-kms
 
-Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if the S3 bucket is not encrypted with an AWS KMS key.
+
+# s3-default-encryption-kms
+<a name="s3-default-encryption-kms"></a>
+
+Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS). The rule is NON\_COMPLIANT if the S3 bucket is not encrypted with an AWS KMS key. 
+
+
 
 **Identifier:** S3\_DEFAULT\_ENCRYPTION\_KMS
 
@@ -12,11 +17,10 @@ Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS)
 
 **Parameters:**
 
-kmsKeyArns (Optional)
-Type: CSV
-
+kmsKeyArns (Optional)Type: CSV  
 Comma separated list of AWS KMS key ARNs allowed for encrypting Amazon S3 Buckets.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1417c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

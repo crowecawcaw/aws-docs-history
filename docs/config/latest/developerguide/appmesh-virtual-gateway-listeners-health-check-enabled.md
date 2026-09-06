@@ -1,6 +1,11 @@
-# appmesh-virtual-gateway-listeners-health-check-enabled
 
-Checks if listeners for AWS App Mesh virtual gateways have health check enabled. The rule is NON\_COMPLIANT if configuration.Spec.Listeners[].HealthCheck does not exist in one or more listeners.
+
+# appmesh-virtual-gateway-listeners-health-check-enabled
+<a name="appmesh-virtual-gateway-listeners-health-check-enabled"></a>
+
+Checks if listeners for AWS App Mesh virtual gateways have health check enabled. The rule is NON\_COMPLIANT if configuration.Spec.Listeners[].HealthCheck does not exist in one or more listeners. 
+
+
 
 **Identifier:** APPMESH\_VIRTUAL\_GATEWAY\_LISTENERS\_HEALTH\_CHECK\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if listeners for AWS App Mesh virtual gateways have health check enabled.
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d139c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

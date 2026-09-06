@@ -1,6 +1,11 @@
-# sagemaker-model-in-vpc
 
-Checks if an Amazon SageMaker model uses an Amazon Virtual Private Cloud (Amazon VPC) for container traffic. The rule is NON\_COMPLIANT if configuration.VpcConfig does not exist.
+
+# sagemaker-model-in-vpc
+<a name="sagemaker-model-in-vpc"></a>
+
+Checks if an Amazon SageMaker model uses an Amazon Virtual Private Cloud (Amazon VPC) for container traffic. The rule is NON\_COMPLIANT if configuration.VpcConfig does not exist. 
+
+
 
 **Identifier:** SAGEMAKER\_MODEL\_IN\_VPC
 
@@ -12,8 +17,9 @@ Checks if an Amazon SageMaker model uses an Amazon Virtual Private Cloud (Amazon
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1477c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

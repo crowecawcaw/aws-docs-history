@@ -1,6 +1,11 @@
-# ec2-client-vpn-not-authorize-all
 
-Checks if the AWS Client VPN authorization rules authorizes connection access for all clients. The rule is NON\_COMPLIANT if 'AccessAll' is present and set to true.
+
+# ec2-client-vpn-not-authorize-all
+<a name="ec2-client-vpn-not-authorize-all"></a>
+
+Checks if the AWS Client VPN authorization rules authorizes connection access for all clients. The rule is NON\_COMPLIANT if 'AccessAll' is present and set to true. 
+
+
 
 **Identifier:** EC2\_CLIENT\_VPN\_NOT\_AUTHORIZE\_ALL
 
@@ -12,8 +17,9 @@ Checks if the AWS Client VPN authorization rules authorizes connection access fo
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d541c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

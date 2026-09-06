@@ -1,6 +1,11 @@
-# aurora-global-database-encryption-at-rest
 
-Checks if Amazon Aurora Global Databases have storage encryption enabled. This rule is NON\_COMPLIANT if an Amazon Aurora Global Database does not have storage encryption enabled.
+
+# aurora-global-database-encryption-at-rest
+<a name="aurora-global-database-encryption-at-rest"></a>
+
+Checks if Amazon Aurora Global Databases have storage encryption enabled. This rule is NON\_COMPLIANT if an Amazon Aurora Global Database does not have storage encryption enabled. 
+
+
 
 **Identifier:** AURORA\_GLOBAL\_DATABASE\_ENCRYPTION\_AT\_REST
 
@@ -12,8 +17,9 @@ Checks if Amazon Aurora Global Databases have storage encryption enabled. This r
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d217c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

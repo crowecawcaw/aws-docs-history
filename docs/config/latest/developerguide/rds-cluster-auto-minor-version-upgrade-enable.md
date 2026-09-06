@@ -1,6 +1,11 @@
-# rds-cluster-auto-minor-version-upgrade-enable
 
-Checks if automatic minor version upgrades are enabled for Amazon RDS Multi-AZ cluster deployments. The rule is NON\_COMPLIANT if autoMinorVersionUpgrade is set to false.
+
+# rds-cluster-auto-minor-version-upgrade-enable
+<a name="rds-cluster-auto-minor-version-upgrade-enable"></a>
+
+Checks if automatic minor version upgrades are enabled for Amazon RDS Multi-AZ cluster deployments. The rule is NON\_COMPLIANT if autoMinorVersionUpgrade is set to false. 
+
+
 
 **Identifier:** RDS\_CLUSTER\_AUTO\_MINOR\_VERSION\_UPGRADE\_ENABLE
 
@@ -12,8 +17,9 @@ Checks if automatic minor version upgrades are enabled for Amazon RDS Multi-AZ c
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1221c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

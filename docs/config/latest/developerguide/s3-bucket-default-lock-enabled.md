@@ -1,6 +1,11 @@
-# s3-bucket-default-lock-enabled
 
-Checks if the S3 bucket has lock enabled, by default. The rule is NON\_COMPLIANT if the lock is not enabled.
+
+# s3-bucket-default-lock-enabled
+<a name="s3-bucket-default-lock-enabled"></a>
+
+Checks if the S3 bucket has lock enabled, by default. The rule is NON\_COMPLIANT if the lock is not enabled. 
+
+
 
 **Identifier:** S3\_BUCKET\_DEFAULT\_LOCK\_ENABLED
 
@@ -12,11 +17,10 @@ Checks if the S3 bucket has lock enabled, by default. The rule is NON\_COMPLIANT
 
 **Parameters:**
 
-mode (Optional)
-Type: String
-
+mode (Optional)Type: String  
 mode: (optional): A mode parameter with valid values of GOVERNANCE or COMPLIANCE.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1391c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

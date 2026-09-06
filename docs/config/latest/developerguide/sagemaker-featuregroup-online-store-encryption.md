@@ -1,6 +1,11 @@
-# sagemaker-featuregroup-online-store-encryption
 
-Checks if SageMaker feature groups have KMS encryption for OnlineStore with standard storage. The rule is NON\_COMPLIANT if KMS key encryption is not configured.
+
+# sagemaker-featuregroup-online-store-encryption
+<a name="sagemaker-featuregroup-online-store-encryption"></a>
+
+Checks if SageMaker feature groups have KMS encryption for OnlineStore with standard storage. The rule is NON\_COMPLIANT if KMS key encryption is not configured. 
+
+
 
 **Identifier:** SAGEMAKER\_FEATUREGROUP\_ONLINE\_STORE\_ENCRYPTION
 
@@ -12,8 +17,9 @@ Checks if SageMaker feature groups have KMS encryption for OnlineStore with stan
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1455c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# opensearch-update-check
 
-Checks if Amazon OpenSearch Service version updates are available but not installed. The rule is NON\_COMPLIANT for an OpenSearch domain if the latest software updates are not installed.
+
+# opensearch-update-check
+<a name="opensearch-update-check"></a>
+
+Checks if Amazon OpenSearch Service version updates are available but not installed. The rule is NON\_COMPLIANT for an OpenSearch domain if the latest software updates are not installed. 
+
+
 
 **Identifier:** OPENSEARCH\_UPDATE\_CHECK
 
@@ -12,8 +17,9 @@ Checks if Amazon OpenSearch Service version updates are available but not instal
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1209c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

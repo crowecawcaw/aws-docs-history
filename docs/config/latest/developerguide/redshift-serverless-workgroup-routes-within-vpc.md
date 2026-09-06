@@ -1,6 +1,11 @@
-# redshift-serverless-workgroup-routes-within-vpc
 
-Checks if Amazon Redshift Serverless workgroups route the network traffic through a VPC. The rule is NON\_COMPLIANT if workgroups have 'Turn on Enhanced VPC routing' disabled.
+
+# redshift-serverless-workgroup-routes-within-vpc
+<a name="redshift-serverless-workgroup-routes-within-vpc"></a>
+
+Checks if Amazon Redshift Serverless workgroups route the network traffic through a VPC. The rule is NON\_COMPLIANT if workgroups have 'Turn on Enhanced VPC routing' disabled. 
+
+
 
 **Identifier:** REDSHIFT\_SERVERLESS\_WORKGROUP\_ROUTES\_WITHIN\_VPC
 
@@ -12,8 +17,9 @@ Checks if Amazon Redshift Serverless workgroups route the network traffic throug
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1329c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

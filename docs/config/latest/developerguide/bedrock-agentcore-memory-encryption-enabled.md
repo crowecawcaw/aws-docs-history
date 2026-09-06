@@ -1,6 +1,11 @@
-# bedrock-agentcore-memory-encryption-enabled
 
-Checks whether Amazon Bedrock AgentCore Memory uses customer-managed KMS key for encryption. The rule is NON\_COMPLIANT if AgentCore Memory does not have EncryptionKeyArn configured.
+
+# bedrock-agentcore-memory-encryption-enabled
+<a name="bedrock-agentcore-memory-encryption-enabled"></a>
+
+Checks whether Amazon Bedrock AgentCore Memory uses customer-managed KMS key for encryption. The rule is NON\_COMPLIANT if AgentCore Memory does not have EncryptionKeyArn configured. 
+
+
 
 **Identifier:** BEDROCK\_AGENTCORE\_MEMORY\_ENCRYPTION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks whether Amazon Bedrock AgentCore Memory uses customer-managed KMS key for
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d283c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

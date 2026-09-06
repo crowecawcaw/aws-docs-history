@@ -1,6 +1,11 @@
-# sagemaker-model-multicontainer-private-registry
 
-This rule checks if SageMaker models with multi-container inference pipelines pull images from VPC-based private registry. The rule is NON\_COMPLIANT if any container configuration does not have ImageConfig or has RepositoryAccessMode set to Platform.
+
+# sagemaker-model-multicontainer-private-registry
+<a name="sagemaker-model-multicontainer-private-registry"></a>
+
+This rule checks if SageMaker models with multi-container inference pipelines pull images from VPC-based private registry. The rule is NON\_COMPLIANT if any container configuration does not have ImageConfig or has RepositoryAccessMode set to Platform. 
+
+
 
 **Identifier:** SAGEMAKER\_MODEL\_MULTICONTAINER\_PRIVATE\_REGISTRY
 
@@ -12,8 +17,9 @@ This rule checks if SageMaker models with multi-container inference pipelines pu
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1481c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

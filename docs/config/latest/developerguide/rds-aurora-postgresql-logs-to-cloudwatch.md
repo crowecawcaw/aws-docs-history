@@ -1,6 +1,11 @@
-# rds-aurora-postgresql-logs-to-cloudwatch
 
-Checks if an Amazon Aurora PostgreSQL DB cluster is configured to publish PostgreSQL logs to Amazon CloudWatch Logs. This rule is NON\_COMPLIANT if the DB cluster is not configured to publish PostgreSQL logs to Amazon CloudWatch Logs.
+
+# rds-aurora-postgresql-logs-to-cloudwatch
+<a name="rds-aurora-postgresql-logs-to-cloudwatch"></a>
+
+Checks if an Amazon Aurora PostgreSQL DB cluster is configured to publish PostgreSQL logs to Amazon CloudWatch Logs. This rule is NON\_COMPLIANT if the DB cluster is not configured to publish PostgreSQL logs to Amazon CloudWatch Logs. 
+
+
 
 **Identifier:** RDS\_AURORA\_POSTGRESQL\_LOGS\_TO\_CLOUDWATCH
 
@@ -12,8 +17,9 @@ Checks if an Amazon Aurora PostgreSQL DB cluster is configured to publish Postgr
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1217c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

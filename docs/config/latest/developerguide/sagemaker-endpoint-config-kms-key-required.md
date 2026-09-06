@@ -1,6 +1,11 @@
-# sagemaker-endpoint-config-kms-key-required
 
-Checks whether SageMaker endpoint configurations are encrypted with a customer-managed KMS key. The rule is NON\_COMPLIANT if KmsKeyId is not set on the endpoint configuration.
+
+# sagemaker-endpoint-config-kms-key-required
+<a name="sagemaker-endpoint-config-kms-key-required"></a>
+
+Checks whether SageMaker endpoint configurations are encrypted with a customer-managed KMS key. The rule is NON\_COMPLIANT if KmsKeyId is not set on the endpoint configuration. 
+
+
 
 **Identifier:** SAGEMAKER\_ENDPOINT\_CONFIG\_KMS\_KEY\_REQUIRED
 
@@ -12,8 +17,9 @@ Checks whether SageMaker endpoint configurations are encrypted with a customer-m
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1447c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

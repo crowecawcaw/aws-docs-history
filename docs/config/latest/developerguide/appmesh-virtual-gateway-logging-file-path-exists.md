@@ -1,6 +1,11 @@
-# appmesh-virtual-gateway-logging-file-path-exists
 
-Checks if AWS App Mesh virtual gateways have a file path to write access logs to. The rule is NON\_COMPLIANT if configuration.Spec.Logging.AccessLog.File.Path does not exist.
+
+# appmesh-virtual-gateway-logging-file-path-exists
+<a name="appmesh-virtual-gateway-logging-file-path-exists"></a>
+
+Checks if AWS App Mesh virtual gateways have a file path to write access logs to. The rule is NON\_COMPLIANT if configuration.Spec.Logging.AccessLog.File.Path does not exist. 
+
+
 
 **Identifier:** APPMESH\_VIRTUAL\_GATEWAY\_LOGGING\_FILE\_PATH\_EXISTS
 
@@ -12,8 +17,9 @@ Checks if AWS App Mesh virtual gateways have a file path to write access logs to
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d141c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

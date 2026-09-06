@@ -1,6 +1,11 @@
-# sagemaker-domain-in-vpc
 
-Checks if an Amazon SageMaker domain uses a customer owned Amazon Virtual Private Cloud (VPC) for non-EFS traffic. The rule is NON\_COMPLIANT if configuration.AppNetworkAccessType is not set to VpcOnly.
+
+# sagemaker-domain-in-vpc
+<a name="sagemaker-domain-in-vpc"></a>
+
+Checks if an Amazon SageMaker domain uses a customer owned Amazon Virtual Private Cloud (VPC) for non-EFS traffic. The rule is NON\_COMPLIANT if configuration.AppNetworkAccessType is not set to VpcOnly. 
+
+
 
 **Identifier:** SAGEMAKER\_DOMAIN\_IN\_VPC
 
@@ -12,8 +17,9 @@ Checks if an Amazon SageMaker domain uses a customer owned Amazon Virtual Privat
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1441c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

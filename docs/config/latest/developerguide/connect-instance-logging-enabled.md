@@ -1,6 +1,11 @@
-# connect-instance-logging-enabled
 
-Checks if Amazon Connect instances have flow logs enabled in an Amazon CloudWatch log group. The rule is NON\_COMPLIANT if an Amazon Connect instance does not have flow logs enabled.
+
+# connect-instance-logging-enabled
+<a name="connect-instance-logging-enabled"></a>
+
+Checks if Amazon Connect instances have flow logs enabled in an Amazon CloudWatch log group. The rule is NON\_COMPLIANT if an Amazon Connect instance does not have flow logs enabled. 
+
+
 
 **Identifier:** CONNECT\_INSTANCE\_LOGGING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Connect instances have flow logs enabled in an Amazon CloudWatc
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d425c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

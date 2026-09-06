@@ -1,6 +1,11 @@
-# iam-role-managed-policy-check
 
-Checks if all managed policies specified in the list of managed policies are attached to the AWS Identity and Access Management (IAM) role. The rule is NON\_COMPLIANT if a managed policy is not attached to the IAM role.
+
+# iam-role-managed-policy-check
+<a name="iam-role-managed-policy-check"></a>
+
+Checks if all managed policies specified in the list of managed policies are attached to the AWS Identity and Access Management (IAM) role. The rule is NON\_COMPLIANT if a managed policy is not attached to the IAM role. 
+
+
 
 **Identifier:** IAM\_ROLE\_MANAGED\_POLICY\_CHECK
 
@@ -12,13 +17,10 @@ Checks if all managed policies specified in the list of managed policies are att
 
 **Parameters:**
 
-managedPolicyArns
-Type: CSV
-
-Comma-separated list of AWS managed policy Amazon Resource Names (ARNs).
-For more information, see [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md")
-and [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _IAM User Guide_.
+managedPolicyArnsType: CSV  
+Comma-separated list of AWS managed policy Amazon Resource Names (ARNs). For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) and [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d941c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

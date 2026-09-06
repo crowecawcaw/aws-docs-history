@@ -1,6 +1,11 @@
-# neptune-cluster-snapshot-encrypted
 
-Checks if an Amazon Neptune DB cluster has snapshots encrypted. The rule is NON\_COMPLIANT if a Neptune cluster does not have snapshots encrypted.
+
+# neptune-cluster-snapshot-encrypted
+<a name="neptune-cluster-snapshot-encrypted"></a>
+
+Checks if an Amazon Neptune DB cluster has snapshots encrypted. The rule is NON\_COMPLIANT if a Neptune cluster does not have snapshots encrypted. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_SNAPSHOT\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks if an Amazon Neptune DB cluster has snapshots encrypted. The rule is NON\
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1153c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

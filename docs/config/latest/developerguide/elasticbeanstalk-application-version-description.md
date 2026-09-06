@@ -1,6 +1,11 @@
-# elasticbeanstalk-application-version-description
 
-Checks if AWS Elastic Beanstalk application versions have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string.
+
+# elasticbeanstalk-application-version-description
+<a name="elasticbeanstalk-application-version-description"></a>
+
+Checks if AWS Elastic Beanstalk application versions have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string. 
+
+
 
 **Identifier:** ELASTICBEANSTALK\_APPLICATION\_VERSION\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS Elastic Beanstalk application versions have a description. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d759c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

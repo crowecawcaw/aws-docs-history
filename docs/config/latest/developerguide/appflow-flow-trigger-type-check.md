@@ -1,6 +1,11 @@
-# appflow-flow-trigger-type-check
 
-Checks if an Amazon AppFlow flow runs using the specified trigger type. The rule is NON\_COMPLAINT if the flow does not run using the flow type specified in the required rule parameter.
+
+# appflow-flow-trigger-type-check
+<a name="appflow-flow-trigger-type-check"></a>
+
+Checks if an Amazon AppFlow flow runs using the specified trigger type. The rule is NON\_COMPLAINT if the flow does not run using the flow type specified in the required rule parameter. 
+
+
 
 **Identifier:** APPFLOW\_FLOW\_TRIGGER\_TYPE\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an Amazon AppFlow flow runs using the specified trigger type. The rule
 
 **Parameters:**
 
-triggerType
-Type: CSV
-
+triggerTypeType: CSV  
 Comma-separated list of trigger types for the rule to check. Valid values include: 'Scheduled', 'Event', and 'OnDemand'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d117c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# sagemaker-featuregroup-encryption-at-rest
 
-Checks if SageMaker feature groups have KMS encryption for OfflineStore. The rule is NON\_COMPLIANT if offline store S3 storage does not have KMS key encryption.
+
+# sagemaker-featuregroup-encryption-at-rest
+<a name="sagemaker-featuregroup-encryption-at-rest"></a>
+
+Checks if SageMaker feature groups have KMS encryption for OfflineStore. The rule is NON\_COMPLIANT if offline store S3 storage does not have KMS key encryption. 
+
+
 
 **Identifier:** SAGEMAKER\_FEATUREGROUP\_ENCRYPTION\_AT\_REST
 
@@ -12,8 +17,9 @@ Checks if SageMaker feature groups have KMS encryption for OfflineStore. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1453c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

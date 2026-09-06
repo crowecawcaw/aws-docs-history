@@ -1,6 +1,11 @@
-# guardduty-runtime-monitoring-enabled
 
-Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your account or organization. The rule is NON\_COMPLIANT if Runtime Monitoring in GuardDuty is not enabled for your account or at least one member account in your organization.
+
+# guardduty-runtime-monitoring-enabled
+<a name="guardduty-runtime-monitoring-enabled"></a>
+
+Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your account or organization. The rule is NON\_COMPLIANT if Runtime Monitoring in GuardDuty is not enabled for your account or at least one member account in your organization. 
+
+
 
 **Identifier:** GUARDDUTY\_RUNTIME\_MONITORING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Runtime Monitoring is enabled for Amazon GuardDuty detector in your ac
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d909c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

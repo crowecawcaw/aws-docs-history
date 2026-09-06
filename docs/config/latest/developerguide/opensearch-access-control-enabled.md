@@ -1,6 +1,11 @@
-# opensearch-access-control-enabled
 
-Checks if Amazon OpenSearch Service domains have fine-grained access control enabled. The rule is NON\_COMPLIANT if AdvancedSecurityOptions is not enabled for the OpenSearch Service domain.
+
+# opensearch-access-control-enabled
+<a name="opensearch-access-control-enabled"></a>
+
+Checks if Amazon OpenSearch Service domains have fine-grained access control enabled. The rule is NON\_COMPLIANT if AdvancedSecurityOptions is not enabled for the OpenSearch Service domain. 
+
+
 
 **Identifier:** OPENSEARCH\_ACCESS\_CONTROL\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon OpenSearch Service domains have fine-grained access control ena
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1191c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

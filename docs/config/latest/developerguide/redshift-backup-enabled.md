@@ -1,8 +1,11 @@
-# redshift-backup-enabled
 
-Checks that Amazon Redshift automated snapshots are enabled for clusters.
-The rule is NON\_COMPLIANT if the value for `automatedSnapshotRetentionPeriod` is greater than `MaxRetentionPeriod` or
-less than `MinRetentionPeriod` or the value is 0.
+
+# redshift-backup-enabled
+<a name="redshift-backup-enabled"></a>
+
+Checks that Amazon Redshift automated snapshots are enabled for clusters. The rule is NON\_COMPLIANT if the value for `automatedSnapshotRetentionPeriod` is greater than `MaxRetentionPeriod` or less than `MinRetentionPeriod` or the value is 0.
+
+
 
 **Identifier:** REDSHIFT\_BACKUP\_ENABLED
 
@@ -14,16 +17,13 @@ less than `MinRetentionPeriod` or the value is 0.
 
 **Parameters:**
 
-MinRetentionPeriod (Optional)
-Type: int
-
+MinRetentionPeriod (Optional)Type: int  
 Minimum value for the retention period. Minimum value is 1.
 
-MaxRetentionPeriod (Optional)
-Type: int
-
+MaxRetentionPeriod (Optional)Type: int  
 Maximum value for the retention period. Maximum value is 35.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1293c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

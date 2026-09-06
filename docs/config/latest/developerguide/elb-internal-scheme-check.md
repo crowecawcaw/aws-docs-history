@@ -1,6 +1,11 @@
-# elb-internal-scheme-check
 
-Checks if a Classic Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal.
+
+# elb-internal-scheme-check
+<a name="elb-internal-scheme-check"></a>
+
+Checks if a Classic Load Balancer scheme is internal. The rule is NON\_COMPLIANT if configuration.scheme is not set to internal. 
+
+
 
 **Identifier:** ELB\_INTERNAL\_SCHEME\_CHECK
 
@@ -12,8 +17,9 @@ Checks if a Classic Load Balancer scheme is internal. The rule is NON\_COMPLIANT
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d795c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

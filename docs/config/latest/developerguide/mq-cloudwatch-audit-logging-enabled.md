@@ -1,6 +1,11 @@
-# mq-cloudwatch-audit-logging-enabled
 
-Checks if Amazon MQ brokers have Amazon CloudWatch audit logging enabled. The rule is NON\_COMPLIANT if a broker does not have audit logging enabled.
+
+# mq-cloudwatch-audit-logging-enabled
+<a name="mq-cloudwatch-audit-logging-enabled"></a>
+
+Checks if Amazon MQ brokers have Amazon CloudWatch audit logging enabled. The rule is NON\_COMPLIANT if a broker does not have audit logging enabled. 
+
+
 
 **Identifier:** MQ\_CLOUDWATCH\_AUDIT\_LOGGING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon MQ brokers have Amazon CloudWatch audit logging enabled. The ru
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1115c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

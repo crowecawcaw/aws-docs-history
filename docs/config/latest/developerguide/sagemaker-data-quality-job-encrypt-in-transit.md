@@ -1,6 +1,11 @@
-# sagemaker-data-quality-job-encrypt-in-transit
 
-Checks if Amazon SageMaker data quality job definitions have inter-container traffic encryption enabled when the instance count is 2 or greater. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false.
+
+# sagemaker-data-quality-job-encrypt-in-transit
+<a name="sagemaker-data-quality-job-encrypt-in-transit"></a>
+
+Checks if Amazon SageMaker data quality job definitions have inter-container traffic encryption enabled when the instance count is 2 or greater. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableInterContainerTrafficEncryption is false. 
+
+
 
 **Identifier:** SAGEMAKER\_DATA\_QUALITY\_JOB\_ENCRYPT\_IN\_TRANSIT
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker data quality job definitions have inter-container tra
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1437c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

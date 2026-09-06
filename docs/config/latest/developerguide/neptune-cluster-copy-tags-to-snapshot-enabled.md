@@ -1,6 +1,11 @@
-# neptune-cluster-copy-tags-to-snapshot-enabled
 
-Checks if an Amazon Neptune cluster is configured to copy all tags to snapshots when the snapshots are created. The rule is NON\_COMPLIANT if 'copyTagsToSnapshot' is set to false.
+
+# neptune-cluster-copy-tags-to-snapshot-enabled
+<a name="neptune-cluster-copy-tags-to-snapshot-enabled"></a>
+
+Checks if an Amazon Neptune cluster is configured to copy all tags to snapshots when the snapshots are created. The rule is NON\_COMPLIANT if 'copyTagsToSnapshot' is set to false. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_COPY\_TAGS\_TO\_SNAPSHOT\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon Neptune cluster is configured to copy all tags to snapshots 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1143c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

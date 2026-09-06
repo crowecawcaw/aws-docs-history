@@ -1,6 +1,11 @@
-# codebuild-project-artifact-encryption
 
-Checks if an AWS CodeBuild project has encryption enabled for all of its artifacts. The rule is NON\_COMPLIANT if 'encryptionDisabled' is set to 'true' for any primary or secondary (if present) artifact configurations.
+
+# codebuild-project-artifact-encryption
+<a name="codebuild-project-artifact-encryption"></a>
+
+Checks if an AWS CodeBuild project has encryption enabled for all of its artifacts. The rule is NON\_COMPLIANT if 'encryptionDisabled' is set to 'true' for any primary or secondary (if present) artifact configurations. 
+
+
 
 **Identifier:** CODEBUILD\_PROJECT\_ARTIFACT\_ENCRYPTION
 
@@ -12,8 +17,9 @@ Checks if an AWS CodeBuild project has encryption enabled for all of its artifac
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d373c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

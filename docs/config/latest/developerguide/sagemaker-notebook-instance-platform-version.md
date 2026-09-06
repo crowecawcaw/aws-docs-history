@@ -1,6 +1,11 @@
-# sagemaker-notebook-instance-platform-version
 
-Checks if a Sagemaker Notebook Instance is configured to use a supported platform identifier version. The rule is NON\_COMPLIANT if a Notebook Instance is not using the specified supported platform identifier version as specified in the parameter.
+
+# sagemaker-notebook-instance-platform-version
+<a name="sagemaker-notebook-instance-platform-version"></a>
+
+Checks if a Sagemaker Notebook Instance is configured to use a supported platform identifier version. The rule is NON\_COMPLIANT if a Notebook Instance is not using the specified supported platform identifier version as specified in the parameter. 
+
+
 
 **Identifier:** SAGEMAKER\_NOTEBOOK\_INSTANCE\_PLATFORM\_VERSION
 
@@ -12,11 +17,10 @@ Checks if a Sagemaker Notebook Instance is configured to use a supported platfor
 
 **Parameters:**
 
-supportedPlatformIdentifierVersions
-Type: CSV
-
+supportedPlatformIdentifierVersionsType: CSV  
 Comma-separated list of the supported platform identifier version for the rule to check.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1497c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

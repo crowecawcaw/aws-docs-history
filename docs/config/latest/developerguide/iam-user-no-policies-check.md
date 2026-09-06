@@ -1,6 +1,11 @@
-# iam-user-no-policies-check
 
-Checks if none of your AWS Identity and Access Management (IAM) users have policies attached. IAM users must inherit permissions from IAM groups or roles. The rule is NON\_COMPLIANT if there is at least one policy that is attached to the IAM user.
+
+# iam-user-no-policies-check
+<a name="iam-user-no-policies-check"></a>
+
+Checks if none of your AWS Identity and Access Management (IAM) users have policies attached. IAM users must inherit permissions from IAM groups or roles. The rule is NON\_COMPLIANT if there is at least one policy that is attached to the IAM user. 
+
+
 
 **Identifier:** IAM\_USER\_NO\_POLICIES\_CHECK
 
@@ -12,8 +17,9 @@ Checks if none of your AWS Identity and Access Management (IAM) users have polic
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d955c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

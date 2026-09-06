@@ -1,6 +1,11 @@
-# eks-cluster-logging-enabled
 
-Checks if an Amazon Elastic Kubernetes Service (Amazon EKS) cluster is configured with logging enabled. The rule is NON\_COMPLIANT if logging for Amazon EKS clusters is not enabled for all log types.
+
+# eks-cluster-logging-enabled
+<a name="eks-cluster-logging-enabled"></a>
+
+Checks if an Amazon Elastic Kubernetes Service (Amazon EKS) cluster is configured with logging enabled. The rule is NON\_COMPLIANT if logging for Amazon EKS clusters is not enabled for all log types. 
+
+
 
 **Identifier:** EKS\_CLUSTER\_LOGGING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon Elastic Kubernetes Service (Amazon EKS) cluster is configure
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d719c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

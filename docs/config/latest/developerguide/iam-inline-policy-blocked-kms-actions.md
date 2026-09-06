@@ -1,6 +1,11 @@
-# iam-inline-policy-blocked-kms-actions
 
-Checks if the inline policies attached to your IAM users, roles, and groups do not allow blocked actions on all AWS KMS keys. The rule is NON\_COMPLIANT if any blocked action is allowed on all AWS KMS keys in an inline policy.
+
+# iam-inline-policy-blocked-kms-actions
+<a name="iam-inline-policy-blocked-kms-actions"></a>
+
+Checks if the inline policies attached to your IAM users, roles, and groups do not allow blocked actions on all AWS KMS keys. The rule is NON\_COMPLIANT if any blocked action is allowed on all AWS KMS keys in an inline policy. 
+
+
 
 **Identifier:** IAM\_INLINE\_POLICY\_BLOCKED\_KMS\_ACTIONS
 
@@ -12,16 +17,13 @@ Checks if the inline policies attached to your IAM users, roles, and groups do n
 
 **Parameters:**
 
-blockedActionsPatterns
-Type: CSV
-
+blockedActionsPatternsType: CSV  
 Comma-separated list of blocked KMS action patterns, for example, kms:\*, kms:Decrypt, kms:ReEncrypt\*.
 
-excludeRoleByManagementAccount (Optional)
-Type: boolean
-
+excludeRoleByManagementAccount (Optional)Type: boolean  
 Exclude a role if it is only assumable by organization management account.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d921c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

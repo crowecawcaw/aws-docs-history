@@ -1,6 +1,11 @@
-# s3express-dir-bucket-lifecycle-rules-check
 
-Checks if lifecycle rules are configured for an Amazon S3 Express directory bucket. The rule is NON\_COMPLIANT if there is no active lifecycle configuration rules or the configuration does not match with the parameter values.
+
+# s3express-dir-bucket-lifecycle-rules-check
+<a name="s3express-dir-bucket-lifecycle-rules-check"></a>
+
+Checks if lifecycle rules are configured for an Amazon S3 Express directory bucket. The rule is NON\_COMPLIANT if there is no active lifecycle configuration rules or the configuration does not match with the parameter values. 
+
+
 
 **Identifier:** S3EXPRESS\_DIR\_BUCKET\_LIFECYCLE\_RULES\_CHECK
 
@@ -12,11 +17,10 @@ Checks if lifecycle rules are configured for an Amazon S3 Express directory buck
 
 **Parameters:**
 
-targetExpirationDays (Optional)
-Type: int
-
+targetExpirationDays (Optional)Type: int  
 Number of days after creation when objects are deleted from Amazon S3 Express directory buckets.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1375c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

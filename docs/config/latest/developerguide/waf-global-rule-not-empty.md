@@ -1,6 +1,11 @@
-# waf-global-rule-not-empty
 
-Checks if an AWS WAF global rule contains any conditions. The rule is NON\_COMPLIANT if no conditions are present within the WAF global rule.
+
+# waf-global-rule-not-empty
+<a name="waf-global-rule-not-empty"></a>
+
+Checks if an AWS WAF global rule contains any conditions. The rule is NON\_COMPLIANT if no conditions are present within the WAF global rule. 
+
+
 
 **Identifier:** WAF\_GLOBAL\_RULE\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if an AWS WAF global rule contains any conditions. The rule is NON\_COMPL
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1627c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

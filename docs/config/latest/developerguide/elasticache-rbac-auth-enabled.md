@@ -1,6 +1,11 @@
-# elasticache-rbac-auth-enabled
 
-Checks if Amazon ElastiCache replication groups have RBAC authentication enabled. The rule is NON\_COMPLIANT if the Redis version is 6 or above and ‘UserGroupIds’ is missing, empty, or does not match an entry provided by the '`allowedUserGroupIDs`' parameter.
+
+# elasticache-rbac-auth-enabled
+<a name="elasticache-rbac-auth-enabled"></a>
+
+Checks if Amazon ElastiCache replication groups have RBAC authentication enabled. The rule is NON\_COMPLIANT if the Redis version is 6 or above and ‘UserGroupIds’ is missing, empty, or does not match an entry provided by the '`allowedUserGroupIDs`' parameter. 
+
+
 
 **Identifier:** ELASTICACHE\_RBAC\_AUTH\_ENABLED
 
@@ -12,11 +17,10 @@ Checks if Amazon ElastiCache replication groups have RBAC authentication enabled
 
 **Parameters:**
 
-allowedUserGroupIDs (Optional)
-Type: CSV
-
+allowedUserGroupIDs (Optional)Type: CSV  
 A comma-separated list of User Group IDs that are approved for ElastiCache replication group access.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d741c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

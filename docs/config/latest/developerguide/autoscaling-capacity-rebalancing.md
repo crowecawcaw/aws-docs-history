@@ -1,6 +1,11 @@
-# autoscaling-capacity-rebalancing
 
-Checks if Capacity Rebalancing is enabled for Amazon EC2 Auto Scaling groups that use multiple instance types. The rule is NON\_COMPLIANT if capacity Rebalancing is not enabled.
+
+# autoscaling-capacity-rebalancing
+<a name="autoscaling-capacity-rebalancing"></a>
+
+Checks if Capacity Rebalancing is enabled for Amazon EC2 Auto Scaling groups that use multiple instance types. The rule is NON\_COMPLIANT if capacity Rebalancing is not enabled. 
+
+
 
 **Identifier:** AUTOSCALING\_CAPACITY\_REBALANCING
 
@@ -12,8 +17,9 @@ Checks if Capacity Rebalancing is enabled for Amazon EC2 Auto Scaling groups tha
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d231c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

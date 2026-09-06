@@ -1,10 +1,14 @@
+
+
 # opensearch-node-to-node-encryption-check
+<a name="opensearch-node-to-node-encryption-check"></a>
 
-Check if Amazon OpenSearch Service nodes are encrypted end to end. The rule is NON\_COMPLIANT if the node-to-node encryption is not enabled on the domain
+Check if Amazon OpenSearch Service nodes are encrypted end to end. The rule is NON\_COMPLIANT if the node-to-node encryption is not enabled on the domain 
 
-###### Note
-
+**Note**  
 The rule does not evaluate Elasticsearch domains.
+
+
 
 **Identifier:** OPENSEARCH\_NODE\_TO\_NODE\_ENCRYPTION\_CHECK
 
@@ -16,8 +20,9 @@ The rule does not evaluate Elasticsearch domains.
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1205c21"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

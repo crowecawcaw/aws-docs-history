@@ -1,6 +1,11 @@
-# security-account-information-provided
 
-Checks if you have provided security contact information for your AWS account contacts. The rule is NON\_COMPLIANT if security contact information within the account is not provided.
+
+# security-account-information-provided
+<a name="security-account-information-provided"></a>
+
+Checks if you have provided security contact information for your AWS account contacts. The rule is NON\_COMPLIANT if security contact information within the account is not provided. 
+
+
 
 **Identifier:** SECURITY\_ACCOUNT\_INFORMATION\_PROVIDED
 
@@ -12,8 +17,9 @@ Checks if you have provided security contact information for your AWS account co
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1517c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# dms-redis-tls-enabled
 
-Checks if AWS Database Migration Service (AWS DMS) endpoints for Redis data stores are enabled for TLS/SSL encryption of data communicated with other endpoints. The rule is NON\_COMPLIANT if TLS/SSL encryption is not enabled.
+
+# dms-redis-tls-enabled
+<a name="dms-redis-tls-enabled"></a>
+
+Checks if AWS Database Migration Service (AWS DMS) endpoints for Redis data stores are enabled for TLS/SSL encryption of data communicated with other endpoints. The rule is NON\_COMPLIANT if TLS/SSL encryption is not enabled. 
+
+
 
 **Identifier:** DMS\_REDIS\_TLS\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS Database Migration Service (AWS DMS) endpoints for Redis data stor
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d473c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

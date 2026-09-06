@@ -1,44 +1,34 @@
+
+
 # Creating AWS Config Custom Lambda Rules
+<a name="evaluate-config_develop-rules_lambda-functions"></a>
 
 You can develop custom rules and add them to AWS Config with AWS Lambda functions.
 
-You associate
-each custom rule with an Lambda function, which contains the logic that evaluates whether
-your AWS resources comply with the rule. You associate this function with your rule, and
-the rule invokes the function either in response to configuration changes or periodically.
-The function then evaluates whether your resources comply with your rule, and sends its
-evaluation results to AWS Config.
+You associate each custom rule with an Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule. You associate this function with your rule, and the rule invokes the function either in response to configuration changes or periodically. The function then evaluates whether your resources comply with your rule, and sends its evaluation results to AWS Config. 
 
-The AWS Rule Development Kit (RDK) is designed to support a "Compliance-as-Code" workflow that is intuitive and productive. It abstracts away much of the undifferentiated heavy lifting associated with
-deploying AWS Config rules backed by custom Lambda functions, and provides a streamlined develop-deploy-monitor iterative process.
+## AWS Rule Development Kit (RDK)
+<a name="rdk"></a>
 
-For step-by-step instruction, see the [AWS Rule Development Kit (RDK) Documentation](https://aws-config-rdk.readthedocs.io/en/master "https://aws-config-rdk.readthedocs.io/en/master").
+The AWS Rule Development Kit (RDK) is designed to support a "Compliance-as-Code" workflow that is intuitive and productive. It abstracts away much of the undifferentiated heavy lifting associated with deploying AWS Config rules backed by custom Lambda functions, and provides a streamlined develop-deploy-monitor iterative process.
 
-AWS Lambda executes functions in response to events that are published by AWS services.
-The function for an AWS Config Custom Lambda rule receives an event that is published by AWS Config, and
-the function then uses data that it receives from the event and that it retrieves from the
-AWS Config API to evaluate the compliance of the rule. The operations in a function for a Config
-rule differ depending on whether it performs an evaluation that is triggered by
-configuration changes or triggered periodically.
+For step-by-step instruction, see the [AWS Rule Development Kit (RDK) Documentation](https://aws-config-rdk.readthedocs.io/en/master).
 
-For information about common patterns within AWS Lambda functions, see [Programming Model](../../../lambda/latest/dg/programming-model-v2.md "../../../lambda/latest/dg/programming-model-v2.md") in the
-_AWS Lambda Developer Guide_.
+## Example AWS Lambda Functions for AWS Config Rules (Node.js)
+<a name="evaluate-config_develop-rules_nodejs-sample"></a>
 
-Example Function for Evaluations Triggered by
-Configuration Changes AWS Config will invoke a function like the following example when it detects a configuration
-change for a resource that is within a custom rule's scope.
+AWS Lambda executes functions in response to events that are published by AWS services. The function for an AWS Config Custom Lambda rule receives an event that is published by AWS Config, and the function then uses data that it receives from the event and that it retrieves from the AWS Config API to evaluate the compliance of the rule. The operations in a function for a Config rule differ depending on whether it performs an evaluation that is triggered by configuration changes or triggered periodically.
 
-If you use the AWS Config console to create a rule that is associated with a function like
-this example, choose **Configuration changes** as the trigger type. If
-you use the AWS Config API or AWS CLI to create the rule, set the `MessageType`
-attribute to `ConfigurationItemChangeNotification` and
-`OversizedConfigurationItemChangeNotification`. These settings enable
-your rule to be triggered whenever AWS Config generates a configuration item or an oversized
-configuration item as a result of a resource change.
+For information about common patterns within AWS Lambda functions, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) in the *AWS Lambda Developer Guide*.
 
-This example evaluates your resources and checks whether the instances match the
-resource type, `AWS::EC2::Instance`. The rule is triggered when AWS Config
-generates a configuration item or an oversized configuration item notification.
+------
+#### [ Example Function for Evaluations Triggered by Configuration Changes ]
+
+AWS Config will invoke a function like the following example when it detects a configuration change for a resource that is within a custom rule's scope.
+
+If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Configuration changes** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification`. These settings enable your rule to be triggered whenever AWS Config generates a configuration item or an oversized configuration item as a result of a resource change.
+
+This example evaluates your resources and checks whether the instances match the resource type, `AWS::EC2::Instance`. The rule is triggered when AWS Config generates a configuration item or an oversized configuration item notification. 
 
 ```
 'use strict';
@@ -179,56 +169,36 @@ export const handler = async (event, context) => {
 };
 ```
 
-###### Function Operations
+**Function Operations**
 
 The function performs the following operations at runtime:
 
-1. The function runs when AWS Lambda passes the `event` object to the
-   `handler` function. In this example, the function accepts the
-   optional `callback` parameter, which it uses to return information to
-   the caller. AWS Lambda also passes a `context` object, which contains
-   information and methods that the function can use while it runs. Note that in
-   newer versions of Lambda, context is no longer used.
-2. The function checks whether the `messageType` for the event is a
-   configuration item or an oversized configuration item, and then returns the
-   configuration item.
-3. The handler calls the `isApplicable` function to determine whether
-   the resource was deleted.
+1. The function runs when AWS Lambda passes the `event` object to the `handler` function. In this example, the function accepts the optional `callback` parameter, which it uses to return information to the caller. AWS Lambda also passes a `context` object, which contains information and methods that the function can use while it runs. Note that in newer versions of Lambda, context is no longer used.
 
-###### Note
+1. The function checks whether the `messageType` for the event is a configuration item or an oversized configuration item, and then returns the configuration item. 
 
-Rules reporting on deleted resources should return the evaluation result of `NOT_APPLICABLE` in order to avoid unnecessary rule evaluations. 4. The handler calls the `evaluateChangeNotificationCompliance`
-function and passes the `configurationItem` and
-`ruleParameters` objects that AWS Config published in the event.
+1. The handler calls the `isApplicable` function to determine whether the resource was deleted.
+**Note**  
+Rules reporting on deleted resources should return the evaluation result of `NOT_APPLICABLE` in order to avoid unnecessary rule evaluations.
 
-The function first evaluates whether the resource is an EC2 instance. If the
-resource is not an EC2 instance, the function returns a compliance value of
-`NOT_APPLICABLE`.
+1. The handler calls the `evaluateChangeNotificationCompliance` function and passes the `configurationItem` and `ruleParameters` objects that AWS Config published in the event.
 
-The function then evaluates whether the `instanceType` attribute in
-the configuration item is equal to the `desiredInstanceType`
-parameter value. If the values are equal, the function returns
-`COMPLIANT`. If the values are not equal, the function returns
-`NON_COMPLIANT`. 5. The handler prepares to send the evaluation results to AWS Config by initializing
-the `putEvaluationsRequest` object. This object includes the
-`Evaluations` parameter, which identifies the compliance result,
-the resource type, and the ID of the resource that was evaluated. The
-`putEvaluationsRequest` object also includes the result token
-from the event, which identifies the rule and the event for AWS Config. 6. The handler sends the evaluation results to AWS Config by passing the object to the
-`putEvaluations` method of the `config` client.
+   The function first evaluates whether the resource is an EC2 instance. If the resource is not an EC2 instance, the function returns a compliance value of `NOT_APPLICABLE`. 
 
-Example Function for Periodic
-Evaluations AWS Config will invoke a function like the following example for periodic evaluations.
-Periodic evaluations occur at the frequency that you specify when you define the rule in
-AWS Config.
+   The function then evaluates whether the `instanceType` attribute in the configuration item is equal to the `desiredInstanceType` parameter value. If the values are equal, the function returns `COMPLIANT`. If the values are not equal, the function returns `NON_COMPLIANT`.
 
-If you use the AWS Config console to create a rule that is associated with a function like
-this example, choose **Periodic** as the trigger type. If you use the
-AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to
-`ScheduledNotification`.
+1. The handler prepares to send the evaluation results to AWS Config by initializing the `putEvaluationsRequest` object. This object includes the `Evaluations` parameter, which identifies the compliance result, the resource type, and the ID of the resource that was evaluated. The `putEvaluationsRequest` object also includes the result token from the event, which identifies the rule and the event for AWS Config. 
 
-This example checks whether the total number of a specified resource
-exceeds a specified maximum.
+1. The handler sends the evaluation results to AWS Config by passing the object to the `putEvaluations` method of the `config` client.
+
+------
+#### [ Example Function for Periodic Evaluations ]
+
+AWS Config will invoke a function like the following example for periodic evaluations. Periodic evaluations occur at the frequency that you specify when you define the rule in AWS Config.
+
+If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Periodic** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ScheduledNotification`.
+
+This example checks whether the total number of a specified resource exceeds a specified maximum.
 
 ```
 'use strict';
@@ -342,66 +312,38 @@ async function countResourceTypes(applicableResourceType, nextToken, count, call
 }
 ```
 
-###### Function Operations
+**Function Operations**
 
 The function performs the following operations at runtime:
 
-1. The function runs when AWS Lambda passes the `event` object to the
-   `handler` function. In this example, the function accepts the
-   optional `callback` parameter, which it uses to return information to
-   the caller. AWS Lambda also passes a `context` object, which contains
-   information and methods that the function can use while it runs. Note that in
-   newer versions of Lambda, context is no longer used.
-2. To count the resources of the specified type, the handler calls the
-   `countResourceTypes` function, and it passes the
-   `applicableResourceType` parameter that it received from the
-   event. The `countResourceTypes` function calls the
-   `listDiscoveredResources` method of the `config`
-   client, which returns a list of identifiers for the applicable resources. The
-   function uses the length of this list to determine the number of applicable
-   resources, and it returns this count to the handler.
-3. The handler prepares to send the evaluation results to AWS Config by initializing
-   the `putEvaluationsRequest` object. This object includes the
-   `Evaluations` parameter, which identifies the compliance result
-   and the AWS account that was published in the event. You can use the
-   `Evaluations` parameter to apply the result to any resource type
-   that is supported by AWS Config. The `putEvaluationsRequest` object also
-   includes the result token from the event, which identifies the rule and the
-   event for AWS Config.
-4. Within the `putEvaluationsRequest` object, the handler calls the
-   `evaluateCompliance` function. This function tests whether the
-   number of applicable resources exceeds the maximum assigned to the
-   `maxCount` parameter, which was provided by the event. If the
-   number of resources exceeds the maximum, the function returns
-   `NON_COMPLIANT`. If the number of resources does not exceed the
-   maximum, the function returns `COMPLIANT`.
-5. The handler sends the evaluation results to AWS Config by passing the object to the
-   `putEvaluations` method of the `config` client.
+1. The function runs when AWS Lambda passes the `event` object to the `handler` function. In this example, the function accepts the optional `callback` parameter, which it uses to return information to the caller. AWS Lambda also passes a `context` object, which contains information and methods that the function can use while it runs. Note that in newer versions of Lambda, context is no longer used.
 
-AWS Lambda executes functions in response to events that are published by AWS services.
-The function for an AWS Config Custom Lambda rule receives an event that is published by AWS Config, and
-the function then uses data that it receives from the event and that it retrieves from the
-AWS Config API to evaluate the compliance of the rule. The operations in a function for a Config
-rule differ depending on whether it performs an evaluation that is triggered by
-configuration changes or triggered periodically.
+1. To count the resources of the specified type, the handler calls the `countResourceTypes` function, and it passes the `applicableResourceType` parameter that it received from the event. The `countResourceTypes` function calls the `listDiscoveredResources` method of the `config` client, which returns a list of identifiers for the applicable resources. The function uses the length of this list to determine the number of applicable resources, and it returns this count to the handler.
 
-For information about common patterns within AWS Lambda functions, see [Programming Model](../../../lambda/latest/dg/programming-model-v2.md "../../../lambda/latest/dg/programming-model-v2.md") in the
-_AWS Lambda Developer Guide_.
+1. The handler prepares to send the evaluation results to AWS Config by initializing the `putEvaluationsRequest` object. This object includes the `Evaluations` parameter, which identifies the compliance result and the AWS account that was published in the event. You can use the `Evaluations` parameter to apply the result to any resource type that is supported by AWS Config. The `putEvaluationsRequest` object also includes the result token from the event, which identifies the rule and the event for AWS Config.
 
-Example Function for Evaluations Triggered by
-Configuration Changes AWS Config will invoke a function like the following example when it detects a configuration
-change for a resource that is within a custom rule's scope.
+1. Within the `putEvaluationsRequest` object, the handler calls the `evaluateCompliance` function. This function tests whether the number of applicable resources exceeds the maximum assigned to the `maxCount` parameter, which was provided by the event. If the number of resources exceeds the maximum, the function returns `NON_COMPLIANT`. If the number of resources does not exceed the maximum, the function returns `COMPLIANT`.
 
-If you use the AWS Config console to create a rule that is associated with a function like
-this example, choose **Configuration changes** as the trigger type. If
-you use the AWS Config API or AWS CLI to create the rule, set the `MessageType`
-attribute to `ConfigurationItemChangeNotification` and
-`OversizedConfigurationItemChangeNotification`. These settings enable
-your rule to be triggered whenever AWS Config generates a configuration item or an oversized
-configuration item as a result of a resource change.
+1. The handler sends the evaluation results to AWS Config by passing the object to the `putEvaluations` method of the `config` client.
+
+------
+
+## Example AWS Lambda Functions for AWS Config Rules (Python)
+<a name="evaluate-config_develop-rules_python-sample"></a>
+
+AWS Lambda executes functions in response to events that are published by AWS services. The function for an AWS Config Custom Lambda rule receives an event that is published by AWS Config, and the function then uses data that it receives from the event and that it retrieves from the AWS Config API to evaluate the compliance of the rule. The operations in a function for a Config rule differ depending on whether it performs an evaluation that is triggered by configuration changes or triggered periodically.
+
+For information about common patterns within AWS Lambda functions, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) in the *AWS Lambda Developer Guide*.
+
+------
+#### [ Example Function for Evaluations Triggered by Configuration Changes ]
+
+AWS Config will invoke a function like the following example when it detects a configuration change for a resource that is within a custom rule's scope.
+
+If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Configuration changes** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification`. These settings enable your rule to be triggered whenever AWS Config generates a configuration item or an oversized configuration item as a result of a resource change.
 
 ```
-import botocore
+import botocore 
 import boto3
 import json
 import datetime
@@ -543,56 +485,37 @@ def lambda_handler(event, context):
        ResultToken=event['resultToken'])
 ```
 
-###### Function Operations
+**Function Operations**
 
 The function performs the following operations at runtime:
 
-1. The function runs when AWS Lambda passes the `event` object to the
-   `handler` function. In this example, the function accepts the
-   optional `callback` parameter, which it uses to return information to
-   the caller. AWS Lambda also passes a `context` object, which contains
-   information and methods that the function can use while it runs. Note that in
-   newer versions of Lambda, context is no longer used.
-2. The function checks whether the `messageType` for the event is a
-   configuration item or an oversized configuration item, and then returns the
-   configuration item.
-3. The handler calls the `isApplicable` function to determine whether
-   the resource was deleted.
+1. The function runs when AWS Lambda passes the `event` object to the `handler` function. In this example, the function accepts the optional `callback` parameter, which it uses to return information to the caller. AWS Lambda also passes a `context` object, which contains information and methods that the function can use while it runs. Note that in newer versions of Lambda, context is no longer used.
 
-###### Note
+1. The function checks whether the `messageType` for the event is a configuration item or an oversized configuration item, and then returns the configuration item. 
 
-Rules reporting on deleted resources should return the evaluation result of `NOT_APPLICABLE` in order to avoid unnecessary rule evaluations. 4. The handler calls the `evaluateChangeNotificationCompliance`
-function and passes the `configurationItem` and
-`ruleParameters` objects that AWS Config published in the event.
+1. The handler calls the `isApplicable` function to determine whether the resource was deleted.
+**Note**  
+Rules reporting on deleted resources should return the evaluation result of `NOT_APPLICABLE` in order to avoid unnecessary rule evaluations.
 
-The function first evaluates whether the resource is an EC2 instance. If the
-resource is not an EC2 instance, the function returns a compliance value of
-`NOT_APPLICABLE`.
+1. The handler calls the `evaluateChangeNotificationCompliance` function and passes the `configurationItem` and `ruleParameters` objects that AWS Config published in the event.
 
-The function then evaluates whether the `instanceType` attribute in
-the configuration item is equal to the `desiredInstanceType`
-parameter value. If the values are equal, the function returns
-`COMPLIANT`. If the values are not equal, the function returns
-`NON_COMPLIANT`. 5. The handler prepares to send the evaluation results to AWS Config by initializing
-the `putEvaluationsRequest` object. This object includes the
-`Evaluations` parameter, which identifies the compliance result,
-the resource type, and the ID of the resource that was evaluated. The
-`putEvaluationsRequest` object also includes the result token
-from the event, which identifies the rule and the event for AWS Config. 6. The handler sends the evaluation results to AWS Config by passing the object to the
-`putEvaluations` method of the `config` client.
+   The function first evaluates whether the resource is an EC2 instance. If the resource is not an EC2 instance, the function returns a compliance value of `NOT_APPLICABLE`. 
 
-Example Function for Periodic
-Evaluations AWS Config will invoke a function like the following example for periodic evaluations.
-Periodic evaluations occur at the frequency that you specify when you define the rule in
-AWS Config.
+   The function then evaluates whether the `instanceType` attribute in the configuration item is equal to the `desiredInstanceType` parameter value. If the values are equal, the function returns `COMPLIANT`. If the values are not equal, the function returns `NON_COMPLIANT`.
 
-If you use the AWS Config console to create a rule that is associated with a function like
-this example, choose **Periodic** as the trigger type. If you use the
-AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to
-`ScheduledNotification`.
+1. The handler prepares to send the evaluation results to AWS Config by initializing the `putEvaluationsRequest` object. This object includes the `Evaluations` parameter, which identifies the compliance result, the resource type, and the ID of the resource that was evaluated. The `putEvaluationsRequest` object also includes the result token from the event, which identifies the rule and the event for AWS Config. 
+
+1. The handler sends the evaluation results to AWS Config by passing the object to the `putEvaluations` method of the `config` client.
+
+------
+#### [ Example Function for Periodic Evaluations ]
+
+AWS Config will invoke a function like the following example for periodic evaluations. Periodic evaluations occur at the frequency that you specify when you define the rule in AWS Config.
+
+If you use the AWS Config console to create a rule that is associated with a function like this example, choose **Periodic** as the trigger type. If you use the AWS Config API or AWS CLI to create the rule, set the `MessageType` attribute to `ScheduledNotification`.
 
 ```
-import botocore
+import botocore 
 import boto3
 import json
 import datetime
@@ -698,192 +621,132 @@ def lambda_handler(event, context):
     response = AWS_CONFIG_CLIENT.put_evaluations(Evaluations=evaluations, ResultToken=event['resultToken'])
 ```
 
-###### Function Operations
+**Function Operations**
 
 The function performs the following operations at runtime:
 
-1. The function runs when AWS Lambda passes the `event` object to the
-   `handler` function. In this example, the function accepts the
-   optional `callback` parameter, which it uses to return information to
-   the caller. AWS Lambda also passes a `context` object, which contains
-   information and methods that the function can use while it runs. Note that in
-   newer versions of Lambda, context is no longer used.
-2. To count the resources of the specified type, the handler calls the
-   `countResourceTypes` function, and it passes the
-   `applicableResourceType` parameter that it received from the
-   event. The `countResourceTypes` function calls the
-   `listDiscoveredResources` method of the `config`
-   client, which returns a list of identifiers for the applicable resources. The
-   function uses the length of this list to determine the number of applicable
-   resources, and it returns this count to the handler.
-3. The handler prepares to send the evaluation results to AWS Config by initializing
-   the `putEvaluationsRequest` object. This object includes the
-   `Evaluations` parameter, which identifies the compliance result
-   and the AWS account that was published in the event. You can use the
-   `Evaluations` parameter to apply the result to any resource type
-   that is supported by AWS Config. The `putEvaluationsRequest` object also
-   includes the result token from the event, which identifies the rule and the
-   event for AWS Config.
-4. Within the `putEvaluationsRequest` object, the handler calls the
-   `evaluateCompliance` function. This function tests whether the
-   number of applicable resources exceeds the maximum assigned to the
-   `maxCount` parameter, which was provided by the event. If the
-   number of resources exceeds the maximum, the function returns
-   `NON_COMPLIANT`. If the number of resources does not exceed the
-   maximum, the function returns `COMPLIANT`.
-5. The handler sends the evaluation results to AWS Config by passing the object to the
-   `putEvaluations` method of the `config` client.
+1. The function runs when AWS Lambda passes the `event` object to the `handler` function. In this example, the function accepts the optional `callback` parameter, which it uses to return information to the caller. AWS Lambda also passes a `context` object, which contains information and methods that the function can use while it runs. Note that in newer versions of Lambda, context is no longer used.
 
-When the trigger for a rule occurs, AWS Config invokes the rule's AWS Lambda function by
-publishing an event. Then AWS Lambda executes the function by passing the event to the
-function's handler.
+1. To count the resources of the specified type, the handler calls the `countResourceTypes` function, and it passes the `applicableResourceType` parameter that it received from the event. The `countResourceTypes` function calls the `listDiscoveredResources` method of the `config` client, which returns a list of identifiers for the applicable resources. The function uses the length of this list to determine the number of applicable resources, and it returns this count to the handler.
 
-Example Event for Evaluations Triggered by
-Configuration Changes
-AWS Config publishes an event when it detects a configuration change for a resource that is
-within a rule's scope. The following example event shows that the rule was triggered by
-a configuration change for an EC2 instance.
+1. The handler prepares to send the evaluation results to AWS Config by initializing the `putEvaluationsRequest` object. This object includes the `Evaluations` parameter, which identifies the compliance result and the AWS account that was published in the event. You can use the `Evaluations` parameter to apply the result to any resource type that is supported by AWS Config. The `putEvaluationsRequest` object also includes the result token from the event, which identifies the rule and the event for AWS Config.
+
+1. Within the `putEvaluationsRequest` object, the handler calls the `evaluateCompliance` function. This function tests whether the number of applicable resources exceeds the maximum assigned to the `maxCount` parameter, which was provided by the event. If the number of resources exceeds the maximum, the function returns `NON_COMPLIANT`. If the number of resources does not exceed the maximum, the function returns `COMPLIANT`.
+
+1. The handler sends the evaluation results to AWS Config by passing the object to the `putEvaluations` method of the `config` client.
+
+------
+
+## Example Events for AWS Config Rules
+<a name="evaluate-config_develop-rules_example-events"></a>
+
+When the trigger for a rule occurs, AWS Config invokes the rule's AWS Lambda function by publishing an event. Then AWS Lambda executes the function by passing the event to the function's handler.
+
+------
+#### [ Example Event for Evaluations Triggered by Configuration Changes ]
+
+AWS Config publishes an event when it detects a configuration change for a resource that is within a rule's scope. The following example event shows that the rule was triggered by a configuration change for an EC2 instance.
 
 ```
-{
-    "invokingEvent": "`{\"configurationItem\":{\"configurationItemCaptureTime\":\"2016-02-17T01:36:34.043Z\",\"awsAccountId\":\"123456789012\",\"configurationItemStatus\":\"OK\",\"resourceId\":\"i-00000000\",\"ARN\":\"arn:aws:ec2:us-east-2:123456789012:instance/i-00000000\",\"awsRegion\":\"us-east-2\",\"availabilityZone\":\"us-east-2a\",\"resourceType\":\"AWS::EC2::Instance\",\"tags\":{\"Foo\":\"Bar\"},\"relationships\":[{\"resourceId\":\"eipalloc-00000000\",\"resourceType\":\"AWS::EC2::EIP\",\"name\":\"Is attached to ElasticIp\"}],\"configuration\":{\"foo\":\"bar\"}},\"messageType\":\"ConfigurationItemChangeNotification\"}`",
-    "ruleParameters": "`{\"myParameterKey\":\"myParameterValue\"}`",
-    "resultToken": "`myResultToken`",
-    "eventLeftScope": `false`,
-    "executionRoleArn": "`arn:aws:iam::123456789012:role/config-role`",
-    "configRuleArn": "`arn:aws:config:us-east-2:123456789012:config-rule/config-rule-0123456`",
-    "configRuleName": "`change-triggered-config-rule`",
-    "configRuleId": "`config-rule-0123456`",
-    "accountId": "`123456789012`",
+{ 
+    "invokingEvent": "{{{\"configurationItem\":{\"configurationItemCaptureTime\":\"2016-02-17T01:36:34.043Z\",\"awsAccountId\":\"123456789012\",\"configurationItemStatus\":\"OK\",\"resourceId\":\"i-00000000\",\"ARN\":\"arn:aws:ec2:us-east-2:123456789012:instance/i-00000000\",\"awsRegion\":\"us-east-2\",\"availabilityZone\":\"us-east-2a\",\"resourceType\":\"AWS::EC2::Instance\",\"tags\":{\"Foo\":\"Bar\"},\"relationships\":[{\"resourceId\":\"eipalloc-00000000\",\"resourceType\":\"AWS::EC2::EIP\",\"name\":\"Is attached to ElasticIp\"}],\"configuration\":{\"foo\":\"bar\"}},\"messageType\":\"ConfigurationItemChangeNotification\"}}}",
+    "ruleParameters": "{{{\"myParameterKey\":\"myParameterValue\"}}}",
+    "resultToken": "{{myResultToken}}",
+    "eventLeftScope": {{false}},
+    "executionRoleArn": "{{arn:aws:iam::123456789012:role/config-role}}",
+    "configRuleArn": "{{arn:aws:config:us-east-2:123456789012:config-rule/config-rule-0123456}}",
+    "configRuleName": "{{change-triggered-config-rule}}",
+    "configRuleId": "{{config-rule-0123456}}",
+    "accountId": "{{123456789012}}",
     "version": "1.0"
 }
-
 ```
 
-Example
-Event for Evaluations Triggered by Oversized Configuration Changes Some resource changes generate oversized configuration items. The following example
-event shows that the rule was triggered by an oversized configuration change for an EC2
-instance.
+------
+#### [ Example Event for Evaluations Triggered by Oversized Configuration Changes ]
+
+Some resource changes generate oversized configuration items. The following example event shows that the rule was triggered by an oversized configuration change for an EC2 instance.
 
 ```
 {
-        "invokingEvent": "`{\"configurationItemSummary\": {\"changeType\": \"UPDATE\",\"configurationItemVersion\": \"1.2\",\"configurationItemCaptureTime\":\"2016-10-06T16:46:16.261Z\",\"configurationStateId\": 0,\"awsAccountId\":\"123456789012\",\"configurationItemStatus\": \"OK\",\"resourceType\": \"AWS::EC2::Instance\",\"resourceId\":\"i-00000000\",\"resourceName\":null,\"ARN\":\"arn:aws:ec2:us-west-2:123456789012:instance/i-00000000\",\"awsRegion\": \"us-west-2\",\"availabilityZone\":\"us-west-2a\",\"configurationStateMd5Hash\":\"8f1ee69b287895a0f8bc5753eca68e96\",\"resourceCreationTime\":\"2016-10-06T16:46:10.489Z\"},\"messageType\":\"OversizedConfigurationItemChangeNotification\"}`",
-        "ruleParameters": "`{\"myParameterKey\":\"myParameterValue\"}`",
-        "resultToken": "`myResultToken`",
-        "eventLeftScope": `false`,
-        "executionRoleArn": "`arn:aws:iam::123456789012:role/config-role`",
-        "configRuleArn": "`arn:aws:config:us-east-2:123456789012:config-rule/config-rule-ec2-managed-instance-inventory`",
-        "configRuleName": "`change-triggered-config-rule`",
-        "configRuleId": "`config-rule-0123456`",
-        "accountId": "`123456789012`",
+        "invokingEvent": "{{{\"configurationItemSummary\": {\"changeType\": \"UPDATE\",\"configurationItemVersion\": \"1.2\",\"configurationItemCaptureTime\":\"2016-10-06T16:46:16.261Z\",\"configurationStateId\": 0,\"awsAccountId\":\"123456789012\",\"configurationItemStatus\": \"OK\",\"resourceType\": \"AWS::EC2::Instance\",\"resourceId\":\"i-00000000\",\"resourceName\":null,\"ARN\":\"arn:aws:ec2:us-west-2:123456789012:instance/i-00000000\",\"awsRegion\": \"us-west-2\",\"availabilityZone\":\"us-west-2a\",\"configurationStateMd5Hash\":\"8f1ee69b287895a0f8bc5753eca68e96\",\"resourceCreationTime\":\"2016-10-06T16:46:10.489Z\"},\"messageType\":\"OversizedConfigurationItemChangeNotification\"}}}",
+        "ruleParameters": "{{{\"myParameterKey\":\"myParameterValue\"}}}",
+        "resultToken": "{{myResultToken}}",
+        "eventLeftScope": {{false}},
+        "executionRoleArn": "{{arn:aws:iam::123456789012:role/config-role}}",
+        "configRuleArn": "{{arn:aws:config:us-east-2:123456789012:config-rule/config-rule-ec2-managed-instance-inventory}}",
+        "configRuleName": "{{change-triggered-config-rule}}",
+        "configRuleId": "{{config-rule-0123456}}",
+        "accountId": "{{123456789012}}",
         "version": "1.0"
     }
-
 ```
 
-Example Event for Evaluations Triggered by
-Periodic Frequency AWS Config publishes an event when it evaluates your resources at a frequency that you
-specify (such as every 24 hours). The following example event shows that the rule was
-triggered by a periodic frequency.
+------
+#### [ Example Event for Evaluations Triggered by Periodic Frequency ]
+
+AWS Config publishes an event when it evaluates your resources at a frequency that you specify (such as every 24 hours). The following example event shows that the rule was triggered by a periodic frequency. 
 
 ```
 {
-    "invokingEvent": "`{\"awsAccountId\":\"123456789012\",\"notificationCreationTime\":\"2016-07-13T21:50:00.373Z\",\"messageType\":\"ScheduledNotification\",\"recordVersion\":\"1.0\"}`",
-    "ruleParameters": "`{\"myParameterKey\":\"myParameterValue\"}`",
-    "resultToken": "`myResultToken`",
-    "eventLeftScope": `false`,
-    "executionRoleArn": "`arn:aws:iam::123456789012:role/config-role`",
-    "configRuleArn": "`arn:aws:config:us-east-2:123456789012:config-rule/config-rule-0123456`",
-    "configRuleName": "`periodic-config-rule`",
-    "configRuleId": "`config-rule-6543210`",
-    "accountId": "`123456789012`",
+    "invokingEvent": "{{{\"awsAccountId\":\"123456789012\",\"notificationCreationTime\":\"2016-07-13T21:50:00.373Z\",\"messageType\":\"ScheduledNotification\",\"recordVersion\":\"1.0\"}}}",
+    "ruleParameters": "{{{\"myParameterKey\":\"myParameterValue\"}}}",
+    "resultToken": "{{myResultToken}}",
+    "eventLeftScope": {{false}},
+    "executionRoleArn": "{{arn:aws:iam::123456789012:role/config-role}}",
+    "configRuleArn": "{{arn:aws:config:us-east-2:123456789012:config-rule/config-rule-0123456}}",
+    "configRuleName": "{{periodic-config-rule}}",
+    "configRuleId": "{{config-rule-6543210}}",
+    "accountId": "{{123456789012}}",
     "version": "1.0"
 }
 ```
 
+------
+
 ### Event Attributes
+<a name="w2aac20c19c20c13b1b7"></a>
 
 The JSON object for an AWS Config event contains the following attributes:
 
-`invokingEvent`
-
-The event that triggers the evaluation for a rule. If the event is
-published in response to a resource configuration change, the value for this
-attribute is a string that contains a JSON `configurationItem` or
-a `configurationItemSummary` (for oversized configuration items).
-The configuration item represents the state of the resource at the moment
-that AWS Config detected the change. For an example of a configuration item, see
-the output produced by the `get-resource-config-history` AWS CLI
-command in [Viewing Configuration History](view-manage-resource-console.md#get-config-history-cli "view-manage-resource-console.md#get-config-history-cli").
-
-If the event is published for a periodic evaluation, the value is a string
-that contains a JSON object. The object includes information about the
-evaluation that was triggered.
-
-For each type of event, a function must parse the string with a JSON
-parser to be able to evaluate its contents, as shown in the following
-Node.js example:
+`invokingEvent`  
+The event that triggers the evaluation for a rule. If the event is published in response to a resource configuration change, the value for this attribute is a string that contains a JSON `configurationItem` or a `configurationItemSummary` (for oversized configuration items). The configuration item represents the state of the resource at the moment that AWS Config detected the change. For an example of a configuration item, see the output produced by the `get-resource-config-history` AWS CLI command in [Viewing Configuration History](view-manage-resource-console.md#get-config-history-cli).  
+If the event is published for a periodic evaluation, the value is a string that contains a JSON object. The object includes information about the evaluation that was triggered.  
+For each type of event, a function must parse the string with a JSON parser to be able to evaluate its contents, as shown in the following Node.js example:  
 
 ```
-`var invokingEvent = JSON.parse(event.invokingEvent);`
+var invokingEvent = JSON.parse(event.invokingEvent);
 ```
 
-`ruleParameters`
-
-Key/value pairs that the function processes as part of its evaluation
-logic. You define parameters when you use the AWS Config console to create a
-Custom Lambda rule. You can also define parameters with the
-`InputParameters` attribute in the `PutConfigRule`
-AWS Config API request or the `put-config-rule` AWS CLI command.
-
-The JSON code for the parameters is contained within a string, so a
-function must parse the string with a JSON parser to be able to evaluate its
-contents, as shown in the following Node.js example:
+`ruleParameters`  
+Key/value pairs that the function processes as part of its evaluation logic. You define parameters when you use the AWS Config console to create a Custom Lambda rule. You can also define parameters with the `InputParameters` attribute in the `PutConfigRule` AWS Config API request or the `put-config-rule` AWS CLI command.  
+The JSON code for the parameters is contained within a string, so a function must parse the string with a JSON parser to be able to evaluate its contents, as shown in the following Node.js example:  
 
 ```
-`var ruleParameters = JSON.parse(event.ruleParameters);`
+var ruleParameters = JSON.parse(event.ruleParameters);
 ```
 
-`resultToken`
+`resultToken`  
+A token that the function must pass to AWS Config with the `PutEvaluations` call.
 
-A token that the function must pass to AWS Config with the
-`PutEvaluations` call.
+`eventLeftScope`  
+A Boolean value that indicates whether the AWS resource to be evaluated has been removed from the rule's scope. If the value is `true`, the function indicates that the evaluation can be ignored by passing `NOT_APPLICABLE` as the value for the `ComplianceType` attribute in the `PutEvaluations` call.
 
-`eventLeftScope`
-
-A Boolean value that indicates whether the AWS resource to be evaluated
-has been removed from the rule's scope. If the value is `true`,
-the function indicates that the evaluation can be ignored by passing
-`NOT_APPLICABLE` as the value for the
-`ComplianceType` attribute in the `PutEvaluations`
-call.
-
-`executionRoleArn`
-
+`executionRoleArn`  
 The ARN of the IAM role that is assigned to AWS Config.
 
-`configRuleArn`
-
+`configRuleArn`  
 The ARN that AWS Config assigned to the rule.
 
-`configRuleName`
+`configRuleName`  
+The name that you assigned to the rule that caused AWS Config to publish the event and invoke the function.
 
-The name that you assigned to the rule that caused AWS Config to publish the
-event and invoke the function.
-
-`configRuleId`
-
+`configRuleId`  
 The ID that AWS Config assigned to the rule.
 
-`accountId`
-
+`accountId`  
 The ID of the AWS account that owns the rule.
 
-`version`
-
-A version number assigned by AWS. The version will increment if AWS
-adds attributes to AWS Config events. If a function requires an attribute that is
-only in events that match or exceed a specific version, then that function
-can check the value of this attribute.
-
+`version`  
+A version number assigned by AWS. The version will increment if AWS adds attributes to AWS Config events. If a function requires an attribute that is only in events that match or exceed a specific version, then that function can check the value of this attribute.  
 The current version for AWS Config events is 1.0.

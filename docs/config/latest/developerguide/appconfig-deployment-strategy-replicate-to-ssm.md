@@ -1,6 +1,11 @@
-# appconfig-deployment-strategy-replicate-to-ssm
 
-Checks if AWS AppConfig deployment strategies save the deployment strategy to an AWS Systems Manager (SSM) document. The rule is NON\_COMPLIANT if configuration.ReplicateTo is not 'SSM\_DOCUMENT'.
+
+# appconfig-deployment-strategy-replicate-to-ssm
+<a name="appconfig-deployment-strategy-replicate-to-ssm"></a>
+
+Checks if AWS AppConfig deployment strategies save the deployment strategy to an AWS Systems Manager (SSM) document. The rule is NON\_COMPLIANT if configuration.ReplicateTo is not 'SSM\_DOCUMENT'. 
+
+
 
 **Identifier:** APPCONFIG\_DEPLOYMENT\_STRATEGY\_REPLICATE\_TO\_SSM
 
@@ -12,8 +17,9 @@ Checks if AWS AppConfig deployment strategies save the deployment strategy to an
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d101c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

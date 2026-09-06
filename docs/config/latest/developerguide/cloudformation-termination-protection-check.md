@@ -1,6 +1,11 @@
-# cloudformation-termination-protection-check
 
-Checks if an AWS CloudFormation stack has termination protection enabled. This rule is NON\_COMPLIANT if termination protection is not enabled on a CloudFormation stack.
+
+# cloudformation-termination-protection-check
+<a name="cloudformation-termination-protection-check"></a>
+
+Checks if an AWS CloudFormation stack has termination protection enabled. This rule is NON\_COMPLIANT if termination protection is not enabled on a CloudFormation stack. 
+
+
 
 **Identifier:** CLOUDFORMATION\_TERMINATION\_PROTECTION\_CHECK
 
@@ -12,8 +17,9 @@ Checks if an AWS CloudFormation stack has termination protection enabled. This r
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d299c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

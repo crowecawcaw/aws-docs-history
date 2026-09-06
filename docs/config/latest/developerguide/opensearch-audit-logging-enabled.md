@@ -1,6 +1,11 @@
-# opensearch-audit-logging-enabled
 
-Checks if Amazon OpenSearch Service domains have audit logging enabled. The rule is NON\_COMPLIANT if an OpenSearch Service domain does not have audit logging enabled.
+
+# opensearch-audit-logging-enabled
+<a name="opensearch-audit-logging-enabled"></a>
+
+Checks if Amazon OpenSearch Service domains have audit logging enabled. The rule is NON\_COMPLIANT if an OpenSearch Service domain does not have audit logging enabled. 
+
+
 
 **Identifier:** OPENSEARCH\_AUDIT\_LOGGING\_ENABLED
 
@@ -12,14 +17,11 @@ Checks if Amazon OpenSearch Service domains have audit logging enabled. The rule
 
 **Parameters:**
 
-cloudWatchLogsLogGroupArnList (Optional)
-Type: CSV
-
-Comma-separated list of Amazon Resource Names (ARNs) for Amazon CloudWatch Logs log groups. The rule checks if the specified log groups are configured for audit logs.
-
-Valid values include: `arn:aws:logs:region:account-id:log-group:log_group_name:*`
-and `arn:aws:logs:region:account-id:log-group:log_group_name`.
+cloudWatchLogsLogGroupArnList (Optional)Type: CSV  
+Comma-separated list of Amazon Resource Names (ARNs) for Amazon CloudWatch Logs log groups. The rule checks if the specified log groups are configured for audit logs.  
+Valid values include: `arn:aws:logs:region:account-id:log-group:log_group_name:*` and `arn:aws:logs:region:account-id:log-group:log_group_name`.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1193c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

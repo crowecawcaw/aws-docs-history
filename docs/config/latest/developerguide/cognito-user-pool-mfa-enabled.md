@@ -1,6 +1,11 @@
-# cognito-user-pool-mfa-enabled
 
-Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in policy have Multi-Factor Authentication (MFA) enabled. This rule is NON\_COMPLIANT if the Cognito user pool configured with PASSWORD only sign in policy does not have MFA enabled.
+
+# cognito-user-pool-mfa-enabled
+<a name="cognito-user-pool-mfa-enabled"></a>
+
+Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in policy have Multi-Factor Authentication (MFA) enabled. This rule is NON\_COMPLIANT if the Cognito user pool configured with PASSWORD only sign in policy does not have MFA enabled. 
+
+
 
 **Identifier:** COGNITO\_USER\_POOL\_MFA\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Cognito user pools configured with a PASSWORD-only sign-in poli
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d419c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

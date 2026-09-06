@@ -1,6 +1,11 @@
-# athena-prepared-statement-description
 
-Checks if Amazon Athena prepared statements have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist.
+
+# athena-prepared-statement-description
+<a name="athena-prepared-statement-description"></a>
+
+Checks if Amazon Athena prepared statements have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist. 
+
+
 
 **Identifier:** ATHENA\_PREPARED\_STATEMENT\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon Athena prepared statements have a description. The rule is NON\
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d203c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

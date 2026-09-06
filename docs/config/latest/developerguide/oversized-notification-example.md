@@ -1,23 +1,20 @@
+
+
 # Example Oversized Configuration Item Change Notification
+<a name="oversized-notification-example"></a>
 
-When AWS Config detects a configuration change for a resource, it sends a configuration item (CI)
-notification. If the notification exceeds the maximum size allowed by Amazon Simple Notification Service (Amazon SNS),
-the notification includes a brief summary of the configuration item.
+When AWS Config detects a configuration change for a resource, it sends a configuration item (CI) notification. If the notification exceeds the maximum size allowed by Amazon Simple Notification Service (Amazon SNS), the notification includes a brief summary of the configuration item.
 
-You can view the
-complete notification in the Amazon S3 bucket location specified in the
-`s3BucketLocation` field.
+You can view the complete notification in the Amazon S3 bucket location specified in the `s3BucketLocation` field.
 
-The following example notification shows a CI for an Amazon EC2 instance.
-The notification includes a summary of the changes and the location of the notification
-in the Amazon S3 bucket.
+The following example notification shows a CI for an Amazon EC2 instance. The notification includes a summary of the changes and the location of the notification in the Amazon S3 bucket. 
 
 ```
 View the Timeline for this Resource in the Console:
     https://console.aws.amazon.com/config/home?region=us-west-2#/timeline/AWS::EC2::Instance/resourceId_14b76876-7969-4097-ab8e-a31942b02e80?time=2016-10-06T16:46:16.261Z
-
+    
     The full configuration item change notification for this resource exceeded the maximum size allowed by Amazon Simple Notification Service (SNS). A summary of the configuration item is provided here. You can view the complete notification in the specified Amazon S3 bucket location.
-
+    
     New State Record Summary:
     ----------------------------
     {
@@ -46,10 +43,10 @@ View the Timeline for this Resource in the Console:
       "messageType": "OversizedConfigurationItemChangeNotification",
       "recordVersion": "1.0"
     }
-
 ```
 
 ## How to access oversized configuration items
+<a name="oversized-notification-example-access"></a>
 
 When a configuration item is oversized, only a summary is sent to Amazon SNS. The complete configuration item (CI) is stored in Amazon S3
 
@@ -62,56 +59,62 @@ import json
 def handle_oversized_configuration_item(event):
     """
     Example of handling an oversized configuration item notification
-
+    
     When a configuration item is oversized:
     1. AWS Config sends a summary notification through SNS
     2. The complete configuration item is stored in S3
     3. Use get_resource_config_history API to retrieve the complete configuration
     """
-
+    
     # Extract information from the summary notification
     if event['messageType'] == 'OversizedConfigurationItemChangeNotification':
         summary = event['configurationItemSummary']
         resource_type = summary['resourceType']
         resource_id = summary['resourceId']
-
+        
         # Initialize AWS Config client
         config_client = boto3.client('config')
-
+        
         # Retrieve the complete configuration item
         response = config_client.get_resource_config_history(
             resourceType=resource_type,
             resourceId=resource_id
         )
-
+        
         if response['configurationItems']:
             config_item = response['configurationItems'][0]
-
+            
             # For EC2 instances, the configuration contains instance details
             configuration = json.loads(config_item['configuration'])
             print(f"Instance Configuration: {configuration}")
-
+            
             # Handle supplementary configuration if present
             if 'supplementaryConfiguration' in config_item:
                 for key, value in config_item['supplementaryConfiguration'].items():
                     if isinstance(value, str):
                         config_item['supplementaryConfiguration'][key] = json.loads(value)
                 print(f"Supplementary Configuration: {config_item['supplementaryConfiguration']}")
-
+            
             return config_item
-
+            
         # If needed, you can also access the complete notification from S3
         s3_location = event['s3DeliverySummary']['s3BucketLocation']
         print(f"Complete notification available in S3: {s3_location}")
-
+    
     return None
 ```
 
 ## How it works
+<a name="handle-oversized-config-workflow"></a>
 
 1. The function accepts an event parameter containing the AWS Config notification.
-2. It checks if the message type is an oversized configuration notification.
-3. The function extracts the resource type and ID from the summary.
-4. Using the AWS Config client, it retrieves the complete configuration history.
-5. The function processes both main and supplementary configurations.
-6. If needed, you can access the complete notification from the provided S3 location.
+
+1. It checks if the message type is an oversized configuration notification.
+
+1. The function extracts the resource type and ID from the summary.
+
+1. Using the AWS Config client, it retrieves the complete configuration history.
+
+1. The function processes both main and supplementary configurations.
+
+1. If needed, you can access the complete notification from the provided S3 location.

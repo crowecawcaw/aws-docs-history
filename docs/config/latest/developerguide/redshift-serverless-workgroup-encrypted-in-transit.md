@@ -1,6 +1,11 @@
-# redshift-serverless-workgroup-encrypted-in-transit
 
-Checks if AWS Redshift Serverless workgroups have the require\_ssl config parameter set to true. The rule is NON\_COMPLIANT if require\_ssl is set to false.
+
+# redshift-serverless-workgroup-encrypted-in-transit
+<a name="redshift-serverless-workgroup-encrypted-in-transit"></a>
+
+Checks if AWS Redshift Serverless workgroups have the require\_ssl config parameter set to true. The rule is NON\_COMPLIANT if require\_ssl is set to false. 
+
+
 
 **Identifier:** REDSHIFT\_SERVERLESS\_WORKGROUP\_ENCRYPTED\_IN\_TRANSIT
 
@@ -12,8 +17,9 @@ Checks if AWS Redshift Serverless workgroups have the require\_ssl config parame
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1325c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

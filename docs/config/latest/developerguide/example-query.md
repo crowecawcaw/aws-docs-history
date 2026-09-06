@@ -1,9 +1,13 @@
+
+
 # Example Queries for AWS Config
+<a name="example-query"></a>
 
 View the following example queries.
 
-Query to list all EC2 instances with AMI ID
-ami-12345
+------
+#### [ Query to list all EC2 instances with AMI ID ami-12345 ]
+
 Query:
 
 ```
@@ -47,19 +51,20 @@ Results:
         ]
     },
     "Results": [
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2a\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t1.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2a\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
-        "{\"resourceId\":\"`resourceid`\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}"
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2a\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t1.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2a\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}",
+        "{\"resourceId\":\"{{resourceid}}\",\"configuration\":{\"imageId\":\"ami-12345\",\"instanceType\":\"t2.micro\",\"placement\":{\"tenancy\":\"default\"}},\"availabilityZone\":\"us-west-2c\",\"resourceType\":\"AWS::EC2::Instance\"}"
     ]
 }
 ```
 
-Query for count of resources grouped by their AWS Config rules compliance
-status
+------
+#### [ Query for count of resources grouped by their AWS Config rules compliance status ]
+
 Query:
 
 ```
@@ -93,7 +98,9 @@ Results:
 }
 ```
 
-Query for the compliance status of AWS Conformance packs
+------
+#### [ Query for the compliance status of AWS Conformance packs ]
+
 Query:
 
 ```
@@ -104,7 +111,6 @@ SELECT
     configuration.complianceType
 WHERE
     resourceType = 'AWS::Config::ConformancePackCompliance'
-
 ```
 
 Results:
@@ -115,31 +121,33 @@ Results:
         "SelectFields": [
             {
                 "Name": "resourceId"
-            },
+            }, 
             {
                 "Name": "resourceName"
-            },
+            }, 
             {
                 "Name": "resourceType"
-            },
+            }, 
             {
                 "Name": "configuration.complianceType"
             }
         ]
-    },
+    }, 
     "Results": [
-        "{\"resourceId\":\"conformance-pack-`conformance-pack-ID`\",\"configuration\":{\"complianceType\":\"COMPLIANT\"},\"resourceName\":\"`MyConformancePack1`\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}",
-        "{\"resourceId\":\"conformance-pack-`conformance-pack-ID`\",\"configuration\":{\"complianceType\":\"NON_COMPLIANT\"},\"resourceName\":\"`MyConformancePack2`\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}",
-        "{\"resourceId\":\"conformance-pack-`conformance-pack-ID`\",\"configuration\":{\"complianceType\":\"NON_COMPLIANT\"},\"resourceName\":\"`MyConformancePack3`\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}"
+        "{\"resourceId\":\"conformance-pack-{{conformance-pack-ID}}\",\"configuration\":{\"complianceType\":\"COMPLIANT\"},\"resourceName\":\"{{MyConformancePack1}}\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}", 
+        "{\"resourceId\":\"conformance-pack-{{conformance-pack-ID}}\",\"configuration\":{\"complianceType\":\"NON_COMPLIANT\"},\"resourceName\":\"{{MyConformancePack2}}\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}", 
+        "{\"resourceId\":\"conformance-pack-{{conformance-pack-ID}}\",\"configuration\":{\"complianceType\":\"NON_COMPLIANT\"},\"resourceName\":\"{{MyConformancePack3}}\",\"resourceType\":\"AWS::Config::ConformancePackCompliance\"}"
     ]
 }
 ```
 
-Query to get counts of AWS resources grouped by account ID
+------
+#### [ Query to get counts of AWS resources grouped by account ID ]
+
 Query:
 
 ```
-aws configservice select-aggregate-resource-config --expression "`SELECT COUNT(*), accountId group by accountId`" --configuration-aggregator-name my-aggregator
+aws configservice select-aggregate-resource-config --expression "{{SELECT COUNT(*), accountId group by accountId}}" --configuration-aggregator-name my-aggregator
 ```
 
 Results:
@@ -147,8 +155,8 @@ Results:
 ```
 {
     "Results": [
-        "{\"COUNT(*)\":2407,\"accountId\":\"`accountId`\"}",
-        "{\"COUNT(*)\":726,\"accountId\":\"`accountId`\"}"
+        "{\"COUNT(*)\":2407,\"accountId\":\"{{accountId}}\"}",
+        "{\"COUNT(*)\":726,\"accountId\":\"{{accountId}}\"}"
     ],
     "QueryInfo": {
         "SelectFields": [
@@ -163,27 +171,28 @@ Results:
 }
 ```
 
-Query to list all EC2 volumes that are not in use
+------
+#### [ Query to list all EC2 volumes that are not in use ]
+
 Query:
 
 ```
-SELECT
-    resourceId,
+SELECT 
+    resourceId, 
     accountId,
-    awsRegion,
-    resourceType,
+    awsRegion, 
+    resourceType, 
     configuration.volumeType,
-    configuration.size,
+    configuration.size, 
     resourceCreationTime,
     tags,
-    configuration.encrypted,
+    configuration.encrypted, 
     configuration.availabilityZone,
-    configuration.state.value
+    configuration.state.value 
 WHERE
-    resourceType = 'AWS::EC2::Volume'
-AND
+    resourceType = 'AWS::EC2::Volume' 
+AND 
     configuration.state.value = 'available'
-
 ```
 
 Results:
@@ -191,9 +200,9 @@ Results:
 ```
 {
     "Results": [
-        "{\"accountId\":\"`accountId`\",\"resourceId\":\"vol-0174de9c962f6581c\",\"awsRegion\":\"us-west-2\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"us-west-2a\"},\"resourceCreationTime\":\"2020-02-21T07:39:43.771Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}",
-        "{\"accountId\":\"`accountId`\",\"resourceId\":\"vol-0cbeb652a74af2f8f\",\"awsRegion\":\"us-east-1\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"us-east-1a\"},\"resourceCreationTime\":\"2020-02-21T07:28:40.639Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}"
-        "{\"accountId\":\"`accountId`\",\"resourceId\":\"vol-0a49952d528ec8ba2\",\"awsRegion\":\"ap-south-1\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"ap-south-1a\"},\"resourceCreationTime\":\"2020-02-21T07:39:31.800Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}",
+        "{\"accountId\":\"{{accountId}}\",\"resourceId\":\"vol-0174de9c962f6581c\",\"awsRegion\":\"us-west-2\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"us-west-2a\"},\"resourceCreationTime\":\"2020-02-21T07:39:43.771Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}",
+        "{\"accountId\":\"{{accountId}}\",\"resourceId\":\"vol-0cbeb652a74af2f8f\",\"awsRegion\":\"us-east-1\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"us-east-1a\"},\"resourceCreationTime\":\"2020-02-21T07:28:40.639Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}"
+        "{\"accountId\":\"{{accountId}}\",\"resourceId\":\"vol-0a49952d528ec8ba2\",\"awsRegion\":\"ap-south-1\",\"configuration\":{\"volumeType\":\"gp2\",\"encrypted\":false,\"size\":100.0,\"state\":{\"value\":\"available\"},\"availabilityZone\":\"ap-south-1a\"},\"resourceCreationTime\":\"2020-02-21T07:39:31.800Z\",\"tags\":[],\"resourceType\":\"AWS::EC2::Volume\"}",
     ],
     "QueryInfo": {
         "SelectFields": [
@@ -234,3 +243,5 @@ Results:
     }
 }
 ```
+
+------

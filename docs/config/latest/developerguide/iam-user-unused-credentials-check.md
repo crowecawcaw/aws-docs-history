@@ -1,31 +1,19 @@
+
+
 # iam-user-unused-credentials-check
+<a name="iam-user-unused-credentials-check"></a>
 
-Checks if your AWS Identity and Access Management (IAM) users have passwords or active access keys that have not been used within the specified number of days you provided.
-The rule is NON\_COMPLIANT if there are inactive accounts not recently used.
+Checks if your AWS Identity and Access Management (IAM) users have passwords or active access keys that have not been used within the specified number of days you provided. The rule is NON\_COMPLIANT if there are inactive accounts not recently used.
 
-###### Note
+**Note**  
+**Re-evaluation Timeline**  
+Re-evaluating this rule within 4 hours of the first evaluation will have no effect on the results.  
+**Managed Rules and Global IAM Resource Types**  
+The global IAM resource types onboarded before February 2022 (`AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`, and `AWS::IAM::User`) can only be recorded by AWS Config in AWS Regions where AWS Config was available before February 2022. These resource types cannot be recorded in Regions supported by AWS Config after February 2022. For a list of those Regions, see [Recording AWS Resources \| Global Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all).  
+If you record a global IAM resource type in at least one Region, periodic rules that report compliance on the global IAM resource type will run evaluations in all Regions where the periodic rule is added, even if you have not enabled the recording of the global IAM resource type in the Region where the periodic rule was added.  
+To avoid unnecessary evaluations, you should only deploy periodic rules that report compliance on a global IAM resource type to one of the supported Regions. For a list of which managed rules are supported in which Regions, see [List of AWS Config Managed Rules by Region Availability](https://docs.aws.amazon.com/config/latest/developerguide/managing-rules-by-region-availability.html).
 
-**Re-evaluation Timeline**
 
-Re-evaluating this rule within 4 hours of the first evaluation will have no effect on the results.
-
-**Managed Rules and Global IAM Resource Types**
-
-The global IAM resource types onboarded before February 2022
-(`AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`, and `AWS::IAM::User`)
-can only be recorded by AWS Config in AWS Regions where AWS Config was available before February 2022.
-These resource types cannot be recorded in Regions supported by AWS Config after February 2022.
-For a list of those Regions,
-see [Recording AWS Resources | Global Resources](select-resources.md#select-resources-all "select-resources.md#select-resources-all").
-
-If you record a global IAM resource type in at least one Region,
-periodic rules that report compliance on the global IAM resource type will run evaluations in all Regions
-where the periodic rule is added, even if you have not enabled the recording of the global IAM resource type
-in the Region where the periodic rule was added.
-
-To avoid unnecessary evaluations, you should only deploy periodic rules that report compliance on a global IAM resource type to one of the supported Regions.
-For a list of which managed rules are supported in which Regions,
-see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
 
 **Identifier:** IAM\_USER\_UNUSED\_CREDENTIALS\_CHECK
 
@@ -37,12 +25,10 @@ see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-
 
 **Parameters:**
 
-maxCredentialUsageAge
-Type: int
-Default: 90
-
+maxCredentialUsageAgeType: intDefault: 90  
 Maximum number of days a credential cannot be used. The default value is 90 days.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d957c21"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

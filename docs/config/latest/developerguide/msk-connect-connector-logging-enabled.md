@@ -1,6 +1,11 @@
-# msk-connect-connector-logging-enabled
 
-Checks if Amazon MSK Connector has logging enabled to any one of the log destinations. The rule is NON\_COMPLIANT if Amazon MSK Connector does not have logging enabled.
+
+# msk-connect-connector-logging-enabled
+<a name="msk-connect-connector-logging-enabled"></a>
+
+Checks if Amazon MSK Connector has logging enabled to any one of the log destinations. The rule is NON\_COMPLIANT if Amazon MSK Connector does not have logging enabled. 
+
+
 
 **Identifier:** MSK\_CONNECT\_CONNECTOR\_LOGGING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon MSK Connector has logging enabled to any one of the log destina
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1127c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

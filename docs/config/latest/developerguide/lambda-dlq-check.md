@@ -1,6 +1,11 @@
-# lambda-dlq-check
 
-Checks whether an AWS Lambda function is configured with a dead-letter queue. The rule is NON\_COMPLIANT if the Lambda function is not configured with a dead-letter queue.
+
+# lambda-dlq-check
+<a name="lambda-dlq-check"></a>
+
+Checks whether an AWS Lambda function is configured with a dead-letter queue. The rule is NON\_COMPLIANT if the Lambda function is not configured with a dead-letter queue. 
+
+
 
 **Identifier:** LAMBDA\_DLQ\_CHECK
 
@@ -12,11 +17,10 @@ Checks whether an AWS Lambda function is configured with a dead-letter queue. Th
 
 **Parameters:**
 
-dlqArns (Optional)
-Type: CSV
-
+dlqArns (Optional)Type: CSV  
 Comma-separated list of Amazon SQS and Amazon SNS ARNs that must be configured as the Lambda function dead-letter queue target
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1059c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

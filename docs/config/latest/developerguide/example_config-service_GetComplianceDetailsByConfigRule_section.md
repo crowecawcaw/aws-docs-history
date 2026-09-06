@@ -1,21 +1,21 @@
+
+
 # Use `GetComplianceDetailsByConfigRule` with a CLI
+<a name="example_config-service_GetComplianceDetailsByConfigRule_section"></a>
 
 The following code examples show how to use `GetComplianceDetailsByConfigRule`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get the evaluation results for an AWS Config rule**
-
-The following command returns the evaluation results for all of the resources that don't comply with an AWS Config rule named `InstanceTypesAreT2micro`:
-
-```
-`aws configservice get-compliance-details-by-config-rule --config-rule-name `InstanceTypesAreT2micro` --compliance-types `NON_COMPLIANT``
+**AWS CLI**  
+**To get the evaluation results for an AWS Config rule**  
+The following command returns the evaluation results for all of the resources that don't comply with an AWS Config rule named `InstanceTypesAreT2micro`:  
 
 ```
-
-Output:
+aws configservice get-compliance-details-by-config-rule --config-rule-name {{InstanceTypesAreT2micro}} --compliance-types {{NON_COMPLIANT}}
+```
+Output:  
 
 ```
 {
@@ -62,23 +62,18 @@ Output:
     ]
 }
 ```
++  For API details, see [GetComplianceDetailsByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-config-rule.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetComplianceDetailsByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-config-rule.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-config-rule.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**
+**Tools for PowerShell V4**  
+**Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
 ```
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Count Name                      Group
@@ -86,15 +81,12 @@ Count Name                      Group
     2 COMPLIANT                 {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult}
     5 NON_COMPLIANT             {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationRes...
 ```
-
-**Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**
+**Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
 ```
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleName      ResourceId            ResourceType
@@ -102,21 +94,15 @@ ConfigRuleName      ResourceId            ResourceType
 access-keys-rotated BCAB1CDJ2LITAPVEW3JAH AWS::IAM::User
 access-keys-rotated BCAB1CDJ2LITL3EHREM4Q AWS::IAM::User
 ```
++  For API details, see [GetComplianceDetailsByConfigRule](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetComplianceDetailsByConfigRule](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**
+**Tools for PowerShell V5**  
+**Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type**  
 
 ```
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Count Name                      Group
@@ -124,15 +110,12 @@ Count Name                      Group
     2 COMPLIANT                 {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult}
     5 NON_COMPLIANT             {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationRes...
 ```
-
-**Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**
+**Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.**  
 
 ```
 Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleName      ResourceId            ResourceType
@@ -140,11 +123,8 @@ ConfigRuleName      ResourceId            ResourceType
 access-keys-rotated BCAB1CDJ2LITAPVEW3JAH AWS::IAM::User
 access-keys-rotated BCAB1CDJ2LITL3EHREM4Q AWS::IAM::User
 ```
++  For API details, see [GetComplianceDetailsByConfigRule](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetComplianceDetailsByConfigRule](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Config with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

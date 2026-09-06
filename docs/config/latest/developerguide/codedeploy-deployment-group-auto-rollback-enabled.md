@@ -1,6 +1,11 @@
-# codedeploy-deployment-group-auto-rollback-enabled
 
-Checks if AWS CodeDeploy deployment groups have auto rollback configuration enabled. The rule is NON\_COMPLIANT if configuration.autoRollbackConfiguration.enabled is false or does not exist.
+
+# codedeploy-deployment-group-auto-rollback-enabled
+<a name="codedeploy-deployment-group-auto-rollback-enabled"></a>
+
+Checks if AWS CodeDeploy deployment groups have auto rollback configuration enabled. The rule is NON\_COMPLIANT if configuration.autoRollbackConfiguration.enabled is false or does not exist. 
+
+
 
 **Identifier:** CODEDEPLOY\_DEPLOYMENT\_GROUP\_AUTO\_ROLLBACK\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS CodeDeploy deployment groups have auto rollback configuration enab
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d393c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

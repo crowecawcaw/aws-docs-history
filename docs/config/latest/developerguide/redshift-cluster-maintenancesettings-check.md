@@ -1,6 +1,11 @@
-# redshift-cluster-maintenancesettings-check
 
-Checks if Amazon Redshift clusters have the specified maintenance settings. The rule is NON\_COMPLIANT if the automatic upgrades to major version is disabled.
+
+# redshift-cluster-maintenancesettings-check
+<a name="redshift-cluster-maintenancesettings-check"></a>
+
+Checks if Amazon Redshift clusters have the specified maintenance settings. The rule is NON\_COMPLIANT if the automatic upgrades to major version is disabled. 
+
+
 
 **Identifier:** REDSHIFT\_CLUSTER\_MAINTENANCESETTINGS\_CHECK
 
@@ -12,45 +17,36 @@ Checks if Amazon Redshift clusters have the specified maintenance settings. The 
 
 **Parameters:**
 
-allowVersionUpgrade
-Type: boolean
-Default: true
-
+allowVersionUpgradeType: booleanDefault: true  
 Allow version upgrade is enabled.
 
-preferredMaintenanceWindow (Optional)
-Type: String
-
+preferredMaintenanceWindow (Optional)Type: String  
 Scheduled maintenance window for clusters (for example, Mon:09:30-Mon:10:00).
 
-automatedSnapshotRetentionPeriod (Optional)
-Type: int
-Default: 1
-
+automatedSnapshotRetentionPeriod (Optional)Type: intDefault: 1  
 Number of days to retain automated snapshots.
 
 ## Proactive Evaluation
+<a name="w2aac20c16c17b7e1299c19"></a>
 
-For steps on how to run this rule in proactive mode,
-see [Evaluating Your Resources with AWS Config Rules](evaluating-your-resources.md#evaluating-your-resources-proactive "evaluating-your-resources.md#evaluating-your-resources-proactive").
-For this rule to return COMPLIANT in proactive mode, the resource configuration schema for the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API needs to include the following inputs, encoded as a string:
+ For steps on how to run this rule in proactive mode, see [Evaluating Your Resources with AWS Config Rules](./evaluating-your-resources.html#evaluating-your-resources-proactive). For this rule to return COMPLIANT in proactive mode, the resource configuration schema for the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API needs to include the following inputs, encoded as a string: 
 
 ```
 "ResourceConfiguration":
 ...
 {
-    "AutomatedSnapshotRetentionPeriod": `Integer`\*,
-    "PreferredMaintenanceWindow": `String`\*,
-    "AllowVersionUpgrade": `BOOLEAN`\*
-}
+    "AutomatedSnapshotRetentionPeriod": {{Integer}}*,
+    "PreferredMaintenanceWindow": {{String}}*,
+    "AllowVersionUpgrade": {{BOOLEAN}}*
+} 
 ...
-
 ```
 
-\*For more information on valid values for these inputs, see [AutomatedSnapshotRetentionPeriod](../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-automatedsnapshotretentionperiod "../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-automatedsnapshotretentionperiod"), [PreferredMaintenanceWindow](../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-preferredmaintenancewindow "../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-preferredmaintenancewindow"), and [AllowVersionUpgrade](../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-allowversionupgrade "../../../AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.md#cfn-redshift-cluster-allowversionupgrade") in the AWS CloudFormation User Guide.
+\*For more information on valid values for these inputs, see [AutomatedSnapshotRetentionPeriod](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod), [PreferredMaintenanceWindow](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow), and [AllowVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade) in the AWS CloudFormation User Guide.
 
-For more information on proactive evaluation, see [Evaluation Mode](evaluate-config-rules.md "evaluate-config-rules.md").
+ For more information on proactive evaluation, see [Evaluation Mode](./evaluate-config-rules.html). 
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1299c21"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

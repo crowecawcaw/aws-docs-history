@@ -1,6 +1,11 @@
-# vpc-peering-dns-resolution-check
 
-Checks if DNS resolution from accepter/requester VPC to private IP is enabled. The rule is NON\_COMPLIANT if DNS resolution from accepter/requester VPC to private IP is not enabled.
+
+# vpc-peering-dns-resolution-check
+<a name="vpc-peering-dns-resolution-check"></a>
+
+Checks if DNS resolution from accepter/requester VPC to private IP is enabled. The rule is NON\_COMPLIANT if DNS resolution from accepter/requester VPC to private IP is not enabled. 
+
+
 
 **Identifier:** VPC\_PEERING\_DNS\_RESOLUTION\_CHECK
 
@@ -12,11 +17,10 @@ Checks if DNS resolution from accepter/requester VPC to private IP is enabled. T
 
 **Parameters:**
 
-vpcIds (Optional)
-Type: CSV
-
+vpcIds (Optional)Type: CSV  
 Comma-separated list of VPC IDs to be checked.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1607c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# apigateway-stage-description
 
-Checks if Amazon API Gateway stages have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
+
+# apigateway-stage-description
+<a name="apigateway-stage-description"></a>
+
+Checks if Amazon API Gateway stages have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
+
+
 
 **Identifier:** APIGATEWAY\_STAGE\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon API Gateway stages have a description. The rule is NON\_COMPLIA
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c65c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

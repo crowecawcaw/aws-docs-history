@@ -1,6 +1,11 @@
-# ec2-paravirtual-instance-check
 
-Checks if the virtualization type of an EC2 instance is paravirtual. This rule is NON\_COMPLIANT for an EC2 instance if 'virtualizationType' is set to 'paravirtual'.
+
+# ec2-paravirtual-instance-check
+<a name="ec2-paravirtual-instance-check"></a>
+
+Checks if the virtualization type of an EC2 instance is paravirtual. This rule is NON\_COMPLIANT for an EC2 instance if 'virtualizationType' is set to 'paravirtual'. 
+
+
 
 **Identifier:** EC2\_PARAVIRTUAL\_INSTANCE\_CHECK
 
@@ -12,8 +17,9 @@ Checks if the virtualization type of an EC2 instance is paravirtual. This rule i
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d603c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

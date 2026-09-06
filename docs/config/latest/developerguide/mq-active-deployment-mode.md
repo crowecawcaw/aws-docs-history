@@ -1,6 +1,11 @@
-# mq-active-deployment-mode
 
-Checks the deployment mode configured for Amazon MQ ActiveMQ broker engine. The rule is NON\_COMPLIANT if the default single-instance broker mode is being used.
+
+# mq-active-deployment-mode
+<a name="mq-active-deployment-mode"></a>
+
+Checks the deployment mode configured for Amazon MQ ActiveMQ broker engine. The rule is NON\_COMPLIANT if the default single-instance broker mode is being used. 
+
+
 
 **Identifier:** MQ\_ACTIVE\_DEPLOYMENT\_MODE
 
@@ -12,8 +17,9 @@ Checks the deployment mode configured for Amazon MQ ActiveMQ broker engine. The 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1105c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

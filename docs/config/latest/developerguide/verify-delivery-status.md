@@ -1,15 +1,15 @@
+
+
 # Verifying Delivery Status
+<a name="verify-delivery-status"></a>
 
-Enter the [`describe-delivery-channel-status`](../../../cli/latest/reference/configservice/describe-delivery-channel-status.md "../../../cli/latest/reference/configservice/describe-delivery-channel-status.md") command to verify that
-the AWS Config has started delivering the configurations to the specified delivery
-channel:
+Enter the [`describe-delivery-channel-status`](http://docs.aws.amazon.com/cli/latest/reference/configservice/describe-delivery-channel-status.html) command to verify that the AWS Config has started delivering the configurations to the specified delivery channel:
 
 ```
-**aws configservice describe-delivery-channel-status**
+aws configservice describe-delivery-channel-status
 ```
 
-The response lists the status of all the three delivery formats that AWS Config uses to
-deliver configurations to your bucket and topic.
+The response lists the status of all the three delivery formats that AWS Config uses to deliver configurations to your bucket and topic.
 
 ```
 {
@@ -35,10 +35,7 @@ deliver configurations to your bucket and topic.
 }
 ```
 
-View the `lastSuccessfulTime` field in
-`configSnapshotDeliveryInfo`. The time should match the time you last
-requested the delivery of the configuration snapshot.
+View the `lastSuccessfulTime` field in `configSnapshotDeliveryInfo`. The time should match the time you last requested the delivery of the configuration snapshot.
 
-###### Note
-
+**Note**  
 AWS Config uses the UTC format (Coordinated Universal Time) to record the time.

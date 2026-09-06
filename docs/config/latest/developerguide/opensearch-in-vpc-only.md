@@ -1,10 +1,14 @@
+
+
 # opensearch-in-vpc-only
+<a name="opensearch-in-vpc-only"></a>
 
-Checks if Amazon OpenSearch Service domains are in an Amazon Virtual Private Cloud (VPC). The rule is NON\_COMPLIANT if an OpenSearch Service domain endpoint is public.
+Checks if Amazon OpenSearch Service domains are in an Amazon Virtual Private Cloud (VPC). The rule is NON\_COMPLIANT if an OpenSearch Service domain endpoint is public. 
 
-###### Note
-
+**Note**  
 The rule does not evaluate Elasticsearch domains.
+
+
 
 **Identifier:** OPENSEARCH\_IN\_VPC\_ONLY
 
@@ -16,8 +20,9 @@ The rule does not evaluate Elasticsearch domains.
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1201c21"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# docdb-cluster-snapshot-public-prohibited
 
-Checks if Amazon DocumentDB manual cluster snapshots are public. The rule is NON\_COMPLIANT if any Amazon DocumentDB manual cluster snapshots are public.
+
+# docdb-cluster-snapshot-public-prohibited
+<a name="docdb-cluster-snapshot-public-prohibited"></a>
+
+Checks if Amazon DocumentDB manual cluster snapshots are public. The rule is NON\_COMPLIANT if any Amazon DocumentDB manual cluster snapshots are public. 
+
+
 
 **Identifier:** DOCDB\_CLUSTER\_SNAPSHOT\_PUBLIC\_PROHIBITED
 
@@ -12,8 +17,9 @@ Checks if Amazon DocumentDB manual cluster snapshots are public. The rule is NON
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d495c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

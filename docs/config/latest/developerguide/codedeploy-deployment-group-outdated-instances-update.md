@@ -1,6 +1,11 @@
-# codedeploy-deployment-group-outdated-instances-update
 
-Checks if AWS CodeDeploy deployment groups automatically update outdated instances. The rule is NON\_COMPLIANT if configuration.outdatedInstancesStrategy is 'IGNORE'.
+
+# codedeploy-deployment-group-outdated-instances-update
+<a name="codedeploy-deployment-group-outdated-instances-update"></a>
+
+Checks if AWS CodeDeploy deployment groups automatically update outdated instances. The rule is NON\_COMPLIANT if configuration.outdatedInstancesStrategy is 'IGNORE'. 
+
+
 
 **Identifier:** CODEDEPLOY\_DEPLOYMENT\_GROUP\_OUTDATED\_INSTANCES\_UPDATE
 
@@ -12,8 +17,9 @@ Checks if AWS CodeDeploy deployment groups automatically update outdated instanc
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d395c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

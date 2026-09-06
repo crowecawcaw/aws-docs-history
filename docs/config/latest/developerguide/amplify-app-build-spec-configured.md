@@ -1,6 +1,11 @@
-# amplify-app-build-spec-configured
 
-Checks if AWS Amplify apps have a build specification configured. The rule is NON\_COMPLIANT if configuration.BuildSpec does not exist.
+
+# amplify-app-build-spec-configured
+<a name="amplify-app-build-spec-configured"></a>
+
+Checks if AWS Amplify apps have a build specification configured. The rule is NON\_COMPLIANT if configuration.BuildSpec does not exist. 
+
+
 
 **Identifier:** AMPLIFY\_APP\_BUILD\_SPEC\_CONFIGURED
 
@@ -12,8 +17,9 @@ Checks if AWS Amplify apps have a build specification configured. The rule is NO
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c33c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# sagemaker-data-quality-job-isolation
 
-Checks if Amazon SageMaker data quality job definitions have network isolation enabled. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false.
+
+# sagemaker-data-quality-job-isolation
+<a name="sagemaker-data-quality-job-isolation"></a>
+
+Checks if Amazon SageMaker data quality job definitions have network isolation enabled. The rule is NON\_COMPLIANT if configuration.NetworkConfig.EnableNetworkIsolation is false. 
+
+
 
 **Identifier:** SAGEMAKER\_DATA\_QUALITY\_JOB\_ISOLATION
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker data quality job definitions have network isolation e
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1439c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

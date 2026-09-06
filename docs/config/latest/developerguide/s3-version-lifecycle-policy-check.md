@@ -1,6 +1,11 @@
-# s3-version-lifecycle-policy-check
 
-Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have lifecycle policy configured. The rule is NON\_COMPLIANT if Amazon S3 lifecycle policy is not enabled.
+
+# s3-version-lifecycle-policy-check
+<a name="s3-version-lifecycle-policy-check"></a>
+
+Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have lifecycle policy configured. The rule is NON\_COMPLIANT if Amazon S3 lifecycle policy is not enabled. 
+
+
 
 **Identifier:** S3\_VERSION\_LIFECYCLE\_POLICY\_CHECK
 
@@ -12,11 +17,10 @@ Checks if Amazon Simple Storage Service (Amazon S3) version enabled buckets have
 
 **Parameters:**
 
-bucketNames (Optional)
-Type: CSV
-
+bucketNames (Optional)Type: CSV  
 Comma-separated list of Amazon S3 bucket names that have lifecycle policy enabled.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1433c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

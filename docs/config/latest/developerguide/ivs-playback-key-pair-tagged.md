@@ -1,6 +1,11 @@
-# ivs-playback-key-pair-tagged
 
-Checks if Amazon IVS playback key pairs have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'.
+
+# ivs-playback-key-pair-tagged
+<a name="ivs-playback-key-pair-tagged"></a>
+
+Checks if Amazon IVS playback key pairs have tags. Optionally, you can specify tag keys. The rule is NON\_COMPLIANT if there are no tags or if the specified tag keys are not present. The rule does not check for tags starting with 'aws:'. 
+
+
 
 **Identifier:** IVS\_PLAYBACK\_KEY\_PAIR\_TAGGED
 
@@ -12,11 +17,10 @@ Checks if Amazon IVS playback key pairs have tags. Optionally, you can specify t
 
 **Parameters:**
 
-requiredKeyTags (Optional)
-Type: CSV
-
+requiredKeyTags (Optional)Type: CSV  
 Comma-separated list of tag keys for the rule to check. If provided, the rule is NON\_COMPLIANT if the evaluated resource does not contain these keys. Tag keys are case-sensitive. Tag keys starting with 'aws:' are not allowed.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1033c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

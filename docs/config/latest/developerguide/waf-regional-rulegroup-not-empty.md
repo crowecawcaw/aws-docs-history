@@ -1,6 +1,11 @@
-# waf-regional-rulegroup-not-empty
 
-Checks if WAF Regional rule groups contain any rules. The rule is NON\_COMPLIANT if there are no rules present within a WAF Regional rule group.
+
+# waf-regional-rulegroup-not-empty
+<a name="waf-regional-rulegroup-not-empty"></a>
+
+Checks if WAF Regional rule groups contain any rules. The rule is NON\_COMPLIANT if there are no rules present within a WAF Regional rule group. 
+
+
 
 **Identifier:** WAF\_REGIONAL\_RULEGROUP\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if WAF Regional rule groups contain any rules. The rule is NON\_COMPLIANT
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1631c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

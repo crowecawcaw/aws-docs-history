@@ -1,6 +1,11 @@
-# neptune-cluster-encrypted
 
-Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The rule is NON\_COMPLIANT if storage encryption is not enabled.
+
+# neptune-cluster-encrypted
+<a name="neptune-cluster-encrypted"></a>
+
+Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The rule is NON\_COMPLIANT if storage encryption is not enabled. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_ENCRYPTED
 
@@ -12,11 +17,10 @@ Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The
 
 **Parameters:**
 
-KmsKeyArns (Optional)
-Type: CSV
-
+KmsKeyArns (Optional)Type: CSV  
 A comma-separated list of KMS key ARNs to compare with the KmsKeyId of the encrypted cluster.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1147c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

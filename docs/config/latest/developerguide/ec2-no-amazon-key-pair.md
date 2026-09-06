@@ -1,6 +1,11 @@
-# ec2-no-amazon-key-pair
 
-Checks if running Amazon EC2 instances were launched without key pairs. The rule is NON\_COMPLIANT if an instance was launched with a key pair. Evaluation is based on launch-time configuration only.
+
+# ec2-no-amazon-key-pair
+<a name="ec2-no-amazon-key-pair"></a>
+
+Checks if running Amazon EC2 instances were launched without key pairs. The rule is NON\_COMPLIANT if an instance was launched with a key pair. Evaluation is based on launch-time configuration only. 
+
+
 
 **Identifier:** EC2\_NO\_AMAZON\_KEY\_PAIR
 
@@ -12,8 +17,9 @@ Checks if running Amazon EC2 instances were launched without key pairs. The rule
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d601c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

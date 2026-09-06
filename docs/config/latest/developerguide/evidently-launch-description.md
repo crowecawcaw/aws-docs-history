@@ -1,6 +1,11 @@
-# evidently-launch-description
 
-Checks if Amazon CloudWatch Evidently launches have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
+
+# evidently-launch-description
+<a name="evidently-launch-description"></a>
+
+Checks if Amazon CloudWatch Evidently launches have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
+
+
 
 **Identifier:** EVIDENTLY\_LAUNCH\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon CloudWatch Evidently launches have a description. The rule is N
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d823c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

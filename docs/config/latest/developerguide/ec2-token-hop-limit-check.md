@@ -1,6 +1,11 @@
-# ec2-token-hop-limit-check
 
-Checks if an Amazon Elastic Compute Cloud (EC2) instance metadata has a specified token hop limit that is below the desired limit. The rule is NON\_COMPLIANT for an instance if it has a hop limit value above the intended limit.
+
+# ec2-token-hop-limit-check
+<a name="ec2-token-hop-limit-check"></a>
+
+Checks if an Amazon Elastic Compute Cloud (EC2) instance metadata has a specified token hop limit that is below the desired limit. The rule is NON\_COMPLIANT for an instance if it has a hop limit value above the intended limit. 
+
+
 
 **Identifier:** EC2\_TOKEN\_HOP\_LIMIT\_CHECK
 
@@ -12,11 +17,10 @@ Checks if an Amazon Elastic Compute Cloud (EC2) instance metadata has a specifie
 
 **Parameters:**
 
-tokenHopLimit (Optional)
-Type: int
-
+tokenHopLimit (Optional)Type: int  
 The desired token hop limit. Valid values are between 1 and 64, both inclusive. Default value is 1 if parameter is not specified.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d619c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

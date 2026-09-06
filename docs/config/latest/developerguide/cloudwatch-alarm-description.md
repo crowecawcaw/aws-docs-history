@@ -1,6 +1,11 @@
-# cloudwatch-alarm-description
 
-Checks if AWS CloudWatch Alarm resources contain an alarm description. The rule is NON\_COMPLIANT if the CloudWatch Alarm resource does not contain an AlarmDescription field or the AlarmDescription is empty.
+
+# cloudwatch-alarm-description
+<a name="cloudwatch-alarm-description"></a>
+
+Checks if AWS CloudWatch Alarm resources contain an alarm description. The rule is NON\_COMPLIANT if the CloudWatch Alarm resource does not contain an AlarmDescription field or the AlarmDescription is empty. 
+
+
 
 **Identifier:** CLOUDWATCH\_ALARM\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS CloudWatch Alarm resources contain an alarm description. The rule 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d351c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

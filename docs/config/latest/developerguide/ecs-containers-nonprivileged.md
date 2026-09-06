@@ -1,9 +1,11 @@
+
+
 # ecs-containers-nonprivileged
+<a name="ecs-containers-nonprivileged"></a>
 
-Checks if the privileged parameter in the container definition of ECSTaskDefinitions is set to ‘true’. The rule is NON\_COMPLIANT if the privileged parameter is ‘true’.
+Checks if the privileged parameter in the container definition of ECSTaskDefinitions is set to ‘true’. The rule is NON\_COMPLIANT if the privileged parameter is ‘true’. 
 
-###### Note
-
+**Note**  
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
 **Identifier:** ECS\_CONTAINERS\_NONPRIVILEGED
@@ -16,8 +18,9 @@ This rule only evaluates the latest active revision of an Amazon ECS task defini
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d661c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

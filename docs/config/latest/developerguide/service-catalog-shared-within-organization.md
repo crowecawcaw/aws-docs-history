@@ -1,6 +1,11 @@
-# service-catalog-shared-within-organization
 
-Checks if AWS Service Catalog shares portfolios to an organization (a collection of AWS accounts treated as a single unit) when integration is enabled with AWS Organizations. The rule is NON\_COMPLIANT if the `Type` value of a share is `ACCOUNT`.
+
+# service-catalog-shared-within-organization
+<a name="service-catalog-shared-within-organization"></a>
+
+Checks if AWS Service Catalog shares portfolios to an organization (a collection of AWS accounts treated as a single unit) when integration is enabled with AWS Organizations. The rule is NON\_COMPLIANT if the `Type` value of a share is `ACCOUNT`. 
+
+
 
 **Identifier:** SERVICE\_CATALOG\_SHARED\_WITHIN\_ORGANIZATION
 
@@ -12,8 +17,9 @@ Checks if AWS Service Catalog shares portfolios to an organization (a collection
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1521c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

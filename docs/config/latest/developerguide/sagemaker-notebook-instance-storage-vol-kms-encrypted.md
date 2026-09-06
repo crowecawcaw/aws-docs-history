@@ -1,6 +1,11 @@
-# sagemaker-notebook-instance-storage-vol-kms-encrypted
 
-Checks whether an Amazon SageMaker notebook instance is configured with a customer managed AWS KMS key for storage volume encryption. The rule is NON\_COMPLIANT if KmsKeyId is not set or is empty.
+
+# sagemaker-notebook-instance-storage-vol-kms-encrypted
+<a name="sagemaker-notebook-instance-storage-vol-kms-encrypted"></a>
+
+Checks whether an Amazon SageMaker notebook instance is configured with a customer managed AWS KMS key for storage volume encryption. The rule is NON\_COMPLIANT if KmsKeyId is not set or is empty. 
+
+
 
 **Identifier:** SAGEMAKER\_NOTEBOOK\_INSTANCE\_STORAGE\_VOL\_KMS\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks whether an Amazon SageMaker notebook instance is configured with a custom
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1501c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

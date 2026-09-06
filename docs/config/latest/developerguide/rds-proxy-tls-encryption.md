@@ -1,6 +1,11 @@
-# rds-proxy-tls-encryption
 
-Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections.
+
+# rds-proxy-tls-encryption
+<a name="rds-proxy-tls-encryption"></a>
+
+Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections. 
+
+
 
 **Identifier:** RDS\_PROXY\_TLS\_ENCRYPTION
 
@@ -12,8 +17,9 @@ Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_C
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1277c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

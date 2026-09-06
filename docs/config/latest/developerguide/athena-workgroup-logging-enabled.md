@@ -1,6 +1,11 @@
-# athena-workgroup-logging-enabled
 
-Checks if Amazon Athena WorkGroup publishes usage metrics to Amazon CloudWatch. The rule is NON\_COMPLIANT if an Amazon Athena WorkGroup 'PublishCloudWatchMetricsEnabled' is set to false.
+
+# athena-workgroup-logging-enabled
+<a name="athena-workgroup-logging-enabled"></a>
+
+Checks if Amazon Athena WorkGroup publishes usage metrics to Amazon CloudWatch. The rule is NON\_COMPLIANT if an Amazon Athena WorkGroup 'PublishCloudWatchMetricsEnabled' is set to false. 
+
+
 
 **Identifier:** ATHENA\_WORKGROUP\_LOGGING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Athena WorkGroup publishes usage metrics to Amazon CloudWatch. 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d213c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

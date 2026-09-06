@@ -1,26 +1,24 @@
+
+
 # Use `PutDeliveryChannel` with a CLI
+<a name="example_config-service_PutDeliveryChannel_section"></a>
 
 The following code examples show how to use `PutDeliveryChannel`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with configuration management](example_config_service_GettingStarted_053_section.md) 
 
-- [Getting started with configuration management](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a delivery channel**
-
-The following command provides the settings for the delivery channel as JSON code:
+**AWS CLI**  
+**To create a delivery channel**  
+The following command provides the settings for the delivery channel as JSON code:  
 
 ```
-`aws configservice put-delivery-channel --delivery-channel `file://deliveryChannel.json``
-
+aws configservice put-delivery-channel --delivery-channel {{file://deliveryChannel.json}}
 ```
-
-The `deliveryChannel.json` file specifies the delivery channel attributes:
+The `deliveryChannel.json` file specifies the delivery channel attributes:  
 
 ```
 {
@@ -32,49 +30,32 @@ The `deliveryChannel.json` file specifies the delivery channel attributes:
     }
 }
 ```
+This example sets the following attributes:  
+`name` - The name of the delivery channel. By default, AWS Config assigns the name `default` to a new delivery channel.You cannot update the delivery channel name with the `put-delivery-channel` command. For the steps to change the name, see Renaming the Delivery Channel.`s3BucketName` - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon S3 Bucket.  
+`snsTopicARN` - The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon SNS Topic.  
+`configSnapshotDeliveryProperties` - Contains the `deliveryFrequency` attribute, which sets how often AWS Config delivers configuration snapshots and how often it invokes evaluations for periodic Config rules.  
+If the command succeeds, AWS Config returns no output. To verify the settings of your delivery channel, run the describe-delivery-channels command.  
++  For API details, see [PutDeliveryChannel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-delivery-channel.html) in *AWS CLI Command Reference*. 
 
-This example sets the following attributes:
+------
+#### [ PowerShell ]
 
-`name` - The name of the delivery channel. By default, AWS Config assigns the name `default` to a new delivery channel.You cannot update the delivery channel name with the `put-delivery-channel` command. For the steps to change the name, see Renaming the Delivery Channel.`s3BucketName` - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon S3 Bucket.
-
-`snsTopicARN` - The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon SNS Topic.
-
-`configSnapshotDeliveryProperties` - Contains the `deliveryFrequency` attribute, which sets how often AWS Config delivers configuration snapshots and how often it invokes evaluations for periodic Config rules.
-
-If the command succeeds, AWS Config returns no output. To verify the settings of your delivery channel, run the describe-delivery-channels command.
-
-- For API details, see
-  [PutDeliveryChannel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-delivery-channel.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-delivery-channel.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**
+**Tools for PowerShell V4**  
+**Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
 ```
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
-
 ```
++  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutDeliveryChannel](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**
+**Tools for PowerShell V5**  
+**Example 1: This example changes the deliveryFrequency property of an existing delivery channel.**  
 
 ```
 Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName amzn-s3-demo-bucket -DeliveryChannel_S3KeyPrefix my
-
 ```
++  For API details, see [PutDeliveryChannel](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutDeliveryChannel](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Config with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

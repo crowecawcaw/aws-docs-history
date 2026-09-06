@@ -1,10 +1,11 @@
+
+
 # Example Compliance Change Notification
+<a name="example-config-rule-compliance-notification"></a>
 
-When AWS Config evaluates your resources against a custom or managed rule, AWS Config sends a
-notification that shows whether the resources are compliant against the rule.
+When AWS Config evaluates your resources against a custom or managed rule, AWS Config sends a notification that shows whether the resources are compliant against the rule. 
 
-The following is an example notification where the CloudTrail trail resource is compliant
-against the `cloudtrail-enabled` managed rule.
+The following is an example notification where the CloudTrail trail resource is compliant against the `cloudtrail-enabled `managed rule.
 
 ```
 {
@@ -61,7 +62,7 @@ against the `cloudtrail-enabled` managed rule.
 }
 ```
 
-**Example: Config Configuration Item Change | Amazon EventBridge**
+**Example: Config Configuration Item Change \| Amazon EventBridge**
 
 ```
 {

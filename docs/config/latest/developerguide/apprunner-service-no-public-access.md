@@ -1,6 +1,11 @@
-# apprunner-service-no-public-access
 
-Checks if AWS AppRunner Services are not publicly accessible. The rule is NON\_COMPLIANT if service.configuration.NetworkConfiguration.IngressConfiguration.IsPubliclyAccessible is False.
+
+# apprunner-service-no-public-access
+<a name="apprunner-service-no-public-access"></a>
+
+Checks if AWS AppRunner Services are not publicly accessible. The rule is NON\_COMPLIANT if service.configuration.NetworkConfiguration.IngressConfiguration.IsPubliclyAccessible is False. 
+
+
 
 **Identifier:** APPRUNNER\_SERVICE\_NO\_PUBLIC\_ACCESS
 
@@ -12,8 +17,9 @@ Checks if AWS AppRunner Services are not publicly accessible. The rule is NON\_C
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d175c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

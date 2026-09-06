@@ -1,17 +1,11 @@
+
+
 # Example Configuration Item Change Notifications
+<a name="example-sns-notification"></a>
 
-AWS Config uses Amazon SNS to deliver notifications to subscription endpoints. These notifications
-provide the delivery status for configuration snapshots and configuration histories, and
-they provide each configuration item that AWS Config creates when the configurations of recorded
-AWS resources change. AWS Config also sends notifications that show whether your resources are
-compliant against your rules. If you choose to have notifications sent by email, you can use
-filters in your email client application based on the subject line and message body of the
-email.
+AWS Config uses Amazon SNS to deliver notifications to subscription endpoints. These notifications provide the delivery status for configuration snapshots and configuration histories, and they provide each configuration item that AWS Config creates when the configurations of recorded AWS resources change. AWS Config also sends notifications that show whether your resources are compliant against your rules. If you choose to have notifications sent by email, you can use filters in your email client application based on the subject line and message body of the email.
 
-The following is an example payload of an Amazon SNS notification that is generated when AWS Config
-detects that the Amazon Elastic Block Store volume `vol-ce676ccc` is attached to the instance with
-an ID of `i-344c463d`. The notification contains the configuration item change
-for the resource.
+The following is an example payload of an Amazon SNS notification that is generated when AWS Config detects that the Amazon Elastic Block Store volume `vol-ce676ccc` is attached to the instance with an ID of `i-344c463d`. The notification contains the configuration item change for the resource.
 
 ```
 {
@@ -96,21 +90,17 @@ for the resource.
 ```
 
 ## Configuration Items for Resources with Relationships
+<a name="example-configuration-items-for-relationships"></a>
 
-If a resource is related to other resources, a change to that resource can result in
-multiple configuration items. The following example shows how AWS Config creates configuration
-items for resources with relationships.
+If a resource is related to other resources, a change to that resource can result in multiple configuration items. The following example shows how AWS Config creates configuration items for resources with relationships.
 
-1. You have an Amazon EC2 instance with an ID of `i-007d374c8912e3e90`, and
-   the instance is associated with an Amazon EC2 security group,
-   `sg-c8b141b4`.
-2. You update your EC2 instance to change the security group to another security
-   group, `sg-3f1fef43`.
-3. Because the EC2 instance is related to another resource, AWS Config creates multiple
-   configuration items like the following examples:
+1. You have an Amazon EC2 instance with an ID of `i-007d374c8912e3e90`, and the instance is associated with an Amazon EC2 security group, `sg-c8b141b4`.
 
-This notification contains the configuration item change for the EC2 instance when the
-security group is replaced.
+1. You update your EC2 instance to change the security group to another security group, `sg-3f1fef43`. 
+
+1. Because the EC2 instance is related to another resource, AWS Config creates multiple configuration items like the following examples:
+
+This notification contains the configuration item change for the EC2 instance when the security group is replaced.
 
 ```
 {
@@ -406,8 +396,7 @@ security group is replaced.
 }
 ```
 
-This notification contains the configuration item change for the EC2 security group,
-`sg-3f1fef43`, which is associated with the instance.
+This notification contains the configuration item change for the EC2 security group, `sg-3f1fef43`, which is associated with the instance.
 
 ```
 {
@@ -474,42 +463,28 @@ This notification contains the configuration item change for the EC2 security gr
 ```
 
 ## Understanding the `configurationItemDiff` field in Amazon SNS `ConfigurationItemChangeNotification` notifications
+<a name="example-configuration-items-for-configurationItemDiff"></a>
 
-AWS Config creates a configuration item whenever the configuration of a resource changes
-(create/update/delete). For a list of supported resource types that AWS Config can record, see
-[Supported Resource Types for AWS Config](resource-config-reference.md "resource-config-reference.md"). AWS Config uses Amazon SNS to deliver a notification as the changes occur. The Amazon SNS
-notification payload includes fields to help you track the resource changes in a given
-AWS Region.
+AWS Config creates a configuration item whenever the configuration of a resource changes (create/update/delete). For a list of supported resource types that AWS Config can record, see [Supported Resource Types for AWS Config](resource-config-reference.md). AWS Config uses Amazon SNS to deliver a notification as the changes occur. The Amazon SNS notification payload includes fields to help you track the resource changes in a given AWS Region.
 
-To understand why you receive a `ConfigurationItemChangeNotification`
-notification, review the `configurationItemDiff` details. The fields vary
-depending on the change type and can form different combinations such as UPDATE-UPDATE,
-UPDATE-CREATE, and DELETE-DELETE. The following are explanations of some common
-combinations.
+To understand why you receive a `ConfigurationItemChangeNotification` notification, review the `configurationItemDiff` details. The fields vary depending on the change type and can form different combinations such as UPDATE-UPDATE, UPDATE-CREATE, and DELETE-DELETE. The following are explanations of some common combinations.
 
 ### UPDATE-CREATE and UPDATE-UPDATE
+<a name="w2aac12c27c15c11b7"></a>
 
-The following example includes changes in the resource direct relationships and
-resource configurations. The `configurationItemDiff` details reveal the
-following information:
+The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
 
-**Action performed**: A managed policy present in the account was
-attached to an AWS Identity and Access Management (IAM) role.
+**Action performed**: A managed policy present in the account was attached to an AWS Identity and Access Management (IAM) role.
 
-**Basic operation performed**: UPDATE (updating the number of
-associations of the resource type `AWS::IAM::Policy` in an
-account).
+**Basic operation performed**: UPDATE (updating the number of associations of the resource type `AWS::IAM::Policy` in an account).
 
 **Change type combinations**:
 
-1. Resource direct relationship change UPDATE-CREATE. A new attachment or
-   association was created between an IAM policy and an IAM role.
-2. Resource configuration change UPDATE-UPDATE. The number IAM policy
-   associations increased from 2 to 3 when the policy was attached to the IAM
-   role.
+1. Resource direct relationship change UPDATE-CREATE. A new attachment or association was created between an IAM policy and an IAM role.
 
-Example UPDATE-CREATE and UPDATE-UPDATE `configurationItemDiff`
-notification:
+1. Resource configuration change UPDATE-UPDATE. The number IAM policy associations increased from 2 to 3 when the policy was attached to the IAM role.
+
+Example UPDATE-CREATE and UPDATE-UPDATE `configurationItemDiff` notification:
 
 ```
 {
@@ -537,33 +512,23 @@ notification:
 ```
 
 ### UPDATE-DELETE
+<a name="w2aac12c27c15c11b9"></a>
 
-The following example includes changes in the resource direct relationships and
-resource configurations. The `configurationItemDiff` details reveal the
-following information:
+The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
 
-**Action performed**: A managed policy present in the account was
-detached from an IAM user.
+**Action performed**: A managed policy present in the account was detached from an IAM user.
 
-**Basic operation performed**: UPDATE (updating the permissions
-policy associated with the resource type `AWS::IAM::User`).
+**Basic operation performed**: UPDATE (updating the permissions policy associated with the resource type `AWS::IAM::User`).
 
-**Change type combinations**: Resource direct relationship change
-UPDATE-DELETE. The association between an IAM user and an IAM policy in an account
-was deleted.
+**Change type combinations**: Resource direct relationship change UPDATE-DELETE. The association between an IAM user and an IAM policy in an account was deleted.
 
 ### DELETE-DELETE
+<a name="w2aac12c27c15c11c21"></a>
 
-The following example includes changes in the resource direct relationships and
-resource configurations. The `configurationItemDiff` details reveal the
-following information:
+The following example includes changes in the resource direct relationships and resource configurations. The `configurationItemDiff` details reveal the following information:
 
-**Action performed**: An IAM role present in an account was
-deleted.
+**Action performed**: An IAM role present in an account was deleted.
 
-**Basic operation performed**: DELETE (a resource of the resource
-type `AWS::IAM::Role` was deleted).
+**Basic operation performed**: DELETE (a resource of the resource type `AWS::IAM::Role` was deleted).
 
-**Change type combinations**: Resource direct relationship change and
-resource configuration change DELETE-DELETE. The deletion of the IAM role also deleted
-the association of the IAM policy with the IAM role.
+**Change type combinations**: Resource direct relationship change and resource configuration change DELETE-DELETE. The deletion of the IAM role also deleted the association of the IAM policy with the IAM role.

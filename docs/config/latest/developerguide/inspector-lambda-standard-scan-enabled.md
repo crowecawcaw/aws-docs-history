@@ -1,6 +1,11 @@
-# inspector-lambda-standard-scan-enabled
 
-Checks if Amazon Inspector V2 Lambda standard scanning is activated for your single or multi-account environment to detect potential software vulnerabilities. The rule is NON\_COMPLIANT if Lambda standard scanning is not activated.
+
+# inspector-lambda-standard-scan-enabled
+<a name="inspector-lambda-standard-scan-enabled"></a>
+
+Checks if Amazon Inspector V2 Lambda standard scanning is activated for your single or multi-account environment to detect potential software vulnerabilities. The rule is NON\_COMPLIANT if Lambda standard scanning is not activated. 
+
+
 
 **Identifier:** INSPECTOR\_LAMBDA\_STANDARD\_SCAN\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Inspector V2 Lambda standard scanning is activated for your sin
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d977c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

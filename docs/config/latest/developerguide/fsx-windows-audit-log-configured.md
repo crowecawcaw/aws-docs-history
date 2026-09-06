@@ -1,6 +1,11 @@
-# fsx-windows-audit-log-configured
 
-Checks if the Amazon FSx for Windows File Server file systems have file access auditing enabled. The rule is NON\_COMPLIANT if the FSx for Windows File Server file systems do not have file access auditing enabled.
+
+# fsx-windows-audit-log-configured
+<a name="fsx-windows-audit-log-configured"></a>
+
+Checks if the Amazon FSx for Windows File Server file systems have file access auditing enabled. The rule is NON\_COMPLIANT if the FSx for Windows File Server file systems do not have file access auditing enabled. 
+
+
 
 **Identifier:** FSX\_WINDOWS\_AUDIT\_LOG\_CONFIGURED
 
@@ -12,8 +17,9 @@ Checks if the Amazon FSx for Windows File Server file systems have file access a
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d867c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

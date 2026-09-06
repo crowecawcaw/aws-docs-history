@@ -1,6 +1,11 @@
-# cognito-user-pool-deletion-protection-enabled
 
-Checks whether Amazon Cognito user pools has deletion protection enabled. This rule is NON\_COMPLIANT if a user pool has deletion protection disabled.
+
+# cognito-user-pool-deletion-protection-enabled
+<a name="cognito-user-pool-deletion-protection-enabled"></a>
+
+Checks whether Amazon Cognito user pools has deletion protection enabled. This rule is NON\_COMPLIANT if a user pool has deletion protection disabled. 
+
+
 
 **Identifier:** COGNITO\_USER\_POOL\_DELETION\_PROTECTION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks whether Amazon Cognito user pools has deletion protection enabled. This r
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d417c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# opensearch-primary-node-fault-tolerance
 
-Checks if Amazon OpenSearch Service domains are configured with at least three dedicated primary nodes. The rule is NON\_COMPLIANT for an OpenSearch Service domain if 'DedicatedMasterEnabled' is set to 'false', or 'DedicatedMasterCount' is less than 3.
+
+# opensearch-primary-node-fault-tolerance
+<a name="opensearch-primary-node-fault-tolerance"></a>
+
+Checks if Amazon OpenSearch Service domains are configured with at least three dedicated primary nodes. The rule is NON\_COMPLIANT for an OpenSearch Service domain if 'DedicatedMasterEnabled' is set to 'false', or 'DedicatedMasterCount' is less than 3. 
+
+
 
 **Identifier:** OPENSEARCH\_PRIMARY\_NODE\_FAULT\_TOLERANCE
 
@@ -12,8 +17,9 @@ Checks if Amazon OpenSearch Service domains are configured with at least three d
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1207c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

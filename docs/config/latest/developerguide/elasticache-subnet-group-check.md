@@ -1,6 +1,11 @@
-# elasticache-subnet-group-check
 
-Checks if Amazon ElastiCache clusters are configured with a custom subnet group. The rule is NON\_COMPLIANT for an ElastiCache cluster if it is using a default subnet group.
+
+# elasticache-subnet-group-check
+<a name="elasticache-subnet-group-check"></a>
+
+Checks if Amazon ElastiCache clusters are configured with a custom subnet group. The rule is NON\_COMPLIANT for an ElastiCache cluster if it is using a default subnet group. 
+
+
 
 **Identifier:** ELASTICACHE\_SUBNET\_GROUP\_CHECK
 
@@ -12,8 +17,9 @@ Checks if Amazon ElastiCache clusters are configured with a custom subnet group.
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d753c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

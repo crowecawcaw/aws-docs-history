@@ -1,73 +1,64 @@
+
+
 # Turning on Proactive Evaluation for AWS Config Rules
+<a name="evaluate-config_turn-on-proactive-rules"></a>
 
-You can use the AWS Config console or the AWS SDKs to turn on proactive evaluation
-rules. For a list of resource types and managed rules that support proactive evaluation, see [Components of a Rule | Evaluation Modes](evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective "evaluate-config_components.md#evaluate-config_use-managed-rules-proactive-detective").
+You can use the AWS Config console or the AWS SDKs to turn on proactive evaluation rules. For a list of resource types and managed rules that support proactive evaluation, see [Components of a Rule \| Evaluation Modes](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_components.html#evaluate-config_use-managed-rules-proactive-detective).
 
-###### Topics
-
-- [Using the console](#evaluate-config_turn-on-proactive-rules-console "#evaluate-config_turn-on-proactive-rules-console")
-- [Using the AWS SDKs](#evaluate-config_turn-on-proactive-rules-cli "#evaluate-config_turn-on-proactive-rules-cli")
+**Topics**
++ [Using the console](#evaluate-config_turn-on-proactive-rules-console)
++ [Using the AWS SDKs](#evaluate-config_turn-on-proactive-rules-cli)
 
 ## Turning on Proactive Evaluation (Console)
+<a name="evaluate-config_turn-on-proactive-rules-console"></a>
 
-The **Rules** page shows your rules and their current compliance
-results in a table. The result for each rule is **Evaluating...**
-until AWS Config finishes evaluating your resources against the rule. You can update the
-results with the refresh button.
+The **Rules** page shows your rules and their current compliance results in a table. The result for each rule is **Evaluating...** until AWS Config finishes evaluating your resources against the rule. You can update the results with the refresh button.
 
-When AWS Config finishes evaluations, you can see the
-rules and resource types that are compliant or noncompliant. For more information,
-see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](evaluate-config_view-compliance.md "evaluate-config_view-compliance.md").
+When AWS Config finishes evaluations, you can see the rules and resource types that are compliant or noncompliant. For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](evaluate-config_view-compliance.md).
 
-###### Note
+**Note**  
+AWS Config evaluates only the resource types that it is recording. For example, if you add the **cloudtrail-enabled** rule but don't record the CloudTrail trail resource type, AWS Config can't evaluate whether the trails in your account are compliant or noncompliant. For more information, see [Recording AWS Resources with AWS Config](select-resources.md).
 
-AWS Config evaluates only the resource types that it is recording. For example, if you add
-the **cloudtrail-enabled** rule but don't record the CloudTrail trail
-resource type, AWS Config can't evaluate whether the trails in your account are compliant or
-noncompliant. For more information, see [Recording AWS Resources with AWS Config](select-resources.md "select-resources.md").
+### Turning on proactive evaluation
+<a name="turn-on-proactive-rules-console"></a>
 
-You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+You can use *proactive evaluation* to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource, would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
-The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
+The [Resource type schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) states the properties of a resource. You can find the resource type schema in "*AWS public extensions*" within the AWS CloudFormation registry or with the following CLI commmand:
 
 ```
-aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type `RESOURCE`
+aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type {{RESOURCE}}
 ```
 
-For more information, see [Managing extensions through the CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view "../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view")
-and [AWS resource and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation User Guide.
+For more information, see [Managing extensions through the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view) and [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the AWS CloudFormation User Guide.
 
-###### Note
-
+**Note**  
 Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
-###### To turn on proactive evalution
+**To turn on proactive evalution**
 
-1. Sign in to the AWS Management Console and open the AWS Config console at
-   [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
-2. In the AWS Management Console menu, verify that the Region selector is set to a
-   Region that supports AWS Config rules. For the list of supported AWS
-   Regions, see [AWS Config
-   Regions and Endpoints](../../../general/latest/gr/rande.md#awsconfig_region "../../../general/latest/gr/rande.md#awsconfig_region") in the
-   _Amazon Web Services General Reference_.
-3. In the left navigation, choose **Rules**. For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](managed-rules-by-evaluation-mode.md "managed-rules-by-evaluation-mode.md").
-4. Choose a rule, and then choose **Edit rule** for the
-   rule that you want to update.
-5. For **Evaluation mode**, choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
-6. Choose **Save**.
-   After you have turned on proactive evaluation,
-   you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
+1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
+
+1. In the AWS Management Console menu, verify that the Region selector is set to a Region that supports AWS Config rules. For the list of supported AWS Regions, see [AWS Config Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#awsconfig_region) in the *Amazon Web Services General Reference*. 
+
+1. In the left navigation, choose **Rules**. For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-evaluation-mode.html).
+
+1. Choose a rule, and then choose **Edit rule** for the rule that you want to update.
+
+1. For **Evaluation mode**, choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
+
+1. Choose **Save**.
+
+After you have turned on proactive evaluation, you can use the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API and [GetResourceEvaluationSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceEvaluationSummary.html) API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the StartResourceEvaluation API:
 
 ```
 aws configservice start-resource-evaluation --evaluation-mode PROACTIVE
-                --resource-details '{"ResourceId":"`MY_RESOURCE_ID`",
-                                     "ResourceType":"`AWS::RESOURCE::TYPE`",
-                                     "ResourceConfiguration":"`RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA`",
+                --resource-details '{"ResourceId":"{{MY_RESOURCE_ID}}",
+                                     "ResourceType":"{{AWS::RESOURCE::TYPE}}",
+                                     "ResourceConfiguration":"{{RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA}}",
                                      "ResourceConfigurationSchemaType":"CFN_RESOURCE_SCHEMA"}'
-
 ```
 
 You should receive the `ResourceEvaluationId` in the output:
@@ -82,7 +73,7 @@ Then, use the `ResourceEvaluationId` with the GetResourceEvaluationSummary API t
 
 ```
 aws configservice get-resource-evaluation-summary
-    --resource-evaluation-id `MY_RESOURCE_EVALUATION_ID`
+    --resource-evaluation-id {{MY_RESOURCE_EVALUATION_ID}}
 ```
 
 You should receive output similiar to the following:
@@ -104,43 +95,41 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
-use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT, use the [GetComplianceDetailsByResource](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByResource.html) API.
 
 ## Turning on Proactive Evaluation (AWS SDKs)
+<a name="evaluate-config_turn-on-proactive-rules-cli"></a>
 
-You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+### Turning on proactive evaluation (AWS CLI)
+<a name="turn-on-proactive-rules-cli"></a>
 
-The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
+You can use *proactive evaluation* to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource, would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+
+The [Resource type schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) states the properties of a resource. You can find the resource type schema in "*AWS public extensions*" within the AWS CloudFormation registry or with the following CLI commmand:
 
 ```
-aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type `RESOURCE`
+aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type {{RESOURCE}}
 ```
 
-For more information, see [Managing extensions through the CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view "../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view")
-and [AWS resource and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation User Guide.
+For more information, see [Managing extensions through the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view) and [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the AWS CloudFormation User Guide.
 
-###### Note
-
+**Note**  
 Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 **To turn on proactive evaluation**
 
-Use the [`put-config-rule`](../../../cli/latest/reference/configservice/put-config-rule.md "../../../cli/latest/reference/configservice/put-config-rule.md") command and enable `PROACTIVE` for `EvaluationModes`.
+Use the [`put-config-rule`](http://docs.aws.amazon.com/cli/latest/reference/configservice/put-config-rule.html) command and enable `PROACTIVE` for `EvaluationModes`.
 
-After you have turned on proactive evaluation,
-you can use the [start-resource-evaluation](../../../cli/latest/reference/configservice/start-resource-evaluation.md "../../../cli/latest/reference/configservice/start-resource-evaluation.md") CLI command and [get-resource-evaluation-summary](../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md "../../../cli/latest/reference/configservice/get-resource-evaluation-summary.md") CLI command to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
+After you have turned on proactive evaluation, you can use the [start-resource-evaluation](https://docs.aws.amazon.com/cli/latest/reference/configservice/start-resource-evaluation.html) CLI command and [get-resource-evaluation-summary](https://docs.aws.amazon.com/cli/latest/reference/configservice/get-resource-evaluation-summary.html) CLI command to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
 
 For example, start with the **start-resource-evaluation** command:
 
 ```
 aws configservice start-resource-evaluation --evaluation-mode PROACTIVE
-                --resource-details '{"ResourceId":"`MY_RESOURCE_ID`",
-                                     "ResourceType":"`AWS::RESOURCE::TYPE`",
-                                     "ResourceConfiguration":"`RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA`",
+                --resource-details '{"ResourceId":"{{MY_RESOURCE_ID}}",
+                                     "ResourceType":"{{AWS::RESOURCE::TYPE}}",
+                                     "ResourceConfiguration":"{{RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA}}",
                                      "ResourceConfigurationSchemaType":"CFN_RESOURCE_SCHEMA"}'
-
 ```
 
 You should receive the `ResourceEvaluationId` in the output:
@@ -155,7 +144,7 @@ Then, use the `ResourceEvaluationId` with the **get-resource-evaluation-summary*
 
 ```
 aws configservice get-resource-evaluation-summary
-    --resource-evaluation-id `MY_RESOURCE_EVALUATION_ID`
+    --resource-evaluation-id {{MY_RESOURCE_EVALUATION_ID}}
 ```
 
 You should receive output similiar to the following:
@@ -177,45 +166,39 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
-use the [get-compliance-details-by-resource](../../../cli/latest/reference/configservice/get-compliance-details-by-resource.md "../../../cli/latest/reference/configservice/get-compliance-details-by-resource.md") CLI command.
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT, use the [get-compliance-details-by-resource](https://docs.aws.amazon.com/cli/latest/reference/configservice/get-compliance-details-by-resource.html) CLI command.
 
-###### Note
+**Note**  
+For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-evaluation-mode.html).
 
-For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](managed-rules-by-evaluation-mode.md "managed-rules-by-evaluation-mode.md").
+### Turning on proactive evaluation (API)
+<a name="turn-on-proactive-rules-api"></a>
 
-You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
-would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
+You can use *proactive evaluation* to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource, would be COMPLIANT or NON\_COMPLIANT given the set of proactive rules that you have in your account in your Region.
 
-The [Resource type schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md "../../../cloudformation-cli/latest/userguide/resource-type-schema.md") states the properties of a resource. You can find the resource type schema in "_AWS public extensions_" within the AWS CloudFormation registry or with the following CLI commmand:
+The [Resource type schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) states the properties of a resource. You can find the resource type schema in "*AWS public extensions*" within the AWS CloudFormation registry or with the following CLI commmand:
 
 ```
-aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type `RESOURCE`
+aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type {{RESOURCE}}
 ```
 
-For more information, see [Managing extensions through the CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view "../../../AWSCloudFormation/latest/UserGuide/registry.md#registry-view")
-and [AWS resource and property types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the AWS CloudFormation User Guide.
+For more information, see [Managing extensions through the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view) and [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the AWS CloudFormation User Guide.
 
-###### Note
-
+**Note**  
 Proactive rules do not remediate resources that are flagged as NON\_COMPLIANT or prevent them from being deployed.
 
 **To turn on proactive evaluation for a rule**
 
-Use the [PutConfigRule](../APIReference/API_PutConfigRule.md "../APIReference/API_PutConfigRule.md") action and enable `PROACTIVE` for `EvaluationModes`.
+Use the [PutConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html) action and enable `PROACTIVE` for `EvaluationModes`.
 
-After you have turned on proactive evaluation,
-you can use the [StartResourceEvaluation](../APIReference/API_StartResourceEvaluation.md "../APIReference/API_StartResourceEvaluation.md") API and [GetResourceEvaluationSummary](../APIReference/API_GetResourceEvaluationSummary.md "../APIReference/API_GetResourceEvaluationSummary.md") API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region.
-
-For example, start with the StartResourceEvaluation API:
+After you have turned on proactive evaluation, you can use the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API and [GetResourceEvaluationSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceEvaluationSummary.html) API to check if the resources you specify in these commands would be flagged as NON\_COMPLIANT by the proactive rules in your account in your Region. For example, start with the StartResourceEvaluation API:
 
 ```
 aws configservice start-resource-evaluation --evaluation-mode PROACTIVE
-                --resource-details '{"ResourceId":"`MY_RESOURCE_ID`",
-                                     "ResourceType":"`AWS::RESOURCE::TYPE`",
-                                     "ResourceConfiguration":"`RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA`",
+                --resource-details '{"ResourceId":"{{MY_RESOURCE_ID}}",
+                                     "ResourceType":"{{AWS::RESOURCE::TYPE}}",
+                                     "ResourceConfiguration":"{{RESOURCE_DEFINITION_AS_PER_THE_RESOURCE_CONFIGURATION_SCHEMA}}",
                                      "ResourceConfigurationSchemaType":"CFN_RESOURCE_SCHEMA"}'
-
 ```
 
 You should receive the `ResourceEvaluationId` in the output:
@@ -230,7 +213,7 @@ Then, use the `ResourceEvaluationId` with the GetResourceEvaluationSummary API t
 
 ```
 aws configservice get-resource-evaluation-summary
-    --resource-evaluation-id `MY_RESOURCE_EVALUATION_ID`
+    --resource-evaluation-id {{MY_RESOURCE_EVALUATION_ID}}
 ```
 
 You should receive output similiar to the following:
@@ -252,9 +235,7 @@ You should receive output similiar to the following:
 }
 ```
 
-To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT,
-use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
+To see additional information about the evaluation result, such as which rule flagged a resource as NON\_COMPLIANT, use the [GetComplianceDetailsByResource](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByResource.html) API.
 
-###### Note
-
-For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](managed-rules-by-evaluation-mode.md "managed-rules-by-evaluation-mode.md").
+**Note**  
+For a list of managed rules that support proactive evaluation, see [List of AWS Config Managed Rules by Evaluation Mode](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-evaluation-mode.html).

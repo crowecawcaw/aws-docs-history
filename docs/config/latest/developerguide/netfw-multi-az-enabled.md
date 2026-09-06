@@ -1,6 +1,11 @@
-# netfw-multi-az-enabled
 
-Checks if AWS Network Firewall firewalls are deployed across multiple Availability Zones. The rule is NON\_COMPLIANT if firewalls are deployed in only one Availability Zone or in fewer zones than the number listed in the optional parameter.
+
+# netfw-multi-az-enabled
+<a name="netfw-multi-az-enabled"></a>
+
+Checks if AWS Network Firewall firewalls are deployed across multiple Availability Zones. The rule is NON\_COMPLIANT if firewalls are deployed in only one Availability Zone or in fewer zones than the number listed in the optional parameter. 
+
+
 
 **Identifier:** NETFW\_MULTI\_AZ\_ENABLED
 
@@ -12,11 +17,10 @@ Checks if AWS Network Firewall firewalls are deployed across multiple Availabili
 
 **Parameters:**
 
-availabilityZones (Optional)
-Type: int
-
+availabilityZones (Optional)Type: int  
 The number of expected Availability Zones.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1163c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

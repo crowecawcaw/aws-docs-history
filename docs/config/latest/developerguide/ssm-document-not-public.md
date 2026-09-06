@@ -1,6 +1,11 @@
-# ssm-document-not-public
 
-Checks if AWS Systems Manager documents owned by the account are public. The rule is NON\_COMPLIANT if Systems Manager documents with the owner 'Self' are public.
+
+# ssm-document-not-public
+<a name="ssm-document-not-public"></a>
+
+Checks if AWS Systems Manager documents owned by the account are public. The rule is NON\_COMPLIANT if Systems Manager documents with the owner 'Self' are public. 
+
+
 
 **Identifier:** SSM\_DOCUMENT\_NOT\_PUBLIC
 
@@ -12,8 +17,9 @@ Checks if AWS Systems Manager documents owned by the account are public. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1551c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

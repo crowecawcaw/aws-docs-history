@@ -1,6 +1,11 @@
-# neptune-cluster-iam-database-authentication
 
-Checks if an Amazon Neptune cluster has AWS Identity and Access Management (IAM) database authentication enabled. The rule is NON\_COMPLIANT if an Amazon Neptune cluster does not have IAM database authentication enabled.
+
+# neptune-cluster-iam-database-authentication
+<a name="neptune-cluster-iam-database-authentication"></a>
+
+Checks if an Amazon Neptune cluster has AWS Identity and Access Management (IAM) database authentication enabled. The rule is NON\_COMPLIANT if an Amazon Neptune cluster does not have IAM database authentication enabled. 
+
+
 
 **Identifier:** NEPTUNE\_CLUSTER\_IAM\_DATABASE\_AUTHENTICATION
 
@@ -12,8 +17,9 @@ Checks if an Amazon Neptune cluster has AWS Identity and Access Management (IAM)
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1149c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

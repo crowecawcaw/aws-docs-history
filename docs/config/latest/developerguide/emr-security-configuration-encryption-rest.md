@@ -1,6 +1,11 @@
-# emr-security-configuration-encryption-rest
 
-Checks if an Amazon EMR security configuration has encryption at rest enabled. The rule is NON\_COMPLIANT if configuration.SecurityConfiguration.EncryptionConfiguration.EnableAtRestEncryption is false.
+
+# emr-security-configuration-encryption-rest
+<a name="emr-security-configuration-encryption-rest"></a>
+
+Checks if an Amazon EMR security configuration has encryption at rest enabled. The rule is NON\_COMPLIANT if configuration.SecurityConfiguration.EncryptionConfiguration.EnableAtRestEncryption is false. 
+
+
 
 **Identifier:** EMR\_SECURITY\_CONFIGURATION\_ENCRYPTION\_REST
 
@@ -12,8 +17,9 @@ Checks if an Amazon EMR security configuration has encryption at rest enabled. T
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d811c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

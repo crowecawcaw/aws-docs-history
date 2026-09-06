@@ -1,45 +1,44 @@
+
+
 # Viewing Compliance History for your AWS Resources with AWS Config
+<a name="view-manage-resource-console"></a>
 
-###### Important
+**Important**  
+The `AWS::Config::ResourceCompliance` resource type is used to store historical compliance results for resources. Recording this resource type is **not required** for Config rules to evaluate resources or for viewing current compliance status in the console.  
+Recording `AWS::Config::ResourceCompliance` only enables you to view historical compliance changes over time in the resource timeline. If you don't need historical compliance data, you can exclude this resource type. For more information about selecting resources to record, see [Recording AWS Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
 
-The `AWS::Config::ResourceCompliance` resource type is used to store historical compliance results for resources. Recording this resource type is **not required** for Config rules to evaluate resources or for viewing current compliance status in the console.
+You can view the configuration, relationships, and number of changes made to a resource in the AWS Config console. You can view the configuration history for a resource using AWS CLI.
 
-Recording `AWS::Config::ResourceCompliance` only enables you to view historical compliance changes over time in the resource timeline. If you don't need historical compliance data, you can exclude this resource type. For more information about selecting resources to record, see [Recording AWS Resources](select-resources.md "select-resources.md").
-
-You can view the configuration, relationships, and number of changes made to a resource in
-the AWS Config console. You can view the configuration history for a resource using AWS CLI.
-
-###### Topics
-
-- [Viewing Compliance History (Console)](#view-config-details-console "#view-config-details-console")
-- [Viewing Compliance History (AWS CLI)](#view-config-details-cli "#view-config-details-cli")
-- [For Resources and Rules](#view-compliance-history "#view-compliance-history")
+**Topics**
++ [Viewing Compliance History (Console)](#view-config-details-console)
++ [Viewing Compliance History (AWS CLI)](#view-config-details-cli)
++ [For Resources and Rules](#view-compliance-history)
 
 ## Viewing Compliance History (Console)
+<a name="view-config-details-console"></a>
 
-When you look up resources on the **Resource inventory** page, choose the resource
-name or ID in the resource identifier column to view the resource's details page. The
-details page provides information about the configuration, relationships, and number of
-changes made to that resource.
+### Viewing Compliance History Using the Console
+<a name="view-config-details-console-collapsible"></a>
 
-To access the resource timeline from the resource details page, choose the **Resource Timeline** button. The Resource timeline captures
-changes as `ConfigurationItems` over a period of time for a specific
-resource. You can filter by Configuration events, Compliance events, or CloudTrail
-Events.
+When you look up resources on the **Resource inventory** page, choose the resource name or ID in the resource identifier column to view the resource's details page. The details page provides information about the configuration, relationships, and number of changes made to that resource.
+
+To access the resource timeline from the resource details page, choose the **Resource Timeline** button. The Resource timeline captures changes as `ConfigurationItems` over a period of time for a specific resource. You can filter by Configuration events, Compliance events, or CloudTrail Events.
 
 ## Viewing Compliance History (AWS CLI)
+<a name="view-config-details-cli"></a>
 
-The configuration items that AWS Config records are delivered to the specified delivery
-channel on demand as a configuration snapshot and as a configuration stream. You can use
-the AWS CLI to view history of configuration items for each resource.
+### Viewing Compliance History Using the AWS CLI
+<a name="view-config-details-cli-collapsible"></a>
+
+The configuration items that AWS Config records are delivered to the specified delivery channel on demand as a configuration snapshot and as a configuration stream. You can use the AWS CLI to view history of configuration items for each resource.
 
 #### Viewing Configuration History
+<a name="get-config-history-cli"></a>
 
-Enter the [`get-resource-config-history`](../../../cli/latest/reference/configservice/get-resource-config-history.md "../../../cli/latest/reference/configservice/get-resource-config-history.md") command and specify the
-resource type and the resource ID, for example:
+Enter the [`get-resource-config-history`](http://docs.aws.amazon.com/cli/latest/reference/configservice/get-resource-config-history.html) command and specify the resource type and the resource ID, for example:
 
 ```
-$ **aws configservice get-resource-config-history --resource-type AWS::EC2::SecurityGroup --resource-id sg-6fbb3807**
+$ aws configservice get-resource-config-history --resource-type AWS::EC2::SecurityGroup --resource-id sg-6fbb3807
 {
     "configurationItems": [
         {
@@ -84,24 +83,14 @@ $ **aws configservice get-resource-config-history --resource-type AWS::EC2::Secu
      ..........
 ```
 
-For detailed explanation of the response fields, see [Components of a Configuration Item](config-item-table.md "config-item-table.md") and [Supported Resource Types for AWS Config](resource-config-reference.md "resource-config-reference.md").
+For detailed explanation of the response fields, see [Components of a Configuration Item](config-item-table.md) and [Supported Resource Types for AWS Config](resource-config-reference.md).
 
 #### Example Amazon EBS Configuration History from AWS Config
+<a name="example-s3-config-history"></a>
 
-AWS Config generates a set of files that each represent a resource type and lists all
-configuration changes for the resources of that type that AWS Config is recording. AWS Config
-exports this resource-centric configuration history as an object in the Amazon S3 bucket
-that you specified when you enabled AWS Config. The configuration history file for each
-resource type contains the changes that were detected for the resources of that type
-since the last history file was delivered. The history files are typically delivered
-every six hours.
+AWS Config generates a set of files that each represent a resource type and lists all configuration changes for the resources of that type that AWS Config is recording. AWS Config exports this resource-centric configuration history as an object in the Amazon S3 bucket that you specified when you enabled AWS Config. The configuration history file for each resource type contains the changes that were detected for the resources of that type since the last history file was delivered. The history files are typically delivered every six hours.
 
-The following is an example of the contents of the Amazon S3 object that describes the
-configuration history of all the Amazon Elastic Block Store volumes in the current region for your
-AWS account. The volumes in this account include `vol-ce676ccc` and
-`vol-cia007c`. Volume `vol-ce676ccc` had two configuration
-changes since the previous history file was delivered while volume
-`vol-cia007c` had one change.
+The following is an example of the contents of the Amazon S3 object that describes the configuration history of all the Amazon Elastic Block Store volumes in the current region for your AWS account. The volumes in this account include `vol-ce676ccc` and `vol-cia007c`. Volume `vol-ce676ccc` had two configuration changes since the previous history file was delivered while volume `vol-cia007c` had one change.
 
 ```
 {
@@ -269,56 +258,43 @@ changes since the previous history file was delivered while volume
         }
     ]
 }
-
 ```
 
 ## Viewing Compliance History Timeline for Resources and Rules
+<a name="view-compliance-history"></a>
 
-AWS Config supports storing compliance state changes of resources as evaluated by AWS Config Rules. The
-resource compliance history is presented in the form of a timeline. The timeline captures
-changes as `ConfigurationItems` over a period of time for a specific resource.
-For information on the contents of `ConfigurationItem`, see [ConfigurationItem](../APIReference/API_ConfigurationItem.md "../APIReference/API_ConfigurationItem.md") in the AWS Config API
-Reference.
+AWS Config supports storing compliance state changes of resources as evaluated by AWS Config Rules. The resource compliance history is presented in the form of a timeline. The timeline captures changes as `ConfigurationItems` over a period of time for a specific resource. For information on the contents of `ConfigurationItem`, see [ConfigurationItem](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html) in the AWS Config API Reference.
 
-You can opt in or out to record all resource types in AWS Config. If you have opted to record
-all resource types, AWS Config automatically begins recording the resource compliance history as
-evaluated by AWS Config Rules. By default, AWS Config records the configuration changes for all supported
-resources. You can also select only the specific resource compliance history resource type:
-`AWS::Config::ResourceCompliance`. For more information, see [Recording AWS Records](select-resources.md#select-resources-console "select-resources.md#select-resources-console").
+You can opt in or out to record all resource types in AWS Config. If you have opted to record all resource types, AWS Config automatically begins recording the resource compliance history as evaluated by AWS Config Rules. By default, AWS Config records the configuration changes for all supported resources. You can also select only the specific resource compliance history resource type: `AWS::Config::ResourceCompliance`. For more information, see [Recording AWS Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-console).
 
-Viewing Resource Timeline Using
-Resources
-Access the resource timeline by selecting a specific resource from the Resource
-inventory page.
+------
+#### [ Viewing Resource Timeline Using Resources ]
 
-1. Choose the **Resources** from the left
-   navigation.
-2. On the Resource inventory page, you can filter by resource category, resource
-   type, and compliance status. Choose **Include deleted
-   resources** if appropriate.
+Access the resource timeline by selecting a specific resource from the Resource inventory page.
 
-The table displays the resource identifier for the resource type and the
-resource compliance status for that resource. The resource identifier might be a
-resource ID or a resource name. 3. Choose a resource from the resource identifier column. 4. Choose the **Resource Timeline** button. You can
-filter by Configuration events, Compliance events, or CloudTrail Events.
+1. Choose the **Resources** from the left navigation.
 
-###### Note
+1. On the Resource inventory page, you can filter by resource category, resource type, and compliance status. Choose **Include deleted resources** if appropriate.
 
-Alternatively, on the Resource inventory page, you can directly choose the
-resource name. To access the resource timeline from the resource details
-page, choose the **Resource Timeline**
-button.
+   The table displays the resource identifier for the resource type and the resource compliance status for that resource. The resource identifier might be a resource ID or a resource name.
 
-Viewing Resource Timeline Using
-Rules
+1. Choose a resource from the resource identifier column.
+
+1. Choose the **Resource Timeline** button. You can filter by Configuration events, Compliance events, or CloudTrail Events.
+**Note**  
+Alternatively, on the Resource inventory page, you can directly choose the resource name. To access the resource timeline from the resource details page, choose the **Resource Timeline** button.
+
+------
+#### [ Viewing Resource Timeline Using Rules ]
+
 Access the resource timeline by selecting a specific rule from the Rule page.
 
-1. Select the **Rules** from the left
-   navigation.
-2. On the Rule page, choose a rule evaluating your relevant resources. If no
-   rules are displayed on the screen, add rules using the **Add
-   rule** button.
-3. On the Rule details page, select the resources from the Resources evaluated
-   table.
-4. Select the **Resource Timeline** button. The
-   resource timeline is displayed.
+1. Select the **Rules** from the left navigation.
+
+1. On the Rule page, choose a rule evaluating your relevant resources. If no rules are displayed on the screen, add rules using the **Add rule** button.
+
+1. On the Rule details page, select the resources from the Resources evaluated table.
+
+1. Select the **Resource Timeline** button. The resource timeline is displayed.
+
+------

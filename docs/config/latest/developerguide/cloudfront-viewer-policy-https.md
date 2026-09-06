@@ -1,6 +1,11 @@
-# cloudfront-viewer-policy-https
 
-Checks whether your Amazon CloudFront distributions use HTTPS (directly or via a redirection). The rule is NON\_COMPLIANT if the value of ViewerProtocolPolicy is set to 'allow-all' for the defaultCacheBehavior or for the CacheBehaviors.
+
+# cloudfront-viewer-policy-https
+<a name="cloudfront-viewer-policy-https"></a>
+
+Checks whether your Amazon CloudFront distributions use HTTPS (directly or via a redirection). The rule is NON\_COMPLIANT if the value of ViewerProtocolPolicy is set to 'allow-all' for the defaultCacheBehavior or for the CacheBehaviors. 
+
+
 
 **Identifier:** CLOUDFRONT\_VIEWER\_POLICY\_HTTPS
 
@@ -12,8 +17,9 @@ Checks whether your Amazon CloudFront distributions use HTTPS (directly or via a
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d331c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

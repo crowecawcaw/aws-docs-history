@@ -1,6 +1,11 @@
-# ec2-client-vpn-connection-log-enabled
 
-Checks if AWS Client VPN endpoint has client connection logging enabled. The rule is NON\_COMPLIANT if 'Configuration.ConnectionLogOptions.Enabled' is set to false.
+
+# ec2-client-vpn-connection-log-enabled
+<a name="ec2-client-vpn-connection-log-enabled"></a>
+
+Checks if AWS Client VPN endpoint has client connection logging enabled. The rule is NON\_COMPLIANT if 'Configuration.ConnectionLogOptions.Enabled' is set to false. 
+
+
 
 **Identifier:** EC2\_CLIENT\_VPN\_CONNECTION\_LOG\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS Client VPN endpoint has client connection logging enabled. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d537c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

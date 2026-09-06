@@ -1,6 +1,11 @@
-# cognito-user-pool-advanced-security-enabled
 
-Checks if an Amazon Cognito user pool has advanced security enabled for standard authentication. The rule is NON\_COMPLIANT if advanced security is not enabled. Optionally, you can specify an advanced security mode for the rule to check.
+
+# cognito-user-pool-advanced-security-enabled
+<a name="cognito-user-pool-advanced-security-enabled"></a>
+
+Checks if an Amazon Cognito user pool has advanced security enabled for standard authentication. The rule is NON\_COMPLIANT if advanced security is not enabled. Optionally, you can specify an advanced security mode for the rule to check. 
+
+
 
 **Identifier:** COGNITO\_USER\_POOL\_ADVANCED\_SECURITY\_ENABLED
 
@@ -12,11 +17,10 @@ Checks if an Amazon Cognito user pool has advanced security enabled for standard
 
 **Parameters:**
 
-SecurityMode (Optional)
-Type: String
-
+SecurityMode (Optional)Type: String  
 String value of the advanced security mode for the rule to check. If provided, the rule is NON\_COMPLIANT if the advanced security mode for user pools does not match this parameter value. Valid values are AUDIT and ENFORCED
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d415c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

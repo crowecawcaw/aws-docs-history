@@ -1,6 +1,11 @@
-# macie-status-check
 
-Checks if Amazon Macie is enabled in your account per region. The rule is NON\_COMPLIANT if the 'status' attribute is not set to 'ENABLED'.
+
+# macie-status-check
+<a name="macie-status-check"></a>
+
+Checks if Amazon Macie is enabled in your account per region. The rule is NON\_COMPLIANT if the 'status' attribute is not set to 'ENABLED'. 
+
+
 
 **Identifier:** MACIE\_STATUS\_CHECK
 
@@ -12,8 +17,9 @@ Checks if Amazon Macie is enabled in your account per region. The rule is NON\_C
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1091c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

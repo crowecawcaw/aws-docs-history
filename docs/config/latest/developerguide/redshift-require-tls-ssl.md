@@ -1,6 +1,11 @@
-# redshift-require-tls-ssl
 
-Checks if Amazon Redshift clusters require TLS/SSL encryption to connect to SQL clients. The rule is NON\_COMPLIANT if any Amazon Redshift cluster has parameter require\_SSL not set to true.
+
+# redshift-require-tls-ssl
+<a name="redshift-require-tls-ssl"></a>
+
+Checks if Amazon Redshift clusters require TLS/SSL encryption to connect to SQL clients. The rule is NON\_COMPLIANT if any Amazon Redshift cluster has parameter require\_SSL not set to true. 
+
+
 
 **Identifier:** REDSHIFT\_REQUIRE\_TLS\_SSL
 
@@ -12,8 +17,9 @@ Checks if Amazon Redshift clusters require TLS/SSL encryption to connect to SQL 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1315c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

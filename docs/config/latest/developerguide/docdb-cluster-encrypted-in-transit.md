@@ -1,6 +1,11 @@
-# docdb-cluster-encrypted-in-transit
 
-Checks if connections to Amazon DocumentDB clusters are configured to use encryption in transit. The rule is NON\_COMPLIANT if the parameter group is not "in-sync", or the TLS parameter is set to either "disabled" or a value in `excludeTlsParameters`.
+
+# docdb-cluster-encrypted-in-transit
+<a name="docdb-cluster-encrypted-in-transit"></a>
+
+Checks if connections to Amazon DocumentDB clusters are configured to use encryption in transit. The rule is NON\_COMPLIANT if the parameter group is not "in-sync", or the TLS parameter is set to either "disabled" or a value in `excludeTlsParameters`. 
+
+
 
 **Identifier:** DOCDB\_CLUSTER\_ENCRYPTED\_IN\_TRANSIT
 
@@ -12,11 +17,10 @@ Checks if connections to Amazon DocumentDB clusters are configured to use encryp
 
 **Parameters:**
 
-excludeTlsParameters (Optional)
-Type: CSV
-
+excludeTlsParameters (Optional)Type: CSV  
 Comma-separated list of TLS cluster parameters for the rule to NOT check. Default value: 'disabled'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d493c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

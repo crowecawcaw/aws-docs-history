@@ -1,6 +1,11 @@
-# fis-experiment-template-log-configuration-exists
 
-Checks if AWS FIS experiment templates have experiment logging configured. The rule is NON\_COMPLIANT if configuration.LogConfiguration does not exist.
+
+# fis-experiment-template-log-configuration-exists
+<a name="fis-experiment-template-log-configuration-exists"></a>
+
+Checks if AWS FIS experiment templates have experiment logging configured. The rule is NON\_COMPLIANT if configuration.LogConfiguration does not exist. 
+
+
 
 **Identifier:** FIS\_EXPERIMENT\_TEMPLATE\_LOG\_CONFIGURATION\_EXISTS
 
@@ -12,8 +17,9 @@ Checks if AWS FIS experiment templates have experiment logging configured. The r
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d835c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# cloudfront-traffic-to-origin-encrypted
 
-Checks if Amazon CloudFront distributions are encrypting traffic to custom origins. The rule is NON\_COMPLIANT if ‘OriginProtocolPolicy’ is ‘http-only’ or if ‘OriginProtocolPolicy’ is ‘match-viewer’ and ‘ViewerProtocolPolicy’ is ‘allow-all’.
+
+# cloudfront-traffic-to-origin-encrypted
+<a name="cloudfront-traffic-to-origin-encrypted"></a>
+
+Checks if Amazon CloudFront distributions are encrypting traffic to custom origins. The rule is NON\_COMPLIANT if ‘OriginProtocolPolicy’ is ‘http-only’ or if ‘OriginProtocolPolicy’ is ‘match-viewer’ and ‘ViewerProtocolPolicy’ is ‘allow-all’. 
+
+
 
 **Identifier:** CLOUDFRONT\_TRAFFIC\_TO\_ORIGIN\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks if Amazon CloudFront distributions are encrypting traffic to custom origi
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d329c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

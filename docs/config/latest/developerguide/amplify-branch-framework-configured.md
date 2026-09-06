@@ -1,6 +1,11 @@
-# amplify-branch-framework-configured
 
-Checks if AWS Amplify branches have a framework configured. The rule is NON\_COMPLIANT if configuration.Framework does not exist.
+
+# amplify-branch-framework-configured
+<a name="amplify-branch-framework-configured"></a>
+
+Checks if AWS Amplify branches have a framework configured. The rule is NON\_COMPLIANT if configuration.Framework does not exist. 
+
+
 
 **Identifier:** AMPLIFY\_BRANCH\_FRAMEWORK\_CONFIGURED
 
@@ -12,11 +17,10 @@ Checks if AWS Amplify branches have a framework configured. The rule is NON\_COM
 
 **Parameters:**
 
-approvedFrameworks (Optional)
-Type: CSV
-
+approvedFrameworks (Optional)Type: CSV  
 Comma-separated list of approved frameworks for the rule to check. If provided, the rule is NON\_COMPLIANT if configuration.Framework is a value not specified in this parameter.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c49c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

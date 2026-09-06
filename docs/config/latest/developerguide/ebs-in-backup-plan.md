@@ -1,6 +1,11 @@
-# ebs-in-backup-plan
 
-Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup plans of AWS Backup. The rule is NON\_COMPLIANT if Amazon EBS volumes are not included in backup plans.
+
+# ebs-in-backup-plan
+<a name="ebs-in-backup-plan"></a>
+
+Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup plans of AWS Backup. The rule is NON\_COMPLIANT if Amazon EBS volumes are not included in backup plans. 
+
+
 
 **Identifier:** EBS\_IN\_BACKUP\_PLAN
 
@@ -12,8 +17,9 @@ Check if Amazon Elastic Block Store (Amazon EBS) volumes are added in backup pla
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d517c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

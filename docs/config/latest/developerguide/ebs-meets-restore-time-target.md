@@ -1,6 +1,11 @@
-# ebs-meets-restore-time-target
 
-Checks if the restore time of Amazon Elastic Block Store (Amazon EBS) volumes meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EBS volume is greater than maxRestoreTime minutes.
+
+# ebs-meets-restore-time-target
+<a name="ebs-meets-restore-time-target"></a>
+
+Checks if the restore time of Amazon Elastic Block Store (Amazon EBS) volumes meets the specified duration. The rule is NON\_COMPLIANT if LatestRestoreExecutionTimeMinutes of an Amazon EBS volume is greater than maxRestoreTime minutes. 
+
+
 
 **Identifier:** EBS\_MEETS\_RESTORE\_TIME\_TARGET
 
@@ -12,21 +17,16 @@ Checks if the restore time of Amazon Elastic Block Store (Amazon EBS) volumes me
 
 **Parameters:**
 
-maxRestoreTime
-Type: int
-
+maxRestoreTimeType: int  
 Numerical value for the maximum allowed restore runtime.
 
-resourceTags (Optional)
-Type: String
-
+resourceTags (Optional)Type: String  
 Tags for Amazon EBS volumes for the rule to check, in JSON format.
 
-resourceId (Optional)
-Type: String
-
+resourceId (Optional)Type: String  
 ID of Amazon EBS volume for the rule to check.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d521c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

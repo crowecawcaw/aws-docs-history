@@ -1,21 +1,21 @@
+
+
 # Use `DescribeConfigRuleEvaluationStatus` with a CLI
+<a name="example_config-service_DescribeConfigRuleEvaluationStatus_section"></a>
 
 The following code examples show how to use `DescribeConfigRuleEvaluationStatus`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get status information for an AWS Config rule**
-
-The following command returns the status information for an AWS Config rule named `MyConfigRule`:
-
-```
-`aws configservice describe-config-rule-evaluation-status --config-rule-names `MyConfigRule``
+**AWS CLI**  
+**To get status information for an AWS Config rule**  
+The following command returns the status information for an AWS Config rule named `MyConfigRule`:  
 
 ```
-
-Output:
+aws configservice describe-config-rule-evaluation-status --config-rule-names {{MyConfigRule}}
+```
+Output:  
 
 ```
 {
@@ -30,23 +30,18 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeConfigRuleEvaluationStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rule-evaluation-status.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeConfigRuleEvaluationStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rule-evaluation-status.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rule-evaluation-status.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This sample returns the status information for the given config rules.**
+**Tools for PowerShell V4**  
+**Example 1: This sample returns the status information for the given config rules. **  
 
 ```
 Get-CFGConfigRuleEvaluationStatus -ConfigRuleName root-account-mfa-enabled, vpc-flow-logs-enabled
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleArn                : arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-kvq1wk
@@ -73,21 +68,15 @@ LastFailedInvocationTime     : 1/1/0001 12:00:00 AM
 LastSuccessfulEvaluationTime : 12/13/2019 7:12:01 AM
 LastSuccessfulInvocationTime : 12/13/2019 7:12:01 AM
 ```
++  For API details, see [DescribeConfigRuleEvaluationStatus](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeConfigRuleEvaluationStatus](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This sample returns the status information for the given config rules.**
+**Tools for PowerShell V5**  
+**Example 1: This sample returns the status information for the given config rules. **  
 
 ```
 Get-CFGConfigRuleEvaluationStatus -ConfigRuleName root-account-mfa-enabled, vpc-flow-logs-enabled
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleArn                : arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-kvq1wk
@@ -114,11 +103,8 @@ LastFailedInvocationTime     : 1/1/0001 12:00:00 AM
 LastSuccessfulEvaluationTime : 12/13/2019 7:12:01 AM
 LastSuccessfulInvocationTime : 12/13/2019 7:12:01 AM
 ```
++  For API details, see [DescribeConfigRuleEvaluationStatus](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeConfigRuleEvaluationStatus](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Config with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

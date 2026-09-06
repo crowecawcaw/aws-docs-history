@@ -1,6 +1,11 @@
-# lambda-function-description
 
-Checks if AWS Lambda functions have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string.
+
+# lambda-function-description
+<a name="lambda-function-description"></a>
+
+Checks if AWS Lambda functions have a description. The rule is NON\_COMPLIANT if configuration.description does not exist or is an empty string. 
+
+
 
 **Identifier:** LAMBDA\_FUNCTION\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS Lambda functions have a description. The rule is NON\_COMPLIANT if
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1063c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

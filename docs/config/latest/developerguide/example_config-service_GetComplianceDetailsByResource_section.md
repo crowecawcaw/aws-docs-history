@@ -1,21 +1,21 @@
+
+
 # Use `GetComplianceDetailsByResource` with a CLI
+<a name="example_config-service_GetComplianceDetailsByResource_section"></a>
 
 The following code examples show how to use `GetComplianceDetailsByResource`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get the evaluation results for an AWS resource**
-
-The following command returns the evaluation results for each rule with which the EC2 instance `i-1a2b3c4d` does not comply:
-
-```
-`aws configservice get-compliance-details-by-resource --resource-type `AWS::EC2::Instance` --resource-id `i-1a2b3c4d` --compliance-types `NON_COMPLIANT``
+**AWS CLI**  
+**To get the evaluation results for an AWS resource**  
+The following command returns the evaluation results for each rule with which the EC2 instance `i-1a2b3c4d` does not comply:  
 
 ```
-
-Output:
+aws configservice get-compliance-details-by-resource --resource-type {{AWS::EC2::Instance}} --resource-id {{i-1a2b3c4d}} --compliance-types {{NON_COMPLIANT}}
+```
+Output:  
 
 ```
 {
@@ -49,23 +49,18 @@ Output:
     ]
 }
 ```
++  For API details, see [GetComplianceDetailsByResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-resource.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetComplianceDetailsByResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-resource.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example evaulation results for the given resource.**
+**Tools for PowerShell V4**  
+**Example 1: This example evaulation results for the given resource.**  
 
 ```
 Get-CFGComplianceDetailsByResource -ResourceId ABCD5STJ4EFGHIVEW6JAH -ResourceType 'AWS::IAM::User'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Annotation                 :
@@ -75,21 +70,15 @@ EvaluationResultIdentifier : Amazon.ConfigService.Model.EvaluationResultIdentifi
 ResultRecordedTime         : 8/25/2019 11:34:56 PM
 ResultToken                :
 ```
++  For API details, see [GetComplianceDetailsByResource](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetComplianceDetailsByResource](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example evaulation results for the given resource.**
+**Tools for PowerShell V5**  
+**Example 1: This example evaulation results for the given resource.**  
 
 ```
 Get-CFGComplianceDetailsByResource -ResourceId ABCD5STJ4EFGHIVEW6JAH -ResourceType 'AWS::IAM::User'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Annotation                 :
@@ -99,11 +88,8 @@ EvaluationResultIdentifier : Amazon.ConfigService.Model.EvaluationResultIdentifi
 ResultRecordedTime         : 8/25/2019 11:34:56 PM
 ResultToken                :
 ```
++  For API details, see [GetComplianceDetailsByResource](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetComplianceDetailsByResource](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Config with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

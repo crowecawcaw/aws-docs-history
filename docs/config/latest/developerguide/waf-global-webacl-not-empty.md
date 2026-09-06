@@ -1,6 +1,11 @@
-# waf-global-webacl-not-empty
 
-Checks whether a WAF Global Web ACL contains any WAF rules or rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rule or rule group.
+
+# waf-global-webacl-not-empty
+<a name="waf-global-webacl-not-empty"></a>
+
+Checks whether a WAF Global Web ACL contains any WAF rules or rule groups. This rule is NON\_COMPLIANT if a Web ACL does not contain any WAF rule or rule group. 
+
+
 
 **Identifier:** WAF\_GLOBAL\_WEBACL\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks whether a WAF Global Web ACL contains any WAF rules or rule groups. This 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1629c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,59 +1,57 @@
+
+
 # Updating AWS Config Rules
+<a name="evaluate-config_update-rules"></a>
 
-You can use the AWS Config console or the AWS SDKs to update your
-rules.
+You can use the AWS Config console or the AWS SDKs to update your rules.
 
-###### Topics
-
-- [Using the console](#evaluate-config_update-rules-console "#evaluate-config_update-rules-console")
-- [Using the AWS SDKs](#evaluate-config_update-rules-cli "#evaluate-config_update-rules-cli")
+**Topics**
++ [Using the console](#evaluate-config_update-rules-console)
++ [Using the AWS SDKs](#evaluate-config_update-rules-cli)
 
 ## Updating Rules (Console)
+<a name="evaluate-config_update-rules-console"></a>
 
-The **Rules** page shows your rules and their current compliance
-results in a table. The result for each rule is **Evaluating...**
-until AWS Config finishes evaluating your resources against the rule. You can update the
-results with the refresh button. When AWS Config finishes evaluations, you can see the
-rules and resource types that are compliant or noncompliant. For more information,
-see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](evaluate-config_view-compliance.md "evaluate-config_view-compliance.md").
+The **Rules** page shows your rules and their current compliance results in a table. The result for each rule is **Evaluating...** until AWS Config finishes evaluating your resources against the rule. You can update the results with the refresh button. When AWS Config finishes evaluations, you can see the rules and resource types that are compliant or noncompliant. For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](evaluate-config_view-compliance.md).
 
-###### To update a rule
+### Updating rules
+<a name="update-rules-console"></a>
 
-1. Sign in to the AWS Management Console and open the AWS Config console at
-   [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
-2. In the AWS Management Console menu, verify that the region selector is set to a region that
-   supports AWS Config rules. For the list of supported regions, see [AWS Config Regions and Endpoints](../../../general/latest/gr/rande.md#awsconfig_region "../../../general/latest/gr/rande.md#awsconfig_region")
-   in the _Amazon Web Services General Reference_.
-3. In the left navigation, choose **Rules**.
-4. Choose a rule and **Edit rule** for the rule that you want to
-   update.
-5. Modify the settings on the **Edit rule** page to change your
-   rule as needed.
-6. Choose **Save**.
+**To update a rule**
+
+1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
+
+1. In the AWS Management Console menu, verify that the region selector is set to a region that supports AWS Config rules. For the list of supported regions, see [AWS Config Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#awsconfig_region) in the *Amazon Web Services General Reference*. 
+
+1. In the left navigation, choose **Rules**. 
+
+1. Choose a rule and **Edit rule** for the rule that you want to update.
+
+1. Modify the settings on the **Edit rule** page to change your rule as needed.
+
+1. Choose **Save**.
 
 ## Updating Rules (AWS SDKs)
+<a name="evaluate-config_update-rules-cli"></a>
 
-If you are updating a rule that you added previously,
-you can specify the rule by `ConfigRuleName`,
-`ConfigRuleId`, or `ConfigRuleArn` in the `ConfigRule` data type that you use in this request.
-You use the same `PutConfigRule` command that you use when adding a rule.
+### Updating rules
+<a name="update-rules-cli"></a>
+
+If you are updating a rule that you added previously, you can specify the rule by `ConfigRuleName`, `ConfigRuleId`, or `ConfigRuleArn` in the `ConfigRule` data type that you use in this request. You use the same `PutConfigRule` command that you use when adding a rule.
 
 The following code examples show how to use `PutConfigRule`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To add an AWS managed Config rule**
-
-The following command provides JSON code to add an AWS managed Config rule:
-
-```
-`aws configservice put-config-rule --config-rule `file://RequiredTagsForEC2Instances.json``
+**AWS CLI**  
+**To add an AWS managed Config rule**  
+The following command provides JSON code to add an AWS managed Config rule:  
 
 ```
-
-`RequiredTagsForEC2Instances.json` is a JSON file that contains the rule configuration:
+aws configservice put-config-rule --config-rule {{file://RequiredTagsForEC2Instances.json}}
+```
+`RequiredTagsForEC2Instances.json` is a JSON file that contains the rule configuration:  
 
 ```
 {
@@ -71,21 +69,15 @@ The following command provides JSON code to add an AWS managed Config rule:
   "InputParameters": "{\"tag1Key\":\"CostCenter\",\"tag2Key\":\"Owner\"}"
 }
 ```
-
-For the `ComplianceResourceTypes` attribute, this JSON code limits the scope to resources of the `AWS::EC2::Instance` type, so AWS Config will evaluate only EC2 instances against the rule. Because the rule is a managed rule, the `Owner` attribute is set to `AWS`, and the `SourceIdentifier` attribute is set to the rule identifier, `REQUIRED_TAGS`. For the `InputParameters` attribute, the tag keys that the rule requires, `CostCenter` and `Owner`, are specified.
-
-If the command succeeds, AWS Config returns no output. To verify the rule configuration, run the describe-config-rules command, and specify the rule name.
-
-**To add a customer managed Config rule**
-
-The following command provides JSON code to add a customer managed Config rule:
+For the `ComplianceResourceTypes` attribute, this JSON code limits the scope to resources of the `AWS::EC2::Instance` type, so AWS Config will evaluate only EC2 instances against the rule. Because the rule is a managed rule, the `Owner` attribute is set to `AWS`, and the `SourceIdentifier` attribute is set to the rule identifier, `REQUIRED_TAGS`. For the `InputParameters` attribute, the tag keys that the rule requires, `CostCenter` and `Owner`, are specified.  
+If the command succeeds, AWS Config returns no output. To verify the rule configuration, run the describe-config-rules command, and specify the rule name.  
+**To add a customer managed Config rule**  
+The following command provides JSON code to add a customer managed Config rule:  
 
 ```
-`aws configservice put-config-rule --config-rule `file://InstanceTypesAreT2micro.json``
-
+aws configservice put-config-rule --config-rule {{file://InstanceTypesAreT2micro.json}}
 ```
-
-`InstanceTypesAreT2micro.json` is a JSON file that contains the rule configuration:
+`InstanceTypesAreT2micro.json` is a JSON file that contains the rule configuration:  
 
 ```
 {
@@ -109,24 +101,15 @@ The following command provides JSON code to add a customer managed Config rule:
   "InputParameters": "{\"desiredInstanceType\":\"t2.micro\"}"
 }
 ```
+For the `ComplianceResourceTypes` attribute, this JSON code limits the scope to resources of the `AWS::EC2::Instance` type, so AWS Config will evaluate only EC2 instances against the rule. Because this rule is a customer managed rule, the `Owner` attribute is set to `CUSTOM_LAMBDA`, and the `SourceIdentifier` attribute is set to the ARN of the AWS Lambda function. The `SourceDetails` object is required. The parameters that are specified for the `InputParameters` attribute are passed to the AWS Lambda function when AWS Config invokes it to evaluate resources against the rule.  
+If the command succeeds, AWS Config returns no output. To verify the rule configuration, run the describe-config-rules command, and specify the rule name.  
++  For API details, see [PutConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-config-rule.html) in *AWS CLI Command Reference*. 
 
-For the `ComplianceResourceTypes` attribute, this JSON code limits the scope to resources of the `AWS::EC2::Instance` type, so AWS Config will evaluate only EC2 instances against the rule. Because this rule is a customer managed rule, the `Owner` attribute is set to `CUSTOM_LAMBDA`, and the `SourceIdentifier` attribute is set to the ARN of the AWS Lambda function. The `SourceDetails` object is required. The parameters that are specified for the `InputParameters` attribute are passed to the AWS Lambda function when AWS Config invokes it to evaluate resources against the rule.
+------
+#### [ Python ]
 
-If the command succeeds, AWS Config returns no output. To verify the rule configuration, run the describe-config-rules command, and specify the rule name.
-
-- For API details, see
-  [PutConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-config-rule.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/put-config-rule.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
 ```
 class ConfigWrapper:
@@ -170,24 +153,14 @@ class ConfigWrapper:
         except ClientError:
             logger.exception("Couldn't create configuration rule %s.", rule_name)
             raise
-
-
-
 ```
++  For API details, see [PutConfigRule](https://docs.aws.amazon.com/goto/boto3/config-2014-11-12/PutConfigRule) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutConfigRule](../../../goto/boto3/config-2014-11-12/PutConfigRule.md "../../../goto/boto3/config-2014-11-12/PutConfigRule.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
 ```
     " Create a config rule for S3 bucket public read prohibition
@@ -209,10 +182,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       )
     ).
     MESSAGE 'Created AWS Config rule.' TYPE 'I'.
-
-
 ```
++  For API details, see [PutConfigRule](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutConfigRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------

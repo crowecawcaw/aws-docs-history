@@ -1,6 +1,11 @@
-# waf-regional-webacl-not-empty
 
-Checks if a WAF regional Web ACL contains any WAF rules or rule groups. The rule is NON\_COMPLIANT if there are no WAF rules or rule groups present within a Web ACL.
+
+# waf-regional-webacl-not-empty
+<a name="waf-regional-webacl-not-empty"></a>
+
+Checks if a WAF regional Web ACL contains any WAF rules or rule groups. The rule is NON\_COMPLIANT if there are no WAF rules or rule groups present within a Web ACL. 
+
+
 
 **Identifier:** WAF\_REGIONAL\_WEBACL\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if a WAF regional Web ACL contains any WAF rules or rule groups. The rule
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1635c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

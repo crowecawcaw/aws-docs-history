@@ -1,6 +1,11 @@
-# elasticache-repl-grp-encrypted-in-transit
 
-Checks if Amazon ElastiCache replication groups have encryption-in-transit enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if ‘TransitEncryptionEnabled’ is set to ‘false’.
+
+# elasticache-repl-grp-encrypted-in-transit
+<a name="elasticache-repl-grp-encrypted-in-transit"></a>
+
+Checks if Amazon ElastiCache replication groups have encryption-in-transit enabled. The rule is NON\_COMPLIANT for an ElastiCache replication group if ‘TransitEncryptionEnabled’ is set to ‘false’. 
+
+
 
 **Identifier:** ELASTICACHE\_REPL\_GRP\_ENCRYPTED\_IN\_TRANSIT
 
@@ -12,8 +17,9 @@ Checks if Amazon ElastiCache replication groups have encryption-in-transit enabl
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d749c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

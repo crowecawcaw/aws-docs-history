@@ -1,95 +1,89 @@
+
+
 # Registering a Delegated Administrator for AWS Config
+<a name="aggregated-register-delegated-administrator"></a>
 
-Delegated administrators are accounts within a given AWS Organization that are granted
-additional administrative privileges for a specified AWS service. For more information,
-see [Delegated
-administrator](../../../organizations/latest/userguide/orgs_getting-started_concepts.md "../../../organizations/latest/userguide/orgs_getting-started_concepts.md") in the _AWS Organizations User Guide_. You must use the
-AWS CLI to register a delegated administrator.
+Delegated administrators are accounts within a given AWS Organization that are granted additional administrative privileges for a specified AWS service. For more information, see [Delegated administrator](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) in the *AWS Organizations User Guide*. You must use the AWS CLI to register a delegated administrator.
 
-###### Registering a Delegated Administrator
+**Registering a Delegated Administrator**
 
 1. Log in with management account credentials.
-2. Open a command prompt or a terminal window.
-3. Enter the following command to enable service access as a delegated administrator
-   for your organization to deploy and manage AWS Config rules and conformance packs across
-   your organization:
 
-```
-aws organizations enable-aws-service-access --service-principal=config-multiaccountsetup.amazonaws.com
-```
+1. Open a command prompt or a terminal window.
 
-4. Enter the following command to enable service access as a delegated administrator
-   for your organization to aggregate AWS Config data across your organization:
+1. Enter the following command to enable service access as a delegated administrator for your organization to deploy and manage AWS Config rules and conformance packs across your organization:
 
-```
-aws organizations enable-aws-service-access --service-principal=config.amazonaws.com
-```
+   ```
+   aws organizations enable-aws-service-access --service-principal=config-multiaccountsetup.amazonaws.com
+   ```
 
-5. To check if the enable service access is complete, enter the following command and
-   press Enter to execute the command.
+1. Enter the following command to enable service access as a delegated administrator for your organization to aggregate AWS Config data across your organization:
 
-```
-aws organizations list-aws-service-access-for-organization
-```
+   ```
+   aws organizations enable-aws-service-access --service-principal=config.amazonaws.com
+   ```
 
-You should see output similar to the following:
+1. To check if the enable service access is complete, enter the following command and press Enter to execute the command.
 
-```
-{
-    "EnabledServicePrincipals": [
-        {
-            "ServicePrincipal": [
-                "config.amazonaws.com",
-                "config-multiaccountsetup.amazonaws.com"
-        ],
-            "DateEnabled": 1607020860.881
-        }
-    ]
-}
-```
+   ```
+   aws organizations list-aws-service-access-for-organization
+   ```
 
-6. Next, enter the following command to register a member account as a delegated
-   administrator for AWS Config.
+   You should see output similar to the following:
 
-```
-aws organizations register-delegated-administrator --service-principal=config-multiaccountsetup.amazonaws.com --account-id `MemberAccountID`
-```
+   ```
+   {
+       "EnabledServicePrincipals": [
+           {
+               "ServicePrincipal": [
+                   "config.amazonaws.com",
+                   "config-multiaccountsetup.amazonaws.com"
+           ],
+               "DateEnabled": 1607020860.881
+           }
+       ]
+   }
+   ```
 
-and
+1. Next, enter the following command to register a member account as a delegated administrator for AWS Config.
 
-```
-aws organizations register-delegated-administrator --service-principal=config.amazonaws.com --account-id `MemberAccountID`
-```
+   ```
+   aws organizations register-delegated-administrator --service-principal=config-multiaccountsetup.amazonaws.com --account-id {{MemberAccountID}}
+   ```
 
-7. To check if the registration of delegated administrator is complete, enter the
-   following command from the management account and press Enter to execute the
-   command.
+   and
 
-```
-aws organizations list-delegated-administrators --service-principal=config-multiaccountsetup.amazonaws.com
-```
+   ```
+   aws organizations register-delegated-administrator --service-principal=config.amazonaws.com --account-id {{MemberAccountID}}
+   ```
 
-and
+1. To check if the registration of delegated administrator is complete, enter the following command from the management account and press Enter to execute the command.
 
-```
-aws organizations list-delegated-administrators --service-principal=config.amazonaws.com
-```
+   ```
+   aws organizations list-delegated-administrators --service-principal=config-multiaccountsetup.amazonaws.com
+   ```
 
-You should see output similar to the following:
+   and
 
-```
-{
-    "DelegatedAdministrators": [
-        {
-            "Id": "`MemberAccountID`",
-            "Arn": "arn:aws:organizations::`ManagementAccountID`:account/`o-c7esubdi38`/`MemberAccountID`",
-            "Email": "`name`@amazon.com",
-            "Name": "`name`",
-            "Status": "`ACTIVE`",
-            "JoinedMethod": "`INVITED`",
-            "JoinedTimestamp": `1604867734.48`,
-            "DelegationEnabledDate": `1607020986.801`
-        }
-    ]
-}
-```
+   ```
+   aws organizations list-delegated-administrators --service-principal=config.amazonaws.com
+   ```
+
+   You should see output similar to the following:
+
+   ```
+   {
+       "DelegatedAdministrators": [
+           {
+               "Id": "{{MemberAccountID}}",
+               "Arn": "arn:aws:organizations::{{ManagementAccountID}}:account/{{o-c7esubdi38}}/{{MemberAccountID}}",
+               "Email": "{{name}}@amazon.com",
+               "Name": "{{name}}",
+               "Status": "{{ACTIVE}}",
+               "JoinedMethod": "{{INVITED}}",
+               "JoinedTimestamp": {{1604867734.48}},
+               "DelegationEnabledDate": {{1607020986.801}}
+           }
+       ]
+   }
+   ```

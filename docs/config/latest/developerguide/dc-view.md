@@ -1,23 +1,23 @@
+
+
 # Viewing the Delivery Channel
+<a name="dc-view"></a>
 
 You must use the AWS CLI to view details about the delivery channel.
 
 The following code examples show how to use `DescribeDeliveryChannels`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get details about the delivery channel**
-
-The following command returns details about the delivery channel:
-
-```
-`aws configservice describe-delivery-channels`
+**AWS CLI**  
+**To get details about the delivery channel**  
+The following command returns details about the delivery channel:  
 
 ```
-
-Output:
+aws configservice describe-delivery-channels
+```
+Output:  
 
 ```
 {
@@ -30,51 +30,39 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeDeliveryChannels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-delivery-channels.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeDeliveryChannels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-delivery-channels.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-delivery-channels.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves the delivery channel for the region and displays details.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
 ```
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Name    S3BucketName               S3KeyPrefix DeliveryFrequency
 ----    ------------               ----------- -----------------
 default config-bucket-NA my          TwentyFour_Hours
 ```
++  For API details, see [DescribeDeliveryChannels](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeDeliveryChannels](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves the delivery channel for the region and displays details.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves the delivery channel for the region and displays details.**  
 
 ```
 Get-CFGDeliveryChannel -Region eu-west-1 | Select-Object Name, S3BucketName, S3KeyPrefix, @{N="DeliveryFrequency";E={$_.ConfigSnapshotDeliveryProperties.DeliveryFrequency}}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Name    S3BucketName               S3KeyPrefix DeliveryFrequency
 ----    ------------               ----------- -----------------
 default config-bucket-NA my          TwentyFour_Hours
 ```
++  For API details, see [DescribeDeliveryChannels](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeDeliveryChannels](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------

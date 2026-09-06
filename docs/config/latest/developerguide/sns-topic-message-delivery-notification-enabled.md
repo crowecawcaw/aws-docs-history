@@ -1,6 +1,11 @@
-# sns-topic-message-delivery-notification-enabled
 
-Checks if Amazon Simple Notification Service (SNS) logging is enabled for the delivery status of notification messages sent to a topic for the endpoints. The rule is NON\_COMPLIANT if the delivery status notification for messages is not enabled.
+
+# sns-topic-message-delivery-notification-enabled
+<a name="sns-topic-message-delivery-notification-enabled"></a>
+
+Checks if Amazon Simple Notification Service (SNS) logging is enabled for the delivery status of notification messages sent to a topic for the endpoints. The rule is NON\_COMPLIANT if the delivery status notification for messages is not enabled. 
+
+
 
 **Identifier:** SNS\_TOPIC\_MESSAGE\_DELIVERY\_NOTIFICATION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Simple Notification Service (SNS) logging is enabled for the de
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1537c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

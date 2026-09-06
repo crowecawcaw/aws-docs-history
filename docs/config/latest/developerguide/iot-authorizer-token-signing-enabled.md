@@ -1,6 +1,11 @@
-# iot-authorizer-token-signing-enabled
 
-Checks if an AWS IoT Core authorizer has not disabled the signing requirements for validating the token signature in an authorization request. The rule is NON\_COMPLIANT if the authorizer has configuration.SigningDisabled set to True.
+
+# iot-authorizer-token-signing-enabled
+<a name="iot-authorizer-token-signing-enabled"></a>
+
+Checks if an AWS IoT Core authorizer has not disabled the signing requirements for validating the token signature in an authorization request. The rule is NON\_COMPLIANT if the authorizer has configuration.SigningDisabled set to True. 
+
+
 
 **Identifier:** IOT\_AUTHORIZER\_TOKEN\_SIGNING\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an AWS IoT Core authorizer has not disabled the signing requirements f
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1017c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

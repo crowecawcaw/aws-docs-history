@@ -1,7 +1,11 @@
-# ec2-managedinstance-association-compliance-status-check
 
-Checks if the status of the AWS Systems Manager association compliance is COMPLIANT or NON\_COMPLIANT after the association execution on the instance. The rule is compliant if the field status is COMPLIANT.
-For more information about associations, see [What is an association?](../../../systems-manager/latest/userguide/systems-manager-state.md#state-manager-association-what-is "../../../systems-manager/latest/userguide/systems-manager-state.md#state-manager-association-what-is").
+
+# ec2-managedinstance-association-compliance-status-check
+<a name="ec2-managedinstance-association-compliance-status-check"></a>
+
+Checks if the status of the AWS Systems Manager association compliance is COMPLIANT or NON\_COMPLIANT after the association execution on the instance. The rule is compliant if the field status is COMPLIANT. For more information about associations, see [What is an association?](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html#state-manager-association-what-is).
+
+
 
 **Identifier:** EC2\_MANAGEDINSTANCE\_ASSOCIATION\_COMPLIANCE\_STATUS\_CHECK
 
@@ -13,8 +17,9 @@ For more information about associations, see [What is an association?](../../../
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d583c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

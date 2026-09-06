@@ -1,6 +1,11 @@
-# docdb-cluster-deletion-protection-enabled
 
-Checks if an Amazon DocumentDB (with MongoDB compatibility) cluster has deletion protection enabled. The rule is NON\_COMPLIANT if an Amazon DocumentDB cluster has the deletionProtection field set to false.
+
+# docdb-cluster-deletion-protection-enabled
+<a name="docdb-cluster-deletion-protection-enabled"></a>
+
+Checks if an Amazon DocumentDB (with MongoDB compatibility) cluster has deletion protection enabled. The rule is NON\_COMPLIANT if an Amazon DocumentDB cluster has the deletionProtection field set to false. 
+
+
 
 **Identifier:** DOCDB\_CLUSTER\_DELETION\_PROTECTION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if an Amazon DocumentDB (with MongoDB compatibility) cluster has deletion
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d489c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

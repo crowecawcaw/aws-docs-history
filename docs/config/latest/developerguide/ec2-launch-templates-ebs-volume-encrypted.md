@@ -1,6 +1,11 @@
-# ec2-launch-templates-ebs-volume-encrypted
 
-Checks whether Amazon EC2 launch templates have encryption enabled for all attached EBS volumes.The rule is NON\_COMPLIANT if encryption is set to False for any EBS volume configured in the launch template.
+
+# ec2-launch-templates-ebs-volume-encrypted
+<a name="ec2-launch-templates-ebs-volume-encrypted"></a>
+
+Checks whether Amazon EC2 launch templates have encryption enabled for all attached EBS volumes.The rule is NON\_COMPLIANT if encryption is set to False for any EBS volume configured in the launch template. 
+
+
 
 **Identifier:** EC2\_LAUNCH\_TEMPLATES\_EBS\_VOLUME\_ENCRYPTED
 
@@ -12,8 +17,9 @@ Checks whether Amazon EC2 launch templates have encryption enabled for all attac
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d571c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

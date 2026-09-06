@@ -1,6 +1,11 @@
-# codebuild-project-envvar-awscred-check
 
-Checks if the project contains environment variables AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY. The rule is NON\_COMPLIANT when the project environment variables contains plaintext credentials.
+
+# codebuild-project-envvar-awscred-check
+<a name="codebuild-project-envvar-awscred-check"></a>
+
+Checks if the project contains environment variables AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY. The rule is NON\_COMPLIANT when the project environment variables contains plaintext credentials. 
+
+
 
 **Identifier:** CODEBUILD\_PROJECT\_ENVVAR\_AWSCRED\_CHECK
 
@@ -12,8 +17,9 @@ Checks if the project contains environment variables AWS\_ACCESS\_KEY\_ID and AW
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d377c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

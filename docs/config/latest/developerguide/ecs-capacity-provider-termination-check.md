@@ -1,6 +1,11 @@
-# ecs-capacity-provider-termination-check
 
-Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has managed termination protection enabled. This rule is NON\_COMPLIANT if managed termination protection is disabled on the ECS Capacity Provider.
+
+# ecs-capacity-provider-termination-check
+<a name="ecs-capacity-provider-termination-check"></a>
+
+Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has managed termination protection enabled. This rule is NON\_COMPLIANT if managed termination protection is disabled on the ECS Capacity Provider. 
+
+
 
 **Identifier:** ECS\_CAPACITY\_PROVIDER\_TERMINATION\_CHECK
 
@@ -12,8 +17,9 @@ Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has man
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d659c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# waf-regional-rule-not-empty
 
-Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if the regional rule contains at least one condition and NON\_COMPLIANT otherwise.
+
+# waf-regional-rule-not-empty
+<a name="waf-regional-rule-not-empty"></a>
+
+Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if the regional rule contains at least one condition and NON\_COMPLIANT otherwise. 
+
+
 
 **Identifier:** WAF\_REGIONAL\_RULE\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks whether WAF regional rule contains conditions. This rule is COMPLIANT if 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1633c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

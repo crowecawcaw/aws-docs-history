@@ -1,6 +1,11 @@
-# desired-instance-tenancy
 
-Checks EC2 instances for a 'tenancy' value. Also checks if AMI IDs are specified to be launched from those AMIs or if Host IDs are launched on those Dedicated Hosts. The rule is COMPLIANT if the instance matches a host and an AMI, if specified, in a list.
+
+# desired-instance-tenancy
+<a name="desired-instance-tenancy"></a>
+
+Checks EC2 instances for a 'tenancy' value. Also checks if AMI IDs are specified to be launched from those AMIs or if Host IDs are launched on those Dedicated Hosts. The rule is COMPLIANT if the instance matches a host and an AMI, if specified, in a list. 
+
+
 
 **Identifier:** DESIRED\_INSTANCE\_TENANCY
 
@@ -12,21 +17,16 @@ Checks EC2 instances for a 'tenancy' value. Also checks if AMI IDs are specified
 
 **Parameters:**
 
-tenancy
-Type: String
-
+tenancyType: String  
 Desired tenancy of the instances. Valid values are DEDICATED, HOST and DEFAULT
 
-imageId (Optional)
-Type: CSV
-
+imageId (Optional)Type: CSV  
 The rule evaluates instances launched only from AMIs with the specified IDs. Separate multiple AMI IDs with commas
 
-hostId (Optional)
-Type: CSV
-
+hostId (Optional)Type: CSV  
 The IDs of the EC2 Dedicated Hosts on which the instances are meant to be launched. Separate multiple Host IDs with commas
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d453c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

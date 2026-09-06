@@ -1,6 +1,11 @@
-# athena-workgroup-engine-version-auto-upgrade
 
-Checks if Amazon Athena workgroups using Athena engine are configured to auto upgrade. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EngineVersion.SelectedEngineVersion is not 'AUTO'.
+
+# athena-workgroup-engine-version-auto-upgrade
+<a name="athena-workgroup-engine-version-auto-upgrade"></a>
+
+Checks if Amazon Athena workgroups using Athena engine are configured to auto upgrade. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EngineVersion.SelectedEngineVersion is not 'AUTO'. 
+
+
 
 **Identifier:** ATHENA\_WORKGROUP\_ENGINE\_VERSION\_AUTO\_UPGRADE
 
@@ -12,8 +17,9 @@ Checks if Amazon Athena workgroups using Athena engine are configured to auto up
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d211c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

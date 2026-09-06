@@ -1,7 +1,11 @@
-# rds-db-security-group-not-allowed
 
-Checks if there are any Amazon Relational Database Service (Amazon RDS)
-DB security groups that are not the default DB security group. The rule is NON\_COMPLIANT if there are any DB security groups that are not the default DB security group.
+
+# rds-db-security-group-not-allowed
+<a name="rds-db-security-group-not-allowed"></a>
+
+Checks if there are any Amazon Relational Database Service (Amazon RDS) DB security groups that are not the default DB security group. The rule is NON\_COMPLIANT if there are any DB security groups that are not the default DB security group.
+
+
 
 **Identifier:** RDS\_DB\_SECURITY\_GROUP\_NOT\_ALLOWED
 
@@ -13,8 +17,9 @@ DB security groups that are not the default DB security group. The rule is NON\_
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1235c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# appsync-graphql-api-xray-enabled
 
-Checks if AWS AppSync GraphQL APIs have AWS X-Ray tracing enabled. The rule is NON\_COMPLIANT if configuration.XrayEnabled is false.
+
+# appsync-graphql-api-xray-enabled
+<a name="appsync-graphql-api-xray-enabled"></a>
+
+Checks if AWS AppSync GraphQL APIs have AWS X-Ray tracing enabled. The rule is NON\_COMPLIANT if configuration.XrayEnabled is false. 
+
+
 
 **Identifier:** APPSYNC\_GRAPHQL\_API\_XRAY\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS AppSync GraphQL APIs have AWS X-Ray tracing enabled. The rule is N
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d195c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

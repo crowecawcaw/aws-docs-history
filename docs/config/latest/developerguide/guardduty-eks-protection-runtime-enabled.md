@@ -1,6 +1,11 @@
-# guardduty-eks-protection-runtime-enabled
 
-Checks if Amazon EKS Runtime Monitoring with automated agent management is enabled for GuardDuty detector in your account. The rule is NON\_COMPLIANT if EKS Runtime Monitoring with automated agent management in GuardDuty is not enabled for your account.
+
+# guardduty-eks-protection-runtime-enabled
+<a name="guardduty-eks-protection-runtime-enabled"></a>
+
+Checks if Amazon EKS Runtime Monitoring with automated agent management is enabled for GuardDuty detector in your account. The rule is NON\_COMPLIANT if EKS Runtime Monitoring with automated agent management in GuardDuty is not enabled for your account. 
+
+
 
 **Identifier:** GUARDDUTY\_EKS\_PROTECTION\_RUNTIME\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon EKS Runtime Monitoring with automated agent management is enabl
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d897c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

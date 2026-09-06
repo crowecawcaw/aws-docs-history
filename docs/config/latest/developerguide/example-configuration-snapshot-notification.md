@@ -1,9 +1,9 @@
-# Example Configuration Snapshot Delivery Notification
 
-The configuration snapshot is a collection of configuration items for all recorded
-resources and their configurations in your account. The following is an example
-notification that AWS Config sends when the configuration snapshot is delivered for your
-account.
+
+# Example Configuration Snapshot Delivery Notification
+<a name="example-configuration-snapshot-notification"></a>
+
+The configuration snapshot is a collection of configuration items for all recorded resources and their configurations in your account. The following is an example notification that AWS Config sends when the configuration snapshot is delivered for your account.
 
 ```
 {

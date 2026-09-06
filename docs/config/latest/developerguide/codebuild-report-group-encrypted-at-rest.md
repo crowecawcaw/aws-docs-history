@@ -1,6 +1,11 @@
-# codebuild-report-group-encrypted-at-rest
 
-Checks if an AWS CodeBuild report group has encryption at rest setting enabled. The rule is NON\_COMPLIANT if 'EncryptionDisabled' is 'true'.
+
+# codebuild-report-group-encrypted-at-rest
+<a name="codebuild-report-group-encrypted-at-rest"></a>
+
+Checks if an AWS CodeBuild report group has encryption at rest setting enabled. The rule is NON\_COMPLIANT if 'EncryptionDisabled' is 'true'. 
+
+
 
 **Identifier:** CODEBUILD\_REPORT\_GROUP\_ENCRYPTED\_AT\_REST
 
@@ -12,8 +17,9 @@ Checks if an AWS CodeBuild report group has encryption at rest setting enabled. 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d387c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

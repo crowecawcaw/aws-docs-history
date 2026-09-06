@@ -1,6 +1,11 @@
-# dynamodb-autoscaling-enabled
 
-Checks if Amazon DynamoDB tables or global secondary indexes can process read/write capacity using on-demand mode or provisioned mode with auto scaling enabled. The rule is NON\_COMPLIANT if either mode is used without auto scaling enabled
+
+# dynamodb-autoscaling-enabled
+<a name="dynamodb-autoscaling-enabled"></a>
+
+Checks if Amazon DynamoDB tables or global secondary indexes can process read/write capacity using on-demand mode or provisioned mode with auto scaling enabled. The rule is NON\_COMPLIANT if either mode is used without auto scaling enabled 
+
+
 
 **Identifier:** DYNAMODB\_AUTOSCALING\_ENABLED
 
@@ -12,36 +17,25 @@ Checks if Amazon DynamoDB tables or global secondary indexes can process read/wr
 
 **Parameters:**
 
-minProvisionedWriteCapacity (Optional)
-Type: int
-
+minProvisionedWriteCapacity (Optional)Type: int  
 The minimum number of units that should be provisioned with write capacity in the Auto Scaling group.
 
-maxProvisionedReadCapacity (Optional)
-Type: int
-
+maxProvisionedReadCapacity (Optional)Type: int  
 The maximum number of units that should be provisioned with read capacity in the Auto Scaling group.
 
-maxProvisionedWriteCapacity (Optional)
-Type: int
-
+maxProvisionedWriteCapacity (Optional)Type: int  
 The maximum number of units that should be provisioned with write capacity in the Auto Scaling group.
 
-minProvisionedReadCapacity (Optional)
-Type: int
-
+minProvisionedReadCapacity (Optional)Type: int  
 The minimum number of units that should be provisioned with read capacity in the Auto Scaling group.
 
-targetWriteUtilization (Optional)
-Type: double
-
+targetWriteUtilization (Optional)Type: double  
 The target utilization percentage for write capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
 
-targetReadUtilization (Optional)
-Type: double
-
+targetReadUtilization (Optional)Type: double  
 The target utilization percentage for read capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d497c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

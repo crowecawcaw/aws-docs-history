@@ -1,6 +1,11 @@
-# appconfig-deployment-strategy-minimum-final-bake-time
 
-Checks if an AWS AppConfig deployment strategy requires the specified minimum bake time. The rule is NON\_COMPLIANT if the deployment strategy has a final bake time less than value specified in the rule parameter. The default value is 30 minutes.
+
+# appconfig-deployment-strategy-minimum-final-bake-time
+<a name="appconfig-deployment-strategy-minimum-final-bake-time"></a>
+
+Checks if an AWS AppConfig deployment strategy requires the specified minimum bake time. The rule is NON\_COMPLIANT if the deployment strategy has a final bake time less than value specified in the rule parameter. The default value is 30 minutes. 
+
+
 
 **Identifier:** APPCONFIG\_DEPLOYMENT\_STRATEGY\_MINIMUM\_FINAL\_BAKE\_TIME
 
@@ -12,12 +17,10 @@ Checks if an AWS AppConfig deployment strategy requires the specified minimum ba
 
 **Parameters:**
 
-minBakeTime (Optional)
-Type: int
-Default: 30
-
+minBakeTime (Optional)Type: intDefault: 30  
 The minimum bake time in minutes of the AWS AppConfig deployment strategy for the rule to check. The rule is NON\_COMPLIANT if the bake time is less than the value specified in this parameter. Valid values are 0 to 1440. The default value is 30.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c99c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# sagemaker-monitoring-schedule-isolation
 
-Checks if Amazon SageMaker monitoring schedules have network isolation enabled. The rule is NON\_COMPLIANT if configuration.MonitoringScheduleConfig.MonitoringJobDefinition.NetworkConfig.EnableNetworkIsolation is false.
+
+# sagemaker-monitoring-schedule-isolation
+<a name="sagemaker-monitoring-schedule-isolation"></a>
+
+Checks if Amazon SageMaker monitoring schedules have network isolation enabled. The rule is NON\_COMPLIANT if configuration.MonitoringScheduleConfig.MonitoringJobDefinition.NetworkConfig.EnableNetworkIsolation is false. 
+
+
 
 **Identifier:** SAGEMAKER\_MONITORING\_SCHEDULE\_ISOLATION
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker monitoring schedules have network isolation enabled. 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1489c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

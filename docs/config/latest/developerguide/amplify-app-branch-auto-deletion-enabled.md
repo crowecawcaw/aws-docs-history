@@ -1,6 +1,11 @@
-# amplify-app-branch-auto-deletion-enabled
 
-Checks if AWS Amplify apps automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository. The rule is NON\_COMPLIANT if configuration.EnableBranchAutoDeletion is false.
+
+# amplify-app-branch-auto-deletion-enabled
+<a name="amplify-app-branch-auto-deletion-enabled"></a>
+
+Checks if AWS Amplify apps automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository. The rule is NON\_COMPLIANT if configuration.EnableBranchAutoDeletion is false. 
+
+
 
 **Identifier:** AMPLIFY\_APP\_BRANCH\_AUTO\_DELETION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS Amplify apps automatically disconnect a branch in Amplify Hosting 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c31c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# appconfig-configuration-profile-validators-not-empty
 
-Checks if an AWS AppConfig configuration profile includes at least one validator for syntactic or semantic check to ensure the configuration deploy functions as intended. The rule is NON\_COMPLIANT if the Validators property is an empty array.
+
+# appconfig-configuration-profile-validators-not-empty
+<a name="appconfig-configuration-profile-validators-not-empty"></a>
+
+Checks if an AWS AppConfig configuration profile includes at least one validator for syntactic or semantic check to ensure the configuration deploy functions as intended. The rule is NON\_COMPLIANT if the Validators property is an empty array. 
+
+
 
 **Identifier:** APPCONFIG\_CONFIGURATION\_PROFILE\_VALIDATORS\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if an AWS AppConfig configuration profile includes at least one validator
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c95c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

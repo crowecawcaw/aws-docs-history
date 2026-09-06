@@ -1,6 +1,11 @@
-# waf-global-rulegroup-not-empty
 
-Checks if an AWS WAF Classic rule group contains any rules. The rule is NON\_COMPLIANT if there are no rules present within a rule group.
+
+# waf-global-rulegroup-not-empty
+<a name="waf-global-rulegroup-not-empty"></a>
+
+Checks if an AWS WAF Classic rule group contains any rules. The rule is NON\_COMPLIANT if there are no rules present within a rule group. 
+
+
 
 **Identifier:** WAF\_GLOBAL\_RULEGROUP\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if an AWS WAF Classic rule group contains any rules. The rule is NON\_COM
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1625c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

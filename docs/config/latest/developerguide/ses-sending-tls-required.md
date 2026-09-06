@@ -1,6 +1,11 @@
-# ses-sending-tls-required
 
-Checks if Amazon Simple Email Service (SES) Configuration Set has TLS encryption enforced for email delivery. The rule is NON\_COMPLIANT if the TLS Policy is not set to 'REQUIRE' in the Configuration Set.
+
+# ses-sending-tls-required
+<a name="ses-sending-tls-required"></a>
+
+Checks if Amazon Simple Email Service (SES) Configuration Set has TLS encryption enforced for email delivery. The rule is NON\_COMPLIANT if the TLS Policy is not set to 'REQUIRE' in the Configuration Set. 
+
+
 
 **Identifier:** SES\_SENDING\_TLS\_REQUIRED
 
@@ -12,8 +17,9 @@ Checks if Amazon Simple Email Service (SES) Configuration Set has TLS encryption
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1527c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# athena-workgroup-enforce-workgroup-configuration
 
-Checks if Amazon Athena workgroups using Athena engine enforce workgroup configuration to override client-side settings. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EnforceWorkGroupConfiguration is false.
+
+# athena-workgroup-enforce-workgroup-configuration
+<a name="athena-workgroup-enforce-workgroup-configuration"></a>
+
+Checks if Amazon Athena workgroups using Athena engine enforce workgroup configuration to override client-side settings. The rule is NON\_COMPLIANT if configuration.WorkGroupConfiguration.EnforceWorkGroupConfiguration is false. 
+
+
 
 **Identifier:** ATHENA\_WORKGROUP\_ENFORCE\_WORKGROUP\_CONFIGURATION
 
@@ -12,8 +17,9 @@ Checks if Amazon Athena workgroups using Athena engine enforce workgroup configu
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d209c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

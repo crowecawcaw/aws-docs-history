@@ -1,9 +1,11 @@
+
+
 # cloudfront-origin-access-identity-enabled
+<a name="cloudfront-origin-access-identity-enabled"></a>
 
-Checks if CloudFront distribution with Amazon S3 Origin type has origin access identity configured. The rule is NON\_COMPLIANT if the CloudFront distribution is backed by S3 and any origin type is not OAI configured, or the origin is not an S3 bucket.
+Checks if CloudFront distribution with Amazon S3 Origin type has origin access identity configured. The rule is NON\_COMPLIANT if the CloudFront distribution is backed by S3 and any origin type is not OAI configured, or the origin is not an S3 bucket. 
 
-###### Note
-
+**Note**  
 The rule does not return `NOT_APPLICABLE` if the origin is not an S3 bucket.
 
 **Identifier:** CLOUDFRONT\_ORIGIN\_ACCESS\_IDENTITY\_ENABLED
@@ -16,8 +18,9 @@ The rule does not return `NOT_APPLICABLE` if the origin is not an S3 bucket.
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d313c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# batch-compute-environment-managed
 
-Checks if AWS Batch compute environments are managed. The rule is NON\_COMPLIANT if configuration.Type is 'UNMANAGED'.
+
+# batch-compute-environment-managed
+<a name="batch-compute-environment-managed"></a>
+
+Checks if AWS Batch compute environments are managed. The rule is NON\_COMPLIANT if configuration.Type is 'UNMANAGED'. 
+
+
 
 **Identifier:** BATCH\_COMPUTE\_ENVIRONMENT\_MANAGED
 
@@ -12,8 +17,9 @@ Checks if AWS Batch compute environments are managed. The rule is NON\_COMPLIANT
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d257c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

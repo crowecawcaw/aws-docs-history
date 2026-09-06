@@ -1,6 +1,11 @@
-# appconfig-freeform-profile-config-storage
 
-Checks if freeform configuration profiles for AWS AppConfig store their configuration data in AWS Secrets Manager or AWS AppConfig hosted configuration store. The rule is NON\_COMPLIANT if configuration.LocationUri is not secretsmanager or hosted.
+
+# appconfig-freeform-profile-config-storage
+<a name="appconfig-freeform-profile-config-storage"></a>
+
+Checks if freeform configuration profiles for AWS AppConfig store their configuration data in AWS Secrets Manager or AWS AppConfig hosted configuration store. The rule is NON\_COMPLIANT if configuration.LocationUri is not secretsmanager or hosted. 
+
+
 
 **Identifier:** APPCONFIG\_FREEFORM\_PROFILE\_CONFIG\_STORAGE
 
@@ -12,8 +17,9 @@ Checks if freeform configuration profiles for AWS AppConfig store their configur
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d111c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

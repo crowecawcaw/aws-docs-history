@@ -1,122 +1,84 @@
+
+
 # Prerequisites for Setting Up AWS Config with the AWS CLI
+<a name="gs-cli-prereq"></a>
 
-Before setting up AWS with the AWS CLI, you need to create an Amazon S3 bucket, an Amazon SNS topic,
-and an IAM role with attached policies as prerequisites. You can then use the AWS CLI to specify
-the bucket, topic, and role for AWS Config. Follow this procedure to set up your prerequisites for
-AWS Config.
+Before setting up AWS with the AWS CLI, you need to create an Amazon S3 bucket, an Amazon SNS topic, and an IAM role with attached policies as prerequisites. You can then use the AWS CLI to specify the bucket, topic, and role for AWS Config. Follow this procedure to set up your prerequisites for AWS Config.
 
-###### Topics
-
-- [Step 1: Creating an Amazon S3 Bucket](#gs-cli-create-s3bucket "#gs-cli-create-s3bucket")
-- [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic "#gs-cli-create-snstopic")
-- [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamrole")
+**Topics**
++ [Step 1: Creating an Amazon S3 Bucket](#gs-cli-create-s3bucket)
++ [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic)
++ [Step 3: Creating an IAM Role](#gs-cli-create-iamrole)
 
 ## Step 1: Creating an Amazon S3 Bucket
+<a name="gs-cli-create-s3bucket"></a>
 
-If you already have an Amazon S3 bucket in your account and want to use it, skip this step and
-go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic "#gs-cli-create-snstopic").
+If you already have an Amazon S3 bucket in your account and want to use it, skip this step and go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic).
 
-###### To create a bucket
+### Using the S3 console
+<a name="create-bucket"></a>
 
-1. Open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. Choose **Create bucket**.
-3. In **Bucket name**, enter a DNS-compliant name for your
-   bucket.
+**To create a bucket**
 
-The bucket name must:
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-    * Be unique across all of Amazon S3.
-    * Be between 3 and 63 characters long.
-    * Not contain uppercase characters.
-    * Start with a lowercase letter or number.
+1. Choose **Create bucket**.
 
-After you create the bucket, you can't change its name. Make sure the bucket name
-you choose is unique across all existing bucket names in Amazon S3. For more information on
-bucket naming rules and conventions, see [Bucket restrictions and
-Limitations](../../../AmazonS3/latest/userguide/BucketRestrictions.md "../../../AmazonS3/latest/userguide/BucketRestrictions.md") in the _Amazon Simple Storage Service User Guide_.
+1. In **Bucket name**, enter a DNS-compliant name for your bucket.
 
-###### Important
+   The bucket name must:
+   + Be unique across all of Amazon S3.
+   + Be between 3 and 63 characters long.
+   + Not contain uppercase characters.
+   + Start with a lowercase letter or number.
 
-Avoid including sensitive information in the bucket
-name. The bucket name is visible in the URLs that point to the objects in the
-bucket. 4. In **Region**, choose the AWS Region where you want the bucket
-to reside.
+   After you create the bucket, you can't change its name. Make sure the bucket name you choose is unique across all existing bucket names in Amazon S3. For more information on bucket naming rules and conventions, see [Bucket restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) in the *Amazon Simple Storage Service User Guide*.
+**Important**  
+Avoid including sensitive information in the bucket name. The bucket name is visible in the URLs that point to the objects in the bucket.
 
-Choose a Region close to you to minimize latency and costs and address regulatory
-requirements. Objects stored in a Region never leave that Region unless you explicitly
-transfer them to another Region. For a list of Amazon S3 AWS Regions, see [AWS service endpoints](../../../general/latest/gr/rande.md#s3_region "../../../general/latest/gr/rande.md#s3_region") in the
-_Amazon Web Services General Reference_. 5. In **Bucket settings for Block Public Access**, choose the Block
-Public Access settings that you want to apply to the bucket.
+1. In **Region**, choose the AWS Region where you want the bucket to reside. 
 
-We recommend that you leave all settings enabled unless you know you need to turn
-one or more of them off for your use case, such as to host a public website. Block
-public access settings that you enable for the bucket will also be enabled for all
-access points that you create on the bucket. For more information about blocking
-public access, see [Using Amazon S3 Block
-Public Access](../../../AmazonS3/latest/dev/access-control-block-public-access.md "../../../AmazonS3/latest/dev/access-control-block-public-access.md") in the _Amazon Simple Storage Service User Guide_. 6. (Optional) If you want to enable S3 Object Lock:
+   Choose a Region close to you to minimize latency and costs and address regulatory requirements. Objects stored in a Region never leave that Region unless you explicitly transfer them to another Region. For a list of Amazon S3 AWS Regions, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*.
 
-    1. Choose **Advanced settings**, and read the message that
-     appears.
+1. In **Bucket settings for Block Public Access**, choose the Block Public Access settings that you want to apply to the bucket. 
 
+   We recommend that you leave all settings enabled unless you know you need to turn one or more of them off for your use case, such as to host a public website. Block public access settings that you enable for the bucket will also be enabled for all access points that you create on the bucket. For more information about blocking public access, see [Using Amazon S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html) in the *Amazon Simple Storage Service User Guide*.
 
-    ###### Important
+1. (Optional) If you want to enable S3 Object Lock:
 
-    You can only enable S3 Object Lock for a bucket when you create it. If you
-     enable Object Lock for the bucket, you can't disable it later. Enabling
-     Object Lock also enables versioning for the bucket. After you enable
-     Object Lock for the bucket, you must configure the Object Lock settings before
-     any objects in the bucket will be protected. For more information about
-     configuring protection for objects, see [Configuring S3 Object Lock
-     using the Amazon S3 console](../../../AmazonS3/latest/dev/object-lock-console.md "../../../AmazonS3/latest/dev/object-lock-console.md").
-    2. If you want to enable Object Lock, enter *enable* in the text box and choose
-     **Confirm**.For more information about the S3 Object Lock feature, see [Locking Objects
+   1. Choose **Advanced settings**, and read the message that appears.
+**Important**  
+You can only enable S3 Object Lock for a bucket when you create it. If you enable Object Lock for the bucket, you can't disable it later. Enabling Object Lock also enables versioning for the bucket. After you enable Object Lock for the bucket, you must configure the Object Lock settings before any objects in the bucket will be protected. For more information about configuring protection for objects, see [Configuring S3 Object Lock using the Amazon S3 console](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-console.html).
 
-Using Amazon S3 Object Lock](../../../AmazonS3/latest/dev/object-lock.md "../../../AmazonS3/latest/dev/object-lock.md") in the _Amazon Simple Storage Service User Guide_. 7. Choose **Create bucket**.
-When you use the AWS SDKs to create a bucket, you must create a client and then use
-the client to send a request to create a bucket. As a best practice, you should create
-your client and bucket in the same AWS Region. If you don't specify a Region when you
-create a client or a bucket, Amazon S3 uses the default Region US East (N. Virginia).
+   1. If you want to enable Object Lock, enter *enable* in the text box and choose **Confirm**.
 
-To create a client to access a dual-stack endpoint, you must specify an AWS Region.
-For more information, see [Amazon S3 dual-stack endpoints](../../../AmazonS3/latest/dev/dual-stack-endpoints.md#dual-stack-endpoints-description "../../../AmazonS3/latest/dev/dual-stack-endpoints.md#dual-stack-endpoints-description"). For a list of available AWS Regions, see [Regions and endpoints](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in
-the _AWS General Reference_.
+   For more information about the S3 Object Lock feature, see [Locking Objects Using Amazon S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) in the *Amazon Simple Storage Service User Guide*.
 
-When you create a client, the Region maps to the Region-specific endpoint. The client
-uses this endpoint to communicate with Amazon S3:
-`s3.`<region>`.amazonaws.com`. If your Region
-launched after March 20, 2019, your client and bucket must be in the same Region. However,
-you can use a client in the US East (N. Virginia) Region to create a bucket in any Region
-that launched before March 20, 2019. For more information, see [Legacy
-Endpoints](../../../AmazonS3/latest/dev/VirtualHosting.md#s3-legacy-endpoints "../../../AmazonS3/latest/dev/VirtualHosting.md#s3-legacy-endpoints").
+1. Choose **Create bucket**.
+
+### Using the AWS SDKs
+<a name="create-bucket-intro"></a>
+
+When you use the AWS SDKs to create a bucket, you must create a client and then use the client to send a request to create a bucket. As a best practice, you should create your client and bucket in the same AWS Region. If you don't specify a Region when you create a client or a bucket, Amazon S3 uses the default Region US East (N. Virginia). 
+
+To create a client to access a dual-stack endpoint, you must specify an AWS Region. For more information, see [Amazon S3 dual-stack endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html#dual-stack-endpoints-description). For a list of available AWS Regions, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) in the *AWS General Reference*. 
+
+When you create a client, the Region maps to the Region-specific endpoint. The client uses this endpoint to communicate with Amazon S3: `s3.{{<region>}}.amazonaws.com`. If your Region launched after March 20, 2019, your client and bucket must be in the same Region. However, you can use a client in the US East (N. Virginia) Region to create a bucket in any Region that launched before March 20, 2019. For more information, see [Legacy Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#s3-legacy-endpoints).
 
 These AWS SDK code examples perform the following tasks:
++ **Create a client by explicitly specifying an AWS Region** — In the example, the client uses the `s3.us-west-2.amazonaws.com` endpoint to communicate with Amazon S3. You can specify any AWS Region. For a list of AWS Regions, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) in the *AWS General Reference*. 
++ **Send a create bucket request by specifying only a bucket name** — The client sends a request to Amazon S3 to create the bucket in the Region where you created a client. 
++ **Retrieve information about the location of the bucket** — Amazon S3 stores bucket location information in the *location* subresource that is associated with the bucket.
 
-- **Create a client by explicitly specifying an
-  AWS Region** — In the example, the client uses the
-  `s3.us-west-2.amazonaws.com` endpoint to communicate with Amazon S3. You can
-  specify any AWS Region. For a list of AWS Regions, see [Regions and endpoints](../../../general/latest/gr/s3.md "../../../general/latest/gr/s3.md") in the _AWS
-  General Reference_.
-- **Send a create bucket request by specifying only a bucket
-  name** — The client sends a request to Amazon S3 to create the bucket in
-  the Region where you created a client.
-- **Retrieve information about the location of the
-  bucket** — Amazon S3 stores bucket location information in the
-  _location_ subresource that is associated with the bucket.
-  The following code examples show how to use `CreateBucket`.
+The following code examples show how to use `CreateBucket`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Shows how to create a new Amazon S3 bucket.
     /// </summary>
@@ -142,24 +104,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CreateBucket) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Create a bucket with object lock enabled.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Create a bucket with object lock enabled.  
 
 ```
     /// <summary>
@@ -190,23 +140,14 @@ Create a bucket with object lock enabled.
             return false;
         }
     }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CreateBucket) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/DotNetSDKV3/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -311,23 +252,14 @@ function create_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
@@ -356,104 +288,73 @@ bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CreateBucket) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a bucket**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [CreateBucket](../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a bucket**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{us-east-1}}
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `us-east-1``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "/amzn-s3-demo-bucket"
 }
 ```
-
-For more information, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
-
-**Example 2: To create a bucket with owner enforced**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` that uses the bucket owner enforced setting for S3 Object Ownership.
+For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*.  
+**Example 2: To create a bucket with owner enforced**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` that uses the bucket owner enforced setting for S3 Object Ownership.  
 
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `us-east-1` \
- --object-ownership `BucketOwnerEnforced``
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{us-east-1}} \
+    --object-ownership {{BucketOwnerEnforced}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "/amzn-s3-demo-bucket"
 }
 ```
-
-For more information, see [Controlling ownership of objects and disabling ACLs](../../../AmazonS3/latest/userguide/about-object-ownership.md "../../../AmazonS3/latest/userguide/about-object-ownership.md") in the _Amazon S3 User Guide_.
-
-**Example 3: To create a bucket outside of the `us-east-1` region**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the
-`eu-west-1` region. Regions outside of `us-east-1` require the appropriate
-`LocationConstraint` to be specified in order to create the bucket in the
-desired region.
+For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.  
+**Example 3: To create a bucket outside of the ``us-east-1`` region**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the `eu-west-1` region. Regions outside of `us-east-1` require the appropriate `LocationConstraint` to be specified in order to create the bucket in the desired region.  
 
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `eu-west-1` \
- --create-bucket-configuration `LocationConstraint=eu-west-1``
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{eu-west-1}} \
+    --create-bucket-configuration {{LocationConstraint=eu-west-1}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "http://amzn-s3-demo-bucket.s3.amazonaws.com/"
 }
 ```
+For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*.  
++  For API details, see [CreateBucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateBucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-Create a bucket with default configuration.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
+Create a bucket with default configuration.  
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -508,15 +409,10 @@ func (basics BucketBasics) CreateBucket(ctx context.Context, name string, region
 	}
 	return err
 }
-
-
+```
+Create a bucket with object locking and wait for it to exist.  
 
 ```
-
-Create a bucket with object locking and wait for it to exist.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -575,29 +471,17 @@ func (actor S3Actions) CreateBucketWithLock(ctx context.Context, bucket string, 
 
 	return bucket, err
 }
+```
++  For API details, see [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Create a bucket.  
 
 ```
-
-- For API details, see
-  [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Create a bucket.
-
-```
-
     /**
      * Creates an S3 bucket asynchronously.
      *
@@ -630,11 +514,8 @@ Create a bucket.
             }
         });
     }
-
-
 ```
-
-Create a bucket with object lock enabled.
+Create a bucket with object lock enabled.  
 
 ```
     // Create a new Amazon S3 bucket with object lock options.
@@ -654,25 +535,15 @@ Create a bucket with object lock enabled.
         s3Waiter.waitUntilBucketExists(bucketRequestWait);
         System.out.println(bucketName + " is ready");
     }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Create the bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Create the bucket.  
 
 ```
 import {
@@ -719,24 +590,15 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.html#s3-example-creating-buckets-new-bucket-2). 
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2 "../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2").
-- For API details, see
-  [CreateBucket](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun createNewBucket(bucketName: String) {
@@ -750,25 +612,15 @@ suspend fun createNewBucket(bucketName: String) {
         println("$bucketName is ready")
     }
 }
-
-
 ```
++  For API details, see [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Create a bucket.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Create a bucket.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -783,25 +635,15 @@ Create a bucket.
             echo "Failed to create bucket $this->bucketName with error: " . $exception->getMessage();
             exit("Please fix error with bucket creation before continuing.");
         }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CreateBucket) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
-
-Create a bucket with default settings.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
+Create a bucket with default settings.  
 
 ```
 class BucketWrapper:
@@ -841,12 +683,8 @@ class BucketWrapper:
                 region,
             )
             raise error
-
-
-
 ```
-
-Create a versioned bucket with a lifecycle configuration.
+Create a versioned bucket with a lifecycle configuration.  
 
 ```
 def create_versioned_bucket(bucket_name, prefix):
@@ -916,25 +754,14 @@ def create_versioned_bucket(bucket_name, prefix):
         )
 
     return bucket
-
-
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateBucket) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/boto3/s3-2006-03-01/CreateBucket.md "../../../goto/boto3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -986,23 +813,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/CreateBucket) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 pub async fn create_bucket(
@@ -1034,23 +852,14 @@ pub async fn create_bucket(
         }
     })
 }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -1074,23 +883,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_bktalrdyownedbyyou.
         MESSAGE 'Bucket already exists and is owned by you.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateBucket](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -1099,7 +899,7 @@ import AWSS3
         var input = CreateBucketInput(
             bucket: name
         )
-
+        
         // For regions other than "us-east-1", you must set the locationConstraint in the createBucketConfiguration.
         // For more information, see LocationConstraint in the S3 API guide.
         // https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html#API_CreateBucket_RequestBody
@@ -1121,199 +921,134 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateBucket](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateBucket](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-###### Note
-
-You can also use an Amazon S3 bucket from a different account, but you may need to create a
-policy for the bucket that grants access permissions to AWS Config. For information on granting
-permissions to an Amazon S3 bucket, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel](s3-bucket-policy.md "s3-bucket-policy.md"), and then go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic "#gs-cli-create-snstopic").
+**Note**  
+You can also use an Amazon S3 bucket from a different account, but you may need to create a policy for the bucket that grants access permissions to AWS Config. For information on granting permissions to an Amazon S3 bucket, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel](s3-bucket-policy.md), and then go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic).
 
 ## Step 2: Creating an Amazon SNS Topic
+<a name="gs-cli-create-snstopic"></a>
 
-If you already have an Amazon SNS topic in your account and want to use it, skip this step and
-go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamrole").
+If you already have an Amazon SNS topic in your account and want to use it, skip this step and go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole).
 
-###### To create an Amazon SNS topic
+### Using the SNS console
+<a name="create-snstopic"></a>
 
-1. Open the Amazon SNS console at
-   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
-2. Do one of the following:
+**To create an Amazon SNS topic**
 
-   - If no topics have ever been created under your AWS account before, read the
-     description of Amazon SNS on the home page.
+1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home).
 
-   - If topics have been created under your AWS account before, on the navigation
-     panel, choose **Topics**.
+1. Do one of the following:
+   + If no topics have ever been created under your AWS account before, read the description of Amazon SNS on the home page.
+   + If topics have been created under your AWS account before, on the navigation panel, choose **Topics**.
 
-3. On the **Topics** page, choose **Create
-   topic**.
-4. On the **Create topic** page, in the **Details**
-   section, do the following:
+1. On the **Topics** page, choose **Create topic**.
 
-   1. For **Type**, choose a topic type
-      (**Standard** or **FIFO**).
-   2. Enter a **Name** for the topic. For a [FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), add
-      **.fifo** to the end of the name.
-   3. (Optional) Enter a **Display name** for the topic.
-   4. (Optional) For a FIFO topic, you can choose **content-based message
-      deduplication** to enable default message deduplication. For more
-      information, see [Message
-      deduplication for FIFO topics](../../../sns/latest/dg/fifo-message-dedup.md "../../../sns/latest/dg/fifo-message-dedup.md").
+1. On the **Create topic** page, in the **Details** section, do the following:
 
-5. (Optional) Expand the **Encryption** section and do the
-   following. For more information, see [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md").
+   1. For **Type**, choose a topic type (**Standard** or **FIFO**).
+
+   1. Enter a **Name** for the topic. For a [FIFO topic](https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html), add **.fifo** to the end of the name.
+
+   1. (Optional) Enter a **Display name** for the topic.
+
+   1. (Optional) For a FIFO topic, you can choose **content-based message deduplication** to enable default message deduplication. For more information, see [Message deduplication for FIFO topics](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html).
+
+1. (Optional) Expand the **Encryption** section and do the following. For more information, see [Encryption at rest](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 
    1. Choose **Enable encryption**.
-   2. Specify the customer master key (CMK). For more information, see [Key
-      terms](../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms "../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms").
 
-   For each CMK type, the **Description**,
-   **Account**, and **CMK ARN** are
-   displayed.
+   1. Specify the customer master key (CMK). For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms).
 
-   ###### Important
+      For each CMK type, the **Description**, **Account**, and **CMK ARN** are displayed.
+**Important**  
+If you aren't the owner of the CMK, or if you log in with an account that doesn't have the `kms:ListAliases` and `kms:DescribeKey` permissions, you won't be able to view information about the CMK on the Amazon SNS console.  
+Ask the owner of the CMK to grant you these permissions. For more information, see the [AWS KMS API Permissions: Actions and Resources Reference](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) in the *AWS Key Management Service Developer Guide*.
+      + The AWS managed CMK for Amazon SNS **(Default) alias/aws/sns** is selected by default.
+**Note**  
+Keep the following in mind:  
+The first time you use the AWS Management Console to specify the AWS managed CMK for Amazon SNS for a topic, AWS KMS creates the AWS managed CMK for Amazon SNS.
+Alternatively, the first time you use the `Publish` action on a topic with SSE enabled, AWS KMS creates the AWS managed CMK for Amazon SNS.
+      + To use a custom CMK from your AWS account, choose the **Customer master key (CMK)** field and then choose the custom CMK from the list.
+**Note**  
+For instructions on creating custom CMKs, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*
+      + To use a custom CMK ARN from your AWS account or from another AWS account, enter it into the **Customer master key (CMK)** field.
 
-   If you aren't the owner of the CMK, or if you log in with an account
-   that doesn't have the `kms:ListAliases` and
-   `kms:DescribeKey` permissions, you won't be able to view
-   information about the CMK on the Amazon SNS console.
+1. (Optional) By default, only the topic owner can publish or subscribe to the topic. To configure additional access permissions, expand the **Access policy** section. For more information, see [Identity and access management in Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html) and [Example cases for Amazon SNS access control](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html). 
+**Note**  
+When you create a topic using the console, the default policy uses the `aws:SourceOwner` condition key. This key is similar to `aws:SourceAccount`. 
 
-   Ask the owner of the CMK to grant you these permissions. For more
-   information, see the [AWS KMS API Permissions:
-   Actions and Resources Reference](../../../kms/latest/developerguide/kms-api-permissions-reference.md "../../../kms/latest/developerguide/kms-api-permissions-reference.md") in the
-   _AWS Key Management Service Developer Guide_.
+1. (Optional) To configure how Amazon SNS retries failed message delivery attempts, expand the **Delivery retry policy (HTTP/S)** section. For more information, see [Amazon SNS message delivery retries](https://docs.aws.amazon.com/sns/latest/dg/sns-message-delivery-retries.html).
 
-        * The AWS managed CMK for Amazon SNS **(Default)
-         alias/aws/sns** is selected by default.
+1. (Optional) To configure how Amazon SNS logs the delivery of messages to CloudWatch, expand the **Delivery status logging** section. For more information, see [Amazon SNS message delivery status](https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html).
 
+1. (Optional) To add metadata tags to the topic, expand the **Tags** section, enter a **Key** and a **Value** (optional) and choose **Add tag**. For more information, see [Amazon SNS topic tagging](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html).
 
-        ###### Note
+1. Choose **Create topic**.
 
-        Keep the following in mind:
+   The topic is created and the **{{MyTopic}}** page is displayed.
 
+   The topic's **Name**, **ARN**, (optional) **Display name**, and **Topic owner**'s AWS account ID are displayed in the **Details** section.
 
+1. Copy the topic ARN to the clipboard, for example:
 
-        	+ The first time you use the AWS Management Console to specify the AWS managed
-        	 CMK for Amazon SNS for a topic, AWS KMS creates the AWS managed CMK for
-        	 Amazon SNS.
-        	+ Alternatively, the first time you use the `Publish`
-        	 action on a topic with SSE enabled, AWS KMS creates the AWS managed CMK
-        	 for Amazon SNS.
-        * To use a custom CMK from your AWS account, choose the **Customer
-         master key (CMK)** field and then choose the custom CMK from the
-         list.
+   ```
+   arn:aws:sns:us-east-2:123456789012:MyTopic
+   ```
 
+**To subscribe an email address to the Amazon SNS topic**
 
-        ###### Note
+1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home).
 
-        For instructions on creating custom CMKs, see [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
-         *AWS Key Management Service Developer Guide*
-        * To use a custom CMK ARN from your AWS account or from another AWS
-         account, enter it into the **Customer master key (CMK)**
-         field.
+1. In the left navigation pane, choose **Subscriptions**.
 
-6. (Optional) By default, only the topic owner can publish or subscribe to the topic.
-   To configure additional access permissions, expand the **Access
-   policy** section. For more information, see [Identity and access
-   management in Amazon SNS](../../../sns/latest/dg/sns-authentication-and-access-control.md "../../../sns/latest/dg/sns-authentication-and-access-control.md") and [Example cases for Amazon SNS access
-   control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md").
+1. On the **Subscriptions** page, choose **Create subscription**.
 
-###### Note
+1. On the **Create subscription** page, in the **Details** section, do the following:
 
-When you create a topic using the console, the default policy uses the
-`aws:SourceOwner` condition key. This key is similar to
-`aws:SourceAccount`. 7. (Optional) To configure how Amazon SNS retries failed message delivery attempts, expand
-the **Delivery retry policy (HTTP/S)** section. For more information,
-see [Amazon SNS message delivery
-retries](../../../sns/latest/dg/sns-message-delivery-retries.md "../../../sns/latest/dg/sns-message-delivery-retries.md"). 8. (Optional) To configure how Amazon SNS logs the delivery of messages to CloudWatch, expand
-the **Delivery status logging** section. For more information, see
-[Amazon SNS message delivery
-status](../../../sns/latest/dg/sns-topic-attributes.md "../../../sns/latest/dg/sns-topic-attributes.md"). 9. (Optional) To add metadata tags to the topic, expand the **Tags**
-section, enter a **Key** and a **Value** (optional)
-and choose **Add tag**. For more information, see [Amazon SNS topic tagging](../../../sns/latest/dg/sns-tags.md "../../../sns/latest/dg/sns-tags.md"). 10. Choose **Create topic**.
+   1. For **Topic ARN**, choose the Amazon Resource Name (ARN) of a topic.
 
-The topic is created and the
-**`MyTopic`** page is displayed.
+   1. For **Protocol**, choose an endpoint type.  The available endpoint types are:
+      + [HTTP/HTTPS](https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html)
+      + [Email/Email-JSON](https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html)
+      + [Amazon Data Firehose](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html)
+      + [Amazon SQS](https://docs.aws.amazon.com/sns/latest/dg/sns-sqs-as-subscriber.html)
+**Note**  
+To subscribe to an [SNS FIFO topic](https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html), choose this option.
+      + [AWS Lambda](https://docs.aws.amazon.com/sns/latest/dg/sns-lambda-as-subscriber.html)
+      + [Platform application endpoint](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html)
+      + [SMS](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-phone-number-as-subscriber.html)
 
-The topic's **Name**, **ARN**, (optional)
-**Display name**, and **Topic owner**'s AWS
-account ID are displayed in the **Details** section. 11. Copy the topic ARN to the clipboard, for example:
+   1. For **Endpoint**, enter the endpoint value, such as an email address or the ARN of an Amazon SQS queue.
 
-```
-arn:aws:sns:us-east-2:123456789012:MyTopic
-```
+   1. Firehose endpoints only: For **Subscription role ARN**, specify the ARN of the IAM role that you created for writing to Firehose delivery streams. For more information, see [Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics](https://docs.aws.amazon.com/sns/latest/dg/prereqs-kinesis-data-firehose.html).
 
-###### To subscribe an email address to the Amazon SNS topic
+   1. (Optional) For Firehose, Amazon SQS, HTTP/S endpoints, you can also enable raw message delivery. For more information, see [Amazon SNS raw message delivery](https://docs.aws.amazon.com/sns/latest/dg/sns-large-payload-raw-message-delivery.html).
 
-1. Open the Amazon SNS console at
-   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
-2. In the left navigation pane, choose **Subscriptions**.
-3. On the **Subscriptions** page, choose **Create
-   subscription**.
-4. On the **Create subscription** page, in the
-   **Details** section, do the following:
+   1. (Optional) To configure a filter policy, expand the **Subscription filter policy** section. For more information, see [Amazon SNS subscription filter policies](https://docs.aws.amazon.com/sns/latest/dg/sns-subscription-filter-policies.html).
 
-   1. For **Topic ARN**, choose the Amazon Resource Name (ARN) of a
-      topic.
-   2. For **Protocol**, choose an endpoint type. The available endpoint types are:
+   1. (Optional) To configure a dead-letter queue for the subscription, expand the **Redrive policy (dead-letter queue)** section. For more information, see [Amazon SNS dead-letter queues (DLQs)](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html).
 
-      - [HTTP/HTTPS](../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md "../../../sns/latest/dg/sns-http-https-endpoint-as-subscriber.md")
-      - [Email/Email-JSON](../../../sns/latest/dg/sns-email-notifications.md "../../../sns/latest/dg/sns-email-notifications.md")
-      - [Amazon Data Firehose](../../../sns/latest/dg/sns-firehose-as-subscriber.md "../../../sns/latest/dg/sns-firehose-as-subscriber.md")
-      - [Amazon SQS](../../../sns/latest/dg/sns-sqs-as-subscriber.md "../../../sns/latest/dg/sns-sqs-as-subscriber.md")
+   1. Choose **Create subscription**.
 
-      ###### Note
+      The console creates the subscription and opens the subscription's **Details** page.
 
-      To subscribe to an [SNS
-      FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), choose this option.
-      - [AWS Lambda](../../../sns/latest/dg/sns-lambda-as-subscriber.md "../../../sns/latest/dg/sns-lambda-as-subscriber.md")
-      - [Platform application endpoint](../../../sns/latest/dg/sns-mobile-application-as-subscriber.md "../../../sns/latest/dg/sns-mobile-application-as-subscriber.md")
-      - [SMS](../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md "../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md")
+### Using the AWS SDKs
+<a name="create-snstopic-intro"></a>
 
-   3. For **Endpoint**, enter the endpoint value, such as an email
-      address or the ARN of an Amazon SQS queue.
-   4. Firehose endpoints only: For **Subscription role ARN**, specify
-      the ARN of the IAM role that you created for writing to Firehose delivery streams.
-      For more information, see [Prerequisites for
-      subscribing Firehose delivery streams to Amazon SNS topics](../../../sns/latest/dg/prereqs-kinesis-data-firehose.md "../../../sns/latest/dg/prereqs-kinesis-data-firehose.md").
-   5. (Optional) For Firehose, Amazon SQS, HTTP/S endpoints, you can also enable raw message
-      delivery. For more information, see [Amazon SNS raw message
-      delivery](../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md "../../../sns/latest/dg/sns-large-payload-raw-message-delivery.md").
-   6. (Optional) To configure a filter policy, expand the **Subscription
-      filter policy** section. For more information, see [Amazon SNS subscription
-      filter policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md").
-   7. (Optional) To configure a dead-letter queue for the subscription, expand the
-      **Redrive policy (dead-letter queue)** section. For more
-      information, see [Amazon SNS
-      dead-letter queues (DLQs)](../../../sns/latest/dg/sns-dead-letter-queues.md "../../../sns/latest/dg/sns-dead-letter-queues.md").
-   8. Choose **Create subscription**.
-
-   The console creates the subscription and opens the subscription's
-   **Details** page.
-   To use an AWS SDK, you must configure it with your credentials. For more
-   information, see [The shared config and credentials
-   files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code examples show how to use `CreateTopic`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples").
-
-Create a topic with a specific name.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
+Create a topic with a specific name.  
 
 ```
     using System;
@@ -1356,12 +1091,8 @@ Create a topic with a specific name.
             return response.TopicArn;
         }
     }
-
-
-
 ```
-
-Create a new topic with a name and specific FIFO and de-duplication attributes.
+Create a new topic with a name and specific FIFO and de-duplication attributes.  
 
 ```
     /// <summary>
@@ -1400,23 +1131,14 @@ Create a new topic with a name and specific FIFO and de-duplication attributes.
         var createResponse = await _amazonSNSClient.CreateTopicAsync(createTopicRequest);
         return createResponse.TopicArn;
     }
-
-
 ```
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/CreateTopic) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Create an Amazon Simple Notification Service (Amazon SNS) topic.
@@ -1451,29 +1173,21 @@ bool AwsDoc::SNS::createTopic(const Aws::String &topicName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/CreateTopic) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create an SNS topic**  
+The following `create-topic` example creates an SNS topic named `my-topic`.  
 
 ```
-
-- For API details, see
-  [CreateTopic](../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create an SNS topic**
-
-The following `create-topic` example creates an SNS topic named `my-topic`.
-
+aws sns create-topic \
+    --name {{my-topic}}
 ```
-`aws sns create-topic \
- --name `my-topic``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -1483,25 +1197,16 @@ Output:
     "TopicArn": "arn:aws:sns:us-west-2:123456789012:my-topic"
 }
 ```
+For more information, see [Using the AWS Command Line Interface with Amazon SQS and Amazon SNS](https://docs.aws.amazon.com/cli/latest/userguide/cli-sqs-queue-sns-topic.html) in the *AWS Command Line Interface User Guide*.  
++  For API details, see [CreateTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-topic.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using the AWS Command Line Interface with Amazon SQS and Amazon SNS](../../../cli/latest/userguide/cli-sqs-queue-sns-topic.md "../../../cli/latest/userguide/cli-sqs-queue-sns-topic.md") in the _AWS Command Line Interface User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-topic.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-topic.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -1544,24 +1249,14 @@ func (actor SnsActions) CreateTopic(ctx context.Context, topicName string, isFif
 
 	return topicArn, err
 }
-
-
-
 ```
++  For API details, see [CreateTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1622,25 +1317,15 @@ public class CreateTopic {
         return "";
     }
 }
-
-
 ```
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/CreateTopic) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -1648,11 +1333,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { CreateTopicCommand } from "@aws-sdk/client-sns";
@@ -1679,24 +1361,15 @@ export const createTopic = async (topicName = "TOPIC_NAME") => {
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.html#sns-examples-managing-topics-createtopic). 
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-createtopic "../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-createtopic").
-- For API details, see
-  [CreateTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun createSNSTopic(topicName: String): String {
@@ -1710,23 +1383,14 @@ suspend fun createSNSTopic(topicName: String): String {
         return result.topicArn.toString()
     }
 }
-
-
 ```
++  For API details, see [CreateTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -1759,25 +1423,15 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-managing-topics.html#create-a-topic). 
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/CreateTopic) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-managing-topics.md#create-a-topic "../../../sdk-for-php/v3/developer-guide/sns-examples-managing-topics.md#create-a-topic").
-- For API details, see
-  [CreateTopic](../../../goto/SdkForPHPV3/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForPHPV3/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -1805,9 +1459,6 @@ class SnsWrapper:
             raise
         else:
             return topic
-
-
-
 ```
 
 ```
@@ -1834,9 +1485,9 @@ class SnsWrapper:
 
 
     def create_topic(
-        self,
-        topic_name: str,
-        is_fifo: bool = False,
+        self, 
+        topic_name: str, 
+        is_fifo: bool = False, 
         content_based_deduplication: bool = False
     ) -> str:
         """
@@ -1872,24 +1523,14 @@ class SnsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error creating topic {topic_name}: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/CreateTopic) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
 ```
 # This class demonstrates how to create an Amazon Simple Notification Service (SNS) topic.
@@ -1927,24 +1568,15 @@ if $PROGRAM_NAME == __FILE__
     exit 1
   end
 end
-
-
 ```
++  For more information, see [AWS SDK for Ruby Developer Guide](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/sns-example-create-topic.html). 
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/goto/SdkForRubyV3/sns-2010-03-31/CreateTopic) in *AWS SDK for Ruby API Reference*. 
 
-- For more information, see [AWS SDK for Ruby Developer Guide](../../../sdk-for-ruby/v3/developer-guide/sns-example-create-topic.md "../../../sdk-for-ruby/v3/developer-guide/sns-example-create-topic.md").
-- For API details, see
-  [CreateTopic](../../../goto/SdkForRubyV3/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForRubyV3/sns-2010-03-31/CreateTopic.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
 ```
 async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
@@ -1957,23 +1589,14 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [CreateTopic](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.create_topic) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateTopic](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.create_topic "https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.create_topic")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -1982,23 +1605,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snstopiclimitexcdex.
         MESSAGE 'Unable to create more topics. You have reached the maximum number of topics allowed.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateTopic](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateTopic](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
 ```
 import AWSSNS
@@ -2014,78 +1628,56 @@ import AWSSNS
             print("No topic ARN returned by Amazon SNS.")
             return
         }
-
-
 ```
++  For API details, see [CreateTopic](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-###### Note
-
-You can also use an Amazon SNS topic in a different account, but in that case you might need
-to create a policy for topic that grants access permissions to AWS Config. For information on
-granting permissions to an Amazon SNS topic, see [Permissions for the Amazon SNS Topic](sns-topic-policy.md "sns-topic-policy.md") and then go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamrole").
+**Note**  
+You can also use an Amazon SNS topic in a different account, but in that case you might need to create a policy for topic that grants access permissions to AWS Config. For information on granting permissions to an Amazon SNS topic, see [Permissions for the Amazon SNS Topic](sns-topic-policy.md) and then go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole).
 
 ## Step 3: Creating an IAM Role
+<a name="gs-cli-create-iamrole"></a>
 
-###### Important
+**Important**  
+**(Recommended) Use the AWS Config service-linked role**  
+It is recommended to use the AWS Config service-linked role: `AWSServiceRoleForConfig`. Service-linked roles are predefined and include all the permissions that AWS Config requires to call other AWS services. The AWS Config service-linked role is required for service-linked configuration recorders.  
+For more information, see [Using Service-Linked Roles for AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/using-service-linked-roles.html).
 
-**(Recommended) Use the AWS Config service-linked role**
+### Using the IAM console
+<a name="create-iamrole"></a>
 
-It is recommended to use the AWS Config service-linked role: `AWSServiceRoleForConfig`. Service-linked roles are predefined and include all the permissions that AWS Config requires to call other AWS services. The AWS Config service-linked role is required for service-linked configuration recorders.
+You can use the IAM console to create an IAM role that grants AWS Config permissions to access your Amazon S3 bucket, access your Amazon SNS topic, and get configuration details for supported AWS resources. When you use the console to create an IAM role, AWS Config automatically attaches the required permissions to the role for you. 
 
-For more information, see [Using Service-Linked Roles for AWS Config](using-service-linked-roles.md "using-service-linked-roles.md").
+**Note**  
+If you have used an AWS service that uses AWS Config (such as AWS Security Hub or AWS Control Tower) and an AWS Config role has already been created, you should make sure that the IAM role you use when setting up AWS Config keeps the same minimum privileges as the already created AWS Config role in order for the other AWS service to continue to run as expected.   
+For example, if AWS Control Tower has an IAM role that allows AWS Config to read Amazon S3 objects, you should guarantee the same permissions are granted within the IAM role you use when setting up AWS Config. Otherwise, it may interfere with AWS Control Tower's operations.  
+For more information about IAM roles for AWS Config, see [AWS Identity and Access Management](https://docs.aws.amazon.com/config/latest/developerguide/security-iam.html). 
 
-You can use the IAM console to create an IAM role that grants AWS Config permissions to
-access your Amazon S3 bucket, access your Amazon SNS topic, and get configuration details for
-supported AWS resources. When you use the console to create an IAM role, AWS Config
-automatically attaches the required permissions to the role for you.
+**To create a role for an AWS service**
 
-###### Note
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-If you have used an AWS service that uses AWS Config (such as AWS Security Hub or
-AWS Control Tower) and an AWS Config role has already been created, you should make sure
-that the IAM role you use when setting up AWS Config keeps the same minimum privileges as
-the already created AWS Config role in order for the other AWS service to continue to run as
-expected.
+1. In the navigation pane of the IAM console, choose **Roles**, and then choose **Create role**.
 
-For example, if AWS Control Tower has an IAM role that allows AWS Config to read Amazon S3
-objects, you should guarantee the same permissions are granted within the IAM role you
-use when setting up AWS Config. Otherwise, it may interfere with AWS Control Tower's
-operations.
+1. For **Select trusted entity**, choose **AWS service**. 
 
-For more information about IAM roles for AWS Config, see [AWS Identity and Access Management](security-iam.md "security-iam.md").
+1. Choose the use case you want for AWS Config: **Config - Customizable**, **Config - Organizations**, **Config**, or **Config - Conformance Packs**. Then, choose **Next**.
 
-###### To create a role for an AWS service
+1. On the **Name, review, and create** page, review the details about your role, and choose **Create Role**.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane of the IAM console, choose **Roles**,
-   and then choose **Create role**.
-3. For **Select trusted entity**, choose **AWS
-   service**.
-4. Choose the use case you want for AWS Config: **Config - Customizable**,
-   **Config - Organizations**, **Config**, or
-   **Config - Conformance Packs**. Then, choose
-   **Next**.
-5. On the **Name, review, and create** page, review the details
-   about your role, and choose **Create Role**.
-   To use an AWS SDK, you must configure it with your credentials. For more
-   information, see [The shared config and credentials
-   files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+### Using the AWS SDKs
+<a name="create-iamrole-intro"></a>
+
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code examples show how to use `CreateRole`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
 ```
     /// <summary>
@@ -2106,24 +1698,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _IAMService.CreateRoleAsync(request);
         return response.Role.Arn;
     }
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/DotNetSDKV3/iam-2010-05-08/CreateRole) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
 ```
 ###############################################################################
@@ -2211,23 +1793,14 @@ function iam_create_role() {
 
   return 0
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
 ```
 bool AwsDoc::IAM::createIamRole(
@@ -2254,30 +1827,22 @@ bool AwsDoc::IAM::createIamRole(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForCpp/iam-2010-05-08/CreateRole) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create an IAM role**  
+The following `create-role` command creates a role named `Test-Role` and attaches a trust policy to it.  
 
 ```
-
-- For API details, see
-  [CreateRole](../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create an IAM role**
-
-The following `create-role` command creates a role named `Test-Role` and attaches a trust policy to it.
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}}
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -2291,26 +1856,19 @@ Output:
     }
 }
 ```
-
-The trust policy is defined as a JSON document in the _Test-Role-Trust-Policy.json_ file. (The file name and extension do not have significance.) The trust policy must specify a principal.
-
-To attach a permissions policy to a role, use the `put-role-policy` command.
-
-For more information, see [Creating IAM roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the _AWS IAM User Guide_.
-
-**Example 2: To create an IAM role with specified maximum session duration**
-
-The following `create-role` command creates a role named `Test-Role` and sets a maximum session duration of 7200 seconds (2 hours).
+The trust policy is defined as a JSON document in the *Test-Role-Trust-Policy.json* file. (The file name and extension do not have significance.) The trust policy must specify a principal.  
+To attach a permissions policy to a role, use the `put-role-policy` command.  
+For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS IAM User Guide*.  
+**Example 2: To create an IAM role with specified maximum session duration**  
+The following `create-role` command creates a role named `Test-Role` and sets a maximum session duration of 7200 seconds (2 hours).  
 
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json` \
- --max-session-duration `7200``
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}} \
+    --max-session-duration {{7200}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -2321,7 +1879,7 @@ Output:
         "Arn": "arn:aws:iam::12345678012:role/Test-Role",
         "CreateDate": "2023-05-24T23:50:25+00:00",
         "AssumeRolePolicyDocument": {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "Statement1",
@@ -2336,22 +1894,17 @@ Output:
     }
 }
 ```
-
-For more information, see [Modifying a role maximum session duration (AWS API)](../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-modify_max-session-duration-api "../../../IAM/latest/UserGuide/roles-managingrole-editing-api.md#roles-modify_max-session-duration-api") in the _AWS IAM User Guide_.
-
-**Example 3: To create an IAM Role with tags**
-
-The following command creates an IAM Role `Test-Role` with tags. This example uses the `--tags` parameter flag with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.
+For more information, see [Modifying a role maximum session duration (AWS API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api) in the *AWS IAM User Guide*.  
+**Example 3: To create an IAM Role with tags**  
+The following command creates an IAM Role `Test-Role` with tags. This example uses the `--tags` parameter flag with the following JSON-formatted tags: `'{"Key": "Department", "Value": "Accounting"}' '{"Key": "Location", "Value": "Seattle"}'`. Alternatively, the `--tags` flag can be used with tags in the shorthand format: `'Key=Department,Value=Accounting Key=Location,Value=Seattle'`.  
 
 ```
-`aws iam create-role \
- --role-name `Test-Role` \
- --assume-role-policy-document `file://Test-Role-Trust-Policy.json` \
- --tags '`{"Key": "Department", "Value": "Accounting"}`' '`{"Key": "Location", "Value": "Seattle"}`'`
-
+aws iam create-role \
+    --role-name {{Test-Role}} \
+    --assume-role-policy-document {{file://Test-Role-Trust-Policy.json}} \
+    --tags '{{{"Key": "Department", "Value": "Accounting"}}}' '{{{"Key": "Location", "Value": "Seattle"}}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -2362,7 +1915,7 @@ Output:
         "Arn": "arn:aws:iam::123456789012:role/Test-Role",
         "CreateDate": "2023-05-25T23:29:41+00:00",
         "AssumeRolePolicyDocument": {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Sid": "Statement1",
@@ -2387,25 +1940,16 @@ Output:
     }
 }
 ```
+For more information, see [Tagging IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_roles.html) in the *AWS IAM User Guide*.  
++  For API details, see [CreateRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Tagging IAM roles](../../../IAM/latest/UserGuide/id_tags_roles.md "../../../IAM/latest/UserGuide/id_tags_roles.md") in the _AWS IAM User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -2455,24 +1999,14 @@ func (wrapper RoleWrapper) CreateRole(ctx context.Context, roleName string, trus
 	}
 	return role, err
 }
-
-
-
 ```
++  For API details, see [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateRole](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateRole")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
 ```
 import org.json.simple.JSONObject;
@@ -2549,25 +2083,15 @@ public class CreateRole {
         return jsonParser.parse(reader);
     }
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/CreateRole) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples").
-
-Create the role.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
+Create the role.  
 
 ```
 import { CreateRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -2597,23 +2121,14 @@ export const createRole = (roleName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateRoleCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
 ```
 $uuid = uniqid();
@@ -2646,28 +2161,20 @@ echo "Created role: {$assumeRoleRole['RoleName']}\n";
         });
         return $result['Role'];
     }
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForPHPV3/iam-2010-05-08/CreateRole) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
 ```
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/MyNewRole
@@ -2686,7 +2193,7 @@ RoleName                 : MyNewRole
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "",
@@ -2699,22 +2206,16 @@ RoleName                 : MyNewRole
   ]
 }
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateRole](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new role named `MyNewRole` and attaches to it the policy found in the file `NewRoleTrustPolicy.json`. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file. The policy document displayed in the output is URL encoded. It is decoded in this example with the `UrlDecode` .NET method. **  
 
 ```
 $results = New-IAMRole -AssumeRolePolicyDocument (Get-Content -raw NewRoleTrustPolicy.json) -RoleName MyNewRole
 $results
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Arn                      : arn:aws:iam::123456789012:role/MyNewRole
@@ -2733,7 +2234,7 @@ RoleName                 : MyNewRole
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "",
@@ -2746,20 +2247,13 @@ RoleName                 : MyNewRole
   ]
 }
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateRole](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
 ```
 def create_role(role_name, allowed_services):
@@ -2771,7 +2265,7 @@ def create_role(role_name, allowed_services):
     :return: The newly created role.
     """
     trust_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -2792,25 +2286,14 @@ def create_role(role_name, allowed_services):
         raise
     else:
         return role
-
-
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/boto3/iam-2010-05-08/CreateRole) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/boto3/iam-2010-05-08/CreateRole.md "../../../goto/boto3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
 ```
   # Creates a role and attaches policies to it.
@@ -2838,23 +2321,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     @logger.error("Error creating role: #{e.message}")
     nil
   end
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/goto/SdkForRubyV3/iam-2010-05-08/CreateRole) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateRole](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateRole.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
 ```
 pub async fn create_role(
@@ -2876,23 +2350,14 @@ pub async fn create_role(
 
     Ok(response.role.unwrap())
 }
-
-
 ```
++  For API details, see [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_role")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
 ```
     TRY.
@@ -2907,23 +2372,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_iamlimitexceededex.
         MESSAGE 'Role limit exceeded.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateRole](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
 ```
 import AWSIAM
@@ -2949,10 +2405,7 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateRole](https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateRole](<https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)> "https://sdk.amazonaws.com/swift/api/awsiam/latest/documentation/awsiam/iamclient/createrole(input:)")
-  in _AWS SDK for Swift API reference_.
+------

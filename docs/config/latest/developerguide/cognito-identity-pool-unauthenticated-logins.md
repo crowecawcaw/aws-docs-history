@@ -1,6 +1,11 @@
-# cognito-identity-pool-unauthenticated-logins
 
-Checks if Amazon Cognito identity pools disallow unauthenticated logins. The rule is NON\_COMPLIANT if configuration.AllowUnauthenticatedIdentities is true.
+
+# cognito-identity-pool-unauthenticated-logins
+<a name="cognito-identity-pool-unauthenticated-logins"></a>
+
+Checks if Amazon Cognito identity pools disallow unauthenticated logins. The rule is NON\_COMPLIANT if configuration.AllowUnauthenticatedIdentities is true. 
+
+
 
 **Identifier:** COGNITO\_IDENTITY\_POOL\_UNAUTHENTICATED\_LOGINS
 
@@ -12,8 +17,9 @@ Checks if Amazon Cognito identity pools disallow unauthenticated logins. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d409c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,6 +1,11 @@
-# fsx-lustre-copy-tags-to-backups
 
-Checks if the Amazon FSx for Lustre file systems are configured to copy tags to backups. The rule is NON\_COMPLIANT if Lustre file systems are not configured to copy tags to backups.
+
+# fsx-lustre-copy-tags-to-backups
+<a name="fsx-lustre-copy-tags-to-backups"></a>
+
+Checks if the Amazon FSx for Lustre file systems are configured to copy tags to backups. The rule is NON\_COMPLIANT if Lustre file systems are not configured to copy tags to backups. 
+
+
 
 **Identifier:** FSX\_LUSTRE\_COPY\_TAGS\_TO\_BACKUPS
 
@@ -12,8 +17,9 @@ Checks if the Amazon FSx for Lustre file systems are configured to copy tags to 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d855c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

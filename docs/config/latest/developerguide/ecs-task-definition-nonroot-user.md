@@ -1,9 +1,11 @@
+
+
 # ecs-task-definition-nonroot-user
+<a name="ecs-task-definition-nonroot-user"></a>
 
-Checks if ECSTaskDefinitions specify a user for Amazon Elastic Container Service (Amazon ECS) EC2 launch type containers to run on. The rule is NON\_COMPLIANT if the ‘user’ parameter is not present or set to ‘root’.
+Checks if ECSTaskDefinitions specify a user for Amazon Elastic Container Service (Amazon ECS) EC2 launch type containers to run on. The rule is NON\_COMPLIANT if the ‘user’ parameter is not present or set to ‘root’. 
 
-###### Note
-
+**Note**  
 This rule only evaluates the latest active revision of an Amazon ECS task definition.
 
 **Identifier:** ECS\_TASK\_DEFINITION\_NONROOT\_USER
@@ -16,8 +18,9 @@ This rule only evaluates the latest active revision of an Amazon ECS task defini
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d683c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

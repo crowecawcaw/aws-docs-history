@@ -1,6 +1,11 @@
-# lightsail-bucket-allow-public-overrides-disabled
 
-Checks if Amazon Lightsail buckets have allow public overrides disabled. The rule is NON\_COMPLIANT if AllowPublicOverrides is true. Note: AllowPublicOverrides has no effect if GetObject is public, see lightsail-bucket-get-object-private.
+
+# lightsail-bucket-allow-public-overrides-disabled
+<a name="lightsail-bucket-allow-public-overrides-disabled"></a>
+
+Checks if Amazon Lightsail buckets have allow public overrides disabled. The rule is NON\_COMPLIANT if AllowPublicOverrides is true. Note: AllowPublicOverrides has no effect if GetObject is public, see lightsail-bucket-get-object-private. 
+
+
 
 **Identifier:** LIGHTSAIL\_BUCKET\_ALLOW\_PUBLIC\_OVERRIDES\_DISABLED
 
@@ -12,8 +17,9 @@ Checks if Amazon Lightsail buckets have allow public overrides disabled. The rul
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1079c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

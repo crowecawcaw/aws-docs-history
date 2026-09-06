@@ -1,6 +1,11 @@
-# dms-replication-task-targetdb-logging
 
-Checks if logging is enabled with a valid severity level for AWS DMS replication task events of a target database. The rule is NON\_COMPLIANT if logging is not enabled or replication task logging of a target database has a severity level that is not valid.
+
+# dms-replication-task-targetdb-logging
+<a name="dms-replication-task-targetdb-logging"></a>
+
+Checks if logging is enabled with a valid severity level for AWS DMS replication task events of a target database. The rule is NON\_COMPLIANT if logging is not enabled or replication task logging of a target database has a severity level that is not valid. 
+
+
 
 **Identifier:** DMS\_REPLICATION\_TASK\_TARGETDB\_LOGGING
 
@@ -12,8 +17,9 @@ Checks if logging is enabled with a valid severity level for AWS DMS replication
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d483c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

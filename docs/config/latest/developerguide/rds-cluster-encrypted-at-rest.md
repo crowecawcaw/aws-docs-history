@@ -1,6 +1,11 @@
-# rds-cluster-encrypted-at-rest
 
-Checks if an Amazon Relational Database Service (Amazon RDS) cluster is encrypted at rest. The rule is NON\_COMPLIANT if an Amazon RDS cluster is not encrypted at rest.
+
+# rds-cluster-encrypted-at-rest
+<a name="rds-cluster-encrypted-at-rest"></a>
+
+Checks if an Amazon Relational Database Service (Amazon RDS) cluster is encrypted at rest. The rule is NON\_COMPLIANT if an Amazon RDS cluster is not encrypted at rest. 
+
+
 
 **Identifier:** RDS\_CLUSTER\_ENCRYPTED\_AT\_REST
 
@@ -12,8 +17,9 @@ Checks if an Amazon Relational Database Service (Amazon RDS) cluster is encrypte
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1229c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

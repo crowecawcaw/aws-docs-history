@@ -1,6 +1,11 @@
-# cloud-trail-encryption-enabled
 
-Checks if AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) encryption. The rule is COMPLIANT if the KmsKeyId is defined.
+
+# cloud-trail-encryption-enabled
+<a name="cloud-trail-encryption-enabled"></a>
+
+Checks if AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) encryption. The rule is COMPLIANT if the KmsKeyId is defined. 
+
+
 
 **Identifier:** CLOUD\_TRAIL\_ENCRYPTION\_ENABLED
 
@@ -12,8 +17,9 @@ Checks if AWS CloudTrail is configured to use the server side encryption (SSE) A
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d365c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

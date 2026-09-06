@@ -1,6 +1,11 @@
-# amplify-app-platform-check
 
-Checks if AWS Amplify apps are configured with the specified platform. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter.
+
+# amplify-app-platform-check
+<a name="amplify-app-platform-check"></a>
+
+Checks if AWS Amplify apps are configured with the specified platform. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter. 
+
+
 
 **Identifier:** AMPLIFY\_APP\_PLATFORM\_CHECK
 
@@ -12,11 +17,10 @@ Checks if AWS Amplify apps are configured with the specified platform. The rule 
 
 **Parameters:**
 
-approvedPlatform
-Type: String
-
+approvedPlatformType: String  
 The approved platform for the rule to check. The rule is NON\_COMPLIANT if configuration.Platform is a value not specified in this parameter. Valid values include: 'WEB', 'WEB\_DYNAMIC', and 'WEB\_COMPUTE'.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7c39c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

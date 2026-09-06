@@ -1,6 +1,11 @@
-# sagemaker-model-private-registry-required
 
-Checks if Amazon SageMaker models that use a PrimaryContainer pull container image from a private Docker registry in a VPC. The rule is NON\_COMPLIANT if ImageConfig is missing or RepositoryAccessMode is set to Platform.
+
+# sagemaker-model-private-registry-required
+<a name="sagemaker-model-private-registry-required"></a>
+
+Checks if Amazon SageMaker models that use a PrimaryContainer pull container image from a private Docker registry in a VPC. The rule is NON\_COMPLIANT if ImageConfig is missing or RepositoryAccessMode is set to Platform. 
+
+
 
 **Identifier:** SAGEMAKER\_MODEL\_PRIVATE\_REGISTRY\_REQUIRED
 
@@ -12,8 +17,9 @@ Checks if Amazon SageMaker models that use a PrimaryContainer pull container ima
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1483c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -1,21 +1,21 @@
+
+
 # Use `DescribeConfigRules` with an AWS SDK or CLI
+<a name="example_config-service_DescribeConfigRules_section"></a>
 
 The following code examples show how to use `DescribeConfigRules`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get details for an AWS Config rule**
-
-The following command returns details for an AWS Config rule named `InstanceTypesAreT2micro`:
-
-```
-`aws configservice describe-config-rules --config-rule-names `InstanceTypesAreT2micro``
+**AWS CLI**  
+**To get details for an AWS Config rule**  
+The following command returns details for an AWS Config rule named `InstanceTypesAreT2micro`:  
 
 ```
-
-Output:
+aws configservice describe-config-rules --config-rule-names {{InstanceTypesAreT2micro}}
+```
+Output:  
 
 ```
 {
@@ -46,23 +46,18 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeConfigRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rules.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeConfigRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rules.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rules.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This sample lists config rules for the account, with selected properties.**
+**Tools for PowerShell V4**  
+**Example 1: This sample lists config rules for the account, with selected properties.**  
 
 ```
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleName                                    ConfigRuleId       ConfigRuleArn                                                        ConfigRuleState
@@ -71,21 +66,15 @@ ALB_REDIRECTION_CHECK                             config-rule-12iyn3 arn:aws:con
 access-keys-rotated                               config-rule-aospfr arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-aospfr ACTIVE
 autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-cn1f2x ACTIVE
 ```
++  For API details, see [DescribeConfigRules](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeConfigRules](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This sample lists config rules for the account, with selected properties.**
+**Tools for PowerShell V5**  
+**Example 1: This sample lists config rules for the account, with selected properties.**  
 
 ```
 Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ConfigRuleName                                    ConfigRuleId       ConfigRuleArn                                                        ConfigRuleState
@@ -94,20 +83,13 @@ ALB_REDIRECTION_CHECK                             config-rule-12iyn3 arn:aws:con
 access-keys-rotated                               config-rule-aospfr arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-aospfr ACTIVE
 autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-cn1f2x ACTIVE
 ```
++  For API details, see [DescribeConfigRules](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeConfigRules](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/config#code-examples). 
 
 ```
 class ConfigWrapper:
@@ -140,24 +122,14 @@ class ConfigWrapper:
             raise
         else:
             return rule
-
-
-
 ```
++  For API details, see [DescribeConfigRules](https://docs.aws.amazon.com/goto/boto3/config-2014-11-12/DescribeConfigRules) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeConfigRules](../../../goto/boto3/config-2014-11-12/DescribeConfigRules.md "../../../goto/boto3/config-2014-11-12/DescribeConfigRules.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples). 
 
 ```
     DATA(lo_result) = lo_cfs->describeconfigrules(
@@ -167,14 +139,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
     ).
     ot_cfg_rules = lo_result->get_configrules( ).
     MESSAGE 'Retrieved AWS Config rule data.' TYPE 'I'.
-
-
 ```
++  For API details, see [DescribeConfigRules](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeConfigRules](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Config with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

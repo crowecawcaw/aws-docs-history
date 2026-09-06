@@ -1,11 +1,12 @@
+
+
 # vpc-sg-open-only-to-authorized-ports
+<a name="vpc-sg-open-only-to-authorized-ports"></a>
 
-Checks if security groups allowing unrestricted incoming traffic ('0.0.0.0/0' or '::/0') only allow inbound TCP or UDP connections on authorized ports. The rule is NON\_COMPLIANT if such security groups do not have ports specified in the rule parameters.
+Checks if security groups allowing unrestricted incoming traffic ('0.0.0.0/0' or '::/0') only allow inbound TCP or UDP connections on authorized ports. The rule is NON\_COMPLIANT if such security groups do not have ports specified in the rule parameters. 
 
-###### Note
-
-This rule evaluates Amazon EC2 security groups with ingress rule set to IPv4='0.0.0.0/0' or IPv6='::/'.
-If the security group does not have one of those destinations, this rule returns `NOT_APPLICABLE`.
+**Note**  
+This rule evaluates Amazon EC2 security groups with ingress rule set to IPv4='0.0.0.0/0' or IPv6='::/'. If the security group does not have one of those destinations, this rule returns `NOT_APPLICABLE`.
 
 **Identifier:** VPC\_SG\_OPEN\_ONLY\_TO\_AUTHORIZED\_PORTS
 
@@ -17,16 +18,13 @@ If the security group does not have one of those destinations, this rule returns
 
 **Parameters:**
 
-authorizedTcpPorts (Optional)
-Type: String
+authorizedTcpPorts (Optional)Type: String  
+ Comma-separated list of TCP ports authorized to be open to 0.0.0.0/0 or ::/0. Ranges are defined by dash, for example, "443,1020-1025".
 
-Comma-separated list of TCP ports authorized to be open to 0.0.0.0/0 or ::/0. Ranges are defined by dash, for example, "443,1020-1025".
-
-authorizedUdpPorts (Optional)
-Type: String
-
-Comma-separated list of UDP ports authorized to be open to 0.0.0.0/0 or ::/0. Ranges are defined by dash, for example, "500,1020-1025".
+authorizedUdpPorts (Optional)Type: String  
+ Comma-separated list of UDP ports authorized to be open to 0.0.0.0/0 or ::/0. Ranges are defined by dash, for example, "500,1020-1025".
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1609c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

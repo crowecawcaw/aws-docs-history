@@ -1,6 +1,11 @@
-# appconfig-hosted-configuration-version-description
 
-Checks if AWS AppConfig hosted configuration versions have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string.
+
+# appconfig-hosted-configuration-version-description
+<a name="appconfig-hosted-configuration-version-description"></a>
+
+Checks if AWS AppConfig hosted configuration versions have a description. The rule is NON\_COMPLIANT if configuration.Description does not exist or is an empty string. 
+
+
 
 **Identifier:** APPCONFIG\_HOSTED\_CONFIGURATION\_VERSION\_DESCRIPTION
 
@@ -12,8 +17,9 @@ Checks if AWS AppConfig hosted configuration versions have a description. The ru
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d113c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

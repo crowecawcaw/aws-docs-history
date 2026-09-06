@@ -1,25 +1,28 @@
+
+
 # Viewing your configuration recorders
+<a name="configuration-recorder-view"></a>
 
-You can use the AWS Config console or the AWS CLI view details about your configuration
-recorders.
+You can use the AWS Config console or the AWS CLI view details about your configuration recorders.
 
-To view your configuration recorders (Console)
+------
+#### [ To view your configuration recorders (Console) ]
 
-1. Sign in to the AWS Management Console and open the AWS Config console at
-   [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
-2. Choose **Settings** in the navigation pane.
-3. For the customer managed configuration recorder, you can view details on the
-   **Customer managed recorder** tab.
-4. For service-linked configuration recorders, choose a service-linked
-   configuration recorders on the **Service-linked recorders** tab,
-   and then choose **View**.
+1. Sign in to the AWS Management Console and open the AWS Config console at [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home).
 
-To view your configuration recorders (CLI)
-Use the [`describe-configuration-recorders`](../../../cli/latest/reference/configservice/describe-configuration-recorders.md "../../../cli/latest/reference/configservice/describe-configuration-recorders.md") command to view details
-about your configuration recorders:
+1. Choose **Settings** in the navigation pane.
+
+1. For the customer managed configuration recorder, you can view details on the **Customer managed recorder** tab.
+
+1. For service-linked configuration recorders, choose a service-linked configuration recorders on the **Service-linked recorders** tab, and then choose **View**.
+
+------
+#### [ To view your configuration recorders (CLI) ]
+
+Use the [`describe-configuration-recorders`](http://docs.aws.amazon.com/cli/latest/reference/configservice/describe-configuration-recorders.html) command to view details about your configuration recorders:
 
 ```
-$ **aws configservice describe-configuration-recorders**
+$ aws configservice describe-configuration-recorders
 {
     "ConfigurationRecorders": [
         {
@@ -30,11 +33,10 @@ $ **aws configservice describe-configuration-recorders**
 }
 ```
 
-Use the [`describe-configuration-recorder-status`](../../../cli/latest/reference/configservice/describe-configuration-recorder-status.md "../../../cli/latest/reference/configservice/describe-configuration-recorder-status.md") command to view the current
-status of your configuration recorders:
+Use the [`describe-configuration-recorder-status`](http://docs.aws.amazon.com/cli/latest/reference/configservice/describe-configuration-recorder-status.html) command to view the current status of your configuration recorders:
 
 ```
-$ **aws configservice describe-configuration-recorder-status**
+$ aws configservice describe-configuration-recorder-status
 {
     "ConfigurationRecordersStatus": [
         {
@@ -51,10 +53,8 @@ $ **aws configservice describe-configuration-recorder-status**
 }
 ```
 
-For both of these commands, you can use the `arn` and
-`configuration-recorder-names` fields to specify a list of configuration
-recorders. For service-linked configuration recorders, you can use the
-`service-principal` field to specify a configuration recorder.
+For both of these commands, you can use the `arn` and `configuration-recorder-names` fields to specify a list of configuration recorders. For service-linked configuration recorders, you can use the `service-principal` field to specify a configuration recorder.
 
-If a configuration recorder is not specified, this command returns the details of
-all configuration recorders associated with the account.
+If a configuration recorder is not specified, this command returns the details of all configuration recorders associated with the account.
+
+------

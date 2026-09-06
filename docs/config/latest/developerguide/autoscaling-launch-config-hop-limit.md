@@ -1,6 +1,11 @@
-# autoscaling-launch-config-hop-limit
 
-Checks the number of network hops that the metadata token can travel. This rule is NON\_COMPLIANT if the Metadata response hop limit is greater than 1.
+
+# autoscaling-launch-config-hop-limit
+<a name="autoscaling-launch-config-hop-limit"></a>
+
+Checks the number of network hops that the metadata token can travel. This rule is NON\_COMPLIANT if the Metadata response hop limit is greater than 1. 
+
+
 
 **Identifier:** AUTOSCALING\_LAUNCH\_CONFIG\_HOP\_LIMIT
 
@@ -12,8 +17,9 @@ Checks the number of network hops that the metadata token can travel. This rule 
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d237c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

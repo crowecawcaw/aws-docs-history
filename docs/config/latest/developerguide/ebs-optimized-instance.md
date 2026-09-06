@@ -1,9 +1,11 @@
+
+
 # ebs-optimized-instance
+<a name="ebs-optimized-instance"></a>
 
-Checks if Amazon EBS optimization is enabled for your Amazon Elastic Compute Cloud (Amazon EC2) instances that can be Amazon EBS-optimized. The rule is NON\_COMPLIANT if EBS optimization is not enabled for an Amazon EC2 instance that can be EBS-optimized.
+Checks if Amazon EBS optimization is enabled for your Amazon Elastic Compute Cloud (Amazon EC2) instances that can be Amazon EBS-optimized. The rule is NON\_COMPLIANT if EBS optimization is not enabled for an Amazon EC2 instance that can be EBS-optimized. 
 
-###### Note
-
+**Note**  
 EC2 instances which are EBS-optimized by default always result in rule evaluations returning `COMPLIANT`.
 
 **Identifier:** EBS\_OPTIMIZED\_INSTANCE
@@ -16,8 +18,9 @@ EC2 instances which are EBS-optimized by default always result in rule evaluatio
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d523c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

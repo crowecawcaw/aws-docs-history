@@ -1,6 +1,11 @@
-# wafv2-rulegroup-not-empty
 
-Checks if WAFv2 Rule Groups contain rules. The rule is NON\_COMPLIANT if there are no rules in a WAFv2 Rule Group.
+
+# wafv2-rulegroup-not-empty
+<a name="wafv2-rulegroup-not-empty"></a>
+
+Checks if WAFv2 Rule Groups contain rules. The rule is NON\_COMPLIANT if there are no rules in a WAFv2 Rule Group. 
+
+
 
 **Identifier:** WAFV2\_RULEGROUP\_NOT\_EMPTY
 
@@ -12,8 +17,9 @@ Checks if WAFv2 Rule Groups contain rules. The rule is NON\_COMPLIANT if there a
 
 **Parameters:**
 
-None
+None  
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7e1619c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

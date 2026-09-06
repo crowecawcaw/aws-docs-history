@@ -1,6 +1,11 @@
-# glue-spark-job-supported-version
 
-Checks if an AWS Glue Spark job is running on the specified minimum supported AWS Glue version. The rule is NON\_COMPLIANT if the AWS Glue Spark job is not running on the minimum supported AWS Glue version that you specify.
+
+# glue-spark-job-supported-version
+<a name="glue-spark-job-supported-version"></a>
+
+Checks if an AWS Glue Spark job is running on the specified minimum supported AWS Glue version. The rule is NON\_COMPLIANT if the AWS Glue Spark job is not running on the minimum supported AWS Glue version that you specify. 
+
+
 
 **Identifier:** GLUE\_SPARK\_JOB\_SUPPORTED\_VERSION
 
@@ -12,11 +17,10 @@ Checks if an AWS Glue Spark job is running on the specified minimum supported AW
 
 **Parameters:**
 
-minimumSupportedGlueVersion
-Type: String
-
+minimumSupportedGlueVersionType: String  
 String value you must specify of the minimum supported AWS Glue version for the rule to check.
 
 ## AWS CloudFormation template
+<a name="w2aac20c16c17b7d883c19"></a>
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).
