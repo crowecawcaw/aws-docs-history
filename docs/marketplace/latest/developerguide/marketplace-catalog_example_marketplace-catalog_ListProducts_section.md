@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # List all AMI, SaaS, or Container products and associated public offers using an AWS SDK
+<a name="marketplace-catalog_example_marketplace-catalog_ListProducts_section"></a>
 
 The following code examples show how to list all AMI, SaaS, or Container products and associated public offers.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.catalogapi;
@@ -43,40 +42,40 @@ public class ListEntities {
 	 * List all my AMI or SaaS or Container products and associated public offers
 	 */
 	public static void main(String[] args) {
-
+		
 		Map<String, List<EntitySummary>> allProductsWithOffers = getAllProductsWithOffers();
-
+	
 		ReferenceCodesUtils.formatOutput(allProductsWithOffers);
 	}
 
 	public static Map<String, List<EntitySummary>> getAllProductsWithOffers() {
-		MarketplaceCatalogClient marketplaceCatalogClient =
+		MarketplaceCatalogClient marketplaceCatalogClient = 
 				MarketplaceCatalogClient.builder()
 				.httpClient(ApacheHttpClient.builder().build())
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
-
+		
 		Map<String, List<EntitySummary>> allProductsWithOffers = new HashMap<String, List<EntitySummary>> ();
 
 		// get all product entities
 		List<EntitySummary> productEntityList = new ArrayList<EntitySummary>();
 
-		ListEntitiesRequest listEntitiesRequest =
+		ListEntitiesRequest listEntitiesRequest = 
 				ListEntitiesRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.entityType(PRODUCT_TYPE_AMI)
 				.maxResults(10)
 				.nextToken(null)
 				.build();
-
-
+		
+	 
 		ListEntitiesResponse listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
 
 		productEntityList.addAll(listEntitiesResponse.entitySummaryList());
 
 
 		while (listEntitiesResponse.nextToken() != null) {
-			listEntitiesRequest =
+			listEntitiesRequest = 
 					ListEntitiesRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.entityType(PRODUCT_TYPE_AMI)
@@ -86,11 +85,11 @@ public class ListEntities {
 			listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
 			productEntityList.addAll(listEntitiesResponse.entitySummaryList());
 		}
-
+		
 		// loop through each product entity and get the public released offers associated using product id filter
-
+		
 		for ( EntitySummary productEntitySummary : productEntityList) {
-			EntityTypeFilters entityTypeFilters =
+			EntityTypeFilters entityTypeFilters = 
 					EntityTypeFilters.builder()
 					.offerFilters(OfferFilters.builder()
 							.targeting(OfferTargetingFilter.builder()
@@ -104,8 +103,8 @@ public class ListEntities {
 									.build())
 							.build())
 					.build();
-
-			listEntitiesRequest =
+			
+			listEntitiesRequest = 
 					ListEntitiesRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.entityType(ENTITY_TYPE_OFFER)
@@ -113,17 +112,17 @@ public class ListEntities {
 					.entityTypeFilters(entityTypeFilters)
 					.nextToken(null)
 					.build();
-
+			
 			listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
-
+			
 			// save all entitySummary of the results into entitySummaryList
-
+			
 			List<EntitySummary> offerEntitySummaryList = new ArrayList<EntitySummary>();
-
+			
 			offerEntitySummaryList.addAll(listEntitiesResponse.entitySummaryList());
-
+			
 			while ( listEntitiesResponse.nextToken() != null && listEntitiesResponse.nextToken().length() > 0) {
-				listEntitiesRequest =
+				listEntitiesRequest = 
 						ListEntitiesRequest.builder()
 						.catalog(AWS_MP_CATALOG)
 						.entityType(ENTITY_TYPE_OFFER)
@@ -134,33 +133,25 @@ public class ListEntities {
 				listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
 				offerEntitySummaryList.addAll(listEntitiesResponse.entitySummaryList());
 			}
-
+			
 			// save final results into map; key = product id; value = offer entity summary list
-
+			
 			allProductsWithOffers.put(productEntitySummary.entityId(), offerEntitySummaryList);
 		}
 		return allProductsWithOffers;
 	}
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DescribeEntity](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-catalog-2018-09-17/DescribeEntity)
+  + [ListEntities](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-catalog-2018-09-17/ListEntities)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [DescribeEntity](../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/DescribeEntity.md "../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/DescribeEntity.md")
-  - [ListEntities](../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/ListEntities.md "../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/ListEntities.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
 
 ```
 """
@@ -327,15 +318,11 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DescribeEntity](https://docs.aws.amazon.com/goto/boto3/marketplace-catalog-2018-09-17/DescribeEntity)
+  + [ListEntities](https://docs.aws.amazon.com/goto/boto3/marketplace-catalog-2018-09-17/ListEntities)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DescribeEntity](../../../goto/boto3/marketplace-catalog-2018-09-17/DescribeEntity.md "../../../goto/boto3/marketplace-catalog-2018-09-17/DescribeEntity.md")
-  - [ListEntities](../../../goto/boto3/marketplace-catalog-2018-09-17/ListEntities.md "../../../goto/boto3/marketplace-catalog-2018-09-17/ListEntities.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

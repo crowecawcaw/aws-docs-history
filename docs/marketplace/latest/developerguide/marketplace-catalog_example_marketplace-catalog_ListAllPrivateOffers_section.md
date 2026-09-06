@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # List all private offers using an AWS SDK
+<a name="marketplace-catalog_example_marketplace-catalog_ListAllPrivateOffers_section"></a>
 
 The following code examples show how to list all private offers.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.catalogapi;
@@ -44,31 +43,31 @@ public class ListAllPrivateOffers {
 
 	/*
 	 * List all my private offers and sort or filter them by Offer Publish Date, Offer Expiry Date and Buyer IDs
-	 *
+	 * 
 	 * OfferTargetingFilter = BuyerAccounts (private offer);
 	 * OfferBuyerAccountsFilter: Buyer IDs filter
 	 * OfferAvailabilityEndDateFilter : Offer Expiry Date filter
 	 * OfferReleaseDateFilter : Offer Publish Date filter
 	 */
-
-	private static MarketplaceCatalogClient marketplaceCatalogClient =
+	
+	private static MarketplaceCatalogClient marketplaceCatalogClient = 
 			MarketplaceCatalogClient.builder()
 			.httpClient(ApacheHttpClient.builder().build())
 			.credentialsProvider(ProfileCredentialsProvider.create())
 			.build();
-
+	
 	public static void main(String[] args) {
 
 		String offerReleaseDateAfterValue = "2023-01-01T23:59:59Z";
 		String offerAvailableEndDateAfterValue = "2040-12-24T23:59:59Z";
-
+		
 		List<EntitySummary> entitySummaryList = getEntitySummaryList(offerReleaseDateAfterValue, offerAvailableEndDateAfterValue);
-
+		
 		// for each offer id, output the offer detail using DescribeEntity API
-
-
+		
+		
 		for (EntitySummary entitySummary : entitySummaryList) {
-			DescribeEntityRequest describeEntityRequest =
+			DescribeEntityRequest describeEntityRequest = 
 					DescribeEntityRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.entityId(entitySummary.entityId())
@@ -77,10 +76,10 @@ public class ListAllPrivateOffers {
 			ReferenceCodesUtils.formatOutput(describeEntityResponse);
 		}
 	}
-
+	
 	public static List<EntitySummary> getEntitySummaryList (String offerReleaseDateAfterValue, String offerAvailableEndDateAfterValue) {
-
-		EntityTypeFilters entityTypeFilters =
+		
+		EntityTypeFilters entityTypeFilters = 
 				EntityTypeFilters.builder()
 				.offerFilters(OfferFilters.builder()
 						.targeting(OfferTargetingFilter.builder()
@@ -100,22 +99,22 @@ public class ListAllPrivateOffers {
 								.build())
 						.build())
 				.build();
-
-		ListEntitiesRequest listEntitiesRequest =
+			
+		ListEntitiesRequest listEntitiesRequest = 
 				ListEntitiesRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.entityType(ENTITY_TYPE_OFFER).maxResults(10)
 				.entityTypeFilters(entityTypeFilters)
 				.nextToken(null)
 				.build();
-
+		
 		ListEntitiesResponse listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
 		List<EntitySummary> entitySummaryList = new ArrayList<EntitySummary>();
-
+		
 		entitySummaryList.addAll(listEntitiesResponse.entitySummaryList());
-
+		
 		while ( listEntitiesResponse.nextToken() != null && listEntitiesResponse.nextToken().length() > 0) {
-			listEntitiesRequest =
+			listEntitiesRequest = 
 					ListEntitiesRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.entityType(ENTITY_TYPE_OFFER)
@@ -126,28 +125,19 @@ public class ListAllPrivateOffers {
 			listEntitiesResponse = marketplaceCatalogClient.listEntities(listEntitiesRequest);
 			entitySummaryList.addAll(listEntitiesResponse.entitySummaryList());
 		}
-
+		
 		return entitySummaryList;
 	}
 
 }
-
-
 ```
++  For API details, see [StartChangeSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [StartChangeSet](../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet.md "../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -269,14 +259,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [StartChangeSet](https://docs.aws.amazon.com/goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartChangeSet](../../../goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet.md "../../../goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

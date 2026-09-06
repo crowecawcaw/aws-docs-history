@@ -1,112 +1,57 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Logging AWS Marketplace Agreement API calls with CloudTrail
+<a name="logging-agreement-api-calls-with-cloudtrail"></a>
 
-The Agreements API is integrated with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service in AWS Marketplace. CloudTrail captures API calls for
-the Agreements API as events. The calls captured include calls from the AWS Marketplace website,
-console, and other interfaces leveraging the Agreements API, as well as direct code
-calls to Agreements API operations.
+The Agreements API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Marketplace. CloudTrail captures API calls for the Agreements API as events. The calls captured include calls from the AWS Marketplace website, console, and other interfaces leveraging the Agreements API, as well as direct code calls to Agreements API operations.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for the Agreements API. A _trail_ enables
-CloudTrail to deliver log files to an Amazon S3 bucket. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console in **Event
-history**. Using the information collected by CloudTrail, you can determine the
-request that was made to the Agreements API, the IP address from which the request was
-made, who made the request, when it was made, and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for the Agreements API. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to the Agreements API, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Agreements API information in CloudTrail
+<a name="agreement-agreements-api-info"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in the Agreements API, that activity is recorded in a CloudTrail event along with
-other AWS service events in **Event history**. You can view,
-search, and download recent events in your AWS account. For more information, see
-[Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the
-_AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in the Agreements API, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for the
-Agreements API, create a trail. A _trail_ enables CloudTrail to deliver
-log files to an Amazon S3 bucket. By default, when you create a trail in the console, the
-trail applies to all AWS Regions. The trail logs events from all Regions in the
-AWS partition and delivers the log files to the Amazon S3 bucket that you specify.
-Additionally, you can configure other AWS services to further analyze and act upon
-the event data collected in CloudTrail logs. For more information, see the
-following:
+For an ongoing record of events in your AWS account, including events for the Agreements API, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and
-  integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for
-  CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple
-  regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple
-  accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or user credentials.
-- Whether the request was made with temporary security credentials for a
-  role or federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Understanding Agreements API actions
+<a name="agreements-api-understanding"></a>
 
-The Agreements API is used to purchase software as a service (SaaS), server
-(including container), and professional services products on AWS Marketplace. It's also used
-to manage resulting agreements or subscriptions on AWS Marketplace.
+The Agreements API is used to purchase software as a service (SaaS), server (including container), and professional services products on AWS Marketplace. It's also used to manage resulting agreements or subscriptions on AWS Marketplace.
 
-###### Note
+**Note**  
+Purchases of AWS Data Exchange products won't be logged by CloudTrail.
 
-Purchases of AWS Data Exchange products won't be logged by
-CloudTrail.
+The `AcceptAgreementRequest` action is used when an AWS Identity and Access Management (IAM) user or role of an AWS account purchases an applicable product on AWS Marketplace. Similarly, the `CancelAgreement` action is used when an IAM user or role cancels their agreement or subscription. By monitoring CloudTrail logs in the Agreements API, buyers can monitor the most important purchase-related actions happening in their AWS account on AWS Marketplace.
 
-The `AcceptAgreementRequest` action is used when an AWS Identity and Access Management (IAM)
-user or role of an AWS account purchases an applicable product on AWS Marketplace.
-Similarly, the `CancelAgreement` action is used when an IAM user or
-role cancels their agreement or subscription. By monitoring CloudTrail logs in the
-Agreements API, buyers can monitor the most important purchase-related actions
-happening in their AWS account on AWS Marketplace.
+The `DescribeAgreement` action is used when the customer specifically views meta data for a specific agreement. The `GetAgreementTerms` action is used when the terms of a particular agreement are viewed. The `SearchAgreements` action is used when an IAM user or role lists or filters out a subset of their agreements from the full list of all their agreements.
 
-The `DescribeAgreement` action is used when the customer specifically
-views meta data for a specific agreement. The `GetAgreementTerms` action
-is used when the terms of a particular agreement are viewed. The
-`SearchAgreements` action is used when an IAM user or role lists or
-filters out a subset of their agreements from the full list of all their
-agreements.
+**Note**  
+The `AcceptAgreementRequest` and `CancelAgreement` actions are available to buyers but not sellers. However, the `DescribeAgreement`, `GetAgreementTerms`, and `SearchAgreements` actions can be used by both buyers and sellers.
 
-###### Note
-
-The `AcceptAgreementRequest` and `CancelAgreement`
-actions are available to buyers but not sellers. However, the
-`DescribeAgreement`, `GetAgreementTerms`, and
-`SearchAgreements` actions can be used by both buyers and
-sellers.
-
-Buyers can also identify the Agreement ID of the agreement from the CloudTrail log. For
-more information about the agreement, choose the **Manage
-subscriptions** tab in the AWS Marketplace console, where the Agreement ID is
-provided in the **Details** view. The Agreement ID can be found in
-`responseElements` for the `AcceptAgreementRequest` API
-action and in `requestParameters` for the `CancelAgreement`
-API action.
+Buyers can also identify the Agreement ID of the agreement from the CloudTrail log. For more information about the agreement, choose the **Manage subscriptions** tab in the AWS Marketplace console, where the Agreement ID is provided in the **Details** view. The Agreement ID can be found in `responseElements` for the `AcceptAgreementRequest` API action and in `requestParameters` for the `CancelAgreement` API action.
 
 ## Understanding Agreements API log file entries
+<a name="agreements-api-log-file-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the
-requested action, the date and time of the action, request parameters, and so on.
-CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't
-display in a specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't display in a specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`AcceptAgreementRequest` action.
+The following example shows a CloudTrail log entry that demonstrates the `AcceptAgreementRequest` action.
 
 ```
 {
@@ -138,11 +83,9 @@ The following example shows a CloudTrail log entry that demonstrates the
   "recipientAccountId": "123456789010",
   "eventCategory": "Management"
 }
-
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CancelAgreement` action.
+The following example shows a CloudTrail log entry that demonstrates the `CancelAgreement` action.
 
 ```
 {
@@ -172,11 +115,9 @@ The following example shows a CloudTrail log entry that demonstrates the
   "recipientAccountId": "123456789010",
   "eventCategory": "Management"
 }
-
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`DescribeAgreement` action.
+The following example shows a CloudTrail log entry that demonstrates the `DescribeAgreement` action.
 
 ```
 {
@@ -206,11 +147,9 @@ The following example shows a CloudTrail log entry that demonstrates the
     "recipientAccountId": "123456789010",
     "eventCategory": "Management",
 }
-
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetAgreementTerms` action.
+The following example shows a CloudTrail log entry that demonstrates the `GetAgreementTerms` action.
 
 ```
 {
@@ -240,11 +179,9 @@ The following example shows a CloudTrail log entry that demonstrates the
     "recipientAccountId": "123456789010",
     "eventCategory": "Management",
 }
-
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`SearchAgreements` action.
+The following example shows a CloudTrail log entry that demonstrates the `SearchAgreements` action.
 
 ```
 {
@@ -301,5 +238,4 @@ The following example shows a CloudTrail log entry that demonstrates the
     "recipientAccountId": "123456789010",
     "eventCategory": "Management",
 }
-
 ```

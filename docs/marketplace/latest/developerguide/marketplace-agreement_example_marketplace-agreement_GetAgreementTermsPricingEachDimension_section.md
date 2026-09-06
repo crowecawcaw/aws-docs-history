@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Get the pricing per dimension in an agreement using an AWS SDK
+<a name="marketplace-agreement_example_marketplace-agreement_GetAgreementTermsPricingEachDimension_section"></a>
 
 The following code examples show how to get the pricing per dimension in an agreement.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.agreementapi.seller;
@@ -36,7 +35,7 @@ public class GetAgreementTermsPricingEachDimension {
 	 * Obtain pricing per each dimension in the agreement
 	 */
 	public static void main(String[] args) {
-
+		
 		String agreementId = args.length > 0 ? args[0] : AGREEMENT_ID;
 
 		List<Object> dimensions = getDimensions(agreementId);
@@ -45,13 +44,13 @@ public class GetAgreementTermsPricingEachDimension {
 	}
 
 	public static List<Object> getDimensions(String agreementId) {
-		MarketplaceAgreementClient marketplaceAgreementClient =
+		MarketplaceAgreementClient marketplaceAgreementClient = 
 				MarketplaceAgreementClient.builder()
 				.httpClient(ApacheHttpClient.builder().build())
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
-		GetAgreementTermsRequest getAgreementTermsRequest =
+		GetAgreementTermsRequest getAgreementTermsRequest = 
 				GetAgreementTermsRequest.builder().agreementId(agreementId)
 				.build();
 
@@ -77,23 +76,14 @@ public class GetAgreementTermsPricingEachDimension {
 		return dimensions;
 	}
 }
-
-
 ```
++  For API details, see [GetAgreementTerms](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-agreement-2020-03-01/GetAgreementTerms) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetAgreementTerms](../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/GetAgreementTerms.md "../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/GetAgreementTerms.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -195,14 +185,9 @@ def open_json_file(filename):
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [GetAgreementTerms](https://docs.aws.amazon.com/goto/boto3/marketplace-agreement-2020-03-01/GetAgreementTerms) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetAgreementTerms](../../../goto/boto3/marketplace-agreement-2020-03-01/GetAgreementTerms.md "../../../goto/boto3/marketplace-agreement-2020-03-01/GetAgreementTerms.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

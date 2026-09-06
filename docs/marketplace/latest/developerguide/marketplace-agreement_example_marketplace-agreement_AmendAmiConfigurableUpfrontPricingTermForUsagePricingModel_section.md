@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Amend an AMI ConfigurableUpfrontPricingTerm for usage pricing model using an AWS SDK
+<a name="marketplace-agreement_example_marketplace-agreement_AmendAmiConfigurableUpfrontPricingTermForUsagePricingModel_section"></a>
 
 The following code examples show how to amend an AMI agreement with ConfigurableUpfrontPricingTerm by updating dimension quantity for usage pricing model.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.agreementapi.buyer;
@@ -212,23 +211,14 @@ public class AmendAmiConfigurableUpfrontPricingTermForUsagePricingModel {
         System.out.println("Amendment accepted. New AgreementId: " + aarAmendResponse.agreementId());
     }
 }
-
-
 ```
++  For API details, see [CreateAgreementRequest](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-agreement-2020-03-01/CreateAgreementRequest) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateAgreementRequest](../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/CreateAgreementRequest.md "../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/CreateAgreementRequest.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript")
-repository.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/javascript) repository. 
 
 ```
 const {
@@ -392,23 +382,14 @@ async function amendAmiCUPTAgreement() {
 }
 
 amendAmiCUPTAgreement();
-
-
 ```
++  For API details, see [CreateAgreementRequest](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/CreateAgreementRequestCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateAgreementRequest](../../../AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/CreateAgreementRequestCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/marketplace-agreement/command/CreateAgreementRequestCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
 ```
 """
@@ -579,14 +560,9 @@ class AmendAmiConfigurableUpfrontPricingTermForUsagePricingModel:
 
 if __name__ == "__main__":
     AmendAmiConfigurableUpfrontPricingTermForUsagePricingModel.amend_ami_cupt_agreement()
-
-
 ```
++  For API details, see [CreateAgreementRequest](https://docs.aws.amazon.com/goto/boto3/marketplace-agreement-2020-03-01/CreateAgreementRequest) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateAgreementRequest](../../../goto/boto3/marketplace-agreement-2020-03-01/CreateAgreementRequest.md "../../../goto/boto3/marketplace-agreement-2020-03-01/CreateAgreementRequest.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

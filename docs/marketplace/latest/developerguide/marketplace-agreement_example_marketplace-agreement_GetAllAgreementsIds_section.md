@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Get all agreement IDs using an AWS SDK
+<a name="marketplace-agreement_example_marketplace-agreement_GetAllAgreementsIds_section"></a>
 
 The following code examples show how to get all agreement IDs.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.agreementapi.seller;
@@ -41,18 +40,18 @@ public class GetAllAgreementsIds {
 	public static void main(String[] args) {
 
 		List<String> agreementIds = getAllAgreementIds();
-
+		
 		ReferenceCodesUtils.formatOutput(agreementIds);
 
 	}
 
 	public static List<String> getAllAgreementIds() {
-		MarketplaceAgreementClient marketplaceAgreementClient =
+		MarketplaceAgreementClient marketplaceAgreementClient = 
 				MarketplaceAgreementClient.builder()
 				.httpClient(ApacheHttpClient.builder().build())
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
-
+		
 		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
 		// Change to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
 		Filter partyType = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
@@ -60,26 +59,26 @@ public class GetAllAgreementsIds {
 
 		Filter agreementType = Filter.builder().name(AGREEMENT_TYPE_FILTER_NAME)
 				.values(AGREEMENT_TYPE_FILTER_VALUE_PURCHASEAGREEMENT).build();
-
+		
 		List<Filter> searchFilters = new ArrayList<Filter>();
-
+		
 		searchFilters.addAll(Arrays.asList(partyType, agreementType));
-
+		
 		// Save all results in a list array
 		List<AgreementViewSummary> agreementSummaryList = new ArrayList<AgreementViewSummary>();
 
-		SearchAgreementsRequest searchAgreementsRequest =
+		SearchAgreementsRequest searchAgreementsRequest = 
 				SearchAgreementsRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.filters(searchFilters)
 				.build();
-
+		
 		SearchAgreementsResponse searchAgreementsResponse = marketplaceAgreementClient.searchAgreements(searchAgreementsRequest);
 
 		agreementSummaryList.addAll(searchAgreementsResponse.agreementViewSummaries());
 
 		while (searchAgreementsResponse.nextToken() != null && searchAgreementsResponse.nextToken().length() > 0) {
-			searchAgreementsRequest =
+			searchAgreementsRequest = 
 					SearchAgreementsRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.nextToken(searchAgreementsResponse.nextToken())
@@ -97,23 +96,14 @@ public class GetAllAgreementsIds {
 	}
 
 }
-
-
 ```
++  For API details, see [SearchAgreements](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-agreement-2020-03-01/SearchAgreements) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SearchAgreements](../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/SearchAgreements.md "../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/SearchAgreements.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -184,14 +174,9 @@ if __name__ == "__main__":
     agreement_id_list = get_agreements()
 
     print(agreement_id_list)
-
-
 ```
++  For API details, see [SearchAgreements](https://docs.aws.amazon.com/goto/boto3/marketplace-agreement-2020-03-01/SearchAgreements) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SearchAgreements](../../../goto/boto3/marketplace-agreement-2020-03-01/SearchAgreements.md "../../../goto/boto3/marketplace-agreement-2020-03-01/SearchAgreements.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

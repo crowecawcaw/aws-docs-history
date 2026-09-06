@@ -1,20 +1,18 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Utilities to start a changeset using an AWS SDK
+<a name="marketplace-catalog_example_marketplace-catalog_ChangeSetUtilities_section"></a>
 
 The following code examples show how to define utilities to start a changeset.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code")
-repository.
-
-Utility to load a changeset from a JSON file and start processing it.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
+Utility to load a changeset from a JSON file and start processing it.  
 
 ```
 package com.example.awsmarketplace.catalogapi;
@@ -52,7 +50,7 @@ import com.example.awsmarketplace.utils.StringSerializer;
  */
 
 public class RunChangesets {
-
+	
 	private static final Gson GSON = new GsonBuilder()
 			.setObjectToNumberStrategy(ToNumberPolicy.LAZILY_PARSED_NUMBER)
 			.registerTypeAdapter(String.class, new StringSerializer())
@@ -62,10 +60,10 @@ public class RunChangesets {
 
 		// input json can be specified here or passed from input parameter
 		String inputChangeSetFile = "changeSets/offers/CreateReplacementOfferFromAGWithContractPricingDetailDocument.json";
-
+		
 		if (args.length > 0)
 			inputChangeSetFile = args[0];
-
+		
 		// parse the input changeset file to string for process
 		String changeSetsInput = readChangeSetToString(inputChangeSetFile);
 
@@ -77,49 +75,49 @@ public class RunChangesets {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static StartChangeSetResponse getChangeSetRequestResult(String changeSetsInput) throws IOException {
-
+		
 		//set up AWS credentials
-		MarketplaceCatalogClient marketplaceCatalogClient =
+		MarketplaceCatalogClient marketplaceCatalogClient = 
 				MarketplaceCatalogClient.builder()
 				.httpClient(ApacheHttpClient.builder().build())
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
-
+		
 		//changeset list to save all the changesets in the changesets file
 		List<Change> changeSetLists = new ArrayList<Change>();
 
 		// read all changesets into object
 		Root root = GSON.fromJson(changeSetsInput, Root.class);
-
+		
 		// process each changeset and add each changeset request to changesets list
 		for (ChangeSet cs : root.changeSet) {
-
+			
 			ChangeSetEntity entity = cs.Entity;
 			String entityType = entity.Type;
 			String entityIdentifier = StringUtils.defaultIfBlank(entity.Identifier, null);
 			Document detailsDocument = getDocumentFromObject(cs.DetailsDocument);
-
-			Entity awsEntity =
+			
+			Entity awsEntity = 
 					Entity.builder()
 					.type(entityType)
 					.identifier(entityIdentifier)
 					.build();
 
-			Change inputChangeRequest =
+			Change inputChangeRequest = 
 					Change.builder()
 					.changeType(cs.ChangeType)
 					.changeName(cs.ChangeName)
 					.entity(awsEntity)
 					.detailsDocument(detailsDocument)
 					.build();
-
+			
 			changeSetLists.add(inputChangeRequest);
 		}
-
+		
 		// process all changeset requests
-		StartChangeSetRequest startChangeSetRequest =
+		StartChangeSetRequest startChangeSetRequest = 
 				StartChangeSetRequest.builder()
 				.catalog(root.catalog)
 				.changeSet(changeSetLists)
@@ -131,55 +129,45 @@ public class RunChangesets {
 	}
 
 	public static Document getDocumentFromObject(Object detailsObject) {
-
+		
 		String detailsString = "{}";
 		try {
 			detailsString = IOUtils.toString(new ByteArrayInputStream(GSON.toJson(detailsObject).getBytes()), "UTF-8");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		JsonNodeParser jsonNodeParser = JsonNodeParser.create();
 		Document doc = jsonNodeParser.parse(detailsString).visit(new DocumentUnmarshaller());
 		return doc;
 	}
-
-
+	
+	
 	public static String readChangeSetToString (String inputChangeSetFile) {
-
+		
 		InputStream changesetInputStream = RunChangesets.class.getClassLoader().getResourceAsStream(inputChangeSetFile);
 
 		String changeSetsInput = null;
-
+		
 		try {
 			changeSetsInput = IOUtils.toString(changesetInputStream, "UTF-8");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		return changeSetsInput;
-
+		
 	}
 }
-
-
 ```
++  For API details, see [StartChangeSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [StartChangeSet](../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet.md "../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/StartChangeSet.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code")
-repository.
-
-Utility to start a changeset.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
+Utility to start a changeset.  
 
 ```
 """
@@ -231,11 +219,8 @@ def usage_demo(change_set, change_set_name):
     return response
 
     print("-" * 88)
-
-
 ```
-
-Utility to load a changeset from a JSON file.
+Utility to load a changeset from a JSON file.  
 
 ```
 """
@@ -279,14 +264,9 @@ def stringify_changeset(file_path):
     changeset_stringified = stringify_details_sections(changeset_file)
 
     return changeset_stringified
-
-
 ```
++  For API details, see [StartChangeSet](https://docs.aws.amazon.com/goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartChangeSet](../../../goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet.md "../../../goto/boto3/marketplace-catalog-2018-09-17/StartChangeSet.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

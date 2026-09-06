@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Describe all entities in a single call using an AWS SDK
+<a name="marketplace-catalog_example_marketplace-catalog_BatchDescribeEntities_section"></a>
 
 The following code examples show how to describe all entities in a single call.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#catalog-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.catalogapi;
@@ -74,23 +73,14 @@ public class BatchDescribeEntities {
         }
     }
 }
-
-
 ```
++  For API details, see [BatchDescribeEntities](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-catalog-2018-09-17/BatchDescribeEntities) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [BatchDescribeEntities](../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/BatchDescribeEntities.md "../../../goto/SdkForJavaV2/marketplace-catalog-2018-09-17/BatchDescribeEntities.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python##catalog-api-reference-code) repository. 
 
 ```
 """
@@ -158,14 +148,9 @@ def usage_demo():
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [BatchDescribeEntities](https://docs.aws.amazon.com/goto/boto3/marketplace-catalog-2018-09-17/BatchDescribeEntities) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [BatchDescribeEntities](../../../goto/boto3/marketplace-catalog-2018-09-17/BatchDescribeEntities.md "../../../goto/boto3/marketplace-catalog-2018-09-17/BatchDescribeEntities.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

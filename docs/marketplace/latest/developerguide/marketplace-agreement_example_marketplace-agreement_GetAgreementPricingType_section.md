@@ -1,18 +1,17 @@
-The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
 # Get the pricing type of an agreement using an AWS SDK
+<a name="marketplace-agreement_example_marketplace-agreement_GetAgreementPricingType_section"></a>
 
 The following code examples show how to get the pricing type of an agreement.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code")
-repository.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java#agreement-api-reference-code) repository. 
 
 ```
 package com.example.awsmarketplace.agreementapi.seller;
@@ -62,7 +61,7 @@ public class GetAgreementPricingType {
 	private static final String FILTER_NAME = "OfferId";
 
 	private static final String FILTER_VALUE = OFFER_ID;
-
+	
 	// Product types
 	private static final String SAAS_PRODUCT = "SaaSProduct";
 	private static final String AMI_PRODUCT = "AmiProduct";
@@ -102,14 +101,14 @@ public class GetAgreementPricingType {
 
 	private static final List<Set<String>> ALL_AGREEMENT_TERM_TYPES_COMBINATION = Arrays.asList(LEGAL, CONFIGURABLE_UPFRONT, USAGE_BASED, CONFIGURABLE_UPFRONT_AND_USAGE_BASED,
 			FREE_TRIAL, RECURRING_PAYMENT, USAGE_BASED_AND_RECURRING_PAYMENT, FIXED_UPFRONT_AND_PAYMENT_SCHEDULE, FIXED_UPFRONT_AND_PAYMENT_SCHEDULE_AND_USAGE_BASED, BYOL_PRICING, FREE_TRIAL_AND_USAGE_BASED);
-
-	private static  MarketplaceAgreementClient marketplaceAgreementClient =
+	
+	private static  MarketplaceAgreementClient marketplaceAgreementClient = 
 			MarketplaceAgreementClient.builder()
 			.httpClient(ApacheHttpClient.builder().build())
 			.credentialsProvider(ProfileCredentialsProvider.create())
 			.build();
 
-	private static MarketplaceCatalogClient marketplaceCatalogClient =
+	private static MarketplaceCatalogClient marketplaceCatalogClient = 
 			MarketplaceCatalogClient.builder()
 			.httpClient(ApacheHttpClient.builder().build())
 			.credentialsProvider(ProfileCredentialsProvider.create())
@@ -192,7 +191,7 @@ public class GetAgreementPricingType {
 	}
 
 	public static List<AgreementViewSummary> getAgreementsById() {
-
+		
 		List<AgreementViewSummary> agreementSummaryList = new ArrayList<AgreementViewSummary>();
 
 		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
@@ -203,7 +202,7 @@ public class GetAgreementPricingType {
 
 		Filter customizeFilter = Filter.builder().name(FILTER_NAME).values(FILTER_VALUE).build();
 
-		SearchAgreementsRequest searchAgreementsRequest =
+		SearchAgreementsRequest searchAgreementsRequest = 
 				SearchAgreementsRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.filters(partyType, agreementType, customizeFilter).build();
@@ -254,7 +253,7 @@ public class GetAgreementPricingType {
 
 		Set<String> offerTermTypes = new HashSet<String>();
 
-		DescribeEntityRequest request =
+		DescribeEntityRequest request = 
 				DescribeEntityRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.entityId(offerId)
@@ -263,7 +262,7 @@ public class GetAgreementPricingType {
 		DescribeEntityResponse result = marketplaceCatalogClient.describeEntity(request);
 
 		String details = result.details();
-
+		
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			JsonNode rootNode = objectMapper.readTree(details);
@@ -348,24 +347,24 @@ public class GetAgreementPricingType {
 			String agreementId = summary.agreementId();
 			System.out.println(agreementId);
 			String offerId = summary.proposalSummary().offerId();
-
+			
 			//get all pricing term types for the offer in the agreement
 			Set<String> offerTermTypes = getOfferTermTypes(offerId);
 			String productType = summary.proposalSummary().resources().get(0).type();
-
+			
 			//get all pricing term types for the agreement
-			GetAgreementTermsRequest getAgreementTermsRequest =
+			GetAgreementTermsRequest getAgreementTermsRequest = 
 					GetAgreementTermsRequest.builder().agreementId(agreementId)
 					.build();
 			GetAgreementTermsResponse getAgreementTermsResponse = marketplaceAgreementClient.getAgreementTerms(getAgreementTermsRequest);
 			Set<String> agreementTermTypes = getAgreementTermTypes(getAgreementTermsResponse);
-
+			
 			//get matched pricing term type combination set
 			Set<String> agreementMatchedTermType = getMatchedTermTypesCombination(agreementTermTypes);
-
+			
 			//check to see if this agreement pricing term combination needs additional check on offer pricing terms
 			String needToCheckOfferType = needToCheckOfferTermsType(productType, agreementMatchedTermType);
-
+			
 			// get the pricing type for the agreement based on the product type, agreement term types and offer term types if needed
 			if (needToCheckOfferType != null) {
 				Set<String> offerMatchedTermType = getMatchedTermTypesCombination(offerTermTypes);
@@ -396,23 +395,14 @@ public class GetAgreementPricingType {
 	}
 
 }
-
-
 ```
++  For API details, see [DescribeAgreement](https://docs.aws.amazon.com/goto/SdkForJavaV2/marketplace-agreement-2020-03-01/DescribeAgreement) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAgreement](../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/DescribeAgreement.md "../../../goto/SdkForJavaV2/marketplace-agreement-2020-03-01/DescribeAgreement.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code "https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code")
-repository.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Marketplace API Reference Code Library](https://github.com/aws-samples/aws-marketplace-reference-code/blob/main/python#agreement-api-reference-code) repository. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -745,14 +735,9 @@ def get_agreement_term_types(agreementTerm):
 
 if __name__ == "__main__":
     usage_demo()
-
-
 ```
++  For API details, see [DescribeAgreement](https://docs.aws.amazon.com/goto/boto3/marketplace-agreement-2020-03-01/DescribeAgreement) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeAgreement](../../../goto/boto3/marketplace-agreement-2020-03-01/DescribeAgreement.md "../../../goto/boto3/marketplace-agreement-2020-03-01/DescribeAgreement.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
