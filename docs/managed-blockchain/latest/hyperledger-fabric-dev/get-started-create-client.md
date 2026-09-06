@@ -1,24 +1,23 @@
+
+
 # Step 4: Create an Amazon EC2 Instance and Set Up the Hyperledger Fabric Client
+<a name="get-started-create-client"></a>
 
 To complete this step, you launch an Amazon EC2 instance using the Amazon Linux AMI. Consider the following requirements and recommendations when you create the Hyperledger Fabric client Amazon EC2 instance:
++ We recommend that you launch the client Amazon EC2 instance in the same VPC and using the same security group as the VPC Endpoint that you created in [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md). This simplifies connectivity between the Amazon EC2 instance and the Interface VPC Endpoint.
++ We recommend that the EC2 security group shared by the VPC Endpoint and the client Amazon EC2 instance have rules that allow all inbound and outbound traffic between members of the security group. This also simplifies connectivity. In addition, ensure that this security group or another security group associated with the client Amazon EC2 instance has a rule that allows inbound SSH connections from a source that includes your SSH client's IP address. For more information about security groups and required rules, see [Configuring Security Groups for Amazon Managed Blockchain (AMB) Hyperledger Fabric](managed-blockchain-security-sgs.md).
++ Make sure that the client Amazon EC2 instance is configured with an automatically assigned public IP address and that you can connect to it using SSH. For more information, see [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) and [Connect to your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) in the *Amazon EC2 User Guide*.
++ Make sure that the service role associated with the EC2 instance allows access to the Amazon S3 bucket where AMB Access certificates are stored and that it has required permissions for working with AMB Access resources. For more information, see [Example IAM Role Permissions Policy for Hyperledger Fabric Client EC2 Instance](security_iam_hyperledger_ec2_client.md).
 
-- We recommend that you launch the client Amazon EC2 instance in the same VPC and using the same security group as the VPC Endpoint that you created in [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md "get-started-create-endpoint.md"). This simplifies connectivity
-  between the Amazon EC2 instance and the Interface VPC Endpoint.
-- We recommend that the EC2 security group shared by the VPC Endpoint and the client Amazon EC2 instance have rules that allow all inbound and outbound traffic between members of the security group. This also simplifies connectivity. In addition, ensure that this security group or another security group associated with the client Amazon EC2 instance has a rule that allows inbound SSH connections from a source that includes your SSH client's IP address. For more information about security groups and required rules, see [Configuring Security Groups for Amazon Managed Blockchain (AMB) Hyperledger Fabric](managed-blockchain-security-sgs.md "managed-blockchain-security-sgs.md").
-- Make sure that the client Amazon EC2 instance is configured with an automatically assigned public IP address and that you can connect to it using SSH. For more information, see [Getting Started with Amazon EC2 Linux Instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") and [Connect to your Linux instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the _Amazon EC2 User Guide_.
-- Make sure that the service role associated with the EC2 instance allows access to the Amazon S3 bucket where AMB Access certificates are stored and that it has required permissions for working with AMB Access resources. For more information, see [Example IAM Role Permissions Policy for Hyperledger Fabric Client EC2 Instance](security_iam_hyperledger_ec2_client.md "security_iam_hyperledger_ec2_client.md").
-
-###### Note
-
-An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates "https://github.com/awslabs/amazon-managed-blockchain-client-templates") on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md "https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md") in that repository. For more information about using CloudFormation, see [Getting Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md") in the _AWS CloudFormation User Guide_.
+**Note**  
+An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates) on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md) in that repository. For more information about using CloudFormation, see [Getting Started](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.html) in the *AWS CloudFormation User Guide*.
 
 ## Step 4.1: Install Packages
+<a name="get-started-client-install-packages"></a>
 
-Your Hyperledger Fabric client needs some packages and samples installed so that you can work with the Hyperledger Fabric resources. In this step, you install Go, Docker, Docker Compose, and some other utilities. You also create variables in the `~/.bash_profile` for your development environment. These are prerequisites for installing and using Hyperledger tools.
+Your Hyperledger Fabric client needs some packages and samples installed so that you can work with the Hyperledger Fabric resources. In this step, you install Go, Docker, Docker Compose, and some other utilities. You also create variables in the `~/.bash_profile` for your development environment. These are prerequisites for installing and using Hyperledger tools. 
 
-While connected to the Amazon EC2 instance using SSH, run the following
-commands to install utilities, install docker, and configure the Docker user to be
-the default user for the Amazon EC2 instance:
+While connected to the Amazon EC2 instance using SSH, run the following commands to install utilities, install docker, and configure the Docker user to be the default user for the Amazon EC2 instance:
 
 ```
 sudo yum update -y
@@ -88,12 +87,12 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 
 # CASERVICEENDPOINT is the endpoint to reach your member's CA
-# for example ca.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`us-east-1`.amazonaws.com:30002
-export CASERVICEENDPOINT=`MyMemberCaEndpoint`
+# for example ca.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{us-east-1}}.amazonaws.com:30002
+export CASERVICEENDPOINT={{MyMemberCaEndpoint}}
 
 # ORDERER is the endpoint to reach your network's orderer
-# for example orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`MyRegion`.amazonaws.com:`30001`
-export ORDERER=`MyNetworkOrdererEndpoint`
+# for example orderer.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{MyRegion}}.amazonaws.com:{{30001}}
+export ORDERER={{MyNetworkOrdererEndpoint}}
 
 # Update PATH so that you can access the go binary system wide
 export PATH=$GOROOT/bin:$PATH
@@ -103,14 +102,13 @@ export PATH=$PATH:/home/ec2-user/go/src/github.com/hyperledger/fabric-ca/bin
 After you update `.bash_profile`, apply the changes:
 
 ```
-source ~/.bash_profile
+source ~/.bash_profile 
 ```
 
 After the installation, verify that you have the correct versions installed:
-
-- Docker–17.06.2-ce or later
-- Docker-compose–1.14.0 or later
-- Go–1.14.x
++ Docker–17.06.2-ce or later
++ Docker-compose–1.14.0 or later
++ Go–1.14.x
 
 To check the Docker version, run the following command:
 
@@ -125,7 +123,7 @@ Client:
  Version: 18.06.1-ce
  API version: 1.38
  Go version: go1.14.4
- Git commit: `CommitHash`
+ Git commit: {{CommitHash}}
  Built: Tue Oct 2 18:06:45 2018
  OS/Arch: linux/amd64
  Experimental: false
@@ -169,19 +167,16 @@ go version go1.14.4 linux/amd64
 ```
 
 ## Step 4.2: Set Up the Hyperledger Fabric CA Client
+<a name="get-started-client-setup-CA-client"></a>
 
-In this step, you verify that you can connect to the Hyperledger Fabric CA using the VPC endpoint you configured in [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md "get-started-create-endpoint.md"). You then install the Hyperledger Fabric CA client. The Fabric CA issues certificates to administrators and network peers.
+In this step, you verify that you can connect to the Hyperledger Fabric CA using the VPC endpoint you configured in [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md). You then install the Hyperledger Fabric CA client. The Fabric CA issues certificates to administrators and network peers.
 
-To verify connectivity to the Hyperledger Fabric CA, you need the
-`CAEndpoint`. Use the `get-member` command to get the CA
-endpoint for your member, as shown in the following example. Replace the values of
-`--network-id` and `--member-id` with the values returned
-in [Step 1: Create the Network and First Member](get-started-create-network.md "get-started-create-network.md").
+To verify connectivity to the Hyperledger Fabric CA, you need the `CAEndpoint`. Use the `get-member` command to get the CA endpoint for your member, as shown in the following example. Replace the values of `--network-id` and `--member-id` with the values returned in [Step 1: Create the Network and First Member](get-started-create-network.md).
 
 ```
 aws managedblockchain get-member \
---network-id `n-MWY63ZJZU5HGNCMBQER7IN6OIU` \
---member-id `m-K46ICRRXJRCGRNNS4ES4XUUS5A`
+--network-id {{n-MWY63ZJZU5HGNCMBQER7IN6OIU}} \
+--member-id {{m-K46ICRRXJRCGRNNS4ES4XUUS5A}}
 ```
 
 Use `curl` or `telnet` to verify that the endpoint resolves. In the following example, the value of the variable `$CASERVICEENDPOINT` is the **CAEndpoint** returned by the `get-member` command.
@@ -193,24 +188,23 @@ curl https://$CASERVICEENDPOINT/cainfo -k
 The command should return output similar to the following:
 
 ```
-{"result":{"CAName":"`abcd1efghijkllmn5op3q52rst`","CAChain":"`LongStringOfCharacters`","Version":"1.4.7-snapshot-"}
+{"result":{"CAName":"{{abcd1efghijkllmn5op3q52rst}}","CAChain":"{{LongStringOfCharacters}}","Version":"1.4.7-snapshot-"}
 ,"errors":[],"messages":[],"success":true}
 ```
 
 Note that Hyperledger Fabric v2.2 networks should use version 1.4 of the CA client.
 
-Alternatively, you can connect to the Fabric CA using Telnet as shown in the following example. Use the same endpoint
-in the `curl` example, but separate the endpoint and the port as shown in the following example.
+Alternatively, you can connect to the Fabric CA using Telnet as shown in the following example. Use the same endpoint in the `curl` example, but separate the endpoint and the port as shown in the following example.
 
 ```
-telnet `CaEndpoint-Without-Port` `CaPort`
+telnet {{CaEndpoint-Without-Port}} {{CaPort}}
 ```
 
 The command should return output similar to the following:
 
 ```
 Trying 10.0.1.228...
-Connected to ca.`m-K46ICRRXJRCGRNNS4ES4XUUS5A`.`n-MWY63ZJZU5HGNCMBQER7IN6OIU`.managedblockchain.`us-east-1`.amazonaws.com.
+Connected to ca.{{m-K46ICRRXJRCGRNNS4ES4XUUS5A}}.{{n-MWY63ZJZU5HGNCMBQER7IN6OIU}}.managedblockchain.{{us-east-1}}.amazonaws.com.
 Escape character is '^]'.
 ```
 
@@ -218,9 +212,8 @@ If you are unable to connect to the Fabric CA, double-check your network setting
 
 Now that you have verified that you can connect to the Hyperledger Fabric CA, run the following commands to configure the CA client.
 
-###### Note
-
-If you are working with Hyperledger Fabric v1.2 networks, you need to install and build the correct client version, which is available at [https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz](https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz "https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz").
+**Note**  
+If you are working with Hyperledger Fabric v1.2 networks, you need to install and build the correct client version, which is available at [https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz](https://github.com/hyperledger/fabric-ca/releases/download/v1.2.1/hyperledger-fabric-ca-linux-amd64-1.2.1.tar.gz).
 
 ```
 mkdir -p /home/ec2-user/go/src/github.com/hyperledger/fabric-ca
@@ -239,9 +232,9 @@ tar -xzf hyperledger-fabric-ca-linux-amd64-1.4.7.tar.gz
 ```
 
 ## Step 4.3: Clone the Samples Repository
+<a name="get-started-client-clone-samples"></a>
 
-###### Note
-
+**Note**  
 If you are working with Hyperledger Fabric v1.2 or v1.4 networks, use `--branch v1.2.0` or `--branch v1.4.7` instead of `--branch v2.2.3` in the following commmands.
 
 ```
@@ -253,18 +246,16 @@ git clone --branch v2.2.3 https://github.com/hyperledger/fabric-samples.git
 ```
 
 ## Step 4.4: Configure and Run Docker Compose to Start the Hyperledger Fabric CLI
+<a name="get-started-client-configure-peer-cli"></a>
 
-Use a text editor to create a configuration file for Docker Compose named `docker-compose-cli.yaml` in the `/home/ec2-user` directory, which you use to run the Hyperledger Fabric CLI. You use this CLI to interact with peer nodes that your member owns. Copy the following contents into the file and replace the `placeholder values` according to the following guidance:
-
-- `MyMemberID` is the `MemberID` returned by the `aws managedblockchain list-members` AWS CLI command and shown on the member details page of the AMB Access console—for example, `m-K46ICRRXJRCGRNNS4ES4XUUS5A`.
-- `MyPeerNodeEndpoint` is the `PeerEndpoint` returned by the `aws managedblockchain get-node` command and listed on the node details page of the AMB Access console—for example, nd-6EAJ5VA43JGGNPXOUZP7Y47E4Y.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`us-east-1`.amazonaws.com:`30003`.
+Use a text editor to create a configuration file for Docker Compose named `docker-compose-cli.yaml` in the `/home/ec2-user` directory, which you use to run the Hyperledger Fabric CLI. You use this CLI to interact with peer nodes that your member owns. Copy the following contents into the file and replace the `{{placeholder values}}` according to the following guidance:
++ {{MyMemberID}} is the `MemberID` returned by the `aws managedblockchain list-members` AWS CLI command and shown on the member details page of the AMB Access console—for example, `m-K46ICRRXJRCGRNNS4ES4XUUS5A`.
++ {{MyPeerNodeEndpoint}} is the `PeerEndpoint` returned by the `aws managedblockchain get-node` command and listed on the node details page of the AMB Access console—for example, nd-6EAJ5VA43JGGNPXOUZP7Y47E4Y.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.{{us-east-1}}.amazonaws.com:{{30003}}.
 
 When you subsequently use the `cli` container to run commands—for example, `docker exec cli peer channel create`—you can use the `-e` option to override an environment variable that you establish in the `docker-compose-cli.yaml` file.
 
-###### Note
-
-If you are working with Hyperledger Fabric v1.2 or v1.4 networks, use `image: hyperledger/fabric-tools:1.2` or `image: hyperledger/fabric-tools:1.4` in the following example instead of `image: hyperledger/fabric-tools:2.2.3`.
-
+**Note**  
+If you are working with Hyperledger Fabric v1.2 or v1.4 networks, use `image: hyperledger/fabric-tools:1.2` or `image: hyperledger/fabric-tools:1.4` in the following example instead of `image: hyperledger/fabric-tools:2.2.3`.  
 In addition for v1.2, use `CORE_LOGGING_LEVEL=info` instead of `FABRIC_LOGGING_SPEC=info`.
 
 ```
@@ -282,9 +273,9 @@ services:
       - CORE_CHAINCODE_KEEPALIVE=10
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_ROOTCERT_FILE=/opt/home/managedblockchain-tls-chain.pem
-      - CORE_PEER_LOCALMSPID=`MyMemberID`
+      - CORE_PEER_LOCALMSPID={{MyMemberID}}
       - CORE_PEER_MSPCONFIGPATH=/opt/home/admin-msp
-      - CORE_PEER_ADDRESS=`MyPeerNodeEndpoint`
+      - CORE_PEER_ADDRESS={{MyPeerNodeEndpoint}}
     working_dir: /opt/home
     command: /bin/bash
     volumes:
@@ -299,7 +290,7 @@ Run the following command to start the Hyperledger Fabric peer CLI container:
 docker-compose -f docker-compose-cli.yaml up -d
 ```
 
-If you restarted or logged out and back in after the `usermod` command in [Step 4.1: Install Packages](#get-started-client-install-packages "#get-started-client-install-packages"), you shouldn't need to run this command with `sudo`. If the command fails, you can log out and log back in. Alternatively, you can run the command using `sudo`, as shown in the following example:
+If you restarted or logged out and back in after the `usermod` command in [Step 4.1: Install Packages](#get-started-client-install-packages), you shouldn't need to run this command with `sudo`. If the command fails, you can log out and log back in. Alternatively, you can run the command using `sudo`, as shown in the following example:
 
 ```
 sudo /usr/local/bin/docker-compose -f docker-compose-cli.yaml up -d
