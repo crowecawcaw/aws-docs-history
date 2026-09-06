@@ -8,7 +8,7 @@ automatic snapshots for your instance. For more information, see
 .
 
 Create Lightsail instances that run the Windows Server operating system (OS). We have
-three OS blueprints available: Windows Server 2022, Windows Server 2019, and Windows Server 2016. In addition, we have blueprints that come preconfigured with SQL Server 2022, 2019, and
+four OS blueprints available: Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016. In addition, we have blueprints that come preconfigured with SQL Server 2022, 2019, and
 2016 Express.
 
 This topic provides information about choosing your software, creating your Windows
@@ -19,15 +19,31 @@ AWS](https://aws.amazon.com/windows/ "https://aws.amazon.com/windows/")
 
 ## Choose a Windows Server-based instance
 
-There are three options for creating a Windows Server-based instance in
+There are four options for creating a Windows Server-based instance in
 Lightsail.
 
-**Windows Server 2022**
+**Windows Server 2025**
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. With Lightsail, you can run
 any compatible Windows-based solution on the high-performance, reliable, cost-effective
-AWS Cloud computing platform. Common Windows use cases include Enterprise
+AWS Cloud computing platform. Common Windows use cases include enterprise
+Windows-based application hosting, website and web service hosting, data processing,
+distributed testing, ASP.NET application hosting, and any other application requiring
+Windows software.
+
+[Learn more
+about the Windows Server 2025 image](https://aws.amazon.com/marketplace/pp/prodview-g76csvka4r3by "https://aws.amazon.com/marketplace/pp/prodview-g76csvka4r3by")
+
+**Windows Server 2022**
+
+Unless you need to run Windows Server 2022 for some reason, we recommend using the
+latest version of Windows Server 2025.
+
+Lightsail running Windows Server is a fast and dependable environment for
+deploying applications using the Microsoft Web Platform. With Lightsail, you can run
+any compatible Windows-based solution on the high-performance, reliable, cost-effective
+AWS Cloud computing platform. Common Windows use cases include enterprise
 Windows-based application hosting, website and web service hosting, data processing,
 distributed testing, ASP.NET application hosting, and any other application requiring
 Windows software.
@@ -38,12 +54,12 @@ about the Windows Server 2022 image](https://aws.amazon.com/marketplace/pp/prodv
 **Windows Server 2019**
 
 Unless you need to run Windows Server 2016 or Windows Server 2019 for some reason,
-we recommend using the latest version of Windows Server 2022.
+we recommend using the latest version of Windows Server 2025.
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
 any compatible Windows-based solution on AWS' high-performance, reliable,
-cost-effective, cloud computing platform. Common Windows use cases include Enterprise
+cost-effective, cloud computing platform. Common Windows use cases include enterprise
 Windows-based application hosting, website and web-service hosting, data processing,
 distributed testing, ASP.NET application hosting, and any other application requiring
 Windows software.
@@ -54,12 +70,12 @@ Windows Server 2019 image](https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F "htt
 **Windows Server 2016**
 
 Unless you need to run Windows Server 2016 or Windows Server 2019 for some reason,
-we recommend using the latest version of Windows Server 2022.
+we recommend using the latest version of Windows Server 2025.
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
 any compatible Windows-based solution on AWS' high-performance, reliable,
-cost-effective, cloud computing platform. Common Windows use cases include Enterprise
+cost-effective, cloud computing platform. Common Windows use cases include enterprise
 Windows-based application hosting, website and web-service hosting, data processing,
 distributed testing, ASP.NET application hosting, and any other application requiring
 Windows software.
@@ -109,7 +125,7 @@ the AWS Command Line Interface (AWS CLI).
 3. Select an AWS Region where you want to create your Windows Server-based Lightsail
    instance.
 
-For example, `Ohio (us-east-2)`. 4. Select the **Microsoft Windows** platform. 5. To choose the Windows Server 2022, Windows Server 2019, Windows Server 2016 blueprint,
+For example, `Ohio (us-east-2)`. 4. Select the **Microsoft Windows** platform. 5. To choose the Windows Server 2025, Windows Server 2022, Windows Server 2019, or Windows Server 2016 blueprint,
 choose **OS Only**.
 
 To choose the SQL Server Express blueprint, choose **Apps +
@@ -158,11 +174,11 @@ more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-light
 
 For more information, see [Configure the
 AWS Command Line Interface to work with Amazon Lightsail](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md"). 2. Open a command prompt or a terminal window. 3. If you haven't done so already, configure the AWS CLI using `aws configure`
-and select the AWS Region where you want to create your Lightsail resources. 4. Type the following AWS CLI command to create a $44 USD per month Windows Server 2022
+and select the AWS Region where you want to create your Lightsail resources. 4. Type the following AWS CLI command to create a $44 USD per month Windows Server 2025
 instance running in the Ohio region:
 
 ```
-aws lightsail create-instances --instance-names `InstanceName` --availability-zone us-east-2a --blueprint-id windows_server_2022 --bundle-id medium_win_3_0
+aws lightsail create-instances --instance-names `InstanceName` --availability-zone us-east-2a --blueprint-id windows_server_2025 --bundle-id medium_win_3_0
 ```
 
 In the command, replace `InstanceName` with the name of your

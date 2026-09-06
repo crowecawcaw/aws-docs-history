@@ -102,7 +102,7 @@ using the calling principal's permissions, using a service role, or using a serv
      use some services, you might perform an action that then triggers another
      action in a different service. In this case, you must have permissions to
      perform both actions. To see whether an action requires additional dependent
-     actions in a policy, see [Actions, Resources, and Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md "../../../IAM/latest/UserGuide/list_amazonlightsail.md") in the *Service
+     actions in a policy, see [Actions, Resources, and Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md "../../../IAM/latest/UserGuide/list_lightsail.md")  in the *Service
      Authorization Reference*.
     + **Service role** –
 

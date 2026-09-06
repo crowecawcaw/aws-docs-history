@@ -13,8 +13,9 @@ organization.
    menu.
 3. Choose **Account** in the dropdown menu.
 
-![Lightsail account page.](images/amazon-lightsail-console-account-menu.png) 4. On the **Profile** tab, in the **Lightsail
-partner** section, choose **Contact Lightsail**.
+![Lightsail account page.](images/amazon-lightsail-console-account-menu.png) 4. On the **Profile & preferences** tab, in the
+**Lightsail Partner Program** section, choose **Contact
+Lightsail**.
 
 ###### Important
 

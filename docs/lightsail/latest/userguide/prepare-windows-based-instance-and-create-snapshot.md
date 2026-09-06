@@ -93,7 +93,7 @@ The browser-based RDP window opens, as shown in the following example:
 ![The browser-based RDP client in Lightsail.](images/amazon-lightsail-web-based-rdp-client.png) 2. On the taskbar, choose the Windows icon, or choose
 **Win** to open the Start menu. 3. Choose one of these options:
 
-    * On Windows Server 2022, Windows Server 2019, and Windows Server 2016 instances,
+    * On Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016 instances,
      choose **Start**, then choose
      **Ec2LaunchSettings**.
 

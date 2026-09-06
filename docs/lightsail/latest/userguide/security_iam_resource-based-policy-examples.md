@@ -16,7 +16,7 @@ resource-level permissions and authorization based on tags](resource-level-permi
 
 For more information about the resources that are created or modified by the Lightsail
 actions, and the ARNs and Lightsail condition keys that you can use in an IAM policy
-statement, see [Actions, Resources, and Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md "../../../IAM/latest/UserGuide/list_amazonlightsail.md") in the _IAM User Guide_.
+statement, see [Actions, Resources, and Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md "../../../IAM/latest/UserGuide/list_lightsail.md") in the _IAM User Guide_.
 
 ## Allow management of a specific instance
 

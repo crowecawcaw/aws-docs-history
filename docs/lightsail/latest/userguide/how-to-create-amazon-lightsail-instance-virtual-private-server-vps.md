@@ -9,7 +9,7 @@ Amazon Lightsail:
 - [Create Windows Server instances in Lightsail](get-started-with-windows-based-instances-in-lightsail.md "get-started-with-windows-based-instances-in-lightsail.md")
   Follow the step-by-step instructions to create instances running Linux and Unix
   distributions like Amazon Linux, Ubuntu, Debian, or Windows Server operating systems like Windows Server
-  2022, 2019, and 2016.
+  2025, 2022, 2019, and 2016.
 
 For Linux and Unix instances, you can choose from various application blueprints like
 WordPress, LAMP, LEMP, or select an operating system only. For Windows Server instances, you can

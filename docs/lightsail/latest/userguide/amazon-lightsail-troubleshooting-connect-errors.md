@@ -85,6 +85,8 @@ because it is still starting up or is not yet responding.
 - If the instance recently started or restarted, wait a few minutes for it to finish
   starting, then try connecting again.
 - Confirm the instance is running in the Lightsail console.
+- Reboot the instance, then try connecting again. For instructions, see
+  [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md "lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md").
 
 ## 521 (SESSION\_CONFLICT)
 

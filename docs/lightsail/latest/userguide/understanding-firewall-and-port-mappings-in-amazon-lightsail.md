@@ -328,6 +328,10 @@ Custom - TCP - 8443 - all IP addresses
 
 Custom - TCP - 8447 - all IP addresses
 
+**Windows Server 2025**
+
+RDP - TCP - 3389 - Lightsail browser RDP only
+
 **Windows Server 2022, Windows Server 2019, and Windows Server 2016**
 
 SSH - TCP - 22 - all IP addresses

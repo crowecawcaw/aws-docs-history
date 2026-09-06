@@ -19,8 +19,8 @@ recommended process for installing updates that are provided by the application 
 
 **Windows**
 
-- [Windows Server 2022,
-  Windows Server 2019, Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/ "https://docs.microsoft.com/en-us/windows-server/")
+- [Windows Server 2025,
+  Windows Server 2022, Windows Server 2019, and Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/ "https://docs.microsoft.com/en-us/windows-server/")
 - [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/ "https://docs.microsoft.com/en-us/sql/")
 
 **Linux and Unix** – Operating system only

@@ -45,7 +45,7 @@ If you're in a directory other than the user home directory, then enter `cat
 You should see a response similar to this, which contains the default application
 password:
 
-![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
+![Bitnami default application password.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
 
 For more information, see [Getting the
 application user name and password for your Bitnami instance in

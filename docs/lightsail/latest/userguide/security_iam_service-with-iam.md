@@ -46,7 +46,7 @@ action:
 `"Action": "lightsail:Create*"`
 ```
 
-To see a list of Lightsail actions, see [Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions") in the
+To see a list of Lightsail actions, see [Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions") in the
 _IAM User Guide_.
 
 ### Resources
@@ -107,9 +107,9 @@ multiple resources in a single statement, separate the ARNs with commas.
 ```
 
 To see a list of Lightsail resource types and their ARNs, see
-[Resources Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-resources-for-iam-policies") in the _IAM User Guide_. To learn with
+[Resources Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-resources-for-iam-policies") in the _IAM User Guide_. To learn with
 which actions you can specify the ARN of each resource, see
-[Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions").
+[Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions") .
 
 ### Condition Keys
 
@@ -126,9 +126,9 @@ Lightsail does not provide any service-specific condition keys, but it does supp
 using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition
 Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
-To see a list of Lightsail condition keys, see [Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-policy-keys "../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-policy-keys") in the
+To see a list of Lightsail condition keys, see [Condition Keys for Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-policy-keys "../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-policy-keys") in the
 _IAM User Guide_. To learn with which actions and resources you
-can use a condition key, see [Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonlightsail.md#amazonlightsail-actions-as-permissions").
+can use a condition key, see [Actions Defined by Amazon Lightsail](../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions "../../../IAM/latest/UserGuide/list_lightsail.md#list_lightsail-actions-as-permissions") .
 
 ### Examples
 

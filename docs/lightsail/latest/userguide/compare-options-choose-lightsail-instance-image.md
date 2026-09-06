@@ -10,15 +10,30 @@ ecommerce).
 Lightsail has several Linux/Unix-based or Windows-based operating systems to choose
 from.
 
+****Windows Server 2025****
+
+Lightsail running Windows Server is a fast and dependable environment for
+deploying applications using the Microsoft Web Platform. With Lightsail, you can run
+any compatible Windows-based solution on the high-performance, reliable, cost-effective
+AWS Cloud computing platform. Common Windows use cases include enterprise
+Windows-based application hosting, website and web service hosting, data processing,
+distributed testing, ASP.NET application hosting, and any other application requiring
+Windows software. For end of support information, see the [Microsoft](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025") website.
+
+This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
+
+Learn more about [Windows Server
+2025](https://aws.amazon.com/marketplace/pp/prodview-g76csvka4r3by "https://aws.amazon.com/marketplace/pp/prodview-g76csvka4r3by").
+
 ****Windows Server 2022****
 
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. With Lightsail, you can run
 any compatible Windows-based solution on the high-performance, reliable, cost-effective
-AWS Cloud computing platform. Common Windows use cases include Enterprise
+AWS Cloud computing platform. Common Windows use cases include enterprise
 Windows-based application hosting, website and web service hosting, data processing,
 distributed testing, ASP.NET application hosting, and any other application requiring
-Windows software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") website.
+Windows software. For end of support information, see the [Microsoft](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022") website.
 
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
@@ -30,10 +45,10 @@ Learn more about [Windows Server
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
 any compatible Windows-based solution on the high-performance, reliable, cost-effective
-AWS cloud computing platform. Common Windows use cases include Enterprise Windows-based
+AWS cloud computing platform. Common Windows use cases include enterprise Windows-based
 application hosting, website and web service hosting, data processing, distributed
 testing, ASP.NET application hosting, and any other application requiring Windows
-software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019") website.
+software. For end of support information, see the [Microsoft](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019") website.
 
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
@@ -44,10 +59,10 @@ Learn more about [Windows Server 2019](https://aws.amazon.com/marketplace/pp/B07
 Lightsail running Windows Server is a fast and dependable environment for
 deploying applications using the Microsoft Web Platform. Lightsail enables you to run
 any compatible Windows-based solution on the high-performance, reliable, cost-effective
-AWS cloud computing platform. Common Windows use cases include Enterprise Windows-based
+AWS cloud computing platform. Common Windows use cases include enterprise Windows-based
 application hosting, website and web service hosting, data processing, distributed
 testing, ASP.NET application hosting, and any other application requiring Windows
-software. For end of support information, see the [_Microsoft_](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016") website.
+software. For end of support information, see the [Microsoft](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016") website.
 
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.
 
