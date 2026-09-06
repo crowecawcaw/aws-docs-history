@@ -1,48 +1,38 @@
+
+
 # Step 6: Create AWS DMS Source and Target Endpoints
+<a name="chap-rdsoracle2postgresql.steps.createsourcetargetendpoints"></a>
 
-While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
 
-1. Sign in to the AWS Management Console, open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"), and then choose **Endpoints**.
-2. Specify your connection information for the source Oracle database and the target PostgreSQL database. The following table describes the source settings.
+1. Sign in to the AWS Management Console, open the [AWS DMS console](https://console.aws.amazon.com/dms/v2), and then choose **Endpoints**.
 
-| Parameter               | Description                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------------- |
-| **Endpoint Identifier** | Enter a name, such as `Orasource`.                                                 |
-| **Source Engine**       | Choose **oracle**.                                                                 |
-| **Server name**         | Provide the Oracle DB instance server name.                                        |
-| **Port**                | The port of the database. The default for Oracle is `1521`.                        |
-| **SSL mode**            | Choose an SSL mode if you want to enable encryption for your connection’s traffic. |
-| **Username**            | The user you want to use to connect to the source database.                        |
-| **Password**            | Provide the password for the user.                                                 |
-| **SID**                 | Provide the Oracle database name.                                                  |
+1. Specify your connection information for the source Oracle database and the target PostgreSQL database. The following table describes the source settings.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createsourcetargetendpoints.html)
 
-The following table describes the advanced source settings.
+   The following table describes the advanced source settings.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createsourcetargetendpoints.html)
 
-| Parameter                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Extra connection attributes** | Extra parameters that you can set in an endpoint to add functionality or change the behavior of AWS DMS. Some of the most common and convenient parameters to set for an Oracle source database are the following. Separate multiple entries from each other by using a semi-colon (;).<br>• `addSupplementalLogging` - This parameter automatically configures supplemental logging when set to `Y`.<br>• `useLogminerReader` - By default, AWS DMS uses LogMiner on the Oracle database to capture all of the changes on the source database. The other mode is called Binary Reader. When using Binary Reader instead of LogMiner, AWS DMS copies the archived redo log from the source Oracle database to the replication server and reads the entire log in order to capture changes. The Binary Reader option is recommended if you are using ASM since it has performance advantages over LogMiner on ASM. If your source database is 12c, then the Binary Reader option is currently the only way to capture CDC changes in Oracle for LOB objects.<br>To use LogMiner, enter the following:<br>`useLogminerReader=Y`<br>To use Binary Reader, enter the following:<br>`useLogminerReader=N; useBfile=Y`` |
-| **KMS key**                     | Enter the KMS key if you choose to encrypt your replication instance’s storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+   For information about extra connection attributes, see [Using Extra Connection Attributes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 
-For information about extra connection attributes, see [Using Extra Connection Attributes](../userguide/CHAP_Introduction.ConnectionAttributes.md "../userguide/CHAP_Introduction.ConnectionAttributes.md").
+   The following table describes the target settings.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createsourcetargetendpoints.html)
 
-The following table describes the target settings.
+   The following is an example of the completed page.  
+![Completed replication task connections page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql19.5.png)
 
-| Parameter               | Description                                                     |
-| ----------------------- | --------------------------------------------------------------- |
-| **Endpoint Identifier** | Enter a name, such as `Postgrestarget`.                         |
-| **Target Engine**       | Choose **postgres**.                                            |
-| **Servername**          | Provide the PostgreSQL DB instance server name.                 |
-| **Port**                | The port of the database. The default for PostgreSQL is `5432`. |
-| **SSL mode**            | Choose **None**.                                                |
-| **Username**            | The user you want to use to connect to the target database.     |
-| **Password**            | Provide the password for the PostgreSQL DB instance.            |
+1. After the endpoints and replication instance have been created, test each endpoint connection by choosing **Run test** for the source and target endpoints.
 
-The following is an example of the completed page.
+1. Drop foreign key constraints and triggers on the target database.
 
-![Completed replication task connections page](images/sbs-rdsor2postgressql19.5.png) 3. After the endpoints and replication instance have been created, test each endpoint connection by choosing **Run test** for the source and target endpoints. 4. Drop foreign key constraints and triggers on the target database.
+   During the full load process, AWS DMS does not load tables in any particular order, so it may load the child table data before parent table data. As a result, foreign key constraints might be violated if they are enabled. Also, if triggers are present on the target database, then it may change data loaded by AWS DMS in unexpected ways.
 
-During the full load process, AWS DMS does not load tables in any particular order, so it may load the child table data before parent table data. As a result, foreign key constraints might be violated if they are enabled. Also, if triggers are present on the target database, then it may change data loaded by AWS DMS in unexpected ways. 5. If you do not have one, then generate a script that enables the foreign key constraints and triggers.
+1. If you do not have one, then generate a script that enables the foreign key constraints and triggers.
 
-Later, when you want to add them to your migrated database, you can just run this script. 6. (Optional) Drop secondary indexes on the target database.
+   Later, when you want to add them to your migrated database, you can just run this script.
 
-Secondary indexes (as with all indexes) can slow down the full load of data into tables since they need to be maintained and updated during the loading process. Dropping them can improve the performance of your full load process. If you drop the indexes, then you will need to add them back later after the full load is complete. 7. Choose **Next**.
+1. (Optional) Drop secondary indexes on the target database.
+
+   Secondary indexes (as with all indexes) can slow down the full load of data into tables since they need to be maintained and updated during the loading process. Dropping them can improve the performance of your full load process. If you drop the indexes, then you will need to add them back later after the full load is complete.
+
+1. Choose **Next**.

@@ -1,4 +1,7 @@
+
+
 # Migrating an Amazon RDS for MySQL Database to an Amazon DynamoDB target
+<a name="chap-manageddatabases.mysql2dynamodb"></a>
 
 This walkthrough helps you to understand the process of migrating data from Amazon Relational Database Service (Amazon RDS) for MySQL to Amazon DynamoDB using AWS Database Migration Service (AWS DMS).
 
@@ -10,25 +13,27 @@ In this document, we will talk about a use case where a customer is running an a
 
 To illustrate the process, we use AWS DMS to migrate data from an example database. AWS DMS is a managed service that helps migrate between heterogeneous sources and targets. In our case, we migrate an RDS MySQL database to Amazon DynamoDB. AWS DMS supports not only the migration of your existing data, but also ensures that the source and target are synchronized for ongoing transactions.
 
-###### Topics
-
-- [Why use AWS DMS?](#chap-manageddatabases.mysql2dynamodb.whydms "#chap-manageddatabases.mysql2dynamodb.whydms")
-- [Example data set](#chap-manageddatabases.mysql2dynamodb.sampledataset "#chap-manageddatabases.mysql2dynamodb.sampledataset")
-- [Solution overview](#chap-manageddatabases.mysql2dynamodb.solutionoverview "#chap-manageddatabases.mysql2dynamodb.solutionoverview")
-- [Prerequisites](#chap-manageddatabases.mysql2dynamodb.prerequisites "#chap-manageddatabases.mysql2dynamodb.prerequisites")
-- [Step-by-step Amazon RDS for MySQL database to Amazon DynamoDB migration walkthrough](chap-manageddatabases.mysql2dynamodb.stepbystepmigration.md "chap-manageddatabases.mysql2dynamodb.stepbystepmigration.md")
+**Topics**
++ [Why use AWS DMS?](#chap-manageddatabases.mysql2dynamodb.whydms)
++ [Example data set](#chap-manageddatabases.mysql2dynamodb.sampledataset)
++ [Solution overview](#chap-manageddatabases.mysql2dynamodb.solutionoverview)
++ [Prerequisites](#chap-manageddatabases.mysql2dynamodb.prerequisites)
++ [Step-by-step Amazon RDS for MySQL database to Amazon DynamoDB migration walkthrough](chap-manageddatabases.mysql2dynamodb.stepbystepmigration.md)
 
 ## Why use AWS DMS?
+<a name="chap-manageddatabases.mysql2dynamodb.whydms"></a>
 
 When migrating from a relational database like MySQL to Dynamo DB, there are multiple approaches that you can take. One can be dumping your data using a CSV dump and loading that into Amazon DynamoDB Tables from S3. However, it comes with its own challenges in regard to size and requires taking extended downtime. AWS DMS supports binary log-based replication between MySQL based engines and Dynamo DB which can help achieve such migrations with minimal downtime. Also, Relational Database Management System (RDBMS) tables store the data in a normalized way across multiple tables. However, using DMS, you can customize the target table using the object mapping feature to denormalize the data into a single target table.
 
 In this document, we guide you through the steps that you take to migrate the example MySQL database into Amazon DynamoDB. In the next sections, we describe the characteristics of the database. Then, we build the replication resources in AWS DMS that we use to migrate the database, paying close attention to matching the AWS DMS configuration with our particular use case.
 
 ## Example data set
+<a name="chap-manageddatabases.mysql2dynamodb.sampledataset"></a>
 
 In this walkthrough, the following is the table information that is used to store the vaccine drive data. As it can be noted that the schema does not completely play out the relational model of normalization, and all data are stored in a single table in a de-normalized way.
 
-![Data set](images/mysql2dynamodb_dataset.png)
+![Data set](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_dataset.png)
+
 
 Generally, relational tables are used to fetch a fixed data set based on the table definition. However, in this use case, we define the tables in a de-normalized manner, and going forward based on the business requirement schema, growth can be exponential in rate and dynamic in nature. Services like Amazon DynamoDB help application developers and architects to rethink the data model in a key-value format for such use cases, and plan to move the data store on DynamoDB.
 
@@ -43,15 +48,20 @@ Migration of this use case can be handled using one-to-one mapping from RDBMS My
 Similarly, if you have the following types of tables, you can consider migrating to a DynamoDB target using DMS with less downtime.
 
 1. Table with non-relational data
-2. Logging tables
-3. User preference tables
-4. Application Session state tables
+
+1. Logging tables
+
+1. User preference tables
+
+1. Application Session state tables
 
 ## Solution overview
+<a name="chap-manageddatabases.mysql2dynamodb.solutionoverview"></a>
 
 The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from a MySQL database hosted on RDS to Amazon DynamoDB.
 
-![Data set](images/mysql2dynamodb_architecture.png)
+![Data set](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_architecture.png)
+
 
 To connect to the source database where your data resides and target Amazon DynamoDB, you will create two endpoint resources in AWS DMS. An “endpoint” is a resource for storing connection information such as hostname, username, and password. For DynamoDB, it stores an IAM role name that provides access to resources. Endpoint resources also store unique settings for each endpoint to configure the endpoint behavior.
 
@@ -59,23 +69,22 @@ The endpoint itself does not have a mechanism to connect to the source or target
 
 A replication instance is a resource where your replication task is running. It has a network interface connected to your VPC, through which AWS DMS tasks communicate with sources and targets.
 
-In summary, in this walkthrough you will set up the following resources in AWS DMS
-
-- **Replication Instance** — An AWS managed instance that hosts the AWS DMS engine. You control the type or size of the instance based on your workload.
-- **Source Endpoint** — A resource that provides connection details, data store type, and credentials to connect to a source database. For this use case, we will configure the source endpoint to point to the Amazon RDS for MySQL database.
-- **Target table** - A DynamoDB table used on this scenario to consume the data from the Source database. We will create a DynamoDB table with customized settings for migration.
-- **Target Endpoint** — AWS DMS supports several target systems including Amazon RDS, Amazon Aurora, Amazon Redshift, Amazon Kinesis Data Streams, Amazon S3, and more. For this use case, we will configure Amazon Dynamo DB as the target endpoint.
-- **Replication Task** — A resource that runs on the replication instance and connects to endpoints to replicate data from the source to the target.
+In summary, in this walkthrough you will set up the following resources in AWS DMS   
++  **Replication Instance** — An AWS managed instance that hosts the AWS DMS engine. You control the type or size of the instance based on your workload.
++  **Source Endpoint** — A resource that provides connection details, data store type, and credentials to connect to a source database. For this use case, we will configure the source endpoint to point to the Amazon RDS for MySQL database.
++  **Target table** - A DynamoDB table used on this scenario to consume the data from the Source database. We will create a DynamoDB table with customized settings for migration.
++  **Target Endpoint** — AWS DMS supports several target systems including Amazon RDS, Amazon Aurora, Amazon Redshift, Amazon Kinesis Data Streams, Amazon S3, and more. For this use case, we will configure Amazon Dynamo DB as the target endpoint.
++  **Replication Task** — A resource that runs on the replication instance and connects to endpoints to replicate data from the source to the target.
 
 ## Prerequisites
+<a name="chap-manageddatabases.mysql2dynamodb.prerequisites"></a>
 
 The following prerequisites are required to complete this walkthrough:
++ An understanding of Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.
++ A user with AWS Identity and Access Management (IAM) credentials that allows you to launch Amazon RDS and AWS Database Migration Service (AWS DMS) instances in your AWS Region. For information about IAM credentials, see [Create an IAM user](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_GettingStarted.SettingUp.html#CHAP_SettingUp.IAM).
++ An understanding of the Amazon Virtual Private Cloud (Amazon VPC) service and security groups. For information about using Amazon VPC with Amazon RDS, see [Amazon Virtual Private Cloud (VPCs) and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html). For information about Amazon RDS security groups, see [Controlling access with security groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html).
++ An understanding of the supported features and limitations of AWS DMS. For information about AWS DMS, see [What is Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html)?
++ An understanding of how to work with MySQL as a source and Amazon DynamoDB as a target. For information about working with MySQL as a source, see [Using an MySQL database as a source](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html). For information about working with Amazon DynamoDB as a target, see [Using Amazon DynamoDB as a target](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html).
++ An understanding of the supported data type conversion options for MySQL and Amazon DynamoDB. For information about data types for MySQL as a source, see [Source data types for MySQL](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.DataTypes). For information about data types for Amazon DynamoDB as a target, see [Target data types for Amazon DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.DataTypes).
 
-- An understanding of Amazon Relational Database Service (Amazon RDS), the applicable database technologies, and SQL.
-- A user with AWS Identity and Access Management (IAM) credentials that allows you to launch Amazon RDS and AWS Database Migration Service (AWS DMS) instances in your AWS Region. For information about IAM credentials, see [Create an IAM user](../userguide/CHAP_GettingStarted.SettingUp.md#CHAP_SettingUp.IAM "../userguide/CHAP_GettingStarted.SettingUp.md#CHAP_SettingUp.IAM").
-- An understanding of the Amazon Virtual Private Cloud (Amazon VPC) service and security groups. For information about using Amazon VPC with Amazon RDS, see [Amazon Virtual Private Cloud (VPCs) and Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md"). For information about Amazon RDS security groups, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md").
-- An understanding of the supported features and limitations of AWS DMS. For information about AWS DMS, see [What is Database Migration Service](../userguide/Welcome.md "../userguide/Welcome.md")?
-- An understanding of how to work with MySQL as a source and Amazon DynamoDB as a target. For information about working with MySQL as a source, see [Using an MySQL database as a source](../userguide/CHAP_Source.MySQL.md "../userguide/CHAP_Source.MySQL.md"). For information about working with Amazon DynamoDB as a target, see [Using Amazon DynamoDB as a target](../userguide/CHAP_Target.DynamoDB.md "../userguide/CHAP_Target.DynamoDB.md").
-- An understanding of the supported data type conversion options for MySQL and Amazon DynamoDB. For information about data types for MySQL as a source, see [Source data types for MySQL](../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes "../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes"). For information about data types for Amazon DynamoDB as a target, see [Target data types for Amazon DynamoDB](../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.DataTypes "../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.DataTypes").
-
-For more information about AWS DMS, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").
+For more information about AWS DMS, see [Getting started with Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_GettingStarted.html).

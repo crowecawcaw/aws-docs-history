@@ -1,17 +1,22 @@
+
+
 # Migrate MySQL database with AWS DMS ongoing replication
+<a name="chap-manageddatabases.mysql2rds.replication"></a>
 
 To configure the ongoing replication in AWS DMS, enter the native start point for MySQL, which you have retrieved at the end of the full load process as described for each tool. The native start point will be similar to `mysql-bin-changelog.000024:373`.
 
 In the **Create database migration task** page, follow these three steps to create the migration task.
 
 1. For **Migration type**, choose **Replicate ongoing changes**.
-2. Under **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
-3. Under **Custom CDC start point**, paste the native start point you saved earlier.
-   For more information, see [Creating tasks for ongoing replication](../userguide/CHAP_Task.CDC.md "../userguide/CHAP_Task.CDC.md") and [Migrate from MySQL to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds "https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds").
 
-###### Note
+1. Under **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
 
-The AWS DMS CDC replication uses plain SQL statements from the binary log to apply data changes in the target database. Therefore, it is slower and more resource-intensive than the native Primary/Replica binary log replication in MySQL. For more information, see [Replication with a MySQL or MariaDB instance running external to Amazon RDS](../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.Repl.md "../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.Repl.md").
+1. Under **Custom CDC start point**, paste the native start point you saved earlier.
+
+For more information, see [Creating tasks for ongoing replication](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html) and [Migrate from MySQL to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds).
+
+**Note**  
+The AWS DMS CDC replication uses plain SQL statements from the binary log to apply data changes in the target database. Therefore, it is slower and more resource-intensive than the native Primary/Replica binary log replication in MySQL. For more information, see [Replication with a MySQL or MariaDB instance running external to Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.Repl.html).
 
 You should always remove triggers from the target during the AWS DMS CDC replication. For example, the following command generates the script to remove triggers.
 

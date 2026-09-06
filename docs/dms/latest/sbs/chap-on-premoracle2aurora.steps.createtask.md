@@ -1,148 +1,129 @@
+
+
 # Step 6: Create a Migration Task
+<a name="chap-on-premoracle2aurora.steps.createtask"></a>
 
 When you create a migration task you tell AWS DMS exactly how you want your data migrated. Within a task you define which tables you’d like migrated, where you’d like them migrated, and how you’d like them migrated. If you’re planning to use the change capture and apply capability of AWS DMS it’s important to know transactions are maintained within a single task. In other words, you should migrate all tables that participate in a single transaction together in the same task.
 
 Using an AWS DMS task, you can specify what schema to migrate and one of the following types of migration:
++ Migrate existing data
++ Migrate existing data and replicate ongoing changes
++ Replicate data changes only
 
-- Migrate existing data
-- Migrate existing data and replicate ongoing changes
-- Replicate data changes only
-  This walkthrough migrates existing data only.
+This walkthrough migrates existing data only.
 
 To create a migration task, do the following:
 
 1. On the navigation pane, choose **Tasks**.
-2. Choose **Create Task**.
-3. On the **Create Task** page, specify the task options. The following table describes the settings.
 
-| For This Option          | Do This                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Task name**            | It’s always a good idea to give your task a descriptive name that helps organization.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Task description**     | Enter a description for the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Source endpoint**      | Select your source endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Target endpoint**      | Select your target endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Replication instance** | Select a replication instance on which to run the task. Remember, your source and target endpoints must be accessible from this instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Migration type**       | You can use three different migration types with AWS DMS.<br>_1. Migrate existing data_<br>If you select this option, AWS DMS migrates only your existing data. Changes to your source data aren’t captured and applied to your target. If you can afford taking an outage for the duration of the full load, migrating with this option is simple and straight forward. This method is also good to use when creating test copies of your database.<br>_2. Migrate existing data and replicate ongoing changes_<br>With this option, AWS DMS captures changes while migrating your existing data. AWS DMS continues to capture and apply changes even after the bulk data has been loaded. Eventually the source and target databases will be in sync, allowing for a minimal downtime migration. To do this, take the following steps:<br>\<br>• Shut the application down<br>\<br>• Let the final change flow through to the target<br>\<br>• Perform any administrative tasks such as enabling foreign keys and triggers<br>\<br>• Start the application pointing to the new target database<br>Note that AWS DMS loads the bulk data table-by-table, <n> tables at a time. As the full load progresses, AWS DMS begins applying cached changes to the target tables as soon as possible. During the bulk load, referential integrity is violated, therefore existing foreign keys must be disabled for the full load. Once the full load is complete, your target database has integrity and changes are applied as transactions.<br>_3. Replicate data changes only_<br>In some cases you might choose to load bulk data using a different method. This approach generally only applies to homogeneous migrations. |
-| **Start task on create** | In most situations having the task start immediately is fine. Sometimes you might want to delay the start of a task, for instance, to change logging levels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+1. Choose **Create Task**.
 
-4. Next, set the Advanced settings as shown following.
+1. On the **Create Task** page, specify the task options. The following table describes the settings.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
 
-| For This Option                        | Do This                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Target table preparation mode**      | AWS DMS allows you to specify how you would like your target tables prepared prior to loading.<br>*_Do nothing_<br>• When you select this option, AWS DMS does nothing to prepare your tables. Your table structure remains as is and any existing data is left in the table. You can use this method to consolidate data from multiple systems.<br>*_Drop tables on target_<br>• Typically you use this option when you want AWS DMS to create your target table for you. When you select this option, AWS DMS drops and recreates the tables to migrate before migration.<br>*_Truncate_<br>• Select this option if you want to pre-create some or all of the tables on your target system, maybe with the AWS Schema Conversion Tool. When you select this option, AWS DMS truncates a target table prior to loading it. If the target table doesn’t exist, AWS DMS creates the table for you.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Include LOB columns in replication** | Large objects, (LOBs) can sometimes be difficult to migrate between systems. AWS DMS offers a number of options to help with the tuning of LOB columns. To see which and when datatypes are considered LOBS by AWS DMS, see the AWS DMS documentation.<br>*_Don’t include LOB columns_<br>• When you migrate data from one database to another, you might take the opportunity to rethink how your LOBs are stored, especially for heterogeneous migrations. If you want to do so, there’s no need to migrate the LOB data.<br>*_Full LOB mode_<br>• In **full LOB mode**<br>AWS DMS migrates all LOBs from source to target regardless of size. In this configuration, AWS DMS has no information about the maximum size of LOBs to expect. Thus, LOBs are migrated one at a time, piece by piece. Full LOB mode can be quite slow.<br>*_Limited LOB mode_<br>• In **limited LOB mode**, you set a maximum size LOB that AWS DMS should accept. Doing so allows AWS DMS to pre-allocate memory and load the LOB data in bulk. LOBs that exceed the maximum LOB size are truncated and a warning is issued to the log file. In *_limited LOB mode_<br>• you get significant performance gains over **full LOB mode**. We recommend that you use *_limited LOB mode_<br>• whenever possible.<br>Note that with Oracle, LOBs are treated as VARCHAR data types whenever possible. This approach means AWS DMS fetches them from the database in bulk, which is significantly faster than other methods. The maximum size of a VARCHAR in Oracle is 64K, therefore a limited LOB size of less than 64K is optimal when Oracle is your source database. |
-| **Max LOB size (K)**                   | When a task is configured to run in **limited LOB mode**, this option determines the maximum size LOB that AWS DMS accepts. Any LOBs that are larger than this value will be truncated to this value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **LOB chunk size (K)**                 | When a task is configured to use **full LOB mode**, AWS DMS retrieves LOBs in pieces. This option determines the size of each piece. When setting this option, pay particular attention to the maximum packet size allowed by your network configuration. If the LOB chunk size exceeds your maximum allowed packet size, you might see disconnect errors.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Custom CDC start time**              | This parameter pertains to tasks configured to replicate data changes only. It tells AWS DMS where to start looking for changes in the change stream.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Enable logging**                     | Always enable logging.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+1. Next, set the Advanced settings as shown following.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
 
-5. Set additional parameters.
+1. Set additional parameters.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
 
-| For This Option                                  | Do This                                                                                                                                                                                                               |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Create control table(s) in target schema**     | AWS DMS requires some control tables in the target database. By default those tables are created in the same database as your data. This parameter allows you to tell AWS DMS to puts those artifacts somewhere else. |
-| **Maximum number of tables to load in parallel** | AWS DMS performs a table-by-table load of your data. This parameter allows you to control how many tables AWS DMS will load in parallel. The default is 8, which is optimal in most situations.                       |
+1. Specify any table mapping settings.
 
-6. Specify any table mapping settings.
+   Table mappings tell AWS DMS which tables a task should migrate from source to target. Table mappings are expressed in JSON, though some settings can be made using the [AWS Management Console](https://console.aws.amazon.com/). Table mappings can also include transformations such as changing table names from the upper case to lower case.
 
-Table mappings tell AWS DMS which tables a task should migrate from source to target. Table mappings are expressed in JSON, though some settings can be made using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). Table mappings can also include transformations such as changing table names from the upper case to lower case.
+    AWS DMS generates default table mappings for each (non-system) schema in the source database. In most cases you’ll want to customize your table mapping. To customize your table mapping select the custom radio button. For details on creating table mappings see the AWS DMS documentation. The following table mapping does these things:
+   + It includes the DMS\_SAMPLE schema in the migration.
+   + It excludes the tables NFL\_DATA, MLB\_DATA, NAME\_DATE, and STADIUM\_DATA.
+   + It converts the schema, table, and column names to lower case.
 
-AWS DMS generates default table mappings for each (non-system) schema in the source database. In most cases you’ll want to customize your table mapping. To customize your table mapping select the custom radio button. For details on creating table mappings see the AWS DMS documentation. The following table mapping does these things:
-
-    * It includes the DMS\_SAMPLE schema in the migration.
-    * It excludes the tables NFL\_DATA, MLB\_DATA, NAME\_DATE, and STADIUM\_DATA.
-    * It converts the schema, table, and column names to lower case.
-
-
-
-    ```
-    {
-      "rules": [
-        {
-          "rule-type": "selection",
-          "rule-id": "1",
-          "rule-name": "1",
-          "object-locator": {
-            "schema-name": "DMS_SAMPLE",
-            "table-name": "%"
-          },
-          "rule-action": "include"
-        },
-
-        {
-          "rule-type": "selection",
-          "rule-id": "2",
-          "rule-name": "2",
-          "object-locator": {
-            "schema-name": "DMS_SAMPLE",
-            "table-name": "MLB_DATA"
-          },
-          "rule-action": "exclude"
-        },
-    {
-          "rule-type": "selection",
-          "rule-id": "3",
-          "rule-name": "3",
-          "object-locator": {
-            "schema-name": "DMS_SAMPLE",
-            "table-name": "NAME_DATA"
-          },
-          "rule-action": "exclude"
-        },
-
-        {
-          "rule-type": "selection",
-          "rule-id": "4",
-          "rule-name": "4",
-          "object-locator": {
-            "schema-name": "DMS_SAMPLE",
-            "table-name": "NFL_DATA"
-          },
-          "rule-action": "exclude"
-        },
-
-        {
-          "rule-type": "selection",
-          "rule-id": "5",
-          "rule-name": "5",
-          "object-locator": {
-            "schema-name": "DMS_SAMPLE",
-            "table-name": "NFL_STADIUM_DATA"
-          },
-          "rule-action": "exclude"
-        },{
-          "rule-type": "transformation",
-          "rule-id": "6",
-          "rule-name": "6",
-          "rule-action": "convert-lowercase",
-          "rule-target": "schema",
-          "object-locator": {
-            "schema-name": "%"
-          }
-        },
-        {
-          "rule-type": "transformation",
-          "rule-id": "7",
-          "rule-name": "7",
-          "rule-action": "convert-lowercase",
-          "rule-target": "table",
-          "object-locator": {
-            "schema-name": "%",
-            "table-name": "%"
-          }
-        },
-        {
-          "rule-type": "transformation",
-          "rule-id": "8",
-          "rule-name": "8",
-          "rule-action": "convert-lowercase",
-          "rule-target": "column",
-          "object-locator": {
-            "schema-name": "%",
-            "table-name": "%",
-            "column-name": "%"
-          }
-        }
-      ]
-    }
-    ```
+     ```
+     {
+       "rules": [
+         {
+           "rule-type": "selection",
+           "rule-id": "1",
+           "rule-name": "1",
+           "object-locator": {
+             "schema-name": "DMS_SAMPLE",
+             "table-name": "%"
+           },
+           "rule-action": "include"
+         },
+     
+         {
+           "rule-type": "selection",
+           "rule-id": "2",
+           "rule-name": "2",
+           "object-locator": {
+             "schema-name": "DMS_SAMPLE",
+             "table-name": "MLB_DATA"
+           },
+           "rule-action": "exclude"
+         },
+     {
+           "rule-type": "selection",
+           "rule-id": "3",
+           "rule-name": "3",
+           "object-locator": {
+             "schema-name": "DMS_SAMPLE",
+             "table-name": "NAME_DATA"
+           },
+           "rule-action": "exclude"
+         },
+     
+         {
+           "rule-type": "selection",
+           "rule-id": "4",
+           "rule-name": "4",
+           "object-locator": {
+             "schema-name": "DMS_SAMPLE",
+             "table-name": "NFL_DATA"
+           },
+           "rule-action": "exclude"
+         },
+     
+         {
+           "rule-type": "selection",
+           "rule-id": "5",
+           "rule-name": "5",
+           "object-locator": {
+             "schema-name": "DMS_SAMPLE",
+             "table-name": "NFL_STADIUM_DATA"
+           },
+           "rule-action": "exclude"
+         },{
+           "rule-type": "transformation",
+           "rule-id": "6",
+           "rule-name": "6",
+           "rule-action": "convert-lowercase",
+           "rule-target": "schema",
+           "object-locator": {
+             "schema-name": "%"
+           }
+         },
+         {
+           "rule-type": "transformation",
+           "rule-id": "7",
+           "rule-name": "7",
+           "rule-action": "convert-lowercase",
+           "rule-target": "table",
+           "object-locator": {
+             "schema-name": "%",
+             "table-name": "%"
+           }
+         },
+         {
+           "rule-type": "transformation",
+           "rule-id": "8",
+           "rule-name": "8",
+           "rule-action": "convert-lowercase",
+           "rule-target": "column",
+           "object-locator": {
+             "schema-name": "%",
+             "table-name": "%",
+             "column-name": "%"
+           }
+         }
+       ]
+     }
+     ```

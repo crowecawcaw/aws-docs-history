@@ -1,36 +1,46 @@
+
+
 # Set up MariaDB as a source database
+<a name="chap-mariadb2auroramysql.provisioningmariadb"></a>
 
-To provision MariaDB as a source database, download [Mariadb\_CF.zip with the YAML template](samples/Mariadb_CF.zip.md "samples/Mariadb_CF.zip.md"). This AWS CloudFormation template creates an Amazon RDS for MariaDB instance with the required parameters.
+To provision MariaDB as a source database, download [Mariadb\_CF.zip with the YAML template](/dms/latest/sbs/samples/Mariadb_CF.zip). This AWS CloudFormation template creates an Amazon RDS for MariaDB instance with the required parameters.
 
-1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
-2. Choose **Create stack**, and then choose **With new resources (standard)**.
-3. For **Specify template**, choose **Upload a template file**.
-4. Select **Choose file**.
-5. Choose the `Mariadb_CF.yaml` file, and then choose **Next**.
-6. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+1. On the [AWS Management Console](https://console.aws.amazon.com/), under **Services**, choose **CloudFormation**.
 
-   - **Stack name** — Enter a name for the stack.
-   - **CIDR** — Enter the CIDR IP range to access the instance.
-   - **DBAllocatedStorage** — Enter the database storage size in GB. The default is 20 GB.
-   - **DBBackupRetentionPeriod** — The number of days to retain backups.
-   - **DBInstanceClass** — Enter the instance type of the database server.
-   - **DBMonitoringInterval** — Interval to publish database logs to Amazon CloudWatch.
-   - **DBSubnetGroup** — Enter the DB subnet group name. For more information, see [Create a DB subnet group](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateVPC.md#CHAP_Tutorials.WebServerDB.CreateVPC.DBSubnetGroup "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateVPC.md#CHAP_Tutorials.WebServerDB.CreateVPC.DBSubnetGroup") in the _Amazon RDS User Guide_.
-   - **MariaDBEngine** — Enter the MariaDB engine version.Leave empty to use default. For more information, see [MariaDB on Amazon RDS versions](../../../AmazonRDS/latest/UserGuide/MariaDB.Concepts.VersionMgmt.md "../../../AmazonRDS/latest/UserGuide/MariaDB.Concepts.VersionMgmt.md") in the _Amazon RDS User Guide_.
-   - **DBMasterPassword** — Enter the master password for the DB instance.
-   - **DBMasterUsername** — Enter the master user name for the DB instance.
-   - **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
-   - **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
-   - **RDSDBName** — Enter the name of the database.
-   - **RDSMultiAZ** — Choose **true** to use Amazon RDS Multi-AZ for this instance. The default value for this option is **false**. For more information, see [Multi-AZ deployments for high availability](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md") in the _Amazon Relational Database Service User Guide_.
-   - **VPCID** — Enter the VPC to launch your DB instance. For more information, see [Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md") in the _Amazon RDS User Guide_.
+1. Choose **Create stack**, and then choose **With new resources (standard)**.
 
-   Make sure that you entered the stack name, DB subnet group name, user name, password, database name, and VPC ID.
+1. For **Specify template**, choose **Upload a template file**.
 
-7. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
-8. On the **Review** page, select **I acknowledge that AWS CloudFormation might create IAM resources**, and then choose **Next**.
-9. Choose **Create stack**.
-   After the Amazon RDS for MariaDB instance is created, log in to MariaDB and run the following statements to create `webdb_user`, a superuser that connects to a DMS instance for migration, and grant necessary privileges.
+1. Select **Choose file**.
+
+1. Choose the `Mariadb_CF.yaml` file, and then choose **Next**.
+
+1. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+   +  **Stack name** — Enter a name for the stack.
+   +  **CIDR** — Enter the CIDR IP range to access the instance.
+   +  **DBAllocatedStorage** — Enter the database storage size in GB. The default is 20 GB.
+   +  **DBBackupRetentionPeriod** — The number of days to retain backups.
+   +  **DBInstanceClass** — Enter the instance type of the database server.
+   +  **DBMonitoringInterval** — Interval to publish database logs to Amazon CloudWatch.
+   +  **DBSubnetGroup** — Enter the DB subnet group name. For more information, see [Create a DB subnet group](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateVPC.html#CHAP_Tutorials.WebServerDB.CreateVPC.DBSubnetGroup) in the *Amazon RDS User Guide*.
+   +  **MariaDBEngine** — Enter the MariaDB engine version.Leave empty to use default. For more information, see [MariaDB on Amazon RDS versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MariaDB.Concepts.VersionMgmt.html) in the *Amazon RDS User Guide*.
+   +  **DBMasterPassword** — Enter the master password for the DB instance.
+   +  **DBMasterUsername** — Enter the master user name for the DB instance.
+   +  **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
+   +  **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
+   +  **RDSDBName** — Enter the name of the database.
+   +  **RDSMultiAZ** — Choose **true** to use Amazon RDS Multi-AZ for this instance. The default value for this option is **false**. For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon Relational Database Service User Guide*.
+   +  **VPCID** — Enter the VPC to launch your DB instance. For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide*.
+
+     Make sure that you entered the stack name, DB subnet group name, user name, password, database name, and VPC ID.
+
+1. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
+
+1. On the **Review** page, select **I acknowledge that AWS CloudFormation might create IAM resources**, and then choose **Next**.
+
+1. Choose **Create stack**.
+
+After the Amazon RDS for MariaDB instance is created, log in to MariaDB and run the following statements to create `webdb_user`, a superuser that connects to a DMS instance for migration, and grant necessary privileges.
 
 ```
 CREATE USER 'webdb_user'@'%' IDENTIFIED BY '******';
@@ -39,7 +49,7 @@ grant REPLICATION SLAVE ON *.* TO webdb_user;
 grant REPLICATION CLIENT ON *.* TO webdb_user;
 ```
 
-In this walkthrough, we created a database called _migration_ and few sample tables, along with stored procedures, triggers, functions, and so on. The following query provides the list of tables in _migration_ database:
+In this walkthrough, we created a database called *migration* and few sample tables, along with stored procedures, triggers, functions, and so on. The following query provides the list of tables in *migration* database:
 
 ```
 MariaDB [(none)]> use migration
@@ -131,6 +141,6 @@ The `mysqldump` utility doesn’t provide the option to remove a `DEFINER` state
 $ sed -i -e 's/DEFINER=`root`@`localhost`/DEFINER=`master`@`%`/g' routines.sql
 ```
 
-We now have a backup of MariaDB, in two `–0—sql` files (`mysql_tables_indexes.sql` and `routines.sql`). We will use these files to load the table definition into an Aurora MySQL database.
+We now have a backup of MariaDB, in two `0sql` files (`mysql_tables_indexes.sql` and `routines.sql`). We will use these files to load the table definition into an Aurora MySQL database.
 
 After backups are completed into two .sql files (`mysql_tables_indexes.sql`, `routines.sql`), use these files to load the table definition into the Aurora MySQL database.

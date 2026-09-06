@@ -1,125 +1,142 @@
+
+
 # Step-by-step Amazon RDS for MySQL database to Amazon DynamoDB migration walkthrough
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration"></a>
 
 The following steps provide instructions for migrating an Amazon RDS for MySQL database to DynamoDB. These steps assume that you have already prepared your source database as described previously.
 
-Step 1: [Create an AWS DMS Replication Instance](#step1 "#step1")
+Step 1: [Create an AWS DMS Replication Instance](#step1) 
 
-Step 2: [Configure a Source Amazon RDS for MySQL Database](#step2 "#step2")
+Step 2: [Configure a Source Amazon RDS for MySQL Database](#step2) 
 
-Step 3: [Create an AWS DMS Source Endpoint](#step3 "#step3")
+Step 3: [Create an AWS DMS Source Endpoint](#step3) 
 
-Step 4: [Configure a Target Amazon DynamoDB table](#step4 "#step4")
+Step 4: [Configure a Target Amazon DynamoDB table](#step4) 
 
-Step 5: [Configure an AWS DMS Target Endpoint](#step5 "#step5")
+Step 5: [Configure an AWS DMS Target Endpoint](#step5) 
 
-Step 6: [Create an AWS DMS Task](#step6 "#step6")
+Step 6: [Create an AWS DMS Task](#step6) 
 
-Step 7: [Run the AWS DMS Task](#step7 "#step7")
+Step 7: [Run the AWS DMS Task](#step7) 
 
 ## Step 1: Create replication instance
+<a name="step1"></a>
 
-An AWS DMS replication instance hosts the software that migrates data between the source and target. The replication instance also caches the transaction logs during the migration. The CPU and memory capacity of the replication instance influences the overall time needed for the migration. Make sure that you consider the specifics of your particular use case when you determine the size of your replication instance. A full load task consumes a lot of memory if it is run multithreaded. For more information, see [Choosing the right replication instance for your migration](../userguide/CHAP_ReplicationInstance.Types.md "../userguide/CHAP_ReplicationInstance.Types.md").
+An AWS DMS replication instance hosts the software that migrates data between the source and target. The replication instance also caches the transaction logs during the migration. The CPU and memory capacity of the replication instance influences the overall time needed for the migration. Make sure that you consider the specifics of your particular use case when you determine the size of your replication instance. A full load task consumes a lot of memory if it is run multithreaded. For more information, see [Choosing the right replication instance for your migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html).
 
 For our use case, we have a limited time window of 15 hours to complete the full load, and the table that includes 210 GB of data. Our goal is to fit into the 10-hour window. Therefore, we scale the replication instance to accommodate these requirements.
 
 Each type of instance class has a different CPU, memory, and I/O capacity. Sizing the replication instance should be based on factors such as data volume, transaction frequency, large objects (LOBs) within storage of the data migration, and so on. We initially chose a DMS dms.c5.large instance running the latest AWS DMS engine version and default task configuration. We then upgraded to a dms.c5.12xlarge instance with a customized task configuration to see the performance differences. We will discuss the performance and configuration details in an upcoming section.
 
-We also upgraded the storage of the replication instance to 200 GB, and as a result, 600 IOPS were available for our replication instance. By default, DMS allocates 50 GB of storage to a replication instance. This may not be sufficient for use cases where more tasks are running on same replication instance or when running tasks with parallel load for large tables. With 600 IOPS, we saved several minutes of migration time. For more information about storage volume performance and burst I/O credits, see [General Purpose SSD (gp2) volumes](../../../AWSEC2/latest/UserGuide/general-purpose.md#EBSVolumeTypes_gp2 "../../../AWSEC2/latest/UserGuide/general-purpose.md#EBSVolumeTypes_gp2").
+We also upgraded the storage of the replication instance to 200 GB, and as a result, 600 IOPS were available for our replication instance. By default, DMS allocates 50 GB of storage to a replication instance. This may not be sufficient for use cases where more tasks are running on same replication instance or when running tasks with parallel load for large tables. With 600 IOPS, we saved several minutes of migration time. For more information about storage volume performance and burst I/O credits, see [General Purpose SSD (gp2) volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose.html#EBSVolumeTypes_gp2).
 
-Because we replicate production data in this walkthrough, we use the Multi-AZ deployment option for our replication instance for high availability. Also, we didn’t make this replication instance publicly accessible for additional security.
-For information about best practices for using AWS DMS, see [Database Migration Service Best Practices](https://d0.awsstatic.com/whitepapers/RDS/AWS_Database_Migration_Service_Best_Practices.pdf "https://d0.awsstatic.com/whitepapers/RDS/AWS_Database_Migration_Service_Best_Practices.pdf").
+Because we replicate production data in this walkthrough, we use the Multi-AZ deployment option for our replication instance for high availability. Also, we didn’t make this replication instance publicly accessible for additional security. For information about best practices for using AWS DMS, see [Database Migration Service Best Practices](https://d0.awsstatic.com/whitepapers/RDS/AWS_Database_Migration_Service_Best_Practices.pdf).
 
 To create an AWS DMS replication instance, do the following:
 
-1. Sign in to the AWS Management Console, and open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
-2. If you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM permissions](../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions "../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions").
-3. On the Welcome page, choose **Create replication instance** to start a database migration.
-4. On the **Create replication instance** page, specify your replication instance information.
+1. Sign in to the AWS Management Console, and open the [AWS DMS console](https://console.aws.amazon.com/dms/v2).
 
-|                             |                                                                                                                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| For this parameter          | Do the following                                                                                                                                                                                             |
-| **Name**                    | Enter **mysql-to-ddb-migration-ri**. If you are using multiple replication servers or sharing an account, choose a name that helps you quickly differentiate between the different servers.                  |
-| **Description**             | Enter **Migrate MySQL to Amazon DynamoDB**.                                                                                                                                                                  |
-| **Instance class**          | Choose **dms.c5.12xlarge**. Each size and type of instance class has increasing CPU, memory, and I/O capacity.                                                                                               |
-| **Engine version**          | Leave the default value, which is the latest stable version of the AWS DMS replication engine.                                                                                                               |
-| **Allocated storage (GiB)** | Choose **200 GiB**.                                                                                                                                                                                          |
-| **VPC**                     | Choose the virtual private cloud (VPC) in which your replication instance will launch. Select the same VPC in which your source is placed.                                                                   |
-| **Multi AZ**                | In this scenario, choose **No**. If you choose **Yes**, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server. |
-| **Publicly accessible**     | Choose **Yes**. If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible.              |
+1. If you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM permissions](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
+
+1. On the Welcome page, choose **Create replication instance** to start a database migration.
+
+1. On the **Create replication instance** page, specify your replication instance information.
+
+
+|  |  | 
+| --- |--- |
+| For this parameter | Do the following | 
+|  **Name**  | Enter **mysql-to-ddb-migration-ri**. If you are using multiple replication servers or sharing an account, choose a name that helps you quickly differentiate between the different servers. | 
+|  **Description**  | Enter **Migrate MySQL to Amazon DynamoDB**. | 
+|  **Instance class**  | Choose **dms.c5.12xlarge**. Each size and type of instance class has increasing CPU, memory, and I/O capacity. | 
+|  **Engine version**  | Leave the default value, which is the latest stable version of the AWS DMS replication engine. | 
+|  **Allocated storage (GiB)**  | Choose **200 GiB**. | 
+|  **VPC**  | Choose the virtual private cloud (VPC) in which your replication instance will launch. Select the same VPC in which your source is placed. | 
+|  **Multi AZ**  | In this scenario, choose **No**. If you choose **Yes**, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server. | 
+|  **Publicly accessible**  | Choose **Yes**. If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible. | 
 
 1. Choose **Create**.
 
 ## Step 2: Configure a Source Amazon RDS for MySQL Database
+<a name="step2"></a>
 
 Before setting up AWS DMS resource, there are some setups are required to configure your MySQL DB instances as a source for AWS DMS. As you know, in this walkthrough we are using a MySQL database on Amazon RDS, so DMS MySQL required prerequisites has to be enabled at the instance parameter group.
 
 ### Binary logging and its retention
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step2.1"></a>
 
-To use AWS DMS change data capture (CDC), enable binary logging on the source MySQL RDS instance. To enable binary logs for RDS for MySQL and for RDS for MariaDB, enable automatic backups at the instance level. For more information about setting up automatic backups, see [Working with automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon RDS User Guide_.
+To use AWS DMS change data capture (CDC), enable binary logging on the source MySQL RDS instance. To enable binary logs for RDS for MySQL and for RDS for MariaDB, enable automatic backups at the instance level. For more information about setting up automatic backups, see [Working with automated backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html) in the *Amazon RDS User Guide*.
 
 Next, the following parameters must be configured on the parameter group used by the source database. You can’t modify a default parameter group. If the database instance is using a default parameter group, create a new parameter group and associate it with the database instance. After you perform these steps, you must reboot the database instance for your changes to apply.
 
 The following parameters are dynamic types, so a custom parameter group with the below values doesn’t require an instance reboot.
 
-`binlog_format=ROW`
+ `binlog_format=ROW` 
 
-`binlog_checksum=NONE`
+ `binlog_checksum=NONE` 
 
-`binlog_row_image=FULL`
+ `binlog_row_image=FULL` 
 
 To ensure that binary logs are available to AWS DMS, you should increase the length of time that the logs remain available in the database instance host. For example, to increase the log retention to 24 hours, execute the following procedure call on the source database.
 
-`call mysql.rds_set_configuration('binlog retention hours', 24);`
+ `call mysql.rds_set_configuration('binlog retention hours', 24);` 
 
 Also, it is recommended to retain the binary logs until the task completes the full load phase, and runs the CDC phase with less latency. In the planning phase, test your workload, and based on that, retain the logs for the production migration.
 
 ### Source User Permission
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step2.2"></a>
 
 You must have an account for AWS DMS that has the Replication Admin role. The role needs the following privileges to run the CDC task.
 
-**REPLICATION CLIENT** – This privilege is required for CDC tasks only. In other words, full-load-only tasks don’t require this privilege.
+ **REPLICATION CLIENT** – This privilege is required for CDC tasks only. In other words, full-load-only tasks don’t require this privilege.
 
-**REPLICATION SLAVE** – This privilege is required for CDC tasks only. In other words, full-load-only tasks don’t require this privilege.
+ **REPLICATION SLAVE** – This privilege is required for CDC tasks only. In other words, full-load-only tasks don’t require this privilege.
 
 The AWS DMS user must also have SELECT privileges for the source tables designated for replication.
 
 ### Network configuration
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step2.3"></a>
 
-In this walkthrough, the DB instance and the replication instance are placed in the same VPC and the same subnet, so all you need to do is configure security groups, network ACLs, and route tables so that these Amazon RDS for MySQL DB instances and AWS DMS replication instances can communicate within the subnet. If you have source databases in different subnets or different VPCs, you need to configure your network to allow communication between the Amazon RDS for MySQL DB instance and the AWS DMS replication instance. For more information about network setup, see [Network configurations for database migration](../userguide/CHAP_ReplicationInstance.VPC.md "../userguide/CHAP_ReplicationInstance.VPC.md") in the _DMS user Guide_.
+In this walkthrough, the DB instance and the replication instance are placed in the same VPC and the same subnet, so all you need to do is configure security groups, network ACLs, and route tables so that these Amazon RDS for MySQL DB instances and AWS DMS replication instances can communicate within the subnet. If you have source databases in different subnets or different VPCs, you need to configure your network to allow communication between the Amazon RDS for MySQL DB instance and the AWS DMS replication instance. For more information about network setup, see [Network configurations for database migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.VPC.html) in the *DMS user Guide*.
 
 ### Inbound connection rule
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step2.4"></a>
 
 To ensure that the replication instance can access the server and the port for the database, you need to make changes to the relevant security groups and network access control lists. AWS DMS only requires access to the MySQL database listener port (3306). Also, the connection is always from the AWS DMS replication instance to MySQL. Therefore, allow connections from the replication instance to the ingress rule of the security group attached to the DB instance. We recommend you to add the complete subnet group range in the ingress rule, because the AWS DMS replication instance is a managed service and the IP address may change automatically.
 
 ## Step 3: Create an AWS DMS Source Endpoint
+<a name="step3"></a>
 
 After you complete the network configurations, you can create a source endpoint. To create a source endpoint, do the following:
 
-1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Endpoints**.
-3. Choose **Create endpoint**.
-4. On the **Create endpoint** page, enter the following information.
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/).
 
-|                                    |                                                              |
-| ---------------------------------- | ------------------------------------------------------------ |
-| Parameter                          | Value                                                        |
-| **Endpoint type**                  | Choose **Source endpoint**                                   |
-| **Endpoint identifier**            | Enter **mysql-source-dms-datastore**                         |
-| Source engine                      | Choose **MySQL**.                                            |
-| **Access to endpoint database**    | Choose **Provide access information manually**.              |
-| Server name                        | Enter the MySQL Database host amazon ec2 instance IP         |
-| Port                               | Enter **3306**.                                              |
-| **Secure Socket Layer (SSL) mode** | Choose **none**.                                             |
-| **User name**                      | Enter **dms\_user**.                                         |
-| Password                           | Enter the password that you created for the `dms_user` user. |
+1. Choose **Endpoints**.
+
+1. Choose **Create endpoint**.
+
+1. On the **Create endpoint** page, enter the following information.
+
+
+|  |  | 
+| --- |--- |
+| Parameter | Value | 
+|  **Endpoint type**  | Choose **Source endpoint**  | 
+|  **Endpoint identifier**  | Enter **mysql-source-dms-datastore**  | 
+| Source engine | Choose **MySQL**. | 
+|  **Access to endpoint database**  | Choose **Provide access information manually**. | 
+| Server name | Enter the MySQL Database host amazon ec2 instance IP | 
+| Port | Enter **3306**. | 
+|  **Secure Socket Layer (SSL) mode**  | Choose **none**. | 
+|  **User name**  | Enter **dms\_user**. | 
+| Password | Enter the password that you created for the `dms_user` user. | 
 
 ## Step 4: Configure a Target Amazon DynamoDB table
+<a name="step4"></a>
 
 A DMS task can create a target DynamoDB table based on the source table definition. When AWS DMS sets DynamoDB parameter values for a migration task, the default Read Capacity Units (RCU) parameter value is set to 200. The Write Capacity Units (WCU) parameter value is also set, but its value depends on several other settings:
-
-- The default value for the WCU parameter is 200.
-- If the `ParallelLoadThreads` task setting is set greater than 1 (the default is 0), then the WCU parameter is set to 200 times the ParallelLoadThreads value.
++ The default value for the WCU parameter is 200.
++ If the `ParallelLoadThreads` task setting is set greater than 1 (the default is 0), then the WCU parameter is set to 200 times the ParallelLoadThreads value.
 
 In this case, DMS uses the default provisioned capacity, which will not be sufficient to handle the workload from Source database. To avoid a resource constraint issue, and to customize the key usage, consider creating the target DynamoDB table with the configuration required by your workload.
 
@@ -156,35 +173,38 @@ Create Table: CREATE TABLE `vaccine_drive_stats` (
 
 To create an Amazon DynamoDB table, do the following.
 
-1. Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. Choose **Create Table**. In the **Create DynamoDB table** screen, do the following:
-3. On the Table name box, enter the name of the table as “vaccine\_drive\_stats\_tab”.
+1. Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-###### Note
+1. Choose **Create Table**. In the **Create DynamoDB table** screen, do the following:
 
-The target table can be renamed as per your requirements, but make sure to map the table name using a DMS object mapping rule.
+1. On the Table name box, enter the name of the table as “vaccine\_drive\_stats\_tab”.
 
-The Dynamo DB sort/partition key for a table should be picked based on the table access patterns. DMS has the limitation in the CDC phase that DynamoDB doesn’t allow updates to the primary key attributes. This restriction is important when using ongoing replication with change data capture (CDC) because it can result in unwanted data on the target. Depending on how you have the object mapping, a CDC operation that updates the primary key can do one of two things: It can either fail, or insert a new item with the updated primary key and incomplete data. So, choose the partition key and sort key carefully to avoid issues in the migration.
-
-For the Primary key, do the following:
-
-DynamoDB query performance depends on the partition key and sort key selection for a table. So, choose a high cardinality column as the partition key to distribute the data across partitions in a DDB table. The sort key is used to sort and order items in a partition internally at the DDB table level. So, choose a sort key that collects related information together in one partition area, so that query performance can be improved. In this use case, we have chosen user\_id as the partition key and "area\_code" as the sort key to distribute and organize the data based on the application access pattern. Refer [Choosing the Right DynamoDB Partition Key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/") for more details.
+**Note**  
+The target table can be renamed as per your requirements, but make sure to map the table name using a DMS object mapping rule.  
+The Dynamo DB sort/partition key for a table should be picked based on the table access patterns. DMS has the limitation in the CDC phase that DynamoDB doesn’t allow updates to the primary key attributes. This restriction is important when using ongoing replication with change data capture (CDC) because it can result in unwanted data on the target. Depending on how you have the object mapping, a CDC operation that updates the primary key can do one of two things: It can either fail, or insert a new item with the updated primary key and incomplete data. So, choose the partition key and sort key carefully to avoid issues in the migration.  
+For the Primary key, do the following:  
+DynamoDB query performance depends on the partition key and sort key selection for a table. So, choose a high cardinality column as the partition key to distribute the data across partitions in a DDB table. The sort key is used to sort and order items in a partition internally at the DDB table level. So, choose a sort key that collects related information together in one partition area, so that query performance can be improved. In this use case, we have chosen user\_id as the partition key and "area\_code" as the sort key to distribute and organize the data based on the application access pattern. Refer [Choosing the Right DynamoDB Partition Key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/) for more details.
 
 1. In the Partition key box, enter column name as “user\_id” and set the data type to String.
-2. Choose To add sort key.
-3. In the Sort key box, enter column name as “area\_code" and set the data type to String.
-4. In table settings, choose Customize Settings and then select On-Demand Read/Write capacity
-5. When the settings are as you want them, choose Create.
 
-In this Walkthrough, we are pre-creating the target table with On-demand capacity mode for migration. Later, based on the traffic flow, you can change the capacity mode on the target to save costs after the migration completes. For more information, see [Amazon DynamoDB create table](../../../amazondynamodb/latest/developerguide/getting-started-step-1.md "../../../amazondynamodb/latest/developerguide/getting-started-step-1.md").
+1. Choose To add sort key.
+
+1. In the Sort key box, enter column name as “area\_code" and set the data type to String.
+
+1. In table settings, choose Customize Settings and then select On-Demand Read/Write capacity
+
+1. When the settings are as you want them, choose Create.
+
+In this Walkthrough, we are pre-creating the target table with On-demand capacity mode for migration. Later, based on the traffic flow, you can change the capacity mode on the target to save costs after the migration completes. For more information, see [Amazon DynamoDB create table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html).
 
 ## Step 5: Configure an AWS DMS Target Endpoint
+<a name="step5"></a>
 
 Before you begin to work with a DynamoDB database as a target for AWS DMS, make sure that you create an IAM role. This IAM role should allow AWS DMS to assume the application role, and grants access to the DynamoDB tables that are being migrated into. The minimum set of access permissions is shown in the following IAM policy.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "",
@@ -202,7 +222,7 @@ DMS creates the control tables “awsdms\_apply\_exceptions” and “awsdms\_fu
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
     {
         "Effect": "Allow",
@@ -234,40 +254,48 @@ DMS creates the control tables “awsdms\_apply\_exceptions” and “awsdms\_fu
 
 To create a target endpoint for Amazon DynamoDB, do the following:
 
-1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Endpoints**.
-3. Choose **Create endpoint**.
-4. On the **Create endpoint** page, enter the following information.
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/).
 
-|                             |                                         |
-| --------------------------- | --------------------------------------- |
-| Parameter                   | Value                                   |
-| **Endpoint type**           | Choose **Target endpoint**              |
-| **Endpoint identifier**     | Enter **dynamodb-target-dms-datastore** |
-| **Target engine**           | Choose **Amazon DynamoDB**.             |
-| **Service access role ARN** | Provide the IAM role ARN created above  |
+1. Choose **Endpoints**.
+
+1. Choose **Create endpoint**.
+
+1. On the **Create endpoint** page, enter the following information.
+
+
+|  |  | 
+| --- |--- |
+| Parameter | Value | 
+|  **Endpoint type**  | Choose **Target endpoint**  | 
+|  **Endpoint identifier**  | Enter **dynamodb-target-dms-datastore**  | 
+|  **Target engine**  | Choose **Amazon DynamoDB**. | 
+|  **Service access role ARN**  | Provide the IAM role ARN created above | 
 
 ## Step 6: Create DMS Task
+<a name="step6"></a>
 
 Before you create the replication task, it is important to understand the workload on the source database, and the usage pattern of the tables being replicated. This helps plan an effective migration approach, and minimizes any configuration or workload related issues. In this section, we first review the important considerations, and then learn how to configure our walkthrough DMS task accordingly by applying table mappings and task settings.
 
 ### Considerations Before Creating an AWS DMS Task
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.1"></a>
 
 #### Size and number of records
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.1.1"></a>
 
 The volume of migrated records affects the full load completion time. It is difficult to predict the full load time upfront, but testing with a replica of a production instance should provide a baseline. Use this estimate to decide whether you should parallelize full load by using multiple tasks or by using the parallel load option.
 
 DMS supports parallel load threads for a target DynamoDB endpoint. However, other features such as parallel-load table level mapping aren’t supported for a target Dynamo DB endpoint.
 
-`ParallelLoadThreads` – Use this option to specify the number of threads that AWS DMS uses to load each table into its DynamoDB target table. The default value is 0 (single-threaded). The maximum value is 200. You can contact support to have this maximum limit increased.
+ `ParallelLoadThreads` – Use this option to specify the number of threads that AWS DMS uses to load each table into its DynamoDB target table. The default value is 0 (single-threaded). The maximum value is 200. You can contact support to have this maximum limit increased.
 
-`ParallelLoadBufferSize` – Use this option to specify the maximum number of records to store in the buffer that the parallel load threads use to load data to the DynamoDB target. The default value is 50. The maximum value is 1,000. Use this setting with **ParallelLoadThreads**. **ParallelLoadBufferSize** is valid only when there is more than one thread. `ParallelLoadThreads` related settings responsible for only loading the data to target table using multiple threads. However, it doesn’t help to unload the source data in parallel.
+ `ParallelLoadBufferSize` – Use this option to specify the maximum number of records to store in the buffer that the parallel load threads use to load data to the DynamoDB target. The default value is 50. The maximum value is 1,000. Use this setting with **ParallelLoadThreads**. **ParallelLoadBufferSize** is valid only when there is more than one thread. `ParallelLoadThreads` related settings responsible for only loading the data to target table using multiple threads. However, it doesn’t help to unload the source data in parallel.
 
 To speed up the full load of large tables such as “vaccine\_drive\_stats” table in our use case, we can increase the number of parallel load threads in a task.
 
 #### Transactions per second
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.1.2"></a>
 
-While full load is affected by the number of records, the ongoing replication performance relies on the number of transactions on the source MySQL database. Performance issues during change data capture (CDC) generally stem from resource constraints on the source database, replication instance, target database, and network bandwidth or throughput. Knowing average and peak TPS on the source and recording CDC throughput and latency metrics helps baseline AWS DMS performance and identify an optimal task configuration. For more information, see [Replication task metrics](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task").
+While full load is affected by the number of records, the ongoing replication performance relies on the number of transactions on the source MySQL database. Performance issues during change data capture (CDC) generally stem from resource constraints on the source database, replication instance, target database, and network bandwidth or throughput. Knowing average and peak TPS on the source and recording CDC throughput and latency metrics helps baseline AWS DMS performance and identify an optimal task configuration. For more information, see [Replication task metrics](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Monitoring.html#CHAP_Monitoring.Metrics.Task).
 
 In this walkthrough, the source database is an RDS MySQL database where transaction volume depends on number of people attending the vaccination drive. So, a considerable amount of read and write traffic is expected during the day on the Source RDS MySQL database during the migration.
 
@@ -276,30 +304,34 @@ This approach requires a replication instance with higher compute capacity if th
 If you are not sure about your data volumes or performance expectations from the migration task, start with general t3-class instances, and then migrate to c5-class instances for compute-intensive tasks, or r5-class instances for memory intensive tasks. You should monitor the task metrics continuously, and choose the appropriate instance class that best suits your needs.
 
 #### Unsupported data types
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.1.3"></a>
 
-Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for MySQL](../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes "../userguide/CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes").
+Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for MySQL](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.DataTypes).
 
-Validate that the target DynamoDB has the corresponding data types. For more information, see [Target data types for DynamoDB](../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.DataTypes "../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.DataTypes").
+Validate that the target DynamoDB has the corresponding data types. For more information, see [Target data types for DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.DataTypes).
 
-After you run the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](../userguide/CHAP_Tasks.AssessmentReport1.md#CHAP_Tasks.AssessmentReport1.Individual "../userguide/CHAP_Tasks.AssessmentReport1.md#CHAP_Tasks.AssessmentReport1.Individual").
+After you run the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport1.html#CHAP_Tasks.AssessmentReport1.Individual).
 
 #### Source filtering in full load phase
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.1.4"></a>
 
-Running AWS DMS replication tasks for large tables can add to the workload on the source database especially during the full load phase when AWS DMS reads whole tables from source database without any filters to restrict rows. When you use filters in AWS DMS task table mapping, confirm that appropriate indexes exist on the source tables and indexes are actually being used during full load. Regularly monitor the source database to identify any workload related issues. For more information, see [Using table mapping to specify task settings](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md").
+Running AWS DMS replication tasks for large tables can add to the workload on the source database especially during the full load phase when AWS DMS reads whole tables from source database without any filters to restrict rows. When you use filters in AWS DMS task table mapping, confirm that appropriate indexes exist on the source tables and indexes are actually being used during full load. Regularly monitor the source database to identify any workload related issues. For more information, see [Using table mapping to specify task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html).
 
 In this walkthrough, we migrate one large source table (a table with 1 billion records and 210 GB in size) with the DMS default configuration to migrate the existing data to check the performance. Based on the full load run time and resource utilization metrics on the source MySQL database instance and replication instance, we used the AWS DMS parallel load option to further improve full load performance.
 
 ### Task configuration
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2"></a>
 
-In this walkthrough, we migrate the existing and incremental changes to the target DynamoDB. To do so, we use the Full Load + CDC option. For more information about the AWS DMS task creation steps and available configuration options, see [Creating a task](../userguide/CHAP_Tasks.Creating.md "../userguide/CHAP_Tasks.Creating.md").
+In this walkthrough, we migrate the existing and incremental changes to the target DynamoDB. To do so, we use the Full Load \+ CDC option. For more information about the AWS DMS task creation steps and available configuration options, see [Creating a task](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html).
 
 We will first focus on the following settings.
 
 #### LOB Settings
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2.1"></a>
 
-DMS considers source MySQL data types such as JSON, LONGTEXT, MEDIUMTEXT as LOB fields during migration. AWS DMS handles large binary object (LOB) columns differently compared to other data types. For more information, see [Migrating large binary objects (Lobs)](../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS "../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
+DMS considers source MySQL data types such as JSON, LONGTEXT, MEDIUMTEXT as LOB fields during migration. AWS DMS handles large binary object (LOB) columns differently compared to other data types. For more information, see [Migrating large binary objects (Lobs)](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html#CHAP_BestPractices.LOBS).
 
-A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the `LOB Max Size` increases the task’s memory utilization. Because of that, we recommended that you don’t set `LOB Max Size` to a large value. For more information about LOB settings, see [Task Configuration](chap-rdssqlserver2s3datalake.steps.createtask.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration "chap-rdssqlserver2s3datalake.steps.createtask.md#chap-rdssqlserver2s3datalake.steps.createtask.configuration").
+A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the `LOB Max Size` increases the task’s memory utilization. Because of that, we recommended that you don’t set `LOB Max Size` to a large value. For more information about LOB settings, see [Task Configuration](https://docs.aws.amazon.com/dms/latest/sbs/chap-rdssqlserver2s3datalake.steps.createtask.html#chap-rdssqlserver2s3datalake.steps.createtask.configuration).
 
 For this use case, the source table doesn’t contain any large object data types, so we decided to disable LOB settings in the task “TargetMetadata” configuration. Refer to the below task setting for more details.
 
@@ -327,14 +359,13 @@ For this use case, the source table doesn’t contain any large object data type
 ```
 
 DMS has the following limitations in migrating large objects. If you have source table with large objects, check the respective source database DMS documentation for support scope, and based on that, configure the migration task.
-
-- AWS DMS doesn’t support LOB data unless it is a CLOB. AWS DMS converts CLOB data into a DynamoDB string when migrating the data.
++  AWS DMS doesn’t support LOB data unless it is a CLOB. AWS DMS converts CLOB data into a DynamoDB string when migrating the data.
 
 #### Table Object mappings
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2.2"></a>
 
 DMS has the following limitations for a target DynamoDB endpoint.
-
-- AWS DMS only supports replication of tables with non-composite primary keys. The exception is if you specify an object mapping for the target table with a custom partition key or sort key, or both.
++  AWS DMS only supports replication of tables with non-composite primary keys. The exception is if you specify an object mapping for the target table with a custom partition key or sort key, or both.
 
 For this use case, the source MySQL table contains a composite primary key. Initially, we tried migrating the composite primary key table with a target prep mode of “DROP and CREATE” with only a DMS selection mapping rule. However, the table got suspended from the migration with following error, as mentioned in the limitations section prior:
 
@@ -441,15 +472,17 @@ To mitigate this issue, we created the target table as mentioned in Step 4, and 
 }
 ```
 
-In this case, the source table contains 22 columns in total, but by using object mapping, we restructured the total number of columns to 6, and concatenated other fields into new columns, as mentioned following. Similarly, you can restructure the target based on your requirements using the object mapping feature. For more information, see [Using object mapping to migrate data to DynamoDB](../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.ObjectMapping "../userguide/CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.ObjectMapping"). The following DynamoDB console screenshot shows the records in the table. As you can see, DMS migrated the records based on object mapping configuration.
+In this case, the source table contains 22 columns in total, but by using object mapping, we restructured the total number of columns to 6, and concatenated other fields into new columns, as mentioned following. Similarly, you can restructure the target based on your requirements using the object mapping feature. For more information, see [Using object mapping to migrate data to DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping). The following DynamoDB console screenshot shows the records in the table. As you can see, DMS migrated the records based on object mapping configuration.
 
-![Table items](images/mysql2dynamodb_tableitems.png)
+![Table items](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tableitems.png)
+
 
 #### Parallel load configuration
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2.3"></a>
 
 High values for `ParallelLoadThreads` cause heavy write traffic on the target DynamoDB tables. In such a scenario, you might find an increase in throttling events even in On-demand capacity mode. While increasing the setting value, monitor the target table’s monitoring graph and make sure that no throttling events occur.
 
-In our use case, the task is initially configured to use 200 for the `ParallelLoadThreads` setting. However, the task experienced the following DynamoDB throttling error. To avoid this DynamoDB error, we reduced the values from 200 to 150 to avoid having high throttling write events on the target table. After this change, the number of throttling events was reduced to zero on target table. For more information about throttling, see [Why is my on-demand DynamoDB table being throttled](https://aws.amazon.com/premiumsupport/knowledge-center/on-demand-table-throttling-dynamodb/ "https://aws.amazon.com/premiumsupport/knowledge-center/on-demand-table-throttling-dynamodb/")?
+In our use case, the task is initially configured to use 200 for the `ParallelLoadThreads` setting. However, the task experienced the following DynamoDB throttling error. To avoid this DynamoDB error, we reduced the values from 200 to 150 to avoid having high throttling write events on the target table. After this change, the number of throttling events was reduced to zero on target table. For more information about throttling, see [Why is my on-demand DynamoDB table being throttled](https://aws.amazon.com/premiumsupport/knowledge-center/on-demand-table-throttling-dynamodb/)?
 
 ```
 00143766: 2023-03-15T05:26:07 [SOURCE_CAPTURE ]E: PutItem failed with error: Throughput exceeds the current capacity of your table or index. DynamoDB is automatically scaling your table or index so please try again shortly. If exceptions persist, check if you have a hot key: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html. [1001788] (ddb_item_actions.cpp:78)
@@ -482,10 +515,11 @@ Task setting used for parallel load configuration:
 ```
 
 #### Other task settings
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2.4"></a>
 
 Choose **Enable CloudWatch Logs** to upload the AWS DMS task run log to Amazon CloudWatch. You can use these logs to troubleshoot issues, because they include error and warning messages, start and end times of the run, configuration issues, and so on. To diagnose performance issues, you can change the task logging setting, such as to enable debugging or tracing.
 
-**Note** Cloud Watch log usage is charged at standard rates. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+ **Note** Cloud Watch log usage is charged at standard rates. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 For **Target table preparation mode**, choose one of the following options: **Do nothing**, **Truncate**, or **Drop**. Use **Truncate** in data pipelines where the downstream systems rely on a fresh dump of clean data and do not rely on historical data. In our use case, the truncate option doesn’t support DynamoDB as a target. In this walkthrough, we choose **Do nothing** because we pre-created the target table as per the use case requirements.
 
@@ -507,37 +541,42 @@ Configuration used for `FullLoadSettings` :
   },
 ```
 
-**Note**
+ **Note** 
 
 Increasing this parameter induces additional load on the source database, replication instance, and target database.
 
 #### To create a database migration task
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.step6.2.5"></a>
 
-1. Log in to the AWS Management Console, and open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
-2. Choose **Database migration tasks**, then choose **Create task**.
-3. On the **Create database migration task page**, enter the following information.
+1. Log in to the AWS Management Console, and open the [AWS DMS console](https://console.aws.amazon.com/dms/v2).
 
-| Parameter                                                                                                   | Action                                                                         |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| **Task identifier**                                                                                         | Enter **mysql-to-dynamodb-data-migration**.                                    |
-| **Replication instance**                                                                                    | Choose **mysql-to-ddb-migration-ri**. You configured this value in Step 1.     |
-| **Source database endpoint**                                                                                | Choose **mysql-source-dms-datastore**. You configured this value in Step 3.    |
-| **Target database endpoint**                                                                                | Choose **dynamodb-target-dms-datastore**. You configured this value in Step 5. |
-| **Migration type**                                                                                          | Choose **Migrate existing data and replicate ongoing changes**.                |
-| **Editing mode**                                                                                            | Choose **Wizard**.                                                             |
-| **Custom CDC stop mode for source transactions**                                                            | Choose **Disable custom CDC stop mode**.                                       |
-| **Target table preparation mode**                                                                           | Choose **Do nothing**.                                                         |
-| **Stop task after full load completes**                                                                     | Choose **Don’t stop**.                                                         |
-| **Include LOB columns in replication**                                                                      | Choose **Don’t include LOB columns**                                           |
-| **Advanced task settings**, **Full load tuning settings**, **Maximum number of tables to load in parallel** | Use default value                                                              |
-| **Enable validation**                                                                                       | Turn off because DynamoDB doesn’t support validation.                          |
-| **Enable CloudWatch logs**                                                                                  | Turn on.                                                                       |
+1. Choose **Database migration tasks**, then choose **Create task**.
+
+1. On the **Create database migration task page**, enter the following information.
+
+
+| Parameter | Action | 
+| --- | --- | 
+|  **Task identifier**  | Enter **mysql-to-dynamodb-data-migration**. | 
+|  **Replication instance**  | Choose **mysql-to-ddb-migration-ri**. You configured this value in Step 1. | 
+|  **Source database endpoint**  | Choose **mysql-source-dms-datastore**. You configured this value in Step 3. | 
+|  **Target database endpoint**  | Choose **dynamodb-target-dms-datastore**. You configured this value in Step 5. | 
+|  **Migration type**  | Choose **Migrate existing data and replicate ongoing changes**. | 
+|  **Editing mode**  | Choose **Wizard**. | 
+|  **Custom CDC stop mode for source transactions**  | Choose **Disable custom CDC stop mode**. | 
+|  **Target table preparation mode**  | Choose **Do nothing**. | 
+|  **Stop task after full load completes**  | Choose **Don’t stop**. | 
+|  **Include LOB columns in replication**  | Choose **Don’t include LOB columns**  | 
+|  **Advanced task settings**, **Full load tuning settings**, **Maximum number of tables to load in parallel**  | Use default value | 
+|  **Enable validation**  | Turn off because DynamoDB doesn’t support validation. | 
+|  **Enable CloudWatch logs**  | Turn on. | 
 
 1. Keep the default values for other parameters, and choose Create task.
 
-AWS DMS runs the task immediately. The **Database migration tasks** section displays the status of the migration task.
+ AWS DMS runs the task immediately. The **Database migration tasks** section displays the status of the migration task.
 
 ## Step 7: Run the AWS DMS Task
+<a name="step7"></a>
 
 After you create your AWS Database Migration Service (AWS DMS) task, do a test run to identify the full load run time and ongoing replication performance. You can validate that initial configurations work as expected. You can do this by monitoring and documenting resource utilization on the source database, replication instance, and target database. These details make up the initial baseline and help determine if you need further optimization.
 
@@ -545,26 +584,30 @@ After you started the task, the full load operation starts loading tables. You c
 
 In our use case, the following image shows table statistics for the **dms.c5.12xlarge** replication instance with parallel-load threads option. The full load for migrating 1 billion records completed in 14 hours. This means that we achieved our goal of completing full load in less than 15 hours. Further, if you still want to reduce the full load time, you can distribute the table workload using multiple tasks with DMS source filter conditions and Parallel load threads configurations. Following this approach, you can migrate the data in parallel with better performance.
 
-![Table statistics](images/mysql2dynamodb_tablestatistics.png)
+![Table statistics](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tablestatistics.png)
+
 
 A task with instance class “dms.c5.large” and default configuration was able to migrate 1 Billion records in 278 hours. Later, the task moved to the `failed` state due to unavailability of the source binary log from the full load start time. To avoid this issue, ensure that you are retaining the binary log based on the full load completion time. Using these statistics, you can understand the benefits of using a parallel load configuration to speed up the migration phase. See the following screenshot for details.
 
-![Parallel load](images/mysql2dynamodb_parallelload.png)
+![Parallel load](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_parallelload.png)
+
 
 We also monitored the CloudWatch metrics such as compute, memory, and network to identify the resource usage of the AWS DMS instances. You have to identify the resource constraint and scale-up to the AWS DMS instance class that serves your workloads better. You could also scale-down the AWS DMS instance to a t3 or r5 instance class based on the transaction volume for your ongoing replication task.
 
-Because we turned on the parallel-load option, the I/O load on the replication instance is expected to increase. We described in Step 1 that you should monitor the **Write IOPS** and **Read IOPS** metrics in CloudWatch to make sure that the total IOPS (write + read IOPS) doesn’t exceed the total IOPS available for your replication instance. If it does, make sure that you allocate more storage to scale for better I/O performance. For more information, see [Monitoring replication tasks using Amazon CloudWatch](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch").
+Because we turned on the parallel-load option, the I/O load on the replication instance is expected to increase. We described in Step 1 that you should monitor the **Write IOPS** and **Read IOPS** metrics in CloudWatch to make sure that the total IOPS (write \+ read IOPS) doesn’t exceed the total IOPS available for your replication instance. If it does, make sure that you allocate more storage to scale for better I/O performance. For more information, see [Monitoring replication tasks using Amazon CloudWatch](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Monitoring.html#CHAP_Monitoring.CloudWatch).
 
-We covered most of the prerequisites that help avoid errors related to configuration. If you observe issues when running the task, then see [Troubleshooting migration tasks in Database Migration Service](../userguide/CHAP_Troubleshooting.md "../userguide/CHAP_Troubleshooting.md") or [Best practices for Database Migration Service](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md"), or reach out to AWS Support for further assistance.
+We covered most of the prerequisites that help avoid errors related to configuration. If you observe issues when running the task, then see [Troubleshooting migration tasks in Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Troubleshooting.html) or [Best practices for Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html), or reach out to AWS Support for further assistance.
 
 Optionally, you could choose to validate the successful completion of the data migration by querying the target DynamoDB table from the console. You can use the “Get live item count” option to get the total table record counts.
 
-![Items Summary](images/mysql2dynamodb_itemssummary.png)
+![Items Summary](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_itemssummary.png)
+
 
 When you choose "Start scan" from **Get live item count**, you will perform a DynamoDB scan to determine the most-recent item count. This scan might consume additional table read capacity units. Generally, it is not recommended to perform this action on very large tables or tables that serve critical production traffic. You can pause the action at any time to avoid consuming extra read capacity.
 
 After you complete the migration, validate that your data migrated successfully, and delete the cloud resources that you created.
 
 ## Conclusion
+<a name="chap-manageddatabases.mysql2dynamodb.stepbystepmigration.conclusion"></a>
 
-We covered all of the steps that you need to migrate a table from RDS MySQL to Amazon DynamoDB, and used the available configuration details to complete the migration in less time. Once the data was completely migrated to the target DB, then you can view the application traffic on the DynamoDB table. In this walkthrough, we achieved the crucial business requirements by using AWS DMS. Try out these steps to migrate your data to DynamoDB and explore how you can centralize your data with a low-cost solution. To learn more about AWS DMS, see the [Database Migration Service User Guide](../../index.md "../../index.md").
+We covered all of the steps that you need to migrate a table from RDS MySQL to Amazon DynamoDB, and used the available configuration details to complete the migration in less time. Once the data was completely migrated to the target DB, then you can view the application traffic on the DynamoDB table. In this walkthrough, we achieved the crucial business requirements by using AWS DMS. Try out these steps to migrate your data to DynamoDB and explore how you can centralize your data with a low-cost solution. To learn more about AWS DMS, see the [Database Migration Service User Guide](https://docs.aws.amazon.com/dms/index.html).

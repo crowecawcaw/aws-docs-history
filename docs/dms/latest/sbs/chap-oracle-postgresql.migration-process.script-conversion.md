@@ -1,4 +1,7 @@
+
+
 # Database migration script/ETL/report conversion
+<a name="chap-oracle-postgresql.migration-process.script-conversion"></a>
 
 ETL is an acronym that stands for Extract, Transform and Load. The ETL process plays a central role in data integration strategies. ETL allows businesses to gather data from multiple sources and consolidate it into a single, centralized location. ETL also makes it possible for different types of data to work together.
 
@@ -10,27 +13,37 @@ The role of ELT or ETL in database migration projects is critical for any succes
 
 For the remainder of this document, ETL will also refer to ELT patterns.
 
-ETL can be implemented in the database itself, in external scripts or in third-party tools such as Informatica, Talend, and so on. If the ETL is done using Oracle stored procedure, the freely available AWS Schema Conversion Tool (AWS SCT) is capable of converting the ETL code to AWS Glue. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation "chap-oracle-postgresql.md#chap-oracle-postgresql.automation").
+ETL can be implemented in the database itself, in external scripts or in third-party tools such as Informatica, Talend, and so on. If the ETL is done using Oracle stored procedure, the freely available AWS Schema Conversion Tool (AWS SCT) is capable of converting the ETL code to AWS Glue. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation).
 
 ## Process for Conversion to AWS Glue
+<a name="chap-oracle-postgresql.migration-process.script-conversion.process"></a>
 
 If Python/Glue is a desired future state architecture for ETL code, and the ETL is implemented in the database, the conversion process works like this:
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md "chap-oracle-postgresql.migration-process.database-schema-conversion.md").
-2. Run AWS SCT, select the code involved in ETL and automatically convert the ETL code to AWS Glue. For more information, see [Converting ETL processes](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.md").
-3. Fix any warnings and errors in the ETL code conversion.
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md).
+
+1. Run AWS SCT, select the code involved in ETL and automatically convert the ETL code to AWS Glue. For more information, see [Converting ETL processes](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue.html).
+
+1. Fix any warnings and errors in the ETL code conversion.
 
 ## Process for Conversion of Stored Procedures
+<a name="chap-oracle-postgresql.migration-process.script-conversion.process-stored-procedures"></a>
 
 If ETL or report process is implemented in the database, then the database conversion takes care of converting the code, and only the method to call the stored procedures need to change.
 
 ## Process for Conversion of Scripts, Reports, and Third-Party ETL
+<a name="chap-oracle-postgresql.migration-process.script-conversion.process-scripts"></a>
 
 If the ETL or Report code is available in scripts or hosted in third-party tools and those tools will be used in the future, then a custom process will have to be implemented:
 
-1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md "chap-oracle-postgresql.migration-process.database-schema-conversion.md").
-2. Extract PL/SQL statements from the third-party ETL or reporting tool into flat files, unless already available.
-3. Write YAML configuration files for AWS SCT CLI to convert external files.
-4. Run AWS SCT CLI on the external scripts using the YAML configuration files. For more information, see [AWS Schema Conversion Tool CLI and Interactive Mode Reference](https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf "https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf").
-5. Fix any warnings and errors in the ETL or report code conversion.
-6. Insert the converted PL/pgSQL code back into the third-party ETL or reporting tool, unless they stay as flat files.
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md).
+
+1. Extract PL/SQL statements from the third-party ETL or reporting tool into flat files, unless already available.
+
+1. Write YAML configuration files for AWS SCT CLI to convert external files.
+
+1. Run AWS SCT CLI on the external scripts using the YAML configuration files. For more information, see [AWS Schema Conversion Tool CLI and Interactive Mode Reference](https://s3.amazonaws.com/publicsctdownload/AWS+SCT+CLI+Reference.pdf).
+
+1. Fix any warnings and errors in the ETL or report code conversion.
+
+1. Insert the converted PL/pgSQL code back into the third-party ETL or reporting tool, unless they stay as flat files.

@@ -1,32 +1,35 @@
-# SQL Server database backup and restore using Amazon S3
 
-Backup and restore is the easiest and usually the preferred method for the initial load of the target database. In this method, you create a full backup of your self-managed SQL Server database, transfer it to an Amazon S3 bucket, and restore it to your Amazon RDS for SQL Server instance. For more information, see [Importing and exporting SQL Server databases using native backup and restore](../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md "../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md") in the _Amazon RDS User Guide_.
+
+# SQL Server database backup and restore using Amazon S3
+<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore"></a>
+
+Backup and restore is the easiest and usually the preferred method for the initial load of the target database. In this method, you create a full backup of your self-managed SQL Server database, transfer it to an Amazon S3 bucket, and restore it to your Amazon RDS for SQL Server instance. For more information, see [Importing and exporting SQL Server databases using native backup and restore](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html) in the *Amazon RDS User Guide*.
 
 The backup and restore method is suitable for the following use cases:
++ Your database size is less than 64 TiB.
++ You want to carry out a lift and shift migration with no changes or minimal changes to the database. For example, you want to migrate secondary database objects such as users, views, stored procedures, triggers, and so on in addition to your data.
++ Network connectivity between your on-premises data center and AWS is often congested or has frequent disconnects. Backup and restore gives you the flexibility to transmit backup files during non-business hours.
 
-- Your database size is less than 64 TiB.
-- You want to carry out a lift and shift migration with no changes or minimal changes to the database. For example, you want to migrate secondary database objects such as users, views, stored procedures, triggers, and so on in addition to your data.
-- Network connectivity between your on-premises data center and AWS is often congested or has frequent disconnects. Backup and restore gives you the flexibility to transmit backup files during non-business hours.
-  The backup and restore method has the following limitations:
-
-- Amazon RDS for SQL Server supports native restore of databases up to 64 TiB in size. For SQL Server Express Edition databases, Amazon RDS supports native restore of up to 10 GiB.
-- On Multi-AZ database instances, you can only natively restore databases that are backed up in full recovery model.
-- The Amazon S3 bucket where you store your data, has to be located in the same AWS Region as your target Amazon RDS for SQL Server database instance.
-- Restoring backups from one time zone to a different time zone isn’t recommended.
-- You can’t transform or filter data at a table-level when you use backup and restore.
-- When you need to migrate a subset of tables, you can’t use backup and restore.
+The backup and restore method has the following limitations:
++ Amazon RDS for SQL Server supports native restore of databases up to 64 TiB in size. For SQL Server Express Edition databases, Amazon RDS supports native restore of up to 10 GiB.
++ On Multi-AZ database instances, you can only natively restore databases that are backed up in full recovery model.
++ The Amazon S3 bucket where you store your data, has to be located in the same AWS Region as your target Amazon RDS for SQL Server database instance.
++ Restoring backups from one time zone to a different time zone isn’t recommended.
++ You can’t transform or filter data at a table-level when you use backup and restore.
++ When you need to migrate a subset of tables, you can’t use backup and restore.
 
 ## Migration steps
+<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore-steps"></a>
 
 At a high level, the steps involved in backup and restore are the following:
++ Perform a full backup of the source database.
++ Copy the backup file to an Amazon S3 bucket.
++ Restore the backup from the Amazon S3 bucket onto the target Amazon RDS for SQL Server database.
 
-- Perform a full backup of the source database.
-- Copy the backup file to an Amazon S3 bucket.
-- Restore the backup from the Amazon S3 bucket onto the target Amazon RDS for SQL Server database.
-
-We use the [`dms_sample`](https://github.com/aws-samples/aws-database-migration-samples/blob/master/sqlserver/sampledb/v1/README.md "https://github.com/aws-samples/aws-database-migration-samples/blob/master/sqlserver/sampledb/v1/README.md") database in the following example.
+We use the [`dms_sample`](https://github.com/aws-samples/aws-database-migration-samples/blob/master/sqlserver/sampledb/v1/README.md) database in the following example.
 
 ## Perform full backup
+<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore-full-backup"></a>
 
 First, perform a full back up of the source database. RDS for Microsoft SQL Server currently limits data files to 5 TiB. If the database backup size is less than 5 TiB, you can use the following command.
 
@@ -57,6 +60,7 @@ Go
 ```
 
 ## Copy backup files to Amazon S3
+<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore-copy-backup"></a>
 
 Now, use the AWS CLI to upload the backup file to an Amazon S3 bucket.
 
@@ -72,37 +76,48 @@ aws s3 cp "C:\Backup" s3://sampledatabaseuswest2/ --recursive
 
 Make sure that you define an AWS Identity and Access Management (IAM) role to access the option group. An option group can specify features, called options, that are available for a particular Amazon RDS DB instance. When you associate a DB instance with an option group, the specified options and option settings are enabled for that DB instance
 
-When you create this IAM role, attach a trust relationship and a permissions policy. For more information, see [Manually creating an IAM role for native backup and restore](../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Enabling.IAM "../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Enabling.IAM").
+When you create this IAM role, attach a trust relationship and a permissions policy. For more information, see [Manually creating an IAM role for native backup and restore](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html#SQLServer.Procedural.Importing.Native.Enabling.IAM).
 
 We create the `sql-server-backup-restore` role, and then use it when we configure the target Amazon RDS database.
 
 ## Restore your backup to the target database
+<a name="chap-manageddatabases.sql-server-rds-sql-server-full-load-backup-restore-restore-backup"></a>
 
 To restore your backup, do the following:
 
 1. Create an option group for the target database.
 
    1. In the Amazon RDS console, choose **Option groups**, and then choose **Create option group**.
-   2. For **Name**, enter **SQLServerrestore**.
-   3. For **Description**, enter **SQLServerrestore**.
-   4. For **Engine**, choose **sqlserver-se**.
-   5. For **Major engine version**, choose **14.00**.
-   6. Choose **Create**.
 
-2. Add the `SQLSERVER_BACKUP_RESTORE` option and the `sql-server-backup-restore` role to this option group to access S3 bucket.
+   1. For **Name**, enter **SQLServerrestore**.
+
+   1. For **Description**, enter **SQLServerrestore**.
+
+   1. For **Engine**, choose **sqlserver-se**.
+
+   1. For **Major engine version**, choose **14.00**.
+
+   1. Choose **Create**.
+
+1. Add the `SQLSERVER_BACKUP_RESTORE` option and the `sql-server-backup-restore` role to this option group to access S3 bucket.
 
    1. On the **Option groups** page, choose the option group that you created.
-   2. For **Options**, choose **Add option**. The **Add option** page opens.
-   3. For **Option name**, choose **SQLSERVER\_BACKUP\_RESTORE**.
-   4. For **IAM role**, choose the `sql-server-backup-restore` role.
 
-3. Modify your Amazon RDS for SQL Server DB instance and attach this option group.
+   1. For **Options**, choose **Add option**. The **Add option** page opens.
+
+   1. For **Option name**, choose **SQLSERVER\_BACKUP\_RESTORE**.
+
+   1. For **IAM role**, choose the `sql-server-backup-restore` role.
+
+1. Modify your Amazon RDS for SQL Server DB instance and attach this option group.
 
    1. In the Amazon RDS console, choose **Databases**, and then choose your target database.
-   2. Choose **Modify**. The **Modify DB instance** page opens.
-   3. In the **Additional configuration** section, choose **SQLServerrestore** for **Option group**.
 
-Now, you can restore the backup file from Amazon S3 into the target Amazon RDS for SQL Server database. To restore your database, call the `rds_restore_database` stored procedure. For more information, see [Restoring a database](../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Using.Restore "../../../AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Using.Restore").
+   1. Choose **Modify**. The **Modify DB instance** page opens.
+
+   1. In the **Additional configuration** section, choose **SQLServerrestore** for **Option group**.
+
+Now, you can restore the backup file from Amazon S3 into the target Amazon RDS for SQL Server database. To restore your database, call the `rds_restore_database` stored procedure. For more information, see [Restoring a database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html#SQLServer.Procedural.Importing.Native.Using.Restore).
 
 ```
 exec msdb.dbo.rds_restore_database

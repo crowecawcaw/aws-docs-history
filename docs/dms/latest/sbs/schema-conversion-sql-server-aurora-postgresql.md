@@ -1,31 +1,30 @@
+
+
 # Migrating SQL Server databases to Amazon Aurora PostgreSQL with DMS Schema Conversion
+<a name="schema-conversion-sql-server-aurora-postgresql"></a>
 
 This walkthrough gets you started with heterogeneous database migration from Microsoft SQL Server to Amazon Aurora PostgreSQL-Compatible Edition. To automate the migration, we use the AWS DMS Schema Conversion. This service helps assess the complexity of your migration and converts source SQL Server database schemas and code objects to a format compatible with PostgreSQL. Then, you apply the converted code to your target database. This introductory exercise shows how you can use DMS Schema Conversion for this migration.
 
 At a high level, this migration includes the following steps:
++ Use the AWS Management Console to do the following:
+  + Create a VPC in the Amazon VPC console.
+  + Create IAM roles in the IAM console.
+  + Create an Amazon S3 bucket in the Amazon S3 console.
+  + Create your target Aurora PostgreSQL database in the Amazon RDS console.
+  + Store database credentials in AWS Secrets Manager.
++ Use the AWS DMS console to do the following:
+  + Create an instance profile for your migration project.
+  + Create data providers for your source and target databases.
+  + Create a migration project.
++ Use DMS Schema Conversion to do the following:
+  + Assess the migration complexity and review the migration action items.
+  + Convert your source database.
+  + Apply the converted code to your target database.
 
-- Use the AWS Management Console to do the following:
-
-  - Create a VPC in the Amazon VPC console.
-  - Create IAM roles in the IAM console.
-  - Create an Amazon S3 bucket in the Amazon S3 console.
-  - Create your target Aurora PostgreSQL database in the Amazon RDS console.
-  - Store database credentials in AWS Secrets Manager.
-
-- Use the AWS DMS console to do the following:
-
-  - Create an instance profile for your migration project.
-  - Create data providers for your source and target databases.
-  - Create a migration project.
-
-- Use DMS Schema Conversion to do the following:
-
-  - Assess the migration complexity and review the migration action items.
-  - Convert your source database.
-  - Apply the converted code to your target database.
-    This walkthrough takes approximately three hours to complete. Make sure that you delete resources at the end of this walkthrough to avoid additional charges.
+This walkthrough takes approximately three hours to complete. Make sure that you delete resources at the end of this walkthrough to avoid additional charges.
 
 ## Migration Overview
+<a name="schema-conversion-sql-server-aurora-postgresql-migration-overview"></a>
 
 This section provides high-level guidance for customers looking to migrate from SQL Server to PostgreSQL using DMS Schema Conversion.
 
@@ -35,8 +34,9 @@ At a high level, DMS Schema Conversion operates with the following three compone
 
 The following diagram illustrates the DMS Schema Conversion process for this walkthrough.
 
-![SQL Server to PostgreSQL migration architecture in DMS Schema Conversion](images/schema-conversion-sql-server-aurora-postgresql-migration-architecture.png)
+![SQL Server to PostgreSQL migration architecture in DMS Schema Conversion](http://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-sql-server-aurora-postgresql-migration-architecture.png)
 
-Start the walkthrough by [creating the required resources](schema-conversion-sql-server-aurora-postgresql-step-1.md "schema-conversion-sql-server-aurora-postgresql-step-1.md").
 
-###### Topics
+Start the walkthrough by [creating the required resources](schema-conversion-sql-server-aurora-postgresql-step-1.md).
+
+**Topics**
