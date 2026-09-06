@@ -1,48 +1,51 @@
+
+
 # Abbreviations
+<a name="kms-abbreviations"></a>
 
 The following list illuminates abbreviations referenced in this document.
 
-**AES**
+**AES**  
 Advanced Encryption Standard
 
-**CDK**
+**CDK**  
 customer data key
 
-**DK**
+**DK**  
 domain key
 
-**ECDH**
+**ECDH**  
 Elliptic Curve Diffie-Hellman
 
-**ECDHE**
+**ECDHE**  
 Elliptic Curve Diffie-Hellman Ephemeral
 
-**ECDSA**
+**ECDSA**  
 Elliptic Curve Digital Signature Algorithm
 
-**EKT**
+**EKT**  
 exported key token
 
-**ESK**
+**ESK**  
 encrypted session key
 
-**GCM**
+**GCM**  
 Galois Counter Mode
 
-**HBK**
+**HBK**  
 HSM backing key
 
-**HBKID**
+**HBKID**  
 HSM backing key identifier
 
-**HSM**
+**HSM**  
 hardware security module
 
-**RSA**
+**RSA**  
 Rivest Shamir and Adleman (cryptologic)
 
-**secp384r1**
+**secp384r1**  
 Standards for Efficient Cryptography prime 384-bit random curve 1
 
-**SHA256**
+**SHA256**  
 Secure Hash Algorithm of digest length 256-bits
